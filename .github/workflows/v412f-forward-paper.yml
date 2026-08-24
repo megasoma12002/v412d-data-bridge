@@ -1,0 +1,73 @@
+name: V4.12-F Daily Forward Paper
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 8 * * 1-5" # 16:30 Asia/Taipei
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/v412f-forward-paper.yml"
+
+concurrency:
+  group: v412f-forward-paper
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  forward-paper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --disable-pip-version-check numpy pandas
+      - name: Build canonical historical raw layer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_REPO: yukishirotsubasa/tw-stock-data-release
+          SOURCE_TAG: daily-close-csv
+        run: |
+          set -euo pipefail
+          mkdir -p downloads extracted artifact forward
+          gh api "repos/$SOURCE_REPO/releases/tags/$SOURCE_TAG" --jq '.assets[].name' > assets.txt
+          for year in $(seq 2004 $(date -u +%Y)); do
+            asset="yearly_${year}.zip"
+            if grep -Fxq "$asset" assets.txt; then gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern "$asset" --dir downloads; fi
+          done
+          gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern "weekly_$(date -u +%Y)_W*.zip" --dir downloads || true
+          find downloads -name '*.zip' -type f | sort | while read -r z; do unzip -oq "$z" -d extracted; done
+          python scripts/v412e0_build_history.py --input-dir extracted --output-dir artifact --start-year 2004
+      - name: Supplement recent official TWSE sessions
+        run: python scripts/v412f_append_twse_daily.py --raw artifact/v412e0_12stocks_history_raw.csv --lookback-days 14
+      - name: Build adjusted evaluation layer
+        run: python scripts/v412e0_fetch_adjusted.py
+      - name: Generate frozen D and E4 signals
+        env:
+          PYTHONPATH: scripts
+        run: python scripts/v412f_forward_paper.py --raw artifact/v412e0_12stocks_history_raw.csv --adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --forward-dir forward --start-date 2026-08-24
+      - name: Commit idempotent forward records
+        run: |
+          set -euo pipefail
+          git config user.name "v412f-forward-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add forward/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "forward: update D and E4 paper signals"
+          git push
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412f-forward-paper-${{ github.run_number }}
+          path: |
+            forward/
+            artifact/v412e0_qc_summary.json
+            artifact/v412e0_adjusted_qc.json
+            artifact/v412f_twse_append_qc.json
+          retention-days: 90
+          if-no-files-found: error
