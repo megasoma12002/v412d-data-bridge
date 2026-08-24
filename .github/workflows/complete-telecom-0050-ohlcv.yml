@@ -1,8 +1,6 @@
 name: Complete Telecom and 0050 OHLCV
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '*/5 * * * *'
 permissions:
   contents: write
 jobs:
