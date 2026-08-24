@@ -15,6 +15,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check pandas
       - name: Fetch and QC 00631L
         run: |
           python - <<'PY'
@@ -43,9 +45,7 @@ jobs:
               b=float(r.get('before_price') or 0); a=float(r.get('after_price') or 0)
               if b>0 and a>0: actions.append({'date':pd.Timestamp(r['date']),'factor':a/b,'type':'split'})
           act=pd.DataFrame(actions,columns=['date','factor','type'])
-          factors=[]
-          for dt in x.date:
-              factors.append(float(act.loc[act.date>dt,'factor'].prod()) if len(act) else 1.0)
+          factors=[float(act.loc[act.date>dt,'factor'].prod()) if len(act) else 1.0 for dt in x.date]
           adj=x.copy(); adj['factor']=factors
           for c in ['open','high','low','close']: adj['adjusted_'+c]=adj[c]*adj.factor
           raw=x.copy(); raw.date=raw.date.dt.date; raw.to_csv(OUT/'00631L_raw_ohlcv.csv',index=False)
