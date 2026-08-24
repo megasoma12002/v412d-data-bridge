@@ -1,0 +1,88 @@
+name: V4.12-D 12 Stocks Data Bridge
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/v412d-12stocks-data-bridge.yml"
+      - "scripts/v412d_build_ohlcv.py"
+      - "scripts/v412d_build_12stocks.py"
+      - "scripts/v412d_twse_spotcheck.py"
+
+permissions:
+  contents: read
+
+jobs:
+  build-12stocks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout bridge code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download official-derived historical archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_REPO: yukishirotsubasa/tw-stock-data-release
+          SOURCE_TAG: daily-close-csv
+        run: |
+          set -euo pipefail
+          mkdir -p downloads extracted
+          for year in $(seq 2010 2025); do
+            gh release download "$SOURCE_TAG" \
+              --repo "$SOURCE_REPO" \
+              --pattern "yearly_${year}.zip" \
+              --dir downloads
+          done
+          gh release download "$SOURCE_TAG" \
+            --repo "$SOURCE_REPO" \
+            --pattern "weekly_2026_W*.zip" \
+            --dir downloads
+          archive_count=$(find downloads -maxdepth 1 -name '*.zip' -type f | wc -l)
+          test "$archive_count" -ge 17
+          while IFS= read -r archive; do
+            unzip -oq "$archive" -d extracted
+          done < <(find downloads -maxdepth 1 -name '*.zip' -type f | sort)
+
+      - name: Build and QC all 12 stocks in one scan
+        run: |
+          python scripts/v412d_build_12stocks.py \
+            --input-dir extracted \
+            --start-date 2010-01-04 \
+            --output-dir artifact
+
+      - name: Prove all 12 files can be re-read from disk
+        run: |
+          for code in 2880 2886 2892 5880 2801 2834 2884 2885 2890 2891 2881 2882; do
+            python scripts/v412d_build_ohlcv.py \
+              --verify-only "artifact/${code}_2010_2026.csv" \
+              --start-date 2010-01-04 \
+              --qc-json "artifact/${code}_qc_reread.json" \
+              --qc-text "artifact/${code}_qc_reread.txt"
+          done
+
+      - name: Spot-check all 12 against official TWSE
+        run: |
+          for code in 2880 2886 2892 5880 2801 2834 2884 2885 2890 2891 2881 2882; do
+            python scripts/v412d_twse_spotcheck.py \
+              --csv "artifact/${code}_2010_2026.csv" \
+              --code "$code" \
+              --dates 2026-08-21 \
+              --output "artifact/${code}_twse_spotcheck.json"
+          done
+
+      - name: Upload 12-stock bridge artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: v412d-12stocks-ohlcv
+          path: artifact/
+          if-no-files-found: error
+          retention-days: 30
