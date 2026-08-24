@@ -8,6 +8,7 @@ on:
     paths:
       - ".github/workflows/v412d-data-bridge.yml"
       - "scripts/v412d_build_ohlcv.py"
+      - "scripts/v412d_twse_spotcheck.py"
 
 permissions:
   contents: read
@@ -61,6 +62,14 @@ jobs:
             --code 2880 \
             --start-date 2010-01-04 \
             --output-dir artifact
+
+      - name: Spot-check against official TWSE
+        run: |
+          python scripts/v412d_twse_spotcheck.py \
+            --csv artifact/2880_2010_2026.csv \
+            --code 2880 \
+            --dates 2010-01-04 2018-04-10 2026-08-21 \
+            --output artifact/2880_twse_spotcheck.json
 
       - name: Prove artifact can be re-read from disk
         run: |
