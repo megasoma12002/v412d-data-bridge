@@ -2,6 +2,12 @@ name: V4.12-D 2880 Data Bridge
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/v412d-data-bridge.yml"
+      - "scripts/v412d_build_ohlcv.py"
 
 permissions:
   contents: read
@@ -71,4 +77,3 @@ jobs:
           path: artifact/
           if-no-files-found: error
           retention-days: 30
-
