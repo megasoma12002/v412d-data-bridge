@@ -60,6 +60,10 @@ jobs:
         env:
           PYTHONPATH: scripts
         run: python scripts/v412e9_telecom_sleeve.py --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --out forward/e9 --end-date "$(date -u +%F)"
+      - name: Generate E10 telecom harvest and financial reentry shadow
+        env:
+          PYTHONPATH: scripts
+        run: python scripts/v412e10_telecom_harvest_reentry.py --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --telecom-adjusted forward/e9/e9_telecom_adjusted.csv --out forward/e10
       - name: Commit idempotent forward records
         run: |
           set -euo pipefail
@@ -67,7 +71,7 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add forward/
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "forward: update D, E4, E6 and E9 shadow signals"
+          git commit -m "forward: update D, E4, E6, E9 and E10 shadow signals"
           git push
       - uses: actions/upload-artifact@v4
         with:
