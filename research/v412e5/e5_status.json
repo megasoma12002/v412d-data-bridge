@@ -1,0 +1,14 @@
+{
+  "version": "V4.12-E5",
+  "rounds": 4,
+  "baseline_reconciled": true,
+  "bootstrap_qualified": true,
+  "leave_one_out_qualified": true,
+  "parameter_neighborhood_qualified": true,
+  "execution_shock_qualified": true,
+  "robustness_qualified": true,
+  "promotion_eligible": false,
+  "formal_strategy": "V4.12-D",
+  "forward_challenger": "Frozen E4",
+  "warning": "No new unseen OOS; qualification supports robustness only"
+}
