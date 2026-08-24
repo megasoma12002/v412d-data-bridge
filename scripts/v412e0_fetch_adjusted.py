@@ -6,8 +6,8 @@ from pathlib import Path
 STOCKS="2880 2886 2892 5880 2801 2834 2884 2885 2890 2891 2881 2882".split()
 BASE="https://api.finmindtrade.com/api/v4/data"
 
-def get(dataset,sid):
-    q=urllib.parse.urlencode({"dataset":dataset,"data_id":sid,"start_date":"2004-01-01","end_date":"2026-12-31"})
+def get(dataset,sid,start="2004-01-01",end="2026-08-24"):
+    q=urllib.parse.urlencode({"dataset":dataset,"data_id":sid,"start_date":start,"end_date":end})
     with urllib.request.urlopen(BASE+"?"+q,timeout=90) as r: obj=json.load(r)
     if obj.get("status")!=200: raise RuntimeError(f"{dataset} {sid}: {obj}")
     return obj.get("data",[])
@@ -15,7 +15,9 @@ def get(dataset,sid):
 def main():
     out=Path("artifact");out.mkdir(exist_ok=True); all_adj=[]; all_div=[]; summary={"status":"PASS","stocks":{}}
     for sid in STOCKS:
-        adj=get("TaiwanStockPriceAdj",sid);time.sleep(.25)
+        adj=[]
+        for year in range(2004,2027):
+            adj.extend(get("TaiwanStockPriceAdj",sid,f"{year}-01-01",f"{year}-12-31"));time.sleep(.15)
         div=get("TaiwanStockDividendResult",sid);time.sleep(.25)
         for r in adj: all_adj.append([sid,r.get("date"),r.get("open"),r.get("max"),r.get("min"),r.get("close"),r.get("Trading_Volume")])
         for r in div: all_div.append([sid,r.get("date"),r.get("before_price"),r.get("after_price"),r.get("stock_and_cache_dividend"),r.get("stock_or_cache_dividend"),r.get("reference_price")])
