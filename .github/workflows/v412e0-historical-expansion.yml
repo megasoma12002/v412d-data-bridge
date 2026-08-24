@@ -7,6 +7,7 @@ on:
     paths:
       - ".github/workflows/v412e0-historical-expansion.yml"
       - "scripts/v412e0_build_history.py"
+      - "scripts/v412e0_fetch_adjusted.py"
 
 permissions:
   contents: read
@@ -41,6 +42,8 @@ jobs:
           find downloads -maxdepth 1 -name '*.zip' -printf '%f\n' | sort > artifact/downloaded_archives.txt
       - name: Build raw history and point-in-time eligibility
         run: python scripts/v412e0_build_history.py --input-dir extracted --output-dir artifact --start-year 2004
+      - name: Build separate adjusted and corporate-action layer
+        run: python scripts/v412e0_fetch_adjusted.py
       - name: Re-read generated files
         run: |
           python - <<'PY'
