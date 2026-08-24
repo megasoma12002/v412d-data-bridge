@@ -1,0 +1,24 @@
+name: Complete Telecom and 0050 OHLCV
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/complete-telecom-0050-ohlcv.yml'
+permissions:
+  contents: read
+jobs:
+  fetch-qc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas==2.2.3 yfinance==0.2.65
+      - name: Fetch and QC
+        run: python scripts/fetch_telecom_0050_ohlcv.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: telecom-0050-complete-ohlcv
+          path: out_telecom_0050/
+          retention-days: 30
