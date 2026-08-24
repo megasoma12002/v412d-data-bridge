@@ -4,7 +4,7 @@ on:
   issues:
     types: [opened]
 permissions:
-  contents: read
+  contents: write
 jobs:
   fetch-qc:
     if: github.event_name == 'workflow_dispatch' || github.event.issue.title == 'RUN_COMPLETE_TELECOM_0050_OHLCV'
@@ -17,6 +17,15 @@ jobs:
       - run: pip install pandas==2.2.3 yfinance==0.2.65
       - name: Fetch and QC
         run: python scripts/fetch_telecom_0050_ohlcv.py
+      - name: Persist completed data
+        run: |
+          mkdir -p data/telecom_0050_complete
+          cp out_telecom_0050/* data/telecom_0050_complete/
+          git config user.name "ohlcv-data-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/telecom_0050_complete
+          git diff --cached --quiet || git commit -m "data: complete telecom and 0050 OHLCV"
+          git push
       - uses: actions/upload-artifact@v4
         with:
           name: telecom-0050-complete-ohlcv
