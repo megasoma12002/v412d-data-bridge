@@ -1,0 +1,62 @@
+{
+  "rounds": [
+    {
+      "version": "E2",
+      "train": [
+        "2005-03-01",
+        "2014-12-31"
+      ],
+      "validation": [
+        "2015-01-01",
+        "2017-12-31"
+      ],
+      "candidate_count": 32,
+      "validation_candidate_count": 8,
+      "validation_pass": false,
+      "gate": "ret>0; mdd>-25%; Sharpe>=frozen D; ret>=80% frozen D",
+      "reason": "No Train-selected robust-plateau candidate passed the frozen gate"
+    },
+    {
+      "version": "E2.1",
+      "train": [
+        "2005-03-01",
+        "2017-12-31"
+      ],
+      "validation": [
+        "2018-01-01",
+        "2020-12-31"
+      ],
+      "candidate_count": 24,
+      "validation_candidate_count": 8,
+      "validation_pass": false,
+      "gate": "ret>0; mdd>-25%; Sharpe>=frozen D; ret>=80% frozen D",
+      "reason": "No Train-selected robust-plateau candidate passed the frozen gate"
+    },
+    {
+      "version": "E3",
+      "train": [
+        "2005-03-01",
+        "2020-12-31"
+      ],
+      "validation": [
+        "2021-01-01",
+        "2022-12-31"
+      ],
+      "candidate_count": 32,
+      "validation_candidate_count": 8,
+      "validation_pass": true,
+      "gate": "ret>0; mdd>-25%; Sharpe>=frozen D; ret>=80% frozen D",
+      "winner": {
+        "mode": "voltarget",
+        "max_cut": 0.5,
+        "up_days": 20,
+        "target_vol": 0.14,
+        "blend": 0.5,
+        "rank_buffer": 0,
+        "cost_hurdle_mult": 5,
+        "min_hold": 42
+      }
+    }
+  ],
+  "blind_opened": true
+}
