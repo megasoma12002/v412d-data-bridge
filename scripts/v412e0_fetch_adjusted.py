@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Build a separate corporate-action-adjusted layer; raw OHLCV remains canonical."""
 import csv, json, urllib.parse, urllib.request
+from datetime import date
 from pathlib import Path
 
 STOCKS="2880 2886 2892 5880 2801 2834 2884 2885 2890 2891 2881 2882".split()
 BASE="https://api.finmindtrade.com/api/v4/data"
 
 def get(dataset,sid=None):
-    q={"dataset":dataset,"start_date":"2004-01-01","end_date":"2026-08-24"}
+    q={"dataset":dataset,"start_date":"2004-01-01","end_date":date.today().isoformat()}
     if sid:q["data_id"]=sid
     req=urllib.request.Request(BASE+"?"+urllib.parse.urlencode(q),headers={"User-Agent":"v412e0-research/1.0"})
     with urllib.request.urlopen(req,timeout=90) as r:obj=json.load(r)
