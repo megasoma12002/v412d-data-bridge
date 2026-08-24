@@ -1,0 +1,14 @@
+{
+  "version": "V4.12-F",
+  "timezone": "Asia/Taipei",
+  "schedule": "weekdays 16:30",
+  "forward_start_signal_date": "2026-08-24",
+  "models": {
+    "D": "family1 top2 rebalance21 lock75 core80 tilt20",
+    "E4": "E3 risk overlay; hold84; cost hurdle5x; partial rebalance25%; weight floor5%"
+  },
+  "execution": "signal at close T, target at next TWSE session open",
+  "canonical_prices": "raw/unadjusted OHLCV",
+  "evaluation_prices": "separate corporate-action-adjusted layer",
+  "promotion_rule": "no historical retuning; require newly accumulated forward observations"
+}
