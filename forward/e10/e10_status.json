@@ -1,0 +1,11 @@
+{
+  "version": "V4.12-E10",
+  "validation_pass_count": 2,
+  "blind_confirmed_count": 2,
+  "qualified_models": [
+    "E10C_staged_reentry",
+    "E10D_relative_harvest_reentry"
+  ],
+  "execution": "T close signal -> T+1 weights; full transaction costs",
+  "integration": "research only; D/E4/E9 forward remain frozen pending qualification"
+}
