@@ -1,0 +1,6 @@
+model,validation_pass,blind_confirmed,final_oos_cagr_delta,final_oos_sharpe_delta,status
+E9A_static_10pct_telco,False,False,-0.029660038696460278,0.05471728305775647,reject_or_watch
+E9B_static_20pct_telco,False,False,-0.05924828729464804,0.09978938988112507,reject_or_watch
+E9C_trend_defensive_10_30,False,False,-0.02966003869645939,0.05471728305776713,reject_or_watch
+E9D_relative_strength_10_30,False,False,-0.07900039467058861,-0.09521441550803589,reject_or_watch
+E9E_stress_defensive_10_35,True,False,-0.029660038696459834,0.054717283057762245,reject_or_watch

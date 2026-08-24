@@ -1,0 +1,37 @@
+{
+  "version": "V4.12-E9",
+  "telecom_stocks": [
+    "2412",
+    "3045",
+    "4904"
+  ],
+  "data_qc": {
+    "status": "PASS",
+    "stocks": [
+      "2412",
+      "3045",
+      "4904"
+    ],
+    "rows": 12198,
+    "first_date": "2010-01-04",
+    "latest_date": "2026-08-24",
+    "duplicates": 0,
+    "nulls": 0,
+    "bad_high": 0,
+    "bad_low": 0,
+    "negative_volume": 0,
+    "rows_by_stock": {
+      "2412": 4053,
+      "3045": 4067,
+      "4904": 4078
+    }
+  },
+  "validation_pass_count": 1,
+  "blind_confirmed_count": 0,
+  "candidates": [],
+  "integration": "separate telecom sleeve; D/E4 frozen until qualification",
+  "known_breaks": [
+    "Taiwan Mobile/Taiwan Star merger 2023",
+    "Far EasTone/Asia Pacific Telecom merger 2023"
+  ]
+}
