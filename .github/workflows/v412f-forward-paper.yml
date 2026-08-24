@@ -1,4 +1,4 @@
-name: V4.12-F Daily Forward Paper
+name: V4.12-F E21 Daily Forward Paper
 
 on:
   workflow_dispatch:
@@ -19,7 +19,7 @@ permissions:
 jobs:
   forward-paper:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install --disable-pip-version-check numpy pandas
+      - run: pip install --disable-pip-version-check numpy pandas requests yfinance openpyxl
       - name: Build canonical historical raw layer
         env:
           GH_TOKEN: ${{ github.token }}
@@ -48,6 +48,8 @@ jobs:
         run: python scripts/v412f_append_twse_daily.py --raw artifact/v412e0_12stocks_history_raw.csv --lookback-days 14
       - name: Build adjusted evaluation layer
         run: python scripts/v412e0_fetch_adjusted.py
+      - name: Update complete telecom and 0050 raw OHLCV
+        run: python scripts/fetch_telecom_0050_ohlcv.py
       - name: Generate frozen D and E4 signals
         env:
           PYTHONPATH: scripts
@@ -64,26 +66,42 @@ jobs:
         env:
           PYTHONPATH: scripts
         run: python scripts/v412e10_telecom_harvest_reentry.py --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --telecom-adjusted forward/e9/e9_telecom_adjusted.csv --out forward/e10
-      - name: Generate E10S3 single and cumulative TAIEX 1000-point and 0050 shadow monitor
+      - name: Generate E10S3 TAIEX and 0050 shadow monitor
         env:
           PYTHONPATH: scripts
         run: python scripts/v412e10s2_thousand_point_0050.py --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --telecom-adjusted forward/e9/e9_telecom_adjusted.csv --out forward/e10s2 --end-date "$(date -u +%F)"
-      - name: Commit idempotent forward records
+      - name: Build E21 canonical market panel
+        run: |
+          python scripts/e21_build_market.py \
+            --financial-raw artifact/v412e0_12stocks_history_raw.csv \
+            --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv \
+            --telecom-0050-raw out_telecom_0050/telecom_0050_2010_latest_ohlcv.csv \
+            --telecom-adjusted forward/e9/e9_telecom_adjusted.csv \
+            --etf0050-adjusted forward/e10s2/e10s2_0050_adjusted.csv \
+            --taiex forward/e10s2/e10s2_taiex.csv \
+            --out forward/e21/live_market.csv
+      - name: Run frozen E16 plus E18 real-open forward ledger
+        run: python scripts/e21_forward_pipeline.py --market forward/e21/live_market.csv --state-dir forward/e21 --capital 3000000
+      - name: Fail-closed E21 QC
+        run: python scripts/e21_qc.py --state-dir forward/e21
+      - name: Commit immutable forward records
         run: |
           set -euo pipefail
           git config user.name "v412f-forward-bot"
           git config user.email "actions@users.noreply.github.com"
           git add forward/
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "forward: update D, E4, E6, E9, E10 and E10S3 shadows"
+          git commit -m "forward: update frozen E16 E18 E21 real-open ledgers"
+          git pull --rebase
           git push
       - uses: actions/upload-artifact@v4
         with:
-          name: v412f-forward-paper-${{ github.run_number }}
+          name: v412f-e21-forward-${{ github.run_number }}
           path: |
             forward/
             artifact/v412e0_qc_summary.json
             artifact/v412e0_adjusted_qc.json
             artifact/v412f_twse_append_qc.json
+            out_telecom_0050/qc_summary.json
           retention-days: 90
           if-no-files-found: error
