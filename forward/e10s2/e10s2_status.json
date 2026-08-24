@@ -1,0 +1,16 @@
+{
+  "version": "V4.12-E10S2",
+  "shock_rule": "TAIEX close point change <= -1000 and return <= -2%; 10-session cooldown",
+  "raw_shock_days": 15,
+  "guarded_shock_days": 15,
+  "independent_events": 6,
+  "0050_qc": {
+    "status": "PASS",
+    "rows": 4073,
+    "first_date": "2010-01-04",
+    "latest_date": "2026-08-24",
+    "duplicates": 0,
+    "nulls": 0
+  },
+  "integration": "forward shadow monitor only; small and level-dependent sample"
+}
