@@ -130,6 +130,7 @@ def main() -> None:
                 ),
                 "missing_ohlcv_examples": skipped_missing_ohlcv[code][:20],
             },
+            expected_first_date=(date(2011, 12, 1) if code == "5880" else None),
         )
         write_qc(
             result,

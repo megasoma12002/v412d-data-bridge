@@ -62,11 +62,16 @@ jobs:
       - name: Prove all 12 files can be re-read from disk
         run: |
           for code in 2880 2886 2892 5880 2801 2834 2884 2885 2890 2891 2881 2882; do
+            extra_args=()
+            if [ "$code" = "5880" ]; then
+              extra_args+=(--expected-first-date 2011-12-01)
+            fi
             python scripts/v412d_build_ohlcv.py \
               --verify-only "artifact/${code}_2010_2026.csv" \
               --start-date 2010-01-04 \
               --qc-json "artifact/${code}_qc_reread.json" \
-              --qc-text "artifact/${code}_qc_reread.txt"
+              --qc-text "artifact/${code}_qc_reread.txt" \
+              "${extra_args[@]}"
           done
 
       - name: Spot-check all 12 against official TWSE

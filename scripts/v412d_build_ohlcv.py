@@ -8,7 +8,7 @@ import csv
 import json
 import math
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Iterable
 
@@ -156,7 +156,13 @@ def read_canonical(path: Path) -> list[Row]:
     return rows
 
 
-def qc(rows: list[Row], path: Path, start_date: date, build_stats: dict | None = None) -> dict:
+def qc(
+    rows: list[Row],
+    path: Path,
+    start_date: date,
+    build_stats: dict | None = None,
+    expected_first_date: date | None = None,
+) -> dict:
     dates = [row.date for row in rows]
     duplicate_dates = len(dates) - len(set(dates))
     strictly_increasing = all(a < b for a, b in zip(dates, dates[1:]))
@@ -171,13 +177,15 @@ def qc(rows: list[Row], path: Path, start_date: date, build_stats: dict | None =
 
     first_date = dates[0] if dates else None
     last_date = dates[-1] if dates else None
+    expected_first = expected_first_date or start_date
     checks = {
         "file_exists": path.is_file(),
         "file_non_empty": path.is_file() and path.stat().st_size > 0,
         "required_columns_exact": True,
         "row_count_plausible": len(rows) >= MIN_ROWS,
-        "first_date_near_requested_start": bool(
-            first_date and start_date <= first_date <= date(2010, 1, 8)
+        "first_date_matches_expected_availability": bool(
+            first_date
+            and expected_first <= first_date <= expected_first + timedelta(days=4)
         ),
         "latest_date_in_2026": bool(last_date and last_date.year == 2026),
         "dates_strictly_increasing": strictly_increasing,
@@ -239,6 +247,7 @@ def main() -> None:
     parser.add_argument("--input-dir", type=Path)
     parser.add_argument("--code", default="2880")
     parser.add_argument("--start-date", default="2010-01-04")
+    parser.add_argument("--expected-first-date")
     parser.add_argument("--output-dir", type=Path, default=Path("artifact"))
     parser.add_argument("--verify-only", type=Path)
     parser.add_argument("--qc-json", type=Path)
@@ -246,10 +255,18 @@ def main() -> None:
     args = parser.parse_args()
 
     start_date = parse_date(args.start_date)
+    expected_first_date = (
+        parse_date(args.expected_first_date) if args.expected_first_date else None
+    )
     if args.verify_only:
         output_path = args.verify_only
         rows = read_canonical(output_path)
-        result = qc(rows, output_path, start_date)
+        result = qc(
+            rows,
+            output_path,
+            start_date,
+            expected_first_date=expected_first_date,
+        )
         qc_json = args.qc_json or output_path.with_suffix(".qc.json")
         qc_text = args.qc_text or output_path.with_suffix(".qc.txt")
     else:
@@ -259,7 +276,13 @@ def main() -> None:
         output_path = args.output_dir / f"{args.code}_2010_2026.csv"
         write_csv(rows, output_path)
         rows = read_canonical(output_path)
-        result = qc(rows, output_path, start_date, build_stats)
+        result = qc(
+            rows,
+            output_path,
+            start_date,
+            build_stats,
+            expected_first_date=expected_first_date,
+        )
         qc_json = args.qc_json or args.output_dir / f"{args.code}_qc.json"
         qc_text = args.qc_text or args.output_dir / f"{args.code}_qc.txt"
 
