@@ -1,9 +1,14 @@
 {
-  "version": "V4.12-E10S2",
-  "shock_rule": "TAIEX close point change <= -1000 and return <= -2%; 10-session cooldown",
-  "raw_shock_days": 15,
-  "guarded_shock_days": 15,
-  "independent_events": 6,
+  "version": "V4.12-E10S3",
+  "shock_rule": "TAIEX cumulative close change <= -1000 and return <= -2% over 1/2/3/5 sessions; 10-session cooldown",
+  "candidate_days_by_window": {
+    "1d": 15,
+    "2d": 28,
+    "3d": 43,
+    "5d": 65
+  },
+  "guarded_shock_days": 80,
+  "independent_events": 24,
   "0050_qc": {
     "status": "PASS",
     "rows": 4073,
@@ -12,5 +17,5 @@
     "duplicates": 0,
     "nulls": 0
   },
-  "integration": "forward shadow monitor only; small and level-dependent sample"
+  "integration": "forward shadow monitor only; overlapping windows deduplicated"
 }
