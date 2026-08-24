@@ -1,14 +1,13 @@
 name: Complete Telecom and 0050 OHLCV
-# trigger: 2026-08-25
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - '.github/workflows/complete-telecom-0050-ohlcv.yml'
+  issues:
+    types: [opened]
 permissions:
   contents: read
 jobs:
   fetch-qc:
+    if: github.event_name == 'workflow_dispatch' || github.event.issue.title == 'RUN_COMPLETE_TELECOM_0050_OHLCV'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
