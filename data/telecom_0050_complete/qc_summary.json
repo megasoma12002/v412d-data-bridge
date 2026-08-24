@@ -1,0 +1,60 @@
+{
+  "2412": {
+    "rows": 4053,
+    "first_date": "2010-01-04",
+    "last_date": "2026-08-24",
+    "nulls": 0,
+    "duplicates": 0,
+    "ohlc_valid": true,
+    "volume_valid": true,
+    "source": "FinMind TaiwanStockPrice",
+    "pass": true
+  },
+  "3045": {
+    "rows": 4067,
+    "first_date": "2010-01-04",
+    "last_date": "2026-08-24",
+    "nulls": 0,
+    "duplicates": 0,
+    "ohlc_valid": true,
+    "volume_valid": true,
+    "source": "FinMind TaiwanStockPrice",
+    "pass": true
+  },
+  "4904": {
+    "rows": 4078,
+    "first_date": "2010-01-04",
+    "last_date": "2026-08-24",
+    "nulls": 0,
+    "duplicates": 0,
+    "ohlc_valid": true,
+    "volume_valid": true,
+    "source": "FinMind TaiwanStockPrice",
+    "pass": true
+  },
+  "0050": {
+    "rows": 4073,
+    "first_date": "2010-01-04",
+    "last_date": "2026-08-24",
+    "nulls": 0,
+    "duplicates": 0,
+    "ohlc_valid": true,
+    "volume_valid": true,
+    "source": "FinMind TaiwanStockPrice",
+    "pass": true
+  },
+  "combined": {
+    "rows": 16271,
+    "codes": [
+      "0050",
+      "2412",
+      "3045",
+      "4904"
+    ],
+    "common_dates": 4037,
+    "common_first": "2010-01-04",
+    "common_last": "2026-08-24",
+    "pass": true
+  },
+  "overall_pass": true
+}
