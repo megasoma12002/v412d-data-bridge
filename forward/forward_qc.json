@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "run_utc": "2026-08-24T13:38:33.482143+00:00",
+  "latest_date": "2026-08-24",
+  "raw_rows": 64547,
+  "signal_rows_total": 2,
+  "paper_rows": 1,
+  "rules": [
+    "raw OHLCV signals through T",
+    "T+1 open target",
+    "adjusted layer evaluation only",
+    "D and E4 parameters frozen",
+    "same-date reruns replace rather than duplicate"
+  ],
+  "checks": {
+    "D_weight_sum": 0.9617021276595744,
+    "E4_weight_sum": 0.7526853988745409,
+    "E4_exposure": 0.7847869863429289,
+    "future_dates": 0
+  }
+}
