@@ -2,6 +2,8 @@ name: V4.12-F E21 Daily Forward Paper
 
 on:
   workflow_dispatch:
+  issues:
+    types: [opened]
   schedule:
     - cron: "30 8 * * 1-5" # 16:30 Asia/Taipei
   push:
