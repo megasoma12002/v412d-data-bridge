@@ -1,0 +1,64 @@
+name: V4.12 E12 00631L Data Bridge
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-00631l:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch and QC 00631L
+        run: |
+          python - <<'PY'
+          import json, urllib.parse, urllib.request
+          from pathlib import Path
+          import pandas as pd
+
+          BASE='https://api.finmindtrade.com/api/v4/data'
+          OUT=Path('artifact'); OUT.mkdir(exist_ok=True)
+          def get(ds,sid=None):
+              q={'dataset':ds,'start_date':'2014-01-01','end_date':'2026-08-25'}
+              if sid: q['data_id']=sid
+              req=urllib.request.Request(BASE+'?'+urllib.parse.urlencode(q),headers={'User-Agent':'v412-e12/1.0'})
+              with urllib.request.urlopen(req,timeout=180) as r: obj=json.load(r)
+              if obj.get('status')!=200: raise RuntimeError(obj)
+              return obj.get('data',[])
+          rows=get('TaiwanStockPrice','00631L')
+          x=pd.DataFrame([{'date':r['date'],'open':r['open'],'high':r['max'],'low':r['min'],'close':r['close'],'volume':r['Trading_Volume']} for r in rows])
+          x['date']=pd.to_datetime(x.date); x=x.sort_values('date').drop_duplicates('date')
+          actions=[]
+          for r in get('TaiwanStockDividendResult','00631L'):
+              b=float(r.get('before_price') or 0); a=float(r.get('after_price') or 0)
+              if b>0 and a>0: actions.append({'date':pd.Timestamp(r['date']),'factor':a/b,'type':'distribution'})
+          for r in get('TaiwanStockSplitPrice'):
+              if str(r.get('stock_id'))!='00631L': continue
+              b=float(r.get('before_price') or 0); a=float(r.get('after_price') or 0)
+              if b>0 and a>0: actions.append({'date':pd.Timestamp(r['date']),'factor':a/b,'type':'split'})
+          act=pd.DataFrame(actions,columns=['date','factor','type'])
+          factors=[]
+          for dt in x.date:
+              factors.append(float(act.loc[act.date>dt,'factor'].prod()) if len(act) else 1.0)
+          adj=x.copy(); adj['factor']=factors
+          for c in ['open','high','low','close']: adj['adjusted_'+c]=adj[c]*adj.factor
+          raw=x.copy(); raw.date=raw.date.dt.date; raw.to_csv(OUT/'00631L_raw_ohlcv.csv',index=False)
+          adj.date=adj.date.dt.date; adj[['date','adjusted_open','adjusted_high','adjusted_low','adjusted_close','volume','factor']].to_csv(OUT/'00631L_adjusted.csv',index=False)
+          if len(act): act.assign(date=act.date.dt.date).to_csv(OUT/'00631L_actions.csv',index=False)
+          qc={'status':'PASS','rows':len(x),'first_date':x.date.min().date().isoformat(),'latest_date':x.date.max().date().isoformat(),'duplicates':int(x.date.duplicated().sum()),'nulls':int(x[['open','high','low','close','volume']].isna().sum().sum()),'ohlc_valid':bool(((x.high>=x[['open','close','low']].max(axis=1))&(x.low<=x[['open','close','high']].min(axis=1))).all()),'volume_nonnegative':bool((x.volume>=0).all()),'price_definition':'raw canonical plus separate backward-adjusted research layer'}
+          if len(x)<2000 or qc['duplicates'] or qc['nulls'] or not qc['ohlc_valid'] or not qc['volume_nonnegative']: qc['status']='FAIL'
+          (OUT/'00631L_qc.json').write_text(json.dumps(qc,indent=2)+'\n')
+          print(json.dumps(qc,indent=2))
+          if qc['status']!='PASS': raise SystemExit(1)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412e12-00631l-data
+          path: artifact/
+          retention-days: 30
