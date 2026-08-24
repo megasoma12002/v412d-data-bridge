@@ -1,13 +1,12 @@
 name: Complete Telecom and 0050 OHLCV
 on:
   workflow_dispatch:
-  issues:
-    types: [opened]
+  schedule:
+    - cron: '*/5 * * * *'
 permissions:
   contents: write
 jobs:
   fetch-qc:
-    if: github.event_name == 'workflow_dispatch' || github.event.issue.title == 'RUN_COMPLETE_TELECOM_0050_OHLCV'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
