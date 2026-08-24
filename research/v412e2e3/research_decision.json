@@ -1,0 +1,9 @@
+{
+  "formal_strategy": "V4.12-D",
+  "E2": "validation_fail",
+  "E2.1": "validation_fail",
+  "E3": "validation_pass_but_not_promoted",
+  "reason": "E3 improves volatility and some drawdowns, but later OOS return and Sharpe superiority over frozen D are inconsistent and transaction-cost drag remains material",
+  "blind_opened_after_E3_validation_pass": true,
+  "parameter_selection_used_2023_2026": false
+}
