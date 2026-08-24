@@ -1,0 +1,21 @@
+{
+  "version": "V4.12-E4",
+  "rounds": 3,
+  "new_unseen_oos_available": false,
+  "promotion_eligible": false,
+  "formal_strategy": "V4.12-D",
+  "frozen_risk_overlay": "E3 voltarget max_cut=.5 target_vol=.14 blend=.5 up_days=20",
+  "E4_A_winner": {
+    "rank_buffer": 0,
+    "hurdle_mult": 5,
+    "min_hold": 84
+  },
+  "E4_B_winner": {
+    "partial_fraction": 0.25,
+    "min_weight_change": 0.05
+  },
+  "E4_C_winner": {
+    "efficient_weight": 1.0
+  },
+  "warning": "2021-2026 were previously revealed; confirmations are robustness engineering, not fresh blind validation"
+}
