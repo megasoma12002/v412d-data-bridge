@@ -1,0 +1,74 @@
+name: V4.12-D 2880 Data Bridge
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-2880:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout bridge code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download official-derived historical archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_REPO: yukishirotsubasa/tw-stock-data-release
+          SOURCE_TAG: daily-close-csv
+        run: |
+          set -euo pipefail
+          mkdir -p downloads extracted
+
+          for year in $(seq 2010 2025); do
+            gh release download "$SOURCE_TAG" \
+              --repo "$SOURCE_REPO" \
+              --pattern "yearly_${year}.zip" \
+              --dir downloads
+          done
+
+          gh release download "$SOURCE_TAG" \
+            --repo "$SOURCE_REPO" \
+            --pattern "weekly_2026_W*.zip" \
+            --dir downloads
+
+          archive_count=$(find downloads -maxdepth 1 -name '*.zip' -type f | wc -l)
+          test "$archive_count" -ge 17
+
+          while IFS= read -r archive; do
+            unzip -oq "$archive" -d extracted
+          done < <(find downloads -maxdepth 1 -name '*.zip' -type f | sort)
+
+      - name: Build and QC 2880 canonical OHLCV
+        run: |
+          python scripts/v412d_build_ohlcv.py \
+            --input-dir extracted \
+            --code 2880 \
+            --start-date 2010-01-04 \
+            --output-dir artifact
+
+      - name: Prove artifact can be re-read from disk
+        run: |
+          python scripts/v412d_build_ohlcv.py \
+            --verify-only artifact/2880_2010_2026.csv \
+            --start-date 2010-01-04 \
+            --qc-json artifact/2880_qc_reread.json \
+            --qc-text artifact/2880_qc_reread.txt
+
+      - name: Upload 2880 bridge artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: v412d-2880-ohlcv
+          path: artifact/
+          if-no-files-found: error
+          retention-days: 30
+
