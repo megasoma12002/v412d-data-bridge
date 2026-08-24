@@ -1,0 +1,16 @@
+{
+  "version": "E2",
+  "train": [
+    "2005-03-01",
+    "2014-12-31"
+  ],
+  "validation": [
+    "2015-01-01",
+    "2017-12-31"
+  ],
+  "candidate_count": 32,
+  "validation_candidate_count": 8,
+  "validation_pass": false,
+  "gate": "ret>0; mdd>-25%; Sharpe>=frozen D; ret>=80% frozen D",
+  "reason": "No Train-selected robust-plateau candidate passed the frozen gate"
+}
