@@ -1,0 +1,60 @@
+name: V4.12-E0 Historical Expansion
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/v412e0-historical-expansion.yml"
+      - "scripts/v412e0_build_history.py"
+
+permissions:
+  contents: read
+
+jobs:
+  build-history:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Discover and download every available yearly archive from 2004
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_REPO: yukishirotsubasa/tw-stock-data-release
+          SOURCE_TAG: daily-close-csv
+        run: |
+          set -euo pipefail
+          mkdir -p downloads extracted artifact
+          gh api "repos/$SOURCE_REPO/releases/tags/$SOURCE_TAG" --jq '.assets[].name' > assets.txt
+          for year in $(seq 2004 2025); do
+            asset="yearly_${year}.zip"
+            if grep -Fxq "$asset" assets.txt; then
+              gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern "$asset" --dir downloads
+            fi
+          done
+          gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" --pattern 'weekly_2026_W*.zip' --dir downloads
+          find downloads -name '*.zip' -type f | sort | while read -r z; do unzip -oq "$z" -d extracted; done
+          cp assets.txt artifact/source_release_assets.txt
+          find downloads -maxdepth 1 -name '*.zip' -printf '%f\n' | sort > artifact/downloaded_archives.txt
+      - name: Build raw history and point-in-time eligibility
+        run: python scripts/v412e0_build_history.py --input-dir extracted --output-dir artifact --start-year 2004
+      - name: Re-read generated files
+        run: |
+          python - <<'PY'
+          import csv, json, pathlib
+          p=pathlib.Path('artifact/v412e0_12stocks_history_raw.csv')
+          with p.open() as f:
+              rows=list(csv.DictReader(f))
+          q=json.loads(pathlib.Path('artifact/v412e0_qc_summary.json').read_text())
+          assert rows and len(rows)==q['combined_rows'] and q['status']=='PASS'
+          print('REREAD_PASS',len(rows),rows[0]['date'],rows[-1]['date'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412e0-historical-expansion
+          path: artifact/
+          if-no-files-found: error
+          retention-days: 30
