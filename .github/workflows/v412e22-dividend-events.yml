@@ -2,6 +2,8 @@ name: V4.12-E22 Dividend Events Bridge
 
 on:
   workflow_dispatch:
+  issues:
+    types: [opened]
   push:
     paths:
       - scripts/v412e22_fetch_dividend_events.py
@@ -11,6 +13,7 @@ permissions:
 
 jobs:
   fetch:
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'RUN_E22')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
