@@ -1,0 +1,31 @@
+name: V4.12-E22 Dividend Events Bridge
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/v412e22_fetch_dividend_events.py
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch E21 dividend and rights events
+        run: python scripts/v412e22_fetch_dividend_events.py
+      - name: Commit event ledger
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/dividend_events
+          git diff --cached --quiet || git commit -m "data: refresh E22 dividend event ledger"
+          git push
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412e22-dividend-events
+          path: data/dividend_events
+          retention-days: 90
