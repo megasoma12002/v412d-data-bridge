@@ -9,10 +9,12 @@
     "no_negative_cash": true,
     "date_monotonic": true,
     "frozen_financial_universe": true,
+    "fills_unique_id": true,
+    "fills_reference_existing_orders": true,
     "audit_unique_date": true,
     "audit_chain_links": true
   },
-  "signal_rows": 1,
-  "nav_rows": 1,
-  "order_rows": 8
+  "signal_rows": 2,
+  "nav_rows": 2,
+  "order_rows": 16
 }
