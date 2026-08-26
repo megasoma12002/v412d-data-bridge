@@ -14,7 +14,7 @@
     "audit_unique_date": true,
     "audit_chain_links": true
   },
-  "signal_rows": 2,
-  "nav_rows": 2,
-  "order_rows": 16
+  "signal_rows": 3,
+  "nav_rows": 3,
+  "order_rows": 24
 }
