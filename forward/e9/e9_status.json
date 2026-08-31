@@ -12,18 +12,18 @@
       "3045",
       "4904"
     ],
-    "rows": 12210,
+    "rows": 12213,
     "first_date": "2010-01-04",
-    "latest_date": "2026-08-28",
+    "latest_date": "2026-08-31",
     "duplicates": 0,
     "nulls": 0,
     "bad_high": 0,
     "bad_low": 0,
     "negative_volume": 0,
     "rows_by_stock": {
-      "2412": 4057,
-      "3045": 4071,
-      "4904": 4082
+      "2412": 4058,
+      "3045": 4072,
+      "4904": 4083
     }
   },
   "validation_pass_count": 1,
