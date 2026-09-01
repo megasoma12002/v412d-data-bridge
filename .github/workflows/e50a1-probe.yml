@@ -1,0 +1,32 @@
+name: V4.12-E50-A1 Schema Probe
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/e50a1-probe.yml"
+      - "scripts/e50a1_probe_schemas.py"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Probe E50-A1 datasets
+        run: python scripts/e50a1_probe_schemas.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412-e50a1-schema-probe
+          path: e50a1_probe/schema_probe.json
+          if-no-files-found: error
+          retention-days: 30
