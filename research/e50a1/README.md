@@ -30,3 +30,9 @@ later run can resume without rewriting completed shards.
 The first push run is a cross-industry causal-contract validation sample. A
 complete total-return index is intentionally deferred until every corporate
 action shard has been backfilled and reconciled.
+
+`e50a1-full-backfill.yml` runs 23 batches of at most 60 codes with
+`max-parallel: 1`. At seven per-code datasets this stays below 600 requests in
+the trailing hour. When all batches pass, `e50a1-aggregate.yml` downloads the
+same run's artifacts, deduplicates raw shards, rebuilds the normalized tables
+and publishes one full-QC artifact.

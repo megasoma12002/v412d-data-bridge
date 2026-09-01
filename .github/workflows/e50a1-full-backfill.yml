@@ -1,0 +1,60 @@
+name: V4.12-E50-A1 Full Backfill
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/e50a1-full-backfill.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: e50a1-full-backfill
+  cancel-in-progress: false
+
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        batch: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+    env:
+      FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas==2.2.3 numpy==2.1.3
+      - name: Build rate-safe batch
+        env:
+          BATCH: ${{ matrix.batch }}
+        run: |
+          offset=$((BATCH * 60))
+          python scripts/e50a1_build_causal_layer.py \
+            --codes-file research/e50a1/alpha_candidate_codes.txt \
+            --offset "$offset" --limit 60 --throttle-seconds 6.2 \
+            --out e50a1_data
+      - name: Enforce batch QC
+        run: |
+          python - <<'PY'
+          import json
+          q=json.load(open('e50a1_data/qc_status.json'))
+          assert q['status']=='PASS', q
+          assert q['failed_requests']==0, q
+          assert q['financial_lookahead_violations']==0, q
+          assert q['revenue_lookahead_violations']==0, q
+          assert q['nonpositive_share_multipliers']==0, q
+          print(json.dumps(q,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412-e50a1-batch-${{ matrix.batch }}
+          path: e50a1_data/
+          if-no-files-found: error
+          retention-days: 90

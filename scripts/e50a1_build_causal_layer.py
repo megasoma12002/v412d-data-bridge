@@ -271,6 +271,8 @@ def main() -> None:
     p.add_argument("--end", default=date.today().isoformat())
     p.add_argument("--throttle-seconds", type=float, default=0.1)
     p.add_argument("--refresh", action="store_true")
+    p.add_argument("--normalize-only", action="store_true",
+                   help="normalize already downloaded shards without per-code API requests")
     a = p.parse_args()
     out = Path(a.out); raw_root = out / "raw"; out.mkdir(parents=True, exist_ok=True)
     token = os.environ.get("FINMIND_TOKEN", "")
@@ -283,7 +285,7 @@ def main() -> None:
     if a.limit:
         codes = codes[:a.limit]
     manifest = []
-    for code in codes:
+    for code in ([] if a.normalize_only else codes):
         for folder, dataset in PER_CODE.items():
             path = raw_root / folder / f"{code}.csv.gz"
             if path.exists() and not a.refresh:
@@ -297,7 +299,7 @@ def main() -> None:
                 manifest.append({"stock_id": code, "dataset": dataset, "status": "FAIL", "rows": 0,
                                  "error": f"{type(exc).__name__}: {str(exc)[:200]}"})
             time.sleep(a.throttle_seconds)
-    for folder, dataset in ALL_MARKET.items():
+    for folder, dataset in ([] if a.normalize_only else ALL_MARKET.items()):
         path = raw_root / folder / "ALL.csv.gz"
         if path.exists() and not a.refresh:
             continue
@@ -312,7 +314,11 @@ def main() -> None:
     calendar_frame = pd.DataFrame(calendar_rows)
     calendar_col = "date" if "date" in calendar_frame else calendar_frame.columns[0]
     calendar = np.sort(pd.to_datetime(calendar_frame[calendar_col], errors="coerce").dropna().values)
-    manifest_frame = pd.DataFrame(manifest)
+    manifest_path = out / "download_manifest.csv"
+    if a.normalize_only and manifest_path.exists():
+        manifest_frame = pd.read_csv(manifest_path, dtype={"stock_id": str})
+    else:
+        manifest_frame = pd.DataFrame(manifest, columns=["stock_id", "dataset", "status", "rows", "error"])
     financial = normalize_financials(raw_root, calendar)
     revenue = normalize_revenue(raw_root, calendar)
     events, results = normalize_actions(raw_root, calendar)
@@ -320,7 +326,7 @@ def main() -> None:
     write_frame(revenue, out / "causal_monthly_revenue.csv.gz")
     write_frame(events, out / "corporate_action_ledger.csv.gz")
     write_frame(results, out / "dividend_results_ex_post.csv.gz")
-    manifest_frame.to_csv(out / "download_manifest.csv", index=False)
+    manifest_frame.to_csv(manifest_path, index=False)
     status = qc(financial, revenue, events, results, manifest_frame)
     (out / "qc_status.json").write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps(status, ensure_ascii=False, indent=2))
