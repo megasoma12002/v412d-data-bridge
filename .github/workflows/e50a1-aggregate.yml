@@ -1,0 +1,66 @@
+name: V4.12-E50-A1 Aggregate
+
+on:
+  workflow_run:
+    workflows: ["V4.12-E50-A1 Full Backfill"]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  aggregate:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas==2.2.3 numpy==2.1.3
+      - name: Download all completed batches
+        run: gh run download "${{ github.event.workflow_run.id }}" --dir batch_artifacts
+      - name: Merge raw shards and manifests
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd, shutil
+          src=Path('batch_artifacts'); dst=Path('e50a1_full')
+          for p in src.glob('**/raw/*/*.csv.gz'):
+              target=dst/'raw'/p.parent.name/p.name
+              target.parent.mkdir(parents=True,exist_ok=True)
+              if not target.exists(): shutil.copy2(p,target)
+          manifests=[]
+          for p in src.glob('**/download_manifest.csv'):
+              d=pd.read_csv(p,dtype={'stock_id':str})
+              manifests.append(d)
+          m=pd.concat(manifests,ignore_index=True).drop_duplicates(['stock_id','dataset'],keep='last')
+          m.to_csv(dst/'download_manifest.csv',index=False)
+          print({'raw_shards':len(list((dst/'raw').glob('*/*.csv.gz'))),'manifest_rows':len(m)})
+          PY
+      - name: Normalize and enforce full QC
+        run: |
+          python scripts/e50a1_build_causal_layer.py --normalize-only --out e50a1_full
+          python - <<'PY'
+          import json
+          q=json.load(open('e50a1_full/qc_status.json'))
+          assert q['status']=='PASS',q
+          assert q['codes_attempted']>=1347,q
+          assert q['failed_requests']==0,q
+          assert q['financial_rows']>1000000,q
+          assert q['revenue_rows']>100000,q
+          assert q['financial_lookahead_violations']==0,q
+          assert q['revenue_lookahead_violations']==0,q
+          print(json.dumps(q,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412-e50a1-full-causal-database
+          path: e50a1_full/
+          if-no-files-found: error
+          retention-days: 90
