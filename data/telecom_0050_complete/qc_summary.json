@@ -1,8 +1,8 @@
 {
   "2412": {
-    "rows": 4053,
+    "rows": 4059,
     "first_date": "2010-01-04",
-    "last_date": "2026-08-24",
+    "last_date": "2026-09-01",
     "nulls": 0,
     "duplicates": 0,
     "ohlc_valid": true,
@@ -11,9 +11,9 @@
     "pass": true
   },
   "3045": {
-    "rows": 4067,
+    "rows": 4073,
     "first_date": "2010-01-04",
-    "last_date": "2026-08-24",
+    "last_date": "2026-09-01",
     "nulls": 0,
     "duplicates": 0,
     "ohlc_valid": true,
@@ -22,9 +22,9 @@
     "pass": true
   },
   "4904": {
-    "rows": 4078,
+    "rows": 4084,
     "first_date": "2010-01-04",
-    "last_date": "2026-08-24",
+    "last_date": "2026-09-01",
     "nulls": 0,
     "duplicates": 0,
     "ohlc_valid": true,
@@ -33,9 +33,9 @@
     "pass": true
   },
   "0050": {
-    "rows": 4073,
+    "rows": 4079,
     "first_date": "2010-01-04",
-    "last_date": "2026-08-24",
+    "last_date": "2026-09-01",
     "nulls": 0,
     "duplicates": 0,
     "ohlc_valid": true,
@@ -44,16 +44,16 @@
     "pass": true
   },
   "combined": {
-    "rows": 16271,
+    "rows": 16295,
     "codes": [
       "0050",
       "2412",
       "3045",
       "4904"
     ],
-    "common_dates": 4037,
+    "common_dates": 4043,
     "common_first": "2010-01-04",
-    "common_last": "2026-08-24",
+    "common_last": "2026-09-01",
     "pass": true
   },
   "overall_pass": true
