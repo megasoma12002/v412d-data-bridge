@@ -1,10 +1,10 @@
 {
   "version": "V4.12-E6",
   "event_rows": 292,
-  "study_rows": 1714,
+  "study_rows": 1717,
   "research_gate_pass": false,
   "passing_windows": [],
   "integration": "shadow only; D/E4 frozen",
   "known_gap": "earliest board dividend-proposal announcement is not provided by this dataset; AnnouncementDate is treated conservatively as usable next session",
-  "latest_date": "2026-08-31"
+  "latest_date": "2026-09-01"
 }
