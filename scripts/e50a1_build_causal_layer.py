@@ -72,8 +72,15 @@ def write_frame(frame: pd.DataFrame, path: Path) -> None:
 
 def load_frames(folder: Path) -> pd.DataFrame:
     files = sorted(folder.glob("*.csv.gz"))
-    return pd.concat((pd.read_csv(p, dtype={"stock_id": str}) for p in files),
-                     ignore_index=True) if files else pd.DataFrame()
+    frames = []
+    for path in files:
+        try:
+            frame = pd.read_csv(path, dtype={"stock_id": str})
+        except pd.errors.EmptyDataError:
+            continue
+        if not frame.empty:
+            frames.append(frame)
+    return pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
 
 
 def next_trading_day(values: pd.Series, calendar: np.ndarray) -> pd.Series:
