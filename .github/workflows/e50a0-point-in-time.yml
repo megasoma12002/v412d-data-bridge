@@ -1,0 +1,80 @@
+name: V4.12-E50-A0 Point-in-Time Equity Database
+
+on:
+  workflow_dispatch:
+  issues:
+    types: [opened]
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/e50a0-point-in-time.yml"
+      - "scripts/e50a0_build_point_in_time.py"
+
+permissions:
+  contents: read
+
+jobs:
+  build-e50a0:
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'E50-A0')
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install runtime
+        run: pip install pandas==2.2.3
+      - name: Download official-derived all-market archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_REPO: yukishirotsubasa/tw-stock-data-release
+          SOURCE_TAG: daily-close-csv
+        run: |
+          set -euo pipefail
+          mkdir -p downloads extracted e50a0_data
+          gh api "repos/$SOURCE_REPO/releases/tags/$SOURCE_TAG" --jq '.assets[].name' > assets.txt
+          while IFS= read -r asset; do
+            gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" \
+              --pattern "$asset" --dir downloads
+          done < <(grep '^yearly_[0-9]\{4\}\.zip$' assets.txt | sort)
+          while IFS= read -r asset; do
+            gh release download "$SOURCE_TAG" --repo "$SOURCE_REPO" \
+              --pattern "$asset" --dir downloads
+          done < <(grep '^weekly_2026_W.*\.zip$' assets.txt)
+          while IFS= read -r archive; do
+            unzip -oq "$archive" -d extracted
+          done < <(find downloads -maxdepth 1 -name '*.zip' -type f | sort)
+      - name: Build causal point-in-time universe
+        run: |
+          python scripts/e50a0_build_point_in_time.py \
+            --input-dir extracted \
+            --out e50a0_data \
+            --start 2004-02-11 \
+            --end "$(date -u +%F)" \
+            --top-n 150 \
+            --min-price 10 \
+            --min-history 252
+      - name: Enforce QC
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('e50a0_data/qc_status.json')
+          assert p.exists(), 'missing qc_status.json'
+          q=json.loads(p.read_text())
+          assert q['status']=='PASS', json.dumps(q,indent=2)
+          assert q['universe_dates'] >= 5000, q
+          assert q['universe_codes'] >= 500, q
+          assert q['alpha_eligible_rows'] > 100000, q
+          assert q['duplicate_raw_keys']==0 and q['invalid_ohlc_rows']==0, q
+          print(json.dumps(q,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412-e50a0-point-in-time
+          path: e50a0_data/
+          if-no-files-found: error
+          retention-days: 90
