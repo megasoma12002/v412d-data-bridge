@@ -1,0 +1,80 @@
+name: V4.12-E50-A3 Causal Alpha Exact Open
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/e50a3_train_exact_open.py"
+      - "research/e50a3/**"
+      - ".github/workflows/e50a3-exact-open.yml"
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: e50a3-exact-open
+  cancel-in-progress: false
+
+jobs:
+  train-and-simulate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install polars==1.33.1 pyarrow==21.0.0 numpy==2.1.1
+      - name: Audit exact-open clock on synthetic data
+        run: python scripts/e50a3_train_exact_open.py --self-test
+      - name: Download frozen E50-A0, E50-A1 and E50-A2 artifacts
+        run: |
+          mkdir -p inputs/a0 inputs/a1 inputs/a2
+          gh run download 33532322856 --repo "${{ github.repository }}" \
+            --name v412-e50a0-point-in-time --dir inputs/a0
+          gh run download 33645002188 --repo "${{ github.repository }}" \
+            --name v412-e50a2-causal-alpha-factors --dir inputs/a2
+          gh run download 33637154310 --repo "${{ github.repository }}" \
+            --name v412-e50a1-full-causal-database --dir inputs/a1
+      - name: Enforce frozen source QC
+        run: |
+          python - <<'PY'
+          import json
+          for p in ['inputs/a0/qc_status.json', 'inputs/a1/qc_status.json', 'inputs/a2/qc_status.json']:
+              q = json.load(open(p))
+              assert q['status'] == 'PASS', (p, q)
+          PY
+      - name: Train causal model and simulate exact T+1 opens
+        run: |
+          python scripts/e50a3_train_exact_open.py \
+            --panel inputs/a2/causal_factor_panel.parquet \
+            --prices inputs/a0/point_in_time_universe.csv \
+            --labels inputs/a2/forward_labels_research_only.parquet \
+            --actions inputs/a1/corporate_action_ledger.csv.gz \
+            --a2-qc inputs/a2/qc_status.json \
+            --out e50a3_output
+      - name: Enforce E50-A3 QC
+        run: |
+          python - <<'PY'
+          import json
+          q = json.load(open('e50a3_output/qc_status.json'))
+          assert q['status'] == 'PASS', q
+          assert q['signal_rows'] == 795000, q
+          assert q['signal_codes'] == 1347, q
+          assert q['execution_clock_violations'] == 0, q
+          assert q['prediction_duplicate_keys'] == 0, q
+          assert q['financial_lookahead_violations'] == 0, q
+          assert q['revenue_lookahead_violations'] == 0, q
+          assert q['forbidden_feature_columns'] == [], q
+          print(json.dumps(q, ensure_ascii=False, indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412-e50a3-causal-alpha-exact-open
+          path: e50a3_output/
+          if-no-files-found: error
+          retention-days: 90
