@@ -1,0 +1,75 @@
+name: V4.12-E50-A2 Causal Alpha Factors
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/e50a2_build_causal_factors.py"
+      - "research/e50a2/**"
+      - ".github/workflows/e50a2-causal-factors.yml"
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: e50a2-causal-factors
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install polars==1.33.1 pyarrow==21.0.0
+      - name: Download frozen E50-A0 and E50-A1 artifacts
+        run: |
+          mkdir -p inputs/a0 inputs/a1
+          gh run download 33532322856 --repo "${{ github.repository }}" \
+            --name v412-e50a0-point-in-time --dir inputs/a0
+          gh run download 33637154310 --repo "${{ github.repository }}" \
+            --name v412-e50a1-full-causal-database --dir inputs/a1
+      - name: Enforce source QC
+        run: |
+          python - <<'PY'
+          import json
+          for p in ['inputs/a0/qc_status.json','inputs/a1/qc_status.json']:
+              q=json.load(open(p))
+              assert q['status']=='PASS', (p,q)
+          PY
+      - name: Build causal factor panel
+        run: |
+          python scripts/e50a2_build_causal_factors.py \
+            --a0 inputs/a0/point_in_time_universe.csv \
+            --financials inputs/a1/causal_financials.csv.gz \
+            --revenue inputs/a1/causal_monthly_revenue.csv.gz \
+            --actions inputs/a1/corporate_action_ledger.csv.gz \
+            --out e50a2_output
+      - name: Enforce E50-A2 QC
+        run: |
+          python - <<'PY'
+          import json
+          q=json.load(open('e50a2_output/qc_status.json'))
+          assert q['status']=='PASS', q
+          assert q['signal_rows']==795000, q
+          assert q['signal_codes']==1347, q
+          assert q['financial_lookahead_violations']==0, q
+          assert q['revenue_lookahead_violations']==0, q
+          assert q['duplicate_feature_keys']==0, q
+          assert q['duplicate_label_keys']==0, q
+          assert q['out_of_range_rank_values']==0, q
+          print(json.dumps(q,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412-e50a2-causal-alpha-factors
+          path: e50a2_output/
+          if-no-files-found: error
+          retention-days: 90
