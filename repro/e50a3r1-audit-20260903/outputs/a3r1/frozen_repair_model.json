@@ -1,0 +1,72 @@
+{
+  "selected_configuration": {
+    "feature_set": "TECH2",
+    "mode": "BREADTH_REGIME",
+    "ridge_lambda": 1.0,
+    "train_cv_mean_rank_ic": 0.11472626450937373,
+    "top_k": 20,
+    "rebalance_every": 5,
+    "exit_multiple": 2.0,
+    "neutralization": "NONE",
+    "industry_cap": 5,
+    "train_average_daily_turnover": 0.057736702271625424,
+    "turnover_constraint_satisfied": false,
+    "turnover_feasible_candidates": 0
+  },
+  "validation_model": {
+    "feature_set": "TECH2",
+    "features": [
+      "momentum_family_score",
+      "defensive_family_score"
+    ],
+    "mode": "BREADTH_REGIME",
+    "ridge_lambda": 1.0,
+    "fitted_through": "2018-11-30",
+    "fits": {
+      "RISK_ON": {
+        "intercept": -3.2807944039748805e-05,
+        "rows": 387408,
+        "coefficients": {
+          "momentum_family_score": 0.03445687889195094,
+          "defensive_family_score": 0.12014996288992016
+        }
+      },
+      "RISK_OFF": {
+        "intercept": -4.695116122135797e-05,
+        "rows": 123608,
+        "coefficients": {
+          "momentum_family_score": -0.09109813702795366,
+          "defensive_family_score": -0.04499996059602358
+        }
+      }
+    }
+  },
+  "sealed_model": {
+    "feature_set": "TECH2",
+    "features": [
+      "momentum_family_score",
+      "defensive_family_score"
+    ],
+    "mode": "BREADTH_REGIME",
+    "ridge_lambda": 1.0,
+    "fitted_through": "2022-12-01",
+    "fits": {
+      "RISK_ON": {
+        "intercept": -2.7398409015164424e-05,
+        "rows": 503081,
+        "coefficients": {
+          "momentum_family_score": 0.020740350972503364,
+          "defensive_family_score": 0.10635781145182642
+        }
+      },
+      "RISK_OFF": {
+        "intercept": -2.6513547206635515e-05,
+        "rows": 154162,
+        "coefficients": {
+          "momentum_family_score": -0.06051518315597665,
+          "defensive_family_score": -0.07002090098676962
+        }
+      }
+    }
+  }
+}

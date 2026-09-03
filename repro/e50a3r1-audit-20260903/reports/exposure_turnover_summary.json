@@ -1,0 +1,12 @@
+{
+  "max_gross_exposure": 1.0000000000000009,
+  "min_gross_exposure": 0.0,
+  "mean_gross_exposure": 0.9989224137931034,
+  "max_nav": 3.968998754115342,
+  "min_cash": -9.992007221626409e-16,
+  "negative_cash_days": 0,
+  "exposure_gt_1_days": 0,
+  "mean_daily_turnover": 0.05926710158615695,
+  "max_daily_turnover": 1.9931631609152403,
+  "stale_positions_max": 1
+}

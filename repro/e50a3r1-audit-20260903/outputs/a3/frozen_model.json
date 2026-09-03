@@ -1,0 +1,38 @@
+{
+  "selection": {
+    "feature_set": "TECH2",
+    "ridge_lambda": 10.0,
+    "train_cv_mean_rank_ic": 0.060381823421434846,
+    "top_k": 20,
+    "rebalance_every": 5,
+    "train_cv_portfolio_utility": -0.10330391119880716
+  },
+  "validation_model": {
+    "feature_set": "TECH2",
+    "features": [
+      "momentum_family_score",
+      "defensive_family_score"
+    ],
+    "ridge_lambda": 10.0,
+    "intercept": -1.8634045439853948e-05,
+    "coefficients": {
+      "momentum_family_score": -0.010009512537736718,
+      "defensive_family_score": 0.06447757352917444
+    },
+    "fitted_through": "2018-11-30"
+  },
+  "sealed_model": {
+    "feature_set": "TECH2",
+    "features": [
+      "momentum_family_score",
+      "defensive_family_score"
+    ],
+    "ridge_lambda": 10.0,
+    "intercept": -1.474376616927206e-05,
+    "coefficients": {
+      "momentum_family_score": -0.013486728390825091,
+      "defensive_family_score": 0.053558551252586316
+    },
+    "fitted_through": "2022-12-01"
+  }
+}
