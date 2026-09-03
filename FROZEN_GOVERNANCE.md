@@ -49,6 +49,8 @@ English equivalent:
 
 If a later note disagrees with this file, this file wins until a new frozen version is explicitly approved.
 
+Day-to-day research workflow (order, held-out, promotion labels, versioning) is in `E50_RESEARCH_OPERATING_RULES.md`. Class membership still follows this file.
+
 This contract applies to E16, E18, E22, E45, E50-A overlay research, and all future E50 challengers.
 
 ---

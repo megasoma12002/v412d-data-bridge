@@ -8,10 +8,11 @@ Read these files completely, in this order:
 
 1. `FROZEN_STRATEGY_SPEC.md`
 2. `FROZEN_GOVERNANCE.md`
-3. `E50_RESEARCH_HISTORY.md`
-4. `CURSOR_RULES.md`
-5. `HANDOFF.md`
-6. `E50-A3-R1_TODO.md`
+3. `E50_RESEARCH_OPERATING_RULES.md`
+4. `E50_RESEARCH_HISTORY.md`
+5. `CURSOR_RULES.md`
+6. `HANDOFF.md`
+7. `E50-A3-R1_TODO.md`
 
 This is a continuation of an existing quantitative research project.
 

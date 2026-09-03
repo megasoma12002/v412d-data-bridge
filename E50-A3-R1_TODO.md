@@ -129,7 +129,7 @@ PnL Start
 - [ ] Alpha-off / Core-on behavior
 
 ## Governance
-Follow `FROZEN_GOVERNANCE.md`.
+Follow `FROZEN_GOVERNANCE.md` and `E50_RESEARCH_OPERATING_RULES.md`.
 
 - HARD_FROZEN = 研究正確性底線. Clock / PIT / walk-forward / embargo / no future-aware selection cannot be relaxed to chase CAGR.
 - SOFT_FROZEN = E16 / E18 / E22 / E45 目前正式策略版本. Challengers go to a new folder.
