@@ -140,6 +140,8 @@
     "long_term_target_band": "approximately -10% to -15%",
     "note": "MDD remains far from the long-term target; drawdown repair is a later research step and must not weaken HARD_FROZEN causal rules."
   },
-  "research_decision": "EXPERIMENTAL_HELDOUT_FAIL_OR_INCOMPLETE",
-  "next_research_step": "If held-out fails on proxy/bootstrap/turnover, diagnose without retuning on held-out; MDD repair remains a separate challenger after causal gates. Do not touch E45 yet."
+  "research_decision": "MIXED_HELDOUT",
+  "next_research_step": "If held-out fails on proxy/bootstrap/turnover, diagnose without retuning on held-out; MDD repair remains a separate challenger after causal gates. Do not touch E45 yet.",
+  "detailed_report": "E50-A3-R1_HELDOUT_DETAILED.md",
+  "research_decision_heldout_label": "MIXED_HELDOUT"
 }

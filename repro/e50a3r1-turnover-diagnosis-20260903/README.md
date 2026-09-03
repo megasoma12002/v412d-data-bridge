@@ -1,33 +1,29 @@
-# E50-A3-R1 Turnover Diagnosis (2026-09-03)
+# E50-A3-R1 Turnover Diagnosis + Locked Held-Out
 
-Isolated EXPERIMENTAL challenger folder.
+Active experimental research branch (`cursor/e50a3r1-turnover-diagnosis-d049`). Keep as **draft**.
 
-Constraints:
-- Do not modify E16 / E18 / E22 / E44 / E45
-- Keep pinned A0 / A1 / A2
-- Keep Exact T+1 simulator unchanged
-- Keep 2.5% OOF turnover and 0.70 bootstrap classified as EXPERIMENTAL
-- Selection / diagnosis window: **2011-2018 OOF only**
-- Do not open 2019-2022 or 2023-latest for parameter selection
+## Locked challenger (no retune)
 
-## Commands
-
-```bash
-ROOT_IN=repro/e50a3r1-audit-20260903/inputs
-ROOT_OUT=repro/e50a3r1-turnover-diagnosis-20260903
-python3 scripts/e50a3r1_turnover_diagnosis.py \
-  --panel $ROOT_IN/a2/causal_factor_panel.parquet \
-  --prices $ROOT_IN/a0/point_in_time_universe.csv \
-  --labels $ROOT_IN/a2/forward_labels_research_only.parquet \
-  --actions $ROOT_IN/a1/corporate_action_ledger.csv.gz \
-  --a2-qc $ROOT_IN/a2/qc_status.json \
-  --baseline-grid $ROOT_OUT/baseline_train_repair_grid.csv \
-  --out $ROOT_OUT
+```
+TECH2 / BREADTH_REGIME / lambda=1.0
+top_k=20
+rebalance_every=42
+exit_multiple=2.0
+neutralization=NONE
+industry_cap=5
 ```
 
-## Outputs
+## Decision
 
-- `reports/root_cause_diagnostics.json`
-- `outputs/oof_challenger_grid.csv`
-- `reports/oof_challenger_summary.json`
-- `E50-A3-R1_TURNOVER_DIAGNOSIS.md` (written after the run)
+**`MIXED_HELDOUT`** — see `E50-A3-R1_HELDOUT_DETAILED.md`.
+
+Validation 2019–2022 fails experimental turnover/bootstrap gates; sealed 2023–latest passes both.
+Exact T+1 intact. No promotion. E45 not touched. Frozen baselines unchanged.
+
+
+## Reports
+
+- `E50-A3-R1_HELDOUT_DETAILED.md` — detailed held-out metrics
+- `E50-A3-R1_TURNOVER_DIAGNOSIS.md` — OOF turnover diagnosis
+- `reports/heldout_detailed_decision.json`
+- `reports/heldout_decision.json`

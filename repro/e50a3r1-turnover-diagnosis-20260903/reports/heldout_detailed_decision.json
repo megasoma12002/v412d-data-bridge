@@ -1,0 +1,281 @@
+{
+  "generated_at_utc": "2026-09-03T17:57:35.899746+00:00",
+  "status": "EXPERIMENTAL_HELDOUT_DETAILED",
+  "locked_challenger": {
+    "feature_set": "TECH2",
+    "mode": "BREADTH_REGIME",
+    "ridge_lambda": 1.0,
+    "top_k": 20,
+    "rebalance_every": 42,
+    "exit_multiple": 2.0,
+    "neutralization": "NONE",
+    "industry_cap": 5,
+    "liquidity_floor": 20000000.0
+  },
+  "gates_remain_experimental": true,
+  "no_promotion": true,
+  "no_retune_on_heldout": true,
+  "oof_reconfirm": {
+    "turnover": 0.02195110039323891,
+    "bootstrap": 0.7672,
+    "both_gates_pass": true
+  },
+  "windows": {
+    "VALIDATION_2019_2022": {
+      "portfolio": "VALIDATION_2019_2022",
+      "start": "2019-01-02",
+      "end": "2022-12-30",
+      "days": 977,
+      "cagr": 0.214603207838584,
+      "max_drawdown": -0.28472899928461737,
+      "sharpe_rf0": 1.02203005721709,
+      "sortino_rf0": 1.2587974928384988,
+      "calmar": 0.7537103996353561,
+      "annualized_volatility": 0.21249608066246495,
+      "average_daily_turnover": 0.026936042267019372,
+      "total_transaction_cost": 0.15911209247023028,
+      "trade_count": 728,
+      "mean_gross_exposure": 0.9972904208580193,
+      "max_gross_exposure": 1.0000000000000004,
+      "min_gross_exposure": 0.0,
+      "average_holdings": 19.936540429887412,
+      "median_holdings": 20.0,
+      "block_bootstrap_positive_probability": 0.5138,
+      "market_proxy_cagr": 0.20943106522930277,
+      "market_proxy_max_drawdown": -0.2958435956458647,
+      "beats_market_proxy": true,
+      "turnover_gate_pass": false,
+      "bootstrap_gate_pass": false,
+      "exact_t1": {
+        "same_bar_fills": 0,
+        "all_execution_after_signal": true,
+        "lag_calendar_day_histogram": [
+          {
+            "lag_calendar_days": 1,
+            "len": 571
+          },
+          {
+            "lag_calendar_days": 3,
+            "len": 117
+          },
+          {
+            "lag_calendar_days": 4,
+            "len": 40
+          }
+        ],
+        "min_lag_calendar_days": 1,
+        "median_lag_calendar_days": 1.0
+      },
+      "rolling_drawdown_summary": {
+        "max_drawdown": -0.28472899928461737,
+        "p50_drawdown": -0.028970642071311947,
+        "p90_drawdown": -0.158954493802678,
+        "p95_drawdown": -0.20002964374354298,
+        "mean_drawdown": -0.05415246586132868,
+        "days_in_drawdown_gt_10pct": 195,
+        "days_in_drawdown_gt_20pct": 50
+      },
+      "fit_cutoff": "2018-11-30",
+      "rolling_drawdown_csv": "outputs/locked_validation_2019_2022_rolling_drawdown.csv",
+      "yearly_returns_csv": "outputs/locked_validation_2019_2022_yearly_returns.csv"
+    },
+    "SEALED_2023_LATEST": {
+      "portfolio": "SEALED_2023_LATEST",
+      "start": "2023-01-03",
+      "end": "2026-08-28",
+      "days": 879,
+      "cagr": 0.6095211726893031,
+      "max_drawdown": -0.2285991166145933,
+      "sharpe_rf0": 2.192138973258397,
+      "sortino_rf0": 2.6384855114551606,
+      "calmar": 2.666332143867928,
+      "annualized_volatility": 0.22936577733554303,
+      "average_daily_turnover": 0.017260365405379174,
+      "total_transaction_cost": 0.10981004567534931,
+      "trade_count": 552,
+      "mean_gross_exposure": 0.9988623435722411,
+      "max_gross_exposure": 1.0000000000000004,
+      "min_gross_exposure": 0.0,
+      "average_holdings": 19.977246871444823,
+      "median_holdings": 20.0,
+      "block_bootstrap_positive_probability": 1.0,
+      "market_proxy_cagr": 0.20963056648261924,
+      "market_proxy_max_drawdown": -0.25590402855380745,
+      "beats_market_proxy": true,
+      "turnover_gate_pass": true,
+      "bootstrap_gate_pass": true,
+      "exact_t1": {
+        "same_bar_fills": 0,
+        "all_execution_after_signal": true,
+        "lag_calendar_day_histogram": [
+          {
+            "lag_calendar_days": 1,
+            "len": 300
+          },
+          {
+            "lag_calendar_days": 3,
+            "len": 199
+          },
+          {
+            "lag_calendar_days": 4,
+            "len": 53
+          }
+        ],
+        "min_lag_calendar_days": 1,
+        "median_lag_calendar_days": 1.0
+      },
+      "rolling_drawdown_summary": {
+        "max_drawdown": -0.2285991166145933,
+        "p50_drawdown": -0.018417270568905852,
+        "p90_drawdown": -0.07960212058103072,
+        "p95_drawdown": -0.09343335654148986,
+        "mean_drawdown": -0.032870231429687716,
+        "days_in_drawdown_gt_10pct": 40,
+        "days_in_drawdown_gt_20pct": 4
+      },
+      "fit_cutoff": "2022-12-01",
+      "rolling_drawdown_csv": "outputs/locked_sealed_2023_latest_rolling_drawdown.csv",
+      "yearly_returns_csv": "outputs/locked_sealed_2023_latest_yearly_returns.csv"
+    }
+  },
+  "yearly_returns": {
+    "VALIDATION_2019_2022": [
+      {
+        "year": 2019,
+        "start_date": "2019-01-02",
+        "end_date": "2019-12-31",
+        "start_nav": 1.0,
+        "end_nav": 1.3677658371777102,
+        "return": 0.36776583717771016,
+        "max_drawdown_in_year": -0.06447334391367543,
+        "avg_daily_turnover": 0.021229885355864297,
+        "avg_positions": 19.917355371900825
+      },
+      {
+        "year": 2020,
+        "start_date": "2020-01-02",
+        "end_date": "2020-12-31",
+        "start_nav": 1.3661333972376113,
+        "end_nav": 1.8250491048963353,
+        "return": 0.335923057431049,
+        "max_drawdown_in_year": -0.284447831913491,
+        "avg_daily_turnover": 0.023641441935316473,
+        "avg_positions": 20.0
+      },
+      {
+        "year": 2021,
+        "start_date": "2021-01-04",
+        "end_date": "2021-12-30",
+        "start_nav": 1.8105264124547136,
+        "end_nav": 2.423638503156978,
+        "return": 0.33863747387755927,
+        "max_drawdown_in_year": -0.1275351270544285,
+        "avg_daily_turnover": 0.025627804582577098,
+        "avg_positions": 20.0
+      },
+      {
+        "year": 2022,
+        "start_date": "2022-01-03",
+        "end_date": "2022-12-30",
+        "start_nav": 2.438418313630332,
+        "end_nav": 2.123322019534274,
+        "return": -0.12922159103494446,
+        "max_drawdown_in_year": -0.2809343897470441,
+        "avg_daily_turnover": 0.03712822539210333,
+        "avg_positions": 19.829268292682926
+      }
+    ],
+    "SEALED_2023_LATEST": [
+      {
+        "year": 2023,
+        "start_date": "2023-01-03",
+        "end_date": "2023-12-29",
+        "start_nav": 1.0,
+        "end_nav": 1.567892502233562,
+        "return": 0.5678925022335619,
+        "max_drawdown_in_year": -0.08263438710007798,
+        "avg_daily_turnover": 0.017195815044309882,
+        "avg_positions": 19.915966386554622
+      },
+      {
+        "year": 2024,
+        "start_date": "2024-01-02",
+        "end_date": "2024-12-31",
+        "start_nav": 1.5747481151271738,
+        "end_nav": 1.8488480495150945,
+        "return": 0.1740595411767074,
+        "max_drawdown_in_year": -0.1392534352049053,
+        "avg_daily_turnover": 0.009834766908436439,
+        "avg_positions": 20.0
+      },
+      {
+        "year": 2025,
+        "start_date": "2025-01-02",
+        "end_date": "2025-12-31",
+        "start_nav": 1.8482840564693452,
+        "end_nav": 2.8456211835934018,
+        "return": 0.5396016503162417,
+        "max_drawdown_in_year": -0.1815515916150885,
+        "avg_daily_turnover": 0.027346521019900805,
+        "avg_positions": 20.0
+      },
+      {
+        "year": 2026,
+        "start_date": "2026-01-02",
+        "end_date": "2026-08-28",
+        "start_nav": 2.869076810805099,
+        "end_nav": 5.249978553332557,
+        "return": 0.82984942527884,
+        "max_drawdown_in_year": -0.1864780347024536,
+        "avg_daily_turnover": 0.013257232688693799,
+        "avg_positions": 20.0
+      }
+    ]
+  },
+  "verification": {
+    "exact_t1_intact": true,
+    "same_bar_fills_validation": 0,
+    "same_bar_fills_sealed": 0,
+    "no_heldout_parameter_tuning": true,
+    "locked_config_unchanged": true,
+    "selection_window": "2011-2018 OOF only",
+    "fit_cutoff_validation": "2018-11-30",
+    "fit_cutoff_sealed": "2022-12-01",
+    "no_future_aware_universe_claim": "Model fit cutoffs precede each held-out window (val 2018-11-30, sealed 2022-12-01). Universe/liquidity filters applied on signal date only in the existing A3/R1 path. Full panel leakage re-audit is preserved in merged PR #17 (repro/e50a3r1-audit-20260903/reports/leakage_audit.json); this run does not retune.",
+    "leakage_status": "NO_NEW_LEAKAGE_INTRODUCED",
+    "e45_touched": false,
+    "turnover_ceiling_experimental": 0.025,
+    "bootstrap_gate_experimental": 0.7,
+    "validation_turnover_pass": false,
+    "validation_bootstrap_pass": false,
+    "sealed_turnover_pass": true,
+    "sealed_bootstrap_pass": true
+  },
+  "research_decision": "MIXED_HELDOUT",
+  "decision_rationale": {
+    "PASS_HELDOUT_requires": "both windows pass turnover<=2.5% AND bootstrap>=0.70 with Exact T+1 intact",
+    "validation": {
+      "turnover": 0.026936042267019372,
+      "turnover_pass": false,
+      "bootstrap": 0.5138,
+      "bootstrap_pass": false
+    },
+    "sealed": {
+      "turnover": 0.017260365405379174,
+      "turnover_pass": true,
+      "bootstrap": 1.0,
+      "bootstrap_pass": true
+    },
+    "why": "Validation fails experimental turnover and bootstrap gates; sealed passes both. Exact T+1 intact. Result is mixed across held-out windows."
+  },
+  "mdd_warning": {
+    "oof_max_drawdown": -0.3007120488380899,
+    "validation_max_drawdown": -0.28472899928461737,
+    "sealed_max_drawdown": -0.2285991166145933,
+    "long_term_target_band": "approximately -10% to -15%",
+    "note": "MDD remains far from the long-term target; drawdown repair is a later research step and must not weaken HARD_FROZEN causal rules."
+  },
+  "frozen_baselines_unchanged": true,
+  "do_not_merge_yet": true,
+  "do_not_promote": true
+}
