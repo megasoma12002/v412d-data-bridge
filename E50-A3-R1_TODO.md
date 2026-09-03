@@ -128,6 +128,19 @@ PnL Start
 - [ ] false crisis signals
 - [ ] Alpha-off / Core-on behavior
 
+## Governance
+Follow `FROZEN_GOVERNANCE.md` and `E50_RESEARCH_OPERATING_RULES.md`.
+
+- HARD_FROZEN = 研究正確性底線. Clock / PIT / walk-forward / embargo / no future-aware selection cannot be relaxed to chase CAGR.
+- SOFT_FROZEN = E16 / E18 / E22 / E45 目前正式策略版本. Challengers go to a new folder.
+- SOFT_FROZEN_CRITICAL = E45. Separate challenger plus a higher validation bar.
+- EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing、bootstrap、model-selection、acceptance gate.
+- R1 numeric gates (2.5% turnover, 0.70 bootstrap, beat-proxy, grid, overlay costs) are EXPERIMENTAL.
+- They do not become frozen because a sealed window looks strong.
+
+Promotion, if ever proposed:
+FROZEN_BASELINE -> CHALLENGER -> OOS VALIDATION -> COST VALIDATION -> STRESS / MONTE CARLO VALIDATION -> GOVERNANCE REVIEW -> EXPLICIT APPROVAL -> NEW FROZEN VERSION
+
 ## PASS Gate
 R1 不以 CAGR >=20% 單獨判 PASS。
 
