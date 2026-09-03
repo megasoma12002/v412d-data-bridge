@@ -4,6 +4,7 @@
 
 ## 0. 文件目的
 本文件定義目前研究中「不可被 Cursor 任意重寫」的 Frozen Portfolio Baseline。
+規則分級、晉升路徑與不得自動凍結的實驗門檻，以 `FROZEN_GOVERNANCE.md` 為準。
 
 E50-A 不是一套取代既有策略的新 Portfolio。
 它是加在既有核心組合上的 Alpha Overlay。
@@ -227,17 +228,27 @@ Router 的目標：
 - 未經獨立實驗就加入槓桿 ETF
 - 重新下載全部資料只因股票數不同
 - 為了提高 CAGR 破壞 Exact T+1 或 PIT
+- 為了績效放寬任何 HARD_FROZEN 規則
+- 覆蓋或刪除先前 Frozen Baseline
+- 把 EXPERIMENTAL 新模型、新門檻、新權重、新 Router、新 rebalancing 自動升格為 Frozen
 
 ---
 
 ## 6. Frozen 修改流程
+
+規則分三級，詳見 `FROZEN_GOVERNANCE.md`：
+
+- HARD_FROZEN = 研究正確性底線。不得為績效放寬（PIT、no look-ahead、no survivorship、causal clock、Exact T+1、Walk Forward、Embargo、no future-aware normalization / ranking / model selection）。
+- SOFT_FROZEN = E16 / E18 / E22 / E45 目前正式策略版本。只能用獨立 challenger 挑戰，且必須保留原正式版本。
+- SOFT_FROZEN_CRITICAL = E45。只能用獨立 challenger 挑戰，且驗證門檻高於 E16 / E18 / E22。
+- EXPERIMENTAL = 新門檻、新權重、bootstrap cutoff、rebalance、model-selection、新 Router、新 Alpha、新 acceptance gate。預設如此，不得自動升格為 Frozen。
 
 任何 Frozen 規則若要測試替代方案：
 
 1. 建立新的 experiment branch
 2. 清楚定義 hypothesis
 3. 保留 original frozen baseline
-4. 不覆蓋原結果
+4. 不覆蓋、不刪除原結果
 5. 輸出：
    - baseline
    - challenger
@@ -250,4 +261,16 @@ Router 的目標：
    - FAIL
    - INCONCLUSIVE
 
-只有有可重現證據時，才有資格提議更新 Frozen Baseline。
+晉升路徑：
+
+FROZEN_BASELINE
+-> CHALLENGER
+-> OOS VALIDATION
+-> COST VALIDATION
+-> STRESS / MONTE CARLO VALIDATION
+-> GOVERNANCE REVIEW
+-> EXPLICIT APPROVAL
+-> NEW FROZEN VERSION
+
+只有有可重現證據且經 explicit approval 後，才有資格發布新的 Frozen Version。
+前一版 Frozen Baseline 必須繼續可讀。

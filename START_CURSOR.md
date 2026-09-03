@@ -7,10 +7,12 @@ Paste this into Cursor Agent after all files are in the repo.
 Read these files completely, in this order:
 
 1. `FROZEN_STRATEGY_SPEC.md`
-2. `E50_RESEARCH_HISTORY.md`
-3. `CURSOR_RULES.md`
-4. `HANDOFF.md`
-5. `E50-A3-R1_TODO.md`
+2. `FROZEN_GOVERNANCE.md`
+3. `E50_RESEARCH_OPERATING_RULES.md`
+4. `E50_RESEARCH_HISTORY.md`
+5. `CURSOR_RULES.md`
+6. `HANDOFF.md`
+7. `E50-A3-R1_TODO.md`
 
 This is a continuation of an existing quantitative research project.
 
@@ -18,6 +20,9 @@ DO NOT redesign the portfolio from scratch.
 DO NOT treat E50-A as the whole portfolio.
 DO NOT modify frozen baselines.
 DO NOT rebuild E50-A0/A1/A2 unless you identify a reproducible upstream defect.
+DO NOT relax HARD_FROZEN rules for performance.
+DO NOT overwrite or delete a prior frozen baseline.
+DO NOT auto-promote EXPERIMENTAL models, thresholds, weights, routers, rebalancing rules, bootstrap cutoffs, model-selection rules, or acceptance gates.
 
 The frozen portfolio architecture is:
 
