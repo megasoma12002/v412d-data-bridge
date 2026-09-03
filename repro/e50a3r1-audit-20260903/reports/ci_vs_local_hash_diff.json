@@ -1,0 +1,155 @@
+[
+  {
+    "stage": "A3",
+    "file": "causal_scores.parquet",
+    "local_sha": "5b977d276d786b09cdb2f7efeb2b2e9f05ff0da14a9b6926ae94078c0849b92f",
+    "ci_sha": "0a9ffb55f7c13d6434414292cd4a749b5a48e41500e717a91198954d5dc222b9",
+    "match": false,
+    "local_bytes": 3717531,
+    "ci_bytes": 3720169
+  },
+  {
+    "stage": "A3",
+    "file": "cv_model_selection.csv",
+    "local_sha": "98f365e63fd1d39a875773ec0a22f85065f434ac1daa8d5e8066fc559cedcc6a",
+    "ci_sha": "cdc7e77d85ba9240871e36a1d68d0a3e65c55d2a39d061f97948a686e7e44211",
+    "match": false,
+    "local_bytes": 3487,
+    "ci_bytes": 3486
+  },
+  {
+    "stage": "A3",
+    "file": "daily_nav.csv",
+    "local_sha": "afd3d8cf07f6e5083e860a682fee7ad6b23abbe4d30543b7dd62ca0897930da3",
+    "ci_sha": "afd3d8cf07f6e5083e860a682fee7ad6b23abbe4d30543b7dd62ca0897930da3",
+    "match": true,
+    "local_bytes": 191013,
+    "ci_bytes": 191013
+  },
+  {
+    "stage": "A3",
+    "file": "exact_open_labels_research_only.parquet",
+    "local_sha": "d3b61c97617ddef424d33a7a469ed5a8cbd26c931a715f07d1c67b370ddaa6a8",
+    "ci_sha": "d3b61c97617ddef424d33a7a469ed5a8cbd26c931a715f07d1c67b370ddaa6a8",
+    "match": true,
+    "local_bytes": 4885585,
+    "ci_bytes": 4885585
+  },
+  {
+    "stage": "A3",
+    "file": "frozen_model.json",
+    "local_sha": "80f2f2850ed18c16b26e9f94867ee5798f3cf9b6b85843af6ee60577243e93c4",
+    "ci_sha": "bbc8367fdb16f79894af632e6f3279bd84928ddf0ff73d571fda52193b4bf4fd",
+    "match": false,
+    "local_bytes": 988,
+    "ci_bytes": 988
+  },
+  {
+    "stage": "A3",
+    "file": "period_metrics.csv",
+    "local_sha": "1fa1c337bddaf0030299c63e9737da00e38266400193316a07f7e9d6265f36c0",
+    "ci_sha": "1fa1c337bddaf0030299c63e9737da00e38266400193316a07f7e9d6265f36c0",
+    "match": true,
+    "local_bytes": 1021,
+    "ci_bytes": 1021
+  },
+  {
+    "stage": "A3",
+    "file": "qc_status.json",
+    "local_sha": "837c1cdd80888d8c31909c576b517d16504d2193195f1e59f71fbec012c2d0c9",
+    "ci_sha": "24f05a20ce0dadbff110b045b2c002c2a0b0b9087e7c433c11bd4defcea4d2db",
+    "match": false,
+    "local_bytes": 5733,
+    "ci_bytes": 5733
+  },
+  {
+    "stage": "A3",
+    "file": "trades.csv",
+    "local_sha": "5c140e182a3d043db8c56928096d06681c801c97fbd1d73fe77d3c2f35cbe269",
+    "ci_sha": "5c140e182a3d043db8c56928096d06681c801c97fbd1d73fe77d3c2f35cbe269",
+    "match": true,
+    "local_bytes": 821974,
+    "ci_bytes": 821974
+  },
+  {
+    "stage": "A3",
+    "file": "train_portfolio_grid.csv",
+    "local_sha": "eb8a4e4db16d9b32cebf48f166e6b79a0b7fdc5a1bf2d403cca2cdbfac988c05",
+    "ci_sha": "eb8a4e4db16d9b32cebf48f166e6b79a0b7fdc5a1bf2d403cca2cdbfac988c05",
+    "match": true,
+    "local_bytes": 1706,
+    "ci_bytes": 1706
+  },
+  {
+    "stage": "A3-R1",
+    "file": "causal_scores.parquet",
+    "local_sha": "32d0f3e7bf2785d7622460768c8946a084845be8f1898c5c657ac4105aa6a48c",
+    "ci_sha": "3902a5bcc6066fa6a3d00ccf7fd5be009a099f7c61d3fed14350339f4307a3eb",
+    "match": false,
+    "local_bytes": 3806420,
+    "ci_bytes": 3806365
+  },
+  {
+    "stage": "A3-R1",
+    "file": "daily_nav.csv",
+    "local_sha": "e18a8049907b42494991e97877493e1fee3b509ca4a39d61a53d3c59fd653da1",
+    "ci_sha": "e18a8049907b42494991e97877493e1fee3b509ca4a39d61a53d3c59fd653da1",
+    "match": true,
+    "local_bytes": 185949,
+    "ci_bytes": 185949
+  },
+  {
+    "stage": "A3-R1",
+    "file": "frozen_repair_model.json",
+    "local_sha": "96c36cca9f8ca61ac7ec1ccf0057d154ec636c402d18656452b5ed805efd7a0c",
+    "ci_sha": "c5611afbd2b5fd9aa810a52f709d93951790b8245f10dadec20849aa4089dbfd",
+    "match": false,
+    "local_bytes": 1927,
+    "ci_bytes": 1924
+  },
+  {
+    "stage": "A3-R1",
+    "file": "model_cv.csv",
+    "local_sha": "53a0214f82412fce9f27086426765d959d045081867fde64a69c36a0ccd5c0d1",
+    "ci_sha": "42809447f5d376d08981f1ab9911b970425503fe2f76c8ebee45646f6dd7e6e1",
+    "match": false,
+    "local_bytes": 3353,
+    "ci_bytes": 3350
+  },
+  {
+    "stage": "A3-R1",
+    "file": "period_metrics.csv",
+    "local_sha": "51d3716c999ea11d4229f2b15a8a92db4930fb83957418526781b636d8598aee",
+    "ci_sha": "51d3716c999ea11d4229f2b15a8a92db4930fb83957418526781b636d8598aee",
+    "match": true,
+    "local_bytes": 1006,
+    "ci_bytes": 1006
+  },
+  {
+    "stage": "A3-R1",
+    "file": "qc_status.json",
+    "local_sha": "415a5822c91e2212f3aa3c73f37a62fed26fe2ac6973114c8503c9ea79055793",
+    "ci_sha": "fc0b72275cc69386a9c9aaa536525a130611c1fedc660d9584f57bab78e5b15b",
+    "match": false,
+    "local_bytes": 5159,
+    "ci_bytes": 5159
+  },
+  {
+    "stage": "A3-R1",
+    "file": "trades.csv",
+    "local_sha": "2f08c37105419fa076ded3bdc15f4c0052d13b497ebb665e69950c7a9697816e",
+    "ci_sha": "2f08c37105419fa076ded3bdc15f4c0052d13b497ebb665e69950c7a9697816e",
+    "match": true,
+    "local_bytes": 802958,
+    "ci_bytes": 802958
+  },
+  {
+    "stage": "A3-R1",
+    "file": "train_repair_grid.csv",
+    "local_sha": "b95f5d98df4e1418dd9e5be17e993b5f24b8e9d0b5abf87d4770e8c25321deb5",
+    "ci_sha": "b95f5d98df4e1418dd9e5be17e993b5f24b8e9d0b5abf87d4770e8c25321deb5",
+    "match": true,
+    "local_bytes": 19692,
+    "ci_bytes": 19692
+  }
+]

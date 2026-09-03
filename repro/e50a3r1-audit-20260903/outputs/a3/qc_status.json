@@ -1,0 +1,171 @@
+{
+  "version": "V4.12-E50-A3",
+  "status": "PASS",
+  "decision": "RESEARCH_ONLY",
+  "generated_at_utc": "2026-09-03T16:28:19.491825+00:00",
+  "input_a2_status": "PASS",
+  "signal_rows": 795000,
+  "signal_codes": 1347,
+  "signal_dates": 5300,
+  "mark_to_market_rows": 7940236,
+  "mark_to_market_codes": 2259,
+  "excluded_partial_market_sessions": 5,
+  "excluded_partial_market_session_dates": [
+    "2008-10-09",
+    "2009-03-23",
+    "2023-05-25",
+    "2025-02-06",
+    "2026-05-28"
+  ],
+  "exact_open_label_rows": 795000,
+  "exact_open_label_coverage": 0.992108176100629,
+  "forbidden_feature_columns": [],
+  "prediction_duplicate_keys": 0,
+  "execution_clock_violations": 0,
+  "financial_lookahead_violations": 0,
+  "revenue_lookahead_violations": 0,
+  "selected_configuration": {
+    "feature_set": "TECH2",
+    "ridge_lambda": 10.0,
+    "train_cv_mean_rank_ic": 0.060381823421434846,
+    "top_k": 20,
+    "rebalance_every": 5,
+    "train_cv_portfolio_utility": -0.10330391119880716
+  },
+  "clock_contract": {
+    "signal": "features known at T close",
+    "execution": "next market session raw open",
+    "training_label": "T+1 raw open to 21 market sessions after entry, corporate-action adjusted",
+    "corporate_actions": "open-to-open total return on effective date",
+    "unavailable_open": "order not filled; existing position remains frozen until next raw open",
+    "validation_fit_cutoff": "2018-11-30",
+    "sealed_fit_cutoff": "2022-12-01"
+  },
+  "cost_contract": {
+    "buy_commission": 0.001425,
+    "sell_commission": 0.001425,
+    "sell_tax": 0.003,
+    "slippage_each_side": 0.0005
+  },
+  "statistics": {
+    "VALIDATION_2019_2022": {
+      "observations": 976,
+      "mean_daily_excess": -0.0007173600866047141,
+      "nw_lag": 21,
+      "hac_t_stat": -3.1028612223869523,
+      "block_bootstrap_positive_probability": 0.001
+    },
+    "SEALED_2023_LATEST": {
+      "observations": 878,
+      "mean_daily_excess": 3.4926064855393466e-05,
+      "nw_lag": 21,
+      "hac_t_stat": 0.12367458892527287,
+      "block_bootstrap_positive_probability": 0.6042
+    }
+  },
+  "metrics": [
+    {
+      "portfolio": "VALIDATION_2019_2022",
+      "start": "2019-01-02",
+      "end": "2022-12-30",
+      "days": 977,
+      "ending_nav": 1.0570216465215927,
+      "cumulative_return": 0.057021646521592695,
+      "cagr": 0.014421345710669664,
+      "annualized_volatility": 0.14489032766821833,
+      "sharpe_rf0": 0.17193691732136418,
+      "max_drawdown": -0.2793762552259741,
+      "calmar": 0.05161979746276192,
+      "average_daily_turnover": 0.06527024663865565,
+      "total_cost": 0.25597217994141896,
+      "trade_count": 4526
+    },
+    {
+      "portfolio": "VALIDATION_2019_2022_MARKET_PROXY",
+      "start": "2019-01-02",
+      "end": "2022-12-30",
+      "days": 977,
+      "ending_nav": 2.09009338126328,
+      "cumulative_return": 1.09009338126328,
+      "cagr": 0.20966671665083858,
+      "annualized_volatility": 0.1823973830667048,
+      "sharpe_rf0": 1.1276846995009848,
+      "max_drawdown": -0.2958435956458647,
+      "calmar": 0.7087079785962888,
+      "average_daily_turnover": 0.0,
+      "total_cost": 0.0,
+      "trade_count": 0
+    },
+    {
+      "portfolio": "SEALED_2023_LATEST",
+      "start": "2023-01-03",
+      "end": "2026-08-28",
+      "days": 879,
+      "ending_nav": 2.014212371518528,
+      "cumulative_return": 1.014212371518528,
+      "cagr": 0.22259624735024874,
+      "annualized_volatility": 0.16678215458564533,
+      "sharpe_rf0": 1.2894962225212965,
+      "max_drawdown": -0.21365618475204196,
+      "calmar": 1.0418432193225866,
+      "average_daily_turnover": 0.07207537318231602,
+      "total_cost": 0.27996277686718385,
+      "trade_count": 4137
+    },
+    {
+      "portfolio": "SEALED_2023_LATEST_MARKET_PROXY",
+      "start": "2023-01-03",
+      "end": "2026-08-28",
+      "days": 879,
+      "ending_nav": 1.942230065924133,
+      "cumulative_return": 0.9422300659241329,
+      "cagr": 0.20989279403213867,
+      "annualized_volatility": 0.16976795858741053,
+      "sharpe_rf0": 1.2149736127762427,
+      "max_drawdown": -0.25590402855380745,
+      "calmar": 0.8202012106581813,
+      "average_daily_turnover": 0.0,
+      "total_cost": 0.0,
+      "trade_count": 0
+    }
+  ],
+  "limitations": [
+    "E45 crisis multipliers are intentionally not applied in A3; A4 performs the controller handoff.",
+    "The market benchmark is a point-in-time base-universe equal-weight mean open-to-open proxy, not a directly tradable index.",
+    "Value proxies remain excluded until the historical par-value master is complete."
+  ],
+  "files": {
+    "cv_model_selection.csv": {
+      "bytes": 3487,
+      "sha256": "98f365e63fd1d39a875773ec0a22f85065f434ac1daa8d5e8066fc559cedcc6a"
+    },
+    "train_portfolio_grid.csv": {
+      "bytes": 1706,
+      "sha256": "eb8a4e4db16d9b32cebf48f166e6b79a0b7fdc5a1bf2d403cca2cdbfac988c05"
+    },
+    "period_metrics.csv": {
+      "bytes": 1021,
+      "sha256": "1fa1c337bddaf0030299c63e9737da00e38266400193316a07f7e9d6265f36c0"
+    },
+    "daily_nav.csv": {
+      "bytes": 191013,
+      "sha256": "afd3d8cf07f6e5083e860a682fee7ad6b23abbe4d30543b7dd62ca0897930da3"
+    },
+    "trades.csv": {
+      "bytes": 821974,
+      "sha256": "5c140e182a3d043db8c56928096d06681c801c97fbd1d73fe77d3c2f35cbe269"
+    },
+    "causal_scores.parquet": {
+      "bytes": 3717531,
+      "sha256": "5b977d276d786b09cdb2f7efeb2b2e9f05ff0da14a9b6926ae94078c0849b92f"
+    },
+    "exact_open_labels_research_only.parquet": {
+      "bytes": 4885585,
+      "sha256": "d3b61c97617ddef424d33a7a469ed5a8cbd26c931a715f07d1c67b370ddaa6a8"
+    },
+    "frozen_model.json": {
+      "bytes": 988,
+      "sha256": "80f2f2850ed18c16b26e9f94867ee5798f3cf9b6b85843af6ee60577243e93c4"
+    }
+  }
+}

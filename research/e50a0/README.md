@@ -2,6 +2,10 @@
 
 This package builds the survivorship-aware input database for E50-A.  It does
 not select an alpha model and does not alter formal E16/E18/E22 trading.
+PIT / no-survivorship contracts are HARD_FROZEN (`FROZEN_GOVERNANCE.md`).
+This dataset is not an official E16 / E18 / E22 / E45 strategy version.
+Rebuild only after a reproducible defect, and never overwrite the prior
+baseline in place.
 
 The all-market archive layer starts at the earliest available release date,
 2004-02-11. The workflow discovers every `yearly_YYYY.zip` archive rather than

@@ -1,0 +1,74 @@
+{
+  "same_bar_execution_trades": 0,
+  "execution_clock_violations_r1": 0,
+  "execution_clock_violations_a3": 0,
+  "trade_lag_histogram": [
+    {
+      "lag": 1,
+      "len": 6436
+    },
+    {
+      "lag": 2,
+      "len": 62
+    },
+    {
+      "lag": 3,
+      "len": 1598
+    },
+    {
+      "lag": 4,
+      "len": 219
+    },
+    {
+      "lag": 5,
+      "len": 82
+    },
+    {
+      "lag": 12,
+      "len": 43
+    },
+    {
+      "lag": 13,
+      "len": 21
+    }
+  ],
+  "label_columns_in_feature_panel": [],
+  "a2_financial_lookahead": 0,
+  "a2_revenue_lookahead": 0,
+  "a2_out_of_range_ranks": 0,
+  "alpha_on_or_after_delisting_date": 0,
+  "alpha_when_not_listed_and_trading": 0,
+  "corporate_action_available_after_effective": 30,
+  "a0_adjusted_rows": 0,
+  "a3_forbidden_feature_columns": [],
+  "full_sample_rank_scope": "cross-sectional within signal date only (pct_* over date)",
+  "train_test_cutoffs": {
+    "validation_fit_cutoff": "2018-11-30",
+    "sealed_fit_cutoff": "2022-12-01",
+    "r1_selection_window": "2011-2018 OOF only"
+  },
+  "survivorship": {
+    "delisted_codes_retained_in_universe": 295,
+    "master_currently_listed_false": 647,
+    "policy": "retain delisted securities and infer first tradable date from first raw observation"
+  },
+  "hidden_leverage_r1": {
+    "max_gross_exposure": 1.0000000000000004,
+    "min_cash": -4.3021142204224816e-16,
+    "exposure_gt_1_days": 0,
+    "mean_daily_turnover": 0.0684931487032448,
+    "max_daily_turnover": 0.9980786985053776,
+    "r1": {
+      "max_gross_exposure": 1.0000000000000009,
+      "min_gross_exposure": 0.0,
+      "mean_gross_exposure": 0.9989224137931034,
+      "max_nav": 3.968998754115342,
+      "min_cash": -9.992007221626409e-16,
+      "negative_cash_days": 0,
+      "exposure_gt_1_days": 0,
+      "mean_daily_turnover": 0.05926710158615695,
+      "max_daily_turnover": 1.9931631609152403,
+      "stale_positions_max": 1
+    }
+  }
+}

@@ -2,6 +2,7 @@
 
 E50-A1 extends the verified E50-A0 point-in-time equity universe. It does not
 change E16, E18 or E22 and does not yet select an alpha model.
+Available-date / no-lookahead contracts are HARD_FROZEN (`FROZEN_GOVERNANCE.md`).
 
 ## Knowledge-date contract
 
