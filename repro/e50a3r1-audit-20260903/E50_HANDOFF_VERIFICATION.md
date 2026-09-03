@@ -315,6 +315,49 @@ Do not silently assume old claims are true. Unverified E45 numbers stay unverifi
 
 ---
 
+## 7A. Provenance Check — 2.5% OOF Turnover and Bootstrap 0.70
+
+Required before any further research. Neither rule was introduced, inferred, or promoted by this audit. Both remain **EXPERIMENTAL**.
+
+### A. 2.5% OOF turnover ceiling
+
+| Field | Evidence |
+|---|---|
+| Exact path | `scripts/e50a3r1_repair.py` |
+| Exact line / config | Line 297: `metric["turnover_feasible"] = metric["average_daily_turnover"] <= 0.025` |
+| Related lines | Lines 301–308 (feasible pool / `turnover_constraint_satisfied` / `turnover_feasible_candidates`); lines 336–337 require `turnover_constraint_satisfied` for promotion |
+| Documentation | `research/e50a3r1/README.md` lines 17–21: “A daily turnover ceiling of 2.5%…” |
+| Introducing commit | `ea702996e167535f9c3f2e263cd88dfe5a8d2b29` (2026-09-03 12:02:14 +0800) — *E50-A3-R1: repair regime stability and turnover* |
+| Hard-block commit | `8b968df80107a45d6313cfc0e4010afd6a2e4d35` (2026-09-03 12:07:25 +0800) — *E50-A3-R1: hard-block infeasible turnover selection* |
+| Predates this handoff audit? | **YES.** Both commits are ancestors of `main` and of the first audit commit `74dfee7` (2026-09-03 16:32:57 UTC). |
+| Governance class | **EXPERIMENTAL** |
+| Introduced / inferred / promoted by this audit? | **NO / NO / NO** |
+
+Not HARD_FROZEN, not SOFT_FROZEN, not SOFT_FROZEN_CRITICAL. Not PROPOSED (it already existed). Downgrade is not needed because provenance is proven; class stays EXPERIMENTAL.
+
+### B. Bootstrap / acceptance threshold 0.70
+
+| Field | Evidence |
+|---|---|
+| Exact path (R1) | `scripts/e50a3r1_repair.py` |
+| Exact lines (R1) | Lines 338–339: `block_bootstrap_positive_probability] >= 0.70` on both VALIDATION and SEALED |
+| Exact path (A3 parent) | `scripts/e50a3_train_exact_open.py` |
+| Exact lines (A3) | Lines 559–560: same `>= 0.70` promotion test |
+| Documentation | `research/e50a3r1/README.md` lines 25–27: “both 21-session block-bootstrap positive-excess probabilities reach 70%” |
+| Introducing commit (A3) | `83ce63ff0f7987d1c14f293b10711981b8313b76` (2026-09-03 04:35:00 +0800) — *E50-A3: causal alpha exact T+1 open simulation* |
+| Introducing commit (R1) | `ea702996e167535f9c3f2e263cd88dfe5a8d2b29` (same as turnover ceiling) |
+| Predates this handoff audit? | **YES.** Both commits are ancestors of `main` and of `74dfee7`. |
+| Governance class | **EXPERIMENTAL** |
+| Introduced / inferred / promoted by this audit? | **NO / NO / NO** |
+
+Not HARD_FROZEN, not SOFT_FROZEN, not SOFT_FROZEN_CRITICAL. Not PROPOSED. Downgrade is not needed; class stays EXPERIMENTAL.
+
+### Provenance verdict
+
+Both constraints are pre-existing EXPERIMENTAL research gates. This audit used them as-is for reproduction. It did not invent them, did not treat them as frozen, and does not promote them.
+
+---
+
 ## 8. New Assumptions Introduced
 
 None of the following is frozen. None changes E16 / E18 / E22 / E45 behavior.
