@@ -7,19 +7,45 @@ Authoritative class definitions:
 ```
 HARD_FROZEN
 = 研究正確性底線
+  Point-in-Time correctness
+  No look-ahead
+  No survivorship bias
+  causal information/signal/order/execution clock
+  Exact T+1 execution principle
+  Walk-Forward
+  Embargo
+  no future-aware normalization / ranking / model selection
 
 SOFT_FROZEN
 = E16 / E18 / E22 / E45 目前正式策略版本
+  E16 Core Allocation
+  E18 Execution Layer
+  E22 execution/dividend/turnover extensions
+  E45 Crisis Protection Core
+
+SOFT_FROZEN_CRITICAL
+= E45 only
+  may be challenged only by a separate challenger experiment
+  with a higher validation bar than E16 / E18 / E22
 
 EXPERIMENTAL
 = 新模型、新門檻、新權重、新 Router、新 rebalancing
+  any newly introduced threshold
+  any new weight
+  bootstrap cutoff
+  rebalance rule
+  model-selection rule
+  new Router logic
+  new Alpha model
+  any new acceptance gate
 ```
 
 English equivalent:
 
-- HARD_FROZEN = the research-correctness floor (causal clock, PIT, no leakage, reproducibility).
+- HARD_FROZEN = the research-correctness floor listed above. It is not a strategy version.
 - SOFT_FROZEN = the current official strategy versions of E16, E18, E22, and E45.
-- EXPERIMENTAL = a new model, threshold, weight, router, or rebalancing rule.
+- SOFT_FROZEN_CRITICAL = E45, a SOFT_FROZEN official version that requires a higher challenger bar.
+- EXPERIMENTAL = a new model, threshold, weight, bootstrap cutoff, rebalance rule, model-selection rule, router, Alpha model, or acceptance gate.
 
 If a later note disagrees with this file, this file wins until a new frozen version is explicitly approved.
 
@@ -55,28 +81,44 @@ Only these four current official strategy versions are SOFT_FROZEN:
 
 - E16 Core Allocation
 - E18 Execution Layer
-- E22 Dividend / economic-return layer
+- E22 execution / dividend / turnover extensions
 - E45 Crisis Protection Core
 
 The current official implementation is retained. It may be challenged only through a separate challenger experiment. The original baseline artifacts, code path, and reported metrics must be preserved. The challenger must not overwrite or delete the prior frozen baseline.
 
 A SOFT_FROZEN challenger that looks better is still not the new official version until the promotion path completes.
 
+### SOFT_FROZEN_CRITICAL — E45
+
+E45 is SOFT_FROZEN and additionally SOFT_FROZEN_CRITICAL.
+
+It may be challenged only by a separate challenger experiment that:
+
+1. keeps the original E45 code, artifacts, and reported metrics readable;
+2. completes the full promotion path below;
+3. meets a **higher validation bar** than an E16 / E18 / E22 challenger: crisis-window stress, Monte Carlo / block-bootstrap of drawdown protection, and side-by-side proof that the challenger does not weaken crisis protection versus the preserved E45 baseline;
+4. receives explicit approval before any new frozen version is recorded.
+
+This higher bar is a **process** requirement. It does not invent a new MDD, turnover, bootstrap, or handoff number. Any numeric gate proposed for an E45 challenger is EXPERIMENTAL until explicitly approved.
+
 Not SOFT_FROZEN:
 
 - E50-A0 / A1 / A2 datasets (PIT contracts are HARD_FROZEN; do not silent-rebuild)
 - E50-A3 / E50-A3-R1 models and numeric gates (EXPERIMENTAL)
-- a new router, a new rebalancing calendar, or a new weight scheme (EXPERIMENTAL)
+- a new router, a new rebalancing calendar, a new weight scheme, a new Alpha model, or a new acceptance gate (EXPERIMENTAL)
 
 ### EXPERIMENTAL — 新模型、新門檻、新權重、新 Router、新 rebalancing
 
 Temporary research settings. This class includes, without limitation:
 
-- a new model
-- a new threshold
-- a new weight
-- a new Router
-- a new rebalancing rule
+- any newly introduced threshold
+- any new weight
+- bootstrap cutoff
+- rebalance rule
+- model-selection rule
+- new Router logic
+- new Alpha model
+- any new acceptance gate
 
 EXPERIMENTAL rules **never become frozen automatically**, including when:
 
@@ -86,7 +128,7 @@ EXPERIMENTAL rules **never become frozen automatically**, including when:
 - a filename contains `frozen_`
 - a README says “selected configuration”
 
-Default: any newly introduced model, threshold, weight, router, or rebalancing rule is **EXPERIMENTAL** unless it is explicitly promoted.
+Default: any newly introduced model, threshold, weight, bootstrap cutoff, rebalance rule, model-selection rule, router, Alpha model, or acceptance gate is **EXPERIMENTAL** unless it is explicitly promoted.
 
 ---
 
@@ -126,27 +168,31 @@ These are the research-correctness floor. They cannot be relaxed for performance
 ### Causal clock
 
 - Information(T) -> Feature(T) -> Signal(T) -> Order -> next market session -> T+1 open fill
+- Exact T+1 execution principle
 - No same-bar execution
 - No Close(T) signal filled at Close(T)
 - No replacing a missing T+1 open with a future-selected substitute name
 
 ### Point-in-time and leakage
 
+- Point-in-Time correctness
+- No look-ahead
+- No survivorship bias
 - No future financial releases
 - No revised data leaked backward
 - No future constituent membership
 - No future corporate actions as pre-event signals
-- No future normalization statistics
+- No future-aware normalization / ranking / model selection
 - No future delisting knowledge
 - No full-sample ranking or full-sample scaling
 - No label leakage into features
 - No train/validation/test contamination
-- No survivorship-only universe
 
 ### Walk-forward
 
-- Fit / transform / calibration use only the allowed train window
+- Walk-Forward
 - Embargo remains in force where the current causal pipeline requires it
+- Fit / transform / calibration use only the allowed train window
 - Validation and sealed/test windows are not used to select the model or portfolio rule being tested
 
 ### Result integrity
@@ -183,11 +229,13 @@ Current E22 dividend event ledger and the hold-through-ex vs sell-before-ex econ
 
 Changing dividend cashflow timing or tax treatment in that baseline path is EXPERIMENTAL and requires a challenger folder.
 
-### E45 Crisis Protection Core — current official version
+### E45 Crisis Protection Core — current official version (SOFT_FROZEN_CRITICAL)
 
 Current crisis implementation, parameters, and the reported MDD baseline claim. E45 is the official crisis-protection version, not an alpha model. Alpha weakening is not treated as crisis in this official operating logic.
 
-The handoff claim “MDD about -13.16%” remains a baseline claim that must be verified from artifacts. Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is EXPERIMENTAL.
+The handoff claim “MDD about -13.16%” remains a baseline claim that must be verified from artifacts. It is not a new freeze and not a license to retune E45 in place.
+
+Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is an EXPERIMENTAL challenger. Because E45 is SOFT_FROZEN_CRITICAL, that challenger must use a separate folder, keep the original baseline, and clear the higher validation bar in §1 before any new frozen version.
 
 ---
 
@@ -248,7 +296,7 @@ If a number is not the research-correctness floor and is not one of the four off
 | E18 | Exact T+1; no same-bar | Current official E18 version | New fee, tax, slippage, lot, or rebalance friction |
 | E22 | No future corporate-action leakage | Current official E22 version | New dividend timing or tax treatment |
 | E44 | Causal clock contract | — (not an official strategy version) | Extra diagnostic cutoffs |
-| E45 | Result must measure crisis, not alpha | Current official E45 version | New vote cuts, scales, ramps, or handoff thresholds |
+| E45 | Result must measure crisis, not alpha | Current official version, **SOFT_FROZEN_CRITICAL** | New vote cuts, scales, ramps, handoff thresholds, or acceptance gates |
 | E50-A | Overlay result integrity; PIT; walk-forward; Exact T+1 | — (not an official strategy version) | All models, grids, routers, thresholds, weights, rebalancing |
 | Future E50 challengers | Inherit the correctness floor | Must keep the then-current E16/E18/E22/E45 versions beside the challenger | Default class for every new rule |
 

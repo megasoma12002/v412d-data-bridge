@@ -131,9 +131,10 @@ PnL Start
 ## Governance
 Follow `FROZEN_GOVERNANCE.md`.
 
-- HARD_FROZEN = 研究正確性底線. Clock / PIT rules cannot be relaxed to chase CAGR.
+- HARD_FROZEN = 研究正確性底線. Clock / PIT / walk-forward / embargo / no future-aware selection cannot be relaxed to chase CAGR.
 - SOFT_FROZEN = E16 / E18 / E22 / E45 目前正式策略版本. Challengers go to a new folder.
-- EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing.
+- SOFT_FROZEN_CRITICAL = E45. Separate challenger plus a higher validation bar.
+- EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing、bootstrap、model-selection、acceptance gate.
 - R1 numeric gates (2.5% turnover, 0.70 bootstrap, beat-proxy, grid, overlay costs) are EXPERIMENTAL.
 - They do not become frozen because a sealed window looks strong.
 

@@ -238,9 +238,10 @@ Router 的目標：
 
 規則分三級，詳見 `FROZEN_GOVERNANCE.md`：
 
-- HARD_FROZEN = 研究正確性底線。不得為績效放寬（Exact T+1、PIT、Walk Forward、Embargo、no look-ahead、no survivorship、不覆蓋 baseline、不得無證據稱 PASS）。
+- HARD_FROZEN = 研究正確性底線。不得為績效放寬（PIT、no look-ahead、no survivorship、causal clock、Exact T+1、Walk Forward、Embargo、no future-aware normalization / ranking / model selection）。
 - SOFT_FROZEN = E16 / E18 / E22 / E45 目前正式策略版本。只能用獨立 challenger 挑戰，且必須保留原正式版本。
-- EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing。預設如此，不得自動升格為 Frozen。
+- SOFT_FROZEN_CRITICAL = E45。只能用獨立 challenger 挑戰，且驗證門檻高於 E16 / E18 / E22。
+- EXPERIMENTAL = 新門檻、新權重、bootstrap cutoff、rebalance、model-selection、新 Router、新 Alpha、新 acceptance gate。預設如此，不得自動升格為 Frozen。
 
 任何 Frozen 規則若要測試替代方案：
 

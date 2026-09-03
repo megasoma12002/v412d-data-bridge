@@ -83,7 +83,8 @@ Governance（`FROZEN_GOVERNANCE.md`）適用於 E16、E18、E22、E45，以及�
 
 - HARD_FROZEN = 研究正確性底線，不得為績效放寬
 - SOFT_FROZEN = E16 / E18 / E22 / E45 目前正式策略版本；只能用獨立實驗挑戰，且必須保留原正式版本
-- EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing；不得自動變成 Frozen
+- SOFT_FROZEN_CRITICAL = E45；challenger 必須用更高驗證門檻
+- EXPERIMENTAL = 新門檻 / 權重 / bootstrap / rebalance / model-selection / Router / Alpha / acceptance gate；不得自動變成 Frozen
 
 晉升路徑：
 FROZEN_BASELINE -> CHALLENGER -> OOS VALIDATION -> COST VALIDATION -> STRESS / MONTE CARLO VALIDATION -> GOVERNANCE REVIEW -> EXPLICIT APPROVAL -> NEW FROZEN VERSION

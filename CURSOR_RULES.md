@@ -35,11 +35,13 @@
 ## 2.1 Frozen Governance
 Every rule is HARD_FROZEN, SOFT_FROZEN, or EXPERIMENTAL.
 
-HARD_FROZEN = 研究正確性底線. Cannot be relaxed for performance. This is the causal floor: Exact T+1, PIT, walk-forward, embargo, no look-ahead, no survivorship, and no overwrite / no false PASS.
+HARD_FROZEN = 研究正確性底線. Cannot be relaxed for performance: PIT, no look-ahead, no survivorship, causal clock, Exact T+1, walk-forward, embargo, and no future-aware normalization / ranking / model selection.
 
 SOFT_FROZEN = E16 / E18 / E22 / E45 目前正式策略版本. Challenge only with a separate experiment that keeps the original official version.
 
-EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing. Never becomes frozen automatically.
+SOFT_FROZEN_CRITICAL = E45. Challenge only with a separate experiment and a higher validation bar than E16 / E18 / E22.
+
+EXPERIMENTAL = any new threshold, weight, bootstrap cutoff, rebalance rule, model-selection rule, Router, Alpha model, or acceptance gate. Never becomes frozen automatically.
 
 Promotion path:
 

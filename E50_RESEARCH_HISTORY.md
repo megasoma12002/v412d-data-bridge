@@ -378,7 +378,8 @@ Governance classes are defined in `FROZEN_GOVERNANCE.md`.
 ```
 HARD_FROZEN = 研究正確性底線
 SOFT_FROZEN = E16 / E18 / E22 / E45 目前正式策略版本
-EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing
+SOFT_FROZEN_CRITICAL = E45（更高 challenger 驗證門檻）
+EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing、bootstrap、model-selection、acceptance gate
 ```
 
 ## HARD_FROZEN
@@ -393,8 +394,8 @@ EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing
 ## SOFT_FROZEN
 - E16 目前正式核心配置版本
 - E18 目前正式執行層版本
-- E22 目前正式股利 / 經濟報酬版本
-- E45 目前正式危機保護版本
+- E22 目前正式股利 / 換手 / 經濟報酬版本
+- E45 目前正式危機保護版本（同時為 SOFT_FROZEN_CRITICAL）
 
 ## RETAINED (inside the current official E16 / E18 / E22 / E45 versions)
 - Financial Router
