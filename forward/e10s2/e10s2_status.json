@@ -3,17 +3,17 @@
   "shock_rule": "TAIEX cumulative close change <= -1000 and return <= -2% over 1/2/3/5 sessions; 10-session cooldown",
   "candidate_days_by_window": {
     "1d": 15,
-    "2d": 28,
+    "2d": 29,
     "3d": 43,
     "5d": 65
   },
-  "guarded_shock_days": 80,
-  "independent_events": 24,
+  "guarded_shock_days": 81,
+  "independent_events": 25,
   "0050_qc": {
     "status": "PASS",
-    "rows": 4080,
+    "rows": 4081,
     "first_date": "2010-01-04",
-    "latest_date": "2026-09-02",
+    "latest_date": "2026-09-03",
     "duplicates": 0,
     "nulls": 0
   },
