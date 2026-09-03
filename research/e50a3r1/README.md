@@ -17,6 +17,8 @@ All feature sets, model modes, ridge penalties, breadth, rebalance interval,
 buffer and caps are selected on embargoed 2011-2018 OOF results only. A daily
 turnover ceiling of 2.5% is imposed before maximizing after-cost
 `CAGR - 0.5 * abs(max drawdown)`.
+If no candidate satisfies that ceiling, the report records zero feasible
+candidates and promotion is blocked even when a later period looks strong.
 
 ## Promotion gate
 

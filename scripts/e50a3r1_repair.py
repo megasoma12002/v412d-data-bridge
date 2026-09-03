@@ -303,6 +303,9 @@ def main() -> None:
     chosen = choice_pool.sort(["utility", "cagr"], descending=True).row(0, named=True)
     config = {key: chosen[key] for key in ["top_k", "rebalance_every", "exit_multiple", "neutralization", "industry_cap"]}
     selection.update(config)
+    selection["train_average_daily_turnover"] = chosen["average_daily_turnover"]
+    selection["turnover_constraint_satisfied"] = bool(chosen["turnover_feasible"])
+    selection["turnover_feasible_candidates"] = feasible.height
 
     validation_start=date(2019,1,1); validation_end=date(2022,12,31)
     sealed_start=date(2023,1,1); sealed_end=max(calendar)
@@ -330,7 +333,8 @@ def main() -> None:
     clock_violations=all_trades.filter(pl.col("execution_date")<=pl.col("signal_date")).height
     engineering_pass=(clock_violations==0 and a2_qc["financial_lookahead_violations"]==0
                       and a2_qc["revenue_lookahead_violations"]==0)
-    eligible=(engineering_pass and val["cagr"]>val_bench["cagr"] and sealed["cagr"]>sealed_bench["cagr"]
+    eligible=(engineering_pass and selection["turnover_constraint_satisfied"]
+              and val["cagr"]>val_bench["cagr"] and sealed["cagr"]>sealed_bench["cagr"]
               and statistics["VALIDATION_2019_2022"]["block_bootstrap_positive_probability"]>=0.70
               and statistics["SEALED_2023_LATEST"]["block_bootstrap_positive_probability"]>=0.70)
     outputs={
