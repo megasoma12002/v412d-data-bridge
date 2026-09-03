@@ -79,12 +79,11 @@ Crisis:
 - No Survivorship Bias
 - 0050 正二不進核心
 
-Governance（`FROZEN_GOVERNANCE.md`）適用於 E16、E18/E22、E45，以及所有未來 E50 challenger：
+Governance（`FROZEN_GOVERNANCE.md`）適用於 E16、E18、E22、E45，以及所有未來 E50 challenger：
 
-- HARD_FROZEN 不得為績效放寬
-- SOFT_FROZEN 只能用獨立實驗挑戰，且必須保留原 baseline
-- EXPERIMENTAL 不得自動變成 Frozen
-- 新門檻 / 權重 / bootstrap / 換手頻率 / 模型或 router 規則，預設都是 EXPERIMENTAL
+- HARD_FROZEN = 研究正確性底線，不得為績效放寬
+- SOFT_FROZEN = E16 / E18 / E22 / E45 目前正式策略版本；只能用獨立實驗挑戰，且必須保留原正式版本
+- EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing；不得自動變成 Frozen
 
 晉升路徑：
 FROZEN_BASELINE -> CHALLENGER -> OOS VALIDATION -> COST VALIDATION -> STRESS / MONTE CARLO VALIDATION -> GOVERNANCE REVIEW -> EXPLICIT APPROVAL -> NEW FROZEN VERSION

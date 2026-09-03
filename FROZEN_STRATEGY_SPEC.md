@@ -230,7 +230,7 @@ Router 的目標：
 - 為了提高 CAGR 破壞 Exact T+1 或 PIT
 - 為了績效放寬任何 HARD_FROZEN 規則
 - 覆蓋或刪除先前 Frozen Baseline
-- 把 EXPERIMENTAL 門檻、權重、bootstrap、換手頻率、模型或 router 規則自動升格為 Frozen
+- 把 EXPERIMENTAL 新模型、新門檻、新權重、新 Router、新 rebalancing 自動升格為 Frozen
 
 ---
 
@@ -238,9 +238,9 @@ Router 的目標：
 
 規則分三級，詳見 `FROZEN_GOVERNANCE.md`：
 
-- HARD_FROZEN：不得為績效放寬（Exact T+1、PIT、Walk Forward、Embargo、no look-ahead、no survivorship、overlay 角色、Alpha 弱 ≠ Crisis、E45 危機角色、0050 正二不進核心）。
-- SOFT_FROZEN：E16 / E18-E22 / E45 的現行實作。只能用獨立 challenger 挑戰，且必須保留原 baseline。
-- EXPERIMENTAL：門檻、權重、bootstrap、換手頻率、模型與 router 規則。預設如此，不得自動升格為 Frozen。
+- HARD_FROZEN = 研究正確性底線。不得為績效放寬（Exact T+1、PIT、Walk Forward、Embargo、no look-ahead、no survivorship、不覆蓋 baseline、不得無證據稱 PASS）。
+- SOFT_FROZEN = E16 / E18 / E22 / E45 目前正式策略版本。只能用獨立 challenger 挑戰，且必須保留原正式版本。
+- EXPERIMENTAL = 新模型、新門檻、新權重、新 Router、新 rebalancing。預設如此，不得自動升格為 Frozen。
 
 任何 Frozen 規則若要測試替代方案：
 

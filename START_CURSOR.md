@@ -21,7 +21,7 @@ DO NOT modify frozen baselines.
 DO NOT rebuild E50-A0/A1/A2 unless you identify a reproducible upstream defect.
 DO NOT relax HARD_FROZEN rules for performance.
 DO NOT overwrite or delete a prior frozen baseline.
-DO NOT auto-promote EXPERIMENTAL thresholds, weights, bootstrap cutoffs, rebalance rules, model rules, or router rules.
+DO NOT auto-promote EXPERIMENTAL models, thresholds, weights, routers, or rebalancing rules.
 
 The frozen portfolio architecture is:
 

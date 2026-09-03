@@ -46,8 +46,9 @@ gate, not an authorization to trade or a promise of 20% annual returns.
 E45 is deliberately not applied here. The next gate, E50-A4, must test the
 A3 attack sleeve under the E45 crisis multiplier without retuning A3 in
 place. A3 selected hyperparameters, costs, breadth, and promotion cutoffs are
-EXPERIMENTAL (`FROZEN_GOVERNANCE.md`). Exact T+1 / PIT remain HARD_FROZEN.
-E16, E18/E22, and E45 baselines must be preserved beside any challenger.
+EXPERIMENTAL (`FROZEN_GOVERNANCE.md`: 新模型 / 新門檻 / 新權重 / 新 rebalancing).
+Exact T+1 / PIT remain HARD_FROZEN. E16 / E18 / E22 / E45 official versions
+must be preserved beside any challenger.
 
 ## Outputs
 

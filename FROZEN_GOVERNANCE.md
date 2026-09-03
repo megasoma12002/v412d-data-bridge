@@ -2,22 +2,34 @@
 
 This document is the Frozen Governance contract for the whole research program.
 
-It applies to:
+Authoritative class definitions:
 
-- E16 Core Allocation
-- E18 / E22 Execution Layer
-- E44 Exact T+1 clock
-- E45 Crisis Protection Core
-- E50-A overlay research
-- all future E50 challengers (R1, R2, A4, routers, cost models, crisis handoff tests)
+```
+HARD_FROZEN
+= 研究正確性底線
+
+SOFT_FROZEN
+= E16 / E18 / E22 / E45 目前正式策略版本
+
+EXPERIMENTAL
+= 新模型、新門檻、新權重、新 Router、新 rebalancing
+```
+
+English equivalent:
+
+- HARD_FROZEN = the research-correctness floor (causal clock, PIT, no leakage, reproducibility).
+- SOFT_FROZEN = the current official strategy versions of E16, E18, E22, and E45.
+- EXPERIMENTAL = a new model, threshold, weight, router, or rebalancing rule.
 
 If a later note disagrees with this file, this file wins until a new frozen version is explicitly approved.
+
+This contract applies to E16, E18, E22, E45, E50-A overlay research, and all future E50 challengers.
 
 ---
 
 ## 0. Purpose
 
-Frozen rules exist to protect causal correctness, Exact T+1, point-in-time integrity, and baseline reproducibility.
+Frozen rules exist to protect causal correctness and to keep the current official E16 / E18 / E22 / E45 versions readable beside any challenger.
 
 They do **not** exist to lock in a performance number.
 
@@ -29,23 +41,42 @@ Long-term targets (CAGR >= 20%, MDD about 10–15%) remain targets. They are not
 
 Every research rule is one of:
 
-### HARD_FROZEN
+### HARD_FROZEN — 研究正確性底線
 
-Cannot be relaxed to improve CAGR, Sharpe, turnover, or drawdown.
+The correctness floor of the research. It cannot be relaxed to improve CAGR, Sharpe, turnover, or drawdown.
 
 A HARD_FROZEN rule may be *implemented more strictly*, but it may not be weakened, bypassed, or renamed as “research-only” in a production-claiming result.
 
-### SOFT_FROZEN
+HARD_FROZEN is not a strategy version. It is the set of rules that make a result causally valid.
 
-The current baseline implementation is retained.
+### SOFT_FROZEN — E16 / E18 / E22 / E45 目前正式策略版本
 
-It may be challenged only through a separate challenger experiment. The original baseline artifacts, code path, and reported metrics must be preserved. The challenger must not overwrite or delete the prior frozen baseline.
+Only these four current official strategy versions are SOFT_FROZEN:
 
-A SOFT_FROZEN challenger that looks better is still not the new baseline until the promotion path completes.
+- E16 Core Allocation
+- E18 Execution Layer
+- E22 Dividend / economic-return layer
+- E45 Crisis Protection Core
 
-### EXPERIMENTAL
+The current official implementation is retained. It may be challenged only through a separate challenger experiment. The original baseline artifacts, code path, and reported metrics must be preserved. The challenger must not overwrite or delete the prior frozen baseline.
 
-Temporary research settings: thresholds, weights, bootstrap cutoffs, rebalance frequencies, model rules, router rules, cost-stress numbers, and overlay promotion gates.
+A SOFT_FROZEN challenger that looks better is still not the new official version until the promotion path completes.
+
+Not SOFT_FROZEN:
+
+- E50-A0 / A1 / A2 datasets (PIT contracts are HARD_FROZEN; do not silent-rebuild)
+- E50-A3 / E50-A3-R1 models and numeric gates (EXPERIMENTAL)
+- a new router, a new rebalancing calendar, or a new weight scheme (EXPERIMENTAL)
+
+### EXPERIMENTAL — 新模型、新門檻、新權重、新 Router、新 rebalancing
+
+Temporary research settings. This class includes, without limitation:
+
+- a new model
+- a new threshold
+- a new weight
+- a new Router
+- a new rebalancing rule
 
 EXPERIMENTAL rules **never become frozen automatically**, including when:
 
@@ -55,7 +86,7 @@ EXPERIMENTAL rules **never become frozen automatically**, including when:
 - a filename contains `frozen_`
 - a README says “selected configuration”
 
-Default: any newly introduced threshold, weight, bootstrap cutoff, rebalance frequency, model rule, or router rule is **EXPERIMENTAL** unless it is explicitly promoted.
+Default: any newly introduced model, threshold, weight, router, or rebalancing rule is **EXPERIMENTAL** unless it is explicitly promoted.
 
 ---
 
@@ -88,9 +119,9 @@ A new frozen version, if approved, is additive: `FROZEN_vN` stays, `FROZEN_vN+1`
 
 ---
 
-## 3. HARD_FROZEN
+## 3. HARD_FROZEN contents
 
-These cannot be relaxed for performance.
+These are the research-correctness floor. They cannot be relaxed for performance.
 
 ### Causal clock
 
@@ -118,93 +149,94 @@ These cannot be relaxed for performance.
 - Embargo remains in force where the current causal pipeline requires it
 - Validation and sealed/test windows are not used to select the model or portfolio rule being tested
 
-### Portfolio role
-
-- E50-A is an alpha overlay, not the whole portfolio
-- E16 remains the core allocation role
-- E18/E22 remains the execution-layer role
-- E45 remains the crisis-protection role, not an alpha model
-- Alpha weakening is not crisis
-- Alpha is reduced before the core portfolio
-- Crisis-level risk control is handed to E45
-- 0050 leveraged ETF (0050 正二) is not in the core strategy
-
-### Baseline integrity
+### Result integrity
 
 - Do not overwrite or delete a prior frozen baseline
-- Do not restart the portfolio from scratch
-- Do not rebuild E50-A0/A1/A2 unless a reproducible upstream defect is identified
 - Do not claim PASS without reproducible evidence
 - Failed experiments are retained
+- Do not rebuild E50-A0/A1/A2 unless a reproducible upstream defect is identified
+- A result must measure the object it claims (overlay NAV is not core NAV; crisis NAV is not alpha NAV)
+
+HARD_FROZEN does **not** freeze a model, a threshold, a weight, a router, or a rebalancing calendar.
 
 ---
 
-## 4. SOFT_FROZEN
+## 4. SOFT_FROZEN contents
 
-These are current baselines. Challenge them only with a preserved-baseline challenger.
+These four current official strategy versions may be challenged only with a preserved-baseline challenger.
 
-### E16 Core Allocation
+### E16 Core Allocation — current official version
 
-- Role is HARD_FROZEN.
-- Current implementation is SOFT_FROZEN: public-financial sleeve, telecom sleeve, 0050 sleeve, and the current E16 target-construction path (including the E21 forward ledger).
-- A new E16 weight, membership list, or sleeve mix is a challenger, not an in-place edit.
+Public-financial sleeve, telecom sleeve, 0050 sleeve, and the current E16 target-construction path (including the E21 forward ledger). 0050 leveraged ETF (0050 正二) is not in this official core.
 
-### E18 / E22 Execution Layer
+A new E16 weight, membership list, sleeve mix, router, or rebalancing calendar is EXPERIMENTAL. It does not edit the official E16 version in place.
 
-- Exact T+1 as a clock is HARD_FROZEN.
-- Current execution implementation is SOFT_FROZEN: live/forward fill policy, turnover/rebalance friction as coded in the E21/E18 path, E22 dividend event ledger, and the hold-through-ex vs sell-before-ex economic-return research.
-- Changing fees, tax, slippage, lot policy, or dividend cashflow timing in that baseline path requires a challenger folder. Do not patch the baseline ledger in place.
+### E18 Execution Layer — current official version
 
-### E45 Crisis Protection Core
+Current live/forward fill policy, lot handling, and turnover/rebalance friction as coded in the E21/E18 path.
 
-- Role is HARD_FROZEN: crisis-level reduction of equity exposure; not an alpha model.
-- Current crisis implementation / parameters / reported MDD benchmark are SOFT_FROZEN.
-- The handoff claim “MDD about -13.16%” remains a baseline claim that must be verified from artifacts; it is not a performance target that can be traded off by weakening E45.
-- Retuning E45 thresholds, vote rules, or exposure schedules requires a challenger that still reports the original E45 baseline.
+Exact T+1 as a clock remains HARD_FROZEN. Changing fees, tax, slippage, lot policy, or rebalancing friction in that baseline path is EXPERIMENTAL and requires a challenger folder.
 
-### E50 data contracts currently used by A3/R1
+### E22 Dividend layer — current official version
 
-- PIT / delisting / available_date contracts are HARD_FROZEN.
-- The pinned A0/A1/A2 artifact versions currently referenced by A3/R1 workflows are SOFT_FROZEN data baselines.
-- Replacing those artifacts is a data-challenger event. Do not silently rebuild.
+Current E22 dividend event ledger and the hold-through-ex vs sell-before-ex economic-return research.
 
-### Router architecture currently retained
+Changing dividend cashflow timing or tax treatment in that baseline path is EXPERIMENTAL and requires a challenger folder.
 
-- Financial vs private-financial split, Telecom Harvest -> Financial Reentry, 0050 as beta/risk-on/allocation alternative, and cash/short-bond as a low-edge parking role are SOFT_FROZEN retained architecture.
-- Specific router weights, lookbacks, and rebalance days inside those modules are EXPERIMENTAL unless a later frozen version names them.
+### E45 Crisis Protection Core — current official version
+
+Current crisis implementation, parameters, and the reported MDD baseline claim. E45 is the official crisis-protection version, not an alpha model. Alpha weakening is not treated as crisis in this official operating logic.
+
+The handoff claim “MDD about -13.16%” remains a baseline claim that must be verified from artifacts. Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is EXPERIMENTAL.
 
 ---
 
-## 5. EXPERIMENTAL
+## 5. EXPERIMENTAL contents
 
 Never auto-promoted. Includes, without limitation:
 
-### E50-A3 / E50-A3-R1
+### New model
 
 - Feature sets (`TECH2`, `PRICE8`, family scores)
-- Ridge lambdas
-- Breadth-regime definition and cutoffs
+- Ridge / tree / boosting / ensemble / regime-aware models
 - Neutralization mode
-- `top_k`, `rebalance_every`, `exit_multiple`, `industry_cap`
+- Incomplete-session quote-count rules inside E50-A
+- Any `frozen_model.json` / `frozen_repair_model.json` selected config (filename does not confer frozen status)
+
+### New threshold
+
+- Breadth-regime cutoffs
+- `top_k`, `exit_multiple`, `industry_cap`
 - Rank-buffer multiples 1.25 / 1.5 / 2.0
-- Utility `CAGR - 0.5 * abs(MDD)`
 - R1 2.5% average daily turnover ceiling
 - Bootstrap positive-excess cutoff 0.70
 - “Beat PIT market proxy after costs” promotion test
-- A3 overlay simulator costs (14.25bp, 30bp tax, 5bp slippage) when used inside E50-A research, as distinct from the E18/E22 baseline path
 - NT$20 million liquidity filter
-- Incomplete-session 75% quote-count rule inside A3
-- Any `frozen_model.json` / `frozen_repair_model.json` selected config (filename does not confer frozen status)
-
-### Future E50 work
-
-- Tree / boosting / ensemble / new regime-aware models
-- New router weights, sleeves, or rebalance calendars
-- New cost, slippage, or delay assumptions
-- New crisis-overlay handoff thresholds between Alpha and E45
 - Audit-only diagnostics (for example gross-exposure > 1.001)
+- New crisis-overlay handoff thresholds between Alpha and E45
 
-If a number is not listed in HARD_FROZEN or SOFT_FROZEN above, it is EXPERIMENTAL.
+### New weight
+
+- Utility `CAGR - 0.5 * abs(MDD)`
+- New E16 sleeve weights or mix
+- A3 overlay simulator costs (14.25bp, 30bp tax, 5bp slippage) when used inside E50-A research, as distinct from the official E18/E22 version
+- New cost, slippage, or delay assumptions
+
+### New Router
+
+- A new financial / private-financial / telecom / 0050 / cash router
+- New router weights, lookbacks, or sleeve membership rules
+- Dynamic-router replacements
+
+Existing routers that already sit inside the official E16 / E18 / E22 / E45 versions remain part of those SOFT_FROZEN versions. A *new* router is EXPERIMENTAL.
+
+### New rebalancing
+
+- `rebalance_every` and any new rebalance calendar
+- Rank-buffer / turnover-smoothing schedules used as portfolio rules
+- New lot or rebalance-friction numbers used as a trading rule
+
+If a number is not the research-correctness floor and is not one of the four official strategy versions above, it is EXPERIMENTAL.
 
 ---
 
@@ -212,12 +244,13 @@ If a number is not listed in HARD_FROZEN or SOFT_FROZEN above, it is EXPERIMENTA
 
 | Layer | HARD_FROZEN | SOFT_FROZEN | EXPERIMENTAL |
 |---|---|---|---|
-| E16 | Core-allocation *role*; core does not exit because alpha is weak | Current sleeve set and target path | Any new weight, name list, or mix |
-| E18/E22 | Exact T+1 clock; no same-bar; no theoretical fill in place of an executable policy | Current forward/dividend implementation | Any new fee, tax, slippage, lot, or rebalance friction number |
-| E44 | Causal clock contract | Current named clock audit/implementation path | Extra diagnostic cutoffs |
-| E45 | Crisis-protection *role*; not an alpha model; crisis ≠ alpha-weak | Current crisis baseline implementation | New vote cuts, scales, ramps, or handoff thresholds |
-| E50-A | Overlay *role*; PIT; walk-forward; Exact T+1; no leakage-for-CAGR | Pinned A0/A1/A2 artifacts now used by A3/R1 | All model, grid, bootstrap, turnover, and overlay cost numbers |
-| Future E50 challengers | Inherit all HARD_FROZEN rows | Must keep the then-current baseline beside the challenger | Default class for every new rule |
+| E16 | Causal clock / PIT / no overwrite | Current official E16 version | New model, threshold, weight, router, or rebalancing |
+| E18 | Exact T+1; no same-bar | Current official E18 version | New fee, tax, slippage, lot, or rebalance friction |
+| E22 | No future corporate-action leakage | Current official E22 version | New dividend timing or tax treatment |
+| E44 | Causal clock contract | — (not an official strategy version) | Extra diagnostic cutoffs |
+| E45 | Result must measure crisis, not alpha | Current official E45 version | New vote cuts, scales, ramps, or handoff thresholds |
+| E50-A | Overlay result integrity; PIT; walk-forward; Exact T+1 | — (not an official strategy version) | All models, grids, routers, thresholds, weights, rebalancing |
+| Future E50 challengers | Inherit the correctness floor | Must keep the then-current E16/E18/E22/E45 versions beside the challenger | Default class for every new rule |
 
 ---
 
@@ -226,8 +259,8 @@ If a number is not listed in HARD_FROZEN or SOFT_FROZEN above, it is EXPERIMENTA
 Agents may not:
 
 - weaken HARD_FROZEN rules to hit CAGR or MDD targets
-- edit E16, E18/E22, or E45 baseline files in place and still call them the original baseline
-- promote an EXPERIMENTAL threshold because a sealed window looks strong
+- edit E16, E18, E22, or E45 official files in place and still call them the original official version
+- promote an EXPERIMENTAL model, threshold, weight, router, or rebalancing rule because a sealed window looks strong
 - delete failed experiments
 - rebuild A0/A1/A2 without a reproducible upstream defect
 - treat `frozen_*.json` output names as governance promotion
@@ -235,6 +268,6 @@ Agents may not:
 Agents must:
 
 - write challengers to a new folder / branch
-- classify every new number as EXPERIMENTAL
-- keep baseline vs challenger artifacts
+- classify every new model, threshold, weight, router, or rebalancing rule as EXPERIMENTAL
+- keep official-version vs challenger artifacts
 - stop performance work when leakage or clock contamination is found
