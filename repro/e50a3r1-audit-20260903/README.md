@@ -2,6 +2,7 @@
 
 This folder is an audit sandbox. Frozen baselines were not modified.
 Existing `forward/` and `research/` outputs were not overwritten.
+R1 research gates used during the audit (2.5% turnover, 0.70 bootstrap, beat-proxy) remain EXPERIMENTAL; they were not promoted to frozen.
 
 ## What was reproduced
 
