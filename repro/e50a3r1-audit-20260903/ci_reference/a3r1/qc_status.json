@@ -1,0 +1,164 @@
+{
+  "version": "V4.12-E50-A3-R1",
+  "status": "PASS",
+  "decision": "RESEARCH_ONLY",
+  "generated_at_utc": "2026-09-03T04:11:21.786769+00:00",
+  "selected_configuration": {
+    "feature_set": "TECH2",
+    "mode": "BREADTH_REGIME",
+    "ridge_lambda": 1.0,
+    "train_cv_mean_rank_ic": 0.11472624331642567,
+    "top_k": 20,
+    "rebalance_every": 5,
+    "exit_multiple": 2.0,
+    "neutralization": "NONE",
+    "industry_cap": 5,
+    "train_average_daily_turnover": 0.057736702271625424,
+    "turnover_constraint_satisfied": false,
+    "turnover_feasible_candidates": 0
+  },
+  "signal_rows": 795000,
+  "signal_codes": 1347,
+  "mark_to_market_rows": 7940236,
+  "execution_clock_violations": 0,
+  "financial_lookahead_violations": 0,
+  "revenue_lookahead_violations": 0,
+  "excluded_partial_market_sessions": [
+    "2008-10-09",
+    "2009-03-23",
+    "2023-05-25",
+    "2025-02-06",
+    "2026-05-28"
+  ],
+  "metrics": [
+    {
+      "portfolio": "VALIDATION_2019_2022",
+      "start": "2019-01-02",
+      "end": "2022-12-30",
+      "days": 977,
+      "ending_nav": 1.7156288477433348,
+      "cumulative_return": 0.7156288477433348,
+      "cagr": 0.14954860254780344,
+      "annualized_volatility": 0.22487506455361425,
+      "sharpe_rf0": 0.7332504143307654,
+      "max_drawdown": -0.33500909230009956,
+      "calmar": 0.4464016230754672,
+      "average_daily_turnover": 0.07049865737379854,
+      "total_cost": 0.3575070971049434,
+      "trade_count": 4562
+    },
+    {
+      "portfolio": "VALIDATION_2019_2022_MARKET_PROXY",
+      "start": "2019-01-02",
+      "end": "2022-12-30",
+      "days": 977,
+      "ending_nav": 2.09009338126328,
+      "cumulative_return": 1.09009338126328,
+      "cagr": 0.20966671665083858,
+      "annualized_volatility": 0.1823973830667048,
+      "sharpe_rf0": 1.1276846995009848,
+      "max_drawdown": -0.2958435956458647,
+      "calmar": 0.7087079785962888,
+      "average_daily_turnover": 0.0,
+      "total_cost": 0.0,
+      "trade_count": 0
+    },
+    {
+      "portfolio": "SEALED_2023_LATEST",
+      "start": "2023-01-03",
+      "end": "2026-08-28",
+      "days": 879,
+      "ending_nav": 3.920484490904,
+      "cumulative_return": 2.920484490904,
+      "cagr": 0.4801235423575818,
+      "annualized_volatility": 0.2388413374667987,
+      "sharpe_rf0": 1.7624133009976588,
+      "max_drawdown": -0.3250741682684548,
+      "calmar": 1.476966148725429,
+      "average_daily_turnover": 0.046783335938232216,
+      "total_cost": 0.2531964081095978,
+      "trade_count": 3899
+    },
+    {
+      "portfolio": "SEALED_2023_LATEST_MARKET_PROXY",
+      "start": "2023-01-03",
+      "end": "2026-08-28",
+      "days": 879,
+      "ending_nav": 1.942230065924133,
+      "cumulative_return": 0.9422300659241329,
+      "cagr": 0.20989279403213867,
+      "annualized_volatility": 0.16976795858741053,
+      "sharpe_rf0": 1.2149736127762427,
+      "max_drawdown": -0.25590402855380745,
+      "calmar": 0.8202012106581813,
+      "average_daily_turnover": 0.0,
+      "total_cost": 0.0,
+      "trade_count": 0
+    }
+  ],
+  "statistics": {
+    "VALIDATION_2019_2022": {
+      "observations": 976,
+      "mean_daily_excess": -0.00016189287244741703,
+      "nw_lag": 21,
+      "hac_t_stat": -0.6180836664151591,
+      "block_bootstrap_positive_probability": 0.2614
+    },
+    "SEALED_2023_LATEST": {
+      "observations": 878,
+      "mean_daily_excess": 0.0008518792063530268,
+      "nw_lag": 21,
+      "hac_t_stat": 2.746785706807536,
+      "block_bootstrap_positive_probability": 0.9986
+    }
+  },
+  "baseline_e50a3": {
+    "validation_cagr": 0.014421345710669664,
+    "validation_max_drawdown": -0.2793762552259741,
+    "sealed_cagr": 0.22259624735024874,
+    "sealed_max_drawdown": -0.21365618475204196
+  },
+  "delta_vs_e50a3": {
+    "validation_cagr": 0.13512725683713378,
+    "validation_max_drawdown": -0.055632837074125474,
+    "sealed_cagr": 0.25752729500733307,
+    "sealed_max_drawdown": -0.11141798351641286
+  },
+  "contracts": {
+    "selection_data": "2011-2018 embargoed OOF only",
+    "validation": "never used for selection",
+    "signal": "T close",
+    "execution": "single T+1 raw open",
+    "risk_controller": "E45 not applied in R1"
+  },
+  "files": {
+    "model_cv.csv": {
+      "bytes": 3350,
+      "sha256": "42809447f5d376d08981f1ab9911b970425503fe2f76c8ebee45646f6dd7e6e1"
+    },
+    "train_repair_grid.csv": {
+      "bytes": 19692,
+      "sha256": "b95f5d98df4e1418dd9e5be17e993b5f24b8e9d0b5abf87d4770e8c25321deb5"
+    },
+    "period_metrics.csv": {
+      "bytes": 1006,
+      "sha256": "51d3716c999ea11d4229f2b15a8a92db4930fb83957418526781b636d8598aee"
+    },
+    "daily_nav.csv": {
+      "bytes": 185949,
+      "sha256": "e18a8049907b42494991e97877493e1fee3b509ca4a39d61a53d3c59fd653da1"
+    },
+    "trades.csv": {
+      "bytes": 802958,
+      "sha256": "2f08c37105419fa076ded3bdc15f4c0052d13b497ebb665e69950c7a9697816e"
+    },
+    "causal_scores.parquet": {
+      "bytes": 3806365,
+      "sha256": "3902a5bcc6066fa6a3d00ccf7fd5be009a099f7c61d3fed14350339f4307a3eb"
+    },
+    "frozen_repair_model.json": {
+      "bytes": 1924,
+      "sha256": "c5611afbd2b5fd9aa810a52f709d93951790b8245f10dadec20849aa4089dbfd"
+    }
+  }
+}
