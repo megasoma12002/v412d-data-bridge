@@ -1,0 +1,13 @@
+building 2011-2018 OOF scores for TECH2/BREADTH_REGIME/lambda=1.0 ...
+evaluating 61 OOF-only challenger cells ...
+[9/61] reb=42 exit=2.0 top_k=20 hold=0 liq=20000000.0 to=0.0220 boot=0.767 both=True
+[10/61] reb=42 exit=3.0 top_k=20 hold=0 liq=20000000.0 to=0.0176 boot=0.590 both=False
+[20/61] reb=42 exit=2.0 top_k=30 hold=0 liq=20000000.0 to=0.0197 boot=0.572 both=False
+[30/61] reb=21 exit=4.0 top_k=40 hold=0 liq=20000000.0 to=0.0045 boot=0.017 both=False
+[40/61] reb=21 exit=2.0 top_k=30 hold=2 liq=20000000.0 to=0.0286 boot=0.476 both=False
+[50/61] reb=21 exit=3.0 top_k=30 hold=0 liq=100000000.0 to=0.0160 boot=0.402 both=False
+[60/61] reb=42 exit=2.0 top_k=30 hold=0 liq=20000000.0 to=0.0235 boot=0.069 both=False
+{
+  "n_both_pass": 1,
+  "n_turnover_pass": 49
+}

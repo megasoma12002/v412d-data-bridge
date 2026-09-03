@@ -1,0 +1,170 @@
+{
+  "selected_model": {
+    "feature_set": "TECH2",
+    "mode": "BREADTH_REGIME",
+    "ridge_lambda": 1.0
+  },
+  "window": {
+    "start": "2011-01-01",
+    "end": "2018-12-31"
+  },
+  "gates_experimental": {
+    "turnover_ceiling": 0.025,
+    "bootstrap_cutoff": 0.7
+  },
+  "score_autocorr_every_5": {
+    "pairs": 394,
+    "mean_rank_autocorr": 0.839485806667559,
+    "p10_rank_autocorr": 0.8751131542553556,
+    "p50_rank_autocorr": 0.9452692122226886
+  },
+  "score_autocorr_every_21": {
+    "pairs": 93,
+    "mean_rank_autocorr": 0.5848947139127998,
+    "p10_rank_autocorr": -0.4250174159681652,
+    "p50_rank_autocorr": 0.8036011401890857
+  },
+  "universe_churn_20m": {
+    "mean_eligible_names": 149.91624365482232,
+    "mean_eligible_jaccard": 0.8786304077134076
+  },
+  "universe_churn_50m": {
+    "mean_eligible_names": 147.66243654822335,
+    "mean_eligible_jaccard": 0.8674922285337664
+  },
+  "baseline_grid_summary": {
+    "n_cells": 72,
+    "feasible_cells": 0,
+    "turnover_min": 0.028590122730549825,
+    "turnover_median": 0.05762076742992908,
+    "turnover_max": 0.12447320049338156,
+    "lowest_turnover_cell": {
+      "portfolio": "TRAIN_OOF",
+      "start": "2011-01-03",
+      "end": "2018-12-28",
+      "days": 1972,
+      "ending_nav": 1.6494348434439094,
+      "cumulative_return": 0.6494348434439094,
+      "cagr": 0.06607349104155258,
+      "annualized_volatility": 0.18957964949801775,
+      "sharpe_rf0": 0.432735453546255,
+      "max_drawdown": -0.33597755217341607,
+      "calmar": 0.19666043345493658,
+      "average_daily_turnover": 0.028590122730549825,
+      "total_cost": 0.23041500827275938,
+      "trade_count": 3670,
+      "top_k": 30,
+      "rebalance_every": 21,
+      "exit_multiple": 2.0,
+      "neutralization": "NONE",
+      "industry_cap": 5,
+      "turnover_feasible": false,
+      "utility": -0.10191528504515546
+    },
+    "best_utility_cell": {
+      "portfolio": "TRAIN_OOF",
+      "start": "2011-01-03",
+      "end": "2018-12-28",
+      "days": 1972,
+      "ending_nav": 2.2557618455761497,
+      "cumulative_return": 1.2557618455761497,
+      "cagr": 0.10960885228432704,
+      "annualized_volatility": 0.196998324464094,
+      "sharpe_rf0": 0.626606511598968,
+      "max_drawdown": -0.3255064577558904,
+      "calmar": 0.33673326495576583,
+      "average_daily_turnover": 0.057736702271625424,
+      "total_cost": 0.5282668297575207,
+      "trade_count": 8996,
+      "top_k": 20,
+      "rebalance_every": 5,
+      "exit_multiple": 2.0,
+      "neutralization": "NONE",
+      "industry_cap": 5,
+      "turnover_feasible": false,
+      "utility": -0.05314437659361815
+    },
+    "by_rebalance_mean_turnover": {
+      "10": 0.06042784467968635,
+      "21": 0.041283270148199075,
+      "5": 0.08758377464690593
+    },
+    "by_exit_mean_turnover": {
+      "2.0": 0.05169204074857412,
+      "1.25": 0.07307785436789066,
+      "1.5": 0.06452499435832655
+    }
+  },
+  "deep_current_cells": [
+    {
+      "label": "selected_utility",
+      "top_k": 20,
+      "rebalance_every": 5,
+      "exit_multiple": 2.0,
+      "neutralization": "NONE",
+      "industry_cap": 5,
+      "min_hold_cycles": 0,
+      "liquidity_floor": 20000000.0,
+      "replace_rank_gap": 0,
+      "family": "deep",
+      "cagr": 0.10960885228432704,
+      "max_drawdown": -0.3255064577558904,
+      "average_daily_turnover": 0.057736702271625424,
+      "total_cost": 0.5282668297575207,
+      "trade_count": 8996,
+      "ending_nav": 2.2557618455761497,
+      "utility": -0.05314437659361815,
+      "block_bootstrap_positive_probability": 0.851,
+      "mean_daily_excess": 0.00014226516866845554,
+      "hac_t_stat": 0.9032401699614824,
+      "turnover_gate_pass": false,
+      "bootstrap_gate_pass": true,
+      "implied_avg_rebalance_day_turnover": 0.28868351135812714,
+      "diag_rebalance_events": 395,
+      "diag_forced_rank_exits": 946,
+      "diag_liquidity_or_missing_exits": 194,
+      "diag_min_hold_blocks": 0,
+      "diag_replace_gap_blocks": 0,
+      "diag_mean_jaccard": 0.7981393868835935,
+      "diag_mean_one_way_name_churn": 0.1446700507614213,
+      "diag_mean_names_held": 20.0,
+      "diag_exit_rank": 40,
+      "both_gates_pass": false
+    },
+    {
+      "label": "lowest_turnover_current_grid",
+      "top_k": 30,
+      "rebalance_every": 21,
+      "exit_multiple": 2.0,
+      "neutralization": "NONE",
+      "industry_cap": 5,
+      "min_hold_cycles": 0,
+      "liquidity_floor": 20000000.0,
+      "replace_rank_gap": 0,
+      "family": "deep",
+      "cagr": 0.06607349104155258,
+      "max_drawdown": -0.33597755217341607,
+      "average_daily_turnover": 0.028590122730549825,
+      "total_cost": 0.23041500827275938,
+      "trade_count": 3670,
+      "ending_nav": 1.6494348434439094,
+      "utility": -0.10191528504515546,
+      "block_bootstrap_positive_probability": 0.4762,
+      "mean_daily_excess": -2.2030852262588137e-05,
+      "hac_t_stat": -0.1520871031700538,
+      "turnover_gate_pass": false,
+      "bootstrap_gate_pass": false,
+      "implied_avg_rebalance_day_turnover": 0.6003925773415463,
+      "diag_rebalance_events": 94,
+      "diag_forced_rank_exits": 640,
+      "diag_liquidity_or_missing_exits": 215,
+      "diag_min_hold_blocks": 0,
+      "diag_replace_gap_blocks": 0,
+      "diag_mean_jaccard": 0.5747906603590367,
+      "diag_mean_one_way_name_churn": 0.3064516129032258,
+      "diag_mean_names_held": 30.0,
+      "diag_exit_rank": 60,
+      "both_gates_pass": false
+    }
+  ]
+}
