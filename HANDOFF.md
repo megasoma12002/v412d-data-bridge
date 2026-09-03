@@ -3,10 +3,11 @@
 ## 0. Read Order
 Cursor 必須依序讀：
 1. `FROZEN_STRATEGY_SPEC.md`
-2. `E50_RESEARCH_HISTORY.md`
-3. `CURSOR_RULES.md`
-4. `E50-A3-R1_TODO.md`
-5. 本文件
+2. `FROZEN_GOVERNANCE.md`
+3. `E50_RESEARCH_HISTORY.md`
+4. `CURSOR_RULES.md`
+5. `E50-A3-R1_TODO.md`
+6. 本文件
 
 ## 1. 專案定位
 這不是新專案。
@@ -77,6 +78,18 @@ Crisis:
 - No Look-ahead
 - No Survivorship Bias
 - 0050 正二不進核心
+
+Governance（`FROZEN_GOVERNANCE.md`）適用於 E16、E18/E22、E45，以及所有未來 E50 challenger：
+
+- HARD_FROZEN 不得為績效放寬
+- SOFT_FROZEN 只能用獨立實驗挑戰，且必須保留原 baseline
+- EXPERIMENTAL 不得自動變成 Frozen
+- 新門檻 / 權重 / bootstrap / 換手頻率 / 模型或 router 規則，預設都是 EXPERIMENTAL
+
+晉升路徑：
+FROZEN_BASELINE -> CHALLENGER -> OOS VALIDATION -> COST VALIDATION -> STRESS / MONTE CARLO VALIDATION -> GOVERNANCE REVIEW -> EXPLICIT APPROVAL -> NEW FROZEN VERSION
+
+不得覆蓋或刪除先前 Frozen Baseline。
 
 ## 7. Repository Audit Rule
 本交接文件中的「完成」是研究交接紀錄。

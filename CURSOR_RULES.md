@@ -3,6 +3,7 @@
 ## 0. Required Context
 開始研究前必須讀：
 - FROZEN_STRATEGY_SPEC.md
+- FROZEN_GOVERNANCE.md
 - E50_RESEARCH_HISTORY.md
 - HANDOFF.md
 - E50-A3-R1_TODO.md
@@ -27,6 +28,31 @@
 
 若要挑戰 Frozen Baseline：
 建立獨立 branch / experiment。
+不得覆蓋或刪除原 baseline。
+
+完整分級與晉升路徑見 `FROZEN_GOVERNANCE.md`。
+
+## 2.1 Frozen Governance
+Every rule is HARD_FROZEN, SOFT_FROZEN, or EXPERIMENTAL.
+
+HARD_FROZEN cannot be relaxed for performance. This includes Exact T+1, PIT, walk-forward, embargo, no look-ahead, no survivorship, E50-A overlay role, alpha-weak ≠ crisis, E45 as crisis core, and no 0050 leveraged ETF in core.
+
+SOFT_FROZEN is the current E16 / E18-E22 / E45 implementation. Challenge only with a separate experiment that keeps the original baseline.
+
+EXPERIMENTAL never becomes frozen automatically. New thresholds, weights, bootstrap cutoffs, rebalance frequencies, model rules, and router rules default to EXPERIMENTAL.
+
+Promotion path:
+
+FROZEN_BASELINE
+-> CHALLENGER
+-> OOS VALIDATION
+-> COST VALIDATION
+-> STRESS / MONTE CARLO VALIDATION
+-> GOVERNANCE REVIEW
+-> EXPLICIT APPROVAL
+-> NEW FROZEN VERSION
+
+This governance applies to E16, E18/E22, E45, E50-A, and all future E50 challengers.
 
 ## 3. Causal Clock
 Information(T)

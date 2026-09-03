@@ -3,7 +3,9 @@
 E50-A2 turns the frozen E50-A0 price universe and E50-A1 corporate-action /
 fundamental layer into a point-in-time factor panel. It does not change E16,
 E18, E22, or the E45 crisis controller, and it does not select a production
-portfolio.
+portfolio. Feature-timing and separate-label contracts are HARD_FROZEN;
+numeric factor choices remain EXPERIMENTAL until explicitly promoted
+(`FROZEN_GOVERNANCE.md`).
 
 ## Clock contract
 

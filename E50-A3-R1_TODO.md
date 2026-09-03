@@ -128,6 +128,18 @@ PnL Start
 - [ ] false crisis signals
 - [ ] Alpha-off / Core-on behavior
 
+## Governance
+Follow `FROZEN_GOVERNANCE.md`.
+
+- HARD_FROZEN clock / PIT / overlay / crisis-role rules cannot be relaxed to chase CAGR.
+- E16, E18/E22, and E45 baselines stay in place; challengers go to a new folder.
+- R1 numeric gates (2.5% turnover, 0.70 bootstrap, beat-proxy, grid, overlay costs) are EXPERIMENTAL.
+- They do not become frozen because a sealed window looks strong.
+- New thresholds default to EXPERIMENTAL.
+
+Promotion, if ever proposed:
+FROZEN_BASELINE -> CHALLENGER -> OOS VALIDATION -> COST VALIDATION -> STRESS / MONTE CARLO VALIDATION -> GOVERNANCE REVIEW -> EXPLICIT APPROVAL -> NEW FROZEN VERSION
+
 ## PASS Gate
 R1 不以 CAGR >=20% 單獨判 PASS。
 

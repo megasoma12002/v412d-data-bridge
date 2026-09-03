@@ -22,7 +22,14 @@ candidates and promotion is blocked even when a later period looks strong.
 
 ## Promotion gate
 
+These numeric gates are EXPERIMENTAL under `FROZEN_GOVERNANCE.md`. They are
+not HARD_FROZEN or SOFT_FROZEN. A strong sealed window does not auto-promote
+them.
+
 R1 remains research-only unless both 2019-2022 and 2023-latest beat the
 point-in-time market proxy after costs and both 21-session block-bootstrap
-positive-excess probabilities reach 70%. E45 remains untouched until this gate
-passes.
+positive-excess probabilities reach 70%. E45 remains untouched until a later
+approved overlay-to-crisis handoff experiment says otherwise. The 2.5%
+turnover ceiling, 70% bootstrap cutoff, grid, and utility formula stay
+EXPERIMENTAL until explicit approval creates a new frozen version. The prior
+E16 / E18-E22 / E45 baselines must not be overwritten.

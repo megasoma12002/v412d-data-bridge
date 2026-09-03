@@ -373,18 +373,28 @@ A2 因子在真正 OOS + Exact T+1 下是否仍有可交易 Alpha？
 
 # Frozen / Retained / Rejected Summary
 
-## FROZEN
-- E16 Core Allocation
-- E18 + E22 Execution Layer
-- E44 Exact T+1 causal clock
-- E45 Crisis Protection Core
-- PIT
-- Walk Forward
-- Embargo
-- No Look-ahead
-- No Survivorship Bias
+Governance classes are defined in `FROZEN_GOVERNANCE.md`.
+They apply to E16, E18/E22, E45, and all future E50 challengers.
 
-## RETAINED
+## HARD_FROZEN
+- Exact T+1 / no same-bar execution
+- PIT / no look-ahead
+- Walk Forward / Embargo
+- No survivorship bias
+- E50-A overlay role
+- Alpha weakening ≠ crisis
+- E45 crisis-protection role
+- 0050 leveraged ETF not in core
+- Never overwrite or delete a prior frozen baseline
+
+## SOFT_FROZEN
+- E16 current core-allocation implementation
+- E18 + E22 current execution / dividend implementation
+- E44 current causal-clock implementation path
+- E45 current crisis-protection implementation
+- Pinned E50-A0/A1/A2 artifacts used by A3/R1
+
+## RETAINED (challenge only as SOFT_FROZEN architecture)
 - Financial Router
 - 公股 / 民營金融分流
 - Telecom Harvest -> Financial Reentry
@@ -397,6 +407,7 @@ A2 因子在真正 OOS + Exact T+1 下是否仍有可交易 Alpha？
 ## REJECTED / NOT CORE
 - 0050 leveraged ETF (0050 正二)
 
-## ACTIVE / EXPERIMENTAL
-- E50-A3 / E50-A3-R1 Alpha model
+## EXPERIMENTAL
+- E50-A3 / E50-A3-R1 Alpha model, grids, costs, turnover ceiling, bootstrap cutoff
 - 未來的 advanced model / regime-aware Alpha
+- Any newly introduced threshold, weight, rebalance, model, or router rule until explicitly promoted
