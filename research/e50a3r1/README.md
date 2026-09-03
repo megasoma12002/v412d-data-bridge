@@ -1,0 +1,26 @@
+# V4.12-E50-A3-R1 Repair Research
+
+R1 attempts to repair the failed E50-A3 baseline without reading the frozen
+2019-2022 validation period during model or portfolio selection.
+
+## Repair layers
+
+1. A fixed, causal market-breadth regime separates risk-on and risk-off model
+   coefficients. The state uses only T-close 63-session breadth and momentum.
+2. A candidate score can be neutralized against T-known industry and liquidity
+   buckets. Historical par-value value proxies remain excluded.
+3. A rank buffer retains existing positions until they fall outside 1.25x,
+   1.5x or 2x the entry breadth, reducing forced round trips.
+4. Industry caps prevent one sector from dominating the attack sleeve.
+
+All feature sets, model modes, ridge penalties, breadth, rebalance interval,
+buffer and caps are selected on embargoed 2011-2018 OOF results only. A daily
+turnover ceiling of 2.5% is imposed before maximizing after-cost
+`CAGR - 0.5 * abs(max drawdown)`.
+
+## Promotion gate
+
+R1 remains research-only unless both 2019-2022 and 2023-latest beat the
+point-in-time market proxy after costs and both 21-session block-bootstrap
+positive-excess probabilities reach 70%. E45 remains untouched until this gate
+passes.

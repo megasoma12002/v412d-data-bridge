@@ -1,0 +1,67 @@
+name: V4.12-E50-A3-R1 Repair Research
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/e50a3r1_repair.py"
+      - "research/e50a3r1/**"
+      - ".github/workflows/e50a3r1-repair.yml"
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: e50a3r1-repair
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install polars==1.33.1 pyarrow==21.0.0 numpy==2.1.1
+      - name: Verify inherited exact-open clock
+        run: python scripts/e50a3_train_exact_open.py --self-test
+      - name: Download frozen A0 A1 A2 inputs
+        run: |
+          mkdir -p inputs/a0 inputs/a1 inputs/a2
+          gh run download 33532322856 --repo "${{ github.repository }}" --name v412-e50a0-point-in-time --dir inputs/a0
+          gh run download 33637154310 --repo "${{ github.repository }}" --name v412-e50a1-full-causal-database --dir inputs/a1
+          gh run download 33645002188 --repo "${{ github.repository }}" --name v412-e50a2-causal-alpha-factors --dir inputs/a2
+      - name: Run R1 train-only selection and frozen evaluation
+        run: |
+          python scripts/e50a3r1_repair.py \
+            --panel inputs/a2/causal_factor_panel.parquet \
+            --prices inputs/a0/point_in_time_universe.csv \
+            --labels inputs/a2/forward_labels_research_only.parquet \
+            --actions inputs/a1/corporate_action_ledger.csv.gz \
+            --a2-qc inputs/a2/qc_status.json \
+            --out e50a3r1_output
+      - name: Enforce R1 engineering QC
+        run: |
+          python - <<'PY'
+          import json
+          q=json.load(open('e50a3r1_output/qc_status.json'))
+          assert q['status']=='PASS',q
+          assert q['signal_rows']==795000,q
+          assert q['signal_codes']==1347,q
+          assert q['execution_clock_violations']==0,q
+          assert q['financial_lookahead_violations']==0,q
+          assert q['revenue_lookahead_violations']==0,q
+          print(json.dumps(q,ensure_ascii=False,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v412-e50a3r1-repair-research
+          path: e50a3r1_output/
+          if-no-files-found: error
+          retention-days: 90
