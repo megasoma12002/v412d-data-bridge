@@ -1,0 +1,157 @@
+{
+  "note": "This file classifies rules used during the 2026-09-03 reproduction audit. Nothing listed as PROPOSED or EXPERIMENTAL is frozen by this audit.",
+  "preexisting_frozen_portfolio_rules": [
+    {
+      "rule": "E16 core allocation, E18/E22 execution, E44 Exact T+1 clock, E45 crisis protection, PIT, walk-forward, embargo, no 0050 leveraged ETF in core",
+      "source": [
+        "FROZEN_STRATEGY_SPEC.md",
+        "CURSOR_RULES.md",
+        "HANDOFF.md"
+      ],
+      "existed_before_this_audit": true,
+      "classification": "FROZEN",
+      "frozen_by_this_audit": false
+    }
+  ],
+  "preexisting_research_gates_not_frozen_by_this_audit": [
+    {
+      "rule": "R1 average daily turnover ceiling 2.5% on 2011-2018 OOF",
+      "source": [
+        "scripts/e50a3r1_repair.py",
+        "research/e50a3r1/README.md"
+      ],
+      "existed_before_this_audit": true,
+      "classification": "EXPERIMENTAL",
+      "frozen_by_this_audit": false
+    },
+    {
+      "rule": "R1 promotion requires both 2019-2022 and 2023-latest CAGR above PIT market proxy after costs",
+      "source": [
+        "scripts/e50a3r1_repair.py",
+        "research/e50a3r1/README.md"
+      ],
+      "existed_before_this_audit": true,
+      "classification": "EXPERIMENTAL",
+      "frozen_by_this_audit": false
+    },
+    {
+      "rule": "R1 promotion requires 21-session block-bootstrap positive-excess probability >= 0.70 on both held-out windows",
+      "source": [
+        "scripts/e50a3r1_repair.py",
+        "research/e50a3r1/README.md"
+      ],
+      "existed_before_this_audit": true,
+      "classification": "EXPERIMENTAL",
+      "frozen_by_this_audit": false
+    },
+    {
+      "rule": "R1 model/portfolio selection uses embargoed 2011-2018 OOF only; utility = CAGR - 0.5*|MDD|",
+      "source": [
+        "scripts/e50a3r1_repair.py",
+        "research/e50a3r1/README.md"
+      ],
+      "existed_before_this_audit": true,
+      "classification": "EXPERIMENTAL",
+      "frozen_by_this_audit": false
+    },
+    {
+      "rule": "R1 search grid: top_k {20,30}, rebalance {5,10,21}, exit_multiple {1.25,1.5,2.0}, neutralization {NONE,INDUSTRY_LIQUIDITY}, industry_cap {3,5}",
+      "source": [
+        "scripts/e50a3r1_repair.py"
+      ],
+      "existed_before_this_audit": true,
+      "classification": "EXPERIMENTAL",
+      "frozen_by_this_audit": false
+    },
+    {
+      "rule": "A3 promotion requires validation and sealed CAGR > 0 and bootstrap >= 0.70 (does not require beating market proxy)",
+      "source": [
+        "scripts/e50a3_train_exact_open.py"
+      ],
+      "existed_before_this_audit": true,
+      "classification": "EXPERIMENTAL",
+      "frozen_by_this_audit": false
+    },
+    {
+      "rule": "A3 cost assumptions: buy 14.25bp, sell 14.25bp, tax 30bp, 5bp slippage each side; min trading_money NT$20m; equal-weight long-only",
+      "source": [
+        "scripts/e50a3_train_exact_open.py",
+        "research/e50a3/README.md"
+      ],
+      "existed_before_this_audit": true,
+      "classification": "EXPERIMENTAL",
+      "frozen_by_this_audit": false,
+      "note": "E18/E22 is the frozen execution layer. These A3 sleeve costs are research assumptions inside the overlay simulator, not a new freeze."
+    },
+    {
+      "rule": "Do not apply E45 inside A3/R1; E45 handoff is deferred until a later gate",
+      "source": [
+        "scripts/e50a3_train_exact_open.py",
+        "scripts/e50a3r1_repair.py",
+        "research/e50a3r1/README.md"
+      ],
+      "existed_before_this_audit": true,
+      "classification": "EXPERIMENTAL",
+      "frozen_by_this_audit": false,
+      "note": "E45 itself is FROZEN as crisis core. The deferral of overlay-to-E45 integration is existing R1 research policy."
+    }
+  ],
+  "introduced_by_this_audit": [
+    {
+      "rule": "Hidden-leverage diagnostic: count days with gross exposure > 1.001",
+      "existed_before_this_audit": false,
+      "classification": "PROPOSED",
+      "frozen_by_this_audit": false,
+      "use": "audit diagnostic only; observed 0 days in reproduced R1 NAV"
+    },
+    {
+      "rule": "Reproduction success includes SHA-256 match of pinned A0/A2 QC file hashes and byte-match of A3/R1 period_metrics/daily_nav/trades versus CI",
+      "existed_before_this_audit": false,
+      "classification": "PROPOSED",
+      "frozen_by_this_audit": false,
+      "note": "Pinned run IDs already existed in A3/R1 workflows. Using hash/byte match as the audit pass criterion is new to this audit."
+    },
+    {
+      "rule": "Next challenger may inspect turnover even on rebalance intervals or buffers outside the current R1 grid",
+      "existed_before_this_audit": false,
+      "classification": "EXPERIMENTAL",
+      "frozen_by_this_audit": false,
+      "note": "Not implemented. Current R1 grid already includes rebalance 21 and exit_multiple 2.0. Expanding the grid is a proposed experiment, not a selected rule."
+    }
+  ],
+  "provenance_check_20260903": {
+    "turnover_2_5_pct": {
+      "path": "scripts/e50a3r1_repair.py",
+      "line": 297,
+      "literal": "average_daily_turnover <= 0.025",
+      "readme": "research/e50a3r1/README.md:18",
+      "introducing_commit": "ea702996e167535f9c3f2e263cd88dfe5a8d2b29",
+      "hard_block_commit": "8b968df80107a45d6313cfc0e4010afd6a2e4d35",
+      "predates_handoff_audit": true,
+      "classification": "EXPERIMENTAL",
+      "introduced_by_this_audit": false,
+      "inferred_by_this_audit": false,
+      "promoted_by_this_audit": false
+    },
+    "bootstrap_0_70": {
+      "r1_path": "scripts/e50a3r1_repair.py",
+      "r1_lines": [
+        338,
+        339
+      ],
+      "a3_path": "scripts/e50a3_train_exact_open.py",
+      "a3_lines": [
+        559,
+        560
+      ],
+      "readme": "research/e50a3r1/README.md:27",
+      "a3_introducing_commit": "83ce63ff0f7987d1c14f293b10711981b8313b76",
+      "r1_introducing_commit": "ea702996e167535f9c3f2e263cd88dfe5a8d2b29",
+      "predates_handoff_audit": true,
+      "classification": "EXPERIMENTAL",
+      "introduced_by_this_audit": false,
+      "inferred_by_this_audit": false,
+      "promoted_by_this_audit": false
+    }
+  }
+}

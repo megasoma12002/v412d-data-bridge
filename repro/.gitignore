@@ -1,0 +1,4 @@
+# Frozen A0/A1/A2 datasets are downloaded from pinned GitHub Actions artifacts.
+# Do not commit them (A0 universe alone is ~1.2GB).
+e50a3r1-audit-20260903/inputs/
+e50a3r1-audit-20260903/ci_reference/
