@@ -1,0 +1,16 @@
+reconfirming locked challenger on 2011-2018 OOF ...
+evaluating LOCKED_CHALLENGER_VALIDATION_2019_2022 ...
+evaluating LOCKED_CHALLENGER_SEALED_2023_LATEST ...
+evaluating R1_SELECTED_REFERENCE_VALIDATION_2019_2022 ...
+evaluating R1_SELECTED_REFERENCE_SEALED_2023_LATEST ...
+{
+  "research_decision": "EXPERIMENTAL_HELDOUT_FAIL_OR_INCOMPLETE",
+  "validation_cagr": 0.214603207838584,
+  "validation_mdd": -0.28472899928461737,
+  "validation_turnover": 0.026936042267019376,
+  "validation_bootstrap": 0.5138,
+  "sealed_cagr": 0.6095211726893031,
+  "sealed_mdd": -0.2285991166145933,
+  "sealed_turnover": 0.01726036540537917,
+  "sealed_bootstrap": 1.0
+}
