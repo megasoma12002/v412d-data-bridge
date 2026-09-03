@@ -47420,11 +47420,6 @@
     "sha256": "b95f5d98df4e1418dd9e5be17e993b5f24b8e9d0b5abf87d4770e8c25321deb5"
   },
   {
-    "path": "E50-A3-R1_REPRODUCTION_AUDIT.md",
-    "bytes": 11389,
-    "sha256": "a81ac74ee9291d100d95c7cbc9a2bceae49f86913f6b29ac949eff98bad19f97"
-  },
-  {
     "path": "README.md",
     "bytes": 1579,
     "sha256": "d04b782955af411629eadad7ba8fd41d6506fa9a7fd4b007c1dd8b9f751c66fe"
@@ -47463,5 +47458,15 @@
     "path": "reports/period_definitions.json",
     "bytes": 759,
     "sha256": "0bd19c609c66ca7a277168b7af1be89f0999d52fc03e2d3b9715a8257b8e9cb8"
+  },
+  {
+    "path": "E50-A3-R1_REPRODUCTION_AUDIT.md",
+    "bytes": 13357,
+    "sha256": "b0a43c570549d244841bcb651b5abcf9fbf3aa441eafd76bf65bb22a9ce310ff"
+  },
+  {
+    "path": "reports/rule_classification.json",
+    "bytes": 4673,
+    "sha256": "c97c7da71d9a04259460c2275bf4a24d3940e0c77bafe691b2ce7b8a09d1bd22"
   }
 ]
