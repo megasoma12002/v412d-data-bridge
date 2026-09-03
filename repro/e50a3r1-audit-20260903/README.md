@@ -4,6 +4,12 @@ This folder is an audit sandbox. Frozen baselines were not modified.
 Existing `forward/` and `research/` outputs were not overwritten.
 R1 research gates used during the audit (2.5% turnover, 0.70 bootstrap, beat-proxy) remain EXPERIMENTAL; they were not promoted to frozen.
 
+Formal handoff verification (required 11-section report):
+
+`E50_HANDOFF_VERIFICATION.md` (repo root) and `E50_HANDOFF_VERIFICATION.md` in this folder.
+
+Decision: **HANDOFF_COMPLETE_WITH_WARNINGS**. Do not start performance tuning.
+
 ## What was reproduced
 
 1. **E50-A0 / A1 / A2**: downloaded pinned frozen GitHub Actions artifacts and hash-verified. Not rebuilt.
