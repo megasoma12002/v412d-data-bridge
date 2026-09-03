@@ -407,7 +407,7 @@ A0/A1/A2 were not rebuilt. New files were written only under `repro/e50a3r1-audi
 
 **HANDOFF_COMPLETE_WITH_WARNINGS**
 
-The audit itself is complete: repository paths were checked, A3/R1 reproduced, Exact T+1 was traced, leakage was attacked, and handoff claims were classified with evidence. Reproduction may continue from this checkpoint. Performance tuning is still forbidden.
+The audit itself is complete: repository paths were checked, A3/R1 reproduced, Exact T+1 was traced, leakage was attacked, handoff claims were classified with evidence, and the 2.5% / 0.70 gates were provenance-verified as pre-existing EXPERIMENTAL rules. Reproduction may continue from this checkpoint. Performance tuning is still forbidden.
 
 Blockers that would have produced `HANDOFF_BLOCKED` were **not** found (no missing A3/R1 inputs that had to be guessed; no frozen-baseline overwrite).
 
