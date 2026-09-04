@@ -72,19 +72,32 @@ def attach_engineered(panel: pl.DataFrame) -> pl.DataFrame:
         (pl.col("momentum_family_score") * (1.0 - pl.col("pct_vol_60d").fill_null(0.5)))
         .alias("mom_x_invvol")
     )
-    # Within-date residual ≈ x - mean(x) - cov/var * (z - mean(z)); use rank-space demean product approx:
-    # Simple linear residual via centered product formula per date.
-    def _resid(y: str, x: str, out: str) -> pl.Expr:
-        yc = pl.col(y) - pl.col(y).mean().over("date")
-        xc = pl.col(x) - pl.col(x).mean().over("date")
-        # beta = sum(xc*yc)/sum(xc^2)
-        beta = (xc * yc).sum().over("date") / (xc * xc).sum().over("date").clip(lower_bound=1e-12)
-        return (pl.col(y) - pl.col(y).mean().over("date") - beta * xc).alias(out)
 
-    return d.with_columns(
-        _resid("momentum_family_score", "pct_book_to_price_proxy", "mom_resid_vs_value"),
-        _resid("momentum_family_score", "defensive_family_score", "mom_resid_vs_defensive"),
-    )
+    def _add_resid(df: pl.DataFrame, y: str, x: str, out: str) -> pl.DataFrame:
+        # Per-date OLS residual of y on x (intercept + slope).
+        stats = (
+            df.group_by("date")
+            .agg(
+                pl.col(y).mean().alias("_ym"),
+                pl.col(x).mean().alias("_xm"),
+                ((pl.col(x) - pl.col(x).mean()) * (pl.col(y) - pl.col(y).mean())).sum().alias("_sxy"),
+                ((pl.col(x) - pl.col(x).mean()) ** 2).sum().alias("_sxx"),
+            )
+            .with_columns(
+                (pl.col("_sxy") / pl.col("_sxx").clip(lower_bound=1e-12)).alias("_beta")
+            )
+        )
+        return (
+            df.join(stats.select("date", "_ym", "_xm", "_beta"), on="date", how="left")
+            .with_columns(
+                (pl.col(y) - pl.col("_ym") - pl.col("_beta") * (pl.col(x) - pl.col("_xm"))).alias(out)
+            )
+            .drop(["_ym", "_xm", "_beta"])
+        )
+
+    d = _add_resid(d, "momentum_family_score", "pct_book_to_price_proxy", "mom_resid_vs_value")
+    d = _add_resid(d, "momentum_family_score", "defensive_family_score", "mom_resid_vs_defensive")
+    return d
 
 
 def fit_model_exp(df: pl.DataFrame, features: list[str], mode: str, ridge: float, cutoff: date) -> r1.CandidateModel:
