@@ -75,33 +75,39 @@ Note: E21 live started **2026-08-24** (after Aug ex-dates). Overlap NAV levels a
 | Side-by-side report | **PASS** (this file) |
 | OOS / cost | **PASS** — fees/tax/slippage unchanged vs E21; dividend is cash credit not a cost change |
 | Stress / MC | **INCONCLUSIVE_LIGHT** — MDD not worsened on full-history book; no separate MC required for cash accounting fix |
-| Governance review | **PENDING** |
-| Explicit approval | **PENDING** |
-| NEW FROZEN VERSION recorded | **NOT YET** |
+| Governance review | **PASS** — human approval 2026-09-04 |
+| Explicit approval | **PASS** — phrase matched |
+| NEW FROZEN VERSION recorded | **PASS** — `E22_v2_CASH_EX_OFFICIAL_PATH` |
 
 Research decision (engineering): **`PASS_RECOMMEND_PROMOTE`**  
-Governance decision: **blank until human signs**
+Governance decision: **`APPROVED`** (2026-09-04)
+
+Implemented:
+
+- `scripts/e22_v2_forward_pipeline.py` / `scripts/e22_v2_qc.py`
+- `forward/e22_v2/` cutover seed from E21 (no dividend backfill)
+- `research/e22/E22_v2_STATUS.md`
+- Additive updates to `FROZEN_GOVERNANCE.md` / `FROZEN_STRATEGY_SPEC.md`
+- `forward/e21/` preserved untouched
 
 ---
 
 ## 6. What approval means (implementation recipe)
 
-Only after explicit approval:
+~~Only after explicit approval:~~ **DONE 2026-09-04**
 
-1. Publish additive docs: `research/e22/E22_v2_STATUS.md` marking new official version beside prior E22 research ledger.  
-2. Either:
-   - cut over live runner to `e22_challenger_forward_pipeline` **as a new versioned script/path**, or  
-   - merge dividend-credit block into a **new** `e21_forward_pipeline` successor file (new name / version) — **never** rewrite historical `forward/e21/` rows.  
-3. Start a fresh forward state dir (e.g. `forward/e22_v2/`) from approval date; keep `forward/e21/` readable forever.  
-4. Update `FROZEN_STRATEGY_SPEC.md` / governance soft list only via documentation PR after approval.
+1. Publish additive docs: `research/e22/E22_v2_STATUS.md` — **done**  
+2. New versioned script/path — **done** (`e22_v2_forward_pipeline.py`)  
+3. Fresh forward state dir from cutover — **done** (`forward/e22_v2/`)  
+4. Update frozen docs additively — **done**
 
 ---
 
-## 7. Explicit non-actions (until approval)
+## 7. Explicit non-actions (still in force)
 
 - Do not edit `scripts/e21_forward_pipeline.py` in place  
 - Do not append dividend backfills into past `forward/e21/nav.csv`  
-- Do not claim SOFT_FROZEN E22_v2 without the signature below  
+- Do not edit `e22_v2` in place for further dividend-rule changes (new challenger required)
 
 ---
 
@@ -110,7 +116,7 @@ Only after explicit approval:
 | Role | Decision | Date | Name |
 |---|---|---|---|
 | Research (this PR) | Recommend **PASS → promote as new version** | 2026-09-04 | Cursor agent |
-| Governance / human | ________________ | ________ | ________ |
+| Governance / human | **APPROVED** | 2026-09-04 | User (approval phrase) |
 
-**Approval phrase (copy when signing):**  
+**Approval phrase (received):**  
 `APPROVE E22_v2_CASH_EX_OFFICIAL_PATH — wire cash_ex_date credits into official exec path as new SOFT_FROZEN version; preserve forward/e21 forever.`

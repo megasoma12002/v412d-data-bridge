@@ -1,0 +1,15 @@
+{
+  "version_id": "E22_v2_CASH_EX_OFFICIAL_PATH",
+  "status": "SOFT_FROZEN",
+  "governance_class": "SOFT_FROZEN",
+  "approved_at": "2026-09-04",
+  "approval_phrase": "APPROVE E22_v2_CASH_EX_OFFICIAL_PATH — wire cash_ex_date credits into official exec path as new SOFT_FROZEN version; preserve forward/e21 forever.",
+  "official_script": "scripts/e22_v2_forward_pipeline.py",
+  "official_qc": "scripts/e22_v2_qc.py",
+  "official_state_dir": "forward/e22_v2",
+  "preserves_e21_forever": true,
+  "modifies_e21_inplace": false,
+  "cutover_seed_date": "2026-09-03",
+  "dividend_backfill": false,
+  "promotion_package": "research/e22/E22_PROMOTION_PACKAGE.md"
+}

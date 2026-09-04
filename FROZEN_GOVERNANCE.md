@@ -227,9 +227,21 @@ Exact T+1 as a clock remains HARD_FROZEN. Changing fees, tax, slippage, lot poli
 
 ### E22 Dividend layer — current official version
 
-Current E22 dividend event ledger and the hold-through-ex vs sell-before-ex economic-return research.
+**Current official (from 2026-09-04):** `E22_v2_CASH_EX_OFFICIAL_PATH`
 
-Changing dividend cashflow timing or tax treatment in that baseline path is EXPERIMENTAL and requires a challenger folder.
+- Script: `scripts/e22_v2_forward_pipeline.py`
+- Ledgers: `forward/e22_v2/`
+- Mechanism: Exact T+1 fills **plus** cash dividend credit on `cash_ex_date`
+- Status doc: `research/e22/E22_v2_STATUS.md`
+
+**Preserved prior surfaces (readable forever; not deleted):**
+
+- `forward/e21/` + `scripts/e21_forward_pipeline.py` — prior live E16+E18 path without dividend cash in the fill loop
+- `data/dividend_events/e22_dividend_events.csv` — dividend event ledger
+- Hold-through-ex vs sell-before-ex economic-return research
+- `forward/e22_challenger/` — paper challenger that justified v2
+
+Changing dividend cashflow timing or tax treatment relative to **E22_v2** is EXPERIMENTAL and requires a new challenger folder (do not edit v2 in place).
 
 ### E45 Crisis Protection Core — current official version (SOFT_FROZEN_CRITICAL)
 

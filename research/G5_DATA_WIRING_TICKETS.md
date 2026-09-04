@@ -12,13 +12,13 @@ Companion: `research/GAP_FILL_PLAN.md` §5
 
 | Field | Value |
 |---|---|
-| Status | **AWAITING_APPROVAL** |
-| Artifact | `forward/e22_challenger/` + `scripts/e22_challenger_forward_pipeline.py` |
-| Evidence | Full-history CAGR +3.97 pp; paper 2026-07-01→09-03 QC PASS; ~84k dividend cash credited |
-| Promotion package | `research/e22/E22_PROMOTION_PACKAGE.md` → proposed `E22_v2_CASH_EX_OFFICIAL_PATH` |
-| Next | Human signs approval phrase → new SOFT_FROZEN version beside preserved `forward/e21/` |
-| Blocked by | Explicit governance approval |
-| Forbidden | Editing `e21_forward_pipeline.py` or rewriting `forward/e21/` history |
+| Status | **PROMOTED** → `E22_v2_CASH_EX_OFFICIAL_PATH` |
+| Artifact | Official: `forward/e22_v2/` + `scripts/e22_v2_forward_pipeline.py` |
+| Evidence | Full-history CAGR +3.97 pp; paper challenger QC PASS; human approval 2026-09-04 |
+| Promotion package | `research/e22/E22_PROMOTION_PACKAGE.md` (**APPROVED**) |
+| Status doc | `research/e22/E22_v2_STATUS.md` |
+| Next | Run daily `e22_v2_forward_pipeline.py`; keep `forward/e21/` forever |
+| Forbidden | Editing `e21_forward_pipeline.py` or rewriting `forward/e21/` history; in-place v2 retunes |
 
 ---
 

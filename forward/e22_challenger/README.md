@@ -1,21 +1,10 @@
-# E22 Challenger Forward (paper parallel)
+# E22 Challenger Forward (paper archive)
 
-**Status:** `PAPER_EXPERIMENTAL` → promotion package awaiting approval
+**Status:** `PAPER_ARCHIVE` — promotion **approved** 2026-09-04
 
-- Path: `forward/e22_challenger/`
-- Same E16 targets / Exact T+1 as E21
-- **Plus** cash dividend credits on `cash_ex_date`
-- Does **not** edit `forward/e21/`
-- Bootstrap from **2026-07-01** (covers 2026 cash ex-dates) through latest market date
+- This folder justified `E22_v2_CASH_EX_OFFICIAL_PATH`
+- **Official path is now** `forward/e22_v2/` / `scripts/e22_v2_forward_pipeline.py`
+- Keep this challenger readable; do not treat it as the live runner
+- `forward/e21/` remains the preserved pre-v2 live baseline
 
-## QC
-
-PASS — Exact T+1, audit chain, universe checks
-
-Dividend cash total (paper): ~84,353 on 3M capital (5 credit days)
-
-## Promotion
-
-See `research/e22/E22_PROMOTION_PACKAGE.md`  
-Proposed: `E22_v2_CASH_EX_OFFICIAL_PATH`  
-**Requires explicit human approval before cutover.**
+See `research/e22/E22_v2_STATUS.md`.

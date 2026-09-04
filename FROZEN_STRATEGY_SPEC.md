@@ -79,8 +79,13 @@ Information(T)
 - Odd lot
 - Fill / non-fill
 
+目前正式執行路徑（2026-09-04 起）：
+- **`E22_v2_CASH_EX_OFFICIAL_PATH`** — `scripts/e22_v2_forward_pipeline.py` / `forward/e22_v2/`
+- 在 Exact T+1 成交後，於 `cash_ex_date` 將現金股利記入 cash
+- 先前 `forward/e21/` 路徑永久保留可讀，不得回寫改史
+
 狀態：
-**FROZEN EXECUTION BASELINE**
+**FROZEN EXECUTION BASELINE（E22_v2）**
 
 ---
 
