@@ -1,0 +1,29 @@
+evaluating BASE_FULL ...
+  CAGR=0.1056 MDD=-0.3024 util=-0.0456 boot=0.8066 both=True
+evaluating STATIC_095 ...
+  CAGR=0.1037 MDD=-0.2896 util=-0.0411 boot=0.7884 both=True
+evaluating STATIC_090 ...
+  CAGR=0.1012 MDD=-0.2759 util=-0.0368 boot=0.7662 both=True
+evaluating STATIC_085 ...
+  CAGR=0.0974 MDD=-0.2621 util=-0.0337 boot=0.7294 both=True
+evaluating REGIME_OFF_085 ...
+  CAGR=0.0973 MDD=-0.2621 util=-0.0337 boot=0.7346 both=True
+evaluating DD_BRAKE_MILD ...
+  CAGR=0.0949 MDD=-0.2870 util=-0.0486 boot=0.721 both=True
+evaluating VOL_TARGET_18 ...
+  CAGR=0.0938 MDD=-0.2953 util=-0.0538 boot=0.69 both=False
+evaluating VOL_TARGET_20 ...
+  CAGR=0.0991 MDD=-0.2971 util=-0.0495 boot=0.741 both=True
+evaluating VOTE_SEVERE_080 ...
+  CAGR=0.1056 MDD=-0.3024 util=-0.0456 boot=0.8066 both=True
+{
+  "research_decision": "OOF_NEW_MILD_OVERLAY_UTILITY_WINNER",
+  "n_both_pass_new": 7,
+  "n_utility_improved": 4,
+  "winner": {
+    "overlay": "STATIC_085",
+    "utility": -0.03367273856326336,
+    "mdd": -0.2620587934971388,
+    "boot": 0.7294
+  }
+}
