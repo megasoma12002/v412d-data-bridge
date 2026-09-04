@@ -246,5 +246,6 @@ That single step converts “missing official hedge core” from a naming proble
 | **Open items closed** | G4 **CLOSED_NOT_REQUIRED**; 3A **CLOSED_DEFERRED**; E45-C1 re-run on **original v412e0** → still **B** |
 | **Research reopen** | User **准許每條進行研究** (2026-09-04) → `research/reopen/` charters + Round-1 |
 | **Round-2** | E22 keep v2 ex-date; E16 variants no material beat; 3A features built; G4 keep alpha-cut; E45 still B |
+| **Round-3** | 3A adversarial-lite → **`STOP_THIS_FEATURE_SET`** (dev net40 excess &lt; 0); no retune |
 
-See `research/reopen/ROUND2_SUMMARY.md`. No promotions.
+See `research/reopen/ALPHA_3A_FEATURE_SET_STOP.md`. Official stack unchanged.

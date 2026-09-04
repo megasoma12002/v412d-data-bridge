@@ -1,0 +1,369 @@
+{
+  "generated_at_utc": "2026-09-04T10:36:51.338650+00:00",
+  "score_frozen": "z(oi_yoy)-z(amihud_20_lag1)",
+  "no_retune": true,
+  "promotion": false,
+  "dev_window": "2019-2024",
+  "sealed_held_out": "2025+",
+  "industry_note": "A0 security_master is current snapshot \u2014 industry cut is approximate",
+  "baseline_dev_gross": {
+    "mean_excess": -0.0005668049832071686,
+    "mean_turnover": 0.2270951527699645,
+    "by_year": [
+      {
+        "year": 2019,
+        "n_months": 12,
+        "mean_excess": 0.001795997514655474,
+        "hit_rate": 0.5833333333333334
+      },
+      {
+        "year": 2020,
+        "n_months": 12,
+        "mean_excess": -0.00494049198298517,
+        "hit_rate": 0.5
+      },
+      {
+        "year": 2021,
+        "n_months": 12,
+        "mean_excess": -0.000769069504810295,
+        "hit_rate": 0.4166666666666667
+      },
+      {
+        "year": 2022,
+        "n_months": 12,
+        "mean_excess": -0.0021416647727694493,
+        "hit_rate": 0.5833333333333334
+      },
+      {
+        "year": 2023,
+        "n_months": 12,
+        "mean_excess": 0.002413838001763872,
+        "hit_rate": 0.6666666666666666
+      },
+      {
+        "year": 2024,
+        "n_months": 12,
+        "mean_excess": 0.00024056084490255416,
+        "hit_rate": 0.5833333333333334
+      }
+    ],
+    "consec_neg_3y": true
+  },
+  "costs_dev": {
+    "rt_20bps": {
+      "mean_excess": -0.0010209952887470979,
+      "by_year": [
+        {
+          "year": 2019,
+          "n_months": 12,
+          "mean_excess": 0.0011929400338878402,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2020,
+          "n_months": 12,
+          "mean_excess": -0.005396555590336332,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2021,
+          "n_months": 12,
+          "mean_excess": -0.0011594530927867424,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2022,
+          "n_months": 12,
+          "mean_excess": -0.002546814453323927,
+          "hit_rate": 0.5833333333333334
+        },
+        {
+          "year": 2023,
+          "n_months": 12,
+          "mean_excess": 0.0019897342273409164,
+          "hit_rate": 0.5833333333333334
+        },
+        {
+          "year": 2024,
+          "n_months": 12,
+          "mean_excess": -0.0002058228572643415,
+          "hit_rate": 0.5833333333333334
+        }
+      ],
+      "consec_neg_3y": true,
+      "mean_turnover": 0.2270951527699645
+    },
+    "rt_40bps": {
+      "mean_excess": -0.0014751855942870269,
+      "by_year": [
+        {
+          "year": 2019,
+          "n_months": 12,
+          "mean_excess": 0.0005898825531202079,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2020,
+          "n_months": 12,
+          "mean_excess": -0.005852619197687492,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2021,
+          "n_months": 12,
+          "mean_excess": -0.0015498366807631897,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2022,
+          "n_months": 12,
+          "mean_excess": -0.0029519641338784067,
+          "hit_rate": 0.5833333333333334
+        },
+        {
+          "year": 2023,
+          "n_months": 12,
+          "mean_excess": 0.0015656304529179602,
+          "hit_rate": 0.5833333333333334
+        },
+        {
+          "year": 2024,
+          "n_months": 12,
+          "mean_excess": -0.0006522065594312407,
+          "hit_rate": 0.5833333333333334
+        }
+      ],
+      "consec_neg_3y": true,
+      "mean_turnover": 0.2270951527699645
+    },
+    "rt_60bps": {
+      "mean_excess": -0.001929375899826956,
+      "by_year": [
+        {
+          "year": 2019,
+          "n_months": 12,
+          "mean_excess": -1.317492764742551e-05,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2020,
+          "n_months": 12,
+          "mean_excess": -0.006308682805038654,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2021,
+          "n_months": 12,
+          "mean_excess": -0.0019402202687396383,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2022,
+          "n_months": 12,
+          "mean_excess": -0.003357113814432886,
+          "hit_rate": 0.5833333333333334
+        },
+        {
+          "year": 2023,
+          "n_months": 12,
+          "mean_excess": 0.001141526678495003,
+          "hit_rate": 0.5833333333333334
+        },
+        {
+          "year": 2024,
+          "n_months": 12,
+          "mean_excess": -0.001098590261598137,
+          "hit_rate": 0.5833333333333334
+        }
+      ],
+      "consec_neg_3y": true,
+      "mean_turnover": 0.2270951527699645
+    }
+  },
+  "stress_dev_net40": {
+    "drop_illiquid_tercile": {
+      "mean_excess_net40": -0.0028175402091561432,
+      "by_year": [
+        {
+          "year": 2019,
+          "n_months": 12,
+          "mean_excess": -0.0018371633403806847,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2020,
+          "n_months": 12,
+          "mean_excess": -0.0034694131963800058,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2021,
+          "n_months": 12,
+          "mean_excess": -0.0007128776285300915,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2022,
+          "n_months": 12,
+          "mean_excess": -0.009526521391841394,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2023,
+          "n_months": 12,
+          "mean_excess": 0.0011272539012745259,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2024,
+          "n_months": 12,
+          "mean_excess": -0.00248651959907921,
+          "hit_rate": 0.5
+        }
+      ],
+      "consec_neg_3y": true
+    },
+    "drop_liquid_tercile": {
+      "mean_excess_net40": 0.0018138266223437594,
+      "by_year": [
+        {
+          "year": 2019,
+          "n_months": 12,
+          "mean_excess": 0.0012969392100619888,
+          "hit_rate": 0.6666666666666666
+        },
+        {
+          "year": 2020,
+          "n_months": 12,
+          "mean_excess": -0.0019854196666151385,
+          "hit_rate": 0.5833333333333334
+        },
+        {
+          "year": 2021,
+          "n_months": 12,
+          "mean_excess": 0.0008903969439465727,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2022,
+          "n_months": 12,
+          "mean_excess": 0.005818186758149588,
+          "hit_rate": 0.8333333333333334
+        },
+        {
+          "year": 2023,
+          "n_months": 12,
+          "mean_excess": -0.00023461874895126266,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2024,
+          "n_months": 12,
+          "mean_excess": 0.005097475237470805,
+          "hit_rate": 0.5
+        }
+      ],
+      "consec_neg_3y": false
+    },
+    "industry_cap_25pct": {
+      "mean_excess_net40": -0.0013076919713105532,
+      "by_year": [
+        {
+          "year": 2019,
+          "n_months": 12,
+          "mean_excess": 0.0005898825531202079,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2020,
+          "n_months": 12,
+          "mean_excess": -0.005852619197687492,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2021,
+          "n_months": 12,
+          "mean_excess": -0.0009253026945151118,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2022,
+          "n_months": 12,
+          "mean_excess": -0.002571536382267642,
+          "hit_rate": 0.5833333333333334
+        },
+        {
+          "year": 2023,
+          "n_months": 12,
+          "mean_excess": 0.0015656304529179602,
+          "hit_rate": 0.5833333333333334
+        },
+        {
+          "year": 2024,
+          "n_months": 12,
+          "mean_excess": -0.0006522065594312407,
+          "hit_rate": 0.5833333333333334
+        }
+      ],
+      "consec_neg_3y": true
+    }
+  },
+  "loyo_net40": [
+    {
+      "leave_out_year": 2019,
+      "mean_excess_net40_rest": -0.0018881992237684741
+    },
+    {
+      "leave_out_year": 2020,
+      "mean_excess_net40_rest": -0.0005996988736069336
+    },
+    {
+      "leave_out_year": 2021,
+      "mean_excess_net40_rest": -0.0014602553769917945
+    },
+    {
+      "leave_out_year": 2022,
+      "mean_excess_net40_rest": -0.0011798298863687508
+    },
+    {
+      "leave_out_year": 2023,
+      "mean_excess_net40_rest": -0.0020833488037280243
+    },
+    {
+      "leave_out_year": 2024,
+      "mean_excess_net40_rest": -0.0016397814012581841
+    }
+  ],
+  "dev_gate": {
+    "net40_mean_excess_gt_0": false,
+    "net40_no_consec_neg_3y": false,
+    "loyo_not_fragile": false,
+    "drop_illiquid_net40_gt_m10bps": false,
+    "industry_cap_net40_gt_m10bps": false
+  },
+  "dev_pass": false,
+  "sealed": {
+    "n_months": 19,
+    "mean_excess_gross": 0.015155742854787593,
+    "mean_excess_net40": 0.014081491676964777,
+    "by_year": [
+      {
+        "year": 2025,
+        "n_months": 12,
+        "mean_excess": 0.007272324000920485,
+        "hit_rate": 0.5833333333333334
+      },
+      {
+        "year": 2026,
+        "n_months": 7,
+        "mean_excess": 0.025754350550183557,
+        "hit_rate": 0.7142857142857143
+      }
+    ],
+    "mean_turnover": 0.26856279445570475
+  },
+  "held_out_pass": true,
+  "decision": "STOP_THIS_FEATURE_SET",
+  "next_if_pass": "Paper sleeve only after explicit approval; still not SOFT_FROZEN",
+  "next_if_stop": "Do not retune this score; new feature family required for another 3A attempt"
+}
