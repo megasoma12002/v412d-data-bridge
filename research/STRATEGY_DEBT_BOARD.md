@@ -13,7 +13,7 @@ Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.
 | Gap #5 diagnosis | Archive turnover/held-out closeout (`MIXED_HELDOUT`) | **IN THIS PR** |
 | Gap #5/#6 paper | Archive paper stitch / risk budget / board-lot re-sim | **IN THIS PR** |
 | Doc identity | Fix HANDOFF / TODO stale “E22 not in E21” / MDD claim | **IN THIS PR** |
-| STOP draft PRs | Close archive noise (#22–#27 class) | **PROCESS** |
+| STOP draft PRs | Close archive noise (#19, #22–#27, #33, #34 superseded) | **DONE (closed)** |
 
 ### NEXT (single research focus)
 | Item | Action | Do not |
