@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-09-04T14:38:59.090406+00:00",
+  "stage": 8,
+  "probe": "defensive_etf_0056_sleeve",
+  "contract": "EXPERIMENTAL_SANDBOX_NO_PROMOTE",
+  "etf_primary": "0056",
+  "etf_note": "006208 fetched as broad-market clone control material only \u2014 not a book",
+  "params": {
+    "util_eps": 0.002,
+    "mdd_eps": 0.005,
+    "riskoff_shift_from_financial": 0.25,
+    "sleeve4_crisis_def_prior": 0.35,
+    "0056_adj_close": "proxy_equals_close_conservative"
+  },
+  "books": {
+    "BASE": {
+      "stats_full": {
+        "cagr": 0.10686266347814066,
+        "mdd": -0.2210946635650738,
+        "util": -0.0036846683043962325,
+        "n": 3359,
+        "vol": 0.13549264690696944
+      },
+      "stats_sealed_2025p": {
+        "cagr": 0.3002535934014432,
+        "mdd": -0.14405196602252068,
+        "util": 0.22822761039018286,
+        "n": 406,
+        "vol": 0.2063146737456562
+      },
+      "meta": {
+        "exact_t1_ok": true,
+        "same_bar_fills": 0,
+        "dividend_cash_total": 2569459.8874900006,
+        "n_days": 3359,
+        "mean_tgt_def": 0.0,
+        "mean_w_def": 0.0
+      }
+    },
+    "SLEEVE4_0056": {
+      "stats_full": {
+        "cagr": 0.10373564997866391,
+        "mdd": -0.2328161348281167,
+        "util": -0.012672417435394434,
+        "n": 3359,
+        "vol": 0.12793315970147595
+      },
+      "stats_sealed_2025p": {
+        "cagr": 0.29174294343914275,
+        "mdd": -0.13459375196203893,
+        "util": 0.2244460674581233,
+        "n": 406,
+        "vol": 0.18745152101953053
+      },
+      "meta": {
+        "exact_t1_ok": true,
+        "same_bar_fills": 0,
+        "dividend_cash_total": 2284653.4142277404,
+        "n_days": 3359,
+        "mean_tgt_def": 0.10476853892014433,
+        "mean_w_def": 0.10228991913244506
+      }
+    },
+    "RISKOFF_0056": {
+      "stats_full": {
+        "cagr": 0.09778789791375009,
+        "mdd": -0.21965129066438926,
+        "util": -0.012037747418444544,
+        "n": 3359,
+        "vol": 0.12777409222166083
+      },
+      "stats_sealed_2025p": {
+        "cagr": 0.25835056804416423,
+        "mdd": -0.1454931820901545,
+        "util": 0.18560397699908698,
+        "n": 406,
+        "vol": 0.18842609849142447
+      },
+      "meta": {
+        "exact_t1_ok": true,
+        "same_bar_fills": 0,
+        "dividend_cash_total": 2266842.7027722592,
+        "n_days": 3359,
+        "mean_tgt_def": 0.05965443475737932,
+        "mean_w_def": 0.05786207180236721
+      }
+    }
+  },
+  "interesting_modes": [],
+  "exact_t1_ok": true,
+  "decision": "STOP_STAGE8_DEFENSIVE_ETF_SLEEVE",
+  "stance": "Neither SLEEVE4_0056 nor RISKOFF_0056 clears pre-registered bar vs BASE (or Exact T+1 failed). Do not retune priors/shift after sealed look.",
+  "promotion": false,
+  "e22_v2_untouched": true
+}
