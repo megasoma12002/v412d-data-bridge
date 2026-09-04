@@ -1,0 +1,205 @@
+{
+  "generated_at_utc": "2026-09-04T07:41:45.741523+00:00",
+  "authorization": "AUTHORIZE_RESEARCH_ALL_TRACKS_CHALLENGER_ONLY",
+  "tracks": {
+    "e22_v3": {
+      "hypothesis": "H1_payment_date_vs_ex_date",
+      "n_events": 144,
+      "frac_with_payment_date": 0.7986111111111112,
+      "lag_days_median": 28.0,
+      "lag_days_p90": 36.0,
+      "note": "Most events lack cash_payment_date in ledger; Round-1 cannot fairly simulate payment-date credits until payment dates are backfilled. Ex-date credit (E22_v2) remains baseline. Flagged as DATA_GAP for E22_v3 H1.",
+      "decision": "READY_FOR_SANDBOX_SIM",
+      "e22_full_cagr_lift_vs_no_div": 0.03968092144008328,
+      "h2_tax_haircut_illustrative": {
+        "0.0": {
+          "approx_cagr_lift_if_linear": 0.03968092144008328,
+          "tax": 0.0
+        },
+        "0.1": {
+          "approx_cagr_lift_if_linear": 0.03571282929607496,
+          "tax": 0.1
+        },
+        "0.2": {
+          "approx_cagr_lift_if_linear": 0.031744737152066625,
+          "tax": 0.2
+        }
+      }
+    },
+    "e45_rereview": {
+      "status": "TRADEOFF_TABLE",
+      "panel": "ORIGINAL_V412E0_ACTIONS_ARTIFACT",
+      "validation": {
+        "D_ret": 0.5274201741901383,
+        "D_mdd": -0.2408839901932598,
+        "D_sharpe": 0.8055680351901076,
+        "E3_ret": 0.3857473268304356,
+        "E3_mdd": -0.2021501136969995,
+        "E3_sharpe": 0.7596745920050731,
+        "ret_ratio_e3_over_d": 0.731385232699444,
+        "mdd_improvement_abs": 0.03873387649626028
+      },
+      "governance_fork": {
+        "keep_B": "Retain D; E45 API only (current)",
+        "promote_A_accept_tradeoff": "Promote E3-locked profile knowing return/Sharpe below D floors",
+        "requires_phrase": "APPROVE E45_v1_E3_LOCKED_ACCEPT_RETURN_TRADEOFF"
+      },
+      "rows": [
+        {
+          "window": "Validation_2019_2022",
+          "strategy": "D_FORMAL_ROUTER",
+          "n": 977,
+          "ret": 0.5274201741901383,
+          "mdd": -0.2408839901932598,
+          "sharpe": 0.8055680351901076,
+          "vol": 0.1497201248237837
+        },
+        {
+          "window": "Validation_2019_2022",
+          "strategy": "E45_E3_VOLTARGET_WINNER",
+          "n": 977,
+          "ret": 0.3857473268304356,
+          "mdd": -0.2021501136969995,
+          "sharpe": 0.7596745920050731,
+          "vol": 0.1204672482306567
+        },
+        {
+          "window": "Validation_2019_2022",
+          "strategy": "E45_E1_BINARY",
+          "n": 977,
+          "ret": 0.4657387999445104,
+          "mdd": -0.2262606804442232,
+          "sharpe": 0.788368124821438,
+          "vol": 0.1372089961364194
+        },
+        {
+          "window": "Full",
+          "strategy": "D_FORMAL_ROUTER",
+          "n": 5313,
+          "ret": 4.98578440039155,
+          "mdd": -0.584376115709752,
+          "sharpe": 0.5276091293551162,
+          "vol": 0.1981604184717047
+        },
+        {
+          "window": "Full",
+          "strategy": "E45_E3_VOLTARGET_WINNER",
+          "n": 5313,
+          "ret": 3.203957757017739,
+          "mdd": -0.3727235683236667,
+          "sharpe": 0.5637901787875877,
+          "vol": 0.1376911870484111
+        },
+        {
+          "window": "Full",
+          "strategy": "E45_E1_BINARY",
+          "n": 5313,
+          "ret": 5.275159251400595,
+          "mdd": -0.4132722913870774,
+          "sharpe": 0.5985629010374605,
+          "vol": 0.1696746197290118
+        },
+        {
+          "window": "Crisis_2008_2009",
+          "strategy": "D_FORMAL_ROUTER",
+          "n": 498,
+          "ret": 0.1712295069043408,
+          "mdd": -0.584376115709752,
+          "sharpe": 0.3998902583505577,
+          "vol": 0.3996879232452237
+        },
+        {
+          "window": "Crisis_2008_2009",
+          "strategy": "E45_E3_VOLTARGET_WINNER",
+          "n": 498,
+          "ret": 0.1398065857985795,
+          "mdd": -0.3727235683236667,
+          "sharpe": 0.411081825358042,
+          "vol": 0.2203228931280556
+        },
+        {
+          "window": "Crisis_2008_2009",
+          "strategy": "E45_E1_BINARY",
+          "n": 498,
+          "ret": 0.3187039160575824,
+          "mdd": -0.4132722913870774,
+          "sharpe": 0.6126470291226885,
+          "vol": 0.304408166639994
+        }
+      ],
+      "decision": "AWAITING_GOVERNANCE_CHOICE_A_OR_B"
+    },
+    "g4_hedge": {
+      "status": "ROUND1_ILLUSTRATIVE",
+      "baseline_alpha_cut_first": {
+        "cagr": 0.15536433915042758,
+        "mdd": -0.231300680168114,
+        "util": 0.039713999066370576,
+        "n": 1851
+      },
+      "h1_deeper_cash_scale_by_exposure": {
+        "cagr": 0.13259916828678886,
+        "mdd": -0.2066358033795085,
+        "util": 0.029281266597034616,
+        "n": 1851
+      },
+      "h2_synthetic_10pct_antithetic_in_crisis": {
+        "cagr": 0.13443534822087266,
+        "mdd": -0.20568631708307117,
+        "util": 0.03159218967933708,
+        "n": 1851
+      },
+      "warning": "H2 is a toy antithetic on combined returns, not a tradable short index. For research framing only.",
+      "decision": "CONTINUE_H1_PREFERRED; H2 needs real instrument book in next round"
+    },
+    "alpha_3a": {
+      "status": "MENU_ONLY_NO_MODEL",
+      "forbidden": [
+        "TECH2 remix",
+        "PRICE8 remix",
+        "S9A1 cut retune",
+        "same-panel top_k grids"
+      ],
+      "round1_pick": [
+        "CA_dilution_aware_income",
+        "causal_amihud_liquidity"
+      ],
+      "protocol": "OOF\u2192cost\u2192stability\u2192one-shot held-out\u2192adversarial-lite\u2192stop",
+      "bar": "beat C4 or locked 80/20 util AND stress",
+      "next_engineering": [
+        "Build feature parquet with available_date<=T from A1 income + share_multiplier",
+        "Amihud = |ret|/dollar_volume on PIT raw, shifted by label horizon",
+        "Do not touch A3-R1 frozen repair model"
+      ],
+      "decision": "PROCEED_TO_FEATURE_BUILD_NEXT_ROUND"
+    },
+    "e16_e18": {
+      "baseline_book": "E16_E18_E22 early-stack",
+      "baseline_stats": {
+        "cagr": 0.11187905203510562,
+        "mdd": -0.2210946635650738,
+        "util": 0.0013317202525687244,
+        "n": 3350
+      },
+      "pre_registered_variants_next": [
+        {
+          "id": "E16_V1",
+          "change": "Crisis FIN floor 0.60\u21920.55 / TEL 0.35\u21920.40"
+        },
+        {
+          "id": "E16_V2",
+          "change": "gap trigger 0.015\u21920.020"
+        },
+        {
+          "id": "E16_V3",
+          "change": "trade fraction 0.75\u21920.60"
+        },
+        {
+          "id": "E18_C1",
+          "change": "cost_mult 1.0 / 1.5 / 2.0 stress only"
+        }
+      ],
+      "decision": "VARIANTS_REGISTERED_NO_RUN_YET"
+    }
+  }
+}

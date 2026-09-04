@@ -1,0 +1,23 @@
+{
+  "status": "ROUND1_ILLUSTRATIVE",
+  "baseline_alpha_cut_first": {
+    "cagr": 0.15536433915042758,
+    "mdd": -0.231300680168114,
+    "util": 0.039713999066370576,
+    "n": 1851
+  },
+  "h1_deeper_cash_scale_by_exposure": {
+    "cagr": 0.13259916828678886,
+    "mdd": -0.2066358033795085,
+    "util": 0.029281266597034616,
+    "n": 1851
+  },
+  "h2_synthetic_10pct_antithetic_in_crisis": {
+    "cagr": 0.13443534822087266,
+    "mdd": -0.20568631708307117,
+    "util": 0.03159218967933708,
+    "n": 1851
+  },
+  "warning": "H2 is a toy antithetic on combined returns, not a tradable short index. For research framing only.",
+  "decision": "CONTINUE_H1_PREFERRED; H2 needs real instrument book in next round"
+}

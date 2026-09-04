@@ -1,0 +1,28 @@
+{
+  "baseline_book": "E16_E18_E22 early-stack",
+  "baseline_stats": {
+    "cagr": 0.11187905203510562,
+    "mdd": -0.2210946635650738,
+    "util": 0.0013317202525687244,
+    "n": 3350
+  },
+  "pre_registered_variants_next": [
+    {
+      "id": "E16_V1",
+      "change": "Crisis FIN floor 0.60\u21920.55 / TEL 0.35\u21920.40"
+    },
+    {
+      "id": "E16_V2",
+      "change": "gap trigger 0.015\u21920.020"
+    },
+    {
+      "id": "E16_V3",
+      "change": "trade fraction 0.75\u21920.60"
+    },
+    {
+      "id": "E18_C1",
+      "change": "cost_mult 1.0 / 1.5 / 2.0 stress only"
+    }
+  ],
+  "decision": "VARIANTS_REGISTERED_NO_RUN_YET"
+}

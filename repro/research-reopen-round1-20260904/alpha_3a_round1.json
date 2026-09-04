@@ -1,0 +1,21 @@
+{
+  "status": "MENU_ONLY_NO_MODEL",
+  "forbidden": [
+    "TECH2 remix",
+    "PRICE8 remix",
+    "S9A1 cut retune",
+    "same-panel top_k grids"
+  ],
+  "round1_pick": [
+    "CA_dilution_aware_income",
+    "causal_amihud_liquidity"
+  ],
+  "protocol": "OOF\u2192cost\u2192stability\u2192one-shot held-out\u2192adversarial-lite\u2192stop",
+  "bar": "beat C4 or locked 80/20 util AND stress",
+  "next_engineering": [
+    "Build feature parquet with available_date<=T from A1 income + share_multiplier",
+    "Amihud = |ret|/dollar_volume on PIT raw, shifted by label horizon",
+    "Do not touch A3-R1 frozen repair model"
+  ],
+  "decision": "PROCEED_TO_FEATURE_BUILD_NEXT_ROUND"
+}

@@ -244,5 +244,7 @@ That single step converts “missing official hedge core” from a naming proble
 | **Post-P2 E22** | Paper extended `2026-07-01`→`09-03` (46d, ~84k dividends, QC PASS); **`E22_PROMOTION_PACKAGE.md`** |
 | **E22_v2 APPROVED** | Human approval 2026-09-04 → `forward/e22_v2/` + `scripts/e22_v2_forward_pipeline.py` (**SOFT_FROZEN**); `forward/e21/` preserved |
 | **Open items closed** | G4 **CLOSED_NOT_REQUIRED**; 3A **CLOSED_DEFERRED**; E45-C1 re-run on **original v412e0** → still **B** |
+| **Research reopen** | User **准許每條進行研究** (2026-09-04) → `research/reopen/` charters + Round-1 |
 
-All previously listed “still open” research debts are **closed or deferred with reopen checklists**. Live ops = `e22_v2` daily.
+Active research tracks (challenger-only): E22_v3, E16/E18, E45 re-review, Alpha 3A, G4 hedge.  
+HARD_FROZEN intact; no in-place SOFT_FROZEN edits; promotions still need explicit approval.

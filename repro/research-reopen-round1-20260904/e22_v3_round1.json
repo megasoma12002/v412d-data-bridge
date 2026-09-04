@@ -1,0 +1,24 @@
+{
+  "hypothesis": "H1_payment_date_vs_ex_date",
+  "n_events": 144,
+  "frac_with_payment_date": 0.7986111111111112,
+  "lag_days_median": 28.0,
+  "lag_days_p90": 36.0,
+  "note": "Most events lack cash_payment_date in ledger; Round-1 cannot fairly simulate payment-date credits until payment dates are backfilled. Ex-date credit (E22_v2) remains baseline. Flagged as DATA_GAP for E22_v3 H1.",
+  "decision": "READY_FOR_SANDBOX_SIM",
+  "e22_full_cagr_lift_vs_no_div": 0.03968092144008328,
+  "h2_tax_haircut_illustrative": {
+    "0.0": {
+      "approx_cagr_lift_if_linear": 0.03968092144008328,
+      "tax": 0.0
+    },
+    "0.1": {
+      "approx_cagr_lift_if_linear": 0.03571282929607496,
+      "tax": 0.1
+    },
+    "0.2": {
+      "approx_cagr_lift_if_linear": 0.031744737152066625,
+      "tax": 0.2
+    }
+  }
+}
