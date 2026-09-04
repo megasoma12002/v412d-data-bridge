@@ -1,10 +1,10 @@
 {
   "status": "PASS",
-  "run_utc": "2026-09-03T12:57:07.871946+00:00",
-  "latest_date": "2026-09-03",
-  "raw_rows": 64643,
-  "signal_rows_total": 18,
-  "paper_rows": 9,
+  "run_utc": "2026-09-04T12:50:38.501228+00:00",
+  "latest_date": "2026-09-04",
+  "raw_rows": 64655,
+  "signal_rows_total": 20,
+  "paper_rows": 10,
   "rules": [
     "raw OHLCV signals through T",
     "T+1 open target",
@@ -14,8 +14,8 @@
   ],
   "checks": {
     "D_weight_sum": 0.7,
-    "E4_weight_sum": 0.7622548880186356,
-    "E4_exposure": 0.7955476370257825,
+    "E4_weight_sum": 0.7720497014145182,
+    "E4_exposure": 0.8057702551744933,
     "future_dates": 0
   }
 }

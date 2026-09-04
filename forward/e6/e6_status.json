@@ -6,5 +6,5 @@
   "passing_windows": [],
   "integration": "shadow only; D/E4 frozen",
   "known_gap": "earliest board dividend-proposal announcement is not provided by this dataset; AnnouncementDate is treated conservatively as usable next session",
-  "latest_date": "2026-09-03"
+  "latest_date": "2026-09-04"
 }
