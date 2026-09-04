@@ -1,0 +1,43 @@
+{
+  "generated_at_utc": "2026-09-04T17:55:00+00:00",
+  "stage": "GAP5_GAP6_HANDLING_RESEARCH",
+  "gaps": {
+    "5_e50a_overlay": {
+      "live_status": "NOT_CONNECTED",
+      "r1_decision": "RESEARCH_ONLY",
+      "hard_blockers": [
+        "turnover_feasible_candidates=0",
+        "validation_cagr_14.95_lt_proxy_20.97",
+        "validation_mdd_-33.5",
+        "bootstrap_gate_fail",
+        "no_approved_overlay_to_e45_handoff"
+      ],
+      "handle": "NO_LIVE_WIRE; sandbox_alpha_repair_then_paper_stitch",
+      "forbidden_now": ["allocate_overlay_in_forward_e21", "promote_r1", "invent_handoff_thresholds"]
+    },
+    "6_execution_fidelity": {
+      "live_e21_dividends": "NONE",
+      "research_cash": "ex_date",
+      "research_stock": "optional_or_e22_v2s",
+      "payment_date": "ledger_complete_unused_officially",
+      "handle": "LABEL_THREE_BOOKS; adopt_E22_v2s; defer_pay_tax_lots_to_challengers",
+      "forbidden_now": ["rewrite_live_nav_history", "silent_replace_e22_v2", "promote_e22_v3_h1"]
+    }
+  },
+  "ordered_next_steps": [
+    "Document live=core-only; do not claim 20% from E16 alone",
+    "Adopt E22_v2s formal raw-price books; preserve E22_v2 cash-only label",
+    "Wire E21 dividends cutover-forward only",
+    "Finish E50-A3-R1 turnover/held-out diagnosis",
+    "Failure-signature research for overlay risk budget",
+    "E18 fractional + board-lot challenger",
+    "Paper combined E16+overlay NAV with predeclared mix",
+    "Promotion only after gates + explicit approval"
+  ],
+  "decision": {
+    "gap5_live_wire": false,
+    "gap6_history_rewrite": false,
+    "gap6_formal_stock_books": "E22_v2s_recommended",
+    "promote_anything_in_this_pr": false
+  }
+}
