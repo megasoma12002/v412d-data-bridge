@@ -1,6 +1,6 @@
 # Gap #5 / #6 Continuation Research
 
-Generated: `2026-09-04T18:04:04.417316+00:00`
+Generated: `2026-09-04T18:05:18.281484+00:00`
 
 **EXPERIMENTAL.** No live overlay wire. No R1 promotion. No live NAV history rewrite.
 
@@ -16,9 +16,9 @@ Generated: `2026-09-04T18:04:04.417316+00:00`
 | Mix | Full CAGR | Full MDD | Val CAGR | Val MDD | Sealed CAGR | Sealed MDD |
 |---|---:|---:|---:|---:|---:|---:|
 | CORE_100 | 17.22% | -22.64% | 12.33% | -22.64% | 22.71% | -14.46% |
-| CORE_90_OVL_10 | 17.57% | -23.29% | 12.60% | -23.29% | 24.83% | -11.29% |
-| CORE_80_OVL_20 | 17.92% | -23.96% | 12.87% | -23.96% | 27.02% | -11.66% |
-| CORE_70_OVL_30 | 18.25% | -24.64% | 13.14% | -24.64% | 29.29% | -13.50% |
+| CORE_90_OVL_10 | 18.89% | -23.29% | 12.60% | -23.29% | 26.13% | -11.04% |
+| CORE_80_OVL_20 | 20.43% | -23.96% | 12.87% | -23.96% | 29.29% | -13.50% |
+| CORE_70_OVL_30 | 21.85% | -24.64% | 13.14% | -24.64% | 32.22% | -15.90% |
 
 Interpretation: sealed strength of R1 lifts mixes with more overlay weight, but validation
 still shows deep MDD and does **not** clear R1 gates. Paper stitch ≠ promotion.
@@ -26,14 +26,13 @@ still shows deep MDD and does **not** clear R1 gates. Paper stitch ≠ promotion
 ## Failure signature (R1 vs 0050 stand-in)
 
 - Months losing to proxy: `0.5760869565217391`
-- Mean monthly excess: `0.005568338906040103`
-- Proxy note: Stand-in proxy (0050), not the official PIT equal-weight proxy used in R1 gates.
+- Mean monthly excess: `0.010102288333519314`
+- Proxy note: Stand-in proxy (0050), not the official PIT equal-weight proxy used in R1 gates. Overlay NAV chained across validation→sealed reset.
 
 Worst months (by excess):
 
 | Month | Excess | Ovl | 0050 |
 |---|---:|---:|---:|
-| 2023-01 | -43.95% | -36.73% | 7.22% |
 | 2025-09 | -7.92% | 1.81% | 9.72% |
 | 2021-05 | -7.43% | -9.61% | -2.17% |
 | 2020-07 | -6.66% | 7.92% | 14.59% |
@@ -41,9 +40,7 @@ Worst months (by excess):
 | 2024-10 | -5.71% | -1.37% | 4.33% |
 | 2019-10 | -4.63% | 1.73% | 6.36% |
 | 2026-05 | -4.41% | 11.20% | 15.62% |
-
-
-**Caveat:** 2023-01 worst month coincides with R1 validation→sealed model boundary; treat as regime/model-switch risk, not only alpha failure.
+| 2020-09 | -3.95% | -2.68% | 1.28% |
 
 ## Lot / fractional sensitivity (end positions from E22_v2s sim)
 

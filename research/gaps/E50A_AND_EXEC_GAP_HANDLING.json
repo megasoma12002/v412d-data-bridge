@@ -49,7 +49,7 @@
     "promote_anything_in_this_pr": false
   },
   "continuation": {
-    "generated_at_utc": "2026-09-04T18:04:04.478860+00:00",
+    "generated_at_utc": "2026-09-04T18:05:18.342055+00:00",
     "merged_prs": [
       29,
       30,
@@ -64,8 +64,8 @@
       "document_live_core_only": "DONE",
       "adopt_e22_v2s": "MERGED_PR30",
       "wire_e21_cutover": "CODE_ON_MAIN",
-      "paper_combined_predeclared_mix": "DONE",
-      "failure_signature": "DONE_0050_STANDIN",
+      "paper_combined_predeclared_mix": "DONE_CHAINED_OVERLAY",
+      "failure_signature": "DONE_0050_STANDIN_CHAINED",
       "lot_sensitivity": "DONE_END_POSITION",
       "live_overlay": "STILL_NO"
     }

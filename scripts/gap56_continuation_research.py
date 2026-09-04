@@ -62,20 +62,38 @@ def window_stats(df: pd.DataFrame, start: str, end: str, col: str = "nav") -> di
     return out
 
 
+def chain_overlay_nav(overlay: pd.DataFrame) -> pd.DataFrame:
+    """R1 daily_nav resets to 1.0 at sealed start — chain growth across periods."""
+    o = overlay.copy()
+    o["date"] = pd.to_datetime(o["date"])
+    o = o.sort_values("date").drop_duplicates("date", keep="last").reset_index(drop=True)
+    idx = [1.0]
+    for i in range(1, len(o)):
+        prev, cur = float(o.loc[i - 1, "nav"]), float(o.loc[i, "nav"])
+        # period boundary reset (nav jumps down to ~1 while previous >> 1)
+        if cur <= 1.0000001 and prev > 1.5:
+            idx.append(idx[-1])
+        else:
+            idx.append(idx[-1] if prev == 0 else idx[-1] * (cur / prev))
+    o["overlay_nav_chained"] = idx
+    return o
+
+
 def paper_combined(core: pd.DataFrame, overlay: pd.DataFrame) -> tuple[pd.DataFrame, list[dict]]:
     c = core.copy()
-    o = overlay.copy()
+    o = chain_overlay_nav(overlay)
     c["date"] = pd.to_datetime(c["date"])
-    o["date"] = pd.to_datetime(o["date"])
-    # stitch full R1 path (validation then sealed) as one series
-    o = o.sort_values("date").drop_duplicates("date", keep="last")
-    m = c.merge(o[["date", "nav"]].rename(columns={"nav": "overlay_nav"}), on="date", how="inner")
+    c = c.rename(columns={"nav": "core_nav"})
+    m = c.merge(o[["date", "overlay_nav_chained"]], on="date", how="inner")
     m = m[m["date"] >= pd.Timestamp(OVERLAP_START)].sort_values("date")
-    m["core_idx"] = m["nav"] / float(m["nav"].iloc[0])
-    m["ovl_idx"] = m["overlay_nav"] / float(m["overlay_nav"].iloc[0])
+    m["core_idx"] = m["core_nav"] / float(m["core_nav"].iloc[0])
+    m["ovl_idx"] = m["overlay_nav_chained"] / float(m["overlay_nav_chained"].iloc[0])
 
     rows = []
-    out = m[["date", "core_idx", "ovl_idx", "regime"]].copy() if "regime" in m.columns else m[["date", "core_idx", "ovl_idx"]].copy()
+    cols = ["date", "core_idx", "ovl_idx"]
+    if "regime" in m.columns:
+        cols.append("regime")
+    out = m[cols].copy()
     for name, wc, wo in OVERLAY_MIXES:
         col = f"nav_{name.lower()}"
         out[col] = wc * m["core_idx"] + wo * m["ovl_idx"]
@@ -95,9 +113,8 @@ def paper_combined(core: pd.DataFrame, overlay: pd.DataFrame) -> tuple[pd.DataFr
 
 
 def failure_signature(overlay: pd.DataFrame, market: pd.DataFrame) -> dict:
-    """Monthly excess of R1 vs 0050 buy-hold (research proxy stand-in)."""
-    o = overlay.copy()
-    o["date"] = pd.to_datetime(o["date"])
+    """Monthly excess of chained R1 vs 0050 buy-hold (research proxy stand-in)."""
+    o = chain_overlay_nav(overlay)
     px = (
         market[market["code"] == "0050"]
         .assign(date=lambda d: pd.to_datetime(d["date"]))
@@ -106,7 +123,7 @@ def failure_signature(overlay: pd.DataFrame, market: pd.DataFrame) -> dict:
     )
     px = px[["date", "close"]].rename(columns={"close": "px"})
     m = o.merge(px, on="date", how="inner").sort_values("date")
-    m["ovl_ret"] = m["nav"].pct_change()
+    m["ovl_ret"] = m["overlay_nav_chained"].pct_change()
     m["px_ret"] = m["px"].pct_change()
     m["excess"] = m["ovl_ret"] - m["px_ret"]
     m["ym"] = m["date"].dt.to_period("M").astype(str)
@@ -117,17 +134,20 @@ def failure_signature(overlay: pd.DataFrame, market: pd.DataFrame) -> dict:
         n=("excess", "count"),
     )
     monthly["lose"] = monthly["excess"] < 0
-    # tag crisis months via core regime if available later
     worst = monthly.nsmallest(8, "excess").reset_index()
     best = monthly.nlargest(8, "excess").reset_index()
     return {
         "proxy": "0050_buy_hold_close_approx",
+        "overlay_series": "chained_across_val_sealed_boundary",
         "n_months": int(len(monthly)),
         "pct_months_lose_to_proxy": float(monthly["lose"].mean()) if len(monthly) else None,
         "mean_monthly_excess": float(monthly["excess"].mean()) if len(monthly) else None,
         "worst_months": worst.to_dict(orient="records"),
         "best_months": best.to_dict(orient="records"),
-        "note": "Stand-in proxy (0050), not the official PIT equal-weight proxy used in R1 gates.",
+        "note": (
+            "Stand-in proxy (0050), not the official PIT equal-weight proxy used in R1 gates. "
+            "Overlay NAV chained across validation→sealed reset."
+        ),
     }
 
 
