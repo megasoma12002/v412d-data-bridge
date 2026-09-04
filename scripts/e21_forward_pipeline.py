@@ -146,7 +146,7 @@ def main():
     ap.add_argument(
         "--e22-version",
         default=E22_BOOKS_VERSION,
-        choices=[e22div.E22_V2, e22div.E22_V2S, e22div.E22_V2S_CIL],
+        choices=[e22div.E22_V2, e22div.E22_V2S, e22div.E22_V2S_CIL, e22div.E22_V2S_TW],
     )
     a = ap.parse_args()
     CAPITAL = a.capital

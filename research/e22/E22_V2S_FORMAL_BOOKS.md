@@ -40,8 +40,9 @@ Historical research recompute (side-by-side, no live rewrite):
 
 - E22_v2 cash-only semantics preserved as a named baseline.
 - E22_v2s is the formal books path for raw-price NAV (default).
-- Candidate successor for fractional shares (gap 6.5): **`E22_v2s_cil`**
-  (floor + cash-in-lieu at raw close) — see `research/e22/E22_V2S_CIL_FORMAL.md`.
-  Not default until explicit promotion; no live history rewrite.
+- Candidate successors for fractional shares (gap 6.5):
+  - **`E22_v2s_tw`** — Taiwan practice: floor + **par NT$10** CIL (元以下捨去). See `research/e22/TW_ODD_LOT_APPLY.md`.
+  - **`E22_v2s_cil`** — research mark: floor + raw-close CIL. See `research/e22/E22_V2S_CIL_FORMAL.md`.
+  Neither is default until explicit promotion; no live history rewrite.
 - Exact T+1 unchanged.
 - Payment-date experiments (E22_v3 H1) remain separate and are not promoted here.
