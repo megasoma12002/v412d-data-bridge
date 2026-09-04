@@ -34,7 +34,6 @@ from e50a3r1_turnover_diagnosis import (
 )
 from e50a3r1_stage6_risk_overlay_oof import C4, hysteresis, mean_gross_exposure
 from e50a3r1_stage7_crisis_challenger_oof import (
-    merge_orders_crisis_sleeve,
     orders_on_dates,
     period_metrics,
 )
@@ -138,6 +137,29 @@ def shell_cfg(base: dict | None = None) -> dict:
     if base:
         cfg.update(base)
     return cfg
+
+
+def merge_orders_switch(
+    bull_orders: pl.DataFrame,
+    stress_orders: pl.DataFrame,
+    flags: dict[date, bool],
+) -> pl.DataFrame:
+    """Switch books by flag without DataFrame truthiness (Polars-safe)."""
+    bull = {d: g for (d,), g in bull_orders.partition_by("signal_date", as_dict=True).items()}
+    stress = {d: g for (d,), g in stress_orders.partition_by("signal_date", as_dict=True).items()}
+    pieces: list[pl.DataFrame] = []
+    for d in sorted(set(bull) | set(stress)):
+        if flags.get(d, False):
+            g = stress.get(d)
+            if g is None:
+                g = bull.get(d)
+        else:
+            g = bull.get(d)
+            if g is None:
+                g = stress.get(d)
+        if g is not None:
+            pieces.append(g)
+    return pl.concat(pieces).sort(["signal_date", "code"]) if pieces else bull_orders
 
 
 def evaluate(orders, execution, name: str, stress_dates: set[date], start: date, end: date) -> dict:
@@ -280,7 +302,7 @@ def main() -> None:
         rows.append(base)
 
         for fam, sleeve in residual_orders.items():
-            switched = merge_orders_crisis_sleeve(tech_orders, sleeve, flags)
+            switched = merge_orders_switch(tech_orders, sleeve, flags)
             m = evaluate(switched, execution, f"{fam}::{det_name}", stress_dates, OOF_START, OOF_END)
             m.update(
                 {
@@ -375,7 +397,7 @@ def main() -> None:
                     }
                 )
                 shell_rows.append(base)
-                switched = merge_orders_crisis_sleeve(tech_s, sleeve_s, flags)
+                switched = merge_orders_switch(tech_s, sleeve_s, flags)
                 m = evaluate(
                     switched, execution, f"{fam}::{det_name}::{cfg}", stress_dates, OOF_START, OOF_END
                 )
