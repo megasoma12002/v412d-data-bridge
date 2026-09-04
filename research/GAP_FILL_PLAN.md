@@ -226,3 +226,15 @@ P2  G4 hedge sleeve only if product still requires crash PnL beyond E45
 **E45-C1 verified baseline + side-by-side vs V4.12-D** on the original raw/adjusted panels, writing `research/e45/e45_verified_baseline.json` and a promotion recommendation A/B/C.
 
 That single step converts “missing official hedge core” from a naming problem into a **decidable** governance object.
+
+---
+
+## 9. Execution log (2026-09-04)
+
+| Item | Result |
+|---|---|
+| E45-C1 vs D (PIT-reconstructed 12-stock panel) | **`B_KEEP_D_AS_BASELINE_E45_API_ONLY`** — MDD helps, return/Sharpe floor fail |
+| Verified MDD artifact | `research/e45/e45_verified_baseline.json` (retires reliance on −13.16% text) |
+| E22 official-path challenger | **`RECOMMEND_WIRE_E22_…_VIA_NEW_VERSION`** — CAGR +3.97 pp on E16 book |
+
+Next P1: four-layer paper forward (`forward/e50_stack/`) using locked alpha + D/E45-API exposure signal; G3 choose new-info vs saturation.

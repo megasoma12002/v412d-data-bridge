@@ -31,6 +31,17 @@ Machine status: `research/e45/e45_status.json`
 - Not a verification of MDD ≈ −13.16% (still `UNVERIFIED_TEXT_ONLY`)
 - Not a replacement for formal strategy **V4.12-D** (E3 remains `validation_pass_but_not_promoted`)
 
+## E45-C1 result (2026-09-04)
+
+Ran `scripts/e45_c1_verified_baseline.py` on reconstructed 12-stock PIT panel.
+
+**Recommendation: `B_KEEP_D_AS_BASELINE_E45_API_ONLY`**
+
+- E3 improves Validation/Full/Crisis MDD vs D (MC P(better MDD)≈0.99)
+- Fails return ≥80% of D and Sharpe ≥ D on Validation
+- Therefore: **keep V4.12-D as crisis baseline**; named module stays API packaging
+- Artifacts: `research/e45/E45_C1_DECISION.md`, `e45_verified_baseline.json`
+
 ## Promotion path (unchanged)
 
 Separate challenger folder → preserve baseline → crisis stress + MC → cost validation → **explicit governance approval** → new frozen version.  
