@@ -1,0 +1,446 @@
+{
+  "generated_at": "2026-09-04T14:42:40.667542+00:00",
+  "stage": "8b",
+  "probe": "multi_defensive_etf_screen",
+  "candidates": [
+    "00713",
+    "00918",
+    "00896",
+    "00878",
+    "00927"
+  ],
+  "params": {
+    "util_eps": 0.002,
+    "mdd_eps": 0.005,
+    "riskoff_shift": 0.25
+  },
+  "results": {
+    "00713": {
+      "status": "RAN",
+      "start": "2017-09-27",
+      "end": "2026-09-04",
+      "n_dates": 2177,
+      "books": {
+        "BASE_w": {
+          "stats_full": {
+            "cagr": 0.13500057467650994,
+            "mdd": -0.22014310947379478,
+            "util": 0.02492901993961255,
+            "n": 1925,
+            "vol": 0.14508387370837697
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.27110809119204626,
+            "mdd": -0.1335799071745053,
+            "util": 0.20431813760479361,
+            "n": 406,
+            "vol": 0.19271154664674575
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 1220916.9152479,
+            "n_days": 1925,
+            "mean_tgt_def": 0.0,
+            "mean_w_def": 0.0
+          }
+        },
+        "SLEEVE4": {
+          "stats_full": {
+            "cagr": 0.12766940990985542,
+            "mdd": -0.22840244377757357,
+            "util": 0.013468188021068639,
+            "n": 1925,
+            "vol": 0.1401931107232972
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.24261579526302968,
+            "mdd": -0.14353406235360844,
+            "util": 0.17084876408622546,
+            "n": 406,
+            "vol": 0.1847067441070432
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 1041464.2997343201,
+            "n_days": 1925,
+            "mean_tgt_def": 0.12219226162772598,
+            "mean_w_def": 0.12014275825722823
+          }
+        },
+        "RISKOFF": {
+          "stats_full": {
+            "cagr": 0.11953215172121356,
+            "mdd": -0.22344513209856542,
+            "util": 0.007809585671930852,
+            "n": 1925,
+            "vol": 0.13822109751722447
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.2245188445472892,
+            "mdd": -0.14373438098032265,
+            "util": 0.15265165405712788,
+            "n": 406,
+            "vol": 0.18155612172875793
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 1020870.57508272,
+            "n_days": 1925,
+            "mean_tgt_def": 0.06935423388611764,
+            "mean_w_def": 0.06776963533053428
+          }
+        }
+      },
+      "interesting": [],
+      "exact_t1_ok": true
+    },
+    "00918": {
+      "status": "RAN",
+      "start": "2022-11-24",
+      "end": "2026-09-04",
+      "n_dates": 914,
+      "books": {
+        "BASE_w": {
+          "stats_full": {
+            "cagr": 0.18152187160800337,
+            "mdd": -0.13427339898264135,
+            "util": 0.1143851721166827,
+            "n": 662,
+            "vol": 0.16300529307898745
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.23776185136821315,
+            "mdd": -0.12810126875440375,
+            "util": 0.17371121699101127,
+            "n": 406,
+            "vol": 0.18171617442724577
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 337756.4816,
+            "n_days": 662,
+            "mean_tgt_def": 0.0,
+            "mean_w_def": 0.0
+          }
+        },
+        "SLEEVE4": {
+          "stats_full": {
+            "cagr": 0.2075516103043078,
+            "mdd": -0.12200682342279623,
+            "util": 0.14654819859290968,
+            "n": 662,
+            "vol": 0.16102025038830559
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.2792019525196092,
+            "mdd": -0.1218146943459637,
+            "util": 0.21829460534662737,
+            "n": 406,
+            "vol": 0.1794379781088927
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 289231.90598877997,
+            "n_days": 662,
+            "mean_tgt_def": 0.09555164169941473,
+            "mean_w_def": 0.09333286002456312
+          }
+        },
+        "RISKOFF": {
+          "stats_full": {
+            "cagr": 0.1799947622914433,
+            "mdd": -0.13395634379225552,
+            "util": 0.11301659039531553,
+            "n": 662,
+            "vol": 0.1599063604930854
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.22127819339045196,
+            "mdd": -0.13395634379225552,
+            "util": 0.1543000214943242,
+            "n": 406,
+            "vol": 0.17764110076785483
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 277696.3564055599,
+            "n_days": 662,
+            "mean_tgt_def": 0.050648133903468076,
+            "mean_w_def": 0.04944195783887242
+          }
+        }
+      },
+      "interesting": [
+        "SLEEVE4"
+      ],
+      "exact_t1_ok": true
+    },
+    "00896": {
+      "status": "RAN",
+      "start": "2021-09-16",
+      "end": "2026-09-04",
+      "n_dates": 1206,
+      "books": {
+        "BASE_w": {
+          "stats_full": {
+            "cagr": 0.16274183330105396,
+            "mdd": -0.1307512732569781,
+            "util": 0.09736619667256491,
+            "n": 954,
+            "vol": 0.15325072934343145
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.24964557436716195,
+            "mdd": -0.1307512732569781,
+            "util": 0.1842699377386729,
+            "n": 406,
+            "vol": 0.1866360629168082
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 484460.72329674,
+            "n_days": 954,
+            "mean_tgt_def": 0.0,
+            "mean_w_def": 0.0
+          }
+        },
+        "SLEEVE4": {
+          "stats_full": {
+            "cagr": 0.19231144571558878,
+            "mdd": -0.13424812453503054,
+            "util": 0.1251873834480735,
+            "n": 954,
+            "vol": 0.15232283932216722
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.282453359225332,
+            "mdd": -0.1313040346697869,
+            "util": 0.21680134189043854,
+            "n": 406,
+            "vol": 0.18420786257375416
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 472426.74366499996,
+            "n_days": 954,
+            "mean_tgt_def": 0.1078987172969968,
+            "mean_w_def": 0.1050834311184693
+          }
+        },
+        "RISKOFF": {
+          "stats_full": {
+            "cagr": 0.17247646915673953,
+            "mdd": -0.14334503100589435,
+            "util": 0.10080395365379236,
+            "n": 954,
+            "vol": 0.15049947665579674
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.2389236325221733,
+            "mdd": -0.14334503100589435,
+            "util": 0.16725111701922613,
+            "n": 406,
+            "vol": 0.1825790347002293
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 437804.03336554003,
+            "n_days": 954,
+            "mean_tgt_def": 0.06054602687363979,
+            "mean_w_def": 0.05895845433375231
+          }
+        }
+      },
+      "interesting": [
+        "SLEEVE4"
+      ],
+      "exact_t1_ok": true
+    },
+    "00878": {
+      "status": "RAN",
+      "start": "2020-07-20",
+      "end": "2026-09-04",
+      "n_dates": 1493,
+      "books": {
+        "BASE_w": {
+          "stats_full": {
+            "cagr": 0.1592066599841384,
+            "mdd": -0.19790138564684845,
+            "util": 0.060255967160714186,
+            "n": 1241,
+            "vol": 0.1512504124755366
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.2603785311061615,
+            "mdd": -0.13430955164312453,
+            "util": 0.19322375528459923,
+            "n": 406,
+            "vol": 0.19032919990013328
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 804662.1929485999,
+            "n_days": 1241,
+            "mean_tgt_def": 0.0,
+            "mean_w_def": 0.0
+          }
+        },
+        "SLEEVE4": {
+          "stats_full": {
+            "cagr": 0.1589724075291623,
+            "mdd": -0.20790562526026546,
+            "util": 0.05501959489902958,
+            "n": 1241,
+            "vol": 0.1475309005581915
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.27056733303641023,
+            "mdd": -0.14283588250109713,
+            "util": 0.19914939178586166,
+            "n": 406,
+            "vol": 0.18640706806278165
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 693244.1253576,
+            "n_days": 1241,
+            "mean_tgt_def": 0.12171173619830028,
+            "mean_w_def": 0.11895341593816429
+          }
+        },
+        "RISKOFF": {
+          "stats_full": {
+            "cagr": 0.14513181179259327,
+            "mdd": -0.19268156012229598,
+            "util": 0.04879103173144528,
+            "n": 1241,
+            "vol": 0.14379360697938945
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.23024361795739812,
+            "mdd": -0.14269441992665832,
+            "util": 0.15889640799406896,
+            "n": 406,
+            "vol": 0.18139388017899616
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 677558.4965122798,
+            "n_days": 1241,
+            "mean_tgt_def": 0.07413932331247096,
+            "mean_w_def": 0.07254159120221097
+          }
+        }
+      },
+      "interesting": [],
+      "exact_t1_ok": true
+    },
+    "00927": {
+      "status": "RAN",
+      "start": "2023-06-06",
+      "end": "2026-09-04",
+      "n_dates": 791,
+      "books": {
+        "BASE_w": {
+          "stats_full": {
+            "cagr": 0.1703197881257088,
+            "mdd": -0.13545747908993988,
+            "util": 0.10259104858073886,
+            "n": 539,
+            "vol": 0.1689450298285708
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.23183335671656735,
+            "mdd": -0.12611686680105305,
+            "util": 0.16877492331604083,
+            "n": 406,
+            "vol": 0.17874294932257426
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 297149.61880000005,
+            "n_days": 539,
+            "mean_tgt_def": 0.0,
+            "mean_w_def": 0.0
+          }
+        },
+        "SLEEVE4": {
+          "stats_full": {
+            "cagr": 0.19974505112781693,
+            "mdd": -0.13855124564466237,
+            "util": 0.13046942830548575,
+            "n": 539,
+            "vol": 0.17418253683375418
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.26968799743542626,
+            "mdd": -0.13696206461250215,
+            "util": 0.20120696512917519,
+            "n": 406,
+            "vol": 0.18450530851521238
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 255321.20956000002,
+            "n_days": 539,
+            "mean_tgt_def": 0.10232931793769218,
+            "mean_w_def": 0.10096014256579004
+          }
+        },
+        "RISKOFF": {
+          "stats_full": {
+            "cagr": 0.17362462794571099,
+            "mdd": -0.13778905299751376,
+            "util": 0.1047301014469541,
+            "n": 539,
+            "vol": 0.1693896118813314
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.222587570500955,
+            "mdd": -0.137422020308282,
+            "util": 0.15387656034681402,
+            "n": 406,
+            "vol": 0.1791673739694841
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 242932.35835626,
+            "n_days": 539,
+            "mean_tgt_def": 0.062206056853610144,
+            "mean_w_def": 0.060628352262091706
+          }
+        }
+      },
+      "interesting": [
+        "SLEEVE4",
+        "RISKOFF"
+      ],
+      "exact_t1_ok": true
+    }
+  },
+  "interesting": [
+    "00918:SLEEVE4",
+    "00896:SLEEVE4",
+    "00927:SLEEVE4",
+    "00927:RISKOFF"
+  ],
+  "decision": "STAGE8B_MULTI_ETF_INTERESTING_CONTINUE_SANDBOX",
+  "stance": "Interesting: 00918:SLEEVE4, 00896:SLEEVE4, 00927:SLEEVE4, 00927:RISKOFF. Still NO auto-promote; would need cost/liquidity + dividend-adj ranking before any paper sleeve.",
+  "promotion": false,
+  "e22_v2_untouched": true
+}

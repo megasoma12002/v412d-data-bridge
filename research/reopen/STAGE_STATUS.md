@@ -11,21 +11,23 @@
 | Stage 6 | 3A lend-fee stress (`-z(fee)`) | **STOP** |
 | Stage 7 | Dual QC + TX front-month OI timing overlay | Dual QC **PASS**; TX OI **STOP** |
 | Stage 8 | Defensive ETF sleeve (0056) | **STOP** |
+| Stage 8b | Multi-ETF screen 00713/00918/00896/00878/00927 | **Interesting sandbox** (short windows); **no promote** |
 
 ## Official posture
 
 1. Official: **E22_v2 ex-date** (`forward/e22_v2/`) — 8 names, 3 sleeves
 2. Paper: **E22_v3 payment-date** — no auto-cutover
-3. E45=B; no G4 shorts; no extra ETF sleeves
+3. E45=B; no G4 shorts; no extra ETF sleeves in live
 
-## Stage 8 result
+## Stage 8 / 8b
 
-- Probe: `SLEEVE4_0056` / `RISKOFF_0056` vs BASE
-- Decision: **`STOP_STAGE8_DEFENSIVE_ETF_SLEEVE`**
-- Docs: `research/reopen/STAGE8_DECISION.md`, `repro/stage8-defensive-etf-20260904/`
+- 0056: **STOP**
+- 00713 / 00878: fail bar on longer windows
+- 00918 / 00896 / 00927 SLEEVE4: clear bar only on **short** listing windows → `STAGE8B_MULTI_ETF_INTERESTING_CONTINUE_SANDBOX` (research only)
+- Docs: `research/reopen/STAGE8_DECISION.md`, `research/reopen/STAGE8B_DECISION.md`
 
 ## Recommended next
 
-Ops monitoring only unless a **new** info source arrives (TWT58U industry PIT, equity tick, true board-proposal dates). Do not retune stopped Stage 7/8 thresholds or reopen stopped 3A feature sets.
+Ops monitoring; optional Stage 8b follow-up = dividend-adjusted ranking + cost stress on **00896/00918** only (still no live cutover). Do not retune stopped Stage 7/8 thresholds or reopen stopped 3A feature sets.
 
 Promotion bar unchanged: challenger + evidence + explicit approval.

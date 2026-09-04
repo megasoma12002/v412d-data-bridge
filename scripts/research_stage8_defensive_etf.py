@@ -416,11 +416,6 @@ def main() -> int:
     }
     (out / "stage8_defensive_etf_report.json").write_text(json.dumps(report, indent=2, default=str) + "\n")
 
-    def fmt(s):
-        if s.get("cagr") is None:
-            return "n/a"
-        return f"{s['cagr']:.4f} | {s['mdd']:.4f} | {s['util']:.4f}"
-
     md = f"""# Stage 8 Decision — Defensive ETF sleeve (0056)
 
 Date: **2026-09-04**  

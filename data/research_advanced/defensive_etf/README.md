@@ -1,10 +1,13 @@
 # Defensive ETF OHLCV pack
 
-Primary challenger input: `0056_ohlcv.csv` (FinMind TaiwanStockPrice).
+FinMind `TaiwanStockPrice` pulls for Stage 8 / 8b challengers.
 
-Also fetched (not used as Stage-8 books):
-- `00713_ohlcv.csv` — high-div low-vol (shorter history from 2017-09)
-- `00878_ohlcv.csv` — from 2020-07
-- `006208_ohlcv.csv` — broad-market clone of 0050 (negative-control material)
+| Code | Role |
+|---|---|
+| 0056 | Stage 8 primary — **STOP** |
+| 00713 | Stage 8b — fail (longer window) |
+| 00878 | Stage 8b — fail |
+| 00918 / 00896 / 00927 | Stage 8b — short-window SLEEVE4 interesting; **no promote** |
+| 006208 | Broad-market clone material only |
 
 Do not silent-patch E22_v2 universe.
