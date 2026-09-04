@@ -239,5 +239,7 @@ That single step converts “missing official hedge core” from a naming proble
 | **P1 G2** four-layer paper | `forward/e50_stack/` QC **PASS** (80/20 + alpha-cut-first; E45 signal-only) |
 | **P1 G5** E22 paper forward | `forward/e22_challenger/` QC **PASS** (9 sessions beside E21; no ex-date in window → NAV lift 0) |
 | **P1 G3** alpha fork | **3B** — `research/GOVERNANCE_ALPHA_PANEL_SATURATED.md` |
+| **P2 G4** hedge | **`NOT_REQUIRED_NOW`** — `research/e50_hedge/E50_HEDGE_CHARTER.md` |
+| **P2 G5** tickets | `research/G5_DATA_WIRING_TICKETS.md` (T1 paper-ready; T2/T3 documented; T4 thin E16 API) |
 
-Next P2: G4 hedge sleeve only if product still requires crash PnL beyond E45 de-lever; keep E22 challenger paper-running until governance approves a new SOFT_FROZEN version.
+Gap-fill sequence **P0–P2 complete** for decidable research objects. Remaining work is **governance** (E22 new version approval) and optional product reopen of G4 — not more grids.
