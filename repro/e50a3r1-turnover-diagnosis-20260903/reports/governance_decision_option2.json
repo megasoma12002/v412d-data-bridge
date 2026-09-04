@@ -1,0 +1,27 @@
+{
+  "generated_at_utc": "2026-09-04T04:13:00+00:00",
+  "decision_label": "GOVERNANCE_OPTION2_S9A1_PAPER_MONITOR_ACCEPTED",
+  "user_choice": "方案2",
+  "research_reference": {
+    "id": "C4",
+    "alpha": "TECH2",
+    "portfolio": "C4",
+    "role": "bull_sleeve_baseline"
+  },
+  "paper_monitor_overlay": {
+    "id": "S9A1",
+    "controller": "FREEZE_REB",
+    "detector": "COMBO_VOL70_VAL03",
+    "heldout_label": "MIXED_HELDOUT",
+    "role": "paper_monitor_only",
+    "frozen": false,
+    "replaces_e45": false
+  },
+  "official_stack_unchanged": ["E16", "E18", "E22", "E45"],
+  "gates_remain_experimental": true,
+  "gate_promotion": false,
+  "pr_merge_as_production": false,
+  "no_retune_after_heldout": true,
+  "runbook": "S9A1_PAPER_MONITOR_RUNBOOK.md",
+  "decision_doc": "GOVERNANCE_DECISION_OPTION2_S9A1_PAPER_MONITOR.md"
+}
