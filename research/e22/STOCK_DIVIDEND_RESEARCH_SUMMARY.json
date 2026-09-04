@@ -1,0 +1,269 @@
+{
+  "generated_at_utc": "2026-09-04T16:51:16.705155+00:00",
+  "stage": "E22_STOCK_DIVIDEND_RESEARCH",
+  "governance": {
+    "label": "EXPERIMENTAL_CHALLENGER",
+    "modifies_soft_frozen_e22_v2": false,
+    "price_mark": "raw_close",
+    "cash_credit": "cash_ex_date",
+    "stock_share_increase": "stock_ex_date",
+    "stock_unit": "FinMind_yuan_per_share_par10"
+  },
+  "inventory": {
+    "n_events": 52,
+    "codes": [
+      "2880",
+      "2886",
+      "2892",
+      "5880"
+    ],
+    "by_code": [
+      {
+        "code": "2880",
+        "events": 16,
+        "mean_yuan": 0.4155812499375,
+        "total_yuan": 6.649299999
+      },
+      {
+        "code": "2886",
+        "events": 5,
+        "mean_yuan": 0.196,
+        "total_yuan": 0.98
+      },
+      {
+        "code": "2892",
+        "events": 16,
+        "mean_yuan": 0.359375,
+        "total_yuan": 5.75
+      },
+      {
+        "code": "5880",
+        "events": 15,
+        "mean_yuan": 0.39333333333333337,
+        "total_yuan": 5.9
+      }
+    ],
+    "by_year": [
+      {
+        "year": "2010",
+        "events": 2
+      },
+      {
+        "year": "2011",
+        "events": 3
+      },
+      {
+        "year": "2012",
+        "events": 4
+      },
+      {
+        "year": "2013",
+        "events": 3
+      },
+      {
+        "year": "2014",
+        "events": 3
+      },
+      {
+        "year": "2015",
+        "events": 3
+      },
+      {
+        "year": "2016",
+        "events": 3
+      },
+      {
+        "year": "2017",
+        "events": 3
+      },
+      {
+        "year": "2018",
+        "events": 3
+      },
+      {
+        "year": "2019",
+        "events": 3
+      },
+      {
+        "year": "2020",
+        "events": 3
+      },
+      {
+        "year": "2021",
+        "events": 3
+      },
+      {
+        "year": "2022",
+        "events": 4
+      },
+      {
+        "year": "2023",
+        "events": 3
+      },
+      {
+        "year": "2024",
+        "events": 4
+      },
+      {
+        "year": "2025",
+        "events": 3
+      },
+      {
+        "year": "2026",
+        "events": 2
+      }
+    ],
+    "share_factor_note": "1 + stock_dividend/10 on stock_ex_date"
+  },
+  "variants": {
+    "E22_CASH_ONLY": {
+      "stats": {
+        "cagr": 0.11248792503555594,
+        "max_drawdown": -0.2210946635650738,
+        "utility": 0.0019405932530190406,
+        "vol": 0.13302408199653676,
+        "n_days": 3351,
+        "end_nav": 12375275.724677144,
+        "start_nav": 3000000.0,
+        "cagr_1y": 0.5180805300830271,
+        "cagr_3y": 0.25654848908718586,
+        "cagr_5y": 0.19881968331129252
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6222,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "dividend_cash_total": 2611580.6577671794,
+        "stock_div_events": 0,
+        "stock_div_shares_added": 0.0,
+        "apply_stock_div": false,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 197701.0,
+          "2886": 26218.0,
+          "2892": 175.0,
+          "5880": 0.0,
+          "2412": 9098.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 8647.0
+        }
+      }
+    },
+    "E22_CASH_PLUS_STOCK": {
+      "stats": {
+        "cagr": 0.137829469400496,
+        "max_drawdown": -0.22639131293777315,
+        "utility": 0.024633812931609433,
+        "vol": 0.13322336551614303,
+        "n_days": 3351,
+        "end_nav": 16695201.766628467,
+        "start_nav": 3000000.0,
+        "cagr_1y": 0.5495979310990371,
+        "cagr_3y": 0.2774556156531849,
+        "cagr_5y": 0.2191417624210823
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6262,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "dividend_cash_total": 3148555.7472813074,
+        "stock_div_events": 42,
+        "stock_div_shares_added": 78250.1955,
+        "apply_stock_div": true,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 279017.7229,
+          "2886": 24445.7082,
+          "2892": 150.4434,
+          "5880": 1.3211,
+          "2412": 12445.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 11656.0
+        }
+      }
+    },
+    "E16_E18_NO_DIV": {
+      "stats": {
+        "cagr": 0.0729270134821578,
+        "max_drawdown": -0.2276985835510028,
+        "utility": -0.040922278293343606,
+        "vol": 0.14005202155435073,
+        "n_days": 3351
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6105,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "dividend_cash_total": 0.0,
+        "stock_div_events": 0,
+        "stock_div_shares_added": 0.0,
+        "apply_stock_div": false,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 131031.0,
+          "2886": 7780.0,
+          "2892": 45.0,
+          "5880": 0.0,
+          "2412": 5856.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 5336.0
+        }
+      }
+    }
+  },
+  "deltas": {
+    "stock_minus_cash_only_cagr": 0.025341544364940072,
+    "stock_minus_cash_only_mdd": -0.005296649372699358,
+    "stock_minus_cash_only_end_nav": 4319926.041951323,
+    "cash_only_minus_no_div_cagr": 0.03956091155339814,
+    "stock_minus_no_div_cagr": 0.06490245591833821,
+    "stock_div_events_applied": 42,
+    "stock_div_shares_added": 78250.1955,
+    "dividend_cash_total_cash_only": 2611580.6577671794,
+    "dividend_cash_total_stock_aware": 3148555.7472813074
+  },
+  "ex_date_diagnostics": {
+    "n_stock_ex_rows_in_nav_window": 42,
+    "n_with_nav_rets": 42,
+    "mean_nav_ret_gap_stock_minus_cash": 0.007857863689548203,
+    "median_nav_ret_gap_stock_minus_cash": 0.004424232051308097,
+    "pct_days_stock_aware_higher_nav_ret": 0.9285714285714286,
+    "mean_price_ret_ex_day": -0.06218807106475192
+  },
+  "end_position_delta_shares": {
+    "2880": 81316.7229,
+    "2886": -1772.2918,
+    "2892": -24.5566,
+    "5880": 1.3211,
+    "2412": 3347.0,
+    "3045": 0.0,
+    "4904": 0.0,
+    "0050": 3009.0
+  },
+  "decision": {
+    "official_e22_v2": "KEEP_CASH_ONLY_SOFT_FROZEN",
+    "research_stock_aware": "MATERIAL_POSITIVE_TOTAL_RETURN_CORRECTION",
+    "promote_now": false,
+    "reason": "Stock share increase on stock_ex_date lifts challenger CAGR by ~2.5pp vs cash-only when marking with raw close. This corrects understated NAV on stock ex-dates; it is not a new alpha signal. Promote only via explicit new E22 version + approval.",
+    "next": [
+      "Keep E22_v2 published numbers labeled cash-only",
+      "Use E22_CASH_PLUS_STOCK as research total-return challenger",
+      "If promoting: new version id (e.g. E22_v2_stock or E22_v3_stock) with Exact T+1 unchanged"
+    ]
+  }
+}
