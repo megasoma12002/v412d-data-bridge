@@ -1,0 +1,29 @@
+{
+  "generated_at_utc": "2026-09-04T06:03:59.428172+00:00",
+  "stage": "E22_OFFICIAL_PATH_CHALLENGER",
+  "modifies_e21_inplace": false,
+  "e16_e18": {
+    "cagr": 0.07219813059502234,
+    "max_drawdown": -0.2276985835510027,
+    "utility": -0.04165116118047901,
+    "n": 3350
+  },
+  "e16_e18_e22": {
+    "cagr": 0.11187905203510562,
+    "max_drawdown": -0.2210946635650738,
+    "utility": 0.0013317202525687244,
+    "n": 3350
+  },
+  "delta": {
+    "cagr_lift": 0.03968092144008328,
+    "mdd_change": 0.006603919985928908,
+    "utility_lift": 0.04298288143304774
+  },
+  "recommendation": "RECOMMEND_WIRE_E22_DIVIDENDS_INTO_OFFICIAL_EXEC_PATH_VIA_NEW_VERSION",
+  "implementation_steps": [
+    "Create forward/e22_challenger/ or extend a copy of e21 pipeline with cash_ex_date credits",
+    "Paper-run beside live E21 for N sessions (Exact T+1 QC unchanged)",
+    "Governance approval \u2192 new SOFT_FROZEN E22 version; do not silently rewrite old ledgers"
+  ],
+  "rationale": "On reconstructed E16 full-history book, wiring E22 cash dividends lifts CAGR by 3.97% with MDD change 0.66%. Economics support official-path wiring; promotion still requires explicit approval."
+}
