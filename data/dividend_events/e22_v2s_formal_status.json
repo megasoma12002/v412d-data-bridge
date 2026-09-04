@@ -1,0 +1,27 @@
+{
+  "generated_at_utc": "2026-09-04T17:09:46.683446+00:00",
+  "formal_books": "E22_v2s",
+  "preserved_baseline": "E22_v2",
+  "manifest": {
+    "e22_books_version": "E22_v2s",
+    "preserved_baseline": "E22_v2",
+    "formal_books": "E22_v2s",
+    "signal_price": "adj_close",
+    "books_price": "raw_open_close",
+    "cash_timing": "cash_ex_date",
+    "stock_timing": "stock_ex_date",
+    "stock_factor": "1 + stock_dividend/10",
+    "forbids_adj_close_nav_with_stock_shares": true
+  },
+  "wired": {
+    "e21_forward_pipeline": true,
+    "e50_early_stack": true,
+    "module": "scripts/e22_dividend_accounting.py"
+  },
+  "verify": {
+    "e22_v2_cagr": 0.112488,
+    "e22_v2s_cagr": 0.137829,
+    "unit_ok": true,
+    "e21_sandbox_pass": true
+  }
+}

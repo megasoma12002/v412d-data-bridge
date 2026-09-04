@@ -47,5 +47,5 @@ Detail: `research/e22/STOCK_DIVIDEND_LEDGER.md`.
 
 | Path | Cash | Stock shares |
 |---|---|---|
-| E22_v2 SOFT_FROZEN | Credit on `cash_ex_date` | Not applied |
-| Challenger early-stack | Same cash credit | Optional share increase on `stock_ex_date` |
+| E22_v2 (preserved cash-only) | Credit on `cash_ex_date` | Not applied |
+| E22_v2s (formal books) | Credit on `cash_ex_date` | Share increase on `stock_ex_date` |

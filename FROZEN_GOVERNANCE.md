@@ -225,11 +225,14 @@ Current live/forward fill policy, lot handling, and turnover/rebalance friction 
 
 Exact T+1 as a clock remains HARD_FROZEN. Changing fees, tax, slippage, lot policy, or rebalancing friction in that baseline path is EXPERIMENTAL and requires a challenger folder.
 
-### E22 Dividend layer — current official version
+### E22 Dividend layer — current official versions
 
-Current E22 dividend event ledger and the hold-through-ex vs sell-before-ex economic-return research.
+- **E22_v2** (preserved cash-only baseline): credit cash on `cash_ex_date` only.
+- **E22_v2s** (formal books): raw-price NAV; cash on `cash_ex_date`; stock share increase on `stock_ex_date` (`1 + stock_dividend/10`). Signals may still use `adj_close`; never mark books NAV with `adj_close` while also increasing shares.
 
-Changing dividend cashflow timing or tax treatment in that baseline path is EXPERIMENTAL and requires a challenger folder.
+Canonical module: `scripts/e22_dividend_accounting.py`. Live forward defaults to E22_v2s.
+
+Changing dividend cashflow timing (e.g. payment-date credit) or tax treatment beyond these two labeled versions is EXPERIMENTAL and requires a challenger folder.
 
 ### E45 Crisis Protection Core — current official version (SOFT_FROZEN_CRITICAL)
 
