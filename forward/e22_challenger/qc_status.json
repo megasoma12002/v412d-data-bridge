@@ -15,17 +15,17 @@
     "audit_unique_date": true,
     "audit_chain_links": true
   },
-  "signal_rows": 9,
-  "nav_rows": 9,
-  "order_rows": 72,
+  "signal_rows": 46,
+  "nav_rows": 46,
+  "order_rows": 208,
   "compare_vs_e21": {
     "n_overlap_sessions": 9,
     "final_e21_nav": 3187508.279090027,
-    "final_e22_challenger_nav": 3187508.279090027,
-    "final_nav_lift": 0.0,
-    "total_dividend_cash": 0.0
+    "final_e22_challenger_nav": 3347439.4030422377,
+    "final_nav_lift": 159931.12395221088,
+    "total_dividend_cash": 84352.53496054001
   },
   "package": "forward/e22_challenger",
   "modifies_e21": false,
-  "generated_at_utc": "2026-09-04T06:10:38.491288+00:00"
+  "generated_at_utc": "2026-09-04T07:08:28.158400+00:00"
 }

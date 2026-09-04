@@ -12,11 +12,12 @@ Companion: `research/GAP_FILL_PLAN.md` §5
 
 | Field | Value |
 |---|---|
-| Status | **PAPER_READY** |
+| Status | **AWAITING_APPROVAL** |
 | Artifact | `forward/e22_challenger/` + `scripts/e22_challenger_forward_pipeline.py` |
-| Evidence | Full-history E16 book CAGR +3.97 pp; live 9-session paper QC PASS (no ex-date in window) |
-| Next | Keep paper-parallel with E21 → explicit approval → **new** SOFT_FROZEN E22 version |
-| Blocked by | Governance approval (not engineering) |
+| Evidence | Full-history CAGR +3.97 pp; paper 2026-07-01→09-03 QC PASS; ~84k dividend cash credited |
+| Promotion package | `research/e22/E22_PROMOTION_PACKAGE.md` → proposed `E22_v2_CASH_EX_OFFICIAL_PATH` |
+| Next | Human signs approval phrase → new SOFT_FROZEN version beside preserved `forward/e21/` |
+| Blocked by | Explicit governance approval |
 | Forbidden | Editing `e21_forward_pipeline.py` or rewriting `forward/e21/` history |
 
 ---

@@ -241,5 +241,6 @@ That single step converts “missing official hedge core” from a naming proble
 | **P1 G3** alpha fork | **3B** — `research/GOVERNANCE_ALPHA_PANEL_SATURATED.md` |
 | **P2 G4** hedge | **`NOT_REQUIRED_NOW`** — `research/e50_hedge/E50_HEDGE_CHARTER.md` |
 | **P2 G5** tickets | `research/G5_DATA_WIRING_TICKETS.md` (T1 paper-ready; T2/T3 documented; T4 thin E16 API) |
+| **Post-P2 E22** | Paper extended `2026-07-01`→`09-03` (46d, ~84k dividends, QC PASS); **`E22_PROMOTION_PACKAGE.md`** awaiting human approval |
 
-Gap-fill sequence **P0–P2 complete** for decidable research objects. Remaining work is **governance** (E22 new version approval) and optional product reopen of G4 — not more grids.
+Gap-fill research objects complete. **Blocked only on human approval** for `E22_v2_CASH_EX_OFFICIAL_PATH`. No further grids.

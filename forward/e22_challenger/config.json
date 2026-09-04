@@ -3,7 +3,7 @@
   "status": "PAPER_EXPERIMENTAL",
   "modifies_e21": false,
   "recommendation": "RECOMMEND_WIRE_E22_DIVIDENDS_INTO_OFFICIAL_EXEC_PATH_VIA_NEW_VERSION",
-  "bootstrap_from": "2026-08-24",
-  "n_days_processed": 9,
-  "generated_at_utc": "2026-09-04T06:10:38.482595+00:00"
+  "bootstrap_from": "2026-07-01",
+  "n_days_processed": 46,
+  "generated_at_utc": "2026-09-04T07:08:28.148798+00:00"
 }
