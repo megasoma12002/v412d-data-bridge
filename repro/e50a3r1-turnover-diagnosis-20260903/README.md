@@ -1,5 +1,16 @@
 # E50-A3-R1 Turnover / Dual-Gate Research Sandbox
 
+## Diagnosis closeout (2026-09-04)
+
+**`TURNOVER_HELDOUT_DIAGNOSIS_COMPLETE__RESEARCH_ONLY__NO_LIVE_WIRE`**
+
+- OOF: turnover **repairable** (reb→42; 1 both-gate cell) without sealed peeking  
+- Held-out: **`MIXED_HELDOUT`** (val bootstrap fails; sealed strong)  
+- Live overlay: **still no**
+
+Canonical summary: `E50-A3-R1_TURNOVER_HELDOUT_DIAGNOSIS_CLOSEOUT.md`  
+JSON: `reports/turnover_heldout_diagnosis_closeout.json`
+
 ## Current governance status (2026-09-04)
 
 **Option 2 accepted:** paper/monitor **S9A1**; research baseline **C4**; official E16/E18/E22/E45 unchanged.

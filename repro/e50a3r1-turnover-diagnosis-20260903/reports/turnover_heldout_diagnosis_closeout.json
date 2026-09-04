@@ -1,0 +1,51 @@
+{
+  "generated_at_utc": "2026-09-04T18:35:00+00:00",
+  "stage": "TURNOVER_HELDOUT_DIAGNOSIS_CLOSEOUT",
+  "gap": 5,
+  "decision_label": "TURNOVER_HELDOUT_DIAGNOSIS_COMPLETE__RESEARCH_ONLY__NO_LIVE_WIRE",
+  "questions": {
+    "original_r1_meets_turnover_ceiling": false,
+    "any_oof_candidate_meets_to_without_sealed_peek": true,
+    "oof_both_gates_count": 1,
+    "heldout_dual_gate_pass": false,
+    "heldout_pattern": "MIXED_HELDOUT",
+    "live_wire": false,
+    "promote": false
+  },
+  "turnover": {
+    "ceiling_experimental": 0.025,
+    "original_r1_feasible_candidates": 0,
+    "oof_challengers": 61,
+    "oof_turnover_pass": 49,
+    "oof_bootstrap_pass": 4,
+    "oof_both_pass": 1,
+    "binding_lever": "rebalance_every_to_42",
+    "both_gate_winner": {
+      "top_k": 20,
+      "rebalance_every": 42,
+      "exit_multiple": 2.0,
+      "oof_turnover": 0.02195110039323891,
+      "oof_bootstrap": 0.7672
+    }
+  },
+  "heldout": {
+    "c1_decision": "MIXED_HELDOUT",
+    "c2_decision": "MIXED_HELDOUT",
+    "c4_decision": "MIXED_HELDOUT",
+    "c8_decision": "MIXED_HELDOUT",
+    "typical_val_bootstrap": "0.51-0.56",
+    "typical_sealed_bootstrap": "0.998-1.00",
+    "no_retune_on_heldout": true
+  },
+  "governance": {
+    "option2": "S9A1_paper_monitor_C4_baseline",
+    "auto_iterate_axis0": "STOP_ADV_FALSIFIED",
+    "e45_touched": false,
+    "gates_remain_experimental": true
+  },
+  "next": [
+    "Do not live-wire overlay",
+    "If continue alpha: Stage-8 failure-signature / stress-sleeve path already opened — not reb micro-grids",
+    "Do not promote experimental TO/bootstrap gates"
+  ]
+}
