@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "version_id": "E50-A3-S1",
+  "allowed_families": [
+    "S1-QRES",
+    "S1-DEFRES",
+    "S1-VALRES"
+  ],
+  "screening_started": false,
+  "note": "Charter frozen; screening is a follow-on PR after this lands."
+}
