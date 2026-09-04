@@ -1,4 +1,17 @@
-# Stage-2 Research Summary
+# E50-A3-R1 Turnover / Dual-Gate Research Sandbox
+
+## Current governance status (2026-09-04)
+
+**Option 2 accepted:** paper/monitor **S9A1**; research baseline **C4**; official E16/E18/E22/E45 unchanged.
+
+- Decision: `GOVERNANCE_DECISION_OPTION2_S9A1_PAPER_MONITOR.md`
+- Runbook: `S9A1_PAPER_MONITOR_RUNBOOK.md`
+- Machine record: `reports/governance_decision_option2.json`
+- PR #19 stays **draft** — not a production promotion
+
+---
+
+# Earlier notes (Stage-2 era)
 
 Draft only. **No retune of C2/C4/C8. No promotion. No E45. PR #19 stays draft.**
 
