@@ -1,0 +1,160 @@
+{
+  "generated_at_utc": "2026-09-04T12:50:11.172084+00:00",
+  "package": "e22_v3_h1",
+  "baseline": "E22_v2_CASH_EX_OFFICIAL_PATH",
+  "hypothesis": "H1_credit_on_payment_date_vs_ex_date",
+  "market": "forward/e21/live_market.csv",
+  "dividends": "data/dividend_events/e22_dividend_events.csv",
+  "coverage": {
+    "n_cash_events": 144,
+    "n_with_payment_date": 144,
+    "frac_with_payment_date": 1.0,
+    "n_missing_payment_date": 0
+  },
+  "decision_bar": {
+    "util_eps": 0.002,
+    "mdd_eps": 0.005
+  },
+  "pay_vs_ex": {
+    "pay_cagr": 0.11506523024247306,
+    "ex_cagr": 0.11248792503555594,
+    "pay_mdd": -0.22182899482030727,
+    "ex_mdd": -0.2210946635650738,
+    "pay_util": 0.004150732832319426,
+    "ex_util": 0.0019405932530190406,
+    "delta_util": 0.0022101395793003853,
+    "delta_cagr": 0.0025773052069171243,
+    "pay_beats_ex": true,
+    "pay_div_cash_total": 2840047.85983242,
+    "ex_div_cash_total": 2611580.6577671794
+  },
+  "util_ranking": [
+    [
+      "PAY_DATE_TAX0",
+      0.004150732832319426
+    ],
+    [
+      "EX_DATE_TAX0",
+      0.0019405932530190406
+    ],
+    [
+      "PAY_DATE_TAX10",
+      -0.0004566506525877645
+    ],
+    [
+      "EX_DATE_TAX10",
+      -0.002345729700512389
+    ],
+    [
+      "EX_DATE_TAX20",
+      -0.006597024080298275
+    ],
+    [
+      "NO_DIV",
+      -0.040922278293343606
+    ]
+  ],
+  "books": {
+    "NO_DIV": {
+      "cagr": 0.0729270134821578,
+      "mdd": -0.2276985835510028,
+      "util": -0.040922278293343606,
+      "n": 3351,
+      "vol": 0.14005202155435073,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 0.0,
+      "meta_div_credit_on": "cash_ex_date",
+      "meta_div_tax_haircut": 0.0,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3351
+    },
+    "EX_DATE_TAX0": {
+      "cagr": 0.11248792503555594,
+      "mdd": -0.2210946635650738,
+      "util": 0.0019405932530190406,
+      "n": 3351,
+      "vol": 0.13302408199653676,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 2611580.6577671794,
+      "meta_div_credit_on": "cash_ex_date",
+      "meta_div_tax_haircut": 0.0,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3351
+    },
+    "PAY_DATE_TAX0": {
+      "cagr": 0.11506523024247306,
+      "mdd": -0.22182899482030727,
+      "util": 0.004150732832319426,
+      "n": 3351,
+      "vol": 0.14051335302147125,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 2840047.85983242,
+      "meta_div_credit_on": "cash_payment_date",
+      "meta_div_tax_haircut": 0.0,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3351
+    },
+    "EX_DATE_TAX10": {
+      "cagr": 0.10852781011496493,
+      "mdd": -0.22174707963095464,
+      "util": -0.002345729700512389,
+      "n": 3351,
+      "vol": 0.13356003478388898,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 2282678.5155601134,
+      "meta_div_credit_on": "cash_ex_date",
+      "meta_div_tax_haircut": 0.1,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3351
+    },
+    "PAY_DATE_TAX10": {
+      "cagr": 0.11071518882365927,
+      "mdd": -0.22234367895249407,
+      "util": -0.0004566506525877645,
+      "n": 3351,
+      "vol": 0.14022593185788584,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 2474901.187191144,
+      "meta_div_credit_on": "cash_payment_date",
+      "meta_div_tax_haircut": 0.1,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3351
+    },
+    "EX_DATE_TAX20": {
+      "cagr": 0.1044682029016959,
+      "mdd": -0.22213045396398834,
+      "util": -0.006597024080298275,
+      "n": 3351,
+      "vol": 0.1340476286581651,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 1970960.046006304,
+      "meta_div_credit_on": "cash_ex_date",
+      "meta_div_tax_haircut": 0.2,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3351
+    }
+  },
+  "exact_t1_all_ok": true,
+  "decision": "H1_PAY_DATE_INTERESTING_CONTINUE_SANDBOX",
+  "stance": "Challenger payment-date credit clears pre-registered bar vs ex-date; still NO auto-promote.",
+  "promotion": false,
+  "modifies_e22_v2": false
+}
