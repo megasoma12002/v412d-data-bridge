@@ -52,9 +52,9 @@ One NEAR match: `5880` FinMind ex `2012-08-02` vs Yahoo ex `2012-08-03` (±1d); 
 
 | Source | Access | PIT? | Notes |
 |---|---|---|---|
-| FinMind `TaiwanStockInfo` | Free API | **No** — current snapshot (+ multi-tag rows) | Unsafe for industry-neutral alpha history |
-| TWSE Data E-Shop **TWT58U** | Paid daily product | Point-in-time if archived daily | Official security→industry map |
-| TWSE 產業類別劃分暨調整要點 + 調整公告 | Regulation + MOPS/TWSE notices | Event-level reclassification | Manual event calendar → rebuild PIT |
+| FinMind `TaiwanStockInfo` | Free API | **No** — current snapshot (+ multi-tag rows) | Fetched → `data/research_advanced/finmind_taiwan_stock_info_snapshot.csv` |
+| TWSE OpenAPI `t187ap03_L` | Free | **No** — current profile | Fetched → `twse_company_industry_snapshot.csv` |
+| TWSE Data E-Shop **TWT58U** | Paid daily product | Point-in-time if archived daily | **Still missing** — required for true industry PIT |
 | TWMD `issuer-classification` | Paid | Provider-derived; verify `as_of_date` | Not a substitute for raw TWSE history without lineage QC |
 
 **Next actionable path:** buy/archive daily TWT58U (or equivalent) and build `industry_pit.csv` challenger under `repro/`; do not silently patch A0.
@@ -63,30 +63,27 @@ One NEAR match: `5880` FinMind ex `2012-08-02` vs Yahoo ex `2012-08-03` (±1d); 
 
 ## 3. Next-gen Alpha 3A / microstructure / alt-data
 
-Stage 3–4 fundamental YoY remixes are **STOP**. New family needs a **new PIT source**.
+Stage 3–4–6 CS remixes are **STOP**. New family needs a **new PIT source**.
 
-| Family | Free / low-friction | Challenger / paid |
+| Family | Free / low-friction | Status in `data/research_advanced/` |
 |---|---|---|
-| Margin / short balances | FinMind `TaiwanStockMarginPurchaseShortSale`; TWSE `MI_MARGN` | TWMD `margin-short` |
-| Securities lending | FinMind `TaiwanStockSecuritiesLending` | TWMD `chip-deep-securities-lending-daily` (2007→) |
-| Futures / options OI | FinMind `TaiwanFuturesDaily` (`open_interest`); TAIFEX daily | FinMind options / vendor OP chain |
-| Tick / microstructure | FinMind tick (**member tier**); TWSE intraday paid | Tick→Amihud/impact features |
-| Institutional flow | FinMind `TaiwanStockInstitutionalInvestorsBuySell` | TWSE 三大法人 open data |
-| Alt-data | Only if checked-in with available_date | Satellite / card / app — skip unless PIT contract exists |
-
-Verified live in this environment (2026-09-04): margin, securities lending, futures OI, financial statements, month revenue.
+| Margin / short balances | FinMind + TWSE `MI_MARGN` | **Fetched** (11-name history + snapshot) |
+| Securities lending | FinMind lending | **Fetched** (11-name history) |
+| Futures / options OI | FinMind TX/MTX + TXO daily | **Fetched** (TX/MTX full; TXO agg + sample) |
+| Tick / microstructure | FinMind tick (member) | **Still blocked** on free tier |
+| Institutional flow | FinMind institutional | **Fetched** (11-name history) |
+| Alt-data | Only if checked-in with available_date | Still skip unless PIT contract exists |
 
 ---
 
 ## 4. G4 hedge — real instrument book (H2)
 
-| Instrument | Where to get | Use |
+| Instrument | Where / pack file | Use |
 |---|---|---|
-| 融券餘額 / 可賣 | FinMind margin-short; TWSE credit reports | Capacity / borrow proxy, not fill model |
-| 借券費率 / 成交 | FinMind securities lending (`fee_rate`) | Cost of synthetic short |
-| Index futures (TX / MTX) | FinMind `TaiwanFuturesDaily`; TAIFEX | Preferred liquid hedge sleeve |
-| ETF short (0050) | Same margin + lending feeds | Stock-borrow constrained |
-| Put budget | TAIFEX option settles / vendor IV | H3 insurance ceiling |
+| 融券餘額 / 可賣 | `finmind_margin_short_history.csv` + `twse_mi_margn_snapshot.json` | Capacity / crowding |
+| 借券費率 / 成交 | `finmind_securities_lending_history.csv` | Cost of synthetic short |
+| Index futures (TX / MTX) | `finmind_tx_futures_daily.csv`, `finmind_mtx_futures_daily.csv` | Preferred liquid hedge sleeve |
+| Put budget | `finmind_txo_option_daily_agg.csv` (+ sample) | H3 insurance ceiling |
 
 G4 H1 (cash de-lever) needs **no** new market data — only existing NAV/exposure series.
 
@@ -94,24 +91,25 @@ G4 H1 (cash de-lever) needs **no** new market data — only existing NAV/exposur
 
 ## 5. E6 earliest board announcement
 
-| Source | Limitation |
+| Source | Status |
 |---|---|
-| FinMind `AnnouncementDate` / MOPS | Not guaranteed = first board dividend-proposal date |
-| MOPS 重大訊息全文 | Manual NLP / keyword search for 董事會通過股利 |
-| Vendor CA with `board_resolution_date` | Preferred if promoting E6 beyond shadow |
+| FinMind `AnnouncementDate` | **Fetched** as proxy → `e6_announcement_date_proxy.csv` |
+| Limitation | Still not guaranteed = first board dividend-proposal date |
+| Next | MOPS 重大訊息全文 NLP challenger if promoting E6 beyond shadow |
 
 Keep E6 as **shadow** until a board-date challenger QC exists.
 
 ---
 
-## 6. Priority to close gaps
+## 6. Priority to close remaining gaps
 
 ```
-P0  Keep E22_v2 ex-date ops (done) + MOPS payment reconcile QC (this PR)
-P1  Manual/vendor fill of 29 early payment dates → enables fair E22_v3 H1
-P2  Archive TWT58U (or event-based reclass calendar) → industry PIT challenger
-P3  Wire FinMind lending + futures OI into a non-fundamental 3A/G4 sandbox
-P4  E6 board-date challenger only if promoting beyond shadow
+P0  Done: payment dates, margin/lending/futures/options-agg/institutional packs
+P1  Optional Stage-7 probes on TX OI timing / G4 paper capacity book
+P2  Paid TWT58U archive → industry PIT (only if industry-neutral alpha reopens)
+P3  Tick member tier / MOPS board-date NLP (only if promoting those tracks)
 ```
 
 No item here authorizes gate promotion or in-place SOFT_FROZEN edits.
+
+Companion status: `research/ADV_RESEARCH_DATA_STATUS.md`

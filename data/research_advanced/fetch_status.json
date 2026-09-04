@@ -1,0 +1,113 @@
+{
+  "generated_at_utc": "2026-09-04T13:27:01.224926+00:00",
+  "purpose": "advanced_research_optional_datasets",
+  "modifies_frozen_ledgers": false,
+  "twse_company_industry_snapshot": {
+    "status": "PASS",
+    "rows": 1094,
+    "path": "data/research_advanced/twse_company_industry_snapshot.csv",
+    "limitation": "Snapshot only — not historical industry PIT (T3 still open for TWT58U archive)"
+  },
+  "twse_mi_margn_snapshot": {
+    "status": "PASS",
+    "rows": 1297,
+    "path": "data/research_advanced/twse_mi_margn_snapshot.json",
+    "limitation": "Daily snapshot endpoint — historical series via FinMind margin table"
+  },
+  "finmind_stock_info": {
+    "status": "PASS",
+    "rows": 4287,
+    "api_status": 200,
+    "limitation": "Current industry_category snapshot; multi-tag rows possible"
+  },
+  "finmind_margin_short": {
+    "status": "PASS",
+    "rows": 23216,
+    "codes_ok": 11,
+    "errors": [],
+    "path": "data/research_advanced/finmind_margin_short_history.csv",
+    "start_date": "2018-01-01"
+  },
+  "finmind_securities_lending": {
+    "status": "PASS",
+    "rows": 59340,
+    "codes_ok": 11,
+    "errors": [],
+    "path": "data/research_advanced/finmind_securities_lending_history.csv",
+    "start_date": "2018-01-01"
+  },
+  "finmind_institutional": {
+    "status": "PASS",
+    "rows": 116045,
+    "codes_ok": 11,
+    "errors": [],
+    "path": "data/research_advanced/finmind_institutional_history.csv",
+    "start_date": "2018-01-01"
+  },
+  "finmind_tx_futures_daily": {
+    "status": "PASS",
+    "rows": 45154,
+    "has_open_interest": true,
+    "path": "data/research_advanced/finmind_tx_futures_daily.csv"
+  },
+  "finmind_options_probe": {
+    "status": "PASS",
+    "probes": [
+      {
+        "dataset": "TaiwanOptionPrice",
+        "data_id": "TXO",
+        "status": "ERR",
+        "error": "HTTPError:HTTP Error 422: Unprocessable Entity"
+      },
+      {
+        "dataset": "TaiwanOptionDaily",
+        "data_id": "TXO",
+        "status": 200,
+        "rows": 6130,
+        "msg": "success"
+      },
+      {
+        "dataset": "TaiwanStockOptionPrice",
+        "data_id": "TXO",
+        "status": "ERR",
+        "error": "HTTPError:HTTP Error 422: Unprocessable Entity"
+      }
+    ],
+    "limitation": "Full option chains often require FinMind paid tier"
+  },
+  "finmind_tick_probe": {
+    "status": "UNAVAILABLE_OR_MEMBER",
+    "probes": [
+      {
+        "dataset": "TaiwanStockPriceTick",
+        "status": "ERR",
+        "error": "HTTPError:HTTP Error 400: Bad Request"
+      },
+      {
+        "dataset": "TaiwanStockTick",
+        "status": "ERR",
+        "error": "HTTPError:HTTP Error 422: Unprocessable Entity"
+      }
+    ],
+    "limitation": "Tick usually Backer/Sponsor; free tier often blocked"
+  },
+  "e6_announcement_proxy": {
+    "status": "PASS",
+    "rows": 150,
+    "path": "data/research_advanced/e6_announcement_date_proxy.csv",
+    "limitation": "AnnouncementDate ≠ guaranteed earliest board dividend-proposal date; E6 remains shadow until MOPS full-text board-date challenger"
+  },
+  "finmind_txo_option_daily": {
+    "status": "PASS_AGGREGATED",
+    "full_rows_fetched": 3289938,
+    "agg_path": "data/research_advanced/finmind_txo_option_daily_agg.csv",
+    "sample_path": "data/research_advanced/finmind_txo_option_daily_sample_20k.csv",
+    "note": "Full ~247MB CSV not committed; re-fetch via scripts/fetch_advanced_research_data.py + yearly TaiwanOptionDaily TXO loop",
+    "range": "2020-01-01..2026-09-04"
+  },
+  "finmind_mtx_futures_daily": {
+    "status": "PASS",
+    "rows": 55511,
+    "path": "data/research_advanced/finmind_mtx_futures_daily.csv"
+  }
+}
