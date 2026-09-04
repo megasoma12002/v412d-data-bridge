@@ -1,0 +1,18 @@
+{
+  "stage": "E22_STOCK_DIVIDEND_RESEARCH",
+  "generated_note": "See STOCK_DIVIDEND_RESEARCH.md for full writeup",
+  "official_e22_v2": "KEEP_CASH_ONLY_SOFT_FROZEN",
+  "research_verdict": "RECOMPUTE_RESEARCH_TOTAL_RETURN_WITH_STOCK_SHARES",
+  "promote_to_soft_frozen": false,
+  "materiality": {
+    "cagr_lift_pp": 2.53,
+    "end_nav_lift": 4319926,
+    "stock_events_in_window": 42,
+    "ex_day_stock_aware_helps_pct": 92.9
+  },
+  "recommendation": [
+    "Keep published E22_v2 ~11.2% CAGR labeled as cash-only",
+    "Adopt E22_CASH_PLUS_STOCK (~13.8% CAGR) as research total-return challenger",
+    "Promotion requires new version id + governance approval; Exact T+1 unchanged"
+  ]
+}
