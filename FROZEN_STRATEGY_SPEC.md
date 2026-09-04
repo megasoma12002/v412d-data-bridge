@@ -125,7 +125,7 @@ Information(T)
 
 既有重要基準：
 - Single Exact-T+1 Full Model
-- MDD 約 -13.16%（需由 repo/result 驗證）
+- MDD 約 -13.16%（**NOT_VERIFIED**：2026-09-04 查無對應 artifact；見 `research/e45/E45_MDD_1316_VERIFICATION.md`）
 
 危機處理順序：
 
