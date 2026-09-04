@@ -1,0 +1,74 @@
+loading existing OOF scores from repro/e50a3r1-turnover-diagnosis-20260903/outputs/oof_scores_selected_model.parquet ...
+evaluating 54 Round-2 OOF challengers ...
+[1/54] C2_exit_minhold top_k=20 reb=42 exit=2.0 hold=0 gap=0
+[2/54] C2_exit_minhold top_k=20 reb=42 exit=2.0 hold=1 gap=0
+[3/54] C2_exit_minhold top_k=20 reb=42 exit=2.0 hold=2 gap=0
+[4/54] C2_exit_minhold top_k=20 reb=42 exit=2.25 hold=0 gap=0
+[5/54] C2_exit_minhold top_k=20 reb=42 exit=2.25 hold=1 gap=0
+[6/54] C2_exit_minhold top_k=20 reb=42 exit=2.25 hold=2 gap=0
+[7/54] C2_exit_minhold top_k=20 reb=42 exit=2.5 hold=0 gap=0
+[8/54] C2_exit_minhold top_k=20 reb=42 exit=2.5 hold=1 gap=0
+[9/54] C2_exit_minhold top_k=20 reb=42 exit=2.5 hold=2 gap=0
+[10/54] C2_exit_minhold top_k=20 reb=42 exit=3.0 hold=0 gap=0
+[11/54] C2_exit_minhold top_k=20 reb=42 exit=3.0 hold=1 gap=0
+[12/54] C2_exit_minhold top_k=20 reb=42 exit=3.0 hold=2 gap=0
+[13/54] C2_replace_gap top_k=20 reb=42 exit=2.0 hold=0 gap=3
+[14/54] C2_replace_gap top_k=20 reb=42 exit=2.0 hold=1 gap=3
+[15/54] C2_replace_gap top_k=20 reb=42 exit=2.5 hold=0 gap=3
+[16/54] C2_replace_gap top_k=20 reb=42 exit=2.5 hold=1 gap=3
+[17/54] C2_replace_gap top_k=20 reb=42 exit=2.0 hold=0 gap=5
+[18/54] C2_replace_gap top_k=20 reb=42 exit=2.0 hold=1 gap=5
+[19/54] C2_replace_gap top_k=20 reb=42 exit=2.5 hold=0 gap=5
+[20/54] C2_combined_stabilizer top_k=20 reb=42 exit=2.5 hold=1 gap=5
+[21/54] C2_replace_gap top_k=20 reb=42 exit=2.0 hold=0 gap=8
+[22/54] C2_replace_gap top_k=20 reb=42 exit=2.0 hold=1 gap=8
+[23/54] C2_replace_gap top_k=20 reb=42 exit=2.5 hold=0 gap=8
+[24/54] C2_replace_gap top_k=20 reb=42 exit=2.5 hold=1 gap=8
+[25/54] C2_reb_neighborhood top_k=20 reb=35 exit=2.0 hold=0 gap=0
+[26/54] C2_reb_neighborhood top_k=20 reb=35 exit=2.0 hold=1 gap=0
+[27/54] C2_reb_neighborhood top_k=20 reb=35 exit=2.5 hold=0 gap=0
+[28/54] C2_reb_neighborhood top_k=20 reb=35 exit=2.5 hold=1 gap=0
+[29/54] C2_reb_neighborhood top_k=20 reb=40 exit=2.0 hold=0 gap=0
+[30/54] C2_reb_neighborhood top_k=20 reb=40 exit=2.0 hold=1 gap=0
+[31/54] C2_reb_neighborhood top_k=20 reb=40 exit=2.5 hold=0 gap=0
+[32/54] C2_reb_neighborhood top_k=20 reb=40 exit=2.5 hold=1 gap=0
+[33/54] C2_reb_neighborhood top_k=20 reb=45 exit=2.0 hold=0 gap=0
+[34/54] C2_reb_neighborhood top_k=20 reb=45 exit=2.0 hold=1 gap=0
+[35/54] C2_reb_neighborhood top_k=20 reb=45 exit=2.5 hold=0 gap=0
+[36/54] C2_reb_neighborhood top_k=20 reb=45 exit=2.5 hold=1 gap=0
+[37/54] C2_reb_neighborhood top_k=20 reb=49 exit=2.0 hold=0 gap=0
+[38/54] C2_reb_neighborhood top_k=20 reb=49 exit=2.0 hold=1 gap=0
+[39/54] C2_reb_neighborhood top_k=20 reb=49 exit=2.5 hold=0 gap=0
+[40/54] C2_reb_neighborhood top_k=20 reb=49 exit=2.5 hold=1 gap=0
+[41/54] C2_reb_neighborhood top_k=20 reb=56 exit=2.0 hold=0 gap=0
+[42/54] C2_reb_neighborhood top_k=20 reb=56 exit=2.0 hold=1 gap=0
+[43/54] C2_reb_neighborhood top_k=20 reb=56 exit=2.5 hold=0 gap=0
+[44/54] C2_reb_neighborhood top_k=20 reb=56 exit=2.5 hold=1 gap=0
+[45/54] C2_book_size top_k=25 reb=42 exit=2.0 hold=0 gap=0
+[46/54] C2_book_size top_k=25 reb=42 exit=2.0 hold=0 gap=5
+[47/54] C2_book_size top_k=25 reb=42 exit=2.0 hold=1 gap=0
+[48/54] C2_book_size top_k=25 reb=42 exit=2.0 hold=1 gap=5
+[49/54] C2_book_size top_k=30 reb=42 exit=2.0 hold=0 gap=0
+[50/54] C2_book_size top_k=30 reb=42 exit=2.0 hold=0 gap=5
+[51/54] C2_book_size top_k=30 reb=42 exit=2.0 hold=1 gap=0
+[52/54] C2_book_size top_k=30 reb=42 exit=2.0 hold=1 gap=5
+[53/54] C2_combined_stabilizer top_k=20 reb=45 exit=2.5 hold=1 gap=5
+[54/54] C2_combined_stabilizer top_k=20 reb=49 exit=2.5 hold=1 gap=5
+{
+  "research_decision": "OOF_NEW_DUAL_GATE_WINNER",
+  "n_both_pass_excluding_c1": 18,
+  "winner": {
+    "family": "C2_exit_minhold",
+    "top_k": 20,
+    "rebalance_every": 42,
+    "exit_multiple": 2.5,
+    "min_hold_cycles": 0,
+    "replace_rank_gap": 0,
+    "turnover": 0.020085462971119534,
+    "bootstrap": 0.7554,
+    "cagr": 0.09910628889565354,
+    "max_drawdown": -0.3109218161027131
+  },
+  "c1_turnover": 0.02195110039323891,
+  "c1_bootstrap": 0.7672
+}

@@ -1,0 +1,10 @@
+evaluating C2 VALIDATION_2019_2022 ...
+evaluating C2 SEALED_2023_LATEST ...
+{
+  "research_decision": "MIXED_HELDOUT",
+  "validation_turnover": 0.024315152245552807,
+  "validation_bootstrap": 0.5108,
+  "sealed_turnover": 0.014888265576819985,
+  "sealed_bootstrap": 1.0,
+  "exact_t1": true
+}
