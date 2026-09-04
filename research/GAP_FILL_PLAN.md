@@ -247,5 +247,6 @@ That single step converts “missing official hedge core” from a naming proble
 | **Research reopen** | User **准許每條進行研究** (2026-09-04) → `research/reopen/` charters + Round-1 |
 | **Round-2** | E22 keep v2 ex-date; E16 variants no material beat; 3A features built; G4 keep alpha-cut; E45 still B |
 | **Round-3** | 3A adversarial-lite → **`STOP_THIS_FEATURE_SET`** (dev net40 excess &lt; 0); no retune |
+| **Stage 4** | New family rev YoY+CFO YoY → **`STOP_STAGE4_FEATURE_SET`** (2020–22 consec neg / LOYO) |
 
-See `research/reopen/ALPHA_3A_FEATURE_SET_STOP.md`. Official stack unchanged.
+See `research/reopen/STAGE_STATUS.md`. Recommend Stage 5 = ops-first, pause CS fundamental YoY remixes.

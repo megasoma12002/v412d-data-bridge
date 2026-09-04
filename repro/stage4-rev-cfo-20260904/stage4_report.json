@@ -1,0 +1,246 @@
+{
+  "generated_at_utc": "2026-09-04T10:40:41.213546+00:00",
+  "stage": 4,
+  "score_frozen": "z(rev_yoy_12m)+z(cfo_yoy)",
+  "excluded_from_stopped_set": [
+    "oi_yoy",
+    "amihud"
+  ],
+  "promotion": false,
+  "oof_gross_by_year": [
+    {
+      "year": 2019,
+      "n_months": 12,
+      "mean_excess": 0.00372349109588869,
+      "hit_rate": 0.6666666666666666
+    },
+    {
+      "year": 2020,
+      "n_months": 12,
+      "mean_excess": 0.00024436541208051134,
+      "hit_rate": 0.4166666666666667
+    },
+    {
+      "year": 2021,
+      "n_months": 12,
+      "mean_excess": -0.0012227150509434691,
+      "hit_rate": 0.4166666666666667
+    },
+    {
+      "year": 2022,
+      "n_months": 12,
+      "mean_excess": 0.0005694060217752191,
+      "hit_rate": 0.5
+    },
+    {
+      "year": 2023,
+      "n_months": 12,
+      "mean_excess": 0.008617771761078695,
+      "hit_rate": 0.5
+    },
+    {
+      "year": 2024,
+      "n_months": 12,
+      "mean_excess": -0.001319469040173854,
+      "hit_rate": 0.3333333333333333
+    },
+    {
+      "year": 2025,
+      "n_months": 12,
+      "mean_excess": 0.005052293356982938,
+      "hit_rate": 0.75
+    },
+    {
+      "year": 2026,
+      "n_months": 7,
+      "mean_excess": 0.0040344888215214595,
+      "hit_rate": 0.7142857142857143
+    }
+  ],
+  "costs_dev": {
+    "rt_20bps": {
+      "mean_excess": 0.0009692657762136478,
+      "by_year": [
+        {
+          "year": 2019,
+          "n_months": 12,
+          "mean_excess": 0.002757446534507811,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2020,
+          "n_months": 12,
+          "mean_excess": -0.0006377815044742219,
+          "hit_rate": 0.3333333333333333
+        },
+        {
+          "year": 2021,
+          "n_months": 12,
+          "mean_excess": -0.0019904906249307275,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2022,
+          "n_months": 12,
+          "mean_excess": -0.00012819045586390988,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2023,
+          "n_months": 12,
+          "mean_excess": 0.007840401786022229,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2024,
+          "n_months": 12,
+          "mean_excess": -0.002025791077979295,
+          "hit_rate": 0.3333333333333333
+        }
+      ],
+      "consec_neg_3y": true,
+      "mean_turnover": 0.39977129520199206
+    },
+    "rt_40bps": {
+      "mean_excess": 0.00016972318580966425,
+      "by_year": [
+        {
+          "year": 2019,
+          "n_months": 12,
+          "mean_excess": 0.0017914019731269306,
+          "hit_rate": 0.3333333333333333
+        },
+        {
+          "year": 2020,
+          "n_months": 12,
+          "mean_excess": -0.0015199284210289548,
+          "hit_rate": 0.3333333333333333
+        },
+        {
+          "year": 2021,
+          "n_months": 12,
+          "mean_excess": -0.0027582661989179864,
+          "hit_rate": 0.4166666666666667
+        },
+        {
+          "year": 2022,
+          "n_months": 12,
+          "mean_excess": -0.0008257869335030371,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2023,
+          "n_months": 12,
+          "mean_excess": 0.007063031810965765,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2024,
+          "n_months": 12,
+          "mean_excess": -0.002732113115784735,
+          "hit_rate": 0.3333333333333333
+        }
+      ],
+      "consec_neg_3y": true,
+      "mean_turnover": 0.39977129520199206
+    },
+    "rt_60bps": {
+      "mean_excess": -0.0006298194045943205,
+      "by_year": [
+        {
+          "year": 2019,
+          "n_months": 12,
+          "mean_excess": 0.0008253574117460526,
+          "hit_rate": 0.3333333333333333
+        },
+        {
+          "year": 2020,
+          "n_months": 12,
+          "mean_excess": -0.002402075337583687,
+          "hit_rate": 0.3333333333333333
+        },
+        {
+          "year": 2021,
+          "n_months": 12,
+          "mean_excess": -0.003526041772905244,
+          "hit_rate": 0.3333333333333333
+        },
+        {
+          "year": 2022,
+          "n_months": 12,
+          "mean_excess": -0.0015233834111421686,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2023,
+          "n_months": 12,
+          "mean_excess": 0.006285661835909301,
+          "hit_rate": 0.5
+        },
+        {
+          "year": 2024,
+          "n_months": 12,
+          "mean_excess": -0.003438435153590175,
+          "hit_rate": 0.25
+        }
+      ],
+      "consec_neg_3y": true,
+      "mean_turnover": 0.39977129520199206
+    }
+  },
+  "industry_cap_net40_mean": 0.00016972318580966425,
+  "loyo_net40": [
+    {
+      "leave_out_year": 2019,
+      "mean_excess_net40_rest": -0.00015461257165378924
+    },
+    {
+      "leave_out_year": 2020,
+      "mean_excess_net40_rest": 0.0005076535071773876
+    },
+    {
+      "leave_out_year": 2021,
+      "mean_excess_net40_rest": 0.0007553210627551938
+    },
+    {
+      "leave_out_year": 2022,
+      "mean_excess_net40_rest": 0.00036882520967220444
+    },
+    {
+      "leave_out_year": 2023,
+      "mean_excess_net40_rest": -0.0012089385392215562
+    },
+    {
+      "leave_out_year": 2024,
+      "mean_excess_net40_rest": 0.0007500904461285436
+    }
+  ],
+  "dev_gate": {
+    "net40_mean_excess_gt_0": true,
+    "net40_no_consec_neg_3y": false,
+    "loyo_not_fragile": false,
+    "industry_cap_net40_gt_m10bps": true
+  },
+  "dev_pass": false,
+  "sealed": {
+    "n_months": 19,
+    "mean_excess_gross": 0.004677312738655025,
+    "mean_excess_net40": 0.002969252766702579,
+    "by_year": [
+      {
+        "year": 2025,
+        "n_months": 12,
+        "mean_excess": 0.0032224178383107385,
+        "hit_rate": 0.5833333333333334
+      },
+      {
+        "year": 2026,
+        "n_months": 7,
+        "mean_excess": 0.002535255501088592,
+        "hit_rate": 0.7142857142857143
+      }
+    ]
+  },
+  "held_out_pass": true,
+  "decision": "STOP_STAGE4_FEATURE_SET"
+}
