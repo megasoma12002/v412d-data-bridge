@@ -1,0 +1,31 @@
+{
+  "generated_at_utc": "2026-09-04T01:19:00.083391+00:00",
+  "stage": "STAGE5B_BLEND_REGIME_OOF",
+  "window": "2011-2018 OOF only",
+  "fixed_portfolio_reference": "C4",
+  "baseline": {
+    "cell_id": "TECH2",
+    "n_days": 1972,
+    "mean_rank_ic": 0.1147150373836749,
+    "p50_rank_ic": 0.11652350462114441,
+    "average_daily_turnover": 0.020450275367238705,
+    "block_bootstrap_positive_probability": 0.8066,
+    "cagr": 0.10556706893635148,
+    "max_drawdown": -0.3023731520676275,
+    "utility": -0.045619507097462264,
+    "mean_daily_excess": 0.00012055807150796657,
+    "hac_t_stat": 0.7734100331411837,
+    "turnover_gate_pass": true,
+    "bootstrap_gate_pass": true,
+    "both_gates_pass": true,
+    "is_baseline": true
+  },
+  "n_cells": 8,
+  "n_both_pass_new": 0,
+  "research_decision": "OOF_NO_NEW_BLEND_REGIME_DUAL_GATE_WINNER",
+  "recommended": null,
+  "top_new_dual_gate": [],
+  "gates_remain_experimental": true,
+  "no_retune_C2_C4_C8_F1": true,
+  "no_promotion": true
+}

@@ -1,0 +1,22 @@
+building base OOF scores ...
+baseline TECH2
+  TECH2: IC=0.1147 turn=0.0205 boot=0.8066 both=True
+blend w_tech2=0.7
+  BLEND_TECH2_70_DEF4_30: IC=0.1182 turn=0.0180 boot=0.642 both=False
+blend w_tech2=0.5
+  BLEND_TECH2_50_DEF4_50: IC=0.1179 turn=0.0172 boot=0.55 both=False
+blend w_tech2=0.3
+  BLEND_TECH2_30_DEF4_70: IC=0.1160 turn=0.0178 boot=0.6972 both=False
+blend TECH2 + MOM_ORTH_DEF 50/50
+  BLEND_TECH2_50_ORTHDEF_50: IC=0.1288 turn=0.0171 boot=0.4696 both=False
+regime pick TECH2(ON)/DEF4(OFF)
+  REGIME_PICK_TECH2_ON_DEF4_OFF: IC=0.1211 turn=0.0189 boot=0.6044 both=False
+regime pick TECH2(ON)/MOM_ORTH_DEF(OFF)
+  REGIME_PICK_TECH2_ON_ORTHDEF_OFF: IC=0.1188 turn=0.0194 boot=0.539 both=False
+regime pick DEF4(ON)/TECH2(OFF) — inverted probe
+  REGIME_PICK_DEF4_ON_TECH2_OFF: IC=0.1041 turn=0.0168 boot=0.5758 both=False
+{
+  "research_decision": "OOF_NO_NEW_BLEND_REGIME_DUAL_GATE_WINNER",
+  "n_both_pass_new": 0,
+  "winner": null
+}

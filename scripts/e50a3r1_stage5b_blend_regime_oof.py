@@ -88,39 +88,26 @@ def blend_scores(a: pl.DataFrame, b: pl.DataFrame, w_a: float) -> pl.DataFrame:
     ).drop("score_b")
 
 
-def regime_switch_scores(joined, calendar, feat_on, feat_off):
-    """RISK_ON model uses feat_on; RISK_OFF uses feat_off (still causal CV)."""
-    pieces = []
-    for start_year, end_year in a3.CV_FOLDS:
-        start, end = date(start_year, 1, 1), date(end_year, 12, 31)
-        cutoff = a3.previous_session(calendar, start, 22)
-        m_on = fit_exp(joined, feat_on, "GLOBAL", 1.0, cutoff)  # fit on all; apply by regime
-        m_off = fit_exp(joined, feat_off, "GLOBAL", 1.0, cutoff)
-        # Better: fit each on its regime slice only
-        fit_on = joined.filter((pl.col("date") <= cutoff) & (pl.col("alpha_regime") == "RISK_ON"))
-        fit_off = joined.filter((pl.col("date") <= cutoff) & (pl.col("alpha_regime") == "RISK_OFF"))
-        r1.FEATURE_SETS["ON"] = feat_on
-        r1.FEATURE_SETS["OFF"] = feat_off
-        # reuse fit_one via GLOBAL on filtered sets packaged as CandidateModel
-        from e50a3r1_repair import fit_one, CandidateModel
-        model_on = CandidateModel("ON", "GLOBAL", 1.0, {"ALL": fit_one(fit_on, feat_on, 1.0)}, str(cutoff))
-        model_off = CandidateModel("OFF", "GLOBAL", 1.0, {"ALL": fit_one(fit_off, feat_off, 1.0)}, str(cutoff))
-        val = joined.filter(pl.col("date").is_between(start, end))
-        s_on = model_on.predict(val)
-        s_off = model_off.predict(val)
-        regimes = val["alpha_regime"].to_numpy()
-        score = np.where(regimes == "RISK_ON", s_on, s_off)
-        pieces.append(
-            val.select(
-                "date", "code", "industry_category", "trading_money", "unexplained_price_jump", a3.LABEL
-            ).with_columns(pl.Series("score", score))
-        )
-    return pl.concat(pieces).sort(["date", "code"])
+def regime_pick_scores(on_df: pl.DataFrame, off_df: pl.DataFrame) -> pl.DataFrame:
+    """Use ON-model score on RISK_ON days and OFF-model score on RISK_OFF days."""
+    j = on_df.select(
+        "date", "code", "industry_category", "trading_money", "unexplained_price_jump",
+        a3.LABEL, "alpha_regime", "score",
+    ).join(
+        off_df.select("date", "code", pl.col("score").alias("score_off")),
+        on=["date", "code"], validate="1:1",
+    )
+    return j.with_columns(
+        pl.when(pl.col("alpha_regime") == "RISK_ON")
+        .then(pl.col("score"))
+        .otherwise(pl.col("score_off"))
+        .alias("score")
+    ).drop("score_off")
 
 
 def eval_cell(name, scored, execution, calendar, baseline_boot=None):
     ic = oof_rank_ic(scored)
-    port = evaluate_cfg(scored.drop(a3.LABEL), execution, calendar, dict(FIXED_PORTFOLIO))
+    port = evaluate_cfg(scored.drop([c for c in [a3.LABEL, "alpha_regime"] if c in scored.columns]), execution, calendar, dict(FIXED_PORTFOLIO))
     row = {
         "cell_id": name,
         **ic,
@@ -135,8 +122,9 @@ def eval_cell(name, scored, execution, calendar, baseline_boot=None):
         "bootstrap_gate_pass": port["bootstrap_gate_pass"],
         "both_gates_pass": port["both_gates_pass"],
     }
+    ic_s = "None" if row["mean_rank_ic"] is None else f"{row['mean_rank_ic']:.4f}"
     print(
-        f"  {name}: IC={row['mean_rank_ic']:.4f} turn={row['average_daily_turnover']:.4f} "
+        f"  {name}: IC={ic_s} turn={row['average_daily_turnover']:.4f} "
         f"boot={row['block_bootstrap_positive_probability']} both={row['both_gates_pass']}",
         flush=True,
     )
@@ -199,32 +187,32 @@ def main() -> None:
         "is_baseline": False, "family": "blend",
     })
 
-    print("regime switch TECH2(ON)/DEF4(OFF)", flush=True)
+    print("regime pick TECH2(ON)/DEF4(OFF)", flush=True)
     rows.append({
         **eval_cell(
-            "REGIME_SWITCH_TECH2_ON_DEF4_OFF",
-            regime_switch_scores(joined, calendar, TECH2, DEF4),
+            "REGIME_PICK_TECH2_ON_DEF4_OFF",
+            regime_pick_scores(s_tech2, s_def4),
             execution, calendar,
         ),
-        "is_baseline": False, "family": "regime_switch",
+        "is_baseline": False, "family": "regime_pick",
     })
-    print("regime switch TECH2(ON)/MOM_ORTH_DEF(OFF)", flush=True)
+    print("regime pick TECH2(ON)/MOM_ORTH_DEF(OFF)", flush=True)
     rows.append({
         **eval_cell(
-            "REGIME_SWITCH_TECH2_ON_ORTHDEF_OFF",
-            regime_switch_scores(joined, calendar, TECH2, MOM_ORTH_DEF),
+            "REGIME_PICK_TECH2_ON_ORTHDEF_OFF",
+            regime_pick_scores(s_tech2, s_orth),
             execution, calendar,
         ),
-        "is_baseline": False, "family": "regime_switch",
+        "is_baseline": False, "family": "regime_pick",
     })
-    print("regime switch DEF4(ON)/TECH2(OFF) — inverted probe", flush=True)
+    print("regime pick DEF4(ON)/TECH2(OFF) — inverted probe", flush=True)
     rows.append({
         **eval_cell(
-            "REGIME_SWITCH_DEF4_ON_TECH2_OFF",
-            regime_switch_scores(joined, calendar, DEF4, TECH2),
+            "REGIME_PICK_DEF4_ON_TECH2_OFF",
+            regime_pick_scores(s_def4, s_tech2),
             execution, calendar,
         ),
-        "is_baseline": False, "family": "regime_switch_probe",
+        "is_baseline": False, "family": "regime_pick_probe",
     })
 
     result = pl.DataFrame(rows).sort(
