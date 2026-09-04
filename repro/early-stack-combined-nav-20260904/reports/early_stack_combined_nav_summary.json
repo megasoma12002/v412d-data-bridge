@@ -1,0 +1,145 @@
+{
+  "generated_at_utc": "2026-09-04T05:24:48.422982+00:00",
+  "stage": "EARLY_STACK_COMBINED_NAV_CHALLENGER",
+  "governance": {
+    "modifies_soft_frozen_files": false,
+    "e16_e18_e22_e45_inplace_edit": false,
+    "e45_proxy_is_official": false,
+    "label": "EXPERIMENTAL_CHALLENGER_SANDBOX"
+  },
+  "inputs": {
+    "market": "forward/e21/live_market.csv",
+    "dividends": "data/dividend_events/e22_dividend_events.csv",
+    "capital": 3000000.0,
+    "warmup_days": 252,
+    "core_universe": [
+      "2880",
+      "2886",
+      "2892",
+      "5880",
+      "2412",
+      "3045",
+      "4904",
+      "0050"
+    ]
+  },
+  "regime_share": {
+    "Bull": 0.6829539144919489,
+    "Crisis": 0.11771238200999445,
+    "Bear": 0.11549139367018323,
+    "Sideways": 0.0838423098278734
+  },
+  "variants": {
+    "E16_E18": {
+      "stats": {
+        "cagr": 0.07219813059502234,
+        "max_drawdown": -0.2276985835510028,
+        "utility": -0.04165116118047907,
+        "vol": 0.14005099194410936,
+        "n_days": 3350
+      },
+      "meta": {
+        "n_days": 3350,
+        "n_fills": 6101,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "dividend_cash_total": 0.0,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-03"
+      },
+      "apply_e22": false,
+      "e45_crisis_equity_scale": null
+    },
+    "E16_E18_E22": {
+      "stats": {
+        "cagr": 0.11187905203510562,
+        "max_drawdown": -0.2210946635650738,
+        "utility": 0.0013317202525687244,
+        "vol": 0.13302899093891338,
+        "n_days": 3350
+      },
+      "meta": {
+        "n_days": 3350,
+        "n_fills": 6216,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "dividend_cash_total": 2611580.6577671794,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-03"
+      },
+      "apply_e22": true,
+      "e45_crisis_equity_scale": null
+    },
+    "E16_E18_E22_E45PROXY": {
+      "stats": {
+        "cagr": 0.10387796152130235,
+        "max_drawdown": -0.20128168182005812,
+        "utility": 0.003237120611273292,
+        "vol": 0.1218089155644639,
+        "n_days": 3350
+      },
+      "meta": {
+        "n_days": 3350,
+        "n_fills": 6646,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "dividend_cash_total": 2354239.71965638,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-03"
+      },
+      "apply_e22": true,
+      "e45_crisis_equity_scale": 0.7
+    }
+  },
+  "deltas": {
+    "e22_minus_e16e18_cagr": 0.03968092144008328,
+    "e22_minus_e16e18_mdd": 0.006603919985929019,
+    "e45proxy_minus_e22_cagr": -0.008001090513803266,
+    "e45proxy_minus_e22_mdd": 0.019812981745015668,
+    "e22_dividend_cash_total": 2611580.6577671794
+  },
+  "e45_verification": {
+    "claim_mdd": -0.1316,
+    "claim_status": "NOT_FOUND_IN_ARTIFACTS",
+    "text_mentions_only": [
+      "/workspace/FROZEN_STRATEGY_SPEC.md",
+      "/workspace/FROZEN_GOVERNANCE.md",
+      "/workspace/E50_HANDOFF_VERIFICATION.md"
+    ],
+    "artifact_files_with_13_16": [],
+    "lineage_reported_mdds": {
+      "E1_validation_mdd": -0.1721,
+      "E1_1_validation_mdd": -0.1581,
+      "E3_validation_mdd": -0.1849,
+      "V412D_validation_mdd_reported": -0.1891,
+      "handoff_claim_mdd": -0.1316
+    },
+    "e45_module_paths": [],
+    "lineage_scripts": [
+      "scripts/v412e1_crisis_buffer.py",
+      "scripts/v412e11_graduated_crisis.py",
+      "scripts/v412e2_e3_three_rounds.py"
+    ],
+    "research_decision": {
+      "formal_strategy": "V4.12-D",
+      "E2": "validation_fail",
+      "E2.1": "validation_fail",
+      "E3": "validation_pass_but_not_promoted",
+      "reason": "E3 improves volatility and some drawdowns, but later OOS return and Sharpe superiority over frozen D are inconsistent and transaction-cost drag remains material",
+      "blind_opened_after_E3_validation_pass": true,
+      "parameter_selection_used_2023_2026": false
+    },
+    "conclusion": "No official e45 module; MDD\u2248-13.16% remains UNVERIFIED text claim. Closest lineage MDDs are E1/E1.1/E3 validation figures (more severe). Formal strategy remains V4.12-D; E3 validation_pass but not promoted."
+  },
+  "decisions": {
+    "e16_full_history_reconstruction": "DONE_IN_CHALLENGER",
+    "e22_wired_into_nav_copy": "DONE_IN_CHALLENGER",
+    "e45_official_module": "STILL_MISSING",
+    "e45_mdd_claim_13_16": "NOT_FOUND_IN_ARTIFACTS",
+    "combined_four_layer_engine": "PARTIAL_CORE_EXEC_DIV_PLUS_PROXY",
+    "next": "Keep this sandbox as the Phase-10 integration baseline. Do not promote E45PROXY. Official E45 still requires a named module and verified baseline artifact before any SOFT_FROZEN_CRITICAL challenger."
+  }
+}
