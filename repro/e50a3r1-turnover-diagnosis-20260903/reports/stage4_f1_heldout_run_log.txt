@@ -1,0 +1,12 @@
+evaluating F1 held-out validation ...
+evaluating F1 held-out sealed ...
+evaluating C4 TECH2 reference held-out (comparison) ...
+{
+  "research_decision": "MIXED_HELDOUT",
+  "val_boot": 0.3904,
+  "val_turn": 0.022288709231316248,
+  "sealed_boot": 0.9984,
+  "sealed_turn": 0.010399337818826973,
+  "c4_val_boot": 0.5588,
+  "c4_sealed_boot": 0.9984
+}
