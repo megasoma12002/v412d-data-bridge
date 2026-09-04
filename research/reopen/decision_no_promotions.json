@@ -1,0 +1,23 @@
+{
+  "decision_id": "DECISION_NO_PROMOTIONS_20260904",
+  "decided_at": "2026-09-04",
+  "authority": "user_delegated_upgrade_choice",
+  "verdict": "NO_PROMOTIONS",
+  "promotions": {
+    "E45_v1": false,
+    "E22_v3": false,
+    "E16_E18_new_version": false,
+    "Alpha_3A_frozen": false,
+    "G4_hedge_production": false
+  },
+  "e45": {
+    "keeps": "B_KEEP_D_AS_BASELINE_E45_API_ONLY",
+    "formal_crisis_baseline": "V4.12-D",
+    "validation_ret_ratio_e3_over_d": 0.731385232699444,
+    "reason": "fails return>=80% of D and Sharpe>=D; do not lower SOFT_FROZEN_CRITICAL bar post-hoc"
+  },
+  "official_unchanged": {
+    "E22": "E22_v2_CASH_EX_OFFICIAL_PATH",
+    "E21_preserved": true
+  }
+}

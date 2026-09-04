@@ -10,3 +10,10 @@ Panel: original v412e0
 | E3/D ret ratio | | 0.731385232699444 |
 
 To promote despite floors, approve: `APPROVE E45_v1_E3_LOCKED_ACCEPT_RETURN_TRADEOFF`
+
+## Delegated decision (2026-09-04)
+
+User: **交給你決定是否升級**  
+Agent verdict: **NO — keep B**. See `DECISION_NO_PROMOTIONS.md`.
+
+E3/D Validation ret ratio ≈ **0.73** (< 0.80 floor). MDD improvement alone is not enough for SOFT_FROZEN_CRITICAL.
