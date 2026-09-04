@@ -1,0 +1,327 @@
+loading prices/execution/panel ...
+
+===== ROUND C4: Maximize OOF HAC t-stat (excess strength) among dual-gate passers with turnover headroom. =====
+evaluating 40 OOF cells ...
+  [1/40] C4_excess_strength k=18 reb=21 exit=2.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [11/40] C4_excess_strength k=18 reb=42 exit=2.25 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [21/40] C4_excess_strength k=20 reb=35 exit=2.5 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [31/40] C4_excess_strength k=22 reb=35 exit=2.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [40/40] C4_excess_gap k=22 reb=42 exit=2.25 neut=NONE cap=5 hold=0 floor=20000000.0 gap=5
+locked C4: {'top_k': 22, 'rebalance_every': 42, 'exit_multiple': 2.25, 'neutralization': 'NONE', 'industry_cap': 5, 'min_hold_cycles': 0, 'liquidity_floor': 20000000.0, 'replace_rank_gap': 5, 'family': 'C4_excess_gap'}
+evaluating C4 held-out ...
+{
+  "id": "C4",
+  "locked": {
+    "top_k": 22,
+    "rebalance_every": 42,
+    "exit_multiple": 2.25,
+    "neutralization": "NONE",
+    "industry_cap": 5,
+    "min_hold_cycles": 0,
+    "liquidity_floor": 20000000.0,
+    "replace_rank_gap": 5,
+    "family": "C4_excess_gap"
+  },
+  "oof_decision": "OOF_NEW_DUAL_GATE_WINNER",
+  "heldout_decision": "MIXED_HELDOUT",
+  "oof_turnover": 0.020450275367238705,
+  "oof_bootstrap": 0.8066,
+  "val_turnover": 0.02187774517437871,
+  "val_bootstrap": 0.5588,
+  "val_turnover_pass": true,
+  "val_bootstrap_pass": false,
+  "sealed_turnover_pass": true,
+  "sealed_bootstrap_pass": true,
+  "val_beats_proxy": true,
+  "hypothesis": "Maximize OOF HAC t-stat (excess strength) among dual-gate passers with turnover headroom."
+}
+
+===== ROUND C5: Prefer joint OOF margins: require bootstrap>=0.78 if available else max bootstrap; then turnover headroom; then utility. =====
+evaluating 48 OOF cells ...
+  [1/48] C5_joint_margin k=20 reb=40 exit=2.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [11/48] C5_joint_margin k=20 reb=45 exit=2.5 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [21/48] C5_joint_margin k=22 reb=42 exit=2.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [31/48] C5_joint_margin k=22 reb=49 exit=2.5 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [41/48] C5_joint_margin k=24 reb=45 exit=2.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [48/48] C5_joint_margin k=24 reb=49 exit=2.75 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+locked C5: {'top_k': 24, 'rebalance_every': 42, 'exit_multiple': 2.0, 'neutralization': 'NONE', 'industry_cap': 5, 'min_hold_cycles': 0, 'liquidity_floor': 20000000.0, 'replace_rank_gap': 0, 'family': 'C5_joint_margin'}
+evaluating C5 held-out ...
+{
+  "id": "C5",
+  "locked": {
+    "top_k": 24,
+    "rebalance_every": 42,
+    "exit_multiple": 2.0,
+    "neutralization": "NONE",
+    "industry_cap": 5,
+    "min_hold_cycles": 0,
+    "liquidity_floor": 20000000.0,
+    "replace_rank_gap": 0,
+    "family": "C5_joint_margin"
+  },
+  "oof_decision": "OOF_NEW_DUAL_GATE_WINNER",
+  "heldout_decision": "MIXED_HELDOUT",
+  "oof_turnover": 0.021290054745372353,
+  "oof_bootstrap": 0.7882,
+  "val_turnover": 0.025463504824395772,
+  "val_bootstrap": 0.393,
+  "val_turnover_pass": false,
+  "val_bootstrap_pass": false,
+  "sealed_turnover_pass": true,
+  "sealed_bootstrap_pass": true,
+  "val_beats_proxy": false,
+  "hypothesis": "Prefer joint OOF margins: require bootstrap>=0.78 if available else max bootstrap; then turnover headroom; then utility."
+}
+
+===== ROUND C6: Industry neutralization / industry_cap variants for stabler OOF excess. =====
+evaluating 48 OOF cells ...
+  [1/48] C6_industry k=20 reb=42 exit=2.0 neut=NONE cap=3 hold=0 floor=20000000.0 gap=0
+  [11/48] C6_industry k=20 reb=42 exit=2.5 neut=NONE cap=4 hold=0 floor=20000000.0 gap=0
+  [21/48] C6_industry k=20 reb=42 exit=2.25 neut=NONE cap=6 hold=0 floor=20000000.0 gap=0
+  [31/48] C6_industry k=20 reb=42 exit=2.0 neut=INDUSTRY_LIQUIDITY cap=4 hold=0 floor=20000000.0 gap=0
+  [41/48] C6_industry k=20 reb=42 exit=2.5 neut=INDUSTRY_LIQUIDITY cap=5 hold=0 floor=20000000.0 gap=0
+  [48/48] C6_industry k=25 reb=42 exit=2.5 neut=INDUSTRY_LIQUIDITY cap=6 hold=0 floor=20000000.0 gap=0
+locked C6: {'top_k': 20, 'rebalance_every': 42, 'exit_multiple': 2.25, 'neutralization': 'NONE', 'industry_cap': 4, 'min_hold_cycles': 0, 'liquidity_floor': 20000000.0, 'replace_rank_gap': 0, 'family': 'C6_industry'}
+evaluating C6 held-out ...
+{
+  "id": "C6",
+  "locked": {
+    "top_k": 20,
+    "rebalance_every": 42,
+    "exit_multiple": 2.25,
+    "neutralization": "NONE",
+    "industry_cap": 4,
+    "min_hold_cycles": 0,
+    "liquidity_floor": 20000000.0,
+    "replace_rank_gap": 0,
+    "family": "C6_industry"
+  },
+  "oof_decision": "OOF_NEW_DUAL_GATE_WINNER",
+  "heldout_decision": "MIXED_HELDOUT",
+  "oof_turnover": 0.02111036088141526,
+  "oof_bootstrap": 0.806,
+  "val_turnover": 0.02639871065250338,
+  "val_bootstrap": 0.5026,
+  "val_turnover_pass": false,
+  "val_bootstrap_pass": false,
+  "sealed_turnover_pass": true,
+  "sealed_bootstrap_pass": true,
+  "val_beats_proxy": true,
+  "hypothesis": "Industry neutralization / industry_cap variants for stabler OOF excess."
+}
+
+===== ROUND C7: Higher liquidity floors + mild min-hold to drop fragile names (OOF dual-gate). =====
+evaluating 48 OOF cells ...
+  [1/48] C7_liquidity k=20 reb=42 exit=2.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [11/48] C7_liquidity k=30 reb=42 exit=2.5 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [21/48] C7_liquidity k=30 reb=42 exit=2.0 neut=NONE cap=5 hold=0 floor=40000000.0 gap=0
+  [31/48] C7_liquidity k=25 reb=42 exit=2.5 neut=NONE cap=5 hold=0 floor=60000000.0 gap=0
+  [41/48] C7_liquidity k=25 reb=42 exit=2.0 neut=NONE cap=5 hold=0 floor=80000000.0 gap=0
+  [48/48] C7_liquidity k=30 reb=42 exit=2.5 neut=NONE cap=5 hold=1 floor=80000000.0 gap=0
+locked C7: {'top_k': 25, 'rebalance_every': 42, 'exit_multiple': 2.0, 'neutralization': 'NONE', 'industry_cap': 5, 'min_hold_cycles': 0, 'liquidity_floor': 40000000.0, 'replace_rank_gap': 0, 'family': 'C7_liquidity'}
+evaluating C7 held-out ...
+{
+  "id": "C7",
+  "locked": {
+    "top_k": 25,
+    "rebalance_every": 42,
+    "exit_multiple": 2.0,
+    "neutralization": "NONE",
+    "industry_cap": 5,
+    "min_hold_cycles": 0,
+    "liquidity_floor": 40000000.0,
+    "replace_rank_gap": 0,
+    "family": "C7_liquidity"
+  },
+  "oof_decision": "OOF_NEW_DUAL_GATE_WINNER",
+  "heldout_decision": "MIXED_HELDOUT",
+  "oof_turnover": 0.020927995727062648,
+  "oof_bootstrap": 0.8176,
+  "val_turnover": 0.025349157707690737,
+  "val_bootstrap": 0.3722,
+  "val_turnover_pass": false,
+  "val_bootstrap_pass": false,
+  "sealed_turnover_pass": true,
+  "sealed_bootstrap_pass": true,
+  "val_beats_proxy": false,
+  "hypothesis": "Higher liquidity floors + mild min-hold to drop fragile names (OOF dual-gate)."
+}
+
+===== ROUND C8: Slower rebalance + replace-rank-gap around low-turnover region (new configs only). =====
+evaluating 120 OOF cells ...
+  [1/120] C8_slow_stable k=20 reb=42 exit=2.25 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [11/120] C8_slow_stable k=20 reb=42 exit=2.5 neut=NONE cap=5 hold=0 floor=20000000.0 gap=5
+  [21/120] C8_slow_stable k=20 reb=42 exit=3.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=8
+  [31/120] C8_slow_stable k=20 reb=45 exit=2.25 neut=NONE cap=5 hold=0 floor=20000000.0 gap=10
+  [41/120] C8_slow_stable k=20 reb=45 exit=3.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [51/120] C8_slow_stable k=20 reb=49 exit=2.25 neut=NONE cap=5 hold=0 floor=20000000.0 gap=5
+  [61/120] C8_slow_stable k=20 reb=49 exit=2.5 neut=NONE cap=5 hold=0 floor=20000000.0 gap=8
+  [71/120] C8_slow_stable k=20 reb=49 exit=3.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=10
+  [81/120] C8_slow_stable k=20 reb=56 exit=2.5 neut=NONE cap=5 hold=0 floor=20000000.0 gap=0
+  [91/120] C8_slow_stable k=20 reb=56 exit=3.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=5
+  [101/120] C8_slow_stable k=20 reb=63 exit=2.25 neut=NONE cap=5 hold=0 floor=20000000.0 gap=8
+  [111/120] C8_slow_stable k=20 reb=63 exit=2.5 neut=NONE cap=5 hold=0 floor=20000000.0 gap=10
+  [120/120] C8_slow_stable k=22 reb=63 exit=3.0 neut=NONE cap=5 hold=0 floor=20000000.0 gap=10
+locked C8: {'top_k': 22, 'rebalance_every': 42, 'exit_multiple': 2.25, 'neutralization': 'NONE', 'industry_cap': 5, 'min_hold_cycles': 0, 'liquidity_floor': 20000000.0, 'replace_rank_gap': 10, 'family': 'C8_slow_stable'}
+evaluating C8 held-out ...
+{
+  "id": "C8",
+  "locked": {
+    "top_k": 22,
+    "rebalance_every": 42,
+    "exit_multiple": 2.25,
+    "neutralization": "NONE",
+    "industry_cap": 5,
+    "min_hold_cycles": 0,
+    "liquidity_floor": 20000000.0,
+    "replace_rank_gap": 10,
+    "family": "C8_slow_stable"
+  },
+  "oof_decision": "OOF_NEW_DUAL_GATE_WINNER",
+  "heldout_decision": "MIXED_HELDOUT",
+  "oof_turnover": 0.020221801333204985,
+  "oof_bootstrap": 0.7604,
+  "val_turnover": 0.021784693000983436,
+  "val_bootstrap": 0.5544,
+  "val_turnover_pass": true,
+  "val_bootstrap_pass": false,
+  "sealed_turnover_pass": true,
+  "sealed_bootstrap_pass": true,
+  "val_beats_proxy": true,
+  "hypothesis": "Slower rebalance + replace-rank-gap around low-turnover region (new configs only)."
+}
+{
+  "rounds": 5,
+  "ledger": [
+    {
+      "id": "C4",
+      "locked": {
+        "top_k": 22,
+        "rebalance_every": 42,
+        "exit_multiple": 2.25,
+        "neutralization": "NONE",
+        "industry_cap": 5,
+        "min_hold_cycles": 0,
+        "liquidity_floor": 20000000.0,
+        "replace_rank_gap": 5,
+        "family": "C4_excess_gap"
+      },
+      "oof_decision": "OOF_NEW_DUAL_GATE_WINNER",
+      "heldout_decision": "MIXED_HELDOUT",
+      "oof_turnover": 0.020450275367238705,
+      "oof_bootstrap": 0.8066,
+      "val_turnover": 0.02187774517437871,
+      "val_bootstrap": 0.5588,
+      "val_turnover_pass": true,
+      "val_bootstrap_pass": false,
+      "sealed_turnover_pass": true,
+      "sealed_bootstrap_pass": true,
+      "val_beats_proxy": true,
+      "hypothesis": "Maximize OOF HAC t-stat (excess strength) among dual-gate passers with turnover headroom."
+    },
+    {
+      "id": "C5",
+      "locked": {
+        "top_k": 24,
+        "rebalance_every": 42,
+        "exit_multiple": 2.0,
+        "neutralization": "NONE",
+        "industry_cap": 5,
+        "min_hold_cycles": 0,
+        "liquidity_floor": 20000000.0,
+        "replace_rank_gap": 0,
+        "family": "C5_joint_margin"
+      },
+      "oof_decision": "OOF_NEW_DUAL_GATE_WINNER",
+      "heldout_decision": "MIXED_HELDOUT",
+      "oof_turnover": 0.021290054745372353,
+      "oof_bootstrap": 0.7882,
+      "val_turnover": 0.025463504824395772,
+      "val_bootstrap": 0.393,
+      "val_turnover_pass": false,
+      "val_bootstrap_pass": false,
+      "sealed_turnover_pass": true,
+      "sealed_bootstrap_pass": true,
+      "val_beats_proxy": false,
+      "hypothesis": "Prefer joint OOF margins: require bootstrap>=0.78 if available else max bootstrap; then turnover headroom; then utility."
+    },
+    {
+      "id": "C6",
+      "locked": {
+        "top_k": 20,
+        "rebalance_every": 42,
+        "exit_multiple": 2.25,
+        "neutralization": "NONE",
+        "industry_cap": 4,
+        "min_hold_cycles": 0,
+        "liquidity_floor": 20000000.0,
+        "replace_rank_gap": 0,
+        "family": "C6_industry"
+      },
+      "oof_decision": "OOF_NEW_DUAL_GATE_WINNER",
+      "heldout_decision": "MIXED_HELDOUT",
+      "oof_turnover": 0.02111036088141526,
+      "oof_bootstrap": 0.806,
+      "val_turnover": 0.02639871065250338,
+      "val_bootstrap": 0.5026,
+      "val_turnover_pass": false,
+      "val_bootstrap_pass": false,
+      "sealed_turnover_pass": true,
+      "sealed_bootstrap_pass": true,
+      "val_beats_proxy": true,
+      "hypothesis": "Industry neutralization / industry_cap variants for stabler OOF excess."
+    },
+    {
+      "id": "C7",
+      "locked": {
+        "top_k": 25,
+        "rebalance_every": 42,
+        "exit_multiple": 2.0,
+        "neutralization": "NONE",
+        "industry_cap": 5,
+        "min_hold_cycles": 0,
+        "liquidity_floor": 40000000.0,
+        "replace_rank_gap": 0,
+        "family": "C7_liquidity"
+      },
+      "oof_decision": "OOF_NEW_DUAL_GATE_WINNER",
+      "heldout_decision": "MIXED_HELDOUT",
+      "oof_turnover": 0.020927995727062648,
+      "oof_bootstrap": 0.8176,
+      "val_turnover": 0.025349157707690737,
+      "val_bootstrap": 0.3722,
+      "val_turnover_pass": false,
+      "val_bootstrap_pass": false,
+      "sealed_turnover_pass": true,
+      "sealed_bootstrap_pass": true,
+      "val_beats_proxy": false,
+      "hypothesis": "Higher liquidity floors + mild min-hold to drop fragile names (OOF dual-gate)."
+    },
+    {
+      "id": "C8",
+      "locked": {
+        "top_k": 22,
+        "rebalance_every": 42,
+        "exit_multiple": 2.25,
+        "neutralization": "NONE",
+        "industry_cap": 5,
+        "min_hold_cycles": 0,
+        "liquidity_floor": 20000000.0,
+        "replace_rank_gap": 10,
+        "family": "C8_slow_stable"
+      },
+      "oof_decision": "OOF_NEW_DUAL_GATE_WINNER",
+      "heldout_decision": "MIXED_HELDOUT",
+      "oof_turnover": 0.020221801333204985,
+      "oof_bootstrap": 0.7604,
+      "val_turnover": 0.021784693000983436,
+      "val_bootstrap": 0.5544,
+      "val_turnover_pass": true,
+      "val_bootstrap_pass": false,
+      "sealed_turnover_pass": true,
+      "sealed_bootstrap_pass": true,
+      "val_beats_proxy": true,
+      "hypothesis": "Slower rebalance + replace-rank-gap around low-turnover region (new configs only)."
+    }
+  ]
+}
