@@ -31,11 +31,13 @@ Adversarial selection picks the **paper/monitor successor**, not a live strategy
 - Cadence: month-end / research refresh; pause if stress edge vs C4 negative **two** consecutive reviews  
 - Red lines: no cut retune; no PASS claim; no E45 edit  
 
-## Track B — charter first
+## Track B — charter + OOF screen
 
 - Charter: `research/e50a/E50A_S1_STRESS_ENGINE_CHARTER.md`  
 - Frozen gates JSON: `research/e50a/E50A_S1_STRESS_ENGINE_GATES.json`  
-- Screening starts **only after** charter merge; no TECH2 family remix  
+- OOF harness: `scripts/e50a_s1_stress_engine_oof.py`  
+- OOF outputs: `repro/e50a-dual-track/track_b_s1_oof/` + `research/e50a/E50A_S1_OOF_SCREEN.md`  
+- No TECH2 family remix; screening uses residual books only  
 
 ## Explicit non-goals
 
