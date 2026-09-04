@@ -1,0 +1,96 @@
+{
+  "generated_at_utc": "2026-09-04T05:49:28.223263+00:00",
+  "stage": "FOUR_LAYER_COMBINED_NAV_CHALLENGER",
+  "governance": {
+    "modifies_soft_frozen_files": false,
+    "e45_promoted": false,
+    "alpha_promoted": false,
+    "label": "EXPERIMENTAL_CHALLENGER_SANDBOX",
+    "architecture": "E16+E18+E22 core | named E45 candidate | E50-A alpha sleeve | alpha-cut-first"
+  },
+  "inputs": {
+    "core_nav": "repro/early-stack-combined-nav-20260904/outputs/e16_e18_e22_daily_nav.csv",
+    "core_nav_e45": "repro/early-stack-combined-nav-20260904/outputs/e16_e18_e22_e45_e3_daily_nav.csv",
+    "alpha_nav": "repro/e50a3r1-audit-20260903/outputs/a3r1/daily_nav.csv",
+    "core_weight": 0.8,
+    "alpha_weight": 0.2,
+    "overlap_start": "2019-01-02",
+    "overlap_end": "2026-08-28",
+    "n_overlap_days": 1851
+  },
+  "e45_module": {
+    "path": "scripts/e45_crisis_core.py",
+    "status": "CHALLENGER_CANDIDATE_NOT_PROMOTED",
+    "profile": "E3_VOLTARGET_WINNER"
+  },
+  "books": {
+    "CORE_ONLY": {
+      "cagr": 0.15043639187412516,
+      "max_drawdown": -0.2210946635650738,
+      "utility": 0.03988906009158827,
+      "vol": 0.1492803692235513,
+      "n_days": 1851,
+      "start": "2019-01-02",
+      "end": "2026-08-28"
+    },
+    "CORE_E45_ONLY": {
+      "cagr": 0.10284125305648484,
+      "max_drawdown": -0.20529599326746284,
+      "utility": 0.00019325642275341837,
+      "vol": 0.11746610642128057,
+      "n_days": 1851,
+      "start": "2019-01-02",
+      "end": "2026-08-28"
+    },
+    "ALPHA_ONLY": {
+      "cagr": 0.19620629021293823,
+      "max_drawdown": -0.5025272081016902,
+      "utility": -0.05505731383790685,
+      "vol": 0.278127662054319,
+      "n_days": 1851,
+      "start": "2019-01-02",
+      "end": "2026-08-28"
+    },
+    "MIX_STATIC_80_20": {
+      "cagr": 0.16800082029589758,
+      "max_drawdown": -0.23619814653144267,
+      "utility": 0.04990174703017625,
+      "vol": 0.14318034080298953,
+      "n_days": 1851,
+      "start": "2019-01-02",
+      "end": "2026-08-28"
+    },
+    "MIX_ALPHA_CUT_FIRST": {
+      "cagr": 0.15536433915042847,
+      "max_drawdown": -0.2313006801681139,
+      "utility": 0.03971399906637152,
+      "vol": 0.13841322664120476,
+      "n_days": 1851,
+      "start": "2019-01-02",
+      "end": "2026-08-28"
+    },
+    "FULL_CORE_E45_PLUS_ALPHA_CUT": {
+      "cagr": 0.11638807705807142,
+      "max_drawdown": -0.21752023254937625,
+      "utility": 0.007627960783383292,
+      "vol": 0.11575891695828586,
+      "n_days": 1851,
+      "start": "2019-01-02",
+      "end": "2026-08-28"
+    }
+  },
+  "decisions": {
+    "four_layer_engine": "IMPLEMENTED_IN_CHALLENGER_SANDBOX",
+    "alpha_is_separate_sleeve": true,
+    "alpha_cut_before_core": true,
+    "e45_promoted": false,
+    "alpha_promoted": false,
+    "note": "Combined book exists for the overlap window where A3-R1 alpha NAV is available (2019-01-02 \u2192 2026-08-28). Core-only history remains longer (from early-stack sandbox). Do not treat this as a frozen four-layer production engine.",
+    "compare": {
+      "full_minus_core_util": -0.03226109930820498,
+      "cut_minus_static_util": -0.010187747963804727,
+      "cut_minus_static_mdd": 0.004897466363328773,
+      "alpha_only_util": -0.05505731383790685
+    }
+  }
+}
