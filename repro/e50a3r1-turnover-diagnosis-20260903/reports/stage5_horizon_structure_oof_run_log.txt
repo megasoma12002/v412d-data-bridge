@@ -1,0 +1,42 @@
+screening 15 stage-5 cells on OOF ...
+[1/15] TECH2_H21 / BREADTH_REGIME / λ=1.0
+  IC=0.1147 turn=0.0205 boot=0.8066 both=True
+[2/15] TECH2_DEF_H21 / BREADTH_REGIME / λ=1.0
+  IC=0.1258 turn=0.0187 boot=0.5002 both=False
+[3/15] DEF4_H21 / BREADTH_REGIME / λ=1.0
+  IC=0.1105 turn=0.0168 boot=0.5754 both=False
+[4/15] DEF_VALUE_H21 / BREADTH_REGIME / λ=1.0
+  IC=0.1113 turn=0.0165 boot=0.3292 both=False
+[5/15] DEF_ONLY_H21 / BREADTH_REGIME / λ=1.0
+  IC=0.1136 turn=0.0187 boot=0.5914 both=False
+[6/15] TECH2_INTER_H21 / BREADTH_REGIME / λ=1.0
+  IC=0.1100 turn=0.0170 boot=0.2288 both=False
+[7/15] MOM_ORTH_VAL_H21 / BREADTH_REGIME / λ=1.0
+  IC=0.1037 turn=0.0117 boot=0.1616 both=False
+[8/15] MOM_ORTH_DEF_H21 / BREADTH_REGIME / λ=1.0
+  IC=0.1253 turn=0.0208 boot=0.6596 both=False
+[9/15] ORTH_DEF_VAL_H21 / BREADTH_REGIME / λ=1.0
+  IC=0.1119 turn=0.0163 boot=0.3378 both=False
+[10/15] TECH2_H63 / BREADTH_REGIME / λ=1.0
+  IC=0.1440 turn=0.0174 boot=0.2858 both=False
+[11/15] TECH2_DEF_H63 / BREADTH_REGIME / λ=1.0
+  IC=0.1592 turn=0.0180 boot=0.2398 both=False
+[12/15] DEF_VALUE_H63 / BREADTH_REGIME / λ=1.0
+  IC=0.1459 turn=0.0169 boot=0.5248 both=False
+[13/15] TECH2_INTER_H63 / BREADTH_REGIME / λ=1.0
+  IC=0.1425 turn=0.0173 boot=0.1738 both=False
+[14/15] MOM_ORTH_VAL_H63 / BREADTH_REGIME / λ=1.0
+  IC=0.1433 turn=0.0118 boot=0.168 both=False
+[15/15] ORTH_DEF_VAL_H63 / BREADTH_REGIME / λ=1.0
+  IC=0.1521 turn=0.0166 boot=0.5316 both=False
+{
+  "research_decision": "OOF_NO_NEW_HORIZON_STRUCTURE_DUAL_GATE_WINNER",
+  "n_both_pass_new": 0,
+  "winner": null,
+  "best_ic": {
+    "cell_id": "TECH2_DEF_H63",
+    "mean_rank_ic": 0.15924409653496188,
+    "both": false,
+    "boot": 0.2398
+  }
+}
