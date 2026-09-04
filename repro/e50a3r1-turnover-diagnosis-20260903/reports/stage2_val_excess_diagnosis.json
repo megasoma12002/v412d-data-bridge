@@ -1,0 +1,940 @@
+{
+  "generated_at_utc": "2026-09-04T00:28:05.988234+00:00",
+  "stage": "STAGE2_VAL_EXCESS_DIAGNOSIS",
+  "references_frozen": {
+    "C2": {
+      "top_k": 20,
+      "rebalance_every": 42,
+      "exit_multiple": 2.5,
+      "neutralization": "NONE",
+      "industry_cap": 5,
+      "min_hold_cycles": 0,
+      "liquidity_floor": 20000000.0,
+      "replace_rank_gap": 0
+    },
+    "C4": {
+      "top_k": 22,
+      "rebalance_every": 42,
+      "exit_multiple": 2.25,
+      "neutralization": "NONE",
+      "industry_cap": 5,
+      "min_hold_cycles": 0,
+      "liquidity_floor": 20000000.0,
+      "replace_rank_gap": 5
+    },
+    "C8": {
+      "top_k": 22,
+      "rebalance_every": 42,
+      "exit_multiple": 2.25,
+      "neutralization": "NONE",
+      "industry_cap": 5,
+      "min_hold_cycles": 0,
+      "liquidity_floor": 20000000.0,
+      "replace_rank_gap": 10
+    }
+  },
+  "no_retune": true,
+  "no_promotion": true,
+  "reports": {
+    "C2": {
+      "reference": "C2",
+      "days": 976,
+      "mean_daily_excess": 4.2793933195561016e-05,
+      "daily_excess_hit_rate": 0.48770491803278687,
+      "excess_vol": 0.00789549715198833,
+      "total_cost": 0.1429476426744504,
+      "mean_turnover": 0.024315152245552803,
+      "max_drawdown": -0.2937691796977028,
+      "yearly": [
+        {
+          "year": 2019,
+          "strategy_return": 0.35994801562929024,
+          "benchmark_return": 0.2530065083808253,
+          "excess_return_approx": 0.10694150724846496,
+          "mean_daily_excess": 0.0003580620292163282,
+          "daily_excess_hit_rate": 0.4979253112033195,
+          "avg_daily_turnover": 0.019368810425462145,
+          "cost_delta": 0.016103271189446496,
+          "avg_positions": 20.0,
+          "days": 241
+        },
+        {
+          "year": 2020,
+          "strategy_return": 0.3576175339424972,
+          "benchmark_return": 0.2959112555004575,
+          "excess_return_approx": 0.061706278442039686,
+          "mean_daily_excess": 0.00020518092146376473,
+          "daily_excess_hit_rate": 0.49795918367346936,
+          "avg_daily_turnover": 0.02213201759575059,
+          "cost_delta": 0.025448152570998223,
+          "avg_positions": 20.0,
+          "days": 245
+        },
+        {
+          "year": 2021,
+          "strategy_return": 0.3354209593255524,
+          "benchmark_return": 0.348781334153595,
+          "excess_return_approx": -0.013360374828042643,
+          "mean_daily_excess": -3.0592600044479674e-05,
+          "daily_excess_hit_rate": 0.5040983606557377,
+          "avg_daily_turnover": 0.020572155715833793,
+          "cost_delta": 0.038030207379856656,
+          "avg_positions": 20.0,
+          "days": 244
+        },
+        {
+          "year": 2022,
+          "strategy_return": -0.14044337097642334,
+          "benchmark_return": -0.05163474504582011,
+          "excess_return_approx": -0.08880862593060324,
+          "mean_daily_excess": -0.0003550032584960846,
+          "daily_excess_hit_rate": 0.45121951219512196,
+          "avg_daily_turnover": 0.03514662652742428,
+          "cost_delta": 0.061444710039526174,
+          "avg_positions": 19.829268292682926,
+          "days": 246
+        }
+      ],
+      "worst_excess_months": [
+        {
+          "year": 2022,
+          "month": 5,
+          "sum_excess": -0.0714430449277367,
+          "sum_strategy": -0.05767078113309977,
+          "avg_turnover": 0.0,
+          "days": 21
+        },
+        {
+          "year": 2022,
+          "month": 8,
+          "sum_excess": -0.06376814022467348,
+          "sum_strategy": -0.0015896162597608826,
+          "avg_turnover": 0.08232630447258583,
+          "days": 23
+        },
+        {
+          "year": 2020,
+          "month": 8,
+          "sum_excess": -0.05627116266549558,
+          "sum_strategy": -0.008491546081785248,
+          "avg_turnover": 0.0,
+          "days": 21
+        },
+        {
+          "year": 2021,
+          "month": 6,
+          "sum_excess": -0.0478153647308417,
+          "sum_strategy": 0.009517115866530253,
+          "avg_turnover": 0.025647797467029044,
+          "days": 21
+        },
+        {
+          "year": 2019,
+          "month": 8,
+          "sum_excess": -0.041673886878481656,
+          "sum_strategy": -0.03657846565872336,
+          "avg_turnover": 0.0,
+          "days": 21
+        },
+        {
+          "year": 2019,
+          "month": 7,
+          "sum_excess": -0.04104008285214481,
+          "sum_strategy": -0.009260990000582524,
+          "avg_turnover": 0.009600817637659975,
+          "days": 23
+        },
+        {
+          "year": 2022,
+          "month": 10,
+          "sum_excess": -0.03757135753462679,
+          "sum_strategy": -0.06230986468639031,
+          "avg_turnover": 0.09749999999999998,
+          "days": 20
+        },
+        {
+          "year": 2021,
+          "month": 3,
+          "sum_excess": -0.03486589154058114,
+          "sum_strategy": 0.047617097285026375,
+          "avg_turnover": 0.0,
+          "days": 22
+        }
+      ],
+      "best_excess_months": [
+        {
+          "year": 2022,
+          "month": 11,
+          "sum_excess": 0.09126199409750248,
+          "sum_strategy": 0.19325548274872362,
+          "avg_turnover": 0.0,
+          "days": 22
+        },
+        {
+          "year": 2019,
+          "month": 1,
+          "sum_excess": 0.07254114874610966,
+          "sum_strategy": 0.10697099726686851,
+          "avg_turnover": 0.04990393492526888,
+          "days": 20
+        },
+        {
+          "year": 2020,
+          "month": 7,
+          "sum_excess": 0.06510809308849738,
+          "sum_strategy": 0.09325141980587942,
+          "avg_turnover": 0.02970449731976036,
+          "days": 23
+        },
+        {
+          "year": 2019,
+          "month": 2,
+          "sum_excess": 0.06103206839550003,
+          "sum_strategy": 0.11141689986712205,
+          "avg_turnover": 0.0,
+          "days": 13
+        },
+        {
+          "year": 2021,
+          "month": 1,
+          "sum_excess": 0.05087235171251568,
+          "sum_strategy": 0.026581776514013992,
+          "avg_turnover": 0.010505806720685329,
+          "days": 20
+        }
+      ],
+      "deep_dd_le_10pct": {
+        "days": 194,
+        "mean_excess": 8.955245852579332e-05,
+        "hit_rate": 0.4793814432989691
+      },
+      "mild_dd_gt_neg5pct": {
+        "days": 667,
+        "mean_excess": 0.00020352543882416112,
+        "hit_rate": 0.49775112443778113
+      },
+      "crowding": {
+        "unique_names_traded": 137,
+        "top10_gross_share": 0.19466586888006374,
+        "trade_count": 701,
+        "buy_count": 347
+      },
+      "industry_concentration": {
+        "top_industry": "\u534a\u5c0e\u9ad4\u696d",
+        "top_industry_gross_share": 0.17959147511009027,
+        "top3_gross_share": 0.486514980764976,
+        "n_industries": 26,
+        "top5": [
+          {
+            "industry_category": "\u534a\u5c0e\u9ad4\u696d",
+            "gross": 3.8584278174635775,
+            "n": 54
+          },
+          {
+            "industry_category": "\u96fb\u5b50\u5de5\u696d",
+            "gross": 3.7230563971589734,
+            "n": 68
+          },
+          {
+            "industry_category": "\u91d1\u878d\u4fdd\u96aa",
+            "gross": 2.8710327227522354,
+            "n": 53
+          },
+          {
+            "industry_category": null,
+            "gross": 1.4941397196236594,
+            "n": 21
+          },
+          {
+            "industry_category": "\u5149\u96fb\u696d",
+            "gross": 1.3832208826098695,
+            "n": 17
+          }
+        ]
+      },
+      "no_retune": true,
+      "sealed_yearly": [
+        {
+          "year": 2023,
+          "strategy_return": 0.5753065193310114,
+          "benchmark_return": 0.3523670540774686,
+          "excess_return_approx": 0.2229394652535428,
+          "mean_daily_excess": 0.0006599528205173964,
+          "daily_excess_hit_rate": 0.47257383966244726,
+          "avg_daily_turnover": 0.015275708240850018,
+          "cost_delta": 0.01178221205214312,
+          "avg_positions": 20.0,
+          "days": 237
+        },
+        {
+          "year": 2024,
+          "strategy_return": 0.2370935370600562,
+          "benchmark_return": 0.14992875466053257,
+          "excess_return_approx": 0.08716478239952363,
+          "mean_daily_excess": 0.0003151828279658946,
+          "daily_excess_hit_rate": 0.4834710743801653,
+          "avg_daily_turnover": 0.006653914652335872,
+          "cost_delta": 0.009818074400875074,
+          "avg_positions": 20.0,
+          "days": 242
+        },
+        {
+          "year": 2025,
+          "strategy_return": 0.5678429817576118,
+          "benchmark_return": 0.03862718913814578,
+          "excess_return_approx": 0.529215792619466,
+          "mean_daily_excess": 0.0017366347336660887,
+          "daily_excess_hit_rate": 0.5661157024793388,
+          "avg_daily_turnover": 0.024093186266209102,
+          "cost_delta": 0.04585855073089172,
+          "avg_positions": 20.0,
+          "days": 242
+        },
+        {
+          "year": 2026,
+          "strategy_return": 0.6765154595580236,
+          "benchmark_return": 0.20706989114908003,
+          "excess_return_approx": 0.4694455684089436,
+          "mean_daily_excess": 0.0022479469277848904,
+          "daily_excess_hit_rate": 0.5923566878980892,
+          "avg_daily_turnover": 0.012902192144302091,
+          "cost_delta": 0.030044692628343833,
+          "avg_positions": 20.0,
+          "days": 157
+        }
+      ]
+    },
+    "C4": {
+      "reference": "C4",
+      "days": 976,
+      "mean_daily_excess": 6.696312809971239e-05,
+      "daily_excess_hit_rate": 0.5051229508196722,
+      "excess_vol": 0.008378278455529733,
+      "total_cost": 0.1338146274389762,
+      "mean_turnover": 0.021877745174378713,
+      "max_drawdown": -0.31867662365819793,
+      "yearly": [
+        {
+          "year": 2019,
+          "strategy_return": 0.4567074757440641,
+          "benchmark_return": 0.2530065083808253,
+          "excess_return_approx": 0.20370096736323884,
+          "mean_daily_excess": 0.0006875203598410404,
+          "daily_excess_hit_rate": 0.5394190871369294,
+          "avg_daily_turnover": 0.018870361695507966,
+          "cost_delta": 0.01660915048697481,
+          "avg_positions": 20.95435684647303,
+          "days": 241
+        },
+        {
+          "year": 2020,
+          "strategy_return": 0.3629557237053749,
+          "benchmark_return": 0.2959112555004575,
+          "excess_return_approx": 0.06704446820491738,
+          "mean_daily_excess": 0.00021885819398414296,
+          "daily_excess_hit_rate": 0.5265306122448979,
+          "avg_daily_turnover": 0.02274049467728725,
+          "cost_delta": 0.028415661485091566,
+          "avg_positions": 22.0,
+          "days": 245
+        },
+        {
+          "year": 2021,
+          "strategy_return": 0.29744744795222,
+          "benchmark_return": 0.348781334153595,
+          "excess_return_approx": -0.05133388620137502,
+          "mean_daily_excess": -0.00015248344263941497,
+          "daily_excess_hit_rate": 0.5122950819672131,
+          "avg_daily_turnover": 0.02142945282354219,
+          "cost_delta": 0.04193212656226841,
+          "avg_positions": 22.0,
+          "days": 244
+        },
+        {
+          "year": 2022,
+          "strategy_return": -0.17069110693392286,
+          "benchmark_return": -0.05163474504582011,
+          "excess_return_approx": -0.11905636188810276,
+          "mean_daily_excess": -0.00047459630576613505,
+          "daily_excess_hit_rate": 0.44308943089430897,
+          "avg_daily_turnover": 0.02449834220272728,
+          "cost_delta": 0.04493638741001857,
+          "avg_positions": 22.0,
+          "days": 246
+        }
+      ],
+      "worst_excess_months": [
+        {
+          "year": 2022,
+          "month": 9,
+          "sum_excess": -0.09190490552841335,
+          "sum_strategy": -0.19594585334365971,
+          "avg_turnover": 0.0,
+          "days": 21
+        },
+        {
+          "year": 2019,
+          "month": 5,
+          "sum_excess": -0.07600589824180026,
+          "sum_strategy": -0.10172252698089286,
+          "avg_turnover": 0.007934433194592562,
+          "days": 22
+        },
+        {
+          "year": 2022,
+          "month": 5,
+          "sum_excess": -0.05667632377774344,
+          "sum_strategy": -0.04290405998310647,
+          "avg_turnover": 0.0,
+          "days": 21
+        },
+        {
+          "year": 2020,
+          "month": 8,
+          "sum_excess": -0.05439696787974203,
+          "sum_strategy": -0.006617351296031701,
+          "avg_turnover": 0.0,
+          "days": 21
+        },
+        {
+          "year": 2021,
+          "month": 6,
+          "sum_excess": -0.05153388568779643,
+          "sum_strategy": 0.005798594909575504,
+          "avg_turnover": 0.0276296131125371,
+          "days": 21
+        },
+        {
+          "year": 2022,
+          "month": 8,
+          "sum_excess": -0.03966034535866296,
+          "sum_strategy": 0.022518178606249627,
+          "avg_turnover": 0.008592184375673073,
+          "days": 23
+        },
+        {
+          "year": 2021,
+          "month": 3,
+          "sum_excess": -0.03801689769692244,
+          "sum_strategy": 0.04446609112868509,
+          "avg_turnover": 0.0,
+          "days": 22
+        },
+        {
+          "year": 2019,
+          "month": 8,
+          "sum_excess": -0.03599187180717736,
+          "sum_strategy": -0.030896450587419085,
+          "avg_turnover": 0.0,
+          "days": 21
+        }
+      ],
+      "best_excess_months": [
+        {
+          "year": 2022,
+          "month": 11,
+          "sum_excess": 0.08412312142818162,
+          "sum_strategy": 0.18611661007940283,
+          "avg_turnover": 0.0,
+          "days": 22
+        },
+        {
+          "year": 2019,
+          "month": 6,
+          "sum_excess": 0.07653886122224562,
+          "sum_strategy": 0.10632741678753026,
+          "avg_turnover": 0.0,
+          "days": 19
+        },
+        {
+          "year": 2019,
+          "month": 1,
+          "sum_excess": 0.0700790785418701,
+          "sum_strategy": 0.10450892706262893,
+          "avg_turnover": 0.049903934925268845,
+          "days": 20
+        },
+        {
+          "year": 2020,
+          "month": 7,
+          "sum_excess": 0.05669328519662297,
+          "sum_strategy": 0.084836611914005,
+          "avg_turnover": 0.027414806254358447,
+          "days": 23
+        },
+        {
+          "year": 2019,
+          "month": 2,
+          "sum_excess": 0.05305846596704451,
+          "sum_strategy": 0.10344329743866648,
+          "avg_turnover": 0.0,
+          "days": 13
+        }
+      ],
+      "deep_dd_le_10pct": {
+        "days": 235,
+        "mean_excess": -4.53291751931992e-05,
+        "hit_rate": 0.48936170212765956
+      },
+      "mild_dd_gt_neg5pct": {
+        "days": 595,
+        "mean_excess": 0.0004519889583371551,
+        "hit_rate": 0.5294117647058824
+      },
+      "crowding": {
+        "unique_names_traded": 139,
+        "top10_gross_share": 0.18921241897741015,
+        "trade_count": 733,
+        "buy_count": 388
+      },
+      "industry_concentration": {
+        "top_industry": "\u534a\u5c0e\u9ad4\u696d",
+        "top_industry_gross_share": 0.1813514159857523,
+        "top3_gross_share": 0.4508073847055396,
+        "n_industries": 28,
+        "top5": [
+          {
+            "industry_category": "\u534a\u5c0e\u9ad4\u696d",
+            "gross": 3.655636582332574,
+            "n": 68
+          },
+          {
+            "industry_category": "\u96fb\u5b50\u5de5\u696d",
+            "gross": 3.0650734032519975,
+            "n": 69
+          },
+          {
+            "industry_category": "\u91d1\u878d\u4fdd\u96aa",
+            "gross": 2.366552764239875,
+            "n": 47
+          },
+          {
+            "industry_category": null,
+            "gross": 1.6645651607463656,
+            "n": 33
+          },
+          {
+            "industry_category": "\u5149\u96fb\u696d",
+            "gross": 1.441654454999076,
+            "n": 23
+          }
+        ]
+      },
+      "no_retune": true,
+      "sealed_yearly": [
+        {
+          "year": 2023,
+          "strategy_return": 0.524068577131231,
+          "benchmark_return": 0.3523670540774686,
+          "excess_return_approx": 0.1717015230537624,
+          "mean_daily_excess": 0.0005219535269124582,
+          "daily_excess_hit_rate": 0.4810126582278481,
+          "avg_daily_turnover": 0.016209331496325106,
+          "cost_delta": 0.012537018053021392,
+          "avg_positions": 22.0,
+          "days": 237
+        },
+        {
+          "year": 2024,
+          "strategy_return": 0.18473692876960834,
+          "benchmark_return": 0.14992875466053257,
+          "excess_return_approx": 0.034808174109075773,
+          "mean_daily_excess": 0.00012915522592550196,
+          "daily_excess_hit_rate": 0.48760330578512395,
+          "avg_daily_turnover": 0.008191279048472465,
+          "cost_delta": 0.01153124660611031,
+          "avg_positions": 22.0,
+          "days": 242
+        },
+        {
+          "year": 2025,
+          "strategy_return": 0.2243728265965197,
+          "benchmark_return": 0.03862718913814578,
+          "excess_return_approx": 0.1857456374583739,
+          "mean_daily_excess": 0.0006774206133239056,
+          "daily_excess_hit_rate": 0.5330578512396694,
+          "avg_daily_turnover": 0.01137120746317105,
+          "cost_delta": 0.018919659179082702,
+          "avg_positions": 22.173553719008265,
+          "days": 242
+        },
+        {
+          "year": 2026,
+          "strategy_return": 0.7595245840857423,
+          "benchmark_return": 0.20706989114908003,
+          "excess_return_approx": 0.5524546929366623,
+          "mean_daily_excess": 0.002569409499218819,
+          "daily_excess_hit_rate": 0.5859872611464968,
+          "avg_daily_turnover": 0.012063060272445641,
+          "cost_delta": 0.02027999059099221,
+          "avg_positions": 22.0,
+          "days": 157
+        }
+      ]
+    },
+    "C8": {
+      "reference": "C8",
+      "days": 976,
+      "mean_daily_excess": 6.319462442417382e-05,
+      "daily_excess_hit_rate": 0.5061475409836066,
+      "excess_vol": 0.008380567919263966,
+      "total_cost": 0.13319276465034433,
+      "mean_turnover": 0.02178469300098344,
+      "max_drawdown": -0.31867662365819793,
+      "yearly": [
+        {
+          "year": 2019,
+          "strategy_return": 0.4567074757440641,
+          "benchmark_return": 0.2530065083808253,
+          "excess_return_approx": 0.20370096736323884,
+          "mean_daily_excess": 0.0006875203598410404,
+          "daily_excess_hit_rate": 0.5394190871369294,
+          "avg_daily_turnover": 0.018870361695507966,
+          "cost_delta": 0.01660915048697481,
+          "avg_positions": 20.95435684647303,
+          "days": 241
+        },
+        {
+          "year": 2020,
+          "strategy_return": 0.3629557237053749,
+          "benchmark_return": 0.2959112555004575,
+          "excess_return_approx": 0.06704446820491738,
+          "mean_daily_excess": 0.00021885819398414296,
+          "daily_excess_hit_rate": 0.5265306122448979,
+          "avg_daily_turnover": 0.02274049467728725,
+          "cost_delta": 0.028415661485091566,
+          "avg_positions": 22.0,
+          "days": 245
+        },
+        {
+          "year": 2021,
+          "strategy_return": 0.29744744795222,
+          "benchmark_return": 0.348781334153595,
+          "excess_return_approx": -0.05133388620137502,
+          "mean_daily_excess": -0.00015248344263941497,
+          "daily_excess_hit_rate": 0.5122950819672131,
+          "avg_daily_turnover": 0.02142945282354219,
+          "cost_delta": 0.04193212656226841,
+          "avg_positions": 22.0,
+          "days": 244
+        },
+        {
+          "year": 2022,
+          "strategy_return": -0.17376531752444146,
+          "benchmark_return": -0.05163474504582011,
+          "excess_return_approx": -0.12213057247862136,
+          "mean_daily_excess": -0.0004895477675032312,
+          "daily_excess_hit_rate": 0.44715447154471544,
+          "avg_daily_turnover": 0.024128781335218414,
+          "cost_delta": 0.044314524621386686,
+          "avg_positions": 22.0,
+          "days": 246
+        }
+      ],
+      "worst_excess_months": [
+        {
+          "year": 2022,
+          "month": 9,
+          "sum_excess": -0.09190490552841335,
+          "sum_strategy": -0.19594585334365971,
+          "avg_turnover": 0.0,
+          "days": 21
+        },
+        {
+          "year": 2019,
+          "month": 5,
+          "sum_excess": -0.07600589824180026,
+          "sum_strategy": -0.10172252698089286,
+          "avg_turnover": 0.007934433194592562,
+          "days": 22
+        },
+        {
+          "year": 2022,
+          "month": 5,
+          "sum_excess": -0.05667632377774344,
+          "sum_strategy": -0.04290405998310647,
+          "avg_turnover": 0.0,
+          "days": 21
+        },
+        {
+          "year": 2020,
+          "month": 8,
+          "sum_excess": -0.05439696787974203,
+          "sum_strategy": -0.006617351296031701,
+          "avg_turnover": 0.0,
+          "days": 21
+        },
+        {
+          "year": 2021,
+          "month": 6,
+          "sum_excess": -0.05153388568779643,
+          "sum_strategy": 0.005798594909575504,
+          "avg_turnover": 0.0276296131125371,
+          "days": 21
+        },
+        {
+          "year": 2022,
+          "month": 8,
+          "sum_excess": -0.03966034535866296,
+          "sum_strategy": 0.022518178606249627,
+          "avg_turnover": 0.008592184375673073,
+          "days": 23
+        },
+        {
+          "year": 2021,
+          "month": 3,
+          "sum_excess": -0.03801689769692244,
+          "sum_strategy": 0.04446609112868509,
+          "avg_turnover": 0.0,
+          "days": 22
+        },
+        {
+          "year": 2019,
+          "month": 8,
+          "sum_excess": -0.03599187180717736,
+          "sum_strategy": -0.030896450587419085,
+          "avg_turnover": 0.0,
+          "days": 21
+        }
+      ],
+      "best_excess_months": [
+        {
+          "year": 2022,
+          "month": 11,
+          "sum_excess": 0.08094111183165821,
+          "sum_strategy": 0.18293460048287943,
+          "avg_turnover": 0.0,
+          "days": 22
+        },
+        {
+          "year": 2019,
+          "month": 6,
+          "sum_excess": 0.07653886122224562,
+          "sum_strategy": 0.10632741678753026,
+          "avg_turnover": 0.0,
+          "days": 19
+        },
+        {
+          "year": 2019,
+          "month": 1,
+          "sum_excess": 0.0700790785418701,
+          "sum_strategy": 0.10450892706262893,
+          "avg_turnover": 0.049903934925268845,
+          "days": 20
+        },
+        {
+          "year": 2020,
+          "month": 7,
+          "sum_excess": 0.05669328519662297,
+          "sum_strategy": 0.084836611914005,
+          "avg_turnover": 0.027414806254358447,
+          "days": 23
+        },
+        {
+          "year": 2019,
+          "month": 2,
+          "sum_excess": 0.05305846596704451,
+          "sum_strategy": 0.10344329743866648,
+          "avg_turnover": 0.0,
+          "days": 13
+        }
+      ],
+      "deep_dd_le_10pct": {
+        "days": 235,
+        "mean_excess": -6.09804925860744e-05,
+        "hit_rate": 0.49361702127659574
+      },
+      "mild_dd_gt_neg5pct": {
+        "days": 595,
+        "mean_excess": 0.0004519889583371551,
+        "hit_rate": 0.5294117647058824
+      },
+      "crowding": {
+        "unique_names_traded": 139,
+        "top10_gross_share": 0.1900213813597514,
+        "trade_count": 732,
+        "buy_count": 387
+      },
+      "industry_concentration": {
+        "top_industry": "\u534a\u5c0e\u9ad4\u696d",
+        "top_industry_gross_share": 0.182149732501127,
+        "top3_gross_share": 0.45272839929027614,
+        "n_industries": 28,
+        "top5": [
+          {
+            "industry_category": "\u534a\u5c0e\u9ad4\u696d",
+            "gross": 3.655274208676937,
+            "n": 68
+          },
+          {
+            "industry_category": "\u96fb\u5b50\u5de5\u696d",
+            "gross": 3.0647110295963604,
+            "n": 69
+          },
+          {
+            "industry_category": "\u91d1\u878d\u4fdd\u96aa",
+            "gross": 2.365103269617327,
+            "n": 47
+          },
+          {
+            "industry_category": null,
+            "gross": 1.6645651607463656,
+            "n": 33
+          },
+          {
+            "industry_category": "\u5149\u96fb\u696d",
+            "gross": 1.4412920813434391,
+            "n": 23
+          }
+        ]
+      },
+      "no_retune": true,
+      "sealed_yearly": [
+        {
+          "year": 2023,
+          "strategy_return": 0.4990403415866391,
+          "benchmark_return": 0.3523670540774686,
+          "excess_return_approx": 0.14667328750917052,
+          "mean_daily_excess": 0.0004495532039709499,
+          "daily_excess_hit_rate": 0.4641350210970464,
+          "avg_daily_turnover": 0.015679445605070032,
+          "cost_delta": 0.011875937260235484,
+          "avg_positions": 21.82278481012658,
+          "days": 237
+        },
+        {
+          "year": 2024,
+          "strategy_return": 0.1847221170860871,
+          "benchmark_return": 0.14992875466053257,
+          "excess_return_approx": 0.03479336242555453,
+          "mean_daily_excess": 0.00012910347451993912,
+          "daily_excess_hit_rate": 0.48760330578512395,
+          "avg_daily_turnover": 0.008192112708235503,
+          "cost_delta": 0.011342744688696171,
+          "avg_positions": 22.0,
+          "days": 242
+        },
+        {
+          "year": 2025,
+          "strategy_return": 0.22437282659651858,
+          "benchmark_return": 0.03862718913814578,
+          "excess_return_approx": 0.1857456374583728,
+          "mean_daily_excess": 0.0006774206133239057,
+          "daily_excess_hit_rate": 0.5330578512396694,
+          "avg_daily_turnover": 0.01137120746317105,
+          "cost_delta": 0.018608728116466754,
+          "avg_positions": 22.173553719008265,
+          "days": 242
+        },
+        {
+          "year": 2026,
+          "strategy_return": 0.7595245840857434,
+          "benchmark_return": 0.20706989114908003,
+          "excess_return_approx": 0.5524546929366634,
+          "mean_daily_excess": 0.00256940949921882,
+          "daily_excess_hit_rate": 0.5859872611464968,
+          "avg_daily_turnover": 0.01206306027244564,
+          "cost_delta": 0.019946703454865045,
+          "avg_positions": 22.0,
+          "days": 157
+        }
+      ]
+    }
+  },
+  "findings": [
+    {
+      "item": "common_negative_excess_years_validation",
+      "years": [
+        {
+          "year": 2021,
+          "by_ref": [
+            [
+              "C2",
+              -3.0592600044479674e-05,
+              -0.013360374828042643
+            ],
+            [
+              "C4",
+              -0.00015248344263941497,
+              -0.05133388620137502
+            ],
+            [
+              "C8",
+              -0.00015248344263941497,
+              -0.05133388620137502
+            ]
+          ]
+        },
+        {
+          "year": 2022,
+          "by_ref": [
+            [
+              "C2",
+              -0.0003550032584960846,
+              -0.08880862593060324
+            ],
+            [
+              "C4",
+              -0.00047459630576613505,
+              -0.11905636188810276
+            ],
+            [
+              "C8",
+              -0.0004895477675032312,
+              -0.12213057247862136
+            ]
+          ]
+        }
+      ],
+      "note": "Years where all C2/C4/C8 had negative mean daily excess vs PIT proxy."
+    },
+    {
+      "item": "cost_crowding_snapshot",
+      "rows": [
+        {
+          "ref": "C2",
+          "total_cost": 0.1429476426744504,
+          "mean_turnover": 0.024315152245552803,
+          "mean_daily_excess": 4.2793933195561016e-05,
+          "top10_gross_share": 0.19466586888006374,
+          "top_industry_share": 0.17959147511009027
+        },
+        {
+          "ref": "C4",
+          "total_cost": 0.1338146274389762,
+          "mean_turnover": 0.021877745174378713,
+          "mean_daily_excess": 6.696312809971239e-05,
+          "top10_gross_share": 0.18921241897741015,
+          "top_industry_share": 0.1813514159857523
+        },
+        {
+          "ref": "C8",
+          "total_cost": 0.13319276465034433,
+          "mean_turnover": 0.02178469300098344,
+          "mean_daily_excess": 6.319462442417382e-05,
+          "top10_gross_share": 0.1900213813597514,
+          "top_industry_share": 0.182149732501127
+        }
+      ]
+    },
+    {
+      "item": "drawdown_state_dependence",
+      "rows": {
+        "C2": {
+          "deep_dd_mean_excess": 8.955245852579332e-05,
+          "mild_dd_mean_excess": 0.00020352543882416112
+        },
+        "C4": {
+          "deep_dd_mean_excess": -4.53291751931992e-05,
+          "mild_dd_mean_excess": 0.0004519889583371551
+        },
+        "C8": {
+          "deep_dd_mean_excess": -6.09804925860744e-05,
+          "mild_dd_mean_excess": 0.0004519889583371551
+        }
+      },
+      "note": "If deep-drawdown excess << mild, validation failure is crisis/regime-linked, not only average turnover."
+    }
+  ],
+  "research_implication": "Do not retune C2/C4/C8. Next stage should change the alpha/model hypothesis on OOF (feature family / regime / lambda), because portfolio-rule variants that already clear validation turnover still fail excess bootstrap in the same weak years."
+}

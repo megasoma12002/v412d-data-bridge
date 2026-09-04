@@ -1,0 +1,45 @@
+screening 16 models with FIXED C4 portfolio wrapper on OOF ...
+[1/16] TECH2 / GLOBAL / lambda=0.1
+  IC=0.06035913691796172 turn=0.0060 boot=0.146 both=False
+[2/16] TECH2 / GLOBAL / lambda=1.0
+  IC=0.0603587961536488 turn=0.0060 boot=0.146 both=False
+[3/16] TECH2 / GLOBAL / lambda=10.0
+  IC=0.060362418008905086 turn=0.0060 boot=0.146 both=False
+[4/16] TECH2 / GLOBAL / lambda=100.0
+  IC=0.06035152110250348 turn=0.0060 boot=0.146 both=False
+[5/16] TECH2 / BREADTH_REGIME / lambda=0.1
+  IC=0.11471534823948187 turn=0.0205 boot=0.8066 both=True
+[6/16] TECH2 / BREADTH_REGIME / lambda=1.0
+  IC=0.1147150373836749 turn=0.0205 boot=0.8066 both=True
+[7/16] TECH2 / BREADTH_REGIME / lambda=10.0
+  IC=0.11470599229331586 turn=0.0205 boot=0.8066 both=True
+[8/16] TECH2 / BREADTH_REGIME / lambda=100.0
+  IC=0.11469308576641205 turn=0.0204 boot=0.7928 both=True
+[9/16] PRICE8 / GLOBAL / lambda=0.1
+  IC=0.06479052187900594 turn=0.0154 boot=0.13 both=False
+[10/16] PRICE8 / GLOBAL / lambda=1.0
+  IC=0.06479187776886372 turn=0.0154 boot=0.13 both=False
+[11/16] PRICE8 / GLOBAL / lambda=10.0
+  IC=0.06479581274246601 turn=0.0154 boot=0.13 both=False
+[12/16] PRICE8 / GLOBAL / lambda=100.0
+  IC=0.06488611374623107 turn=0.0158 boot=0.1356 both=False
+[13/16] PRICE8 / BREADTH_REGIME / lambda=0.1
+  IC=0.11179620995130035 turn=0.0196 boot=0.51 both=False
+[14/16] PRICE8 / BREADTH_REGIME / lambda=1.0
+  IC=0.11180044639972739 turn=0.0196 boot=0.51 both=False
+[15/16] PRICE8 / BREADTH_REGIME / lambda=10.0
+  IC=0.11181438675488067 turn=0.0197 boot=0.515 both=False
+[16/16] PRICE8 / BREADTH_REGIME / lambda=100.0
+  IC=0.11168584810918926 turn=0.0196 boot=0.5282 both=False
+{
+  "research_decision": "OOF_NO_NEW_MODEL_DUAL_GATE_WINNER",
+  "baseline_bootstrap": 0.8066,
+  "n_both_pass_new_family_or_mode": 0,
+  "best_price8_bootstrap": 0.5282,
+  "best_ic": {
+    "feature_set": "TECH2",
+    "mode": "BREADTH_REGIME",
+    "ridge_lambda": 0.1,
+    "mean_rank_ic": 0.11471534823948187
+  }
+}
