@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-09-04T13:44:09.924306+00:00",
+  "contract": "CHALLENGER_SPARSE_NOT_TWT58U",
+  "a0_untouched": true,
+  "snapshot_isin_class_main": {
+    "status": "PASS",
+    "rows": 1054
+  },
+  "snapshot_twse_current": {
+    "status": "PASS",
+    "rows": 1094
+  },
+  "industry_code_map": {
+    "status": "PASS",
+    "rows": 32
+  },
+  "wayback_cdx": {
+    "status": "PASS",
+    "candidates": 3
+  },
+  "wayback_isin_snapshots": {
+    "status": "PASS",
+    "snapshots": [
+      {
+        "as_of_date": "2018-07-19",
+        "rows": 330,
+        "path": "data/research_advanced/industry_pit_challenger/wayback_isin_snapshots/isin_industry_2018-07-19.csv",
+        "archive_url": "https://web.archive.org/web/20180719035426id_/http://isin.twse.com.tw:80/isin/C_public.jsp?strMode=1"
+      },
+      {
+        "as_of_date": "2023-12-25",
+        "rows": 323,
+        "path": "data/research_advanced/industry_pit_challenger/wayback_isin_snapshots/isin_industry_2023-12-25.csv",
+        "archive_url": "https://web.archive.org/web/20231225210301id_/https://isin.twse.com.tw/isin/C_public.jsp?strMode=1"
+      }
+    ],
+    "combined_rows": 653
+  },
+  "industry_reclass_events": {
+    "status": "PASS",
+    "rows": 76,
+    "twse_company_rows": 62,
+    "tpex_company_rows": 13,
+    "missing_old_industry": 0
+  },
+  "event_touched_sparse_pit": {
+    "status": "PASS",
+    "rows": 209
+  },
+  "qc_event_vs_current": {
+    "checked": 60,
+    "mismatches": 1,
+    "examples": [
+      {
+        "stock_id": "3054",
+        "event_new": "食品工業",
+        "current": "電子通路業"
+      }
+    ],
+    "note": "Compares normalized labels; delisted/renamed residual mismatches are OK"
+  }
+}
