@@ -1,0 +1,38 @@
+{
+  "generated_at_utc": "2026-09-04T09:50:47.673629+00:00",
+  "round": 2,
+  "promotion_any": false,
+  "prior_decision": "DECISION_NO_PROMOTIONS_20260904",
+  "tracks": {
+    "e22_v3": {
+      "decision": "KEEP_E22_V2_EX_DATE_BASELINE",
+      "best": "EX_DATE_TAX0",
+      "pay_beats_ex": false
+    },
+    "e16_e18": {
+      "decision": "NO_E16_VARIANT_BEATS_BASE_MATERIALY",
+      "interesting": [],
+      "deltas": {
+        "BASE": 0.0,
+        "E16_V1_crisis_tilt": -0.0004232976206862138,
+        "E16_V2_gap_020": 0.001010582347617972,
+        "E16_V3_trade_060": 0.0010088648435473413,
+        "E18_C1_cost_1_5": -0.002814622746500628,
+        "E18_C1_cost_2_0": -0.005481701147092677
+      }
+    },
+    "alpha_3a": {
+      "decision": "FEATURES_BUILT_NEXT_ROUND_IS_OOF_MODEL",
+      "features_dir": "repro/research-reopen-round2-20260904/alpha_3a_features",
+      "oof_round2b": "MIXED_CONTINUE_CAUTIOUS",
+      "oof_mean_monthly_excess": 0.0027159247851653644
+    },
+    "g4_hedge": {
+      "decision": "KEEP_BASE_ALPHA_CUT",
+      "better": []
+    },
+    "e45": {
+      "decision": "STILL_NO_PROMOTION_KEEP_B"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "features_dir": "repro/research-reopen-round2-20260904/alpha_3a_features",
+  "checklist": {
+    "operating_income_yoy": {
+      "n_rows": 89063,
+      "n_codes": 1255,
+      "date_min": "2005-05-16",
+      "date_max": "2026-08-17",
+      "uses_available_date_not_period_end": true,
+      "label_ready": false
+    },
+    "amihud_20_lag1": {
+      "n_rows_daily_kept_monthly": 163978,
+      "n_codes": 2051,
+      "shifted_by_1_session": true,
+      "window_start": "2019-01-01"
+    },
+    "forbidden_not_used": [
+      "TECH2",
+      "PRICE8",
+      "S9A1",
+      "A3_R1_model"
+    ]
+  },
+  "decision": "FEATURES_BUILT_NEXT_ROUND_IS_OOF_MODEL",
+  "promotion": false,
+  "next": [
+    "Join features to Exact T+1 open labels on alpha universe",
+    "OOF ridge/tree \u2014 no TECH2 panel",
+    "one-shot held-out; stop"
+  ]
+}

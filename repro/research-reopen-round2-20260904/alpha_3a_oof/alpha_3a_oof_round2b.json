@@ -1,0 +1,91 @@
+{
+  "generated_at_utc": "2026-09-04T09:51:56.014914+00:00",
+  "n_panel_rows": 108159,
+  "n_months": 91,
+  "score": "z(oi_yoy) - z(amihud_20_lag1) within month",
+  "portfolio": "long top 20% EW vs universe EW",
+  "by_year": [
+    {
+      "year": 2019,
+      "n_months": 12,
+      "mean_excess": 0.001795997514655474,
+      "hit_rate": 0.5833333333333334,
+      "long_mean": 0.011307476770190826,
+      "ew_mean": 0.009511479255535358
+    },
+    {
+      "year": 2020,
+      "n_months": 12,
+      "mean_excess": -0.00494049198298517,
+      "hit_rate": 0.5,
+      "long_mean": 0.02070356748129259,
+      "ew_mean": 0.025644059464277762
+    },
+    {
+      "year": 2021,
+      "n_months": 12,
+      "mean_excess": -0.000769069504810295,
+      "hit_rate": 0.4166666666666667,
+      "long_mean": 0.0231968137868158,
+      "ew_mean": 0.02396588329162609
+    },
+    {
+      "year": 2022,
+      "n_months": 12,
+      "mean_excess": -0.0021416647727694493,
+      "hit_rate": 0.5833333333333334,
+      "long_mean": -8.932768456649856e-06,
+      "ew_mean": 0.0021327320043127997
+    },
+    {
+      "year": 2023,
+      "n_months": 12,
+      "mean_excess": 0.002413838001763872,
+      "hit_rate": 0.6666666666666666,
+      "long_mean": 0.024199606137955947,
+      "ew_mean": 0.021785768136192072
+    },
+    {
+      "year": 2024,
+      "n_months": 12,
+      "mean_excess": 0.00024056084490255416,
+      "hit_rate": 0.5833333333333334,
+      "long_mean": 0.011041519846352434,
+      "ew_mean": 0.01080095900144988
+    },
+    {
+      "year": 2025,
+      "n_months": 12,
+      "mean_excess": 0.008535969509190661,
+      "hit_rate": 0.5833333333333334,
+      "long_mean": 0.017115415745447008,
+      "ew_mean": 0.008579446236256345
+    },
+    {
+      "year": 2026,
+      "n_months": 7,
+      "mean_excess": 0.026503925732953768,
+      "hit_rate": 0.7142857142857143,
+      "long_mean": 0.05631424970793984,
+      "ew_mean": 0.029810323974986064
+    }
+  ],
+  "full_sample_illustrative_only": {
+    "long": {
+      "cagr": 0.21314367641911924,
+      "mdd": -0.2605844593420804,
+      "util": 0.08285144674807904
+    },
+    "ew": {
+      "cagr": 0.18461968946647955,
+      "mdd": -0.2270592134222602,
+      "util": 0.07109008275534945
+    },
+    "mean_monthly_excess": 0.0027159247851653644
+  },
+  "oof_years_positive_excess": 5,
+  "oof_years_total": 8,
+  "decision": "MIXED_CONTINUE_CAUTIOUS",
+  "promotion": false,
+  "decision_note": "Auto PASS_LITE overridden: 2020-2022 consecutive negative mean excess; continue to adversarial-lite only with caution."
+}

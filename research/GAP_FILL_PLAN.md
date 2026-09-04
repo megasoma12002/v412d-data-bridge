@@ -245,6 +245,6 @@ That single step converts “missing official hedge core” from a naming proble
 | **E22_v2 APPROVED** | Human approval 2026-09-04 → `forward/e22_v2/` + `scripts/e22_v2_forward_pipeline.py` (**SOFT_FROZEN**); `forward/e21/` preserved |
 | **Open items closed** | G4 **CLOSED_NOT_REQUIRED**; 3A **CLOSED_DEFERRED**; E45-C1 re-run on **original v412e0** → still **B** |
 | **Research reopen** | User **准許每條進行研究** (2026-09-04) → `research/reopen/` charters + Round-1 |
+| **Round-2** | E22 keep v2 ex-date; E16 variants no material beat; 3A features built; G4 keep alpha-cut; E45 still B |
 
-Active research tracks (challenger-only): E22_v3, E16/E18, E45 re-review, Alpha 3A, G4 hedge.  
-HARD_FROZEN intact; no in-place SOFT_FROZEN edits; promotions still need explicit approval.
+See `research/reopen/ROUND2_SUMMARY.md`. No promotions.

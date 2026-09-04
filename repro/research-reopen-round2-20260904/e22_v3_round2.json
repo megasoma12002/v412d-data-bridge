@@ -1,0 +1,136 @@
+{
+  "books": {
+    "NO_DIV": {
+      "cagr": 0.07219813059502234,
+      "mdd": -0.2276985835510028,
+      "util": -0.04165116118047907,
+      "n": 3350,
+      "vol": 0.14005099194410936,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 0.0,
+      "meta_div_credit_on": "cash_ex_date",
+      "meta_div_tax_haircut": 0.0,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3350
+    },
+    "EX_DATE_TAX0": {
+      "cagr": 0.11187905203510562,
+      "mdd": -0.2210946635650738,
+      "util": 0.0013317202525687244,
+      "n": 3350,
+      "vol": 0.13302899093891338,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 2611580.6577671794,
+      "meta_div_credit_on": "cash_ex_date",
+      "meta_div_tax_haircut": 0.0,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3350
+    },
+    "EX_DATE_TAX10": {
+      "cagr": 0.10789973435999456,
+      "mdd": -0.22174707963095464,
+      "util": -0.0029738054554827587,
+      "n": 3350,
+      "vol": 0.13356400787269476,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 2282678.5155601134,
+      "meta_div_credit_on": "cash_ex_date",
+      "meta_div_tax_haircut": 0.1,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3350
+    },
+    "EX_DATE_TAX20": {
+      "cagr": 0.10382821261320774,
+      "mdd": -0.22213045396398834,
+      "util": -0.007237014368786432,
+      "n": 3350,
+      "vol": 0.13405099650851698,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 1970960.046006304,
+      "meta_div_credit_on": "cash_ex_date",
+      "meta_div_tax_haircut": 0.2,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3350
+    },
+    "PAY_DATE_TAX0": {
+      "cagr": 0.11121455960649795,
+      "mdd": -0.2218720599546501,
+      "util": 0.0002785296291729078,
+      "n": 3350,
+      "vol": 0.14045624375699056,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 2595355.922111959,
+      "meta_div_credit_on": "cash_payment_date",
+      "meta_div_tax_haircut": 0.0,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3350
+    },
+    "PAY_DATE_TAX10": {
+      "cagr": 0.10719696594217787,
+      "mdd": -0.22235207712750849,
+      "util": -0.003979072621576374,
+      "n": 3350,
+      "vol": 0.14017584289094326,
+      "meta_exact_t1_ok": true,
+      "meta_same_bar_fills": 0,
+      "meta_dividend_cash_total": 2269467.647642448,
+      "meta_div_credit_on": "cash_payment_date",
+      "meta_div_tax_haircut": 0.1,
+      "meta_gap_trigger": 0.015,
+      "meta_trade_frac": 0.75,
+      "meta_cost_mult": 1.0,
+      "meta_n_days": 3350
+    }
+  },
+  "util_ranking": [
+    [
+      "EX_DATE_TAX0",
+      0.0013317202525687244
+    ],
+    [
+      "PAY_DATE_TAX0",
+      0.0002785296291729078
+    ],
+    [
+      "EX_DATE_TAX10",
+      -0.0029738054554827587
+    ],
+    [
+      "PAY_DATE_TAX10",
+      -0.003979072621576374
+    ],
+    [
+      "EX_DATE_TAX20",
+      -0.007237014368786432
+    ],
+    [
+      "NO_DIV",
+      -0.04165116118047907
+    ]
+  ],
+  "best_util": "EX_DATE_TAX0",
+  "pay_vs_ex": {
+    "pay_util": 0.0002785296291729078,
+    "ex_util": 0.0013317202525687244,
+    "pay_mdd": -0.2218720599546501,
+    "ex_mdd": -0.2210946635650738,
+    "pay_beats_ex": false
+  },
+  "decision": "KEEP_E22_V2_EX_DATE_BASELINE",
+  "promotion": false
+}
