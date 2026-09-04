@@ -114,6 +114,7 @@ Cursor 必須檢查實體 repo / dataset / artifacts / logs 後才能確認。
 Audit / Exact T+1 / R1 reproduce / turnover·held-out 診斷 **已完成**（見 `E50_HANDOFF_VERIFICATION.md`、PR #19 closeout）。
 
 現階段優先：
-1. 合併策略債收尾（畸零股 TW + 診斷歸檔 + 文件對齊）— `research/STRATEGY_DEBT_BOARD.md`
-2. Alpha：**Stage-8 failure-signature / stress-sleeve**（OOF → 一次 held-out）
-3. **禁止**：live overlay、改寫歷史 NAV、發明 E45 −13.16%、升格實驗門檻「硬過關」
+1. ~~合併策略債收尾~~ — done (#35)
+2. ~~Stage-8 failure-signature / stress-sleeve~~ — **SATURATED** (see `research/e50a/STAGE8_STRESS_SLEEVE_CLOSEOUT.md`); do not re-grid TECH2 cash/sleeves
+3. **Next:** Option-2 S9A1 paper/monitor (not live) **or** new stress return engine under a new EXPERIMENTAL id
+4. **禁止：** live overlay、改寫歷史 NAV、發明 E45 −13.16%、升格實驗門檻「硬過關」、重跑已飽和 Stage-8 grids

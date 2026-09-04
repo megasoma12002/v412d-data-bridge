@@ -1,25 +1,26 @@
 # Strategy Debt Board
 
-Date: 2026-09-04  
-Branch intent: consolidate closeouts + operating plan (this PR).  
+Date: 2026-09-04 (updated after #35 merge + Stage-8 archive)  
 Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.
 
 ## Now / Next / Later / Won’t
 
-### NOW (this closeout)
-| Item | Action | Status |
-|---|---|---|
-| Gap 6.5 odd-lot TW | Land `E22_v2s_tw` (par NT$10 CIL); default stays `E22_v2s` | **IN THIS PR** |
-| Gap #5 diagnosis | Archive turnover/held-out closeout (`MIXED_HELDOUT`) | **IN THIS PR** |
-| Gap #5/#6 paper | Archive paper stitch / risk budget / board-lot re-sim | **IN THIS PR** |
-| Doc identity | Fix HANDOFF / TODO stale “E22 not in E21” / MDD claim | **IN THIS PR** |
-| STOP draft PRs | Close archive noise (#19, #22–#27, #33, #34 superseded) | **DONE (closed)** |
+### DONE
+| Item | Status |
+|---|---|
+| Gap 6.5 odd-lot TW (`E22_v2s_tw`) | **On main** (#35); default still `E22_v2s` |
+| Turnover / held-out diagnosis | **On main**; `MIXED_HELDOUT` |
+| Gap5/6 paper stitch / risk budget / board-lot | **On main** |
+| HANDOFF / TODO identity | **On main** |
+| STOP draft PR archive | **Closed** (#19, #22–#27, #33, #34) |
+| **Stage-8 stress-sleeve** | **SATURATED** — archived (`research/e50a/STAGE8_STRESS_SLEEVE_CLOSEOUT.md`); S8B1/S8C1 = `MIXED_HELDOUT` |
 
-### NEXT (single research focus)
+### NEXT (single focus)
 | Item | Action | Do not |
 |---|---|---|
-| Alpha failure regime | Stage-8A/B stress-sleeve path (OOF then one held-out) | Reb micro-grids; sealed peek; live-wire |
-| Optional promote | Explicit PR to set default=`E22_v2s_tw` cutover-only | Silent default flip |
+| Option-2 paper monitor | Run S9A1 as **research feed** (runbook in repro); not live capital | Live-wire; retune cuts |
+| New stress return engine | New EXPERIMENTAL id / non-TECH2 family — only if continuing alpha | More TECH2 cash/sleeve/freeze grids |
+| Optional | Explicit promote default=`E22_v2s_tw` cutover-only | Silent default flip |
 
 ### LATER (ops-driven)
 | Item | When |
@@ -30,37 +31,33 @@ Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.
 | Four-layer combined engine | Only after overlay clears dual held-out + handoff approval |
 
 ### WON’T FIX NOW
+- Re-run Stage-8 TECH2 cash / multi-sleeve grids  
 - Invent E45 MDD −13.16% replacement number  
 - Promote experimental 2.5% TO / 0.70 bootstrap to Frozen to “make R1 pass”  
 - Live-wire E50-A while `RESEARCH_ONLY` / `MIXED_HELDOUT`  
 - Rewrite `forward/e21` historical NAV for backfilled dividends  
 - Force board-lot 1000 as formal books (TW 零股 allows 1–999)  
-- Model 拼湊 window / 劃撥費充抵 as portfolio alpha  
 
-## Identity labels (use these)
+## Identity labels
 
 | Label | Meaning |
 |---|---|
 | `E21 live` | Forward ledger; E22_v2s from cutover; short sample |
-| `E22_v2` | Cash-only baseline research |
-| `E22_v2s` | Formal raw TR + float stock shares (**default**) |
-| `E22_v2s_tw` | TW practice floor + par CIL (named; not default) |
-| `E50-A RESEARCH_ONLY` | Standalone sleeve; not live capital |
-| `E45 NOT_VERIFIED −13.16%` | Challenger module; claim has no artifact |
+| `E22_v2s` | Formal raw TR (**default**) |
+| `E22_v2s_tw` | TW par CIL (named; not default) |
+| `E50-A RESEARCH_ONLY` | Standalone sleeve; C4 bull reference + S9A1 paper monitor |
+| `E45 NOT_VERIFIED −13.16%` | Challenger; claim has no artifact |
 
-## Gap status snapshot
+## Gap / alpha snapshot
 
-| Gap | Status |
+| Topic | Status |
 |---|---|
-| #5 overlay | Correctly disconnected; TO repairable on OOF; held-out **MIXED**; no live wire |
-| #6.4/#6.7 stock books | E22_v2s on main cutover |
-| #6.5 odd-lot | Closed as `E22_v2s_tw` named |
-| #6.1–6.3 / #6.6 | Deferred (won’t now) |
-| E45 −13.16% | `NOT_VERIFIED` |
+| #5 overlay | Disconnected; TO fixable on OOF; held-out **MIXED**; Stage-8 **saturated** |
+| #6.5 odd-lot | Closed as `E22_v2s_tw` |
+| S9A1 | Best directional stress transfer; still MIXED under 0.70 boot; Option-2 paper/monitor |
 
-## Success criteria
+## Success criteria (current)
 
-1. This PR merged → debt board + closeouts on `main`  
-2. STOP drafts archived  
-3. Next agent work = **Alpha stress-sleeve only** (or explicit TW default promote)  
-4. Live still has no overlay and no history rewrite  
+1. Stage-8 evidence on main + debt board says **do not re-grid TECH2 controllers**  
+2. Next work is Option-2 monitor **or** a **new** stress engine id  
+3. Live still has no overlay and no history rewrite  

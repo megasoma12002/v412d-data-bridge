@@ -1,0 +1,640 @@
+{
+  "generated_at_utc": "2026-09-04T02:57:23.417303+00:00",
+  "stage": "STAGE8A_FAILURE_SIGNATURE",
+  "diagnosis_only": true,
+  "no_selection_from_heldout": true,
+  "e45_touched": false,
+  "bad_months": [
+    {
+      "year": 2021,
+      "month": 2
+    },
+    {
+      "year": 2021,
+      "month": 3
+    },
+    {
+      "year": 2021,
+      "month": 6
+    },
+    {
+      "year": 2021,
+      "month": 7
+    },
+    {
+      "year": 2021,
+      "month": 9
+    },
+    {
+      "year": 2021,
+      "month": 12
+    },
+    {
+      "year": 2022,
+      "month": 2
+    },
+    {
+      "year": 2022,
+      "month": 3
+    },
+    {
+      "year": 2022,
+      "month": 4
+    },
+    {
+      "year": 2022,
+      "month": 5
+    },
+    {
+      "year": 2022,
+      "month": 6
+    },
+    {
+      "year": 2022,
+      "month": 8
+    },
+    {
+      "year": 2022,
+      "month": 12
+    }
+  ],
+  "n_bad_days": 264,
+  "n_other_val_days": 713,
+  "feature_deltas_bad_minus_other_val": [
+    {
+      "feature": "crisis_vote2",
+      "bad_mean": 0.0,
+      "other_val_mean": 0.08695652173913043,
+      "oof_mean": 0.13793103448275862,
+      "delta_bad_minus_other": -0.08695652173913043
+    },
+    {
+      "feature": "risk_on",
+      "bad_mean": 0.7651515151515151,
+      "other_val_mean": 0.8302945301542777,
+      "oof_mean": 0.7601419878296146,
+      "delta_bad_minus_other": -0.06514301500276254
+    },
+    {
+      "feature": "mkt_vol_60d",
+      "bad_mean": 0.5074708566599406,
+      "other_val_mean": 0.4497095731939022,
+      "oof_mean": 0.3771832554389608,
+      "delta_bad_minus_other": 0.05776128346603843
+    },
+    {
+      "feature": "val_ic_same_day",
+      "bad_mean": 0.08238242383924095,
+      "other_val_mean": 0.024812269106622143,
+      "oof_mean": 0.03823114465288274,
+      "delta_bad_minus_other": 0.05757015473261881
+    },
+    {
+      "feature": "breadth_63d",
+      "bad_mean": 0.6610101010101009,
+      "other_val_mean": 0.7036091631603553,
+      "oof_mean": 0.6263184584178498,
+      "delta_bad_minus_other": -0.04259906215025433
+    },
+    {
+      "feature": "crisis_strict",
+      "bad_mean": 0.0,
+      "other_val_mean": 0.04067321178120617,
+      "oof_mean": 0.1206896551724138,
+      "delta_bad_minus_other": -0.04067321178120617
+    },
+    {
+      "feature": "mom_ic_lag21",
+      "bad_mean": -0.011899455935783614,
+      "other_val_mean": -0.04091875620142272,
+      "oof_mean": -0.000996172450714465,
+      "delta_bad_minus_other": 0.029019300265639106
+    },
+    {
+      "feature": "val_ic_lag21",
+      "bad_mean": 0.06077266696995778,
+      "other_val_mean": 0.031979875725428535,
+      "oof_mean": 0.039002130146765984,
+      "delta_bad_minus_other": 0.028792791244529242
+    },
+    {
+      "feature": "mkt_mom_63d",
+      "bad_mean": 0.09482009557802006,
+      "other_val_mean": 0.1157292422086333,
+      "oof_mean": 0.05151548781471681,
+      "delta_bad_minus_other": -0.020909146630613246
+    },
+    {
+      "feature": "mom_ic_same_day",
+      "bad_mean": -0.023043595042341016,
+      "other_val_mean": -0.04066217550733704,
+      "oof_mean": -0.0009289048364390691,
+      "delta_bad_minus_other": 0.017618580464996026
+    },
+    {
+      "feature": "vol20",
+      "bad_mean": 0.15431521255052388,
+      "other_val_mean": 0.14932862932880756,
+      "oof_mean": 0.13977716176299457,
+      "delta_bad_minus_other": 0.004986583221716329
+    },
+    {
+      "feature": "dd120",
+      "bad_mean": -0.03758370935075568,
+      "other_val_mean": -0.040771979844490006,
+      "oof_mean": -0.05520619111110802,
+      "delta_bad_minus_other": 0.0031882704937343243
+    },
+    {
+      "feature": "disp_mom_fam",
+      "bad_mean": 0.24064573375651577,
+      "other_val_mean": 0.24145889596637526,
+      "oof_mean": 0.24392811809897508,
+      "delta_bad_minus_other": -0.000813162209859497
+    },
+    {
+      "feature": "mean_grw_fam",
+      "bad_mean": 0.4985139170402464,
+      "other_val_mean": 0.4989947154024102,
+      "oof_mean": 0.5010499334134078,
+      "delta_bad_minus_other": -0.00048079836216380345
+    },
+    {
+      "feature": "grw_minus_val",
+      "bad_mean": -0.0020103149229410726,
+      "other_val_mean": -0.0015488350315701145,
+      "oof_mean": 0.0003174154900503633,
+      "delta_bad_minus_other": -0.00046147989137095805
+    },
+    {
+      "feature": "mom_minus_val",
+      "bad_mean": -0.0005652871068139519,
+      "other_val_mean": -0.00011932955823214425,
+      "oof_mean": 0.0007261145452306711,
+      "delta_bad_minus_other": -0.00044595754858180767
+    },
+    {
+      "feature": "mean_val_fam",
+      "bad_mean": 0.500565287106814,
+      "other_val_mean": 0.5010031132133723,
+      "oof_mean": 0.4989592921618789,
+      "delta_bad_minus_other": -0.00043782610655829224
+    },
+    {
+      "feature": "mom_minus_def",
+      "bad_mean": -5.00441439130279e-19,
+      "other_val_mean": -6.441265888545204e-19,
+      "oof_mean": -2.5100123317041027e-19,
+      "delta_bad_minus_other": 1.436851497242414e-19
+    },
+    {
+      "feature": "mean_mom_fam",
+      "bad_mean": 0.5,
+      "other_val_mean": 0.5,
+      "oof_mean": 0.5,
+      "delta_bad_minus_other": 0.0
+    },
+    {
+      "feature": "mean_def_fam",
+      "bad_mean": 0.5,
+      "other_val_mean": 0.5,
+      "oof_mean": 0.5,
+      "delta_bad_minus_other": 0.0
+    }
+  ],
+  "summaries": {
+    "bad": {
+      "risk_on": {
+        "mean": 0.7651515151515151,
+        "n": 264
+      },
+      "breadth_63d": {
+        "mean": 0.6610101010101009,
+        "p50": 0.6533333333333333,
+        "n": 264
+      },
+      "mkt_mom_63d": {
+        "mean": 0.09482009557802006,
+        "p50": 0.0842136568407188,
+        "n": 264
+      },
+      "mkt_vol_60d": {
+        "mean": 0.5074708566599406,
+        "p50": 0.477351213323433,
+        "n": 264
+      },
+      "vol20": {
+        "mean": 0.15431521255052388,
+        "p50": 0.13980232876191118,
+        "n": 264
+      },
+      "dd120": {
+        "mean": -0.03758370935075568,
+        "p50": -0.03569425817085231,
+        "n": 264
+      },
+      "crisis_vote2": {
+        "mean": 0.0,
+        "n": 264
+      },
+      "crisis_strict": {
+        "mean": 0.0,
+        "n": 264
+      },
+      "mean_mom_fam": {
+        "mean": 0.5,
+        "p50": 0.5,
+        "n": 264
+      },
+      "mean_def_fam": {
+        "mean": 0.5,
+        "p50": 0.5,
+        "n": 264
+      },
+      "mean_val_fam": {
+        "mean": 0.500565287106814,
+        "p50": 0.5003877703206563,
+        "n": 264
+      },
+      "mean_grw_fam": {
+        "mean": 0.4985139170402464,
+        "p50": 0.4988060795695024,
+        "n": 264
+      },
+      "disp_mom_fam": {
+        "mean": 0.24064573375651577,
+        "p50": 0.241516758206206,
+        "n": 264
+      },
+      "mom_minus_val": {
+        "mean": -0.0005652871068139519,
+        "p50": -0.0003877703206562283,
+        "n": 264
+      },
+      "grw_minus_val": {
+        "mean": -0.0020103149229410726,
+        "p50": -0.0015540088952121526,
+        "n": 264
+      },
+      "mom_minus_def": {
+        "mean": -5.00441439130279e-19,
+        "p50": 0.0,
+        "n": 264
+      },
+      "mom_ic_lag21": {
+        "mean": -0.011899455935783614,
+        "p50": 0.005735984425902807,
+        "n": 264
+      },
+      "val_ic_lag21": {
+        "mean": 0.06077266696995778,
+        "p50": 0.08927753158549656,
+        "n": 264
+      },
+      "mom_ic_same_day": {
+        "mean": -0.023043595042341016,
+        "p50": 0.016553047048699997,
+        "n": 264
+      },
+      "val_ic_same_day": {
+        "mean": 0.08238242383924095,
+        "p50": 0.0764816214053958,
+        "n": 264
+      }
+    },
+    "other_val": {
+      "risk_on": {
+        "mean": 0.8302945301542777,
+        "n": 713
+      },
+      "breadth_63d": {
+        "mean": 0.7036091631603553,
+        "p50": 0.76,
+        "n": 713
+      },
+      "mkt_mom_63d": {
+        "mean": 0.1157292422086333,
+        "p50": 0.10817152103559868,
+        "n": 713
+      },
+      "mkt_vol_60d": {
+        "mean": 0.4497095731939022,
+        "p50": 0.4521371651245583,
+        "n": 713
+      },
+      "vol20": {
+        "mean": 0.14932862932880756,
+        "p50": 0.12511227661614013,
+        "n": 713
+      },
+      "dd120": {
+        "mean": -0.040771979844490006,
+        "p50": -0.020958587796187977,
+        "n": 713
+      },
+      "crisis_vote2": {
+        "mean": 0.08695652173913043,
+        "n": 713
+      },
+      "crisis_strict": {
+        "mean": 0.04067321178120617,
+        "n": 713
+      },
+      "mean_mom_fam": {
+        "mean": 0.5,
+        "p50": 0.5,
+        "n": 713
+      },
+      "mean_def_fam": {
+        "mean": 0.5,
+        "p50": 0.5,
+        "n": 713
+      },
+      "mean_val_fam": {
+        "mean": 0.5010031132133723,
+        "p50": 0.5008266414737836,
+        "n": 713
+      },
+      "mean_grw_fam": {
+        "mean": 0.4989947154024102,
+        "p50": 0.49877728570921287,
+        "n": 713
+      },
+      "disp_mom_fam": {
+        "mean": 0.24145889596637526,
+        "p50": 0.24213299948742015,
+        "n": 713
+      },
+      "mom_minus_val": {
+        "mean": -0.00011932955823214425,
+        "p50": -0.000499627143922449,
+        "n": 713
+      },
+      "grw_minus_val": {
+        "mean": -0.0015488350315701145,
+        "p50": -0.002132352672042564,
+        "n": 713
+      },
+      "mom_minus_def": {
+        "mean": -6.441265888545204e-19,
+        "p50": 0.0,
+        "n": 713
+      },
+      "mom_ic_lag21": {
+        "mean": -0.04091875620142272,
+        "p50": -0.027801758457808502,
+        "n": 713
+      },
+      "val_ic_lag21": {
+        "mean": 0.031979875725428535,
+        "p50": 0.01551213726189589,
+        "n": 713
+      },
+      "mom_ic_same_day": {
+        "mean": -0.04066217550733704,
+        "p50": -0.04461251401706467,
+        "n": 713
+      },
+      "val_ic_same_day": {
+        "mean": 0.024812269106622143,
+        "p50": 0.0070207564780656925,
+        "n": 713
+      }
+    },
+    "oof": {
+      "risk_on": {
+        "mean": 0.7601419878296146,
+        "n": 1972
+      },
+      "breadth_63d": {
+        "mean": 0.6263184584178498,
+        "p50": 0.6733333333333333,
+        "n": 1972
+      },
+      "mkt_mom_63d": {
+        "mean": 0.05151548781471681,
+        "p50": 0.0667736698646948,
+        "n": 1972
+      },
+      "mkt_vol_60d": {
+        "mean": 0.3771832554389608,
+        "p50": 0.35878900667344776,
+        "n": 1972
+      },
+      "vol20": {
+        "mean": 0.13977716176299457,
+        "p50": 0.12153291459679244,
+        "n": 1972
+      },
+      "dd120": {
+        "mean": -0.05520619111110802,
+        "p50": -0.02902244583339092,
+        "n": 1972
+      },
+      "crisis_vote2": {
+        "mean": 0.13793103448275862,
+        "n": 1972
+      },
+      "crisis_strict": {
+        "mean": 0.1206896551724138,
+        "n": 1972
+      },
+      "mean_mom_fam": {
+        "mean": 0.5,
+        "p50": 0.5,
+        "n": 1972
+      },
+      "mean_def_fam": {
+        "mean": 0.5,
+        "p50": 0.5,
+        "n": 1972
+      },
+      "mean_val_fam": {
+        "mean": 0.4989592921618789,
+        "p50": 0.49899822942875777,
+        "n": 1419
+      },
+      "mean_grw_fam": {
+        "mean": 0.5010499334134078,
+        "p50": 0.5005112453655529,
+        "n": 1972
+      },
+      "disp_mom_fam": {
+        "mean": 0.24392811809897508,
+        "p50": 0.24538362687598614,
+        "n": 1972
+      },
+      "mom_minus_val": {
+        "mean": 0.0007261145452306711,
+        "p50": 0.0013688772078033937,
+        "n": 1419
+      },
+      "grw_minus_val": {
+        "mean": 0.0003174154900503633,
+        "p50": -9.018743867673564e-05,
+        "n": 1419
+      },
+      "mom_minus_def": {
+        "mean": -2.5100123317041027e-19,
+        "p50": 0.0,
+        "n": 1972
+      },
+      "mom_ic_lag21": {
+        "mean": -0.000996172450714465,
+        "p50": 0.014025550074243366,
+        "n": 1972
+      },
+      "val_ic_lag21": {
+        "mean": 0.039002130146765984,
+        "p50": 0.01786992246924007,
+        "n": 1412
+      },
+      "mom_ic_same_day": {
+        "mean": -0.0009289048364390691,
+        "p50": 0.010028163904476872,
+        "n": 1972
+      },
+      "val_ic_same_day": {
+        "mean": 0.03823114465288274,
+        "p50": 0.028126469161943758,
+        "n": 1419
+      }
+    }
+  },
+  "proposed_detector": {
+    "name": "ALPHA_STRESS_V1",
+    "logic": "risk_on AND mom_ic_lag21 <= bad_month_p50(mom_ic_lag21) AND mom_minus_val >= other_val_p50(mom_minus_val) AND crisis_vote2 == False",
+    "thresholds_from_diagnosis": {
+      "mom_ic_lag21_max": 0.005735984425902807,
+      "mom_minus_val_min": -0.000499627143922449,
+      "note": "8B must treat these as starting grid centers and select on OOF only; do not retune on 2021-22."
+    },
+    "fallback_grid_for_8b": {
+      "mom_ic_lag21_max": [
+        -0.02,
+        0.0,
+        0.02
+      ],
+      "mom_minus_val_min": [
+        0.0,
+        0.02,
+        0.05
+      ],
+      "require_risk_on": [
+        true
+      ],
+      "exclude_crisis_vote2": [
+        true,
+        false
+      ]
+    }
+  },
+  "alpha_stress_v1_coverage": {
+    "bad_month_day_share": 0.3106060606060606,
+    "other_val_day_share": 0.23842917251051893,
+    "oof_day_share": 0.17697768762677485,
+    "thresholds_used": {
+      "mom_ic_lag21_max": 0.005735984425902807,
+      "mom_minus_val_min": -0.000499627143922449
+    }
+  },
+  "top_oof_analog_months": [
+    {
+      "year": 2016,
+      "month": 9,
+      "stress_share": 1.0,
+      "mean_mom_ic_lag21": -0.1232027137809159,
+      "risk_on_share": 1.0,
+      "days": 19
+    },
+    {
+      "year": 2018,
+      "month": 1,
+      "stress_share": 1.0,
+      "mean_mom_ic_lag21": -0.09460920294174534,
+      "risk_on_share": 1.0,
+      "days": 22
+    },
+    {
+      "year": 2017,
+      "month": 5,
+      "stress_share": 1.0,
+      "mean_mom_ic_lag21": -0.08687321068047558,
+      "risk_on_share": 1.0,
+      "days": 20
+    },
+    {
+      "year": 2016,
+      "month": 7,
+      "stress_share": 1.0,
+      "mean_mom_ic_lag21": -0.09190162021690007,
+      "risk_on_share": 1.0,
+      "days": 20
+    },
+    {
+      "year": 2016,
+      "month": 5,
+      "stress_share": 0.8571428571428571,
+      "mean_mom_ic_lag21": -0.028201695124820784,
+      "risk_on_share": 0.8571428571428571,
+      "days": 21
+    },
+    {
+      "year": 2018,
+      "month": 8,
+      "stress_share": 0.782608695652174,
+      "mean_mom_ic_lag21": -0.2077262999832301,
+      "risk_on_share": 1.0,
+      "days": 23
+    },
+    {
+      "year": 2016,
+      "month": 3,
+      "stress_share": 0.782608695652174,
+      "mean_mom_ic_lag21": -0.1410549621444921,
+      "risk_on_share": 1.0,
+      "days": 23
+    },
+    {
+      "year": 2016,
+      "month": 2,
+      "stress_share": 0.7692307692307693,
+      "mean_mom_ic_lag21": -0.28392684444161065,
+      "risk_on_share": 0.7692307692307693,
+      "days": 13
+    },
+    {
+      "year": 2017,
+      "month": 11,
+      "stress_share": 0.6818181818181818,
+      "mean_mom_ic_lag21": -0.06401397427537127,
+      "risk_on_share": 1.0,
+      "days": 22
+    },
+    {
+      "year": 2017,
+      "month": 12,
+      "stress_share": 0.6666666666666666,
+      "mean_mom_ic_lag21": -0.1082486707009782,
+      "risk_on_share": 1.0,
+      "days": 21
+    },
+    {
+      "year": 2018,
+      "month": 9,
+      "stress_share": 0.631578947368421,
+      "mean_mom_ic_lag21": -0.05335454897048084,
+      "risk_on_share": 0.7894736842105263,
+      "days": 19
+    },
+    {
+      "year": 2014,
+      "month": 1,
+      "stress_share": 0.6111111111111112,
+      "mean_mom_ic_lag21": -0.0516514456027589,
+      "risk_on_share": 1.0,
+      "days": 18
+    }
+  ],
+  "research_implication": "Bad months are RISK_ON / non-EW-crisis with weak trailing momentum IC and elevated mom-vs-value style spread. Stage-8B should OOF-select controllers on ALPHA_STRESS detectors, not EW-crisis cash."
+}
