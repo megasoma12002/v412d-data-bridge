@@ -1,0 +1,197 @@
+{
+  "generated_at_utc": "2026-09-04T04:40:46.885124+00:00",
+  "stage": "AUTO_ITERATE",
+  "axis": "CAUSAL_VALUE_IC_S9A1",
+  "candidate_id": "S9A1C",
+  "incumbent_monitor": "S9A1",
+  "incumbent_baseline": "C4",
+  "e45_inplace_edit": false,
+  "no_retune_cuts": true,
+  "no_gate_promotion": true,
+  "locked_cuts": {
+    "controller": "FREEZE_REB",
+    "detector": "COMBO_VOL70_VAL03",
+    "vol_roll_pctl": 0.7,
+    "val_ic_min": 0.03,
+    "hysteresis_on": 2,
+    "hysteresis_off": 5,
+    "change": "value_ic_shift_ge_label_horizon_21"
+  },
+  "steps": {
+    "L1_OOF": {
+      "c4": {
+        "cagr": 0.09196347457141751,
+        "max_drawdown": -0.3023731520676275,
+        "utility": -0.05922310146239623,
+        "average_daily_turnover": 0.019037225142986634,
+        "block_bootstrap_positive_probability": 0.703,
+        "mean_gross_exposure": 0.9994929006085193,
+        "turnover_gate_pass": true,
+        "bootstrap_gate_pass": true,
+        "exact_t1_ok": true,
+        "s_crisis_mean_excess": null,
+        "s_crisis_strategy_compound": null,
+        "s_crisis_day_share": 0.0,
+        "stress_flag_days": null
+      },
+      "s9a1_published": {
+        "cagr": 0.09633417364382524,
+        "max_drawdown": -0.3023731520676275,
+        "utility": -0.05485240238998851,
+        "average_daily_turnover": 0.01823769135629343,
+        "block_bootstrap_positive_probability": 0.737,
+        "mean_gross_exposure": 0.9994929006085193,
+        "turnover_gate_pass": true,
+        "bootstrap_gate_pass": true,
+        "exact_t1_ok": true,
+        "s_crisis_mean_excess": 0.0003207064491405518,
+        "s_crisis_strategy_compound": 0.09664771749654655,
+        "s_crisis_day_share": 0.1171993911719939,
+        "stress_flag_days": 231
+      },
+      "s9a1c_causal": {
+        "cagr": 0.09687815866108695,
+        "max_drawdown": -0.3023731520676275,
+        "utility": -0.05430841737272679,
+        "average_daily_turnover": 0.018360105988318554,
+        "block_bootstrap_positive_probability": 0.7602,
+        "mean_gross_exposure": 0.9994929006085193,
+        "turnover_gate_pass": true,
+        "bootstrap_gate_pass": true,
+        "exact_t1_ok": true,
+        "s_crisis_mean_excess": -3.727960844552165e-05,
+        "s_crisis_strategy_compound": 0.279824417935135,
+        "s_crisis_day_share": 0.10857432775240994,
+        "stress_flag_days": 214
+      },
+      "flag_days_published": 231,
+      "flag_days_causal": 214,
+      "dual_gate_causal": true,
+      "util_vs_c4_ok": true,
+      "stress_vs_c4_ok": true,
+      "util_minus_published": 0.0005439850172617167,
+      "l1_pass": true
+    },
+    "L2_ADV_LITE": {
+      "c4_val": {
+        "cagr": 0.21651419702170438,
+        "max_drawdown": -0.31867662365819793,
+        "utility": 0.05717588519260541,
+        "average_daily_turnover": 0.02187774517437871,
+        "block_bootstrap_positive_probability": 0.5588,
+        "mean_gross_exposure": 0.9989764585465711,
+        "turnover_gate_pass": true,
+        "bootstrap_gate_pass": false,
+        "exact_t1_ok": true,
+        "s_crisis_mean_excess": null,
+        "s_crisis_strategy_compound": null,
+        "s_crisis_day_share": 0.0,
+        "stress_flag_days": null
+      },
+      "s9a1_val": {
+        "cagr": 0.23451604088857625,
+        "max_drawdown": -0.2979344433848181,
+        "utility": 0.08554881919616719,
+        "average_daily_turnover": 0.0237750721105824,
+        "block_bootstrap_positive_probability": 0.6232,
+        "mean_gross_exposure": 0.9974670577321635,
+        "turnover_gate_pass": true,
+        "bootstrap_gate_pass": false,
+        "exact_t1_ok": true,
+        "s_crisis_mean_excess": 0.0007770435301989302,
+        "s_crisis_strategy_compound": -0.0014831151933610842,
+        "s_crisis_day_share": 0.09938524590163934,
+        "stress_flag_days": 97
+      },
+      "s9a1c_val": {
+        "cagr": 0.1931797217100859,
+        "max_drawdown": -0.32603846541180515,
+        "utility": 0.030160489004183333,
+        "average_daily_turnover": 0.022146427703115965,
+        "block_bootstrap_positive_probability": 0.4254,
+        "mean_gross_exposure": 0.9973812121655027,
+        "turnover_gate_pass": true,
+        "bootstrap_gate_pass": false,
+        "exact_t1_ok": true,
+        "s_crisis_mean_excess": 0.0006344391103360531,
+        "s_crisis_strategy_compound": -0.043166078095451366,
+        "s_crisis_day_share": 0.07377049180327869,
+        "stress_flag_days": 72
+      },
+      "n_on_causal": 72,
+      "p_placebo_util_ge": 0.6666666666666666,
+      "p_placebo_stress_ge": 0.4166666666666667,
+      "val_years_beat_c4_util": [
+        "2021"
+      ],
+      "val_edge_util_vs_c4": -0.02701539618842208,
+      "val_edge_stress_vs_c4": 0.0006344391103360531,
+      "adv_falsified": true,
+      "adv_wounded": false,
+      "placebo_rows": [
+        {
+          "i": 0,
+          "utility": 0.05008396632697121,
+          "s_crisis_mean_excess": 0.0009123078830746556
+        },
+        {
+          "i": 1,
+          "utility": 0.03790142913902034,
+          "s_crisis_mean_excess": -0.0006721821443761266
+        },
+        {
+          "i": 2,
+          "utility": 0.023042342809230898,
+          "s_crisis_mean_excess": -9.054391903928905e-05
+        },
+        {
+          "i": 3,
+          "utility": -0.003437904485595722,
+          "s_crisis_mean_excess": 0.00023537371123509942
+        },
+        {
+          "i": 4,
+          "utility": 0.03326618394382347,
+          "s_crisis_mean_excess": 0.0005858258201817227
+        },
+        {
+          "i": 5,
+          "utility": 0.05197334118846936,
+          "s_crisis_mean_excess": -0.0008190902945195255
+        },
+        {
+          "i": 6,
+          "utility": 0.040409627269045845,
+          "s_crisis_mean_excess": 0.0012095537011121988
+        },
+        {
+          "i": 7,
+          "utility": 0.016698269922683584,
+          "s_crisis_mean_excess": 0.000905962419514504
+        },
+        {
+          "i": 8,
+          "utility": 0.05909542997437245,
+          "s_crisis_mean_excess": -0.0002453472531017364
+        },
+        {
+          "i": 9,
+          "utility": -0.022057554555800496,
+          "s_crisis_mean_excess": 0.0007411435874768416
+        },
+        {
+          "i": 10,
+          "utility": 0.04919455974168935,
+          "s_crisis_mean_excess": 0.0008069637125038658
+        },
+        {
+          "i": 11,
+          "utility": 0.04288243081000398,
+          "s_crisis_mean_excess": 0.000281298215720578
+        }
+      ]
+    }
+  },
+  "stop_reason": "STOP_ADV_FALSIFIED",
+  "decision": "KEEP_PUBLISHED_S9A1_CAUSAL_ADV_FAIL"
+}

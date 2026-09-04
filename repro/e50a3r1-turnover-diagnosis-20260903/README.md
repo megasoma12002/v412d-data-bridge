@@ -18,6 +18,13 @@
 - JSON: `reports/stage13_adversarial_10rounds_summary.json`
 - Live monitor must use **causal** value-IC (`shift >= 21`); detector ≠ E45 crash overlay; still MIXED
 
+### Auto-iterate axis-0 (causal S9A1C) — STOPPED
+
+- Ledger: `E50-A3-R1_AUTO_ITERATE_CAUSAL_S9A1C.md` / `reports/auto_iterate_ledger.json`
+- L1 OOF: dual-gate **pass** (boot 0.76)
+- L2 adv-lite: **FALSIFIED** (VAL util edge vs C4 −0.027; placebo util beat rate 67%)
+- Decision: `KEEP_PUBLISHED_S9A1_CAUSAL_ADV_FAIL` — do **not** replace S9A1; **stop this axis** (no cut retune)
+
 ---
 
 # Earlier notes (Stage-2 era)

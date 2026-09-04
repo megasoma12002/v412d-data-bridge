@@ -3,7 +3,7 @@
   "updated_at_utc": "2026-09-04T04:30:00+00:00",
   "decision_label": "GOVERNANCE_OPTION2_S9A1_PAPER_MONITOR_ACCEPTED",
   "adversarial_label": "GOVERNANCE_OPTION2_ADVERSARIAL_CAVEATS_ACCEPTED",
-  "user_choice": "方案2",
+  "user_choice": "\u65b9\u68482",
   "research_reference": {
     "id": "C4",
     "alpha": "TECH2",
@@ -18,9 +18,15 @@
     "role": "paper_monitor_only",
     "frozen": false,
     "replaces_e45": false,
-    "live_detector_must_be_causal_ic": true
+    "live_detector_must_be_causal_ic": true,
+    "causal_twin_replaces_archive": false
   },
-  "official_stack_unchanged": ["E16", "E18", "E22", "E45"],
+  "official_stack_unchanged": [
+    "E16",
+    "E18",
+    "E22",
+    "E45"
+  ],
   "gates_remain_experimental": true,
   "gate_promotion": false,
   "pr_merge_as_production": false,
@@ -29,5 +35,12 @@
   "runbook": "S9A1_PAPER_MONITOR_RUNBOOK.md",
   "decision_doc": "GOVERNANCE_DECISION_OPTION2_S9A1_PAPER_MONITOR.md",
   "adversarial_doc": "GOVERNANCE_OPTION2_ADVERSARIAL_CAVEATS.md",
-  "stage13_summary": "E50-A3-R1_STAGE13_ADVERSARIAL_10ROUNDS.md"
+  "stage13_summary": "E50-A3-R1_STAGE13_ADVERSARIAL_10ROUNDS.md",
+  "auto_iterate_axis0": {
+    "axis": "CAUSAL_VALUE_IC_S9A1",
+    "candidate": "S9A1C",
+    "decision": "KEEP_PUBLISHED_S9A1_CAUSAL_ADV_FAIL",
+    "stop_reason": "STOP_ADV_FALSIFIED",
+    "ledger": "reports/auto_iterate_ledger.json"
+  }
 }
