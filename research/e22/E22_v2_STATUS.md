@@ -54,6 +54,17 @@ python scripts/e22_v2_forward_pipeline.py
 python scripts/e22_v2_qc.py
 ```
 
+### Latest run
+
+| Field | Value |
+|---|---|
+| As-of | **2026-09-04** |
+| NAV | 3,194,823.80 |
+| Fills / new orders | 8 / 8 |
+| Dividend credit | 0.0 |
+| QC | **PASS** |
+| Log | `research/e22/E22_v2_OPS_LOG_20260904.md` |
+
 ## Challenger rule
 
 Further changes to dividend timing / tax treatment require a **new** challenger folder and promotion path — do not edit `e22_v2` in place and still call it v2.
