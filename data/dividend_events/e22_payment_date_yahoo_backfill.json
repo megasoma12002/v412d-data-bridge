@@ -1,0 +1,244 @@
+{
+  "generated_at_utc": "2026-09-04T12:45:10.253388+00:00",
+  "n_updated": 29,
+  "n_still_missing_cash_payment_date": 0,
+  "updates": [
+    {
+      "code": "2880",
+      "cash_ex_date": "2010-08-12",
+      "cash_payment_date": "2010-09-03",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2010-08-12",
+      "source_url": "https://tw.stock.yahoo.com/quote/2880.TW/dividend"
+    },
+    {
+      "code": "2880",
+      "cash_ex_date": "2011-08-11",
+      "cash_payment_date": "2011-09-02",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2011-08-11",
+      "source_url": "https://tw.stock.yahoo.com/quote/2880.TW/dividend"
+    },
+    {
+      "code": "2880",
+      "cash_ex_date": "2012-08-15",
+      "cash_payment_date": "2012-09-07",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2012-08-15",
+      "source_url": "https://tw.stock.yahoo.com/quote/2880.TW/dividend"
+    },
+    {
+      "code": "2880",
+      "cash_ex_date": "2013-08-15",
+      "cash_payment_date": "2013-09-06",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2013-08-15",
+      "source_url": "https://tw.stock.yahoo.com/quote/2880.TW/dividend"
+    },
+    {
+      "code": "2886",
+      "cash_ex_date": "2010-08-11",
+      "cash_payment_date": "2010-09-06",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2010-08-11",
+      "source_url": "https://tw.stock.yahoo.com/quote/2886.TW/dividend"
+    },
+    {
+      "code": "2886",
+      "cash_ex_date": "2011-08-23",
+      "cash_payment_date": "2011-09-16",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2011-08-23",
+      "source_url": "https://tw.stock.yahoo.com/quote/2886.TW/dividend"
+    },
+    {
+      "code": "2886",
+      "cash_ex_date": "2012-08-08",
+      "cash_payment_date": "2012-09-06",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2012-08-08",
+      "source_url": "https://tw.stock.yahoo.com/quote/2886.TW/dividend"
+    },
+    {
+      "code": "2886",
+      "cash_ex_date": "2013-08-13",
+      "cash_payment_date": "2013-09-06",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2013-08-13",
+      "source_url": "https://tw.stock.yahoo.com/quote/2886.TW/dividend"
+    },
+    {
+      "code": "2892",
+      "cash_ex_date": "2010-08-11",
+      "cash_payment_date": "2010-09-02",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2010-08-11",
+      "source_url": "https://tw.stock.yahoo.com/quote/2892.TW/dividend"
+    },
+    {
+      "code": "2892",
+      "cash_ex_date": "2011-07-29",
+      "cash_payment_date": "2011-08-23",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2011-07-29",
+      "source_url": "https://tw.stock.yahoo.com/quote/2892.TW/dividend"
+    },
+    {
+      "code": "2892",
+      "cash_ex_date": "2012-08-10",
+      "cash_payment_date": "2012-09-03",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2012-08-10",
+      "source_url": "https://tw.stock.yahoo.com/quote/2892.TW/dividend"
+    },
+    {
+      "code": "2892",
+      "cash_ex_date": "2013-08-02",
+      "cash_payment_date": "2013-08-20",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2013-08-02",
+      "source_url": "https://tw.stock.yahoo.com/quote/2892.TW/dividend"
+    },
+    {
+      "code": "5880",
+      "cash_ex_date": "2012-08-02",
+      "cash_payment_date": "2012-09-03",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=NEAR; yahoo_ex=2012-08-03",
+      "source_url": "https://tw.stock.yahoo.com/quote/5880.TW/dividend"
+    },
+    {
+      "code": "5880",
+      "cash_ex_date": "2013-08-14",
+      "cash_payment_date": "2013-10-09",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2013-08-14",
+      "source_url": "https://tw.stock.yahoo.com/quote/5880.TW/dividend"
+    },
+    {
+      "code": "2412",
+      "cash_ex_date": "2010-08-12",
+      "cash_payment_date": "2010-09-10",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2010-08-12",
+      "source_url": "https://tw.stock.yahoo.com/quote/2412.TW/dividend"
+    },
+    {
+      "code": "2412",
+      "cash_ex_date": "2011-07-21",
+      "cash_payment_date": "2011-08-17",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2011-07-21",
+      "source_url": "https://tw.stock.yahoo.com/quote/2412.TW/dividend"
+    },
+    {
+      "code": "2412",
+      "cash_ex_date": "2012-07-17",
+      "cash_payment_date": "2012-08-22",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2012-07-17",
+      "source_url": "https://tw.stock.yahoo.com/quote/2412.TW/dividend"
+    },
+    {
+      "code": "2412",
+      "cash_ex_date": "2013-07-17",
+      "cash_payment_date": "2013-08-23",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2013-07-17",
+      "source_url": "https://tw.stock.yahoo.com/quote/2412.TW/dividend"
+    },
+    {
+      "code": "2412",
+      "cash_ex_date": "2014-07-17",
+      "cash_payment_date": "2014-08-27",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2014-07-17",
+      "source_url": "https://tw.stock.yahoo.com/quote/2412.TW/dividend"
+    },
+    {
+      "code": "3045",
+      "cash_ex_date": "2010-07-05",
+      "cash_payment_date": "2010-07-23",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2010-07-05",
+      "source_url": "https://tw.stock.yahoo.com/quote/3045.TW/dividend"
+    },
+    {
+      "code": "3045",
+      "cash_ex_date": "2011-06-30",
+      "cash_payment_date": "2011-07-21",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2011-06-30",
+      "source_url": "https://tw.stock.yahoo.com/quote/3045.TW/dividend"
+    },
+    {
+      "code": "3045",
+      "cash_ex_date": "2012-07-09",
+      "cash_payment_date": "2012-07-27",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2012-07-09",
+      "source_url": "https://tw.stock.yahoo.com/quote/3045.TW/dividend"
+    },
+    {
+      "code": "3045",
+      "cash_ex_date": "2013-07-08",
+      "cash_payment_date": "2013-07-26",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2013-07-08",
+      "source_url": "https://tw.stock.yahoo.com/quote/3045.TW/dividend"
+    },
+    {
+      "code": "3045",
+      "cash_ex_date": "2014-06-27",
+      "cash_payment_date": "2014-07-18",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2014-06-27",
+      "source_url": "https://tw.stock.yahoo.com/quote/3045.TW/dividend"
+    },
+    {
+      "code": "4904",
+      "cash_ex_date": "2010-08-10",
+      "cash_payment_date": "2010-09-10",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2010-08-10",
+      "source_url": "https://tw.stock.yahoo.com/quote/4904.TW/dividend"
+    },
+    {
+      "code": "4904",
+      "cash_ex_date": "2011-07-19",
+      "cash_payment_date": "2011-08-23",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2011-07-19",
+      "source_url": "https://tw.stock.yahoo.com/quote/4904.TW/dividend"
+    },
+    {
+      "code": "4904",
+      "cash_ex_date": "2012-07-24",
+      "cash_payment_date": "2012-08-22",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2012-07-24",
+      "source_url": "https://tw.stock.yahoo.com/quote/4904.TW/dividend"
+    },
+    {
+      "code": "4904",
+      "cash_ex_date": "2013-07-24",
+      "cash_payment_date": "2013-08-15",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2013-07-24",
+      "source_url": "https://tw.stock.yahoo.com/quote/4904.TW/dividend"
+    },
+    {
+      "code": "4904",
+      "cash_ex_date": "2014-07-16",
+      "cash_payment_date": "2014-08-08",
+      "source": "YahooTW_quote_dividend",
+      "match_note": "match=EXACT; yahoo_ex=2014-07-16",
+      "source_url": "https://tw.stock.yahoo.com/quote/4904.TW/dividend"
+    }
+  ],
+  "notes": [
+    "GoodInfo/Wantgoo blocked by Cloudflare/403; CMoney page lacks payment-date column.",
+    "Filled from Yahoo Taiwan quote dividend pages (現金股利發放日).",
+    "5880 2012-08-02 matched Yahoo ex 2012-08-03 (NEAR ±1d)."
+  ]
+}

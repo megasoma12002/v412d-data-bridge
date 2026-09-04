@@ -62,13 +62,13 @@ Companion: `research/GAP_FILL_PLAN.md` §5
 
 | Field | Value |
 |---|---|
-| Status | **PARTIALLY_CLOSED_FREE_SOURCES** |
-| Issue | 29 cash events (mostly 2010–2014) lack `CashDividendPaymentDate` in FinMind |
-| Attempt | MOPS `t108sb27` reconcile (`scripts/e22_reconcile_payment_dates_mops.py`) — same blanks; **0** official fills |
-| Artifacts | `e22_payment_date_gap_report.json`; research proxy `e22_payment_date_research_proxy.csv` (median lag 28d, **not** merged into official ledger) |
-| Source map | `research/DATA_GAP_SOURCE_MAP.md` |
-| Next | Manual IR/年報 or paid CA vendor for true dates before fair E22_v3 H1 |
-| Forbidden | Merging `PROXY_MEDIAN_LAG` into official `e22_dividend_events.csv` / `e22_v2` |
+| Status | **FILLED_VIA_YAHOO_TW** |
+| Issue | 29 cash events (mostly 2010–2014) lacked FinMind/MOPS `CashDividendPaymentDate` |
+| Attempted | GoodInfo / Wantgoo (Cloudflare 403); CMoney (no payment column); MOPS t108sb27 (same blanks) |
+| Filled from | Yahoo TW `quote/{code}.TW/dividend` 「現金股利發放日」 — **29/29** |
+| Script | `scripts/e22_backfill_payment_dates_yahoo.py` |
+| Artifacts | `e22_dividend_events.csv` updated; `e22_payment_date_yahoo_backfill.json` |
+| Note | E22_v2 official path remains **ex-date** credit; payment dates enable E22_v3 H1 challenger |
 
 ---
 

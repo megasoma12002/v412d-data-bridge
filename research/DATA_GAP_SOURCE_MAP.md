@@ -17,32 +17,34 @@ This note answers two questions:
 | Step | Source | Result |
 |---|---|---|
 | Primary ledger | FinMind `TaiwanStockDividend` | 150 rows; **29** cash events missing payment date (mostly 2010–2014) |
-| Official reconcile | MOPS `ajax_t108sb27`（公司股利分派公告資料彙總表／現金股利發放日） | Same early-year blanks; **0 additional official fills** into missing set |
-| Cross-check 2015+ | FinMind vs MOPS | Both populated; use as ongoing QC |
-| Research-only overlay | Median lag **28** calendar days from known events | `e22_payment_date_research_proxy.csv` (`quality=PROXY_MEDIAN_LAG`) |
+| Official reconcile | MOPS `ajax_t108sb27` | Same early-year blanks; **0** official fills |
+| GoodInfo / 玩股網 | Cloudflare **403** from this environment | Not usable here |
+| CMoney 股利頁 | HTTP OK but **no 發放日 column** (amounts only, recent years) | Not usable for this gap |
+| **Yahoo 台股股利政策** | `https://tw.stock.yahoo.com/quote/{code}.TW/dividend` | **29/29 filled** (`現金股利發放日`) |
 
 Script:
 
 ```bash
-python3 scripts/e22_reconcile_payment_dates_mops.py --write-proxy
+python3 scripts/e22_backfill_payment_dates_yahoo.py
+python3 scripts/e22_reconcile_payment_dates_mops.py --write-proxy   # optional QC / legacy proxy
 ```
 
-### Official rule
+Artifacts:
 
-- **Do not** merge proxy dates into `e22_dividend_events.csv`.
-- Official `E22_v2` remains **ex-date** credit; payment-date is E22_v3 H1 challenger only.
+- Official ledger updated: `data/dividend_events/e22_dividend_events.csv`
+- Provenance: `e22_payment_date_yahoo_backfill.json`, `web_scrape_payment_dates.csv`
+- Full Yahoo dump: `yahoo_tw_dividend_history.csv`
 
-### Where to get true early-year payment dates
+### Note on third-party sites the user named
 
-| Source | URL / access | Coverage | Cost | Notes |
-|---|---|---|---|---|
-| MOPS 股利分派公告彙總 | `https://mopsov.twse.com.tw/mops/web/t108sb27` | Bulk HTML; payment blank pre-~2014 for our names | Free | Already scraped |
-| FinMind Dividend | `dataset=TaiwanStockDividend` | 2005→now; payment often blank early | Free / Backer | Current primary |
-| TDCC 帳簿劃撥交付日期 | `https://openapi.tdcc.com.tw/v1/opendata/1-7` | **Recent ~2y**; stock delivery reasons | Free | **Not** cash dividend payment |
-| TWSE OpenAPI 股利分派 | `https://openapi.twse.com.tw/v1/opendata/t187ap45_L` | Current snapshot; **no** payment date field | Free | Board/shareholder dates only |
-| Company annual reports / 除權息公告原文 | MOPS 重大訊息 + IR PDFs | Event-level | Free, manual | Best free path for the 29 rows |
-| TEJ / CMONEY / Bloomberg CA | vendor terminals | Full history | Paid | Cleanest backfill |
-| TW Market Data corporate-actions | `GET /v2/datasets/corporate-actions` | Normalized MOPS/TWSE | Paid API key | Check whether `payment_date` is populated historically |
+| Site | Status in this agent env |
+|---|---|
+| GoodInfo | Cloudflare human-check / 403 |
+| 玩股網 Wantgoo | 403 / 404 on dividend URLs |
+| CMoney | Loads, but table lacks payment date |
+| Yahoo TW | Works; used as substitute aggregator with explicit 現金股利發放日 |
+
+One NEAR match: `5880` FinMind ex `2012-08-02` vs Yahoo ex `2012-08-03` (±1d); payment date taken from Yahoo.
 
 ---
 
