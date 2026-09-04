@@ -26,14 +26,11 @@
     }
   },
   "ordered_next_steps": [
-    "Document live=core-only; do not claim 20% from E16 alone",
-    "Adopt E22_v2s formal raw-price books; preserve E22_v2 cash-only label",
-    "Wire E21 dividends cutover-forward only",
-    "Finish E50-A3-R1 turnover/held-out diagnosis",
-    "Failure-signature research for overlay risk budget",
-    "E18 board-lot challenger only (6.5 odd-lot closed as E22_v2s_tw)",
-    "Paper combined E16+overlay NAV with predeclared mix",
-    "Promotion only after gates + explicit approval"
+    "Merge strategy debt closeout (odd-lot TW + diagnosis archive + debt board)",
+    "Optional explicit promote DEFAULT to E22_v2s_tw (cutover-only)",
+    "Alpha Stage-8 failure-signature / stress-sleeve (OOF then one held-out)",
+    "Archive STOP draft PRs (#22-#27 class)",
+    "Promotion only after gates + explicit approval — no live overlay until then"
   ],
   "decision": {
     "gap5_live_wire": false,

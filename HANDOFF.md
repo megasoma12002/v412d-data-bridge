@@ -17,7 +17,7 @@ Cursor 必須依序讀：
 禁止從零重新設計。
 
 ## 2. 現行 Portfolio 架構
-目前 Frozen Portfolio Baseline：
+目前 Frozen Portfolio Baseline（**角色定義**）：
 
 E16 Core Allocation
 +
@@ -26,6 +26,10 @@ E18/E22 Execution
 E50-A Alpha Overlay
 +
 E45 Crisis Protection
+
+**Live 實況（2026-09-04）：** `forward/e21` = E16 + Exact T+1 E18 + **E22_v2s cutover-forward**（不改寫歷史 NAV）。  
+E50-A = `RESEARCH_ONLY`，**未**配置 live 資金。E45 = named challenger；MDD ≈ −13.16% = **`NOT_VERIFIED`**。  
+四層合帳引擎尚未 wiring。債務看板：`research/STRATEGY_DEBT_BOARD.md`。
 
 E50-A 不是整套 Portfolio。
 它只負責正常市場的 Alpha 進攻。
@@ -48,7 +52,9 @@ Crisis:
 
 ## 4. Current Research
 目前：
-**E50-A3-R1**
+**E50-A3-R1** — turnover/held-out 診斷已收尾：OOF 可過 TO（reb→42），held-out 為 **`MIXED_HELDOUT`**；仍 `RESEARCH_ONLY`，禁止 live-wire。  
+下一研究重心：失敗體制 / stress-sleeve（Stage-8 路徑），不是再微調 reb。  
+執行帳本：`E22_v2s` default；台灣畸零股 named `E22_v2s_tw`（面額 CIL，待明確 promote）。
 
 目標：
 先驗證因果 Alpha 是否存在，
@@ -105,7 +111,9 @@ Cursor 必須檢查實體 repo / dataset / artifacts / logs 後才能確認。
 不得只相信文件。
 
 ## 8. Current Mission
-第一步不是訓練模型。
-第一步是完整 Repository Audit + Dataset Audit + Exact T+1 Audit。
+Audit / Exact T+1 / R1 reproduce / turnover·held-out 診斷 **已完成**（見 `E50_HANDOFF_VERIFICATION.md`、PR #19 closeout）。
 
-之後才從最新有效 checkpoint 繼續 E50-A3-R1。
+現階段優先：
+1. 合併策略債收尾（畸零股 TW + 診斷歸檔 + 文件對齊）— `research/STRATEGY_DEBT_BOARD.md`
+2. Alpha：**Stage-8 failure-signature / stress-sleeve**（OOF → 一次 held-out）
+3. **禁止**：live overlay、改寫歷史 NAV、發明 E45 −13.16%、升格實驗門檻「硬過關」
