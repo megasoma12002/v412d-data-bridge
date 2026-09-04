@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
-"""Early-stack combined NAV challenger (EXPERIMENTAL / read-only).
+"""Early-stack combined NAV (research + formal E22_v2s books).
 
-Closes the architectural gap documented in E50_HANDOFF_VERIFICATION.md:
-  Market -> E16 Core -> E18+E22 Execution -> E45 crisis module (challenger candidate)
+Market -> E16 Core (adj_close signals) -> E18 Exact T+1 -> E22 books (raw close)
+  -> optional E45 crisis module (challenger candidate)
 
-Does NOT modify SOFT_FROZEN baselines:
-  - does not edit scripts/e21_forward_pipeline.py
-  - does not append to forward/e21/ immutable ledgers
-  - does not promote e45_crisis_core.py to SOFT_FROZEN_CRITICAL
-  - does not retune E16 / E18 / E22 parameters in place
+E22_v2s is formal books (cash + stock shares). E22_v2 cash-only is preserved for compare.
+Does not promote e45_crisis_core.py to SOFT_FROZEN_CRITICAL.
 """
 from __future__ import annotations
 
@@ -23,6 +20,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
 
 # Mirror E21 SOFT_FROZEN membership / fees (read-only copy of constants; not an edit).
@@ -100,17 +98,24 @@ def simulate_core(
     dividends: pd.DataFrame | None,
     *,
     apply_e22: bool,
-    apply_stock_div: bool = True,
+    e22_version: str | None = None,
+    apply_stock_div: bool | None = None,
     e45_exposure: pd.Series | None = None,
     e45_legacy_crisis_scale: float | None = None,
     capital: float = CAPITAL,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
-    """Exact T+1 open fills; optional E22 cash+stock; optional named-E45 exposure or legacy proxy.
+    """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
-    Stock dividends (FinMind 元/股): on stock_ex_date, shares *= (1 + stock_div/10).
-    Payment date is delivery only; ex-date keeps NAV continuous with price adjustment.
-    Does not modify SOFT_FROZEN E22_v2 (cash-only) — challenger sandbox only.
+    Formal books default = E22_v2s (cash + stock shares). E22_v2 remains cash-only.
+    E16 features use adj_close elsewhere; NAV here always marks with raw close.
     """
+    if e22_version is None:
+        if apply_stock_div is False:
+            e22_version = e22div.E22_V2
+        else:
+            e22_version = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s
+    if apply_stock_div is None:
+        apply_stock_div = e22_version == e22div.E22_V2S
     m = market.copy()
     m["date"] = pd.to_datetime(m["date"])
     closes = m.pivot(index="date", columns="code", values="close").sort_index().ffill()
@@ -119,29 +124,11 @@ def simulate_core(
     if len(dates) < WARMUP_DAYS + 10:
         raise RuntimeError("insufficient history for E16 warmup")
 
-    # cash_ex_date -> list[(code, cash_div)]; stock_ex_date -> list[(code, stock_yuan_per_share)]
-    div_map: dict[pd.Timestamp, list[tuple[str, float]]] = {}
-    stock_map: dict[pd.Timestamp, list[tuple[str, float]]] = {}
+    events: list[e22div.DivEvent] = []
     if apply_e22 and dividends is not None and len(dividends):
-        d = dividends.copy()
-        d["code"] = d["code"].astype(str)
-        d["cash_ex_date"] = pd.to_datetime(d["cash_ex_date"], errors="coerce")
-        d["cash_dividend"] = pd.to_numeric(d["cash_dividend"], errors="coerce")
-        d["stock_ex_date"] = pd.to_datetime(d["stock_ex_date"], errors="coerce")
-        d["stock_dividend"] = pd.to_numeric(d["stock_dividend"], errors="coerce")
-        cash_rows = d.dropna(subset=["cash_ex_date", "cash_dividend"])
-        cash_rows = cash_rows[cash_rows["code"].isin(ALL) & (cash_rows["cash_dividend"] > 0)]
-        for _, row in cash_rows.iterrows():
-            div_map.setdefault(pd.Timestamp(row["cash_ex_date"]).normalize(), []).append(
-                (str(row["code"]), float(row["cash_dividend"]))
-            )
-        if apply_stock_div:
-            stock_rows = d.dropna(subset=["stock_ex_date", "stock_dividend"])
-            stock_rows = stock_rows[stock_rows["code"].isin(ALL) & (stock_rows["stock_dividend"] > 0)]
-            for _, row in stock_rows.iterrows():
-                stock_map.setdefault(pd.Timestamp(row["stock_ex_date"]).normalize(), []).append(
-                    (str(row["code"]), float(row["stock_dividend"]))
-                )
+        tmp = Path("/tmp/e50_e22_div_events.csv")
+        dividends.to_csv(tmp, index=False)
+        events = [e for e in e22div.load_dividend_events(tmp) if e.code in ALL]
 
     pos = {c: 0.0 for c in ALL}
     cash = float(capital)
@@ -209,28 +196,20 @@ def simulate_core(
                 same_bar += 1
         pending = still
 
-        # 2) E22 cash dividend credit on cash_ex_date (challenger approx: credit same day)
+        # 2) E22 books on ex-date via formal accounting module
         day_div = 0.0
         day_stock_shares = 0.0
         if apply_e22:
-            for code, cdiv in div_map.get(pd.Timestamp(dt).normalize(), []):
-                sh = pos.get(code, 0.0)
-                if sh > 0 and cdiv > 0:
-                    credit = sh * cdiv
-                    cash += credit
-                    day_div += credit
-                    div_cash_total += credit
-            # stock dividend: holdings increase on stock_ex_date (economic ownership)
-            for code, stock_yuan in stock_map.get(pd.Timestamp(dt).normalize(), []):
-                sh = pos.get(code, 0.0)
-                if sh > 0 and stock_yuan > 0:
-                    add = sh * (stock_yuan / 10.0)
-                    pos[code] += add
-                    stock_div_events += 1
-                    stock_div_shares_added += add
-                    day_stock_shares += add
+            pos, cash, applied = e22div.apply_dividends_for_date(
+                dt.date().isoformat(), pos, cash, events, version=e22_version
+            )
+            day_div = applied.cash_credit
+            day_stock_shares = applied.stock_shares_added
+            div_cash_total += applied.cash_credit
+            stock_div_events += applied.stock_events
+            stock_div_shares_added += applied.stock_shares_added
 
-        # 3) Mark NAV at close
+        # 3) Mark NAV at raw close (never adj_close here)
         vals = {c: pos[c] * float(cl[c]) for c in ALL}
         nav = cash + sum(vals.values())
         rg = str(regime.loc[dt]) if dt in regime.index else "Sideways"
@@ -315,6 +294,7 @@ def simulate_core(
         "n_fills": len(fills_df),
         "same_bar_fills": same_bar,
         "exact_t1_ok": same_bar == 0,
+        "e22_books_version": e22_version if apply_e22 else None,
         "dividend_cash_total": div_cash_total,
         "stock_div_events": stock_div_events,
         "stock_div_shares_added": round(stock_div_shares_added, 4),
@@ -324,6 +304,7 @@ def simulate_core(
         "end": nav_df["date"].iloc[-1] if len(nav_df) else None,
         "mean_e45_exposure": float(nav_df["e45_equity_scale"].mean()) if len(nav_df) else None,
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
+        "e22_manifest": e22div.version_manifest(e22_version) if apply_e22 else None,
     }
     return nav_df, fills_df, meta
 
@@ -450,11 +431,11 @@ def main() -> None:
 
     variants = {
         "E16_E18": dict(apply_e22=False, apply_stock_div=False, e45_exposure=None, e45_legacy_crisis_scale=None),
-        # cash-only mirrors SOFT_FROZEN E22_v2 economics (no share increase)
-        "E16_E18_E22_CASH_ONLY": dict(
+        # preserved cash-only baseline label (E22_v2)
+        "E16_E18_E22_V2": dict(
             apply_e22=True, apply_stock_div=False, e45_exposure=None, e45_legacy_crisis_scale=None
         ),
-        # default E22 challenger: cash + stock share increase on stock_ex_date
+        # formal books (E22_v2s): cash + stock share increase on stock_ex_date
         "E16_E18_E22": dict(apply_e22=True, apply_stock_div=True, e45_exposure=None, e45_legacy_crisis_scale=None),
         "E16_E18_E22_E45LEGACY": dict(
             apply_e22=True,
@@ -503,7 +484,7 @@ def main() -> None:
     e45_audit["promotion_allowed"] = e45.PROMOTION_ALLOWED
     a = results["E16_E18"]["stats"]
     b = results["E16_E18_E22"]["stats"]
-    b_cash = results["E16_E18_E22_CASH_ONLY"]["stats"]
+    b_cash = results["E16_E18_E22_V2"]["stats"]
     e3s = results["E16_E18_E22_E45_E3"]["stats"]
     e1s = results["E16_E18_E22_E45_E1"]["stats"]
 
@@ -516,7 +497,8 @@ def main() -> None:
             "e45_module_status": e45.MODULE_STATUS,
             "e45_promoted": False,
             "label": "EXPERIMENTAL_CHALLENGER_SANDBOX",
-            "e22_v2_official_still_cash_only": True,
+            "e22_formal_books": e22div.E22_V2S,
+            "e22_preserved_cash_only": e22div.E22_V2,
         },
         "e45_manifest": e45.manifest_dict(),
         "inputs": {

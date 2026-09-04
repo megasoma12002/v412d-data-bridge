@@ -79,8 +79,10 @@ Information(T)
 - Odd lot
 - Fill / non-fill
 
+正式帳本（E22_v2s）：raw open/close 標價；現金在 `cash_ex_date` 入帳；股票股利在 `stock_ex_date` 增加持股（`1 + 元/股/10`）。E16 訊號可用 `adj_close`，但不得用還原價標 NAV 又同時加股。E22_v2（僅現金）保留為對照基準。
+
 狀態：
-**FROZEN EXECUTION BASELINE**
+**FROZEN EXECUTION BASELINE**（E22_v2s = formal books；E22_v2 = preserved cash-only）
 
 ---
 

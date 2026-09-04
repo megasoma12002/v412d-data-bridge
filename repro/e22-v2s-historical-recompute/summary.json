@@ -1,0 +1,572 @@
+{
+  "generated_at_utc": "2026-09-04T17:19:11.214023+00:00",
+  "stage": "E22_V2S_HISTORICAL_RESEARCH_RECOMPUTE",
+  "governance": {
+    "rewrites_live_forward_e21_ledgers": false,
+    "preserved_baseline_label": "E22_v2",
+    "formal_books_label": "E22_v2s",
+    "signal_price": "adj_close",
+    "books_price": "raw_close"
+  },
+  "variants": {
+    "E16_E18_NO_DIV": {
+      "stats": {
+        "cagr": 0.0729270134821578,
+        "max_drawdown": -0.2276985835510028,
+        "utility": -0.040922278293343606,
+        "vol": 0.14005202155435073,
+        "n_days": 3351,
+        "start_nav": 3000000.0,
+        "end_nav": 7647342.653068649
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6105,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "e22_books_version": null,
+        "dividend_cash_total": 0.0,
+        "stock_div_events": 0,
+        "stock_div_shares_added": 0.0,
+        "apply_stock_div": false,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 131031.0,
+          "2886": 7780.0,
+          "2892": 45.0,
+          "5880": 0.0,
+          "2412": 5856.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 5336.0
+        },
+        "e22_manifest": null
+      },
+      "by_year": [
+        {
+          "year": 2012,
+          "n_days": 20,
+          "start_nav": 3000000.0,
+          "end_nav": 3010781.3176259096,
+          "year_return": 0.0035937725419699085
+        },
+        {
+          "year": 2013,
+          "n_days": 246,
+          "start_nav": 3039526.611818147,
+          "end_nav": 3124449.708547717,
+          "year_return": 0.027939579933064618
+        },
+        {
+          "year": 2014,
+          "n_days": 248,
+          "start_nav": 3127944.8085477166,
+          "end_nav": 3175221.4660618897,
+          "year_return": 0.015114287625849654
+        },
+        {
+          "year": 2015,
+          "n_days": 244,
+          "start_nav": 3145862.427282425,
+          "end_nav": 2855075.706560024,
+          "year_return": -0.09243465899861336
+        },
+        {
+          "year": 2016,
+          "n_days": 244,
+          "start_nav": 2810920.974857697,
+          "end_nav": 3074173.80972915,
+          "year_return": 0.09365358799700174
+        },
+        {
+          "year": 2017,
+          "n_days": 246,
+          "start_nav": 3080221.3597291503,
+          "end_nav": 3212835.7547155456,
+          "year_return": 0.043053527490003685
+        },
+        {
+          "year": 2018,
+          "n_days": 247,
+          "start_nav": 3232953.5047155456,
+          "end_nav": 3313332.7455360955,
+          "year_return": 0.024862479680981986
+        },
+        {
+          "year": 2019,
+          "n_days": 242,
+          "start_nav": 3249843.7455360955,
+          "end_nav": 3945352.4098316166,
+          "year_return": 0.21401295531542242
+        },
+        {
+          "year": 2020,
+          "n_days": 245,
+          "start_nav": 3947996.4098316166,
+          "end_nav": 3563537.6954945386,
+          "year_return": -0.09738071528628245
+        },
+        {
+          "year": 2021,
+          "n_days": 244,
+          "start_nav": 3562480.5954945385,
+          "end_nav": 4124283.177876131,
+          "year_return": 0.15769982946492478
+        },
+        {
+          "year": 2022,
+          "n_days": 246,
+          "start_nav": 4100002.1778761316,
+          "end_nav": 4070171.7443598504,
+          "year_return": -0.007275711626995696
+        },
+        {
+          "year": 2023,
+          "n_days": 238,
+          "start_nav": 4099257.0443598507,
+          "end_nav": 4277517.0210699225,
+          "year_return": 0.04348592312729904
+        },
+        {
+          "year": 2024,
+          "n_days": 242,
+          "start_nav": 4277528.371069923,
+          "end_nav": 4930682.687342782,
+          "year_return": 0.1526943271002752
+        },
+        {
+          "year": 2025,
+          "n_days": 237,
+          "start_nav": 4946346.437342782,
+          "end_nav": 5577842.226987509,
+          "year_return": 0.127669138756074
+        },
+        {
+          "year": 2026,
+          "n_days": 162,
+          "start_nav": 5664051.676987509,
+          "end_nav": 7647342.653068649,
+          "year_return": 0.35015411037633326
+        }
+      ]
+    },
+    "E22_v2": {
+      "stats": {
+        "cagr": 0.11248792503555594,
+        "max_drawdown": -0.2210946635650738,
+        "utility": 0.0019405932530190406,
+        "vol": 0.13302408199653676,
+        "n_days": 3351,
+        "start_nav": 3000000.0,
+        "end_nav": 12375275.724677144
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6222,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "e22_books_version": "E22_v2",
+        "dividend_cash_total": 2611580.65776718,
+        "stock_div_events": 0,
+        "stock_div_shares_added": 0.0,
+        "apply_stock_div": false,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 197701.0,
+          "2886": 26218.0,
+          "2892": 175.0,
+          "5880": 0.0,
+          "2412": 9098.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 8647.0
+        },
+        "e22_manifest": {
+          "e22_books_version": "E22_v2",
+          "preserved_baseline": "E22_v2",
+          "formal_books": "E22_v2s",
+          "signal_price": "adj_close",
+          "books_price": "raw_open_close",
+          "cash_timing": "cash_ex_date",
+          "stock_timing": "not_applied",
+          "stock_factor": null,
+          "forbids_adj_close_nav_with_stock_shares": true
+        }
+      },
+      "by_year": [
+        {
+          "year": 2012,
+          "n_days": 20,
+          "start_nav": 3000000.0,
+          "end_nav": 3010781.3176259096,
+          "year_return": 0.0035937725419699085
+        },
+        {
+          "year": 2013,
+          "n_days": 246,
+          "start_nav": 3039526.611818147,
+          "end_nav": 3244974.3919424303,
+          "year_return": 0.0675920320373149
+        },
+        {
+          "year": 2014,
+          "n_days": 248,
+          "start_nav": 3248527.3919424303,
+          "end_nav": 3406691.8598437198,
+          "year_return": 0.048688051174694325
+        },
+        {
+          "year": 2015,
+          "n_days": 244,
+          "start_nav": 3375309.1321632727,
+          "end_nav": 3194147.669211954,
+          "year_return": -0.05367255438177021
+        },
+        {
+          "year": 2016,
+          "n_days": 244,
+          "start_nav": 3144399.972829998,
+          "end_nav": 3595943.454317214,
+          "year_return": 0.14360243143012785
+        },
+        {
+          "year": 2017,
+          "n_days": 246,
+          "start_nav": 3602960.2543172142,
+          "end_nav": 3932481.772291478,
+          "year_return": 0.09145854928025288
+        },
+        {
+          "year": 2018,
+          "n_days": 247,
+          "start_nav": 3956829.772291478,
+          "end_nav": 4229862.985320588,
+          "year_return": 0.06900302230363353
+        },
+        {
+          "year": 2019,
+          "n_days": 242,
+          "start_nav": 4147424.985320587,
+          "end_nav": 5131242.284655475,
+          "year_return": 0.23721159582560625
+        },
+        {
+          "year": 2020,
+          "n_days": 245,
+          "start_nav": 5134689.584655475,
+          "end_nav": 4830585.698680027,
+          "year_return": -0.059225369121481575
+        },
+        {
+          "year": 2021,
+          "n_days": 244,
+          "start_nav": 4830183.148680027,
+          "end_nav": 5755345.478460155,
+          "year_return": 0.1915377328979655
+        },
+        {
+          "year": 2022,
+          "n_days": 246,
+          "start_nav": 5722029.478460155,
+          "end_nav": 5842181.969237939,
+          "year_return": 0.02099822995146794
+        },
+        {
+          "year": 2023,
+          "n_days": 238,
+          "start_nav": 5882553.769237939,
+          "end_nav": 6402036.855820709,
+          "year_return": 0.08830910977802531
+        },
+        {
+          "year": 2024,
+          "n_days": 242,
+          "start_nav": 6402933.105820709,
+          "end_nav": 7599146.481937252,
+          "year_return": 0.18682271957973495
+        },
+        {
+          "year": 2025,
+          "n_days": 237,
+          "start_nav": 7611077.981937252,
+          "end_nav": 8849561.798721498,
+          "year_return": 0.16272120975812343
+        },
+        {
+          "year": 2026,
+          "n_days": 162,
+          "start_nav": 8979884.248721497,
+          "end_nav": 12375275.724677144,
+          "year_return": 0.3781108288159798
+        }
+      ]
+    },
+    "E22_v2s": {
+      "stats": {
+        "cagr": 0.137829469400496,
+        "max_drawdown": -0.22639131293777315,
+        "utility": 0.024633812931609433,
+        "vol": 0.133223365516143,
+        "n_days": 3351,
+        "start_nav": 3000000.0,
+        "end_nav": 16695201.766628467
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6262,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "e22_books_version": "E22_v2s",
+        "dividend_cash_total": 3148555.7472813088,
+        "stock_div_events": 42,
+        "stock_div_shares_added": 78250.1955,
+        "apply_stock_div": true,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 279017.7229,
+          "2886": 24445.7082,
+          "2892": 150.4434,
+          "5880": 1.3211,
+          "2412": 12445.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 11656.0
+        },
+        "e22_manifest": {
+          "e22_books_version": "E22_v2s",
+          "preserved_baseline": "E22_v2",
+          "formal_books": "E22_v2s",
+          "signal_price": "adj_close",
+          "books_price": "raw_open_close",
+          "cash_timing": "cash_ex_date",
+          "stock_timing": "stock_ex_date",
+          "stock_factor": "1 + stock_dividend/10",
+          "forbids_adj_close_nav_with_stock_shares": true
+        }
+      },
+      "by_year": [
+        {
+          "year": 2012,
+          "n_days": 20,
+          "start_nav": 3000000.0,
+          "end_nav": 3010781.3176259096,
+          "year_return": 0.0035937725419699085
+        },
+        {
+          "year": 2013,
+          "n_days": 246,
+          "start_nav": 3039526.611818147,
+          "end_nav": 3363075.9630781393,
+          "year_return": 0.1064472836006709
+        },
+        {
+          "year": 2014,
+          "n_days": 248,
+          "start_nav": 3366558.284578139,
+          "end_nav": 3630367.5543370415,
+          "year_return": 0.07836171171234008
+        },
+        {
+          "year": 2015,
+          "n_days": 244,
+          "start_nav": 3597430.1460827584,
+          "end_nav": 3482039.8192511336,
+          "year_return": -0.03207576579555638
+        },
+        {
+          "year": 2016,
+          "n_days": 244,
+          "start_nav": 3427031.0291941194,
+          "end_nav": 4031784.7573968847,
+          "year_return": 0.17646578716416683
+        },
+        {
+          "year": 2017,
+          "n_days": 246,
+          "start_nav": 4039123.8207662264,
+          "end_nav": 4514123.282162041,
+          "year_return": 0.11759962865057871
+        },
+        {
+          "year": 2018,
+          "n_days": 247,
+          "start_nav": 4542094.526438047,
+          "end_nav": 4958945.33418555,
+          "year_return": 0.0917750181818433
+        },
+        {
+          "year": 2019,
+          "n_days": 242,
+          "start_nav": 4865181.209811155,
+          "end_nav": 6249169.488842201,
+          "year_return": 0.2844679816324389
+        },
+        {
+          "year": 2020,
+          "n_days": 245,
+          "start_nav": 6253386.579858434,
+          "end_nav": 6022440.555535706,
+          "year_return": -0.036931352535693796
+        },
+        {
+          "year": 2021,
+          "n_days": 244,
+          "start_nav": 6019605.12334407,
+          "end_nav": 7275473.910836689,
+          "year_return": 0.20862976254411625
+        },
+        {
+          "year": 2022,
+          "n_days": 246,
+          "start_nav": 7232645.602805071,
+          "end_nav": 7632753.089596899,
+          "year_return": 0.055319658775573544
+        },
+        {
+          "year": 2023,
+          "n_days": 238,
+          "start_nav": 7688671.21162263,
+          "end_nav": 8228134.666334802,
+          "year_return": 0.07016341834161
+        },
+        {
+          "year": 2024,
+          "n_days": 242,
+          "start_nav": 8227807.257576407,
+          "end_nav": 9975599.006343367,
+          "year_return": 0.2124249747291469
+        },
+        {
+          "year": 2025,
+          "n_days": 237,
+          "start_nav": 10006002.221149491,
+          "end_nav": 11793648.12226019,
+          "year_return": 0.17865735601499133
+        },
+        {
+          "year": 2026,
+          "n_days": 162,
+          "start_nav": 11972897.686495973,
+          "end_nav": 16695201.766628467,
+          "year_return": 0.3944161391656007
+        }
+      ]
+    }
+  },
+  "deltas": {
+    "v2s_minus_v2_cagr": 0.025341544364940072,
+    "v2s_minus_v2_mdd": -0.005296649372699358,
+    "v2s_minus_v2_end_nav": 4319926.041951323,
+    "v2_minus_nodiv_cagr": 0.03956091155339814,
+    "v2s_minus_nodiv_cagr": 0.06490245591833821,
+    "stock_div_events_v2s": 42,
+    "stock_div_shares_added_v2s": 78250.1955
+  },
+  "year_delta_v2s_minus_v2": [
+    {
+      "year": 2012,
+      "e22_v2_return": 0.0035937725419699085,
+      "e22_v2s_return": 0.0035937725419699085,
+      "delta_return": 0.0
+    },
+    {
+      "year": 2013,
+      "e22_v2_return": 0.0675920320373149,
+      "e22_v2s_return": 0.1064472836006709,
+      "delta_return": 0.03885525156335601
+    },
+    {
+      "year": 2014,
+      "e22_v2_return": 0.048688051174694325,
+      "e22_v2s_return": 0.07836171171234008,
+      "delta_return": 0.029673660537645752
+    },
+    {
+      "year": 2015,
+      "e22_v2_return": -0.05367255438177021,
+      "e22_v2s_return": -0.03207576579555638,
+      "delta_return": 0.021596788586213833
+    },
+    {
+      "year": 2016,
+      "e22_v2_return": 0.14360243143012785,
+      "e22_v2s_return": 0.17646578716416683,
+      "delta_return": 0.03286335573403898
+    },
+    {
+      "year": 2017,
+      "e22_v2_return": 0.09145854928025288,
+      "e22_v2s_return": 0.11759962865057871,
+      "delta_return": 0.026141079370325837
+    },
+    {
+      "year": 2018,
+      "e22_v2_return": 0.06900302230363353,
+      "e22_v2s_return": 0.0917750181818433,
+      "delta_return": 0.022771995878209772
+    },
+    {
+      "year": 2019,
+      "e22_v2_return": 0.23721159582560625,
+      "e22_v2s_return": 0.2844679816324389,
+      "delta_return": 0.04725638580683267
+    },
+    {
+      "year": 2020,
+      "e22_v2_return": -0.059225369121481575,
+      "e22_v2s_return": -0.036931352535693796,
+      "delta_return": 0.02229401658578778
+    },
+    {
+      "year": 2021,
+      "e22_v2_return": 0.1915377328979655,
+      "e22_v2s_return": 0.20862976254411625,
+      "delta_return": 0.017092029646150753
+    },
+    {
+      "year": 2022,
+      "e22_v2_return": 0.02099822995146794,
+      "e22_v2s_return": 0.055319658775573544,
+      "delta_return": 0.034321428824105604
+    },
+    {
+      "year": 2023,
+      "e22_v2_return": 0.08830910977802531,
+      "e22_v2s_return": 0.07016341834161,
+      "delta_return": -0.018145691436415312
+    },
+    {
+      "year": 2024,
+      "e22_v2_return": 0.18682271957973495,
+      "e22_v2s_return": 0.2124249747291469,
+      "delta_return": 0.025602255149411945
+    },
+    {
+      "year": 2025,
+      "e22_v2_return": 0.16272120975812343,
+      "e22_v2s_return": 0.17865735601499133,
+      "delta_return": 0.0159361462568679
+    },
+    {
+      "year": 2026,
+      "e22_v2_return": 0.3781108288159798,
+      "e22_v2s_return": 0.3944161391656007,
+      "delta_return": 0.016305310349620905
+    }
+  ],
+  "decision": {
+    "live_historical_nav": "DO_NOT_REWRITE",
+    "research_total_return": "USE_E22_V2S_SIDE_BY_SIDE",
+    "published_v2_label": "KEEP_AS_CASH_ONLY_BASELINE",
+    "formal_books_figure": "E22_v2s"
+  }
+}
