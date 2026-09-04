@@ -1,0 +1,21 @@
+{
+  "common_bad_months": 13,
+  "headlines": [
+    "C4 weak-year mean daily excess -0.000314 vs other-years 0.000451",
+    "C4 weak-year turnover 0.0230 vs other 0.0208",
+    "Common negative-excess months across C2/C4/C8: 13",
+    "C4 weak-year RISK_ON excess=-0.0004604064626040927, RISK_OFF=6.253160639969535e-05"
+  ],
+  "c4_weak_vs_other": {
+    "weak_mean_excess": -0.00031419724739282964,
+    "other_mean_excess": 0.00045126062602429164,
+    "weak_hit_rate": 0.4775510204081633,
+    "other_hit_rate": 0.5329218106995884,
+    "weak_avg_turnover": 0.02297016055268409,
+    "other_avg_turnover": 0.020821354659573653,
+    "weak_cost_delta": 0.08686851397228698,
+    "other_cost_delta": 0.04502481197206638,
+    "weak_min_drawdown": -0.31867662365819793,
+    "other_min_drawdown": -0.2628667807933295
+  }
+}

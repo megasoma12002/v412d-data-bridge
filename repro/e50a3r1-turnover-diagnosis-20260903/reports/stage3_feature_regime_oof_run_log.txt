@@ -1,0 +1,111 @@
+screening 45 feature×regime cells on OOF ...
+[1/45] TECH2 / BREADTH_BASE / BREADTH_REGIME / λ=1.0
+  IC=0.1147 turn=0.0205 boot=0.8066 both=True risk_on_share=0.7601419878296146
+[2/45] TECH2 / BREADTH_BASE / GLOBAL / λ=1.0
+  IC=0.0604 turn=0.0060 boot=0.146 both=False risk_on_share=0.7601419878296146
+[3/45] TECH2 / BREADTH_STRICT55 / BREADTH_REGIME / λ=1.0
+  IC=0.1092 turn=0.0248 boot=0.1662 both=False risk_on_share=0.7038539553752535
+[4/45] TECH2 / BREADTH_21 / BREADTH_REGIME / λ=1.0
+  IC=0.0493 turn=0.0195 boot=0.0774 both=False risk_on_share=0.6658215010141988
+[5/45] TECH2 / TREND_ONLY / BREADTH_REGIME / λ=1.0
+  IC=0.1147 turn=0.0205 boot=0.8066 both=True risk_on_share=0.7601419878296146
+[6/45] TECH2 / VOL_REGIME / BREADTH_REGIME / λ=1.0
+  IC=0.0870 turn=0.0192 boot=0.2232 both=False risk_on_share=0.4234279918864097
+[7/45] VALUE2 / BREADTH_BASE / BREADTH_REGIME / λ=1.0
+  IC=0.0964 turn=0.0142 boot=0.4104 both=False risk_on_share=0.7601419878296146
+[8/45] VALUE2 / BREADTH_STRICT55 / BREADTH_REGIME / λ=1.0
+  IC=0.0889 turn=0.0176 boot=0.0544 both=False risk_on_share=0.7038539553752535
+[9/45] VALUE2 / BREADTH_21 / BREADTH_REGIME / λ=1.0
+  IC=0.0542 turn=0.0133 boot=0.1554 both=False risk_on_share=0.6658215010141988
+[10/45] VALUE2 / TREND_ONLY / BREADTH_REGIME / λ=1.0
+  IC=0.0964 turn=0.0142 boot=0.4104 both=False risk_on_share=0.7601419878296146
+[11/45] VALUE2 / VOL_REGIME / BREADTH_REGIME / λ=1.0
+  IC=0.0698 turn=0.0092 boot=0.1222 both=False risk_on_share=0.4234279918864097
+[12/45] QUALITY2 / BREADTH_BASE / BREADTH_REGIME / λ=1.0
+  IC=0.0946 turn=0.0094 boot=0.1714 both=False risk_on_share=0.7601419878296146
+[13/45] QUALITY2 / BREADTH_STRICT55 / BREADTH_REGIME / λ=1.0
+  IC=0.0852 turn=0.0109 boot=0.1706 both=False risk_on_share=0.7038539553752535
+[14/45] QUALITY2 / BREADTH_21 / BREADTH_REGIME / λ=1.0
+  IC=0.0456 turn=0.0137 boot=0.087 both=False risk_on_share=0.6658215010141988
+[15/45] QUALITY2 / TREND_ONLY / BREADTH_REGIME / λ=1.0
+  IC=0.0946 turn=0.0094 boot=0.1714 both=False risk_on_share=0.7601419878296146
+[16/45] QUALITY2 / VOL_REGIME / BREADTH_REGIME / λ=1.0
+  IC=0.0584 turn=0.0179 boot=0.2448 both=False risk_on_share=0.4234279918864097
+[17/45] GROWTH2 / BREADTH_BASE / BREADTH_REGIME / λ=1.0
+  IC=0.0382 turn=0.0215 boot=0.0178 both=False risk_on_share=0.7601419878296146
+[18/45] GROWTH2 / BREADTH_STRICT55 / BREADTH_REGIME / λ=1.0
+  IC=0.0393 turn=0.0225 boot=0.0322 both=False risk_on_share=0.7038539553752535
+[19/45] GROWTH2 / BREADTH_21 / BREADTH_REGIME / λ=1.0
+  IC=0.0182 turn=0.0183 boot=0.0002 both=False risk_on_share=0.6658215010141988
+[20/45] GROWTH2 / TREND_ONLY / BREADTH_REGIME / λ=1.0
+  IC=0.0382 turn=0.0215 boot=0.0178 both=False risk_on_share=0.7601419878296146
+[21/45] GROWTH2 / VOL_REGIME / BREADTH_REGIME / λ=1.0
+  IC=0.0280 turn=0.0221 boot=0.0002 both=False risk_on_share=0.4234279918864097
+[22/45] VAL_MOM / BREADTH_BASE / BREADTH_REGIME / λ=1.0
+  IC=0.0236 turn=0.0188 boot=0.1088 both=False risk_on_share=0.7601419878296146
+[23/45] VAL_MOM / BREADTH_STRICT55 / BREADTH_REGIME / λ=1.0
+  IC=0.0232 turn=0.0192 boot=0.0504 both=False risk_on_share=0.7038539553752535
+[24/45] VAL_MOM / BREADTH_21 / BREADTH_REGIME / λ=1.0
+  IC=0.0169 turn=0.0154 boot=0.0062 both=False risk_on_share=0.6658215010141988
+[25/45] VAL_MOM / TREND_ONLY / BREADTH_REGIME / λ=1.0
+  IC=0.0236 turn=0.0188 boot=0.1088 both=False risk_on_share=0.7601419878296146
+[26/45] VAL_MOM / VOL_REGIME / BREADTH_REGIME / λ=1.0
+  IC=0.0286 turn=0.0194 boot=0.01 both=False risk_on_share=0.4234279918864097
+[27/45] QUAL_VAL / BREADTH_BASE / BREADTH_REGIME / λ=1.0
+  IC=0.0036 turn=0.0141 boot=0.0286 both=False risk_on_share=0.7601419878296146
+[28/45] QUAL_VAL / BREADTH_STRICT55 / BREADTH_REGIME / λ=1.0
+  IC=0.0040 turn=0.0141 boot=0.027 both=False risk_on_share=0.7038539553752535
+[29/45] QUAL_VAL / BREADTH_21 / BREADTH_REGIME / λ=1.0
+  IC=0.0102 turn=0.0140 boot=0.0028 both=False risk_on_share=0.6658215010141988
+[30/45] QUAL_VAL / TREND_ONLY / BREADTH_REGIME / λ=1.0
+  IC=0.0036 turn=0.0141 boot=0.0286 both=False risk_on_share=0.7601419878296146
+[31/45] QUAL_VAL / VOL_REGIME / BREADTH_REGIME / λ=1.0
+  IC=0.0145 turn=0.0149 boot=0.021 both=False risk_on_share=0.4234279918864097
+[32/45] FAMILY3 / BREADTH_BASE / BREADTH_REGIME / λ=1.0
+  IC=0.0312 turn=0.0211 boot=0.0102 both=False risk_on_share=0.7601419878296146
+[33/45] FAMILY3 / BREADTH_STRICT55 / BREADTH_REGIME / λ=1.0
+  IC=0.0318 turn=0.0213 boot=0.007 both=False risk_on_share=0.7038539553752535
+[34/45] FAMILY3 / BREADTH_21 / BREADTH_REGIME / λ=1.0
+  IC=0.0139 turn=0.0194 boot=0.0 both=False risk_on_share=0.6658215010141988
+[35/45] FAMILY3 / TREND_ONLY / BREADTH_REGIME / λ=1.0
+  IC=0.0312 turn=0.0211 boot=0.0102 both=False risk_on_share=0.7601419878296146
+[36/45] FAMILY3 / VOL_REGIME / BREADTH_REGIME / λ=1.0
+  IC=0.0253 turn=0.0234 boot=0.0 both=False risk_on_share=0.4234279918864097
+[37/45] FAMILY5 / BREADTH_BASE / BREADTH_REGIME / λ=1.0
+  IC=0.1066 turn=0.0195 boot=0.244 both=False risk_on_share=0.7601419878296146
+[38/45] FAMILY5 / BREADTH_STRICT55 / BREADTH_REGIME / λ=1.0
+  IC=0.1018 turn=0.0214 boot=0.0412 both=False risk_on_share=0.7038539553752535
+[39/45] FAMILY5 / BREADTH_21 / BREADTH_REGIME / λ=1.0
+  IC=0.0571 turn=0.0221 boot=0.003 both=False risk_on_share=0.6658215010141988
+[40/45] FAMILY5 / TREND_ONLY / BREADTH_REGIME / λ=1.0
+  IC=0.1066 turn=0.0195 boot=0.244 both=False risk_on_share=0.7601419878296146
+[41/45] FAMILY5 / VOL_REGIME / BREADTH_REGIME / λ=1.0
+  IC=0.0752 turn=0.0194 boot=0.0068 both=False risk_on_share=0.4234279918864097
+[42/45] VALUE2 / BREADTH_BASE / GLOBAL / λ=1.0
+  IC=0.0677 turn=0.0075 boot=0.1594 both=False risk_on_share=0.7601419878296146
+[43/45] QUALITY2 / BREADTH_BASE / GLOBAL / λ=1.0
+  IC=0.0662 turn=0.0065 boot=0.1906 both=False risk_on_share=0.7601419878296146
+[44/45] FAMILY3 / BREADTH_BASE / GLOBAL / λ=1.0
+  IC=0.0140 turn=0.0159 boot=0.0 both=False risk_on_share=0.7601419878296146
+[45/45] FAMILY5 / BREADTH_BASE / GLOBAL / λ=1.0
+  IC=0.0587 turn=0.0110 boot=0.004 both=False risk_on_share=0.7601419878296146
+{
+  "research_decision": "OOF_NEW_FEATURE_REGIME_DUAL_GATE_WINNER",
+  "n_both_pass_new": 1,
+  "baseline_boot": 0.8066,
+  "winner": {
+    "feature_set": "TECH2",
+    "regime": "TREND_ONLY",
+    "mode": "BREADTH_REGIME",
+    "bootstrap": 0.8066,
+    "turnover": 0.020450275367238705,
+    "mean_rank_ic": 0.1147150373836749
+  },
+  "best_ic": {
+    "feature_set": "TECH2",
+    "regime": "BREADTH_BASE",
+    "mean_rank_ic": 0.1147150373836749,
+    "both": true,
+    "boot": 0.8066
+  }
+}

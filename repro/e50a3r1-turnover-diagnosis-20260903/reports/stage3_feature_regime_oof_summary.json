@@ -1,0 +1,111 @@
+{
+  "generated_at_utc": "2026-09-04T00:39:02.256527+00:00",
+  "stage": "STAGE3_FEATURE_REGIME_OOF",
+  "window": "2011-2018 OOF only",
+  "fixed_portfolio_reference": "C4",
+  "baseline": {
+    "feature_set": "TECH2",
+    "regime_definition": "BREADTH_BASE",
+    "mode": "BREADTH_REGIME",
+    "ridge_lambda": 1.0,
+    "is_baseline": true,
+    "n_features": 2,
+    "features": "momentum_family_score,defensive_family_score",
+    "oof_risk_on_day_share": 0.7601419878296146,
+    "n_days": 1972,
+    "mean_rank_ic": 0.1147150373836749,
+    "p50_rank_ic": 0.1165235046211444,
+    "average_daily_turnover": 0.0204502753672387,
+    "block_bootstrap_positive_probability": 0.8066,
+    "cagr": 0.1055670689363514,
+    "max_drawdown": -0.3023731520676275,
+    "utility": -0.0456195070974622,
+    "mean_daily_excess": 0.0001205580715079,
+    "hac_t_stat": 0.7734100331411837,
+    "turnover_gate_pass": true,
+    "bootstrap_gate_pass": true,
+    "both_gates_pass": true
+  },
+  "n_cells": 45,
+  "n_both_pass": 2,
+  "n_both_pass_new": 0,
+  "n_both_pass_excluded_degenerate": 1,
+  "regime_degeneracy_vs_breadth_base": {
+    "BREADTH_STRICT55": {
+      "oof_days": 1972,
+      "disagree_vs_breadth_base": 111,
+      "identical_to_breadth_base": false
+    },
+    "BREADTH_21": {
+      "oof_days": 1972,
+      "disagree_vs_breadth_base": 574,
+      "identical_to_breadth_base": false
+    },
+    "TREND_ONLY": {
+      "oof_days": 1972,
+      "disagree_vs_breadth_base": 0,
+      "identical_to_breadth_base": true
+    },
+    "VOL_REGIME": {
+      "oof_days": 1972,
+      "disagree_vs_breadth_base": 664,
+      "identical_to_breadth_base": false
+    }
+  },
+  "excluded_degenerate_dual_gate": [
+    {
+      "feature_set": "TECH2",
+      "regime_definition": "TREND_ONLY",
+      "mode": "BREADTH_REGIME",
+      "ridge_lambda": 1.0,
+      "is_baseline": false,
+      "n_features": 2,
+      "features": "momentum_family_score,defensive_family_score",
+      "oof_risk_on_day_share": 0.7601419878296146,
+      "n_days": 1972,
+      "mean_rank_ic": 0.1147150373836749,
+      "p50_rank_ic": 0.1165235046211444,
+      "average_daily_turnover": 0.0204502753672387,
+      "block_bootstrap_positive_probability": 0.8066,
+      "cagr": 0.1055670689363514,
+      "max_drawdown": -0.3023731520676275,
+      "utility": -0.0456195070974622,
+      "mean_daily_excess": 0.0001205580715079,
+      "hac_t_stat": 0.7734100331411837,
+      "turnover_gate_pass": true,
+      "bootstrap_gate_pass": true,
+      "both_gates_pass": true,
+      "exclude_reason": "regime_identical_to_BREADTH_BASE_on_OOF"
+    }
+  ],
+  "best_ic": {
+    "feature_set": "TECH2",
+    "regime_definition": "TREND_ONLY",
+    "mode": "BREADTH_REGIME",
+    "ridge_lambda": 1.0,
+    "is_baseline": false,
+    "n_features": 2,
+    "features": "momentum_family_score,defensive_family_score",
+    "oof_risk_on_day_share": 0.7601419878296146,
+    "n_days": 1972,
+    "mean_rank_ic": 0.1147150373836749,
+    "p50_rank_ic": 0.1165235046211444,
+    "average_daily_turnover": 0.0204502753672387,
+    "block_bootstrap_positive_probability": 0.8066,
+    "cagr": 0.1055670689363514,
+    "max_drawdown": -0.3023731520676275,
+    "utility": -0.0456195070974622,
+    "mean_daily_excess": 0.0001205580715079,
+    "hac_t_stat": 0.7734100331411837,
+    "turnover_gate_pass": true,
+    "bootstrap_gate_pass": true,
+    "both_gates_pass": true
+  },
+  "research_decision": "OOF_NO_NEW_FEATURE_REGIME_DUAL_GATE_WINNER",
+  "recommended": null,
+  "top_new_dual_gate": [],
+  "gates_remain_experimental": true,
+  "no_retune_C2_C4_C8": true,
+  "no_promotion": true,
+  "note": "Decision corrected after TREND_ONLY proven OOF-identical to BREADTH_BASE (0/1972 disagree). Grid CSV unchanged."
+}
