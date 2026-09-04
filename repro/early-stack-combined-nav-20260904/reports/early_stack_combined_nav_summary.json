@@ -1,17 +1,60 @@
 {
-  "generated_at_utc": "2026-09-04T05:24:48.422982+00:00",
-  "stage": "EARLY_STACK_COMBINED_NAV_CHALLENGER",
+  "generated_at_utc": "2026-09-04T05:43:24.544118+00:00",
+  "stage": "EARLY_STACK_COMBINED_NAV_WITH_NAMED_E45",
   "governance": {
     "modifies_soft_frozen_files": false,
-    "e16_e18_e22_e45_inplace_edit": false,
-    "e45_proxy_is_official": false,
+    "e45_module_path": "scripts/e45_crisis_core.py",
+    "e45_module_status": "CHALLENGER_CANDIDATE_NOT_PROMOTED",
+    "e45_promoted": false,
     "label": "EXPERIMENTAL_CHALLENGER_SANDBOX"
+  },
+  "e45_manifest": {
+    "module_id": "E45",
+    "module_status": "CHALLENGER_CANDIDATE_NOT_PROMOTED",
+    "promotion_allowed": false,
+    "claimed_mdd": -0.1316,
+    "claimed_mdd_status": "UNVERIFIED_TEXT_ONLY",
+    "verified_lineage_mdd": {
+      "E1_validation_2012_2014": -0.1721,
+      "E1_1_validation_2012_2014": -0.1581,
+      "E3_validation_2021_2022": -0.1849,
+      "V412D_validation_reported": -0.1891
+    },
+    "formal_strategy_still": "V4.12-D",
+    "e3_research_decision": "validation_pass_but_not_promoted",
+    "default_profile": "E3_VOLTARGET_WINNER",
+    "lineage_scripts": [
+      "scripts/v412e1_crisis_buffer.py",
+      "scripts/v412e11_graduated_crisis.py",
+      "scripts/v412e2_e3_three_rounds.py"
+    ],
+    "note": "Named E45 surface for integration. Not an in-place freeze. Do not treat CLAIMED_MDD as verified. Prefer VERIFIED_LINEAGE_MDD.",
+    "e3_winner": {
+      "mode": "voltarget",
+      "max_cut": 0.5,
+      "up_days": 20,
+      "target_vol": 0.14,
+      "blend": 0.5,
+      "rank_buffer": 0,
+      "cost_hurdle_mult": 5,
+      "min_hold": 42,
+      "source": "research/v412e2e3/e3_status.json"
+    },
+    "e1_binary_default": {
+      "dd_cut": -0.18,
+      "vol_cut": 0.3,
+      "breadth_cut": 0.3,
+      "crisis_scale": 0.5,
+      "on_need": 2,
+      "off_need": 5,
+      "source": "scripts/v412e1_crisis_buffer.py risk_state + crisis_defs family"
+    },
+    "governance_class_if_promoted": "SOFT_FROZEN_CRITICAL"
   },
   "inputs": {
     "market": "forward/e21/live_market.csv",
     "dividends": "data/dividend_events/e22_dividend_events.csv",
     "capital": 3000000.0,
-    "warmup_days": 252,
     "core_universe": [
       "2880",
       "2886",
@@ -46,10 +89,11 @@
         "dividend_cash_total": 0.0,
         "crisis_days": 423,
         "start": "2012-12-04",
-        "end": "2026-09-03"
+        "end": "2026-09-03",
+        "mean_e45_exposure": 1.0
       },
       "apply_e22": false,
-      "e45_crisis_equity_scale": null
+      "e45_profile": null
     },
     "E16_E18_E22": {
       "stats": {
@@ -67,12 +111,13 @@
         "dividend_cash_total": 2611580.6577671794,
         "crisis_days": 423,
         "start": "2012-12-04",
-        "end": "2026-09-03"
+        "end": "2026-09-03",
+        "mean_e45_exposure": 1.0
       },
       "apply_e22": true,
-      "e45_crisis_equity_scale": null
+      "e45_profile": null
     },
-    "E16_E18_E22_E45PROXY": {
+    "E16_E18_E22_E45LEGACY": {
       "stats": {
         "cagr": 0.10387796152130235,
         "max_drawdown": -0.20128168182005812,
@@ -88,17 +133,63 @@
         "dividend_cash_total": 2354239.71965638,
         "crisis_days": 423,
         "start": "2012-12-04",
-        "end": "2026-09-03"
+        "end": "2026-09-03",
+        "mean_e45_exposure": 0.9621194029850746
       },
       "apply_e22": true,
-      "e45_crisis_equity_scale": 0.7
+      "e45_profile": "LEGACY_CRISIS_SCALE"
+    },
+    "E16_E18_E22_E45_E3": {
+      "stats": {
+        "cagr": 0.085858512909891,
+        "max_drawdown": -0.20529599326746262,
+        "utility": -0.016789483723840315,
+        "vol": 0.10823923635904192,
+        "n_days": 3350
+      },
+      "meta": {
+        "n_days": 3350,
+        "n_fills": 6941,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "dividend_cash_total": 2174378.63658036,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-03",
+        "mean_e45_exposure": 0.9068070573269436
+      },
+      "apply_e22": true,
+      "e45_profile": "E3_VOLTARGET_WINNER"
+    },
+    "E16_E18_E22_E45_E1": {
+      "stats": {
+        "cagr": 0.10665747850858076,
+        "max_drawdown": -0.2210946635650738,
+        "utility": -0.0038898532739561342,
+        "vol": 0.12992516825437697,
+        "n_days": 3350
+      },
+      "meta": {
+        "n_days": 3350,
+        "n_fills": 6370,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "dividend_cash_total": 2558533.66936088,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-03",
+        "mean_e45_exposure": 0.9935820895522388
+      },
+      "apply_e22": true,
+      "e45_profile": "E1_BINARY"
     }
   },
   "deltas": {
     "e22_minus_e16e18_cagr": 0.03968092144008328,
-    "e22_minus_e16e18_mdd": 0.006603919985929019,
-    "e45proxy_minus_e22_cagr": -0.008001090513803266,
-    "e45proxy_minus_e22_mdd": 0.019812981745015668,
+    "e45_e3_minus_e22_cagr": -0.026020539125214626,
+    "e45_e3_minus_e22_mdd": 0.015798670297611173,
+    "e45_e1_minus_e22_cagr": -0.005221573526524859,
+    "e45_e1_minus_e22_mdd": 0.0,
     "e22_dividend_cash_total": 2611580.6577671794
   },
   "e45_verification": {
@@ -117,7 +208,9 @@
       "V412D_validation_mdd_reported": -0.1891,
       "handoff_claim_mdd": -0.1316
     },
-    "e45_module_paths": [],
+    "e45_module_paths": [
+      "scripts/e45_crisis_core.py"
+    ],
     "lineage_scripts": [
       "scripts/v412e1_crisis_buffer.py",
       "scripts/v412e11_graduated_crisis.py",
@@ -132,14 +225,18 @@
       "blind_opened_after_E3_validation_pass": true,
       "parameter_selection_used_2023_2026": false
     },
-    "conclusion": "No official e45 module; MDD\u2248-13.16% remains UNVERIFIED text claim. Closest lineage MDDs are E1/E1.1/E3 validation figures (more severe). Formal strategy remains V4.12-D; E3 validation_pass but not promoted."
+    "conclusion": "No official e45 module; MDD\u2248-13.16% remains UNVERIFIED text claim. Closest lineage MDDs are E1/E1.1/E3 validation figures (more severe). Formal strategy remains V4.12-D; E3 validation_pass but not promoted.",
+    "named_module": "scripts/e45_crisis_core.py",
+    "named_module_status": "CHALLENGER_CANDIDATE_NOT_PROMOTED",
+    "promotion_allowed": false
   },
   "decisions": {
     "e16_full_history_reconstruction": "DONE_IN_CHALLENGER",
     "e22_wired_into_nav_copy": "DONE_IN_CHALLENGER",
-    "e45_official_module": "STILL_MISSING",
+    "e45_named_module": "CREATED_CHALLENGER_CANDIDATE",
+    "e45_promoted_to_soft_frozen_critical": false,
     "e45_mdd_claim_13_16": "NOT_FOUND_IN_ARTIFACTS",
-    "combined_four_layer_engine": "PARTIAL_CORE_EXEC_DIV_PLUS_PROXY",
-    "next": "Keep this sandbox as the Phase-10 integration baseline. Do not promote E45PROXY. Official E45 still requires a named module and verified baseline artifact before any SOFT_FROZEN_CRITICAL challenger."
+    "combined_four_layer_engine": "CORE_EXEC_DIV_PLUS_NAMED_E45_CANDIDATE",
+    "next": "Named module scripts/e45_crisis_core.py exists and is wired. Still NOT promoted. Promote only via higher-bar challenger vs V4.12-D + explicit governance approval."
   }
 }

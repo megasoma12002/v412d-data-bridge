@@ -2,15 +2,13 @@
 """Early-stack combined NAV challenger (EXPERIMENTAL / read-only).
 
 Closes the architectural gap documented in E50_HANDOFF_VERIFICATION.md:
-  Market -> E16 Core -> E18+E22 Execution -> (optional E45 lineage proxy)
+  Market -> E16 Core -> E18+E22 Execution -> E45 crisis module (challenger candidate)
 
 Does NOT modify SOFT_FROZEN baselines:
   - does not edit scripts/e21_forward_pipeline.py
   - does not append to forward/e21/ immutable ledgers
-  - does not invent or promote an official e45 module
-  - does not retune E45 / E16 / E18 / E22 parameters in place
-
-Outputs under a challenger sandbox only.
+  - does not promote e45_crisis_core.py to SOFT_FROZEN_CRITICAL
+  - does not retune E16 / E18 / E22 parameters in place
 """
 from __future__ import annotations
 
@@ -23,6 +21,9 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import e45_crisis_core as e45
 
 # Mirror E21 SOFT_FROZEN membership / fees (read-only copy of constants; not an edit).
 FIN = ["2880", "2886", "2892", "5880"]
@@ -99,10 +100,11 @@ def simulate_core(
     dividends: pd.DataFrame | None,
     *,
     apply_e22: bool,
-    e45_crisis_equity_scale: float | None,
+    e45_exposure: pd.Series | None = None,
+    e45_legacy_crisis_scale: float | None = None,
     capital: float = CAPITAL,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
-    """Exact T+1 open fills on raw close/open; optional E22 cash credits; optional E45 proxy scale."""
+    """Exact T+1 open fills; optional E22 cash; optional named-E45 exposure or legacy proxy."""
     m = market.copy()
     m["date"] = pd.to_datetime(m["date"])
     closes = m.pivot(index="date", columns="code", values="close").sort_index().ffill()
@@ -207,7 +209,7 @@ def simulate_core(
         if rg == "Crisis":
             crisis_days += 1
 
-        # 4) Target weights (E16); optional E45 lineage proxy scales *gross equity*
+        # 4) Target weights (E16) × optional named E45 exposure (or legacy Crisis proxy)
         tw = target.loc[dt]
         sleeve_w = {
             "Financial": float(tw["Financial"]),
@@ -215,11 +217,12 @@ def simulate_core(
             "0050": float(tw["0050"]),
         }
         equity_scale = 1.0
-        if e45_crisis_equity_scale is not None and rg == "Crisis":
-            equity_scale = float(e45_crisis_equity_scale)
-            s = sum(sleeve_w.values())
-            if s > 0:
-                sleeve_w = {k: v / s * equity_scale for k, v in sleeve_w.items()}
+        if e45_exposure is not None and dt in e45_exposure.index:
+            equity_scale = float(e45_exposure.loc[dt])
+            sleeve_w = e45.apply_exposure_to_sleeve_weights(sleeve_w, equity_scale)
+        elif e45_legacy_crisis_scale is not None and rg == "Crisis":
+            equity_scale = float(e45_legacy_crisis_scale)
+            sleeve_w = e45.apply_exposure_to_sleeve_weights(sleeve_w, equity_scale)
 
         sleeve_vals = {
             "Financial": sum(vals[c] for c in FIN),
@@ -287,6 +290,7 @@ def simulate_core(
         "crisis_days": crisis_days,
         "start": nav_df["date"].iloc[0] if len(nav_df) else None,
         "end": nav_df["date"].iloc[-1] if len(nav_df) else None,
+        "mean_e45_exposure": float(nav_df["e45_equity_scale"].mean()) if len(nav_df) else None,
     }
     return nav_df, fills_df, meta
 
@@ -366,6 +370,7 @@ def verify_e45_claim(repo: Path) -> dict:
     }
 
 
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--market", type=Path, default=Path("forward/e21/live_market.csv"))
@@ -373,16 +378,17 @@ def main() -> None:
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--capital", type=float, default=CAPITAL)
     ap.add_argument(
-        "--e45-crisis-equity-scale",
+        "--e45-legacy-crisis-scale",
         type=float,
         default=0.70,
-        help="CHALLENGER proxy only: scale sleeve weights by this factor on E16 Crisis days",
+        help="Legacy ad-hoc Crisis-day scale (comparison only; not named E45)",
     )
     args = ap.parse_args()
     out = args.out
     (out / "outputs").mkdir(parents=True, exist_ok=True)
     (out / "reports").mkdir(parents=True, exist_ok=True)
     repo = Path(".").resolve()
+    Path("research/e45").mkdir(parents=True, exist_ok=True)
 
     print("loading market / dividends ...", flush=True)
     market = pd.read_csv(args.market, dtype={"code": str})
@@ -397,12 +403,26 @@ def main() -> None:
     _p, _sleeve, target, regime = e16_features(market)
     regime_share = regime.value_counts(normalize=True).to_dict()
 
+    close_eq = (
+        market[market["code"].isin(ALL)]
+        .pivot(index="date", columns="code", values="close")
+        .sort_index()
+        .ffill()
+    )
+    print("computing named E45 exposures (E3 winner + E1 binary) ...", flush=True)
+    e45_e3 = e45.compute_exposure(close_eq, "E3_VOLTARGET_WINNER")["exposure"]
+    e45_e1 = e45.compute_exposure(close_eq, "E1_BINARY")["exposure"]
+    e45.write_status(out / "reports" / "e45_module_status.json")
+    e45.write_status(Path("research/e45/e45_status.json"))
+
     variants = {
-        "E16_E18": dict(apply_e22=False, e45_crisis_equity_scale=None),
-        "E16_E18_E22": dict(apply_e22=True, e45_crisis_equity_scale=None),
-        "E16_E18_E22_E45PROXY": dict(
-            apply_e22=True, e45_crisis_equity_scale=args.e45_crisis_equity_scale
+        "E16_E18": dict(apply_e22=False, e45_exposure=None, e45_legacy_crisis_scale=None),
+        "E16_E18_E22": dict(apply_e22=True, e45_exposure=None, e45_legacy_crisis_scale=None),
+        "E16_E18_E22_E45LEGACY": dict(
+            apply_e22=True, e45_exposure=None, e45_legacy_crisis_scale=args.e45_legacy_crisis_scale
         ),
+        "E16_E18_E22_E45_E3": dict(apply_e22=True, e45_exposure=e45_e3, e45_legacy_crisis_scale=None),
+        "E16_E18_E22_E45_E1": dict(apply_e22=True, e45_exposure=e45_e1, e45_legacy_crisis_scale=None),
     }
     results = {}
     for name, cfg in variants.items():
@@ -413,122 +433,111 @@ def main() -> None:
         stats = nav_stats(nav)
         nav.to_csv(out / "outputs" / f"{name.lower()}_daily_nav.csv", index=False)
         fills.to_csv(out / "outputs" / f"{name.lower()}_fills.csv", index=False)
-        results[name] = {"stats": stats, "meta": meta, **cfg}
+        results[name] = {
+            "stats": stats,
+            "meta": meta,
+            "apply_e22": cfg["apply_e22"],
+            "e45_profile": (
+                "E3_VOLTARGET_WINNER" if name.endswith("E45_E3")
+                else "E1_BINARY" if name.endswith("E45_E1")
+                else "LEGACY_CRISIS_SCALE" if name.endswith("E45LEGACY")
+                else None
+            ),
+        }
         print(
             f"  {name}: CAGR={stats['cagr']:.4f} MDD={stats['max_drawdown']:.4f} "
-            f"util={stats['utility']:.4f} fills={meta['n_fills']} div$={meta['dividend_cash_total']:.0f}",
+            f"util={stats['utility']:.4f} fills={meta['n_fills']} "
+            f"mean_exp={meta.get('mean_e45_exposure')}",
             flush=True,
         )
 
     e45_audit = verify_e45_claim(repo)
-    # compare E22 incremental
+    e45_audit["named_module"] = "scripts/e45_crisis_core.py"
+    e45_audit["named_module_status"] = e45.MODULE_STATUS
+    e45_audit["promotion_allowed"] = e45.PROMOTION_ALLOWED
     a = results["E16_E18"]["stats"]
     b = results["E16_E18_E22"]["stats"]
-    c = results["E16_E18_E22_E45PROXY"]["stats"]
+    e3s = results["E16_E18_E22_E45_E3"]["stats"]
+    e1s = results["E16_E18_E22_E45_E1"]["stats"]
 
     report = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "stage": "EARLY_STACK_COMBINED_NAV_CHALLENGER",
+        "stage": "EARLY_STACK_COMBINED_NAV_WITH_NAMED_E45",
         "governance": {
             "modifies_soft_frozen_files": False,
-            "e16_e18_e22_e45_inplace_edit": False,
-            "e45_proxy_is_official": False,
+            "e45_module_path": "scripts/e45_crisis_core.py",
+            "e45_module_status": e45.MODULE_STATUS,
+            "e45_promoted": False,
             "label": "EXPERIMENTAL_CHALLENGER_SANDBOX",
         },
+        "e45_manifest": e45.manifest_dict(),
         "inputs": {
             "market": str(args.market),
             "dividends": str(args.dividends),
             "capital": args.capital,
-            "warmup_days": WARMUP_DAYS,
             "core_universe": ALL,
         },
         "regime_share": {str(k): float(v) for k, v in regime_share.items()},
         "variants": results,
         "deltas": {
             "e22_minus_e16e18_cagr": (b["cagr"] or 0) - (a["cagr"] or 0),
-            "e22_minus_e16e18_mdd": (b["max_drawdown"] or 0) - (a["max_drawdown"] or 0),
-            "e45proxy_minus_e22_cagr": (c["cagr"] or 0) - (b["cagr"] or 0),
-            "e45proxy_minus_e22_mdd": (c["max_drawdown"] or 0) - (b["max_drawdown"] or 0),
+            "e45_e3_minus_e22_cagr": (e3s["cagr"] or 0) - (b["cagr"] or 0),
+            "e45_e3_minus_e22_mdd": (e3s["max_drawdown"] or 0) - (b["max_drawdown"] or 0),
+            "e45_e1_minus_e22_cagr": (e1s["cagr"] or 0) - (b["cagr"] or 0),
+            "e45_e1_minus_e22_mdd": (e1s["max_drawdown"] or 0) - (b["max_drawdown"] or 0),
             "e22_dividend_cash_total": results["E16_E18_E22"]["meta"]["dividend_cash_total"],
         },
         "e45_verification": e45_audit,
         "decisions": {
             "e16_full_history_reconstruction": "DONE_IN_CHALLENGER",
             "e22_wired_into_nav_copy": "DONE_IN_CHALLENGER",
-            "e45_official_module": "STILL_MISSING",
+            "e45_named_module": "CREATED_CHALLENGER_CANDIDATE",
+            "e45_promoted_to_soft_frozen_critical": False,
             "e45_mdd_claim_13_16": e45_audit["claim_status"],
-            "combined_four_layer_engine": "PARTIAL_CORE_EXEC_DIV_PLUS_PROXY",
+            "combined_four_layer_engine": "CORE_EXEC_DIV_PLUS_NAMED_E45_CANDIDATE",
             "next": (
-                "Keep this sandbox as the Phase-10 integration baseline. "
-                "Do not promote E45PROXY. Official E45 still requires a named module "
-                "and verified baseline artifact before any SOFT_FROZEN_CRITICAL challenger."
+                "Named module scripts/e45_crisis_core.py exists and is wired. "
+                "Still NOT promoted. Promote only via higher-bar challenger vs V4.12-D "
+                "+ explicit governance approval."
             ),
         },
     }
-
     (out / "reports" / "early_stack_combined_nav_summary.json").write_text(
         json.dumps(report, indent=2, default=str) + "\n"
     )
-
     lines = [
-        "# Early-Stack Combined NAV Challenger",
+        "# Early-Stack Combined NAV + Named E45 Module",
         "",
-        "**EXPERIMENTAL sandbox.** Does not edit E16 / E18 / E22 / E45 SOFT_FROZEN baselines.",
+        "**EXPERIMENTAL.** Named E45 exists but is **not** promoted to SOFT_FROZEN_CRITICAL.",
         "",
-        "## What this closes",
-        "",
-        "1. **E16 full-history causal reconstruction** from `forward/e21/live_market.csv`",
-        "2. **E18 Exact T+1** open fills on the reconstructed book",
-        "3. **E22 dividends** credited on `cash_ex_date` into a NAV *copy*",
-        "4. **E45 verification** of the −13.16% MDD claim + lineage inventory",
-        "5. **E45PROXY** (challenger only): scale equity sleeve weights on E16 `Crisis` days",
+        f"Module: `scripts/e45_crisis_core.py` — `{e45.MODULE_STATUS}`",
         "",
         "## Results",
         "",
-        "| Variant | CAGR | MDD | Util | Vol | Div cash |",
-        "|---|---:|---:|---:|---:|---:|",
+        "| Variant | CAGR | MDD | Util | Mean E45 exp |",
+        "|---|---:|---:|---:|---:|",
     ]
     for name in variants:
         s = results[name]["stats"]
-        div = results[name]["meta"]["dividend_cash_total"]
+        m = results[name]["meta"]
         lines.append(
             f"| {name} | {100*(s['cagr'] or 0):.2f}% | {100*(s['max_drawdown'] or 0):.2f}% | "
-            f"{s['utility']:.4f} | {100*(s['vol'] or 0):.2f}% | {div:,.0f} |"
+            f"{s['utility']:.4f} | {m.get('mean_e45_exposure')} |"
         )
     lines += [
         "",
-        f"- E22 CAGR lift vs E16+E18: `{report['deltas']['e22_minus_e16e18_cagr']:.4%}`",
-        f"- E45PROXY MDD change vs E16+E18+E22: `{report['deltas']['e45proxy_minus_e22_mdd']:.4%}`",
-        "",
-        "## E45 verification",
-        "",
-        f"- Official `e45` module paths: **{e45_audit['e45_module_paths'] or 'none'}**",
-        f"- Handoff claim MDD ≈ −13.16%: **`{e45_audit['claim_status']}`**",
-        f"- Lineage MDDs: E1 `{lineage_fmt(-0.1721)}`, E1.1 `{lineage_fmt(-0.1581)}`, E3 `{lineage_fmt(-0.1849)}`",
-        f"- Research decision: `{e45_audit.get('research_decision')}`",
+        f"- E22 CAGR lift: `{report['deltas']['e22_minus_e16e18_cagr']:.4%}`",
+        f"- E45-E3 MDD delta vs E22: `{report['deltas']['e45_e3_minus_e22_mdd']:.4%}`",
+        f"- Claimed MDD -13.16%: `{e45.CLAIMED_MDD_STATUS}`",
         "",
         "## Decisions",
         "",
     ]
     for k, v in report["decisions"].items():
         lines.append(f"- `{k}`: {v}")
-    lines += [
-        "",
-        "## Explicit non-actions",
-        "",
-        "- No in-place edit of E21 ledgers or `e21_forward_pipeline.py`",
-        "- No promotion of E45PROXY to SOFT_FROZEN_CRITICAL",
-        "- No A3-R1 overlay merge in this pass (core stack first)",
-        "",
-        "Artifact: `reports/early_stack_combined_nav_summary.json`",
-        "",
-    ]
+    lines += ["", "See `research/e45/E45_MODULE_STATUS.md`.", ""]
     (out / "EARLY_STACK_COMBINED_NAV.md").write_text("\n".join(lines))
     print(json.dumps({"decisions": report["decisions"], "deltas": report["deltas"]}, indent=2, default=str))
-
-
-def lineage_fmt(x: float) -> str:
-    return f"{100*x:.2f}%"
 
 
 if __name__ == "__main__":
