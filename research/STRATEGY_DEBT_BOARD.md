@@ -16,7 +16,7 @@ Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.
 | Track | Action | Status |
 |---|---|---|
 | **A** S9A1 paper monitor | Harness + status from lock; month-end KPI cadence | **OPERATING** |
-| **B** E50-A3-S1 stress engine | OOF screen S1-QRES/DEFRES/VALRES | **RUNNING** |
+| **B** E50-A3-S1 stress engine | OOF screen S1-QRES/DEFRES/VALRES | **OOF winner → adv-lite next** |
 | Adversarial winner rule | OOF → adv-lite → one held-out; only PASS replaces A | **PREDECLARED** |
 
 ### NEXT

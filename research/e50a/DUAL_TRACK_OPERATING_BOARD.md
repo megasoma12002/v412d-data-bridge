@@ -48,4 +48,13 @@ Adversarial selection picks the **paper/monitor successor**, not a live strategy
 
 ## Label
 
-`DUAL_TRACK_A_MONITOR_B_S1_CHARTER_OPEN`
+`DUAL_TRACK_A_OPERATING_B_OOF_WINNER_ADV_PENDING`
+
+### Track B OOF lock (pending adv-lite)
+
+- Decision: `OOF_S1_DUAL_GATE_STRESS_WINNER_READY_FOR_ADV_LITE`
+- Family: **S1-QRES** (quality residual vs momentum)
+- Detector: **COMBO_VOL80_VAL00**
+- Shell: C4 (top_k=22, reb=42, exit=2.25)
+- Artifacts: `research/e50a/E50A_S1_OOF_SCREEN.md`  
+- Next: `scripts/e50a_s1_adv_lite.py` (OOF placebo / year-split); only then held-out

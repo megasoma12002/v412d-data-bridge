@@ -187,12 +187,9 @@ def evaluate(orders, execution, name: str, stress_dates: set[date], start: date,
 
 
 def stress_beats(challenger: dict, baseline: dict) -> bool:
+    """Board rule: stress-window *mean excess* strictly better than baseline."""
     sex, bex = challenger.get("s_crisis_mean_excess"), baseline.get("s_crisis_mean_excess")
-    scomp, bcomp = challenger.get("s_crisis_strategy_compound"), baseline.get("s_crisis_strategy_compound")
-    return (
-        (sex is not None and bex is not None and sex > bex + 1e-12)
-        or (scomp is not None and bcomp is not None and scomp > bcomp + 1e-12)
-    )
+    return sex is not None and bex is not None and sex > bex + 1e-12
 
 
 def main() -> None:
