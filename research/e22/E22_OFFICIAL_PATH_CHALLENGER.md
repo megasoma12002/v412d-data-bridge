@@ -21,6 +21,7 @@ Does **not** edit `scripts/e21_forward_pipeline.py` or append rewritten history 
 ## Paper package (executed 2026-09-04)
 
 - Script: `scripts/e22_challenger_forward_pipeline.py`
-- Ledgers: `forward/e22_challenger/` (QC **PASS**, 9 sessions beside E21)
-- Short live window had **no** cash ex-dates → NAV lift vs E21 = 0 on those sessions; full-history economics remain the +3.97 pp CAGR case above
-- Next: keep paper-running; governance approval before new SOFT_FROZEN E22 version
+- Ledgers: `forward/e22_challenger/` (QC **PASS**)
+- Extended bootstrap **2026-07-01 → 2026-09-03** (46 sessions): **~84k** dividend cash credited on 5 ex-dates
+- Promotion package: `research/e22/E22_PROMOTION_PACKAGE.md` → **`AWAITING_EXPLICIT_HUMAN_APPROVAL`** for `E22_v2_CASH_EX_OFFICIAL_PATH`
+- Next: human signs approval phrase; do not cut over or rewrite `forward/e21/` until then
