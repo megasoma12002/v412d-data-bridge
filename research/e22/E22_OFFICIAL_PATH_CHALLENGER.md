@@ -17,3 +17,10 @@
 3. Explicit approval → new SOFT_FROZEN E22 version
 
 Does **not** edit `scripts/e21_forward_pipeline.py` or append rewritten history to `forward/e21/`.
+
+## Paper package (executed 2026-09-04)
+
+- Script: `scripts/e22_challenger_forward_pipeline.py`
+- Ledgers: `forward/e22_challenger/` (QC **PASS**, 9 sessions beside E21)
+- Short live window had **no** cash ex-dates → NAV lift vs E21 = 0 on those sessions; full-history economics remain the +3.97 pp CAGR case above
+- Next: keep paper-running; governance approval before new SOFT_FROZEN E22 version

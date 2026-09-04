@@ -236,5 +236,8 @@ That single step converts “missing official hedge core” from a naming proble
 | E45-C1 vs D (PIT-reconstructed 12-stock panel) | **`B_KEEP_D_AS_BASELINE_E45_API_ONLY`** — MDD helps, return/Sharpe floor fail |
 | Verified MDD artifact | `research/e45/e45_verified_baseline.json` (retires reliance on −13.16% text) |
 | E22 official-path challenger | **`RECOMMEND_WIRE_E22_…_VIA_NEW_VERSION`** — CAGR +3.97 pp on E16 book |
+| **P1 G2** four-layer paper | `forward/e50_stack/` QC **PASS** (80/20 + alpha-cut-first; E45 signal-only) |
+| **P1 G5** E22 paper forward | `forward/e22_challenger/` QC **PASS** (9 sessions beside E21; no ex-date in window → NAV lift 0) |
+| **P1 G3** alpha fork | **3B** — `research/GOVERNANCE_ALPHA_PANEL_SATURATED.md` |
 
-Next P1: four-layer paper forward (`forward/e50_stack/`) using locked alpha + D/E45-API exposure signal; G3 choose new-info vs saturation.
+Next P2: G4 hedge sleeve only if product still requires crash PnL beyond E45 de-lever; keep E22 challenger paper-running until governance approves a new SOFT_FROZEN version.

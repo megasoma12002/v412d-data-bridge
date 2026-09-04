@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "checks": {
+    "nav_unique_date": true,
+    "state_unique_date": true,
+    "nav_positive": true,
+    "date_monotonic": true,
+    "sleeve_weights_sum_le_one": true,
+    "exposure_in_unit_interval": true,
+    "states_valid": true,
+    "audit_unique_date": true,
+    "audit_chain_links": true,
+    "exact_t1_core": true,
+    "no_same_bar_core": true
+  },
+  "nav_rows": 1851,
+  "state_rows": 1851,
+  "compare_vs_e21": {
+    "n_overlap_sessions": 5,
+    "e21_dates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28"
+    ],
+    "note": "Paper stack includes E22+alpha; E21 is core-short without E22 \u2014 levels not equal by design"
+  },
+  "generated_at_utc": "2026-09-04T06:10:36.142634+00:00"
+}

@@ -95,6 +95,11 @@ def main() -> None:
 3. Explicit approval → new SOFT_FROZEN E22 version
 
 Does **not** edit `scripts/e21_forward_pipeline.py` or append rewritten history to `forward/e21/`.
+
+## Paper package (executed)
+
+- `scripts/e22_challenger_forward_pipeline.py` → `forward/e22_challenger/`
+- Paper-parallel beside live E21 (Exact T+1 + dividend credits)
 """
     (out / "E22_OFFICIAL_PATH_CHALLENGER.md").write_text(md)
     Path("research/e22/E22_OFFICIAL_PATH_CHALLENGER.md").write_text(md)

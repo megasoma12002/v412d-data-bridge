@@ -1,0 +1,20 @@
+{
+  "package": "forward/e50_stack",
+  "status": "PAPER_EXPERIMENTAL",
+  "modifies_e21": false,
+  "e45_promoted": false,
+  "e45_role": "SIGNAL_ONLY_ALPHA_CUT_FIRST",
+  "e45_decision": "B_KEEP_D_AS_BASELINE_E45_API_ONLY",
+  "alpha_source": "repro/e50a3r1-audit-20260903/outputs/a3r1/daily_nav.csv",
+  "alpha_status": "MIXED_OPTION2_LOCKED_A3R1",
+  "core_weight": 0.8,
+  "alpha_weight": 0.2,
+  "apply_e22_on_core": true,
+  "overlap_full": {
+    "start": "2019-01-02",
+    "end": "2026-08-28",
+    "n": 1851
+  },
+  "paper_from": null,
+  "generated_at_utc": "2026-09-04T06:10:08.888317+00:00"
+}
