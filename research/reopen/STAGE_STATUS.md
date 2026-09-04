@@ -25,6 +25,7 @@
 - 00713 / 00878: fail bar on longer windows
 - 00918 / 00896 / 00927 SLEEVE4: clear bar only on **short** listing windows → `STAGE8B_MULTI_ETF_INTERESTING_CONTINUE_SANDBOX` (research only)
 - Docs: `research/reopen/STAGE8_DECISION.md`, `research/reopen/STAGE8B_DECISION.md`
+- 00981A / 00991A: **`INCONCLUSIVE_TOO_SHORT`** (00991A cannot run; 00981A only 62 post-warmup days)
 
 ## Recommended next
 

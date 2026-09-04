@@ -1,0 +1,114 @@
+{
+  "generated_at": "2026-09-04T14:45:01.452860+00:00",
+  "stage": "8b",
+  "probe": "multi_defensive_etf_screen",
+  "candidates": [
+    "00981A",
+    "00991A"
+  ],
+  "params": {
+    "util_eps": 0.002,
+    "mdd_eps": 0.005,
+    "riskoff_shift": 0.25
+  },
+  "results": {
+    "00981A": {
+      "status": "RAN",
+      "start": "2025-05-27",
+      "end": "2026-09-04",
+      "n_dates": 314,
+      "books": {
+        "BASE_w": {
+          "stats_full": {
+            "cagr": 0.8303647426807361,
+            "mdd": -0.06915884109075654,
+            "util": 0.7957853221353579,
+            "n": 62,
+            "vol": 0.15812195494937606
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.8303647426807361,
+            "mdd": -0.06915884109075654,
+            "util": 0.7957853221353579,
+            "n": 62,
+            "vol": 0.15812195494937606
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 87604.28759034001,
+            "n_days": 62,
+            "mean_tgt_def": 0.0,
+            "mean_w_def": 0.0
+          }
+        },
+        "SLEEVE4": {
+          "stats_full": {
+            "cagr": 0.7263656904631148,
+            "mdd": -0.028174629572229493,
+            "util": 0.7122783756770001,
+            "n": 62,
+            "vol": 0.15379013528402147
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.7263656904631148,
+            "mdd": -0.028174629572229493,
+            "util": 0.7122783756770001,
+            "n": 62,
+            "vol": 0.15379013528402147
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 67206.9486797,
+            "n_days": 62,
+            "mean_tgt_def": 0.15650948552660685,
+            "mean_w_def": 0.15285040313572532
+          }
+        },
+        "RISKOFF": {
+          "stats_full": {
+            "cagr": 0.858658797897744,
+            "mdd": -0.03253072449081518,
+            "util": 0.8423934356523364,
+            "n": 62,
+            "vol": 0.15543451800238348
+          },
+          "stats_sealed_2025p": {
+            "cagr": 0.858658797897744,
+            "mdd": -0.03253072449081518,
+            "util": 0.8423934356523364,
+            "n": 62,
+            "vol": 0.15543451800238348
+          },
+          "meta": {
+            "exact_t1_ok": true,
+            "same_bar_fills": 0,
+            "dividend_cash_total": 59346.42244052,
+            "n_days": 62,
+            "mean_tgt_def": 0.11290322580645161,
+            "mean_w_def": 0.11072370176338561
+          }
+        }
+      },
+      "interesting": [
+        "RISKOFF"
+      ],
+      "exact_t1_ok": true
+    },
+    "00991A": {
+      "status": "TOO_SHORT",
+      "n_dates": 172,
+      "start": "2025-12-18",
+      "end": "2026-09-04"
+    }
+  },
+  "interesting": [
+    "00981A:RISKOFF"
+  ],
+  "decision": "STAGE8B_00981A_00991A_INCONCLUSIVE_TOO_SHORT",
+  "stance": "00991A too short to run; 00981A RISKOFF numeric beat is on only 62 post-warmup days — inconclusive, no promote.",
+  "promotion": false,
+  "e22_v2_untouched": true,
+  "actionable": false
+}
