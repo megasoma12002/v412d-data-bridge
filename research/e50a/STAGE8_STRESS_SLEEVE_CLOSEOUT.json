@@ -1,0 +1,21 @@
+{
+  "generated_at_utc": "2026-09-04T19:10:00+00:00",
+  "stage": "STAGE8_STRESS_SLEEVE_CLOSEOUT",
+  "decision_label": "STAGE8_STRESS_SLEEVE_SATURATED",
+  "rerun": false,
+  "reason_no_rerun": "8A/8B/8C already completed on diagnosis branch with MIXED_HELDOUT; TECH2 cash/sleeve grids saturated",
+  "heldout": {
+    "S8B1": "MIXED_HELDOUT",
+    "S8C1": "MIXED_HELDOUT"
+  },
+  "beyond_stage8": {
+    "S9A1": "MIXED_HELDOUT_but_stress_transfer_vs_C4",
+    "governance": "OPTION2_S9A1_PAPER_MONITOR"
+  },
+  "live_overlay": false,
+  "next": [
+    "Operate Option-2 S9A1 paper monitor (not live capital)",
+    "New stress return engine under new EXPERIMENTAL id — or stop A3-R1 controller grids",
+    "Do not rerun TECH2 cash/sleeve grids"
+  ]
+}
