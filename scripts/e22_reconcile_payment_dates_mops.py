@@ -243,7 +243,7 @@ def main() -> None:
     mismatches = [c for c in confirmed if not c["match"]]
     report = {
         "status": "PASS" if not mismatches else "WARN_MISMATCH",
-        "generated_at_utc": datetime.utcnow().isoformat() + "Z",
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "mops_rows_parsed": len(mops_rows),
         "mops_unique_ex_keys": len(by_key),
         "official_filled_from_mops": filled,
