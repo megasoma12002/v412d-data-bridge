@@ -1,0 +1,23 @@
+{
+  "package": "e22_v2",
+  "version_id": "E22_v2_CASH_EX_OFFICIAL_PATH",
+  "status": "SOFT_FROZEN",
+  "governance_class": "SOFT_FROZEN",
+  "approved_at": "2026-09-04",
+  "approval_phrase": "APPROVE E22_v2_CASH_EX_OFFICIAL_PATH \u2014 wire cash_ex_date credits into official exec path as new SOFT_FROZEN version; preserve forward/e21 forever.",
+  "modifies_e21": false,
+  "preserves_e21_forever": true,
+  "official_script": "scripts/e22_v2_forward_pipeline.py",
+  "official_state_dir": "forward/e22_v2",
+  "market_source": "forward/e21/live_market.csv",
+  "dividends": "data/dividend_events/e22_dividend_events.csv",
+  "cutover_from": "forward/e21",
+  "cutover_seed_date": "2026-09-03",
+  "pending_orders_carried": 8,
+  "prior_versions_readable": [
+    "forward/e21/",
+    "forward/e22_challenger/",
+    "data/dividend_events/e22_dividend_events.csv"
+  ],
+  "generated_at_utc": "2026-09-04T07:13:52.817356+00:00"
+}

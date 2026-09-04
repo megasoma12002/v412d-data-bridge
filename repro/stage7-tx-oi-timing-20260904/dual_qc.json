@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-09-04T13:52:25.925013+00:00",
+  "stage": 7,
+  "e22_v2": {
+    "status": "PASS",
+    "checks": {
+      "signals_unique_date": true,
+      "nav_unique_date": true,
+      "weights_sum_one": true,
+      "nav_positive": true,
+      "no_negative_cash": true,
+      "date_monotonic": true,
+      "orders_unique_id": true,
+      "frozen_financial_universe": true,
+      "fills_unique_id": true,
+      "fills_reference_existing_orders": true,
+      "exact_t1_fills": true,
+      "audit_chain_links": true,
+      "config_soft_frozen_v2": true,
+      "e21_untouched_marker": true,
+      "e21_ledger_present": true,
+      "e21_not_rewritten_as_e22": true
+    },
+    "signal_rows": 2,
+    "nav_rows": 2,
+    "version_id": "E22_v2_CASH_EX_OFFICIAL_PATH",
+    "package": "e22_v2",
+    "modifies_e21": false,
+    "generated_at_utc": "2026-09-04T13:52:25.920088+00:00"
+  },
+  "e22_v3_challenger": {
+    "status": "PASS",
+    "checks": {
+      "signals_unique_date": true,
+      "nav_unique_date": true,
+      "weights_sum_one": true,
+      "nav_positive": true,
+      "no_negative_cash": true,
+      "date_monotonic": true,
+      "orders_unique_id": true,
+      "frozen_financial_universe": true,
+      "audit_chain_links": true,
+      "config_experimental_v3": true,
+      "e21_untouched_marker": true,
+      "e21_ledger_present": true,
+      "e21_not_rewritten_as_e22": true
+    },
+    "signal_rows": 1,
+    "nav_rows": 1,
+    "version_id": "E22_v3_CASH_PAY_PAPER_CHALLENGER",
+    "package": "e22_v3_challenger",
+    "modifies_e21": false,
+    "generated_at_utc": "2026-09-04T13:52:25.924849+00:00"
+  },
+  "dual_pass": true,
+  "promotion": false,
+  "note": "Ops monitoring only \u2014 v3 remains EXPERIMENTAL_PAPER"
+}

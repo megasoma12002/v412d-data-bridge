@@ -1,0 +1,2 @@
+date,generated_at_utc,data_max_date,regime,score_financial,score_telecom,score_0050,e19_points,e19_alert,e20_confirmations,e20_streak,e16_financial,e16_telecom,e16_0050,e20_financial,e20_telecom,e20_0050,e22_dividend_credit,row_kind,e22_version
+2026-09-04,2026-09-04T12:56:35.717044+00:00,2026-09-04,Bull,0.5606006159819014,-0.4862463305497926,-0.0743542854321087,1,False,3,2,0.8585936761335421,0.0639843151099286,0.0774220087565291,0.8585936761335421,0.0639843151099286,0.0774220087565291,0.0,CUTOVER_SEED,E22_v2_CASH_EX_OFFICIAL_PATH

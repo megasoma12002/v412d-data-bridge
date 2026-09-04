@@ -1,0 +1,9 @@
+{
+  "version_id": "E22_v2_CASH_EX_OFFICIAL_PATH",
+  "cutover_at_utc": "2026-09-04T07:13:52.817356+00:00",
+  "seed_date": "2026-09-03",
+  "seed_nav": 3187508.279090027,
+  "pending_orders_carried": 8,
+  "dividend_backfill": false,
+  "e21_preserved": true
+}

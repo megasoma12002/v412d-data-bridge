@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-09-04T13:52:27.943311+00:00",
+  "stage": 7,
+  "probe": "TX_front_month_OI_timing_overlay",
+  "contract": "EXPERIMENTAL_SANDBOX_NO_PROMOTE",
+  "params": {
+    "z_window": 60,
+    "z_threshold": 1.0,
+    "delever_exposure": 0.7,
+    "util_eps": 0.002,
+    "mdd_eps": 0.005,
+    "oi_lag_days": 1
+  },
+  "tx_rows": 2111,
+  "tx_date_min": "2018-01-02",
+  "tx_date_max": "2026-09-04",
+  "books": {
+    "BASE": {
+      "stats_full": {
+        "cagr": 0.11248792503555594,
+        "mdd": -0.2210946635650738,
+        "util": 0.0019405932530190406,
+        "n": 3351,
+        "vol": 0.13302408199653676
+      },
+      "stats_sealed_2025p": {
+        "cagr": 0.36040062512309556,
+        "mdd": -0.13659438986865136,
+        "util": 0.2921034301887699,
+        "n": 399,
+        "vol": 0.1931051566154024
+      },
+      "meta": {
+        "exact_t1_ok": true,
+        "same_bar_fills": 0,
+        "dividend_cash_total": 2611580.6577671794,
+        "n_fills": 6222,
+        "delever_days": 0
+      }
+    },
+    "OI_UP_DELEVER": {
+      "stats_full": {
+        "cagr": 0.098254683176912,
+        "mdd": -0.21433334835731976,
+        "util": -0.008911991001747888,
+        "n": 3351,
+        "vol": 0.12790770088958156
+      },
+      "stats_sealed_2025p": {
+        "cagr": 0.3088203983427231,
+        "mdd": -0.11203653931504409,
+        "util": 0.2528021286852011,
+        "n": 399,
+        "vol": 0.17792047795385815
+      },
+      "meta": {
+        "exact_t1_ok": true,
+        "same_bar_fills": 0,
+        "dividend_cash_total": 2468243.658906041,
+        "n_fills": 8171,
+        "delever_days": 104
+      }
+    },
+    "OI_DOWN_DELEVER": {
+      "stats_full": {
+        "cagr": 0.09771942631192965,
+        "mdd": -0.20955056916310655,
+        "util": -0.007055858269623627,
+        "n": 3351,
+        "vol": 0.12612699176555828
+      },
+      "stats_sealed_2025p": {
+        "cagr": 0.2913786574190742,
+        "mdd": -0.10963453981471405,
+        "util": 0.23656138751171718,
+        "n": 399,
+        "vol": 0.1746632346351722
+      },
+      "meta": {
+        "exact_t1_ok": true,
+        "same_bar_fills": 0,
+        "dividend_cash_total": 2446453.4692507,
+        "n_fills": 9068,
+        "delever_days": 216
+      }
+    }
+  },
+  "interesting_modes": [],
+  "exact_t1_ok": true,
+  "decision": "STOP_STAGE7_TX_OI_TIMING_OVERLAY",
+  "stance": "Neither OI delever overlay clears util+MDD bar vs BASE (or Exact T+1 failed). Do not retune thresholds after sealed look.",
+  "promotion": false,
+  "a0_untouched": true,
+  "e22_v2_untouched": true
+}
