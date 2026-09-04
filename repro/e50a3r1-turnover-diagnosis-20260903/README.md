@@ -9,6 +9,15 @@
 - Machine record: `reports/governance_decision_option2.json`
 - PR #19 stays **draft** — not a production promotion
 
+### Stage-13 adversarial review (same day)
+
+10-round red-team: **Option-2 kept with caveats** (worst round `WOUNDED`, not falsified).
+
+- Summary: `E50-A3-R1_STAGE13_ADVERSARIAL_10ROUNDS.md`
+- Caveats: `GOVERNANCE_OPTION2_ADVERSARIAL_CAVEATS.md`
+- JSON: `reports/stage13_adversarial_10rounds_summary.json`
+- Live monitor must use **causal** value-IC (`shift >= 21`); detector ≠ E45 crash overlay; still MIXED
+
 ---
 
 # Earlier notes (Stage-2 era)

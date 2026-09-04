@@ -222,7 +222,8 @@ def scramble_by_month(base_flags: dict[date, bool], start: date, end: date, rng)
         days = sorted(by_month[m])
         if n_on <= 0 or not days:
             continue
-        pick = set(rng.choice(days, size=min(n_on, len(days)), replace=False).tolist())
+        pick_idx = rng.choice(len(days), size=min(n_on, len(days)), replace=False)
+        pick = {days[int(i)] for i in pick_idx}
         for d in pick:
             out[d] = True
     return out
@@ -427,11 +428,16 @@ def main() -> None:
     pub_edge = (s9_val["s_crisis_mean_excess"] or 0) - (c4_val["s_crisis_mean_excess"] or 0)
     cau_edge = (causal_val["s_crisis_mean_excess"] or 0) - (c4_val["s_crisis_mean_excess"] or 0)
     r1_verdict = "SURVIVES"
+    pub_util = s9_val["utility"]
+    cau_util = causal_val["utility"]
     if not s9_val["exact_t1_ok"]:
         r1_verdict = "FALSIFIED"
     elif pub_edge > 0 and cau_edge <= 0:
         r1_verdict = "FALSIFIED"
     elif pub_edge > 0 and cau_edge < 0.5 * pub_edge:
+        r1_verdict = "WOUNDED"
+    elif pub_util is not None and cau_util is not None and cau_util < pub_util - 0.03:
+        # Look-ahead in value-IC can inflate headline util even when stress edge partly remains
         r1_verdict = "WOUNDED"
     elif abs((n_pub - n_cau) / max(n_pub, 1)) > 0.5:
         r1_verdict = "WOUNDED"

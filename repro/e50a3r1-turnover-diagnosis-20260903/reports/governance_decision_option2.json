@@ -1,6 +1,8 @@
 {
   "generated_at_utc": "2026-09-04T04:13:00+00:00",
+  "updated_at_utc": "2026-09-04T04:30:00+00:00",
   "decision_label": "GOVERNANCE_OPTION2_S9A1_PAPER_MONITOR_ACCEPTED",
+  "adversarial_label": "GOVERNANCE_OPTION2_ADVERSARIAL_CAVEATS_ACCEPTED",
   "user_choice": "方案2",
   "research_reference": {
     "id": "C4",
@@ -15,13 +17,17 @@
     "heldout_label": "MIXED_HELDOUT",
     "role": "paper_monitor_only",
     "frozen": false,
-    "replaces_e45": false
+    "replaces_e45": false,
+    "live_detector_must_be_causal_ic": true
   },
   "official_stack_unchanged": ["E16", "E18", "E22", "E45"],
   "gates_remain_experimental": true,
   "gate_promotion": false,
   "pr_merge_as_production": false,
   "no_retune_after_heldout": true,
+  "stage13_option2_decision": "OPTION2_KEEP_PAPER_MONITOR_WITH_ADVERSARIAL_CAVEATS",
   "runbook": "S9A1_PAPER_MONITOR_RUNBOOK.md",
-  "decision_doc": "GOVERNANCE_DECISION_OPTION2_S9A1_PAPER_MONITOR.md"
+  "decision_doc": "GOVERNANCE_DECISION_OPTION2_S9A1_PAPER_MONITOR.md",
+  "adversarial_doc": "GOVERNANCE_OPTION2_ADVERSARIAL_CAVEATS.md",
+  "stage13_summary": "E50-A3-R1_STAGE13_ADVERSARIAL_10ROUNDS.md"
 }

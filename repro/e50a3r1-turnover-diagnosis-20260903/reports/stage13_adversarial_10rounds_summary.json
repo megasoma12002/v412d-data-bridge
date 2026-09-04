@@ -1,0 +1,1112 @@
+{
+  "generated_at_utc": "2026-09-04T04:26:06.817350+00:00",
+  "stage": "STAGE13_ADVERSARIAL_10ROUNDS",
+  "protocol": "adversarial_falsification",
+  "e45_inplace_edit": false,
+  "no_retune": true,
+  "no_gate_promotion": true,
+  "baselines": {
+    "c4_val": {
+      "name": "C4_VAL",
+      "cagr": 0.21651419702170438,
+      "max_drawdown": -0.31867662365819793,
+      "utility": 0.05717588519260541,
+      "average_daily_turnover": 0.02187774517437871,
+      "block_bootstrap_positive_probability": 0.5588,
+      "mean_daily_excess": 6.696312809971239e-05,
+      "mean_gross_exposure": 0.9989764585465711,
+      "same_bar_fills": 0,
+      "exact_t1_ok": true,
+      "turnover_gate_pass": true,
+      "bootstrap_gate_pass": false,
+      "stress_flag_days": null,
+      "s_n_days": 976,
+      "s_n_crisis_days": 0,
+      "s_crisis_day_share": 0.0,
+      "s_crisis_mean_excess": null,
+      "s_crisis_hit_rate": null,
+      "s_crisis_sum_excess": null,
+      "s_crisis_strategy_compound": null,
+      "s_other_mean_excess": 6.696312809971228e-05,
+      "s_all_mean_excess": 6.696312809971239e-05
+    },
+    "s9a1_val": {
+      "name": "S9A1_VAL",
+      "cagr": 0.23451604088857625,
+      "max_drawdown": -0.2979344433848181,
+      "utility": 0.08554881919616719,
+      "average_daily_turnover": 0.0237750721105824,
+      "block_bootstrap_positive_probability": 0.6232,
+      "mean_daily_excess": 0.00010847273530382147,
+      "mean_gross_exposure": 0.9974670577321635,
+      "same_bar_fills": 0,
+      "exact_t1_ok": true,
+      "turnover_gate_pass": true,
+      "bootstrap_gate_pass": false,
+      "stress_flag_days": 97,
+      "s_n_days": 976,
+      "s_n_crisis_days": 97,
+      "s_crisis_day_share": 0.09938524590163934,
+      "s_crisis_mean_excess": 0.0007770435301989302,
+      "s_crisis_hit_rate": 0.5773195876288659,
+      "s_crisis_sum_excess": 0.07537322242929623,
+      "s_crisis_strategy_compound": -0.0014831151933610842,
+      "s_other_mean_excess": 3.469416066806994e-05,
+      "s_all_mean_excess": 0.00010847273530382147
+    },
+    "c4_sealed": {
+      "name": "C4_SEALED",
+      "cagr": 0.4767972763153663,
+      "max_drawdown": -0.20993341008934885,
+      "utility": 0.37183057127069186,
+      "average_daily_turnover": 0.011910846147008814,
+      "block_bootstrap_positive_probability": 0.9984,
+      "mean_daily_excess": 0.0008226556154373164,
+      "mean_gross_exposure": 0.9988623435722411,
+      "same_bar_fills": 0,
+      "exact_t1_ok": true,
+      "turnover_gate_pass": true,
+      "bootstrap_gate_pass": true,
+      "stress_flag_days": null,
+      "s_n_days": 878,
+      "s_n_crisis_days": 0,
+      "s_crisis_day_share": 0.0,
+      "s_crisis_mean_excess": null,
+      "s_crisis_hit_rate": null,
+      "s_crisis_sum_excess": null,
+      "s_crisis_strategy_compound": null,
+      "s_other_mean_excess": 0.0008226556154373166,
+      "s_all_mean_excess": 0.0008226556154373164
+    },
+    "s9a1_sealed": {
+      "name": "S9A1_SEALED",
+      "cagr": 0.5900318988662796,
+      "max_drawdown": -0.25005462579428106,
+      "utility": 0.4650045859691391,
+      "average_daily_turnover": 0.013816716018549148,
+      "block_bootstrap_positive_probability": 1.0,
+      "mean_daily_excess": 0.0011434577274922497,
+      "mean_gross_exposure": 0.9988623435722411,
+      "same_bar_fills": 0,
+      "exact_t1_ok": true,
+      "turnover_gate_pass": true,
+      "bootstrap_gate_pass": true,
+      "stress_flag_days": 163,
+      "s_n_days": 878,
+      "s_n_crisis_days": 163,
+      "s_crisis_day_share": 0.1856492027334852,
+      "s_crisis_mean_excess": 0.001094896017991568,
+      "s_crisis_hit_rate": 0.5337423312883436,
+      "s_crisis_sum_excess": 0.17846805093262558,
+      "s_crisis_strategy_compound": 0.1767500646020419,
+      "s_other_mean_excess": 0.0011545284388889084,
+      "s_all_mean_excess": 0.0011434577274922497
+    }
+  },
+  "rounds": {
+    "R1_leakage": {
+      "attack": "Detector uses val_ic_lag21 from trailing_ic with only shift(1); fwd_21d labels imply ~21d look-ahead.",
+      "findings": {
+        "exact_t1_ok": true,
+        "vol_rolling_percentile_is_causal": true,
+        "val_ic_published_vs_causal_corr": 0.22796404588627717,
+        "val_flag_days_published": 97,
+        "val_flag_days_causal": 72,
+        "val_flag_day_overlap": 26,
+        "published_stress_edge_vs_c4": 0.0007770435301989302,
+        "causal_stress_edge_vs_c4": 0.0006344391103360531,
+        "causal_minus_published_stress_ex": -0.00014260441986287706,
+        "published_point": {
+          "utility": 0.08554881919616719,
+          "block_bootstrap_positive_probability": 0.6232,
+          "s_crisis_mean_excess": 0.0007770435301989302
+        },
+        "causal_point": {
+          "utility": 0.030160489004183333,
+          "block_bootstrap_positive_probability": 0.4254,
+          "s_crisis_mean_excess": 0.0006344391103360531
+        },
+        "n_freeze_sig_published": 21,
+        "n_freeze_sig_causal": 22
+      },
+      "verdict": "WOUNDED",
+      "post_hoc_note": "Verdict upgraded after reviewing causal-IC utility collapse (0.0855 -> 0.0302); stress edge alone was insufficient."
+    },
+    "R2_placebo": {
+      "attack": "Matched-frequency random freeze calendar on VAL.",
+      "n_placebo": 20,
+      "n_on_days": 97,
+      "p_placebo_util_ge_s9a1": 0.0,
+      "p_placebo_stress_ex_ge_s9a1": 0.1,
+      "s9a1_utility": 0.08554881919616719,
+      "s9a1_stress_ex": 0.0007770435301989302,
+      "placebo_util_mean": 0.04000610590039323,
+      "placebo_stress_mean": -2.8487832568232764e-05,
+      "rows": [
+        {
+          "i": 0,
+          "utility": 0.034107903568982245,
+          "s_crisis_mean_excess": -0.0012042698260061363,
+          "boot": 0.3954,
+          "cagr": 0.1863189561373808
+        },
+        {
+          "i": 1,
+          "utility": 0.05197334118846936,
+          "s_crisis_mean_excess": 0.00029147877862767825,
+          "boot": 0.453,
+          "cagr": 0.2009405699265585
+        },
+        {
+          "i": 2,
+          "utility": 0.06179825873597006,
+          "s_crisis_mean_excess": 0.0004177617535032308,
+          "boot": 0.501,
+          "cagr": 0.2107654798137486
+        },
+        {
+          "i": 3,
+          "utility": 0.06653931438127075,
+          "s_crisis_mean_excess": -0.0006965698677170209,
+          "boot": 0.5246,
+          "cagr": 0.2155065354592065
+        },
+        {
+          "i": 4,
+          "utility": 0.03740960194290366,
+          "s_crisis_mean_excess": -0.00022963343729882272,
+          "boot": 0.4768,
+          "cagr": 0.2004288346488059
+        },
+        {
+          "i": 5,
+          "utility": 0.05197334118846936,
+          "s_crisis_mean_excess": 0.0003035740332219484,
+          "boot": 0.453,
+          "cagr": 0.2009405699265585
+        },
+        {
+          "i": 6,
+          "utility": 0.012443058058298928,
+          "s_crisis_mean_excess": -0.0003494151247621019,
+          "boot": 0.3758,
+          "cagr": 0.18317067976480095
+        },
+        {
+          "i": 7,
+          "utility": 0.05197334118846936,
+          "s_crisis_mean_excess": 0.00013600701186765115,
+          "boot": 0.453,
+          "cagr": 0.2009405699265585
+        },
+        {
+          "i": 8,
+          "utility": 0.0586040842734703,
+          "s_crisis_mean_excess": 0.0016105151218306964,
+          "boot": 0.458,
+          "cagr": 0.1959334209465191
+        },
+        {
+          "i": 9,
+          "utility": 0.023741346840798427,
+          "s_crisis_mean_excess": -0.0006746336258717743,
+          "boot": 0.3918,
+          "cagr": 0.18676057955583447
+        },
+        {
+          "i": 10,
+          "utility": 0.047287065273526274,
+          "s_crisis_mean_excess": -0.0004781913313496049,
+          "boot": 0.3824,
+          "cagr": 0.19015730944194997
+        },
+        {
+          "i": 11,
+          "utility": 0.04354657530853112,
+          "s_crisis_mean_excess": -0.00042934795569974244,
+          "boot": 0.3278,
+          "cagr": 0.18087591196602482
+        },
+        {
+          "i": 12,
+          "utility": 0.020823765634160663,
+          "s_crisis_mean_excess": -0.0005363568359463044,
+          "boot": 0.3776,
+          "cagr": 0.18384626826678607
+        },
+        {
+          "i": 13,
+          "utility": 0.045558339560549554,
+          "s_crisis_mean_excess": 0.0005724469922424956,
+          "boot": 0.396,
+          "cagr": 0.19416861097053872
+        },
+        {
+          "i": 14,
+          "utility": 0.008941446275881726,
+          "s_crisis_mean_excess": 0.00014109944277138927,
+          "boot": 0.2406,
+          "cagr": 0.15790867506395112
+        },
+        {
+          "i": 15,
+          "utility": 0.0385157480072813,
+          "s_crisis_mean_excess": 0.0013835180969147495,
+          "boot": 0.3478,
+          "cagr": 0.18269532401427635
+        },
+        {
+          "i": 16,
+          "utility": 0.03918119751508231,
+          "s_crisis_mean_excess": -0.0009202642665619571,
+          "boot": 0.3426,
+          "cagr": 0.18120253417211196
+        },
+        {
+          "i": 17,
+          "utility": 0.034717211232621004,
+          "s_crisis_mean_excess": 0.00037278100949168146,
+          "boot": 0.4296,
+          "cagr": 0.18538309346904458
+        },
+        {
+          "i": 18,
+          "utility": 0.06957661498430806,
+          "s_crisis_mean_excess": -0.0004894693131514791,
+          "boot": 0.4958,
+          "cagr": 0.21062650417980522
+        },
+        {
+          "i": 19,
+          "utility": 0.001410562848820185,
+          "s_crisis_mean_excess": 0.0002092126925287678,
+          "boot": 0.2656,
+          "cagr": 0.1642123689267967
+        }
+      ],
+      "verdict": "SURVIVES"
+    },
+    "R3_scramble": {
+      "attack": "Permute monthly detector mass within VAL while preserving monthly on-counts.",
+      "n": 15,
+      "p_scramble_stress_ex_ge_s9a1": 0.13333333333333333,
+      "p_scramble_util_ge_s9a1": 0.0,
+      "rows": [
+        {
+          "i": 0,
+          "utility": 0.05197334118846936,
+          "s_crisis_mean_excess": 0.00027163967398034864,
+          "boot": 0.453
+        },
+        {
+          "i": 1,
+          "utility": 0.04836222571482035,
+          "s_crisis_mean_excess": -0.00036884437123681143,
+          "boot": 0.4208
+        },
+        {
+          "i": 2,
+          "utility": 0.06189717361854996,
+          "s_crisis_mean_excess": -0.0007178701327575778,
+          "boot": 0.5012
+        },
+        {
+          "i": 3,
+          "utility": 0.037282191374536366,
+          "s_crisis_mean_excess": -0.0008602662927316359,
+          "boot": 0.3766
+        },
+        {
+          "i": 4,
+          "utility": 0.04354800581572538,
+          "s_crisis_mean_excess": -0.0006238442316770565,
+          "boot": 0.403
+        },
+        {
+          "i": 5,
+          "utility": 0.0336498434625947,
+          "s_crisis_mean_excess": -0.0008321591902877062,
+          "boot": 0.4106
+        },
+        {
+          "i": 6,
+          "utility": 0.026733291112902458,
+          "s_crisis_mean_excess": -0.0016009783251816428,
+          "boot": 0.3864
+        },
+        {
+          "i": 7,
+          "utility": 0.041424512938116,
+          "s_crisis_mean_excess": 0.0018853237782221232,
+          "boot": 0.4364
+        },
+        {
+          "i": 8,
+          "utility": 0.04249507123212992,
+          "s_crisis_mean_excess": -0.0005311673761132447,
+          "boot": 0.4022
+        },
+        {
+          "i": 9,
+          "utility": 0.031116721524006574,
+          "s_crisis_mean_excess": -0.002295627466072689,
+          "boot": 0.3572
+        },
+        {
+          "i": 10,
+          "utility": 0.04169553571305318,
+          "s_crisis_mean_excess": -0.0010683341650327574,
+          "boot": 0.4426
+        },
+        {
+          "i": 11,
+          "utility": 0.04599620659566789,
+          "s_crisis_mean_excess": -0.0004077082375057344,
+          "boot": 0.4356
+        },
+        {
+          "i": 12,
+          "utility": 0.04836222571482035,
+          "s_crisis_mean_excess": 0.0011885231255074008,
+          "boot": 0.4208
+        },
+        {
+          "i": 13,
+          "utility": 0.04919455974168935,
+          "s_crisis_mean_excess": -0.0007792625599467431,
+          "boot": 0.4386
+        },
+        {
+          "i": 14,
+          "utility": 0.050960291252381995,
+          "s_crisis_mean_excess": 3.471854548422668e-05,
+          "boot": 0.461
+        }
+      ],
+      "verdict": "SURVIVES"
+    },
+    "R4_subperiod": {
+      "attack": "Calendar-year util/excess S9A1 vs C4 on VAL and SEALED.",
+      "val_years": {
+        "2019": {
+          "c4": {
+            "n_days": 241,
+            "cagr": 0.4819350784594163,
+            "max_drawdown": -0.194674286675802,
+            "utility": 0.3845979351215153,
+            "mean_excess": 0.0006875203598410404,
+            "sum_excess": 0.16569240672169072
+          },
+          "s9a1": {
+            "n_days": 241,
+            "cagr": 0.3783062602756515,
+            "max_drawdown": -0.05828401326108257,
+            "utility": 0.3491642536451102,
+            "mean_excess": 0.0003543613948420365,
+            "sum_excess": 0.0854010961569308
+          },
+          "s9_beats_util": false
+        },
+        "2020": {
+          "c4": {
+            "n_days": 245,
+            "cagr": 0.375067708617874,
+            "max_drawdown": -0.2628667807933295,
+            "utility": 0.24363431822120923,
+            "mean_excess": 0.00021885819398414296,
+            "sum_excess": 0.053620257526115024
+          },
+          "s9a1": {
+            "n_days": 245,
+            "cagr": 0.4126231164182066,
+            "max_drawdown": -0.26931040492042024,
+            "utility": 0.27796791395799647,
+            "mean_excess": 0.000330280313805255,
+            "sum_excess": 0.08091867688228747
+          },
+          "s9_beats_util": true
+        },
+        "2021": {
+          "c4": {
+            "n_days": 244,
+            "cagr": 0.30857204322204623,
+            "max_drawdown": -0.1393675154515781,
+            "utility": 0.23888828549625718,
+            "mean_excess": -0.00015248344263941508,
+            "sum_excess": -0.03720596000401728
+          },
+          "s9a1": {
+            "n_days": 244,
+            "cagr": 0.3985007505230864,
+            "max_drawdown": -0.15760154272866012,
+            "utility": 0.31969997915875636,
+            "mean_excess": 0.00010948059900520487,
+            "sum_excess": 0.026713266157269988
+          },
+          "s9_beats_util": true
+        },
+        "2022": {
+          "c4": {
+            "n_days": 246,
+            "cagr": -0.17446822544136042,
+            "max_drawdown": -0.31867662365819793,
+            "utility": -0.3338065372704594,
+            "mean_excess": -0.0004745963057661351,
+            "sum_excess": -0.11675069121846923
+          },
+          "s9a1": {
+            "n_days": 246,
+            "cagr": -0.14374514406086925,
+            "max_drawdown": -0.29793444338481734,
+            "utility": -0.2927123657532779,
+            "mean_excess": -0.000354323778617718,
+            "sum_excess": -0.08716364953995863
+          },
+          "s9_beats_util": true
+        }
+      },
+      "sealed_years": {
+        "2023": {
+          "c4": {
+            "n_days": 237,
+            "cagr": 0.5652621113417684,
+            "max_drawdown": -0.07874904278854522,
+            "utility": 0.5258875899474957,
+            "mean_excess": 0.0005219535269124583,
+            "sum_excess": 0.12370298587825262
+          },
+          "s9a1": {
+            "n_days": 237,
+            "cagr": 0.5677527984856987,
+            "max_drawdown": -0.06904660108673188,
+            "utility": 0.5332294979423328,
+            "mean_excess": 0.000531598307463579,
+            "sum_excess": 0.1259887988688682
+          },
+          "s9_beats_util": true
+        },
+        "2024": {
+          "c4": {
+            "n_days": 242,
+            "cagr": 0.19306513410358006,
+            "max_drawdown": -0.12359122314363569,
+            "utility": 0.13126952253176222,
+            "mean_excess": 0.000129155225925502,
+            "sum_excess": 0.03125556467397149
+          },
+          "s9a1": {
+            "n_days": 242,
+            "cagr": 0.20132521867760977,
+            "max_drawdown": -0.1220215421931935,
+            "utility": 0.14031444758101302,
+            "mean_excess": 0.00015891402121827772,
+            "sum_excess": 0.03845719313482321
+          },
+          "s9_beats_util": true
+        },
+        "2025": {
+          "c4": {
+            "n_days": 242,
+            "cagr": 0.23465744402580402,
+            "max_drawdown": -0.17371353234604336,
+            "utility": 0.14780067785278234,
+            "mean_excess": 0.0006774206133239055,
+            "sum_excess": 0.16393578842438514
+          },
+          "s9a1": {
+            "n_days": 242,
+            "cagr": 0.5622692659567423,
+            "max_drawdown": -0.1808913232240036,
+            "utility": 0.4718236043447405,
+            "mean_excess": 0.001650323186639331,
+            "sum_excess": 0.39937821116671807
+          },
+          "s9_beats_util": true
+        },
+        "2026": {
+          "c4": {
+            "n_days": 157,
+            "cagr": 1.4767545231722399,
+            "max_drawdown": -0.16389740838491185,
+            "utility": 1.3948058189797838,
+            "mean_excess": 0.002569409499218819,
+            "sum_excess": 0.4033972913773546
+          },
+          "s9a1": {
+            "n_days": 157,
+            "cagr": 1.5710272422146505,
+            "max_drawdown": -0.2500546257942807,
+            "utility": 1.44599992931751,
+            "mean_excess": 0.0028033865068011836,
+            "sum_excess": 0.4401316815677858
+          },
+          "s9_beats_util": true
+        }
+      },
+      "val_years_s9_beats_util": [
+        "2020",
+        "2021",
+        "2022"
+      ],
+      "val_years_s9_beats_excess": [
+        "2020",
+        "2021",
+        "2022"
+      ],
+      "verdict": "SURVIVES"
+    },
+    "R5_cost": {
+      "attack": "Re-simulate identical signals under 2x/3x/5x BASE_SLIPPAGE.",
+      "base_slippage": 0.0005,
+      "rows": [
+        {
+          "slippage_mult": 1.0,
+          "slippage": 0.0005,
+          "c4_utility": 0.05717588519260541,
+          "s9_utility": 0.08554881919616719,
+          "c4_boot": 0.5588,
+          "s9_boot": 0.6232,
+          "s9_minus_c4_util": 0.02837293400356178,
+          "s9_stress_ex": 0.0007770435301989302
+        },
+        {
+          "slippage_mult": 2.0,
+          "slippage": 0.001,
+          "c4_utility": 0.05325181101284726,
+          "s9_utility": 0.08066096554168412,
+          "c4_boot": 0.5438,
+          "s9_boot": 0.605,
+          "s9_minus_c4_util": 0.027409154528836854,
+          "s9_stress_ex": 0.0007770876017053882
+        },
+        {
+          "slippage_mult": 3.0,
+          "slippage": 0.0015,
+          "c4_utility": 0.049339401856541454,
+          "s9_utility": 0.07578862753904475,
+          "c4_boot": 0.5314,
+          "s9_boot": 0.5844,
+          "s9_minus_c4_util": 0.026449225682503297,
+          "s9_stress_ex": 0.0007771314539088081
+        },
+        {
+          "slippage_mult": 5.0,
+          "slippage": 0.0025,
+          "c4_utility": 0.04154947686664745,
+          "s9_utility": 0.06609019821914175,
+          "c4_boot": 0.506,
+          "s9_boot": 0.5506,
+          "s9_minus_c4_util": 0.0245407213524943,
+          "s9_stress_ex": 0.0007772184991046155
+        }
+      ],
+      "verdict": "SURVIVES"
+    },
+    "R6_crisis_vs_detector": {
+      "attack": "Compare excess on EW crisis_vote2 days vs COMBO_VOL70_VAL03 detector days.",
+      "findings": {
+        "n_crisis": 62,
+        "n_detector": 97,
+        "n_overlap": 0,
+        "overlap_share_of_detector": 0.0,
+        "c4_on_crisis": {
+          "n_days": 976,
+          "n_crisis_days": 62,
+          "crisis_day_share": 0.06352459016393443,
+          "crisis_mean_excess": 0.0020469267843104795,
+          "crisis_hit_rate": 0.5806451612903226,
+          "crisis_sum_excess": 0.12690946062724973,
+          "crisis_strategy_compound": 0.3660403127973446,
+          "other_mean_excess": -6.734512866731995e-05,
+          "all_mean_excess": 6.696312809971239e-05
+        },
+        "s9_on_crisis": {
+          "n_days": 976,
+          "n_crisis_days": 62,
+          "crisis_day_share": 0.06352459016393443,
+          "crisis_mean_excess": 0.0019294243646346455,
+          "crisis_hit_rate": 0.5967741935483871,
+          "crisis_sum_excess": 0.11962431060734802,
+          "crisis_strategy_compound": 0.3554134157503235,
+          "other_mean_excess": -1.504914764859775e-05,
+          "all_mean_excess": 0.00010847273530382147
+        },
+        "c4_on_detector": {
+          "n_days": 976,
+          "n_crisis_days": 97,
+          "crisis_day_share": 0.09938524590163934,
+          "crisis_mean_excess": 0.0003472895953742069,
+          "crisis_hit_rate": 0.5773195876288659,
+          "crisis_sum_excess": 0.03368709075129807,
+          "crisis_strategy_compound": -0.04291230416507075,
+          "other_mean_excess": 3.602835298523461e-05,
+          "all_mean_excess": 6.696312809971239e-05
+        },
+        "s9_on_detector": {
+          "n_days": 976,
+          "n_crisis_days": 97,
+          "crisis_day_share": 0.09938524590163934,
+          "crisis_mean_excess": 0.0007770435301989302,
+          "crisis_hit_rate": 0.5773195876288659,
+          "crisis_sum_excess": 0.07537322242929623,
+          "crisis_strategy_compound": -0.0014831151933610842,
+          "other_mean_excess": 3.469416066806994e-05,
+          "all_mean_excess": 0.00010847273530382147
+        },
+        "c4_on_detector_only": {
+          "n_days": 976,
+          "n_crisis_days": 97,
+          "crisis_day_share": 0.09938524590163934,
+          "crisis_mean_excess": 0.0003472895953742069,
+          "crisis_hit_rate": 0.5773195876288659,
+          "crisis_sum_excess": 0.03368709075129807,
+          "crisis_strategy_compound": -0.04291230416507075,
+          "other_mean_excess": 3.602835298523461e-05,
+          "all_mean_excess": 6.696312809971239e-05
+        },
+        "s9_on_detector_only": {
+          "n_days": 976,
+          "n_crisis_days": 97,
+          "crisis_day_share": 0.09938524590163934,
+          "crisis_mean_excess": 0.0007770435301989302,
+          "crisis_hit_rate": 0.5773195876288659,
+          "crisis_sum_excess": 0.07537322242929623,
+          "crisis_strategy_compound": -0.0014831151933610842,
+          "other_mean_excess": 3.469416066806994e-05,
+          "all_mean_excess": 0.00010847273530382147
+        },
+        "c4_on_crisis_only": {
+          "n_days": 976,
+          "n_crisis_days": 62,
+          "crisis_day_share": 0.06352459016393443,
+          "crisis_mean_excess": 0.0020469267843104795,
+          "crisis_hit_rate": 0.5806451612903226,
+          "crisis_sum_excess": 0.12690946062724973,
+          "crisis_strategy_compound": 0.3660403127973446,
+          "other_mean_excess": -6.734512866731995e-05,
+          "all_mean_excess": 6.696312809971239e-05
+        },
+        "s9_on_crisis_only": {
+          "n_days": 976,
+          "n_crisis_days": 62,
+          "crisis_day_share": 0.06352459016393443,
+          "crisis_mean_excess": 0.0019294243646346455,
+          "crisis_hit_rate": 0.5967741935483871,
+          "crisis_sum_excess": 0.11962431060734802,
+          "crisis_strategy_compound": 0.3554134157503235,
+          "other_mean_excess": -1.504914764859775e-05,
+          "all_mean_excess": 0.00010847273530382147
+        }
+      },
+      "note": "S9A1 explicitly excludes crisis_vote2 from detector; orthogonality is by design.",
+      "verdict": "WOUNDED"
+    },
+    "R7_bootstrap": {
+      "attack": "Vary block length and RNG seed for block-bootstrap P(excess>0) on VAL.",
+      "official_s9_boot": 0.6232,
+      "s9_boot_min": 0.492,
+      "s9_boot_max": 0.6715,
+      "s9_boot_range": 0.1795,
+      "any_gate_flip_across_grid": false,
+      "grid": [
+        {
+          "block": 5,
+          "seed": 412503,
+          "s9_boot": 0.6715,
+          "c4_boot": 0.598,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 5,
+          "seed": 7,
+          "s9_boot": 0.6655,
+          "c4_boot": 0.5865,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 5,
+          "seed": 99,
+          "s9_boot": 0.6665,
+          "c4_boot": 0.616,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 5,
+          "seed": 20260904,
+          "s9_boot": 0.6645,
+          "c4_boot": 0.5915,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 10,
+          "seed": 412503,
+          "s9_boot": 0.652,
+          "c4_boot": 0.58,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 10,
+          "seed": 7,
+          "s9_boot": 0.645,
+          "c4_boot": 0.5795,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 10,
+          "seed": 99,
+          "s9_boot": 0.6375,
+          "c4_boot": 0.586,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 10,
+          "seed": 20260904,
+          "s9_boot": 0.6525,
+          "c4_boot": 0.5875,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 21,
+          "seed": 412503,
+          "s9_boot": 0.626,
+          "c4_boot": 0.569,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 21,
+          "seed": 7,
+          "s9_boot": 0.618,
+          "c4_boot": 0.553,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 21,
+          "seed": 99,
+          "s9_boot": 0.624,
+          "c4_boot": 0.5585,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 21,
+          "seed": 20260904,
+          "s9_boot": 0.6135,
+          "c4_boot": 0.563,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 42,
+          "seed": 412503,
+          "s9_boot": 0.5805,
+          "c4_boot": 0.501,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 42,
+          "seed": 7,
+          "s9_boot": 0.5765,
+          "c4_boot": 0.5025,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 42,
+          "seed": 99,
+          "s9_boot": 0.569,
+          "c4_boot": 0.4985,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 42,
+          "seed": 20260904,
+          "s9_boot": 0.575,
+          "c4_boot": 0.5015,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 63,
+          "seed": 412503,
+          "s9_boot": 0.515,
+          "c4_boot": 0.394,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 63,
+          "seed": 7,
+          "s9_boot": 0.492,
+          "c4_boot": 0.386,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 63,
+          "seed": 99,
+          "s9_boot": 0.5115,
+          "c4_boot": 0.401,
+          "s9_gate_pass": false
+        },
+        {
+          "block": 63,
+          "seed": 20260904,
+          "s9_boot": 0.5085,
+          "c4_boot": 0.4025,
+          "s9_gate_pass": false
+        }
+      ],
+      "verdict": "WOUNDED"
+    },
+    "R8_sealed_autopsy": {
+      "attack": "Month-level S9A1\u2212C4 excess on SEALED; compare aggregate edges.",
+      "sealed_util_edge": 0.09317401469844722,
+      "sealed_stress_edge": 0.001094896017991568,
+      "sealed_sum_diff_excess": 0.28166425438423137,
+      "val_sum_diff_excess": 0.04051337663121038,
+      "worst_months": [
+        {
+          "y": 2026,
+          "m": 7,
+          "n": 22,
+          "mean_diff_ex": -0.0043362459249439815,
+          "sum_diff_ex": -0.09539741034876759,
+          "s9_mean_ex": -0.002597168905083276,
+          "c4_mean_ex": 0.0017390770198607063
+        },
+        {
+          "y": 2026,
+          "m": 6,
+          "n": 21,
+          "mean_diff_ex": -0.0007329239078125,
+          "sum_diff_ex": -0.0153914020640625,
+          "s9_mean_ex": 0.0009006030570957245,
+          "c4_mean_ex": 0.0016335269649082242
+        },
+        {
+          "y": 2023,
+          "m": 12,
+          "n": 21,
+          "mean_diff_ex": -0.0005015196301372294,
+          "sum_diff_ex": -0.010531912232881817,
+          "s9_mean_ex": -0.00014368152545403417,
+          "c4_mean_ex": 0.00035783810468319486
+        },
+        {
+          "y": 2025,
+          "m": 7,
+          "n": 23,
+          "mean_diff_ex": -0.00043157673939422394,
+          "sum_diff_ex": -0.00992626500606715,
+          "s9_mean_ex": 0.0008844594316723211,
+          "c4_mean_ex": 0.0013160361710665455
+        },
+        {
+          "y": 2023,
+          "m": 10,
+          "n": 20,
+          "mean_diff_ex": -0.000484866004371037,
+          "sum_diff_ex": -0.00969732008742074,
+          "s9_mean_ex": -0.0008352625074742263,
+          "c4_mean_ex": -0.0003503965031031896
+        }
+      ],
+      "best_months": [
+        {
+          "y": 2025,
+          "m": 5,
+          "n": 20,
+          "mean_diff_ex": 0.0037850310969626912,
+          "sum_diff_ex": 0.07570062193925382,
+          "s9_mean_ex": 0.00544101973624455,
+          "c4_mean_ex": 0.0016559886392818577
+        },
+        {
+          "y": 2025,
+          "m": 6,
+          "n": 21,
+          "mean_diff_ex": 0.0034732937151968728,
+          "sum_diff_ex": 0.07293916801913433,
+          "s9_mean_ex": 0.006145950856115326,
+          "c4_mean_ex": 0.0026726571409184533
+        },
+        {
+          "y": 2025,
+          "m": 4,
+          "n": 20,
+          "mean_diff_ex": 0.002993541268964465,
+          "sum_diff_ex": 0.0598708253792893,
+          "s9_mean_ex": 0.0037900103936990767,
+          "c4_mean_ex": 0.0007964691247346129
+        },
+        {
+          "y": 2026,
+          "m": 4,
+          "n": 20,
+          "mean_diff_ex": 0.0017647498080869428,
+          "sum_diff_ex": 0.035294996161738854,
+          "s9_mean_ex": 0.007370614380088164,
+          "c4_mean_ex": 0.0056058645720012176
+        },
+        {
+          "y": 2026,
+          "m": 8,
+          "n": 20,
+          "mean_diff_ex": 0.0016546639171089368,
+          "sum_diff_ex": 0.033093278342178734,
+          "s9_mean_ex": 0.0025268296531020615,
+          "c4_mean_ex": 0.0008721657359931244
+        }
+      ],
+      "n_months": 44,
+      "share_months_s9_ahead": 0.4772727272727273,
+      "point_sealed_s9": {
+        "cagr": 0.5900318988662796,
+        "utility": 0.4650045859691391,
+        "block_bootstrap_positive_probability": 1.0,
+        "s_crisis_mean_excess": 0.001094896017991568
+      },
+      "point_sealed_c4": {
+        "cagr": 0.4767972763153663,
+        "utility": 0.37183057127069186,
+        "block_bootstrap_positive_probability": 0.9984,
+        "s_crisis_mean_excess": null
+      },
+      "verdict": "SURVIVES"
+    },
+    "R9_capacity": {
+      "attack": "Raise liquidity_floor 2x/5x/10x and half-scale gross exposure.",
+      "rows": [
+        {
+          "liq_floor_mult": 1.0,
+          "liquidity_floor": 20000000.0,
+          "c4_utility": 0.05717588519260541,
+          "s9_utility": 0.08554881919616719,
+          "s9_minus_c4_util": 0.02837293400356178,
+          "s9_stress_ex": 0.0007770435301989302,
+          "s9_turn": 0.0237750721105824
+        },
+        {
+          "liq_floor_mult": 2.0,
+          "liquidity_floor": 40000000.0,
+          "c4_utility": 0.05717588519260541,
+          "s9_utility": 0.08554881919616719,
+          "s9_minus_c4_util": 0.02837293400356178,
+          "s9_stress_ex": 0.0007770435301989302,
+          "s9_turn": 0.0237750721105824
+        },
+        {
+          "liq_floor_mult": 5.0,
+          "liquidity_floor": 100000000.0,
+          "c4_utility": 0.04845237003345598,
+          "s9_utility": 0.07773280050196646,
+          "s9_minus_c4_util": 0.029280430468510477,
+          "s9_stress_ex": 0.0007107622887920095,
+          "s9_turn": 0.023439399413801645
+        },
+        {
+          "liq_floor_mult": 10.0,
+          "liquidity_floor": 200000000.0,
+          "c4_utility": 0.05561495343692502,
+          "s9_utility": 0.0839336525583968,
+          "s9_minus_c4_util": 0.02831869912147178,
+          "s9_stress_ex": 0.0005173268363889383,
+          "s9_turn": 0.022853594885629564
+        },
+        {
+          "liq_floor_mult": "scale_0.5",
+          "c4_utility": 0.028691102244095767,
+          "s9_utility": 0.04209284568677574,
+          "s9_minus_c4_util": 0.01340174344267997,
+          "s9_stress_ex": 0.0007865578971124255
+        }
+      ],
+      "verdict": "SURVIVES"
+    },
+    "R10_selection_bias": {
+      "attack": "Inventory of searched challengers; multiple-testing narrative on stress MC claim.",
+      "inventory": {
+        "per_file": {
+          "stage9a_candidates": {
+            "n": 6,
+            "decision": "OOF_NEW_E45C1_CONTROLLER_DUAL_GATE_WINNER"
+          },
+          "stage7": {
+            "n": 0,
+            "decision": "OOF_NO_NEW_CRISIS_CHALLENGER_DUAL_GATE_WINNER"
+          },
+          "stage7b": {
+            "n": 0,
+            "decision": "OOF_NO_NEW_STRICT_CRISIS_CHALLENGER_DUAL_GATE_WINNER"
+          },
+          "stage8b": {
+            "n": 7,
+            "decision": "OOF_NEW_ALPHA_STRESS_CONTROLLER_DUAL_GATE_WINNER"
+          },
+          "stage8c": {
+            "n": 2,
+            "decision": "OOF_NEW_MULTISLEEVE_DUAL_GATE_WINNER"
+          },
+          "stage10_r1": {
+            "n": 17,
+            "decision": "OOF_NEW_STRESS_ALPHA_DUAL_GATE_WINNER"
+          },
+          "stage10_r3": {
+            "n": 19,
+            "decision": "OOF_NEW_STRESS_ALPHA_DUAL_GATE_WINNER"
+          },
+          "stage10_r5": {
+            "n": 19,
+            "decision": "OOF_NEW_STRESS_ALPHA_DUAL_GATE_WINNER"
+          },
+          "stage12": {
+            "n": null,
+            "decision": null
+          },
+          "oof_challenger": {
+            "n": 61,
+            "decision": null
+          },
+          "round2": {
+            "n": 54,
+            "decision": "OOF_NEW_DUAL_GATE_WINNER"
+          },
+          "round3": {
+            "n": 46,
+            "decision": "OOF_NEW_DUAL_GATE_WINNER"
+          },
+          "round_c8": {
+            "n": 120,
+            "decision": "OOF_NEW_DUAL_GATE_WINNER"
+          }
+        },
+        "sum_reported_rows_approx": 351
+      },
+      "stage9a_n_candidates": 6,
+      "approx_program_rows_sum": 351,
+      "illustrative_bonferroni_on_stage9a": {
+        "raw_tail": 0.06000000000000005,
+        "m": 6,
+        "bonferroni": 0.3600000000000003
+      },
+      "note": "Option-2 is paper/monitor under MIXED \u2014 not a dual-gate PASS promotion. Selection bias wounds promotion claims more than monitor claims.",
+      "verdict": "SURVIVES"
+    }
+  },
+  "verdicts": {
+    "R1_leakage": "WOUNDED",
+    "R2_placebo": "SURVIVES",
+    "R3_scramble": "SURVIVES",
+    "R4_subperiod": "SURVIVES",
+    "R5_cost": "SURVIVES",
+    "R6_crisis_vs_detector": "WOUNDED",
+    "R7_bootstrap": "WOUNDED",
+    "R8_sealed_autopsy": "SURVIVES",
+    "R9_capacity": "SURVIVES",
+    "R10_selection_bias": "SURVIVES"
+  },
+  "worst_round_verdict": "WOUNDED",
+  "option2_adversarial_decision": "OPTION2_KEEP_PAPER_MONITOR_WITH_ADVERSARIAL_CAVEATS",
+  "governance_note": "Does not promote S9A1. Does not edit E45. PR remains draft research archive.",
+  "option2_required_caveats": [
+    "Do not treat published val_ic_lag21 as live-tradable without shift>=21 (label horizon); causal rebuild collapses VAL util 0.086->0.030 and boot 0.62->0.43.",
+    "Detector is orthogonal to EW crisis_vote2 by construction (0/97 overlap on VAL); it is not a crash overlay substitute for E45.",
+    "VAL bootstrap remains MIXED and sensitive to block length (range ~0.18 across grid); never promote 0.70 gate.",
+    "S9A1 stays paper/monitor only; C4 remains research baseline; E45 untouched."
+  ],
+  "corrected_at_utc": "2026-09-04T04:26:50.866614+00:00"
+}

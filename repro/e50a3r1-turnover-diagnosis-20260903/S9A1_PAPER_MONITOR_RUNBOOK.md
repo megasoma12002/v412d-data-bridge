@@ -24,6 +24,11 @@ detector: COMBO_VOL70_VAL03
   AND rolling-252d mkt_vol_60d >= prior-window p70 (hysteresis on=2, off=5)
   AND val_ic_lag21 >= 0.03
 
+**Live / paper feed caveat (Stage-13 R1):** the archived `val_ic_lag21` only
+shifts raw IC by 1 day while labels are 21d forward. For any as-of-T monitor,
+rebuild value-IC with `shift >= 21` on raw IC before the rolling mean (see
+`GOVERNANCE_OPTION2_ADVERSARIAL_CAVEATS.md`). Do not retune the 0.03 / p70 cuts.
+
 controller: FREEZE_REB
   while detector on → skip C4 rebalance dates (hold names)
   else → normal C4 cadence
@@ -34,7 +39,8 @@ Reference artifacts:
 - `E50-A3-R1_STAGE9A_S9A1_HELDOUT.md`
 - `reports/stage9a_s9a1_heldout_decision.json`
 - `E50-A3-R1_STAGE11_E45C1_MONTE_CARLO.md`
-- scripts: `e50a3r1_stage9a_s9a1_heldout.py`, `e50a3r1_stage11_e45c1_monte_carlo.py`
+- `E50-A3-R1_STAGE13_ADVERSARIAL_10ROUNDS.md`
+- scripts: `e50a3r1_stage9a_s9a1_heldout.py`, `e50a3r1_stage11_e45c1_monte_carlo.py`, `e50a3r1_stage13_adversarial_10rounds.py`
 
 ## Side-by-side accounts
 
