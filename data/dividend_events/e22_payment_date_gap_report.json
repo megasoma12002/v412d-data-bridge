@@ -1,0 +1,191 @@
+{
+  "status": "PASS",
+  "generated_at_utc": "2026-09-04T11:54:11.877088Z",
+  "mops_rows_parsed": 123,
+  "mops_unique_ex_keys": 40,
+  "official_filled_from_mops": [],
+  "n_official_filled": 0,
+  "n_confirmed_both_sources": 11,
+  "n_source_mismatches": 0,
+  "mismatches": [],
+  "still_missing_official": [
+    {
+      "code": "2880",
+      "fiscal_year": "98年",
+      "cash_ex_date": "2010-08-12",
+      "cash_dividend": "0.2"
+    },
+    {
+      "code": "2880",
+      "fiscal_year": "99年",
+      "cash_ex_date": "2011-08-11",
+      "cash_dividend": "0.3"
+    },
+    {
+      "code": "2880",
+      "fiscal_year": "100年",
+      "cash_ex_date": "2012-08-15",
+      "cash_dividend": "0.5"
+    },
+    {
+      "code": "2880",
+      "fiscal_year": "101年",
+      "cash_ex_date": "2013-08-15",
+      "cash_dividend": "0.5"
+    },
+    {
+      "code": "2886",
+      "fiscal_year": "98年",
+      "cash_ex_date": "2010-08-11",
+      "cash_dividend": "1.0"
+    },
+    {
+      "code": "2886",
+      "fiscal_year": "99年",
+      "cash_ex_date": "2011-08-23",
+      "cash_dividend": "0.9"
+    },
+    {
+      "code": "2886",
+      "fiscal_year": "100年",
+      "cash_ex_date": "2012-08-08",
+      "cash_dividend": "0.85"
+    },
+    {
+      "code": "2886",
+      "fiscal_year": "101年",
+      "cash_ex_date": "2013-08-13",
+      "cash_dividend": "1.1"
+    },
+    {
+      "code": "2892",
+      "fiscal_year": "98年",
+      "cash_ex_date": "2010-08-11",
+      "cash_dividend": "0.5"
+    },
+    {
+      "code": "2892",
+      "fiscal_year": "100年",
+      "cash_ex_date": "2011-07-29",
+      "cash_dividend": "0.3"
+    },
+    {
+      "code": "2892",
+      "fiscal_year": "100年",
+      "cash_ex_date": "2012-08-10",
+      "cash_dividend": "0.4"
+    },
+    {
+      "code": "2892",
+      "fiscal_year": "101年",
+      "cash_ex_date": "2013-08-02",
+      "cash_dividend": "0.45"
+    },
+    {
+      "code": "5880",
+      "fiscal_year": "100年",
+      "cash_ex_date": "2012-08-02",
+      "cash_dividend": "0.5"
+    },
+    {
+      "code": "5880",
+      "fiscal_year": "101年",
+      "cash_ex_date": "2013-08-14",
+      "cash_dividend": "0.4"
+    },
+    {
+      "code": "2412",
+      "fiscal_year": "98年",
+      "cash_ex_date": "2010-08-12",
+      "cash_dividend": "4.06"
+    },
+    {
+      "code": "2412",
+      "fiscal_year": "99年",
+      "cash_ex_date": "2011-07-21",
+      "cash_dividend": "5.5243"
+    },
+    {
+      "code": "2412",
+      "fiscal_year": "100年",
+      "cash_ex_date": "2012-07-17",
+      "cash_dividend": "5.4608"
+    },
+    {
+      "code": "2412",
+      "fiscal_year": "101年",
+      "cash_ex_date": "2013-07-17",
+      "cash_dividend": "5.3500000000000005"
+    },
+    {
+      "code": "2412",
+      "fiscal_year": "102年",
+      "cash_ex_date": "2014-07-17",
+      "cash_dividend": "4.5251"
+    },
+    {
+      "code": "3045",
+      "fiscal_year": "98年",
+      "cash_ex_date": "2010-07-05",
+      "cash_dividend": "5.02783"
+    },
+    {
+      "code": "3045",
+      "fiscal_year": "99年",
+      "cash_ex_date": "2011-06-30",
+      "cash_dividend": "4.1619"
+    },
+    {
+      "code": "3045",
+      "fiscal_year": "100年",
+      "cash_ex_date": "2012-07-09",
+      "cash_dividend": "5.16"
+    },
+    {
+      "code": "3045",
+      "fiscal_year": "101年",
+      "cash_ex_date": "2013-07-08",
+      "cash_dividend": "5.5"
+    },
+    {
+      "code": "3045",
+      "fiscal_year": "102年",
+      "cash_ex_date": "2014-06-27",
+      "cash_dividend": "5.6"
+    },
+    {
+      "code": "4904",
+      "fiscal_year": "98年",
+      "cash_ex_date": "2010-08-10",
+      "cash_dividend": "2.8"
+    },
+    {
+      "code": "4904",
+      "fiscal_year": "99年",
+      "cash_ex_date": "2011-07-19",
+      "cash_dividend": "2.5"
+    },
+    {
+      "code": "4904",
+      "fiscal_year": "100年",
+      "cash_ex_date": "2012-07-24",
+      "cash_dividend": "3.0"
+    },
+    {
+      "code": "4904",
+      "fiscal_year": "101年",
+      "cash_ex_date": "2013-07-24",
+      "cash_dividend": "3.5"
+    },
+    {
+      "code": "4904",
+      "fiscal_year": "102年",
+      "cash_ex_date": "2014-07-16",
+      "cash_dividend": "3.75"
+    }
+  ],
+  "n_still_missing_official": 29,
+  "research_proxy_lag_days": 28,
+  "research_proxy_path": "data/dividend_events/e22_payment_date_research_proxy.csv",
+  "conclusion": "Early-year cash_payment_date gaps are also empty in MOPS t108sb27; free official bulk sources cannot complete 2010–~2013. Use research proxy overlay or paid/vendor / annual-report manual fill."
+}

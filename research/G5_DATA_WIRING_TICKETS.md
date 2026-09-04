@@ -58,11 +58,27 @@ Companion: `research/GAP_FILL_PLAN.md` §5
 
 ---
 
+## T5 — E22 early-year `cash_payment_date` backfill
+
+| Field | Value |
+|---|---|
+| Status | **PARTIALLY_CLOSED_FREE_SOURCES** |
+| Issue | 29 cash events (mostly 2010–2014) lack `CashDividendPaymentDate` in FinMind |
+| Attempt | MOPS `t108sb27` reconcile (`scripts/e22_reconcile_payment_dates_mops.py`) — same blanks; **0** official fills |
+| Artifacts | `e22_payment_date_gap_report.json`; research proxy `e22_payment_date_research_proxy.csv` (median lag 28d, **not** merged into official ledger) |
+| Source map | `research/DATA_GAP_SOURCE_MAP.md` |
+| Next | Manual IR/年報 or paid CA vendor for true dates before fair E22_v3 H1 |
+| Forbidden | Merging `PROXY_MEDIAN_LAG` into official `e22_dividend_events.csv` / `e22_v2` |
+
+---
+
 ## Priority
 
 ```
-T1 (governance)  >  T3 (if new-info alpha reopens)  >  T2 (only on QC defect)
+T1 done  >  T5 (vendor/manual payment dates for E22_v3)  >  T3 (industry PIT if alpha reopens)  >  T2 (only on QC defect)
 T4 done
 ```
 
 No ticket here authorizes gate promotion or more same-panel alpha grids (see `GOVERNANCE_ALPHA_PANEL_SATURATED.md`).
+
+See also: `research/DATA_GAP_SOURCE_MAP.md` for challenger fetch locations (industry PIT, lending, futures OI, G4 instruments).
