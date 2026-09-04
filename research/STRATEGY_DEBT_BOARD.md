@@ -1,6 +1,6 @@
 # Strategy Debt Board
 
-Date: 2026-09-05 (code-review fixes: month-end NaN, fin_cap single-source, Soft-Frozen/live wording)  
+Date: 2026-09-05 (dual-track #37 rebase onto main after L4/#51)  
 Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
 Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 
@@ -14,42 +14,42 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | FIN_CAP_50 go-live verify | #49 — `NOT_READY_SEALED_CAGR` (sealed gb +4.33; PAUSE 1y/YTD) |
 | Sealed CAGR improve diagnostics | CRISIS_ONLY / FIN70 / BLEND sealed-diag survivors |
 | L4 path/mild-FIN charter | Frozen — util-rank; no harsh-cap family priority |
-| L4 Exact T+1 OOF | `OOF_L4_READY_FOR_ADV_LITE` — locked `L4_DD_PATH_08_50` |
-| L4 adv-lite | `ADV_LITE_L4_READY_FOR_HELDOUT` — placebo P=0.000; year-split OK |
-| **L4 held-out** | **`PASS_HELDOUT_L4`** — val+sealed both clear |
-| Code-review fixes | Month-end `0→nan` format; `e16_features_fin_cap` single-source; Soft-Frozen vs live cutover wording in `FROZEN_GOVERNANCE.md` |
+| L4 Exact T+1 OOF → adv-lite → held-out | **`PASS_HELDOUT_L4`** — on main via #51 |
+| Code-review fixes | Month-end `0→nan`; fin_cap single-source; Soft-Frozen vs live wording |
+| **Track B E50-A3-S1** | OOF lock → adv-lite PASS → **`FAIL_HELDOUT` → `STOP_S1_HELDOUT_KEEP_TRACK_A`** (#40 closed) |
 
 ### NOW
 | Item | Action | Status |
 |---|---|---|
-| Track A S9A1 | Month-end KPI | **KEEP** |
-| FIN_CAP_50 paper | Dual-paper observation; cutover frozen | **OPERATING (paper)** |
+| Track A S9A1 | Paper/monitor harness + month-end KPI | **KEEP** |
 | Live Soft-Frozen | **[0.50, 0.95]** | **KEEP (no auto flip)** |
+| FIN_CAP_50 paper | Dual-paper observation; cutover frozen | **OPERATING (paper)** |
 | L4 challenger | `L4_DD_PATH_08_50` held-out PASS | **RESEARCH PASS — dual-paper candidate only** |
+| Dual-track board | A monitor live-as-paper; B S1 axis stopped | **A KEEP / B STOP** |
 
 ### NEXT
 | Item | Action | Do not |
 |---|---|---|
-| Human review PR | Decide whether to open dual-paper for L4_DD_PATH vs Soft-Frozen | Auto live-wire / Soft-Frozen flip |
-| If dual-paper | Month-end KPI parity with FIN50 paper rails | Promote without human PR |
+| Human review | Decide L4_DD_PATH dual-paper vs Soft-Frozen | Auto live-wire / Soft-Frozen flip |
+| Track A month-end | Refresh KPI via `scripts/e50a_dual_track_s9a1_monitor.py` | Retune S9A1 cuts |
+| New alpha charter | Only with a **new** charter (not S1 residual re-grid) | Reopen S1 / TECH2 remix |
 | FIN_CAP month-end | Continue; cutover frozen while PAUSE/sealed fail | Auto-promote FIN50 |
 
 ### WON’T
-L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 without human PR.
+L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 without human PR; reopen S1 residual detector grid.
 
 ## Snapshot
 | Topic | Number |
 |---|---|
 | Go-live (FIN50) | **`NOT_READY_SEALED_CAGR`** |
-| L4 OOF | **`OOF_L4_READY_FOR_ADV_LITE`** locked **`L4_DD_PATH_08_50`** |
-| L4 adv-lite | **`ADV_LITE_L4_READY_FOR_HELDOUT`** (placebo P=**0.000**) |
-| L4 held-out | **`PASS_HELDOUT_L4`** |
-| Val | MDD **+1.63**pp; CAGR gb **+1.20**pp |
-| Sealed | MDD **+1.47**pp; CAGR gb **+2.66**pp (≤3.0 gate) |
+| L4 held-out | **`PASS_HELDOUT_L4`** (`L4_DD_PATH_08_50`) |
+| Track A | **KEEP** (S9A1 paper/monitor) |
+| Track B S1 | **`STOP_S1_HELDOUT_KEEP_TRACK_A`** |
+| Soft-Frozen clip | **[0.50, 0.95]** |
 
 ## Pointers
+- `research/e50a/DUAL_TRACK_OPERATING_BOARD.md`
+- `research/e50a/TRACK_A_S9A1_MONITOR_STATUS.md`
+- `research/e50a/E50A_S1_HELDOUT.md` (when present)
 - `research/gaps/MDD_L4_HELDOUT.md`
-- `research/gaps/MDD_L4_ADV_LITE.md`
-- `research/gaps/MDD_L4_OOF.md`
-- `research/gaps/MDD_L4_PATH_FINCAP_CHARTER.md`
 - `research/gaps/FIN_CAP_50_GO_LIVE_VERIFY.md`
