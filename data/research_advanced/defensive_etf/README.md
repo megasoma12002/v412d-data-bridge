@@ -13,3 +13,7 @@ FinMind `TaiwanStockPrice` pulls for Stage 8 / 8b challengers.
 | 006208 | Broad-market clone material only |
 
 Do not silent-patch E22_v2 universe.
+
+## Stage 8c long-history batch
+
+0051, 0055, 0061, 006203, 00646, 00636, 00719B, 00720B, 006208 — all **STOP**.

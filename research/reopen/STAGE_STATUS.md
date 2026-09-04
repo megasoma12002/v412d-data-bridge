@@ -12,6 +12,7 @@
 | Stage 7 | Dual QC + TX front-month OI timing overlay | Dual QC **PASS**; TX OI **STOP** |
 | Stage 8 | Defensive ETF sleeve (0056) | **STOP** |
 | Stage 8b | Multi-ETF screen 00713/00918/00896/00878/00927 | **Interesting sandbox** (short windows); **no promote** |
+| Stage 8c | Long-history ETF screen (0051/0055/0061/…/bonds) | **STOP** |
 
 ## Official posture
 
@@ -24,8 +25,9 @@
 - 0056: **STOP**
 - 00713 / 00878: fail bar on longer windows
 - 00918 / 00896 / 00927 SLEEVE4: clear bar only on **short** listing windows → `STAGE8B_MULTI_ETF_INTERESTING_CONTINUE_SANDBOX` (research only)
-- Docs: `research/reopen/STAGE8_DECISION.md`, `research/reopen/STAGE8B_DECISION.md`
+- Docs: `research/reopen/STAGE8_DECISION.md`, `STAGE8B_DECISION.md`, `STAGE8C_DECISION.md`
 - - 00891: **STOP** (2021-05→; SLEEVE4/RISKOFF fail bar)
+- Stage 8c long-history batch (0051/0055/0061/006203/00646/00636/00719B/00720B/006208): **all STOP**
 00981A / 00991A: **`INCONCLUSIVE_TOO_SHORT`** (00991A cannot run; 00981A only 62 post-warmup days)
 
 ## Recommended next

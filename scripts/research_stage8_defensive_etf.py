@@ -171,7 +171,9 @@ def riskoff_targets(target3: pd.DataFrame, regime: pd.Series, shift: float = 0.2
 
 
 def lot_qty(value: float, price: float) -> int:
-    if price <= 0 or not math.isfinite(price):
+    if price is None or not math.isfinite(price) or price <= 0:
+        return 0
+    if value is None or not math.isfinite(value):
         return 0
     return int(abs(value) / price)
 
@@ -192,6 +194,14 @@ def simulate_flex(
     m["date"] = pd.to_datetime(m["date"])
     closes = m.pivot(index="date", columns="code", values="close").sort_index().ffill()
     opens = m.pivot(index="date", columns="code", values="open").sort_index().ffill()
+    # drop days missing any sleeve name's prices after ffill
+    need_cols = sorted({c for codes in sleeve_codes.values() for c in codes})
+    for c in need_cols:
+        if c not in closes.columns or c not in opens.columns:
+            raise RuntimeError(f"missing price columns for {c}")
+    mask = closes[need_cols].notna().all(axis=1) & opens[need_cols].notna().all(axis=1)
+    closes = closes.loc[mask]
+    opens = opens.loc[mask]
     dates = [d for d in closes.index if d in target.index]
     if len(dates) < WARMUP + 10:
         raise RuntimeError("insufficient history")
