@@ -31,6 +31,11 @@ Status: **Formal operating books** for E16/E18/E21 NAV (new version id; does not
 
 Forward E21 applies dividends **from the cutover day onward** (idempotent keys in `dividends_applied.csv`). Historical live NAV rows are not rewritten. Full-history total-return comparison remains in research (`E22_v2` vs `E22_v2s`).
 
+Historical research recompute (side-by-side, no live rewrite):
+- Script: `scripts/e22_v2s_historical_recompute.py`
+- Report: `research/e22/E22_V2S_HISTORICAL_RECOMPUTE.md`
+- Artifacts: `repro/e22-v2s-historical-recompute/`
+
 ## Governance
 
 - E22_v2 cash-only semantics preserved as a named baseline.
