@@ -1,0 +1,170 @@
+{
+  "generated_at_utc": "2026-09-04T18:19:32.453813+00:00",
+  "stage": "E22_V2S_CIL_GAP65",
+  "governance": {
+    "rewrites_live_forward_e21_ledgers": false,
+    "changes_default_books_version": false,
+    "default_remains": "E22_v2s",
+    "preserved_baseline": "E22_v2",
+    "formal_books": "E22_v2s",
+    "candidate_successor": "E22_v2s_cil",
+    "unit_check_passed": true
+  },
+  "rule": {
+    "stock_ex": "shares_gross = shares * (1 + stock_div/10)",
+    "floor": "shares = floor(shares_gross)",
+    "cash_in_lieu": "frac * raw_close on stock_ex_date",
+    "cash_div": "unchanged (cash_ex_date)"
+  },
+  "variants": {
+    "E22_v2": {
+      "stats": {
+        "cagr": 0.11248792503555594,
+        "max_drawdown": -0.2210946635650738,
+        "utility": 0.0019405932530190406,
+        "vol": 0.13302408199653676,
+        "n_days": 3351,
+        "start_nav": 3000000.0,
+        "end_nav": 12375275.724677144
+      },
+      "meta": {
+        "e22_books_version": "E22_v2",
+        "dividend_cash_total": 2611580.65776718,
+        "cil_cash_total": 0.0,
+        "fractional_shares_cashed": 0.0,
+        "stock_div_events": 0,
+        "stock_div_shares_added": 0.0,
+        "end_positions": {
+          "2880": 197701.0,
+          "2886": 26218.0,
+          "2892": 175.0,
+          "5880": 0.0,
+          "2412": 9098.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 8647.0
+        },
+        "exact_t1_ok": true,
+        "start": "2012-12-04",
+        "end": "2026-09-04"
+      },
+      "end_fractional_dust_total": 0.0,
+      "end_fractional_dust_shares": {
+        "2880": 0.0,
+        "2886": 0.0,
+        "2892": 0.0,
+        "5880": 0.0,
+        "2412": 0.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 0.0
+      }
+    },
+    "E22_v2s": {
+      "stats": {
+        "cagr": 0.137829469400496,
+        "max_drawdown": -0.22639131293777315,
+        "utility": 0.024633812931609433,
+        "vol": 0.133223365516143,
+        "n_days": 3351,
+        "start_nav": 3000000.0,
+        "end_nav": 16695201.766628467
+      },
+      "meta": {
+        "e22_books_version": "E22_v2s",
+        "dividend_cash_total": 3148555.7472813088,
+        "cil_cash_total": 0.0,
+        "fractional_shares_cashed": 0.0,
+        "stock_div_events": 42,
+        "stock_div_shares_added": 78250.1955,
+        "end_positions": {
+          "2880": 279017.7229,
+          "2886": 24445.7082,
+          "2892": 150.4434,
+          "5880": 1.3211,
+          "2412": 12445.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 11656.0
+        },
+        "exact_t1_ok": true,
+        "start": "2012-12-04",
+        "end": "2026-09-04"
+      },
+      "end_fractional_dust_total": 2.1955999999943274,
+      "end_fractional_dust_shares": {
+        "2880": 0.7228999999933876,
+        "2886": 0.708200000000943,
+        "2892": 0.4433999999999969,
+        "5880": 0.32109999999999994,
+        "2412": 0.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 0.0
+      }
+    },
+    "E22_v2s_cil": {
+      "stats": {
+        "cagr": 0.13782416564293665,
+        "max_drawdown": -0.2263747836937655,
+        "utility": 0.02463677379605389,
+        "vol": 0.1332187858917024,
+        "n_days": 3351,
+        "start_nav": 3000000.0,
+        "end_nav": 16694167.267852955
+      },
+      "meta": {
+        "e22_books_version": "E22_v2s_cil",
+        "dividend_cash_total": 3148911.1242925217,
+        "cil_cash_total": 391.85925000207766,
+        "fractional_shares_cashed": 17.9338,
+        "stock_div_events": 34,
+        "stock_div_shares_added": 78222.0,
+        "end_positions": {
+          "2880": 278996.0,
+          "2886": 24458.0,
+          "2892": 155.0,
+          "5880": 0.0,
+          "2412": 12441.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 11655.0
+        },
+        "exact_t1_ok": true,
+        "start": "2012-12-04",
+        "end": "2026-09-04"
+      },
+      "end_fractional_dust_total": 0.0,
+      "end_fractional_dust_shares": {
+        "2880": 0.0,
+        "2886": 0.0,
+        "2892": 0.0,
+        "5880": 0.0,
+        "2412": 0.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 0.0
+      }
+    }
+  },
+  "deltas": {
+    "cil_minus_v2s_cagr_pp": -0.0005303757559360633,
+    "cil_minus_v2s_mdd_pp": 0.001652924400763478,
+    "cil_minus_v2s_end_nav": -1034.49877551198,
+    "cil_minus_v2s_end_nav_ratio": 0.9999380361621277,
+    "v2s_minus_v2_cagr_pp": 2.534154436494007,
+    "cil_cash_total": 391.85925000207766,
+    "fractional_shares_cashed": 17.9338,
+    "v2s_end_dust_shares": 2.1955999999943274,
+    "cil_end_dust_shares": 0.0
+  },
+  "decision": {
+    "gap_6_5": "NAMED_VERSION_LANDED",
+    "live_default": "KEEP_E22_v2s_UNTIL_EXPLICIT_PROMOTE",
+    "promote_cil_to_default": "RECOMMENDED_CANDIDATE_DELTA_NEGLIGIBLE",
+    "promote_note": "Full-history CAGR delta vs E22_v2s is ~-0.0005 pp; end NAV ratio ~0.99994; end fractional dust 2.20 \u2192 0. Safe named successor for gap 6.5. Still requires explicit default cutover; no live history rewrite.",
+    "live_history": "DO_NOT_REWRITE",
+    "board_lot_1000": "STILL_CHALLENGER_ONLY",
+    "pay_date_tax": "STILL_SANDBOX"
+  }
+}

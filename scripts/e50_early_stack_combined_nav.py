@@ -115,7 +115,7 @@ def simulate_core(
         else:
             e22_version = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s
     if apply_stock_div is None:
-        apply_stock_div = e22_version == e22div.E22_V2S
+        apply_stock_div = e22_version in e22div.STOCK_SHARE_VERSIONS
     m = market.copy()
     m["date"] = pd.to_datetime(m["date"])
     closes = m.pivot(index="date", columns="code", values="close").sort_index().ffill()
@@ -138,6 +138,8 @@ def simulate_core(
     trade_start = dates[WARMUP_DAYS]
     same_bar = 0
     div_cash_total = 0.0
+    cil_cash_total = 0.0
+    fractional_shares_cashed = 0.0
     stock_div_events = 0
     stock_div_shares_added = 0.0
     crisis_days = 0
@@ -197,15 +199,26 @@ def simulate_core(
         pending = still
 
         # 2) E22 books on ex-date via formal accounting module
+        #    CIL marks fractional stock remainder at today's raw close.
         day_div = 0.0
         day_stock_shares = 0.0
+        day_cil = 0.0
         if apply_e22:
+            mark_prices = {c: float(cl[c]) for c in ALL}
             pos, cash, applied = e22div.apply_dividends_for_date(
-                dt.date().isoformat(), pos, cash, events, version=e22_version
+                dt.date().isoformat(),
+                pos,
+                cash,
+                events,
+                version=e22_version,
+                mark_prices=mark_prices,
             )
             day_div = applied.cash_credit
             day_stock_shares = applied.stock_shares_added
+            day_cil = applied.cil_cash_credit
             div_cash_total += applied.cash_credit
+            cil_cash_total += applied.cil_cash_credit
+            fractional_shares_cashed += applied.fractional_shares_cashed
             stock_div_events += applied.stock_events
             stock_div_shares_added += applied.stock_shares_added
 
@@ -278,6 +291,7 @@ def simulate_core(
                 "e45_equity_scale": equity_scale,
                 "dividend_credit": day_div,
                 "stock_shares_added": day_stock_shares,
+                "cil_cash_credit": day_cil,
                 "pre_financial": pre["Financial"],
                 "pre_telecom": pre["Telecom"],
                 "pre_0050": pre["0050"],
@@ -296,6 +310,8 @@ def simulate_core(
         "exact_t1_ok": same_bar == 0,
         "e22_books_version": e22_version if apply_e22 else None,
         "dividend_cash_total": div_cash_total,
+        "cil_cash_total": cil_cash_total,
+        "fractional_shares_cashed": round(fractional_shares_cashed, 6),
         "stock_div_events": stock_div_events,
         "stock_div_shares_added": round(stock_div_shares_added, 4),
         "apply_stock_div": bool(apply_e22 and apply_stock_div),
