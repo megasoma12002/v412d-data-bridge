@@ -1,0 +1,11 @@
+evaluating C3 VALIDATION_2019_2022 ...
+evaluating C3 SEALED_2023_LATEST ...
+{
+  "research_decision": "MIXED_HELDOUT",
+  "validation_turnover": 0.025349157707690737,
+  "validation_bootstrap": 0.3722,
+  "validation_beats_proxy": false,
+  "sealed_turnover": 0.017670009125549845,
+  "sealed_bootstrap": 0.9998,
+  "exact_t1": true
+}

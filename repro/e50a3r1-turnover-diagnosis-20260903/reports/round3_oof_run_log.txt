@@ -1,0 +1,66 @@
+evaluating 46 Round-3 OOF challengers ...
+[1/46] C3_book_bootstrap top_k=22 reb=42 exit=2.0 hold=0 gap=0 cap=5
+[2/46] C3_book_bootstrap top_k=22 reb=42 exit=2.0 hold=0 gap=5 cap=5
+[3/46] C3_book_bootstrap top_k=22 reb=42 exit=2.25 hold=0 gap=0 cap=5
+[4/46] C3_book_bootstrap top_k=22 reb=42 exit=2.25 hold=0 gap=5 cap=5
+[5/46] C3_book_bootstrap top_k=22 reb=42 exit=2.5 hold=0 gap=0 cap=5
+[6/46] C3_book_bootstrap top_k=22 reb=42 exit=2.5 hold=0 gap=5 cap=5
+[7/46] C3_book_bootstrap top_k=24 reb=42 exit=2.0 hold=0 gap=0 cap=5
+[8/46] C3_book_bootstrap top_k=24 reb=42 exit=2.0 hold=0 gap=5 cap=5
+[9/46] C3_book_bootstrap top_k=24 reb=42 exit=2.25 hold=0 gap=0 cap=5
+[10/46] C3_book_bootstrap top_k=24 reb=42 exit=2.25 hold=0 gap=5 cap=5
+[11/46] C3_book_bootstrap top_k=24 reb=42 exit=2.5 hold=0 gap=0 cap=5
+[12/46] C3_book_bootstrap top_k=24 reb=42 exit=2.5 hold=0 gap=5 cap=5
+[13/46] C3_reb_bootstrap top_k=25 reb=42 exit=2.0 hold=0 gap=0 cap=5
+[14/46] C3_book_bootstrap top_k=25 reb=42 exit=2.0 hold=0 gap=5 cap=5
+[15/46] C3_reb_bootstrap top_k=25 reb=42 exit=2.25 hold=0 gap=0 cap=5
+[16/46] C3_book_bootstrap top_k=25 reb=42 exit=2.25 hold=0 gap=5 cap=5
+[17/46] C3_book_bootstrap top_k=25 reb=42 exit=2.5 hold=0 gap=0 cap=5
+[18/46] C3_book_bootstrap top_k=25 reb=42 exit=2.5 hold=0 gap=5 cap=5
+[19/46] C3_book_bootstrap top_k=28 reb=42 exit=2.0 hold=0 gap=0 cap=5
+[20/46] C3_book_bootstrap top_k=28 reb=42 exit=2.0 hold=0 gap=5 cap=5
+[21/46] C3_book_bootstrap top_k=28 reb=42 exit=2.25 hold=0 gap=0 cap=5
+[22/46] C3_book_bootstrap top_k=28 reb=42 exit=2.25 hold=0 gap=5 cap=5
+[23/46] C3_book_bootstrap top_k=28 reb=42 exit=2.5 hold=0 gap=0 cap=5
+[24/46] C3_book_bootstrap top_k=28 reb=42 exit=2.5 hold=0 gap=5 cap=5
+[25/46] C3_book_bootstrap top_k=30 reb=42 exit=2.0 hold=0 gap=0 cap=5
+[26/46] C3_book_bootstrap top_k=30 reb=42 exit=2.0 hold=0 gap=5 cap=5
+[27/46] C3_book_bootstrap top_k=30 reb=42 exit=2.25 hold=0 gap=0 cap=5
+[28/46] C3_book_bootstrap top_k=30 reb=42 exit=2.25 hold=0 gap=5 cap=5
+[29/46] C3_book_bootstrap top_k=30 reb=42 exit=2.5 hold=0 gap=0 cap=5
+[30/46] C3_book_bootstrap top_k=30 reb=42 exit=2.5 hold=0 gap=5 cap=5
+[31/46] C3_reb_bootstrap top_k=25 reb=35 exit=2.0 hold=0 gap=0 cap=5
+[32/46] C3_reb_bootstrap top_k=25 reb=35 exit=2.25 hold=0 gap=0 cap=5
+[33/46] C3_reb_bootstrap top_k=25 reb=40 exit=2.0 hold=0 gap=0 cap=5
+[34/46] C3_reb_bootstrap top_k=25 reb=40 exit=2.25 hold=0 gap=0 cap=5
+[35/46] C3_reb_bootstrap top_k=25 reb=45 exit=2.0 hold=0 gap=0 cap=5
+[36/46] C3_reb_bootstrap top_k=25 reb=45 exit=2.25 hold=0 gap=0 cap=5
+[37/46] C3_reb_bootstrap top_k=25 reb=49 exit=2.0 hold=0 gap=0 cap=5
+[38/46] C3_reb_bootstrap top_k=25 reb=49 exit=2.25 hold=0 gap=0 cap=5
+[39/46] C3_minhold_bootstrap top_k=25 reb=42 exit=2.0 hold=1 gap=0 cap=5
+[40/46] C3_minhold_bootstrap top_k=28 reb=42 exit=2.0 hold=1 gap=0 cap=5
+[41/46] C3_minhold_bootstrap top_k=25 reb=42 exit=2.0 hold=2 gap=0 cap=5
+[42/46] C3_minhold_bootstrap top_k=28 reb=42 exit=2.0 hold=2 gap=0 cap=5
+[43/46] C3_industry_cap top_k=25 reb=42 exit=2.0 hold=0 gap=0 cap=4
+[44/46] C3_industry_cap top_k=25 reb=42 exit=2.0 hold=0 gap=0 cap=6
+[45/46] C1_REFERENCE top_k=20 reb=42 exit=2.0 hold=0 gap=0 cap=5
+[46/46] C2_REFERENCE top_k=20 reb=42 exit=2.5 hold=0 gap=0 cap=5
+{
+  "research_decision": "OOF_NEW_DUAL_GATE_WINNER",
+  "n_both_pass_excluding_locked": 11,
+  "winner": {
+    "family": "C3_reb_bootstrap",
+    "top_k": 25,
+    "rebalance_every": 42,
+    "exit_multiple": 2.0,
+    "industry_cap": 5,
+    "min_hold_cycles": 0,
+    "replace_rank_gap": 0,
+    "turnover": 0.021064638557885196,
+    "bootstrap": 0.8078,
+    "bootstrap_margin": 0.1078,
+    "turnover_headroom": 0.003935361442114805,
+    "cagr": 0.10596748680933166,
+    "max_drawdown": -0.3032512496185613
+  }
+}
