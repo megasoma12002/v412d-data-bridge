@@ -35,9 +35,9 @@ MODULE_STATUS = "CHALLENGER_CANDIDATE_NOT_PROMOTED"
 GOVERNANCE_CLASS_IF_PROMOTED = "SOFT_FROZEN_CRITICAL"
 PROMOTION_ALLOWED = False
 
-# Handoff / spec text claim — must stay labeled until an artifact equals it.
+# Handoff / spec text claim — verification 2026-09-04: NOT FOUND in any research MDD artifact.
 CLAIMED_MDD = -0.1316
-CLAIMED_MDD_STATUS = "UNVERIFIED_TEXT_ONLY"
+CLAIMED_MDD_STATUS = "NOT_VERIFIED_NO_ARTIFACT_MATCH"
 
 # Numbers taken from dated research reports / status JSON (not invented).
 VERIFIED_LINEAGE_MDD = {
@@ -109,7 +109,8 @@ MANIFEST = E45Manifest(
     ),
     note=(
         "Named E45 surface for integration. Not an in-place freeze. "
-        "Do not treat CLAIMED_MDD as verified. Prefer VERIFIED_LINEAGE_MDD."
+        "CLAIMED_MDD (-13.16%) verified 2026-09-04 as NOT_VERIFIED_NO_ARTIFACT_MATCH. "
+        "Prefer VERIFIED_LINEAGE_MDD from dated E1/E1.1/E3/V4.12-D artifacts."
     ),
 )
 

@@ -1,0 +1,2 @@
+mode,max_cut,up_days,target_vol,blend,rank_buffer,cost_hurdle_mult,min_hold,val_n,val_ret,val_mdd,val_sharpe,val_vol,baseline_ret,baseline_mdd,baseline_sharpe,passed
+voltarget,0.5,20,0.14,0.5,0,5,42,490,0.2565768601909806,-0.1848659743145534,0.918970161218452,0.138549397943295,0.2769391019255203,-0.1947187980807841,0.8880421872595058,True
