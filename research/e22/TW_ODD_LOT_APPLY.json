@@ -1,0 +1,249 @@
+{
+  "generated_at_utc": "2026-09-04T18:26:12.109787+00:00",
+  "stage": "TW_ODD_LOT_APPLY_RESEARCH",
+  "governance": {
+    "rewrites_live_history": false,
+    "changes_default": false,
+    "default_remains": "E22_v2s",
+    "unit_checks": {
+      "par_cil_0p4": 4.0,
+      "par_cil_0p05": 0.0,
+      "example_264pct_par_cil": 4.0,
+      "example_264pct_mkt30_cil": 12.000000000002728,
+      "passed": true
+    }
+  },
+  "mapping": {
+    "layers": [
+      {
+        "tw_concept": "\u4e0d\u8db3\u4e00\u80a1\u7578\u96f6\u80a1\uff08\u516c\u53f8\u6cd5 \u00a7240\uff09",
+        "practice": "\u9762\u984d\u6298\u73fe\uff08\u901a\u5e38 NT$10\uff09\uff0c\u5143\u4ee5\u4e0b\u6368\u53bb\uff1b\u53ef\u62fc\u6e4a\u6574\u80a1\uff1b\u5269\u9918\u6d3d\u7279\u5b9a\u4eba",
+        "e22_apply": "E22_v2s_tw: floor(shares_gross); cash += floor(frac \u00d7 10)",
+        "status": "IMPLEMENTED_NAMED_VERSION"
+      },
+      {
+        "tw_concept": "\u96f6\u80a1\u4ea4\u6613 1\u2013999 \u80a1\uff08\u8b49\u4ea4\u6240\u96f6\u80a1\u8fa6\u6cd5\uff09",
+        "practice": "\u53ef\u6301\u6709\u8207\u8cb7\u8ce3\u975e\u6574\u5343\u80a1\uff1b\u80a1\u5229\u6309\u80a1\u6578\u540c\u6b0a",
+        "e22_apply": "Keep lot_size=1 fills; do NOT force board_lot_1000 in formal books",
+        "status": "KEEP_AS_IS"
+      },
+      {
+        "tw_concept": "\u6574\u80a1 1000\uff08\u4e3b\u76e4\u4ea4\u6613\u55ae\u4f4d\uff09",
+        "practice": "\u4e3b\u76e4\u59d4\u8a17\u55ae\u4f4d\uff1b\u975e\u6301\u80a1\u5fc5\u9808\u70ba 1000 \u500d\u6578",
+        "e22_apply": "E18 capacity challenger only (separate from CIL)",
+        "status": "CHALLENGER_ONLY"
+      },
+      {
+        "tw_concept": "\u62fc\u6e4a\u6574\u80a1\u8996\u7a97 / \u5283\u64a5\u8cbb\u5145\u62b5",
+        "practice": "\u80a1\u52d9\u4f5c\u696d\uff1b\u672a\u62fc\u6e4a\u624d\u6298\u73fe\uff1b\u6b3e\u5e38\u5145\u62b5\u624b\u7e8c\u8cbb\u2192\u5be6\u9818\u53ef\u8fd1 0",
+        "e22_apply": "Optional haircut sensitivity; not default formal books",
+        "status": "DEFER"
+      },
+      {
+        "tw_concept": "\u7578\u96f6\u80a1\u73fe\u91d1\u5165\u5e33\u6642\u9ede",
+        "practice": "\u80a1\u52d9\uff0f\u767c\u653e\u4f5c\u696d\uff08\u8fd1 payment\uff09\uff0c\u975e\u9664\u6b0a\u7576\u65e5\u5e02\u50f9\u7d50\u7b97",
+        "e22_apply": "Amount fixed at par; credit on stock_ex_date for TR continuity (optional E22_v3 pay-clock later)",
+        "status": "EX_DATE_AMOUNT_OK"
+      }
+    ],
+    "version_ladder": [
+      {
+        "id": "E22_v2",
+        "role": "cash-only baseline"
+      },
+      {
+        "id": "E22_v2s",
+        "role": "formal float stock shares (current default)"
+      },
+      {
+        "id": "E22_v2s_cil",
+        "role": "research: floor + market-close CIL"
+      },
+      {
+        "id": "E22_v2s_tw",
+        "role": "TW-practice candidate: floor + par-10 CIL"
+      }
+    ]
+  },
+  "variants": {
+    "E22_v2s": {
+      "stats": {
+        "cagr": 0.137829469400496,
+        "max_drawdown": -0.22639131293777315,
+        "utility": 0.024633812931609433,
+        "vol": 0.133223365516143,
+        "n_days": 3351,
+        "start_nav": 3000000.0,
+        "end_nav": 16695201.766628467
+      },
+      "meta": {
+        "e22_books_version": "E22_v2s",
+        "dividend_cash_total": 3148555.7472813088,
+        "cil_cash_total": 0.0,
+        "fractional_shares_cashed": 0.0,
+        "stock_div_events": 42,
+        "stock_div_shares_added": 78250.1955,
+        "end_positions": {
+          "2880": 279017.7229,
+          "2886": 24445.7082,
+          "2892": 150.4434,
+          "5880": 1.3211,
+          "2412": 12445.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 11656.0
+        },
+        "exact_t1_ok": true,
+        "e22_manifest": {
+          "e22_books_version": "E22_v2s",
+          "preserved_baseline": "E22_v2",
+          "formal_books": "E22_v2s",
+          "tw_practice_candidate": "E22_v2s_tw",
+          "market_cil_research": "E22_v2s_cil",
+          "signal_price": "adj_close",
+          "books_price": "raw_open_close",
+          "cash_timing": "cash_ex_date",
+          "stock_timing": "stock_ex_date",
+          "stock_factor": "1 + stock_dividend/10",
+          "fractional_policy": "float_keep",
+          "par_value_twd": null,
+          "board_lot_forced": false,
+          "forbids_adj_close_nav_with_stock_shares": true,
+          "legal_refs": null
+        }
+      },
+      "end_fractional_dust_total": 2.1955999999943274
+    },
+    "E22_v2s_cil": {
+      "stats": {
+        "cagr": 0.13782416564293665,
+        "max_drawdown": -0.2263747836937655,
+        "utility": 0.02463677379605389,
+        "vol": 0.1332187858917024,
+        "n_days": 3351,
+        "start_nav": 3000000.0,
+        "end_nav": 16694167.267852955
+      },
+      "meta": {
+        "e22_books_version": "E22_v2s_cil",
+        "dividend_cash_total": 3148911.1242925217,
+        "cil_cash_total": 391.85925000207766,
+        "fractional_shares_cashed": 17.9338,
+        "stock_div_events": 34,
+        "stock_div_shares_added": 78222.0,
+        "end_positions": {
+          "2880": 278996.0,
+          "2886": 24458.0,
+          "2892": 155.0,
+          "5880": 0.0,
+          "2412": 12441.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 11655.0
+        },
+        "exact_t1_ok": true,
+        "e22_manifest": {
+          "e22_books_version": "E22_v2s_cil",
+          "preserved_baseline": "E22_v2",
+          "formal_books": "E22_v2s",
+          "tw_practice_candidate": "E22_v2s_tw",
+          "market_cil_research": "E22_v2s_cil",
+          "signal_price": "adj_close",
+          "books_price": "raw_open_close",
+          "cash_timing": "cash_ex_date",
+          "stock_timing": "stock_ex_date",
+          "stock_factor": "1 + stock_dividend/10",
+          "fractional_policy": "floor_shares_plus_cash_in_lieu_at_raw_close",
+          "par_value_twd": null,
+          "board_lot_forced": false,
+          "forbids_adj_close_nav_with_stock_shares": true,
+          "legal_refs": null
+        }
+      },
+      "end_fractional_dust_total": 0.0
+    },
+    "E22_v2s_tw": {
+      "stats": {
+        "cagr": 0.1378248622325564,
+        "max_drawdown": -0.2263873534222821,
+        "utility": 0.024631185521415355,
+        "vol": 0.1332226477864947,
+        "n_days": 3351,
+        "start_nav": 3000000.0,
+        "end_nav": 16694303.13439007
+      },
+      "meta": {
+        "e22_books_version": "E22_v2s_tw",
+        "dividend_cash_total": 3148579.0738225197,
+        "cil_cash_total": 153.0,
+        "fractional_shares_cashed": 17.00358,
+        "stock_div_events": 34,
+        "stock_div_shares_added": 78233.0,
+        "end_positions": {
+          "2880": 279019.0,
+          "2886": 24414.0,
+          "2892": 155.0,
+          "5880": 2.0,
+          "2412": 12447.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 11655.0
+        },
+        "exact_t1_ok": true,
+        "e22_manifest": {
+          "e22_books_version": "E22_v2s_tw",
+          "preserved_baseline": "E22_v2",
+          "formal_books": "E22_v2s",
+          "tw_practice_candidate": "E22_v2s_tw",
+          "market_cil_research": "E22_v2s_cil",
+          "signal_price": "adj_close",
+          "books_price": "raw_open_close",
+          "cash_timing": "cash_ex_date",
+          "stock_timing": "stock_ex_date",
+          "stock_factor": "1 + stock_dividend/10",
+          "fractional_policy": "floor_shares_plus_cil_at_par_10_yuan_truncate",
+          "par_value_twd": 10.0,
+          "board_lot_forced": false,
+          "forbids_adj_close_nav_with_stock_shares": true,
+          "legal_refs": [
+            "Company_Act_240",
+            "issuer_announcement_par_cash_for_odd_lot"
+          ]
+        }
+      },
+      "end_fractional_dust_total": 0.0
+    }
+  },
+  "deltas_vs_v2s": {
+    "E22_v2s_cil": {
+      "cagr_delta_pp": -0.0005303757559360633,
+      "mdd_delta_pp": 0.001652924400763478,
+      "end_nav_delta": -1034.49877551198,
+      "end_nav_ratio": 0.9999380361621277,
+      "cil_cash_total": 391.85925000207766,
+      "fractional_shares_cashed": 17.9338,
+      "end_dust": 0.0
+    },
+    "E22_v2s_tw": {
+      "cagr_delta_pp": -0.00046071679395964793,
+      "mdd_delta_pp": 0.00039595154910365693,
+      "end_nav_delta": -898.6322383973747,
+      "end_nav_ratio": 0.999946174221135,
+      "cil_cash_total": 153.0,
+      "fractional_shares_cashed": 17.00358,
+      "end_dust": 0.0
+    }
+  },
+  "decision": {
+    "recommended_tw_apply": "E22_v2s_tw",
+    "why": "Matches Company Act \u00a7240 + issuer announcements (par cash for <1 share); clears fractional dust; does not over-constrain to board lots; NAV impact vs float v2s is negligible.",
+    "vs_market_cil": "E22_v2s_cil overstates odd-lot cash vs TW practice when price >> par; keep as research sensitivity only.",
+    "live_default": "KEEP_E22_v2s_UNTIL_EXPLICIT_PROMOTE_OF_TW",
+    "do_not": [
+      "Force lot_size=1000 as formal books",
+      "Model \u62fc\u6e4a window as portfolio alpha",
+      "Silently replace E22_v2s without new version id",
+      "Rewrite forward/e21 history"
+    ]
+  }
+}

@@ -143,7 +143,11 @@ def main():
     ap.add_argument("--state-dir", default="e21_state")
     ap.add_argument("--capital", type=float, default=CAPITAL)
     ap.add_argument("--dividends", default=str(DIV_PATH))
-    ap.add_argument("--e22-version", default=E22_BOOKS_VERSION, choices=[e22div.E22_V2, e22div.E22_V2S])
+    ap.add_argument(
+        "--e22-version",
+        default=E22_BOOKS_VERSION,
+        choices=[e22div.E22_V2, e22div.E22_V2S, e22div.E22_V2S_CIL, e22div.E22_V2S_TW],
+    )
     a = ap.parse_args()
     CAPITAL = a.capital
     sdir = Path(a.state_dir)
@@ -221,7 +225,13 @@ def main():
     if div_path.exists():
         skip |= set(pd.read_csv(div_path)["key"].astype(str))
     pos, cash, applied = e22div.apply_dividends_for_date(
-        latest.date().isoformat(), pos, cash, div_events, version=a.e22_version, skip_keys=skip
+        latest.date().isoformat(),
+        pos,
+        cash,
+        div_events,
+        version=a.e22_version,
+        skip_keys=skip,
+        mark_prices=prices,
     )
     for d in applied.details:
         row = {
@@ -234,6 +244,9 @@ def main():
             "amount_per_share": d.get("amount_per_share"),
             "cash_credit": d.get("cash_credit", 0.0),
             "shares_added": d.get("shares_added", 0.0),
+            "fractional_shares": d.get("fractional_shares", 0.0),
+            "cil_cash_credit": d.get("cil_cash_credit", 0.0),
+            "mark_price": d.get("mark_price", ""),
             "version": d.get("version", a.e22_version),
         }
         append_immutable(div_path, row, "key")

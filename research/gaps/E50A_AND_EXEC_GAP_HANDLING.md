@@ -142,8 +142,8 @@ Publish three parallel identities (no behavior fight):
 - Historical research side-by-side already answers “must we recompute?” → research yes, live history no.
 
 **Stage C — Fractional + board-lot challenger**  
-- On stock ex: either floor shares + cash-in-lieu at close, or keep float but sell only board lots.  
-- Separate E18 lot-policy challenger; do not silently change live lot size midstream.
+- **6.5 DONE (named):** `E22_v2s_tw` = floor + par NT$10 CIL (see `research/e22/GAP65_ODD_LOT_CLOSEOUT.md`). Default still `E22_v2s` until promote.  
+- Board-lot 1000: E18 capacity challenger only (TW 零股 allows 1–999).
 
 **Stage D — Pay-date / tax only if ops ask**  
 - H1 showed interesting but fragile util; keep sandbox.  
@@ -166,7 +166,7 @@ Publish three parallel identities (no behavior fight):
 | 3 | #6 | Wire E21 forward dividends cutover-only | `dividends_applied.csv` |
 | 4 | #5 | Complete R1 turnover / held-out diagnosis | diagnosis PR |
 | 5 | #5 | Failure-signature → overlay risk budget (paper) | research note |
-| 6 | #6 | Fractional + 1000-lot E18 challenger | repro sandbox |
+| 6 | #6 | Fractional + 1000-lot E18 challenger | repro sandbox — **6.5 CLOSED** as `E22_v2s_tw` named (par CIL); board-lot still challenger |
 | 7 | #5 | Paper combined book (fixed overlay %) predeclared | early-stack sibling |
 | 8 | #5+#6 | Promotion review only after gates + approval | governance |
 

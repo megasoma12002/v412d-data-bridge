@@ -1,0 +1,587 @@
+{
+  "generated_at_utc": "2026-09-04T18:08:40.825995+00:00",
+  "stage": "GAP5_6_CONTINUATION",
+  "governance": {
+    "live_wire_overlay": false,
+    "promotes_r1": false,
+    "rewrites_forward_e21_history": false,
+    "label": "EXPERIMENTAL_RESEARCH",
+    "predeclared_mixes": [
+      [
+        "CORE_100",
+        1.0,
+        0.0
+      ],
+      [
+        "CORE_90_OVL_10",
+        0.9,
+        0.1
+      ],
+      [
+        "CORE_80_OVL_20",
+        0.8,
+        0.2
+      ],
+      [
+        "CORE_70_OVL_30",
+        0.7,
+        0.3
+      ]
+    ],
+    "predeclared_overlap_start": "2019-01-02",
+    "predeclared_risk_budget_rules": [
+      "STATIC",
+      "TRAIL_3M_HALVE",
+      "TRAIL_3M_ZERO",
+      "COMBINED_DD15_CUT"
+    ],
+    "predeclared_risk_budget_base_mix": "CORE_80_OVL_20",
+    "predeclared_lot_resim": [
+      [
+        "share_1",
+        1
+      ],
+      [
+        "board_lot_1000",
+        1000
+      ]
+    ]
+  },
+  "paper_combined": [
+    {
+      "mix": "CORE_100",
+      "w_core": 1.0,
+      "w_overlay": 0.0,
+      "full_overlap": {
+        "cagr": 0.17223004452942559,
+        "max_drawdown": -0.22639131293777337,
+        "end": 3.2110120959795445,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12330755797580628,
+        "max_drawdown": -0.22639131293777337,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.2270870403661951,
+        "max_drawdown": -0.144568509835741,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      }
+    },
+    {
+      "mix": "CORE_90_OVL_10",
+      "w_core": 0.9,
+      "w_overlay": 0.1,
+      "full_overlap": {
+        "cagr": 0.18893551933238806,
+        "max_drawdown": -0.23289681903936,
+        "end": 3.5625205153541115,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12601164694594247,
+        "max_drawdown": -0.23289681903936,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.26133311826596195,
+        "max_drawdown": -0.11037315082953592,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      }
+    },
+    {
+      "mix": "CORE_80_OVL_20",
+      "w_core": 0.8,
+      "w_overlay": 0.2,
+      "full_overlap": {
+        "cagr": 0.20427314905710503,
+        "max_drawdown": -0.23956556438539944,
+        "end": 3.9140289347286785,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12869720679297791,
+        "max_drawdown": -0.23956556438539944,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.29290557954556373,
+        "max_drawdown": -0.1349979732865365,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      }
+    },
+    {
+      "mix": "CORE_70_OVL_30",
+      "w_core": 0.7,
+      "w_overlay": 0.3,
+      "full_overlap": {
+        "cagr": 0.21846382651454133,
+        "max_drawdown": -0.24640377115564627,
+        "end": 4.265537354103245,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.13136453291632866,
+        "max_drawdown": -0.24640377115564627,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.32220106076201094,
+        "max_drawdown": -0.15897107958754209,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      }
+    }
+  ],
+  "failure_signature": {
+    "proxy": "0050_buy_hold_close_approx",
+    "overlay_series": "chained_across_val_sealed_boundary",
+    "n_months": 92,
+    "pct_months_lose_to_proxy": 0.5760869565217391,
+    "mean_monthly_excess": 0.010102288333519314,
+    "worst_months": [
+      {
+        "ym": "2025-09",
+        "excess": -0.07915166594628775,
+        "ovl": 0.018069248039070396,
+        "px": 0.09722091398535815,
+        "n": 21,
+        "lose": true
+      },
+      {
+        "ym": "2021-05",
+        "excess": -0.07434765738346483,
+        "ovl": -0.09608426995141162,
+        "px": -0.02173661256794679,
+        "n": 21,
+        "lose": true
+      },
+      {
+        "ym": "2020-07",
+        "excess": -0.0666404532741024,
+        "ovl": 0.07921267420793243,
+        "px": 0.14585312748203483,
+        "n": 23,
+        "lose": true
+      },
+      {
+        "ym": "2024-06",
+        "excess": -0.05991816343938339,
+        "ovl": 0.05845182740821464,
+        "px": 0.11836999084759803,
+        "n": 19,
+        "lose": true
+      },
+      {
+        "ym": "2024-10",
+        "excess": -0.057053404177655365,
+        "ovl": -0.013729791469996533,
+        "px": 0.04332361270765883,
+        "n": 19,
+        "lose": true
+      },
+      {
+        "ym": "2019-10",
+        "excess": -0.04631737483839704,
+        "ovl": 0.01727927773818927,
+        "px": 0.06359665257658631,
+        "n": 21,
+        "lose": true
+      },
+      {
+        "ym": "2026-05",
+        "excess": -0.044103033146494997,
+        "ovl": 0.11204841350060268,
+        "px": 0.15615144664709768,
+        "n": 19,
+        "lose": true
+      },
+      {
+        "ym": "2020-09",
+        "excess": -0.03953658806840732,
+        "ovl": -0.026761201200421025,
+        "px": 0.012775386867986294,
+        "n": 22,
+        "lose": true
+      }
+    ],
+    "best_months": [
+      {
+        "ym": "2025-06",
+        "excess": 0.7604734417448258,
+        "ovl": 0.07872034782419957,
+        "px": -0.6817530939206262,
+        "n": 16,
+        "lose": false
+      },
+      {
+        "ym": "2021-10",
+        "excess": 0.102288956643524,
+        "ovl": 0.09413737250218479,
+        "px": -0.008151584141339208,
+        "n": 20,
+        "lose": false
+      },
+      {
+        "ym": "2025-05",
+        "excess": 0.09948677720693533,
+        "ovl": 0.1648899574229764,
+        "px": 0.06540318021604108,
+        "n": 20,
+        "lose": false
+      },
+      {
+        "ym": "2021-04",
+        "excess": 0.06915932684463921,
+        "ovl": 0.11206877688890049,
+        "px": 0.04290945004426128,
+        "n": 19,
+        "lose": false
+      },
+      {
+        "ym": "2020-04",
+        "excess": 0.06886172178851058,
+        "ovl": 0.18689425004860438,
+        "px": 0.1180325282600938,
+        "n": 20,
+        "lose": false
+      },
+      {
+        "ym": "2023-07",
+        "excess": 0.062393476174592344,
+        "ovl": 0.06105939589986198,
+        "px": -0.0013340802747303648,
+        "n": 21,
+        "lose": false
+      },
+      {
+        "ym": "2026-08",
+        "excess": 0.06138438486951259,
+        "ovl": 0.10181753483309064,
+        "px": 0.04043314996357805,
+        "n": 20,
+        "lose": false
+      },
+      {
+        "ym": "2021-03",
+        "excess": 0.054678843345374095,
+        "ovl": 0.06587421848726749,
+        "px": 0.011195375141893393,
+        "n": 22,
+        "lose": false
+      }
+    ],
+    "note": "Stand-in proxy (0050), not the official PIT equal-weight proxy used in R1 gates. Overlay NAV chained across validation\u2192sealed reset."
+  },
+  "lot_policy": [
+    {
+      "policy": "float_keep",
+      "end_positions": {
+        "2880": 279017.7229,
+        "2886": 24445.7082,
+        "2892": 150.4434,
+        "5880": 1.3211,
+        "2412": 12445.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 11656.0
+      },
+      "stranded_shares": {
+        "2880": 0.0,
+        "2886": 0.0,
+        "2892": 0.0,
+        "5880": 0.0,
+        "2412": 0.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 0.0
+      },
+      "stranded_total_shares": 0.0,
+      "sim_end_nav_ref": 16695201.766628467,
+      "stock_div_shares_added_in_sim": 78250.1955
+    },
+    {
+      "policy": "floor_int",
+      "end_positions": {
+        "2880": 279017.0,
+        "2886": 24445.0,
+        "2892": 150.0,
+        "5880": 1.0,
+        "2412": 12445.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 11656.0
+      },
+      "stranded_shares": {
+        "2880": 0.7228999999933876,
+        "2886": 0.708200000000943,
+        "2892": 0.4433999999999969,
+        "5880": 0.32109999999999994,
+        "2412": 0.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 0.0
+      },
+      "stranded_total_shares": 2.1955999999943274,
+      "sim_end_nav_ref": 16695201.766628467,
+      "stock_div_shares_added_in_sim": 78250.1955
+    },
+    {
+      "policy": "board_lot_1000",
+      "end_positions": {
+        "2880": 279000.0,
+        "2886": 24000.0,
+        "2892": 0.0,
+        "5880": 0.0,
+        "2412": 12000.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 11000.0
+      },
+      "stranded_shares": {
+        "2880": 17.722899999993388,
+        "2886": 445.70820000000094,
+        "2892": 150.4434,
+        "5880": 1.3211,
+        "2412": 445.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 656.0
+      },
+      "stranded_total_shares": 1716.1955999999943,
+      "sim_end_nav_ref": 16695201.766628467,
+      "stock_div_shares_added_in_sim": 78250.1955
+    },
+    {
+      "policy": "note",
+      "text": "End-position stranding only. Full fill re-sim under board lots is in e18_board_lot_resim() below."
+    }
+  ],
+  "overlay_risk_budget": [
+    {
+      "rule": "STATIC",
+      "base_mix": "CORE_80_OVL_20",
+      "w_core": 0.8,
+      "w_overlay_max": 0.2,
+      "mean_overlay_scale": 1.0,
+      "pct_days_scale_lt_1": 0.0,
+      "full_overlap": {
+        "cagr": 0.20427314905710503,
+        "max_drawdown": -0.23956556438539944,
+        "end": 3.9140289347286785,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12869720679297791,
+        "max_drawdown": -0.23956556438539944,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.29290557954556373,
+        "max_drawdown": -0.1349979732865365,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      },
+      "governance": "EXPERIMENTAL_PAPER_ONLY"
+    },
+    {
+      "rule": "TRAIL_3M_HALVE",
+      "base_mix": "CORE_80_OVL_20",
+      "w_core": 0.8,
+      "w_overlay_max": 0.2,
+      "mean_overlay_scale": 0.9195029713668288,
+      "pct_days_scale_lt_1": 0.16099405726634253,
+      "full_overlap": {
+        "cagr": 0.20427314905710503,
+        "max_drawdown": -0.24061845934990234,
+        "end": 3.9140289347286785,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12869720679297791,
+        "max_drawdown": -0.2318430842004332,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.29290557954556373,
+        "max_drawdown": -0.24061845934990234,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      },
+      "governance": "EXPERIMENTAL_PAPER_ONLY"
+    },
+    {
+      "rule": "TRAIL_3M_ZERO",
+      "base_mix": "CORE_80_OVL_20",
+      "w_core": 0.8,
+      "w_overlay_max": 0.2,
+      "mean_overlay_scale": 0.8390059427336575,
+      "pct_days_scale_lt_1": 0.16099405726634253,
+      "full_overlap": {
+        "cagr": 0.20427314905710503,
+        "max_drawdown": -0.3768058601072899,
+        "end": 3.9140289347286785,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12869720679297791,
+        "max_drawdown": -0.2773431197539309,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.29290557954556373,
+        "max_drawdown": -0.3768058601072899,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      },
+      "governance": "EXPERIMENTAL_PAPER_ONLY"
+    },
+    {
+      "rule": "COMBINED_DD15_CUT",
+      "base_mix": "CORE_80_OVL_20",
+      "w_core": 0.8,
+      "w_overlay_max": 0.2,
+      "mean_overlay_scale": 0.7450027012425716,
+      "pct_days_scale_lt_1": 0.25499729875742844,
+      "full_overlap": {
+        "cagr": 0.20427314905710503,
+        "max_drawdown": -0.3655836454914523,
+        "end": 3.9140289347286785,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.06041737081650944,
+        "max_drawdown": -0.3655836454914523,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.3856992000543935,
+        "max_drawdown": -0.13499797328653662,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      },
+      "governance": "EXPERIMENTAL_PAPER_ONLY"
+    }
+  ],
+  "e18_board_lot_resim": [
+    {
+      "policy": "share_1",
+      "lot_size": 1,
+      "cagr": 0.137829469400496,
+      "max_drawdown": -0.22639131293777315,
+      "vol": 0.133223365516143,
+      "utility": 0.024633812931609433,
+      "n_fills": 6262,
+      "exact_t1_ok": true,
+      "stock_div_shares_added": 78250.1955,
+      "dividend_cash_total": 3148555.7472813088,
+      "end_nav": 16695201.766628467,
+      "end_cash": 232620.47475316742,
+      "end_positions": {
+        "2880": 279017.7229,
+        "2886": 24445.7082,
+        "2892": 150.4434,
+        "5880": 1.3211,
+        "2412": 12445.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 11656.0
+      },
+      "stranded_vs_board_lot_at_end": {
+        "2880": 17.722899999993388,
+        "2886": 445.70820000000094,
+        "2892": 150.4434,
+        "5880": 1.3211,
+        "2412": 445.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 656.0
+      },
+      "stranded_total_vs_board_lot": 1716.1955999999943,
+      "start": "2012-12-04",
+      "end": "2026-09-04"
+    },
+    {
+      "policy": "board_lot_1000",
+      "lot_size": 1000,
+      "cagr": 0.13662345841762757,
+      "max_drawdown": -0.2290018897402547,
+      "vol": 0.1293128611618894,
+      "utility": 0.022122513547500222,
+      "n_fills": 1901,
+      "exact_t1_ok": true,
+      "stock_div_shares_added": 79182.5064,
+      "dividend_cash_total": 3120905.184937996,
+      "end_nav": 16461488.911105996,
+      "end_cash": 259079.56857670197,
+      "end_positions": {
+        "2880": 275200.4612,
+        "2886": 14793.476,
+        "2892": 3225.0653,
+        "5880": 2963.5039,
+        "2412": 11000.0,
+        "3045": 3000.0,
+        "4904": 0.0,
+        "0050": 12000.0
+      },
+      "stranded_vs_board_lot_at_end": {
+        "2880": 200.46120000001974,
+        "2886": 793.4760000000006,
+        "2892": 225.0653000000002,
+        "5880": 963.5039000000002,
+        "2412": 0.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 0.0
+      },
+      "stranded_total_vs_board_lot": 2182.5064000000207,
+      "start": "2012-12-04",
+      "end": "2026-09-04"
+    },
+    {
+      "policy": "delta_board_vs_share1",
+      "end_nav_ratio_board_over_share1": 0.9860011961047616,
+      "cagr_delta_pp": -0.12060109828684329,
+      "mdd_delta_pp": -0.2610576802481557
+    }
+  ],
+  "decision": {
+    "overlay_live": "STILL_NO",
+    "best_paper_mix_not_for_promotion": true,
+    "risk_budget_live": "STILL_NO",
+    "board_lot_live": "STILL_NO_CHALLENGER_ONLY",
+    "next": [
+      "Alpha-repair track: E50-A3-R1 turnover/held-out diagnosis (separate branch)",
+      "Optional: fractional floor + cash-in-lieu formal books challenger",
+      "Do not live-wire risk budget or board-lot until governance PR"
+    ]
+  }
+}

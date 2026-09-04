@@ -85,10 +85,14 @@ def e16_features(m: pd.DataFrame):
     return p, sleeve, target, reg
 
 
-def lot_qty(value: float, price: float) -> int:
-    if price <= 0 or not math.isfinite(price):
+def lot_qty(value: float, price: float, lot_size: int = 1) -> int:
+    """Share quantity from notional; lot_size=1 is 1-share, 1000 is TW board lot."""
+    if price <= 0 or not math.isfinite(price) or lot_size < 1:
         return 0
-    return int(abs(value) / price)
+    raw = int(abs(value) / price)
+    if lot_size == 1:
+        return raw
+    return (raw // lot_size) * lot_size
 
 
 def simulate_core(
@@ -103,11 +107,13 @@ def simulate_core(
     e45_exposure: pd.Series | None = None,
     e45_legacy_crisis_scale: float | None = None,
     capital: float = CAPITAL,
+    lot_size: int = 1,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
     Formal books default = E22_v2s (cash + stock shares). E22_v2 remains cash-only.
     E16 features use adj_close elsewhere; NAV here always marks with raw close.
+    lot_size: 1 = research 1-share fills (default); 1000 = TW 整股 board-lot challenger.
     """
     if e22_version is None:
         if apply_stock_div is False:
@@ -115,7 +121,7 @@ def simulate_core(
         else:
             e22_version = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s
     if apply_stock_div is None:
-        apply_stock_div = e22_version == e22div.E22_V2S
+        apply_stock_div = e22_version in e22div.STOCK_SHARE_VERSIONS
     m = market.copy()
     m["date"] = pd.to_datetime(m["date"])
     closes = m.pivot(index="date", columns="code", values="close").sort_index().ffill()
@@ -138,6 +144,8 @@ def simulate_core(
     trade_start = dates[WARMUP_DAYS]
     same_bar = 0
     div_cash_total = 0.0
+    cil_cash_total = 0.0
+    fractional_shares_cashed = 0.0
     stock_div_events = 0
     stock_div_shares_added = 0.0
     crisis_days = 0
@@ -157,12 +165,17 @@ def simulate_core(
             side = o["side"]
             code = o["code"]
             q = int(o["quantity"])
+            if lot_size > 1:
+                q = (q // lot_size) * lot_size
             fp = float(op[code]) * (1 + SLIP if side == "BUY" else 1 - SLIP)
             gross = q * fp
             tax = TAX_ETF if code == "0050" else TAX_STOCK
             fee = gross * (BUY_FEE if side == "BUY" else SELL_FEE + tax)
             if side == "BUY" and gross + fee > cash:
-                q = max(0, int(cash / (fp * (1 + BUY_FEE))))
+                afford = int(cash / (fp * (1 + BUY_FEE)))
+                if lot_size > 1:
+                    afford = (afford // lot_size) * lot_size
+                q = max(0, afford)
                 gross = q * fp
                 fee = gross * BUY_FEE
             if q < 1:
@@ -171,7 +184,8 @@ def simulate_core(
                 pos[code] += q
                 cash -= gross + fee
             else:
-                q = min(q, int(pos[code]))
+                held = int(pos[code]) if lot_size == 1 else int(pos[code] // lot_size) * lot_size
+                q = min(q, held)
                 if q < 1:
                     continue
                 gross = q * fp
@@ -197,15 +211,26 @@ def simulate_core(
         pending = still
 
         # 2) E22 books on ex-date via formal accounting module
+        #    CIL marks fractional stock remainder at today's raw close.
         day_div = 0.0
         day_stock_shares = 0.0
+        day_cil = 0.0
         if apply_e22:
+            mark_prices = {c: float(cl[c]) for c in ALL}
             pos, cash, applied = e22div.apply_dividends_for_date(
-                dt.date().isoformat(), pos, cash, events, version=e22_version
+                dt.date().isoformat(),
+                pos,
+                cash,
+                events,
+                version=e22_version,
+                mark_prices=mark_prices,
             )
             day_div = applied.cash_credit
             day_stock_shares = applied.stock_shares_added
+            day_cil = applied.cil_cash_credit
             div_cash_total += applied.cash_credit
+            cil_cash_total += applied.cil_cash_credit
+            fractional_shares_cashed += applied.fractional_shares_cashed
             stock_div_events += applied.stock_events
             stock_div_shares_added += applied.stock_shares_added
 
@@ -250,12 +275,13 @@ def simulate_core(
             value = sleeve_trade[sleeve_name] * nav / len(codes)
             for c in codes:
                 px = float(cl[c])
-                qty = lot_qty(value, px)
+                qty = lot_qty(value, px, lot_size=lot_size)
                 if qty < 1:
                     continue
                 side = "BUY" if value > 0 else "SELL"
                 if side == "SELL":
-                    qty = min(qty, int(pos.get(c, 0)))
+                    held = int(pos.get(c, 0)) if lot_size == 1 else int(pos.get(c, 0) // lot_size) * lot_size
+                    qty = min(qty, held)
                 if qty < 1:
                     continue
                 pending.append(
@@ -278,6 +304,7 @@ def simulate_core(
                 "e45_equity_scale": equity_scale,
                 "dividend_credit": day_div,
                 "stock_shares_added": day_stock_shares,
+                "cil_cash_credit": day_cil,
                 "pre_financial": pre["Financial"],
                 "pre_telecom": pre["Telecom"],
                 "pre_0050": pre["0050"],
@@ -296,6 +323,8 @@ def simulate_core(
         "exact_t1_ok": same_bar == 0,
         "e22_books_version": e22_version if apply_e22 else None,
         "dividend_cash_total": div_cash_total,
+        "cil_cash_total": cil_cash_total,
+        "fractional_shares_cashed": round(fractional_shares_cashed, 6),
         "stock_div_events": stock_div_events,
         "stock_div_shares_added": round(stock_div_shares_added, 4),
         "apply_stock_div": bool(apply_e22 and apply_stock_div),
@@ -304,6 +333,7 @@ def simulate_core(
         "end": nav_df["date"].iloc[-1] if len(nav_df) else None,
         "mean_e45_exposure": float(nav_df["e45_equity_scale"].mean()) if len(nav_df) else None,
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
+        "lot_size": int(lot_size),
         "e22_manifest": e22div.version_manifest(e22_version) if apply_e22 else None,
     }
     return nav_df, fills_df, meta

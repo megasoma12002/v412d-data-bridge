@@ -20,24 +20,23 @@
       "research_cash": "ex_date",
       "research_stock": "optional_or_e22_v2s",
       "payment_date": "ledger_complete_unused_officially",
-      "handle": "LABEL_THREE_BOOKS; adopt_E22_v2s; defer_pay_tax_lots_to_challengers",
-      "forbidden_now": ["rewrite_live_nav_history", "silent_replace_e22_v2", "promote_e22_v3_h1"]
+      "gap_6_5_odd_lot": "CLOSED_NAMED_E22_v2s_tw_par_cil",
+      "handle": "LABEL_THREE_BOOKS; adopt_E22_v2s; E22_v2s_tw_named_for_TW_practice; defer_pay_tax_boardlot",
+      "forbidden_now": ["rewrite_live_nav_history", "silent_replace_e22_v2", "promote_e22_v3_h1", "force_board_lot_1000_as_formal"]
     }
   },
   "ordered_next_steps": [
-    "Document live=core-only; do not claim 20% from E16 alone",
-    "Adopt E22_v2s formal raw-price books; preserve E22_v2 cash-only label",
-    "Wire E21 dividends cutover-forward only",
-    "Finish E50-A3-R1 turnover/held-out diagnosis",
-    "Failure-signature research for overlay risk budget",
-    "E18 fractional + board-lot challenger",
-    "Paper combined E16+overlay NAV with predeclared mix",
-    "Promotion only after gates + explicit approval"
+    "Merge strategy debt closeout (odd-lot TW + diagnosis archive + debt board)",
+    "Optional explicit promote DEFAULT to E22_v2s_tw (cutover-only)",
+    "Alpha Stage-8 failure-signature / stress-sleeve (OOF then one held-out)",
+    "Archive STOP draft PRs (#22-#27 class)",
+    "Promotion only after gates + explicit approval — no live overlay until then"
   ],
   "decision": {
     "gap5_live_wire": false,
     "gap6_history_rewrite": false,
     "gap6_formal_stock_books": "E22_v2s_recommended",
+    "gap6_5_tw_odd_lot": "E22_v2s_tw_named_keep_default_v2s",
     "promote_anything_in_this_pr": false
   }
 }
