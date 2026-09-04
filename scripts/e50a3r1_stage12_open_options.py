@@ -100,7 +100,7 @@ def evaluate_nav_df(nav: pl.DataFrame, proxy: pl.DataFrame, name, stress_dates):
         "utility": (cagr or 0.0) - 0.5 * abs(mdd or 0.0),
         "average_daily_turnover": turn,
         "block_bootstrap_positive_probability": boot,
-        "mean_gross_exposure": mean_gross_exposure(nav),
+        "mean_gross_exposure": float(nav["gross_exposure"].mean()),
         "turnover_gate_pass": bool((turn or 9) <= TURNOVER_CEILING),
         "bootstrap_gate_pass": bool((boot or 0) >= BOOTSTRAP_GATE),
         **{f"s_{k}": v for k, v in stress.items()},
