@@ -127,7 +127,7 @@
           "vol": 0.304408166639994
         }
       ],
-      "decision": "AWAITING_GOVERNANCE_CHOICE_A_OR_B"
+      "decision": "NO_PROMOTION_KEEP_B"
     },
     "g4_hedge": {
       "status": "ROUND1_ILLUSTRATIVE",
@@ -201,5 +201,6 @@
       ],
       "decision": "VARIANTS_REGISTERED_NO_RUN_YET"
     }
-  }
+  },
+  "delegated_promotion_decision": "DECISION_NO_PROMOTIONS_20260904"
 }
