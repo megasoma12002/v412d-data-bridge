@@ -1,0 +1,14 @@
+R6B1 validation ...
+R6B1 sealed ...
+C4 full-invest reference validation/sealed ...
+{
+  "research_decision": "MIXED_HELDOUT",
+  "val_boot": 0.3738,
+  "val_mdd": -0.2756796982858992,
+  "val_cagr": 0.18725045572543642,
+  "val_util": 0.049410606582486805,
+  "sealed_boot": 0.992,
+  "sealed_mdd": -0.1803889027021648,
+  "c4_val_boot": 0.5588,
+  "c4_val_mdd": -0.31867662365819793
+}
