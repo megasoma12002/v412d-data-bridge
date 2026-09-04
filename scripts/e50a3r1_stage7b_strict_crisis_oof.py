@@ -132,11 +132,14 @@ def main() -> None:
     candidates = []
     for r in dual:
         cex, bex = r["c_crisis_mean_excess"], baseline["c_crisis_mean_excess"]
-        crisis_ok = cex is not None and ((cex >= 0.0) or (bex is not None and cex > bex + 1e-8))
-        # Prefer improved crisis compound OR improved utility
-        compound_ok = (r["c_crisis_strategy_compound"] or -9) > (baseline["c_crisis_strategy_compound"] or -9)
+        ccomp, bcomp = r["c_crisis_strategy_compound"], baseline["c_crisis_strategy_compound"]
+        # Must improve crisis profitability vs baseline (not merely keep excess ≥ 0).
+        crisis_improved = (
+            (cex is not None and bex is not None and cex > bex + 1e-12)
+            or (ccomp is not None and bcomp is not None and ccomp > bcomp + 1e-12)
+        )
         util_ok = (r["utility"] or -9) >= (baseline["utility"] or -9) - 0.005
-        if crisis_ok and util_ok and (compound_ok or (r["utility"] or -9) > (baseline["utility"] or -9)):
+        if crisis_improved and util_ok:
             candidates.append(r)
 
     candidates = sorted(

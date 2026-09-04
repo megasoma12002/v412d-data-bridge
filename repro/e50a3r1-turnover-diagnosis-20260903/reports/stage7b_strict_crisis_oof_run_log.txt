@@ -1,0 +1,28 @@
+strict OOF crisis days=238/1972
+evaluating BASE_FULL ...
+  CAGR=0.1056 MDD=-0.3024 util=-0.0456 boot=0.8066 crisis_ex=0.001064601190032594 both=True
+evaluating STRICT_CASH_090 ...
+  CAGR=0.1029 MDD=-0.2870 util=-0.0406 boot=0.7862 crisis_ex=0.0009789256965221063 both=True
+evaluating STRICT_CASH_085 ...
+  CAGR=0.1012 MDD=-0.2789 util=-0.0383 boot=0.7754 crisis_ex=0.0009123791335993192 both=True
+evaluating STRICT_CASH_080 ...
+  CAGR=0.0992 MDD=-0.2708 util=-0.0362 boot=0.755 crisis_ex=0.0008245815335780312 both=True
+evaluating STRICT_CASH_070 ...
+  CAGR=0.0950 MDD=-0.2546 util=-0.0323 boot=0.7072 crisis_ex=0.0006191449005757059 both=True
+evaluating STRICT_SLEEVE_DEF ...
+  CAGR=0.0589 MDD=-0.3451 util=-0.1137 boot=0.3684 crisis_ex=-0.00024367107218029255 both=False
+evaluating STRICT_SLEEVE_DEF_CASH085 ...
+  CAGR=0.0593 MDD=-0.3163 util=-0.0988 boot=0.3608 crisis_ex=-0.00024602873584970915 both=False
+{
+  "research_decision": "OOF_NEW_STRICT_CRISIS_CHALLENGER_DUAL_GATE_WINNER",
+  "oof_crisis_day_share": 0.12075088787417554,
+  "baseline_crisis_excess": 0.001064601190032594,
+  "baseline_crisis_compound": 0.4777172204781215,
+  "n_candidates": 4,
+  "winner": {
+    "challenger": "STRICT_CASH_090",
+    "boot": 0.7862,
+    "utility": -0.040598709492054186,
+    "crisis_compound": 0.455225507256644
+  }
+}
