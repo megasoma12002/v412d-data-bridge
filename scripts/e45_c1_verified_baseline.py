@@ -115,9 +115,45 @@ def block_bootstrap_mdd_better(
     return wins / draws
 
 
+def load_original_v412e0(raw_path: Path, adj_path: Path) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame, dict]:
+    """Signal on raw FormalRouter prep; evaluate NAV on adjusted (E1/E11 pattern)."""
+    import v412e1_crisis_buffer as e1
+
+    raw = pd.read_csv(raw_path, dtype={"code": str})
+    adj = pd.read_csv(adj_path, dtype={"code": str})
+    z = d.prep(raw)
+    rc, ro, ac, ao = e1.aligned_matrices(raw, adj)
+    meta = {
+        "path_raw": str(raw_path),
+        "path_adjusted": str(adj_path),
+        "n_rows": int(len(raw)),
+        "n_codes": int(raw["code"].nunique()),
+        "date_min": str(pd.to_datetime(raw["date"]).min().date()),
+        "date_max": str(pd.to_datetime(raw["date"]).max().date()),
+        "panel_note": "ORIGINAL_V412E0_ACTIONS_ARTIFACT",
+        "signal_layer": "raw",
+        "evaluation_layer": "corporate_action_adjusted",
+        "source_actions_run_id": "32733969384",
+        "source_artifact": "v412e0-historical-expansion",
+    }
+    return z, rc, ac, ao, meta
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--pit", type=Path, default=Path("/tmp/a0/point_in_time_universe.csv"))
+    ap.add_argument(
+        "--raw",
+        type=Path,
+        default=None,
+        help="Original v412e0 raw panel (preferred when available)",
+    )
+    ap.add_argument(
+        "--adjusted",
+        type=Path,
+        default=None,
+        help="Original v412e0 adjusted panel (required with --raw)",
+    )
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--boot-draws", type=int, default=2000)
     args = ap.parse_args()
@@ -126,24 +162,35 @@ def main() -> None:
     (out / "reports").mkdir(parents=True, exist_ok=True)
     Path("research/e45").mkdir(parents=True, exist_ok=True)
 
-    print("extracting 12-stock raw panel from PIT ...", flush=True)
-    raw_path = out / "outputs" / "e45c1_12stocks_raw_from_pit.csv"
-    panel_meta = extract_raw_from_pit(args.pit, raw_path)
-    print(json.dumps({k: panel_meta[k] for k in ("n_rows", "n_codes", "date_min", "date_max")}, indent=2), flush=True)
+    if args.raw is not None:
+        if args.adjusted is None:
+            raise SystemExit("--adjusted is required when --raw is set")
+        print("loading ORIGINAL v412e0 raw+adjusted panels ...", flush=True)
+        z, rc, eval_close, eval_open, panel_meta = load_original_v412e0(args.raw, args.adjusted)
+        risk_close = rc  # exposure features on raw closes (causal execution layer)
+        calendar = list(rc.index)
+    else:
+        print("extracting 12-stock raw panel from PIT ...", flush=True)
+        raw_path = out / "outputs" / "e45c1_12stocks_raw_from_pit.csv"
+        panel_meta = extract_raw_from_pit(args.pit, raw_path)
+        raw = pd.read_csv(raw_path, dtype={"code": str})
+        z = d.prep(raw)
+        eval_close = z.pivot(index="date", columns="stock_id", values="close").sort_index()
+        eval_open = z.pivot(index="date", columns="stock_id", values="open").reindex(eval_close.index)
+        risk_close = eval_close
+        calendar = list(eval_close.index)
+        panel_meta["signal_layer"] = "raw_from_pit"
+        panel_meta["evaluation_layer"] = "raw_from_pit_same_as_signal"
 
-    raw = pd.read_csv(raw_path, dtype={"code": str})
+    print(json.dumps({k: panel_meta[k] for k in panel_meta if k != "coverage"}, indent=2, default=str), flush=True)
     print("prep + FormalRouter scores/weights (D baseline locks) ...", flush=True)
-    z = d.prep(raw)
-    close = z.pivot(index="date", columns="stock_id", values="close").sort_index()
-    op = z.pivot(index="date", columns="stock_id", values="open").reindex(close.index)
     scores = d.make_scores(z, FAM)
-    signal_w, _state = d.targets(scores, list(close.index), REB, TOP_N, LOCK)
+    signal_w, _state = d.targets(scores, calendar, REB, TOP_N, LOCK)
 
-    # Eval on raw close/open (reconstructed panel; documented limitation)
     print("computing named E45 exposures ...", flush=True)
-    exp_pass = pd.Series(1.0, index=close.index, name="exposure")
-    exp_e3 = e45.compute_exposure(close, "E3_VOLTARGET_WINNER")["exposure"].reindex(close.index).ffill().fillna(1.0)
-    exp_e1 = e45.compute_exposure(close, "E1_BINARY")["exposure"].reindex(close.index).ffill().fillna(1.0)
+    exp_pass = pd.Series(1.0, index=risk_close.index, name="exposure")
+    exp_e3 = e45.compute_exposure(risk_close, "E3_VOLTARGET_WINNER")["exposure"].reindex(risk_close.index).ffill().fillna(1.0)
+    exp_e1 = e45.compute_exposure(risk_close, "E1_BINARY")["exposure"].reindex(risk_close.index).ffill().fillna(1.0)
 
     profiles = {
         "D_FORMAL_ROUTER": exp_pass,
@@ -156,7 +203,7 @@ def main() -> None:
     costs = {}
     for name, exp in profiles.items():
         print(f"  nav {name} ...", flush=True)
-        nav, w, cost, scaled = e11.nav_with_exposure(close, op, signal_w, exp)
+        nav, w, cost, scaled = e11.nav_with_exposure(eval_close, eval_open, signal_w, exp)
         navs[name] = nav
         costs[name] = cost
         pd.DataFrame({"date": nav.index, "nav": nav.values, "cost": cost.values, "exposure": exp.reindex(nav.index).values}).to_csv(
@@ -236,9 +283,9 @@ def main() -> None:
     if e3_ok and checks.get("e3_val_sharpe_ge_d"):
         recommendation = "A_PROMOTE_E3_PROFILE_AS_E45_V1_CANDIDATE"
         rationale = (
-            "On reconstructed PIT panel, E3 exposure improves Validation MDD vs D, "
+            f"On panel ({panel_meta.get('panel_note')}), E3 exposure improves Validation MDD vs D, "
             "keeps ≥80% of D return, and MC P(better MDD)≥0.55. Still requires explicit "
-            "governance approval; panel is reconstructed (not original v412e0 artifact)."
+            "governance approval before SOFT_FROZEN_CRITICAL promotion."
         )
     elif e3_ok:
         recommendation = "A_PROMOTE_E3_PROFILE_AS_E45_V1_CANDIDATE_WEAK_SHARPE"
@@ -249,13 +296,13 @@ def main() -> None:
     elif e3_weak or (checks["e3_val_mdd_better"] and checks["mc_e3_p_better_mdd_val"] and checks["mc_e3_p_better_mdd_val"] >= 0.55):
         recommendation = "B_KEEP_D_AS_BASELINE_E45_API_ONLY"
         rationale = (
-            "E3 helps drawdown in places but fails return/Sharpe floor vs D on this panel. "
-            "Keep V4.12-D as formal crisis baseline; named E45 remains API packaging."
+            f"E3 helps drawdown in places but fails return/Sharpe floor vs D on this panel "
+            f"({panel_meta.get('panel_note')}). Keep V4.12-D as formal crisis baseline; named E45 remains API packaging."
         )
     else:
         recommendation = "C_REJECT_NO_PROMOTION"
         rationale = (
-            "No E45 profile clears a higher-bar style improvement vs D on the reconstructed panel."
+            f"No E45 profile clears a higher-bar style improvement vs D on panel ({panel_meta.get('panel_note')})."
         )
 
     # Verified baseline artifact (this run) — replaces reliance on -13.16% text
@@ -263,7 +310,11 @@ def main() -> None:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "panel": panel_meta,
         "signal_locks": {"family": FAM, "rebalance": REB, "top_n": TOP_N, "lock_days": LOCK},
-        "eval_note": "Signals and evaluation both use raw OHLCV from PIT (no separate adjusted layer available in this environment).",
+        "eval_note": (
+            "Original v412e0: signals on raw, NAV on adjusted (E1/E11 contract)."
+            if panel_meta.get("panel_note") == "ORIGINAL_V412E0_ACTIONS_ARTIFACT"
+            else "PIT reconstruction: signals and evaluation both use raw OHLCV (no separate adjusted layer)."
+        ),
         "claimed_mdd_handoff": e45.CLAIMED_MDD,
         "claimed_mdd_status": e45.CLAIMED_MDD_STATUS,
         "verified_mdd_this_panel": {
@@ -282,13 +333,23 @@ def main() -> None:
         "requires_explicit_governance_approval": True,
     }
     (out / "reports" / "e45_verified_baseline.json").write_text(json.dumps(verified, indent=2, default=str) + "\n")
-    (Path("research/e45/e45_verified_baseline.json")).write_text(json.dumps(verified, indent=2, default=str) + "\n")
+    # Always write run-local; only overwrite research/ pointer for ORIGINAL panel (authoritative)
+    research_base = Path("research/e45/e45_verified_baseline.json")
+    if panel_meta.get("panel_note") == "ORIGINAL_V412E0_ACTIONS_ARTIFACT":
+        research_base.write_text(json.dumps(verified, indent=2, default=str) + "\n")
+        decision_name = "E45_C1_DECISION.md"
+    else:
+        (Path("research/e45/e45_verified_baseline_pit_reconstructed.json")).write_text(
+            json.dumps(verified, indent=2, default=str) + "\n"
+        )
+        decision_name = "E45_C1_DECISION_PIT.md"
 
     # Update module status file without promoting
     status = e45.manifest_dict()
     status["e45_c1"] = {
         "recommendation": recommendation,
         "verified_baseline": "research/e45/e45_verified_baseline.json",
+        "panel_note": panel_meta.get("panel_note"),
         "promoted": False,
     }
     Path("research/e45/e45_status.json").write_text(json.dumps(status, indent=2) + "\n")
@@ -297,8 +358,9 @@ def main() -> None:
     decision_md = f"""# E45-C1 Decision Package
 
 Date: {datetime.now(timezone.utc).date().isoformat()}  
-Panel: reconstructed 12-stock raw OHLCV from E50-A0 PIT (**not** original v412e0 artifact)  
-Signal: FormalRouter locks family={FAM}, reb={REB}, top_n={TOP_N}, lock={LOCK}
+Panel: `{panel_meta.get('panel_note')}`  
+Signal: FormalRouter locks family={FAM}, reb={REB}, top_n={TOP_N}, lock={LOCK}  
+Eval: {verified['eval_note']}
 
 ## Recommendation: `{recommendation}`
 
@@ -328,7 +390,7 @@ Handoff claim MDD ≈ −13.16%: still **`{e45.CLAIMED_MDD_STATUS}`** (not found
 
 ## Options
 
-- **A** — Promote E3 profile as `E45_v1` after explicit approval; retire −13.16% text; publish verified MDD from this (or original) panel.
+- **A** — Promote E3 profile as `E45_v1` after explicit approval; retire −13.16% text; publish verified MDD from this panel.
 - **B** — Keep **V4.12-D** as crisis baseline; named `e45_crisis_core.py` stays API / packaging only.
 - **C** — Reject promotion; leave `CHALLENGER_CANDIDATE_NOT_PROMOTED`.
 
@@ -336,14 +398,13 @@ Handoff claim MDD ≈ −13.16%: still **`{e45.CLAIMED_MDD_STATUS}`** (not found
 
 - No in-place SOFT_FROZEN_CRITICAL edit
 - No retune of E3 winner parameters
-- No claim that reconstructed PIT panel equals the original E3 research panel
 
 Artifacts: `reports/e45_verified_baseline.json`, `outputs/e45c1_window_metrics.csv`
 """
     (out / "E45_C1_DECISION.md").write_text(decision_md)
-    Path("research/e45/E45_C1_DECISION.md").write_text(decision_md)
+    Path(f"research/e45/{decision_name}").write_text(decision_md)
 
-    print(json.dumps({"recommendation": recommendation, "checks": checks, "mc": mc}, indent=2, default=str))
+    print(json.dumps({"recommendation": recommendation, "checks": checks, "mc": mc, "panel": panel_meta.get("panel_note")}, indent=2, default=str))
 
 
 if __name__ == "__main__":

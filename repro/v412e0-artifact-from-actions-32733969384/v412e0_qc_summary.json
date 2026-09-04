@@ -1,0 +1,140 @@
+{
+  "status": "PASS",
+  "source_files": 55,
+  "requested_start_year": 2004,
+  "stocks": {
+    "2880": {
+      "name": "華南金",
+      "router_current_research": "R1",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5541,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "2886": {
+      "name": "兆豐金",
+      "router_current_research": "R1",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5541,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "2892": {
+      "name": "第一金",
+      "router_current_research": "R1",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5541,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "5880": {
+      "name": "合庫金",
+      "router_current_research": "R1",
+      "first_date": "2011-12-01",
+      "last_date": "2026-08-21",
+      "rows": 3598,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "2801": {
+      "name": "彰銀",
+      "router_current_research": "R2",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5541,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "2834": {
+      "name": "臺企銀",
+      "router_current_research": "R2",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5528,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "2884": {
+      "name": "玉山金",
+      "router_current_research": "R3",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5540,
+      "skipped_missing": 1,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "2885": {
+      "name": "元大金",
+      "router_current_research": "R3",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5541,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "2890": {
+      "name": "永豐金",
+      "router_current_research": "R3",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5541,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "2891": {
+      "name": "中信金",
+      "router_current_research": "R3",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5541,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "2881": {
+      "name": "富邦金",
+      "router_current_research": "R4",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5541,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    },
+    "2882": {
+      "name": "國泰金",
+      "router_current_research": "R4",
+      "first_date": "2004-02-11",
+      "last_date": "2026-08-21",
+      "rows": 5541,
+      "skipped_missing": 0,
+      "violations": 0,
+      "duplicate_dates": 0,
+      "status": "PASS"
+    }
+  },
+  "combined_rows": 64535
+}

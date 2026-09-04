@@ -243,5 +243,6 @@ That single step converts “missing official hedge core” from a naming proble
 | **P2 G5** tickets | `research/G5_DATA_WIRING_TICKETS.md` (T1 paper-ready; T2/T3 documented; T4 thin E16 API) |
 | **Post-P2 E22** | Paper extended `2026-07-01`→`09-03` (46d, ~84k dividends, QC PASS); **`E22_PROMOTION_PACKAGE.md`** |
 | **E22_v2 APPROVED** | Human approval 2026-09-04 → `forward/e22_v2/` + `scripts/e22_v2_forward_pipeline.py` (**SOFT_FROZEN**); `forward/e21/` preserved |
+| **Open items closed** | G4 **CLOSED_NOT_REQUIRED**; 3A **CLOSED_DEFERRED**; E45-C1 re-run on **original v412e0** → still **B** |
 
-Gap-fill + E22 official-path wiring **complete**. Further dividend-rule changes need a new challenger. Optional: product reopen of G4; E45-C1 on original v412e0 if recovered.
+All previously listed “still open” research debts are **closed or deferred with reopen checklists**. Live ops = `e22_v2` daily.

@@ -14,8 +14,8 @@ Decision: **Accept Option-2 permanence** — no further same-panel alpha grids.
 
 | Fork | Choice |
 |---|---|
-| 3A New information set | **Not selected now** |
-| **3B Accept Option-2 permanence** | **SELECTED** |
+| 3A New information set | **CLOSED_DEFERRED** — `GOVERNANCE_ALPHA_3A_DEFERRED.md` |
+| **3B Accept Option-2 permanence** | **SELECTED / LOCKED** |
 | 3C Governance gate reform | Deferred (no model change) |
 
 ## Operating rules (locked)
@@ -24,7 +24,7 @@ Decision: **Accept Option-2 permanence** — no further same-panel alpha grids.
 2. **No further** top_k / reb / exit micro-grids on the current panel.
 3. **No** S9A1 cut retune; **no** treating S9A1 as E45.
 4. Four-layer paper (`forward/e50_stack/`) may use **locked A3-R1** as EXPERIMENTAL overlay capital only.
-5. A **new-info** research program (3A) may reopen later only with features/labels outside A2 remix and a fresh OOF → adversarial → one-shot held-out protocol.
+5. A **new-info** research program (3A) is **CLOSED_DEFERRED** — reopen only via checklist in `GOVERNANCE_ALPHA_3A_DEFERRED.md`.
 
 ## Explicit non-goals
 

@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "method": "raw price multiplied by future after_price/before_price event factors; event day remains raw",
+  "execution_use": "NEVER; use raw OHLCV",
+  "rows": 64535,
+  "events": 304,
+  "event_count_by_stock": {
+    "2880": 24,
+    "2886": 26,
+    "2892": 22,
+    "5880": 17,
+    "2801": 21,
+    "2834": 21,
+    "2884": 25,
+    "2885": 30,
+    "2890": 25,
+    "2891": 35,
+    "2881": 27,
+    "2882": 31
+  },
+  "limitations": [
+    "research-grade reconstructed adjusted layer, not an exchange total-return index",
+    "historical router classification remains unverified"
+  ]
+}

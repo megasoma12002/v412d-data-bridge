@@ -1,0 +1,119 @@
+{
+  "generated_at_utc": "2026-09-04T06:04:32.654940+00:00",
+  "panel": {
+    "path": "repro/e45-c1-verified-baseline-20260904/outputs/e45c1_12stocks_raw_from_pit.csv",
+    "n_rows": 64595,
+    "n_codes": 12,
+    "date_min": "2004-02-11",
+    "date_max": "2026-08-28",
+    "coverage": {
+      "2801": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5546
+      },
+      "2834": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5533
+      },
+      "2880": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5546
+      },
+      "2881": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5546
+      },
+      "2882": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5546
+      },
+      "2884": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5545
+      },
+      "2885": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5546
+      },
+      "2886": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5546
+      },
+      "2890": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5546
+      },
+      "2891": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5546
+      },
+      "2892": {
+        "min": "2004-02-11",
+        "max": "2026-08-28",
+        "n": 5546
+      },
+      "5880": {
+        "min": "2011-12-01",
+        "max": "2026-08-28",
+        "n": 3603
+      }
+    },
+    "panel_note": "RECONSTRUCTED_FROM_E50A0_PIT_NOT_ORIGINAL_V412E0_ARTIFACT"
+  },
+  "signal_locks": {
+    "family": 1,
+    "rebalance": 21,
+    "top_n": 2,
+    "lock_days": 75
+  },
+  "eval_note": "Signals and evaluation both use raw OHLCV from PIT (no separate adjusted layer available in this environment).",
+  "claimed_mdd_handoff": -0.1316,
+  "claimed_mdd_status": "UNVERIFIED_TEXT_ONLY",
+  "verified_mdd_this_panel": {
+    "D_FORMAL_ROUTER_validation": -0.24420344363544344,
+    "D_FORMAL_ROUTER_full": -0.6125073766138477,
+    "E45_E3_validation": -0.20215011369699898,
+    "E45_E3_full": -0.39507836803120067,
+    "E45_E1_validation": -0.23556478105543432
+  },
+  "lineage_report_mdds_for_reference": {
+    "E1_validation_2012_2014": -0.1721,
+    "E1_1_validation_2012_2014": -0.1581,
+    "E3_validation_2021_2022": -0.1849,
+    "V412D_validation_reported": -0.1891
+  },
+  "recommendation": "B_KEEP_D_AS_BASELINE_E45_API_ONLY",
+  "rationale": "E3 helps drawdown in places but fails return/Sharpe floor vs D on this panel. Keep V4.12-D as formal crisis baseline; named E45 remains API packaging.",
+  "checks": {
+    "e3_val_mdd_better": true,
+    "e3_val_ret_ge_80pct_d": false,
+    "e3_val_sharpe_ge_d": false,
+    "e3_full_mdd_better": true,
+    "e3_crisis_mdd_better": true,
+    "e1_val_mdd_better": true,
+    "mc_e3_p_better_mdd_val": 0.9925,
+    "mc_e3_p_better_mdd_full": 0.997
+  },
+  "mc": {
+    "E45_E3_VOLTARGET_WINNER": {
+      "p_better_mdd_full": 0.997,
+      "p_better_mdd_validation": 0.9925
+    },
+    "E45_E1_BINARY": {
+      "p_better_mdd_full": 0.9265,
+      "p_better_mdd_validation": 0.647
+    }
+  },
+  "promotion_allowed_by_module": false,
+  "requires_explicit_governance_approval": true
+}

@@ -15,47 +15,30 @@ Governance named **E45** as `SOFT_FROZEN_CRITICAL`, but the repo only had:
 
 ## What this module is
 
-A **named Python surface** that packages lineage controllers without editing E1/E11/E2–E3 scripts and without self-promoting:
-
-| Profile | Meaning |
-|---|---|
-| `PASSTHROUGH` | exposure = 1 |
-| `E1_BINARY` | binary crisis × scale 0.50 (E1-style) |
-| `E3_VOLTARGET_WINNER` | locked E3 winner from `research/v412e2e3/e3_status.json` (**default**) |
+A **named Python surface** that packages lineage controllers without editing E1/E11/E2–E3 scripts and without self-promoting.
 
 Machine status: `research/e45/e45_status.json`
 
-## What this is NOT
+## E45-C1 (authoritative = original v412e0)
 
-- Not a promotion to `SOFT_FROZEN_CRITICAL`
-- Not a verification of MDD ≈ −13.16% (still `UNVERIFIED_TEXT_ONLY`)
-- Not a replacement for formal strategy **V4.12-D** (E3 remains `validation_pass_but_not_promoted`)
+Recovered Actions artifact run `32733969384` (`v412e0-historical-expansion`).
 
-## E45-C1 result (2026-09-04)
+**Recommendation: `B_KEEP_D_AS_BASELINE_E45_API_ONLY`** (confirmed on original raw+adjusted)
 
-Ran `scripts/e45_c1_verified_baseline.py` on reconstructed 12-stock PIT panel.
-
-**Recommendation: `B_KEEP_D_AS_BASELINE_E45_API_ONLY`**
-
-- E3 improves Validation/Full/Crisis MDD vs D (MC P(better MDD)≈0.99)
+- E3 improves Validation/Full/Crisis MDD vs D (MC P≈0.99)
 - Fails return ≥80% of D and Sharpe ≥ D on Validation
-- Therefore: **keep V4.12-D as crisis baseline**; named module stays API packaging
-- Artifacts: `research/e45/E45_C1_DECISION.md`, `e45_verified_baseline.json`
+- Keep **V4.12-D** as crisis baseline; named module stays API packaging
+- Handoff MDD −13.16%: still `UNVERIFIED_TEXT_ONLY`
 
-## Promotion path (unchanged)
+Artifacts:
 
-Separate challenger folder → preserve baseline → crisis stress + MC → cost validation → **explicit governance approval** → new frozen version.  
-See `FROZEN_GOVERNANCE.md` §1 / §4.
+- `research/e45/E45_C1_DECISION.md` (original panel)
+- `research/e45/e45_verified_baseline.json`
+- `repro/e45-c1-v412e0-original-20260904/`
+- PIT reconstruction kept as secondary: `E45_C1_DECISION_PIT.md`
 
-## Integration
+## Explicit non-actions
 
-Early-stack sandbox wires the named module:
-
-```bash
-python3 scripts/e50_early_stack_combined_nav.py \
-  --market forward/e21/live_market.csv \
-  --dividends data/dividend_events/e22_dividend_events.csv \
-  --out repro/early-stack-combined-nav-20260904
-```
-
-Variants include `E16_E18_E22_E45_E3` and `E16_E18_E22_E45_E1`.
+- Not promoted to `SOFT_FROZEN_CRITICAL`
+- No in-place E45 freeze
+- No retune of E3 winner

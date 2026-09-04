@@ -1,8 +1,8 @@
 # E50 Hedge Charter (G4)
 
 Date: 2026-09-04  
-Status: **CHARTER ONLY** — no hedge code, no shorts, no options sleeve  
-Decision: **`NOT_REQUIRED_NOW`**
+Status: **CHARTER + CLOSED** — see `E50_HEDGE_CLOSED.md`  
+Decision: **`CLOSED_NOT_REQUIRED`** (was `NOT_REQUIRED_NOW`)
 
 ## Product question (must answer before any code)
 
@@ -25,13 +25,14 @@ If the answer is **no** (or undecided), **do not** open a hedge challenger.
 
 ## Decision
 
-**`NOT_REQUIRED_NOW`**
+**`CLOSED_NOT_REQUIRED`**
 
 Interpretation:
 
 - Current stack meets the **documented** risk path: D crisis baseline + paper alpha-cut-first + cash residual.
 - “Crash also profit” is a **product upgrade**, not a research debt.
 - Opening shorts/options without sign-off would violate GAP_FILL_PLAN stop rules.
+- **2026-09-04:** remaining opens closed by directive → `E50_HEDGE_CLOSED.md`.
 
 ## Reopen criteria (all required)
 
