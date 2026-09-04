@@ -1,0 +1,28 @@
+{
+  "generated_at_utc": "2026-09-04T02:53:13.157592+00:00",
+  "stage": "POST_S7_NEXT_STEP_DIAGNOSIS",
+  "diagnosis_only": true,
+  "no_selection_from_heldout": true,
+  "e45_touched": false,
+  "finding": "Stage-7 EW crisis flags (vote2 and strict) cover 0% of the 13 shared C2/C4/C8 bad months in 2021-2022. C4 excess during flagged crisis days in validation is often still positive. Failure mode is alpha underperformance outside classic crisis votes.",
+  "crisis_share": {
+    "vote2": {
+      "oof": 0.138,
+      "val": 0.063,
+      "y2021_22": 0.053
+    },
+    "strict": {
+      "oof": 0.121,
+      "val": 0.03,
+      "y2021_22": 0.01
+    }
+  },
+  "recommended_next": "STAGE8A_FAILURE_SIGNATURE_THEN_STAGE8B_OOF_STRESS_CONTROLLER",
+  "do_not": [
+    "more TECH2 tilts",
+    "more EW-crisis cash grids",
+    "retune locks after held-out",
+    "edit E45 in place",
+    "promote experimental gates"
+  ]
+}
