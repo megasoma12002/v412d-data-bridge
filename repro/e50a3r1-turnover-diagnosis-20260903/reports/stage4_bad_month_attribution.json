@@ -1,0 +1,718 @@
+{
+  "generated_at_utc": "2026-09-04T00:47:04.879349+00:00",
+  "stage": "STAGE4_BAD_MONTH_ATTRIBUTION",
+  "diagnosis_only": true,
+  "no_retune": true,
+  "no_selection_from_heldout": true,
+  "common_bad_months": [
+    {
+      "year": 2021,
+      "month": 2
+    },
+    {
+      "year": 2021,
+      "month": 3
+    },
+    {
+      "year": 2021,
+      "month": 6
+    },
+    {
+      "year": 2021,
+      "month": 7
+    },
+    {
+      "year": 2021,
+      "month": 9
+    },
+    {
+      "year": 2021,
+      "month": 12
+    },
+    {
+      "year": 2022,
+      "month": 2
+    },
+    {
+      "year": 2022,
+      "month": 3
+    },
+    {
+      "year": 2022,
+      "month": 4
+    },
+    {
+      "year": 2022,
+      "month": 5
+    },
+    {
+      "year": 2022,
+      "month": 6
+    },
+    {
+      "year": 2022,
+      "month": 8
+    },
+    {
+      "year": 2022,
+      "month": 12
+    }
+  ],
+  "n_bad_months": 13,
+  "univariate_ic_bad_vs_other_val": [
+    {
+      "feature": "pct_downside_vol_60d",
+      "bad_month_mean_ic": 0.13313086132175775,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.028064742712764577,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.16119560403452232,
+      "oof_mean_ic": 0.07235395988259316,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "defensive_family_score",
+      "bad_month_mean_ic": 0.11903207741545524,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.014760357304386464,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.1337924347198417,
+      "oof_mean_ic": 0.071887874021871,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_vol_60d",
+      "bad_month_mean_ic": 0.11716216094176522,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.012557974462420227,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.12972013540418545,
+      "oof_mean_ic": 0.07954786760407109,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_asset_growth_yoy",
+      "bad_month_mean_ic": 0.11297406071715656,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.011639415378691637,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.12461347609584819,
+      "oof_mean_ic": 0.016092577175548343,
+      "oof_n_days": 1173
+    },
+    {
+      "feature": "pct_drawdown_63d",
+      "bad_month_mean_ic": 0.06654576707607052,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.05679570607112284,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.12334147314719335,
+      "oof_mean_ic": 0.03551727437035126,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_book_to_price_proxy",
+      "bad_month_mean_ic": 0.09853897646035145,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.010195840442561036,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.08834313601779041,
+      "oof_mean_ic": 0.023857825473086024,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "pct_sales_yield_proxy",
+      "bad_month_mean_ic": 0.09905832290047516,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.02115357513198594,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.07790474776848921,
+      "oof_mean_ic": 0.00895794166433478,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "pct_mom_63d",
+      "bad_month_mean_ic": 0.018250814489985213,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.047900557031510395,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.06615137152149561,
+      "oof_mean_ic": -0.015447068119017913,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "value_family_score",
+      "bad_month_mean_ic": 0.08238242383924094,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.024812269106622143,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.0575701547326188,
+      "oof_mean_ic": 0.03823114465288274,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "pct_revenue_yoy_acceleration",
+      "bad_month_mean_ic": 0.06472469216684107,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.01101805739744323,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.05370663476939784,
+      "oof_mean_ic": 0.029236584126742748,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_mom_126d",
+      "bad_month_mean_ic": -0.01731883116985672,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.039180470155967005,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.021861638986110286,
+      "oof_mean_ic": 0.0014424719761939573,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "momentum_family_score",
+      "bad_month_mean_ic": -0.023043595042341023,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.04066217550733704,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.01761858046499602,
+      "oof_mean_ic": -0.0009289048364390745,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_reversal_5d",
+      "bad_month_mean_ic": 0.02429492930914218,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.02184548378426697,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.0024494455248752108,
+      "oof_mean_ic": -0.01643445127744629,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_amihud_20d",
+      "bad_month_mean_ic": 0.02672318389116541,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.04278523557843295,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.016062051687267542,
+      "oof_mean_ic": 0.0316357968008335,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_earnings_yield_proxy",
+      "bad_month_mean_ic": 0.014561966431241503,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.03488845652167662,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.020326490090435113,
+      "oof_mean_ic": 0.05226907858297712,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "pct_accruals_to_assets",
+      "bad_month_mean_ic": 0.0003750342025304054,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.031659747527518274,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.03128471332498787,
+      "oof_mean_ic": 0.01912648081575827,
+      "oof_n_days": 1173
+    },
+    {
+      "feature": "pct_mom_12_1",
+      "bad_month_mean_ic": -0.05379706600882701,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.01867811365012474,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.03511895235870227,
+      "oof_mean_ic": 0.006514886474187826,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_monthly_revenue_yoy",
+      "bad_month_mean_ic": -0.03735565134835242,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.004562862180036348,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.04191851352838877,
+      "oof_mean_ic": 0.027751161000299934,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_revenue_3m_yoy",
+      "bad_month_mean_ic": -0.042356824780008046,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.007315764567908928,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.049672589347916976,
+      "oof_mean_ic": 0.01993848950708943,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_net_income_growth_yoy",
+      "bad_month_mean_ic": -0.059033640194285975,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.01984488767994237,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.07887852787422835,
+      "oof_mean_ic": 0.0050463119616285515,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "growth_family_score",
+      "bad_month_mean_ic": -0.07072692437914997,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.017530254515244807,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.08825717889439477,
+      "oof_mean_ic": 0.01573819257638901,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_leverage",
+      "bad_month_mean_ic": -0.09432372875284924,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.002323645671085648,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.09200008308176359,
+      "oof_mean_ic": -0.032249595180251146,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "pct_revenue_growth_yoy",
+      "bad_month_mean_ic": -0.1135574240279166,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.001356314147655921,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.11491373817557253,
+      "oof_mean_ic": -0.02196735791809929,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_cfo_to_assets",
+      "bad_month_mean_ic": -0.07026580828827894,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.04589898402047242,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.11616479230875136,
+      "oof_mean_ic": 0.015829933935414896,
+      "oof_n_days": 1173
+    },
+    {
+      "feature": "pct_roe_ttm",
+      "bad_month_mean_ic": -0.08658595196781438,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.0327750146081131,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.11936096657592749,
+      "oof_mean_ic": 0.02162322116203178,
+      "oof_n_days": 1173
+    },
+    {
+      "feature": "pct_roa_ttm",
+      "bad_month_mean_ic": -0.10877909933015902,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.0325396864375478,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.14131878576770682,
+      "oof_mean_ic": 0.0009787738340205816,
+      "oof_n_days": 1173
+    },
+    {
+      "feature": "quality_family_score",
+      "bad_month_mean_ic": -0.1062883370682506,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.03530939548864605,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.14159773255689664,
+      "oof_mean_ic": 0.014174909975954528,
+      "oof_n_days": 1972
+    }
+  ],
+  "oof_univariate_ic_context": [
+    {
+      "feature": "pct_vol_60d",
+      "oof_mean_ic": 0.07954786760407109,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_downside_vol_60d",
+      "oof_mean_ic": 0.07235395988259316,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "defensive_family_score",
+      "oof_mean_ic": 0.071887874021871,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_earnings_yield_proxy",
+      "oof_mean_ic": 0.05226907858297712,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "value_family_score",
+      "oof_mean_ic": 0.03823114465288274,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "pct_drawdown_63d",
+      "oof_mean_ic": 0.03551727437035126,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_amihud_20d",
+      "oof_mean_ic": 0.0316357968008335,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_revenue_yoy_acceleration",
+      "oof_mean_ic": 0.029236584126742748,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_monthly_revenue_yoy",
+      "oof_mean_ic": 0.027751161000299934,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_book_to_price_proxy",
+      "oof_mean_ic": 0.023857825473086024,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "pct_roe_ttm",
+      "oof_mean_ic": 0.02162322116203178,
+      "oof_n_days": 1173
+    },
+    {
+      "feature": "pct_revenue_3m_yoy",
+      "oof_mean_ic": 0.01993848950708943,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_accruals_to_assets",
+      "oof_mean_ic": 0.01912648081575827,
+      "oof_n_days": 1173
+    },
+    {
+      "feature": "pct_asset_growth_yoy",
+      "oof_mean_ic": 0.016092577175548343,
+      "oof_n_days": 1173
+    },
+    {
+      "feature": "pct_cfo_to_assets",
+      "oof_mean_ic": 0.015829933935414896,
+      "oof_n_days": 1173
+    },
+    {
+      "feature": "growth_family_score",
+      "oof_mean_ic": 0.01573819257638901,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "quality_family_score",
+      "oof_mean_ic": 0.014174909975954528,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_sales_yield_proxy",
+      "oof_mean_ic": 0.00895794166433478,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "pct_mom_12_1",
+      "oof_mean_ic": 0.006514886474187826,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_net_income_growth_yoy",
+      "oof_mean_ic": 0.0050463119616285515,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_mom_126d",
+      "oof_mean_ic": 0.0014424719761939573,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_roa_ttm",
+      "oof_mean_ic": 0.0009787738340205816,
+      "oof_n_days": 1173
+    },
+    {
+      "feature": "momentum_family_score",
+      "oof_mean_ic": -0.0009289048364390745,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_mom_63d",
+      "oof_mean_ic": -0.015447068119017913,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_reversal_5d",
+      "oof_mean_ic": -0.01643445127744629,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_revenue_growth_yoy",
+      "oof_mean_ic": -0.02196735791809929,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_leverage",
+      "oof_mean_ic": -0.032249595180251146,
+      "oof_n_days": 1419
+    }
+  ],
+  "c4_buy_tilts_bad_months": [
+    {
+      "feature": "pct_vol_60d",
+      "buy_mean": 0.7347425202283133,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": 0.23474252022831332,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_downside_vol_60d",
+      "buy_mean": 0.7081477764536162,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": 0.20814777645361615,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_mom_126d",
+      "buy_mean": 0.3242175249325723,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": -0.17578247506742772,
+      "n_buys": 107
+    },
+    {
+      "feature": "defensive_family_score",
+      "buy_mean": 0.6699021514144138,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": 0.16990215141441378,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_amihud_20d",
+      "buy_mean": 0.6623596562754814,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": 0.16235965627548143,
+      "n_buys": 107
+    },
+    {
+      "feature": "momentum_family_score",
+      "buy_mean": 0.3412783039578499,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": -0.15872169604215008,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_mom_63d",
+      "buy_mean": 0.34303456062221666,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": -0.15696543937778334,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_mom_12_1",
+      "buy_mean": 0.3565828263187606,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": -0.1434171736812394,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_earnings_yield_proxy",
+      "buy_mean": 0.6413036476230354,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": 0.14130364762303538,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_book_to_price_proxy",
+      "buy_mean": 0.6240356269209058,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": 0.12403562692090575,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_monthly_revenue_yoy",
+      "buy_mean": 0.3785199299531609,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": -0.12148007004683908,
+      "n_buys": 107
+    },
+    {
+      "feature": "value_family_score",
+      "buy_mean": 0.6146180524815124,
+      "universe_mean": 0.500696283531854,
+      "tilt_buy_minus_uni": 0.11392176894965833,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_revenue_3m_yoy",
+      "buy_mean": 0.4107623272774123,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": -0.0892376727225877,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_sales_yield_proxy",
+      "buy_mean": 0.5771661883046858,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": 0.0771661883046858,
+      "n_buys": 106
+    },
+    {
+      "feature": "pct_drawdown_63d",
+      "buy_mean": 0.5743586527002446,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": 0.07435865270024455,
+      "n_buys": 107
+    },
+    {
+      "feature": "growth_family_score",
+      "buy_mean": 0.44213836684394986,
+      "universe_mean": 0.49850074201583006,
+      "tilt_buy_minus_uni": -0.0563623751718802,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_reversal_5d",
+      "buy_mean": 0.4468732359029041,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": -0.05312676409709588,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_revenue_growth_yoy",
+      "buy_mean": 0.4540898400562962,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": -0.04591015994370379,
+      "n_buys": 105
+    },
+    {
+      "feature": "pct_asset_growth_yoy",
+      "buy_mean": 0.5420560747663551,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": 0.04205607476635509,
+      "n_buys": 107
+    },
+    {
+      "feature": "pct_revenue_yoy_acceleration",
+      "buy_mean": 0.46439534770732527,
+      "universe_mean": 0.5,
+      "tilt_buy_minus_uni": -0.03560465229267473,
+      "n_buys": 107
+    }
+  ],
+  "relatively_resilient_features": [
+    {
+      "feature": "pct_downside_vol_60d",
+      "bad_month_mean_ic": 0.13313086132175775,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.028064742712764577,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.16119560403452232,
+      "oof_mean_ic": 0.07235395988259316,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "defensive_family_score",
+      "bad_month_mean_ic": 0.11903207741545524,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.014760357304386464,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.1337924347198417,
+      "oof_mean_ic": 0.071887874021871,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_vol_60d",
+      "bad_month_mean_ic": 0.11716216094176522,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.012557974462420227,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.12972013540418545,
+      "oof_mean_ic": 0.07954786760407109,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_drawdown_63d",
+      "bad_month_mean_ic": 0.06654576707607052,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": -0.05679570607112284,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.12334147314719335,
+      "oof_mean_ic": 0.03551727437035126,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_book_to_price_proxy",
+      "bad_month_mean_ic": 0.09853897646035145,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.010195840442561036,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.08834313601779041,
+      "oof_mean_ic": 0.023857825473086024,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "value_family_score",
+      "bad_month_mean_ic": 0.08238242383924094,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.024812269106622143,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.0575701547326188,
+      "oof_mean_ic": 0.03823114465288274,
+      "oof_n_days": 1419
+    },
+    {
+      "feature": "pct_revenue_yoy_acceleration",
+      "bad_month_mean_ic": 0.06472469216684107,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.01101805739744323,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": 0.05370663476939784,
+      "oof_mean_ic": 0.029236584126742748,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_amihud_20d",
+      "bad_month_mean_ic": 0.02672318389116541,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.04278523557843295,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.016062051687267542,
+      "oof_mean_ic": 0.0316357968008335,
+      "oof_n_days": 1972
+    }
+  ],
+  "fragile_in_bad_months": [
+    {
+      "feature": "pct_monthly_revenue_yoy",
+      "bad_month_mean_ic": -0.03735565134835242,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.004562862180036348,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.04191851352838877,
+      "oof_mean_ic": 0.027751161000299934,
+      "oof_n_days": 1972
+    },
+    {
+      "feature": "pct_roe_ttm",
+      "bad_month_mean_ic": -0.08658595196781438,
+      "bad_month_n_days": 264,
+      "other_val_mean_ic": 0.0327750146081131,
+      "other_val_n_days": 713,
+      "delta_ic_bad_minus_other": -0.11936096657592749,
+      "oof_mean_ic": 0.02162322116203178,
+      "oof_n_days": 1173
+    }
+  ],
+  "research_implication": "Bad-month IC gaps show which atomic signals weaken in shared failure months; use only as navigation for OOF atomic screens \u2014 do not select on held-out deltas."
+}

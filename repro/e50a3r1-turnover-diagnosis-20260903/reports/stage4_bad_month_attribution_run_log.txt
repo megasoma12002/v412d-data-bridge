@@ -1,0 +1,24 @@
+computing bad-month univariate ICs ...
+computing C4 buy tilts in bad months ...
+computing OOF univariate ICs (context only) ...
+{
+  "n_bad_months": 13,
+  "top_resilient": [
+    "pct_downside_vol_60d",
+    "defensive_family_score",
+    "pct_vol_60d",
+    "pct_drawdown_63d",
+    "pct_book_to_price_proxy"
+  ],
+  "top_fragile": [
+    "pct_monthly_revenue_yoy",
+    "pct_roe_ttm"
+  ],
+  "top_tilts": [
+    "pct_vol_60d",
+    "pct_downside_vol_60d",
+    "pct_mom_126d",
+    "defensive_family_score",
+    "pct_amihud_20d"
+  ]
+}

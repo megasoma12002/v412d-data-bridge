@@ -1,0 +1,49 @@
+screening 16 atomic feature cells on OOF ...
+[1/16] TECH2 / BREADTH_REGIME / λ=1.0 n=2
+  IC=0.1147 turn=0.0205 boot=0.8066 both=True
+[2/16] MOM3 / BREADTH_REGIME / λ=1.0 n=3
+  IC=0.0191 turn=0.0244 boot=0.0016 both=False
+[3/16] DEF3 / BREADTH_REGIME / λ=1.0 n=3
+  IC=0.1084 turn=0.0187 boot=0.684 both=False
+[4/16] QUAL4 / BREADTH_REGIME / λ=1.0 n=4
+  IC=0.0356 turn=0.0117 boot=0.0304 both=False
+[5/16] VALUE3 / BREADTH_REGIME / λ=1.0 n=3
+  IC=0.0580 turn=0.0136 boot=0.0076 both=False
+[6/16] REV3 / BREADTH_REGIME / λ=1.0 n=3
+  IC=0.0316 turn=0.0232 boot=0.0088 both=False
+[7/16] GROW3 / BREADTH_REGIME / λ=1.0 n=3
+  IC=0.0159 turn=0.0181 boot=0.002 both=False
+[8/16] MOM_QUAL / BREADTH_REGIME / λ=1.0 n=4
+  IC=0.0048 turn=0.0178 boot=0.0012 both=False
+[9/16] MOM_VALUE / BREADTH_REGIME / λ=1.0 n=4
+  IC=0.0321 turn=0.0180 boot=0.0018 both=False
+[10/16] MOM_REV / BREADTH_REGIME / λ=1.0 n=4
+  IC=0.0488 turn=0.0240 boot=0.0134 both=False
+[11/16] QUAL_VALUE / BREADTH_REGIME / λ=1.0 n=4
+  IC=0.0507 turn=0.0130 boot=0.011 both=False
+[12/16] REV_QUAL / BREADTH_REGIME / λ=1.0 n=4
+  IC=0.0278 turn=0.0221 boot=0.0022 both=False
+[13/16] TECH2_REV / BREADTH_REGIME / λ=1.0 n=4
+  IC=0.1139 turn=0.0225 boot=0.5044 both=False
+[14/16] TECH2_QUAL / BREADTH_REGIME / λ=1.0 n=4
+  IC=0.1048 turn=0.0189 boot=0.5368 both=False
+[15/16] TECH2_VALUE / BREADTH_REGIME / λ=1.0 n=4
+  IC=0.1134 turn=0.0192 boot=0.7078 both=True
+[16/16] TECH2_GLOBAL / GLOBAL / λ=1.0 n=2
+  IC=0.0604 turn=0.0060 boot=0.146 both=False
+{
+  "research_decision": "OOF_NEW_ATOMIC_FEATURE_DUAL_GATE_WINNER",
+  "n_both_pass_new": 1,
+  "winner": {
+    "feature_set": "TECH2_VALUE",
+    "bootstrap": 0.7078,
+    "turnover": 0.019231242737169498,
+    "mean_rank_ic": 0.11339251528663369
+  },
+  "best_ic": {
+    "feature_set": "TECH2",
+    "mean_rank_ic": 0.1147150373836749,
+    "both": true,
+    "boot": 0.8066
+  }
+}
