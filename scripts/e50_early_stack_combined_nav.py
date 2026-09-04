@@ -85,10 +85,14 @@ def e16_features(m: pd.DataFrame):
     return p, sleeve, target, reg
 
 
-def lot_qty(value: float, price: float) -> int:
-    if price <= 0 or not math.isfinite(price):
+def lot_qty(value: float, price: float, lot_size: int = 1) -> int:
+    """Share quantity from notional; lot_size=1 is 1-share, 1000 is TW board lot."""
+    if price <= 0 or not math.isfinite(price) or lot_size < 1:
         return 0
-    return int(abs(value) / price)
+    raw = int(abs(value) / price)
+    if lot_size == 1:
+        return raw
+    return (raw // lot_size) * lot_size
 
 
 def simulate_core(
@@ -103,11 +107,13 @@ def simulate_core(
     e45_exposure: pd.Series | None = None,
     e45_legacy_crisis_scale: float | None = None,
     capital: float = CAPITAL,
+    lot_size: int = 1,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
     Formal books default = E22_v2s (cash + stock shares). E22_v2 remains cash-only.
     E16 features use adj_close elsewhere; NAV here always marks with raw close.
+    lot_size: 1 = research 1-share fills (default); 1000 = TW 整股 board-lot challenger.
     """
     if e22_version is None:
         if apply_stock_div is False:
@@ -157,12 +163,17 @@ def simulate_core(
             side = o["side"]
             code = o["code"]
             q = int(o["quantity"])
+            if lot_size > 1:
+                q = (q // lot_size) * lot_size
             fp = float(op[code]) * (1 + SLIP if side == "BUY" else 1 - SLIP)
             gross = q * fp
             tax = TAX_ETF if code == "0050" else TAX_STOCK
             fee = gross * (BUY_FEE if side == "BUY" else SELL_FEE + tax)
             if side == "BUY" and gross + fee > cash:
-                q = max(0, int(cash / (fp * (1 + BUY_FEE))))
+                afford = int(cash / (fp * (1 + BUY_FEE)))
+                if lot_size > 1:
+                    afford = (afford // lot_size) * lot_size
+                q = max(0, afford)
                 gross = q * fp
                 fee = gross * BUY_FEE
             if q < 1:
@@ -171,7 +182,8 @@ def simulate_core(
                 pos[code] += q
                 cash -= gross + fee
             else:
-                q = min(q, int(pos[code]))
+                held = int(pos[code]) if lot_size == 1 else int(pos[code] // lot_size) * lot_size
+                q = min(q, held)
                 if q < 1:
                     continue
                 gross = q * fp
@@ -250,12 +262,13 @@ def simulate_core(
             value = sleeve_trade[sleeve_name] * nav / len(codes)
             for c in codes:
                 px = float(cl[c])
-                qty = lot_qty(value, px)
+                qty = lot_qty(value, px, lot_size=lot_size)
                 if qty < 1:
                     continue
                 side = "BUY" if value > 0 else "SELL"
                 if side == "SELL":
-                    qty = min(qty, int(pos.get(c, 0)))
+                    held = int(pos.get(c, 0)) if lot_size == 1 else int(pos.get(c, 0) // lot_size) * lot_size
+                    qty = min(qty, held)
                 if qty < 1:
                     continue
                 pending.append(
@@ -304,6 +317,7 @@ def simulate_core(
         "end": nav_df["date"].iloc[-1] if len(nav_df) else None,
         "mean_e45_exposure": float(nav_df["e45_equity_scale"].mean()) if len(nav_df) else None,
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
+        "lot_size": int(lot_size),
         "e22_manifest": e22div.version_manifest(e22_version) if apply_e22 else None,
     }
     return nav_df, fills_df, meta

@@ -35,6 +35,23 @@ VAL_END = "2022-12-30"
 SEALED_START = "2023-01-03"
 BOARD_LOT = 1000
 
+# --- PREDECLARED overlay risk-budget challengers (paper only; not live weights) ---
+# Informed by failure-signature study; evaluated causally (use only prior complete months).
+# FORBIDDEN: calendar month blacklists / sealed peeking for rule selection.
+RISK_BUDGET_BASE_MIX = "CORE_80_OVL_20"  # predeclared working paper mix
+RISK_BUDGET_RULES = [
+    "STATIC",  # fixed mix weights, no throttle
+    "TRAIL_3M_HALVE",  # if last 3 complete months all lose to proxy → overlay ×0.5
+    "TRAIL_3M_ZERO",  # if last 3 complete months all lose to proxy → overlay ×0
+    "COMBINED_DD15_CUT",  # if combined peak DD < -15% → overlay ×0 until new high
+]
+
+# E18 board-lot challenger policies (full fill re-sim under E22_v2s)
+LOT_RESIM_POLICIES = [
+    ("share_1", 1),
+    ("board_lot_1000", 1000),
+]
+
 
 def cagr_mdd(nav: pd.Series) -> dict:
     nav = nav.dropna()
@@ -191,12 +208,185 @@ def lot_policy_sensitivity(market: pd.DataFrame, dividends: pd.DataFrame) -> lis
         {
             "policy": "note",
             "text": (
-                "Board-lot 1000 zeros small telecom sleeves; floor_int only drops fractional dust. "
-                "Full fill re-sim under board lots left as follow-on E18 challenger."
+                "End-position stranding only. Full fill re-sim under board lots is in "
+                "e18_board_lot_resim() below."
             ),
         }
     )
     return rows
+
+
+def _monthly_excess_series(overlay: pd.DataFrame, market: pd.DataFrame) -> pd.DataFrame:
+    o = chain_overlay_nav(overlay)
+    px = (
+        market[market["code"] == "0050"]
+        .assign(date=lambda d: pd.to_datetime(d["date"]))
+        .sort_values("date")
+        .drop_duplicates("date")
+    )
+    px = px[["date", "close"]].rename(columns={"close": "px"})
+    m = o.merge(px, on="date", how="inner").sort_values("date")
+    m["ovl_ret"] = m["overlay_nav_chained"].pct_change()
+    m["px_ret"] = m["px"].pct_change()
+    m["excess"] = m["ovl_ret"] - m["px_ret"]
+    m["ym"] = m["date"].dt.to_period("M").astype(str)
+    monthly = (
+        m.groupby("ym")
+        .agg(excess=("excess", "sum"), ovl=("ovl_ret", "sum"), px=("px_ret", "sum"), n=("excess", "count"))
+        .reset_index()
+    )
+    monthly["lose"] = monthly["excess"] < 0
+    return monthly
+
+
+def overlay_risk_budget_paper(
+    combined: pd.DataFrame, overlay: pd.DataFrame, market: pd.DataFrame
+) -> tuple[pd.DataFrame, list[dict]]:
+    """Causal paper risk-budget scalers on predeclared CORE_80/20 mix.
+
+    Scale applies to overlay sleeve only; core stays 0.80 of capital index.
+    Effective: nav = 0.80*core_idx + 0.20*scale*ovl_idx  (then rebase for stats windows).
+    """
+    monthly = _monthly_excess_series(overlay, market)
+    lose_by_ym = dict(zip(monthly["ym"], monthly["lose"].astype(bool)))
+    ym_order = list(monthly["ym"])
+
+    base = combined.copy()
+    base["date"] = pd.to_datetime(base["date"])
+    base = base.sort_values("date").reset_index(drop=True)
+    wc, wo = 0.80, 0.20
+    assert RISK_BUDGET_BASE_MIX == "CORE_80_OVL_20"
+
+    # Precompute daily scale series per rule
+    scales = {r: [] for r in RISK_BUDGET_RULES}
+    peak_combined = None
+    cut_active = False
+    for i, row in base.iterrows():
+        dt = row["date"]
+        ym = dt.to_period("M").strftime("%Y-%m")
+        # prior complete months only
+        prior = [y for y in ym_order if y < ym]
+        trail3 = prior[-3:] if len(prior) >= 3 else prior
+        all_lose = bool(trail3) and all(lose_by_ym.get(y, False) for y in trail3)
+
+        # STATIC
+        scales["STATIC"].append(1.0)
+
+        # TRAIL rules
+        scales["TRAIL_3M_HALVE"].append(0.5 if all_lose and len(trail3) == 3 else 1.0)
+        scales["TRAIL_3M_ZERO"].append(0.0 if all_lose and len(trail3) == 3 else 1.0)
+
+        # COMBINED_DD15_CUT uses running static combined peak (causal on STATIC path)
+        static_nav = wc * float(row["core_idx"]) + wo * float(row["ovl_idx"])
+        if peak_combined is None:
+            peak_combined = static_nav
+        peak_combined = max(peak_combined, static_nav)
+        dd = static_nav / peak_combined - 1.0
+        if dd < -0.15:
+            cut_active = True
+        if cut_active and static_nav >= peak_combined * 0.999:
+            cut_active = False
+            peak_combined = static_nav
+        scales["COMBINED_DD15_CUT"].append(0.0 if cut_active else 1.0)
+
+    out = base[["date", "core_idx", "ovl_idx"]].copy()
+    rows = []
+    for rule in RISK_BUDGET_RULES:
+        col = f"nav_rb_{rule.lower()}"
+        sc = np.array(scales[rule], dtype=float)
+        out[f"scale_{rule.lower()}"] = sc
+        # keep core weight fixed; shrink overlay notionally (cash drag implicit as missing ovl)
+        out[col] = wc * out["core_idx"] + wo * sc * out["ovl_idx"]
+        # normalize so day-0 = 1 for fair CAGR
+        out[col] = out[col] / float(out[col].iloc[0])
+        rows.append(
+            {
+                "rule": rule,
+                "base_mix": RISK_BUDGET_BASE_MIX,
+                "w_core": wc,
+                "w_overlay_max": wo,
+                "mean_overlay_scale": float(sc.mean()),
+                "pct_days_scale_lt_1": float((sc < 1.0 - 1e-12).mean()),
+                "full_overlap": cagr_mdd(out[col]),
+                "validation_2019_2022": window_stats(out.assign(nav=out[col]), OVERLAP_START, VAL_END),
+                "sealed_2023_latest": window_stats(
+                    out.assign(nav=out[col]), SEALED_START, out["date"].max().date().isoformat()
+                ),
+                "governance": "EXPERIMENTAL_PAPER_ONLY",
+            }
+        )
+    return out, rows
+
+
+def e18_board_lot_resim(market: pd.DataFrame, dividends: pd.DataFrame) -> tuple[pd.DataFrame, list[dict]]:
+    """Full Exact-T+1 re-sim under E22_v2s with lot_size=1 vs board-lot 1000."""
+    m = market.copy()
+    m["date"] = pd.to_datetime(m["date"])
+    required = set(ALL + ["TAIEX"])
+    complete = m.groupby("date")["code"].apply(lambda s: required.issubset(set(s)))
+    m = m[m["date"].isin(complete[complete].index)].sort_values(["date", "code"])
+    _p, _s, target, regime = e16_features(m)
+
+    nav_wide = None
+    rows = []
+    for name, ls in LOT_RESIM_POLICIES:
+        print(f"  e18 resim lot_size={ls} ...", flush=True)
+        nav, fills, meta = simulate_core(
+            m,
+            target,
+            regime,
+            dividends,
+            apply_e22=True,
+            apply_stock_div=True,
+            e22_version=e22div.E22_V2S,
+            lot_size=ls,
+        )
+        stats = nav_stats(nav)
+        pos = meta.get("end_positions") or {}
+        stranded_board = {
+            k: float(pos[k]) - float(np.floor(pos[k] / BOARD_LOT) * BOARD_LOT) for k in pos
+        }
+        row = {
+            "policy": name,
+            "lot_size": ls,
+            "cagr": stats.get("cagr"),
+            "max_drawdown": stats.get("max_drawdown"),
+            "vol": stats.get("vol"),
+            "utility": stats.get("utility"),
+            "n_fills": meta.get("n_fills"),
+            "exact_t1_ok": meta.get("exact_t1_ok"),
+            "stock_div_shares_added": meta.get("stock_div_shares_added"),
+            "dividend_cash_total": meta.get("dividend_cash_total"),
+            "end_nav": float(nav["nav"].iloc[-1]) if len(nav) else None,
+            "end_cash": float(nav["cash"].iloc[-1]) if len(nav) else None,
+            "end_positions": pos,
+            "stranded_vs_board_lot_at_end": stranded_board,
+            "stranded_total_vs_board_lot": float(sum(stranded_board.values())),
+            "start": meta.get("start"),
+            "end": meta.get("end"),
+        }
+        rows.append(row)
+        piece = nav[["date", "nav"]].rename(columns={"nav": f"nav_{name}"})
+        piece["date"] = pd.to_datetime(piece["date"])
+        nav_wide = piece if nav_wide is None else nav_wide.merge(piece, on="date", how="outer")
+
+        fills.to_csv(OUT / "outputs" / f"e18_fills_{name}.csv", index=False)
+
+    if nav_wide is not None and "nav_share_1" in nav_wide.columns and "nav_board_lot_1000" in nav_wide.columns:
+        a = nav_wide["nav_share_1"]
+        b = nav_wide["nav_board_lot_1000"]
+        delta = {
+            "end_nav_ratio_board_over_share1": float(b.iloc[-1] / a.iloc[-1]) if a.iloc[-1] else None,
+            "cagr_delta_pp": None,
+        }
+        c0 = rows[0]["cagr"]
+        c1 = rows[1]["cagr"]
+        if c0 is not None and c1 is not None:
+            delta["cagr_delta_pp"] = float((c1 - c0) * 100.0)
+            delta["mdd_delta_pp"] = float((rows[1]["max_drawdown"] - rows[0]["max_drawdown"]) * 100.0)
+        rows.append({"policy": "delta_board_vs_share1", **delta})
+
+    return nav_wide if nav_wide is not None else pd.DataFrame(), rows
 
 
 def main() -> None:
@@ -240,6 +430,34 @@ def main() -> None:
         json.dumps(lot_rows, indent=2, default=str) + "\n"
     )
 
+    print("overlay risk budget paper ...", flush=True)
+    rb_nav, rb_rows = overlay_risk_budget_paper(combined_nav, overlay, market)
+    rb_nav.to_csv(OUT / "outputs" / "overlay_risk_budget_daily_nav.csv", index=False)
+    pd.DataFrame(
+        [
+            {
+                "rule": r["rule"],
+                "mean_overlay_scale": r["mean_overlay_scale"],
+                "pct_days_scale_lt_1": r["pct_days_scale_lt_1"],
+                "full_cagr": r["full_overlap"]["cagr"],
+                "full_mdd": r["full_overlap"]["max_drawdown"],
+                "val_cagr": r["validation_2019_2022"]["cagr"],
+                "val_mdd": r["validation_2019_2022"]["max_drawdown"],
+                "sealed_cagr": r["sealed_2023_latest"]["cagr"],
+                "sealed_mdd": r["sealed_2023_latest"]["max_drawdown"],
+            }
+            for r in rb_rows
+        ]
+    ).to_csv(OUT / "outputs" / "overlay_risk_budget_summary.csv", index=False)
+
+    print("e18 board-lot full re-sim ...", flush=True)
+    lot_nav, lot_resim_rows = e18_board_lot_resim(market, dividends)
+    if len(lot_nav):
+        lot_nav.to_csv(OUT / "outputs" / "e18_board_lot_daily_nav.csv", index=False)
+    Path(OUT / "outputs" / "e18_board_lot_resim.json").write_text(
+        json.dumps(lot_resim_rows, indent=2, default=str) + "\n"
+    )
+
     summary = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "stage": "GAP5_6_CONTINUATION",
@@ -250,17 +468,24 @@ def main() -> None:
             "label": "EXPERIMENTAL_RESEARCH",
             "predeclared_mixes": [list(x) for x in OVERLAY_MIXES],
             "predeclared_overlap_start": OVERLAP_START,
+            "predeclared_risk_budget_rules": list(RISK_BUDGET_RULES),
+            "predeclared_risk_budget_base_mix": RISK_BUDGET_BASE_MIX,
+            "predeclared_lot_resim": [list(x) for x in LOT_RESIM_POLICIES],
         },
         "paper_combined": mix_rows,
         "failure_signature": fail,
         "lot_policy": lot_rows,
+        "overlay_risk_budget": rb_rows,
+        "e18_board_lot_resim": lot_resim_rows,
         "decision": {
             "overlay_live": "STILL_NO",
             "best_paper_mix_not_for_promotion": True,
+            "risk_budget_live": "STILL_NO",
+            "board_lot_live": "STILL_NO_CHALLENGER_ONLY",
             "next": [
-                "Use failure months to design overlay risk budget (not live weights)",
-                "E18 board-lot full re-sim challenger if capacity questions arise",
-                "Keep E22_v2s as formal books; fractional floor+CIL optional follow-on",
+                "Alpha-repair track: E50-A3-R1 turnover/held-out diagnosis (separate branch)",
+                "Optional: fractional floor + cash-in-lieu formal books challenger",
+                "Do not live-wire risk budget or board-lot until governance PR",
             ],
         },
     }
@@ -280,6 +505,8 @@ def main() -> None:
         f"- Overlap start: `{OVERLAP_START}` (R1 validation start)",
         f"- Core books: E22_v2s historical recompute NAV",
         f"- Overlay: A3-R1 `daily_nav.csv` (standalone sleeve)",
+        f"- Risk-budget base mix: `{RISK_BUDGET_BASE_MIX}` rules=`{RISK_BUDGET_RULES}`",
+        f"- E18 lot re-sim: `{LOT_RESIM_POLICIES}`",
         "",
         "## Paper combined book (capital-weighted index stitch)",
         "",
@@ -315,6 +542,27 @@ def main() -> None:
         )
     lines += [
         "",
+        "## Overlay risk budget (paper, causal throttles on CORE_80/20)",
+        "",
+        "Rules use only **prior complete months** (or running combined DD). "
+        "No calendar blacklists. Not live weights.",
+        "",
+        "| Rule | Mean scale | % days scaled | Full CAGR | Full MDD | Val CAGR | Val MDD | Sealed CAGR | Sealed MDD |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
+    ]
+    for r in rb_rows:
+        f, v, s = r["full_overlap"], r["validation_2019_2022"], r["sealed_2023_latest"]
+        lines.append(
+            f"| {r['rule']} | {r['mean_overlay_scale']:.3f} | {100*r['pct_days_scale_lt_1']:.1f}% | "
+            f"{100*(f['cagr'] or 0):.2f}% | {100*(f['max_drawdown'] or 0):.2f}% | "
+            f"{100*(v['cagr'] or 0):.2f}% | {100*(v['max_drawdown'] or 0):.2f}% | "
+            f"{100*(s['cagr'] or 0):.2f}% | {100*(s['max_drawdown'] or 0):.2f}% |"
+        )
+    lines += [
+        "",
+        "Interpretation: throttles can trim overlay exposure after losing streaks / deep combined DD, "
+        "but do **not** create a promotion path while R1 itself fails gates.",
+        "",
         "## Lot / fractional sensitivity (end positions from E22_v2s sim)",
         "",
     ]
@@ -327,10 +575,35 @@ def main() -> None:
         )
     lines += [
         "",
+        "## E18 board-lot full re-sim (E22_v2s books)",
+        "",
+        "| Policy | lot_size | CAGR | MDD | n_fills | end_nav | stranded_vs_1000 |",
+        "|---|---:|---:|---:|---:|---:|---:|",
+    ]
+    for row in lot_resim_rows:
+        if row.get("policy") == "delta_board_vs_share1":
+            lines.append(
+                f"- Delta board vs 1-share: CAGR Δ=`{row.get('cagr_delta_pp')}` pp; "
+                f"MDD Δ=`{row.get('mdd_delta_pp')}` pp; "
+                f"end_nav ratio=`{row.get('end_nav_ratio_board_over_share1')}`"
+            )
+            continue
+        lines.append(
+            f"| {row['policy']} | {row['lot_size']} | {100*(row['cagr'] or 0):.2f}% | "
+            f"{100*(row['max_drawdown'] or 0):.2f}% | {row['n_fills']} | "
+            f"{row['end_nav']:.2f} | {row['stranded_total_vs_board_lot']:.2f} |"
+        )
+    lines += [
+        "",
+        "Interpretation: board-lot 1000 is a capacity/fill challenger for small sleeves; "
+        "do not silently replace 1-share research books without a named E18 version.",
+        "",
         "## Decision",
         "",
         f"- Live overlay: `{summary['decision']['overlay_live']}`",
-        "- Do not promote any mix from this paper stitch",
+        f"- Risk budget live: `{summary['decision']['risk_budget_live']}`",
+        f"- Board-lot live: `{summary['decision']['board_lot_live']}`",
+        "- Do not promote any mix / throttle / lot policy from this paper work",
         "- Next: " + "; ".join(summary["decision"]["next"]),
         "",
         "## Artifacts",
@@ -340,7 +613,17 @@ def main() -> None:
         "",
     ]
     REPORT.write_text("\n".join(lines) + "\n")
-    print(json.dumps({"mixes": [r["mix"] for r in mix_rows], "fail_lose_pct": fail["pct_months_lose_to_proxy"]}, indent=2))
+    print(
+        json.dumps(
+            {
+                "mixes": [r["mix"] for r in mix_rows],
+                "fail_lose_pct": fail["pct_months_lose_to_proxy"],
+                "risk_budget_rules": [r["rule"] for r in rb_rows],
+                "lot_resim": [r.get("policy") for r in lot_resim_rows],
+            },
+            indent=2,
+        )
+    )
     print(f"wrote {REPORT}", flush=True)
 
 

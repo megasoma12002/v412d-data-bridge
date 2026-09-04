@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-04T18:05:18.281484+00:00",
+  "generated_at_utc": "2026-09-04T18:08:40.825995+00:00",
   "stage": "GAP5_6_CONTINUATION",
   "governance": {
     "live_wire_overlay": false,
@@ -28,7 +28,24 @@
         0.3
       ]
     ],
-    "predeclared_overlap_start": "2019-01-02"
+    "predeclared_overlap_start": "2019-01-02",
+    "predeclared_risk_budget_rules": [
+      "STATIC",
+      "TRAIL_3M_HALVE",
+      "TRAIL_3M_ZERO",
+      "COMBINED_DD15_CUT"
+    ],
+    "predeclared_risk_budget_base_mix": "CORE_80_OVL_20",
+    "predeclared_lot_resim": [
+      [
+        "share_1",
+        1
+      ],
+      [
+        "board_lot_1000",
+        1000
+      ]
+    ]
   },
   "paper_combined": [
     {
@@ -353,16 +370,218 @@
     },
     {
       "policy": "note",
-      "text": "Board-lot 1000 zeros small telecom sleeves; floor_int only drops fractional dust. Full fill re-sim under board lots left as follow-on E18 challenger."
+      "text": "End-position stranding only. Full fill re-sim under board lots is in e18_board_lot_resim() below."
+    }
+  ],
+  "overlay_risk_budget": [
+    {
+      "rule": "STATIC",
+      "base_mix": "CORE_80_OVL_20",
+      "w_core": 0.8,
+      "w_overlay_max": 0.2,
+      "mean_overlay_scale": 1.0,
+      "pct_days_scale_lt_1": 0.0,
+      "full_overlap": {
+        "cagr": 0.20427314905710503,
+        "max_drawdown": -0.23956556438539944,
+        "end": 3.9140289347286785,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12869720679297791,
+        "max_drawdown": -0.23956556438539944,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.29290557954556373,
+        "max_drawdown": -0.1349979732865365,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      },
+      "governance": "EXPERIMENTAL_PAPER_ONLY"
+    },
+    {
+      "rule": "TRAIL_3M_HALVE",
+      "base_mix": "CORE_80_OVL_20",
+      "w_core": 0.8,
+      "w_overlay_max": 0.2,
+      "mean_overlay_scale": 0.9195029713668288,
+      "pct_days_scale_lt_1": 0.16099405726634253,
+      "full_overlap": {
+        "cagr": 0.20427314905710503,
+        "max_drawdown": -0.24061845934990234,
+        "end": 3.9140289347286785,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12869720679297791,
+        "max_drawdown": -0.2318430842004332,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.29290557954556373,
+        "max_drawdown": -0.24061845934990234,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      },
+      "governance": "EXPERIMENTAL_PAPER_ONLY"
+    },
+    {
+      "rule": "TRAIL_3M_ZERO",
+      "base_mix": "CORE_80_OVL_20",
+      "w_core": 0.8,
+      "w_overlay_max": 0.2,
+      "mean_overlay_scale": 0.8390059427336575,
+      "pct_days_scale_lt_1": 0.16099405726634253,
+      "full_overlap": {
+        "cagr": 0.20427314905710503,
+        "max_drawdown": -0.3768058601072899,
+        "end": 3.9140289347286785,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12869720679297791,
+        "max_drawdown": -0.2773431197539309,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.29290557954556373,
+        "max_drawdown": -0.3768058601072899,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      },
+      "governance": "EXPERIMENTAL_PAPER_ONLY"
+    },
+    {
+      "rule": "COMBINED_DD15_CUT",
+      "base_mix": "CORE_80_OVL_20",
+      "w_core": 0.8,
+      "w_overlay_max": 0.2,
+      "mean_overlay_scale": 0.7450027012425716,
+      "pct_days_scale_lt_1": 0.25499729875742844,
+      "full_overlap": {
+        "cagr": 0.20427314905710503,
+        "max_drawdown": -0.3655836454914523,
+        "end": 3.9140289347286785,
+        "n_days": 1851
+      },
+      "validation_2019_2022": {
+        "cagr": 0.06041737081650944,
+        "max_drawdown": -0.3655836454914523,
+        "end": "2022-12-30",
+        "n_days": 977,
+        "start": "2019-01-02"
+      },
+      "sealed_2023_latest": {
+        "cagr": 0.3856992000543935,
+        "max_drawdown": -0.13499797328653662,
+        "end": "2026-08-28",
+        "n_days": 874,
+        "start": "2023-01-03"
+      },
+      "governance": "EXPERIMENTAL_PAPER_ONLY"
+    }
+  ],
+  "e18_board_lot_resim": [
+    {
+      "policy": "share_1",
+      "lot_size": 1,
+      "cagr": 0.137829469400496,
+      "max_drawdown": -0.22639131293777315,
+      "vol": 0.133223365516143,
+      "utility": 0.024633812931609433,
+      "n_fills": 6262,
+      "exact_t1_ok": true,
+      "stock_div_shares_added": 78250.1955,
+      "dividend_cash_total": 3148555.7472813088,
+      "end_nav": 16695201.766628467,
+      "end_cash": 232620.47475316742,
+      "end_positions": {
+        "2880": 279017.7229,
+        "2886": 24445.7082,
+        "2892": 150.4434,
+        "5880": 1.3211,
+        "2412": 12445.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 11656.0
+      },
+      "stranded_vs_board_lot_at_end": {
+        "2880": 17.722899999993388,
+        "2886": 445.70820000000094,
+        "2892": 150.4434,
+        "5880": 1.3211,
+        "2412": 445.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 656.0
+      },
+      "stranded_total_vs_board_lot": 1716.1955999999943,
+      "start": "2012-12-04",
+      "end": "2026-09-04"
+    },
+    {
+      "policy": "board_lot_1000",
+      "lot_size": 1000,
+      "cagr": 0.13662345841762757,
+      "max_drawdown": -0.2290018897402547,
+      "vol": 0.1293128611618894,
+      "utility": 0.022122513547500222,
+      "n_fills": 1901,
+      "exact_t1_ok": true,
+      "stock_div_shares_added": 79182.5064,
+      "dividend_cash_total": 3120905.184937996,
+      "end_nav": 16461488.911105996,
+      "end_cash": 259079.56857670197,
+      "end_positions": {
+        "2880": 275200.4612,
+        "2886": 14793.476,
+        "2892": 3225.0653,
+        "5880": 2963.5039,
+        "2412": 11000.0,
+        "3045": 3000.0,
+        "4904": 0.0,
+        "0050": 12000.0
+      },
+      "stranded_vs_board_lot_at_end": {
+        "2880": 200.46120000001974,
+        "2886": 793.4760000000006,
+        "2892": 225.0653000000002,
+        "5880": 963.5039000000002,
+        "2412": 0.0,
+        "3045": 0.0,
+        "4904": 0.0,
+        "0050": 0.0
+      },
+      "stranded_total_vs_board_lot": 2182.5064000000207,
+      "start": "2012-12-04",
+      "end": "2026-09-04"
+    },
+    {
+      "policy": "delta_board_vs_share1",
+      "end_nav_ratio_board_over_share1": 0.9860011961047616,
+      "cagr_delta_pp": -0.12060109828684329,
+      "mdd_delta_pp": -0.2610576802481557
     }
   ],
   "decision": {
     "overlay_live": "STILL_NO",
     "best_paper_mix_not_for_promotion": true,
+    "risk_budget_live": "STILL_NO",
+    "board_lot_live": "STILL_NO_CHALLENGER_ONLY",
     "next": [
-      "Use failure months to design overlay risk budget (not live weights)",
-      "E18 board-lot full re-sim challenger if capacity questions arise",
-      "Keep E22_v2s as formal books; fractional floor+CIL optional follow-on"
+      "Alpha-repair track: E50-A3-R1 turnover/held-out diagnosis (separate branch)",
+      "Optional: fractional floor + cash-in-lieu formal books challenger",
+      "Do not live-wire risk budget or board-lot until governance PR"
     ]
   }
 }

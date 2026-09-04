@@ -79,6 +79,6 @@
   },
   {
     "policy": "note",
-    "text": "Board-lot 1000 zeros small telecom sleeves; floor_int only drops fractional dust. Full fill re-sim under board lots left as follow-on E18 challenger."
+    "text": "End-position stranding only. Full fill re-sim under board lots is in e18_board_lot_resim() below."
   }
 ]
