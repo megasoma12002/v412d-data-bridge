@@ -1,0 +1,73 @@
+{
+  "generated_at_utc": "2026-09-04T12:57:41.296464+00:00",
+  "stage": 6,
+  "feature_set": "-z(lend_fee_1m)_monthly_top20pct",
+  "source": "FinMind TaiwanStockSecuritiesLending",
+  "n_codes_requested": 60,
+  "n_codes_with_lending": 60,
+  "n_panel_rows": 3543,
+  "fetch_errors": [],
+  "gates": {
+    "net40_mean_excess_gt_0": false,
+    "net40_no_consec_neg_3y": false,
+    "loyo_not_fragile": false,
+    "coverage_months_dev_ge_36": true,
+    "codes_ge_40": true
+  },
+  "costs_dev": {
+    "rt_0bps": {
+      "mean_excess": -0.005361788303304664,
+      "consec_neg_3y": true,
+      "n_months": 72
+    },
+    "rt_20bps": {
+      "mean_excess": -0.0066569443619862645,
+      "consec_neg_3y": true,
+      "n_months": 72
+    },
+    "rt_40bps": {
+      "mean_excess": -0.007952100420667865,
+      "consec_neg_3y": true,
+      "n_months": 72
+    },
+    "rt_60bps": {
+      "mean_excess": -0.009247256479349465,
+      "consec_neg_3y": true,
+      "n_months": 72
+    }
+  },
+  "loyo_net40": [
+    {
+      "leave_out_year": 2019,
+      "mean_excess_net40_rest": -0.008989144244430574
+    },
+    {
+      "leave_out_year": 2020,
+      "mean_excess_net40_rest": -0.006704448351665712
+    },
+    {
+      "leave_out_year": 2021,
+      "mean_excess_net40_rest": -0.008062927163609743
+    },
+    {
+      "leave_out_year": 2022,
+      "mean_excess_net40_rest": -0.009277297559202457
+    },
+    {
+      "leave_out_year": 2023,
+      "mean_excess_net40_rest": -0.007860033720919651
+    },
+    {
+      "leave_out_year": 2024,
+      "mean_excess_net40_rest": -0.006843970709398273
+    }
+  ],
+  "sealed_held_out": {
+    "mean_excess_net40": 0.006087932133904795,
+    "n_months": 19
+  },
+  "dev_pass": false,
+  "held_out_pass": true,
+  "decision": "STOP_STAGE6_LEND_FEE_FEATURE_SET",
+  "promotion": false
+}

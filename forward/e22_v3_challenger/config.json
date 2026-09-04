@@ -1,0 +1,23 @@
+{
+  "package": "e22_v3_challenger",
+  "version_id": "E22_v3_CASH_PAY_PAPER_CHALLENGER",
+  "status": "EXPERIMENTAL_PAPER",
+  "governance_class": "EXPERIMENTAL_PAPER",
+  "approval_phrase": "NOT APPROVED \u2014 paper challenger only; require explicit APPROVE E22_v3_* before any official cutover.",
+  "modifies_e21": false,
+  "preserves_e21_forever": true,
+  "challenger_script": "scripts/e22_v3_challenger_forward_pipeline.py",
+  "official_state_dir": "forward/e22_v3_challenger",
+  "market_source": "forward/e21/live_market.csv",
+  "dividends": "data/dividend_events/e22_dividend_events.csv",
+  "cutover_from": "forward/e22_v2",
+  "cutover_seed_date": "2026-09-04",
+  "pending_orders_carried": 8,
+  "prior_versions_readable": [
+    "forward/e21/",
+    "forward/e22_challenger/",
+    "data/dividend_events/e22_dividend_events.csv"
+  ],
+  "generated_at_utc": "2026-09-04T12:56:35.717742+00:00",
+  "seeded_at": "2026-09-04"
+}

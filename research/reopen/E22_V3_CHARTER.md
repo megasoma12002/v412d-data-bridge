@@ -25,6 +25,10 @@ Baseline: **`E22_v2_CASH_EX_OFFICIAL_PATH`** (preserved)
 - Tax grid max 3 pre-registered points; no hunting after held-out look  
 - **No auto-promote** even when H1 clears the util bar  
 
+## Paper challenger
+
+Seeded: `forward/e22_v3_challenger/` (`E22_v3_CASH_PAY_PAPER_CHALLENGER`, EXPERIMENTAL).
+
 ## Latest deliverable
 
 `research/reopen/E22_V3_H1_DECISION.md` + `repro/e22-v3-h1-20260904/`
