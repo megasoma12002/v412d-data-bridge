@@ -1,0 +1,78 @@
+{
+  "generated_at_utc": "2026-09-04T16:20:51.941172+00:00",
+  "governance": {
+    "label": "EXPERIMENTAL_CHALLENGER",
+    "e22_v2_official_still_cash_only": true
+  },
+  "unit_note": "stock_dividend FinMind \u5143/\u80a1; shares *= 1 + stock/10 on stock_ex_date",
+  "variants": {
+    "cash_only": {
+      "stats": {
+        "cagr": 0.11248792503555594,
+        "max_drawdown": -0.2210946635650738,
+        "utility": 0.0019405932530190406,
+        "vol": 0.13302408199653676,
+        "n_days": 3351
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6222,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "dividend_cash_total": 2611580.6577671794,
+        "stock_div_events": 0,
+        "stock_div_shares_added": 0.0,
+        "apply_stock_div": false,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 197701.0,
+          "2886": 26218.0,
+          "2892": 175.0,
+          "5880": 0.0,
+          "2412": 9098.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 8647.0
+        }
+      }
+    },
+    "cash_plus_stock": {
+      "stats": {
+        "cagr": 0.137829469400496,
+        "max_drawdown": -0.22639131293777315,
+        "utility": 0.024633812931609433,
+        "vol": 0.13322336551614303,
+        "n_days": 3351
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6262,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "dividend_cash_total": 3148555.7472813074,
+        "stock_div_events": 42,
+        "stock_div_shares_added": 78250.1955,
+        "apply_stock_div": true,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 279017.7229,
+          "2886": 24445.7082,
+          "2892": 150.4434,
+          "5880": 1.3211,
+          "2412": 12445.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 11656.0
+        }
+      }
+    }
+  },
+  "delta_cagr": 0.025341544364940072,
+  "delta_mdd": -0.005296649372699358
+}

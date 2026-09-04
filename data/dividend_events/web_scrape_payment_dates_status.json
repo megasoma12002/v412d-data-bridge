@@ -1,0 +1,58 @@
+{
+  "source": "YahooTW",
+  "codes": {
+    "2880": {
+      "n_rows": 25,
+      "n_with_payment": 24,
+      "min_ex": "2002-08-13",
+      "max_ex": "2026-08-13"
+    },
+    "2886": {
+      "n_rows": 25,
+      "n_with_payment": 24,
+      "min_ex": "2003-08-04",
+      "max_ex": "2026-08-13"
+    },
+    "2892": {
+      "n_rows": 22,
+      "n_with_payment": 22,
+      "min_ex": "2005-08-09",
+      "max_ex": "2026-08-11"
+    },
+    "5880": {
+      "n_rows": 15,
+      "n_with_payment": 15,
+      "min_ex": "2012-08-03",
+      "max_ex": "2026-08-11"
+    },
+    "2412": {
+      "n_rows": 29,
+      "n_with_payment": 26,
+      "min_ex": "1998-12-01",
+      "max_ex": "2026-07-09"
+    },
+    "3045": {
+      "n_rows": 28,
+      "n_with_payment": 25,
+      "min_ex": "1999-03-19",
+      "max_ex": "2026-07-09"
+    },
+    "4904": {
+      "n_rows": 27,
+      "n_with_payment": 26,
+      "min_ex": "2000-06-12",
+      "max_ex": "2026-07-08"
+    }
+  },
+  "generated_at_utc": "2026-09-04T12:44:50.834497+00:00",
+  "n_missing": 29,
+  "n_filled_from_yahoo": 29,
+  "match_counts": {
+    "EXACT": 28,
+    "NEAR": 1
+  },
+  "goodinfo": "blocked_cloudflare",
+  "wantgoo": "blocked_or_404",
+  "cmoney": "no_payment_date_column",
+  "yahoo_tw": "SUCCESS"
+}

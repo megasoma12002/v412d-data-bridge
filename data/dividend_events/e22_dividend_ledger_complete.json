@@ -1,0 +1,20 @@
+{
+  "generated_at_utc": "2026-09-04T16:23:53.020540+00:00",
+  "ledger": "data/dividend_events/e22_dividend_events.csv",
+  "cash": {
+    "events": 144,
+    "cash_ex_date_missing": 0,
+    "cash_payment_date_missing": 0,
+    "cash_dividend_missing": 0,
+    "yahoo_backfill_filled": 29,
+    "complete": true
+  },
+  "stock": {
+    "events": 52,
+    "stock_ex_date_missing": 0,
+    "stock_payment_date_missing": 0,
+    "stock_dividend_missing": 0,
+    "complete": true
+  },
+  "conclusion": "Cash and stock payment dates fully populated on this branch; main had 29 cash payment gaps."
+}

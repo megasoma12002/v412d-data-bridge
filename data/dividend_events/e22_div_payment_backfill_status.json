@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-09-04T16:17:25.500008+00:00",
+  "dry_run": false,
+  "cash_updates": 0,
+  "stock_updates": 1,
+  "cash_events": 144,
+  "cash_payment_missing_after": 0,
+  "stock_events": 52,
+  "stock_ex_missing_after": 0,
+  "stock_payment_missing_after": 0,
+  "stock_updates_detail": [
+    {
+      "code": "2892",
+      "stock_ex_date": "2019-08-09",
+      "stock_payment_date": "2019-09-18",
+      "match": "NEAR3D",
+      "yahoo_ex": "2019-08-12",
+      "stock_dividend": 0.1
+    }
+  ],
+  "cash_updates_detail": [],
+  "remaining_stock_gaps": [],
+  "unit_note": "stock_dividend is FinMind 元/股; share factor = 1 + stock_dividend/10"
+}

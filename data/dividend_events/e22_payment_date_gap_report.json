@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "generated_at_utc": "2026-09-04T12:45:10.253678+00:00",
+  "n_still_missing_official": 0,
+  "n_filled_yahoo_tw": 29,
+  "blocked_sources": {
+    "goodinfo": "cloudflare",
+    "wantgoo": "403/404",
+    "cmoney": "no_payment_column"
+  },
+  "working_source": "https://tw.stock.yahoo.com/quote/{code}.TW/dividend",
+  "conclusion": "All prior FinMind/MOPS blanks filled from Yahoo TW 現金股利發放日."
+}
