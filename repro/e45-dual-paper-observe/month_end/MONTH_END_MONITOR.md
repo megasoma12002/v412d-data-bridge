@@ -1,6 +1,6 @@
 # E45 Month-End Paper Monitor — asof 2026-09-04
 
-Generated: `2026-09-05T18:45:13.724833+00:00`
+Generated: `2026-09-05T18:59:14.790323+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **CHAL_E45_E3** (E45 `E3_VOLTARGET_WINNER` on early-stack)
 

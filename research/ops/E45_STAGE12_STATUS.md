@@ -51,6 +51,14 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 2. Optional: draft stitch checklist for review (still no live-wire)  
 3. Live stitch only after explicit second human ACCEPT
 
+## Latest month-end refresh
+
+- Ran: `2026-09-05T18:59:29Z` — `e45_dual_paper_ledgers.py` + `e45_month_end_monitor.py` + alert scan
+- Asof: **2026-09-04** (market tip; unchanged vs prior open)
+- Dynamic windows: YTD / trailing_1y still **PAUSE_REVIEW** (crisis CAGR giveback)
+- Structural: heldout MDD improve ~1.88 pp / giveback ~5.65 pp; sealed ~4.90 / ~9.40 pp
+- Soft-Frozen KEEP · stitch still **FORBIDDEN** · continue observe cadence
+
 ## Label
 
 `E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`

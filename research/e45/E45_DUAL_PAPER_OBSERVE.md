@@ -1,6 +1,6 @@
 # E45 Dual-Paper Observe Sleeve
 
-Generated: `2026-09-05T18:45:09.411488+00:00`
+Generated: `2026-09-05T18:59:14.494675+00:00`
 Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`); live stitch **FORBIDDEN**.
 
 ## Locked paper books
