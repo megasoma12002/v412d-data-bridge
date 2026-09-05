@@ -35,9 +35,18 @@ MODULE_STATUS = "CHALLENGER_CANDIDATE_NOT_PROMOTED"
 GOVERNANCE_CLASS_IF_PROMOTED = "SOFT_FROZEN_CRITICAL"
 PROMOTION_ALLOWED = False
 
-# Handoff / spec text claim — verification 2026-09-04: NOT FOUND in any research MDD artifact.
+# Handoff / spec text claim — formally retired 2026-09-05 (human path A).
+# Do NOT cite as verified baseline / Soft-Frozen proof / stitch gate.
+from claim_labels import (  # noqa: E402
+    EARLY_NON_RIGOROUS_RESEARCH_RESULT,
+    RETIRED_HISTORICAL_NARRATIVE,
+)
+
 CLAIMED_MDD = -0.1316
-CLAIMED_MDD_STATUS = "NOT_VERIFIED_NO_ARTIFACT_MATCH"
+CLAIMED_MDD_STATUS = RETIRED_HISTORICAL_NARRATIVE
+CLAIMED_MDD_INTERPRETATION = EARLY_NON_RIGOROUS_RESEARCH_RESULT
+# Deprecated alias kept for older readers only:
+CLAIMED_MDD_STATUS_LEGACY = "NOT_VERIFIED_NO_ARTIFACT_MATCH"
 
 # Numbers taken from dated research reports / status JSON (not invented).
 VERIFIED_LINEAGE_MDD = {
@@ -46,6 +55,9 @@ VERIFIED_LINEAGE_MDD = {
     "E3_validation_2021_2022": -0.1849,
     "V412D_validation_reported": -0.1891,
 }
+# Preferred comparable figure for paper/stitch discussion (dated lineage; not invented).
+PRIMARY_COMPARABLE_MDD = VERIFIED_LINEAGE_MDD["E1_1_validation_2012_2014"]  # -15.81%
+PRIMARY_COMPARABLE_SOURCE = "E1_1_validation_2012_2014"
 
 FORMAL_STRATEGY_STILL = "V4.12-D"
 E3_RESEARCH_DECISION = "validation_pass_but_not_promoted"
@@ -84,7 +96,10 @@ class E45Manifest:
     promotion_allowed: bool
     claimed_mdd: float
     claimed_mdd_status: str
+    claimed_mdd_interpretation: str
     verified_lineage_mdd: dict
+    primary_comparable_mdd: float
+    primary_comparable_source: str
     formal_strategy_still: str
     e3_research_decision: str
     default_profile: str
@@ -98,7 +113,10 @@ MANIFEST = E45Manifest(
     promotion_allowed=PROMOTION_ALLOWED,
     claimed_mdd=CLAIMED_MDD,
     claimed_mdd_status=CLAIMED_MDD_STATUS,
+    claimed_mdd_interpretation=CLAIMED_MDD_INTERPRETATION,
     verified_lineage_mdd=VERIFIED_LINEAGE_MDD,
+    primary_comparable_mdd=PRIMARY_COMPARABLE_MDD,
+    primary_comparable_source=PRIMARY_COMPARABLE_SOURCE,
     formal_strategy_still=FORMAL_STRATEGY_STILL,
     e3_research_decision=E3_RESEARCH_DECISION,
     default_profile="E3_VOLTARGET_WINNER",
@@ -109,8 +127,8 @@ MANIFEST = E45Manifest(
     ),
     note=(
         "Named E45 surface for integration. Not an in-place freeze. "
-        "CLAIMED_MDD (-13.16%) verified 2026-09-04 as NOT_VERIFIED_NO_ARTIFACT_MATCH. "
-        "Prefer VERIFIED_LINEAGE_MDD from dated E1/E1.1/E3/V4.12-D artifacts."
+        "CLAIMED_MDD (-13.16%) RETIRED_HISTORICAL_NARRATIVE (human 2026-09-05 path A). "
+        "Use VERIFIED_LINEAGE_MDD / PRIMARY_COMPARABLE_MDD only; do not invent a replacement."
     ),
 )
 

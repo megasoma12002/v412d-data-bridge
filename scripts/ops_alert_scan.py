@@ -31,6 +31,7 @@ QC_PATH = ROOT / "forward/e21/qc_status.json"
 L4_JSON = ROOT / "research/gaps/L4_DD_PATH_MONTH_END_MONITOR.json"
 FIN_JSON = ROOT / "research/gaps/FIN_CAP_50_MONTH_END_MONITOR.json"
 BLEND_JSON = ROOT / "research/gaps/BLEND_025_MONTH_END_MONITOR.json"
+E45_JSON = ROOT / "research/gaps/E45_MONTH_END_MONITOR.json"
 RECON_JSON = ROOT / "research/ops/LIVE_PAPER_RECON.json"
 GAP6_JSON = ROOT / "research/ops/E22_GAP6_FIDELITY_KPI.json"
 E22_KPI_JSON = ROOT / "research/ops/E22_DATA_QUALITY_KPI.json"
@@ -114,6 +115,7 @@ def main() -> int:
         ("l4_month_end", L4_JSON),
         ("fincap50_month_end", FIN_JSON),
         ("blend025_month_end", BLEND_JSON),
+        ("e45_month_end", E45_JSON),
     ):
         doc = _load(path)
         if doc is None:

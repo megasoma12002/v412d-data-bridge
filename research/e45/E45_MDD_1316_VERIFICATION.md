@@ -1,12 +1,17 @@
 # E45 MDD ≈ −13.16% Verification
 
-Generated: `2026-09-04T17:46:23.164149+00:00`
+Generated: `2026-09-05T18:10:35.778629+00:00`  
+**Follow-on (2026-09-05):** human **RETIRE narrative (path A)** — see `research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md`
 
-**Verdict: `NOT_VERIFIED`** — exact artifact match = `False`
+**Scan verdict: `NOT_VERIFIED` (no exact artifact match)**  
+**Claim policy after retirement: `RETIRED_HISTORICAL_NARRATIVE` / `EARLY_NON_RIGOROUS_RESEARCH_RESULT`**
+
+Do **not** cite −13.16% as a verified E45 baseline, Soft-Frozen proof, live badge, or stitch gate.  
+Comparable figures: dated lineage (primary **E1.1 −15.81%**) and/or dated challenger MDDs only — **no invented replacement**.
 
 ## Claim
 
-Handoff / `FROZEN_STRATEGY_SPEC.md`: E45 crisis core MDD ≈ **-13.16%** (`-0.1316`).
+Handoff / `FROZEN_STRATEGY_SPEC.md`: E45 crisis core MDD ≈ **-13.16%** (`-0.1316`) — **retired narrative**.
 
 ## Method
 
