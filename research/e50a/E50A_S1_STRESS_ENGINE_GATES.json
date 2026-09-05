@@ -1,0 +1,36 @@
+{
+  "generated_at_utc": "2026-09-04T19:26:00+00:00",
+  "version_id": "E50-A3-S1",
+  "status": "CHARTER_FROZEN_FOR_SCREENING",
+  "live_wire": false,
+  "e45_inplace_edit": false,
+  "allowed_families": ["S1-QRES", "S1-DEFRES", "S1-VALRES"],
+  "forbidden": [
+    "TECH2_PRICE8_F1_remix_as_stress_engine",
+    "retune_after_heldout",
+    "ew_crisis_only_cash_grids",
+    "absolute_oof_vol_cut_non_rolling",
+    "live_wire",
+    "e45_inplace_edit",
+    "promote_experimental_gates"
+  ],
+  "detector_class": {
+    "crisis": "not_crisis_vote2",
+    "vol": "rolling_252d_mkt_vol_60d_pctl_in_[0.70,0.80]",
+    "val_ic": "optional_val_ic_lag21_in_[0.00,0.03]_causal_shift_ge_21_for_live_feed",
+    "hysteresis": [2, 5]
+  },
+  "controller": "switch_to_S1_stress_book_while_flag_on_else_REF_C4",
+  "portfolio_shell_grid": {
+    "top_k": [20, 22, 30],
+    "rebalance_every": [42, 63],
+    "exit_multiple": [2.0, 2.25],
+    "industry_cap": 5,
+    "liquidity_floor": 20000000
+  },
+  "selection_window": "2011-2018_OOF_only",
+  "heldout_policy": "one_shot_no_retune",
+  "winner_rule_ref": "research/e50a/DUAL_TRACK_OPERATING_BOARD.md",
+  "stop_labels": ["STOP_S1_OOF", "STOP_S1_ADV", "STOP_S1_HELDOUT"],
+  "track_a_incumbent": "S9A1_paper_monitor"
+}
