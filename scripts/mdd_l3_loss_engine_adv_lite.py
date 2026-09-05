@@ -23,6 +23,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof
 
@@ -143,8 +144,9 @@ def main() -> None:
         if not meta_p.get("exact_t1_ok"):
             raise SystemExit(f"placebo {i} failed exact T+1")
         st = oof.window_nav_stats(nav_p, OOF_START, OOF_END)
-        improve = abs(base_oof_mdd) - abs(st["max_drawdown"] or 9)
-        cagr_gb = base_oof_cagr - (st["cagr"] or 0)
+        improve = mdd_delta_pp(base_oof_mdd, st["max_drawdown"]) / 100.0
+        _cgb = cagr_delta_pp(base_oof_cagr, st["cagr"], missing_as_zero=True)
+        cagr_gb = 0.0 if _cgb is None else _cgb / 100.0
         ge_locked = improve + 1e-12 >= locked_improve
         if ge_locked:
             beat += 1

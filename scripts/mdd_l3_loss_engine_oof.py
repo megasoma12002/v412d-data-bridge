@@ -24,6 +24,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof
 
@@ -188,9 +189,9 @@ def main() -> None:
             )
             continue
 
-        mdd_improve = abs(base_row["oof_mdd"] or 9) - abs(r["oof_mdd"] or 9)
-        cagr_gb = (base_row["oof_cagr"] or 0) - (r["oof_cagr"] or 0)
-        late_gb = (base_row["late_bull_cagr"] or 0) - (r["late_bull_cagr"] or 0)
+        mdd_improve = mdd_delta_pp(base_row["oof_mdd"], r["oof_mdd"]) / 100.0
+        _cgb = cagr_delta_pp(base_row["oof_cagr"], r["oof_cagr"], missing_as_zero=True); cagr_gb = 0.0 if _cgb is None else _cgb / 100.0
+        _lgb = cagr_delta_pp(base_row["late_bull_cagr"], r["late_bull_cagr"], missing_as_zero=True); late_gb = 0.0 if _lgb is None else _lgb / 100.0
         reasons: list[str] = []
         if not r["exact_t1_ok"]:
             reasons.append("exact_t1")

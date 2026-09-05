@@ -13,6 +13,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e22_dividend_accounting as e22div
+import e16_soft_frozen_base as soft_frozen
 
 FIN = ["2880", "2886", "2892", "5880"]
 TEL = ["2412", "3045", "4904"]
@@ -45,49 +46,12 @@ def append_immutable(path, row, key):
 def features(m):
     """Live Soft-Frozen E16 targets (Financial clip [0.50, 0.95]).
 
-    Research mirror: `e50_early_stack_combined_nav.e16_features` — keep in sync.
+    Clip/prior/blend: single source `e16_soft_frozen_base` (shared with research).
     Challenger clips: `e16_fin_cap_oof_challenger.e16_features_fin_cap` only.
     """
-    p = m.pivot(index="date", columns="code", values="adj_close").sort_index().ffill()
-    r = p.pct_change(fill_method=None).fillna(0)
-    sleeve = pd.DataFrame({"Financial": r[FIN].mean(1), "Telecom": r[TEL].mean(1), "0050": r["0050"]})
+    p, sleeve, target, reg, score = soft_frozen.build_soft_frozen_targets(m)
     tc = p["TAIEX"]
-    tr = tc.pct_change()
-    ma = tc.rolling(200).mean()
-    vol = tr.rolling(20).std() * np.sqrt(252)
-    dd = tc / tc.rolling(252, min_periods=120).max() - 1
-    reg = pd.Series("Sideways", index=p.index)
-    reg[(tc > ma) & (vol < 0.25)] = "Bull"
-    reg[tc < ma] = "Bear"
-    reg[(vol > 0.35) | (dd < -0.15)] = "Crisis"
-    nav = (1 + sleeve).cumprod()
-    m20 = nav / nav.shift(20) - 1
-    m60 = nav / nav.shift(60) - 1
-    sv = sleeve.rolling(20).std() * np.sqrt(252)
-    d60 = nav / nav.rolling(60, min_periods=20).max() - 1
-    z = lambda x: x.sub(x.mean(1), axis=0).div(x.std(1).replace(0, np.nan), axis=0).fillna(0)
-    score = 0.35 * z(m20) + 0.35 * z(m60) - 0.20 * z(sv) + 0.10 * z(d60)
-    # Rebuild frozen E16 target history causally.
-    out = []
-    cur = np.array([0.9, 0.1, 0.0])
-    for i, dt in enumerate(p.index):
-        rg = reg.iloc[i]
-        pri = {
-            "Bull": np.array([0.85, 0.05, 0.10]),
-            "Crisis": np.array([0.60, 0.35, 0.05]),
-            "Bear": np.array([0.70, 0.25, 0.05]),
-            "Sideways": np.array([0.85, 0.10, 0.05]),
-        }[rg]
-        cand = np.maximum(pri + 0.10 * np.clip(score.iloc[i].to_numpy(), -2, 2), 0)
-        cand[0] = np.clip(cand[0], 0.50, 0.95)
-        cand[1] = np.clip(cand[1], 0.03, 0.35)
-        cand[2] = np.clip(cand[2], 0, 0.35)
-        cand /= cand.sum()
-        desired = 0.75 * cur + 0.25 * cand
-        if np.abs(desired - cur).sum() >= 0.02:
-            cur = desired
-        out.append(cur.copy())
-    target = pd.DataFrame(out, index=p.index, columns=["Financial", "Telecom", "0050"])
+    vol = tc.pct_change().rolling(20).std() * np.sqrt(252)
     # E19 alert-only.
     defensive = (sleeve.Financial + sleeve["0050"]) / 2
     corr = sleeve.Telecom.rolling(20).corr(defensive)
@@ -238,6 +202,30 @@ def main():
     for f in fills:
         append_immutable(sdir / "fills.csv", f, "fill_id")
 
+    # Exact T+1 audit: fill_date must be strictly after signal_date (calendar day).
+    same_bar_fills = 0
+    for f in fills:
+        sig = pd.to_datetime(f["signal_date"]).normalize()
+        fill_dt = pd.to_datetime(f["fill_date"]).normalize()
+        if fill_dt <= sig:
+            same_bar_fills += 1
+    exact_t1_ok = same_bar_fills == 0
+    qc = {
+        "date": latest.date().isoformat(),
+        "exact_t1_ok": exact_t1_ok,
+        "same_bar_fills": same_bar_fills,
+        "fills_checked": len(fills),
+        "pending_filter": "signal_date < fill_date",
+        "soft_frozen_financial_clip": [soft_frozen.SOFT_FROZEN_FIN_LO, soft_frozen.SOFT_FROZEN_FIN_HI],
+        "live_wire": True,
+        "note": "Live Exact T+1 ledger check. Soft-Frozen clip unchanged by research challengers.",
+    }
+    (sdir / "qc_status.json").write_text(json.dumps(qc, indent=2) + "\n")
+    if not exact_t1_ok:
+        raise SystemExit(
+            f"Exact T+1 violation: {same_bar_fills} same-bar fill(s) on {latest.date()}"
+        )
+
     # E22 formal books on today's ex-date (forward-only; idempotent via applied keys).
     div_events = e22div.load_dividend_events(a.dividends)
     skip = set(state.get("e22_applied_keys") or [])
@@ -335,6 +323,8 @@ def main():
         "target_l1_gap": l1,
         "orders_created": len(order_rows),
         "fills_processed": len(fills),
+        "exact_t1_ok": exact_t1_ok,
+        "same_bar_fills": same_bar_fills,
         "e22_version": a.e22_version,
         "e22_cash_credit": applied.cash_credit,
         "e22_stock_shares_added": applied.stock_shares_added,
@@ -395,6 +385,8 @@ def main():
                 "nav": nav,
                 "orders": len(order_rows),
                 "fills": len(fills),
+                "exact_t1_ok": exact_t1_ok,
+                "same_bar_fills": same_bar_fills,
                 "regime": diag["regime"],
                 "e19_alert": diag["e19_alert"],
                 "e22_version": a.e22_version,

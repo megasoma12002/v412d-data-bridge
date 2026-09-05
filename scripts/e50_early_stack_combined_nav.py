@@ -20,6 +20,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import e16_soft_frozen_base as soft_frozen
 import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
 
@@ -37,57 +38,14 @@ WARMUP_DAYS = 252
 
 
 def e16_features(m: pd.DataFrame):
-    """Causal E16 target history — Soft-Frozen Financial clip [0.50, 0.95].
+    """Causal Soft-Frozen E16 targets — delegates to `e16_soft_frozen_base`.
 
-    Intentionally mirrors `e21_forward_pipeline.features` (live path). Keep both in
-    sync; do not retune clip/priors here without a Soft-Frozen challenger PR.
-    FIN_CAP variants must use `e16_fin_cap_oof_challenger.e16_features_fin_cap`.
+    Live clip [0.50, 0.95] lives in one module. Challenger clips use
+    `e16_fin_cap_oof_challenger.e16_features_fin_cap` only.
     """
-    p = m.pivot(index="date", columns="code", values="adj_close").sort_index().ffill()
-    r = p.pct_change(fill_method=None).fillna(0)
-    sleeve = pd.DataFrame(
-        {"Financial": r[FIN].mean(1), "Telecom": r[TEL].mean(1), "0050": r["0050"]}
-    )
-    tc = p["TAIEX"]
-    tr = tc.pct_change()
-    ma = tc.rolling(200).mean()
-    vol = tr.rolling(20).std() * np.sqrt(252)
-    dd = tc / tc.rolling(252, min_periods=120).max() - 1
-    reg = pd.Series("Sideways", index=p.index)
-    reg[(tc > ma) & (vol < 0.25)] = "Bull"
-    reg[tc < ma] = "Bear"
-    reg[(vol > 0.35) | (dd < -0.15)] = "Crisis"
-    nav = (1 + sleeve).cumprod()
-    m20 = nav / nav.shift(20) - 1
-    m60 = nav / nav.shift(60) - 1
-    sv = sleeve.rolling(20).std() * np.sqrt(252)
-    d60 = nav / nav.rolling(60, min_periods=20).max() - 1
-
-    def z(x):
-        return x.sub(x.mean(1), axis=0).div(x.std(1).replace(0, np.nan), axis=0).fillna(0)
-
-    score = 0.35 * z(m20) + 0.35 * z(m60) - 0.20 * z(sv) + 0.10 * z(d60)
-    out = []
-    cur = np.array([0.9, 0.1, 0.0])
-    for i, _dt in enumerate(p.index):
-        rg = reg.iloc[i]
-        pri = {
-            "Bull": np.array([0.85, 0.05, 0.10]),
-            "Crisis": np.array([0.60, 0.35, 0.05]),
-            "Bear": np.array([0.70, 0.25, 0.05]),
-            "Sideways": np.array([0.85, 0.10, 0.05]),
-        }[rg]
-        cand = np.maximum(pri + 0.10 * np.clip(score.iloc[i].to_numpy(), -2, 2), 0)
-        cand[0] = np.clip(cand[0], 0.50, 0.95)
-        cand[1] = np.clip(cand[1], 0.03, 0.35)
-        cand[2] = np.clip(cand[2], 0, 0.35)
-        cand /= cand.sum()
-        desired = 0.75 * cur + 0.25 * cand
-        if np.abs(desired - cur).sum() >= 0.02:
-            cur = desired
-        out.append(cur.copy())
-    target = pd.DataFrame(out, index=p.index, columns=["Financial", "Telecom", "0050"])
+    p, sleeve, target, reg, _score = soft_frozen.build_soft_frozen_targets(m)
     return p, sleeve, target, reg
+
 
 
 def lot_qty(value: float, price: float, lot_size: int = 1) -> int:
@@ -197,12 +155,15 @@ def simulate_core(
                 fee = gross * (SELL_FEE + tax)
                 pos[code] -= q
                 cash += gross - fee
+            sig_s = (
+                o["signal_date"].date().isoformat()
+                if hasattr(o["signal_date"], "date")
+                else str(o["signal_date"])
+            )
             fill_rows.append(
                 {
                     "fill_date": dt.date().isoformat(),
-                    "signal_date": o["signal_date"].date().isoformat()
-                    if hasattr(o["signal_date"], "date")
-                    else str(o["signal_date"]),
+                    "signal_date": sig_s,
                     "code": code,
                     "side": side,
                     "quantity": q,
@@ -211,7 +172,8 @@ def simulate_core(
                     "fees_tax": fee,
                 }
             )
-            if pd.Timestamp(o["signal_date"]).normalize() >= dt.normalize():
+            # Exact T+1 audit on the recorded fill (filter above already requires signal < dt).
+            if pd.Timestamp(sig_s).normalize() >= dt.normalize():
                 same_bar += 1
         pending = still
 
@@ -354,7 +316,7 @@ def nav_stats(nav: pd.DataFrame, col: str = "nav") -> dict:
     peak = np.maximum.accumulate(path)
     mdd = float(np.min(path / peak - 1.0))
     vol = float(np.std(r, ddof=1) * np.sqrt(252)) if len(r) > 2 else None
-    util = (cagr or 0.0) - 0.5 * abs(mdd)
+    util = (0.0 if cagr is None else cagr) - 0.5 * abs(0.0 if mdd is None else mdd)
     return {"cagr": cagr, "max_drawdown": mdd, "utility": util, "vol": vol, "n_days": len(nav)}
 
 

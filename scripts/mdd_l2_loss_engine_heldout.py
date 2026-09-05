@@ -20,6 +20,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import e16_features, simulate_core
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof
@@ -46,8 +47,9 @@ def classify(val_ok: bool, sealed_ok: bool) -> str:
 def pack(nav_b, nav_l, meta_b, meta_l, start, end, name):
     b = oof.window_nav_stats(nav_b, start, end)
     l = oof.window_nav_stats(nav_l, start, end)
-    mdd_improve = abs(b["max_drawdown"] or 9) - abs(l["max_drawdown"] or 9)
-    cagr_gb = (b["cagr"] or 0) - (l["cagr"] or 0)
+    mdd_improve = mdd_delta_pp(b["max_drawdown"], l["max_drawdown"]) / 100.0
+    _cgb = cagr_delta_pp(b["cagr"], l["cagr"], missing_as_zero=True)
+    cagr_gb = 0.0 if _cgb is None else _cgb / 100.0
     ok = bool(
         meta_b.get("exact_t1_ok")
         and meta_l.get("exact_t1_ok")

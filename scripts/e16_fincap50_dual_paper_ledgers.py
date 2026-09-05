@@ -20,6 +20,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e22_dividend_accounting as e22div
 from e16_fin_cap_oof_challenger import e16_features_fin_cap
@@ -143,8 +144,8 @@ def main() -> None:
 
     base_h = books["BASE_E16"]["windows"]["heldout_2019_plus"]
     cap_h = books["FIN_CAP_50"]["windows"]["heldout_2019_plus"]
-    mdd_improve_pp = (abs(base_h["max_drawdown"] or 9) - abs(cap_h["max_drawdown"] or 9)) * 100
-    cagr_giveback_pp = ((base_h["cagr"] or 0) - (cap_h["cagr"] or 0)) * 100
+    mdd_improve_pp = mdd_delta_pp(base_h["max_drawdown"], cap_h["max_drawdown"])
+    cagr_giveback_pp = cagr_delta_pp(base_h["cagr"], cap_h["cagr"], missing_as_zero=True)
 
     proposal = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),

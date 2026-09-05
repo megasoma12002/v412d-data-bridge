@@ -23,6 +23,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, FIN, TEL, e16_features, nav_stats, simulate_core
 from e16_fin_cap_oof_challenger import e16_features_fin_cap
 import e22_dividend_accounting as e22div
@@ -204,8 +205,8 @@ def main() -> None:
                 }
             )
             continue
-        mdd_improve = abs(base["oof_mdd"] or 9) - abs(r["oof_mdd"] or 9)
-        cagr_giveback = (base["oof_cagr"] or 0) - (r["oof_cagr"] or 0)
+        mdd_improve = mdd_delta_pp(base["oof_mdd"], r["oof_mdd"]) / 100.0
+        _cgb = cagr_delta_pp(base["oof_cagr"], r["oof_cagr"], missing_as_zero=True); cagr_giveback = 0.0 if _cgb is None else _cgb / 100.0
         pass_oof = bool(
             r["exact_t1_ok"]
             and r["oof_mdd"] is not None
