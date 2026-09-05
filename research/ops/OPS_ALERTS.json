@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T08:08:55.429970+00:00",
+  "generated_at_utc": "2026-09-05T09:13:26.094548+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -10,7 +10,7 @@
   "overall": "HIGH",
   "n_critical": 0,
   "n_high": 3,
-  "n_info": 11,
+  "n_info": 12,
   "alerts": [
     {
       "severity": "HIGH",
@@ -95,6 +95,12 @@
       "source": "e22_gap6_fidelity_kpi",
       "code": "LIVE_LEDGER_E22_FIELDS_MISSING",
       "message": "LIVE_LEDGER_E22_FIELDS_MISSING"
+    },
+    {
+      "severity": "INFO",
+      "source": "data_source_resilience_kpi",
+      "code": "SINGLE_POINT_STREAMS",
+      "message": "n_critical_without_backup=5; flags=['SINGLE_POINT:fin12_history_ohlcv', 'SINGLE_POINT:fin12_recent_ohlcv', 'SINGLE_POINT:taiex', 'SINGLE_POINT:adj_corporate_actions', 'SINGLE_POINT:dividend_amount_ex']"
     }
   ],
   "routing_note": "Annotate CI job summary / upload OPS_ALERTS.* as artifact. HIGH=PAUSE_REVIEW blocks cutover talk only. CRITICAL fails live QC smoke."

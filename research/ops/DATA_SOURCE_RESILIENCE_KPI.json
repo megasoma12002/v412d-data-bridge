@@ -1,0 +1,138 @@
+{
+  "generated_at_utc": "2026-09-05T09:13:16.968459+00:00",
+  "label": "DATA_SOURCE_RESILIENCE_KPI",
+  "live_wire": false,
+  "soft_frozen_unchanged": true,
+  "authority": "research/ops/DATA_SOURCE_RESILIENCE.md",
+  "n_streams": 8,
+  "n_critical": 7,
+  "n_critical_without_backup": 5,
+  "n_grade_a": 2,
+  "n_grade_d": 4,
+  "streams": [
+    {
+      "id": "fin12_history_ohlcv",
+      "label": "Fin-12 history OHLCV",
+      "primary": "github_tw_stock_data_release",
+      "backup": null,
+      "grade": "D",
+      "critical_for_live": true,
+      "notes": "TWSE covers recent append only (~14d), not full history backup",
+      "has_backup": false,
+      "evidence_present": null,
+      "backup_script_present": null
+    },
+    {
+      "id": "fin12_recent_ohlcv",
+      "label": "Fin-12 recent OHLCV",
+      "primary": "twse_mi_index",
+      "backup": null,
+      "grade": "B",
+      "critical_for_live": true,
+      "notes": "scripts/v412f_append_twse_daily.py + scripts/v412d_twse_spotcheck.py",
+      "has_backup": false,
+      "evidence_present": null,
+      "backup_script_present": null
+    },
+    {
+      "id": "telecom_0050_raw_ohlcv",
+      "label": "Telecom / 0050 raw OHLCV",
+      "primary": "finmind_taiwan_stock_price",
+      "backup": "yahoo_finance",
+      "grade": "A",
+      "critical_for_live": true,
+      "notes": "scripts/fetch_telecom_0050_ohlcv.py FinMind\u2192Yahoo",
+      "backup_script": "scripts/fetch_telecom_0050_ohlcv.py",
+      "has_backup": true,
+      "evidence_present": null,
+      "backup_script_present": true
+    },
+    {
+      "id": "taiex",
+      "label": "TAIEX",
+      "primary": "finmind_taiwan_stock_price_TAIEX",
+      "backup": null,
+      "grade": "D",
+      "critical_for_live": true,
+      "notes": "Regime / L4 DD path depends on TAIEX; no second vendor wired",
+      "has_backup": false,
+      "evidence_present": null,
+      "backup_script_present": null
+    },
+    {
+      "id": "adj_corporate_actions",
+      "label": "Adj / corporate-action factors",
+      "primary": "finmind_div_result_capred_split",
+      "backup": null,
+      "grade": "D",
+      "critical_for_live": true,
+      "notes": "Single-vendor adjusted layer",
+      "has_backup": false,
+      "evidence_present": null,
+      "backup_script_present": null
+    },
+    {
+      "id": "dividend_amount_ex",
+      "label": "Dividend amount / ex-date",
+      "primary": "finmind_taiwan_stock_dividend",
+      "backup": null,
+      "grade": "C",
+      "critical_for_live": true,
+      "notes": "Payment-date has Yahoo backup; amounts do not",
+      "evidence": "data/dividend_events/e22_dividend_events.csv",
+      "has_backup": false,
+      "evidence_present": true,
+      "backup_script_present": null
+    },
+    {
+      "id": "dividend_payment_date",
+      "label": "Dividend payment date",
+      "primary": "finmind_then_mops",
+      "backup": "yahoo_tw_quote_dividend",
+      "grade": "A",
+      "critical_for_live": true,
+      "notes": "Goodinfo/Wantgoo/CMoney blocked; Yahoo filled 29 gaps",
+      "failed_alternates": {
+        "goodinfo": "cloudflare",
+        "wantgoo": "403/404",
+        "cmoney": "no_payment_column"
+      },
+      "backup_script": "scripts/e22_backfill_payment_dates_yahoo.py",
+      "evidence": "data/dividend_events/yahoo_tw_dividend_history.csv",
+      "has_backup": true,
+      "evidence_present": true,
+      "backup_script_present": true
+    },
+    {
+      "id": "e50_fundamentals",
+      "label": "E50 fundamentals",
+      "primary": "finmind",
+      "backup": null,
+      "grade": "D",
+      "critical_for_live": false,
+      "notes": "Research path; not Soft-Frozen cutover-critical",
+      "has_backup": false,
+      "evidence_present": null,
+      "backup_script_present": null
+    }
+  ],
+  "flags": [
+    "SINGLE_POINT:fin12_history_ohlcv",
+    "SINGLE_POINT:fin12_recent_ohlcv",
+    "SINGLE_POINT:taiex",
+    "SINGLE_POINT:adj_corporate_actions",
+    "SINGLE_POINT:dividend_amount_ex"
+  ],
+  "kpi_ok": true,
+  "phase_a_done": true,
+  "phase_b_next": [
+    "TAIEX FinMind vs Yahoo/^TWII shadow diff",
+    "Dividend amount FinMind vs Yahoo reconcile (flag-only)",
+    "Fin-12 recent Yahoo vs TWSE shadow"
+  ],
+  "do_not": [
+    "Treat Goodinfo/Wantgoo/CMoney as payment-date backups",
+    "Silent Soft-Frozen flip",
+    "Rewrite forward/e21 history"
+  ]
+}
