@@ -1,0 +1,113 @@
+{
+  "generated_at_utc": "2026-09-05T09:19:53.033597+00:00",
+  "label": "DATA_SOURCE_SHADOW_RECONCILE",
+  "phase": "B",
+  "live_wire": false,
+  "soft_frozen_unchanged": true,
+  "lookback_days": 40,
+  "checks": [
+    {
+      "id": "taiex",
+      "status": "PASS",
+      "ok": true,
+      "n_overlap": 30,
+      "start": "2026-07-26",
+      "asof": "2026-09-04",
+      "ret_corr": 0.9999999999988315,
+      "ret_mae": 2.534802464478405e-08,
+      "detail_csv": "repro/data-source-shadow/taiex_live_vs_yahoo.csv",
+      "thresholds": {
+        "ret_mae_max": 0.005,
+        "ret_corr_min": 0.95
+      },
+      "note": "Compare daily returns; ^TWII levels may differ from FinMind TAIEX"
+    },
+    {
+      "id": "fin12_recent",
+      "status": "PASS",
+      "ok": true,
+      "codes": [
+        "2880",
+        "2886",
+        "2892",
+        "5880"
+      ],
+      "n_overlap_rows": 120,
+      "start": "2026-07-26",
+      "asof": "2026-09-04",
+      "max_abs_rel_diff_level": 0.025000059695647683,
+      "returns_ok": true,
+      "per_code": [
+        {
+          "code": "2880",
+          "n": 30,
+          "max_abs_rel_level": 0.010000060021402893,
+          "mean_abs_rel_level": 0.004333344909469764,
+          "ret_corr": 0.9990055400465866,
+          "ret_mae": 0.0003121252144361281,
+          "returns_ok": true
+        },
+        {
+          "code": "2886",
+          "n": 30,
+          "max_abs_rel_level": 3.3279802801571095e-08,
+          "mean_abs_rel_level": 2.0952672749679567e-08,
+          "ret_corr": 0.9999999999987387,
+          "ret_mae": 2.879384768930969e-08,
+          "returns_ok": true
+        },
+        {
+          "code": "2892",
+          "n": 30,
+          "max_abs_rel_level": 4.60295275244525e-08,
+          "mean_abs_rel_level": 2.815414828433654e-08,
+          "ret_corr": 0.9999999999962566,
+          "ret_mae": 4.158807123964682e-08,
+          "returns_ok": true
+        },
+        {
+          "code": "5880",
+          "n": 30,
+          "max_abs_rel_level": 0.025000059695647683,
+          "mean_abs_rel_level": 0.00916668681012495,
+          "ret_corr": 0.9875433207398899,
+          "ret_mae": 0.0007927367035414654,
+          "returns_ok": true
+        }
+      ],
+      "thresholds": {
+        "ret_mae_max": 0.005,
+        "ret_corr_min": 0.95,
+        "level_rel_tol_note": 0.03
+      },
+      "fetch_errors": [],
+      "detail_csv": "repro/data-source-shadow/fin_sleeve_recent_live_vs_yahoo.csv",
+      "note": "Gate on daily returns (raw vs Yahoo adj levels may differ ~2\u20133% for some names)"
+    },
+    {
+      "id": "dividend_amount",
+      "status": "PASS",
+      "ok": true,
+      "n_overlap": 114,
+      "n_flagged": 0,
+      "max_abs_diff": 3.0000000000640625e-05,
+      "max_abs_rel_diff": 6.97755552965518e-06,
+      "thresholds": {
+        "abs_tol": 0.02,
+        "rel_tol": 0.02
+      },
+      "fetch_errors": [],
+      "detail_csv": "repro/data-source-shadow/dividend_amount_live_vs_yahoo.csv",
+      "note": "Flag-only; does not rewrite e22_dividend_events.csv"
+    }
+  ],
+  "n_checks": 3,
+  "n_drift": 0,
+  "all_ok": true,
+  "authority": "research/ops/DATA_SOURCE_RESILIENCE.md",
+  "do_not": [
+    "Overwrite e22_dividend_events.csv from Yahoo amounts",
+    "Rewrite forward/e21 history",
+    "Soft-Frozen flip"
+  ]
+}

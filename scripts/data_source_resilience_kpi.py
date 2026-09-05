@@ -156,15 +156,18 @@ def main() -> int:
         "flags": flags,
         "kpi_ok": "PAYMENT_DATE_BACKUP_REGRESSION" not in flags,
         "phase_a_done": True,
-        "phase_b_next": [
-            "TAIEX FinMind vs Yahoo/^TWII shadow diff",
-            "Dividend amount FinMind vs Yahoo reconcile (flag-only)",
-            "Fin-12 recent Yahoo vs TWSE shadow",
+        "phase_b_done": True,
+        "phase_b_artifact": "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json",
+        "phase_c_next": [
+            "Second vendor for full Fin-12 history (charter)",
+            "Corporate-action factor dual source (research)",
+            "Optional runtime TAIEX failover (today shadow-only)",
         ],
         "do_not": [
             "Treat Goodinfo/Wantgoo/CMoney as payment-date backups",
             "Silent Soft-Frozen flip",
             "Rewrite forward/e21 history",
+            "Auto-overwrite e22 dividend amounts from Yahoo",
         ],
     }
 
@@ -199,10 +202,15 @@ def main() -> int:
         lines.append("- None")
     lines += [
         "",
-        "## Phase B next",
+        "## Phase status",
+        "",
+        f"- Phase A: **DONE**",
+        f"- Phase B: **DONE** (`{summary.get('phase_b_artifact')}`)",
+        "",
+        "## Phase C next",
         "",
     ]
-    for item in summary["phase_b_next"]:
+    for item in summary.get("phase_c_next") or []:
         lines.append(f"- {item}")
     lines += [
         "",
@@ -212,7 +220,7 @@ def main() -> int:
     OUT_MD.write_text("\n".join(lines))
     print(json.dumps({k: summary[k] for k in (
         "label", "n_critical_without_backup", "n_grade_a", "n_grade_d",
-        "flags", "kpi_ok",
+        "flags", "kpi_ok", "phase_b_done",
     )}, indent=2))
     return 0 if summary["kpi_ok"] else 1
 

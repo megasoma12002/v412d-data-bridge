@@ -44,6 +44,7 @@ E22 KPI: `research/ops/E22_DATA_QUALITY_KPI.md`
 Gap #6 fidelity: `research/ops/E22_GAP6_FIDELITY_KPI.md`  
 Data-source resilience: `research/ops/DATA_SOURCE_RESILIENCE.md`  
 Data-source resilience KPI: `research/ops/DATA_SOURCE_RESILIENCE_KPI.md`  
+Data-source shadow reconcile (Phase B): `research/ops/DATA_SOURCE_SHADOW_RECONCILE.md`  
 Odd-lot promote (DEFERRED): `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`  
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
@@ -69,6 +70,7 @@ python3 scripts/ops_alert_scan.py --report-only
 python3 scripts/e22_data_quality_kpi.py
 python3 scripts/e22_gap6_fidelity_kpi.py
 python3 scripts/data_source_resilience_kpi.py
+python3 scripts/data_source_shadow_reconcile.py
 python3 scripts/e21_live_vs_paper_recon.py
 python3 scripts/e16_blend025_dual_paper_ledgers.py
 python3 scripts/e16_blend025_month_end_monitor.py

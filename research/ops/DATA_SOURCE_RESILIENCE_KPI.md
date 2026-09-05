@@ -1,6 +1,6 @@
 # Data Source Resilience KPI
 
-Generated: `2026-09-05T09:13:16.968459+00:00`
+Generated: `2026-09-05T09:20:47.399005+00:00`
 Status: **OPS** — Soft-Frozen unchanged; no live-wire.
 
 - Critical streams: **7**
@@ -27,10 +27,15 @@ Status: **OPS** — Soft-Frozen unchanged; no live-wire.
 - `SINGLE_POINT:adj_corporate_actions`
 - `SINGLE_POINT:dividend_amount_ex`
 
-## Phase B next
+## Phase status
 
-- TAIEX FinMind vs Yahoo/^TWII shadow diff
-- Dividend amount FinMind vs Yahoo reconcile (flag-only)
-- Fin-12 recent Yahoo vs TWSE shadow
+- Phase A: **DONE**
+- Phase B: **DONE** (`research/ops/DATA_SOURCE_SHADOW_RECONCILE.json`)
+
+## Phase C next
+
+- Second vendor for full Fin-12 history (charter)
+- Corporate-action factor dual source (research)
+- Optional runtime TAIEX failover (today shadow-only)
 
 Authority: `research/ops/DATA_SOURCE_RESILIENCE.md`
