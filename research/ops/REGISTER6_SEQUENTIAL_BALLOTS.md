@@ -7,23 +7,24 @@ Live DEFAULT books: **`E22_v2s_tw`** (#73+#74 merged)
 
 | # | Topic | Pack | Status now |
 |---|---|---|---|
-| 1 | Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **DONE** — ACCEPT promote; #73+#74 merged; DEFAULT live |
-| **2** | Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` | **ACTIVE** — awaiting human ballot |
-| 3 | E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` | **QUEUED** — untouched until Item 2 parked |
+| 1 | Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **DONE** — ACCEPT promote; merged; DEFAULT live |
+| **2** | Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` | **ACCEPT charter** — Stage B sandbox **OPEN**; DEFAULT unchanged |
+| 3 | E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` | **QUEUED** — not opened (Item 2 research still in flight) |
 
-## Item 2 — current ask (ACTIVE)
+## Item 2 — ballot result
 
-Formal today: **`E22_v2s_tw` + TAX0 + cash on ex-date** (no receivable asset).  
-This item opens a **charter ballot only** — no DEFAULT flip, no Soft-Frozen flip, no history rewrite.
+Human vote: **`ACCEPT charter`** (2026-09-05).
 
-**Vote one (item 2 only):**
+| Effect | Value |
+|---|---|
+| Stage B sandbox | **OPEN** — `E22_v3_recv_pay` / `tax10` / `tax20` |
+| Live DEFAULT | stays **`E22_v2s_tw`** |
+| Soft-Frozen | **KEEP** |
+| Promote to DEFAULT | **NOT authorized** — needs later evidence + second ballot |
+| Item 3 | stays **QUEUED** until Item 2 sandbox parked / handoff |
 
-- `稅應收 ACCEPT charter` → allow Stage B sandbox dual-books implementation (named `E22_v3_*`); default stays `E22_v2s_tw`
-- `稅應收 DEFER charter` → park Item 2; keep TAX0 ex-date formal; then open Item 3
-- `稅應收 REJECT` → close tax/receivable promote path this cycle; park Item 2; then open Item 3
-
-Promote of any `E22_v3_*` to DEFAULT still needs a **second** human PR after sandbox evidence (not this ballot).
+Pointers: `E22_V3_TAX_RECV_STAGE_B_STATUS.md` · `scripts/e22_v3_sandbox_books.py`
 
 ## Label
 
-`REGISTER6_SEQUENTIAL_BALLOTS_2026-09-05__ITEM2_ACTIVE`
+`REGISTER6_SEQUENTIAL_BALLOTS_2026-09-05__ITEM2_ACCEPT_CHARTER`

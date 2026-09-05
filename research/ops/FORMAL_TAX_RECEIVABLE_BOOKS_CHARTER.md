@@ -1,7 +1,7 @@
 # Formal Books Charter — Dividend Tax & Receivable / Pay-Date
 
 Date: 2026-09-05  
-Status: **ACTIVE — AWAITING HUMAN CHARTER BALLOT** (Register #6 Item 2)  
+Status: **ACCEPT charter** (2026-09-05) — Stage B sandbox OPEN; DEFAULT unchanged  
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Formal default today: **`E22_v2s_tw`** with **TAX0** and **cash on ex-date** (no receivable asset)
 Decision pack: `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md`
@@ -87,4 +87,4 @@ Promote of any `E22_v3_*` default still needs a **second** human PR after sandbo
 
 ## Label
 
-`FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER_2026-09-05__ITEM2_ACTIVE`
+`FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER_2026-09-05__ACCEPT_CHARTER_STAGE_B`

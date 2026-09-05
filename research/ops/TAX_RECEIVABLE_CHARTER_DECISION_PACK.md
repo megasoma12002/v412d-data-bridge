@@ -1,7 +1,7 @@
 # Tax / Receivable Formal Books — Charter Decision Pack (Item 2)
 
 Date: 2026-09-05  
-Status: **ACTIVE — AWAITING HUMAN BALLOT**  
+Status: **ACCEPT charter** (human 2026-09-05) — Stage B OPEN  
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw`** (TAX0; cash on ex-date; unchanged by this pack)
 
@@ -71,4 +71,17 @@ Reply with one of:
 
 ## Label
 
-`TAX_RECEIVABLE_CHARTER_DECISION_PACK_2026-09-05__AWAITING_HUMAN`
+`TAX_RECEIVABLE_CHARTER_DECISION_PACK_2026-09-05__ACCEPT_CHARTER`
+
+
+## Ballot result
+
+| Ballot cast | Effect |
+|---|---|
+| **ACCEPT charter** ✓ (2026-09-05) | Stage B sandbox dual-books authorized; DEFAULT stays `E22_v2s_tw`; Soft-Frozen KEEP |
+
+Stage B status: `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
+Code: `scripts/e22_v3_sandbox_books.py`  
+Smoke: `E22_V3_SANDBOX_SMOKE.md` (ok=true)
+
+Promote of any `E22_v3_*` DEFAULT still requires a **second** human ballot after sealed-window evidence.
