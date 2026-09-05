@@ -1,5 +1,9 @@
 # Research: E50-A Overlay Gap (#5) + Execution Fidelity Gap (#6)
 
+> **Note (2026-09-05):** Live DEFAULT books are now **`E22_v2s_tw`** (promoted).  
+> Lines below that say “default still `E22_v2s` until promote” are **historical research context**.  
+> Soft-Frozen clip unchanged; E45 live stitch remains DEFERRED.
+
 Date: 2026-09-04  
 Status: **RESEARCH ONLY** — no live promotion, no Soft-Frozen overwrite.  
 Branch intent: decide *how to handle* both gaps without inventing frozen numbers.

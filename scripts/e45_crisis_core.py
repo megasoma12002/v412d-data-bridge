@@ -35,9 +35,17 @@ MODULE_STATUS = "CHALLENGER_CANDIDATE_NOT_PROMOTED"
 GOVERNANCE_CLASS_IF_PROMOTED = "SOFT_FROZEN_CRITICAL"
 PROMOTION_ALLOWED = False
 
-# Handoff / spec text claim — verification 2026-09-04: NOT FOUND in any research MDD artifact.
+# Handoff / spec text claim — canonical vocabulary (see scripts/claim_labels.py).
+from claim_labels import (  # noqa: E402
+    EARLY_NON_RIGOROUS_RESEARCH_RESULT,
+    NOT_VERIFIED_HISTORICAL_NARRATIVE,
+)
+
 CLAIMED_MDD = -0.1316
-CLAIMED_MDD_STATUS = "NOT_VERIFIED_NO_ARTIFACT_MATCH"
+CLAIMED_MDD_STATUS = NOT_VERIFIED_HISTORICAL_NARRATIVE
+CLAIMED_MDD_INTERPRETATION = EARLY_NON_RIGOROUS_RESEARCH_RESULT
+# Deprecated alias kept for older readers only:
+CLAIMED_MDD_STATUS_LEGACY = "NOT_VERIFIED_NO_ARTIFACT_MATCH"
 
 # Numbers taken from dated research reports / status JSON (not invented).
 VERIFIED_LINEAGE_MDD = {
@@ -109,7 +117,7 @@ MANIFEST = E45Manifest(
     ),
     note=(
         "Named E45 surface for integration. Not an in-place freeze. "
-        "CLAIMED_MDD (-13.16%) verified 2026-09-04 as NOT_VERIFIED_NO_ARTIFACT_MATCH. "
+        "CLAIMED_MDD (-13.16%) = NOT_VERIFIED_HISTORICAL_NARRATIVE / EARLY_NON_RIGOROUS_RESEARCH_RESULT. "
         "Prefer VERIFIED_LINEAGE_MDD from dated E1/E1.1/E3/V4.12-D artifacts."
     ),
 )

@@ -1,5 +1,8 @@
 # E22_v2s_cil — Floor Shares + Cash-in-Lieu (Gap 6.5)
 
+> **Note (2026-09-05):** Live DEFAULT is now `E22_v2s_tw`. Any `default_remains: E22_v2s` / “default stays E22_v2s” language below is **historical research context**, not current live wiring.
+
+
 Generated: `2026-09-04T18:19:32.453813+00:00`
 
 **Named books version.** Does **not** rewrite live history. Default remains `E22_v2s` until explicit promotion.

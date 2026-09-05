@@ -1,0 +1,16 @@
+{
+  "generated_at_utc": "2026-09-05T17:39:03.025735+00:00",
+  "purpose": "fincap50_go_live_verify_provenance",
+  "outputs": {
+    "fincap50_go_live_verify.json": {
+      "path": "repro/fincap50-go-live-verify/reports/fincap50_go_live_verify.json",
+      "sha256": "9e0630ed0bb0b5d3f3ed39f8192d2bac55f2f2d125efb30f12ba25da296655a5",
+      "bytes": 4425
+    },
+    "FIN_CAP_50_GO_LIVE_VERIFY.md": {
+      "path": "repro/fincap50-go-live-verify/FIN_CAP_50_GO_LIVE_VERIFY.md",
+      "sha256": "b29f1d2b153e9adf3032434fbc8d1d6811860e17b1466a5f895ac19f3a8ffe21",
+      "bytes": 1593
+    }
+  }
+}

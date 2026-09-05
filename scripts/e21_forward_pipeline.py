@@ -25,7 +25,9 @@ TAX_STOCK = 0.003
 TAX_ETF = 0.001
 SLIP = 0.0005
 E22_BOOKS_VERSION = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw (odd-lot TW practice; promoted 2026-09-05)
-DIV_PATH = Path("data/dividend_events/e22_dividend_events.csv")
+REPO_ROOT = Path(__file__).resolve().parents[1]
+CANON_STATE = REPO_ROOT / "forward" / "e21"
+DIV_PATH = REPO_ROOT / "data" / "dividend_events" / "e22_dividend_events.csv"
 
 
 def append_immutable(path, row, key):
@@ -127,9 +129,17 @@ def main():
     a = ap.parse_args()
     CAPITAL = a.capital
     sdir = Path(a.state_dir)
+    if not sdir.is_absolute():
+        sdir = (REPO_ROOT / sdir).resolve()
     market_path = Path(a.market)
+    if not market_path.is_absolute():
+        market_path = (REPO_ROOT / market_path).resolve()
+    div_path = Path(a.dividends)
+    if not div_path.is_absolute():
+        div_path = (REPO_ROOT / div_path).resolve()
+    a.dividends = str(div_path)
     if not a.allow_noncanonical_paths:
-        canon_state = Path("forward/e21").resolve()
+        canon_state = CANON_STATE.resolve()
         if sdir.resolve() != canon_state or "forward/e21" not in str(market_path.as_posix()):
             raise SystemExit(
                 "Refusing non-canonical live paths. Use --market forward/e21/live_market.csv "
@@ -210,7 +220,9 @@ def main():
         if fill_dt <= sig:
             same_bar_fills += 1
     exact_t1_ok = same_bar_fills == 0
-    qc = {
+    # Do NOT overwrite qc_status.json here — e21_qc.py owns that authoritative file.
+    # Pipeline emits a side-car audit so a pipeline-only run cannot clobber full QC.
+    t1_audit = {
         "date": latest.date().isoformat(),
         "exact_t1_ok": exact_t1_ok,
         "same_bar_fills": same_bar_fills,
@@ -218,9 +230,13 @@ def main():
         "pending_filter": "signal_date < fill_date",
         "soft_frozen_financial_clip": [soft_frozen.SOFT_FROZEN_FIN_LO, soft_frozen.SOFT_FROZEN_FIN_HI],
         "live_wire": True,
-        "note": "Live Exact T+1 ledger check. Soft-Frozen clip unchanged by research challengers.",
+        "writer": "e21_forward_pipeline",
+        "note": (
+            "Pipeline Exact T+1 side-car only. Authoritative PASS/FAIL lives in "
+            "qc_status.json written by e21_qc.py."
+        ),
     }
-    (sdir / "qc_status.json").write_text(json.dumps(qc, indent=2) + "\n")
+    (sdir / "pipeline_t1_audit.json").write_text(json.dumps(t1_audit, indent=2) + "\n")
     if not exact_t1_ok:
         raise SystemExit(
             f"Exact T+1 violation: {same_bar_fills} same-bar fill(s) on {latest.date()}"

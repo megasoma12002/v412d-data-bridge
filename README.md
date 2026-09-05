@@ -16,7 +16,7 @@ Research continuation of the V4.12 / E50 program.
 | Role architecture (not live wiring) | `FROZEN_STRATEGY_SPEC.md` |
 | Research rules | `E50_RESEARCH_OPERATING_RULES.md`, `CURSOR_RULES.md` |
 
-**Live today:** E16 + Exact T+1 E18 + E22_v2s only. Soft-Frozen Financial clip **[0.50, 0.95]**. No overlay auto-wire. Dual-paper ≠ cutover.
+**Live today:** E16 + Exact T+1 E18 + **E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05). Soft-Frozen Financial clip **[0.50, 0.95]**. No overlay auto-wire. Dual-paper ≠ cutover.
 
 HARD_FROZEN is the research-correctness floor. SOFT_FROZEN is the current official E16 / E18 / E22 / E45 strategy **class** (not proof of live wiring). E45 is also SOFT_FROZEN_CRITICAL. New models, thresholds, weights, routers, rebalancing, bootstrap cutoffs, model-selection rules, and acceptance gates are EXPERIMENTAL. Do not overwrite prior frozen baselines.
 

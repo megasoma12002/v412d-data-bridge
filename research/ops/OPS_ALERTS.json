@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T09:32:51.304067+00:00",
+  "generated_at_utc": "2026-09-05T17:39:43.977433+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -9,8 +9,8 @@
   ],
   "overall": "HIGH",
   "n_critical": 0,
-  "n_high": 3,
-  "n_info": 13,
+  "n_high": 6,
+  "n_info": 12,
   "alerts": [
     {
       "severity": "HIGH",
@@ -29,6 +29,24 @@
       "source": "fincap50_month_end",
       "code": "PAUSE_REVIEW",
       "message": "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)"
+    },
+    {
+      "severity": "HIGH",
+      "source": "e22_gap6_fidelity_kpi",
+      "code": "GAP6_KPI_BLOCKED_LIVE_EVIDENCE",
+      "message": "kpi_ok=false with code_ok=true \u2014 live e22_* fields missing; next forward run must persist fields (no history rewrite)"
+    },
+    {
+      "severity": "HIGH",
+      "source": "e22_gap6_fidelity_kpi",
+      "code": "LIVE_LEDGER_E22_FIELDS_MISSING",
+      "message": "LIVE_LEDGER_E22_FIELDS_MISSING"
+    },
+    {
+      "severity": "HIGH",
+      "source": "e22_gap6_fidelity_kpi",
+      "code": "KPI_BLOCKED_LIVE_EVIDENCE_MISSING",
+      "message": "KPI_BLOCKED_LIVE_EVIDENCE_MISSING"
     },
     {
       "severity": "INFO",
@@ -89,12 +107,6 @@
       "source": "live_paper_recon",
       "code": "THIN_LIVE_HISTORY",
       "message": "overlap_n=10 (<60) \u2014 not decision-grade for cutover"
-    },
-    {
-      "severity": "INFO",
-      "source": "e22_gap6_fidelity_kpi",
-      "code": "LIVE_LEDGER_E22_FIELDS_MISSING",
-      "message": "LIVE_LEDGER_E22_FIELDS_MISSING"
     },
     {
       "severity": "INFO",

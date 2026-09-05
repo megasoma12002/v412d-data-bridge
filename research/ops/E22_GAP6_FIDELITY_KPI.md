@@ -1,6 +1,6 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-05T14:30:05.031422+00:00`
+Generated: `2026-09-05T17:39:43.693272+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED** to E22_v2s_tw (forward-only).
 
 ## Code wire
@@ -44,7 +44,11 @@ Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED
 ## Flags
 
 - `LIVE_LEDGER_E22_FIELDS_MISSING`
+- `KPI_BLOCKED_LIVE_EVIDENCE_MISSING`
 
-Monitoring KPI OK (code path): **True**
+Monitoring KPI OK (code **and** live evidence): **False**
+- code_ok: **True**
+- live_evidence_ok: **False**
+- ci_smoke_ok (= code_ok): **True**
 
 Re-run: `python3 scripts/e22_gap6_fidelity_kpi.py`

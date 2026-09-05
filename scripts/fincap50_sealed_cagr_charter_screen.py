@@ -66,7 +66,7 @@ def hist_gate(c: dict) -> dict:
     sealed_mdd = _f(c.get("sealed_mdd_improve_pp"))
     sealed_gb = _f(c.get("sealed_cagr_giveback_pp"))
     checks = {
-        "exact_t1": bool(c.get("exact_t1_ok", True)),
+        "exact_t1": bool(c["exact_t1_ok"]) if "exact_t1_ok" in c else False,
         "oof_mdd_ge_1pp": oof_mdd is not None and oof_mdd >= OOF_MDD_MIN,
         "oof_cagr_gb_le_1_5pp": oof_gb is not None and oof_gb <= OOF_LATE_CAGR_GB_MAX,
         "late_bull_cagr_gb_le_1_5pp": late_gb is not None and late_gb <= OOF_LATE_CAGR_GB_MAX,

@@ -1,5 +1,8 @@
 # E22_v2s Formal Books
 
+> **Note (2026-09-05):** Live DEFAULT is now `E22_v2s_tw`. Any `default_remains: E22_v2s` / “default stays E22_v2s” language below is **historical research context**, not current live wiring.
+
+
 Date: 2026-09-04  
 Status: **Formal operating books** for E16/E18/E21 NAV (new version id; does not silently rewrite E22_v2).
 
@@ -23,13 +26,13 @@ Status: **Formal operating books** for E16/E18/E21 NAV (new version id; does not
 
 | Path | Role |
 |---|---|
-| `scripts/e22_dividend_accounting.py` | Canonical books module (`E22_v2` / `E22_v2s`) |
-| `scripts/e21_forward_pipeline.py` | Live forward default `--e22-version E22_v2s` |
+| `scripts/e22_dividend_accounting.py` | Canonical books module (`E22_v2` / `E22_v2s` / `E22_v2s_tw`) |
+| `scripts/e21_forward_pipeline.py` | Live forward default `--e22-version E22_v2s_tw` (promoted 2026-09-05) |
 | `scripts/e50_early_stack_combined_nav.py` | Research sim uses same module |
 
 ## Live cutover note
 
-Forward E21 applies dividends **from the cutover day onward** (idempotent keys in `dividends_applied.csv`). Historical live NAV rows are not rewritten. Full-history total-return comparison remains in research (`E22_v2` vs `E22_v2s`).
+Forward E21 applies dividends **from the cutover day onward** (idempotent keys in `dividends_applied.csv`). Historical live NAV rows are not rewritten. Full-history total-return comparison remains in research (`E22_v2` vs `E22_v2s` vs `E22_v2s_tw`).
 
 Historical research recompute (side-by-side, no live rewrite):
 - Script: `scripts/e22_v2s_historical_recompute.py`
@@ -39,10 +42,9 @@ Historical research recompute (side-by-side, no live rewrite):
 ## Governance
 
 - E22_v2 cash-only semantics preserved as a named baseline.
-- E22_v2s is the formal books path for raw-price NAV (default).
-- Candidate successors for fractional shares (gap 6.5):
-  - **`E22_v2s_tw`** — Taiwan practice: floor + **par NT$10** CIL (元以下捨去). See `research/e22/TW_ODD_LOT_APPLY.md`.
+- **`E22_v2s_tw`** is the live DEFAULT books path (odd-lot TW practice; promoted 2026-09-05).
+- `E22_v2s` remains the non–odd-lot formal books label for comparison only.
+- Named challenger (not default):
   - **`E22_v2s_cil`** — research mark: floor + raw-close CIL. See `research/e22/E22_V2S_CIL_FORMAL.md`.
-  Neither is default until explicit promotion; no live history rewrite.
 - Exact T+1 unchanged.
 - Payment-date experiments (E22_v3 H1) remain separate and are not promoted here.

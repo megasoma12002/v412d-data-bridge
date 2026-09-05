@@ -1,0 +1,22 @@
+{
+  "generated_at_utc": "2026-09-05T17:39:03.025735+00:00",
+  "purpose": "fincap50_go_live_verify_provenance",
+  "note": "Research-only evidence pack; Soft-Frozen / live DEFAULT unchanged.",
+  "inputs": {
+    "go_live_script": {
+      "path": "scripts/e16_fincap50_go_live_verify.py",
+      "sha256": "e927c43ee292dba45255f10774d0e668891e9e972184c07f085141348d63947f",
+      "bytes": 13563
+    },
+    "soft_frozen_base": {
+      "path": "scripts/e16_soft_frozen_base.py",
+      "sha256": "34aa4ab19f8383b99adc252fd26133afebed09ad65e5308d63062b679937aa57",
+      "bytes": 4180
+    },
+    "e22_module": {
+      "path": "scripts/e22_dividend_accounting.py",
+      "sha256": "2252c6853f78719cac199111b2b22219e84ea0c9f78b1b120c9f3a91bfdd4a68",
+      "bytes": 11493
+    }
+  }
+}

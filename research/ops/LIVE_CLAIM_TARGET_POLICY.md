@@ -12,7 +12,7 @@ Research and paper sleeves can print CAGR / MDD numbers. Without a claim policy,
 
 | Claim | Allowed? | Basis |
 |---|---|---|
-| Live stack = E16 Soft-Frozen + Exact T+1 E18 + E22_v2s | **YES** | Production path `forward/e21/` |
+| Live stack = E16 Soft-Frozen + Exact T+1 E18 + E22_v2s_tw | **YES** | Production path `forward/e21/` |
 | Live Financial clip = **[0.50, 0.95]** | **YES** | Soft-Frozen KEEP |
 | Live meets a named CAGR≥X / MDD≤Y target | **NO** | No challenger cut over; Soft-Frozen has no authorized target badge |
 | FIN50 / L4 / BLEND_025 is live | **NO** | Paper / observe only |

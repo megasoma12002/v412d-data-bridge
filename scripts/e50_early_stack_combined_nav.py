@@ -82,7 +82,7 @@ def simulate_core(
         if apply_stock_div is False:
             e22_version = e22div.E22_V2
         else:
-            e22_version = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s
+            e22_version = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw (promoted live default)
     if apply_stock_div is None:
         apply_stock_div = e22_version in e22div.STOCK_SHARE_VERSIONS
     m = market.copy()
@@ -374,9 +374,10 @@ def verify_e45_claim(repo: Path) -> dict:
         if (repo / "research" / "v412e2e3" / "research_decision.json").exists()
         else None,
         "conclusion": (
-            "No official e45 module; MDD≈-13.16% remains UNVERIFIED text claim. "
+            "Named module scripts/e45_crisis_core.py exists; live stitch remains DEFERRED. "
+            "MDD≈-13.16% = NOT_VERIFIED_HISTORICAL_NARRATIVE / EARLY_NON_RIGOROUS_RESEARCH_RESULT. "
             "Closest lineage MDDs are E1/E1.1/E3 validation figures (more severe). "
-            "Formal strategy remains V4.12-D; E3 validation_pass but not promoted."
+            "Formal live stack remains Soft-Frozen E16 + Exact T+1 E18 + E22_v2s_tw; E45 not live-wired."
         ),
     }
 

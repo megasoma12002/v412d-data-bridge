@@ -13,13 +13,13 @@ Cursor 必須依序讀：
 
 ## 0.1 Live cutover default（強制）
 
-**現行 live：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v2s cutover-only**。  
+**現行 live：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v2s_tw**（畸零股 TW 實務；2026-09-05 promote）。  
 **Live E16 Financial clip：** **[0.50, 0.95]**（Soft-Frozen clip；單源 `scripts/e16_soft_frozen_base.py`）。  
 **禁止：** overlay live-wire、改寫歷史 NAV、自動翻 Soft-Frozen clip、把 held-out PASS 當 cutover 授權。
 
 | Module | Official class | Live? |
 |---|---|---|
-| E16 / E18 / E22_v2s | SOFT_FROZEN | **Yes (core cutover)** |
+| E16 / E18 / E22_v2s_tw | SOFT_FROZEN | **Yes (core cutover)** |
 | E50-A | EXPERIMENTAL / RESEARCH_ONLY | **No** |
 | E45 | SOFT_FROZEN_CRITICAL | **No**（NOT_VERIFIED；需獨立 human cutover PR） |
 | FIN_CAP_50 | paper dual-ledger | **No** — go-live **`NOT_READY_SEALED_CAGR`** |
@@ -75,7 +75,7 @@ Crisis（目標）:
 - **Stage-8**：saturated — 不要重跑 TECH2 grids  
 
 歷史：E50-A3-R1 turnover/held-out 診斷已收尾（`MIXED_HELDOUT`），仍 `RESEARCH_ONLY`。  
-執行帳本：`E22_v2s` default；台灣畸零股 named `E22_v2s_tw`（面額 CIL，待明確 promote）。
+執行帳本：`DEFAULT_BOOKS_VERSION = E22_v2s_tw`（已 promote；`E22_v2s` 僅保留為對照）。
 
 目標：
 先驗證因果 Alpha 是否存在，
