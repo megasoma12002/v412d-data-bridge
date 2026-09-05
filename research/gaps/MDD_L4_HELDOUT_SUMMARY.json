@@ -1,0 +1,67 @@
+{
+  "generated_at_utc": "2026-09-05T03:39:55.597752+00:00",
+  "label": "PASS_HELDOUT_L4",
+  "live_wire": false,
+  "research_only": true,
+  "retune_allowed": false,
+  "l1_l2_l3_retune_forbidden": true,
+  "soft_frozen_live_clip": [
+    0.5,
+    0.95
+  ],
+  "locked_id": "L4_DD_PATH_08_50",
+  "locked_params": {
+    "dd_thr": -0.08,
+    "fin_lo": 0.35,
+    "fin_hi": 0.5
+  },
+  "asof": "2026-09-04",
+  "gates": {
+    "mdd_improve_pp_min": 1.0,
+    "cagr_giveback_pp_max": 3.0,
+    "exact_t1": true
+  },
+  "validation": {
+    "window": "validation",
+    "start": "2019-01-01",
+    "end": "2022-12-31",
+    "base_cagr": 0.12330755797580628,
+    "base_mdd": -0.22639131293777337,
+    "l4_cagr": 0.11132434203835961,
+    "l4_mdd": -0.2100743455896824,
+    "mdd_improve_pp": 1.631696734809096,
+    "cagr_giveback_pp": 1.1983215937446667,
+    "pass": true,
+    "exact_t1_base": true,
+    "exact_t1_l4": true,
+    "n_days_base": 977,
+    "n_days_l4": 977,
+    "fail_mdd": false,
+    "fail_cagr": false
+  },
+  "sealed": {
+    "window": "sealed",
+    "start": "2023-01-01",
+    "end": "2026-09-04",
+    "base_cagr": 0.24925144125866705,
+    "base_mdd": -0.1445685098357411,
+    "l4_cagr": 0.222694201458284,
+    "l4_mdd": -0.12991038047702042,
+    "mdd_improve_pp": 1.4658129358720684,
+    "cagr_giveback_pp": 2.655723980038305,
+    "pass": true,
+    "exact_t1_base": true,
+    "exact_t1_l4": true,
+    "n_days_base": 879,
+    "n_days_l4": 879,
+    "fail_mdd": false,
+    "fail_cagr": false
+  },
+  "flag_share": {
+    "validation": 0.3111566018423746,
+    "sealed": 0.2366325369738339
+  },
+  "live_unchanged": true,
+  "next_if_pass": "dual-paper only; human PR required before any Soft-Frozen change",
+  "next_if_stop": "keep BASE Soft-Frozen; do not promote L4; FIN_CAP_50 paper continues"
+}
