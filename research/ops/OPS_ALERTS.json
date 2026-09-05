@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T08:01:17.514831+00:00",
+  "generated_at_utc": "2026-09-05T08:08:55.429970+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -10,7 +10,7 @@
   "overall": "HIGH",
   "n_critical": 0,
   "n_high": 3,
-  "n_info": 10,
+  "n_info": 11,
   "alerts": [
     {
       "severity": "HIGH",
@@ -69,6 +69,12 @@
     {
       "severity": "INFO",
       "source": "fincap50_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "blend025_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },

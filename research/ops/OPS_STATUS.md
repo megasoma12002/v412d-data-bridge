@@ -1,6 +1,6 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-05 (Layer-3 Gap #6 fidelity KPI)  
+Date: 2026-09-05 (BLEND_025 dual-paper observe sleeve)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 
@@ -15,7 +15,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 | QC smoke | `.github/workflows/e21-live-qc-smoke.yml` |
 | QC | `scripts/e21_qc.py` → `forward/e21/qc_status.json` |
 
-**Not live:** E45, E50-A overlay, FIN_CAP_50, L4_DD_PATH, Track A/B, E6/E9/E10 shadows.
+**Not live:** E45, E50-A overlay, FIN_CAP_50, L4_DD_PATH, BLEND_025, Track A/B, E6/E9/E10 shadows.
 
 ## Paper sleeves (observe only)
 
@@ -23,6 +23,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 |---|---|---|
 | FIN_CAP_50 | Dual-paper OPERATING; YTD/1y PAUSE | **`NOT_READY_SEALED_CAGR` / FROZEN** — checklist: `CUTOVER_CHECKLIST_FIN50.md` |
 | L4_DD_PATH_08_50 | Held-out PASS; YTD PAUSE_REVIEW | **FROZEN** — checklist: `CUTOVER_CHECKLIST_L4.md` |
+| BLEND_025 | Dual-paper **OPERATING OBSERVE** | **Blocked** — observe ≠ cutover; proposal: `FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md` |
 | Track A S9A1 | KEEP (paper/monitor) | N/A — pointer: `TRACK_A_RUNBOOK_POINTER.md` |
 | Track B S1 | STOP | Closed |
 
@@ -43,6 +44,9 @@ Odd-lot promote (DEFERRED): `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
+BLEND_025 dual-paper observe: `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md`  
+BLEND_025 month-end: `research/gaps/BLEND_025_MONTH_END_MONITOR.md`  
+BLEND_025 month-end runbook: `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md`  
 Live E22 evidence readiness: `research/ops/LIVE_E22_FIELD_EVIDENCE.md`  
 Archive sentinel policy: `research/ops/ARCHIVE_SENTINEL_HYGIENE.md`  
 Five-layer gaps: `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`  
@@ -57,6 +61,8 @@ python3 scripts/ops_alert_scan.py --report-only
 python3 scripts/e22_data_quality_kpi.py
 python3 scripts/e22_gap6_fidelity_kpi.py
 python3 scripts/e21_live_vs_paper_recon.py
+python3 scripts/e16_blend025_dual_paper_ledgers.py
+python3 scripts/e16_blend025_month_end_monitor.py
 ```
 
 ## Authority

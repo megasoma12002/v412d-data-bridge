@@ -1,6 +1,6 @@
 # Strategy Debt Board
 
-Date: 2026-09-05 (ops Phase 2 hygiene + gated cutover prep)  
+Date: 2026-09-05 (BLEND_025 dual-paper OPERATING OBSERVE)  
 Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
 Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 
@@ -32,6 +32,8 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | Ops hardening | Alert scan + GHA summaries; E22 data-quality KPI in pack; five-layer checklist; forward legacy note — **#61** |
 | Layer-3 Gap #6 fidelity | Ex→pay / receivable / tax / live evidence KPI + odd-lot promote checklist — **#62** |
 | FIN50 sealed-CAGR improve charter | `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md` (research path; Soft-Frozen KEEP) |
+| FIN50 charter screen → BLEND_025 | Screen PASS → paper-promote proposal only (#64) |
+| BLEND_025 dual-paper observe | Ledgers + month-end + pack/alert wire — **OPERATING OBSERVE** (#65) |
 | Obs PR #57 | **Superseded** by #58/#59 cadence (leave closed/ignored if API cannot close) |
 
 ### NOW
@@ -41,20 +43,22 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | Live Soft-Frozen clip | **[0.50, 0.95]** | **KEEP (no auto flip)** |
 | FIN_CAP_50 paper | Dual-paper + pack | **OPERATING**; cutover **`NOT_READY_SEALED_CAGR`** |
 | L4 dual-paper | Dual-paper + pack | **OPERATING**; YTD **PAUSE_REVIEW** → cutover **FROZEN** |
+| BLEND_025 dual-paper | Dual-paper + pack + runbook | **OPERATING OBSERVE**; cutover **always blocked** |
 | Cutover checklists | `research/ops/CUTOVER_CHECKLIST_{L4,FIN50}.md` | **BLOCKED** (gates red) |
 
 ### NEXT
 | Item | Action | Do not |
 |---|---|---|
-| Calendar month-end | Re-run pack at next natural month-end; watch L4 YTD/1y cool | Treat pack green as cutover |
+| Calendar month-end | Re-run pack at next natural month-end; watch L4/FIN50/BLEND_025 trailing | Treat pack green / observe clean as cutover |
 | Live↔paper recon | Re-check INDEX_DRIFT as live history lengthens | Decision on <60 live sessions |
+| Live E22 field evidence | After next weekday forward; re-run Gap6 KPI | Rewrite `forward/e21` history |
 | L4 cutover PR | Only after checklist all-green + explicit human approval | Soft-Frozen flip; static clip swap |
 | FIN50 cutover PR | Only after sealed CAGR gate + Gate E clear + human PR | Retune FIN50 lock; ignore `NOT_READY` |
-| Sealed-CAGR research charter | **Landed + screened** — `BLEND_025` = paper-promote proposal only (`FINCAP50_SEALED_CAGR_CHARTER_SCREEN`) | Retune FIN_CAP_50 lock; Soft-Frozen flip; live-wire without checklist |
+| BLEND_025 live-wire | Not on this sleeve — needs separate checklist + human PR | Treat observe PASS as promote |
 | New alpha charter | New charter only | Four-layer live stitch now |
 
 ### WON’T
-L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 without human PR; reopen S1 residual detector grid; conflate FIN50 static promote with L4 DD-path cutover.
+L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 / BLEND_025 without human PR; reopen S1 residual detector grid; conflate FIN50 static promote with L4 DD-path or BLEND_025 observe.
 
 ## Cutover matrix (human PR only)
 
@@ -69,20 +73,24 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 |---|---|
 | Go-live (FIN50) | **`NOT_READY_SEALED_CAGR`** |
 | FIN50 / L4 dual-paper | **OPERATING** / cutover **FROZEN** |
+| BLEND_025 dual-paper | **OPERATING OBSERVE** / cutover **blocked** |
 | L4 held-out | **`PASS_HELDOUT_L4`** |
 | Track A | **KEEP** |
 | Soft-Frozen clip | **[0.50, 0.95]** |
 
 ## Pointers
 - `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`
+- `research/ops/OPS_STATUS.md`
 - `research/ops/OPS_ALERTS.md`
 - `research/ops/E22_DATA_QUALITY_KPI.md`
 - `research/ops/E22_GAP6_FIDELITY_KPI.md`
+- `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md`
+- `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md`
+- `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`
 - `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`
 - `research/ops/ARCHIVE_SENTINEL_HYGIENE.md`
 - `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`
 - `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`
-- `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`
 - `research/ops/LIVE_E22_FIELD_EVIDENCE.md`
 - `research/ops/FORWARD_LEGACY_NOTE.md`
 - `scripts/ops_alert_scan.py`

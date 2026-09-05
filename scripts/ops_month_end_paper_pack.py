@@ -7,7 +7,7 @@ Runs (by default, fast path):
   3) Track A S9A1 archive monitor
   4) Live ↔ Soft-Frozen paper BASE recon
 
-Optional --refresh-ledgers also rebuilds L4/FIN50 dual-paper ledgers
+Optional --refresh-ledgers also rebuilds L4/FIN50/BLEND_025 dual-paper ledgers
 (slow; Exact T+1 full history).
 
 Never edits Soft-Frozen clip.
@@ -37,6 +37,7 @@ CLIP_TXT = f"[{SOFT_FROZEN_CLIP[0]:.2f}, {SOFT_FROZEN_CLIP[1]:.2f}]"
 STEPS_MONITOR = [
     ("l4_month_end", ["python3", "scripts/e16_l4_dd_path_month_end_monitor.py"]),
     ("fincap50_month_end", ["python3", "scripts/e16_fincap50_month_end_monitor.py"]),
+    ("blend025_month_end", ["python3", "scripts/e16_blend025_month_end_monitor.py"]),
     ("track_a_s9a1", ["python3", "scripts/e50a_dual_track_s9a1_monitor.py"]),
     ("live_paper_recon", ["python3", "scripts/e21_live_vs_paper_recon.py"]),
     ("e22_data_quality_kpi", ["python3", "scripts/e22_data_quality_kpi.py"]),
@@ -51,6 +52,7 @@ STEPS_MONITOR = [
 STEPS_REFRESH = [
     ("l4_dual_paper_ledgers", ["python3", "scripts/e16_l4_dd_path_dual_paper_ledgers.py"]),
     ("fincap50_dual_paper_ledgers", ["python3", "scripts/e16_fincap50_dual_paper_ledgers.py"]),
+    ("blend025_dual_paper_ledgers", ["python3", "scripts/e16_blend025_dual_paper_ledgers.py"]),
 ]
 
 
@@ -76,7 +78,7 @@ def main() -> int:
     ap.add_argument(
         "--refresh-ledgers",
         action="store_true",
-        help="Also rebuild L4/FIN50 dual-paper ledgers before monitors (slow).",
+        help="Also rebuild L4/FIN50/BLEND_025 dual-paper ledgers before monitors (slow).",
     )
     ap.add_argument(
         "--continue-on-error",
@@ -113,7 +115,8 @@ def main() -> int:
         ],
         "cutover_note": (
             f"Paper/ops cadence only. Soft-Frozen {CLIP_TXT} unchanged. "
-            "FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated."
+            "FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated; "
+            "BLEND_025 is observe-only (never cutover from this pack)."
         ),
     }
 
