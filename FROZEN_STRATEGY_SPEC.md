@@ -3,7 +3,7 @@
 # E50 Frozen Strategy Specification
 
 > **NOT LIVE WIRING.** This file defines role architecture and frozen baseline rules.  
-> Live cutover today is **E16 + Exact T+1 E18 + E22_v2s only** (`forward/e21`).  
+> Live cutover today is **E16 + Exact T+1 E18 + E22_v2s_tw** (`forward/e21`; odd-lot TW practice promoted 2026-09-05).  
 > E50-A / E45 are **not** live-wired. Read `HANDOFF.md` §0.1 and `research/STRATEGY_DEBT_BOARD.md` first.
 
 ## 0. 文件目的
@@ -83,10 +83,10 @@ Information(T)
 - Odd lot
 - Fill / non-fill
 
-正式帳本（E22_v2s）：raw open/close 標價；現金在 `cash_ex_date` 入帳；股票股利在 `stock_ex_date` 增加持股（`1 + 元/股/10`）。E16 訊號可用 `adj_close`，但不得用還原價標 NAV 又同時加股。E22_v2（僅現金）保留為對照基準。
+正式帳本（E22_v2s_tw）：raw open/close 標價；現金在 `cash_ex_date` 入帳；股票股利在 `stock_ex_date` 整股入帳並對畸零股依面額 CIL（`floor(frac × par)`）。E16 訊號可用 `adj_close`，但不得用還原價標 NAV 又同時加股。E22_v2s（非整股）與 E22_v2（僅現金）保留為對照。
 
 狀態：
-**FROZEN EXECUTION BASELINE**（E22_v2s = formal books；E22_v2 = preserved cash-only）
+**FROZEN EXECUTION BASELINE**（E22_v2s_tw = formal books after 2026-09-05 promote；E22_v2 = preserved cash-only）
 
 ---
 

@@ -1,9 +1,9 @@
 # Odd-Lot Default Promote — Decision Pack
 
 Date: 2026-09-05  
-Status: **DRAFTED — AWAITING HUMAN ACCEPTANCE**  
+Status: **ACCEPT promote** (human ballot 2026-09-05) — dedicated DEFAULT flip PR  
 Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
-Live default books today: **`E22_v2s`** (unchanged by this pack)
+Live default books: **`E22_v2s_tw`** after promote PR merge (forward-only)
 
 Authority: `HUMAN_DECISION_REGISTER.md` #6 · `ODD_LOT_PROMOTE_CHECKLIST.md` · `STRATEGY_UPDATE_STANDARD_PROCESS.md`  
 Research closeout: `research/e22/GAP65_ODD_LOT_CLOSEOUT.md` · `research/e22/TW_ODD_LOT_APPLY.md`
@@ -13,7 +13,7 @@ Research closeout: `research/e22/GAP65_ODD_LOT_CLOSEOUT.md` · `research/e22/TW_
 Give humans a single accept/reject package to promote Taiwan odd-lot practice books  
 **`E22_v2s_tw`** as the live **default**, without rewriting history or flipping Soft-Frozen.
 
-This pack **does not** change `DEFAULT_BOOKS_VERSION`. Acceptance + dedicated promote PR required.
+Ballot **ACCEPT promote** cast 2026-09-05. This dedicated promote PR sets `DEFAULT_BOOKS_VERSION = E22_v2s_tw`.
 
 ## What would change after accept + promote PR
 
@@ -33,23 +33,19 @@ This pack **does not** change `DEFAULT_BOOKS_VERSION`. Acceptance + dedicated pr
 | Named TW books implemented | DONE | `scripts/e22_dividend_accounting.py` (`E22_v2s_tw`) |
 | Side-by-side vs v2s | DONE | ≈ **−0.0005 pp CAGR**; CIL cash ~153; end dust 0 |
 | Research closeout | CLOSED | `GAP65_ODD_LOT_CLOSEOUT.md` |
-| Promote checklist | DRAFTED | `ODD_LOT_PROMOTE_CHECKLIST.md` |
+| Promote checklist | **ALL YES** | `ODD_LOT_PROMOTE_CHECKLIST.md` |
 | Selectable on forward CLI | DONE | `e21_forward_pipeline.py --e22-version E22_v2s_tw` |
 | Soft-Frozen KEEP asserted | YES | This pack + register #1 |
 | Par inventory (FIN+telecom) | **PASS** | TWSE `t187ap03_L` → all **VERIFIED NT$10** as-of 2026-09-04 (`PAR_VALUE_INVENTORY.md`) |
 | 0050 ETF par | N/A | `ETF_RULES_LOOKUP_NEEDED` — not a Soft-Frozen equity CIL path |
 
-## Human decision ballot
+## Human decision ballot — RESULT
 
-Vote **one** (Item 1 only — see `REGISTER6_SEQUENTIAL_BALLOTS.md`):
-
-| Ballot | Meaning | Next action |
+| Ballot cast | Meaning | Next action |
 |---|---|---|
-| **ACCEPT promote** | Authorize changing live default to `E22_v2s_tw` | Open dedicated PR: set `DEFAULT_BOOKS_VERSION`; checklist all YES; forward-only |
-| **ACCEPT research-only** | Keep named books; default stays `E22_v2s` | Park item 1; then open item 2 (tax/receivable) |
-| **REJECT** | Do not use TW CIL books | Park item 1 with reason; then open item 2 |
+| **ACCEPT promote** ✓ | Authorize live default → `E22_v2s_tw` | Dedicated promote PR (this change): `DEFAULT_BOOKS_VERSION`; checklist all YES; forward-only |
 
-Until ballot lands, treat odd-lot as **DEFER** (no silent default edit).
+Park Item 1. Item 2 (tax/receivable) may open after this PR — not in this diff.
 
 ## Promote blocker — par value is data, not a constant
 

@@ -2,12 +2,12 @@
 """Gap #6 execution-fidelity KPI — RESEARCH / OPS only.
 
 Complements e22_data_quality_kpi (ledger field blank-rates) with:
-  - Code default assert (E22_v2s)
+  - Code default assert (E22_v2s_tw after 2026-09-05 promote)
   - Live forward/e21 evidence that books fields are present
   - Ex→pay lag stats (timing gap magnitude)
   - Open receivable-window stub (universe events, not position-weighted)
   - Dividend-tax haircut sensitivity on live dividends_applied (if any)
-  - Odd-lot promote status (E22_v2s_tw DEFERRED)
+  - Odd-lot promote status (E22_v2s_tw PROMOTED)
 
 Does not edit Soft-Frozen, does not cutover, does not rewrite forward/e21.
 """
@@ -73,7 +73,7 @@ def _code_wire_assert() -> dict:
         "tw_variant_named": e22div.E22_V2S_TW,
         "tw_is_default": default == e22div.E22_V2S_TW,
         "code_ok": bool(
-            default == e22div.E22_V2S
+            default == e22div.E22_V2S_TW
             and imports_e22
             and mentions_apply
             and (wired is True or wired is None)
@@ -185,32 +185,31 @@ def main() -> int:
     tax = _tax_sensitivity(LIVE_DIR / "dividends_applied.csv")
 
     odd_lot = {
-        "status": "DEFERRED",
-        "formal_default": e22div.E22_V2S,
+        "status": "PROMOTED",
+        "formal_default": e22div.E22_V2S_TW,
         "named_tw_variant": e22div.E22_V2S_TW,
         "promote_checklist": "research/ops/ODD_LOT_PROMOTE_CHECKLIST.md",
         "closeout": "research/e22/GAP65_ODD_LOT_CLOSEOUT.md",
-        "do_not_set_default_without_human_pr": True,
+        "human_ballot": "ACCEPT promote 2026-09-05",
+        "do_not_set_default_without_human_pr": False,
     }
 
     flags: list[str] = []
-    if not code["default_is_e22_v2s"]:
-        flags.append(f"DEFAULT_BOOKS_VERSION={code['default_books_version']} (expected E22_v2s)")
+    if not code.get("tw_is_default"):
+        flags.append(f"DEFAULT_BOOKS_VERSION={code['default_books_version']} (expected E22_v2s_tw)")
     if not code["e21_imports_e22_module"] or not code["e21_calls_apply_dividends"]:
         flags.append("e21_forward_pipeline missing E22 apply wiring")
     if code.get("formal_status_wired_e21") is False:
         flags.append("formal_status says e21 not wired")
     if not live["live_ledger_e22_fields_present"]:
         flags.append("LIVE_LEDGER_E22_FIELDS_MISSING")
-    if code.get("tw_is_default"):
-        flags.append("E22_v2s_tw unexpectedly set as DEFAULT (promote requires human PR)")
 
     kpi = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "E22_GAP6_FIDELITY_KPI",
         "live_wire": False,
         "soft_frozen_unchanged": True,
-        "formal_books": e22div.E22_V2S,
+        "formal_books": e22div.E22_V2S_TW,
         "code_wire": code,
         "live_ledger": live,
         "ex_to_pay_lag": {"cash": cash_lag, "stock": stock_lag},
@@ -222,7 +221,7 @@ def main() -> int:
             "handling": "research/gaps/E50A_AND_EXEC_GAP_HANDLING.md",
         },
         "flags": flags,
-        "code_ok": bool(code["code_ok"] and code["default_is_e22_v2s"] and not code.get("tw_is_default")),
+        "code_ok": bool(code["code_ok"] and code.get("tw_is_default")),
         "live_evidence_ok": bool(live["live_ledger_e22_fields_present"]),
         "kpi_ok": None,  # filled below
     }
@@ -239,11 +238,11 @@ def main() -> int:
         "# E22 Gap #6 Fidelity KPI",
         "",
         f"Generated: `{kpi['generated_at_utc']}`",
-        "Status: **OPS / RESEARCH** — Soft-Frozen unchanged; no cutover; no odd-lot promote.",
+        "Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED** to E22_v2s_tw (forward-only).",
         "",
         "## Code wire",
         "",
-        f"- Default books: **`{code['default_books_version']}`** (expect `E22_v2s`)",
+        f"- Default books: **`{code['default_books_version']}`** (expect `E22_v2s_tw`)",
         f"- E21 imports/apply: **{code['e21_imports_e22_module']}** / **{code['e21_calls_apply_dividends']}**",
         f"- Formal status wired: **{code.get('formal_status_wired_e21')}**",
         f"- Code OK: **{kpi['code_ok']}**",
@@ -286,7 +285,7 @@ def main() -> int:
         "",
         "## Odd-lot (`E22_v2s_tw`)",
         "",
-        f"- Status: **{odd_lot['status']}** — default remains `{odd_lot['formal_default']}`",
+        f"- Status: **{odd_lot['status']}** — formal default `{odd_lot['formal_default']}`",
         f"- Promote checklist: `{odd_lot['promote_checklist']}`",
         "",
         "## Flags",
