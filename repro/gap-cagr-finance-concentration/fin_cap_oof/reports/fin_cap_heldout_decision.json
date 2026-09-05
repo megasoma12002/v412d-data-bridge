@@ -1,0 +1,54 @@
+{
+  "generated_at_utc": "2026-09-05T00:55:02.239463+00:00",
+  "status": "RESEARCH_ONLY",
+  "live_wire": false,
+  "locked_from_oof": {
+    "name": "FIN_CAP_50",
+    "fin_lo": 0.35,
+    "fin_hi": 0.5,
+    "cap_ok": true,
+    "mdd_improve_pp": 4.570586284214928,
+    "cagr_giveback_pp": 0.3485197655307637,
+    "oof_cagr": 0.08498439286806181,
+    "oof_mdd": -0.12842313719649323,
+    "oof_util": 0.020772824269815193,
+    "base_oof_cagr": 0.08846959052336945,
+    "base_oof_mdd": -0.1741290000386425,
+    "mean_financial_oof": 0.5,
+    "pass_oof": true,
+    "heldout_cagr": 0.16601509541261028,
+    "heldout_mdd": -0.19575705858876424,
+    "heldout_used_for_selection": false
+  },
+  "heldout_window": "2019-01-01_to_latest",
+  "predeclared_heldout_rule": {
+    "mdd_improve_min_pp": 1.0,
+    "cagr_giveback_max_pp": 3.0,
+    "finance_max_le_fin_hi": true
+  },
+  "baseline_heldout": {
+    "cagr": 0.18235031521908462,
+    "max_drawdown": -0.22639131293777315,
+    "utility": 0.06915465875019805,
+    "vol": 0.15103062671870823,
+    "n_days": 1856
+  },
+  "challenger_heldout": {
+    "name": "FIN_CAP_50",
+    "cagr": 0.16601509541261028,
+    "max_drawdown": -0.19575705858876424,
+    "mean_financial": 0.5,
+    "max_financial": 0.5000000000000001,
+    "cap_ok": true,
+    "mdd_improve_pp": 3.0634254349008905,
+    "cagr_giveback_pp": 1.6335219806474344
+  },
+  "pass_heldout": true,
+  "research_decision": "PASS_HELDOUT_FIN_CAP",
+  "promotion": {
+    "allowed_now": false,
+    "note": "PASS_HELDOUT only unlocks a *proposal* to change live E16 Financial clip. Requires explicit promote PR; does not auto-edit Soft-Frozen live."
+  },
+  "next_if_pass": "Optional promote PR: E16 FIN clip \u2192 [0.35,0.50] as named challenger cutover; keep BASE ledger for comparison",
+  "next_if_stop": "Keep live E16; stop FIN_CAP axis; do not retune on sealed"
+}

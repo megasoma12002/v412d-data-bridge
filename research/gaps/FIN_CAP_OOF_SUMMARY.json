@@ -1,0 +1,256 @@
+{
+  "generated_at_utc": "2026-09-05T00:54:11.288016+00:00",
+  "status": "RESEARCH_ONLY",
+  "live_wire": false,
+  "soft_frozen_edit": false,
+  "selection_window": "2011-2018 OOF only",
+  "heldout_policy": "report_only_no_selection",
+  "books": "E22_v2s",
+  "predeclared_pass_rule": {
+    "finance_mean_and_max_le_cap_hi": true,
+    "mdd_improve_min_pp": 1.0,
+    "cagr_giveback_max_pp": 2.0
+  },
+  "baseline": {
+    "name": "BASE_E16",
+    "oof": {
+      "cagr": 0.08846959052336945,
+      "max_drawdown": -0.1741290000386425,
+      "utility": 0.0014050905040481898,
+      "vol": 0.10679608464774301,
+      "n_days": 1495
+    },
+    "heldout": {
+      "cagr": 0.18235031521908462,
+      "max_drawdown": -0.22639131293777315,
+      "utility": 0.06915465875019805,
+      "vol": 0.15103062671870823,
+      "n_days": 1856
+    },
+    "weights_oof": {
+      "mean_financial": 0.8023022268225258,
+      "median_financial": 0.822308879569986,
+      "max_financial": 0.9109549155231154,
+      "min_financial": 0.5809820306060582,
+      "pct_ge_070": 0.8603319977103606,
+      "mean_telecom": 0.11783583758704551,
+      "mean_0050": 0.07986193559042863,
+      "n_days": 1747
+    }
+  },
+  "challengers": [
+    {
+      "name": "FIN_CAP_60",
+      "fin_lo": 0.4,
+      "fin_hi": 0.6,
+      "cap_ok": true,
+      "mdd_improve_pp": 2.875513534366003,
+      "cagr_giveback_pp": 0.09814416476714438,
+      "oof_cagr": 0.087488148875698,
+      "oof_mdd": -0.14537386469498248,
+      "oof_util": 0.014801216528206762,
+      "base_oof_cagr": 0.08846959052336945,
+      "base_oof_mdd": -0.1741290000386425,
+      "mean_financial_oof": 0.5974016961916315,
+      "pass_oof": true,
+      "heldout_cagr": 0.1664249621074141,
+      "heldout_mdd": -0.20729237733142059,
+      "heldout_used_for_selection": false
+    },
+    {
+      "name": "FIN_CAP_50",
+      "fin_lo": 0.35,
+      "fin_hi": 0.5,
+      "cap_ok": true,
+      "mdd_improve_pp": 4.570586284214928,
+      "cagr_giveback_pp": 0.3485197655307637,
+      "oof_cagr": 0.08498439286806181,
+      "oof_mdd": -0.12842313719649323,
+      "oof_util": 0.020772824269815193,
+      "base_oof_cagr": 0.08846959052336945,
+      "base_oof_mdd": -0.1741290000386425,
+      "mean_financial_oof": 0.5,
+      "pass_oof": true,
+      "heldout_cagr": 0.16601509541261028,
+      "heldout_mdd": -0.19575705858876424,
+      "heldout_used_for_selection": false
+    }
+  ],
+  "n_oof_pass": 2,
+  "recommended": {
+    "name": "FIN_CAP_50",
+    "fin_lo": 0.35,
+    "fin_hi": 0.5,
+    "cap_ok": true,
+    "mdd_improve_pp": 4.570586284214928,
+    "cagr_giveback_pp": 0.3485197655307637,
+    "oof_cagr": 0.08498439286806181,
+    "oof_mdd": -0.12842313719649323,
+    "oof_util": 0.020772824269815193,
+    "base_oof_cagr": 0.08846959052336945,
+    "base_oof_mdd": -0.1741290000386425,
+    "mean_financial_oof": 0.5,
+    "pass_oof": true,
+    "heldout_cagr": 0.16601509541261028,
+    "heldout_mdd": -0.19575705858876424,
+    "heldout_used_for_selection": false
+  },
+  "research_decision": "OOF_FIN_CAP_PASS_READY_FOR_HELDOUT",
+  "next_if_pass": "one held-out evaluation; only PASS_HELDOUT may propose live prior change",
+  "next_if_stop": "keep live E16 clips; pursue orthogonal alpha / loss engine instead of FIN_CAP retune",
+  "rows": [
+    {
+      "name": "BASE_E16",
+      "is_baseline": true,
+      "fin_lo": 0.5,
+      "fin_hi": 0.95,
+      "full": {
+        "cagr": 0.137829469400496,
+        "max_drawdown": -0.22639131293777315,
+        "utility": 0.024633812931609433,
+        "vol": 0.133223365516143,
+        "n_days": 3351
+      },
+      "oof_2011_2018": {
+        "cagr": 0.08846959052336945,
+        "max_drawdown": -0.1741290000386425,
+        "utility": 0.0014050905040481898,
+        "vol": 0.10679608464774301,
+        "n_days": 1495
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.18235031521908462,
+        "max_drawdown": -0.22639131293777315,
+        "utility": 0.06915465875019805,
+        "vol": 0.15103062671870823,
+        "n_days": 1856
+      },
+      "weights_oof": {
+        "mean_financial": 0.8023022268225258,
+        "median_financial": 0.822308879569986,
+        "max_financial": 0.9109549155231154,
+        "min_financial": 0.5809820306060582,
+        "pct_ge_070": 0.8603319977103606,
+        "mean_telecom": 0.11783583758704551,
+        "mean_0050": 0.07986193559042863,
+        "n_days": 1747
+      },
+      "weights_full": {
+        "mean_financial": 0.7980753983577771,
+        "median_financial": 0.8212993755284163,
+        "max_financial": 0.9194479273989314,
+        "min_financial": 0.5801505433716284,
+        "pct_ge_070": 0.835970024979184,
+        "mean_telecom": 0.12221847715339487,
+        "mean_0050": 0.07970612448882788,
+        "n_days": 3603
+      },
+      "meta": {
+        "n_fills": 6262,
+        "stock_div_events": 42
+      }
+    },
+    {
+      "name": "FIN_CAP_60",
+      "is_baseline": false,
+      "fin_lo": 0.4,
+      "fin_hi": 0.6,
+      "full": {
+        "cagr": 0.12868546578672246,
+        "max_drawdown": -0.20729237733142059,
+        "utility": 0.02503927712101217,
+        "vol": 0.11467732583234114,
+        "n_days": 3351
+      },
+      "oof_2011_2018": {
+        "cagr": 0.087488148875698,
+        "max_drawdown": -0.14537386469498248,
+        "utility": 0.014801216528206762,
+        "vol": 0.09661441480821623,
+        "n_days": 1495
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.1664249621074141,
+        "max_drawdown": -0.20729237733142059,
+        "utility": 0.0627787734417038,
+        "vol": 0.1271465604812635,
+        "n_days": 1856
+      },
+      "weights_oof": {
+        "mean_financial": 0.5974016961916315,
+        "median_financial": 0.5999999999998084,
+        "max_financial": 0.6000000000000001,
+        "min_financial": 0.5436902150317185,
+        "pct_ge_070": 0.0,
+        "mean_telecom": 0.21236102230252535,
+        "mean_0050": 0.19023728150584307,
+        "n_days": 1747
+      },
+      "weights_full": {
+        "mean_financial": 0.5969122634841211,
+        "median_financial": 0.5999999991685556,
+        "max_financial": 0.6000000000000001,
+        "min_financial": 0.5436902150317185,
+        "pct_ge_070": 0.0,
+        "mean_telecom": 0.21259351468691026,
+        "mean_0050": 0.19049422182896875,
+        "n_days": 3603
+      },
+      "meta": {
+        "n_fills": 7220,
+        "stock_div_events": 42
+      }
+    },
+    {
+      "name": "FIN_CAP_50",
+      "is_baseline": false,
+      "fin_lo": 0.35,
+      "fin_hi": 0.5,
+      "full": {
+        "cagr": 0.12703815231932358,
+        "max_drawdown": -0.19575705858876424,
+        "utility": 0.02915962302494146,
+        "vol": 0.11255413038141437,
+        "n_days": 3351
+      },
+      "oof_2011_2018": {
+        "cagr": 0.08498439286806181,
+        "max_drawdown": -0.12842313719649323,
+        "utility": 0.020772824269815193,
+        "vol": 0.09547796401772207,
+        "n_days": 1495
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.16601509541261028,
+        "max_drawdown": -0.19575705858876424,
+        "utility": 0.06813656611822816,
+        "vol": 0.12430121835902526,
+        "n_days": 1856
+      },
+      "weights_oof": {
+        "mean_financial": 0.5,
+        "median_financial": 0.5,
+        "max_financial": 0.5000000000000001,
+        "min_financial": 0.5,
+        "pct_ge_070": 0.0,
+        "mean_telecom": 0.26049247223103433,
+        "mean_0050": 0.23950752776896567,
+        "n_days": 1747
+      },
+      "weights_full": {
+        "mean_financial": 0.5,
+        "median_financial": 0.5,
+        "max_financial": 0.5000000000000001,
+        "min_financial": 0.4999999999999999,
+        "pct_ge_070": 0.0,
+        "mean_telecom": 0.260162462559501,
+        "mean_0050": 0.23983753744049902,
+        "n_days": 3603
+      },
+      "meta": {
+        "n_fills": 8172,
+        "stock_div_events": 42
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "title": "CAGR_MDD_AND_FINANCE_CONCENTRATION_RESEARCH",
+  "generated_at": "2026-09-05",
+  "status": "RESEARCH_ONLY",
+  "live_wire": false,
+  "soft_frozen_edit": false,
+  "targets": {"cagr_ge": 0.20, "mdd_abs_le": 0.15},
+  "formal_core": {
+    "book": "E22_v2s",
+    "window": "2012-12-04_to_2026-09-04",
+    "cagr": 0.1378,
+    "mdd": -0.2264,
+    "cagr_gap_pp": 6.22,
+    "mdd_depth_beyond_15_pp": 7.64
+  },
+  "live_concentration_2026_09_04": {
+    "Financial": 0.824,
+    "Telecom": 0.081,
+    "0050": 0.076,
+    "cash": 0.020
+  },
+  "e16_structural_financial_weight_2011_2026": {
+    "mean": 0.798,
+    "median": 0.821,
+    "pct_days_ge_070": 0.836,
+    "pct_days_ge_080": 0.641,
+    "hard_clip": [0.5, 0.95],
+    "bull_prior": 0.85
+  },
+  "co_movement": {
+    "Financial_0050_corr": 0.593,
+    "Financial_Telecom_corr": 0.402,
+    "note": "0050 is not an independent diversifier at typical ~8% weight"
+  },
+  "paper_stitch_core80_ovl20": {
+    "cagr": 0.204273,
+    "mdd": -0.239566,
+    "meets_cagr_20": true,
+    "meets_mdd_15": false
+  },
+  "verdict": "Core cannot hit both targets; finance concentration is structural to E16 clips/priors; need weight-budget challenger + orthogonal alpha/loss engines — no live retune in this PR",
+  "recommended_next": [
+    "OOF FIN_CAP_60/50 weight-budget challenger vs E22_v2s (research book)",
+    "Continue dual-track B adv-lite on S1 residual (no TECH2 remix)",
+    "Predeclare loss-engine / crisis budget as separate research line for MDD"
+  ],
+  "wont": [
+    "live_wire_overlay",
+    "silent_e16_prior_retune",
+    "stage8_tech2_regrid",
+    "cite_unverified_e45_mdd"
+  ],
+  "label": "RESEARCH_CAGR_MDD_GAP_AND_FINANCE_CONCENTRATION__NO_LIVE_WIRE"
+}
