@@ -21,6 +21,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e22_dividend_accounting as e22div
 from e16_fin_cap_oof_challenger import e16_features_fin_cap
@@ -167,13 +168,13 @@ def main() -> None:
     # Prefer sealed window for ops delta (matches held-out sealed gate); also report heldout_2019+
     sealed_b = books["BASE_E16"]["windows"]["sealed_2023_plus"]
     sealed_l = books[LOCKED_ID]["windows"]["sealed_2023_plus"]
-    sealed_mdd_pp = (abs(sealed_b["max_drawdown"] or 9) - abs(sealed_l["max_drawdown"] or 9)) * 100
-    sealed_cagr_gb_pp = ((sealed_b["cagr"] or 0) - (sealed_l["cagr"] or 0)) * 100
+    sealed_mdd_pp = mdd_delta_pp(sealed_b["max_drawdown"], sealed_l["max_drawdown"])
+    sealed_cagr_gb_pp = cagr_delta_pp(sealed_b["cagr"], sealed_l["cagr"], missing_as_zero=True)
 
     val_b = books["BASE_E16"]["windows"]["validation_2019_2022"]
     val_l = books[LOCKED_ID]["windows"]["validation_2019_2022"]
-    val_mdd_pp = (abs(val_b["max_drawdown"] or 9) - abs(val_l["max_drawdown"] or 9)) * 100
-    val_cagr_gb_pp = ((val_b["cagr"] or 0) - (val_l["cagr"] or 0)) * 100
+    val_mdd_pp = mdd_delta_pp(val_b["max_drawdown"], val_l["max_drawdown"])
+    val_cagr_gb_pp = cagr_delta_pp(val_b["cagr"], val_l["cagr"], missing_as_zero=True)
 
     proposal = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
