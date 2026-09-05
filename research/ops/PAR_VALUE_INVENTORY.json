@@ -1,100 +1,121 @@
 {
-  "generated_at_utc": "2026-09-05T14:11:19.120229+00:00",
+  "generated_at_utc": "2026-09-05T14:21:22.225995+00:00",
   "label": "PAR_VALUE_INVENTORY",
   "soft_frozen_unchanged": true,
   "live_wire": false,
   "charter": "research/ops/PAR_VALUE_LOOKUP_CHARTER.md",
+  "watchlist": "data/corporate_actions/par_value_watchlist.csv",
   "csv": "data/corporate_actions/par_value_by_code.csv",
-  "n_codes": 8,
-  "n_lookup_needed": 7,
+  "method": "TWSE openapi t187ap03_L field 普通股每股面額 (+ watchlist)",
+  "extensible": true,
+  "n_codes": 9,
+  "n_promote_gate": 7,
+  "n_expand": 1,
+  "n_lookup_needed": 0,
   "n_etf_lookup_needed": 1,
-  "n_verified": 0,
+  "n_verified": 8,
   "provisional_par_twd": 10.0,
-  "coverage_pass_for_promote": false,
+  "coverage_pass_for_promote": true,
+  "how_to_expand": [
+    "Edit data/corporate_actions/par_value_watchlist.csv (role=expand for non-gate)",
+    "Or: python scripts/e22_par_value_inventory.py --add-codes 2330,2303 --fetch-twse"
+  ],
   "rows": [
     {
       "code": "2880",
       "role": "soft_frozen_fin",
       "instrument": "equity",
       "provisional_par_twd": 10.0,
-      "verified_par_twd": null,
-      "as_of": null,
-      "source": null,
-      "source_url": null,
-      "status": "LOOKUP_NEEDED",
-      "notes": "Do not treat provisional 10 as verified; 彈性面額 possible"
+      "verified_par_twd": 10.0,
+      "as_of": "2026-09-04",
+      "source": "TWSE_openapi_t187ap03_L",
+      "source_url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+      "status": "VERIFIED",
+      "notes": "普通股每股面額=新台幣                 10.0000元; 出表日期=1150904"
     },
     {
       "code": "2886",
       "role": "soft_frozen_fin",
       "instrument": "equity",
       "provisional_par_twd": 10.0,
-      "verified_par_twd": null,
-      "as_of": null,
-      "source": null,
-      "source_url": null,
-      "status": "LOOKUP_NEEDED",
-      "notes": "Do not treat provisional 10 as verified; 彈性面額 possible"
+      "verified_par_twd": 10.0,
+      "as_of": "2026-09-04",
+      "source": "TWSE_openapi_t187ap03_L",
+      "source_url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+      "status": "VERIFIED",
+      "notes": "普通股每股面額=新台幣                 10.0000元; 出表日期=1150904"
     },
     {
       "code": "2892",
       "role": "soft_frozen_fin",
       "instrument": "equity",
       "provisional_par_twd": 10.0,
-      "verified_par_twd": null,
-      "as_of": null,
-      "source": null,
-      "source_url": null,
-      "status": "LOOKUP_NEEDED",
-      "notes": "Do not treat provisional 10 as verified; 彈性面額 possible"
+      "verified_par_twd": 10.0,
+      "as_of": "2026-09-04",
+      "source": "TWSE_openapi_t187ap03_L",
+      "source_url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+      "status": "VERIFIED",
+      "notes": "普通股每股面額=新台幣                 10.0000元; 出表日期=1150904"
     },
     {
       "code": "5880",
       "role": "soft_frozen_fin",
       "instrument": "equity",
       "provisional_par_twd": 10.0,
-      "verified_par_twd": null,
-      "as_of": null,
-      "source": null,
-      "source_url": null,
-      "status": "LOOKUP_NEEDED",
-      "notes": "Do not treat provisional 10 as verified; 彈性面額 possible"
+      "verified_par_twd": 10.0,
+      "as_of": "2026-09-04",
+      "source": "TWSE_openapi_t187ap03_L",
+      "source_url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+      "status": "VERIFIED",
+      "notes": "普通股每股面額=新台幣                 10.0000元; 出表日期=1150904"
     },
     {
       "code": "2412",
       "role": "telecom",
       "instrument": "equity",
       "provisional_par_twd": 10.0,
-      "verified_par_twd": null,
-      "as_of": null,
-      "source": null,
-      "source_url": null,
-      "status": "LOOKUP_NEEDED",
-      "notes": "Do not treat provisional 10 as verified; 彈性面額 possible"
+      "verified_par_twd": 10.0,
+      "as_of": "2026-09-04",
+      "source": "TWSE_openapi_t187ap03_L",
+      "source_url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+      "status": "VERIFIED",
+      "notes": "普通股每股面額=新台幣                 10.0000元; 出表日期=1150904"
     },
     {
       "code": "3045",
       "role": "telecom",
       "instrument": "equity",
       "provisional_par_twd": 10.0,
-      "verified_par_twd": null,
-      "as_of": null,
-      "source": null,
-      "source_url": null,
-      "status": "LOOKUP_NEEDED",
-      "notes": "Do not treat provisional 10 as verified; 彈性面額 possible"
+      "verified_par_twd": 10.0,
+      "as_of": "2026-09-04",
+      "source": "TWSE_openapi_t187ap03_L",
+      "source_url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+      "status": "VERIFIED",
+      "notes": "普通股每股面額=新台幣                 10.0000元; 出表日期=1150904"
     },
     {
       "code": "4904",
       "role": "telecom",
       "instrument": "equity",
       "provisional_par_twd": 10.0,
-      "verified_par_twd": null,
-      "as_of": null,
-      "source": null,
-      "source_url": null,
-      "status": "LOOKUP_NEEDED",
-      "notes": "Do not treat provisional 10 as verified; 彈性面額 possible"
+      "verified_par_twd": 10.0,
+      "as_of": "2026-09-04",
+      "source": "TWSE_openapi_t187ap03_L",
+      "source_url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+      "status": "VERIFIED",
+      "notes": "普通股每股面額=新台幣                 10.0000元; 出表日期=1150904"
+    },
+    {
+      "code": "2330",
+      "role": "expand",
+      "instrument": "equity",
+      "provisional_par_twd": 10.0,
+      "verified_par_twd": 10.0,
+      "as_of": "2026-09-04",
+      "source": "TWSE_openapi_t187ap03_L",
+      "source_url": "https://openapi.twse.com.tw/v1/opendata/t187ap03_L",
+      "status": "VERIFIED",
+      "notes": "普通股每股面額=新台幣                 10.0000元; 出表日期=1150904"
     },
     {
       "code": "0050",
@@ -106,12 +127,13 @@
       "source": null,
       "source_url": null,
       "status": "ETF_RULES_LOOKUP_NEEDED",
-      "notes": "ETF stock-div / odd-lot path uncommon; confirm before TW CIL apply"
+      "notes": "ETF rules separate; not equity CIL promote gate"
     }
   ],
   "do_not": [
-    "Promote E22_v2s_tw default while LOOKUP_NEEDED remains on Soft-Frozen equities",
+    "Promote E22_v2s_tw default while promote-gate equities remain LOOKUP_NEEDED",
     "Silent Soft-Frozen flip",
-    "Rewrite forward/e21 history when pars are corrected"
+    "Rewrite forward/e21 history when pars are corrected",
+    "Treat expansion codes as promote blockers"
   ]
 }

@@ -1,11 +1,12 @@
 # Par-Value Lookup Charter — Odd-Lot CIL Dependency
 
 Date: 2026-09-05  
-Status: **CHARTER OPEN (data research)** — Soft-Frozen **[0.50, 0.95] KEEP**  
-Blocks: safe promote of `E22_v2s_tw` as live default until Soft-Frozen universe par table is verified
+Status: **CHARTER ACTIVE** — Soft-Frozen **[0.50, 0.95] KEEP**  
+Promote-gate: Soft-Frozen FIN + telecom equities **VERIFIED** via TWSE (2026-09-04)  
+Expansion: watchlist / `--add-codes` reserved for future equities (not promote blockers)
 
 Authority: `ODD_LOT_PROMOTE_DECISION_PACK.md` · `TW_ODD_LOT_APPLY.md` · Gap #6.5 closeout  
-Code today: `scripts/e22_dividend_accounting.py` hardcodes `PAR_VALUE_TWD = 10.0`
+Code: `scripts/e22_dividend_accounting.py` reads `data/corporate_actions/par_value_by_code.csv` (fallback provisional 10)
 
 ## Problem
 
@@ -33,14 +34,29 @@ It is acceptable only as a **provisional default** while inventory is incomplete
 - Rewrite `forward/e21` history when pars are corrected  
 - Scrape Goodinfo / Wantgoo / CMoney as primary (blocked / unreliable)
 
-## Soft-Frozen / E22 universe (minimum)
+## Soft-Frozen / E22 universe (promote-gate minimum)
 
-| Code | Role | Provisional par (unverified) |
+Editable watchlist: `data/corporate_actions/par_value_watchlist.csv`
+
+| Code | Role | Status (as-of 2026-09-04) |
 |---|---|---|
-| 2880 / 2886 / 2892 / 5880 | Soft-Frozen FIN sleeve | 10.0 **LOOKUP_NEEDED** |
-| 2412 / 3045 / 4904 | Telecom sleeve (E22 books) | 10.0 **LOOKUP_NEEDED** |
-| 0050 | ETF (stock-div path rare) | N/A or ETF rules — **LOOKUP_NEEDED** |
+| 2880 / 2886 / 2892 / 5880 | Soft-Frozen FIN sleeve | **VERIFIED NT$10** (TWSE) |
+| 2412 / 3045 / 4904 | Telecom sleeve (E22 books) | **VERIFIED NT$10** (TWSE) |
+| 0050 | ETF (stock-div path rare) | `ETF_RULES_LOOKUP_NEEDED` |
 | TAIEX | Index | N/A |
+
+### Future expansion (reserved)
+
+Add codes **without** reopening the promote-gate set:
+
+```bash
+# Option A — edit watchlist (role=expand)
+# Option B — CLI
+python scripts/e22_par_value_inventory.py --add-codes 2330,2303 --fetch-twse
+```
+
+`role=expand` rows are looked up and stored for future books use; they **do not** block
+`coverage_pass_for_promote`. Promote still keys only on Soft-Frozen FIN + telecom.
 
 ## Candidate sources (priority)
 
@@ -57,27 +73,29 @@ It is acceptable only as a **provisional default** while inventory is incomplete
 | Gate | Pass |
 |---|---|
 | Coverage | Every Soft-Frozen FIN + telecom code has par with `as_of` + `source` |
-| PIT | Par used on stock-ex day = last known par ≤ that day |
-| Default policy | Missing par → **fail closed** in promote mode; research mode may fall back to 10 with flag |
-| Evidence | `data/corporate_actions/par_value_by_code.csv` + repro inventory JSON/MD |
+| Expansion | Extra codes may live as `role=expand`; **not** required for promote |
+| PIT | Par used on stock-ex day = last known par ≤ that day (future: event table) |
+| Default policy | Missing par → provisional 10 in research; promote mode requires VERIFIED gate |
+| Evidence | `par_value_by_code.csv` + watchlist + repro inventory JSON/MD |
 | Soft-Frozen | KEEP |
 
 ## Stage plan
 
 ```
-A  Charter + provisional inventory CSV (this change)
-B  Vendor probe (FinMind Info / ParValueChange) when token available
-C  Manual cite fill for any LOOKUP_NEEDED survivors
-D  Wire e22_dividend_accounting to par table (opt-in flag)
-E  Odd-lot promote ballot may ACCEPT only after D + coverage PASS
+A  Charter + provisional inventory CSV          DONE
+B  TWSE openapi t187ap03_L verify (promote-gate) DONE
+C  Manual cite fill for LOOKUP_NEEDED survivors  N/A (gate clear)
+D  Wire e22_dividend_accounting to par table     DONE (load_par_value_table)
+E  Odd-lot promote ballot (Item 1 only)          AWAITING HUMAN
+F  Extensible per-code lookup (watchlist/CLI)    DONE — reserved for future equities
 ```
 
 ## Relation to odd-lot promote
 
 | Ballot | Par table |
 |---|---|
-| ACCEPT promote now | **Blocked** until Stage D coverage PASS (or human explicitly accepts provisional par=10 risk in writing) |
-| ACCEPT research-only | OK — keep named `E22_v2s_tw` with provisional par=10 + flags |
+| ACCEPT promote now | Allowed iff `coverage_pass_for_promote=true` (promote-gate VERIFIED) |
+| ACCEPT research-only | OK — keep named `E22_v2s_tw`; default stays `E22_v2s` |
 | REJECT | N/A |
 
 ## Label

@@ -36,32 +36,37 @@ This pack **does not** change `DEFAULT_BOOKS_VERSION`. Acceptance + dedicated pr
 | Promote checklist | DRAFTED | `ODD_LOT_PROMOTE_CHECKLIST.md` |
 | Selectable on forward CLI | DONE | `e21_forward_pipeline.py --e22-version E22_v2s_tw` |
 | Soft-Frozen KEEP asserted | YES | This pack + register #1 |
+| Par inventory (FIN+telecom) | **PASS** | TWSE `t187ap03_L` → all **VERIFIED NT$10** as-of 2026-09-04 (`PAR_VALUE_INVENTORY.md`) |
+| 0050 ETF par | N/A | `ETF_RULES_LOOKUP_NEEDED` — not a Soft-Frozen equity CIL path |
 
 ## Human decision ballot
 
-Vote **one**:
+Vote **one** (Item 1 only — see `REGISTER6_SEQUENTIAL_BALLOTS.md`):
 
 | Ballot | Meaning | Next action |
 |---|---|---|
 | **ACCEPT promote** | Authorize changing live default to `E22_v2s_tw` | Open dedicated PR: set `DEFAULT_BOOKS_VERSION`; checklist all YES; forward-only |
-| **ACCEPT research-only** | Keep named books; default stays `E22_v2s` | Close promote agenda; register #6 odd-lot stays DEFER |
-| **REJECT** | Do not use TW CIL books | Keep v2s; document reason in register amendment |
+| **ACCEPT research-only** | Keep named books; default stays `E22_v2s` | Park item 1; then open item 2 (tax/receivable) |
+| **REJECT** | Do not use TW CIL books | Park item 1 with reason; then open item 2 |
 
 Until ballot lands, treat odd-lot as **DEFER** (no silent default edit).
 
 ## Promote blocker — par value is data, not a constant
 
-`E22_v2s_tw` currently uses hardcoded `PAR_VALUE_TWD = 10.0`.  
-**彈性面額** issuers may differ; par can change over time.
+`E22_v2s_tw` must use per-code verified par (not a blind constant).
 
 | Gate | Required before DEFAULT flip |
 |---|---|
 | Par inventory | Soft-Frozen FIN + telecom codes `VERIFIED` in `data/corporate_actions/par_value_by_code.csv` |
-| Charter | `PAR_VALUE_LOOKUP_CHARTER.md` Stage D wired (per-code / as-of par) |
-| Explicit risk waiver | Only if human writes ACCEPT with provisional-par=10 risk — otherwise **blocked** |
+| Charter | `PAR_VALUE_LOOKUP_CHARTER.md` |
+| Explicit risk waiver | Only if human ACCEPT with provisional-par risk — otherwise need VERIFIED rows |
 
-Today: `coverage_pass_for_promote = false` (all equities `LOOKUP_NEEDED`).  
-See `research/ops/PAR_VALUE_INVENTORY.md`.
+**Today: `coverage_pass_for_promote = true`** (7/7 promote-gate equities VERIFIED @ NT$10 via TWSE).  
+0050 ETF excluded from equity coverage. See `research/ops/PAR_VALUE_INVENTORY.md`.
+
+**Future codes:** extend via `par_value_watchlist.csv` or  
+`python3 scripts/e22_par_value_inventory.py --add-codes <codes> --fetch-twse`  
+(`role=expand` — does not reopen promote gate / does not flip DEFAULT).
 
 ## Promote PR shape (only after ACCEPT promote + par gate)
 
