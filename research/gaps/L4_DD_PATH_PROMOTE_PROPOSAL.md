@@ -3,6 +3,12 @@
 Generated: `2026-09-05T04:47:21.524806+00:00`
 Status: **PROPOSAL ONLY** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`).
 
+> **DUAL-PAPER ≠ Soft-Frozen flip**  
+> Opening / operating these paper books does **not** change the live Financial clip.  
+> Cutover later would wire **path-dependent DD-path logic** via a separate human PR —  
+> not a static clip swap, and not an auto-promote from `PASS_HELDOUT_L4`.  
+> Do not conflate with FIN_CAP_50 (static clip; currently `NOT_READY_SEALED_CAGR`).
+
 ## Why this exists
 
 Held-out research (`PASS_HELDOUT_L4`) unlocked an *optional* dual-paper observation path.

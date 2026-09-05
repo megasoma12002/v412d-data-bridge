@@ -1,6 +1,6 @@
 {
   "generated_at_utc": "2026-09-05T01:33:13.170662+00:00",
-  "label": "FIN_CAP_50_DUAL_PAPER_PROMOTE_PROPOSAL",
+  "label": "FIN_CAP_50_DUAL_PAPER_PROMOTE_PROPOSAL__CUTOVER_BLOCKED",
   "live_wire": false,
   "soft_frozen_default_unchanged": true,
   "proposed_live_clip_if_cutover": {
@@ -102,5 +102,9 @@
     "FIN_CAP cut retune",
     "L1 loss-engine reattach",
     "Claim CAGR\u226520% / MDD\u226415% as live results"
-  ]
+  ],
+  "cutover_blocked": true,
+  "authoritative_go_live_status": "NOT_READY_SEALED_CAGR",
+  "banner": "Held-out PASS does not authorize cutover. Go-live is NOT_READY_SEALED_CAGR. Soft-Frozen stays [0.50,0.95].",
+  "doc_refreshed_at_utc": "2026-09-05T05:25:32.324518+00:00"
 }

@@ -101,15 +101,18 @@ def main() -> None:
         bnav = b["nav"] / float(b["nav"].iloc[0])
         cnav = c["nav"] / float(c["nav"].iloc[0])
         sb, sc = _stats(bnav), _stats(cnav)
+        # Prefer None over inventing 0.0 CAGR on thin windows (avoid false giveback).
+        if sb["cagr"] is None or sc["cagr"] is None:
+            cagr_giveback_pp = None
+        else:
+            cagr_giveback_pp = (sb["cagr"] - sc["cagr"]) * 100
         mdd_improve_pp = (_abs_or(sb["max_drawdown"], 9.0) - _abs_or(sc["max_drawdown"], 9.0)) * 100
-        base_cagr = 0.0 if sb["cagr"] is None else sb["cagr"]
-        cap_cagr = 0.0 if sc["cagr"] is None else sc["cagr"]
-        cagr_giveback_pp = (base_cagr - cap_cagr) * 100
         rows.append(
             {
                 "window": wname,
                 "start": str(pd.Timestamp(ws).date()),
                 "end": str(pd.Timestamp(we).date()),
+                "n_days": int(min(len(b), len(c))),
                 "base_cagr": sb["cagr"],
                 "base_mdd": sb["max_drawdown"],
                 "fincap50_cagr": sc["cagr"],
@@ -120,29 +123,47 @@ def main() -> None:
             }
         )
 
-    held = next((r for r in rows if r["window"] == "heldout_2019_plus"), None)
+    # Align with go-live Gate E: alert on held-out + ytd + trailing_1y.
+    # Skip mtd for CAGR alerts (annualized MTD is unstable / not a cutover gate).
+    ALERT_WINDOWS = ("heldout_2019_plus", "ytd", "trailing_1y")
     alerts = []
-    if held:
-        if held["mdd_improve_pp"] < 0:
-            alerts.append("ALERT: FIN_CAP_50 held-out MDD worse than BASE (paper)")
-        if held["cagr_giveback_pp"] > 3.0:
-            alerts.append("ALERT: FIN_CAP_50 held-out CAGR giveback > 3.0 pp (paper)")
-        if held["cagr_giveback_pp"] > 5.0:
-            alerts.append("PAUSE_REVIEW: giveback > 5 pp — do not advance cutover discussion")
+    for wname in ALERT_WINDOWS:
+        r = next((x for x in rows if x["window"] == wname), None)
+        if not r:
+            continue
+        label = wname
+        if r["mdd_improve_pp"] < 0:
+            alerts.append(f"ALERT: FIN_CAP_50 {label} MDD worse than BASE (paper)")
+        gb = r["cagr_giveback_pp"]
+        if gb is None:
+            continue
+        if gb > 3.0:
+            alerts.append(f"ALERT: FIN_CAP_50 {label} CAGR giveback > 3.0 pp (paper)")
+        if gb > 5.0:
+            alerts.append(
+                f"PAUSE_REVIEW: {label} giveback > 5 pp — do not advance cutover discussion "
+                "(aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)"
+            )
 
     args.out.mkdir(parents=True, exist_ok=True)
     RESEARCH.mkdir(parents=True, exist_ok=True)
 
+    go_live_blocked = True  # authoritative status: NOT_READY_SEALED_CAGR until human re-verify
     summary = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "asof": str(asof.date()),
         "live_wire": False,
         "soft_frozen_default_unchanged": True,
         "label": "FIN_CAP_50_MONTH_END_PAPER_MONITOR",
+        "authoritative_go_live_status": "NOT_READY_SEALED_CAGR",
         "windows": rows,
         "alerts": alerts,
-        "cutover_blocked": any("PAUSE_REVIEW" in a for a in alerts),
-        "note": "Paper monitor only. Soft-Frozen Financial clip remains [0.50,0.95].",
+        "cutover_blocked": go_live_blocked or any("PAUSE_REVIEW" in a for a in alerts),
+        "note": (
+            "Paper monitor only. Soft-Frozen Financial clip remains [0.50,0.95]. "
+            "Cutover stays frozen while go-live is NOT_READY_SEALED_CAGR "
+            "or any PAUSE_REVIEW alert fires."
+        ),
     }
     (args.out / "month_end_summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     pd.DataFrame(rows).to_csv(args.out / "month_end_windows.csv", index=False)
@@ -157,24 +178,40 @@ def main() -> None:
         "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for r in rows:
+        gb = r["cagr_giveback_pp"]
+        gb_s = "n/a" if gb is None else f"{gb:+.2f}"
         lines.append(
             f"| {r['window']} | {_pct(r['base_cagr'])} | {_pct(r['base_mdd'])} | "
             f"{_pct(r['fincap50_cagr'])} | {_pct(r['fincap50_mdd'])} | "
-            f"{r['mdd_improve_pp']:+.2f} | {r['cagr_giveback_pp']:+.2f} | {r['rel_nav_end']:.4f} |"
+            f"{r['mdd_improve_pp']:+.2f} | {gb_s} | {r['rel_nav_end']:.4f} |"
         )
-    lines += ["", "## Alerts", ""]
+    lines += [
+        "",
+        "## Alerts",
+        "",
+        "Alert windows (match go-live Gate E): `heldout_2019_plus`, `ytd`, `trailing_1y`. "
+        "`mtd` is reported but **not** used for cutover alerts.",
+        "",
+    ]
     if alerts:
         for a in alerts:
             lines.append(f"- {a}")
     else:
-        lines.append("- None")
+        lines.append("- None (trailing windows clean; sealed go-live status may still block)")
     lines += [
+        "",
+        "## Cutover status",
+        "",
+        f"- `cutover_blocked`: **{summary['cutover_blocked']}**",
+        f"- Authoritative go-live: **`{summary['authoritative_go_live_status']}`** "
+        "(see `FIN_CAP_50_GO_LIVE_VERIFY.md`)",
+        "- Soft-Frozen live clip stays **[0.50, 0.95]** — this monitor never flips it.",
         "",
         "## Ops note",
         "",
         "- Refresh NAVs: `python3 scripts/e16_fincap50_dual_paper_ledgers.py`",
         "- Re-run monitor: `python3 scripts/e16_fincap50_month_end_monitor.py`",
-        "- Cutover still requires a **separate human PR**; this monitor never flips Soft-Frozen.",
+        "- Cutover still requires a **separate human PR** after go-live READY + clean month-end.",
         "",
     ]
     md = "\n".join(lines)

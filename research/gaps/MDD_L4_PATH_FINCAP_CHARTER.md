@@ -75,6 +75,12 @@ Exact T+1 challengers that pass **sealed CAGR giveback ≤ 3.0 pp** and MDD impr
 
 FIN_CAP_50 dual-paper month-end continues; cutover stays frozen while sealed/PAUSE gates fail. Soft-Frozen live **[0.50, 0.95]**.
 
+## Screening outcome (do not re-open family-first)
+
+Util-rank OOF locked **`L4_DD_PATH_08_50`** → adv-lite PASS → **`PASS_HELDOUT_L4`**.
+The family-first hint below is historical charter text only; util-rank was authoritative.
+Dual-paper observation is open; Soft-Frozen clip stays **[0.50, 0.95]**.
+
 ## Next implementation (separate PR)
 
 1. Exact T+1 OOF harness for L4 families with util-rank (no harsh-cap family priority).  
