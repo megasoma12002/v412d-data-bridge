@@ -1,6 +1,6 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-05 (hardening: alerts + E22 KPI + five-layer checklist)  
+Date: 2026-09-05 (Layer-3 Gap #6 fidelity KPI)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 
@@ -38,6 +38,8 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 Latest pack: `research/ops/MONTH_END_PAPER_PACK.md`  
 Alerts: `research/ops/OPS_ALERTS.md`  
 E22 KPI: `research/ops/E22_DATA_QUALITY_KPI.md`  
+Gap #6 fidelity: `research/ops/E22_GAP6_FIDELITY_KPI.md`  
+Odd-lot promote (DEFERRED): `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`  
 Five-layer gaps: `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`  
 Legacy forward config: `research/ops/FORWARD_LEGACY_NOTE.md`
 
@@ -48,6 +50,7 @@ python3 scripts/e21_qc.py --state-dir forward/e21
 python3 scripts/ops_month_end_paper_pack.py
 python3 scripts/ops_alert_scan.py --report-only
 python3 scripts/e22_data_quality_kpi.py
+python3 scripts/e22_gap6_fidelity_kpi.py
 python3 scripts/e21_live_vs_paper_recon.py
 ```
 

@@ -1,6 +1,6 @@
 # Five-Layer Gap Checklist — Operable System
 
-Date: 2026-09-05 (hardening round: alerts + E22 KPI)  
+Date: 2026-09-05 (Layer-3 Gap #6 fidelity KPI)  
 Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
 Authority: `research/STRATEGY_DEBT_BOARD.md` · map: `OPS_STATUS.md`
 
@@ -32,11 +32,13 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 
 | Item | Status | Notes |
 |---|---|---|
-| E22_v2s formal books wired | **DONE** | |
+| E22_v2s formal books **code** wired | **DONE** | `e21_forward_pipeline` + `e22_dividend_accounting` |
 | Exact T+1 QC field preserved | **DONE** | |
-| E22 payment/ex-date KPI in month-end | **DONE** | `e22_data_quality_kpi` → `E22_DATA_QUALITY_KPI.*` |
-| TW odd-lot variant promote | **DEFERRED** | named research variant only |
-| Ongoing dividend gap monitoring | **PARTIAL** | KPI flags; re-check each pack |
+| E22 payment/ex-date completeness KPI | **DONE** | `e22_data_quality_kpi` (blank rates 0%) |
+| Gap #6 fidelity KPI (ex→pay / receivable / tax / live evidence) | **DONE** | `e22_gap6_fidelity_kpi` — report-only |
+| Live ledger E22 field evidence | **PARTIAL** | `forward/e21` missing `e22_*` / `dividends_applied` until next forward run |
+| TW odd-lot variant promote | **DEFERRED** | checklist: `ODD_LOT_PROMOTE_CHECKLIST.md` |
+| Receivable / pay-date books / div tax as formal | **DEFERRED** | sandbox only; formal stays ex-date TAX0 |
 
 ## Layer 4 — Governance / docs
 
@@ -62,16 +64,15 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 
 ## This round completed
 
-1. Merged **#60** (Phase 2) to main  
-2. Added **`ops_alert_scan`** + wired into QC smoke / month-end pack summaries  
-3. Added **`e22_data_quality_kpi`** into month-end pack  
-4. Added **`FORWARD_LEGACY_NOTE.md`**  
-5. Published this checklist  
+1. Added **`e22_gap6_fidelity_kpi`** (code wire assert + live evidence + ex→pay lag + receivable stub + tax sensitivity)  
+2. Added **`ODD_LOT_PROMOTE_CHECKLIST.md`** (DEFERRED promote gates)  
+3. Wired Gap-6 KPI into month-end pack + alert scan (`LIVE_LEDGER_E22_FIELDS_MISSING` = INFO)  
+4. Clarified Layer 3: code DONE vs live ledger evidence PARTIAL  
 
 ## Still highest-value OPEN items
 
 1. Keep running month-end pack until L4 YTD PAUSE clears (Layer 1/2)  
-2. Let live `forward/e21` history lengthen; re-check INDEX_DRIFT (Layer 2)  
+2. Let live `forward/e21` history lengthen; next forward should persist `e22_*` fields (Layer 2/3)  
 3. Optional: sealed-CAGR **new research charter** if pursuing FIN50 (Layer 1 DEFERRED path)  
 
-**Not OPEN for auto-work:** Soft-Frozen flip, L4/FIN50 live cutover without human checklist green.
+**Not OPEN for auto-work:** Soft-Frozen flip, L4/FIN50 live cutover, `E22_v2s_tw` default without human checklist green.

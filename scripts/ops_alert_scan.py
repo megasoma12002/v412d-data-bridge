@@ -31,6 +31,8 @@ QC_PATH = ROOT / "forward/e21/qc_status.json"
 L4_JSON = ROOT / "research/gaps/L4_DD_PATH_MONTH_END_MONITOR.json"
 FIN_JSON = ROOT / "research/gaps/FIN_CAP_50_MONTH_END_MONITOR.json"
 RECON_JSON = ROOT / "research/ops/LIVE_PAPER_RECON.json"
+GAP6_JSON = ROOT / "research/ops/E22_GAP6_FIDELITY_KPI.json"
+E22_KPI_JSON = ROOT / "research/ops/E22_DATA_QUALITY_KPI.json"
 
 
 def _load(path: Path) -> dict | None:
@@ -153,6 +155,50 @@ def main() -> int:
                     "source": "live_paper_recon",
                     "code": "THIN_LIVE_HISTORY",
                     "message": f"overlap_n={n} (<60) — not decision-grade for cutover",
+                }
+            )
+
+    e22_kpi = _load(E22_KPI_JSON)
+    if e22_kpi is not None and e22_kpi.get("kpi_ok") is False:
+        alerts.append(
+            {
+                "severity": "INFO",
+                "source": "e22_data_quality_kpi",
+                "code": "E22_DQ_FLAGS",
+                "message": f"flags={e22_kpi.get('flags')}",
+            }
+        )
+
+    gap6 = _load(GAP6_JSON)
+    if gap6 is None:
+        alerts.append(
+            {
+                "severity": "INFO",
+                "source": "e22_gap6_fidelity_kpi",
+                "code": "GAP6_KPI_MISSING",
+                "message": f"missing {GAP6_JSON} (run month-end pack / e22_gap6_fidelity_kpi)",
+            }
+        )
+    else:
+        if gap6.get("code_ok") is False:
+            alerts.append(
+                {
+                    "severity": "HIGH",
+                    "source": "e22_gap6_fidelity_kpi",
+                    "code": "E22_CODE_WIRE_FAIL",
+                    "message": f"E22 code wire not OK; flags={gap6.get('flags')}",
+                }
+            )
+        for flag in gap6.get("flags") or []:
+            sev = "HIGH" if str(flag).startswith("DEFAULT_BOOKS") or "unexpectedly" in str(flag) else "INFO"
+            if flag == "LIVE_LEDGER_E22_FIELDS_MISSING":
+                sev = "INFO"
+            alerts.append(
+                {
+                    "severity": sev,
+                    "source": "e22_gap6_fidelity_kpi",
+                    "code": str(flag),
+                    "message": str(flag),
                 }
             )
 

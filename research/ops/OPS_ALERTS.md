@@ -1,12 +1,12 @@
 # Ops Alerts
 
-Generated: `2026-09-05T07:03:55.012025+00:00`
+Generated: `2026-09-05T07:16:28.699346+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 
 - CRITICAL: 0
 - HIGH (PAUSE_REVIEW etc.): 3
-- INFO: 9
+- INFO: 10
 
 | Severity | Source | Code | Message |
 |---|---|---|---|
@@ -22,6 +22,7 @@ Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 | INFO | `fincap50_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=2.2320% > 2% on overlap |
 | INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=10 (<60) — not decision-grade for cutover |
+| INFO | `e22_gap6_fidelity_kpi` | `LIVE_LEDGER_E22_FIELDS_MISSING` | LIVE_LEDGER_E22_FIELDS_MISSING |
 
 ## Routing
 

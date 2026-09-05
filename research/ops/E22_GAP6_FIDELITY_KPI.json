@@ -1,0 +1,83 @@
+{
+  "generated_at_utc": "2026-09-05T07:16:28.635065+00:00",
+  "label": "E22_GAP6_FIDELITY_KPI",
+  "live_wire": false,
+  "soft_frozen_unchanged": true,
+  "formal_books": "E22_v2s",
+  "code_wire": {
+    "default_books_version": "E22_v2s",
+    "default_is_e22_v2s": true,
+    "e21_imports_e22_module": true,
+    "e21_calls_apply_dividends": true,
+    "e21_references_books_version": true,
+    "formal_status_wired_e21": true,
+    "tw_variant_named": "E22_v2s_tw",
+    "tw_is_default": false,
+    "code_ok": true
+  },
+  "live_ledger": {
+    "live_dir": "/workspace/forward/e21",
+    "asof": "2026-09-04",
+    "portfolio_has_e22_books_version": false,
+    "portfolio_has_e22_manifest": false,
+    "nav_has_e22_version_col": false,
+    "dividends_applied_exists": false,
+    "dividends_applied_n": 0,
+    "observed_books_version": null,
+    "live_ledger_e22_fields_present": false,
+    "note": "Live ledger artifacts predate E22 field persistence (code path is wired; next forward run should write e22_* fields). Do not rewrite history."
+  },
+  "ex_to_pay_lag": {
+    "cash": {
+      "n": 144,
+      "median_days": 27.0,
+      "p90_days": 36.0,
+      "mean_days": 27.930555555555557,
+      "min_days": 15.0,
+      "max_days": 56.0
+    },
+    "stock": {
+      "n": 52,
+      "median_days": 40.0,
+      "p90_days": 50.0,
+      "mean_days": 40.44230769230769,
+      "min_days": 15.0,
+      "max_days": 62.0
+    }
+  },
+  "receivable_stub": {
+    "asof": "2026-09-04",
+    "n_cash_events_in_receivable_window": 1,
+    "codes": [
+      "5880"
+    ],
+    "policy_note": "Formal books credit cash on cash_ex_date (no receivable asset). This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.",
+    "severity": "Med for cash/liquidity timing; Low for raw-price total-return mark"
+  },
+  "div_tax_sensitivity": {
+    "available": false,
+    "gross_cash_credit": null,
+    "haircut_0pct": null,
+    "haircut_10pct": null,
+    "haircut_20pct": null,
+    "note": "No dividends_applied.csv yet \u2014 tax sensitivity deferred until live applies cash events."
+  },
+  "odd_lot": {
+    "status": "DEFERRED",
+    "formal_default": "E22_v2s",
+    "named_tw_variant": "E22_v2s_tw",
+    "promote_checklist": "research/ops/ODD_LOT_PROMOTE_CHECKLIST.md",
+    "closeout": "research/e22/GAP65_ODD_LOT_CLOSEOUT.md",
+    "do_not_set_default_without_human_pr": true
+  },
+  "gap_refs": {
+    "brief": "research/e22/EXECUTION_DETAIL_GAP6_BRIEF.md",
+    "handling": "research/gaps/E50A_AND_EXEC_GAP_HANDLING.md"
+  },
+  "flags": [
+    "LIVE_LEDGER_E22_FIELDS_MISSING"
+  ],
+  "code_ok": true,
+  "live_evidence_ok": false,
+  "kpi_ok": true
+}
