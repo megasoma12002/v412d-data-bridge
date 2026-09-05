@@ -75,9 +75,12 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 - `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`
 - `research/ops/OPS_ALERTS.md`
 - `research/ops/E22_DATA_QUALITY_KPI.md`
+- `research/ops/E22_GAP6_FIDELITY_KPI.md`
+- `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`
 - `research/ops/FORWARD_LEGACY_NOTE.md`
 - `scripts/ops_alert_scan.py`
 - `scripts/e22_data_quality_kpi.py`
+- `scripts/e22_gap6_fidelity_kpi.py`
 - `research/ops/OPS_CONVERGENCE_CHARTER.md`
 - `research/ops/ARTIFACT_RETENTION.md`
 - `research/ops/CUTOVER_CHECKLIST_L4.md`
