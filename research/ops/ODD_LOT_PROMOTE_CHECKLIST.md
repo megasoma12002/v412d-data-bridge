@@ -1,7 +1,8 @@
 # Odd-Lot Promote Checklist — `E22_v2s_tw`
 
 Date: 2026-09-05  
-Status: **DEFERRED** — named research books only; Soft-Frozen default remains **`E22_v2s`**.
+Status: **DEFERRED** — named research books only; Soft-Frozen default remains **`E22_v2s`**.  
+Decision pack (ballot): `research/ops/ODD_LOT_PROMOTE_DECISION_PACK.md` — **AWAITING HUMAN**
 
 Authority: `research/e22/GAP65_ODD_LOT_CLOSEOUT.md` · `scripts/e22_dividend_accounting.py` · Gap #6 brief: `research/e22/EXECUTION_DETAIL_GAP6_BRIEF.md`
 

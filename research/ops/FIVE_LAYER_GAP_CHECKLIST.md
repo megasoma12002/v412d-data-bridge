@@ -23,7 +23,7 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 | Live claim / target policy | **DONE** | Soft-Frozen only live claim; no CAGR/MDD live badges |
 | Human decision register | **DONE** | `HUMAN_DECISION_REGISTER.md` BINDING |
 | Strategy update standard process | **DONE** | `STRATEGY_UPDATE_STANDARD_PROCESS.md` (classify→observe→human cutover) |
-| Alpha / E45 live stitch | **DEFERRED** | register #6 — needs new charter + human PR |
+| Alpha / E45 live stitch | **DEFERRED** | charter drafted `E45_LIVE_STITCH_CHARTER.md` — awaiting human ACCEPT |
 
 ## Layer 2 — Live / ops cadence
 
@@ -45,8 +45,8 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 | E22 payment/ex-date completeness KPI | **DONE** | blank rates 0% |
 | Gap #6 fidelity KPI | **DONE** | |
 | Live ledger E22 field evidence | **PARTIAL** | code ready; runbook: `POST_FORWARD_E22_VERIFY_RUNBOOK.md`; wait weekday forward |
-| TW odd-lot variant promote | **DEFERRED** | |
-| Receivable / pay-date books / div tax as formal | **DEFERRED** | |
+| TW odd-lot variant promote | **DEFERRED** | decision pack drafted — awaiting human ACCEPT promote |
+| Receivable / pay-date books / div tax as formal | **DEFERRED** | charter drafted `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` |
 
 ## Layer 4 — Governance / docs
 

@@ -21,7 +21,15 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | 3 | Sealed-CAGR successor path | **BLEND_025 OPERATING OBSERVE** | Sole in-flight successor; observe ≠ promote |
 | 4 | L4_DD_PATH live cutover | **DEFER** | No PR until checklist all-green (≥1 clean month-end, no YTD/1y PAUSE) |
 | 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
-| 6 | E45 / odd-lot default / formal tax·receivable | **DEFER** | New charter required before any work toward live |
+| 6 | E45 / odd-lot default / formal tax·receivable | **DEFER** | Charters **drafted** 2026-09-05 — still need **human ACCEPT** before live-facing work |
+
+### Register #6 charter drafts (awaiting human ballot)
+
+| Topic | Draft pack | Live effect until ACCEPT |
+|---|---|---|
+| Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | Default stays `E22_v2s` |
+| Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` | TAX0 + ex-date cash stays formal |
+| E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` | Stitch forbidden; MDD claim NOT_VERIFIED |
 
 ## Re-open triggers (only then re-agenda)
 
@@ -31,7 +39,9 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | FIN50 static cutover | Go-live verify **not** `NOT_READY_SEALED_CAGR` **and** Gate E clean — else stay rejected |
 | BLEND_025 promote | Sustained clean trailing on observe **and** cutover checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md` — **drafted 2026-09-05**, still NOT AUTHORIZED) |
 | Soft-Frozen flip | Explicit human cutover PR only (never pack/monitor green alone) |
-| E45 / odd-lot | New charter accepted |
+| Odd-lot default | Human **ACCEPT promote** on `ODD_LOT_PROMOTE_DECISION_PACK.md` + checklist all YES |
+| Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
+| E45 stitch | Human **ACCEPT** `E45_LIVE_STITCH_CHARTER.md` then verification bars V1–V6 |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
