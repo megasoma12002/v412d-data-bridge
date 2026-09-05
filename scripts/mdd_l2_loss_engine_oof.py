@@ -321,7 +321,7 @@ def main() -> None:
                 FAMILY_PRIORITY.get(x["family"], 9),
                 -x["mdd_improve_pp"],
                 x["cagr_giveback_pp"],
-                x.get("bull_cagr_giveback_pp") or 9,
+                9.0 if x.get("bull_cagr_giveback_pp") is None else x["bull_cagr_giveback_pp"],
                 x["id"],
             ),
         )[0]

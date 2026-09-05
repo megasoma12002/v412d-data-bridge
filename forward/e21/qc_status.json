@@ -11,10 +11,17 @@
     "frozen_financial_universe": true,
     "fills_unique_id": true,
     "fills_reference_existing_orders": true,
+    "exact_t1_ok": true,
     "audit_unique_date": true,
     "audit_chain_links": true
   },
   "signal_rows": 10,
   "nav_rows": 10,
-  "order_rows": 80
+  "order_rows": 80,
+  "exact_t1_ok": true,
+  "same_bar_fills": 0,
+  "fills_checked": 72,
+  "pending_filter": "signal_date < fill_date",
+  "live_wire": true,
+  "note": "Fail-closed ledger QC + Exact T+1. Soft-Frozen clip unchanged by research."
 }
