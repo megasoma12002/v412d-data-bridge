@@ -50,7 +50,7 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | Live↔paper recon | Re-check INDEX_DRIFT as live history lengthens | Decision on <60 live sessions |
 | L4 cutover PR | Only after checklist all-green + explicit human approval | Soft-Frozen flip; static clip swap |
 | FIN50 cutover PR | Only after sealed CAGR gate + Gate E clear + human PR | Retune FIN50 lock; ignore `NOT_READY` |
-| Sealed-CAGR research charter | **Landed** — `FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`; screen via L4 families | Retune FIN_CAP_50 lock; Soft-Frozen flip |
+| Sealed-CAGR research charter | **Landed + screened** — `BLEND_025` = paper-promote proposal only (`FINCAP50_SEALED_CAGR_CHARTER_SCREEN`) | Retune FIN_CAP_50 lock; Soft-Frozen flip; live-wire without checklist |
 | New alpha charter | New charter only | Four-layer live stitch now |
 
 ### WON’T
@@ -81,6 +81,9 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 - `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`
 - `research/ops/ARCHIVE_SENTINEL_HYGIENE.md`
 - `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`
+- `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`
+- `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`
+- `research/ops/LIVE_E22_FIELD_EVIDENCE.md`
 - `research/ops/FORWARD_LEGACY_NOTE.md`
 - `scripts/ops_alert_scan.py`
 - `scripts/e22_data_quality_kpi.py`
