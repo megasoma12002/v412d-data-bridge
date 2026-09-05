@@ -1,8 +1,9 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-05 (BLEND_025 dual-paper observe sleeve)  
+Date: 2026-09-05 (human decision register — Soft-Frozen KEEP)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
-Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
+Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
+Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`
 
 ## What is live (only this)
 
@@ -21,9 +22,9 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 
 | Sleeve | Status | Cutover |
 |---|---|---|
-| FIN_CAP_50 | Dual-paper OPERATING; YTD/1y PAUSE | **`NOT_READY_SEALED_CAGR` / FROZEN** — checklist: `CUTOVER_CHECKLIST_FIN50.md` |
-| L4_DD_PATH_08_50 | Held-out PASS; YTD PAUSE_REVIEW | **FROZEN** — checklist: `CUTOVER_CHECKLIST_L4.md` |
-| BLEND_025 | Dual-paper **OPERATING OBSERVE** | **Blocked** — observe ≠ cutover; proposal: `FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md` |
+| FIN_CAP_50 | Dual-paper OPERATING; YTD/1y PAUSE | **REJECT static cutover for now** (`NOT_READY_SEALED_CAGR`) — register #2 |
+| L4_DD_PATH_08_50 | Held-out PASS; YTD PAUSE_REVIEW | **DEFER** cutover — register #4; checklist: `CUTOVER_CHECKLIST_L4.md` |
+| BLEND_025 | Dual-paper **OPERATING OBSERVE** | Sole sealed-CAGR successor (register #3); live **NOT READY** (#5) |
 | Track A S9A1 | KEEP (paper/monitor) | N/A — pointer: `TRACK_A_RUNBOOK_POINTER.md` |
 | Track B S1 | STOP | Closed |
 
@@ -50,6 +51,7 @@ BLEND_025 month-end runbook: `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md`
 Live E22 evidence readiness: `research/ops/LIVE_E22_FIELD_EVIDENCE.md`  
 Archive sentinel policy: `research/ops/ARCHIVE_SENTINEL_HYGIENE.md`  
 Five-layer gaps: `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`  
+Human decision register: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Legacy forward config: `research/ops/FORWARD_LEGACY_NOTE.md`
 
 ## Commands
