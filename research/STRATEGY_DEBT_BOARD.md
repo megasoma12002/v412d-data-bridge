@@ -1,6 +1,6 @@
 # Strategy Debt Board
 
-Date: 2026-09-05 (code-review residual clear: e21_qc Exact T+1)  
+Date: 2026-09-05 (ops-convergence research charter opened)  
 Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
 Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 
@@ -28,6 +28,7 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | Code-review fixes (round 1) | Month-end `0→nan`; fin_cap single-source; Soft-Frozen vs live wording |
 | Code-review P2 | Soft-Frozen BASE single-source (`e16_soft_frozen_base`); live Exact T+1 `qc_status.json`; scorers drop `x or 0`/`mdd or 9` |
 | Code-review residual | `e21_qc` defaults to `forward/e21` + preserves Exact T+1; SPEC live banner; FIN_CAP OOF None-safe deltas |
+| Ops convergence Phase 0 | Charter + OPS_STATUS map + live↔paper recon script/artifact — **no Soft-Frozen change** |
 
 ### NOW
 | Item | Action | Status |
@@ -42,10 +43,12 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 ### NEXT
 | Item | Action | Do not |
 |---|---|---|
-| L4 month-end | ≥1 review via `e16_l4_dd_path_month_end_monitor.py` | Treat dual-paper as Soft-Frozen flip |
+| **Ops convergence Phase 1** | Month-end workflow + live QC smoke (see `research/ops/OPS_CONVERGENCE_CHARTER.md`) | Soft-Frozen flip; auto cutover |
+| Live↔paper recon cadence | Re-run `scripts/e21_live_vs_paper_recon.py` with daily/month-end | Treat thin overlap as cutover evidence |
+| L4 month-end (continue) | Next calendar month-end; watch YTD/1y giveback cool off | Treat first review as cutover green light |
 | L4 cutover PR (later) | Wire **DD-path logic** only after clean month-end + explicit approval | Static clip swap; auto live-wire |
-| FIN_CAP month-end | Continue; alerts now include YTD/1y (Gate E) | Auto-promote FIN50 / ignore `NOT_READY` |
-| Track A month-end | Refresh KPI via `scripts/e50a_dual_track_s9a1_monitor.py` | Retune S9A1 cuts |
+| FIN_CAP month-end | Continue; Gate E YTD/1y still PAUSE | Auto-promote FIN50 / ignore `NOT_READY` |
+| Track A month-end | Next refresh; pause if stress edge vs C4 negative **two** reviews | Retune S9A1 cuts |
 | New alpha charter | Only with a **new** charter (not S1 residual re-grid) | Reopen S1 / TECH2 remix |
 
 ### WON’T
@@ -71,8 +74,12 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 | Soft-Frozen clip | **[0.50, 0.95]** |
 
 ## Pointers
+- `research/ops/OPS_STATUS.md` (one-page live/paper map)
+- `research/ops/OPS_CONVERGENCE_CHARTER.md` (ops-ready phases; no live change)
+- `research/ops/LIVE_PAPER_RECON.md` (live vs Soft-Frozen paper BASE)
 - `scripts/e16_soft_frozen_base.py` (live Financial clip **[0.50, 0.95]**)
 - `scripts/e21_forward_pipeline.py` / `scripts/e21_qc.py` (canonical `forward/e21`; Exact T+1 in `qc_status.json`)
+- `scripts/e21_live_vs_paper_recon.py`
 - `scripts/research_metric_helpers.py`
 - `research/gaps/L4_DD_PATH_PROMOTE_PROPOSAL.md`
 - `research/gaps/L4_DD_PATH_MONTH_END_RUNBOOK.md`
