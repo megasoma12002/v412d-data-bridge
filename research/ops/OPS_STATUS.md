@@ -1,9 +1,10 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-05 (human decision register — Soft-Frozen KEEP)  
+Date: 2026-09-05 (strategy closure prep)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
-Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`
+Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
+Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 
 ## What is live (only this)
 
@@ -24,7 +25,7 @@ Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`
 |---|---|---|
 | FIN_CAP_50 | Dual-paper OPERATING; YTD/1y PAUSE | **REJECT static cutover for now** (`NOT_READY_SEALED_CAGR`) — register #2 |
 | L4_DD_PATH_08_50 | Held-out PASS; YTD PAUSE_REVIEW | **DEFER** cutover — register #4; checklist: `CUTOVER_CHECKLIST_L4.md` |
-| BLEND_025 | Dual-paper **OPERATING OBSERVE** | Sole sealed-CAGR successor (register #3); live **NOT READY** (#5) |
+| BLEND_025 | Dual-paper **OPERATING OBSERVE** | Sole sealed-CAGR successor (register #3); live **NOT READY** (#5); checklist prep: `CUTOVER_CHECKLIST_BLEND025.md` |
 | Track A S9A1 | KEEP (paper/monitor) | N/A — pointer: `TRACK_A_RUNBOOK_POINTER.md` |
 | Track B S1 | STOP | Closed |
 
@@ -48,7 +49,10 @@ BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROM
 BLEND_025 dual-paper observe: `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md`  
 BLEND_025 month-end: `research/gaps/BLEND_025_MONTH_END_MONITOR.md`  
 BLEND_025 month-end runbook: `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md`  
+BLEND_025 cutover checklist (prep): `research/ops/CUTOVER_CHECKLIST_BLEND025.md`  
+Live claim / target policy: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  
 Live E22 evidence readiness: `research/ops/LIVE_E22_FIELD_EVIDENCE.md`  
+Post-forward E22 verify: `research/ops/POST_FORWARD_E22_VERIFY_RUNBOOK.md`  
 Archive sentinel policy: `research/ops/ARCHIVE_SENTINEL_HYGIENE.md`  
 Five-layer gaps: `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`  
 Human decision register: `research/ops/HUMAN_DECISION_REGISTER.md`  

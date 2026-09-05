@@ -41,4 +41,6 @@ python3 scripts/e22_gap6_fidelity_kpi.py
 python3 scripts/ops_alert_scan.py --report-only
 ```
 
+Full post-forward procedure: `research/ops/POST_FORWARD_E22_VERIFY_RUNBOOK.md`
+
 When live evidence lands, Gap6 flag `LIVE_LEDGER_E22_FIELDS_MISSING` should clear (INFO only while missing).
