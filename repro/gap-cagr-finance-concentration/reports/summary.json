@@ -1,0 +1,109 @@
+{
+  "generated_note": "RESEARCH_ONLY",
+  "live_wire": false,
+  "targets": {
+    "cagr_ge": 0.2,
+    "mdd_abs_le": 0.15
+  },
+  "live_sleeve_weights": {
+    "0050": 0.07571991924520723,
+    "Financial": 0.8240567450101934,
+    "Telecom": 0.08061727853274245
+  },
+  "live_asof": "2026-09-04",
+  "e16_financial_mean": 0.7980753983577771,
+  "e16_financial_pct_ge_070": 0.835970024979184,
+  "formal_core_cagr": 0.1378,
+  "formal_core_mdd": -0.2264,
+  "verdict": "Core cannot hit CAGR\u226520% and MDD\u226415% together; E16 finance concentration is structural (clip+priors), not a one-off.",
+  "gaps": [
+    {
+      "book": "E16_E18_NO_DIV",
+      "cagr": 0.0729,
+      "mdd": -0.2277,
+      "live_path": true,
+      "cagr_gap_to_20_pp": 12.71,
+      "mdd_depth_beyond_15_pp": 7.77,
+      "cagr_meets_20": false,
+      "mdd_meets_15": false
+    },
+    {
+      "book": "E22_v2_cash",
+      "cagr": 0.1125,
+      "mdd": -0.2211,
+      "live_path": false,
+      "cagr_gap_to_20_pp": 8.75,
+      "mdd_depth_beyond_15_pp": 7.11,
+      "cagr_meets_20": false,
+      "mdd_meets_15": false
+    },
+    {
+      "book": "E22_v2s_formal",
+      "cagr": 0.1378,
+      "mdd": -0.2264,
+      "live_path": true,
+      "cagr_gap_to_20_pp": 6.22,
+      "mdd_depth_beyond_15_pp": 7.64,
+      "cagr_meets_20": false,
+      "mdd_meets_15": false
+    },
+    {
+      "book": "PAPER_CORE80_OVL20_stitch",
+      "cagr": 0.204273,
+      "mdd": -0.239566,
+      "live_path": false,
+      "note": "research stitch; overlay not live-eligible",
+      "cagr_gap_to_20_pp": -0.43,
+      "mdd_depth_beyond_15_pp": 8.96,
+      "cagr_meets_20": true,
+      "mdd_meets_15": false
+    }
+  ],
+  "concentration": {
+    "n_days": 3603,
+    "start": "2011-12-01",
+    "end": "2026-09-04",
+    "financial": {
+      "mean": 0.7980753983577771,
+      "median": 0.8212993755284163,
+      "p10": 0.6617335131994566,
+      "p25": 0.7773045098918613,
+      "p75": 0.8508189892349773,
+      "p90": 0.8806785752751045,
+      "min": 0.5801505433716284,
+      "max": 0.9194479273989314,
+      "pct_ge_070": 0.835970024979184,
+      "pct_ge_080": 0.6408548431862336,
+      "pct_ge_085": 0.2517346655564807,
+      "hard_clip": [
+        0.5,
+        0.95
+      ],
+      "bull_prior": 0.85,
+      "crisis_prior": 0.6
+    },
+    "telecom": {
+      "mean": 0.12221847715339487,
+      "median": 0.0688327776239098,
+      "min": 0.029516693446735093,
+      "max": 0.36517591738934024
+    },
+    "etf_0050": {
+      "mean": 0.07970612448882788,
+      "median": 0.0818246306392231,
+      "min": 3.468540489966271e-05,
+      "max": 0.17061558449142286
+    },
+    "sleeve_return_corr": {
+      "Financial_Telecom": 0.402029955945961,
+      "Financial_0050": 0.5931271827311184,
+      "Telecom_0050": 0.24247260559278208
+    },
+    "during_fin_dd_le_10pct": {
+      "n_days": 355,
+      "mean_financial_w": 0.6571599681126241,
+      "mean_telecom_w": 0.3051807431226965,
+      "mean_0050_w": 0.03765928876467932
+    }
+  }
+}

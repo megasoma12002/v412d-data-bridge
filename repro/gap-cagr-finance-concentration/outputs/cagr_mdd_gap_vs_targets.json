@@ -1,0 +1,43 @@
+[
+  {
+    "book": "E16_E18_NO_DIV",
+    "cagr": 0.0729,
+    "mdd": -0.2277,
+    "live_path": true,
+    "cagr_gap_to_20_pp": 12.71,
+    "mdd_depth_beyond_15_pp": 7.77,
+    "cagr_meets_20": false,
+    "mdd_meets_15": false
+  },
+  {
+    "book": "E22_v2_cash",
+    "cagr": 0.1125,
+    "mdd": -0.2211,
+    "live_path": false,
+    "cagr_gap_to_20_pp": 8.75,
+    "mdd_depth_beyond_15_pp": 7.11,
+    "cagr_meets_20": false,
+    "mdd_meets_15": false
+  },
+  {
+    "book": "E22_v2s_formal",
+    "cagr": 0.1378,
+    "mdd": -0.2264,
+    "live_path": true,
+    "cagr_gap_to_20_pp": 6.22,
+    "mdd_depth_beyond_15_pp": 7.64,
+    "cagr_meets_20": false,
+    "mdd_meets_15": false
+  },
+  {
+    "book": "PAPER_CORE80_OVL20_stitch",
+    "cagr": 0.204273,
+    "mdd": -0.239566,
+    "live_path": false,
+    "note": "research stitch; overlay not live-eligible",
+    "cagr_gap_to_20_pp": -0.43,
+    "mdd_depth_beyond_15_pp": 8.96,
+    "cagr_meets_20": true,
+    "mdd_meets_15": false
+  }
+]

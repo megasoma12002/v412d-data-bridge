@@ -1,6 +1,6 @@
 # Strategy Debt Board
 
-Date: 2026-09-04 (updated after #35 merge + Stage-8 archive)  
+Date: 2026-09-05 (CAGR/MDD + finance-concentration research)  
 Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.
 
 ## Now / Next / Later / Won’t
