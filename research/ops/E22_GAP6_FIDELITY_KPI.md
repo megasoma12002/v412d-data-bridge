@@ -1,11 +1,11 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-05T08:01:13.742609+00:00`
-Status: **OPS / RESEARCH** — Soft-Frozen unchanged; no cutover; no odd-lot promote.
+Generated: `2026-09-05T14:30:05.031422+00:00`
+Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED** to E22_v2s_tw (forward-only).
 
 ## Code wire
 
-- Default books: **`E22_v2s`** (expect `E22_v2s`)
+- Default books: **`E22_v2s_tw`** (expect `E22_v2s_tw`)
 - E21 imports/apply: **True** / **True**
 - Formal status wired: **True**
 - Code OK: **True**
@@ -38,7 +38,7 @@ Status: **OPS / RESEARCH** — Soft-Frozen unchanged; no cutover; no odd-lot pro
 
 ## Odd-lot (`E22_v2s_tw`)
 
-- Status: **DEFERRED** — default remains `E22_v2s`
+- Status: **PROMOTED** — formal default `E22_v2s_tw`
 - Promote checklist: `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`
 
 ## Flags

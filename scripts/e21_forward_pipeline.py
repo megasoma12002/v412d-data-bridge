@@ -3,7 +3,7 @@
 
 Formal price split:
   - E16 signals: adj_close
-  - Books / fills / NAV: raw open/close + E22_v2s dividend accounting
+  - Books / fills / NAV: raw open/close + E22_v2s_tw dividend accounting (odd-lot TW practice)
 """
 import argparse, hashlib, json, sys
 from datetime import datetime, timezone
@@ -24,7 +24,7 @@ SELL_FEE = 0.001425 * 0.6
 TAX_STOCK = 0.003
 TAX_ETF = 0.001
 SLIP = 0.0005
-E22_BOOKS_VERSION = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s formal books
+E22_BOOKS_VERSION = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw (odd-lot TW practice; promoted 2026-09-05)
 DIV_PATH = Path("data/dividend_events/e22_dividend_events.csv")
 
 

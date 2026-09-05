@@ -1,18 +1,18 @@
 {
-  "generated_at_utc": "2026-09-05T08:01:13.742609+00:00",
+  "generated_at_utc": "2026-09-05T14:30:05.031422+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
-  "formal_books": "E22_v2s",
+  "formal_books": "E22_v2s_tw",
   "code_wire": {
-    "default_books_version": "E22_v2s",
-    "default_is_e22_v2s": true,
+    "default_books_version": "E22_v2s_tw",
+    "default_is_e22_v2s": false,
     "e21_imports_e22_module": true,
     "e21_calls_apply_dividends": true,
     "e21_references_books_version": true,
     "formal_status_wired_e21": true,
     "tw_variant_named": "E22_v2s_tw",
-    "tw_is_default": false,
+    "tw_is_default": true,
     "code_ok": true
   },
   "live_ledger": {
@@ -63,12 +63,13 @@
     "note": "No dividends_applied.csv yet \u2014 tax sensitivity deferred until live applies cash events."
   },
   "odd_lot": {
-    "status": "DEFERRED",
-    "formal_default": "E22_v2s",
+    "status": "PROMOTED",
+    "formal_default": "E22_v2s_tw",
     "named_tw_variant": "E22_v2s_tw",
     "promote_checklist": "research/ops/ODD_LOT_PROMOTE_CHECKLIST.md",
     "closeout": "research/e22/GAP65_ODD_LOT_CLOSEOUT.md",
-    "do_not_set_default_without_human_pr": true
+    "human_ballot": "ACCEPT promote 2026-09-05",
+    "do_not_set_default_without_human_pr": false
   },
   "gap_refs": {
     "brief": "research/e22/EXECUTION_DETAIL_GAP6_BRIEF.md",

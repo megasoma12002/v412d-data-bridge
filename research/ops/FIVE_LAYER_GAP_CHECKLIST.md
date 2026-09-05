@@ -10,7 +10,7 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 
 | Item | Status | Notes |
 |---|---|---|
-| Live = Soft-Frozen core only (E16+E18+E22_v2s) | **DONE** | |
+| Live = Soft-Frozen core only (E16+E18+E22_v2s_tw) | **DONE** | odd-lot TW practice promoted 2026-09-05 |
 | Paper sleeves split (FIN50 / L4 / Track A / BLEND_025) | **DONE** | BLEND_025 observe opened |
 | Cutover checklists (prep only) | **DONE** | `CUTOVER_CHECKLIST_{L4,FIN50,BLEND025}.md` (BLEND **NOT AUTHORIZED**) |
 | L4 YTD/1y clean for cutover | **OPEN** | PAUSE_REVIEW — observe; cutover **DEFER** (register #4) |
@@ -45,7 +45,7 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 | E22 payment/ex-date completeness KPI | **DONE** | blank rates 0% |
 | Gap #6 fidelity KPI | **DONE** | |
 | Live ledger E22 field evidence | **PARTIAL** | code ready; runbook: `POST_FORWARD_E22_VERIFY_RUNBOOK.md`; wait weekday forward |
-| TW odd-lot variant promote | **DEFERRED** | decision pack drafted — awaiting human ACCEPT promote |
+| TW odd-lot variant promote | **DONE** | human ACCEPT promote 2026-09-05; DEFAULT=`E22_v2s_tw` forward-only |
 | Receivable / pay-date books / div tax as formal | **DEFERRED** | charter drafted `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` |
 
 ## Layer 4 — Governance / docs
@@ -83,5 +83,5 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 2. Next weekday forward → run E22 verify runbook  
 3. BLEND_025 sustained trailing (checklist draft ≠ promote)
 
-**Not OPEN for auto-work:** Soft-Frozen flip, L4/FIN50/BLEND_025 live cutover, odd-lot default promote.  
+**Not OPEN for auto-work:** Soft-Frozen flip, L4/FIN50/BLEND_025 live cutover, tax/receivable formal books, E45 live stitch.  
 **Do not re-open without register triggers:** FIN50 static cutover while `NOT_READY_SEALED_CAGR`.

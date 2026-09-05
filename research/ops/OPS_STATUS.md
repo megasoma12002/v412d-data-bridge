@@ -11,7 +11,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
 | Item | Value |
 |---|---|
-| Stack | **E16 + Exact T+1 E18 + E22_v2s** |
+| Stack | **E16 + Exact T+1 E18 + E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05) |
 | Path | `forward/e21/` |
 | Clip | Financial **[0.50, 0.95]** via `scripts/e16_soft_frozen_base.py` |
 | Daily job | `.github/workflows/v412f-forward-paper.yml` (weekdays) |
@@ -46,12 +46,12 @@ Gap #6 fidelity: `research/ops/E22_GAP6_FIDELITY_KPI.md`
 Data-source resilience: `research/ops/DATA_SOURCE_RESILIENCE.md`  
 Data-source resilience KPI: `research/ops/DATA_SOURCE_RESILIENCE_KPI.md`  
 Data-source shadow reconcile (Phase B): `research/ops/DATA_SOURCE_SHADOW_RECONCILE.md`  
-Odd-lot promote (DEFERRED): `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`  
-Odd-lot promote decision pack (awaiting human): `research/ops/ODD_LOT_PROMOTE_DECISION_PACK.md`  
-Par-value lookup charter (blocks odd-lot promote): `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`  
+Odd-lot promote (**PROMOTED** 2026-09-05): `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`  
+Odd-lot promote decision pack (**ACCEPT promote**): `research/ops/ODD_LOT_PROMOTE_DECISION_PACK.md`  
+Par-value lookup charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`  
 Par-value inventory: `research/ops/PAR_VALUE_INVENTORY.md` · `data/corporate_actions/par_value_by_code.csv`  
-Tax/receivable formal books charter (draft): `research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md`  
-E45 live-stitch charter (draft, not accepted): `research/ops/E45_LIVE_STITCH_CHARTER.md`  
+Tax/receivable formal books charter (draft — Register #6 Item 2 NEXT): `research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md`  
+E45 live-stitch charter (draft, not accepted — Item 3 QUEUED): `research/ops/E45_LIVE_STITCH_CHARTER.md`  
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
