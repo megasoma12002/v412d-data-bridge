@@ -107,14 +107,14 @@ Goal of this charter: design and stage that convergence **without** promoting an
 
 ### Phase 1 — Cadence without cutover
 
-- Month-end workflow (manual `workflow_dispatch` first; optional monthly cron later) that runs:
-  1. L4 dual-paper refresh + month-end monitor  
-  2. FIN50 dual-paper refresh + month-end monitor  
+- [x] Month-end workflow (`ops-month-end-paper-pack.yml`, `workflow_dispatch` + monthly cron) via `scripts/ops_month_end_paper_pack.py`
+  1. L4 month-end monitor (optional ledger refresh)  
+  2. FIN50 month-end monitor (optional ledger refresh)  
   3. Track A monitor bootstrap  
-  4. Writes/updates `research/gaps/*` + opens summary comment — **never** edits Soft-Frozen
-- Live QC smoke workflow (qc-only on `forward/e21`)
+  4. Live↔paper recon + `research/ops/MONTH_END_PAPER_PACK.*` — **never** edits Soft-Frozen
+- [x] Live QC smoke workflow (`e21-live-qc-smoke.yml`, qc-only on `forward/e21`)
 
-**Exit:** one button / schedule produces all three paper monitors.
+**Exit:** one button / schedule produces all three paper monitors + recon. Soft-Frozen unchanged. No auto cutover.
 
 ### Phase 2 — Ops hygiene
 

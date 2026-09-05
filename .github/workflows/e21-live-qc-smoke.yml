@@ -1,0 +1,58 @@
+name: E21 Live QC Smoke
+
+# Fail-closed Exact T+1 QC on existing forward/e21 tree.
+# Does NOT rebuild market data, does NOT flip Soft-Frozen, does NOT cutover.
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "scripts/e21_qc.py"
+      - "scripts/e21_forward_pipeline.py"
+      - "scripts/e16_soft_frozen_base.py"
+      - "forward/e21/**"
+      - ".github/workflows/e21-live-qc-smoke.yml"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/e21_qc.py"
+      - "scripts/e21_forward_pipeline.py"
+      - "scripts/e16_soft_frozen_base.py"
+      - "forward/e21/**"
+      - ".github/workflows/e21-live-qc-smoke.yml"
+
+concurrency:
+  group: e21-live-qc-smoke
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  live-qc-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --disable-pip-version-check pandas
+      - name: Fail-closed E21 QC (canonical forward/e21)
+        run: python3 scripts/e21_qc.py --state-dir forward/e21
+      - name: Show qc_status.json (Exact T+1 fields)
+        if: always()
+        run: |
+          set -euo pipefail
+          test -f forward/e21/qc_status.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          q = json.loads(Path("forward/e21/qc_status.json").read_text())
+          keep = {k: q.get(k) for k in ("status", "exact_t1_ok", "same_bar_fills", "fills_checked", "live_wire")}
+          print(json.dumps(keep, indent=2))
+          if q.get("status") == "PASS":
+              assert q.get("exact_t1_ok") is True
+          else:
+              raise SystemExit("QC status FAIL")
+          PY

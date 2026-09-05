@@ -1,6 +1,6 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-05  
+Date: 2026-09-05 (Phase 1 cadence wired)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 
@@ -12,6 +12,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 | Path | `forward/e21/` |
 | Clip | Financial **[0.50, 0.95]** via `scripts/e16_soft_frozen_base.py` |
 | Daily job | `.github/workflows/v412f-forward-paper.yml` (weekdays) |
+| QC smoke | `.github/workflows/e21-live-qc-smoke.yml` |
 | QC | `scripts/e21_qc.py` → `forward/e21/qc_status.json` |
 
 **Not live:** E45, E50-A overlay, FIN_CAP_50, L4_DD_PATH, Track A/B, E6/E9/E10 shadows.
@@ -25,21 +26,29 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 | Track A S9A1 | KEEP (paper/monitor) | N/A — not a live cutover path |
 | Track B S1 | STOP | Closed |
 
+## Cadence (Phase 1)
+
+| Cadence | How |
+|---|---|
+| Daily live | Existing `v412f-forward-paper` weekday job |
+| Live QC smoke | `e21-live-qc-smoke` on PR/push touching live path, or `workflow_dispatch` |
+| Month-end paper pack | `ops-month-end-paper-pack` — `workflow_dispatch` (preferred) or cron 1st of month UTC |
+| Live↔paper recon | Included in month-end pack; also `python3 scripts/e21_live_vs_paper_recon.py` |
+
 ## Commands (operator cheat-sheet)
 
 ```bash
 # Live QC only (no data rebuild)
 python3 scripts/e21_qc.py --state-dir forward/e21
 
-# Live ↔ Soft-Frozen paper BASE recon (research)
-python3 scripts/e21_live_vs_paper_recon.py
+# One-button month-end paper pack (monitors + recon; Soft-Frozen untouched)
+python3 scripts/ops_month_end_paper_pack.py
 
-# Month-end paper pack (manual until Phase-1 workflow)
-python3 scripts/e16_l4_dd_path_dual_paper_ledgers.py
-python3 scripts/e16_l4_dd_path_month_end_monitor.py
-python3 scripts/e16_fincap50_dual_paper_ledgers.py
-python3 scripts/e16_fincap50_month_end_monitor.py
-python3 scripts/e50a_dual_track_s9a1_monitor.py
+# Slow path: also rebuild dual-paper ledgers first
+python3 scripts/ops_month_end_paper_pack.py --refresh-ledgers
+
+# Live ↔ Soft-Frozen paper BASE recon only
+python3 scripts/e21_live_vs_paper_recon.py
 ```
 
 ## Authority
@@ -55,3 +64,4 @@ python3 scripts/e50a_dual_track_s9a1_monitor.py
 - Dual-paper / held-out PASS ≠ cutover  
 - Never rewrite `forward/e21` history  
 - MTD annualized CAGR is **display-only**, not a cutover gate  
+- Strategy merge (L4 / FIN50 / alpha / E45) stays **human cutover-gated** — not part of this cadence  

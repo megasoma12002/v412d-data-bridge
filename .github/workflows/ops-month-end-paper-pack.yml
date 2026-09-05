@@ -1,0 +1,93 @@
+name: Ops Month-End Paper Pack
+
+# Cadence pack for L4 / FIN50 / Track A monitors + live↔paper recon.
+# RESEARCH / OPS only. Never Soft-Frozen flip. Never auto cutover.
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh_ledgers:
+        description: "Also rebuild L4/FIN50 dual-paper ledgers (slow)"
+        type: boolean
+        default: false
+      continue_on_error:
+        description: "Continue remaining steps after a failure"
+        type: boolean
+        default: false
+  # Optional monthly reminder window (UTC). Prefer workflow_dispatch for first months.
+  schedule:
+    - cron: "0 9 1 * *"  # 09:00 UTC on the 1st (~17:00 Asia/Taipei)
+
+concurrency:
+  group: ops-month-end-paper-pack
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  month-end-paper-pack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --disable-pip-version-check numpy pandas
+      - name: Run month-end paper pack
+        env:
+          REFRESH: ${{ inputs.refresh_ledgers || false }}
+          CONT: ${{ inputs.continue_on_error || false }}
+        run: |
+          set -euo pipefail
+          args=()
+          if [ "${REFRESH}" = "true" ]; then args+=(--refresh-ledgers); fi
+          if [ "${CONT}" = "true" ]; then args+=(--continue-on-error); fi
+          python3 scripts/ops_month_end_paper_pack.py "${args[@]+"${args[@]}"}"
+      - name: Upload ops summary artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ops-month-end-paper-pack-${{ github.run_number }}
+          path: |
+            research/ops/MONTH_END_PAPER_PACK.md
+            research/ops/MONTH_END_PAPER_PACK.json
+            research/ops/LIVE_PAPER_RECON.md
+            research/ops/LIVE_PAPER_RECON.json
+            research/gaps/L4_DD_PATH_MONTH_END_MONITOR.md
+            research/gaps/L4_DD_PATH_MONTH_END_MONITOR.json
+            research/gaps/FIN_CAP_50_MONTH_END_MONITOR.md
+            research/gaps/FIN_CAP_50_MONTH_END_MONITOR.json
+            research/e50a/TRACK_A_S9A1_MONITOR_STATUS.md
+            research/e50a/TRACK_A_S9A1_MONITOR_STATUS.json
+          retention-days: 90
+          if-no-files-found: warn
+      - name: Commit monitor refreshes (no Soft-Frozen / no forward rewrite policy)
+        if: success()
+        run: |
+          set -euo pipefail
+          git config user.name "ops-month-end-bot"
+          git config user.email "actions@users.noreply.github.com"
+          # Paper/ops artifacts only — never touch Soft-Frozen source or invent cutover.
+          git add \
+            research/ops/ \
+            research/gaps/L4_DD_PATH_MONTH_END_MONITOR.md \
+            research/gaps/L4_DD_PATH_MONTH_END_MONITOR.json \
+            research/gaps/FIN_CAP_50_MONTH_END_MONITOR.md \
+            research/gaps/FIN_CAP_50_MONTH_END_MONITOR.json \
+            research/e50a/TRACK_A_S9A1_MONITOR_STATUS.md \
+            research/e50a/TRACK_A_S9A1_MONITOR_STATUS.json \
+            repro/l4-dd-path-dual-paper/month_end/ \
+            repro/fincap50-dual-paper/month_end/ \
+            repro/e50a-dual-track/track_a_s9a1_monitor/ \
+            || true
+          if git diff --cached --quiet; then
+            echo "No monitor artifact changes to commit."
+            exit 0
+          fi
+          git commit -m "ops: month-end paper pack refresh (Soft-Frozen unchanged)"
+          git pull --rebase
+          git push

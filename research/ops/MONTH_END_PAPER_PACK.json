@@ -1,0 +1,35 @@
+{
+  "generated_at_utc": "2026-09-05T06:42:59.296315+00:00",
+  "label": "OPS_MONTH_END_PAPER_PACK",
+  "live_wire": false,
+  "soft_frozen_clip": [
+    0.5,
+    0.95
+  ],
+  "soft_frozen_unchanged": true,
+  "refresh_ledgers": false,
+  "all_ok": true,
+  "steps": [
+    {
+      "name": "l4_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "fincap50_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "track_a_s9a1",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "live_paper_recon",
+      "ok": true,
+      "returncode": 0
+    }
+  ],
+  "cutover_note": "Paper/ops cadence only. Soft-Frozen [0.50,0.95] unchanged. FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated."
+}

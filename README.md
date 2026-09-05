@@ -8,6 +8,8 @@ Research continuation of the V4.12 / E50 program.
 |---|---|
 | **Ops / what is live** | `research/ops/OPS_STATUS.md` |
 | **Ops convergence plan** | `research/ops/OPS_CONVERGENCE_CHARTER.md` |
+| **Month-end paper pack** | `scripts/ops_month_end_paper_pack.py` / workflow `ops-month-end-paper-pack` |
+| **Live QC smoke** | workflow `e21-live-qc-smoke` |
 | **Now / Next / cutover matrix** | `research/STRATEGY_DEBT_BOARD.md` |
 | Governance (class ≠ live) | `FROZEN_GOVERNANCE.md` |
 | Role architecture (not live wiring) | `FROZEN_STRATEGY_SPEC.md` |
