@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T09:20:47.641895+00:00",
+  "generated_at_utc": "2026-09-05T09:32:51.304067+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -10,7 +10,7 @@
   "overall": "HIGH",
   "n_critical": 0,
   "n_high": 3,
-  "n_info": 12,
+  "n_info": 13,
   "alerts": [
     {
       "severity": "HIGH",
@@ -98,9 +98,15 @@
     },
     {
       "severity": "INFO",
-      "source": "data_source_resilience_kpi",
-      "code": "SINGLE_POINT_STREAMS",
-      "message": "n_critical_without_backup=5; flags=['SINGLE_POINT:fin12_history_ohlcv', 'SINGLE_POINT:fin12_recent_ohlcv', 'SINGLE_POINT:taiex', 'SINGLE_POINT:adj_corporate_actions', 'SINGLE_POINT:dividend_amount_ex']"
+      "source": "data_source_phase_c_probes",
+      "code": "PHASE_C_C1_FIN12_HISTORY_SHADOW_NOTE",
+      "message": "INFO_DRIFT on 1 ticker(s); flag-only, no overwrite"
+    },
+    {
+      "severity": "INFO",
+      "source": "data_source_phase_c_probes",
+      "code": "PHASE_C_C3_TAIEX_OPTIONAL_FAILOVER_NOTE",
+      "message": "Helper is opt-in only; e21 still uses FinMind TaiwanStockPrice(TAIEX)."
     }
   ],
   "routing_note": "Annotate CI job summary / upload OPS_ALERTS.* as artifact. HIGH=PAUSE_REVIEW blocks cutover talk only. CRITICAL fails live QC smoke."

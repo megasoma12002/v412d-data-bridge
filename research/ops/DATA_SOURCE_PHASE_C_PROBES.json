@@ -1,0 +1,222 @@
+{
+  "as_of": "2026-09-05",
+  "generated_at_utc": "2026-09-05T09:31:06.314185+00:00",
+  "label": "DATA_SOURCE_PHASE_C_PROBES",
+  "overall_status": "PASS",
+  "live_wire": false,
+  "soft_frozen_unchanged": true,
+  "probes": {
+    "C1_fin12_history_shadow": {
+      "probe": "C1_fin12_history_shadow",
+      "primary": "forward/e21/live_market.csv close",
+      "shadow": "Yahoo .TW Close",
+      "window_start": "2011-12-01",
+      "tickers": {
+        "2880": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 0.00023146976868109628,
+          "corr": 0.9705018054342648
+        },
+        "2886": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 0.00012325288348589072,
+          "corr": 0.993071404453333
+        },
+        "2892": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 0.00024204448765826166,
+          "corr": 0.96042286679455
+        },
+        "5880": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 0.00024820372074302565,
+          "corr": 0.9534301920289994
+        },
+        "2412": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 5.5609894896538114e-05,
+          "corr": 0.9953264652957886
+        },
+        "3045": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 7.72276657766677e-05,
+          "corr": 0.99717152978101
+        },
+        "4904": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 6.509072951286878e-05,
+          "corr": 0.9971764790311751
+        },
+        "0050": {
+          "status": "DRIFT",
+          "n": 3585,
+          "mean_abs_return_diff": 0.00045689810130909866,
+          "corr": 0.46793833944358587
+        }
+      },
+      "n_ok": 7,
+      "n_drift": 1,
+      "mean_abs_return_diff": 0.00018747465650793095,
+      "mean_corr": 0.9168798852828384,
+      "thresholds": {
+        "mean_abs_return_diff_max": 0.008,
+        "corr_min": 0.95
+      },
+      "detail_csv": "repro/data-source-phase-c/c1_fin12_history_returns.csv",
+      "note": "INFO_DRIFT on 1 ticker(s); flag-only, no overwrite",
+      "gate": {
+        "status": "PASS",
+        "reason": ""
+      }
+    },
+    "C2_adj_corporate_action_shadow": {
+      "probe": "C2_adj_corporate_action_shadow",
+      "primary": "forward/e21/live_market.csv adj_close",
+      "shadow": "Yahoo .TW Adj Close",
+      "window_start": "2011-12-01",
+      "tickers": {
+        "2880": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 9.212446571704272e-05,
+          "corr": 0.9945640085857782
+        },
+        "2886": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 9.90505450715854e-05,
+          "corr": 0.994336524566507
+        },
+        "2892": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 0.00011317428763742272,
+          "corr": 0.9881523388989416
+        },
+        "5880": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 9.5772465749226e-05,
+          "corr": 0.9903602260660544
+        },
+        "2412": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 7.09110073518356e-05,
+          "corr": 0.9854322580292139
+        },
+        "3045": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 7.831078904875796e-05,
+          "corr": 0.9968114657363086
+        },
+        "4904": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 7.823160485213087e-05,
+          "corr": 0.995023997602771
+        },
+        "0050": {
+          "status": "OK",
+          "n": 3585,
+          "mean_abs_return_diff": 0.0002781433174559121,
+          "corr": 0.6836344781225113
+        }
+      },
+      "n_ok": 8,
+      "mean_abs_return_diff": 0.00011321481036048917,
+      "drift_warn_threshold": 0.015,
+      "detail_csv": "repro/data-source-phase-c/c2_adj_returns.csv",
+      "note": "",
+      "gate": {
+        "status": "PASS",
+        "reason": ""
+      }
+    },
+    "C3_taiex_optional_failover": {
+      "probe": "C3_taiex_optional_failover",
+      "helper": "scripts/taiex_fetch_with_failover.py",
+      "default_unchanged": true,
+      "note": "Helper is opt-in only; e21 still uses FinMind TaiwanStockPrice(TAIEX).",
+      "primary": {
+        "returncode": 0,
+        "meta": {
+          "start": "2024-01-01",
+          "enable_yahoo_failover": false,
+          "force_yahoo": false,
+          "primary_attempt": "finmind",
+          "failover_used": false,
+          "source": "finmind_TAIEX",
+          "error_primary": null,
+          "generated_at_utc": "2026-09-05T09:31:05.103454+00:00",
+          "n_rows": 648,
+          "out": "repro/data-source-phase-c/taiex_primary_dryrun.csv",
+          "soft_frozen_unchanged": true,
+          "e21_default_unchanged": true,
+          "note": "Opt-in tool only; e21 forward does not auto-call this without human wiring PR"
+        },
+        "stderr_tail": "",
+        "n_rows": 648
+      },
+      "failover_on_finmind_fail": {
+        "returncode": 0,
+        "meta": {
+          "start": "2024-01-01",
+          "enable_yahoo_failover": true,
+          "force_yahoo": false,
+          "primary_attempt": "finmind",
+          "failover_used": true,
+          "source": "yahoo_^TWII",
+          "error_primary": "RuntimeError:simulated_finmind_failure",
+          "generated_at_utc": "2026-09-05T09:31:05.646862+00:00",
+          "n_rows": 648,
+          "out": "repro/data-source-phase-c/taiex_failover_dryrun.csv",
+          "soft_frozen_unchanged": true,
+          "e21_default_unchanged": true,
+          "note": "Opt-in tool only; e21 forward does not auto-call this without human wiring PR"
+        },
+        "stderr_tail": "",
+        "n_rows": 648
+      },
+      "force_yahoo": {
+        "returncode": 0,
+        "meta": {
+          "start": "2024-01-01",
+          "enable_yahoo_failover": false,
+          "force_yahoo": true,
+          "primary_attempt": "yahoo_forced",
+          "failover_used": false,
+          "source": "yahoo_^TWII",
+          "error_primary": null,
+          "generated_at_utc": "2026-09-05T09:31:06.249358+00:00",
+          "n_rows": 648,
+          "out": "repro/data-source-phase-c/taiex_force_yahoo_dryrun.csv",
+          "soft_frozen_unchanged": true,
+          "e21_default_unchanged": true,
+          "note": "Opt-in tool only; e21 forward does not auto-call this without human wiring PR"
+        },
+        "stderr_tail": "",
+        "n_rows": 648
+      },
+      "gate": {
+        "status": "PASS",
+        "reason": ""
+      }
+    }
+  },
+  "constraints": {
+    "soft_frozen_keep": true,
+    "no_e21_history_rewrite": true,
+    "no_blocked_scrapers": true,
+    "taiex_failover_opt_in_only": true
+  },
+  "authority": "research/ops/DATA_SOURCE_RESILIENCE_PHASE_C_CHARTER.md"
+}

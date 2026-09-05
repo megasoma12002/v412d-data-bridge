@@ -1,0 +1,15 @@
+{
+  "start": "2024-01-01",
+  "enable_yahoo_failover": false,
+  "force_yahoo": true,
+  "primary_attempt": "yahoo_forced",
+  "failover_used": false,
+  "source": "yahoo_^TWII",
+  "error_primary": null,
+  "generated_at_utc": "2026-09-05T09:31:06.249358+00:00",
+  "n_rows": 648,
+  "out": "repro/data-source-phase-c/taiex_force_yahoo_dryrun.csv",
+  "soft_frozen_unchanged": true,
+  "e21_default_unchanged": true,
+  "note": "Opt-in tool only; e21 forward does not auto-call this without human wiring PR"
+}

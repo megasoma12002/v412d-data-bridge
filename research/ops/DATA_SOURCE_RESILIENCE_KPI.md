@@ -1,41 +1,35 @@
 # Data Source Resilience KPI
 
-Generated: `2026-09-05T09:20:47.399005+00:00`
+Generated: `2026-09-05T09:31:08.924404+00:00`
 Status: **OPS** — Soft-Frozen unchanged; no live-wire.
 
 - Critical streams: **7**
-- Critical **without** backup: **5**
-- Grade A / D: **2** / **4**
+- Critical **without** backup: **0**
+- Grade A / D: **2** / **1**
 - `kpi_ok`: **True** (fails only on payment-date backup regression)
+- Phase C probes: **PASS** (`phase_c_done=True`)
 
 | Stream | Grade | Primary | Backup | Critical |
 |---|:---:|---|---|:---:|
-| Fin-12 history OHLCV | D | `github_tw_stock_data_release` | — | Y |
-| Fin-12 recent OHLCV | B | `twse_mi_index` | — | Y |
+| Fin-12 history OHLCV | C | `github_tw_stock_data_release` | `yahoo_tw_shadow_phase_c` | Y |
+| Fin-12 recent OHLCV | B | `twse_mi_index` | `yahoo_tw_shadow_phase_b` | Y |
 | Telecom / 0050 raw OHLCV | A | `finmind_taiwan_stock_price` | `yahoo_finance` | Y |
-| TAIEX | D | `finmind_taiwan_stock_price_TAIEX` | — | Y |
-| Adj / corporate-action factors | D | `finmind_div_result_capred_split` | — | Y |
-| Dividend amount / ex-date | C | `finmind_taiwan_stock_dividend` | — | Y |
+| TAIEX | C | `finmind_taiwan_stock_price_TAIEX` | `yahoo_twii_opt_in_failover` | Y |
+| Adj / corporate-action factors | C | `live_market_adj_close` | `yahoo_adj_close_shadow_phase_c` | Y |
+| Dividend amount / ex-date | B | `finmind_taiwan_stock_dividend` | `yahoo_amount_shadow_phase_b` | Y |
 | Dividend payment date | A | `finmind_then_mops` | `yahoo_tw_quote_dividend` | Y |
 | E50 fundamentals | D | `finmind` | — | n |
 
 ## Flags
 
-- `SINGLE_POINT:fin12_history_ohlcv`
-- `SINGLE_POINT:fin12_recent_ohlcv`
-- `SINGLE_POINT:taiex`
-- `SINGLE_POINT:adj_corporate_actions`
-- `SINGLE_POINT:dividend_amount_ex`
+- None
 
 ## Phase status
 
 - Phase A: **DONE**
 - Phase B: **DONE** (`research/ops/DATA_SOURCE_SHADOW_RECONCILE.json`)
+- Phase C: **DONE** (`research/ops/DATA_SOURCE_PHASE_C_PROBES.json`; overall=PASS)
 
-## Phase C next
-
-- Second vendor for full Fin-12 history (charter)
-- Corporate-action factor dual source (research)
-- Optional runtime TAIEX failover (today shadow-only)
+Prep DONE when probes PASS; TAIEX Yahoo failover remains opt-in (not silent e21 primary switch)
 
 Authority: `research/ops/DATA_SOURCE_RESILIENCE.md`

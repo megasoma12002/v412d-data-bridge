@@ -1,38 +1,42 @@
 {
-  "generated_at_utc": "2026-09-05T09:20:47.399005+00:00",
+  "generated_at_utc": "2026-09-05T09:31:08.924404+00:00",
   "label": "DATA_SOURCE_RESILIENCE_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
   "authority": "research/ops/DATA_SOURCE_RESILIENCE.md",
   "n_streams": 8,
   "n_critical": 7,
-  "n_critical_without_backup": 5,
+  "n_critical_without_backup": 0,
   "n_grade_a": 2,
-  "n_grade_d": 4,
+  "n_grade_d": 1,
   "streams": [
     {
       "id": "fin12_history_ohlcv",
       "label": "Fin-12 history OHLCV",
       "primary": "github_tw_stock_data_release",
-      "backup": null,
-      "grade": "D",
+      "backup": "yahoo_tw_shadow_phase_c",
+      "grade": "C",
       "critical_for_live": true,
-      "notes": "TWSE covers recent append only (~14d), not full history backup",
-      "has_backup": false,
-      "evidence_present": null,
-      "backup_script_present": null
+      "notes": "Primary still GitHub archive; Phase C Yahoo .TW return shadow (flag-only, not runtime failover)",
+      "backup_script": "scripts/data_source_phase_c_probes.py",
+      "evidence": "research/ops/DATA_SOURCE_PHASE_C_PROBES.json",
+      "has_backup": true,
+      "evidence_present": true,
+      "backup_script_present": true
     },
     {
       "id": "fin12_recent_ohlcv",
       "label": "Fin-12 recent OHLCV",
       "primary": "twse_mi_index",
-      "backup": null,
+      "backup": "yahoo_tw_shadow_phase_b",
       "grade": "B",
       "critical_for_live": true,
-      "notes": "scripts/v412f_append_twse_daily.py + scripts/v412d_twse_spotcheck.py",
-      "has_backup": false,
-      "evidence_present": null,
-      "backup_script_present": null
+      "notes": "scripts/v412f_append_twse_daily.py + Phase B shadow returns gate",
+      "backup_script": "scripts/data_source_shadow_reconcile.py",
+      "evidence": "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json",
+      "has_backup": true,
+      "evidence_present": true,
+      "backup_script_present": true
     },
     {
       "id": "telecom_0050_raw_ohlcv",
@@ -51,38 +55,43 @@
       "id": "taiex",
       "label": "TAIEX",
       "primary": "finmind_taiwan_stock_price_TAIEX",
-      "backup": null,
-      "grade": "D",
+      "backup": "yahoo_twii_opt_in_failover",
+      "grade": "C",
       "critical_for_live": true,
-      "notes": "Regime / L4 DD path depends on TAIEX; no second vendor wired",
-      "has_backup": false,
-      "evidence_present": null,
-      "backup_script_present": null
+      "notes": "Phase B shadow OK; Phase C opt-in helper scripts/taiex_fetch_with_failover.py (e21 default still FinMind)",
+      "backup_script": "scripts/taiex_fetch_with_failover.py",
+      "evidence": "research/ops/DATA_SOURCE_PHASE_C_PROBES.json",
+      "has_backup": true,
+      "evidence_present": true,
+      "backup_script_present": true
     },
     {
       "id": "adj_corporate_actions",
       "label": "Adj / corporate-action factors",
-      "primary": "finmind_div_result_capred_split",
-      "backup": null,
-      "grade": "D",
+      "primary": "live_market_adj_close",
+      "backup": "yahoo_adj_close_shadow_phase_c",
+      "grade": "C",
       "critical_for_live": true,
-      "notes": "Single-vendor adjusted layer",
-      "has_backup": false,
-      "evidence_present": null,
-      "backup_script_present": null
+      "notes": "Phase C adj return shadow vs Yahoo; flag-only, no auto-overwrite",
+      "backup_script": "scripts/data_source_phase_c_probes.py",
+      "evidence": "research/ops/DATA_SOURCE_PHASE_C_PROBES.json",
+      "has_backup": true,
+      "evidence_present": true,
+      "backup_script_present": true
     },
     {
       "id": "dividend_amount_ex",
       "label": "Dividend amount / ex-date",
       "primary": "finmind_taiwan_stock_dividend",
-      "backup": null,
-      "grade": "C",
+      "backup": "yahoo_amount_shadow_phase_b",
+      "grade": "B",
       "critical_for_live": true,
-      "notes": "Payment-date has Yahoo backup; amounts do not",
+      "notes": "Phase B flag-only amount shadow; payment-date has Yahoo runtime backup",
       "evidence": "data/dividend_events/e22_dividend_events.csv",
-      "has_backup": false,
+      "backup_script": "scripts/data_source_shadow_reconcile.py",
+      "has_backup": true,
       "evidence_present": true,
-      "backup_script_present": null
+      "backup_script_present": true
     },
     {
       "id": "dividend_payment_date",
@@ -116,26 +125,20 @@
       "backup_script_present": null
     }
   ],
-  "flags": [
-    "SINGLE_POINT:fin12_history_ohlcv",
-    "SINGLE_POINT:fin12_recent_ohlcv",
-    "SINGLE_POINT:taiex",
-    "SINGLE_POINT:adj_corporate_actions",
-    "SINGLE_POINT:dividend_amount_ex"
-  ],
+  "flags": [],
   "kpi_ok": true,
   "phase_a_done": true,
   "phase_b_done": true,
   "phase_b_artifact": "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json",
-  "phase_c_next": [
-    "Second vendor for full Fin-12 history (charter)",
-    "Corporate-action factor dual source (research)",
-    "Optional runtime TAIEX failover (today shadow-only)"
-  ],
+  "phase_c_done": true,
+  "phase_c_overall": "PASS",
+  "phase_c_artifact": "research/ops/DATA_SOURCE_PHASE_C_PROBES.json",
+  "phase_c_note": "Prep DONE when probes PASS; TAIEX Yahoo failover remains opt-in (not silent e21 primary switch)",
   "do_not": [
     "Treat Goodinfo/Wantgoo/CMoney as payment-date backups",
     "Silent Soft-Frozen flip",
     "Rewrite forward/e21 history",
-    "Auto-overwrite e22 dividend amounts from Yahoo"
+    "Auto-overwrite e22 dividend amounts from Yahoo",
+    "Silent e21 TAIEX primary switch to Yahoo without human PR"
   ]
 }
