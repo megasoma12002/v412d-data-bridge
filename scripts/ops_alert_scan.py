@@ -203,10 +203,25 @@ def main() -> int:
                     "message": f"E22 code wire not OK; flags={gap6.get('flags')}",
                 }
             )
+        if gap6.get("kpi_ok") is False and gap6.get("code_ok") is True:
+            alerts.append(
+                {
+                    "severity": "HIGH",
+                    "source": "e22_gap6_fidelity_kpi",
+                    "code": "GAP6_KPI_BLOCKED_LIVE_EVIDENCE",
+                    "message": (
+                        "kpi_ok=false with code_ok=true — live e22_* fields missing; "
+                        "next forward run must persist fields (no history rewrite)"
+                    ),
+                }
+            )
         for flag in gap6.get("flags") or []:
             sev = "HIGH" if str(flag).startswith("DEFAULT_BOOKS") or "unexpectedly" in str(flag) else "INFO"
-            if flag == "LIVE_LEDGER_E22_FIELDS_MISSING":
-                sev = "INFO"
+            if flag in (
+                "LIVE_LEDGER_E22_FIELDS_MISSING",
+                "KPI_BLOCKED_LIVE_EVIDENCE_MISSING",
+            ):
+                sev = "HIGH"
             alerts.append(
                 {
                     "severity": sev,

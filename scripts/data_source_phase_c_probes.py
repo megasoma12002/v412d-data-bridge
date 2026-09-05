@@ -111,7 +111,11 @@ def probe_c1_fin12_history(live: pd.DataFrame) -> dict[str, Any]:
         drifts.append(mad)
         if not math.isnan(corr):
             corrs.append(corr)
-        ok_ticker = mad <= C1_DRIFT_MAX and (math.isnan(corr) or corr >= C1_CORR_MIN)
+        ok_ticker = (
+            mad <= C1_DRIFT_MAX
+            and (not math.isnan(corr))
+            and corr >= C1_CORR_MIN
+        )
         per[code] = {
             "status": "OK" if ok_ticker else "DRIFT",
             "n": int(len(a)),
@@ -139,11 +143,16 @@ def probe_c1_fin12_history(live: pd.DataFrame) -> dict[str, Any]:
     drift_rows = [v for v in per.values() if v.get("status") == "DRIFT"]
     mean_mad = float(np.mean(drifts)) if drifts else float("nan")
     mean_corr = float(np.mean(corrs)) if corrs else float("nan")
-    # Pass if enough OK tickers; isolated DRIFT is INFO via note
-    passed = len(ok_rows) >= 6 and (math.isnan(mean_mad) or mean_mad <= C1_DRIFT_MAX * 1.5)
+    # Fail-closed: require enough OK tickers AND finite mean MAD within named threshold
+    # (no undocumented 1.5× slack; NaN mean_mad does not pass).
+    passed = (
+        len(ok_rows) >= 6
+        and (not math.isnan(mean_mad))
+        and mean_mad <= C1_DRIFT_MAX
+    )
     note = ""
     if drift_rows:
-        note = f"INFO_DRIFT on {len(drift_rows)} ticker(s); flag-only, no overwrite"
+        note = f"DRIFT on {len(drift_rows)} ticker(s); does not count toward PASS"
     return {
         "probe": "C1_fin12_history_shadow",
         "primary": "forward/e21/live_market.csv close",
@@ -218,13 +227,25 @@ def probe_c2_adj_dual_source(live: pd.DataFrame) -> dict[str, Any]:
             OUT_DIR / "c2_adj_returns.csv", index=False
         )
 
-    covered = [v for v in per.values() if v.get("status") in {"OK", "INFO_DRIFT"}]
+    # Fail-closed: only OK counts toward coverage; INFO_DRIFT must not inflate PASS.
+    covered_ok = [v for v in per.values() if v.get("status") == "OK"]
+    drift_info = [v for v in per.values() if v.get("status") == "INFO_DRIFT"]
     mean_mad = float(np.mean(drifts)) if drifts else float("nan")
-    passed = len(covered) >= 6
+    passed = (
+        len(covered_ok) >= 6
+        and len(drift_info) == 0
+        and (not math.isnan(mean_mad))
+        and mean_mad <= C2_DRIFT_WARN
+    )
     note = ""
-    if covered and not math.isnan(mean_mad) and mean_mad > C2_DRIFT_WARN:
+    if drift_info:
         note = (
-            f"INFO_DRIFT mean_mad={mean_mad:.4f}>{C2_DRIFT_WARN} "
+            f"INFO_DRIFT on {len(drift_info)} ticker(s); excluded from PASS coverage "
+            f"(mean_mad={mean_mad if not math.isnan(mean_mad) else 'nan'})"
+        )
+    elif covered_ok and not math.isnan(mean_mad) and mean_mad > C2_DRIFT_WARN:
+        note = (
+            f"mean_mad={mean_mad:.4f}>{C2_DRIFT_WARN} "
             "(adj methodology may differ; do not auto-overwrite e21)"
         )
     return {
@@ -233,14 +254,15 @@ def probe_c2_adj_dual_source(live: pd.DataFrame) -> dict[str, Any]:
         "shadow": "Yahoo .TW Adj Close",
         "window_start": start,
         "tickers": per,
-        "n_ok": len(covered),
+        "n_ok": len(covered_ok),
+        "n_info_drift": len(drift_info),
         "mean_abs_return_diff": None if math.isnan(mean_mad) else mean_mad,
         "drift_warn_threshold": C2_DRIFT_WARN,
         "detail_csv": "repro/data-source-phase-c/c2_adj_returns.csv",
         "note": note,
         "gate": _status(
             passed,
-            "" if passed else f"n_ok={len(covered)} need>=6 (adj dual-source coverage)",
+            "" if passed else f"n_ok={len(covered_ok)} need>=6 and zero INFO_DRIFT",
         ),
     }
 

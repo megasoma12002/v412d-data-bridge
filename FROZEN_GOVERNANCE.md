@@ -230,7 +230,7 @@ Exact T+1 as a clock remains HARD_FROZEN. Changing fees, tax, slippage, lot poli
 - **E22_v2** (preserved cash-only baseline): credit cash on `cash_ex_date` only.
 - **E22_v2s** (formal books): raw-price NAV; cash on `cash_ex_date`; stock share increase on `stock_ex_date` (`1 + stock_dividend/10`). Signals may still use `adj_close`; never mark books NAV with `adj_close` while also increasing shares.
 
-Canonical module: `scripts/e22_dividend_accounting.py`. Live forward defaults to E22_v2s.
+Canonical module: `scripts/e22_dividend_accounting.py`. Live forward defaults to **E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05). `E22_v2s` remains the non–odd-lot formal books label for comparison only.
 
 Changing dividend cashflow timing (e.g. payment-date credit) or tax treatment beyond these two labeled versions is EXPERIMENTAL and requires a challenger folder.
 
@@ -245,7 +245,7 @@ Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is an E
 #### Official class vs live cutover (read carefully)
 
 - **SOFT_FROZEN / SOFT_FROZEN_CRITICAL** names the *official strategy-version class* (E16 / E18 / E22 / E45). Class membership alone does **not** mean a module is live-wired into the forward book.
-- **Current live cutover default** (ops / debt board): **E16 + E18 + E22_v2s cutover-only**, with live E16 Financial clip **[0.50, 0.95]**. No overlay. No silent Soft-Frozen flip.
+- **Current live cutover default** (ops / debt board): **E16 + E18 + E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05), with live E16 Financial clip **[0.50, 0.95]**. No overlay. No silent Soft-Frozen flip.
 - **E45** remains SOFT_FROZEN_CRITICAL as the official crisis-protection *version*, but it is **not** auto-live-wired. Any live attach requires a separate challenger PASS **and** an explicit human cutover PR. Unverified handoff numbers (including invented −13.16% MDD) must not be treated as PASS evidence.
 - Research challengers (FIN_CAP_50, MDD L1–L4, E50-A overlays) stay EXPERIMENTAL / paper until that human cutover path completes.
 

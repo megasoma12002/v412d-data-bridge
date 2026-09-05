@@ -1,5 +1,10 @@
 # E50-A Attack Layer Integration Brief
 
+> **SUPERSEDED for live-path claims (2026-09-05).**
+> Statements that live is “E16+E18 only” / E22 not applied / MDD=`UNVERIFIED_TEXT_ONLY` are **dated research context**.
+> Current live DEFAULT = **`E22_v2s_tw`**. Prefer `HANDOFF.md` + `research/STRATEGY_DEBT_BOARD.md`.
+
+
 Date: 2026-09-04  
 Branch: `cursor/e50a-exec-gap-research-d049` (based on `main`)  
 Question: how to handle **“E50-A attack layer not connected”** when architecture expects overlay to raise portfolio returns toward **CAGR ≥ 20%**, while E16 alone sits ~**11–14%** and E50-A remains research/not promoted.

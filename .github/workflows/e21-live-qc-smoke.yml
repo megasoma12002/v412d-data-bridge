@@ -60,23 +60,51 @@ jobs:
           else:
               raise SystemExit("QC status FAIL")
           PY
+      - name: E22 Gap #6 fidelity KPI (fail-closed on code wire)
+        if: always()
+        run: |
+          set -euo pipefail
+          set +e
+          python3 scripts/e22_gap6_fidelity_kpi.py
+          rc=$?
+          set -e
+          echo "### E22 Gap #6 fidelity" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f research/ops/E22_GAP6_FIDELITY_KPI.md ]; then
+            cat research/ops/E22_GAP6_FIDELITY_KPI.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          k = json.loads(Path("research/ops/E22_GAP6_FIDELITY_KPI.json").read_text())
+          print(json.dumps({
+              "code_ok": k.get("code_ok"),
+              "live_evidence_ok": k.get("live_evidence_ok"),
+              "kpi_ok": k.get("kpi_ok"),
+              "ci_smoke_ok": k.get("ci_smoke_ok"),
+              "flags": k.get("flags"),
+          }, indent=2))
+          # Fail-closed: code wire must be green (no soft-OR greenwash).
+          if not k.get("code_ok") or not k.get("ci_smoke_ok"):
+              raise SystemExit("Gap-6 code wire FAILED")
+          if not k.get("live_evidence_ok"):
+              print(
+                  "NOTE: kpi_ok=false — live e22_* fields pending next forward run "
+                  "(do not rewrite history). Ops debt, not code-wire fail."
+              )
+          PY
+          # rc 1 = code fail (already asserted); rc 2 = evidence debt (allowed for smoke).
+          if [ "$rc" -eq 1 ]; then
+            exit 1
+          fi
       - name: Ops alert scan (fail on CRITICAL)
         if: always()
         run: |
           set -euo pipefail
+          # Run after Gap-6 so OPS_ALERTS reflects fresh kpi_ok / live-evidence flags.
           python3 scripts/ops_alert_scan.py --fail-on critical
           echo "### Ops alerts" >> "$GITHUB_STEP_SUMMARY"
           if [ -f research/ops/OPS_ALERTS.md ]; then
             cat research/ops/OPS_ALERTS.md >> "$GITHUB_STEP_SUMMARY"
-          fi
-      - name: E22 Gap #6 fidelity KPI (report-only)
-        if: always()
-        run: |
-          set -euo pipefail
-          python3 scripts/e22_gap6_fidelity_kpi.py || true
-          echo "### E22 Gap #6 fidelity" >> "$GITHUB_STEP_SUMMARY"
-          if [ -f research/ops/E22_GAP6_FIDELITY_KPI.md ]; then
-            cat research/ops/E22_GAP6_FIDELITY_KPI.md >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Upload OPS_ALERTS artifact
         if: always()

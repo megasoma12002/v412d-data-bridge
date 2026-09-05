@@ -1,6 +1,6 @@
 {
   "as_of": "2026-09-05",
-  "generated_at_utc": "2026-09-05T09:31:06.314185+00:00",
+  "generated_at_utc": "2026-09-05T17:50:35.181360+00:00",
   "label": "DATA_SOURCE_PHASE_C_PROBES",
   "overall_status": "PASS",
   "live_wire": false,
@@ -70,7 +70,7 @@
         "corr_min": 0.95
       },
       "detail_csv": "repro/data-source-phase-c/c1_fin12_history_returns.csv",
-      "note": "INFO_DRIFT on 1 ticker(s); flag-only, no overwrite",
+      "note": "DRIFT on 1 ticker(s); does not count toward PASS",
       "gate": {
         "status": "PASS",
         "reason": ""
@@ -85,54 +85,55 @@
         "2880": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 9.212446571704272e-05,
-          "corr": 0.9945640085857782
+          "mean_abs_return_diff": 9.212694639224305e-05,
+          "corr": 0.9945640304480888
         },
         "2886": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 9.90505450715854e-05,
-          "corr": 0.994336524566507
+          "mean_abs_return_diff": 9.904450580086123e-05,
+          "corr": 0.9943365052518278
         },
         "2892": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 0.00011317428763742272,
-          "corr": 0.9881523388989416
+          "mean_abs_return_diff": 0.00011317227957976684,
+          "corr": 0.988152368540053
         },
         "5880": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 9.5772465749226e-05,
-          "corr": 0.9903602260660544
+          "mean_abs_return_diff": 9.577624743490023e-05,
+          "corr": 0.9903601872539314
         },
         "2412": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 7.09110073518356e-05,
-          "corr": 0.9854322580292139
+          "mean_abs_return_diff": 7.09121750676205e-05,
+          "corr": 0.9854323951413929
         },
         "3045": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 7.831078904875796e-05,
-          "corr": 0.9968114657363086
+          "mean_abs_return_diff": 7.830673471977118e-05,
+          "corr": 0.9968114640615546
         },
         "4904": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 7.823160485213087e-05,
-          "corr": 0.995023997602771
+          "mean_abs_return_diff": 7.823238388118874e-05,
+          "corr": 0.9950239688505221
         },
         "0050": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 0.0002781433174559121,
-          "corr": 0.6836344781225113
+          "mean_abs_return_diff": 0.0002781442098409844,
+          "corr": 0.6836345128096069
         }
       },
       "n_ok": 8,
-      "mean_abs_return_diff": 0.00011321481036048917,
+      "n_info_drift": 0,
+      "mean_abs_return_diff": 0.00011321443533966703,
       "drift_warn_threshold": 0.015,
       "detail_csv": "repro/data-source-phase-c/c2_adj_returns.csv",
       "note": "",
@@ -156,7 +157,7 @@
           "failover_used": false,
           "source": "finmind_TAIEX",
           "error_primary": null,
-          "generated_at_utc": "2026-09-05T09:31:05.103454+00:00",
+          "generated_at_utc": "2026-09-05T17:50:34.027873+00:00",
           "n_rows": 648,
           "out": "repro/data-source-phase-c/taiex_primary_dryrun.csv",
           "soft_frozen_unchanged": true,
@@ -176,7 +177,7 @@
           "failover_used": true,
           "source": "yahoo_^TWII",
           "error_primary": "RuntimeError:simulated_finmind_failure",
-          "generated_at_utc": "2026-09-05T09:31:05.646862+00:00",
+          "generated_at_utc": "2026-09-05T17:50:34.562064+00:00",
           "n_rows": 648,
           "out": "repro/data-source-phase-c/taiex_failover_dryrun.csv",
           "soft_frozen_unchanged": true,
@@ -196,7 +197,7 @@
           "failover_used": false,
           "source": "yahoo_^TWII",
           "error_primary": null,
-          "generated_at_utc": "2026-09-05T09:31:06.249358+00:00",
+          "generated_at_utc": "2026-09-05T17:50:35.114597+00:00",
           "n_rows": 648,
           "out": "repro/data-source-phase-c/taiex_force_yahoo_dryrun.csv",
           "soft_frozen_unchanged": true,

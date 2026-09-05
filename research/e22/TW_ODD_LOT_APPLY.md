@@ -1,5 +1,8 @@
 # How to Apply Taiwan Odd-Lot Rules to E22 Books
 
+> **Note (2026-09-05):** Live DEFAULT is now `E22_v2s_tw`. Any `default_remains: E22_v2s` / “default stays E22_v2s” language below is **historical research context**, not current live wiring.
+
+
 Generated: `2026-09-04T18:26:12.109787+00:00`
 
 **Research.** Default stays `E22_v2s`. No live history rewrite.
