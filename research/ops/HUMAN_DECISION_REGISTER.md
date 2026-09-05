@@ -23,7 +23,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
 | 6a | Odd-lot default → `E22_v2s_tw` | **DONE** (2026-09-05) | #73+#74 merged; live `DEFAULT_BOOKS_VERSION = E22_v2s_tw`; Soft-Frozen KEEP; forward-only |
 | 6b | Formal tax·receivable books | **ACCEPT charter** (2026-09-05) | Stage B sandbox OPEN; DEFAULT stays `E22_v2s_tw`; Soft-Frozen KEEP; promote needs later ballot |
-| 6c | E45 live stitch | **ACCEPT charter** (2026-09-05) | Stage 1–3 DONE; **V4/V5 PASS**, **V1 FAIL**; Soft-Frozen CRITICAL KEEP; live/stitch still **FORBIDDEN**; −13.16% remains `NOT_VERIFIED`; board `E45_STAGE12_STATUS.md` |
+| 6c | E45 live stitch | **ACCEPT charter** + **RETIRE −13.16% narrative** (2026-09-05) | Stage 1–3 DONE; **V1–V6 PASS** (V1 via retirement); Soft-Frozen CRITICAL KEEP; live/stitch still **FORBIDDEN** until **second** stitch ACCEPT; board `E45_STAGE12_STATUS.md`; retirement `E45_MDD_1316_NARRATIVE_RETIREMENT.md` |
 
 ### Register #6 sequential ballots
 
@@ -31,7 +31,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 |---|---|---|
 | Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **DONE** — #73+#74 merged; DEFAULT=`E22_v2s_tw` |
 | Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` | **ACCEPT charter** — Stage B OPEN; no DEFAULT flip |
-| E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` · `E45_LIVE_STITCH_DECISION_PACK.md` · `E45_STAGE12_STATUS.md` | **ACCEPT charter** — Stage 1–3 DONE; **V4/V5 PASS**, **V1 FAIL**; stitch still forbidden |
+| E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` · `E45_LIVE_STITCH_DECISION_PACK.md` · `E45_STAGE12_STATUS.md` · `E45_MDD_1316_NARRATIVE_RETIREMENT.md` | **ACCEPT charter** + **RETIRE −13.16%**; **V1–V6 PASS**; stitch still forbidden until second ACCEPT |
 
 ## Re-open triggers (only then re-agenda)
 
@@ -43,7 +43,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | Soft-Frozen flip | Explicit human cutover PR only (never pack/monitor green alone) |
 | Odd-lot default | Human **ACCEPT promote** on `ODD_LOT_PROMOTE_DECISION_PACK.md` + checklist all YES + **par inventory VERIFIED** (`PAR_VALUE_LOOKUP_CHARTER.md`) |
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
-| E45 stitch | Charter **ACCEPT** ✓ — finish V1–V6 + paper packs; **second** human ACCEPT still required for any live stitch PR |
+| E45 stitch | Charter **ACCEPT** ✓ + −13.16% narrative **RETIRED** ✓ — V1–V6 PASS; **second** human ACCEPT still required for any live stitch PR |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 

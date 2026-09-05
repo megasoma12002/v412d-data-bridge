@@ -1,6 +1,6 @@
 {
   "generated_at_utc": "2026-09-05T15:05:00+00:00",
-  "ballot": "E45_ACCEPT_CHARTER",
+  "ballot": "E45_ACCEPT_CHARTER_AND_RETIRE_1316_NARRATIVE",
   "ballot_prior_same_day": "E45_DEFER_STITCH_PATH",
   "reject_e45": false,
   "soft_frozen_critical_keep": true,
@@ -10,7 +10,7 @@
   "live_stitch_authorized": false,
   "verification_verdict": "E45_NOT_VERIFIED",
   "claim_mdd": -0.1316,
-  "claim_mdd_status": "NOT_VERIFIED",
+  "claim_mdd_status": "RETIRED_HISTORICAL_NARRATIVE",
   "exact_artifact_match": false,
   "closest_lineage_mdd": -0.1580516582301149,
   "e3_winner_validation_mdd": -0.1848659743145534,
@@ -32,5 +32,7 @@
   "prior_verify": "research/e45/E45_MDD_1316_VERIFICATION.json",
   "ballot_context": "ACCEPT_CHARTER_STAGE12_OPEN__STITCH_FORBIDDEN",
   "stage12_board": "research/ops/E45_STAGE12_STATUS.md",
-  "charter_accepted": true
+  "charter_accepted": true,
+  "v1_status": "PASS_NARRATIVE_RETIRED",
+  "narrative_retirement_doc": "research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md"
 }

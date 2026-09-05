@@ -6,7 +6,7 @@ Decision pack: `E45_LIVE_STITCH_DECISION_PACK.md`
 Stage board: `E45_STAGE12_STATUS.md`  
 Live stitch today: **FORBIDDEN**  
 Soft-Frozen: **[0.50, 0.95] KEEP**  
-E45 class today: **CHALLENGER / NOT_VERIFIED** for claimed MDD ≈ −13.16%
+E45 class today: **CHALLENGER**; −13.16% claim **`RETIRED_HISTORICAL_NARRATIVE`** (path A, 2026-09-05)
 
 Authority: `HUMAN_DECISION_REGISTER.md` #6 · `research/e45/E45_MDD_1316_VERIFICATION.md` · `FROZEN_GOVERNANCE.md` · `STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
@@ -36,14 +36,19 @@ Therefore live stitch is **not** a paperwork gap — it is a **verification + ch
 
 | # | Bar | Rule |
 |---|---|---|
-| V1 | Artifact match | Named profile MDD must come from dated CSV/JSON — not narrative alone |
-| V2 | Lineage honesty | If claim −13.16% fails, label **NOT_VERIFIED**; publish verified lineage MDD instead |
+| V1 | Artifact / claim gate | Named profile MDD from dated CSV/JSON **or** unmatched narrative claim formally **retired** and not used as a stitch/live gate (path A, 2026-09-05) |
+| V2 | Lineage honesty | Publish verified lineage / challenger MDDs; never invent a replacement for −13.16% |
 | V3 | Exact T+1 | Unchanged fill clock |
 | V4 | Cost / stress | Challenger survives documented cost + stress gates (E50 rules) |
 | V5 | No single-year | Not driven by one crisis year alone |
 | V6 | Soft-Frozen KEEP | Clip unchanged until separate clip PR |
 
 Fail any V# → stop; do not stitch.
+
+### V1 resolution (2026-09-05)
+
+Human **RETIRE −13.16% narrative (path A)**. See `E45_MDD_1316_NARRATIVE_RETIREMENT.md`.  
+V1 → **PASS (narrative retired)**. Live stitch still needs second human ACCEPT.
 
 ## Stage plan
 

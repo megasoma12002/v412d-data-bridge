@@ -1,7 +1,7 @@
 {
   "generated_at_utc": "2026-09-05T18:10:35.778629+00:00",
   "claim_mdd": -0.1316,
-  "claim_status": "NOT_VERIFIED",
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
   "exact_artifact_match": false,
   "closest_lineage_mdd": {
     "source": "E1_1_validation",
@@ -140,5 +140,16 @@
     "replace_claim_with_invented_number": false,
     "use_instead": "VERIFIED_LINEAGE_MDD from dated artifacts; keep claim labeled NOT_VERIFIED",
     "promotion_impact": "E45 remains CHALLENGER_CANDIDATE; SOFT_FROZEN_CRITICAL is a process class, not a verified -13.16% number"
-  }
+  },
+  "claim_interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
+  "narrative_retirement": {
+    "ballot": "E45 RETIRE -13.16% narrative (path A)",
+    "date": "2026-09-05",
+    "doc": "research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md",
+    "invent_replacement": false,
+    "primary_comparable_mdd": -0.1581,
+    "primary_comparable_source": "E1_1_validation_2012_2014",
+    "stitch_authorized": false
+  },
+  "updated_at_utc": "2026-09-05T18:33:45.044730+00:00"
 }

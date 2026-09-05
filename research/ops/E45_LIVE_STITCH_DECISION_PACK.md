@@ -1,13 +1,13 @@
 # E45 Live Stitch — Charter Decision Pack (Item 3)
 
 Date: 2026-09-05  
-Status: **ACCEPT charter** (human 2026-09-05) — Stage 1–2 research OPEN; Soft-Frozen CRITICAL KEEP  
+Status: **ACCEPT charter** + **RETIRE −13.16% narrative (path A)** (human 2026-09-05) — Stage 1–3 DONE; Soft-Frozen CRITICAL KEEP  
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw`** (unchanged by this pack)  
-E45 live stitch today: **FORBIDDEN**
+E45 live stitch today: **FORBIDDEN** (second stitch ACCEPT still required)
 
 Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_LIVE_STITCH_CHARTER.md` · `REGISTER6_SEQUENTIAL_BALLOTS.md`  
-MDD claim check: `research/e45/E45_MDD_1316_VERIFICATION.md` → **`NOT_VERIFIED`**  
+MDD claim: `research/e45/E45_MDD_1316_VERIFICATION.md` → unmatched → **`RETIRED_HISTORICAL_NARRATIVE`** (`E45_MDD_1316_NARRATIVE_RETIREMENT.md`)  
 Stage board: `E45_STAGE12_STATUS.md`
 
 ## Purpose
@@ -20,11 +20,12 @@ This pack **does not** stitch E45 live. Charter ACCEPT only unlocks Stage 1–2 
 
 | Fact | Status |
 |---|---|
-| Claimed MDD ≈ −13.16% | **`NOT_VERIFIED`** — no dated CSV/JSON match |
-| Closest verified crisis lineage MDDs | **More severe** than −13.16% |
+| Claimed MDD ≈ −13.16% | **`RETIRED_HISTORICAL_NARRATIVE`** (path A, 2026-09-05) — no dated CSV/JSON match; do not invent replacement |
+| Closest verified crisis lineage MDDs | **More severe** (primary comparable E1.1 val **−15.81%**) |
 | Early-stack + E45 challenger MDDs | ~−21% to −23% (path checked / refreshed 2026-09-05) |
 | Soft-Frozen Financial clip | **KEEP** |
-| Live stitch | Still **forbidden** until later promote PR |
+| Live stitch | Still **forbidden** until later promote PR / second ACCEPT |
+| V1–V6 research bars | **PASS** (V1 via narrative retirement) |
 
 ## What ACCEPT charter allows (Stage 1–2 only)
 
