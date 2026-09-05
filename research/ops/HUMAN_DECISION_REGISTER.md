@@ -23,7 +23,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
 | 6a | Odd-lot default → `E22_v2s_tw` | **DONE** (2026-09-05) | #73+#74 merged; live `DEFAULT_BOOKS_VERSION = E22_v2s_tw`; Soft-Frozen KEEP; forward-only |
 | 6b | Formal tax·receivable books | **ACCEPT charter** (2026-09-05) | Stage B sandbox OPEN; DEFAULT stays `E22_v2s_tw`; Soft-Frozen KEEP; promote needs later ballot |
-| 6c | E45 live stitch | **ACTIVE ballot** | Charter + decision pack open — ACCEPT/DEFER/REJECT; MDD −13.16% NOT_VERIFIED; stitch forbidden on this ballot |
+| 6c | E45 live stitch | **DEFER stitch path** (2026-09-05) | Soft-Frozen CRITICAL KEEP; E45 not rejected; lineage preserved; live/stitch not authorized; artifact verdict `E45_NOT_VERIFIED` |
 
 ### Register #6 sequential ballots
 
@@ -31,7 +31,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 |---|---|---|
 | Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **DONE** — #73+#74 merged; DEFAULT=`E22_v2s_tw` |
 | Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` | **ACCEPT charter** — Stage B OPEN; no DEFAULT flip |
-| E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` · `E45_LIVE_STITCH_DECISION_PACK.md` | **ACTIVE** — awaiting human ballot; stitch forbidden |
+| E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` · `E45_LIVE_STITCH_DECISION_PACK.md` | **DEFER stitch path** — `E45_NOT_VERIFIED`; Soft-Frozen CRITICAL KEEP |
 
 ## Re-open triggers (only then re-agenda)
 

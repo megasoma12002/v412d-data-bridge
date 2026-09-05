@@ -1,7 +1,7 @@
 # E45 Live Stitch — Charter Decision Pack (Item 3)
 
 Date: 2026-09-05  
-Status: **ACTIVE — AWAITING HUMAN BALLOT**  
+Status: **DEFER stitch path** (human 2026-09-05) — not REJECT; Soft-Frozen CRITICAL KEEP  
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw`** (unchanged by this pack)  
 E45 live stitch today: **FORBIDDEN**
@@ -75,4 +75,16 @@ Reply with one of:
 
 ## Label
 
-`E45_LIVE_STITCH_DECISION_PACK_2026-09-05__AWAITING_HUMAN`
+`E45_LIVE_STITCH_DECISION_PACK_2026-09-05__DEFER_STITCH`
+
+
+## Ballot result
+
+| Ballot cast | Effect |
+|---|---|
+| **DEFER stitch path** ✓ (2026-09-05) | No live/stitch authorization; E45 not rejected; Soft-Frozen CRITICAL KEEP; lineage preserved |
+
+Artifact verification (read-only, E45 unmodified): **`E45_NOT_VERIFIED`**  
+Report: `research/ops/E45_ARTIFACT_VERIFICATION_2026-09-05.md`
+
+Claimed validation MDD ≈ −13.16% remains **NOT_VERIFIED**. DEFAULT path unchanged.

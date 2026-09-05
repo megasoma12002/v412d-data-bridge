@@ -1,7 +1,7 @@
 # E45 Live-Stitch Charter (Draft)
 
 Date: 2026-09-05  
-Status: **ACTIVE — AWAITING HUMAN CHARTER BALLOT** (Register #6 Item 3)
+Status: **DEFER stitch path** (2026-09-05) — Soft-Frozen CRITICAL KEEP; live stitch FORBIDDEN; E45 not rejected
 Decision pack: `E45_LIVE_STITCH_DECISION_PACK.md`
 Live stitch today: **FORBIDDEN**  
 Soft-Frozen: **[0.50, 0.95] KEEP**  
@@ -78,4 +78,4 @@ Do **not** accept all three in one cutover PR.
 
 ## Label
 
-`E45_LIVE_STITCH_CHARTER_2026-09-05__ITEM3_ACTIVE`
+`E45_LIVE_STITCH_CHARTER_2026-09-05__DEFER_STITCH`
