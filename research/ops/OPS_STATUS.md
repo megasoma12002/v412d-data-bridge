@@ -46,7 +46,8 @@ Legacy forward config: `research/ops/FORWARD_LEGACY_NOTE.md`
 ```bash
 python3 scripts/e21_qc.py --state-dir forward/e21
 python3 scripts/ops_month_end_paper_pack.py
-python3 scripts/ops_month_end_paper_pack.py --refresh-ledgers  # slow
+python3 scripts/ops_alert_scan.py --report-only
+python3 scripts/e22_data_quality_kpi.py
 python3 scripts/e21_live_vs_paper_recon.py
 ```
 

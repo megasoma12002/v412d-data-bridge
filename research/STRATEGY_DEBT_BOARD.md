@@ -72,7 +72,12 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 | Soft-Frozen clip | **[0.50, 0.95]** |
 
 ## Pointers
-- `research/ops/OPS_STATUS.md`
+- `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`
+- `research/ops/OPS_ALERTS.md`
+- `research/ops/E22_DATA_QUALITY_KPI.md`
+- `research/ops/FORWARD_LEGACY_NOTE.md`
+- `scripts/ops_alert_scan.py`
+- `scripts/e22_data_quality_kpi.py`
 - `research/ops/OPS_CONVERGENCE_CHARTER.md`
 - `research/ops/ARTIFACT_RETENTION.md`
 - `research/ops/CUTOVER_CHECKLIST_L4.md`
