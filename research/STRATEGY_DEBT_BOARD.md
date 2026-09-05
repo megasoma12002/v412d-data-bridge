@@ -1,6 +1,6 @@
 # Strategy Debt Board
 
-Date: 2026-09-05 (FIN_CAP_50 go-live verify BLOCKED)  
+Date: 2026-09-05 (L4 path/mild-FIN charter frozen — sealed CAGR improve research)  
 Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
 Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 
@@ -10,38 +10,38 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | Item | Status |
 |---|---|
 | Stage-8 / debt closeout | On main (#35, #36) |
-| Dual-track A + B S1 | S1 held-out FAIL (#40) → keep A |
-| L1/L2/L3 MDD engines | All MIXED stop on sealed CAGR (#42/#45/#48) |
-| FIN_CAP_50 dual-paper + month-end | #43/#44 — paper ops |
-| **FIN_CAP_50 go-live verification** | Exact T+1 refresh: Gate B (2019+) **PASS**; Gate C sealed **FAIL** (CAGR gb **+4.33pp**); Gate E PAUSE_REVIEW (1y/YTD) → **`NOT_READY_SEALED_CAGR` / KEEP Soft-Frozen** |
+| L1/L2/L3 MDD engines | All MIXED stop on sealed CAGR |
+| FIN_CAP_50 go-live verify | #49 — `NOT_READY_SEALED_CAGR` (sealed gb +4.33; PAUSE 1y/YTD) |
+| **Sealed CAGR improve diagnostics** | Static 50/60 fail sealed; **CRISIS_ONLY / FIN70 / BLEND** sealed-diag survivors among selection-safe |
+| **L4 path/mild-FIN charter** | Frozen — util-rank; no harsh-cap family priority |
 
 ### NOW
 | Item | Action | Status |
 |---|---|---|
 | Track A S9A1 | Month-end KPI | **KEEP** |
-| FIN_CAP_50 paper | Dual-paper observation only (cutover frozen) | **OPERATING (paper)** |
-| Live | E16+E18+E22_v2s Soft-Frozen **[0.50, 0.95]** | **KEEP** |
+| FIN_CAP_50 paper | Dual-paper observation; cutover frozen | **OPERATING (paper)** |
+| Live Soft-Frozen | **[0.50, 0.95]** | **KEEP** |
+| L4 engine | Exact T+1 OOF per L4 charter | **NEXT HARNESS** |
 
 ### NEXT
 | Item | Action | Do not |
 |---|---|---|
-| New charter only | Address sealed-only CAGR giveback (FIN concentration + 2023+) | Retune FIN_CAP_50 lock; silent Soft-Frozen flip |
-| FIN_CAP month-end | Continue observation; cutover discussion frozen while PAUSE_REVIEW | Auto-promote |
-| Optional | `E22_v2s_tw` default cutover-only | Silent default flip |
+| L4 OOF screen | CRISIS_ONLY + FINCAP_70 + BLEND_LIGHT first; util-rank | Retune FIN_CAP_50 / L3_MILD_35_60 |
+| If OOF PASS | adv-lite → one held-out (val+sealed) | Live-wire; Soft-Frozen flip |
+| FIN_CAP month-end | Continue; cutover frozen while PAUSE/sealed fail | Auto-promote |
 
 ### WON’T
-L1/L2/L3 cut retune; FIN_CAP_50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50.
+L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50.
 
 ## Snapshot
 | Topic | Number |
 |---|---|
-| Go-live label | **`NOT_READY_SEALED_CAGR`** |
-| Held-out 2019+ | MDD **+3.06 pp**; CAGR gb **+1.63 pp** (PASS) |
-| Sealed 2023+ | MDD **+4.41 pp**; CAGR gb **+4.33 pp** (FAIL ≤3) |
-| Trailing 1y CAGR gb | **+7.21 pp** → PAUSE_REVIEW |
-| YTD CAGR gb | **+16.73 pp** → PAUSE_REVIEW |
+| Go-live | **`NOT_READY_SEALED_CAGR`** |
+| FIN50 sealed CAGR gb | **+4.33 pp** |
+| L3_MILD_35_60 sealed CAGR gb | **+4.08 pp** |
+| Diag survivors (sel-safe ∩ sealed-diag) | FIN70 (**+1.75** gb), BLEND025 (**+0.51**), BLEND050 (**+1.18**), CRISIS_ONLY (**+0.93**) |
 
 ## Pointers
+- `research/gaps/MDD_L4_PATH_FINCAP_CHARTER.md`
+- `research/gaps/FINCAP_SEALED_CAGR_IMPROVE_DIAGNOSTIC.md`
 - `research/gaps/FIN_CAP_50_GO_LIVE_VERIFY.md`
-- `research/gaps/FIN_CAP_50_MONTH_END_RUNBOOK.md`
-- `research/gaps/MDD_L3_HELDOUT.md`

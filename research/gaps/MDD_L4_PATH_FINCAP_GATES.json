@@ -1,0 +1,51 @@
+{
+  "generated_at_utc": "2026-09-05T03:25:00+00:00",
+  "label": "MDD_L4_PATH_FINCAP_CHARTER_FROZEN__SEALED_IMPROVE_DIAG_READY",
+  "live_wire": false,
+  "research_only": true,
+  "soft_frozen_live_clip": [0.5, 0.95],
+  "parent_stops": [
+    "STOP_L1_HELDOUT_MIXED",
+    "STOP_L2_HELDOUT_MIXED_KEEP_BASE",
+    "STOP_L3_HELDOUT_MIXED_KEEP_BASE",
+    "NOT_READY_SEALED_CAGR"
+  ],
+  "families": [
+    "L4-CRISIS-ONLY",
+    "L4-FINCAP-70",
+    "L4-BLEND-LIGHT",
+    "L4-DD-PATH",
+    "L4-UTIL-RANK"
+  ],
+  "screen_first": ["L4-CRISIS-ONLY", "L4-FINCAP-70", "L4-BLEND-LIGHT"],
+  "forbidden": [
+    "retune FIN_CAP_50",
+    "retune L3_MILD_35_60",
+    "reopen L2_FINCAP_ONLY as live cut",
+    "retune L1 COMBO",
+    "Stage-8 TECH2 remix",
+    "S1 reopen",
+    "proxy-as-PASS",
+    "silent Soft-Frozen flip"
+  ],
+  "gates": {
+    "oof_mdd_improve_pp_min": 1.5,
+    "oof_cagr_giveback_pp_max": 1.5,
+    "oof_late_bull_cagr_giveback_pp_max": 1.5,
+    "heldout_mdd_improve_pp_min": 1.0,
+    "heldout_cagr_giveback_pp_max": 3.0,
+    "exact_t1": true,
+    "selection": "util_mdd_minus_0_5_late_bull_gb_no_harsh_family_priority"
+  },
+  "diagnostic_sealed_survivors_among_selection_safe": [
+    "FIN_CAP_70_STATIC",
+    "BLEND_025",
+    "BLEND_050",
+    "CRISIS_ONLY_50"
+  ],
+  "attribution_pointers": [
+    "research/gaps/FINCAP_SEALED_CAGR_IMPROVE_DIAGNOSTIC.md",
+    "research/gaps/FIN_CAP_50_GO_LIVE_VERIFY.md",
+    "research/gaps/MDD_L2_SEALED_CAGR_ATTRIBUTION.md"
+  ]
+}

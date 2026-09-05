@@ -1,0 +1,976 @@
+{
+  "generated_at_utc": "2026-09-05T03:22:41.675088+00:00",
+  "label": "FINCAP_SEALED_CAGR_IMPROVE_DIAGNOSTIC",
+  "live_wire": false,
+  "research_only": true,
+  "asof": "2026-09-04",
+  "selection_policy": {
+    "used_for_ranking": [
+      "oof",
+      "late_bull"
+    ],
+    "diagnostic_only": [
+      "val",
+      "sealed"
+    ],
+    "note": "Sealed metrics reported for mechanism insight; must not pick a live cut."
+  },
+  "n_selection_safe": 8,
+  "n_selection_safe_and_sealed_diag_pass": 4,
+  "selection_safe_ids": [
+    "FIN_CAP_50_REF",
+    "L3_MILD_35_60_REF",
+    "FIN_CAP_70_STATIC",
+    "BLEND_025",
+    "BLEND_050",
+    "BULL_RESTORE_50",
+    "DD_BEAR_CRISIS_50",
+    "CRISIS_ONLY_50"
+  ],
+  "selection_safe_and_sealed_diag_pass_ids": [
+    "FIN_CAP_70_STATIC",
+    "BLEND_025",
+    "BLEND_050",
+    "CRISIS_ONLY_50"
+  ],
+  "candidates": [
+    {
+      "id": "BASE",
+      "family": "baseline",
+      "exact_t1_ok": true,
+      "mean_fin_oof": 0.8029110495104267,
+      "mean_fin_sealed": 0.7891044815231208,
+      "flag_share_oof": null,
+      "flag_share_sealed": null,
+      "oof_mdd_improve_pp": 0.0,
+      "oof_cagr_giveback_pp": 0.0,
+      "late_bull_cagr_giveback_pp": 0.0,
+      "val_mdd_improve_pp": 0.0,
+      "val_cagr_giveback_pp": 0.0,
+      "val_pass_diag": false,
+      "sealed_mdd_improve_pp": 0.0,
+      "sealed_cagr_giveback_pp": 0.0,
+      "sealed_pass_diag": false,
+      "selection_safe_oof_ok": false,
+      "sealed_years": [],
+      "windows": {
+        "oof": {
+          "window": "oof",
+          "base_cagr": 0.08846959052336945,
+          "base_mdd": -0.17412900003864262,
+          "cand_cagr": 0.08846959052336945,
+          "cand_mdd": -0.17412900003864262,
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "n_days": 1495,
+          "pass_diag": false
+        },
+        "late_bull": {
+          "window": "late_bull",
+          "base_cagr": 0.11080464875479756,
+          "base_mdd": -0.06979935284276184,
+          "cand_cagr": 0.11080464875479756,
+          "cand_mdd": -0.06979935284276184,
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "n_days": 493,
+          "pass_diag": false
+        },
+        "val": {
+          "window": "val",
+          "base_cagr": 0.12330755797580628,
+          "base_mdd": -0.22639131293777337,
+          "cand_cagr": 0.12330755797580628,
+          "cand_mdd": -0.22639131293777337,
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "n_days": 977,
+          "pass_diag": false
+        },
+        "sealed": {
+          "window": "sealed",
+          "base_cagr": 0.24925144125866705,
+          "base_mdd": -0.1445685098357411,
+          "cand_cagr": 0.24925144125866705,
+          "cand_mdd": -0.1445685098357411,
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "n_days": 879,
+          "pass_diag": false
+        }
+      }
+    },
+    {
+      "id": "FIN_CAP_50_REF",
+      "family": "blocked_static_ref",
+      "exact_t1_ok": true,
+      "mean_fin_oof": 0.5,
+      "mean_fin_sealed": 0.5,
+      "flag_share_oof": null,
+      "flag_share_sealed": null,
+      "oof_mdd_improve_pp": 4.570586284214961,
+      "oof_cagr_giveback_pp": 0.3485197655307637,
+      "late_bull_cagr_giveback_pp": 1.2570587941652,
+      "val_mdd_improve_pp": 3.063425434900924,
+      "val_cagr_giveback_pp": -0.746961918843847,
+      "val_pass_diag": true,
+      "sealed_mdd_improve_pp": 4.411944624918506,
+      "sealed_cagr_giveback_pp": 4.332671060794713,
+      "sealed_pass_diag": false,
+      "selection_safe_oof_ok": true,
+      "sealed_years": [
+        {
+          "year": 2023,
+          "cagr_giveback_pp": -3.8627133235495714,
+          "mdd_improve_pp": 0.6688651162094827,
+          "cand_cagr": 0.1133934118831974,
+          "base_cagr": 0.07476627864770169
+        },
+        {
+          "year": 2024,
+          "cagr_giveback_pp": 4.864976525970421,
+          "mdd_improve_pp": -1.6274988217141129,
+          "cand_cagr": 0.1744817209844245,
+          "base_cagr": 0.2231314862441287
+        },
+        {
+          "year": 2025,
+          "cagr_giveback_pp": 5.18453184990908,
+          "mdd_improve_pp": 0.27118877899469096,
+          "cand_cagr": 0.14002061381857667,
+          "base_cagr": 0.19186593231766746
+        },
+        {
+          "year": 2026,
+          "cagr_giveback_pp": 16.72890298607934,
+          "mdd_improve_pp": 6.86150618360749,
+          "cand_cagr": 0.5154063285892614,
+          "base_cagr": 0.6826953584500548
+        }
+      ],
+      "windows": {
+        "oof": {
+          "window": "oof",
+          "base_cagr": 0.08846959052336945,
+          "base_mdd": -0.17412900003864262,
+          "cand_cagr": 0.08498439286806181,
+          "cand_mdd": -0.128423137196493,
+          "mdd_improve_pp": 4.570586284214961,
+          "cagr_giveback_pp": 0.3485197655307637,
+          "n_days": 1495,
+          "pass_diag": true
+        },
+        "late_bull": {
+          "window": "late_bull",
+          "base_cagr": 0.11080464875479756,
+          "base_mdd": -0.06979935284276184,
+          "cand_cagr": 0.09823406081314556,
+          "cand_mdd": -0.06717918108745258,
+          "mdd_improve_pp": 0.2620171755309264,
+          "cagr_giveback_pp": 1.2570587941652,
+          "n_days": 493,
+          "pass_diag": false
+        },
+        "val": {
+          "window": "val",
+          "base_cagr": 0.12330755797580628,
+          "base_mdd": -0.22639131293777337,
+          "cand_cagr": 0.13077717716424475,
+          "cand_mdd": -0.19575705858876413,
+          "mdd_improve_pp": 3.063425434900924,
+          "cagr_giveback_pp": -0.746961918843847,
+          "n_days": 977,
+          "pass_diag": true
+        },
+        "sealed": {
+          "window": "sealed",
+          "base_cagr": 0.24925144125866705,
+          "base_mdd": -0.1445685098357411,
+          "cand_cagr": 0.20592473065071992,
+          "cand_mdd": -0.10044906358655603,
+          "mdd_improve_pp": 4.411944624918506,
+          "cagr_giveback_pp": 4.332671060794713,
+          "n_days": 879,
+          "pass_diag": false
+        }
+      }
+    },
+    {
+      "id": "L3_MILD_35_60_REF",
+      "family": "failed_l3_static_ref",
+      "exact_t1_ok": true,
+      "mean_fin_oof": 0.5973947271784545,
+      "mean_fin_sealed": 0.597160358039825,
+      "flag_share_oof": null,
+      "flag_share_sealed": null,
+      "oof_mdd_improve_pp": 2.8755135343660254,
+      "oof_cagr_giveback_pp": 0.09814416476714438,
+      "late_bull_cagr_giveback_pp": 0.15290358876944854,
+      "val_mdd_improve_pp": 1.9098935606352785,
+      "val_cagr_giveback_pp": -0.6088273921811993,
+      "val_pass_diag": true,
+      "sealed_mdd_improve_pp": 5.285967693867222,
+      "sealed_cagr_giveback_pp": 4.083105202701343,
+      "sealed_pass_diag": false,
+      "selection_safe_oof_ok": true,
+      "sealed_years": [
+        {
+          "year": 2023,
+          "cagr_giveback_pp": -4.316803732715568,
+          "mdd_improve_pp": 0.526264970163226,
+          "cand_cagr": 0.11793431597485737,
+          "base_cagr": 0.07476627864770169
+        },
+        {
+          "year": 2024,
+          "cagr_giveback_pp": 5.957419537677722,
+          "mdd_improve_pp": -0.42189446672122877,
+          "cand_cagr": 0.1635572908673515,
+          "base_cagr": 0.2231314862441287
+        },
+        {
+          "year": 2025,
+          "cagr_giveback_pp": 5.008669198459792,
+          "mdd_improve_pp": 0.04538346804268123,
+          "cand_cagr": 0.14177924033306954,
+          "base_cagr": 0.19186593231766746
+        },
+        {
+          "year": 2026,
+          "cagr_giveback_pp": 14.216693787904955,
+          "mdd_improve_pp": 6.496230843007611,
+          "cand_cagr": 0.5405284205710053,
+          "base_cagr": 0.6826953584500548
+        }
+      ],
+      "windows": {
+        "oof": {
+          "window": "oof",
+          "base_cagr": 0.08846959052336945,
+          "base_mdd": -0.17412900003864262,
+          "cand_cagr": 0.087488148875698,
+          "cand_mdd": -0.14537386469498237,
+          "mdd_improve_pp": 2.8755135343660254,
+          "cagr_giveback_pp": 0.09814416476714438,
+          "n_days": 1495,
+          "pass_diag": true
+        },
+        "late_bull": {
+          "window": "late_bull",
+          "base_cagr": 0.11080464875479756,
+          "base_mdd": -0.06979935284276184,
+          "cand_cagr": 0.10927561286710308,
+          "cand_mdd": -0.06781868135329028,
+          "mdd_improve_pp": 0.19806714894715638,
+          "cagr_giveback_pp": 0.15290358876944854,
+          "n_days": 493,
+          "pass_diag": false
+        },
+        "val": {
+          "window": "val",
+          "base_cagr": 0.12330755797580628,
+          "base_mdd": -0.22639131293777337,
+          "cand_cagr": 0.12939583189761827,
+          "cand_mdd": -0.20729237733142059,
+          "mdd_improve_pp": 1.9098935606352785,
+          "cagr_giveback_pp": -0.6088273921811993,
+          "n_days": 977,
+          "pass_diag": true
+        },
+        "sealed": {
+          "window": "sealed",
+          "base_cagr": 0.24925144125866705,
+          "base_mdd": -0.1445685098357411,
+          "cand_cagr": 0.20842038923165362,
+          "cand_mdd": -0.09170883289706888,
+          "mdd_improve_pp": 5.285967693867222,
+          "cagr_giveback_pp": 4.083105202701343,
+          "n_days": 879,
+          "pass_diag": false
+        }
+      }
+    },
+    {
+      "id": "FIN_CAP_70_STATIC",
+      "family": "milder_static",
+      "exact_t1_ok": true,
+      "mean_fin_oof": 0.6860416843114133,
+      "mean_fin_sealed": 0.6851873183407812,
+      "flag_share_oof": null,
+      "flag_share_sealed": null,
+      "oof_mdd_improve_pp": 1.7123415990491386,
+      "oof_cagr_giveback_pp": -0.049794092869381856,
+      "late_bull_cagr_giveback_pp": -0.4977917836165524,
+      "val_mdd_improve_pp": 1.0856883054284894,
+      "val_cagr_giveback_pp": 0.04226318776670013,
+      "val_pass_diag": true,
+      "sealed_mdd_improve_pp": 5.053373734610911,
+      "sealed_cagr_giveback_pp": 1.7522921257738355,
+      "sealed_pass_diag": true,
+      "selection_safe_oof_ok": true,
+      "sealed_years": [
+        {
+          "year": 2023,
+          "cagr_giveback_pp": -3.793039556974742,
+          "mdd_improve_pp": 0.5111003894884725,
+          "cand_cagr": 0.11269667421744911,
+          "base_cagr": 0.07476627864770169
+        },
+        {
+          "year": 2024,
+          "cagr_giveback_pp": 3.2680862883107675,
+          "mdd_improve_pp": 0.34046988670509704,
+          "cand_cagr": 0.19045062336102103,
+          "base_cagr": 0.2231314862441287
+        },
+        {
+          "year": 2025,
+          "cagr_giveback_pp": 2.693336470064489,
+          "mdd_improve_pp": -0.2087043031171243,
+          "cand_cagr": 0.16493256761702257,
+          "base_cagr": 0.19186593231766746
+        },
+        {
+          "year": 2026,
+          "cagr_giveback_pp": 7.540361139119578,
+          "mdd_improve_pp": 5.099451994274085,
+          "cand_cagr": 0.607291747058859,
+          "base_cagr": 0.6826953584500548
+        }
+      ],
+      "windows": {
+        "oof": {
+          "window": "oof",
+          "base_cagr": 0.08846959052336945,
+          "base_mdd": -0.17412900003864262,
+          "cand_cagr": 0.08896753145206326,
+          "cand_mdd": -0.15700558404815124,
+          "mdd_improve_pp": 1.7123415990491386,
+          "cagr_giveback_pp": -0.049794092869381856,
+          "n_days": 1495,
+          "pass_diag": true
+        },
+        "late_bull": {
+          "window": "late_bull",
+          "base_cagr": 0.11080464875479756,
+          "base_mdd": -0.06979935284276184,
+          "cand_cagr": 0.11578256659096309,
+          "cand_mdd": -0.0700021302823528,
+          "mdd_improve_pp": -0.020277743959096206,
+          "cagr_giveback_pp": -0.4977917836165524,
+          "n_days": 493,
+          "pass_diag": false
+        },
+        "val": {
+          "window": "val",
+          "base_cagr": 0.12330755797580628,
+          "base_mdd": -0.22639131293777337,
+          "cand_cagr": 0.12288492609813928,
+          "cand_mdd": -0.21553442988348848,
+          "mdd_improve_pp": 1.0856883054284894,
+          "cagr_giveback_pp": 0.04226318776670013,
+          "n_days": 977,
+          "pass_diag": true
+        },
+        "sealed": {
+          "window": "sealed",
+          "base_cagr": 0.24925144125866705,
+          "base_mdd": -0.1445685098357411,
+          "cand_cagr": 0.2317285200009287,
+          "cand_mdd": -0.09403477248963199,
+          "mdd_improve_pp": 5.053373734610911,
+          "cagr_giveback_pp": 1.7522921257738355,
+          "n_days": 879,
+          "pass_diag": true
+        }
+      }
+    },
+    {
+      "id": "BLEND_025",
+      "family": "static_blend",
+      "exact_t1_ok": true,
+      "mean_fin_oof": 0.7271832871328202,
+      "mean_fin_sealed": 0.7168283611423407,
+      "flag_share_oof": null,
+      "flag_share_sealed": null,
+      "oof_mdd_improve_pp": 1.3696893903215046,
+      "oof_cagr_giveback_pp": 0.0327406996352142,
+      "late_bull_cagr_giveback_pp": 0.40167517586990886,
+      "val_mdd_improve_pp": 0.8196878966870602,
+      "val_cagr_giveback_pp": -0.19830531562163856,
+      "val_pass_diag": false,
+      "sealed_mdd_improve_pp": 2.112234422918391,
+      "sealed_cagr_giveback_pp": 0.5078075553576422,
+      "sealed_pass_diag": true,
+      "selection_safe_oof_ok": true,
+      "sealed_years": [
+        {
+          "year": 2023,
+          "cagr_giveback_pp": -0.4116132482063328,
+          "mdd_improve_pp": 0.21727592803393314,
+          "cand_cagr": 0.07888241112976502,
+          "base_cagr": 0.07476627864770169
+        },
+        {
+          "year": 2024,
+          "cagr_giveback_pp": 0.05687856310754302,
+          "mdd_improve_pp": -0.022170377568442312,
+          "cand_cagr": 0.22256270061305328,
+          "base_cagr": 0.2231314862441287
+        },
+        {
+          "year": 2025,
+          "cagr_giveback_pp": 0.8135550147729598,
+          "mdd_improve_pp": 0.24134416050682894,
+          "cand_cagr": 0.18373038216993787,
+          "base_cagr": 0.19186593231766746
+        },
+        {
+          "year": 2026,
+          "cagr_giveback_pp": 2.479068051003952,
+          "mdd_improve_pp": 2.112234422918413,
+          "cand_cagr": 0.6579046779400153,
+          "base_cagr": 0.6826953584500548
+        }
+      ],
+      "windows": {
+        "oof": {
+          "window": "oof",
+          "base_cagr": 0.08846959052336945,
+          "base_mdd": -0.17412900003864262,
+          "cand_cagr": 0.0881421835270173,
+          "cand_mdd": -0.16043210613542758,
+          "mdd_improve_pp": 1.3696893903215046,
+          "cagr_giveback_pp": 0.0327406996352142,
+          "n_days": 1495,
+          "pass_diag": true
+        },
+        "late_bull": {
+          "window": "late_bull",
+          "base_cagr": 0.11080464875479756,
+          "base_mdd": -0.06979935284276184,
+          "cand_cagr": 0.10678789699609847,
+          "cand_mdd": -0.06941020744504955,
+          "mdd_improve_pp": 0.03891453977122872,
+          "cagr_giveback_pp": 0.40167517586990886,
+          "n_days": 493,
+          "pass_diag": false
+        },
+        "val": {
+          "window": "val",
+          "base_cagr": 0.12330755797580628,
+          "base_mdd": -0.22639131293777337,
+          "cand_cagr": 0.12529061113202267,
+          "cand_mdd": -0.21819443397090277,
+          "mdd_improve_pp": 0.8196878966870602,
+          "cagr_giveback_pp": -0.19830531562163856,
+          "n_days": 977,
+          "pass_diag": false
+        },
+        "sealed": {
+          "window": "sealed",
+          "base_cagr": 0.24925144125866705,
+          "base_mdd": -0.1445685098357411,
+          "cand_cagr": 0.24417336570509063,
+          "cand_mdd": -0.12344616560655719,
+          "mdd_improve_pp": 2.112234422918391,
+          "cagr_giveback_pp": 0.5078075553576422,
+          "n_days": 879,
+          "pass_diag": true
+        }
+      }
+    },
+    {
+      "id": "BLEND_050",
+      "family": "static_blend",
+      "exact_t1_ok": true,
+      "mean_fin_oof": 0.6514555247552134,
+      "mean_fin_sealed": 0.6445522407615604,
+      "flag_share_oof": null,
+      "flag_share_sealed": null,
+      "oof_mdd_improve_pp": 2.8288941961633896,
+      "oof_cagr_giveback_pp": -0.0033853097051839143,
+      "late_bull_cagr_giveback_pp": 0.6484401814351504,
+      "val_mdd_improve_pp": 1.7986812806292884,
+      "val_cagr_giveback_pp": 0.1280455343452669,
+      "val_pass_diag": true,
+      "sealed_mdd_improve_pp": 4.680369896588754,
+      "sealed_cagr_giveback_pp": 1.1820080596419036,
+      "sealed_pass_diag": true,
+      "selection_safe_oof_ok": true,
+      "sealed_years": [
+        {
+          "year": 2023,
+          "cagr_giveback_pp": -2.6546204018376596,
+          "mdd_improve_pp": 0.41634757393920196,
+          "cand_cagr": 0.10131248266607829,
+          "base_cagr": 0.07476627864770169
+        },
+        {
+          "year": 2024,
+          "cagr_giveback_pp": 1.089997437172796,
+          "mdd_improve_pp": -0.14948584210363602,
+          "cand_cagr": 0.21223151187240075,
+          "base_cagr": 0.2231314862441287
+        },
+        {
+          "year": 2025,
+          "cagr_giveback_pp": 2.1460857511881093,
+          "mdd_improve_pp": 0.5154819589454962,
+          "cand_cagr": 0.17040507480578637,
+          "base_cagr": 0.19186593231766746
+        },
+        {
+          "year": 2026,
+          "cagr_giveback_pp": 6.772712023139582,
+          "mdd_improve_pp": 4.680369896588776,
+          "cand_cagr": 0.614968238218659,
+          "base_cagr": 0.6826953584500548
+        }
+      ],
+      "windows": {
+        "oof": {
+          "window": "oof",
+          "base_cagr": 0.08846959052336945,
+          "base_mdd": -0.17412900003864262,
+          "cand_cagr": 0.08850344362042128,
+          "cand_mdd": -0.14584005807700873,
+          "mdd_improve_pp": 2.8288941961633896,
+          "cagr_giveback_pp": -0.0033853097051839143,
+          "n_days": 1495,
+          "pass_diag": true
+        },
+        "late_bull": {
+          "window": "late_bull",
+          "base_cagr": 0.11080464875479756,
+          "base_mdd": -0.06979935284276184,
+          "cand_cagr": 0.10432024694044606,
+          "cand_mdd": -0.06847737991570624,
+          "mdd_improve_pp": 0.13219729270556035,
+          "cagr_giveback_pp": 0.6484401814351504,
+          "n_days": 493,
+          "pass_diag": false
+        },
+        "val": {
+          "window": "val",
+          "base_cagr": 0.12330755797580628,
+          "base_mdd": -0.22639131293777337,
+          "cand_cagr": 0.12202710263235361,
+          "cand_mdd": -0.20840450013148049,
+          "mdd_improve_pp": 1.7986812806292884,
+          "cagr_giveback_pp": 0.1280455343452669,
+          "n_days": 977,
+          "pass_diag": true
+        },
+        "sealed": {
+          "window": "sealed",
+          "base_cagr": 0.24925144125866705,
+          "base_mdd": -0.1445685098357411,
+          "cand_cagr": 0.23743136066224801,
+          "cand_mdd": -0.09776481086985356,
+          "mdd_improve_pp": 4.680369896588754,
+          "cagr_giveback_pp": 1.1820080596419036,
+          "n_days": 879,
+          "pass_diag": true
+        }
+      }
+    },
+    {
+      "id": "BULL_RESTORE_50",
+      "family": "path_conditional",
+      "exact_t1_ok": true,
+      "mean_fin_oof": 0.762272333504883,
+      "mean_fin_sealed": 0.7311892183724038,
+      "flag_share_oof": 0.2214046822742475,
+      "flag_share_sealed": 0.27189988623435724,
+      "oof_mdd_improve_pp": 2.1905630913154783,
+      "oof_cagr_giveback_pp": 0.12395594045664371,
+      "late_bull_cagr_giveback_pp": 1.203475394268927,
+      "val_mdd_improve_pp": 1.0548569401267138,
+      "val_cagr_giveback_pp": 0.9728792440925504,
+      "val_pass_diag": true,
+      "sealed_mdd_improve_pp": 3.2092798226749264,
+      "sealed_cagr_giveback_pp": 3.6920390241898415,
+      "sealed_pass_diag": false,
+      "selection_safe_oof_ok": true,
+      "sealed_years": [
+        {
+          "year": 2023,
+          "cagr_giveback_pp": 0.8124886380000973,
+          "mdd_improve_pp": 0.032936391465709924,
+          "cand_cagr": 0.06664139226770072,
+          "base_cagr": 0.07476627864770169
+        },
+        {
+          "year": 2024,
+          "cagr_giveback_pp": 0.6536279414799839,
+          "mdd_improve_pp": 0.12598666936064484,
+          "cand_cagr": 0.21659520682932887,
+          "base_cagr": 0.2231314862441287
+        },
+        {
+          "year": 2025,
+          "cagr_giveback_pp": 5.394673292857988,
+          "mdd_improve_pp": -1.791666453121754,
+          "cand_cagr": 0.1379191993890876,
+          "base_cagr": 0.19186593231766746
+        },
+        {
+          "year": 2026,
+          "cagr_giveback_pp": 12.315118589185815,
+          "mdd_improve_pp": 3.2092798226749264,
+          "cand_cagr": 0.5595441725581967,
+          "base_cagr": 0.6826953584500548
+        }
+      ],
+      "windows": {
+        "oof": {
+          "window": "oof",
+          "base_cagr": 0.08846959052336945,
+          "base_mdd": -0.17412900003864262,
+          "cand_cagr": 0.08723003111880301,
+          "cand_mdd": -0.15222336912548784,
+          "mdd_improve_pp": 2.1905630913154783,
+          "cagr_giveback_pp": 0.12395594045664371,
+          "n_days": 1495,
+          "pass_diag": true
+        },
+        "late_bull": {
+          "window": "late_bull",
+          "base_cagr": 0.11080464875479756,
+          "base_mdd": -0.06979935284276184,
+          "cand_cagr": 0.0987698948121083,
+          "cand_mdd": -0.0645859387270652,
+          "mdd_improve_pp": 0.5213414115696646,
+          "cagr_giveback_pp": 1.203475394268927,
+          "n_days": 493,
+          "pass_diag": false
+        },
+        "val": {
+          "window": "val",
+          "base_cagr": 0.12330755797580628,
+          "base_mdd": -0.22639131293777337,
+          "cand_cagr": 0.11357876553488078,
+          "cand_mdd": -0.21584274353650623,
+          "mdd_improve_pp": 1.0548569401267138,
+          "cagr_giveback_pp": 0.9728792440925504,
+          "n_days": 977,
+          "pass_diag": true
+        },
+        "sealed": {
+          "window": "sealed",
+          "base_cagr": 0.24925144125866705,
+          "base_mdd": -0.1445685098357411,
+          "cand_cagr": 0.21233105101676863,
+          "cand_mdd": -0.11247571160899184,
+          "mdd_improve_pp": 3.2092798226749264,
+          "cagr_giveback_pp": 3.6920390241898415,
+          "n_days": 879,
+          "pass_diag": false
+        }
+      }
+    },
+    {
+      "id": "BULL_RESTORE_60",
+      "family": "path_conditional",
+      "exact_t1_ok": true,
+      "mean_fin_oof": 0.7818535478762693,
+      "mean_fin_sealed": 0.7561474401505094,
+      "flag_share_oof": 0.2214046822742475,
+      "flag_share_sealed": 0.27189988623435724,
+      "oof_mdd_improve_pp": 0.6659426323220585,
+      "oof_cagr_giveback_pp": 0.12917981419335867,
+      "late_bull_cagr_giveback_pp": 0.7354342708805861,
+      "val_mdd_improve_pp": 0.925683087166429,
+      "val_cagr_giveback_pp": 0.586469556842073,
+      "val_pass_diag": false,
+      "sealed_mdd_improve_pp": 3.1677427527591617,
+      "sealed_cagr_giveback_pp": 2.1729392920526003,
+      "sealed_pass_diag": true,
+      "selection_safe_oof_ok": false,
+      "sealed_years": [
+        {
+          "year": 2023,
+          "cagr_giveback_pp": -0.23008983535803829,
+          "mdd_improve_pp": 0.045561863659959734,
+          "cand_cagr": 0.07706717700128207,
+          "base_cagr": 0.07476627864770169
+        },
+        {
+          "year": 2024,
+          "cagr_giveback_pp": 0.7532318108466107,
+          "mdd_improve_pp": 0.21692653661143924,
+          "cand_cagr": 0.2155991681356626,
+          "base_cagr": 0.2231314862441287
+        },
+        {
+          "year": 2025,
+          "cagr_giveback_pp": 3.6543112010599454,
+          "mdd_improve_pp": -0.8244431516003625,
+          "cand_cagr": 0.155322820307068,
+          "base_cagr": 0.19186593231766746
+        },
+        {
+          "year": 2026,
+          "cagr_giveback_pp": 7.029889086554308,
+          "mdd_improve_pp": 3.1677427527591617,
+          "cand_cagr": 0.6123964675845117,
+          "base_cagr": 0.6826953584500548
+        }
+      ],
+      "windows": {
+        "oof": {
+          "window": "oof",
+          "base_cagr": 0.08846959052336945,
+          "base_mdd": -0.17412900003864262,
+          "cand_cagr": 0.08717779238143586,
+          "cand_mdd": -0.16746957371542204,
+          "mdd_improve_pp": 0.6659426323220585,
+          "cagr_giveback_pp": 0.12917981419335867,
+          "n_days": 1495,
+          "pass_diag": false
+        },
+        "late_bull": {
+          "window": "late_bull",
+          "base_cagr": 0.11080464875479756,
+          "base_mdd": -0.06979935284276184,
+          "cand_cagr": 0.1034503060459917,
+          "cand_mdd": -0.06681705695840245,
+          "mdd_improve_pp": 0.2982295884359387,
+          "cagr_giveback_pp": 0.7354342708805861,
+          "n_days": 493,
+          "pass_diag": false
+        },
+        "val": {
+          "window": "val",
+          "base_cagr": 0.12330755797580628,
+          "base_mdd": -0.22639131293777337,
+          "cand_cagr": 0.11744286240738555,
+          "cand_mdd": -0.21713448206610908,
+          "mdd_improve_pp": 0.925683087166429,
+          "cagr_giveback_pp": 0.586469556842073,
+          "n_days": 977,
+          "pass_diag": false
+        },
+        "sealed": {
+          "window": "sealed",
+          "base_cagr": 0.24925144125866705,
+          "base_mdd": -0.1445685098357411,
+          "cand_cagr": 0.22752204833814105,
+          "cand_mdd": -0.11289108230814948,
+          "mdd_improve_pp": 3.1677427527591617,
+          "cagr_giveback_pp": 2.1729392920526003,
+          "n_days": 879,
+          "pass_diag": true
+        }
+      }
+    },
+    {
+      "id": "DD_BEAR_CRISIS_50",
+      "family": "path_conditional",
+      "exact_t1_ok": true,
+      "mean_fin_oof": 0.7625300185206181,
+      "mean_fin_sealed": 0.75726461567856,
+      "flag_share_oof": 0.22073578595317725,
+      "flag_share_sealed": 0.18771331058020477,
+      "oof_mdd_improve_pp": 2.1905630913154783,
+      "oof_cagr_giveback_pp": 0.10777043033660672,
+      "late_bull_cagr_giveback_pp": 1.1537975167521086,
+      "val_mdd_improve_pp": 1.1093720406559093,
+      "val_cagr_giveback_pp": 0.5752443456768619,
+      "val_pass_diag": true,
+      "sealed_mdd_improve_pp": 0.507543581285419,
+      "sealed_cagr_giveback_pp": 2.3263875279120105,
+      "sealed_pass_diag": false,
+      "selection_safe_oof_ok": true,
+      "sealed_years": [
+        {
+          "year": 2023,
+          "cagr_giveback_pp": 0.768636635494091,
+          "mdd_improve_pp": 0.033401006091382524,
+          "cand_cagr": 0.06707991229276078,
+          "base_cagr": 0.07476627864770169
+        },
+        {
+          "year": 2024,
+          "cagr_giveback_pp": -0.2886325223410813,
+          "mdd_improve_pp": 0.04674415270807808,
+          "cand_cagr": 0.22601781146753952,
+          "base_cagr": 0.2231314862441287
+        },
+        {
+          "year": 2025,
+          "cagr_giveback_pp": 5.18353376991314,
+          "mdd_improve_pp": -1.7463319786803377,
+          "cand_cagr": 0.14003059461853606,
+          "base_cagr": 0.19186593231766746
+        },
+        {
+          "year": 2026,
+          "cagr_giveback_pp": 4.9602447660623605,
+          "mdd_improve_pp": 0.5075435812854412,
+          "cand_cagr": 0.6330929107894312,
+          "base_cagr": 0.6826953584500548
+        }
+      ],
+      "windows": {
+        "oof": {
+          "window": "oof",
+          "base_cagr": 0.08846959052336945,
+          "base_mdd": -0.17412900003864262,
+          "cand_cagr": 0.08739188622000338,
+          "cand_mdd": -0.15222336912548784,
+          "mdd_improve_pp": 2.1905630913154783,
+          "cagr_giveback_pp": 0.10777043033660672,
+          "n_days": 1495,
+          "pass_diag": true
+        },
+        "late_bull": {
+          "window": "late_bull",
+          "base_cagr": 0.11080464875479756,
+          "base_mdd": -0.06979935284276184,
+          "cand_cagr": 0.09926667358727648,
+          "cand_mdd": -0.06469062258704816,
+          "mdd_improve_pp": 0.5108730255713678,
+          "cagr_giveback_pp": 1.1537975167521086,
+          "n_days": 493,
+          "pass_diag": false
+        },
+        "val": {
+          "window": "val",
+          "base_cagr": 0.12330755797580628,
+          "base_mdd": -0.22639131293777337,
+          "cand_cagr": 0.11755511451903766,
+          "cand_mdd": -0.21529759253121428,
+          "mdd_improve_pp": 1.1093720406559093,
+          "cagr_giveback_pp": 0.5752443456768619,
+          "n_days": 977,
+          "pass_diag": true
+        },
+        "sealed": {
+          "window": "sealed",
+          "base_cagr": 0.24925144125866705,
+          "base_mdd": -0.1445685098357411,
+          "cand_cagr": 0.22598756597954694,
+          "cand_mdd": -0.1394930740228869,
+          "mdd_improve_pp": 0.507543581285419,
+          "cagr_giveback_pp": 2.3263875279120105,
+          "n_days": 879,
+          "pass_diag": false
+        }
+      }
+    },
+    {
+      "id": "CRISIS_ONLY_50",
+      "family": "path_conditional",
+      "exact_t1_ok": true,
+      "mean_fin_oof": 0.7917739403141639,
+      "mean_fin_sealed": 0.7686183797542102,
+      "flag_share_oof": 0.08896321070234113,
+      "flag_share_sealed": 0.1353811149032992,
+      "oof_mdd_improve_pp": 1.3052735272751748,
+      "oof_cagr_giveback_pp": -0.0120530636657179,
+      "late_bull_cagr_giveback_pp": 0.21580539145027444,
+      "val_mdd_improve_pp": 0.23366584067309182,
+      "val_cagr_giveback_pp": 0.446542608509759,
+      "val_pass_diag": false,
+      "sealed_mdd_improve_pp": 1.0569855135848183,
+      "sealed_cagr_giveback_pp": 0.9265774805831573,
+      "sealed_pass_diag": true,
+      "selection_safe_oof_ok": true,
+      "sealed_years": [
+        {
+          "year": 2023,
+          "cagr_giveback_pp": 0.6229007496165728,
+          "mdd_improve_pp": 0.012840044517448135,
+          "cand_cagr": 0.06853727115153596,
+          "base_cagr": 0.07476627864770169
+        },
+        {
+          "year": 2024,
+          "cagr_giveback_pp": -0.714119195097207,
+          "mdd_improve_pp": -0.011775486366616406,
+          "cand_cagr": 0.23027267819510078,
+          "base_cagr": 0.2231314862441287
+        },
+        {
+          "year": 2025,
+          "cagr_giveback_pp": 0.8815218862478824,
+          "mdd_improve_pp": 0.31279329866003014,
+          "cand_cagr": 0.18305071345518864,
+          "base_cagr": 0.19186593231766746
+        },
+        {
+          "year": 2026,
+          "cagr_giveback_pp": 4.895012494331863,
+          "mdd_improve_pp": 1.0569855135848405,
+          "cand_cagr": 0.6337452335067362,
+          "base_cagr": 0.6826953584500548
+        }
+      ],
+      "windows": {
+        "oof": {
+          "window": "oof",
+          "base_cagr": 0.08846959052336945,
+          "base_mdd": -0.17412900003864262,
+          "cand_cagr": 0.08859012116002662,
+          "cand_mdd": -0.16107626476589088,
+          "mdd_improve_pp": 1.3052735272751748,
+          "cagr_giveback_pp": -0.0120530636657179,
+          "n_days": 1495,
+          "pass_diag": true
+        },
+        "late_bull": {
+          "window": "late_bull",
+          "base_cagr": 0.11080464875479756,
+          "base_mdd": -0.06979935284276184,
+          "cand_cagr": 0.10864659484029482,
+          "cand_mdd": -0.07341745200313543,
+          "mdd_improve_pp": -0.3618099160373589,
+          "cagr_giveback_pp": 0.21580539145027444,
+          "n_days": 493,
+          "pass_diag": false
+        },
+        "val": {
+          "window": "val",
+          "base_cagr": 0.12330755797580628,
+          "base_mdd": -0.22639131293777337,
+          "cand_cagr": 0.11884213189070869,
+          "cand_mdd": -0.22405465453104245,
+          "mdd_improve_pp": 0.23366584067309182,
+          "cagr_giveback_pp": 0.446542608509759,
+          "n_days": 977,
+          "pass_diag": false
+        },
+        "sealed": {
+          "window": "sealed",
+          "base_cagr": 0.24925144125866705,
+          "base_mdd": -0.1445685098357411,
+          "cand_cagr": 0.23998566645283548,
+          "cand_mdd": -0.13399865469989292,
+          "mdd_improve_pp": 1.0569855135848183,
+          "cagr_giveback_pp": 0.9265774805831573,
+          "n_days": 879,
+          "pass_diag": true
+        }
+      }
+    }
+  ],
+  "implications": [
+    "Static FIN caps (50/60) improve MDD but leak sealed CAGR in 2024\u20132026 bull stretch.",
+    "Path-conditional caps (Bull-restore / Crisis-only) aim to keep Soft-Frozen finance beta in Bull while cutting only in stress.",
+    "Do not retune FIN_CAP_50 / L3_MILD_35_60 locks; screen new path-conditional family under a frozen L4 charter.",
+    "Soft-Frozen live stays [0.50, 0.95] until human cutover after sealed-aware PASS."
+  ],
+  "recommended_next_families": [
+    "L4-BULL-RESTORE (FIN50/60 only outside Bull)",
+    "L4-CRISIS-ONLY (FIN50 only in Crisis)",
+    "L4-DD-PATH (FIN cap only in active index DD; stricter than Bear/Crisis proxy)"
+  ],
+  "forbidden": [
+    "retune FIN_CAP_50 lock",
+    "retune L3_MILD_35_60",
+    "reopen L1 COMBO",
+    "silent Soft-Frozen flip"
+  ]
+}
