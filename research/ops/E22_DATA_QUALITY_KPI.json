@@ -1,0 +1,36 @@
+{
+  "generated_at_utc": "2026-09-05T07:03:54.948015+00:00",
+  "label": "E22_DATA_QUALITY_KPI",
+  "live_wire": false,
+  "soft_frozen_unchanged": true,
+  "formal_books": "E22_v2s",
+  "events_path": "/workspace/data/dividend_events/e22_dividend_events.csv",
+  "n_events": 150,
+  "n_cash_rows": 144,
+  "n_stock_rows": 52,
+  "cash_payment_date_blank_rate": 0.0,
+  "cash_ex_date_blank_rate": 0.0,
+  "stock_payment_date_blank_rate": 0.0,
+  "stock_ex_date_blank_rate": 0.0,
+  "announcement_date_blank_rate": 0.18,
+  "gap_report": {
+    "status": "PASS",
+    "generated_at_utc": "2026-09-04T12:45:10.253678+00:00",
+    "n_still_missing_official": 0,
+    "n_filled_yahoo_tw": 29,
+    "blocked_sources": {
+      "goodinfo": "cloudflare",
+      "wantgoo": "403/404",
+      "cmoney": "no_payment_column"
+    },
+    "working_source": "https://tw.stock.yahoo.com/quote/{code}.TW/dividend",
+    "conclusion": "All prior FinMind/MOPS blanks filled from Yahoo TW \u73fe\u91d1\u80a1\u5229\u767c\u653e\u65e5."
+  },
+  "formal_status": {
+    "formal_books": "E22_v2s",
+    "wired_e21": true,
+    "unit_ok": true
+  },
+  "flags": [],
+  "kpi_ok": true
+}

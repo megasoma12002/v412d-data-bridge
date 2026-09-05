@@ -33,6 +33,8 @@ STEPS_MONITOR = [
     ("fincap50_month_end", ["python3", "scripts/e16_fincap50_month_end_monitor.py"]),
     ("track_a_s9a1", ["python3", "scripts/e50a_dual_track_s9a1_monitor.py"]),
     ("live_paper_recon", ["python3", "scripts/e21_live_vs_paper_recon.py"]),
+    ("e22_data_quality_kpi", ["python3", "scripts/e22_data_quality_kpi.py"]),
+    ("ops_alert_scan", ["python3", "scripts/ops_alert_scan.py", "--report-only"]),
 ]
 
 STEPS_REFRESH = [

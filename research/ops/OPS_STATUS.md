@@ -1,6 +1,6 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-05 (Phase 2 hygiene + cutover prep checklists)  
+Date: 2026-09-05 (hardening: alerts + E22 KPI + five-layer checklist)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 
@@ -35,7 +35,11 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**
 | Month-end pack | `ops-month-end-paper-pack` / `scripts/ops_month_end_paper_pack.py` |
 | Live↔paper recon | Inside pack + `scripts/e21_live_vs_paper_recon.py` |
 
-Latest pack: `research/ops/MONTH_END_PAPER_PACK.md` (asof monitors 2026-09-04).
+Latest pack: `research/ops/MONTH_END_PAPER_PACK.md`  
+Alerts: `research/ops/OPS_ALERTS.md`  
+E22 KPI: `research/ops/E22_DATA_QUALITY_KPI.md`  
+Five-layer gaps: `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`  
+Legacy forward config: `research/ops/FORWARD_LEGACY_NOTE.md`
 
 ## Commands
 

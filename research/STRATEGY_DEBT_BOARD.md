@@ -28,7 +28,8 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | Code-review residual path | Through #56 |
 | Ops Phase 0 | Map + recon (#58) |
 | Ops Phase 1 | Live QC smoke + month-end pack (#59) |
-| Ops Phase 2 hygiene | MTD non-decision labels; artifact retention; Track A pointer; cutover checklists (**prep only**) |
+| Ops Phase 2 hygiene | MTD non-decision; retention; Track A pointer; cutover checklists — **#60** |
+| Ops hardening | Alert scan + GHA summaries; E22 data-quality KPI in pack; five-layer checklist; forward legacy note |
 | Obs PR #57 | **Superseded** by #58/#59 cadence (leave closed/ignored if API cannot close) |
 
 ### NOW

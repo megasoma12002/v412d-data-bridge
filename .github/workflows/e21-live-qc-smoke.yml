@@ -56,3 +56,23 @@ jobs:
           else:
               raise SystemExit("QC status FAIL")
           PY
+      - name: Ops alert scan (fail on CRITICAL)
+        if: always()
+        run: |
+          set -euo pipefail
+          python3 scripts/ops_alert_scan.py --fail-on critical
+          echo "### Ops alerts" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f research/ops/OPS_ALERTS.md ]; then
+            cat research/ops/OPS_ALERTS.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload OPS_ALERTS artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e21-live-qc-alerts-${{ github.run_number }}
+          path: |
+            research/ops/OPS_ALERTS.md
+            research/ops/OPS_ALERTS.json
+            forward/e21/qc_status.json
+          retention-days: 30
+          if-no-files-found: warn

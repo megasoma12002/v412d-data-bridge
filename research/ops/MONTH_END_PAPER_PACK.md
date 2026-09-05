@@ -1,6 +1,6 @@
 # Ops Month-End Paper Pack
 
-Generated: `2026-09-05T06:49:44.908348+00:00`
+Generated: `2026-09-05T07:03:55.015343+00:00`
 Status: **RESEARCH / OPS** — Soft-Frozen **[0.50, 0.95] unchanged**; no cutover.
 
 - Refresh ledgers: **False**
@@ -12,6 +12,8 @@ Status: **RESEARCH / OPS** — Soft-Frozen **[0.50, 0.95] unchanged**; no cutove
 | `fincap50_month_end` | True | 0 |
 | `track_a_s9a1` | True | 0 |
 | `live_paper_recon` | True | 0 |
+| `e22_data_quality_kpi` | True | 0 |
+| `ops_alert_scan` | True | 0 |
 
 ## Hard rules
 

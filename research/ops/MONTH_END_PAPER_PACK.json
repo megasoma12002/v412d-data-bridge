@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T06:49:44.908348+00:00",
+  "generated_at_utc": "2026-09-05T07:03:55.015343+00:00",
   "label": "OPS_MONTH_END_PAPER_PACK",
   "live_wire": false,
   "soft_frozen_clip": [
@@ -27,6 +27,16 @@
     },
     {
       "name": "live_paper_recon",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e22_data_quality_kpi",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "ops_alert_scan",
       "ok": true,
       "returncode": 0
     }
