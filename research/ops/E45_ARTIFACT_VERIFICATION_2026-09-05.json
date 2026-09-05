@@ -1,0 +1,32 @@
+{
+  "generated_at_utc": "2026-09-05T15:05:00+00:00",
+  "ballot": "E45_DEFER_STITCH_PATH",
+  "reject_e45": false,
+  "soft_frozen_critical_keep": true,
+  "lineage_preserved": "E38->E43->E44->E45",
+  "default_books_version_unchanged": "E22_v2s_tw",
+  "e45_code_modified": false,
+  "live_stitch_authorized": false,
+  "verification_verdict": "E45_NOT_VERIFIED",
+  "claim_mdd": -0.1316,
+  "claim_mdd_status": "NOT_VERIFIED",
+  "exact_artifact_match": false,
+  "closest_lineage_mdd": -0.1580516582301149,
+  "e3_winner_validation_mdd": -0.1848659743145534,
+  "early_stack_e45_e3_mdd": -0.20758421231988378,
+  "early_stack_e45_e3_cagr": 0.10794644108639262,
+  "checks": {
+    "implementation_path": "PASS_LOCATED",
+    "exact_t1_integrity": "PASS_SHARED_EXEC_PATH",
+    "crisis_state_transitions": "PARTIAL_DOCUMENTED_LINEAGE",
+    "validation_oos_periods": "PASS_DATED",
+    "mdd_claim": "FAIL_NOT_VERIFIED",
+    "cagr": "PARTIAL",
+    "turnover": "PARTIAL",
+    "costs": "PARTIAL",
+    "recovery_behavior": "PARTIAL",
+    "hashes_manifests_reproducibility": "FAIL_FOR_STITCH"
+  },
+  "report": "research/ops/E45_ARTIFACT_VERIFICATION_2026-09-05.md",
+  "prior_verify": "research/e45/E45_MDD_1316_VERIFICATION.json"
+}
