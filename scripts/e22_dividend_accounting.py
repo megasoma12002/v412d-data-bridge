@@ -12,8 +12,9 @@ E22_v2s_cil (market-mark research CIL):
   - Floor whole shares; cash-in-lieu = frac × raw close on stock_ex_date.
 
 E22_v2s_tw (Taiwan corporate-practice CIL for gap 6.5):
-  - Floor whole shares; cash-in-lieu = floor(frac × par 10) NTD
+  - Floor whole shares; cash-in-lieu = floor(frac × per-code par) NTD
     (Company Act §240 + typical issuer announcements: 面額折現、元以下捨去).
+  - Par from data/corporate_actions/par_value_by_code.csv (else provisional 10).
   - Does NOT force board-lot 1000 (TW 零股 trading allows 1–999).
   - Does NOT model 拼湊整股 window or 劃撥費用充抵 (optional haircuts).
 
@@ -40,6 +41,7 @@ FLOOR_CIL_VERSIONS = {E22_V2S_CIL, E22_V2S_TW}
 KNOWN_VERSIONS = {E22_V2, E22_V2S, E22_V2S_CIL, E22_V2S_TW}
 
 DIV_PATH_DEFAULT = Path("data/dividend_events/e22_dividend_events.csv")
+PAR_TABLE_DEFAULT = Path("data/corporate_actions/par_value_by_code.csv")
 
 
 def stock_share_factor(yuan_per_share: float) -> float:
@@ -52,6 +54,36 @@ def tw_par_cil_cash(fractional_shares: float, par: float = PAR_VALUE_TWD) -> flo
     if fractional_shares <= 0:
         return 0.0
     return float(math.floor(float(fractional_shares) * float(par) + 1e-12))
+
+
+def load_par_value_table(path: Path | str = PAR_TABLE_DEFAULT) -> dict[str, float]:
+    """Load verified (else provisional) par by code. Empty if file missing."""
+    path = Path(path)
+    if not path.exists():
+        return {}
+    out: dict[str, float] = {}
+    with path.open(newline="", encoding="utf-8") as handle:
+        for row in csv.DictReader(handle):
+            code = str(row.get("code") or "").strip()
+            if not code:
+                continue
+            verified = row.get("verified_par_twd")
+            provisional = row.get("provisional_par_twd")
+            raw = verified if verified not in (None, "") else provisional
+            try:
+                if raw in (None, ""):
+                    continue
+                out[code] = float(raw)
+            except ValueError:
+                continue
+    return out
+
+
+def par_for_code(code: str, par_table: dict[str, float] | None = None) -> float:
+    """Per-code par for TW CIL; falls back to PAR_VALUE_TWD=10 provisional."""
+    if par_table and code in par_table:
+        return float(par_table[code])
+    return float(PAR_VALUE_TWD)
 
 
 @dataclass(frozen=True)
@@ -133,19 +165,21 @@ def apply_dividends_for_date(
     version: str = DEFAULT_BOOKS_VERSION,
     skip_keys: set[str] | None = None,
     mark_prices: dict[str, float] | None = None,
+    par_table: dict[str, float] | None = None,
 ) -> tuple[dict[str, float], float, DivApplyResult]:
     """Apply E22 dividends for one calendar/trading date onto books.
 
     Idempotent when ``skip_keys`` contains ``f\"{kind}:{code}:{ex_date}\"``.
 
     ``E22_v2s_cil`` needs ``mark_prices[code]`` = raw close.
-    ``E22_v2s_tw`` uses par NT$10 (no market mark required).
+    ``E22_v2s_tw`` uses per-code verified par from ``par_table`` (else provisional 10).
     """
     version = version or DEFAULT_BOOKS_VERSION
     if version not in KNOWN_VERSIONS:
         raise ValueError(f"unknown E22 books version: {version}")
     skip = skip_keys or set()
     marks = mark_prices or {}
+    pars = par_table if par_table is not None else load_par_value_table()
     pos = {k: float(v) for k, v in positions.items()}
     cash_out = float(cash)
     result = DivApplyResult()
@@ -196,9 +230,9 @@ def apply_dividends_for_date(
                 whole = float(math.floor(gross))
                 frac = gross - whole
                 if version == E22_V2S_TW:
-                    px = PAR_VALUE_TWD
+                    px = par_for_code(ev.code, pars)
                     cil = tw_par_cil_cash(frac, px)
-                    mark_label = "par_10"
+                    mark_label = f"par_{px:g}"
                 else:
                     px = float(marks.get(ev.code, 0.0) or 0.0)
                     if px <= 0 and frac > 1e-12:

@@ -64,7 +64,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | L4 cutover PR | Only after register re-open trigger + checklist all-green | Soft-Frozen flip; static clip swap; open PR while PAUSE |
 | FIN50 static cutover PR | **Do not open** while `NOT_READY_SEALED_CAGR` | Retune FIN50 lock; ignore `NOT_READY` |
 | BLEND_025 live-wire | Only after `CUTOVER_CHECKLIST_BLEND025` all-green + human PR | Treat observe PASS / checklist draft as promote |
-| E45 / odd-lot / tax books | Stay DEFER until new charter | Four-layer live stitch; silent default promote |
+| E45 / odd-lot / tax books | Charters drafted 2026-09-05 — **human ballot** (`ODD_LOT_PROMOTE_DECISION_PACK`, `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER`, `E45_LIVE_STITCH_CHARTER`) | Four-layer live stitch; silent default promote; accept-all-three in one PR |
 
 ### WON’T
 L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 / BLEND_025 without human PR; reopen S1 residual detector grid; conflate FIN50 static promote with L4 DD-path or BLEND_025 observe.

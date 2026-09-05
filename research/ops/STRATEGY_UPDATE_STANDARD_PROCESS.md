@@ -134,7 +134,7 @@ Examples already binding (2026-09-05):
 | FIN50 static | Verify **not** `NOT_READY_SEALED_CAGR` **and** Gate E clean |
 | L4 live | ≥1 clean month-end (no YTD/1y PAUSE) + L4 checklist all YES |
 | BLEND → live | Sustained clean trailing **and** checklist authorized + human PR |
-| E45 / odd-lot / tax books | New charter accepted |
+| E45 / odd-lot / tax books | Human ACCEPT on the matching 2026-09-05 draft pack |
 
 Ops waits that are **not** strategy votes: grow live sessions (~60), post-forward E22 evidence, calendar month-end.
 
@@ -209,13 +209,21 @@ Ops charter → implement shadows/helpers (e21 default unchanged)
 
 Runtime primary switch (e.g. TAIEX Yahoo as e21 default) is class **E**, not C — needs its own cutover PR.
 
-### New alpha / E45 / odd-lot default
+### New alpha / E45 / odd-lot default / tax books
+
+Charter drafts (2026-09-05) — **human ACCEPT required** before live-facing work:
+
+| Topic | Pack |
+|---|---|
+| Odd-lot → `E22_v2s_tw` | `research/ops/ODD_LOT_PROMOTE_DECISION_PACK.md` |
+| Tax / receivable formal books | `research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` |
+| E45 live stitch | `research/ops/E45_LIVE_STITCH_CHARTER.md` |
 
 ```
-New charter accepted (register #6) → full A→H pipeline
+New charter ACCEPTED (register #6 ballot) → full classify→observe→cutover pipeline
 ```
 
-No charter → **DEFER** (do not “just paper it into live”).
+No ACCEPT → **DEFER** (do not “just paper it into live”).
 
 ---
 
