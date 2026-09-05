@@ -22,6 +22,7 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 | BLEND_025 cutover checklist (prep) | **DONE** | Drafted; still **NOT AUTHORIZED** |
 | Live claim / target policy | **DONE** | Soft-Frozen only live claim; no CAGR/MDD live badges |
 | Human decision register | **DONE** | `HUMAN_DECISION_REGISTER.md` BINDING |
+| Strategy update standard process | **DONE** | `STRATEGY_UPDATE_STANDARD_PROCESS.md` (classify→observe→human cutover) |
 | Alpha / E45 live stitch | **DEFERRED** | register #6 — needs new charter + human PR |
 
 ## Layer 2 — Live / ops cadence

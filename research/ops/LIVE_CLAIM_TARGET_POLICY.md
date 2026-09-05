@@ -51,6 +51,11 @@ Every paper metric must stay labeled **PAPER** or **RESEARCH** and must not be r
 - “Promote ready” from a single clean month-end  
 - Equating BLEND observe clean with Soft-Frozen replacement  
 
+## Process pointer
+
+How a claim becomes live-eligible (checklist + human cutover PR + post-QC):  
+`research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md` Stages 6–8.
+
 ## Label
 
 `LIVE_CLAIM_TARGET_POLICY_2026-09-05`

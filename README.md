@@ -7,6 +7,7 @@ Research continuation of the V4.12 / E50 program.
 | Need | Open |
 |---|---|
 | **Ops / what is live** | `research/ops/OPS_STATUS.md` |
+| **Strategy update SOP** | `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md` |
 | **Ops convergence plan** | `research/ops/OPS_CONVERGENCE_CHARTER.md` |
 | **Month-end paper pack** | `scripts/ops_month_end_paper_pack.py` / workflow `ops-month-end-paper-pack` |
 | **Live QC smoke** | workflow `e21-live-qc-smoke` |

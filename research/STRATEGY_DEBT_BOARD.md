@@ -57,6 +57,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 ### NEXT
 | Item | Action | Do not |
 |---|---|---|
+| Strategy update SOP | Use `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md` for any future challenger / Soft-Frozen / live-path change | Skip classify→observe→register→checklist→human PR |
 | Calendar month-end | Re-run pack; watch L4/FIN50/BLEND_025 trailing | Treat pack green / observe clean as cutover |
 | Live↔paper recon | Re-check INDEX_DRIFT as live history lengthens | Decision on <60 live sessions |
 | Live E22 field evidence | After next weekday forward; run `POST_FORWARD_E22_VERIFY_RUNBOOK.md` | Rewrite `forward/e21` history |
@@ -89,6 +90,7 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 | Human decisions | `research/ops/HUMAN_DECISION_REGISTER.md` **BINDING** |
 
 ## Pointers
+- `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 - `research/ops/HUMAN_DECISION_REGISTER.md`
 - `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 - `research/ops/CUTOVER_CHECKLIST_BLEND025.md`

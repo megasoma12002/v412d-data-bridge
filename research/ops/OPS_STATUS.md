@@ -4,7 +4,8 @@ Date: 2026-09-05 (strategy closure prep)
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
-Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
+Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  
+Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
 ## What is live (only this)
 
@@ -59,6 +60,7 @@ Post-forward E22 verify: `research/ops/POST_FORWARD_E22_VERIFY_RUNBOOK.md`
 Archive sentinel policy: `research/ops/ARCHIVE_SENTINEL_HYGIENE.md`  
 Five-layer gaps: `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`  
 Human decision register: `research/ops/HUMAN_DECISION_REGISTER.md`  
+Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`  
 Legacy forward config: `research/ops/FORWARD_LEGACY_NOTE.md`
 
 ## Commands
@@ -81,10 +83,11 @@ python3 scripts/e16_blend025_month_end_monitor.py
 ## Authority
 
 1. Cutover / Now-Next: `research/STRATEGY_DEBT_BOARD.md`  
-2. This map: `research/ops/OPS_STATUS.md`  
-3. Plan: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
-4. Retention: `research/ops/ARTIFACT_RETENTION.md`  
-5. Class ≠ live: `FROZEN_GOVERNANCE.md`
+2. Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`  
+3. This map: `research/ops/OPS_STATUS.md`  
+4. Plan: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
+5. Retention: `research/ops/ARTIFACT_RETENTION.md`  
+6. Class ≠ live: `FROZEN_GOVERNANCE.md`
 
 ## Hard rules
 

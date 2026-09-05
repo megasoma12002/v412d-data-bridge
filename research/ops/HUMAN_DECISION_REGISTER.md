@@ -44,6 +44,13 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 Live may not claim numeric CAGR/MDD target badges until a cutover PR merges.  
 See `research/ops/LIVE_CLAIM_TARGET_POLICY.md`.
 
+## How to run a future strategy update
+
+End-to-end stage map (classify → charter → paper → observe → register gate → checklist → human cutover PR → post-QC):  
+`research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`.
+
+This register remains the **only** place that re-opens live cutover agendas; the SOP does not add new verdicts.
+
 ## Label
 
 `HUMAN_DECISION_REGISTER_2026-09-05`
