@@ -18,6 +18,7 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 | FIN50 sealed-CAGR improve charter | **DONE** | Charter + gate screen landed |
 | FIN50 charter screen (families) | **DONE** | → **BLEND_025** |
 | BLEND_025 dual-paper observe sleeve | **DONE** | OPERATING OBSERVE; cutover blocked |
+| BLEND_025 month-end runbook | **DONE** | `BLEND_025_MONTH_END_RUNBOOK.md` (parity with FIN50/L4) |
 | Alpha / E45 live stitch | **DEFERRED** | needs new charter + human PR |
 
 ## Layer 2 — Live / ops cadence
@@ -70,6 +71,7 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 1. Opened **BLEND_025 dual-paper observe** sleeve (Exact T+1 paper only)  
 2. Wired ledgers + month-end monitor into `ops_month_end_paper_pack` + `ops_alert_scan`  
 3. Updated OPS_STATUS / proposal status → **OPERATING OBSERVE**  
+4. Added **BLEND_025 month-end runbook** + STRATEGY_DEBT_BOARD NOW/NEXT alignment  
 
 ## Still OPEN (observe / human)
 

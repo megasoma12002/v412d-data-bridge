@@ -22,6 +22,7 @@ Observe artifacts: `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md` · `BLEND_025
 |---|---|
 | Dual-paper ledgers | `scripts/e16_blend025_dual_paper_ledgers.py` → `repro/blend025-dual-paper/` |
 | Month-end monitor | `scripts/e16_blend025_month_end_monitor.py` |
+| Month-end runbook | `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md` |
 | Month-end pack | wired in `ops_month_end_paper_pack.py` (`blend025_*`) |
 | Alert scan | `ops_alert_scan.py` reads `BLEND_025_MONTH_END_MONITOR.json` |
 

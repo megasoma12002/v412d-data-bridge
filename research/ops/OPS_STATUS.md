@@ -46,6 +46,7 @@ FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
 BLEND_025 dual-paper observe: `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md`  
 BLEND_025 month-end: `research/gaps/BLEND_025_MONTH_END_MONITOR.md`  
+BLEND_025 month-end runbook: `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md`  
 Live E22 evidence readiness: `research/ops/LIVE_E22_FIELD_EVIDENCE.md`  
 Archive sentinel policy: `research/ops/ARCHIVE_SENTINEL_HYGIENE.md`  
 Five-layer gaps: `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`  
