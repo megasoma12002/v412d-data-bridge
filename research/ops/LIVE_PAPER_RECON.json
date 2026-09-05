@@ -1,0 +1,49 @@
+{
+  "generated_at_utc": "2026-09-05T06:33:57.416946+00:00",
+  "label": "LIVE_VS_PAPER_SOFT_FROZEN_RECON",
+  "live_wire": false,
+  "soft_frozen_clip": [
+    0.5,
+    0.95
+  ],
+  "soft_frozen_unchanged": true,
+  "paths": {
+    "live_nav": "/workspace/forward/e21/nav.csv",
+    "paper_nav": "/workspace/repro/l4-dd-path-dual-paper/outputs/base_e16_daily_nav.csv"
+  },
+  "live": {
+    "n": 10,
+    "start": "2026-08-24",
+    "end": "2026-09-04",
+    "last_nav": 3194823.7981686974
+  },
+  "paper_base": {
+    "n": 3351,
+    "start": "2012-12-04",
+    "end": "2026-09-04",
+    "last_nav": 16695201.766628468
+  },
+  "overlap_n": 10,
+  "overlap_stats": {
+    "overlap_start": "2026-08-24",
+    "overlap_end": "2026-09-04",
+    "live_cum_return": 0.06494126605623252,
+    "paper_cum_return": 0.08726166663629331,
+    "cum_return_gap": -0.022320400580060795,
+    "max_abs_indexed_nav_gap": 0.022320400580060795
+  },
+  "signals": {
+    "signal_rows": 10,
+    "signal_date_min": "2026-08-24",
+    "signal_date_max": "2026-09-04",
+    "weight_cols_present": [
+      "e16_financial",
+      "e16_telecom",
+      "e16_0050"
+    ]
+  },
+  "alerts": [
+    "INDEX_DRIFT: max |live_idx-paper_idx|=2.2320% > 2% on overlap"
+  ],
+  "note": "Research/ops recon only. Short live windows are expected. Do not use thin overlap for cutover. Soft-Frozen clip untouched."
+}
