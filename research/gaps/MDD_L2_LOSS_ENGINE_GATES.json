@@ -1,0 +1,35 @@
+{
+  "generated_at_utc": "2026-09-05T01:45:00+00:00",
+  "label": "MDD_L2_LOSS_ENGINE_CHARTER_FROZEN__L1_SEALED_ATTRIBUTION_READY",
+  "live_wire": false,
+  "research_only": true,
+  "parent_stop": "STOP_L1_HELDOUT_MIXED",
+  "families": ["L2-FINCAP-ONLY", "L2-DD-PATH", "L2-SPIKE-SHORT", "L2-ASYM-SCALE", "L2-FINCAP+DD"],
+  "forbidden": [
+    "retune L1_FINCAP50_COMBO_50",
+    "Stage-8 TECH2 remix",
+    "S1 cut retune",
+    "proxy-as-PASS",
+    "silent E16 retune"
+  ],
+  "gates": {
+    "oof_mdd_improve_pp_min": 3.0,
+    "oof_cagr_giveback_pp_max": 2.5,
+    "oof_bull_day_cagr_giveback_pp_max": 1.5,
+    "oof_bull_flag_share_max": 0.20,
+    "heldout_mdd_improve_pp_min": 1.0,
+    "heldout_cagr_giveback_pp_max": 3.0,
+    "exact_t1": true,
+    "placebo_mdd_improve_p_max": 0.5
+  },
+  "attribution_pointers": [
+    "research/gaps/MDD_L1_SEALED_ATTRIBUTION.md",
+    "repro/mdd-loss-engine/l1_sealed_attribution/reports/l1_sealed_attribution.json"
+  ],
+  "l1_sealed_failure": {
+    "cagr_giveback_pp": 8.91,
+    "combo_flag_share": 0.383,
+    "crisis_flag_share": 0.135,
+    "worst_years": [2024, 2026]
+  }
+}

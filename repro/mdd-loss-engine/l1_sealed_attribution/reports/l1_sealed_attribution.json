@@ -1,0 +1,91 @@
+{
+  "generated_at_utc": "2026-09-05T01:44:34.509099+00:00",
+  "locked_id": "L1_FINCAP50_COMBO_50",
+  "live_wire": false,
+  "retune_allowed": false,
+  "heldout_reference": {
+    "val_cagr_giveback_pp": -0.6458381542695069,
+    "val_mdd_improve_pp": 9.97945071680768,
+    "sealed_cagr_giveback_pp": 8.905208921608153,
+    "sealed_mdd_improve_pp": 7.716669448294211,
+    "sealed_gate_cagr_max_pp": 3.0,
+    "sealed_fail_reason": "cagr_giveback_pp > 3.0"
+  },
+  "flag_coverage": {
+    "oof_2012_2018": {
+      "combo": 0.33177257525083614,
+      "crisis": 0.08896321070234113
+    },
+    "val_2019_2022": {
+      "combo": 0.3510747185261003,
+      "crisis": 0.1750255885363357
+    },
+    "sealed_2023_plus": {
+      "combo": 0.3833902161547213,
+      "crisis": 0.1353811149032992
+    }
+  },
+  "sealed_day_conditionals_base": {
+    "flag_share": 0.3833902161547213,
+    "mean_ret_flag_on": 0.0009230975878964617,
+    "mean_ret_flag_off": 0.0009483313774384043,
+    "n_flag_on": 336,
+    "n_flag_off": 542,
+    "mean_e45_scale": 1.0,
+    "mean_e45_scale_flag_on": 1.0
+  },
+  "sealed_day_conditionals_l1": {
+    "flag_share": 0.3833902161547213,
+    "mean_ret_flag_on": 0.0003586773588345514,
+    "mean_ret_flag_off": 0.0007652735142664113,
+    "n_flag_on": 336,
+    "n_flag_off": 542,
+    "mean_e45_scale": 0.8083048919226393,
+    "mean_e45_scale_flag_on": 0.5
+  },
+  "sealed_by_year": [
+    {
+      "year": 2023,
+      "base_cagr": 0.07476627864770169,
+      "l1_cagr": 0.08416976188457048,
+      "cagr_giveback_pp": -0.9403483236868793,
+      "base_mdd": -0.0697097989944011,
+      "l1_mdd": -0.06315372236813344,
+      "mdd_improve_pp": 0.6556076626267671
+    },
+    {
+      "year": 2024,
+      "base_cagr": 0.2231314862441287,
+      "l1_cagr": 0.11885609843265987,
+      "cagr_giveback_pp": 10.427538781146882,
+      "base_mdd": -0.06880445663658341,
+      "l1_mdd": -0.052630347302010105,
+      "mdd_improve_pp": 1.6174109334573306
+    },
+    {
+      "year": 2025,
+      "base_cagr": 0.19186593231766746,
+      "l1_cagr": 0.15475247684995708,
+      "cagr_giveback_pp": 3.711345546771039,
+      "base_mdd": -0.09194772945846086,
+      "l1_mdd": -0.06099998568834042,
+      "mdd_improve_pp": 3.094774377012044
+    },
+    {
+      "year": 2026,
+      "base_cagr": 0.6826953584500548,
+      "l1_cagr": 0.3492306462450683,
+      "cagr_giveback_pp": 33.34647122049865,
+      "base_mdd": -0.1445685098357412,
+      "l1_mdd": -0.06740181535279899,
+      "mdd_improve_pp": 7.716669448294223
+    }
+  ],
+  "implications": [
+    "COMBO flag stays elevated in sealed bull years; equity scale 0.50 truncates upside more than it saves drawdown.",
+    "Validation had negative CAGR giveback (L1 beat BASE) because stress episodes repaid the cut; sealed did not.",
+    "L2 must separate FIN_CAP (concentration) from gross-cut (timing), cap flag share, and require asymmetric restore.",
+    "Do not retune L1_FINCAP50_COMBO_50 \u2014 axis STOPPED; new L2 charter required."
+  ],
+  "label": "L1_SEALED_ATTRIBUTION_READY_FOR_L2_CHARTER"
+}

@@ -1,63 +1,49 @@
 # Strategy Debt Board
 
-Date: 2026-09-04 (updated after #35 merge + Stage-8 archive)  
-Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.
+Date: 2026-09-05 (L2 charter frozen + FIN_CAP month-end monitor)  
+Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
+Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 
 ## Now / Next / Later / Won’t
 
 ### DONE
 | Item | Status |
 |---|---|
-| Gap 6.5 odd-lot TW (`E22_v2s_tw`) | **On main** (#35); default still `E22_v2s` |
-| Turnover / held-out diagnosis | **On main**; `MIXED_HELDOUT` |
-| Gap5/6 paper stitch / risk budget / board-lot | **On main** |
-| HANDOFF / TODO identity | **On main** |
-| STOP draft PR archive | **Closed** (#19, #22–#27, #33, #34) |
-| **Stage-8 stress-sleeve** | **SATURATED** — archived (`research/e50a/STAGE8_STRESS_SLEEVE_CLOSEOUT.md`); S8B1/S8C1 = `MIXED_HELDOUT` |
+| Stage-8 / debt closeout | On main (#35, #36) |
+| Dual-track A + B S1 | S1 held-out FAIL (#40) → keep A |
+| L1 MDD loss-engine | Held-out MIXED (#42) → **STOP L1** |
+| L1 sealed attribution | COMBO ~38% in sealed; CAGR giveback 8.9pp (2024/2026) |
+| FIN_CAP_50 dual-paper proposal | #43 — Soft-Frozen unchanged |
+| **L2 loss-engine charter** | This PR — sealed-aware / bull-day gates frozen |
+| **FIN_CAP_50 month-end monitor** | This PR — paper runbook live for ops |
 
-### NEXT (single focus)
+### NOW
+| Item | Action | Status |
+|---|---|---|
+| Track A S9A1 | Month-end KPI | **KEEP** |
+| FIN_CAP_50 paper | Month-end dual-paper monitor | **OPERATING (paper)** |
+| L2 MDD engine | Exact T+1 OOF screen per L2 charter | **NEXT HARNESS** |
+| Live | E16+E18+E22_v2s | Unchanged |
+
+### NEXT
 | Item | Action | Do not |
 |---|---|---|
-| Option-2 paper monitor | Run S9A1 as **research feed** (runbook in repro); not live capital | Live-wire; retune cuts |
-| New stress return engine | New EXPERIMENTAL id / non-TECH2 family — only if continuing alpha | More TECH2 cash/sleeve/freeze grids |
-| Optional | Explicit promote default=`E22_v2s_tw` cutover-only | Silent default flip |
+| L2 OOF screen | L2-FINCAP-ONLY + L2-DD-PATH first | Retune L1 COMBO×0.50 |
+| FIN_CAP month-end reviews | ≥1 clean cycle before any cutover talk | Silent Soft-Frozen flip |
+| Optional | `E22_v2s_tw` default cutover-only | Silent default flip |
 
-### LATER (ops-driven)
-| Item | When |
+### WON’T
+L1 cut retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50.
+
+## Snapshot
+| Topic | Number |
 |---|---|
-| Receivable / pay-date books (`E22_v3_*`) | Ops needs cash timing |
-| Dividend tax named books | After-tax reporting required |
-| Board-lot 1000 live | Real order capacity constraint |
-| Four-layer combined engine | Only after overlay clears dual held-out + handoff approval |
+| L1 sealed CAGR giveback | **+8.91 pp** (FAIL) |
+| L1 sealed COMBO / CRISIS share | **38.3% / 13.5%** |
+| FIN_CAP_50 held-out | MDD +3.06 pp; CAGR giveback 1.63 pp; MDD ~−19.6% |
 
-### WON’T FIX NOW
-- Re-run Stage-8 TECH2 cash / multi-sleeve grids  
-- Invent E45 MDD −13.16% replacement number  
-- Promote experimental 2.5% TO / 0.70 bootstrap to Frozen to “make R1 pass”  
-- Live-wire E50-A while `RESEARCH_ONLY` / `MIXED_HELDOUT`  
-- Rewrite `forward/e21` historical NAV for backfilled dividends  
-- Force board-lot 1000 as formal books (TW 零股 allows 1–999)  
-
-## Identity labels
-
-| Label | Meaning |
-|---|---|
-| `E21 live` | Forward ledger; E22_v2s from cutover; short sample |
-| `E22_v2s` | Formal raw TR (**default**) |
-| `E22_v2s_tw` | TW par CIL (named; not default) |
-| `E50-A RESEARCH_ONLY` | Standalone sleeve; C4 bull reference + S9A1 paper monitor |
-| `E45 NOT_VERIFIED −13.16%` | Challenger; claim has no artifact |
-
-## Gap / alpha snapshot
-
-| Topic | Status |
-|---|---|
-| #5 overlay | Disconnected; TO fixable on OOF; held-out **MIXED**; Stage-8 **saturated** |
-| #6.5 odd-lot | Closed as `E22_v2s_tw` |
-| S9A1 | Best directional stress transfer; still MIXED under 0.70 boot; Option-2 paper/monitor |
-
-## Success criteria (current)
-
-1. Stage-8 evidence on main + debt board says **do not re-grid TECH2 controllers**  
-2. Next work is Option-2 monitor **or** a **new** stress engine id  
-3. Live still has no overlay and no history rewrite  
+## Pointers
+- `research/gaps/MDD_L2_LOSS_ENGINE_CHARTER.md`
+- `research/gaps/MDD_L1_SEALED_ATTRIBUTION.md`
+- `research/gaps/FIN_CAP_50_MONTH_END_RUNBOOK.md`
+- `research/gaps/FIN_CAP_50_PROMOTE_PROPOSAL.md`
