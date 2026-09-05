@@ -36,6 +36,7 @@ GAP6_JSON = ROOT / "research/ops/E22_GAP6_FIDELITY_KPI.json"
 E22_KPI_JSON = ROOT / "research/ops/E22_DATA_QUALITY_KPI.json"
 RESILIENCE_JSON = ROOT / "research/ops/DATA_SOURCE_RESILIENCE_KPI.json"
 SHADOW_JSON = ROOT / "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json"
+PHASE_C_JSON = ROOT / "research/ops/DATA_SOURCE_PHASE_C_PROBES.json"
 
 # Soft-Frozen clip — single source (never hardcode drift).
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -278,6 +279,48 @@ def main() -> int:
                         "source": "data_source_shadow_reconcile",
                         "code": f"SHADOW_FAIL_{c.get('id')}".upper(),
                         "message": f"{c.get('id')}: {st}",
+                    }
+                )
+
+    phase_c = _load(PHASE_C_JSON)
+    if phase_c is None:
+        alerts.append(
+            {
+                "severity": "INFO",
+                "source": "data_source_phase_c_probes",
+                "code": "PHASE_C_PROBES_MISSING",
+                "message": f"missing {PHASE_C_JSON} (run data_source_phase_c_probes)",
+            }
+        )
+    else:
+        overall_pc = str(phase_c.get("overall_status") or "")
+        if overall_pc != "PASS":
+            alerts.append(
+                {
+                    "severity": "INFO",
+                    "source": "data_source_phase_c_probes",
+                    "code": "PHASE_C_PROBES_FAIL",
+                    "message": f"overall={overall_pc}",
+                }
+            )
+        for key, block in (phase_c.get("probes") or {}).items():
+            g = (block or {}).get("gate") or {}
+            if g.get("status") != "PASS":
+                alerts.append(
+                    {
+                        "severity": "INFO",
+                        "source": "data_source_phase_c_probes",
+                        "code": f"PHASE_C_{key}_FAIL".upper(),
+                        "message": g.get("reason") or (block or {}).get("note") or key,
+                    }
+                )
+            elif (block or {}).get("note"):
+                alerts.append(
+                    {
+                        "severity": "INFO",
+                        "source": "data_source_phase_c_probes",
+                        "code": f"PHASE_C_{key}_NOTE".upper(),
+                        "message": str(block.get("note")),
                     }
                 )
 

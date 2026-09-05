@@ -1,0 +1,15 @@
+{
+  "start": "2024-01-01",
+  "enable_yahoo_failover": true,
+  "force_yahoo": false,
+  "primary_attempt": "finmind",
+  "failover_used": true,
+  "source": "yahoo_^TWII",
+  "error_primary": "RuntimeError:simulated_finmind_failure",
+  "generated_at_utc": "2026-09-05T09:31:05.646862+00:00",
+  "n_rows": 648,
+  "out": "repro/data-source-phase-c/taiex_failover_dryrun.csv",
+  "soft_frozen_unchanged": true,
+  "e21_default_unchanged": true,
+  "note": "Opt-in tool only; e21 forward does not auto-call this without human wiring PR"
+}

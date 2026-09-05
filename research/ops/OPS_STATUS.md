@@ -71,6 +71,8 @@ python3 scripts/e22_data_quality_kpi.py
 python3 scripts/e22_gap6_fidelity_kpi.py
 python3 scripts/data_source_resilience_kpi.py
 python3 scripts/data_source_shadow_reconcile.py
+python3 scripts/data_source_phase_c_probes.py
+python3 scripts/taiex_fetch_with_failover.py --help
 python3 scripts/e21_live_vs_paper_recon.py
 python3 scripts/e16_blend025_dual_paper_ledgers.py
 python3 scripts/e16_blend025_month_end_monitor.py

@@ -43,6 +43,7 @@ STEPS_MONITOR = [
     ("e22_data_quality_kpi", ["python3", "scripts/e22_data_quality_kpi.py"]),
     ("e22_gap6_fidelity_kpi", ["python3", "scripts/e22_gap6_fidelity_kpi.py"]),
     ("data_source_shadow_reconcile", ["python3", "scripts/data_source_shadow_reconcile.py"]),
+    ("data_source_phase_c_probes", ["python3", "scripts/data_source_phase_c_probes.py"]),
     ("data_source_resilience_kpi", ["python3", "scripts/data_source_resilience_kpi.py"]),
     (
         "fincap50_sealed_cagr_charter_screen",

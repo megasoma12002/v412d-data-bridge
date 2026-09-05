@@ -1,12 +1,12 @@
 # Ops Alerts
 
-Generated: `2026-09-05T09:20:47.641895+00:00`
+Generated: `2026-09-05T09:32:51.304067+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 
 - CRITICAL: 0
 - HIGH (PAUSE_REVIEW etc.): 3
-- INFO: 12
+- INFO: 13
 
 | Severity | Source | Code | Message |
 |---|---|---|---|
@@ -24,7 +24,8 @@ Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 | INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=2.2320% > 2% on overlap |
 | INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=10 (<60) — not decision-grade for cutover |
 | INFO | `e22_gap6_fidelity_kpi` | `LIVE_LEDGER_E22_FIELDS_MISSING` | LIVE_LEDGER_E22_FIELDS_MISSING |
-| INFO | `data_source_resilience_kpi` | `SINGLE_POINT_STREAMS` | n_critical_without_backup=5; flags=['SINGLE_POINT:fin12_history_ohlcv', 'SINGLE_POINT:fin12_recent_ohlcv', 'SINGLE_POINT:taiex', 'SINGLE_POINT:adj_corporate_actions', 'SINGLE_POINT:dividend_amount_ex'] |
+| INFO | `data_source_phase_c_probes` | `PHASE_C_C1_FIN12_HISTORY_SHADOW_NOTE` | INFO_DRIFT on 1 ticker(s); flag-only, no overwrite |
+| INFO | `data_source_phase_c_probes` | `PHASE_C_C3_TAIEX_OPTIONAL_FAILOVER_NOTE` | Helper is opt-in only; e21 still uses FinMind TaiwanStockPrice(TAIEX). |
 
 ## Routing
 
