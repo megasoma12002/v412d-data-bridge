@@ -1,0 +1,281 @@
+{
+  "generated_at_utc": "2026-09-05T01:26:44.122043+00:00",
+  "label": "ADV_LITE_L1_READY_FOR_HELDOUT",
+  "live_wire": false,
+  "research_only": true,
+  "retune_allowed": false,
+  "locked": {
+    "id": "L1_FINCAP50_COMBO_50",
+    "family": "L1-FINCAP-STACK",
+    "fin_lo": 0.35,
+    "fin_hi": 0.5,
+    "flag": "COMBO",
+    "scale": 0.5
+  },
+  "locked_from_oof": {
+    "mdd_improve_pp": 8.317369217028503,
+    "cagr_giveback_pp": 1.4296546619369632,
+    "oof_cagr": 0.07417304390399981,
+    "oof_mdd": -0.0909553078683576
+  },
+  "recomputed_locked_oof": {
+    "cagr": 0.07417304390399981,
+    "max_drawdown": -0.0909553078683576,
+    "utility": 0.028695389969821017,
+    "vol": 0.08122396124257489,
+    "n_days": 1495
+  },
+  "exact_t1_ok": true,
+  "placebo": {
+    "n": 24,
+    "seed": 20260905,
+    "p_mdd_improve_ge_locked": 0.0,
+    "p_max": 0.5,
+    "n_beat_locked": 0,
+    "rows": [
+      {
+        "placebo_i": 0,
+        "oof_cagr": -0.006277657052504715,
+        "oof_mdd": -0.16658780934899453,
+        "mdd_improve_pp": 0.7541190689648092,
+        "cagr_giveback_pp": 9.474724757587417,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 1,
+        "oof_cagr": 0.004084704702798092,
+        "oof_mdd": -0.1479157785191576,
+        "mdd_improve_pp": 2.621322151948502,
+        "cagr_giveback_pp": 8.438488582057136,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 2,
+        "oof_cagr": 0.0019201058441935537,
+        "oof_mdd": -0.1652451347510654,
+        "mdd_improve_pp": 0.8883865287577231,
+        "cagr_giveback_pp": 8.654948467917588,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 3,
+        "oof_cagr": 0.003722011291249494,
+        "oof_mdd": -0.1510891819843917,
+        "mdd_improve_pp": 2.3039818054250927,
+        "cagr_giveback_pp": 8.474757923211996,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 4,
+        "oof_cagr": -0.0024357144563252886,
+        "oof_mdd": -0.1678654110452189,
+        "mdd_improve_pp": 0.6263588993423719,
+        "cagr_giveback_pp": 9.090530497969473,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 5,
+        "oof_cagr": -0.003354109607180855,
+        "oof_mdd": -0.18410377235983844,
+        "mdd_improve_pp": -0.9974772321195813,
+        "cagr_giveback_pp": 9.18237001305503,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 6,
+        "oof_cagr": 0.0004186759297848397,
+        "oof_mdd": -0.16282932635407055,
+        "mdd_improve_pp": 1.1299673684572076,
+        "cagr_giveback_pp": 8.805091459358461,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 7,
+        "oof_cagr": -0.004804196811319161,
+        "oof_mdd": -0.17517795549307502,
+        "mdd_improve_pp": -0.10489554544323987,
+        "cagr_giveback_pp": 9.32737873346886,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 8,
+        "oof_cagr": -0.006205216908584221,
+        "oof_mdd": -0.1690474200169818,
+        "mdd_improve_pp": 0.5081580021660814,
+        "cagr_giveback_pp": 9.467480743195367,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 9,
+        "oof_cagr": 0.0019531230555078771,
+        "oof_mdd": -0.1693531724693108,
+        "mdd_improve_pp": 0.4775827569331814,
+        "cagr_giveback_pp": 8.651646746786156,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 10,
+        "oof_cagr": 0.010180425435381668,
+        "oof_mdd": -0.1636016336708861,
+        "mdd_improve_pp": 1.052736636775653,
+        "cagr_giveback_pp": 7.828916508798778,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 11,
+        "oof_cagr": -8.055826917918729e-05,
+        "oof_mdd": -0.16617547663943988,
+        "mdd_improve_pp": 0.7953523399202744,
+        "cagr_giveback_pp": 8.855014879254863,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 12,
+        "oof_cagr": -0.0036821965707082294,
+        "oof_mdd": -0.1705572182601589,
+        "mdd_improve_pp": 0.3571781778483718,
+        "cagr_giveback_pp": 9.215178709407768,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 13,
+        "oof_cagr": 4.2132081120138665e-05,
+        "oof_mdd": -0.1758897891938137,
+        "mdd_improve_pp": -0.1760789155171083,
+        "cagr_giveback_pp": 8.84274584422493,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 14,
+        "oof_cagr": 0.0036880864254111856,
+        "oof_mdd": -0.1635563132846547,
+        "mdd_improve_pp": 1.0572686753987925,
+        "cagr_giveback_pp": 8.478150409795827,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 15,
+        "oof_cagr": 0.009164921782572222,
+        "oof_mdd": -0.15451571748046267,
+        "mdd_improve_pp": 1.9613282558179956,
+        "cagr_giveback_pp": 7.930466874079722,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 16,
+        "oof_cagr": -0.0011594818439072396,
+        "oof_mdd": -0.17649361982949485,
+        "mdd_improve_pp": -0.23646197908522293,
+        "cagr_giveback_pp": 8.962907236727668,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 17,
+        "oof_cagr": 0.0017473234018778872,
+        "oof_mdd": -0.1825021985978199,
+        "mdd_improve_pp": -0.8373198559177286,
+        "cagr_giveback_pp": 8.672226712149156,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 18,
+        "oof_cagr": 0.0030241555939261033,
+        "oof_mdd": -0.15282303120453677,
+        "mdd_improve_pp": 2.130596883410585,
+        "cagr_giveback_pp": 8.544543492944335,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 19,
+        "oof_cagr": -0.006941596913263459,
+        "oof_mdd": -0.20294684257341966,
+        "mdd_improve_pp": -2.881784253477704,
+        "cagr_giveback_pp": 9.54111874366329,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 20,
+        "oof_cagr": -0.0012204808033148273,
+        "oof_mdd": -0.19388776081979087,
+        "mdd_improve_pp": -1.9758760781148244,
+        "cagr_giveback_pp": 8.969007132668427,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 21,
+        "oof_cagr": 0.0007753393047744694,
+        "oof_mdd": -0.16391705711093763,
+        "mdd_improve_pp": 1.0211942927704998,
+        "cagr_giveback_pp": 8.769425121859499,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 22,
+        "oof_cagr": -0.016532652717724527,
+        "oof_mdd": -0.18112549470375328,
+        "mdd_improve_pp": -0.6996494665110653,
+        "cagr_giveback_pp": 10.500224324109396,
+        "ge_locked_improve": false
+      },
+      {
+        "placebo_i": 23,
+        "oof_cagr": 8.025118281462795e-06,
+        "oof_mdd": -0.16991019761520432,
+        "mdd_improve_pp": 0.4218802423438306,
+        "cagr_giveback_pp": 8.846156540508797,
+        "ge_locked_improve": false
+      }
+    ]
+  },
+  "year_split": {
+    "ok": true,
+    "n_positive_years": 6,
+    "years": [
+      {
+        "year": 2013,
+        "base_mdd": -0.08430221190135789,
+        "locked_mdd": -0.07541848371861115,
+        "mdd_improve_pp": 0.8883728182746742
+      },
+      {
+        "year": 2014,
+        "base_mdd": -0.07507260512721903,
+        "locked_mdd": -0.04427531440625143,
+        "mdd_improve_pp": 3.0797290720967596
+      },
+      {
+        "year": 2015,
+        "base_mdd": -0.13645767508655193,
+        "locked_mdd": -0.08438076347025703,
+        "mdd_improve_pp": 5.207691161629491
+      },
+      {
+        "year": 2016,
+        "base_mdd": -0.0499728059228568,
+        "locked_mdd": -0.036714398443626894,
+        "mdd_improve_pp": 1.3258407479229906
+      },
+      {
+        "year": 2017,
+        "base_mdd": -0.02946713923600175,
+        "locked_mdd": -0.026280932689381253,
+        "mdd_improve_pp": 0.3186206546620496
+      },
+      {
+        "year": 2018,
+        "base_mdd": -0.06979935284276162,
+        "locked_mdd": -0.061302640121772556,
+        "mdd_improve_pp": 0.8496712720989064
+      }
+    ],
+    "dominant_year": {
+      "year": 2015,
+      "base_mdd": -0.13645767508655193,
+      "locked_mdd": -0.08438076347025703,
+      "mdd_improve_pp": 5.207691161629491
+    }
+  },
+  "adv_pass": true,
+  "next_if_pass": "one held-out (val 2019-2022 + sealed 2023+); dual paper ledgers; no live-wire",
+  "next_if_stop": "keep BASE / Track A; do not retune L1 cuts; new charter required"
+}

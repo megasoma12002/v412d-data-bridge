@@ -1,0 +1,50 @@
+{
+  "generated_at_utc": "2026-09-05T01:27:55.107388+00:00",
+  "heldout_label": "STOP_L1_HELDOUT_MIXED",
+  "research_decision": "STOP_L1_HELDOUT_MIXED_KEEP_BASE",
+  "live_wire": false,
+  "retune_allowed": false,
+  "locked_id": "L1_FINCAP50_COMBO_50",
+  "gates": {
+    "mdd_improve_pp_min": 1.0,
+    "cagr_giveback_pp_max": 3.0,
+    "exact_t1": true
+  },
+  "validation_2019_2022": {
+    "window": "validation_2019_2022",
+    "start": "2019-01-01",
+    "end": "2022-12-31",
+    "base_cagr": 0.12330755797580628,
+    "base_mdd": -0.22639131293777337,
+    "l1_cagr": 0.12976593951850135,
+    "l1_mdd": -0.12659680576969656,
+    "mdd_improve_pp": 9.97945071680768,
+    "cagr_giveback_pp": -0.6458381542695069,
+    "pass": true,
+    "exact_t1_base": true,
+    "exact_t1_l1": true,
+    "n_days_base": 977,
+    "n_days_l1": 977
+  },
+  "sealed_2023_latest": {
+    "window": "sealed_2023_latest",
+    "start": "2023-01-01",
+    "end": "2026-09-04",
+    "base_cagr": 0.24925144125866705,
+    "base_mdd": -0.1445685098357411,
+    "l1_cagr": 0.1601993520425855,
+    "l1_mdd": -0.06740181535279899,
+    "mdd_improve_pp": 7.716669448294211,
+    "cagr_giveback_pp": 8.905208921608153,
+    "pass": false,
+    "exact_t1_base": true,
+    "exact_t1_l1": true,
+    "n_days_base": 879,
+    "n_days_l1": 879
+  },
+  "promotion": {
+    "replaces_live": false,
+    "dual_paper_ledgers_allowed": false,
+    "note": "Even on PASS, live stays BASE until explicit cutover PR"
+  }
+}

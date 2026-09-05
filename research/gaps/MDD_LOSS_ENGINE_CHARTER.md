@@ -74,12 +74,17 @@ Dual paper ledgers required on any promote: **BASE** + **L1**. Default live stay
 | Adv-lite | `ADV_LITE_L1_READY_FOR_HELDOUT` | `STOP_L1_ADV_*` |
 | Held-out | `PASS_HELDOUT_L1` | `STOP_L1_HELDOUT_*` |
 
-## Next implementation (separate PR)
+## Screen outcome (2026-09-05)
 
-1. Exact T+1 harness replaying E16 weights + L1 scaler on historical panel.  
-2. Screen L1-CRISIS-EQ and L1-STRESS-DET on OOF with frozen cuts.  
-3. Only then adv-lite → one held-out.
+| Step | Result |
+|---|---|
+| OOF | **PASS** — locked `L1_FINCAP50_COMBO_50` (9 passers; best MDD +8.3pp / CAGR giveback 1.4pp) |
+| Adv-lite | **PASS** — placebo P(MDD≥locked)=**0.0**; year-split OK |
+| Held-out | **`STOP_L1_HELDOUT_MIXED`** — val PASS (MDD +10.0pp, CAGR better); sealed FAIL (MDD +7.7pp but CAGR giveback **8.9pp** > 3.0pp) |
+
+**Keep BASE / Track A.** No L1 cut retune. No live-wire.  
+Artifacts: `research/gaps/MDD_L1_OOF.md`, `MDD_L1_ADV_LITE.md`, `MDD_L1_HELDOUT.md`.
 
 ## Label
 
-`MDD_LOSS_ENGINE_CHARTER_FROZEN__DIAGNOSIS_READY`
+`MDD_LOSS_ENGINE_L1_HELDOUT_MIXED_STOP__KEEP_BASE`
