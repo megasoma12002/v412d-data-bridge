@@ -1,0 +1,9 @@
+code,role,instrument,provisional_par_twd,verified_par_twd,as_of,source,source_url,status,notes
+2880,soft_frozen_fin,equity,10.0,,,,,LOOKUP_NEEDED,Do not treat provisional 10 as verified; 彈性面額 possible
+2886,soft_frozen_fin,equity,10.0,,,,,LOOKUP_NEEDED,Do not treat provisional 10 as verified; 彈性面額 possible
+2892,soft_frozen_fin,equity,10.0,,,,,LOOKUP_NEEDED,Do not treat provisional 10 as verified; 彈性面額 possible
+5880,soft_frozen_fin,equity,10.0,,,,,LOOKUP_NEEDED,Do not treat provisional 10 as verified; 彈性面額 possible
+2412,telecom,equity,10.0,,,,,LOOKUP_NEEDED,Do not treat provisional 10 as verified; 彈性面額 possible
+3045,telecom,equity,10.0,,,,,LOOKUP_NEEDED,Do not treat provisional 10 as verified; 彈性面額 possible
+4904,telecom,equity,10.0,,,,,LOOKUP_NEEDED,Do not treat provisional 10 as verified; 彈性面額 possible
+0050,etf,etf,,,,,,ETF_RULES_LOOKUP_NEEDED,ETF stock-div / odd-lot path uncommon; confirm before TW CIL apply

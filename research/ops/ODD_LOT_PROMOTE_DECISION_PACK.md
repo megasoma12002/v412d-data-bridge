@@ -49,7 +49,21 @@ Vote **one**:
 
 Until ballot lands, treat odd-lot as **DEFER** (no silent default edit).
 
-## Promote PR shape (only after ACCEPT promote)
+## Promote blocker — par value is data, not a constant
+
+`E22_v2s_tw` currently uses hardcoded `PAR_VALUE_TWD = 10.0`.  
+**彈性面額** issuers may differ; par can change over time.
+
+| Gate | Required before DEFAULT flip |
+|---|---|
+| Par inventory | Soft-Frozen FIN + telecom codes `VERIFIED` in `data/corporate_actions/par_value_by_code.csv` |
+| Charter | `PAR_VALUE_LOOKUP_CHARTER.md` Stage D wired (per-code / as-of par) |
+| Explicit risk waiver | Only if human writes ACCEPT with provisional-par=10 risk — otherwise **blocked** |
+
+Today: `coverage_pass_for_promote = false` (all equities `LOOKUP_NEEDED`).  
+See `research/ops/PAR_VALUE_INVENTORY.md`.
+
+## Promote PR shape (only after ACCEPT promote + par gate)
 
 1. Title: `Promote: DEFAULT_BOOKS_VERSION E22_v2s → E22_v2s_tw (odd-lot TW practice)`  
 2. Body quotes this pack **ACCEPT** + `ODD_LOT_PROMOTE_CHECKLIST` all YES  

@@ -22,6 +22,7 @@ Generated: `2026-09-04T18:26:12.109787+00:00`
 - **現金增資／股票股利**皆可產生 <1 股畸零股；策略帳以除權（stock ex）事件套用同一 floor+CIL 規則。
 - **市價落差爭議**：高價股按面額折現現金 ≪ 市值，屬制度結果；**正式帳必須跟面額慣例**，不可改用收盤市價 CIL 當 default（市價 CIL 僅 research `E22_v2s_cil`）。
 - **散戶自保（股務，非策略 alpha）**：關注股代公告之拼湊整股期限；逾期未湊則強制面額現金，劃撥費充抵後實領可能近 0。
+- **面額本身是資料**：不可假設全市場永遠 NT$10。彈性面額／面額變更需查表（`PAR_VALUE_LOOKUP_CHARTER.md`）；程式暫用 provisional `par=10` + `LOOKUP_NEEDED` 旗標，**未 verified 前不 promote default**。
 
 ## Named version ladder
 
