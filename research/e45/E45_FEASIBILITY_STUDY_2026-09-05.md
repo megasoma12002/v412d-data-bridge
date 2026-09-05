@@ -1,51 +1,62 @@
 # E45 Paper Feasibility Study (2026-09-05)
 
-Generated: `2026-09-05T15:42:42.223453+00:00`
+Generated: `2026-09-05T15:48:06.060417+00:00`
 Charter: `research/e45/E45_FEASIBILITY_CHARTER.md`
+Pack: `cost_stress_recovery_seal`
 
-## Verdict: `FEASIBLE_CONTINUE_PAPER`
+## Verdict: `FEASIBLE_READY_FOR_LIVE_BALLOT`
 
-- Live ballot ready: `False`
-- Official status **unchanged**: NOT_VERIFIED / DEFERRED / SOFT_FROZEN_CRITICAL / live auth NO
-- Historical −13.16%: **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** (not used as PASS)
+- Live ballot ready: `True`
+- Official status **unchanged** until human ballot: NOT_VERIFIED / DEFERRED / SOFT_FROZEN_CRITICAL / live auth NO
+- Historical −13.16%: **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** (not PASS; early-data incompleteness is hypothesis only)
 
-## Comparison
+## Comparison (full sample)
 
-| Arm | Definition | CAGR | MDD |
-|---|---|---:|---:|
-| Baseline | `E16_E18_E22_v2s` | 13.30% | -22.64% |
-| Challenger | `E16_E18_E22_v2s_E45_E3` | 10.42% | -20.76% |
-| Delta | challenger − baseline | **-2.88 pp** | **+1.88 pp** |
+| Arm | CAGR | MDD |
+|---|---:|---:|
+| Baseline `E16_E18_E22_v2s` | 13.30% | -22.64% |
+| Challenger `E16_E18_E22_v2s_E45_E3` | 10.42% | -20.76% |
+| Delta | **-2.88 pp** | **+1.88 pp** |
 
-- CAGR giveback: **2.88 pp** (gate max 2.0 pp unless crisis dominance)
-- Crisis-path MDD improvement: **+2.08 pp** (baseline -14.04% → challenger -11.95%)
-- Mean E45 equity scale (challenger): **0.907**
+## Gates F1–F10
 
-## Gates
+| Gate | Pass |
+|---|---|
+| `F1_artifact_honesty` | **True** |
+| `F2_exact_t1` | **True** |
+| `F3_crisis_mdd` | **True** |
+| `F4_full_sample_mdd` | **True** |
+| `F5_cagr_giveback` | **True** |
+| `F6_no_retune` | **True** |
+| `F7_live_untouched` | **True** |
+| `F8_cost` | **True** |
+| `F9_stress` | **True** |
+| `F10_recovery` | **True** |
 
-| Gate | Pass | Detail |
-|---|---|---|
-| `F1_artifact_honesty` | **True** | `{"note": "Dated early-stack recompute; -13.16% not used as PASS"}` |
-| `F2_exact_t1` | **True** | `{"same_bar_fills_baseline": 0, "same_bar_fills_challenger": 0}` |
-| `F3_crisis_mdd` | **True** | `{"baseline_crisis_path_mdd": -0.14035729376243833, "challenger_crisis_path_mdd": -0.11951885085638458, "improvement_pp": 2.0838442906053745}` |
-| `F4_full_sample_mdd` | **True** | `{"baseline_mdd": -0.2263873534222821, "challenger_mdd": -0.2075836624984907, "improvement_pp": 1.8803690923791416}` |
-| `F5_cagr_giveback` | **True** | `{"giveback_pp": 2.878051207719068, "max_pp": 2.0, "crisis_dominates_exception": true, "crisis_years_better": 9, "crisis_years_worse": 0}` |
-| `F6_no_retune` | **True** | `{"note": "Locked E3 winner only"}` |
-| `F7_live_untouched` | **True** | `{"note": "Paper repro only; live DEFAULT / forward path not edited"}` |
+## F8 Cost
 
-## Crisis-year windows
+| Arm | Fills | Fee sum | Fee bps/yr (vs avg NAV) | Ann. turnover approx |
+|---|---:|---:|---:|---:|
+| Baseline | 6271 | 400790 | 46.6 | 2.24 |
+| Challenger | 6931 | 394843 | 49.9 | 2.35 |
 
-| Year | Crisis days | Baseline MDD | Challenger MDD | Δ pp |
-|---:|---:|---:|---:|---:|
-| 2015 | 77 | -13.65% | -12.80% | +0.85 |
-| 2016 | 50 | -5.00% | -3.96% | +1.03 |
-| 2018 | 6 | -6.98% | -6.14% | +0.84 |
-| 2020 | 27 | -22.64% | -20.76% | +1.88 |
-| 2022 | 140 | -16.71% | -16.53% | +0.19 |
-| 2023 | 27 | -6.97% | -6.58% | +0.39 |
-| 2024 | 20 | -6.88% | -5.91% | +0.97 |
-| 2025 | 24 | -9.19% | -8.96% | +0.24 |
-| 2026 | 48 | -14.46% | -7.23% | +7.23 |
+## F9 Named stress windows
+
+| Window | Baseline MDD | Challenger MDD | Δ pp | Return Δ |
+|---|---:|---:|---:|---:|
+| 2015_china_shock | -10.24% | -9.39% | +0.85 | -0.12% |
+| 2018_trade_war | -6.98% | -6.14% | +0.84 | -1.05% |
+| 2020_covid | -22.36% | -20.76% | +1.60 | -1.41% |
+| 2022_bear | -16.71% | -16.53% | +0.19 | -0.10% |
+
+## F10 Recovery
+
+| Arm | Trough date | Trough MDD | Days to recover | Longest underwater (days) |
+|---|---|---:|---:|---:|
+| Baseline | 2020-03-19 | -22.64% | 392 | 465 |
+| Challenger | 2020-03-19 | -20.76% | 403 | 466 |
+
+- Mean E45 scale: **0.907** (min 0.501; frac<0.85 = 15.4%)
 
 ## Lineage honesty
 
@@ -54,22 +65,21 @@ Charter: `research/e45/E45_FEASIBILITY_CHARTER.md`
 
 ## Interpretation
 
-Paper research may **continue** (cost/stress/recovery sealing).
-This is **not** live-switch authorization.
+Paper gates F1–F10 pass. Humans **may** open a separate live-switch ballot.
+This study does **not** change live wiring or DEFAULT books.
 
 ## Next steps
 
-- If CONTINUE_PAPER: seal cost/stress/recovery KPI pack (still paper)
-- Do not open live-switch ballot until FEASIBLE_READY_FOR_LIVE_BALLOT
-- Keep live DEFAULT_BOOKS_VERSION = E22_v2s_tw
+- Human may open a live-switch ballot (separate PR); this pack does not flip live
+- Keep DEFAULT_BOOKS_VERSION = E22_v2s_tw until ballot ACCEPT
 
 ## Artifacts
 
 - `research/e45/E45_FEASIBILITY_STUDY_2026-09-05.json`
 - `repro/e45-feasibility-study/`
-- Script: `scripts/e45_feasibility_gates.py`
+- Scripts: `scripts/e45_feasibility_gates.py`, `scripts/e45_feasibility_seal_pack.py`
 
 ## Label
 
-`E45_FEASIBILITY_STUDY_2026-09-05__FEASIBLE_CONTINUE_PAPER`
+`E45_FEASIBILITY_STUDY_2026-09-05__FEASIBLE_READY_FOR_LIVE_BALLOT`
 

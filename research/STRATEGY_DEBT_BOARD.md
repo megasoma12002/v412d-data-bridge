@@ -64,7 +64,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | L4 cutover PR | Only after register re-open trigger + checklist all-green | Soft-Frozen flip; static clip swap; open PR while PAUSE |
 | FIN50 static cutover PR | **Do not open** while `NOT_READY_SEALED_CAGR` | Retune FIN50 lock; ignore `NOT_READY` |
 | BLEND_025 live-wire | Only after `CUTOVER_CHECKLIST_BLEND025` all-green + human PR | Treat observe PASS / checklist draft as promote |
-| E45 / odd-lot / tax books | Item3 stitch **DEFERRED**; paper feasibility **`FEASIBLE_CONTINUE_PAPER`** (not live-ready); see `research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md` | Four-layer live stitch; silent default promote; treat −13.16% as verified; open live ballot before cost/stress seal |
+| E45 / odd-lot / tax books | Item3 stitch **DEFERRED**; paper **`FEASIBLE_READY_FOR_LIVE_BALLOT`** (F1–F10); live auth still NO until human ballot; see `research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md` | Four-layer live stitch without ballot; silent default promote; treat −13.16% as verified |
 
 ### WON’T
 L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 / BLEND_025 without human PR; reopen S1 residual detector grid; conflate FIN50 static promote with L4 DD-path or BLEND_025 observe.

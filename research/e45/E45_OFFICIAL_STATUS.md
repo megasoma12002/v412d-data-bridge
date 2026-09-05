@@ -41,7 +41,8 @@ Prefer these dated figures over any narrative −13.16%.
 
 ## Paper feasibility (2026-09-05)
 
-Verdict: **`FEASIBLE_CONTINUE_PAPER`** — not live-ballot-ready.  
+Verdict: **`FEASIBLE_READY_FOR_LIVE_BALLOT`** (F1–F10 paper gates pass, including cost/stress/recovery seal).  
+**Still does not flip live.** `E45_LIVE_AUTHORIZATION` remains **NO** until a separate human live-switch ballot ACCEPT.  
 See `research/e45/E45_FEASIBILITY_CHARTER.md` and `E45_FEASIBILITY_STUDY_2026-09-05.md`.
 
 ## Lineage distinction (mandatory)

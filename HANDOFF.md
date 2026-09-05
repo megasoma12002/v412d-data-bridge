@@ -23,7 +23,7 @@ Cursor 必須依序讀：
 |---|---|---|
 | E16 / E18 / E22_v2s | SOFT_FROZEN | **Yes (core cutover)** |
 | E50-A | EXPERIMENTAL / RESEARCH_ONLY | **No** |
-| E45 | SOFT_FROZEN_CRITICAL | **No** — `NOT_VERIFIED` / stitch `DEFERRED` / live auth `NO`；paper 判決 `FEASIBLE_CONTINUE_PAPER`（見 `E45_FEASIBILITY_STUDY_2026-09-05.md`）；**未**達 live ballot |
+| E45 | SOFT_FROZEN_CRITICAL | **No** — `NOT_VERIFIED` / stitch `DEFERRED` / live auth `NO`；paper 判決 `FEASIBLE_READY_FOR_LIVE_BALLOT`（F1–F10；見 `E45_FEASIBILITY_STUDY_2026-09-05.md`）；**仍需**另開 human live-switch ballot 才可切 live |
 | FIN_CAP_50 | paper dual-ledger | **No** — go-live **`NOT_READY_SEALED_CAGR`** |
 | L4_DD_PATH_08_50 | paper dual-ledger | **No** — held-out PASS；cutover FROZEN |
 

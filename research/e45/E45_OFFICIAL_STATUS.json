@@ -5,8 +5,9 @@
   "E45_GOVERNANCE_CLASS": "SOFT_FROZEN_CRITICAL",
   "E45_LIVE_AUTHORIZATION": "NO",
   "default_books_version_live": "E22_v2s_tw",
-  "paper_feasibility_verdict": "FEASIBLE_CONTINUE_PAPER",
-  "live_ballot_ready": false,
+  "paper_feasibility_verdict": "FEASIBLE_READY_FOR_LIVE_BALLOT",
+  "live_ballot_ready": true,
+  "live_authorization_still": "NO",
   "historical_claim": {
     "mdd": -0.1316,
     "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE"
