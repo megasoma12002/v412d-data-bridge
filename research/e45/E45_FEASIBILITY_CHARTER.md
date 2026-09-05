@@ -16,7 +16,7 @@ Only after a clear paper verdict may humans ballot whether to switch live.
 - Do **not** change live wiring / `forward/e21`  
 - Do **not** change `DEFAULT_BOOKS_VERSION` (live remains `E22_v2s_tw`)  
 - Do **not** promote or reject E45  
-- Do **not** treat −13.16% as verified; label remains `NOT_VERIFIED_HISTORICAL_NARRATIVE`  
+- Do **not** treat −13.16% as verified; label `NOT_VERIFIED_HISTORICAL_NARRATIVE` / interpretation `EARLY_NON_RIGOROUS_RESEARCH_RESULT`  
 - Do **not** invent a replacement MDD
 
 ## Comparison pair (locked)
@@ -67,3 +67,10 @@ Default until proven otherwise: stay at stitch **DEFERRED** / live auth **NO**.
 ## Label
 
 `E45_FEASIBILITY_CHARTER_2026-09-05__PAPER_ONLY__NO_LIVE`
+
+
+## Provenance rule (F8–F10)
+
+Cost/stress/recovery sealing **must** run on a freshly regenerated early-stack directory with `INPUT_MANIFEST.json` + `OUTPUT_MANIFEST.json`.
+Reusing a prior NAV/fills pack without regen is **not** acceptable for F8–F10.
+Authoritative regen path (2026-09-05): `repro/e45-feasibility-study-regen-20260905/`.

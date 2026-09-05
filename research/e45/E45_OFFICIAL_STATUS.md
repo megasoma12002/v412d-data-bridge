@@ -25,6 +25,7 @@ Promote / reject: **neither** — Soft-Frozen CRITICAL kept; stitch deferred
 |---|---|
 | Historical handoff/spec figure | validation MDD ≈ **−13.16%** (−0.1316) |
 | Corrected label | **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** |
+| Interpretation | **`EARLY_NON_RIGOROUS_RESEARCH_RESULT`** — early research was not rigorous; not incomplete-data alchemy |
 | Why | No dated research CSV/JSON MDD equals −0.1316 |
 | Rule for agents | **Do not** treat −13.16% as a verified baseline, PASS evidence, or stitch gate |
 
@@ -41,7 +42,7 @@ Prefer these dated figures over any narrative −13.16%.
 
 ## Paper feasibility (2026-09-05)
 
-Verdict: **`FEASIBLE_READY_FOR_LIVE_BALLOT`** (F1–F10 paper gates pass, including cost/stress/recovery seal).  
+Verdict: **`FEASIBLE_READY_FOR_LIVE_BALLOT`** (F1–F10 on **freshly regenerated** NAV/fills under `repro/e45-feasibility-study-regen-20260905/`; prior pack superseded for seal).  
 **Still does not flip live.** `E45_LIVE_AUTHORIZATION` remains **NO** until a separate human live-switch ballot ACCEPT.  
 See `research/e45/E45_FEASIBILITY_CHARTER.md` and `E45_FEASIBILITY_STUDY_2026-09-05.md`.
 

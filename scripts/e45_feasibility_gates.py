@@ -13,7 +13,7 @@ from pathlib import Path
 import pandas as pd
 
 REPO = Path(".")
-IN = REPO / "repro/e45-feasibility-study"
+IN = REPO / "repro/e45-feasibility-study-regen-20260905"
 OUT = IN
 REPORT_MD = REPO / "research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md"
 REPORT_JSON = REPO / "research/e45/E45_FEASIBILITY_STUDY_2026-09-05.json"
@@ -55,6 +55,9 @@ def same_bar_fills(path: Path) -> int:
 
 
 def evaluate() -> dict:
+    for req in ("INPUT_MANIFEST.json", "OUTPUT_MANIFEST.json"):
+        if not (IN / req).exists():
+            raise SystemExit(f"Refuse gates on {IN}: missing {req}; regenerate first")
     base = pd.read_csv(IN / "outputs" / BASE_FILE)
     chal = pd.read_csv(IN / "outputs" / CHAL_FILE)
     base["date"] = pd.to_datetime(base["date"])
@@ -129,7 +132,7 @@ def evaluate() -> dict:
     gates = {
         "F1_artifact_honesty": {
             "pass": True,
-            "note": "Dated early-stack recompute; -13.16% not used as PASS",
+            "note": "Dated early-stack recompute; -13.16% EARLY_NON_RIGOROUS_RESEARCH_RESULT; not used as PASS",
         },
         "F2_exact_t1": {
             "pass": bool(exact_ok),
@@ -205,6 +208,7 @@ def evaluate() -> dict:
         "historical_claim": {
             "mdd": -0.1316,
             "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
+            "interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
         },
         "next_steps": [
             "If CONTINUE_PAPER: seal cost/stress/recovery KPI pack (still paper)",
@@ -227,7 +231,7 @@ def write_md(v: dict) -> None:
         "",
         f"- Live ballot ready: `{v['live_ballot_ready']}`",
         "- Official status **unchanged**: NOT_VERIFIED / DEFERRED / SOFT_FROZEN_CRITICAL / live auth NO",
-        "- Historical −13.16%: **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** (not used as PASS)",
+        "- Historical −13.16%: **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** (EARLY_NON_RIGOROUS_RESEARCH_RESULT; not used as PASS)",
         "",
         "## Comparison",
         "",

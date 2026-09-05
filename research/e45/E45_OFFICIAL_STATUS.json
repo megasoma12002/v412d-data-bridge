@@ -10,7 +10,9 @@
   "live_authorization_still": "NO",
   "historical_claim": {
     "mdd": -0.1316,
-    "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE"
+    "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
+    "interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
+    "note": "\u221213.16% is an early, non-rigorous research narrative \u2014 not verified. No dated artifact equals \u22120.1316."
   },
   "verified_dated_artifact_values": {
     "closest_lineage_validation_mdd": -0.1581,
@@ -18,11 +20,25 @@
     "early_stack_e45_e3_mdd": -0.2076,
     "early_stack_e45_e3_cagr": 0.1079
   },
-  "documented_research_lineage": ["E38", "E43", "E44", "E45"],
-  "importable_code_lineage": ["E1", "E1.1", "E2", "E2.1", "E3", "E45_wrapper"],
+  "documented_research_lineage": [
+    "E38",
+    "E43",
+    "E44",
+    "E45"
+  ],
+  "importable_code_lineage": [
+    "E1",
+    "E1.1",
+    "E2",
+    "E2.1",
+    "E3",
+    "E45_wrapper"
+  ],
   "authority": [
     "research/ops/E45_ARTIFACT_VERIFICATION_2026-09-05.md",
     "research/e45/E45_MDD_1316_VERIFICATION.md",
     "research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md"
-  ]
+  ],
+  "paper_feasibility_provenance": "repro/e45-feasibility-study-regen-20260905",
+  "prior_pack_status": "SUPERSEDED_FOR_SEAL"
 }

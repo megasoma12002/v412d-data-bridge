@@ -4,7 +4,7 @@
 Cursor 必須依序讀：
 1. `research/STRATEGY_DEBT_BOARD.md` ← **現行 live / paper 狀態（先讀）**
 2. `FROZEN_GOVERNANCE.md`（尤其 §4：SOFT_FROZEN class ≠ live cutover）
-3. `research/e45/E45_OFFICIAL_STATUS.md` ← E45 權威狀態（−13.16% = `NOT_VERIFIED_HISTORICAL_NARRATIVE`）
+3. `research/e45/E45_OFFICIAL_STATUS.md` ← E45 權威狀態（−13.16% = `NOT_VERIFIED_HISTORICAL_NARRATIVE`（`EARLY_NON_RIGOROUS_RESEARCH_RESULT`））
 4. `research/e45/E45_FEASIBILITY_CHARTER.md` + `E45_FEASIBILITY_STUDY_2026-09-05.md` ← paper 可行性（**未**授權 live）
 5. `FROZEN_STRATEGY_SPEC.md`（角色定義；非 live wiring 證明）
 6. `E50_RESEARCH_OPERATING_RULES.md`

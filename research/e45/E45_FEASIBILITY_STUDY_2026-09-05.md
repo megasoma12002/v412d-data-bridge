@@ -1,21 +1,23 @@
 # E45 Paper Feasibility Study (2026-09-05)
 
-Generated: `2026-09-05T15:48:06.060417+00:00`
+Generated: `2026-09-05T15:55:01.117824+00:00`
 Charter: `research/e45/E45_FEASIBILITY_CHARTER.md`
 Pack: `cost_stress_recovery_seal`
+Provenance in_dir: `/workspace/repro/e45-feasibility-study-regen-20260905`
 
 ## Verdict: `FEASIBLE_READY_FOR_LIVE_BALLOT`
 
 - Live ballot ready: `True`
 - Official status **unchanged** until human ballot: NOT_VERIFIED / DEFERRED / SOFT_FROZEN_CRITICAL / live auth NO
-- Historical −13.16%: **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** (not PASS; early-data incompleteness is hypothesis only)
+- Historical −13.16%: **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** / interpretation **`EARLY_NON_RIGOROUS_RESEARCH_RESULT`** (not PASS)
+- Seal computed on **freshly regenerated** NAV/fills (INPUT/OUTPUT manifests required); prior pack not authoritative for F8–F10
 
 ## Comparison (full sample)
 
 | Arm | CAGR | MDD |
 |---|---:|---:|
-| Baseline `E16_E18_E22_v2s` | 13.30% | -22.64% |
-| Challenger `E16_E18_E22_v2s_E45_E3` | 10.42% | -20.76% |
+| Baseline | 13.30% | -22.64% |
+| Challenger | 10.42% | -20.76% |
 | Delta | **-2.88 pp** | **+1.88 pp** |
 
 ## Gates F1–F10
@@ -33,14 +35,14 @@ Pack: `cost_stress_recovery_seal`
 | `F9_stress` | **True** |
 | `F10_recovery` | **True** |
 
-## F8 Cost
+## F8 Cost (from regenerated fills)
 
-| Arm | Fills | Fee sum | Fee bps/yr (vs avg NAV) | Ann. turnover approx |
+| Arm | Fills | Fee sum | Fee bps/yr | Ann. turnover approx |
 |---|---:|---:|---:|---:|
 | Baseline | 6271 | 400790 | 46.6 | 2.24 |
 | Challenger | 6931 | 394843 | 49.9 | 2.35 |
 
-## F9 Named stress windows
+## F9 Named stress windows (from regenerated NAV)
 
 | Window | Baseline MDD | Challenger MDD | Δ pp | Return Δ |
 |---|---:|---:|---:|---:|
@@ -49,9 +51,9 @@ Pack: `cost_stress_recovery_seal`
 | 2020_covid | -22.36% | -20.76% | +1.60 | -1.41% |
 | 2022_bear | -16.71% | -16.53% | +0.19 | -0.10% |
 
-## F10 Recovery
+## F10 Recovery (from regenerated NAV)
 
-| Arm | Trough date | Trough MDD | Days to recover | Longest underwater (days) |
+| Arm | Trough date | Trough MDD | Days to recover | Longest underwater |
 |---|---|---:|---:|---:|
 | Baseline | 2020-03-19 | -22.64% | 392 | 465 |
 | Challenger | 2020-03-19 | -20.76% | 403 | 466 |
@@ -63,23 +65,18 @@ Pack: `cost_stress_recovery_seal`
 - **DOCUMENTED RESEARCH LINEAGE:** `E38 → E43 → E44 → E45`
 - **IMPORTABLE CODE LINEAGE:** `E1 → E1.1 → E2 → E2.1 → E3 → E45 wrapper`
 
-## Interpretation
-
-Paper gates F1–F10 pass. Humans **may** open a separate live-switch ballot.
-This study does **not** change live wiring or DEFAULT books.
-
 ## Next steps
 
-- Human may open a live-switch ballot (separate PR); this pack does not flip live
+- Human may open a separate live-switch ballot; this pack does not flip live
 - Keep DEFAULT_BOOKS_VERSION = E22_v2s_tw until ballot ACCEPT
 
 ## Artifacts
 
 - `research/e45/E45_FEASIBILITY_STUDY_2026-09-05.json`
-- `repro/e45-feasibility-study/`
+- `/workspace/repro/e45-feasibility-study-regen-20260905/`
 - Scripts: `scripts/e45_feasibility_gates.py`, `scripts/e45_feasibility_seal_pack.py`
 
 ## Label
 
-`E45_FEASIBILITY_STUDY_2026-09-05__FEASIBLE_READY_FOR_LIVE_BALLOT`
+`E45_FEASIBILITY_STUDY_2026-09-05__FEASIBLE_READY_FOR_LIVE_BALLOT__FRESH_REGEN`
 

@@ -1,0 +1,31 @@
+{
+  "generated_at_utc": "2026-09-05T15:51:28.013465+00:00",
+  "purpose": "fresh_regen_for_cost_stress_recovery_seal_no_reuse_of_prior_nav_fills",
+  "inputs": {
+    "market": {
+      "path": "forward/e21/live_market.csv",
+      "sha256": "7f1a27af0fb64e5ba28f62f011d39bb6057dbd9b66afa9e3d1cfbbc4aa890216",
+      "bytes": 2147030
+    },
+    "dividends": {
+      "path": "data/dividend_events/e22_dividend_events.csv",
+      "sha256": "c8a51c3b1860d601161b97c84f722db22468eb60ef254d3301421deb2f1f31cf",
+      "bytes": 12167
+    },
+    "e45_module": {
+      "path": "scripts/e45_crisis_core.py",
+      "sha256": "eb45d10eec9d3bd66095fa18b5355153d9c01d54ca878bb657f3c19e0c235aa9",
+      "bytes": 8846
+    },
+    "early_stack_script": {
+      "path": "scripts/e50_early_stack_combined_nav.py",
+      "sha256": "a9e33e5a598f456ca89e2200f54502268a676fe962df1390701a4c7d99908dfa",
+      "bytes": 24218
+    },
+    "seal_script": {
+      "path": "scripts/e45_feasibility_seal_pack.py",
+      "sha256": "492f9d14e7d572477d886ccb07d635785dccd16b112ce16d579b98084cf327ab",
+      "bytes": 16134
+    }
+  }
+}
