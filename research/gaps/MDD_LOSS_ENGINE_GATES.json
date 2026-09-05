@@ -1,0 +1,26 @@
+{
+  "generated_at_utc": "2026-09-05T01:07:00+00:00",
+  "label": "MDD_LOSS_ENGINE_CHARTER_FROZEN__DIAGNOSIS_READY",
+  "live_wire": false,
+  "research_only": true,
+  "families": ["L1-CRISIS-EQ", "L1-STRESS-DET", "L1-FINCAP-STACK", "L1-GROSS-FLOOR"],
+  "forbidden": ["Stage-8 TECH2 remix", "S1 cut retune", "proxy-as-PASS", "silent E16 retune"],
+  "gates": {
+    "oof_mdd_improve_pp_min": 3.0,
+    "oof_cagr_giveback_pp_max": 2.5,
+    "heldout_mdd_improve_pp_min": 1.0,
+    "heldout_cagr_giveback_pp_max": 3.0,
+    "exact_t1": true,
+    "placebo_mdd_improve_p_max": 0.5
+  },
+  "diagnosis_pointers": [
+    "research/gaps/MDD_LOSS_ENGINE_DIAGNOSIS.md",
+    "repro/mdd-loss-engine/reports/mdd_diagnosis.json"
+  ],
+  "context": {
+    "formal_e22_v2s": "13.78% CAGR / -22.64% MDD",
+    "fin_cap_50_held_mdd": "~-19.6% (PASS research, not live)",
+    "s1_heldout": "FAIL — keep Track A",
+    "e45_equity_scale_on_formal": 1.0
+  }
+}

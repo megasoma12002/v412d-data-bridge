@@ -1,0 +1,322 @@
+{
+  "generated_at_utc": "2026-09-05T01:07:00.165602+00:00",
+  "book": "E22_v2s formal historical recompute",
+  "nav_path": "repro/e22-v2s-historical-recompute/outputs/e22_v2s_daily_nav.csv",
+  "live_wire": false,
+  "research_only": true,
+  "targets": {
+    "cagr": 0.2,
+    "mdd": -0.15
+  },
+  "overall": {
+    "start": "2012-12-04",
+    "end": "2026-09-04",
+    "n_days": 3351,
+    "cagr": 0.1377856268088009,
+    "max_drawdown": -0.22639131293777315,
+    "mean_equity_weight": 0.9943698533766994,
+    "mean_tgt_financial": 0.7980291522059705,
+    "mean_e45_equity_scale": 1.0,
+    "gap_cagr_pp": -6.22143731911991,
+    "gap_mdd_pp_deeper_than_15": 7.639131293777315,
+    "mdd_pp_vs_neg15": -7.639131293777315
+  },
+  "top_drawdown_episodes_min_8pct": [
+    {
+      "peak_date": "2020-01-20",
+      "start_date": "2020-01-30",
+      "trough_date": "2020-03-19",
+      "recover_date": "2021-04-15",
+      "depth": -0.22639131293777315,
+      "length_days": 35,
+      "recover_days": 261,
+      "mean_tgt_financial": 0.8465166105311882,
+      "mean_equity_weight": 0.9909118489753099,
+      "mean_e45_equity_scale": 1.0,
+      "min_e45_equity_scale": 1.0,
+      "regime_counts": {
+        "Crisis": 5,
+        "Bull": 24,
+        "Sideways": 3,
+        "Bear": 4
+      },
+      "share_crisis_regime": 0.1388888888888889
+    },
+    {
+      "peak_date": "2015-04-28",
+      "start_date": "2015-04-29",
+      "trough_date": "2016-01-21",
+      "recover_date": "2016-07-15",
+      "depth": -0.1741290000386425,
+      "length_days": 185,
+      "recover_days": 114,
+      "mean_tgt_financial": 0.6894073219105569,
+      "mean_equity_weight": 0.9961422757006193,
+      "mean_e45_equity_scale": 1.0,
+      "min_e45_equity_scale": 1.0,
+      "regime_counts": {
+        "Bull": 38,
+        "Crisis": 91,
+        "Bear": 57
+      },
+      "share_crisis_regime": 0.489247311827957
+    },
+    {
+      "peak_date": "2022-04-13",
+      "start_date": "2022-04-14",
+      "trough_date": "2022-10-19",
+      "recover_date": "2024-03-14",
+      "depth": -0.1671166019456527,
+      "length_days": 131,
+      "recover_days": 335,
+      "mean_tgt_financial": 0.6632741042177442,
+      "mean_equity_weight": 0.9973796855812039,
+      "mean_e45_equity_scale": 1.0,
+      "min_e45_equity_scale": 1.0,
+      "regime_counts": {
+        "Crisis": 88,
+        "Bear": 44
+      },
+      "share_crisis_regime": 0.6666666666666666
+    },
+    {
+      "peak_date": "2026-02-26",
+      "start_date": "2026-03-02",
+      "trough_date": "2026-05-27",
+      "recover_date": "2026-06-04",
+      "depth": -0.1445685098357411,
+      "length_days": 60,
+      "recover_days": 5,
+      "mean_tgt_financial": 0.7254828352895284,
+      "mean_equity_weight": 0.9941450680558624,
+      "mean_e45_equity_scale": 1.0,
+      "min_e45_equity_scale": 1.0,
+      "regime_counts": {
+        "Bull": 11,
+        "Sideways": 30,
+        "Crisis": 20
+      },
+      "share_crisis_regime": 0.32786885245901637
+    },
+    {
+      "peak_date": "2025-03-27",
+      "start_date": "2025-03-28",
+      "trough_date": "2025-04-07",
+      "recover_date": "2025-08-04",
+      "depth": -0.09194772945846075,
+      "length_days": 5,
+      "recover_days": 78,
+      "mean_tgt_financial": 0.7032943369956458,
+      "mean_equity_weight": 0.9996095507899065,
+      "mean_e45_equity_scale": 1.0,
+      "min_e45_equity_scale": 1.0,
+      "regime_counts": {
+        "Crisis": 2,
+        "Bear": 4
+      },
+      "share_crisis_regime": 0.3333333333333333
+    }
+  ],
+  "worst_daily_losses": [
+    {
+      "date": "2025-04-07",
+      "ret": -0.08280067618640313,
+      "regime": "Crisis",
+      "tgt_financial": 0.6829073532148697,
+      "equity_weight": 0.9996254483398886,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2026-06-05",
+      "ret": -0.05785538866323542,
+      "regime": "Sideways",
+      "tgt_financial": 0.7946101955203708,
+      "equity_weight": 0.9999964011688357,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2024-08-05",
+      "ret": -0.05703435703150884,
+      "regime": "Crisis",
+      "tgt_financial": 0.8161791350322125,
+      "equity_weight": 0.9888157966841548,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2020-03-19",
+      "ret": -0.0545213502720081,
+      "regime": "Crisis",
+      "tgt_financial": 0.659152727657429,
+      "equity_weight": 0.9972469275261695,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2026-04-28",
+      "ret": -0.04350450698076937,
+      "regime": "Sideways",
+      "tgt_financial": 0.7804288713185746,
+      "equity_weight": 0.9946581817295174,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2020-01-30",
+      "ret": -0.040775519634655734,
+      "regime": "Bull",
+      "tgt_financial": 0.8511712769903214,
+      "equity_weight": 0.9878291901667922,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2026-03-04",
+      "ret": -0.0393859743467981,
+      "regime": "Sideways",
+      "tgt_financial": 0.8256721823833788,
+      "equity_weight": 0.998414080147174,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2026-08-13",
+      "ret": -0.03801440707210448,
+      "regime": "Crisis",
+      "tgt_financial": 0.6789522494376868,
+      "equity_weight": 0.9757790766389852,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2021-05-12",
+      "ret": -0.03653808811176579,
+      "regime": "Sideways",
+      "tgt_financial": 0.880258359366147,
+      "equity_weight": 0.9883186482220492,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2020-03-16",
+      "ret": -0.0343401932518389,
+      "regime": "Crisis",
+      "tgt_financial": 0.7175517196059664,
+      "equity_weight": 0.9932283435420548,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2025-06-18",
+      "ret": -0.03332108249935387,
+      "regime": "Bull",
+      "tgt_financial": 0.753614205949263,
+      "equity_weight": 0.9751347827189603,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2026-06-08",
+      "ret": -0.03312262501797465,
+      "regime": "Sideways",
+      "tgt_financial": 0.7915071854832392,
+      "equity_weight": 0.9999962778825346,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2018-02-06",
+      "ret": -0.03300384053889009,
+      "regime": "Bear",
+      "tgt_financial": 0.8376715505993855,
+      "equity_weight": 0.9985309764339255,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2020-03-17",
+      "ret": -0.03294081277788941,
+      "regime": "Crisis",
+      "tgt_financial": 0.6925861079063282,
+      "equity_weight": 0.9952566610957168,
+      "e45_equity_scale": 1.0
+    },
+    {
+      "date": "2018-10-11",
+      "ret": -0.03145580613978461,
+      "regime": "Bear",
+      "tgt_financial": 0.7739740310976791,
+      "equity_weight": 0.9947575428230662,
+      "e45_equity_scale": 1.0
+    }
+  ],
+  "by_regime": [
+    {
+      "regime": "Bear",
+      "n_days": 381,
+      "mean_ret": -0.00017513113317067544,
+      "mean_tgt_financial": 0.7214254212538854,
+      "mean_equity_weight": 0.9957182532434161,
+      "mean_e45_equity_scale": 1.0,
+      "share_of_calendar": 0.11373134328358209
+    },
+    {
+      "regime": "Bull",
+      "n_days": 2442,
+      "mean_ret": 0.0008231978277096418,
+      "mean_tgt_financial": 0.8361474574372805,
+      "mean_equity_weight": 0.9942713346168978,
+      "mean_e45_equity_scale": 1.0,
+      "share_of_calendar": 0.728955223880597
+    },
+    {
+      "regime": "Crisis",
+      "n_days": 423,
+      "mean_ret": -0.0004986590340055951,
+      "mean_tgt_financial": 0.6413627566107045,
+      "mean_equity_weight": 0.9966047238336064,
+      "mean_e45_equity_scale": 1.0,
+      "share_of_calendar": 0.1262686567164179
+    },
+    {
+      "regime": "Sideways",
+      "n_days": 104,
+      "mean_ret": 0.0009859300711180065,
+      "mean_tgt_financial": 0.8211895390152958,
+      "mean_equity_weight": 0.9922146813797923,
+      "mean_e45_equity_scale": 1.0,
+      "share_of_calendar": 0.031044776119402984
+    }
+  ],
+  "finance_in_crisis": {
+    "crisis_days": 423,
+    "crisis_fin_ge_80_n": 4,
+    "crisis_fin_ge_80_mean_ret": -0.008231600486883525,
+    "crisis_fin_le_60_n": 86,
+    "crisis_fin_le_60_mean_ret": 0.0005572666800745615
+  },
+  "proxy_loss_overlays": [
+    {
+      "label": "PROXY_CRISIS_EQ_SCALE_70",
+      "note": "Return-path proxy only; not Exact T+1 / not fill-accurate",
+      "crisis_equity_scale": 0.7,
+      "cagr": 0.14449877723270377,
+      "max_drawdown": -0.1887784439519269,
+      "mdd_improve_pp_vs_base": 3.761286898584626,
+      "cagr_giveback_pp_vs_base": -0.6713150423902858
+    },
+    {
+      "label": "PROXY_CRISIS_EQ_SCALE_50",
+      "note": "Return-path proxy only; not Exact T+1 / not fill-accurate",
+      "crisis_equity_scale": 0.5,
+      "cagr": 0.1487311116076191,
+      "max_drawdown": -0.1629476613340226,
+      "mdd_improve_pp_vs_base": 6.3443651603750535,
+      "cagr_giveback_pp_vs_base": -1.0945484798818184
+    },
+    {
+      "label": "PROXY_CRISIS_EQ_SCALE_30",
+      "note": "Return-path proxy only; not Exact T+1 / not fill-accurate",
+      "crisis_equity_scale": 0.3,
+      "cagr": 0.15276772911724645,
+      "max_drawdown": -0.1485874467416639,
+      "mdd_improve_pp_vs_base": 7.780386619610924,
+      "cagr_giveback_pp_vs_base": -1.4982102308445544
+    }
+  ],
+  "implications": [
+    "Formal core MDD ~-22.6% remains ~8pp deeper than -15% target.",
+    "FIN_CAP_50 (parallel research) improves held MDD ~3pp to ~-19.6% \u2014 still short of -15%.",
+    "Need a dedicated loss engine (exposure/crisis budget), not more TECH2 stress remix or S1 cut retune.",
+    "Proxy crisis equity scales are hypothesis generators only \u2014 any candidate must re-run Exact T+1 OOF+held-out."
+  ]
+}
