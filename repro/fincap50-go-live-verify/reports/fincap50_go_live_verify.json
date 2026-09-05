@@ -1,0 +1,164 @@
+{
+  "generated_at_utc": "2026-09-05T03:14:49.358230+00:00",
+  "label": "NOT_READY_SEALED_CAGR",
+  "research_decision": "GO_LIVE_VERIFY_BLOCKED_SEALED_CAGR__KEEP_SOFT_FROZEN",
+  "live_wire": false,
+  "soft_frozen_live_clip": [
+    0.5,
+    0.95
+  ],
+  "challenger_clip": [
+    0.35,
+    0.5
+  ],
+  "asof": "2026-09-04",
+  "gates": {
+    "A_exact_t1": {
+      "pass": true,
+      "base": true,
+      "fincap50": true
+    },
+    "B_heldout_2019_plus": {
+      "pass": true,
+      "mdd_improve_pp": 3.063425434900924,
+      "cagr_giveback_pp": 1.6335219806474344,
+      "fail_reasons": []
+    },
+    "C_sealed_2023_plus": {
+      "pass": false,
+      "mdd_improve_pp": 4.411944624918506,
+      "cagr_giveback_pp": 4.332671060794713,
+      "fail_reasons": [
+        "cagr_giveback"
+      ]
+    },
+    "D_soft_frozen_unchanged": {
+      "pass": true,
+      "clip": [
+        0.5,
+        0.95
+      ]
+    },
+    "E_no_pause_review": {
+      "pass": false,
+      "pause_review": true,
+      "n_alerts": 2
+    }
+  },
+  "windows": {
+    "heldout_2019_plus": {
+      "window": "heldout_2019_plus",
+      "start": "2019-01-01",
+      "end": "2026-09-04",
+      "base_cagr": 0.18235031521908462,
+      "base_mdd": -0.22639131293777337,
+      "fincap50_cagr": 0.16601509541261028,
+      "fincap50_mdd": -0.19575705858876413,
+      "mdd_improve_pp": 3.063425434900924,
+      "cagr_giveback_pp": 1.6335219806474344,
+      "n_days": 1856,
+      "pass": true,
+      "fail_reasons": []
+    },
+    "validation_2019_2022": {
+      "window": "validation_2019_2022",
+      "start": "2019-01-01",
+      "end": "2022-12-31",
+      "base_cagr": 0.12330755797580628,
+      "base_mdd": -0.22639131293777337,
+      "fincap50_cagr": 0.13077717716424475,
+      "fincap50_mdd": -0.19575705858876413,
+      "mdd_improve_pp": 3.063425434900924,
+      "cagr_giveback_pp": -0.746961918843847,
+      "n_days": 977,
+      "pass": true,
+      "fail_reasons": []
+    },
+    "sealed_2023_plus": {
+      "window": "sealed_2023_plus",
+      "start": "2023-01-01",
+      "end": "2026-09-04",
+      "base_cagr": 0.24925144125866705,
+      "base_mdd": -0.1445685098357411,
+      "fincap50_cagr": 0.20592473065071992,
+      "fincap50_mdd": -0.10044906358655603,
+      "mdd_improve_pp": 4.411944624918506,
+      "cagr_giveback_pp": 4.332671060794713,
+      "n_days": 879,
+      "pass": false,
+      "fail_reasons": [
+        "cagr_giveback"
+      ]
+    }
+  },
+  "month_end_monitor": {
+    "asof": "2026-09-04",
+    "windows": [
+      {
+        "window": "trailing_1y",
+        "start": "2025-09-04",
+        "end": "2026-09-04",
+        "base_cagr": 0.5436916201438133,
+        "base_mdd": -0.1445685098357411,
+        "fincap50_cagr": 0.4715726014811159,
+        "fincap50_mdd": -0.0759534479996663,
+        "mdd_improve_pp": 6.86150618360748,
+        "cagr_giveback_pp": 7.211901866269743,
+        "n_days": 242,
+        "pass": false,
+        "fail_reasons": [
+          "cagr_giveback"
+        ]
+      },
+      {
+        "window": "ytd",
+        "start": "2026-01-01",
+        "end": "2026-09-04",
+        "base_cagr": 0.6826953584500548,
+        "base_mdd": -0.1445685098357412,
+        "fincap50_cagr": 0.5154063285892614,
+        "fincap50_mdd": -0.0759534479996663,
+        "mdd_improve_pp": 6.86150618360749,
+        "cagr_giveback_pp": 16.72890298607934,
+        "n_days": 162,
+        "pass": false,
+        "fail_reasons": [
+          "cagr_giveback"
+        ]
+      },
+      {
+        "window": "heldout_2019_plus",
+        "start": "2019-01-01",
+        "end": "2026-09-04",
+        "base_cagr": 0.18235031521908462,
+        "base_mdd": -0.22639131293777337,
+        "fincap50_cagr": 0.16601509541261028,
+        "fincap50_mdd": -0.19575705858876413,
+        "mdd_improve_pp": 3.063425434900924,
+        "cagr_giveback_pp": 1.6335219806474344,
+        "n_days": 1856,
+        "pass": true,
+        "fail_reasons": []
+      }
+    ],
+    "alerts": [
+      {
+        "window": "trailing_1y",
+        "level": "PAUSE_REVIEW",
+        "cagr_giveback_pp": 7.211901866269743
+      },
+      {
+        "window": "ytd",
+        "level": "PAUSE_REVIEW",
+        "cagr_giveback_pp": 16.72890298607934
+      }
+    ],
+    "pause_review": true
+  },
+  "cutover_policy": {
+    "auto_flip_forbidden": true,
+    "requires_human_pr": true,
+    "requires_all_gates_abcde": true,
+    "note": "Legacy PASS on 2019+ alone is insufficient after L1/L2/L3 sealed CAGR failures."
+  }
+}
