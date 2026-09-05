@@ -19,7 +19,7 @@ This pack **does not** stitch E45 live. Charter ACCEPT only unlocks Stage 1–2 
 
 | Fact | Status |
 |---|---|
-| Claimed MDD ≈ −13.16% | **`NOT_VERIFIED`** — no dated CSV/JSON match |
+| Claimed MDD ≈ −13.16% | **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** — no dated CSV/JSON match |
 | Closest verified crisis lineage MDDs | **More severe** than −13.16% |
 | Early-stack + E45 challenger MDDs | ~−21% to −23% (path checked 2026-09-04) |
 | Soft-Frozen Financial clip | **KEEP** |

@@ -22,7 +22,7 @@ Cursor 必須依序讀：
 |---|---|---|
 | E16 / E18 / E22_v2s | SOFT_FROZEN | **Yes (core cutover)** |
 | E50-A | EXPERIMENTAL / RESEARCH_ONLY | **No** |
-| E45 | SOFT_FROZEN_CRITICAL | **No** — `E45_ARTIFACT_STATUS=NOT_VERIFIED`; `E45_STITCH_STATUS=DEFERRED`; `E45_LIVE_AUTHORIZATION=NO`; historical MDD ≈ −13.16% = **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** (see `research/e45/E45_OFFICIAL_STATUS.md`) |
+| E45 | SOFT_FROZEN_CRITICAL | **No** — `E45_ARTIFACT_STATUS=NOT_VERIFIED`; `E45_STITCH_STATUS=DEFERRED`; `E45_LIVE_AUTHORIZATION=NO`; historical MDD ≈ −13.16% = **`NOT_VERIFIED_HISTORICAL_NARRATIVE`**; research lineage `E38→E43→E44→E45` ≠ code lineage `E1→…→E3→wrapper` (see `research/e45/E45_OFFICIAL_STATUS.md`) |
 | FIN_CAP_50 | paper dual-ledger | **No** — go-live **`NOT_READY_SEALED_CAGR`** |
 | L4_DD_PATH_08_50 | paper dual-ledger | **No** — held-out PASS；cutover FROZEN |
 
