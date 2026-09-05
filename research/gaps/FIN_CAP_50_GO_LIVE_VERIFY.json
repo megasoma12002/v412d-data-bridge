@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T03:14:49.358230+00:00",
+  "generated_at_utc": "2026-09-05T17:50:46.605362+00:00",
   "label": "NOT_READY_SEALED_CAGR",
   "research_decision": "GO_LIVE_VERIFY_BLOCKED_SEALED_CAGR__KEEP_SOFT_FROZEN",
   "live_wire": false,
@@ -37,7 +37,17 @@
       "clip": [
         0.5,
         0.95
-      ]
+      ],
+      "expected_clip": [
+        0.5,
+        0.95
+      ],
+      "module_source": "scripts/e16_soft_frozen_base.py",
+      "module_clip": [
+        0.5,
+        0.95
+      ],
+      "rule": "SOFT_FROZEN_FIN_LO/HI must remain [0.50, 0.95]; no hardcoded True"
     },
     "E_no_pause_review": {
       "pass": false,

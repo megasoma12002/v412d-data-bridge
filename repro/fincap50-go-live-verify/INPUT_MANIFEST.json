@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-05T17:39:03.025735+00:00",
+  "generated_at_utc": "2026-09-05T17:51:44.782634+00:00",
   "purpose": "fincap50_go_live_verify_provenance",
-  "note": "Research-only evidence pack; Soft-Frozen / live DEFAULT unchanged.",
+  "note": "Research-only evidence pack refreshed after landmine hardening; Soft-Frozen / live DEFAULT unchanged. Scripts + Gate D revalidated 2026-09-05.",
   "inputs": {
     "go_live_script": {
       "path": "scripts/e16_fincap50_go_live_verify.py",

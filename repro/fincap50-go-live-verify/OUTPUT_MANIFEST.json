@@ -1,16 +1,26 @@
 {
-  "generated_at_utc": "2026-09-05T17:39:03.025735+00:00",
+  "generated_at_utc": "2026-09-05T17:51:44.782634+00:00",
   "purpose": "fincap50_go_live_verify_provenance",
   "outputs": {
     "fincap50_go_live_verify.json": {
       "path": "repro/fincap50-go-live-verify/reports/fincap50_go_live_verify.json",
-      "sha256": "9e0630ed0bb0b5d3f3ed39f8192d2bac55f2f2d125efb30f12ba25da296655a5",
-      "bytes": 4425
+      "sha256": "7af90df2af0a8f4fca16f56e1baa172a2c20ad44a1e34f0ea4990902bd41cc7d",
+      "bytes": 4684
     },
     "FIN_CAP_50_GO_LIVE_VERIFY.md": {
       "path": "repro/fincap50-go-live-verify/FIN_CAP_50_GO_LIVE_VERIFY.md",
-      "sha256": "b29f1d2b153e9adf3032434fbc8d1d6811860e17b1466a5f895ac19f3a8ffe21",
+      "sha256": "127953f008cf40906a1e91e0be0892a00e1f71486ffb34fa4264dde728093d38",
       "bytes": 1593
+    },
+    "base_daily_nav.csv": {
+      "path": "repro/fincap50-go-live-verify/outputs/base_daily_nav.csv",
+      "sha256": "57e0c7c0ab2eafa98876b036fe53a249f08d2d9fb08dfd73fcb449fa34e37b9a",
+      "bytes": 748906
+    },
+    "fincap50_daily_nav.csv": {
+      "path": "repro/fincap50-go-live-verify/outputs/fincap50_daily_nav.csv",
+      "sha256": "bc173999bdd33386ccd66867b9f68df67908fadc381568af5681975d3b5eeaf6",
+      "bytes": 698012
     }
   }
 }
