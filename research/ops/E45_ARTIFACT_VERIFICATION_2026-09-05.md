@@ -1,7 +1,7 @@
 # E45 Artifact-Level Verification Report (Read-Only)
 
 Date: 2026-09-05  
-Ballot context: Register #6 Item 3 — **DEFER stitch path** (not REJECT)  
+Ballot context: Register #6 Item 3 — artifact baseline under **DEFER stitch** cycle; superseded later same day by **ACCEPT charter** (Stage 1–2 only; stitch still forbidden)  
 Soft-Frozen class: **SOFT_FROZEN_CRITICAL KEEP**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP** (unchanged)  
 E45 implementation: **NOT MODIFIED** during this verification
@@ -10,7 +10,8 @@ E45 implementation: **NOT MODIFIED** during this verification
 
 | Field | Value |
 |---|---|
-| Ballot | **E45 DEFER stitch path** |
+| Ballot (this artifact cycle) | **E45 DEFER stitch path** (read-only verify) |
+| Later same-day update | **ACCEPT charter** — Stage 1–2 OPEN (`E45_STAGE12_STATUS.md`); **live stitch still FORBIDDEN** |
 | Keep class | **SOFT_FROZEN_CRITICAL** |
 | Preserve lineage | **E38 → E43 → E44 → E45** research lineage retained |
 | Reject E45? | **No** — research/orphan path stays open |
@@ -82,12 +83,13 @@ Not chosen:
 - Did **not** authorize stitch / live integration  
 - Did **not** REJECT E45 as a research/crisis class  
 
-## Next (only if humans reopen)
+## Next (charter ACCEPT — Stage 1–2)
 
 1. Produce hash-pinned E45-named NAV + period table that either matches a claim or replaces narrative claims with verified lineage MDDs  
 2. Map documented E38/E43/E44 roles onto dated code/artifacts explicitly  
-3. New ballot required before any live/stitch PR  
+3. **Second** human ballot + V1–V6 all PASS still required before any live/stitch PR  
 
 ## Label
 
-`E45_ARTIFACT_VERIFICATION_2026-09-05__E45_NOT_VERIFIED__DEFER_STITCH`
+`E45_ARTIFACT_VERIFICATION_2026-09-05__E45_NOT_VERIFIED__BASELINE`  
+(Follow-on: `E45_STAGE12_STATUS_2026-09-05__ACCEPT_CHARTER__STITCH_FORBIDDEN`)

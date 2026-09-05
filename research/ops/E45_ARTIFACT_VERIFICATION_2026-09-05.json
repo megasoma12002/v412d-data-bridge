@@ -28,5 +28,8 @@
     "hashes_manifests_reproducibility": "FAIL_FOR_STITCH"
   },
   "report": "research/ops/E45_ARTIFACT_VERIFICATION_2026-09-05.md",
-  "prior_verify": "research/e45/E45_MDD_1316_VERIFICATION.json"
+  "prior_verify": "research/e45/E45_MDD_1316_VERIFICATION.json",
+  "ballot_context": "ACCEPT_CHARTER_STAGE12_OPEN__STITCH_FORBIDDEN",
+  "stage12_board": "research/ops/E45_STAGE12_STATUS.md",
+  "charter_accepted": true
 }
