@@ -1,0 +1,49 @@
+{
+  "generated_at_utc": "2026-09-05T02:10:00+00:00",
+  "label": "MDD_L3_SEALED_CAGR_CHARTER_FROZEN__L2_ATTRIBUTION_READY",
+  "live_wire": false,
+  "research_only": true,
+  "parent_stops": [
+    "STOP_L1_HELDOUT_MIXED",
+    "STOP_L2_HELDOUT_MIXED_KEEP_BASE"
+  ],
+  "families": [
+    "L3-FINCAP-MILD",
+    "L3-FINCAP-BLEND",
+    "L3-FINCAP-BULL-RESTORE",
+    "L3-FINCAP-DD-ONLY",
+    "L3-UTIL-RANK"
+  ],
+  "forbidden": [
+    "retune L1_FINCAP50_COMBO_50",
+    "reopen L2_FINCAP_ONLY as live cut",
+    "Stage-8 TECH2 remix",
+    "S1 cut retune",
+    "proxy-as-PASS",
+    "silent Soft-Frozen flip",
+    "invent E45 -13.16%"
+  ],
+  "gates": {
+    "oof_mdd_improve_pp_min": 2.0,
+    "oof_cagr_giveback_pp_max": 1.5,
+    "oof_late_bull_years": [2017, 2018],
+    "oof_late_bull_cagr_giveback_pp_max": 1.5,
+    "heldout_mdd_improve_pp_min": 1.0,
+    "heldout_cagr_giveback_pp_max": 3.0,
+    "exact_t1": true,
+    "placebo_mdd_improve_p_max": 0.5
+  },
+  "attribution_pointers": [
+    "research/gaps/MDD_L2_SEALED_CAGR_ATTRIBUTION.md",
+    "research/gaps/MDD_L2_SEALED_CAGR_ATTRIBUTION.json",
+    "research/gaps/MDD_L2_HELDOUT_DECISION.json"
+  ],
+  "l2_sealed_failure": {
+    "cagr_giveback_pp": 4.33,
+    "mdd_improve_pp": 4.41,
+    "mean_fin_weight_base": 0.789,
+    "mean_fin_weight_l2": 0.5,
+    "worst_years": [2024, 2025, 2026]
+  },
+  "soft_frozen_live_clip": [0.5, 0.95]
+}
