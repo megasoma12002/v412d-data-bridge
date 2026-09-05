@@ -57,6 +57,10 @@ jobs:
             research/ops/MONTH_END_PAPER_PACK.json
             research/ops/LIVE_PAPER_RECON.md
             research/ops/LIVE_PAPER_RECON.json
+            research/ops/OPS_ALERTS.md
+            research/ops/OPS_ALERTS.json
+            research/ops/E22_DATA_QUALITY_KPI.md
+            research/ops/E22_DATA_QUALITY_KPI.json
             research/gaps/L4_DD_PATH_MONTH_END_MONITOR.md
             research/gaps/L4_DD_PATH_MONTH_END_MONITOR.json
             research/gaps/FIN_CAP_50_MONTH_END_MONITOR.md
@@ -65,6 +69,21 @@ jobs:
             research/e50a/TRACK_A_S9A1_MONITOR_STATUS.json
           retention-days: 90
           if-no-files-found: warn
+      - name: Annotate PAUSE / alert summary
+        if: always()
+        run: |
+          set -euo pipefail
+          echo "### Month-end ops alerts" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f research/ops/OPS_ALERTS.md ]; then
+            cat research/ops/OPS_ALERTS.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "OPS_ALERTS.md missing" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "### E22 data-quality KPI" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f research/ops/E22_DATA_QUALITY_KPI.md ]; then
+            cat research/ops/E22_DATA_QUALITY_KPI.md >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Commit monitor refreshes (no Soft-Frozen / no forward rewrite policy)
         if: success()
         run: |

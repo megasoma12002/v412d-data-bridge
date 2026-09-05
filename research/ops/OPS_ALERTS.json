@@ -1,0 +1,89 @@
+{
+  "generated_at_utc": "2026-09-05T07:03:55.012025+00:00",
+  "label": "OPS_ALERT_SCAN",
+  "live_wire": false,
+  "soft_frozen_unchanged": true,
+  "soft_frozen_clip": [
+    0.5,
+    0.95
+  ],
+  "overall": "HIGH",
+  "n_critical": 0,
+  "n_high": 3,
+  "n_info": 9,
+  "alerts": [
+    {
+      "severity": "HIGH",
+      "source": "l4_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fincap50_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fincap50_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)"
+    },
+    {
+      "severity": "INFO",
+      "source": "live_qc",
+      "code": "QC_PASS",
+      "message": "live QC PASS; Exact T+1 ok"
+    },
+    {
+      "severity": "INFO",
+      "source": "l4_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops)"
+    },
+    {
+      "severity": "INFO",
+      "source": "l4_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)"
+    },
+    {
+      "severity": "INFO",
+      "source": "l4_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "fincap50_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: FIN_CAP_50 ytd CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "fincap50_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: FIN_CAP_50 trailing_1y CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "fincap50_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "live_paper_recon",
+      "code": "RECON_NOTE",
+      "message": "INDEX_DRIFT: max |live_idx-paper_idx|=2.2320% > 2% on overlap"
+    },
+    {
+      "severity": "INFO",
+      "source": "live_paper_recon",
+      "code": "THIN_LIVE_HISTORY",
+      "message": "overlap_n=10 (<60) \u2014 not decision-grade for cutover"
+    }
+  ],
+  "routing_note": "Annotate CI job summary / upload OPS_ALERTS.* as artifact. HIGH=PAUSE_REVIEW blocks cutover talk only. CRITICAL fails live QC smoke."
+}

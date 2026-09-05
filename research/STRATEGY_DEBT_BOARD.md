@@ -28,7 +28,8 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | Code-review residual path | Through #56 |
 | Ops Phase 0 | Map + recon (#58) |
 | Ops Phase 1 | Live QC smoke + month-end pack (#59) |
-| Ops Phase 2 hygiene | MTD non-decision labels; artifact retention; Track A pointer; cutover checklists (**prep only**) |
+| Ops Phase 2 hygiene | MTD non-decision; retention; Track A pointer; cutover checklists — **#60** |
+| Ops hardening | Alert scan + GHA summaries; E22 data-quality KPI in pack; five-layer checklist; forward legacy note |
 | Obs PR #57 | **Superseded** by #58/#59 cadence (leave closed/ignored if API cannot close) |
 
 ### NOW
@@ -71,7 +72,12 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 | Soft-Frozen clip | **[0.50, 0.95]** |
 
 ## Pointers
-- `research/ops/OPS_STATUS.md`
+- `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`
+- `research/ops/OPS_ALERTS.md`
+- `research/ops/E22_DATA_QUALITY_KPI.md`
+- `research/ops/FORWARD_LEGACY_NOTE.md`
+- `scripts/ops_alert_scan.py`
+- `scripts/e22_data_quality_kpi.py`
 - `research/ops/OPS_CONVERGENCE_CHARTER.md`
 - `research/ops/ARTIFACT_RETENTION.md`
 - `research/ops/CUTOVER_CHECKLIST_L4.md`
