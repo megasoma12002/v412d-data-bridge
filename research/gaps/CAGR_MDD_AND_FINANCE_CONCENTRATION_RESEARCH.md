@@ -103,37 +103,37 @@ With `top_k=22` that caps *names* at ~23% of the sleeve **if** the industry fill
 
 ---
 
-## 4) Recommendations (research order)
+## 4) FIN_CAP follow-through (executed 2026-09-05)
 
-### A. Honesty / governance (do now)
+Predeclared OOF challengers under E22_v2s books; selection **2011–2018 only**.
 
-1. Keep stating: **live = E16+E18+E22_v2s; targets are not current results.**  
-2. Do **not** live-wire overlay or retune E16 priors without a named challenger + OOF→held-out.
+| Book | OOF CAGR | OOF MDD | Fin mean | MDDΔ vs BASE | CAGR giveback | OOF pass |
+|---|---:|---:|---:|---:|---:|---|
+| BASE_E16 | 8.85% | −17.41% | 0.802 | — | — | — |
+| FIN_CAP_60 | 8.75% | −14.54% | 0.597 | +2.88 pp | 0.10 pp | **Yes** |
+| **FIN_CAP_50** | 8.50% | **−12.84%** | **0.500** | **+4.57 pp** | 0.35 pp | **Yes (lock)** |
 
-### B. Concentration challenger (new research book, not live)
+OOF decision: `OOF_FIN_CAP_PASS_READY_FOR_HELDOUT` → locked **FIN_CAP_50**.
 
-Freeze a **weight-budget** challenger *before* looking at held-out, e.g.:
+One-shot held-out (2019+, no retune):
 
-- `FIN_CAP_60`: clip Financial to **[0.40, 0.60]** (or 0.50–0.60), raise Telecom/0050 residual  
-- Optional `FIN_CAP_50`  
-- Same E18/E22 execution shell  
+| | CAGR | MDD |
+|---|---:|---:|
+| BASE | 18.24% | −22.64% |
+| FIN_CAP_50 | 16.60% | −19.58% |
 
-Evaluate on **OOF only** first: CAGR, MDD, crisis-month excess, turnover.  
-Success bar (suggested): MDD materially better than E22_v2s **without** destroying utility; finance weight mean ≤60%.  
-If OOF fails → `STOP_FIN_CAP` (keep live E16).
+- MDD improve **+3.06 pp**; CAGR giveback **1.63 pp**; finance max respects 0.50  
+- Decision: **`PASS_HELDOUT_FIN_CAP`**
 
-### C. Return gap (separate from B)
+**Still not live.** Explicit promote PR required to change E16 clips; keep BASE ledger for comparison.  
+Artifacts: `research/gaps/FIN_CAP_OOF.md`, `FIN_CAP_HELDOUT.md`, `repro/gap-cagr-finance-concentration/fin_cap_oof/`.
 
-1. Continue **Track B** residual stress engine (not TECH2 remix).  
-2. Only after adv-lite + one held-out `PASS`: paper-stitch with **predeclared** core/overlay mix.  
-3. Treat **MDD≤15%** as needing an explicit **loss engine** (crisis budget / exposure scale) — paper stitch evidence shows overlay alone may raise CAGR while deepening MDD.
+### Remaining research order
 
-### D. Won’t
-
-- Re-grid Stage-8 TECH2 stress controllers  
-- Claim E45 −13.16% until verified  
-- Promote 2.5%/0.70 experimental gates  
-- “Just lower finance a bit in live” without a challenger ledger  
+1. **Optional promote proposal** (separate PR): E16 Financial clip → [0.35, 0.50] cutover-only; dual paper ledgers.  
+2. **Return gap**: dual-track B residual adv-lite (FIN_CAP does not close CAGR≥20%).  
+3. **MDD≤15%**: still needs a separate loss engine — FIN_CAP_50 held MDD −19.6% improves vs −22.6% but **misses 15%**.  
+4. **Won’t**: Stage-8 TECH2 re-grid; silent live prior edit; cite unverified E45 −13.16%.
 
 ---
 
@@ -141,13 +141,13 @@ If OOF fails → `STOP_FIN_CAP` (keep live E16).
 
 | Path | Content |
 |---|---|
-| `scripts/gap_cagr_finance_concentration_research.py` | Regenerator |
-| `repro/gap-cagr-finance-concentration/outputs/live_sleeve_weights.json` | Live sleeve weights |
-| `.../e16_weight_concentration_stats.json` | Full-history E16 weight stats |
-| `.../e16_target_weights_daily.csv` | Daily E16 targets |
-| `.../cagr_mdd_gap_vs_targets.json` | Gap table |
-| `.../reports/summary.json` | Machine summary |
+| `scripts/gap_cagr_finance_concentration_research.py` | Concentration / gap regenerator |
+| `scripts/e16_fin_cap_oof_challenger.py` | FIN_CAP OOF runner |
+| `scripts/e16_fin_cap_heldout.py` | Locked FIN_CAP_50 held-out decision |
+| `repro/gap-cagr-finance-concentration/outputs/*` | Live weights + E16 history stats |
+| `repro/gap-cagr-finance-concentration/fin_cap_oof/` | FIN_CAP NAVs + OOF/held-out JSON |
+| `research/gaps/FIN_CAP_OOF.md` / `FIN_CAP_HELDOUT.md` | Human memos |
 
 ## Label
 
-`RESEARCH_CAGR_MDD_GAP_AND_FINANCE_CONCENTRATION__NO_LIVE_WIRE`
+`RESEARCH_CAGR_MDD_GAP_AND_FINANCE_CONCENTRATION__FIN_CAP50_PASS_HELDOUT__NO_LIVE_WIRE`
