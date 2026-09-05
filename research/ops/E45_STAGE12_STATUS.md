@@ -1,7 +1,7 @@
-# E45 Stage 1–2 Status (Post Charter ACCEPT)
+# E45 Stage 1–3 Status (Post Charter ACCEPT)
 
 Date: 2026-09-05  
-Ballot: **ACCEPT charter** (human) — Stage 1–2 research **OPEN**  
+Ballot: **ACCEPT charter** (human) — Stage 1–3 research **OPEN**  
 Live stitch: **still FORBIDDEN**  
 Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
@@ -14,7 +14,7 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_LIVE_STITCH_CHARTER.md` · `
 1. Freeze / score verification bars V1–V6  
 2. Recompute / attach dated MDD artifacts  
 3. Paper-only Exact T+1 challenger report with honest MDD labels  
-4. Optional dual-paper observe sleeve **design** (checklist later)
+4. Dual-paper observe sleeve **design** (+ optional later OPEN observe)
 
 ## What this stage may **not** do
 
@@ -31,11 +31,11 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_LIVE_STITCH_CHARTER.md` · `
 | V1 | Artifact match | **FAIL** | No dated CSV/JSON MDD == −0.1316 |
 | V2 | Lineage honesty | **PASS (labeled)** | Claim kept `NOT_VERIFIED`; publish verified lineage MDDs instead |
 | V3 | Exact T+1 | **PASS (shared path)** | Fill clock on E18 / early-stack path; E45 emits exposure only |
-| V4 | Cost / stress | **PARTIAL** | E3 cost sensitivity dated; no E45-named sealed cost pack yet |
-| V5 | No single-year | **PARTIAL** | Lineage spans multiple val windows; E45-named multi-crisis seal pending |
+| V4 | Cost / stress | **PARTIAL** | Lineage E3 cost CSV attached; E45-named seal still open (`E45_V4_COST_STRESS_PACK.md`) |
+| V5 | No single-year | **PARTIAL** | Multi-window paper metrics attached; named multi-crisis seal still open (`E45_V5_MULTI_WINDOW_PACK.md`) |
 | V6 | Soft-Frozen KEEP | **PASS** | Clip unchanged; this pack does not flip |
 
-**Stage gate:** V1 still FAIL ⇒ **no stitch PR**. Continue paper work only.
+**Stage gate:** V1 still FAIL ⇒ **no stitch PR**. Continue paper / design only.
 
 ## Stage progress
 
@@ -44,13 +44,24 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_LIVE_STITCH_CHARTER.md` · `
 | 0 Charter ACCEPT | **DONE** 2026-09-05 | Decision pack + register #6c |
 | 1 Verification recompute | **DONE** (refresh) | `research/e45/E45_MDD_1316_VERIFICATION.*` · `repro/e45-mdd-verify/` |
 | 2 Paper challenger report | **DONE (memo)** | `research/e45/E45_STAGE2_PAPER_CHALLENGER_MEMO.md` |
-| 3 Dual-paper observe design | **NOT STARTED** | Optional |
+| 3 Dual-paper observe design | **DONE (design)** | `research/e45/E45_DUAL_PAPER_OBSERVE_DESIGN.md` · checklist · window metrics |
+| 3b Operating observe | **NOT OPENED** | Needs human `E45 OPEN dual-paper observe` |
 | 4 Stitch checklist + human PR | **BLOCKED** | Needs V1–V6 all PASS + second ballot |
 | 5 Post-QC / claim policy | **N/A** | Live unchanged |
 
-## Paper challenger snapshot (dated / recomputed — not promotion)
+## Dual-paper design snapshot (paper only)
 
-Refresh: `2026-09-05T18:10:35Z` (`E45_MDD_1316_VERIFICATION.json`)
+Refresh: Stage-3 script `scripts/e45_stage3_dual_paper_windows.py`
+
+| Window | MDD Δ vs BASE (pp; + = shallower) | CAGR giveback (pp) |
+|---|---:|---:|
+| full | +1.88 | 2.99 |
+| heldout_2019_plus | +1.88 | 5.65 |
+| sealed_2023_plus | +4.90 | 9.40 |
+
+Interpretation: E45_E3 overlay **improves MDD** on paper windows but with **material CAGR giveback** (especially sealed). Observe ≠ promote; stitch still blocked by V1.
+
+## Paper challenger snapshot (Stage 2)
 
 | Variant | CAGR | MDD | vs claim −13.16% |
 |---|---:|---:|---:|
@@ -58,16 +69,12 @@ Refresh: `2026-09-05T18:10:35Z` (`E45_MDD_1316_VERIFICATION.json`)
 | E16+E18+E22_v2s+E45_E3 | **10.79%** | **−20.76%** | unmatched |
 | Closest lineage val | — | **−15.81%** (E1.1) | |err| ≈ 2.65 pp |
 
-Memo: `research/e45/E45_STAGE2_PAPER_CHALLENGER_MEMO.md`
-
-Use **verified lineage / challenger MDDs** in any paper report. Do **not** cite −13.16% as verified.
-
 ## Next actions
 
-1. ~~Draft paper challenger memo~~ → **DONE** (`E45_STAGE2_PAPER_CHALLENGER_MEMO.md`)  
-2. Optionally design dual-paper observe sleeve checklist (Stage 3)  
+1. Human may `E45 OPEN dual-paper observe` (paper month-end) **or** `E45 KEEP design only`  
+2. Optional: build E45-named cost multiples + crisis-year attribution to chase V4/V5 PASS  
 3. **Do not** open live stitch PR until V1–V6 all PASS + second human ACCEPT
 
 ## Label
 
-`E45_STAGE12_STATUS_2026-09-05__ACCEPT_CHARTER__STITCH_FORBIDDEN`
+`E45_STAGE12_STATUS_2026-09-05__ACCEPT_CHARTER__STAGE3_DESIGN_DONE__STITCH_FORBIDDEN`

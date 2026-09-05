@@ -23,7 +23,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
 | 6a | Odd-lot default → `E22_v2s_tw` | **DONE** (2026-09-05) | #73+#74 merged; live `DEFAULT_BOOKS_VERSION = E22_v2s_tw`; Soft-Frozen KEEP; forward-only |
 | 6b | Formal tax·receivable books | **ACCEPT charter** (2026-09-05) | Stage B sandbox OPEN; DEFAULT stays `E22_v2s_tw`; Soft-Frozen KEEP; promote needs later ballot |
-| 6c | E45 live stitch | **ACCEPT charter** (2026-09-05) | Stage 1–2 research OPEN; Soft-Frozen CRITICAL KEEP; live/stitch still **FORBIDDEN**; −13.16% remains `NOT_VERIFIED`; board `E45_STAGE12_STATUS.md` |
+| 6c | E45 live stitch | **ACCEPT charter** (2026-09-05) | Stage 1–3 design DONE (dual-paper design + V4/V5 packs PARTIAL); Soft-Frozen CRITICAL KEEP; live/stitch still **FORBIDDEN**; −13.16% remains `NOT_VERIFIED`; board `E45_STAGE12_STATUS.md` |
 
 ### Register #6 sequential ballots
 
