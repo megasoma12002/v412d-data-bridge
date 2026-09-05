@@ -2,27 +2,29 @@
 
 Date: 2026-09-05  
 Rule: **Do not bundle.** Finish / park item N before opening item N+1 live-facing work.  
-Soft-Frozen: **[0.50, 0.95] KEEP**
+Soft-Frozen: **[0.50, 0.95] KEEP**  
+Live DEFAULT books: **`E22_v2s_tw`** (#73+#74 merged)
 
 | # | Topic | Pack | Status now |
 |---|---|---|---|
-| **1** | Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **PARKED — ACCEPT promote** (2026-09-05); DEFAULT flip in promote PR |
-| 2 | Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` | **NEXT** — open after this promote PR lands |
-| 3 | E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` | **QUEUED** — not started |
+| 1 | Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **DONE** — ACCEPT promote; merged; DEFAULT live |
+| **2** | Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` | **ACCEPT charter** — Stage B sandbox **OPEN**; DEFAULT unchanged |
+| 3 | E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` | **QUEUED** — not opened (Item 2 research still in flight) |
 
-## Item 1 — ballot result
+## Item 2 — ballot result
 
-Human vote: **`ACCEPT promote`** (2026-09-05).
+Human vote: **`ACCEPT charter`** (2026-09-05).
 
-| Gate | Result |
+| Effect | Value |
 |---|---|
-| Par inventory Soft-Frozen FIN + telecom | VERIFIED NT$10 (TWSE `t187ap03_L`, as-of 2026-09-04) |
-| Future expansion reserved | `par_value_watchlist.csv` + `--add-codes` (`role=expand`; not promote blockers) |
-| Live DEFAULT | `E22_v2s` → **`E22_v2s_tw`** (forward-only) |
+| Stage B sandbox | **OPEN** — `E22_v3_recv_pay` / `tax10` / `tax20` |
+| Live DEFAULT | stays **`E22_v2s_tw`** |
 | Soft-Frozen | **KEEP** |
+| Promote to DEFAULT | **NOT authorized** — needs later evidence + second ballot |
+| Item 3 | stays **QUEUED** until Item 2 sandbox parked / handoff |
 
-Items 2–3: do **not** start live-facing work in this promote PR.
+Pointers: `E22_V3_TAX_RECV_STAGE_B_STATUS.md` · `scripts/e22_v3_sandbox_books.py`
 
 ## Label
 
-`REGISTER6_SEQUENTIAL_BALLOTS_2026-09-05__ITEM1_ACCEPT_PROMOTE`
+`REGISTER6_SEQUENTIAL_BALLOTS_2026-09-05__ITEM2_ACCEPT_CHARTER`

@@ -21,16 +21,16 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | 3 | Sealed-CAGR successor path | **BLEND_025 OPERATING OBSERVE** | Sole in-flight successor; observe ≠ promote |
 | 4 | L4_DD_PATH live cutover | **DEFER** | No PR until checklist all-green (≥1 clean month-end, no YTD/1y PAUSE) |
 | 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
-| 6a | Odd-lot default → `E22_v2s_tw` | **ACCEPT promote** (2026-09-05) | `DEFAULT_BOOKS_VERSION = E22_v2s_tw` via dedicated promote PR; Soft-Frozen KEEP; forward-only |
-| 6b | Formal tax·receivable books | **DEFER** | Charter drafted — need human ACCEPT before live-facing work |
+| 6a | Odd-lot default → `E22_v2s_tw` | **DONE** (2026-09-05) | #73+#74 merged; live `DEFAULT_BOOKS_VERSION = E22_v2s_tw`; Soft-Frozen KEEP; forward-only |
+| 6b | Formal tax·receivable books | **ACCEPT charter** (2026-09-05) | Stage B sandbox OPEN; DEFAULT stays `E22_v2s_tw`; Soft-Frozen KEEP; promote needs later ballot |
 | 6c | E45 live stitch | **DEFER** | Charter drafted — need human ACCEPT; MDD claim NOT_VERIFIED |
 
 ### Register #6 sequential ballots
 
 | Topic | Pack | Status |
 |---|---|---|
-| Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **ACCEPT promote** — DEFAULT flipped in promote PR |
-| Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` | **NEXT** after Item 1 parked |
+| Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **DONE** — #73+#74 merged; DEFAULT=`E22_v2s_tw` |
+| Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` | **ACCEPT charter** — Stage B OPEN; no DEFAULT flip |
 | E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` | **QUEUED** — stitch forbidden until ACCEPT |
 
 ## Re-open triggers (only then re-agenda)
