@@ -1,0 +1,20 @@
+{
+  "schema": "e45_feasibility_seal_lock.v1",
+  "generated_at_utc": "2026-09-05T16:52:58.831143+00:00",
+  "verdict": "FEASIBLE_READY_FOR_LIVE_BALLOT",
+  "live_ballot_ready": true,
+  "pack_dir": "/workspace/repro/e45-feasibility-study-regen-20260905",
+  "gates_pass": {
+    "F1_artifact_honesty": true,
+    "F2_exact_t1": true,
+    "F3_crisis_mdd": true,
+    "F4_full_sample_mdd": true,
+    "F5_cagr_giveback": true,
+    "F6_no_retune": true,
+    "F7_live_untouched": true,
+    "F8_cost": true,
+    "F9_stress": true,
+    "F10_recovery": true
+  },
+  "note": "Authoritative seal lock. e45_feasibility_gates.py must not overwrite this file or the study verdict."
+}

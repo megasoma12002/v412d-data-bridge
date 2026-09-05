@@ -322,16 +322,15 @@ def nav_stats(nav: pd.DataFrame, col: str = "nav") -> dict:
 
 def verify_e45_claim(repo: Path) -> dict:
     """Artifact audit for the handoff claim MDD ≈ -13.16%."""
-    claim = -0.1316
+    from e45_feasibility_common import (
+        CLAIMED_MDD,
+        CLAIMED_MDD_INTERPRETATION,
+        CLAIMED_MDD_LABEL,
+        claim_dict,
+    )
+
+    claim = CLAIMED_MDD
     found = []
-    search_paths = [
-        repo / "research" / "v412e1",
-        repo / "research" / "v412e11",
-        repo / "research" / "v412e2e3",
-        repo / "FROZEN_STRATEGY_SPEC.md",
-        repo / "E50_HANDOFF_VERIFICATION.md",
-    ]
-    # documented lineage MDDs from reports
     lineage = {
         "E1_validation_mdd": -0.1721,
         "E1_1_validation_mdd": -0.1581,
@@ -340,12 +339,19 @@ def verify_e45_claim(repo: Path) -> dict:
         "handoff_claim_mdd": claim,
     }
     text_hits = []
-    for p in [repo / "FROZEN_STRATEGY_SPEC.md", repo / "FROZEN_GOVERNANCE.md", repo / "E50_HANDOFF_VERIFICATION.md"]:
-        if p.exists() and "13.16" in p.read_text():
-            text_hits.append(str(p))
-    # scan json/csv for exact -0.1316 or -13.16
+    for p in [
+        repo / "FROZEN_STRATEGY_SPEC.md",
+        repo / "FROZEN_GOVERNANCE.md",
+        repo / "E50_HANDOFF_VERIFICATION.md",
+    ]:
+        if p.exists() and ("13.16" in p.read_text() or "13.16%" in p.read_text()):
+            text_hits.append(str(p.relative_to(repo)))
     numeric_hit = False
-    for root in [repo / "research" / "v412e1", repo / "research" / "v412e11", repo / "research" / "v412e2e3"]:
+    for root in [
+        repo / "research" / "v412e1",
+        repo / "research" / "v412e11",
+        repo / "research" / "v412e2e3",
+    ]:
         if not root.exists():
             continue
         for f in root.rglob("*"):
@@ -358,23 +364,34 @@ def verify_e45_claim(repo: Path) -> dict:
             if "13.16" in txt or "-0.1316" in txt:
                 found.append(str(f.relative_to(repo)))
                 numeric_hit = True
+    module_paths = [str(p.relative_to(repo)) for p in (repo / "scripts").glob("e45*")]
+    has_module = (repo / "scripts" / "e45_crisis_core.py").exists()
     return {
         "claim_mdd": claim,
-        "claim_status": "NOT_FOUND_IN_ARTIFACTS" if not numeric_hit else "FOUND",
+        "claim_status": CLAIMED_MDD_LABEL,
+        "claim_interpretation": CLAIMED_MDD_INTERPRETATION,
+        "claim": claim_dict(),
+        "exact_artifact_match": bool(numeric_hit),
+        "numeric_match_status": "FOUND" if numeric_hit else "NOT_FOUND_IN_ARTIFACTS",
         "text_mentions_only": text_hits,
         "artifact_files_with_13_16": found,
         "lineage_reported_mdds": lineage,
-        "e45_module_paths": [str(p.relative_to(repo)) for p in (repo / "scripts").glob("e45*")],
+        "e45_module_paths": module_paths,
+        "e45_module_present": has_module,
         "lineage_scripts": [
             "scripts/v412e1_crisis_buffer.py",
             "scripts/v412e11_graduated_crisis.py",
             "scripts/v412e2_e3_three_rounds.py",
         ],
-        "research_decision": json.loads((repo / "research" / "v412e2e3" / "research_decision.json").read_text())
+        "research_decision": json.loads(
+            (repo / "research" / "v412e2e3" / "research_decision.json").read_text()
+        )
         if (repo / "research" / "v412e2e3" / "research_decision.json").exists()
         else None,
         "conclusion": (
-            "No official e45 module; MDD≈-13.16% remains UNVERIFIED text claim. "
+            f"Named module scripts/e45_crisis_core.py {'present' if has_module else 'MISSING'}. "
+            f"CLAIMED_MDD (−13.16%) = {CLAIMED_MDD_LABEL} / {CLAIMED_MDD_INTERPRETATION}. "
+            "No dated research CSV/JSON equals −0.1316. "
             "Closest lineage MDDs are E1/E1.1/E3 validation figures (more severe). "
             "Formal strategy remains V4.12-D; E3 validation_pass but not promoted."
         ),
@@ -575,7 +592,27 @@ def main() -> None:
         lines.append(f"- `{k}`: {v}")
     lines += ["", "See `research/e45/E45_MODULE_STATUS.md`.", ""]
     (out / "EARLY_STACK_COMBINED_NAV.md").write_text("\n".join(lines))
-    print(json.dumps({"decisions": report["decisions"], "deltas": report["deltas"]}, indent=2, default=str))
+
+    # Provenance manifests (required for F8–F10 seal; fail-closed hash verify).
+    from e45_feasibility_common import write_manifests
+
+    write_manifests(
+        out,
+        inputs={
+            "market": args.market,
+            "dividends": args.dividends,
+            "e45_module": Path("scripts/e45_crisis_core.py"),
+            "early_stack_script": Path("scripts/e50_early_stack_combined_nav.py"),
+        },
+        purpose="early_stack_combined_nav_with_named_e45",
+    )
+    print(
+        json.dumps(
+            {"decisions": report["decisions"], "deltas": report["deltas"]},
+            indent=2,
+            default=str,
+        )
+    )
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@ Module: `scripts/e45_crisis_core.py` — `CHALLENGER_CANDIDATE_NOT_PROMOTED`
 - Stock vs cash-only CAGR: `2.5337%`
 - Stock div events / shares added: `34` / `78233.0`
 - E45-E3 MDD delta vs E22: `1.8804%`
-- Claimed MDD -13.16%: `NOT_VERIFIED_NO_ARTIFACT_MATCH`
+- Claimed MDD -13.16%: `NOT_VERIFIED_HISTORICAL_NARRATIVE`
 
 ## Decisions
 

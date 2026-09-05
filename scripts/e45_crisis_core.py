@@ -35,9 +35,17 @@ MODULE_STATUS = "CHALLENGER_CANDIDATE_NOT_PROMOTED"
 GOVERNANCE_CLASS_IF_PROMOTED = "SOFT_FROZEN_CRITICAL"
 PROMOTION_ALLOWED = False
 
-# Handoff / spec text claim — verification 2026-09-04: NOT FOUND in any research MDD artifact.
-CLAIMED_MDD = -0.1316
-CLAIMED_MDD_STATUS = "NOT_VERIFIED_NO_ARTIFACT_MATCH"
+# Handoff / spec text claim — canonical vocabulary (do not invent aliases).
+from e45_feasibility_common import (  # noqa: E402
+    CLAIMED_MDD,
+    CLAIMED_MDD_INTERPRETATION,
+    CLAIMED_MDD_LABEL,
+    CLAIMED_MDD_NOTE,
+    claim_dict,
+)
+
+CLAIMED_MDD_STATUS = CLAIMED_MDD_LABEL  # alias kept for older readers
+CLAIMED_MDD_INTERPRETATION_STATUS = CLAIMED_MDD_INTERPRETATION
 
 # Numbers taken from dated research reports / status JSON (not invented).
 VERIFIED_LINEAGE_MDD = {
@@ -109,7 +117,7 @@ MANIFEST = E45Manifest(
     ),
     note=(
         "Named E45 surface for integration. Not an in-place freeze. "
-        "CLAIMED_MDD (-13.16%) verified 2026-09-04 as NOT_VERIFIED_NO_ARTIFACT_MATCH. "
+        f"CLAIMED_MDD (-13.16%) = {CLAIMED_MDD_LABEL} / {CLAIMED_MDD_INTERPRETATION}. "
         "Prefer VERIFIED_LINEAGE_MDD from dated E1/E1.1/E3/V4.12-D artifacts."
     ),
 )
@@ -120,6 +128,9 @@ def manifest_dict() -> dict:
     d["e3_winner"] = dict(E3_WINNER)
     d["e1_binary_default"] = dict(E1_BINARY_DEFAULT)
     d["governance_class_if_promoted"] = GOVERNANCE_CLASS_IF_PROMOTED
+    d["claimed_mdd_claim"] = claim_dict()
+    d["claimed_mdd_interpretation"] = CLAIMED_MDD_INTERPRETATION
+    d["claimed_mdd_note"] = CLAIMED_MDD_NOTE
     return d
 
 

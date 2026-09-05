@@ -1,9 +1,10 @@
 # E45 Paper Feasibility Charter
 
 Date: 2026-09-05  
-Status: **OPEN — paper research only**  
+Status: **SEALED — paper `FEASIBLE_READY_FOR_LIVE_BALLOT` (F1–F10); live auth still NO**  
 Parent ballot: Register #6 Item 3 — stitch path **DEFERRED** (not REJECT)  
-Canonical status: `research/e45/E45_OFFICIAL_STATUS.md`
+Canonical status: `research/e45/E45_OFFICIAL_STATUS.md`  
+Authoritative pack: `repro/e45-feasibility-study-regen-20260905/` (prior pack SUPERSEDED/ARCHIVED)
 
 ## Objective
 
@@ -36,13 +37,13 @@ Secondary (diagnostic only): E45_E1, LEGACY crisis-day scale — not stitch cand
 | F2 Exact T+1 | Same-bar fills = 0 on both arms | Any same-bar fill |
 | F3 Crisis MDD | Challenger crisis-window MDD **strictly better** (shallower) than baseline | Crisis MDD worse or equal |
 | F4 Full-sample MDD | Challenger full-sample MDD ≤ baseline MDD (shallower or equal) | Full-sample MDD deeper |
-| F5 CAGR giveback | Full-sample CAGR giveback ≤ **2.0 pp** vs baseline **or** crisis-window utility clearly dominates (documented) | Giveback > 2.0 pp with no crisis-window dominance |
-| F6 No retune | Uses locked `E3_WINNER` only | Any in-place param search |
-| F7 Live untouched | `DEFAULT_BOOKS_VERSION` and forward path unchanged | Any live edit |
+| F5 CAGR giveback | Full-sample CAGR giveback ≤ **2.0 pp** vs baseline **or** tightened crisis-dominance exception (crisis-path MDD improve ≥1.0 pp **and** ≥2 crisis-years better **and** 0 crisis-years worse **and** full-sample MDD better) | Giveback > 2.0 pp without meeting the exception |
+| F6 No retune | Uses locked `E3_WINNER` only (module == `e3_status.json` winner) | Any in-place param search / mismatch |
+| F7 Live untouched | `DEFAULT_BOOKS_VERSION` and forward path unchanged; stitch DEFERRED / live auth NO | Any live edit |
 
-| F8 Cost | Challenger fee sum ≤ 1.05× baseline **or** fee-bps/yr ratio ≤ 1.25 | Fee drag explodes vs baseline |
-| F9 Stress | MDD better on majority of named stress windows; no window worse by >1 pp | Stress MDD regresses |
-| F10 Recovery | Recover days ≤ 1.15× baseline; underwater ≤ baseline+60d; trough MDD not deeper | Slower/deeper recovery |
+| F8 Cost | Challenger fee sum ≤ 1.05× baseline **and** fee-bps/yr ratio ≤ 1.25 (tightened from OR) | Either cost bound fails |
+| F9 Stress | MDD better on **strict majority** of named stress windows; better > worse; no window worse by >1 pp | Stress MDD regresses |
+| F10 Recovery | Recover days ≤ 1.15× baseline (**no undocumented +5d**); underwater ≤ baseline+60d; trough MDD not deeper | Slower/deeper recovery |
 
 
 **Paper verdict language:**
@@ -61,7 +62,7 @@ Default until proven otherwise: stay at stitch **DEFERRED** / live auth **NO**.
 ## Outputs
 
 - `research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md` (+ `.json`)  
-- `repro/e45-feasibility-study/` (NAV / fills / summary)  
+- `repro/e45-feasibility-study-regen-20260905/` (authoritative NAV/fills/manifests; prior pack SUPERSEDED)  
 - This charter remains the bar; do not silently rewrite gates mid-run
 
 ## Label

@@ -15,7 +15,7 @@
     "module_status": "CHALLENGER_CANDIDATE_NOT_PROMOTED",
     "promotion_allowed": false,
     "claimed_mdd": -0.1316,
-    "claimed_mdd_status": "NOT_VERIFIED_NO_ARTIFACT_MATCH",
+    "claimed_mdd_status": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
     "verified_lineage_mdd": {
       "E1_validation_2012_2014": -0.1721,
       "E1_1_validation_2012_2014": -0.1581,
@@ -30,7 +30,7 @@
       "scripts/v412e11_graduated_crisis.py",
       "scripts/v412e2_e3_three_rounds.py"
     ],
-    "note": "Named E45 surface for integration. Not an in-place freeze. CLAIMED_MDD (-13.16%) verified 2026-09-04 as NOT_VERIFIED_NO_ARTIFACT_MATCH. Prefer VERIFIED_LINEAGE_MDD from dated E1/E1.1/E3/V4.12-D artifacts.",
+    "note": "Named E45 surface for integration. Not an in-place freeze. CLAIMED_MDD (-13.16%) verified 2026-09-04 as NOT_VERIFIED_HISTORICAL_NARRATIVE / EARLY_NON_RIGOROUS_RESEARCH_RESULT. Prefer VERIFIED_LINEAGE_MDD from dated E1/E1.1/E3/V4.12-D artifacts.",
     "e3_winner": {
       "mode": "voltarget",
       "max_cut": 0.5,
@@ -430,7 +430,7 @@
   },
   "e45_verification": {
     "claim_mdd": -0.1316,
-    "claim_status": "NOT_FOUND_IN_ARTIFACTS",
+    "claim_status": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
     "text_mentions_only": [
       "/workspace/FROZEN_STRATEGY_SPEC.md",
       "/workspace/FROZEN_GOVERNANCE.md",
@@ -464,7 +464,7 @@
       "blind_opened_after_E3_validation_pass": true,
       "parameter_selection_used_2023_2026": false
     },
-    "conclusion": "No official e45 module; MDD\u2248-13.16% remains UNVERIFIED text claim. Closest lineage MDDs are E1/E1.1/E3 validation figures (more severe). Formal strategy remains V4.12-D; E3 validation_pass but not promoted.",
+    "conclusion": "Named module scripts/e45_crisis_core.py present. CLAIMED_MDD (−13.16%) = NOT_VERIFIED_HISTORICAL_NARRATIVE / EARLY_NON_RIGOROUS_RESEARCH_RESULT. No dated research CSV/JSON equals −0.1316. Prefer lineage MDDs.",
     "named_module": "scripts/e45_crisis_core.py",
     "named_module_status": "CHALLENGER_CANDIDATE_NOT_PROMOTED",
     "promotion_allowed": false
@@ -479,5 +479,11 @@
     "e45_mdd_claim_13_16": "NOT_FOUND_IN_ARTIFACTS",
     "combined_four_layer_engine": "CORE_EXEC_DIV_PLUS_NAMED_E45_CANDIDATE",
     "next": "Named module scripts/e45_crisis_core.py exists and is wired. Stock dividends applied in challenger only. Promote stock-aware E22 only via explicit new version + governance approval."
+  },
+  "claim": {
+    "mdd": -0.1316,
+    "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
+    "interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
+    "note": "−13.16% is an early, non-rigorous research narrative — not a verified baseline. No dated CSV/JSON equals −0.1316. Prefer dated lineage MDDs (−15.81% / −18.49% / early-stack −20.76%)."
   }
 }

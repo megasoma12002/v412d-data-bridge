@@ -1,0 +1,203 @@
+{
+  "schema": "e45_feasibility_gates_f1_f7.v2",
+  "generated_at_utc": "2026-09-05T16:53:05.765253+00:00",
+  "pack_dir": "/workspace/repro/e45-feasibility-study-regen-20260905",
+  "charter": "research/e45/E45_FEASIBILITY_CHARTER.md",
+  "baseline": "E16_E18_E22_v2s",
+  "challenger": "E16_E18_E22_v2s_E45_E3",
+  "full_sample": {
+    "baseline_cagr": 0.13296463651919832,
+    "challenger_cagr": 0.10418412444200764,
+    "baseline_mdd": -0.2263873534222821,
+    "challenger_mdd": -0.2075836624984907,
+    "n_days": 3351,
+    "mean_e45_scale_baseline": 1.0,
+    "mean_e45_scale_challenger": 0.9067972943914351,
+    "cagr_giveback_pp": 2.878051207719068,
+    "mdd_improvement_pp": 1.8803690923791416
+  },
+  "crisis_path": {
+    "baseline_mdd": -0.14035729376243833,
+    "challenger_mdd": -0.11951885085638458,
+    "mdd_improvement_pp": 2.0838442906053745
+  },
+  "gates": {
+    "F1_artifact_honesty": {
+      "name": "artifact_honesty",
+      "pass": true,
+      "hash_verify": {
+        "ok": true,
+        "purpose": null,
+        "n_outputs_checked": 4,
+        "manifest_generated_at_utc": "2026-09-05T15:51:32.558623+00:00",
+        "missing": [],
+        "mismatches": []
+      },
+      "claim": {
+        "mdd": -0.1316,
+        "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
+        "interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
+        "note": "−13.16% is an early, non-rigorous research narrative — not a verified baseline. No dated CSV/JSON equals −0.1316. Prefer dated lineage MDDs (−15.81% / −18.49% / early-stack −20.76%)."
+      },
+      "notes": "Dated INPUT/OUTPUT manifests required; −13.16% cannot be PASS evidence."
+    },
+    "F2_exact_t1": {
+      "name": "exact_t1",
+      "pass": true,
+      "same_bar_fills_baseline": 0,
+      "same_bar_fills_challenger": 0
+    },
+    "F3_crisis_mdd": {
+      "name": "crisis_mdd",
+      "pass": true,
+      "baseline_crisis_path_mdd": -0.14035729376243833,
+      "challenger_crisis_path_mdd": -0.11951885085638458,
+      "improvement_pp": 2.0838442906053745
+    },
+    "F4_full_sample_mdd": {
+      "name": "full_sample_mdd",
+      "pass": true,
+      "baseline_mdd": -0.2263873534222821,
+      "challenger_mdd": -0.2075836624984907,
+      "improvement_pp": 1.8803690923791416
+    },
+    "F5_cagr_giveback": {
+      "name": "cagr_giveback",
+      "pass": true,
+      "giveback_pp": 2.878051207719068,
+      "max_pp": 2.0,
+      "baseline_cagr": 0.13296463651919832,
+      "challenger_cagr": 0.10418412444200764,
+      "within_limit": false,
+      "crisis_dominates_exception": true,
+      "exception_rules": {
+        "min_crisis_improve_pp": 1.0,
+        "min_years_better": 2,
+        "max_years_worse": 0,
+        "require_full_mdd_better": true
+      },
+      "crisis_years_better": 9,
+      "crisis_years_worse": 0,
+      "crisis_years": [
+        {
+          "year": 2015,
+          "crisis_days": 77,
+          "baseline_mdd": -0.1364659035219743,
+          "challenger_mdd": -0.1280053976400497
+        },
+        {
+          "year": 2016,
+          "crisis_days": 50,
+          "baseline_mdd": -0.04996853524817935,
+          "challenger_mdd": -0.03962946645495691
+        },
+        {
+          "year": 2018,
+          "crisis_days": 6,
+          "baseline_mdd": -0.06979967680852917,
+          "challenger_mdd": -0.06143642975673813
+        },
+        {
+          "year": 2020,
+          "crisis_days": 27,
+          "baseline_mdd": -0.2263873534222821,
+          "challenger_mdd": -0.2075836624984907
+        },
+        {
+          "year": 2022,
+          "crisis_days": 140,
+          "baseline_mdd": -0.16713069839858075,
+          "challenger_mdd": -0.16525521353780337
+        },
+        {
+          "year": 2023,
+          "crisis_days": 27,
+          "baseline_mdd": -0.06971432752138362,
+          "challenger_mdd": -0.06580414141479884
+        },
+        {
+          "year": 2024,
+          "crisis_days": 20,
+          "baseline_mdd": -0.06880354903338959,
+          "challenger_mdd": -0.05913474962393006
+        },
+        {
+          "year": 2025,
+          "crisis_days": 24,
+          "baseline_mdd": -0.09194743345117129,
+          "challenger_mdd": -0.08956059840832231
+        },
+        {
+          "year": 2026,
+          "crisis_days": 48,
+          "baseline_mdd": -0.14457279639165488,
+          "challenger_mdd": -0.07229150840022047
+        }
+      ],
+      "crisis_path_improvement_pp": 2.0838442906053745,
+      "full_mdd_improvement_pp": 1.8803690923791416
+    },
+    "F6_no_retune": {
+      "name": "no_retune",
+      "pass": true,
+      "locked_e3": {
+        "mode": "voltarget",
+        "max_cut": 0.5,
+        "up_days": 20,
+        "target_vol": 0.14,
+        "blend": 0.5,
+        "rank_buffer": 0,
+        "cost_hurdle_mult": 5,
+        "min_hold": 42
+      },
+      "module_e3_subset": {
+        "mode": "voltarget",
+        "max_cut": 0.5,
+        "up_days": 20,
+        "target_vol": 0.14,
+        "blend": 0.5,
+        "rank_buffer": 0,
+        "cost_hurdle_mult": 5,
+        "min_hold": 42
+      },
+      "module_mismatches": [],
+      "e3_status_mismatches": [],
+      "notes": "Compares e45_crisis_core.E3_WINNER to locked e3_status.json winner."
+    },
+    "F7_live_untouched": {
+      "name": "live_untouched",
+      "pass": true,
+      "DEFAULT_BOOKS_VERSION": "E22_v2s_tw",
+      "required_default": "E22_v2s_tw",
+      "official_status": {
+        "E45_ARTIFACT_STATUS": "NOT_VERIFIED",
+        "E45_STITCH_STATUS": "DEFERRED",
+        "E45_GOVERNANCE_CLASS": "SOFT_FROZEN_CRITICAL",
+        "E45_LIVE_AUTHORIZATION": "NO",
+        "DEFAULT_BOOKS_VERSION": "E22_v2s_tw"
+      },
+      "accidental_live_markers": [],
+      "notes": "Paper-only; live default and stitch/auth status must remain unchanged."
+    }
+  },
+  "all_pass": true,
+  "claim": {
+    "mdd": -0.1316,
+    "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
+    "interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
+    "note": "−13.16% is an early, non-rigorous research narrative — not a verified baseline. No dated CSV/JSON equals −0.1316. Prefer dated lineage MDDs (−15.81% / −18.49% / early-stack −20.76%)."
+  },
+  "verified_anchors": {
+    "closest_lineage_val_mdd": -0.1581,
+    "e3_locked_val_mdd": -0.1849,
+    "early_stack_plus_e45_e3_mdd": -0.2076
+  },
+  "official_status_unchanged": {
+    "E45_ARTIFACT_STATUS": "NOT_VERIFIED",
+    "E45_STITCH_STATUS": "DEFERRED",
+    "E45_GOVERNANCE_CLASS": "SOFT_FROZEN_CRITICAL",
+    "E45_LIVE_AUTHORIZATION": "NO",
+    "DEFAULT_BOOKS_VERSION": "E22_v2s_tw"
+  },
+  "seal_note": "Gate evidence only. SEAL_LOCK.json / study verdict owned by e45_feasibility_seal_pack.py — this script must not overwrite them."
+}

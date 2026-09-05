@@ -1,8 +1,10 @@
-# SUPERSEDED
+# SUPERSEDED / ARCHIVED
 
-This directory is **not authoritative** for E45 feasibility F8–F10 sealing.
+This directory is **not authoritative** for E45 feasibility F1–F10.
 
-Authoritative fresh regen (with INPUT/OUTPUT manifests):
+- Do **not** run `e45_feasibility_gates.py` or `e45_feasibility_seal_pack.py` against this path.
+- Both scripts refuse packs with `SUPERSEDED.md` / `ARCHIVED.md`.
+- Authoritative fresh regen (INPUT/OUTPUT manifests + sha256):
 
 `repro/e45-feasibility-study-regen-20260905/`
 

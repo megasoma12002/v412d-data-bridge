@@ -1,7 +1,8 @@
 {
-  "generated_at_utc": "2026-09-05T15:55:01.117824+00:00",
+  "generated_at_utc": "2026-09-05T16:52:58.831143+00:00",
   "charter": "research/e45/E45_FEASIBILITY_CHARTER.md",
   "pack": "cost_stress_recovery_seal",
+  "schema": "e45_feasibility_seal.v2",
   "provenance": {
     "in_dir": "/workspace/repro/e45-feasibility-study-regen-20260905",
     "input_manifest": {
@@ -162,7 +163,9 @@
         }
       }
     },
-    "method": "fresh_regen_required_no_reuse_of_prior_pack"
+    "f1_f7_source": "/workspace/repro/e45-feasibility-study-regen-20260905/reports/f1_f7_gates.json",
+    "method": "fresh_regen_required_hash_verified_no_reuse_of_prior_pack",
+    "output_manifest_hash_verified": true
   },
   "baseline": "E16_E18_E22_v2s",
   "challenger": "E16_E18_E22_v2s_E45_E3",
@@ -172,7 +175,6 @@
     "baseline_mdd": -0.2263873534222821,
     "challenger_mdd": -0.2075836624984907,
     "n_days": 3351,
-    "crisis_days": 423,
     "mean_e45_scale_baseline": 1.0,
     "mean_e45_scale_challenger": 0.9067972943914351,
     "cagr_giveback_pp": 2.878051207719068,
@@ -183,80 +185,6 @@
     "challenger_mdd": -0.11951885085638458,
     "mdd_improvement_pp": 2.0838442906053745
   },
-  "crisis_years": [
-    {
-      "year": 2015,
-      "crisis_days": 77,
-      "baseline_mdd": -0.1364659035219743,
-      "challenger_mdd": -0.1280053976400497,
-      "baseline_cagr": -0.032553131006479274,
-      "challenger_cagr": -0.039282362896597256
-    },
-    {
-      "year": 2016,
-      "crisis_days": 50,
-      "baseline_mdd": -0.04996853524817935,
-      "challenger_mdd": -0.03962946645495691,
-      "baseline_cagr": 0.17872246364165512,
-      "challenger_cagr": 0.17443764756076408
-    },
-    {
-      "year": 2018,
-      "crisis_days": 6,
-      "baseline_mdd": -0.06979967680852917,
-      "challenger_mdd": -0.06143642975673813,
-      "baseline_cagr": 0.0931578692224222,
-      "challenger_cagr": 0.07707612023091515
-    },
-    {
-      "year": 2020,
-      "crisis_days": 27,
-      "baseline_mdd": -0.2263873534222821,
-      "challenger_mdd": -0.2075836624984907,
-      "baseline_cagr": -0.037056764629336714,
-      "challenger_cagr": -0.04958573429615265
-    },
-    {
-      "year": 2022,
-      "crisis_days": 140,
-      "baseline_mdd": -0.16713069839858075,
-      "challenger_mdd": -0.16525521353780337,
-      "baseline_cagr": 0.05596519900232111,
-      "challenger_cagr": 0.03478084985027374
-    },
-    {
-      "year": 2023,
-      "crisis_days": 27,
-      "baseline_mdd": -0.06971432752138362,
-      "challenger_mdd": -0.06580414141479884,
-      "baseline_cagr": 0.07123657728575772,
-      "challenger_cagr": 0.11533785423003606
-    },
-    {
-      "year": 2024,
-      "crisis_days": 20,
-      "baseline_mdd": -0.06880354903338959,
-      "challenger_mdd": -0.05913474962393006,
-      "baseline_cagr": 0.21320776791628404,
-      "challenger_cagr": 0.10089330575280009
-    },
-    {
-      "year": 2025,
-      "crisis_days": 24,
-      "baseline_mdd": -0.09194743345117129,
-      "challenger_mdd": -0.08956059840832231,
-      "baseline_cagr": 0.17987849165653036,
-      "challenger_cagr": 0.056928263124345735
-    },
-    {
-      "year": 2026,
-      "crisis_days": 48,
-      "baseline_mdd": -0.14457279639165488,
-      "challenger_mdd": -0.07229150840022047,
-      "baseline_cagr": 0.641584327041332,
-      "challenger_cagr": 0.42500550396119374
-    }
-  ],
   "cost": {
     "baseline": {
       "n_fills": 6271,
@@ -369,41 +297,161 @@
   },
   "gates": {
     "F1_artifact_honesty": {
+      "name": "artifact_honesty",
       "pass": true,
-      "note": "Dated early-stack recompute; -13.16% EARLY_NON_RIGOROUS_RESEARCH_RESULT; not used as PASS"
+      "hash_verify": {
+        "ok": true,
+        "purpose": null,
+        "n_outputs_checked": 4,
+        "manifest_generated_at_utc": "2026-09-05T15:51:32.558623+00:00",
+        "missing": [],
+        "mismatches": []
+      },
+      "claim": {
+        "mdd": -0.1316,
+        "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
+        "interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
+        "note": "−13.16% is an early, non-rigorous research narrative — not a verified baseline. No dated CSV/JSON equals −0.1316. Prefer dated lineage MDDs (−15.81% / −18.49% / early-stack −20.76%)."
+      },
+      "notes": "Dated INPUT/OUTPUT manifests required; −13.16% cannot be PASS evidence."
     },
     "F2_exact_t1": {
+      "name": "exact_t1",
       "pass": true,
       "same_bar_fills_baseline": 0,
       "same_bar_fills_challenger": 0
     },
     "F3_crisis_mdd": {
+      "name": "crisis_mdd",
       "pass": true,
       "baseline_crisis_path_mdd": -0.14035729376243833,
       "challenger_crisis_path_mdd": -0.11951885085638458,
       "improvement_pp": 2.0838442906053745
     },
     "F4_full_sample_mdd": {
+      "name": "full_sample_mdd",
       "pass": true,
       "baseline_mdd": -0.2263873534222821,
       "challenger_mdd": -0.2075836624984907,
       "improvement_pp": 1.8803690923791416
     },
     "F5_cagr_giveback": {
+      "name": "cagr_giveback",
       "pass": true,
       "giveback_pp": 2.878051207719068,
       "max_pp": 2.0,
+      "baseline_cagr": 0.13296463651919832,
+      "challenger_cagr": 0.10418412444200764,
+      "within_limit": false,
       "crisis_dominates_exception": true,
+      "exception_rules": {
+        "min_crisis_improve_pp": 1.0,
+        "min_years_better": 2,
+        "max_years_worse": 0,
+        "require_full_mdd_better": true
+      },
       "crisis_years_better": 9,
-      "crisis_years_worse": 0
+      "crisis_years_worse": 0,
+      "crisis_years": [
+        {
+          "year": 2015,
+          "crisis_days": 77,
+          "baseline_mdd": -0.1364659035219743,
+          "challenger_mdd": -0.1280053976400497
+        },
+        {
+          "year": 2016,
+          "crisis_days": 50,
+          "baseline_mdd": -0.04996853524817935,
+          "challenger_mdd": -0.03962946645495691
+        },
+        {
+          "year": 2018,
+          "crisis_days": 6,
+          "baseline_mdd": -0.06979967680852917,
+          "challenger_mdd": -0.06143642975673813
+        },
+        {
+          "year": 2020,
+          "crisis_days": 27,
+          "baseline_mdd": -0.2263873534222821,
+          "challenger_mdd": -0.2075836624984907
+        },
+        {
+          "year": 2022,
+          "crisis_days": 140,
+          "baseline_mdd": -0.16713069839858075,
+          "challenger_mdd": -0.16525521353780337
+        },
+        {
+          "year": 2023,
+          "crisis_days": 27,
+          "baseline_mdd": -0.06971432752138362,
+          "challenger_mdd": -0.06580414141479884
+        },
+        {
+          "year": 2024,
+          "crisis_days": 20,
+          "baseline_mdd": -0.06880354903338959,
+          "challenger_mdd": -0.05913474962393006
+        },
+        {
+          "year": 2025,
+          "crisis_days": 24,
+          "baseline_mdd": -0.09194743345117129,
+          "challenger_mdd": -0.08956059840832231
+        },
+        {
+          "year": 2026,
+          "crisis_days": 48,
+          "baseline_mdd": -0.14457279639165488,
+          "challenger_mdd": -0.07229150840022047
+        }
+      ],
+      "crisis_path_improvement_pp": 2.0838442906053745,
+      "full_mdd_improvement_pp": 1.8803690923791416
     },
     "F6_no_retune": {
+      "name": "no_retune",
       "pass": true,
-      "note": "Locked E3 winner only"
+      "locked_e3": {
+        "mode": "voltarget",
+        "max_cut": 0.5,
+        "up_days": 20,
+        "target_vol": 0.14,
+        "blend": 0.5,
+        "rank_buffer": 0,
+        "cost_hurdle_mult": 5,
+        "min_hold": 42
+      },
+      "module_e3_subset": {
+        "mode": "voltarget",
+        "max_cut": 0.5,
+        "up_days": 20,
+        "target_vol": 0.14,
+        "blend": 0.5,
+        "rank_buffer": 0,
+        "cost_hurdle_mult": 5,
+        "min_hold": 42
+      },
+      "module_mismatches": [],
+      "e3_status_mismatches": [],
+      "notes": "Compares e45_crisis_core.E3_WINNER to locked e3_status.json winner."
     },
     "F7_live_untouched": {
+      "name": "live_untouched",
       "pass": true,
-      "note": "Paper repro only; live DEFAULT / forward path not edited"
+      "DEFAULT_BOOKS_VERSION": "E22_v2s_tw",
+      "required_default": "E22_v2s_tw",
+      "official_status": {
+        "E45_ARTIFACT_STATUS": "NOT_VERIFIED",
+        "E45_STITCH_STATUS": "DEFERRED",
+        "E45_GOVERNANCE_CLASS": "SOFT_FROZEN_CRITICAL",
+        "E45_LIVE_AUTHORIZATION": "NO",
+        "DEFAULT_BOOKS_VERSION": "E22_v2s_tw"
+      },
+      "accidental_live_markers": [],
+      "notes": "Paper-only; live default and stitch/auth status must remain unchanged."
     },
     "F8_cost": {
       "pass": true,
@@ -422,7 +470,7 @@
         "fee_bps_per_year_vs_avg_nav": 49.92175767371163
       },
       "fee_bps_ratio_chal_over_base": 1.0720469187042576,
-      "rule": "fee_sum<=1.05x baseline OR fee_bps_ratio<=1.25"
+      "rule": "fee_sum<=1.05x baseline AND fee_bps_ratio<=1.25 (tightened from OR)"
     },
     "F9_stress": {
       "pass": true,
@@ -503,7 +551,7 @@
           "return_delta": -0.0010143627929466437
         }
       },
-      "rule": "majority stress MDD better; no window worse by >1pp; >=2 better"
+      "rule": "strict majority stress MDD better; better>worse; no window worse by >1pp"
     },
     "F10_recovery": {
       "pass": true,
@@ -525,7 +573,7 @@
         "p10": 0.8125347019945311,
         "frac_below_0_85": 0.15368546702476873
       },
-      "rule": "recover days<=1.15x baseline; underwater<=+60d; trough MDD not deeper"
+      "rule": "recover days<=1.15x baseline (no +5d); underwater<=+60d; trough MDD not deeper"
     }
   },
   "verdict": "FEASIBLE_READY_FOR_LIVE_BALLOT",
@@ -534,13 +582,14 @@
     "E45_ARTIFACT_STATUS": "NOT_VERIFIED",
     "E45_STITCH_STATUS": "DEFERRED",
     "E45_GOVERNANCE_CLASS": "SOFT_FROZEN_CRITICAL",
-    "E45_LIVE_AUTHORIZATION": "NO"
+    "E45_LIVE_AUTHORIZATION": "NO",
+    "DEFAULT_BOOKS_VERSION": "E22_v2s_tw"
   },
   "historical_claim": {
     "mdd": -0.1316,
     "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
     "interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
-    "note": "\u221213.16% is an early, non-rigorous research narrative \u2014 not a verified baseline. No dated CSV/JSON equals \u22120.1316. Prefer dated lineage MDDs (\u221215.81% / \u221218.49% / early-stack \u221220.76%)."
+    "note": "−13.16% is an early, non-rigorous research narrative — not a verified baseline. No dated CSV/JSON equals −0.1316. Prefer dated lineage MDDs (−15.81% / −18.49% / early-stack −20.76%)."
   },
   "lineage": {
     "documented_research": [

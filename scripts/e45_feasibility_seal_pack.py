@@ -1,36 +1,38 @@
 #!/usr/bin/env python3
-"""E45 paper cost/stress/recovery seal (no retune; no live edits).
+"""E45 paper cost/stress/recovery seal F8–F10 (no retune; no live edits).
 
-Requires a freshly regenerated early-stack directory containing:
-  INPUT_MANIFEST.json + OUTPUT_MANIFEST.json
-Refuse to seal packs that lack provenance (no silent reuse of prior NAV/fills).
+Requires freshly regenerated early-stack dir with INPUT/OUTPUT manifests.
+Loads F1–F7 from reports/f1_f7_gates.json (re-run gates if missing/stale).
+Writes SEAL_LOCK.json + study; gates script must not overwrite these.
 """
 from __future__ import annotations
 
 import argparse
-import json
+import math
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-REPO = Path(".")
-DEFAULT_IN = REPO / "repro/e45-feasibility-study-regen-20260905"
-CHARTER = REPO / "research/e45/E45_FEASIBILITY_CHARTER.md"
-STUDY_MD = REPO / "research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md"
-STUDY_JSON = REPO / "research/e45/E45_FEASIBILITY_STUDY_2026-09-05.json"
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
 
-HISTORICAL_CLAIM = {
-    "mdd": -0.1316,
-    "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
-    "interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
-    "note": (
-        "−13.16% is an early, non-rigorous research narrative — not a verified baseline. "
-        "No dated CSV/JSON equals −0.1316. Prefer dated lineage MDDs "
-        "(−15.81% / −18.49% / early-stack −20.76%)."
-    ),
-}
+from e45_feasibility_common import (  # noqa: E402
+    claim_dict,
+    dumps_json,
+    load_json,
+    mdd,
+    official_status_dict,
+    refuse_superseded_pack,
+    verify_output_manifest,
+)
+
+DEFAULT_IN = ROOT / "repro/e45-feasibility-study-regen-20260905"
+CHARTER = ROOT / "research/e45/E45_FEASIBILITY_CHARTER.md"
+STUDY_MD = ROOT / "research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md"
+STUDY_JSON = ROOT / "research/e45/E45_FEASIBILITY_STUDY_2026-09-05.json"
 
 STRESS_WINDOWS = {
     "2015_china_shock": ("2015-06-01", "2015-09-30"),
@@ -42,12 +44,8 @@ STRESS_WINDOWS = {
 
 def resolve_paths(in_dir: Path) -> dict[str, Path]:
     in_dir = in_dir.resolve()
-    for req in ("INPUT_MANIFEST.json", "OUTPUT_MANIFEST.json"):
-        if not (in_dir / req).exists():
-            raise SystemExit(
-                f"Refuse seal on {in_dir}: missing {req}. "
-                "Regenerate early-stack NAV/fills with manifests first."
-            )
+    refuse_superseded_pack(in_dir)
+    verify_output_manifest(in_dir)  # fail-closed hash check
     return {
         "IN": in_dir,
         "OUT": in_dir / "reports",
@@ -57,12 +55,9 @@ def resolve_paths(in_dir: Path) -> dict[str, Path]:
         "CHAL_FILLS": in_dir / "outputs" / "e16_e18_e22_e45_e3_fills.csv",
         "INPUT_MANIFEST": in_dir / "INPUT_MANIFEST.json",
         "OUTPUT_MANIFEST": in_dir / "OUTPUT_MANIFEST.json",
+        "F1F7": in_dir / "reports" / "f1_f7_gates.json",
+        "SEAL_LOCK": in_dir / "SEAL_LOCK.json",
     }
-
-
-def mdd(nav: pd.Series) -> float:
-    x = nav.astype(float)
-    return float((x / x.cummax() - 1.0).min())
 
 
 def total_return(nav: pd.Series) -> float:
@@ -138,6 +133,39 @@ def scale_col(df: pd.DataFrame) -> pd.Series:
     raise SystemExit(f"No E45 scale column in {list(df.columns)}")
 
 
+def load_f1_f7(paths: dict[str, Path]) -> dict:
+    fpath = paths["F1F7"]
+    # also accept repo reports/
+    alt = ROOT / "reports" / "f1_f7_gates.json"
+    if not fpath.exists() and alt.exists():
+        fpath = alt
+    if not fpath.exists():
+        raise SystemExit(
+            f"Missing F1–F7 gates at {paths['F1F7']} (and {alt}). "
+            "Run scripts/e45_feasibility_gates.py on this pack first."
+        )
+    payload = load_json(fpath)
+    if not payload.get("all_pass"):
+        raise SystemExit("F1–F7 not all_pass; refuse seal.")
+    # normalize to F{n}_* keys with pass bool
+    gates = {}
+    for k, v in payload.get("gates", {}).items():
+        gates[k] = dict(v)
+        if "pass" not in gates[k]:
+            raise SystemExit(f"Gate {k} missing pass field")
+    # require F1..F7 present
+    for i in range(1, 8):
+        if not any(k.startswith(f"F{i}_") for k in gates):
+            raise SystemExit(f"Missing F{i} in gates file {fpath}")
+    return {
+        "gates": gates,
+        "full_sample": payload.get("full_sample"),
+        "crisis_path": payload.get("crisis_path"),
+        "source": str(fpath),
+        "all_pass": True,
+    }
+
+
 def evaluate(paths: dict[str, Path]) -> dict:
     base = pd.read_csv(paths["BASE_NAV"])
     chal = pd.read_csv(paths["CHAL_NAV"])
@@ -146,15 +174,18 @@ def evaluate(paths: dict[str, Path]) -> dict:
     fb = pd.read_csv(paths["BASE_FILLS"])
     fc = pd.read_csv(paths["CHAL_FILLS"])
 
-    prior: dict = {}
-    if STUDY_JSON.exists():
-        prior = json.loads(STUDY_JSON.read_text())
-    prior_gates = prior.get("gates", {})
+    prior = load_f1_f7(paths)
 
     cost_base = fee_turnover(fb, base)
     cost_chal = fee_turnover(fc, chal)
-    fee_ratio = cost_chal['fee_bps_per_year_vs_avg_nav'] / max(cost_base['fee_bps_per_year_vs_avg_nav'], 1e-9)
-    f8_pass = bool(cost_chal["fee_sum"] <= cost_base["fee_sum"] * 1.05 or fee_ratio <= 1.25)
+    fee_ratio = cost_chal["fee_bps_per_year_vs_avg_nav"] / max(
+        cost_base["fee_bps_per_year_vs_avg_nav"], 1e-9
+    )
+    # Tightened F8: AND (was OR)
+    f8_pass = bool(
+        cost_chal["fee_sum"] <= cost_base["fee_sum"] * 1.05 + 1e-9
+        and fee_ratio <= 1.25 + 1e-12
+    )
 
     stress: dict = {}
     better = worse = 0
@@ -185,7 +216,9 @@ def evaluate(paths: dict[str, Path]) -> dict:
             "mdd_improvement_pp": imp,
             "return_delta": retd,
         }
-    f9_pass = bool(better >= worse and better >= 2 and len(bad) == 0)
+    n_windows = len(STRESS_WINDOWS)
+    # Tightened F9: strict majority (better > n/2), better > worse, no bad windows
+    f9_pass = bool(better > (n_windows / 2.0) and better > worse and len(bad) == 0)
 
     rec_b = recovery_stats(base["nav"], base["date"])
     rec_c = recovery_stats(chal["nav"], chal["date"])
@@ -202,31 +235,19 @@ def evaluate(paths: dict[str, Path]) -> dict:
     elif db is None or dc is None:
         days_ok = False
     else:
-        days_ok = dc <= db * 1.15 + 5
+        # Tightened F10: no undocumented +5d buffer
+        days_ok = dc <= db * 1.15 + 1e-9
     uw_ok = rec_c["longest_underwater_days"] <= rec_b["longest_underwater_days"] + 60
     trough_ok = rec_c["trough_mdd"] >= rec_b["trough_mdd"] - 1e-12
     f10_pass = bool(days_ok and uw_ok and trough_ok)
 
-    gates: dict = {}
-    for prefix in range(1, 8):
-        found = False
-        for k, v in prior_gates.items():
-            if k.startswith(f"F{prefix}_"):
-                gates[k] = v
-                found = True
-                break
-        if not found:
-            gates[f"F{prefix}_missing"] = {
-                "pass": False,
-                "note": "missing prior gate; re-run F1–F7 on regen first",
-            }
-
+    gates = dict(prior["gates"])
     gates["F8_cost"] = {
         "pass": f8_pass,
         "baseline": cost_base,
         "challenger": cost_chal,
         "fee_bps_ratio_chal_over_base": fee_ratio,
-        "rule": "fee_sum<=1.05x baseline OR fee_bps_ratio<=1.25",
+        "rule": "fee_sum<=1.05x baseline AND fee_bps_ratio<=1.25 (tightened from OR)",
     }
     gates["F9_stress"] = {
         "pass": f9_pass,
@@ -234,57 +255,58 @@ def evaluate(paths: dict[str, Path]) -> dict:
         "windows_worse": worse,
         "bad_windows_gt_1pp_worse": bad,
         "detail": stress,
-        "rule": "majority stress MDD better; no window worse by >1pp; >=2 better",
+        "rule": "strict majority stress MDD better; better>worse; no window worse by >1pp",
     }
     gates["F10_recovery"] = {
         "pass": f10_pass,
         "baseline": rec_b,
         "challenger": rec_c,
         "exposure": exposure,
-        "rule": "recover days<=1.15x baseline; underwater<=+60d; trough MDD not deeper",
+        "rule": "recover days<=1.15x baseline (no +5d); underwater<=+60d; trough MDD not deeper",
     }
 
     prior_ok = all(
         bool(g.get("pass"))
         for k, g in gates.items()
-        if len(k) > 2 and k[0] == "F" and k[1].isdigit() and int(k[1]) <= 7
+        if k[0] == "F" and len(k) > 1 and k[1].isdigit() and int(k[1]) <= 7
     )
     seal_ok = f8_pass and f9_pass and f10_pass
     if prior_ok and seal_ok:
         verdict, live_ready = "FEASIBLE_READY_FOR_LIVE_BALLOT", True
-    elif any(not bool(g.get("pass")) for k, g in gates.items() if k.startswith(("F3_", "F4_"))):
+    elif any(
+        not bool(g.get("pass"))
+        for k, g in gates.items()
+        if k.startswith(("F3_", "F4_"))
+    ):
         verdict, live_ready = "NOT_FEASIBLE_FOR_LIVE", False
     else:
         verdict, live_ready = "FEASIBLE_CONTINUE_PAPER", False
 
     return {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "charter": str(CHARTER),
+        "charter": str(CHARTER.relative_to(ROOT)) if CHARTER.exists() else str(CHARTER),
         "pack": "cost_stress_recovery_seal",
+        "schema": "e45_feasibility_seal.v2",
         "provenance": {
             "in_dir": str(paths["IN"]),
-            "input_manifest": json.loads(paths["INPUT_MANIFEST"].read_text()),
-            "output_manifest": json.loads(paths["OUTPUT_MANIFEST"].read_text()),
-            "method": "fresh_regen_required_no_reuse_of_prior_pack",
+            "input_manifest": load_json(paths["INPUT_MANIFEST"]),
+            "output_manifest": load_json(paths["OUTPUT_MANIFEST"]),
+            "f1_f7_source": prior["source"],
+            "method": "fresh_regen_required_hash_verified_no_reuse_of_prior_pack",
+            "output_manifest_hash_verified": True,
         },
         "baseline": "E16_E18_E22_v2s",
         "challenger": "E16_E18_E22_v2s_E45_E3",
         "full_sample": prior.get("full_sample"),
         "crisis_path": prior.get("crisis_path"),
-        "crisis_years": prior.get("crisis_years"),
         "cost": {"baseline": cost_base, "challenger": cost_chal},
         "stress_windows": stress,
         "recovery": {"baseline": rec_b, "challenger": rec_c, "exposure": exposure},
         "gates": gates,
         "verdict": verdict,
         "live_ballot_ready": live_ready,
-        "official_status_unchanged": {
-            "E45_ARTIFACT_STATUS": "NOT_VERIFIED",
-            "E45_STITCH_STATUS": "DEFERRED",
-            "E45_GOVERNANCE_CLASS": "SOFT_FROZEN_CRITICAL",
-            "E45_LIVE_AUTHORIZATION": "NO",
-        },
-        "historical_claim": HISTORICAL_CLAIM,
+        "official_status_unchanged": official_status_dict(),
+        "historical_claim": claim_dict(),
         "lineage": {
             "documented_research": ["E38", "E43", "E44", "E45"],
             "importable_code": ["E1", "E1.1", "E2", "E2.1", "E3", "E45_wrapper"],
@@ -320,7 +342,7 @@ def write_md(v: dict) -> None:
         f"- Live ballot ready: `{v['live_ballot_ready']}`",
         "- Official status **unchanged** until human ballot: NOT_VERIFIED / DEFERRED / SOFT_FROZEN_CRITICAL / live auth NO",
         f"- Historical −13.16%: **`{hc['label']}`** / interpretation **`{hc['interpretation']}`** (not PASS)",
-        "- Seal computed on **freshly regenerated** NAV/fills (INPUT/OUTPUT manifests required); prior pack not authoritative for F8–F10",
+        "- Seal on **fresh regen** with OUTPUT_MANIFEST **sha256 verified**; F8–F10 tightened (AND / strict majority / no +5d)",
         "",
         "## Comparison (full sample)",
         "",
@@ -385,31 +407,46 @@ def write_md(v: dict) -> None:
         "",
         "## Artifacts",
         "",
-        f"- `{STUDY_JSON}`",
+        f"- `{STUDY_JSON.relative_to(ROOT)}`",
         f"- `{v['provenance']['in_dir']}/`",
         "- Scripts: `scripts/e45_feasibility_gates.py`, `scripts/e45_feasibility_seal_pack.py`",
         "",
         "## Label",
         "",
-        f"`E45_FEASIBILITY_STUDY_2026-09-05__{v['verdict']}__FRESH_REGEN`",
+        f"`E45_FEASIBILITY_STUDY_2026-09-05__{v['verdict']}__FRESH_REGEN_HASH_VERIFIED`",
         "",
     ]
-    STUDY_MD.write_text("\n".join(lines) + "\n")
+    STUDY_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--in", dest="in_dir", type=Path, default=DEFAULT_IN)
     args = ap.parse_args()
     paths = resolve_paths(args.in_dir)
     v = evaluate(paths)
     paths["OUT"].mkdir(parents=True, exist_ok=True)
-    (paths["OUT"] / "cost_stress_recovery_seal.json").write_text(json.dumps(v, indent=2) + "\n")
-    (paths["IN"] / "feasibility_gates.json").write_text(json.dumps(v, indent=2) + "\n")
-    STUDY_JSON.write_text(json.dumps(v, indent=2) + "\n")
+
+    seal_body = dumps_json(v)
+    (paths["OUT"] / "cost_stress_recovery_seal.json").write_text(seal_body, encoding="utf-8")
+    # SEAL_LOCK owned by seal — gates must not overwrite
+    lock = {
+        "schema": "e45_feasibility_seal_lock.v1",
+        "generated_at_utc": v["generated_at_utc"],
+        "verdict": v["verdict"],
+        "live_ballot_ready": v["live_ballot_ready"],
+        "pack_dir": str(paths["IN"]),
+        "gates_pass": {k: bool(g.get("pass")) for k, g in v["gates"].items()},
+        "note": "Authoritative seal lock. e45_feasibility_gates.py must not overwrite this file or the study verdict.",
+    }
+    paths["SEAL_LOCK"].write_text(dumps_json(lock), encoding="utf-8")
+    STUDY_JSON.write_text(seal_body, encoding="utf-8")
     write_md(v)
+    # Convenience alias (does not replace SEAL_LOCK)
+    (paths["IN"] / "feasibility_gates.json").write_text(seal_body, encoding="utf-8")
+
     print(
-        json.dumps(
+        dumps_json(
             {
                 "verdict": v["verdict"],
                 "live_ballot_ready": v["live_ballot_ready"],
@@ -418,10 +455,11 @@ def main() -> None:
                 "F9": v["gates"]["F9_stress"]["pass"],
                 "F10": v["gates"]["F10_recovery"]["pass"],
                 "historical_interpretation": v["historical_claim"]["interpretation"],
-            },
-            indent=2,
+            }
         )
     )
+    if not v["live_ballot_ready"]:
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":

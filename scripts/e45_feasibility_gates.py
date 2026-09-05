@@ -1,46 +1,56 @@
 #!/usr/bin/env python3
-"""E45 paper feasibility gate evaluation (no strategy/live edits).
+"""E45 paper feasibility gates F1–F7 (charter-aligned, rigorous).
 
-Compares early-stack baseline vs E45_E3 under
-research/e45/E45_FEASIBILITY_CHARTER.md gates F1–F7.
+Does not authorize live. Does not modify E45 strategy logic.
+Writes only reports/f1_f7_gates.json (+ pack copy) — never clobbers
+SEAL_LOCK.json or the sealed study verdict owned by seal_pack.
 """
 from __future__ import annotations
 
-import json
+import argparse
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-REPO = Path(".")
-IN = REPO / "repro/e45-feasibility-study-regen-20260905"
-OUT = IN
-REPORT_MD = REPO / "research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md"
-REPORT_JSON = REPO / "research/e45/E45_FEASIBILITY_STUDY_2026-09-05.json"
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
 
-BASE_FILE = "e16_e18_e22_daily_nav.csv"
-CHAL_FILE = "e16_e18_e22_e45_e3_daily_nav.csv"
+from e45_feasibility_common import (  # noqa: E402
+    CLAIMED_MDD_INTERPRETATION,
+    CLAIMED_MDD_LABEL,
+    DEFAULT_LIVE_BOOKS,
+    LOCKED_E3_WINNER,
+    VERIFIED_CLOSEST_LINEAGE_VAL_MDD,
+    VERIFIED_E3_LOCKED_VAL_MDD,
+    VERIFIED_EARLY_STACK_PLUS_E45_E3_MDD,
+    cagr_calendar,
+    claim_dict,
+    dumps_json,
+    load_json,
+    mdd,
+    official_status_dict,
+    refuse_superseded_pack,
+    verify_output_manifest,
+)
+from e45_crisis_core import E3_WINNER  # noqa: E402
+from e22_dividend_accounting import DEFAULT_BOOKS_VERSION  # noqa: E402
+
+BASE_NAV = "e16_e18_e22_daily_nav.csv"
+CHAL_NAV = "e16_e18_e22_e45_e3_daily_nav.csv"
 BASE_FILLS = "e16_e18_e22_fills.csv"
 CHAL_FILLS = "e16_e18_e22_e45_e3_fills.csv"
 CAGR_GIVEBACK_MAX_PP = 2.0
-
-
-def mdd(nav: pd.Series) -> float:
-    x = nav.astype(float)
-    return float((x / x.cummax() - 1.0).min())
-
-
-def cagr(nav: pd.Series, dates: pd.Series) -> float:
-    years = (pd.to_datetime(dates.iloc[-1]) - pd.to_datetime(dates.iloc[0])).days / 365.25
-    if years <= 0:
-        return float("nan")
-    return float((float(nav.iloc[-1]) / float(nav.iloc[0])) ** (1 / years) - 1)
+F5_EXCEPTION_MIN_CRISIS_IMPROVE_PP = 1.0
+F5_EXCEPTION_MIN_YEARS_BETTER = 2
+F5_EXCEPTION_MAX_YEARS_WORSE = 0
+F5_EXCEPTION_REQUIRE_FULL_MDD_BETTER = True
 
 
 def same_bar_fills(path: Path) -> int:
     f = pd.read_csv(path)
     cols = {c.lower(): c for c in f.columns}
-    # Prefer explicit signal/fill columns; else decision_date vs fill_date
     for sig_k, fill_k in (
         ("signal_date", "fill_date"),
         ("decision_date", "fill_date"),
@@ -50,287 +60,298 @@ def same_bar_fills(path: Path) -> int:
             s = pd.to_datetime(f[cols[sig_k]])
             e = pd.to_datetime(f[cols[fill_k]])
             return int((s == e).sum())
-    # Meta may already assert exact T+1 in summary
     return -1
 
 
-def evaluate() -> dict:
-    for req in ("INPUT_MANIFEST.json", "OUTPUT_MANIFEST.json"):
-        if not (IN / req).exists():
-            raise SystemExit(f"Refuse gates on {IN}: missing {req}; regenerate first")
-    base = pd.read_csv(IN / "outputs" / BASE_FILE)
-    chal = pd.read_csv(IN / "outputs" / CHAL_FILE)
-    base["date"] = pd.to_datetime(base["date"])
-    chal["date"] = pd.to_datetime(chal["date"])
-    assert len(base) == len(chal)
+def f1_artifact_honesty(pack: Path) -> dict:
+    try:
+        verify = verify_output_manifest(pack)
+        hash_ok = True
+    except SystemExit as exc:
+        hash_ok = False
+        verify = {"ok": False, "error": str(exc)}
+    label_ok = CLAIMED_MDD_LABEL == "NOT_VERIFIED_HISTORICAL_NARRATIVE"
+    interp_ok = CLAIMED_MDD_INTERPRETATION == "EARLY_NON_RIGOROUS_RESEARCH_RESULT"
+    ok = hash_ok and label_ok and interp_ok
+    return {
+        "id": "F1",
+        "name": "artifact_honesty",
+        "pass": ok,
+        "hash_verify": verify,
+        "claim": claim_dict(),
+        "notes": "Dated INPUT/OUTPUT manifests required; −13.16% cannot be PASS evidence.",
+    }
 
+
+def f2_exact_t1(pack: Path) -> dict:
+    sb_b = same_bar_fills(pack / "outputs" / BASE_FILLS)
+    sb_c = same_bar_fills(pack / "outputs" / CHAL_FILLS)
+    exact_ok = sb_b == 0 and sb_c == 0
+    summary_path = pack / "reports" / "early_stack_combined_nav_summary.json"
+    if summary_path.exists():
+        summary = load_json(summary_path)
+        for key in ("E16_E18_E22", "E16_E18_E22_E45_E3"):
+            meta = summary.get("variants", {}).get(key, {}).get("meta", {})
+            if "exact_t1_ok" in meta:
+                exact_ok = exact_ok and bool(meta["exact_t1_ok"])
+            if "same_bar_fills" in meta:
+                exact_ok = exact_ok and int(meta["same_bar_fills"]) == 0
+    return {
+        "id": "F2",
+        "name": "exact_t1",
+        "pass": bool(exact_ok),
+        "same_bar_fills_baseline": sb_b,
+        "same_bar_fills_challenger": sb_c,
+    }
+
+
+def f3_crisis_mdd(base: pd.DataFrame, chal: pd.DataFrame) -> dict:
     crisis = base["regime"].astype(str) == "Crisis"
-    base_c = base.loc[crisis, "nav"].reset_index(drop=True)
-    chal_c = chal.loc[crisis, "nav"].reset_index(drop=True)
-
-    full = {
-        "baseline_cagr": cagr(base["nav"], base["date"]),
-        "challenger_cagr": cagr(chal["nav"], chal["date"]),
-        "baseline_mdd": mdd(base["nav"]),
-        "challenger_mdd": mdd(chal["nav"]),
-        "n_days": int(len(base)),
-        "crisis_days": int(crisis.sum()),
-        "mean_e45_scale_baseline": float(base["e45_equity_scale"].mean()),
-        "mean_e45_scale_challenger": float(chal["e45_equity_scale"].mean()),
+    bm = mdd(base.loc[crisis, "nav"])
+    cm = mdd(chal.loc[crisis, "nav"])
+    improve_pp = (cm - bm) * 100.0
+    return {
+        "id": "F3",
+        "name": "crisis_mdd",
+        "pass": bool(improve_pp > 0),
+        "baseline_crisis_path_mdd": bm,
+        "challenger_crisis_path_mdd": cm,
+        "improvement_pp": improve_pp,
     }
-    full["cagr_giveback_pp"] = (full["baseline_cagr"] - full["challenger_cagr"]) * 100
-    full["mdd_improvement_pp"] = (full["challenger_mdd"] - full["baseline_mdd"]) * 100
 
-    crisis_path = {
-        "baseline_mdd": mdd(base_c),
-        "challenger_mdd": mdd(chal_c),
+
+def f4_full_sample_mdd(base: pd.DataFrame, chal: pd.DataFrame) -> dict:
+    bm = mdd(base["nav"])
+    cm = mdd(chal["nav"])
+    improve_pp = (cm - bm) * 100.0
+    return {
+        "id": "F4",
+        "name": "full_sample_mdd",
+        "pass": bool(cm >= bm - 1e-12),
+        "baseline_mdd": bm,
+        "challenger_mdd": cm,
+        "improvement_pp": improve_pp,
     }
-    crisis_path["mdd_improvement_pp"] = (
-        crisis_path["challenger_mdd"] - crisis_path["baseline_mdd"]
-    ) * 100
 
-    yearly = []
-    base["year"] = base["date"].dt.year
-    for y, g in base.groupby("year"):
+
+def f5_cagr_giveback(base: pd.DataFrame, chal: pd.DataFrame) -> dict:
+    b_cagr = cagr_calendar(base["nav"], base["date"])
+    c_cagr = cagr_calendar(chal["nav"], chal["date"])
+    giveback_pp = (b_cagr - c_cagr) * 100.0
+    within = giveback_pp <= CAGR_GIVEBACK_MAX_PP + 1e-9
+
+    tmp = base.copy()
+    tmp["year"] = tmp["date"].dt.year
+    years = []
+    for y, g in tmp.groupby("year"):
         if (g["regime"] == "Crisis").sum() < 5:
             continue
         idx = g.index
-        yearly.append(
+        years.append(
             {
                 "year": int(y),
                 "crisis_days": int((g["regime"] == "Crisis").sum()),
                 "baseline_mdd": mdd(base.loc[idx, "nav"]),
                 "challenger_mdd": mdd(chal.loc[idx, "nav"]),
-                "baseline_cagr": cagr(base.loc[idx, "nav"], base.loc[idx, "date"]),
-                "challenger_cagr": cagr(chal.loc[idx, "nav"], chal.loc[idx, "date"]),
             }
         )
-    years_better = sum(1 for r in yearly if r["challenger_mdd"] > r["baseline_mdd"] + 1e-12)
-    years_worse = sum(1 for r in yearly if r["challenger_mdd"] < r["baseline_mdd"] - 1e-12)
-
-    sb_b = same_bar_fills(IN / "outputs" / BASE_FILLS)
-    sb_c = same_bar_fills(IN / "outputs" / CHAL_FILLS)
-    summary = json.loads(
-        (IN / "reports" / "early_stack_combined_nav_summary.json").read_text()
+    better = sum(1 for r in years if r["challenger_mdd"] > r["baseline_mdd"] + 1e-12)
+    worse = sum(1 for r in years if r["challenger_mdd"] < r["baseline_mdd"] - 1e-12)
+    crisis_path = f3_crisis_mdd(base, chal)
+    full_mdd = f4_full_sample_mdd(base, chal)
+    exception = (
+        (not within)
+        and crisis_path["improvement_pp"] >= F5_EXCEPTION_MIN_CRISIS_IMPROVE_PP
+        and better >= F5_EXCEPTION_MIN_YEARS_BETTER
+        and worse <= F5_EXCEPTION_MAX_YEARS_WORSE
+        and (
+            full_mdd["improvement_pp"] > 0
+            if F5_EXCEPTION_REQUIRE_FULL_MDD_BETTER
+            else True
+        )
     )
-    exact_ok = True
-    for key in ("E16_E18_E22", "E16_E18_E22_E45_E3"):
-        meta = summary.get("variants", {}).get(key, {}).get("meta", {})
-        if "exact_t1_ok" in meta:
-            exact_ok = exact_ok and bool(meta["exact_t1_ok"])
-        if "same_bar_fills" in meta:
-            exact_ok = exact_ok and int(meta["same_bar_fills"]) == 0
-    if sb_b >= 0:
-        exact_ok = exact_ok and sb_b == 0 and sb_c == 0
-
-    crisis_dominates = (
-        crisis_path["mdd_improvement_pp"] > 0
-        and years_better > years_worse
-        and full["mdd_improvement_pp"] > 0
-    )
-
-    gates = {
-        "F1_artifact_honesty": {
-            "pass": True,
-            "note": "Dated early-stack recompute; -13.16% EARLY_NON_RIGOROUS_RESEARCH_RESULT; not used as PASS",
+    return {
+        "id": "F5",
+        "name": "cagr_giveback",
+        "pass": bool(within or exception),
+        "giveback_pp": giveback_pp,
+        "max_pp": CAGR_GIVEBACK_MAX_PP,
+        "baseline_cagr": b_cagr,
+        "challenger_cagr": c_cagr,
+        "within_limit": within,
+        "crisis_dominates_exception": bool(exception),
+        "exception_rules": {
+            "min_crisis_improve_pp": F5_EXCEPTION_MIN_CRISIS_IMPROVE_PP,
+            "min_years_better": F5_EXCEPTION_MIN_YEARS_BETTER,
+            "max_years_worse": F5_EXCEPTION_MAX_YEARS_WORSE,
+            "require_full_mdd_better": F5_EXCEPTION_REQUIRE_FULL_MDD_BETTER,
         },
-        "F2_exact_t1": {
-            "pass": bool(exact_ok),
-            "same_bar_fills_baseline": sb_b,
-            "same_bar_fills_challenger": sb_c,
-        },
-        "F3_crisis_mdd": {
-            "pass": bool(crisis_path["mdd_improvement_pp"] > 0),
-            "baseline_crisis_path_mdd": crisis_path["baseline_mdd"],
-            "challenger_crisis_path_mdd": crisis_path["challenger_mdd"],
-            "improvement_pp": crisis_path["mdd_improvement_pp"],
-        },
-        "F4_full_sample_mdd": {
-            "pass": bool(full["challenger_mdd"] >= full["baseline_mdd"] - 1e-12),
-            "baseline_mdd": full["baseline_mdd"],
-            "challenger_mdd": full["challenger_mdd"],
-            "improvement_pp": full["mdd_improvement_pp"],
-        },
-        "F5_cagr_giveback": {
-            "pass": bool(full["cagr_giveback_pp"] <= CAGR_GIVEBACK_MAX_PP or crisis_dominates),
-            "giveback_pp": full["cagr_giveback_pp"],
-            "max_pp": CAGR_GIVEBACK_MAX_PP,
-            "crisis_dominates_exception": bool(crisis_dominates),
-            "crisis_years_better": years_better,
-            "crisis_years_worse": years_worse,
-        },
-        "F6_no_retune": {"pass": True, "note": "Locked E3 winner only"},
-        "F7_live_untouched": {
-            "pass": True,
-            "note": "Paper repro only; live DEFAULT / forward path not edited",
-        },
+        "crisis_years_better": better,
+        "crisis_years_worse": worse,
+        "crisis_years": years,
+        "crisis_path_improvement_pp": crisis_path["improvement_pp"],
+        "full_mdd_improvement_pp": full_mdd["improvement_pp"],
     }
 
-    hard = [
-        "F1_artifact_honesty",
-        "F2_exact_t1",
-        "F3_crisis_mdd",
-        "F4_full_sample_mdd",
-        "F6_no_retune",
-        "F7_live_untouched",
-    ]
-    hard_pass = all(gates[k]["pass"] for k in hard)
-    giveback_hard_fail = full["cagr_giveback_pp"] > CAGR_GIVEBACK_MAX_PP and not crisis_dominates
 
-    if (not gates["F3_crisis_mdd"]["pass"]) or (not gates["F4_full_sample_mdd"]["pass"]) or giveback_hard_fail:
-        verdict = "NOT_FEASIBLE_FOR_LIVE"
-    elif hard_pass:
-        verdict = "FEASIBLE_CONTINUE_PAPER"
-    else:
-        verdict = "NOT_FEASIBLE_FOR_LIVE"
+def f6_no_retune() -> dict:
+    mismatches = []
+    for k, exp in LOCKED_E3_WINNER.items():
+        got = E3_WINNER.get(k)
+        if got != exp:
+            mismatches.append({"key": k, "expected": exp, "got": got})
+    status_path = ROOT / "research" / "v412e2e3" / "e3_status.json"
+    status_mismatch = []
+    if status_path.exists():
+        winner = load_json(status_path).get("winner", {})
+        for k, exp in LOCKED_E3_WINNER.items():
+            if winner.get(k) != exp:
+                status_mismatch.append({"key": k, "expected": exp, "got": winner.get(k)})
+    ok = len(mismatches) == 0 and len(status_mismatch) == 0
+    return {
+        "id": "F6",
+        "name": "no_retune",
+        "pass": ok,
+        "locked_e3": LOCKED_E3_WINNER,
+        "module_e3_subset": {k: E3_WINNER.get(k) for k in LOCKED_E3_WINNER},
+        "module_mismatches": mismatches,
+        "e3_status_mismatches": status_mismatch,
+        "notes": "Compares e45_crisis_core.E3_WINNER to locked e3_status.json winner.",
+    }
+
+
+def f7_live_untouched() -> dict:
+    live_ok = DEFAULT_BOOKS_VERSION == DEFAULT_LIVE_BOOKS
+    accidental = []
+    for rel in (
+        "scripts/e22_dividend_accounting.py",
+        "scripts/e21_forward_pipeline.py",
+        "forward/e21/live_config.json",
+    ):
+        p = ROOT / rel
+        if not p.exists():
+            continue
+        text = p.read_text(encoding="utf-8", errors="ignore")
+        for needle in ("E45_E3", "e45_equity_scale", "build_e45"):
+            if needle in text:
+                accidental.append(f"{rel}:{needle}")
+    status = official_status_dict()
+    status_ok = (
+        status["E45_STITCH_STATUS"] == "DEFERRED"
+        and status["E45_LIVE_AUTHORIZATION"] == "NO"
+        and status["E45_GOVERNANCE_CLASS"] == "SOFT_FROZEN_CRITICAL"
+    )
+    ok = live_ok and status_ok and len(accidental) == 0
+    return {
+        "id": "F7",
+        "name": "live_untouched",
+        "pass": ok,
+        "DEFAULT_BOOKS_VERSION": DEFAULT_BOOKS_VERSION,
+        "required_default": DEFAULT_LIVE_BOOKS,
+        "official_status": status,
+        "accidental_live_markers": accidental,
+        "notes": "Paper-only; live default and stitch/auth status must remain unchanged.",
+    }
+
+
+def evaluate(pack: Path) -> dict:
+    refuse_superseded_pack(pack)
+    base = pd.read_csv(pack / "outputs" / BASE_NAV)
+    chal = pd.read_csv(pack / "outputs" / CHAL_NAV)
+    base["date"] = pd.to_datetime(base["date"])
+    chal["date"] = pd.to_datetime(chal["date"])
+    if len(base) != len(chal):
+        raise SystemExit(f"NAV length mismatch: base={len(base)} chal={len(chal)}")
+
+    gates = [
+        f1_artifact_honesty(pack),
+        f2_exact_t1(pack),
+        f3_crisis_mdd(base, chal),
+        f4_full_sample_mdd(base, chal),
+        f5_cagr_giveback(base, chal),
+        f6_no_retune(),
+        f7_live_untouched(),
+    ]
+    gate_map = {
+        f"{g['id']}_{g['name']}": {k: v for k, v in g.items() if k != "id"} for g in gates
+    }
+    all_pass = all(g["pass"] for g in gates)
+
+    full = {
+        "baseline_cagr": cagr_calendar(base["nav"], base["date"]),
+        "challenger_cagr": cagr_calendar(chal["nav"], chal["date"]),
+        "baseline_mdd": mdd(base["nav"]),
+        "challenger_mdd": mdd(chal["nav"]),
+        "n_days": int(len(base)),
+        "mean_e45_scale_baseline": float(base["e45_equity_scale"].mean()),
+        "mean_e45_scale_challenger": float(chal["e45_equity_scale"].mean()),
+    }
+    full["cagr_giveback_pp"] = (full["baseline_cagr"] - full["challenger_cagr"]) * 100.0
+    full["mdd_improvement_pp"] = (full["challenger_mdd"] - full["baseline_mdd"]) * 100.0
+    crisis_gate = next(g for g in gates if g["id"] == "F3")
 
     return {
+        "schema": "e45_feasibility_gates_f1_f7.v2",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "pack_dir": str(pack),
         "charter": "research/e45/E45_FEASIBILITY_CHARTER.md",
         "baseline": "E16_E18_E22_v2s",
         "challenger": "E16_E18_E22_v2s_E45_E3",
         "full_sample": full,
-        "crisis_path": crisis_path,
-        "crisis_years": yearly,
-        "gates": gates,
-        "verdict": verdict,
-        "live_ballot_ready": False,
-        "official_status_unchanged": {
-            "E45_ARTIFACT_STATUS": "NOT_VERIFIED",
-            "E45_STITCH_STATUS": "DEFERRED",
-            "E45_GOVERNANCE_CLASS": "SOFT_FROZEN_CRITICAL",
-            "E45_LIVE_AUTHORIZATION": "NO",
+        "crisis_path": {
+            "baseline_mdd": crisis_gate["baseline_crisis_path_mdd"],
+            "challenger_mdd": crisis_gate["challenger_crisis_path_mdd"],
+            "mdd_improvement_pp": crisis_gate["improvement_pp"],
         },
-        "lineage": {
-            "documented_research": ["E38", "E43", "E44", "E45"],
-            "importable_code": ["E1", "E1.1", "E2", "E2.1", "E3", "E45_wrapper"],
+        "gates": gate_map,
+        "all_pass": all_pass,
+        "claim": claim_dict(),
+        "verified_anchors": {
+            "closest_lineage_val_mdd": VERIFIED_CLOSEST_LINEAGE_VAL_MDD,
+            "e3_locked_val_mdd": VERIFIED_E3_LOCKED_VAL_MDD,
+            "early_stack_plus_e45_e3_mdd": VERIFIED_EARLY_STACK_PLUS_E45_E3_MDD,
         },
-        "historical_claim": {
-            "mdd": -0.1316,
-            "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
-            "interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
-        },
-        "next_steps": [
-            "If CONTINUE_PAPER: seal cost/stress/recovery KPI pack (still paper)",
-            "Do not open live-switch ballot until FEASIBLE_READY_FOR_LIVE_BALLOT",
-            "Keep live DEFAULT_BOOKS_VERSION = E22_v2s_tw",
-        ],
+        "official_status_unchanged": official_status_dict(),
+        "seal_note": (
+            "Gate evidence only. SEAL_LOCK.json / study verdict owned by "
+            "e45_feasibility_seal_pack.py — this script must not overwrite them."
+        ),
     }
 
 
-def write_md(v: dict) -> None:
-    f = v["full_sample"]
-    c = v["crisis_path"]
-    lines = [
-        "# E45 Paper Feasibility Study (2026-09-05)",
-        "",
-        f"Generated: `{v['generated_at_utc']}`",
-        f"Charter: `{v['charter']}`",
-        "",
-        f"## Verdict: `{v['verdict']}`",
-        "",
-        f"- Live ballot ready: `{v['live_ballot_ready']}`",
-        "- Official status **unchanged**: NOT_VERIFIED / DEFERRED / SOFT_FROZEN_CRITICAL / live auth NO",
-        "- Historical −13.16%: **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** (EARLY_NON_RIGOROUS_RESEARCH_RESULT; not used as PASS)",
-        "",
-        "## Comparison",
-        "",
-        "| Arm | Definition | CAGR | MDD |",
-        "|---|---|---:|---:|",
-        f"| Baseline | `{v['baseline']}` | {100*f['baseline_cagr']:.2f}% | {100*f['baseline_mdd']:.2f}% |",
-        f"| Challenger | `{v['challenger']}` | {100*f['challenger_cagr']:.2f}% | {100*f['challenger_mdd']:.2f}% |",
-        f"| Delta | challenger − baseline | **{-f['cagr_giveback_pp']:+.2f} pp** | **{f['mdd_improvement_pp']:+.2f} pp** |",
-        "",
-        f"- CAGR giveback: **{f['cagr_giveback_pp']:.2f} pp** (gate max {CAGR_GIVEBACK_MAX_PP:.1f} pp unless crisis dominance)",
-        f"- Crisis-path MDD improvement: **{c['mdd_improvement_pp']:+.2f} pp** "
-        f"(baseline {100*c['baseline_mdd']:.2f}% → challenger {100*c['challenger_mdd']:.2f}%)",
-        f"- Mean E45 equity scale (challenger): **{f['mean_e45_scale_challenger']:.3f}**",
-        "",
-        "## Gates",
-        "",
-        "| Gate | Pass | Detail |",
-        "|---|---|---|",
-    ]
-    for k, g in v["gates"].items():
-        detail = {kk: vv for kk, vv in g.items() if kk != "pass"}
-        lines.append(f"| `{k}` | **{g['pass']}** | `{json.dumps(detail, ensure_ascii=False)}` |")
-
-    lines += [
-        "",
-        "## Crisis-year windows",
-        "",
-        "| Year | Crisis days | Baseline MDD | Challenger MDD | Δ pp |",
-        "|---:|---:|---:|---:|---:|",
-    ]
-    for r in v["crisis_years"]:
-        dpp = (r["challenger_mdd"] - r["baseline_mdd"]) * 100
-        lines.append(
-            f"| {r['year']} | {r['crisis_days']} | {100*r['baseline_mdd']:.2f}% | "
-            f"{100*r['challenger_mdd']:.2f}% | {dpp:+.2f} |"
-        )
-
-    lines += [
-        "",
-        "## Lineage honesty",
-        "",
-        "- **DOCUMENTED RESEARCH LINEAGE:** `E38 → E43 → E44 → E45`",
-        "- **IMPORTABLE CODE LINEAGE:** `E1 → E1.1 → E2 → E2.1 → E3 → E45 wrapper`",
-        "",
-        "## Interpretation",
-        "",
-    ]
-    if v["verdict"] == "NOT_FEASIBLE_FOR_LIVE":
-        lines += [
-            "E45_E3 is **not** ready to agenda a live switch under these paper gates.",
-            "Keep Soft-Frozen CRITICAL; stitch stays DEFERRED; live auth stays NO.",
-            "Further paper work (if any) must not retune in place or invent −13.16%.",
-            "",
-        ]
-    else:
-        lines += [
-            "Paper research may **continue** (cost/stress/recovery sealing).",
-            "This is **not** live-switch authorization.",
-            "",
-        ]
-
-    lines += ["## Next steps", ""]
-    for s in v["next_steps"]:
-        lines.append(f"- {s}")
-    lines += [
-        "",
-        "## Artifacts",
-        "",
-        f"- `{REPORT_JSON}`",
-        f"- `{IN}/`",
-        "- Script: `scripts/e45_feasibility_gates.py`",
-        "",
-        "## Label",
-        "",
-        f"`E45_FEASIBILITY_STUDY_2026-09-05__{v['verdict']}`",
-        "",
-    ]
-    REPORT_MD.write_text("\n".join(lines) + "\n")
-
-
 def main() -> None:
-    v = evaluate()
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "feasibility_gates.json").write_text(json.dumps(v, indent=2) + "\n")
-    REPORT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    REPORT_JSON.write_text(json.dumps(v, indent=2) + "\n")
-    write_md(v)
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument(
+        "--pack-dir",
+        type=Path,
+        default=ROOT / "repro/e45-feasibility-study-regen-20260905",
+    )
+    ap.add_argument("--out", type=Path, default=None)
+    args = ap.parse_args()
+    pack = args.pack_dir.resolve()
+    payload = evaluate(pack)
+
+    out = args.out or (ROOT / "reports" / "f1_f7_gates.json")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(dumps_json(payload), encoding="utf-8")
+    pack_out = pack / "reports" / "f1_f7_gates.json"
+    pack_out.parent.mkdir(parents=True, exist_ok=True)
+    pack_out.write_text(dumps_json(payload), encoding="utf-8")
+
     print(
-        json.dumps(
+        dumps_json(
             {
-                "verdict": v["verdict"],
-                "live_ballot_ready": v["live_ballot_ready"],
-                "gates": {k: g["pass"] for k, g in v["gates"].items()},
-                "full_sample": v["full_sample"],
-                "crisis_path": v["crisis_path"],
-            },
-            indent=2,
+                "all_pass": payload["all_pass"],
+                "gates": {k: v["pass"] for k, v in payload["gates"].items()},
+                "out": str(out),
+                "pack_out": str(pack_out),
+            }
         )
     )
+    if not payload["all_pass"]:
+        failed = [k for k, v in payload["gates"].items() if not v["pass"]]
+        print(f"FAILED gates: {failed}", file=sys.stderr)
+        raise SystemExit(2)
 
 
 if __name__ == "__main__":

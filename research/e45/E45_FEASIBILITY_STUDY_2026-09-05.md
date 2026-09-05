@@ -1,6 +1,6 @@
 # E45 Paper Feasibility Study (2026-09-05)
 
-Generated: `2026-09-05T15:55:01.117824+00:00`
+Generated: `2026-09-05T16:52:58.831143+00:00`
 Charter: `research/e45/E45_FEASIBILITY_CHARTER.md`
 Pack: `cost_stress_recovery_seal`
 Provenance in_dir: `/workspace/repro/e45-feasibility-study-regen-20260905`
@@ -10,7 +10,7 @@ Provenance in_dir: `/workspace/repro/e45-feasibility-study-regen-20260905`
 - Live ballot ready: `True`
 - Official status **unchanged** until human ballot: NOT_VERIFIED / DEFERRED / SOFT_FROZEN_CRITICAL / live auth NO
 - Historical −13.16%: **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** / interpretation **`EARLY_NON_RIGOROUS_RESEARCH_RESULT`** (not PASS)
-- Seal computed on **freshly regenerated** NAV/fills (INPUT/OUTPUT manifests required); prior pack not authoritative for F8–F10
+- Seal on **fresh regen** with OUTPUT_MANIFEST **sha256 verified**; F8–F10 tightened (AND / strict majority / no +5d)
 
 ## Comparison (full sample)
 
@@ -78,5 +78,5 @@ Provenance in_dir: `/workspace/repro/e45-feasibility-study-regen-20260905`
 
 ## Label
 
-`E45_FEASIBILITY_STUDY_2026-09-05__FEASIBLE_READY_FOR_LIVE_BALLOT__FRESH_REGEN`
+`E45_FEASIBILITY_STUDY_2026-09-05__FEASIBLE_READY_FOR_LIVE_BALLOT__FRESH_REGEN_HASH_VERIFIED`
 
