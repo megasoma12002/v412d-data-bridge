@@ -2,13 +2,30 @@
 
 ## 0. Read Order
 Cursor 必須依序讀：
-1. `FROZEN_STRATEGY_SPEC.md`
-2. `FROZEN_GOVERNANCE.md`
-3. `E50_RESEARCH_OPERATING_RULES.md`
-4. `E50_RESEARCH_HISTORY.md`
-5. `CURSOR_RULES.md`
-6. `E50-A3-R1_TODO.md`
-7. 本文件
+1. `research/STRATEGY_DEBT_BOARD.md` ← **現行 live / paper 狀態（先讀）**
+2. `FROZEN_GOVERNANCE.md`（尤其 §4：SOFT_FROZEN class ≠ live cutover）
+3. `FROZEN_STRATEGY_SPEC.md`（角色定義；非 live wiring 證明）
+4. `E50_RESEARCH_OPERATING_RULES.md`
+5. `E50_RESEARCH_HISTORY.md`
+6. `CURSOR_RULES.md`
+7. `E50-A3-R1_TODO.md`（歷史研究帳本）
+8. 本文件
+
+## 0.1 Live cutover default（強制）
+
+**現行 live：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v2s cutover-only**。  
+**Live E16 Financial clip：** **[0.50, 0.95]**（Soft-Frozen clip）。  
+**禁止：** overlay live-wire、改寫歷史 NAV、自動翻 Soft-Frozen clip、把 held-out PASS 當 cutover 授權。
+
+| Module | Official class | Live? |
+|---|---|---|
+| E16 / E18 / E22_v2s | SOFT_FROZEN | **Yes (core cutover)** |
+| E50-A | EXPERIMENTAL / RESEARCH_ONLY | **No** |
+| E45 | SOFT_FROZEN_CRITICAL | **No**（NOT_VERIFIED；需獨立 human cutover PR） |
+| FIN_CAP_50 | paper dual-ledger | **No** — go-live **`NOT_READY_SEALED_CAGR`** |
+| L4_DD_PATH_08_50 | paper dual-ledger | **No** — held-out PASS；cutover FROZEN |
+
+細節與 cutover 矩陣：`research/STRATEGY_DEBT_BOARD.md`。
 
 ## 1. 專案定位
 這不是新專案。
@@ -17,27 +34,25 @@ Cursor 必須依序讀：
 禁止從零重新設計。
 
 ## 2. 現行 Portfolio 架構
-目前 Frozen Portfolio Baseline（**角色定義**）：
+Frozen Portfolio Baseline（**角色定義 — 不是 live wiring 證明**）：
 
 E16 Core Allocation
 +
 E18/E22 Execution
 +
-E50-A Alpha Overlay
+E50-A Alpha Overlay   ← RESEARCH_ONLY；未 live
 +
-E45 Crisis Protection
+E45 Crisis Protection ← official class only；未 auto-live
 
-**Live 實況（2026-09-04）：** `forward/e21` = E16 + Exact T+1 E18 + **E22_v2s cutover-forward**（不改寫歷史 NAV）。  
-E50-A = `RESEARCH_ONLY`，**未**配置 live 資金。E45 = named challenger；MDD ≈ −13.16% = **`NOT_VERIFIED`**。  
-四層合帳引擎尚未 wiring。債務看板：`research/STRATEGY_DEBT_BOARD.md`。
+**Live 實況：** 見 §0.1。四層合帳引擎尚未 wiring。債務看板：`research/STRATEGY_DEBT_BOARD.md`。
 
 E50-A 不是整套 Portfolio。
-它只負責正常市場的 Alpha 進攻。
+它只負責正常市場的 Alpha 進攻（研究層）。
 
-## 3. 核心運作邏輯
-Normal Market:
+## 3. 核心運作邏輯（目標架構 / 研究願景 — 非現行 live）
+Normal Market（目標）:
 - E16 核心持續運作
-- 部分資金配置 E50-A
+- 部分資金配置 E50-A（**目前未 live**）
 
 Alpha weak:
 - 降低 Alpha Layer
@@ -47,13 +62,19 @@ Risk transmission:
 - 優先關閉 Alpha
 - 降低核心風險
 
-Crisis:
-- E45 接管整體風險控制
+Crisis（目標）:
+- E45 接管整體風險控制（**目前未 live-wire**）
 
 ## 4. Current Research
-目前：
-**E50-A3-R1** — turnover/held-out 診斷已收尾：OOF 可過 TO（reb→42），held-out 為 **`MIXED_HELDOUT`**；仍 `RESEARCH_ONLY`，禁止 live-wire。  
-下一研究重心：失敗體制 / stress-sleeve（Stage-8 路徑），不是再微調 reb。  
+權威狀態以 `research/STRATEGY_DEBT_BOARD.md` 為準。摘要：
+
+- **Track A S9A1**：paper/monitor KEEP  
+- **Track B S1**：`STOP_S1_HELDOUT_KEEP_TRACK_A`  
+- **FIN_CAP_50**：dual-paper OPERATING；cutover **`NOT_READY_SEALED_CAGR`**  
+- **L4_DD_PATH_08_50**：`PASS_HELDOUT_L4`；dual-paper OPERATING；cutover FROZEN（≠ Soft-Frozen flip）  
+- **Stage-8**：saturated — 不要重跑 TECH2 grids  
+
+歷史：E50-A3-R1 turnover/held-out 診斷已收尾（`MIXED_HELDOUT`），仍 `RESEARCH_ONLY`。  
 執行帳本：`E22_v2s` default；台灣畸零股 named `E22_v2s_tw`（面額 CIL，待明確 promote）。
 
 目標：
@@ -113,8 +134,9 @@ Cursor 必須檢查實體 repo / dataset / artifacts / logs 後才能確認。
 ## 8. Current Mission
 Audit / Exact T+1 / R1 reproduce / turnover·held-out 診斷 **已完成**（見 `E50_HANDOFF_VERIFICATION.md`、PR #19 closeout）。
 
-現階段優先：
+現階段優先（權威細節見 `research/STRATEGY_DEBT_BOARD.md`）：
 1. ~~合併策略債收尾~~ — done (#35)
-2. ~~Stage-8 failure-signature / stress-sleeve~~ — **SATURATED** (see `research/e50a/STAGE8_STRESS_SLEEVE_CLOSEOUT.md`); do not re-grid TECH2 cash/sleeves
-3. **Next:** Option-2 S9A1 paper/monitor (not live) **or** new stress return engine under a new EXPERIMENTAL id
-4. **禁止：** live overlay、改寫歷史 NAV、發明 E45 −13.16%、升格實驗門檻「硬過關」、重跑已飽和 Stage-8 grids
+2. ~~Stage-8 failure-signature / stress-sleeve~~ — **SATURATED**; do not re-grid TECH2
+3. ~~Track B S1~~ — `STOP_S1_HELDOUT_KEEP_TRACK_A`
+4. **Operate:** Track A S9A1 paper/monitor; FIN_CAP_50 paper (cutover frozen); L4 dual-paper (cutover frozen)
+5. **禁止：** live overlay、改寫歷史 NAV、發明 E45 −13.16%、把 dual-paper／held-out PASS 當 Soft-Frozen flip、重跑已飽和 Stage-8 grids

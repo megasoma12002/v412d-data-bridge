@@ -144,8 +144,10 @@ def holdings(state, prices):
 def main():
     global CAPITAL
     ap = argparse.ArgumentParser()
-    ap.add_argument("--market", default="e21_data/live_market.csv")
-    ap.add_argument("--state-dir", default="e21_state")
+    # Canonical live tree is forward/e21 (nav/orders/signals). Legacy e21_data/e21_state
+    # defaults created a second un-audited book — refuse unless explicitly overridden.
+    ap.add_argument("--market", default="forward/e21/live_market.csv")
+    ap.add_argument("--state-dir", default="forward/e21")
     ap.add_argument("--capital", type=float, default=CAPITAL)
     ap.add_argument("--dividends", default=str(DIV_PATH))
     ap.add_argument(
@@ -153,11 +155,24 @@ def main():
         default=E22_BOOKS_VERSION,
         choices=[e22div.E22_V2, e22div.E22_V2S, e22div.E22_V2S_CIL, e22div.E22_V2S_TW],
     )
+    ap.add_argument(
+        "--allow-noncanonical-paths",
+        action="store_true",
+        help="Permit market/state paths outside forward/e21 (research only).",
+    )
     a = ap.parse_args()
     CAPITAL = a.capital
     sdir = Path(a.state_dir)
+    market_path = Path(a.market)
+    if not a.allow_noncanonical_paths:
+        canon_state = Path("forward/e21").resolve()
+        if sdir.resolve() != canon_state or "forward/e21" not in str(market_path.as_posix()):
+            raise SystemExit(
+                "Refusing non-canonical live paths. Use --market forward/e21/live_market.csv "
+                "and --state-dir forward/e21, or pass --allow-noncanonical-paths for research."
+            )
     sdir.mkdir(parents=True, exist_ok=True)
-    m = pd.read_csv(a.market, dtype={"code": str})
+    m = pd.read_csv(market_path, dtype={"code": str})
     m.date = pd.to_datetime(m.date)
     m = m.sort_values(["date", "code"])
     required = set(ALL + ["TAIEX"])

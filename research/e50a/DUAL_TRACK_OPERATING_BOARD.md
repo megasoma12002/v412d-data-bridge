@@ -54,4 +54,15 @@ No TECH2 family remix; no S1 cut retune after held-out.
 
 **`DUAL_TRACK_A_KEEP_B_S1_HELDOUT_STOP`**
 
-Track A remains the paper/monitor. Track B S1 residual axis is closed. Next alpha work needs a **new charter** (e.g. MDD loss engine) or core-path research (e.g. FIN_CAP_50 promote proposal) — not another S1 cut pass.
+Track A remains the paper/monitor. Track B S1 residual axis is closed.
+
+### Parallel core-path status (not Track B)
+
+| Path | Status | Note |
+|---|---|---|
+| FIN_CAP_50 | Dual-paper OPERATING; cutover **`NOT_READY_SEALED_CAGR`** | Do not treat promote proposal as license |
+| L4_DD_PATH_08_50 | Held-out **`PASS_HELDOUT_L4`**; dual-paper OPERATING | Cutover = DD-path wire, **not** Soft-Frozen flip |
+| Soft-Frozen live clip | **[0.50, 0.95] KEEP** | No auto flip |
+
+Next alpha work needs a **new charter** (not S1 residual re-grid). Core-path cutovers stay human-PR only.
+
