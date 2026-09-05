@@ -34,6 +34,7 @@ BLEND_JSON = ROOT / "research/gaps/BLEND_025_MONTH_END_MONITOR.json"
 RECON_JSON = ROOT / "research/ops/LIVE_PAPER_RECON.json"
 GAP6_JSON = ROOT / "research/ops/E22_GAP6_FIDELITY_KPI.json"
 E22_KPI_JSON = ROOT / "research/ops/E22_DATA_QUALITY_KPI.json"
+RESILIENCE_JSON = ROOT / "research/ops/DATA_SOURCE_RESILIENCE_KPI.json"
 
 # Soft-Frozen clip — single source (never hardcode drift).
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -210,6 +211,40 @@ def main() -> int:
                     "source": "e22_gap6_fidelity_kpi",
                     "code": str(flag),
                     "message": str(flag),
+                }
+            )
+
+    resilience = _load(RESILIENCE_JSON)
+    if resilience is None:
+        alerts.append(
+            {
+                "severity": "INFO",
+                "source": "data_source_resilience_kpi",
+                "code": "RESILIENCE_KPI_MISSING",
+                "message": f"missing {RESILIENCE_JSON} (run data_source_resilience_kpi)",
+            }
+        )
+    else:
+        n_sp = int(resilience.get("n_critical_without_backup") or 0)
+        if n_sp > 0:
+            alerts.append(
+                {
+                    "severity": "INFO",
+                    "source": "data_source_resilience_kpi",
+                    "code": "SINGLE_POINT_STREAMS",
+                    "message": (
+                        f"n_critical_without_backup={n_sp}; "
+                        f"flags={resilience.get('flags')}"
+                    ),
+                }
+            )
+        if resilience.get("kpi_ok") is False:
+            alerts.append(
+                {
+                    "severity": "HIGH",
+                    "source": "data_source_resilience_kpi",
+                    "code": "PAYMENT_DATE_BACKUP_REGRESSION",
+                    "message": "dividend payment-date backup path regressed",
                 }
             )
 

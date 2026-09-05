@@ -1,12 +1,12 @@
 # Ops Alerts
 
-Generated: `2026-09-05T08:08:55.429970+00:00`
+Generated: `2026-09-05T09:13:26.094548+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 
 - CRITICAL: 0
 - HIGH (PAUSE_REVIEW etc.): 3
-- INFO: 11
+- INFO: 12
 
 | Severity | Source | Code | Message |
 |---|---|---|---|
@@ -24,6 +24,7 @@ Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 | INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=2.2320% > 2% on overlap |
 | INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=10 (<60) — not decision-grade for cutover |
 | INFO | `e22_gap6_fidelity_kpi` | `LIVE_LEDGER_E22_FIELDS_MISSING` | LIVE_LEDGER_E22_FIELDS_MISSING |
+| INFO | `data_source_resilience_kpi` | `SINGLE_POINT_STREAMS` | n_critical_without_backup=5; flags=['SINGLE_POINT:fin12_history_ohlcv', 'SINGLE_POINT:fin12_recent_ohlcv', 'SINGLE_POINT:taiex', 'SINGLE_POINT:adj_corporate_actions', 'SINGLE_POINT:dividend_amount_ex'] |
 
 ## Routing
 

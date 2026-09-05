@@ -42,6 +42,7 @@ STEPS_MONITOR = [
     ("live_paper_recon", ["python3", "scripts/e21_live_vs_paper_recon.py"]),
     ("e22_data_quality_kpi", ["python3", "scripts/e22_data_quality_kpi.py"]),
     ("e22_gap6_fidelity_kpi", ["python3", "scripts/e22_gap6_fidelity_kpi.py"]),
+    ("data_source_resilience_kpi", ["python3", "scripts/data_source_resilience_kpi.py"]),
     (
         "fincap50_sealed_cagr_charter_screen",
         ["python3", "scripts/fincap50_sealed_cagr_charter_screen.py"],
