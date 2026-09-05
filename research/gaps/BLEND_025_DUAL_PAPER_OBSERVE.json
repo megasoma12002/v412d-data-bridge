@@ -1,0 +1,160 @@
+{
+  "generated_at_utc": "2026-09-05T08:08:50.045133+00:00",
+  "label": "BLEND_025_DUAL_PAPER_OBSERVE_SLEEVE",
+  "status": "OPERATING_OBSERVE",
+  "live_wire": false,
+  "soft_frozen_default_unchanged": true,
+  "cutover_authorized": false,
+  "locked_id": "BLEND_025",
+  "definition": {
+    "alpha": 0.25,
+    "formula": "\u03b1\u00b7FIN_CAP_50([0.35,0.50]) + (1-\u03b1)\u00b7Soft-Frozen BASE([0.50,0.95]), renormalized",
+    "fin_cap_50_lock": {
+      "fin_lo": 0.35,
+      "fin_hi": 0.5
+    },
+    "base_clip": {
+      "financial_lo": 0.5,
+      "financial_hi": 0.95
+    }
+  },
+  "current_live_clip": {
+    "financial_lo": 0.5,
+    "financial_hi": 0.95
+  },
+  "exact_t1": {
+    "base": true,
+    "blend025": true
+  },
+  "books": {
+    "BASE_E16": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "windows": {
+        "full": {
+          "cagr": 0.137829469400496,
+          "max_drawdown": -0.22639131293777315,
+          "utility": 0.024633812931609433,
+          "vol": 0.13322336551614303,
+          "n_days": 3351,
+          "fin_mean": 0.7980753983577771,
+          "fin_max": 0.9194479273989314
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08846959052336945,
+          "max_drawdown": -0.17412900003864262,
+          "utility": 0.0014050905040481343,
+          "vol": 0.10679608464774304,
+          "n_days": 1495,
+          "fin_mean": 0.8023022268225258,
+          "fin_max": 0.9109549155231154
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12330755797580628,
+          "max_drawdown": -0.22639131293777337,
+          "utility": 0.010111901506919596,
+          "vol": 0.1356126484163119,
+          "n_days": 977,
+          "fin_mean": 0.7985883631169861,
+          "fin_max": 0.9194479273989314
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.24925144125866705,
+          "max_drawdown": -0.1445685098357411,
+          "utility": 0.1769671863407965,
+          "vol": 0.16654491499091842,
+          "n_days": 879,
+          "fin_mean": 0.7891044815231208,
+          "fin_max": 0.8853528167189543
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.18235031521908462,
+          "max_drawdown": -0.22639131293777337,
+          "utility": 0.06915465875019794,
+          "vol": 0.1510306267187083,
+          "n_days": 1856,
+          "fin_mean": 0.7940968049698915,
+          "fin_max": 0.9194479273989314
+        }
+      }
+    },
+    "BLEND_025": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "windows": {
+        "full": {
+          "cagr": 0.13691681728061034,
+          "max_drawdown": -0.21819443397090266,
+          "utility": 0.027819600295159008,
+          "vol": 0.12784588944504155,
+          "n_days": 3351,
+          "fin_mean": 0.723556548768333,
+          "fin_max": 0.8145859455491986
+        },
+        "oof_2011_2018": {
+          "cagr": 0.0881421835270173,
+          "max_drawdown": -0.16043210613542758,
+          "utility": 0.007926130459303515,
+          "vol": 0.10295107499064379,
+          "n_days": 1495,
+          "fin_mean": 0.7267266701168944,
+          "fin_max": 0.8082161866423366
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12529061113202267,
+          "max_drawdown": -0.21819443397090277,
+          "utility": 0.016193394146571283,
+          "vol": 0.13081978656146737,
+          "n_days": 977,
+          "fin_mean": 0.7239412723377396,
+          "fin_max": 0.8145859455491986
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.24417336570509063,
+          "max_drawdown": -0.12344616560655719,
+          "utility": 0.18245028290181203,
+          "vol": 0.15861622936724967,
+          "n_days": 879,
+          "fin_mean": 0.7168283611423407,
+          "fin_max": 0.7890146125392158
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.18112858885504424,
+          "max_drawdown": -0.21819443397090277,
+          "utility": 0.07203137186959285,
+          "vol": 0.14462837264963185,
+          "n_days": 1856,
+          "fin_mean": 0.7205726037274187,
+          "fin_max": 0.8145859455491986
+        }
+      }
+    }
+  },
+  "heldout_delta_vs_base": {
+    "mdd_improve_pp": 0.8196878966870602,
+    "cagr_giveback_pp": 0.12217263640403875
+  },
+  "sealed_delta_vs_base": {
+    "mdd_improve_pp": 2.112234422918391,
+    "cagr_giveback_pp": 0.5078075553576422
+  },
+  "parent_artifacts": [
+    "research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md",
+    "research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md",
+    "research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md"
+  ],
+  "ops_checklist": [
+    "Keep Soft-Frozen default = BASE_E16 until human-approved cutover PR",
+    "Run BLEND_025 dual paper ledgers in parallel with month-end monitor",
+    "Re-check charter trailing gates (ytd / trailing_1y) each month-end",
+    "Do not silent-edit Soft-Frozen; do not rewrite forward/e21 history",
+    "Observe sleeve \u2260 cutover license; FIN50/L4 cutover stays FROZEN"
+  ],
+  "non_goals": [
+    "Auto live-wire from this observe sleeve",
+    "Retune FIN_CAP_50 lock [0.35,0.50]",
+    "Retune Soft-Frozen [0.50,0.95]",
+    "Close or replace FIN50 / L4 dual-paper sleeves",
+    "Claim CAGR\u226520% / MDD\u226415% as live results"
+  ]
+}
