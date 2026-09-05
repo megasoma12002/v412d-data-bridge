@@ -35,6 +35,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | Layer-3 Gap #6 fidelity | Ex→pay / receivable / tax / live evidence KPI + odd-lot promote checklist — **#62** |
 | FIN50 sealed-CAGR improve charter | `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md` (research path; Soft-Frozen KEEP) |
 | FIN50 charter screen → BLEND_025 | Screen PASS → paper-promote proposal only (#64) |
+| E45 stitch checklist | `E45_STITCH_CHECKLIST.md` — **DRAFTED / NOT AUTHORIZED**; second ballot still required |
 | E45 dual-paper observe | Ledgers + month-end + pack/alert wire — **OPERATING OBSERVE** (stitch still forbidden) |
 | BLEND_025 dual-paper observe | Ledgers + month-end + pack/alert wire — **OPERATING OBSERVE** (#65) |
 | Human decision register | Soft-Frozen KEEP; FIN50 static REJECT; BLEND observe; L4/BLEND live DEFER — `HUMAN_DECISION_REGISTER.md` |

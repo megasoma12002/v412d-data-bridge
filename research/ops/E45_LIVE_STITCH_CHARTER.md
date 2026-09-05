@@ -57,7 +57,7 @@ V1 → **PASS (narrative retired)**. Live stitch still needs second human ACCEPT
 1  Verification recompute (no live wire) — OPEN / refresh
 2  Paper challenger report with verified MDD label — OPEN
 3  Optional dual-paper observe sleeve (new checklist)
-4  Stitch checklist all YES + human PR (crisis path only)
+4  Stitch checklist (`E45_STITCH_CHECKLIST.md` DRAFTED 2026-09-05; NOT AUTHORIZED) all YES + human PR (crisis path only)
 5  Post-QC; claim policy update if any live badge changes
 ```
 

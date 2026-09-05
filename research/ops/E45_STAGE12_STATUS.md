@@ -42,14 +42,15 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 | 2 Paper challenger memo | **DONE** | `E45_STAGE2_PAPER_CHALLENGER_MEMO.md` |
 | 3 Dual-paper observe design | **DONE** | design + checklist |
 | 3b Operating observe | **OPEN / OPERATING** | ledgers + month-end + pack/alert wire |
-| 4 Stitch checklist + human PR | **READY TO DRAFT / NOT AUTHORIZED** | Bars green; **second ballot required** |
+| 4 Stitch checklist + human PR | **CHECKLIST DRAFTED / NOT AUTHORIZED** | `E45_STITCH_CHECKLIST.md`; **second ballot required** |
 | 5 Post-QC / claim policy | **N/A** | Live unchanged |
 
 ## Next actions
 
-1. Run month-end cadence (`e45_dual_paper_ledgers.py` + `e45_month_end_monitor.py` / pack)  
-2. Optional: draft stitch checklist for review (still no live-wire)  
-3. Live stitch only after explicit second human ACCEPT
+1. Continue observe month-end cadence when market tip advances (do not re-run same asof)  
+2. Review drafted `E45_STITCH_CHECKLIST.md` — still **NOT AUTHORIZED**  
+3. Live stitch only after gates clear + explicit second human `E45 ACCEPT live stitch`
+
 
 ## Latest month-end refresh
 

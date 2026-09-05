@@ -31,7 +31,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 |---|---|---|
 | Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **DONE** — #73+#74 merged; DEFAULT=`E22_v2s_tw` |
 | Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` | **ACCEPT charter** — Stage B OPEN; no DEFAULT flip |
-| E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `E45_MDD_1316_NARRATIVE_RETIREMENT.md` · `E45_DUAL_PAPER_OBSERVE_OPEN.md` | **ACCEPT charter** + **RETIRE −13.16%** + **OPEN observe**; **V1–V6 PASS**; stitch still forbidden until second ACCEPT |
+| E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `E45_MDD_1316_NARRATIVE_RETIREMENT.md` · `E45_DUAL_PAPER_OBSERVE_OPEN.md` · `E45_STITCH_CHECKLIST.md` | **ACCEPT charter** + **RETIRE −13.16%** + **OPEN observe**; stitch checklist **DRAFTED / NOT AUTHORIZED**; stitch still forbidden until second ACCEPT |
 
 ## Re-open triggers (only then re-agenda)
 
