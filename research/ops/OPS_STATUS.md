@@ -51,10 +51,12 @@ Odd-lot promote decision pack (**ACCEPT promote**): `research/ops/ODD_LOT_PROMOT
 Par-value lookup charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`  
 Par-value inventory: `research/ops/PAR_VALUE_INVENTORY.md` · `data/corporate_actions/par_value_by_code.csv`  
 Tax/receivable formal books (**Item 2 ACCEPT charter — Stage B OPEN**): `research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · decision pack `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
-E45 live-stitch (**Item 3 ACCEPT charter + RETIRE −13.16% narrative**): Soft-Frozen CRITICAL KEEP; Stage board `E45_STAGE12_STATUS.md`; **V1–V6 PASS** (V1 via retirement); dual-paper design done (observe not opened); primary comparable MDD = lineage E1.1 **−15.81%**; **live stitch still forbidden** until second stitch ACCEPT
+E45 live-stitch (**Item 3 ACCEPT charter + RETIRE −13.16% + OPEN dual-paper observe**): Soft-Frozen CRITICAL KEEP; Stage board `E45_STAGE12_STATUS.md`; **V1–V6 PASS**; dual-paper observe **OPERATING** (`E45_DUAL_PAPER_OBSERVE_OPEN.md`); primary comparable MDD = lineage E1.1 **−15.81%**; first month-end shows YTD/1y PAUSE_REVIEW (expected crisis giveback); **live stitch still forbidden** until second stitch ACCEPT
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
+E45 dual-paper observe: `research/e45/E45_DUAL_PAPER_OBSERVE.md` / open `E45_DUAL_PAPER_OBSERVE_OPEN.md`  
+E45 month-end: `research/gaps/E45_MONTH_END_MONITOR.md`  
 BLEND_025 dual-paper observe: `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md`  
 BLEND_025 month-end: `research/gaps/BLEND_025_MONTH_END_MONITOR.md`  
 BLEND_025 month-end runbook: `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md`  
@@ -83,6 +85,8 @@ python3 scripts/taiex_fetch_with_failover.py --help
 python3 scripts/e21_live_vs_paper_recon.py
 python3 scripts/e16_blend025_dual_paper_ledgers.py
 python3 scripts/e16_blend025_month_end_monitor.py
+python3 scripts/e45_dual_paper_ledgers.py
+python3 scripts/e45_month_end_monitor.py
 ```
 
 ## Authority

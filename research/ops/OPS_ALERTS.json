@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T09:32:51.304067+00:00",
+  "generated_at_utc": "2026-09-05T18:46:22.290052+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -9,8 +9,8 @@
   ],
   "overall": "HIGH",
   "n_critical": 0,
-  "n_high": 3,
-  "n_info": 13,
+  "n_high": 5,
+  "n_info": 16,
   "alerts": [
     {
       "severity": "HIGH",
@@ -29,6 +29,18 @@
       "source": "fincap50_month_end",
       "code": "PAUSE_REVIEW",
       "message": "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)"
+    },
+    {
+      "severity": "HIGH",
+      "source": "e45_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+    },
+    {
+      "severity": "HIGH",
+      "source": "e45_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
     },
     {
       "severity": "INFO",
@@ -75,6 +87,24 @@
     {
       "severity": "INFO",
       "source": "blend025_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: CHAL_E45_E3 ytd CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: CHAL_E45_E3 trailing_1y CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },

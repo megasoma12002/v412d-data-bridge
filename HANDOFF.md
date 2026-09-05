@@ -21,7 +21,7 @@ Cursor 必須依序讀：
 |---|---|---|
 | E16 / E18 / E22_v2s | SOFT_FROZEN | **Yes (core cutover)** |
 | E50-A | EXPERIMENTAL / RESEARCH_ONLY | **No** |
-| E45 | SOFT_FROZEN_CRITICAL | **No**（−13.16% 已 **RETIRE** 敘事；V1–V6 research PASS；live stitch 仍需 **第二次** human ACCEPT） |
+| E45 | SOFT_FROZEN_CRITICAL | **No**（−13.16% **RETIRE**；dual-paper observe **OPERATING**；V1–V6 PASS；live stitch 仍需 **第二次** human ACCEPT） |
 | FIN_CAP_50 | paper dual-ledger | **No** — go-live **`NOT_READY_SEALED_CAGR`** |
 | L4_DD_PATH_08_50 | paper dual-ledger | **No** — held-out PASS；cutover FROZEN |
 

@@ -1,13 +1,14 @@
-# E45 Stage 1–3 Status (Post Charter ACCEPT + V1 narrative retirement)
+# E45 Stage 1–3 Status (Post Charter ACCEPT + V1 narrative retirement + observe OPEN)
 
 Date: 2026-09-05  
-Ballot: **ACCEPT charter** + **RETIRE −13.16% narrative (path A)**  
+Ballot: **ACCEPT charter** + **RETIRE −13.16% narrative (path A)** + **OPEN dual-paper observe**  
 Live stitch: **still FORBIDDEN** (needs second dedicated stitch ACCEPT)  
 Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
-−13.16% claim: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement
+−13.16% claim: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement  
+Dual-paper observe: **OPERATING** (paper month-end; first monitor may show YTD/1y PAUSE_REVIEW — expected for crisis overlay)
 
-Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMENT.md` · `E45_LIVE_STITCH_CHARTER.md`
+Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMENT.md` · `E45_DUAL_PAPER_OBSERVE_OPEN.md` · `E45_LIVE_STITCH_CHARTER.md`
 
 ## Verification bars V1–V6
 
@@ -20,7 +21,7 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 | V5 | No single-year | **PASS** | Crisis-year attribution + Stage-3 multi-window |
 | V6 | Soft-Frozen KEEP | **PASS** | Clip unchanged |
 
-**Stage gate:** V1–V6 **all PASS** for research bars. Live stitch still **FORBIDDEN** until a **second** human stitch ACCEPT (+ checklist). Retiring −13.16% ≠ cutover license.
+**Stage gate:** V1–V6 **all PASS** for research bars. Live stitch still **FORBIDDEN** until a **second** human stitch ACCEPT (+ checklist). Observe OPEN ≠ stitch license.
 
 ## Comparable MDD policy (binding)
 
@@ -40,16 +41,16 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 | 1b Narrative retirement | **DONE** | `E45_MDD_1316_NARRATIVE_RETIREMENT.md` |
 | 2 Paper challenger memo | **DONE** | `E45_STAGE2_PAPER_CHALLENGER_MEMO.md` |
 | 3 Dual-paper observe design | **DONE** | design + checklist |
-| 3b Operating observe | **NOT OPENED** | Needs `E45 OPEN dual-paper observe` |
+| 3b Operating observe | **OPEN / OPERATING** | ledgers + month-end + pack/alert wire |
 | 4 Stitch checklist + human PR | **READY TO DRAFT / NOT AUTHORIZED** | Bars green; **second ballot required** |
 | 5 Post-QC / claim policy | **N/A** | Live unchanged |
 
 ## Next actions
 
-1. Optional: `E45 OPEN dual-paper observe` (paper month-end; still not live)  
+1. Run month-end cadence (`e45_dual_paper_ledgers.py` + `e45_month_end_monitor.py` / pack)  
 2. Optional: draft stitch checklist for review (still no live-wire)  
 3. Live stitch only after explicit second human ACCEPT
 
 ## Label
 
-`E45_STAGE12_STATUS_2026-09-05__V1_RETIRED_PASS__V2_V6_PASS__STITCH_STILL_FORBIDDEN`
+`E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`

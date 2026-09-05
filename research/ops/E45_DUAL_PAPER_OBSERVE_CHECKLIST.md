@@ -1,12 +1,12 @@
 # E45 Dual-Paper Observe Checklist (Stage 3)
 
 Date: 2026-09-05  
-Status: **DESIGN READY — OBSERVE NOT OPENED**  
-Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `E45_DUAL_PAPER_OBSERVE_DESIGN.md`
+Status: **OPERATING OBSERVE** (opened by human ballot)  
+Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `E45_DUAL_PAPER_OBSERVE_DESIGN.md` · `E45_DUAL_PAPER_OBSERVE_OPEN.md`
 
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live stitch: **FORBIDDEN**  
-Claimed −13.16%: **`NOT_VERIFIED`**
+−13.16% claim: **`RETIRED_HISTORICAL_NARRATIVE`**
 
 ## Sleeve definition (paper only)
 
@@ -15,31 +15,30 @@ Claimed −13.16%: **`NOT_VERIFIED`**
 | `BASE_E16_E18_E22_v2s` | Soft-Frozen early-stack Exact T+1 control |
 | `CHAL_E45_E3` | Same stack + E45 `E3_VOLTARGET_WINNER` overlay |
 
-## Open observe? (human later)
+## Open observe ballot
 
-Reply with one of:
+Human: **`E45 OPEN dual-paper observe`** (2026-09-05)  
+Record: `research/ops/E45_DUAL_PAPER_OBSERVE_OPEN.md`
 
-- `E45 OPEN dual-paper observe` — start month-end parallel paper ledgers (still not live)
-- `E45 KEEP design only` — leave Stage 3 as design; no operating observe
-
-## Pre-open checklist (all YES before OPEN observe)
+## Pre-open checklist (recorded)
 
 | # | Item | YES/NO |
 |---|---|---|
-| 1 | Soft-Frozen live clip remains [0.50, 0.95] | |
-| 2 | Live DEFAULT books remain `E22_v2s_tw` | |
-| 3 | Design metrics regenerated (`dual_paper_window_metrics.csv`) | |
-| 4 | −13.16% still labeled NOT_VERIFIED in reports | |
-| 5 | No stitch / live-wire PR bundled | |
-| 6 | Month-end monitor owner named | |
-| 7 | PAUSE_REVIEW policy understood (observe ≠ promote) | |
+| 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** |
+| 2 | Live DEFAULT books remain `E22_v2s_tw` | **YES** |
+| 3 | Design metrics present (`repro/e45-dual-paper-observe-design/`) | **YES** |
+| 4 | −13.16% labeled RETIRED (not verified) | **YES** |
+| 5 | No stitch / live-wire PR bundled | **YES** |
+| 6 | Month-end monitor owner named | **YES** — `ops_month_end_paper_pack.py` / research/ops |
+| 7 | PAUSE_REVIEW policy understood (observe ≠ promote) | **YES** |
 
-## During observe (if opened)
+## During observe
 
 | Cadence | Action |
 |---|---|
-| Month-end | Refresh BASE vs CHAL_E45_E3 paper NAV; record YTD / 1y CAGR & MDD |
-| Month-end | Flag PAUSE_REVIEW if challenger YTD or 1y giveback breaches ops policy |
+| Month-end | `python3 scripts/e45_dual_paper_ledgers.py` then `python3 scripts/e45_month_end_monitor.py` |
+| Month-end | Or pack: `python3 scripts/ops_month_end_paper_pack.py` |
+| Month-end | Flag PAUSE_REVIEW if YTD / trailing_1y giveback breaches policy |
 | Continuous | No Soft-Frozen edit; no `forward/e21` rewrite; no silent DEFAULT change |
 
 ## Exit / escalate
@@ -47,9 +46,9 @@ Reply with one of:
 | Event | Action |
 |---|---|
 | Human asks stitch | Require V1–V6 all PASS + **second** stitch ballot (separate PR) |
-| V1 still FAIL | Keep observe paper-only; do not invent MDD |
+| PAUSE_REVIEW on YTD/1y | Extend observe; Soft-Frozen unchanged; no stitch talk |
 | Soft-Frozen pressure | Open dedicated clip PR only — never via this checklist |
 
 ## Label
 
-`E45_DUAL_PAPER_OBSERVE_CHECKLIST_2026-09-05__DESIGN_READY`
+`E45_DUAL_PAPER_OBSERVE_CHECKLIST_2026-09-05__OPERATING_OBSERVE__STITCH_FORBIDDEN`

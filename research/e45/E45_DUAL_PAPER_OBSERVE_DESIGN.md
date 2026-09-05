@@ -1,9 +1,10 @@
 # E45 Dual-Paper Observe — Design Pack (Stage 3)
 
 Generated: `2026-09-05T18:17:09.546625+00:00`
-Status: **DESIGN ONLY — NOT OPERATING**
+Status: **DESIGN LOCKED — OBSERVE NOW OPERATING**
 Live stitch: **FORBIDDEN** · Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT books **`E22_v2s_tw` KEEP**
-Claimed MDD ≈ −13.16%: **`NOT_VERIFIED`** (do not invent a replacement)
+Claimed MDD ≈ −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Operating observe: **OPEN** (`E45_DUAL_PAPER_OBSERVE_OPEN.md`) — paper only; stitch still FORBIDDEN
 
 ## Locked paper books
 
@@ -38,7 +39,7 @@ Claimed MDD ≈ −13.16%: **`NOT_VERIFIED`** (do not invent a replacement)
 ## Ops checklist (design → future observe)
 
 1. Soft-Frozen live default stays BASE until a **separate** human cutover/stitch PR
-2. If observe is opened later: run BASE + CHAL_E45_E3 paper ledgers in parallel month-end
+2. Observe OPEN: run BASE + CHAL_E45_E3 paper ledgers in parallel month-end
 3. Re-check trailing YTD / 1y PAUSE gates each month-end (observe ≠ promote)
 4. Do **not** silent-edit Soft-Frozen; do **not** rewrite `forward/e21` history
 5. Observe sleeve ≠ stitch license; V1–V6 still gate any live stitch
@@ -66,5 +67,5 @@ Claimed MDD ≈ −13.16%: **`NOT_VERIFIED`** (do not invent a replacement)
 
 ## Label
 
-`E45_DUAL_PAPER_OBSERVE_DESIGN_2026-09-05__NOT_OPERATING__STITCH_FORBIDDEN`
+`E45_DUAL_PAPER_OBSERVE_DESIGN_2026-09-05__OPERATING_OBSERVE__STITCH_FORBIDDEN`
 
