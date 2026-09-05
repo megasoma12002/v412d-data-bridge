@@ -9,6 +9,7 @@
     "no_negative_cash": true,
     "date_monotonic": true,
     "frozen_financial_universe": true,
+    "fills_file_present": true,
     "fills_unique_id": true,
     "fills_reference_existing_orders": true,
     "exact_t1_ok": true,
@@ -22,6 +23,8 @@
   "same_bar_fills": 0,
   "fills_checked": 72,
   "pending_filter": "signal_date < fill_date",
+  "exact_t1_reason": null,
   "live_wire": true,
-  "note": "Fail-closed ledger QC + Exact T+1. Soft-Frozen clip unchanged by research."
+  "owns_qc_status": true,
+  "note": "Fail-closed ledger QC + Exact T+1. Missing/empty fills \u21d2 FAIL. This file is owned by e21_qc.py; pipeline writes pipeline_t1_audit.json only."
 }

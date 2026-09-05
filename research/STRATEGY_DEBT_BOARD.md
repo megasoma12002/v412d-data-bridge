@@ -1,7 +1,7 @@
 # Strategy Debt Board
 
 Date: 2026-09-05 (strategy closure prep — claim policy + BLEND checklist)  
-Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
+Live rule: **E16 + E18 + E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05). No overlay. No history rewrite.  
 Live E16 Financial clip: **[0.50, 0.95]** (unchanged).  
 Human decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`

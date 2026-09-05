@@ -95,7 +95,7 @@ F  Extensible per-code lookup (watchlist/CLI)    DONE — reserved for future eq
 | Ballot | Par table |
 |---|---|
 | ACCEPT promote now | Allowed iff `coverage_pass_for_promote=true` (promote-gate VERIFIED) |
-| ACCEPT research-only | OK — keep named `E22_v2s_tw`; default stays `E22_v2s` |
+| ACCEPT research-only | Historical option — superseded: live DEFAULT is now `E22_v2s_tw` (promoted 2026-09-05) |
 | REJECT | N/A |
 
 ## Label

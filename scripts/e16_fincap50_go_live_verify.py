@@ -26,6 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e22_dividend_accounting as e22div
 from e16_fin_cap_oof_challenger import e16_features_fin_cap
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/fincap50-go-live-verify"
@@ -33,7 +34,9 @@ RESEARCH = ROOT / "research/gaps"
 MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
-SOFT_FROZEN_LIVE = (0.50, 0.95)
+# Expected Soft-Frozen live clip — must match e16_soft_frozen_base (single source of truth).
+SOFT_FROZEN_LIVE = (float(SOFT_FROZEN_FIN_LO), float(SOFT_FROZEN_FIN_HI))
+EXPECTED_SOFT_FROZEN_LIVE = (0.50, 0.95)
 FIN_CAP_50 = (0.35, 0.50)
 MDD_IMPROVE_MIN_PP = 1.0
 CAGR_GIVEBACK_MAX_PP = 3.0
@@ -177,7 +180,13 @@ def main() -> None:
 
     gate_b = bool(combined["pass"])
     gate_c = bool(sealed["pass"])
-    gate_d = True
+    # Gate D: Soft-Frozen live clip must still equal the module single source of truth.
+    gate_d = (
+        abs(SOFT_FROZEN_LIVE[0] - EXPECTED_SOFT_FROZEN_LIVE[0]) < 1e-12
+        and abs(SOFT_FROZEN_LIVE[1] - EXPECTED_SOFT_FROZEN_LIVE[1]) < 1e-12
+        and abs(float(SOFT_FROZEN_FIN_LO) - EXPECTED_SOFT_FROZEN_LIVE[0]) < 1e-12
+        and abs(float(SOFT_FROZEN_FIN_HI) - EXPECTED_SOFT_FROZEN_LIVE[1]) < 1e-12
+    )
     gate_e = not bool(mon["pause_review"])
     ready = gate_a and gate_b and gate_c and gate_d and gate_e
 
@@ -217,7 +226,14 @@ def main() -> None:
                 "cagr_giveback_pp": sealed["cagr_giveback_pp"],
                 "fail_reasons": sealed["fail_reasons"],
             },
-            "D_soft_frozen_unchanged": {"pass": gate_d, "clip": list(SOFT_FROZEN_LIVE)},
+            "D_soft_frozen_unchanged": {
+                "pass": gate_d,
+                "clip": list(SOFT_FROZEN_LIVE),
+                "expected_clip": list(EXPECTED_SOFT_FROZEN_LIVE),
+                "module_source": "scripts/e16_soft_frozen_base.py",
+                "module_clip": [float(SOFT_FROZEN_FIN_LO), float(SOFT_FROZEN_FIN_HI)],
+                "rule": "SOFT_FROZEN_FIN_LO/HI must remain [0.50, 0.95]; no hardcoded True",
+            },
             "E_no_pause_review": {
                 "pass": gate_e,
                 "pause_review": mon["pause_review"],

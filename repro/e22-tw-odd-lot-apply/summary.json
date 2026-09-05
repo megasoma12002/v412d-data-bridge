@@ -16,32 +16,32 @@
   "mapping": {
     "layers": [
       {
-        "tw_concept": "\u4e0d\u8db3\u4e00\u80a1\u7578\u96f6\u80a1\uff08\u516c\u53f8\u6cd5 \u00a7240\uff09",
-        "practice": "\u9762\u984d\u6298\u73fe\uff08\u901a\u5e38 NT$10\uff09\uff0c\u5143\u4ee5\u4e0b\u6368\u53bb\uff1b\u53ef\u62fc\u6e4a\u6574\u80a1\uff1b\u5269\u9918\u6d3d\u7279\u5b9a\u4eba",
-        "e22_apply": "E22_v2s_tw: floor(shares_gross); cash += floor(frac \u00d7 10)",
+        "tw_concept": "不足一股畸零股（公司法 §240）",
+        "practice": "面額折現（通常 NT$10），元以下捨去；可拼湊整股；剩餘洽特定人",
+        "e22_apply": "E22_v2s_tw: floor(shares_gross); cash += floor(frac × 10)",
         "status": "IMPLEMENTED_NAMED_VERSION"
       },
       {
-        "tw_concept": "\u96f6\u80a1\u4ea4\u6613 1\u2013999 \u80a1\uff08\u8b49\u4ea4\u6240\u96f6\u80a1\u8fa6\u6cd5\uff09",
-        "practice": "\u53ef\u6301\u6709\u8207\u8cb7\u8ce3\u975e\u6574\u5343\u80a1\uff1b\u80a1\u5229\u6309\u80a1\u6578\u540c\u6b0a",
+        "tw_concept": "零股交易 1–999 股（證交所零股辦法）",
+        "practice": "可持有與買賣非整千股；股利按股數同權",
         "e22_apply": "Keep lot_size=1 fills; do NOT force board_lot_1000 in formal books",
         "status": "KEEP_AS_IS"
       },
       {
-        "tw_concept": "\u6574\u80a1 1000\uff08\u4e3b\u76e4\u4ea4\u6613\u55ae\u4f4d\uff09",
-        "practice": "\u4e3b\u76e4\u59d4\u8a17\u55ae\u4f4d\uff1b\u975e\u6301\u80a1\u5fc5\u9808\u70ba 1000 \u500d\u6578",
+        "tw_concept": "整股 1000（主盤交易單位）",
+        "practice": "主盤委託單位；非持股必須為 1000 倍數",
         "e22_apply": "E18 capacity challenger only (separate from CIL)",
         "status": "CHALLENGER_ONLY"
       },
       {
-        "tw_concept": "\u62fc\u6e4a\u6574\u80a1\u8996\u7a97 / \u5283\u64a5\u8cbb\u5145\u62b5",
-        "practice": "\u80a1\u52d9\u4f5c\u696d\uff1b\u672a\u62fc\u6e4a\u624d\u6298\u73fe\uff1b\u6b3e\u5e38\u5145\u62b5\u624b\u7e8c\u8cbb\u2192\u5be6\u9818\u53ef\u8fd1 0",
+        "tw_concept": "拼湊整股視窗 / 劃撥費充抵",
+        "practice": "股務作業；未拼湊才折現；款常充抵手續費→實領可近 0",
         "e22_apply": "Optional haircut sensitivity; not default formal books",
         "status": "DEFER"
       },
       {
-        "tw_concept": "\u7578\u96f6\u80a1\u73fe\u91d1\u5165\u5e33\u6642\u9ede",
-        "practice": "\u80a1\u52d9\uff0f\u767c\u653e\u4f5c\u696d\uff08\u8fd1 payment\uff09\uff0c\u975e\u9664\u6b0a\u7576\u65e5\u5e02\u50f9\u7d50\u7b97",
+        "tw_concept": "畸零股現金入帳時點",
+        "practice": "股務／發放作業（近 payment），非除權當日市價結算",
         "e22_apply": "Amount fixed at par; credit on stock_ex_date for TR continuity (optional E22_v3 pay-clock later)",
         "status": "EX_DATE_AMOUNT_OK"
       }
@@ -236,14 +236,17 @@
   },
   "decision": {
     "recommended_tw_apply": "E22_v2s_tw",
-    "why": "Matches Company Act \u00a7240 + issuer announcements (par cash for <1 share); clears fractional dust; does not over-constrain to board lots; NAV impact vs float v2s is negligible.",
+    "why": "Matches Company Act §240 + issuer announcements (par cash for <1 share); clears fractional dust; does not over-constrain to board lots; NAV impact vs float v2s is negligible.",
     "vs_market_cil": "E22_v2s_cil overstates odd-lot cash vs TW practice when price >> par; keep as research sensitivity only.",
     "live_default": "KEEP_E22_v2s_UNTIL_EXPLICIT_PROMOTE_OF_TW",
     "do_not": [
       "Force lot_size=1000 as formal books",
-      "Model \u62fc\u6e4a window as portfolio alpha",
+      "Model 拼湊 window as portfolio alpha",
       "Silently replace E22_v2s without new version id",
       "Rewrite forward/e21 history"
     ]
-  }
+  },
+  "live_default_status": "SUPERSEDED_FOR_LIVE_DEFAULT",
+  "current_live_default": "E22_v2s_tw",
+  "note_20260905": "default_remains/E22_v2s language is historical; live DEFAULT is E22_v2s_tw since 2026-09-05 promote."
 }

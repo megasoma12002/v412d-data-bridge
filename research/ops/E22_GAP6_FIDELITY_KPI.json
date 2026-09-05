@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T14:30:05.031422+00:00",
+  "generated_at_utc": "2026-09-05T17:39:43.693272+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -76,9 +76,11 @@
     "handling": "research/gaps/E50A_AND_EXEC_GAP_HANDLING.md"
   },
   "flags": [
-    "LIVE_LEDGER_E22_FIELDS_MISSING"
+    "LIVE_LEDGER_E22_FIELDS_MISSING",
+    "KPI_BLOCKED_LIVE_EVIDENCE_MISSING"
   ],
   "code_ok": true,
   "live_evidence_ok": false,
-  "kpi_ok": true
+  "kpi_ok": false,
+  "ci_smoke_ok": true
 }

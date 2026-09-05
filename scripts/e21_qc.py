@@ -13,22 +13,25 @@ from pathlib import Path
 
 import pandas as pd
 
-CANON_STATE = Path("forward/e21")
+REPO_ROOT = Path(__file__).resolve().parents[1]
+CANON_STATE = REPO_ROOT / "forward" / "e21"
 
 
-def exact_t1_from_fills(fills: pd.DataFrame) -> dict:
+def exact_t1_from_fills(fills: pd.DataFrame, *, fills_required: bool = True) -> dict:
     """Require fill_date strictly after signal_date (calendar day).
 
-    Empty fills → ok (nothing to violate). Non-empty fills missing the
-    date schema → **fail closed** (do not treat corrupt ledgers as Exact T+1).
+    Live default (fills_required=True): empty/missing fills ⇒ Exact T+1 FAIL.
+    Research opt-out (fills_required=False): empty fills → ok (nothing to violate).
+    Non-empty fills missing the date schema → always fail closed.
     """
     if fills.empty:
         return {
-            "exact_t1_ok": True,
+            "exact_t1_ok": False if fills_required else True,
             "same_bar_fills": 0,
             "fills_checked": 0,
             "pending_filter": "signal_date < fill_date",
             "schema_ok": True,
+            "reason": "fills_missing_or_incomplete" if fills_required else None,
         }
     if "signal_date" not in fills.columns or "fill_date" not in fills.columns:
         return {
@@ -37,6 +40,7 @@ def exact_t1_from_fills(fills: pd.DataFrame) -> dict:
             "fills_checked": int(len(fills)),
             "pending_filter": "signal_date < fill_date",
             "schema_ok": False,
+            "reason": "fills_missing_or_incomplete",
         }
     sig = pd.to_datetime(fills["signal_date"]).dt.normalize()
     fill_dt = pd.to_datetime(fills["fill_date"]).dt.normalize()
@@ -47,6 +51,7 @@ def exact_t1_from_fills(fills: pd.DataFrame) -> dict:
         "fills_checked": int(len(fills)),
         "pending_filter": "signal_date < fill_date",
         "schema_ok": True,
+        "reason": None if same_bar == 0 else "same_bar_fills_present",
     }
 
 
@@ -60,6 +65,8 @@ def main() -> None:
     )
     a = ap.parse_args()
     s = Path(a.state_dir)
+    if not s.is_absolute():
+        s = (REPO_ROOT / s).resolve()
 
     if not a.allow_noncanonical_paths and s.resolve() != CANON_STATE.resolve():
         raise SystemExit(
@@ -96,15 +103,21 @@ def main() -> None:
         set(orders.code.astype(str)) - set(TEL + ["0050"])
     )
 
+    fills_path = s / "fills.csv"
+    checks["fills_file_present"] = fills_path.exists()
     fills = pd.DataFrame()
-    if (s / "fills.csv").exists():
-        fills = pd.read_csv(s / "fills.csv", dtype={"code": str})
+    if fills_path.exists():
+        fills = pd.read_csv(fills_path, dtype={"code": str})
         checks["fills_unique_id"] = not fills.fill_id.duplicated().any()
         checks["fills_reference_existing_orders"] = set(fills.fill_id.astype(str)).issubset(
             set(orders.order_id.astype(str))
         )
+    else:
+        checks["fills_unique_id"] = False
+        checks["fills_reference_existing_orders"] = False
 
-    t1 = exact_t1_from_fills(fills)
+    # Live ledgers must have an auditable fills file; empty/missing ⇒ Exact T+1 FAIL.
+    t1 = exact_t1_from_fills(fills, fills_required=True)
     checks["exact_t1_ok"] = bool(t1["exact_t1_ok"])
 
     audit = [
@@ -129,8 +142,15 @@ def main() -> None:
         "same_bar_fills": t1["same_bar_fills"],
         "fills_checked": t1["fills_checked"],
         "pending_filter": t1["pending_filter"],
+        "exact_t1_reason": t1.get("reason"),
+        "schema_ok": t1.get("schema_ok"),
         "live_wire": True,
-        "note": "Fail-closed ledger QC + Exact T+1. Soft-Frozen clip unchanged by research.",
+        "owns_qc_status": True,
+        "note": (
+            "Fail-closed ledger QC + Exact T+1. Missing/empty fills ⇒ FAIL. "
+            "Soft-Frozen clip imported from e16_soft_frozen_base. "
+            "This file is owned by e21_qc.py; pipeline writes pipeline_t1_audit.json only."
+        ),
     }
     (s / "qc_status.json").write_text(json.dumps(status, indent=2) + "\n")
     print(json.dumps(status, indent=2))
