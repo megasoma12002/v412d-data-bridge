@@ -26,6 +26,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
+from research_metric_helpers import abs_mdd, cagr_value
 import e22_dividend_accounting as e22div
 
 OUT = Path("repro/gap-cagr-finance-concentration/fin_cap_oof")
@@ -225,8 +226,8 @@ def main() -> None:
         o = r["oof_2011_2018"]
         w = r["weights_oof"]
         cap_ok = w["mean_financial"] <= r["fin_hi"] + 1e-6 and w["max_financial"] <= r["fin_hi"] + 1e-6
-        mdd_improve = (abs(b_oof["max_drawdown"] or 9) - abs(o["max_drawdown"] or 9))
-        cagr_giveback = (b_oof["cagr"] or 0) - (o["cagr"] or 0)
+        mdd_improve = abs_mdd(b_oof["max_drawdown"]) - abs_mdd(o["max_drawdown"])
+        cagr_giveback = (cagr_value(b_oof["cagr"]) or 0.0) - (cagr_value(o["cagr"]) or 0.0)
         pass_oof = bool(
             cap_ok
             and o["max_drawdown"] is not None

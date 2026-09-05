@@ -2,6 +2,10 @@
 
 # E50 Frozen Strategy Specification
 
+> **NOT LIVE WIRING.** This file defines role architecture and frozen baseline rules.  
+> Live cutover today is **E16 + Exact T+1 E18 + E22_v2s only** (`forward/e21`).  
+> E50-A / E45 are **not** live-wired. Read `HANDOFF.md` §0.1 and `research/STRATEGY_DEBT_BOARD.md` first.
+
 ## 0. 文件目的
 本文件定義目前研究中「不可被 Cursor 任意重寫」的 Frozen Portfolio Baseline。
 規則分級、晉升路徑與不得自動凍結的實驗門檻，以 `FROZEN_GOVERNANCE.md` 為準。
@@ -9,7 +13,7 @@
 E50-A 不是一套取代既有策略的新 Portfolio。
 它是加在既有核心組合上的 Alpha Overlay。
 
-整體架構：
+整體架構（**研究角色圖** — 非現行 live stack）：
 
 Market
 -> E16 Core Allocation

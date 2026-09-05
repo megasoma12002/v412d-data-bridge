@@ -1,6 +1,6 @@
 # Strategy Debt Board
 
-Date: 2026-09-05 (P2: Soft-Frozen single-source + Exact T+1 audit)  
+Date: 2026-09-05 (code-review residual clear: e21_qc Exact T+1)  
 Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
 Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 
@@ -27,6 +27,7 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | Dual-track A/B | On main via #37 — A KEEP / B S1 STOP |
 | Code-review fixes (round 1) | Month-end `0→nan`; fin_cap single-source; Soft-Frozen vs live wording |
 | Code-review P2 | Soft-Frozen BASE single-source (`e16_soft_frozen_base`); live Exact T+1 `qc_status.json`; scorers drop `x or 0`/`mdd or 9` |
+| Code-review residual | `e21_qc` defaults to `forward/e21` + preserves Exact T+1; SPEC live banner; FIN_CAP OOF None-safe deltas |
 
 ### NOW
 | Item | Action | Status |
@@ -71,6 +72,7 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 
 ## Pointers
 - `scripts/e16_soft_frozen_base.py` (live Financial clip **[0.50, 0.95]**)
+- `scripts/e21_forward_pipeline.py` / `scripts/e21_qc.py` (canonical `forward/e21`; Exact T+1 in `qc_status.json`)
 - `scripts/research_metric_helpers.py`
 - `research/gaps/L4_DD_PATH_PROMOTE_PROPOSAL.md`
 - `research/gaps/L4_DD_PATH_MONTH_END_RUNBOOK.md`
