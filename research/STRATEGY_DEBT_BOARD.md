@@ -1,9 +1,10 @@
 # Strategy Debt Board
 
-Date: 2026-09-05 (human decision register — Soft-Frozen KEEP)  
+Date: 2026-09-05 (strategy closure prep — claim policy + BLEND checklist)  
 Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
 Live E16 Financial clip: **[0.50, 0.95]** (unchanged).  
-Human decisions: `research/ops/HUMAN_DECISION_REGISTER.md`
+Human decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
+Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 
 ## Glossary (do not collapse)
 
@@ -36,6 +37,9 @@ Human decisions: `research/ops/HUMAN_DECISION_REGISTER.md`
 | FIN50 charter screen → BLEND_025 | Screen PASS → paper-promote proposal only (#64) |
 | BLEND_025 dual-paper observe | Ledgers + month-end + pack/alert wire — **OPERATING OBSERVE** (#65) |
 | Human decision register | Soft-Frozen KEEP; FIN50 static REJECT; BLEND observe; L4/BLEND live DEFER — `HUMAN_DECISION_REGISTER.md` |
+| BLEND_025 cutover checklist (prep) | `CUTOVER_CHECKLIST_BLEND025.md` — **NOT AUTHORIZED** |
+| Live claim / target policy | `LIVE_CLAIM_TARGET_POLICY.md` — live may not claim CAGR/MDD badges |
+| Post-forward E22 verify runbook | `POST_FORWARD_E22_VERIFY_RUNBOOK.md` — weekday ops prep |
 | Obs PR #57 | **Superseded** by #58/#59 cadence (leave closed/ignored if API cannot close) |
 
 ### NOW
@@ -46,7 +50,8 @@ Human decisions: `research/ops/HUMAN_DECISION_REGISTER.md`
 | FIN_CAP_50 paper | Dual-paper + pack | **OPERATING**; **static cutover REJECT for now** (register #2) |
 | L4 dual-paper | Dual-paper + pack | **OPERATING**; cutover **DEFER** until clean month-end (register #4) |
 | BLEND_025 dual-paper | Dual-paper + pack + runbook | **OPERATING OBSERVE** — sole sealed-CAGR successor (register #3); live **NOT READY** (#5) |
-| Cutover checklists | `research/ops/CUTOVER_CHECKLIST_{L4,FIN50}.md` | **BLOCKED** (gates red) |
+| Cutover checklists | `CUTOVER_CHECKLIST_{L4,FIN50,BLEND025}.md` | L4/FIN50 **BLOCKED**; BLEND025 **PREP / NOT AUTHORIZED** |
+| Live claim policy | `LIVE_CLAIM_TARGET_POLICY.md` | **BINDING** — no live target badges |
 | Human decision register | `research/ops/HUMAN_DECISION_REGISTER.md` | **BINDING** 2026-09-05 |
 
 ### NEXT
@@ -54,10 +59,10 @@ Human decisions: `research/ops/HUMAN_DECISION_REGISTER.md`
 |---|---|---|
 | Calendar month-end | Re-run pack; watch L4/FIN50/BLEND_025 trailing | Treat pack green / observe clean as cutover |
 | Live↔paper recon | Re-check INDEX_DRIFT as live history lengthens | Decision on <60 live sessions |
-| Live E22 field evidence | After next weekday forward; re-run Gap6 KPI | Rewrite `forward/e21` history |
+| Live E22 field evidence | After next weekday forward; run `POST_FORWARD_E22_VERIFY_RUNBOOK.md` | Rewrite `forward/e21` history |
 | L4 cutover PR | Only after register re-open trigger + checklist all-green | Soft-Frozen flip; static clip swap; open PR while PAUSE |
 | FIN50 static cutover PR | **Do not open** while `NOT_READY_SEALED_CAGR` | Retune FIN50 lock; ignore `NOT_READY` |
-| BLEND_025 live-wire | Only after new checklist + human PR | Treat observe PASS as promote |
+| BLEND_025 live-wire | Only after `CUTOVER_CHECKLIST_BLEND025` all-green + human PR | Treat observe PASS / checklist draft as promote |
 | E45 / odd-lot / tax books | Stay DEFER until new charter | Four-layer live stitch; silent default promote |
 
 ### WON’T
@@ -69,6 +74,7 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 |---|---|---|---|---|
 | FIN_CAP_50 | Static clip → **[0.35, 0.50]** | `NOT_READY_SEALED_CAGR` + YTD/1y PAUSE | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_FIN50.md` |
 | L4_DD_PATH_08_50 | Wire DD-path logic | YTD PAUSE + need clean month-end + human PR | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_L4.md` |
+| BLEND_025 | Soft-Frozen → blend weights | Observe ≠ promote; checklist prep only | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_BLEND025.md` (**NOT AUTHORIZED**) |
 | E50-A / E45 | Overlay / crisis | Not live-wired; E45 NOT_VERIFIED | N/A | — |
 
 ## Snapshot
@@ -84,6 +90,9 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 
 ## Pointers
 - `research/ops/HUMAN_DECISION_REGISTER.md`
+- `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
+- `research/ops/CUTOVER_CHECKLIST_BLEND025.md`
+- `research/ops/POST_FORWARD_E22_VERIFY_RUNBOOK.md`
 - `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`
 - `research/ops/OPS_STATUS.md`
 - `research/ops/OPS_ALERTS.md`

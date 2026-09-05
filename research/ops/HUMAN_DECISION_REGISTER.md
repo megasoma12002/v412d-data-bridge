@@ -20,7 +20,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
 | 3 | Sealed-CAGR successor path | **BLEND_025 OPERATING OBSERVE** | Sole in-flight successor; observe ≠ promote |
 | 4 | L4_DD_PATH live cutover | **DEFER** | No PR until checklist all-green (≥1 clean month-end, no YTD/1y PAUSE) |
-| 5 | BLEND_025 → live | **NOT DECISION-READY** | Needs separate checklist + human PR; sleeve cutover stays blocked |
+| 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
 | 6 | E45 / odd-lot default / formal tax·receivable | **DEFER** | New charter required before any work toward live |
 
 ## Re-open triggers (only then re-agenda)
@@ -29,15 +29,20 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 |---|---|
 | L4 cutover | ≥1 clean month-end (no YTD/1y `PAUSE_REVIEW`) + `CUTOVER_CHECKLIST_L4` all YES |
 | FIN50 static cutover | Go-live verify **not** `NOT_READY_SEALED_CAGR` **and** Gate E clean — else stay rejected |
-| BLEND_025 promote | Sustained clean trailing on observe **and** new cutover checklist drafted |
+| BLEND_025 promote | Sustained clean trailing on observe **and** cutover checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md` — **drafted 2026-09-05**, still NOT AUTHORIZED) |
 | Soft-Frozen flip | Explicit human cutover PR only (never pack/monitor green alone) |
 | E45 / odd-lot | New charter accepted |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
-- Next weekday forward → persist live `e22_*` evidence; re-run Gap6 KPI  
+- Next weekday forward → run `POST_FORWARD_E22_VERIFY_RUNBOOK.md`; persist live `e22_*` evidence; re-run Gap6 KPI  
 - Grow live history toward ≥~60 sessions  
 - Calendar month-end pack re-run (L4 / FIN50 / BLEND_025 trailing)
+
+## Claim policy
+
+Live may not claim numeric CAGR/MDD target badges until a cutover PR merges.  
+See `research/ops/LIVE_CLAIM_TARGET_POLICY.md`.
 
 ## Label
 
