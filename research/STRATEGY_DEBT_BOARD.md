@@ -76,7 +76,7 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 | FIN_CAP_50 | Static clip → **[0.35, 0.50]** | `NOT_READY_SEALED_CAGR` + YTD/1y PAUSE | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_FIN50.md` |
 | L4_DD_PATH_08_50 | Wire DD-path logic | YTD PAUSE + need clean month-end + human PR | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_L4.md` |
 | BLEND_025 | Soft-Frozen → blend weights | Observe ≠ promote; checklist prep only | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_BLEND025.md` (**NOT AUTHORIZED**) |
-| E50-A / E45 | Overlay / crisis | E45 Soft-Frozen CRITICAL; artifact NOT_VERIFIED; stitch DEFERRED; live auth NO; paper `FEASIBLE_CONTINUE_PAPER` | N/A | `research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md` |
+| E50-A / E45 | Overlay / crisis | E45 Soft-Frozen CRITICAL; artifact NOT_VERIFIED; stitch DEFERRED; live auth NO; paper `FEASIBLE_READY_FOR_LIVE_BALLOT` (F1–F10) | N/A | `research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md` |
 
 ## Snapshot
 | Topic | Number |
