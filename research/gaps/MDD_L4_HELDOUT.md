@@ -17,7 +17,9 @@ Status: **RESEARCH_ONLY** — no live-wire, Soft-Frozen unchanged.
 ## Aftermath
 
 - Held-out PASS — still **no auto live-wire**.
-- Dual-paper observation only; Soft-Frozen stays **[0.50, 0.95]** until human PR.
+- Dual-paper observation opened: `research/gaps/L4_DD_PATH_PROMOTE_PROPOSAL.md`
+  + month-end runbook `research/gaps/L4_DD_PATH_MONTH_END_RUNBOOK.md`.
+- Soft-Frozen stays **[0.50, 0.95]** until human PR.
 
 Artifacts:
 - `/workspace/repro/mdd-loss-engine/l4_heldout/reports/l4_heldout_summary.json`

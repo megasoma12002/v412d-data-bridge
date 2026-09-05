@@ -1,0 +1,154 @@
+{
+  "generated_at_utc": "2026-09-05T04:47:21.524806+00:00",
+  "label": "L4_DD_PATH_DUAL_PAPER_PROMOTE_PROPOSAL",
+  "locked_id": "L4_DD_PATH_08_50",
+  "mechanism": {
+    "type": "dd_path",
+    "dd_thr": -0.08,
+    "fin_lo_when_on": 0.35,
+    "fin_hi_when_on": 0.5,
+    "else": "Soft-Frozen BASE Financial [0.50, 0.95]"
+  },
+  "live_wire": false,
+  "soft_frozen_default_unchanged": true,
+  "research_heldout_pass_reference": "PASS_HELDOUT_L4",
+  "current_live_clip": {
+    "financial_lo": 0.5,
+    "financial_hi": 0.95
+  },
+  "exact_t1": {
+    "base": true,
+    "l4": true
+  },
+  "books": {
+    "BASE_E16": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "windows": {
+        "full": {
+          "cagr": 0.137829469400496,
+          "max_drawdown": -0.22639131293777315,
+          "utility": 0.024633812931609433,
+          "vol": 0.13322336551614303,
+          "n_days": 3351,
+          "fin_mean": 0.7980753983577771,
+          "fin_max": 0.9194479273989314
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08846959052336945,
+          "max_drawdown": -0.17412900003864262,
+          "utility": 0.0014050905040481343,
+          "vol": 0.10679608464774304,
+          "n_days": 1495,
+          "fin_mean": 0.8023022268225258,
+          "fin_max": 0.9109549155231154
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12330755797580628,
+          "max_drawdown": -0.22639131293777337,
+          "utility": 0.010111901506919596,
+          "vol": 0.1356126484163119,
+          "n_days": 977,
+          "fin_mean": 0.7985883631169861,
+          "fin_max": 0.9194479273989314
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.24925144125866705,
+          "max_drawdown": -0.1445685098357411,
+          "utility": 0.1769671863407965,
+          "vol": 0.16654491499091842,
+          "n_days": 879,
+          "fin_mean": 0.7891044815231208,
+          "fin_max": 0.8853528167189543
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.18235031521908462,
+          "max_drawdown": -0.22639131293777337,
+          "utility": 0.06915465875019794,
+          "vol": 0.1510306267187083,
+          "n_days": 1856,
+          "fin_mean": 0.7940968049698915,
+          "fin_max": 0.9194479273989314
+        }
+      }
+    },
+    "L4_DD_PATH_08_50": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "windows": {
+        "full": {
+          "cagr": 0.13119521837891024,
+          "max_drawdown": -0.21007434558968252,
+          "utility": 0.02615804558406898,
+          "vol": 0.12771635146709104,
+          "n_days": 3351,
+          "fin_mean": 0.7439425038366929,
+          "fin_max": 0.9194479273989312,
+          "dd_path_on_share": 0.2631140716069942
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09615338402116147,
+          "max_drawdown": -0.15166068863292348,
+          "utility": 0.02032303970469973,
+          "vol": 0.1047507093739384,
+          "n_days": 1495,
+          "fin_mean": 0.7486322449173607,
+          "fin_max": 0.9109549155231154,
+          "dd_path_on_share": 0.249570692615913
+        },
+        "validation_2019_2022": {
+          "cagr": 0.11132434203835961,
+          "max_drawdown": -0.2100743455896824,
+          "utility": 0.006287169243518409,
+          "vol": 0.12736080264942246,
+          "n_days": 977,
+          "fin_mean": 0.7416421720899927,
+          "fin_max": 0.9194479273989312,
+          "dd_path_on_share": 0.3111566018423746
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.222694201458284,
+          "max_drawdown": -0.12991038047702042,
+          "utility": 0.1577390112197738,
+          "vol": 0.1593367698372682,
+          "n_days": 879,
+          "fin_mean": 0.7371785066223577,
+          "fin_max": 0.8853528167189543,
+          "dd_path_on_share": 0.2366325369738339
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.16373585293752457,
+          "max_drawdown": -0.2100743455896824,
+          "utility": 0.05869868014268337,
+          "vol": 0.1433702813540689,
+          "n_days": 1856,
+          "fin_mean": 0.7395281839725082,
+          "fin_max": 0.9194479273989312,
+          "dd_path_on_share": 0.27586206896551724
+        }
+      }
+    }
+  },
+  "validation_delta_vs_base": {
+    "mdd_improve_pp": 1.631696734809096,
+    "cagr_giveback_pp": 1.1983215937446667
+  },
+  "sealed_delta_vs_base": {
+    "mdd_improve_pp": 1.4658129358720684,
+    "cagr_giveback_pp": 2.655723980038305
+  },
+  "cutover_checklist": [
+    "Keep Soft-Frozen default = BASE_E16 until human-approved cutover PR",
+    "Run dual paper ledgers in parallel for \u22651 month-end review",
+    "Cutover would wire path-dependent DD-path logic (not a static clip swap)",
+    "Preserve BASE_E16 paper ledger indefinitely for regression",
+    "Do not silent-edit Soft-Frozen; do not rewrite forward/e21 history",
+    "FIN_CAP_50 static promote remains separately NOT_READY_SEALED_CAGR \u2014 do not conflate"
+  ],
+  "non_goals": [
+    "Auto live-wire from this proposal",
+    "Soft-Frozen flip",
+    "L4 lock retune / reopen L1\u2013L3 / FIN50 static promote",
+    "Claim CAGR\u226520% / MDD\u226415% as live results"
+  ]
+}
