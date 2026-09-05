@@ -43,6 +43,11 @@ def append_immutable(path, row, key):
 
 
 def features(m):
+    """Live Soft-Frozen E16 targets (Financial clip [0.50, 0.95]).
+
+    Research mirror: `e50_early_stack_combined_nav.e16_features` — keep in sync.
+    Challenger clips: `e16_fin_cap_oof_challenger.e16_features_fin_cap` only.
+    """
     p = m.pivot(index="date", columns="code", values="adj_close").sort_index().ffill()
     r = p.pct_change(fill_method=None).fillna(0)
     sleeve = pd.DataFrame({"Financial": r[FIN].mean(1), "Telecom": r[TEL].mean(1), "0050": r["0050"]})

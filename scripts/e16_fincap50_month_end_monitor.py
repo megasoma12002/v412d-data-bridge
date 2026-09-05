@@ -38,11 +38,27 @@ def _stats(nav: pd.Series) -> dict:
     if len(nav) < 2:
         return {"cagr": None, "max_drawdown": None, "vol": None, "n_days": int(len(nav))}
     years = len(r) / 252.0
-    cagr = float((nav.iloc[-1] / nav.iloc[0]) ** (1 / years) - 1) if years > 0 and nav.iloc[0] > 0 else None
+    cagr = (
+        float((nav.iloc[-1] / nav.iloc[0]) ** (1 / years) - 1)
+        if years > 0 and nav.iloc[0] > 0
+        else None
+    )
     peak = nav.cummax()
     mdd = float((nav / peak - 1.0).min())
     vol = float(r.std(ddof=1) * np.sqrt(252)) if len(r) > 2 else None
     return {"cagr": cagr, "max_drawdown": mdd, "vol": vol, "n_days": int(len(nav))}
+
+
+def _pct(x: float | None) -> str:
+    """Format a ratio; treat only None as missing (0.0 is a valid MDD/CAGR)."""
+    if x is None:
+        return "n/a"
+    return f"{x:.2%}"
+
+
+def _abs_or(x: float | None, default: float) -> float:
+    """abs(x) with None→default; do not treat 0.0 as missing via `or`."""
+    return abs(default if x is None else x)
 
 
 def _window(df: pd.DataFrame, start, end) -> pd.DataFrame:
@@ -67,9 +83,7 @@ def main() -> None:
     base = base[base["date"] <= asof]
     cap = cap[cap["date"] <= asof]
 
-    # Month containing asof
     month_start = pd.Timestamp(asof.year, asof.month, 1)
-    # Trailing windows
     windows = {
         "mtd": (month_start, asof),
         "ytd": (pd.Timestamp(asof.year, 1, 1), asof),
@@ -84,12 +98,13 @@ def main() -> None:
         c = _window(cap, ws, we)
         if len(b) < 2 or len(c) < 2:
             continue
-        # rebase each window
         bnav = b["nav"] / float(b["nav"].iloc[0])
         cnav = c["nav"] / float(c["nav"].iloc[0])
         sb, sc = _stats(bnav), _stats(cnav)
-        mdd_improve_pp = (abs(sb["max_drawdown"] or 9) - abs(sc["max_drawdown"] or 9)) * 100
-        cagr_giveback_pp = ((sb["cagr"] or 0) - (sc["cagr"] or 0)) * 100
+        mdd_improve_pp = (_abs_or(sb["max_drawdown"], 9.0) - _abs_or(sc["max_drawdown"], 9.0)) * 100
+        base_cagr = 0.0 if sb["cagr"] is None else sb["cagr"]
+        cap_cagr = 0.0 if sc["cagr"] is None else sc["cagr"]
+        cagr_giveback_pp = (base_cagr - cap_cagr) * 100
         rows.append(
             {
                 "window": wname,
@@ -105,7 +120,6 @@ def main() -> None:
             }
         )
 
-    # Alerts (paper only)
     held = next((r for r in rows if r["window"] == "heldout_2019_plus"), None)
     alerts = []
     if held:
@@ -144,8 +158,8 @@ def main() -> None:
     ]
     for r in rows:
         lines.append(
-            f"| {r['window']} | {(r['base_cagr'] or float('nan')):.2%} | {(r['base_mdd'] or float('nan')):.2%} | "
-            f"{(r['fincap50_cagr'] or float('nan')):.2%} | {(r['fincap50_mdd'] or float('nan')):.2%} | "
+            f"| {r['window']} | {_pct(r['base_cagr'])} | {_pct(r['base_mdd'])} | "
+            f"{_pct(r['fincap50_cagr'])} | {_pct(r['fincap50_mdd'])} | "
             f"{r['mdd_improve_pp']:+.2f} | {r['cagr_giveback_pp']:+.2f} | {r['rel_nav_end']:.4f} |"
         )
     lines += ["", "## Alerts", ""]

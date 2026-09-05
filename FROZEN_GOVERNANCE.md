@@ -242,6 +242,13 @@ The handoff claim “MDD about -13.16%” was re-verified on 2026-09-04 as **NOT
 
 Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is an EXPERIMENTAL challenger. Because E45 is SOFT_FROZEN_CRITICAL, that challenger must use a separate folder, keep the original baseline, and clear the higher validation bar in §1 before any new frozen version.
 
+#### Official class vs live cutover (read carefully)
+
+- **SOFT_FROZEN / SOFT_FROZEN_CRITICAL** names the *official strategy-version class* (E16 / E18 / E22 / E45). Class membership alone does **not** mean a module is live-wired into the forward book.
+- **Current live cutover default** (ops / debt board): **E16 + E18 + E22_v2s cutover-only**, with live E16 Financial clip **[0.50, 0.95]**. No overlay. No silent Soft-Frozen flip.
+- **E45** remains SOFT_FROZEN_CRITICAL as the official crisis-protection *version*, but it is **not** auto-live-wired. Any live attach requires a separate challenger PASS **and** an explicit human cutover PR. Unverified handoff numbers (including invented −13.16% MDD) must not be treated as PASS evidence.
+- Research challengers (FIN_CAP_50, MDD L1–L4, E50-A overlays) stay EXPERIMENTAL / paper until that human cutover path completes.
+
 ---
 
 ## 5. EXPERIMENTAL contents

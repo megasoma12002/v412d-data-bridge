@@ -37,7 +37,12 @@ WARMUP_DAYS = 252
 
 
 def e16_features(m: pd.DataFrame):
-    """Causal E16 target history — same logic as e21_forward_pipeline.features (copy)."""
+    """Causal E16 target history — Soft-Frozen Financial clip [0.50, 0.95].
+
+    Intentionally mirrors `e21_forward_pipeline.features` (live path). Keep both in
+    sync; do not retune clip/priors here without a Soft-Frozen challenger PR.
+    FIN_CAP variants must use `e16_fin_cap_oof_challenger.e16_features_fin_cap`.
+    """
     p = m.pivot(index="date", columns="code", values="adj_close").sort_index().ffill()
     r = p.pct_change(fill_method=None).fillna(0)
     sleeve = pd.DataFrame(

@@ -24,6 +24,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e50_early_stack_combined_nav import ALL, FIN, TEL, e16_features, nav_stats, simulate_core
+from e16_fin_cap_oof_challenger import e16_features_fin_cap
 import e22_dividend_accounting as e22div
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -55,73 +56,8 @@ CANDIDATES: list[dict] = [
 ]
 
 
-def e16_features_fin_cap(market: pd.DataFrame, fin_lo: float, fin_hi: float):
-    """Causal E16 router with Financial hard clip [fin_lo, fin_hi]; residual -> Telecom/0050."""
-    p = market.pivot(index="date", columns="code", values="adj_close").sort_index().ffill()
-    r = p.pct_change(fill_method=None).fillna(0)
-    sleeve = pd.DataFrame(
-        {"Financial": r[FIN].mean(1), "Telecom": r[TEL].mean(1), "0050": r["0050"]}
-    )
-    tc = p["TAIEX"]
-    tr = tc.pct_change()
-    ma = tc.rolling(200).mean()
-    vol = tr.rolling(20).std() * np.sqrt(252)
-    dd = tc / tc.rolling(252, min_periods=120).max() - 1
-    reg = pd.Series("Sideways", index=p.index)
-    reg[(tc > ma) & (vol < 0.25)] = "Bull"
-    reg[tc < ma] = "Bear"
-    reg[(vol > 0.35) | (dd < -0.15)] = "Crisis"
-    nav = (1 + sleeve).cumprod()
-    m20 = nav / nav.shift(20) - 1
-    m60 = nav / nav.shift(60) - 1
-    sv = sleeve.rolling(20).std() * np.sqrt(252)
-    d60 = nav / nav.rolling(60, min_periods=20).max() - 1
-
-    def z(x):
-        return x.sub(x.mean(1), axis=0).div(x.std(1).replace(0, np.nan), axis=0).fillna(0)
-
-    score = 0.35 * z(m20) + 0.35 * z(m60) - 0.20 * z(sv) + 0.10 * z(d60)
-    out = []
-    start_fin = float(np.clip(0.90, fin_lo, fin_hi))
-    rem = 1.0 - start_fin
-    cur = np.array([start_fin, rem * 0.7, rem * 0.3])
-    for i, _dt in enumerate(p.index):
-        rg = reg.iloc[i]
-        pri = {
-            "Bull": np.array([0.85, 0.05, 0.10]),
-            "Crisis": np.array([0.60, 0.35, 0.05]),
-            "Bear": np.array([0.70, 0.25, 0.05]),
-            "Sideways": np.array([0.85, 0.10, 0.05]),
-        }[rg]
-        cand = np.maximum(pri + 0.10 * np.clip(score.iloc[i].to_numpy(), -2, 2), 0)
-        cand[0] = np.clip(cand[0], fin_lo, fin_hi)
-        cand[1] = np.clip(cand[1], 0.03, 0.35)
-        cand[2] = np.clip(cand[2], 0, 0.35)
-        others = cand[1] + cand[2]
-        if others <= 1e-12:
-            cand[1], cand[2] = 0.5 * (1 - cand[0]), 0.5 * (1 - cand[0])
-        else:
-            scale = (1.0 - cand[0]) / others
-            cand[1] *= scale
-            cand[2] *= scale
-        cand = np.maximum(cand, 0)
-        cand /= cand.sum()
-        desired = 0.75 * cur + 0.25 * cand
-        desired[0] = float(np.clip(desired[0], fin_lo, fin_hi))
-        oth = desired[1] + desired[2]
-        if oth <= 1e-12:
-            desired[1], desired[2] = 0.5 * (1 - desired[0]), 0.5 * (1 - desired[0])
-        else:
-            scale = (1.0 - desired[0]) / oth
-            desired[1] *= scale
-            desired[2] *= scale
-        desired = np.maximum(desired, 0)
-        desired /= desired.sum()
-        if np.abs(desired - cur).sum() >= 0.02:
-            cur = desired
-        out.append(cur.copy())
-    target = pd.DataFrame(out, index=p.index, columns=["Financial", "Telecom", "0050"])
-    return p, sleeve, target, reg
+# e16_features_fin_cap: single canonical impl in e16_fin_cap_oof_challenger
+# (numerically identical to the prior inlined copy; do not fork Soft-Frozen clip logic).
 
 
 def build_stress_flags(prices: pd.DataFrame, regime: pd.Series) -> dict[str, pd.Series]:

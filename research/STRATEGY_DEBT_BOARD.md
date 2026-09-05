@@ -1,6 +1,6 @@
 # Strategy Debt Board
 
-Date: 2026-09-05 (L4 held-out **PASS** — research only; Soft-Frozen unchanged)  
+Date: 2026-09-05 (code-review fixes: month-end NaN, fin_cap single-source, Soft-Frozen/live wording)  
 Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
 Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 
@@ -17,6 +17,7 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | L4 Exact T+1 OOF | `OOF_L4_READY_FOR_ADV_LITE` — locked `L4_DD_PATH_08_50` |
 | L4 adv-lite | `ADV_LITE_L4_READY_FOR_HELDOUT` — placebo P=0.000; year-split OK |
 | **L4 held-out** | **`PASS_HELDOUT_L4`** — val+sealed both clear |
+| Code-review fixes | Month-end `0→nan` format; `e16_features_fin_cap` single-source; Soft-Frozen vs live cutover wording in `FROZEN_GOVERNANCE.md` |
 
 ### NOW
 | Item | Action | Status |
