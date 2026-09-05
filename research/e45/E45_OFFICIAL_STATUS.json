@@ -1,0 +1,27 @@
+{
+  "generated_at_utc": "2026-09-05T15:45:00+00:00",
+  "E45_ARTIFACT_STATUS": "NOT_VERIFIED",
+  "E45_STITCH_STATUS": "DEFERRED",
+  "E45_GOVERNANCE_CLASS": "SOFT_FROZEN_CRITICAL",
+  "E45_LIVE_AUTHORIZATION": "NO",
+  "default_books_version_live": "E22_v2s_tw",
+  "paper_feasibility_verdict": "FEASIBLE_CONTINUE_PAPER",
+  "live_ballot_ready": false,
+  "historical_claim": {
+    "mdd": -0.1316,
+    "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE"
+  },
+  "verified_dated_artifact_values": {
+    "closest_lineage_validation_mdd": -0.1581,
+    "e3_locked_winner_validation_mdd": -0.1849,
+    "early_stack_e45_e3_mdd": -0.2076,
+    "early_stack_e45_e3_cagr": 0.1079
+  },
+  "documented_research_lineage": ["E38", "E43", "E44", "E45"],
+  "importable_code_lineage": ["E1", "E1.1", "E2", "E2.1", "E3", "E45_wrapper"],
+  "authority": [
+    "research/ops/E45_ARTIFACT_VERIFICATION_2026-09-05.md",
+    "research/e45/E45_MDD_1316_VERIFICATION.md",
+    "research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md"
+  ]
+}

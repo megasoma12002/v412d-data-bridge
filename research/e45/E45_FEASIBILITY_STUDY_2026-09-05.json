@@ -1,0 +1,169 @@
+{
+  "generated_at_utc": "2026-09-05T15:42:42.223453+00:00",
+  "charter": "research/e45/E45_FEASIBILITY_CHARTER.md",
+  "baseline": "E16_E18_E22_v2s",
+  "challenger": "E16_E18_E22_v2s_E45_E3",
+  "full_sample": {
+    "baseline_cagr": 0.13296463651919832,
+    "challenger_cagr": 0.10418412444200764,
+    "baseline_mdd": -0.2263873534222821,
+    "challenger_mdd": -0.2075836624984907,
+    "n_days": 3351,
+    "crisis_days": 423,
+    "mean_e45_scale_baseline": 1.0,
+    "mean_e45_scale_challenger": 0.9067972943914351,
+    "cagr_giveback_pp": 2.878051207719068,
+    "mdd_improvement_pp": 1.8803690923791416
+  },
+  "crisis_path": {
+    "baseline_mdd": -0.14035729376243833,
+    "challenger_mdd": -0.11951885085638458,
+    "mdd_improvement_pp": 2.0838442906053745
+  },
+  "crisis_years": [
+    {
+      "year": 2015,
+      "crisis_days": 77,
+      "baseline_mdd": -0.1364659035219743,
+      "challenger_mdd": -0.1280053976400497,
+      "baseline_cagr": -0.032553131006479274,
+      "challenger_cagr": -0.039282362896597256
+    },
+    {
+      "year": 2016,
+      "crisis_days": 50,
+      "baseline_mdd": -0.04996853524817935,
+      "challenger_mdd": -0.03962946645495691,
+      "baseline_cagr": 0.17872246364165512,
+      "challenger_cagr": 0.17443764756076408
+    },
+    {
+      "year": 2018,
+      "crisis_days": 6,
+      "baseline_mdd": -0.06979967680852917,
+      "challenger_mdd": -0.06143642975673813,
+      "baseline_cagr": 0.0931578692224222,
+      "challenger_cagr": 0.07707612023091515
+    },
+    {
+      "year": 2020,
+      "crisis_days": 27,
+      "baseline_mdd": -0.2263873534222821,
+      "challenger_mdd": -0.2075836624984907,
+      "baseline_cagr": -0.037056764629336714,
+      "challenger_cagr": -0.04958573429615265
+    },
+    {
+      "year": 2022,
+      "crisis_days": 140,
+      "baseline_mdd": -0.16713069839858075,
+      "challenger_mdd": -0.16525521353780337,
+      "baseline_cagr": 0.05596519900232111,
+      "challenger_cagr": 0.03478084985027374
+    },
+    {
+      "year": 2023,
+      "crisis_days": 27,
+      "baseline_mdd": -0.06971432752138362,
+      "challenger_mdd": -0.06580414141479884,
+      "baseline_cagr": 0.07123657728575772,
+      "challenger_cagr": 0.11533785423003606
+    },
+    {
+      "year": 2024,
+      "crisis_days": 20,
+      "baseline_mdd": -0.06880354903338959,
+      "challenger_mdd": -0.05913474962393006,
+      "baseline_cagr": 0.21320776791628404,
+      "challenger_cagr": 0.10089330575280009
+    },
+    {
+      "year": 2025,
+      "crisis_days": 24,
+      "baseline_mdd": -0.09194743345117129,
+      "challenger_mdd": -0.08956059840832231,
+      "baseline_cagr": 0.17987849165653036,
+      "challenger_cagr": 0.056928263124345735
+    },
+    {
+      "year": 2026,
+      "crisis_days": 48,
+      "baseline_mdd": -0.14457279639165488,
+      "challenger_mdd": -0.07229150840022047,
+      "baseline_cagr": 0.641584327041332,
+      "challenger_cagr": 0.42500550396119374
+    }
+  ],
+  "gates": {
+    "F1_artifact_honesty": {
+      "pass": true,
+      "note": "Dated early-stack recompute; -13.16% not used as PASS"
+    },
+    "F2_exact_t1": {
+      "pass": true,
+      "same_bar_fills_baseline": 0,
+      "same_bar_fills_challenger": 0
+    },
+    "F3_crisis_mdd": {
+      "pass": true,
+      "baseline_crisis_path_mdd": -0.14035729376243833,
+      "challenger_crisis_path_mdd": -0.11951885085638458,
+      "improvement_pp": 2.0838442906053745
+    },
+    "F4_full_sample_mdd": {
+      "pass": true,
+      "baseline_mdd": -0.2263873534222821,
+      "challenger_mdd": -0.2075836624984907,
+      "improvement_pp": 1.8803690923791416
+    },
+    "F5_cagr_giveback": {
+      "pass": true,
+      "giveback_pp": 2.878051207719068,
+      "max_pp": 2.0,
+      "crisis_dominates_exception": true,
+      "crisis_years_better": 9,
+      "crisis_years_worse": 0
+    },
+    "F6_no_retune": {
+      "pass": true,
+      "note": "Locked E3 winner only"
+    },
+    "F7_live_untouched": {
+      "pass": true,
+      "note": "Paper repro only; live DEFAULT / forward path not edited"
+    }
+  },
+  "verdict": "FEASIBLE_CONTINUE_PAPER",
+  "live_ballot_ready": false,
+  "official_status_unchanged": {
+    "E45_ARTIFACT_STATUS": "NOT_VERIFIED",
+    "E45_STITCH_STATUS": "DEFERRED",
+    "E45_GOVERNANCE_CLASS": "SOFT_FROZEN_CRITICAL",
+    "E45_LIVE_AUTHORIZATION": "NO"
+  },
+  "lineage": {
+    "documented_research": [
+      "E38",
+      "E43",
+      "E44",
+      "E45"
+    ],
+    "importable_code": [
+      "E1",
+      "E1.1",
+      "E2",
+      "E2.1",
+      "E3",
+      "E45_wrapper"
+    ]
+  },
+  "historical_claim": {
+    "mdd": -0.1316,
+    "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE"
+  },
+  "next_steps": [
+    "If CONTINUE_PAPER: seal cost/stress/recovery KPI pack (still paper)",
+    "Do not open live-switch ballot until FEASIBLE_READY_FOR_LIVE_BALLOT",
+    "Keep live DEFAULT_BOOKS_VERSION = E22_v2s_tw"
+  ]
+}
