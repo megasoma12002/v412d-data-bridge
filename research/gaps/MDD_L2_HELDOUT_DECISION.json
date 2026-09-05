@@ -1,0 +1,50 @@
+{
+  "generated_at_utc": "2026-09-05T01:56:06.872620+00:00",
+  "heldout_label": "STOP_L2_HELDOUT_MIXED",
+  "research_decision": "STOP_L2_HELDOUT_MIXED_KEEP_BASE",
+  "live_wire": false,
+  "retune_allowed": false,
+  "locked_id": "L2_FINCAP_ONLY",
+  "gates": {
+    "mdd_improve_pp_min": 1.0,
+    "cagr_giveback_pp_max": 3.0,
+    "exact_t1": true
+  },
+  "validation_2019_2022": {
+    "window": "validation_2019_2022",
+    "start": "2019-01-01",
+    "end": "2022-12-31",
+    "base_cagr": 0.12330755797580628,
+    "base_mdd": -0.22639131293777337,
+    "l2_cagr": 0.13077717716424475,
+    "l2_mdd": -0.19575705858876413,
+    "mdd_improve_pp": 3.063425434900924,
+    "cagr_giveback_pp": -0.746961918843847,
+    "pass": true,
+    "exact_t1_base": true,
+    "exact_t1_l2": true,
+    "n_days_base": 977,
+    "n_days_l2": 977
+  },
+  "sealed_2023_latest": {
+    "window": "sealed_2023_latest",
+    "start": "2023-01-01",
+    "end": "2026-09-04",
+    "base_cagr": 0.24925144125866705,
+    "base_mdd": -0.1445685098357411,
+    "l2_cagr": 0.20592473065071992,
+    "l2_mdd": -0.10044906358655603,
+    "mdd_improve_pp": 4.411944624918506,
+    "cagr_giveback_pp": 4.332671060794713,
+    "pass": false,
+    "exact_t1_base": true,
+    "exact_t1_l2": true,
+    "n_days_base": 879,
+    "n_days_l2": 879
+  },
+  "promotion": {
+    "replaces_live": false,
+    "dual_paper_ledgers_allowed": false,
+    "note": "Even on PASS, live Soft-Frozen clip stays [0.50,0.95] until explicit cutover PR"
+  }
+}
