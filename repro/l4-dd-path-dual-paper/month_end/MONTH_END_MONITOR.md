@@ -1,6 +1,6 @@
 # L4_DD_PATH Month-End Paper Monitor — asof 2026-09-04
 
-Generated: `2026-09-05T08:01:12.578772+00:00`
+Generated: `2026-09-05T13:55:17.075035+00:00`
 Status: **PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **L4_DD_PATH_08_50**
 
