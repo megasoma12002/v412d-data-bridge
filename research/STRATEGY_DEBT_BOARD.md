@@ -1,63 +1,55 @@
 # Strategy Debt Board
 
-Date: 2026-09-04 (updated after #35 merge + Stage-8 archive)  
-Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.
+Date: 2026-09-05 (code-review fixes: month-end NaN, fin_cap single-source, Soft-Frozen/live wording)  
+Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
+Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 
 ## Now / Next / Later / Won’t
 
 ### DONE
 | Item | Status |
 |---|---|
-| Gap 6.5 odd-lot TW (`E22_v2s_tw`) | **On main** (#35); default still `E22_v2s` |
-| Turnover / held-out diagnosis | **On main**; `MIXED_HELDOUT` |
-| Gap5/6 paper stitch / risk budget / board-lot | **On main** |
-| HANDOFF / TODO identity | **On main** |
-| STOP draft PR archive | **Closed** (#19, #22–#27, #33, #34) |
-| **Stage-8 stress-sleeve** | **SATURATED** — archived (`research/e50a/STAGE8_STRESS_SLEEVE_CLOSEOUT.md`); S8B1/S8C1 = `MIXED_HELDOUT` |
+| Stage-8 / debt closeout | On main (#35, #36) |
+| L1/L2/L3 MDD engines | All MIXED stop on sealed CAGR |
+| FIN_CAP_50 go-live verify | #49 — `NOT_READY_SEALED_CAGR` (sealed gb +4.33; PAUSE 1y/YTD) |
+| Sealed CAGR improve diagnostics | CRISIS_ONLY / FIN70 / BLEND sealed-diag survivors |
+| L4 path/mild-FIN charter | Frozen — util-rank; no harsh-cap family priority |
+| L4 Exact T+1 OOF | `OOF_L4_READY_FOR_ADV_LITE` — locked `L4_DD_PATH_08_50` |
+| L4 adv-lite | `ADV_LITE_L4_READY_FOR_HELDOUT` — placebo P=0.000; year-split OK |
+| **L4 held-out** | **`PASS_HELDOUT_L4`** — val+sealed both clear |
+| Code-review fixes | Month-end `0→nan` format; `e16_features_fin_cap` single-source; Soft-Frozen vs live cutover wording in `FROZEN_GOVERNANCE.md` |
 
-### NEXT (single focus)
+### NOW
+| Item | Action | Status |
+|---|---|---|
+| Track A S9A1 | Month-end KPI | **KEEP** |
+| FIN_CAP_50 paper | Dual-paper observation; cutover frozen | **OPERATING (paper)** |
+| Live Soft-Frozen | **[0.50, 0.95]** | **KEEP (no auto flip)** |
+| L4 challenger | `L4_DD_PATH_08_50` held-out PASS | **RESEARCH PASS — dual-paper candidate only** |
+
+### NEXT
 | Item | Action | Do not |
 |---|---|---|
-| Option-2 paper monitor | Run S9A1 as **research feed** (runbook in repro); not live capital | Live-wire; retune cuts |
-| New stress return engine | New EXPERIMENTAL id / non-TECH2 family — only if continuing alpha | More TECH2 cash/sleeve/freeze grids |
-| Optional | Explicit promote default=`E22_v2s_tw` cutover-only | Silent default flip |
+| Human review PR | Decide whether to open dual-paper for L4_DD_PATH vs Soft-Frozen | Auto live-wire / Soft-Frozen flip |
+| If dual-paper | Month-end KPI parity with FIN50 paper rails | Promote without human PR |
+| FIN_CAP month-end | Continue; cutover frozen while PAUSE/sealed fail | Auto-promote FIN50 |
 
-### LATER (ops-driven)
-| Item | When |
+### WON’T
+L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 without human PR.
+
+## Snapshot
+| Topic | Number |
 |---|---|
-| Receivable / pay-date books (`E22_v3_*`) | Ops needs cash timing |
-| Dividend tax named books | After-tax reporting required |
-| Board-lot 1000 live | Real order capacity constraint |
-| Four-layer combined engine | Only after overlay clears dual held-out + handoff approval |
+| Go-live (FIN50) | **`NOT_READY_SEALED_CAGR`** |
+| L4 OOF | **`OOF_L4_READY_FOR_ADV_LITE`** locked **`L4_DD_PATH_08_50`** |
+| L4 adv-lite | **`ADV_LITE_L4_READY_FOR_HELDOUT`** (placebo P=**0.000**) |
+| L4 held-out | **`PASS_HELDOUT_L4`** |
+| Val | MDD **+1.63**pp; CAGR gb **+1.20**pp |
+| Sealed | MDD **+1.47**pp; CAGR gb **+2.66**pp (≤3.0 gate) |
 
-### WON’T FIX NOW
-- Re-run Stage-8 TECH2 cash / multi-sleeve grids  
-- Invent E45 MDD −13.16% replacement number  
-- Promote experimental 2.5% TO / 0.70 bootstrap to Frozen to “make R1 pass”  
-- Live-wire E50-A while `RESEARCH_ONLY` / `MIXED_HELDOUT`  
-- Rewrite `forward/e21` historical NAV for backfilled dividends  
-- Force board-lot 1000 as formal books (TW 零股 allows 1–999)  
-
-## Identity labels
-
-| Label | Meaning |
-|---|---|
-| `E21 live` | Forward ledger; E22_v2s from cutover; short sample |
-| `E22_v2s` | Formal raw TR (**default**) |
-| `E22_v2s_tw` | TW par CIL (named; not default) |
-| `E50-A RESEARCH_ONLY` | Standalone sleeve; C4 bull reference + S9A1 paper monitor |
-| `E45 NOT_VERIFIED −13.16%` | Challenger; claim has no artifact |
-
-## Gap / alpha snapshot
-
-| Topic | Status |
-|---|---|
-| #5 overlay | Disconnected; TO fixable on OOF; held-out **MIXED**; Stage-8 **saturated** |
-| #6.5 odd-lot | Closed as `E22_v2s_tw` |
-| S9A1 | Best directional stress transfer; still MIXED under 0.70 boot; Option-2 paper/monitor |
-
-## Success criteria (current)
-
-1. Stage-8 evidence on main + debt board says **do not re-grid TECH2 controllers**  
-2. Next work is Option-2 monitor **or** a **new** stress engine id  
-3. Live still has no overlay and no history rewrite  
+## Pointers
+- `research/gaps/MDD_L4_HELDOUT.md`
+- `research/gaps/MDD_L4_ADV_LITE.md`
+- `research/gaps/MDD_L4_OOF.md`
+- `research/gaps/MDD_L4_PATH_FINCAP_CHARTER.md`
+- `research/gaps/FIN_CAP_50_GO_LIVE_VERIFY.md`

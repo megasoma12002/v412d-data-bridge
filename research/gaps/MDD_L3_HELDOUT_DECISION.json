@@ -1,0 +1,60 @@
+{
+  "generated_at_utc": "2026-09-05T02:26:45.730428+00:00",
+  "heldout_label": "STOP_L3_HELDOUT_MIXED",
+  "research_decision": "STOP_L3_HELDOUT_MIXED_KEEP_BASE",
+  "live_wire": false,
+  "retune_allowed": false,
+  "l1_retune_forbidden": true,
+  "l2_reopen_forbidden": true,
+  "soft_frozen_live_clip": [
+    0.5,
+    0.95
+  ],
+  "locked_id": "L3_MILD_35_60",
+  "locked_params": {
+    "fin_lo": 0.35,
+    "fin_hi": 0.6
+  },
+  "gates": {
+    "mdd_improve_pp_min": 1.0,
+    "cagr_giveback_pp_max": 3.0,
+    "exact_t1": true
+  },
+  "validation_2019_2022": {
+    "window": "validation_2019_2022",
+    "start": "2019-01-01",
+    "end": "2022-12-31",
+    "base_cagr": 0.12330755797580628,
+    "base_mdd": -0.22639131293777337,
+    "l3_cagr": 0.12939583189761827,
+    "l3_mdd": -0.20729237733142059,
+    "mdd_improve_pp": 1.9098935606352785,
+    "cagr_giveback_pp": -0.6088273921811993,
+    "pass": true,
+    "exact_t1_base": true,
+    "exact_t1_l3": true,
+    "n_days_base": 977,
+    "n_days_l3": 977
+  },
+  "sealed_2023_latest": {
+    "window": "sealed_2023_latest",
+    "start": "2023-01-01",
+    "end": "2026-09-04",
+    "base_cagr": 0.24925144125866705,
+    "base_mdd": -0.1445685098357411,
+    "l3_cagr": 0.20842038923165362,
+    "l3_mdd": -0.09170883289706888,
+    "mdd_improve_pp": 5.285967693867222,
+    "cagr_giveback_pp": 4.083105202701343,
+    "pass": false,
+    "exact_t1_base": true,
+    "exact_t1_l3": true,
+    "n_days_base": 879,
+    "n_days_l3": 879
+  },
+  "promotion": {
+    "replaces_live": false,
+    "dual_paper_ledgers_allowed": false,
+    "note": "Even on PASS, live Soft-Frozen clip stays [0.50,0.95] until explicit cutover PR"
+  }
+}

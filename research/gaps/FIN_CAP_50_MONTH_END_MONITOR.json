@@ -1,0 +1,72 @@
+{
+  "generated_at_utc": "2026-09-05T01:45:27.312074+00:00",
+  "asof": "2026-09-04",
+  "live_wire": false,
+  "soft_frozen_default_unchanged": true,
+  "label": "FIN_CAP_50_MONTH_END_PAPER_MONITOR",
+  "windows": [
+    {
+      "window": "mtd",
+      "start": "2026-09-01",
+      "end": "2026-09-04",
+      "base_cagr": 20.250631035951997,
+      "base_mdd": 0.0,
+      "fincap50_cagr": 5.286841828395535,
+      "fincap50_mdd": 0.0,
+      "mdd_improve_pp": 0,
+      "cagr_giveback_pp": 1496.3789207556463,
+      "rel_nav_end": 0.9856054665853586
+    },
+    {
+      "window": "ytd",
+      "start": "2026-01-01",
+      "end": "2026-09-04",
+      "base_cagr": 0.6826953584500552,
+      "base_mdd": -0.144568509835741,
+      "fincap50_cagr": 0.5154063285892614,
+      "fincap50_mdd": -0.0759534479996663,
+      "mdd_improve_pp": 6.861506183607469,
+      "cagr_giveback_pp": 16.728902986079387,
+      "rel_nav_end": 0.9352885835361767
+    },
+    {
+      "window": "trailing_1y",
+      "start": "2025-09-04",
+      "end": "2026-09-04",
+      "base_cagr": 0.5436916201438136,
+      "base_mdd": -0.1445685098357411,
+      "fincap50_cagr": 0.4715726014811159,
+      "fincap50_mdd": -0.0759534479996663,
+      "mdd_improve_pp": 6.86150618360748,
+      "cagr_giveback_pp": 7.211901866269765,
+      "rel_nav_end": 0.9552744455425477
+    },
+    {
+      "window": "heldout_2019_plus",
+      "start": "2019-01-01",
+      "end": "2026-09-04",
+      "base_cagr": 0.18235031521908462,
+      "base_mdd": -0.22639131293777337,
+      "fincap50_cagr": 0.16601509541261028,
+      "fincap50_mdd": -0.19575705858876413,
+      "mdd_improve_pp": 3.063425434900924,
+      "cagr_giveback_pp": 1.6335219806474344,
+      "rel_nav_end": 0.9026599569216476
+    },
+    {
+      "window": "full",
+      "start": "2012-12-04",
+      "end": "2026-09-04",
+      "base_cagr": 0.137829469400496,
+      "base_mdd": -0.22639131293777315,
+      "fincap50_cagr": 0.12703815231932358,
+      "fincap50_mdd": -0.19575705858876424,
+      "mdd_improve_pp": 3.0634254349008905,
+      "cagr_giveback_pp": 1.0791317081172425,
+      "rel_nav_end": 0.8810152635952198
+    }
+  ],
+  "alerts": [],
+  "cutover_blocked": false,
+  "note": "Paper monitor only. Soft-Frozen Financial clip remains [0.50,0.95]."
+}
