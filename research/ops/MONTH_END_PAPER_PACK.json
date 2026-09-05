@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T07:03:55.015343+00:00",
+  "generated_at_utc": "2026-09-05T08:01:17.556573+00:00",
   "label": "OPS_MONTH_END_PAPER_PACK",
   "live_wire": false,
   "soft_frozen_clip": [
@@ -36,10 +36,20 @@
       "returncode": 0
     },
     {
+      "name": "e22_gap6_fidelity_kpi",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "fincap50_sealed_cagr_charter_screen",
+      "ok": true,
+      "returncode": 0
+    },
+    {
       "name": "ops_alert_scan",
       "ok": true,
       "returncode": 0
     }
   ],
-  "cutover_note": "Paper/ops cadence only. Soft-Frozen [0.50,0.95] unchanged. FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated."
+  "cutover_note": "Paper/ops cadence only. Soft-Frozen [0.50, 0.95] unchanged. FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated."
 }

@@ -1,6 +1,6 @@
 # Five-Layer Gap Checklist — Operable System
 
-Date: 2026-09-05 (post-merge #61/#62 + Layer-1/5 continuation)  
+Date: 2026-09-05 (actionable batch: month-end + FIN50 charter screen)  
 Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
 Authority: `research/STRATEGY_DEBT_BOARD.md` · map: `OPS_STATUS.md`
 
@@ -14,8 +14,9 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 | Paper sleeves split (FIN50 / L4 / Track A) | **DONE** | |
 | Cutover checklists (prep only) | **DONE** | `CUTOVER_CHECKLIST_{L4,FIN50}.md` |
 | L4 YTD/1y clean for cutover | **OPEN** | PAUSE_REVIEW — observe |
-| FIN50 sealed CAGR gate | **OPEN** | `NOT_READY_SEALED_CAGR` — research path: `FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md` |
-| FIN50 sealed-CAGR improve charter | **DONE** | Named research vehicle; no Soft-Frozen flip |
+| FIN50 sealed CAGR gate | **OPEN** | `NOT_READY_SEALED_CAGR` — still blocked for live |
+| FIN50 sealed-CAGR improve charter | **DONE** | Charter + gate screen landed |
+| FIN50 charter screen (families) | **DONE** | `FINCAP50_SEALED_CAGR_CHARTER_SCREEN` → **BLEND_025** paper-promote proposal only |
 | Alpha / E45 live stitch | **DEFERRED** | needs new charter + human PR |
 
 ## Layer 2 — Live / ops cadence
@@ -24,22 +25,22 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 |---|---|---|
 | Weekday live forward GHA | **DONE** | `v412f-forward-paper` |
 | Live QC smoke | **DONE** | `e21-live-qc-smoke` (+ Gap6 in summary) |
-| Month-end one-button pack | **DONE** | `ops-month-end-paper-pack` |
-| Live↔paper Soft-Frozen recon | **PARTIAL** | works; thin live history (~10d) |
-| QC FAIL / PAUSE alert routing | **DONE** | `ops_alert_scan` + GHA step summary/artifacts |
-| Grow live history to decision-grade | **OPEN** | need ≥~60 sessions before recon is cutover-grade |
+| Month-end one-button pack | **DONE** | refreshed this batch; includes charter screen |
+| Live↔paper Soft-Frozen recon | **PARTIAL** | works; thin live history (~10d); INDEX_DRIFT alert |
+| QC FAIL / PAUSE alert routing | **DONE** | `ops_alert_scan` + GHA artifacts |
+| Grow live history to decision-grade | **OPEN** | need ≥~60 sessions |
 
 ## Layer 3 — Data / execution
 
 | Item | Status | Notes |
 |---|---|---|
-| E22_v2s formal books **code** wired | **DONE** | `e21_forward_pipeline` + `e22_dividend_accounting` |
-| Exact T+1 QC field preserved | **DONE** | |
-| E22 payment/ex-date completeness KPI | **DONE** | `e22_data_quality_kpi` (blank rates 0%) |
-| Gap #6 fidelity KPI | **DONE** | `e22_gap6_fidelity_kpi` — report-only (#62) |
-| Live ledger E22 field evidence | **PARTIAL** | wait next weekday forward to persist `e22_*` / `dividends_applied` |
-| TW odd-lot variant promote | **DEFERRED** | `ODD_LOT_PROMOTE_CHECKLIST.md` |
-| Receivable / pay-date books / div tax as formal | **DEFERRED** | sandbox only; formal stays ex-date TAX0 |
+| E22_v2s formal books **code** wired | **DONE** | |
+| Exact T+1 QC field preserved | **DONE** | QC PASS this batch |
+| E22 payment/ex-date completeness KPI | **DONE** | blank rates 0% |
+| Gap #6 fidelity KPI | **DONE** | |
+| Live ledger E22 field evidence | **PARTIAL** | code ready; wait next weekday forward (`LIVE_E22_FIELD_EVIDENCE.md`) |
+| TW odd-lot variant promote | **DEFERRED** | |
+| Receivable / pay-date books / div tax as formal | **DEFERRED** | |
 
 ## Layer 4 — Governance / docs
 
@@ -48,33 +49,33 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 | OPS_STATUS one-pager | **DONE** | |
 | README → ops entry | **DONE** | |
 | Artifact retention doc | **DONE** | |
-| Forward legacy config note | **DONE** | `FORWARD_LEGACY_NOTE.md` |
-| Phase 0–2 + hardening merged | **DONE** | #58 / #59 / #60 / **#61** / **#62** |
-| Obs #57 closed | **DONE** | superseded |
+| Forward legacy config note | **DONE** | |
+| Phase 0–2 + hardening merged | **DONE** | #58–#63 |
+| Obs #57 closed | **DONE** | |
 
 ## Layer 5 — Engineering / repo
 
 | Item | Status | Notes |
 |---|---|---|
-| Soft-Frozen single source | **DONE** | `e16_soft_frozen_base` |
-| Challenger / ops clip single-source polish | **DONE** | ops emitters + FIN_CAP BASE import Soft-Frozen constants |
-| Shadow E6/E9/E10 labeled not-live | **DONE** | OPS_STATUS + legacy note |
-| Archive `or 0` / `or 9` hygiene | **DONE** | policy: `ARCHIVE_SENTINEL_HYGIENE.md` (no mass archive rewrite) |
+| Soft-Frozen single source | **DONE** | |
+| Challenger / ops clip single-source polish | **DONE** | |
+| Shadow E6/E9/E10 labeled not-live | **DONE** | |
+| Archive `or 0` / `or 9` hygiene | **DONE** | |
 
 ---
 
-## This round completed
+## This batch completed
 
-1. Merged **#61** (alerts + E22 blank-rate KPI) and **#62** (Gap #6 fidelity KPI) to main  
-2. Added **`FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`** (Layer 1 research path; Soft-Frozen KEEP)  
-3. Soft-Frozen clip constants wired into ops alert / month-end / recon + FIN_CAP OOF BASE  
-4. Documented archive `or 0`/`or 9` policy  
-5. QC smoke runs Gap #6 KPI into step summary (evidence refresh without history rewrite)  
+1. Re-ran **month-end pack** (all steps OK) + QC / Gap6 / alerts  
+2. Executed **FIN50 sealed-CAGR charter screen** → decision `PAPER_PROMOTE_PROPOSAL_ONLY` for **BLEND_025**  
+3. Wrote dual-paper promote proposal (not live): `FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
+4. Documented live E22 evidence readiness (no history rewrite)  
+5. Wired charter screen into month-end pack cadence  
 
-## Still highest-value OPEN items
+## Still OPEN (observe / human)
 
-1. Keep running month-end pack until L4 YTD PAUSE clears (Layer 1/2)  
-2. Let live `forward/e21` history lengthen; next forward should persist `e22_*` fields (Layer 2/3)  
-3. Execute FIN50 sealed-CAGR charter families under L4 vehicle when pursuing promote (Layer 1 research)  
+1. L4 / FIN50 trailing PAUSE — keep observing  
+2. Next weekday forward to persist live `e22_*` fields  
+3. Human decision whether to open **BLEND_025 dual-paper observe** sleeve  
 
-**Not OPEN for auto-work:** Soft-Frozen flip, L4/FIN50 live cutover, `E22_v2s_tw` default without human checklist green.
+**Not OPEN for auto-work:** Soft-Frozen flip, L4/FIN50 live cutover, odd-lot default promote.
