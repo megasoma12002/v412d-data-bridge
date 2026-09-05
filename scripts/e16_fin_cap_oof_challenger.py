@@ -28,14 +28,20 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 from research_metric_helpers import abs_mdd, cagr_value
 import e22_dividend_accounting as e22div
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
 
 OUT = Path("repro/gap-cagr-finance-concentration/fin_cap_oof")
 OOF_START, OOF_END = date(2011, 1, 1), date(2018, 12, 31)
 HOLD_START = date(2019, 1, 1)
 
-# Predeclared challengers (do not edit after first OOF peek)
+# Predeclared challengers (do not edit after first OOF peek).
+# BASE clip bounds come from Soft-Frozen single source — challenger caps stay named.
 CHALLENGERS = {
-    "BASE_E16": {"fin_lo": 0.50, "fin_hi": 0.95, "is_baseline": True},
+    "BASE_E16": {
+        "fin_lo": float(SOFT_FROZEN_FIN_LO),
+        "fin_hi": float(SOFT_FROZEN_FIN_HI),
+        "is_baseline": True,
+    },
     "FIN_CAP_60": {"fin_lo": 0.40, "fin_hi": 0.60, "is_baseline": False},
     "FIN_CAP_50": {"fin_lo": 0.35, "fin_hi": 0.50, "is_baseline": False},
 }

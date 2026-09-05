@@ -40,6 +40,8 @@ Alerts: `research/ops/OPS_ALERTS.md`
 E22 KPI: `research/ops/E22_DATA_QUALITY_KPI.md`  
 Gap #6 fidelity: `research/ops/E22_GAP6_FIDELITY_KPI.md`  
 Odd-lot promote (DEFERRED): `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`  
+FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
+Archive sentinel policy: `research/ops/ARCHIVE_SENTINEL_HYGIENE.md`  
 Five-layer gaps: `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`  
 Legacy forward config: `research/ops/FORWARD_LEGACY_NOTE.md`
 
