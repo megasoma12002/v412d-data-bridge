@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T09:13:16.968459+00:00",
+  "generated_at_utc": "2026-09-05T09:20:47.399005+00:00",
   "label": "DATA_SOURCE_RESILIENCE_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -125,14 +125,17 @@
   ],
   "kpi_ok": true,
   "phase_a_done": true,
-  "phase_b_next": [
-    "TAIEX FinMind vs Yahoo/^TWII shadow diff",
-    "Dividend amount FinMind vs Yahoo reconcile (flag-only)",
-    "Fin-12 recent Yahoo vs TWSE shadow"
+  "phase_b_done": true,
+  "phase_b_artifact": "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json",
+  "phase_c_next": [
+    "Second vendor for full Fin-12 history (charter)",
+    "Corporate-action factor dual source (research)",
+    "Optional runtime TAIEX failover (today shadow-only)"
   ],
   "do_not": [
     "Treat Goodinfo/Wantgoo/CMoney as payment-date backups",
     "Silent Soft-Frozen flip",
-    "Rewrite forward/e21 history"
+    "Rewrite forward/e21 history",
+    "Auto-overwrite e22 dividend amounts from Yahoo"
   ]
 }

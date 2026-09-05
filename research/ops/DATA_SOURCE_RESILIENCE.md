@@ -1,8 +1,9 @@
 # Data Source Resilience — Inventory & Optimization
 
-Date: 2026-09-05  
+Date: 2026-09-05 (Phase B shadow reconcile landed)  
 Status: **OPS / ENGINEERING** — Soft-Frozen **[0.50, 0.95] KEEP**; no live-wire  
-KPI: `scripts/data_source_resilience_kpi.py` → `DATA_SOURCE_RESILIENCE_KPI.{json,md}`
+KPI: `scripts/data_source_resilience_kpi.py` → `DATA_SOURCE_RESILIENCE_KPI.{json,md}`  
+Shadow: `scripts/data_source_shadow_reconcile.py` → `DATA_SOURCE_SHADOW_RECONCILE.{json,md}`
 
 ## Goal
 
@@ -10,36 +11,38 @@ Make single-vendor risk **visible and prioritized**. Do not pretend blocked scra
 
 ## Current matrix
 
-| Stream | Primary | Backup today | Grade | Optimize next |
+| Stream | Primary | Backup / shadow today | Grade | Notes |
 |---|---|---|---|---|
-| Fin-12 **history** OHLCV | GitHub `tw-stock-data-release` | **None** (TWSE only ~14d append) | **D** | Phase B: TWSE/Yahoo shadow archive for overlap QC |
-| Fin-12 **recent** OHLCV | TWSE `MI_INDEX` | None second exchange | **B** | Keep; extend append window only if needed |
-| Telecom / 0050 raw OHLCV | FinMind | **Yahoo** (`fetch_telecom_0050_ohlcv.py`) | **A** | Pattern to copy |
-| TAIEX | FinMind only | **None** | **D** | Phase A: Yahoo `^TWII` or TWSE index fetch + diff KPI |
-| Adj / corporate-action factors | FinMind | **None** | **D** | Phase C: cross-check vs Yahoo adj (research only) |
-| Dividend **amount / ex-date** | FinMind | No second amount feed | **C** | Phase B: Yahoo amount reconcile (flag drift, don’t silent-replace) |
-| Dividend **payment date** | FinMind → MOPS → **Yahoo TW** | Goodinfo/Wantgoo/CMoney **FAILED** | **A** | Keep Yahoo; drop dead scrapers from “backup” lists |
-| E50 fundamentals | FinMind | None | **D** | Out of Soft-Frozen critical path; charter if needed |
-| Runtime live/paper | Committed `live_market.csv` + `e22_dividend_events.csv` | Separate refresh workflows | **B** | Alert if dividend CSV stale vs calendar |
+| Fin-12 **history** OHLCV | GitHub `tw-stock-data-release` | **None** (TWSE ~14d append only) | **D** | Phase C for second full-history vendor |
+| Fin-12 **recent** OHLCV | TWSE / live_market path | **Yahoo `.TW` shadow** (returns gate) | **B→B+** | Phase B: `fin12_recent` check |
+| Telecom / 0050 raw OHLCV | FinMind | **Yahoo** (`fetch_telecom_0050_ohlcv.py`) | **A** | Runtime fallback |
+| TAIEX | FinMind → live_market | **Yahoo `^TWII` shadow** (returns) | **D→C** | Phase B: shadow OK; not yet runtime failover |
+| Adj / corporate-action factors | FinMind | **None** | **D** | Phase C research |
+| Dividend **amount / ex-date** | FinMind | **Yahoo amount shadow** (flag-only) | **C→B** | Phase B: 114 overlaps, 0 flags (latest run) |
+| Dividend **payment date** | FinMind → MOPS → **Yahoo TW** | Goodinfo/Wantgoo/CMoney **FAILED** | **A** | Keep Yahoo |
+| E50 fundamentals | FinMind | None | **D** | Non-critical for Soft-Frozen |
+| Runtime live/paper | Committed CSVs | Separate refresh workflows | **B** | — |
 
-Grade: **A** = primary+working backup · **B** = adequate for live cadence · **C** = works but single-vendor on critical field · **D** = single-point / no backup.
+Grade: **A** = primary+working backup · **B** = adequate · **C** = single-vendor mitigated by shadow · **D** = single-point.
 
-## Optimization phases (objective order)
+## Phases
 
-### Phase A — do now (this change)
-1. Publish this matrix as ops authority.  
-2. Automated resilience KPI (single-point flags = INFO, not Soft-Frozen flip).  
-3. Wire KPI into month-end pack + alert scan (report-only).
+### Phase A — DONE (#68)
+Matrix + resilience KPI + pack/alert wire.
 
-### Phase B — next engineering (separate PR)
-1. **TAIEX dual-fetch probe**: FinMind vs Yahoo `^TWII` (or TWSE) → overlap RMSE / gap days; write shadow CSV only.  
-2. **Dividend amount reconcile**: Yahoo vs FinMind on ex-date keys → drift report; never auto-overwrite formal ledger without human PR.  
-3. **Fin-12 recent shadow**: optional Yahoo `.TW` panel vs TWSE append for last N days.
+### Phase B — DONE (this change)
+1. **TAIEX** live_market vs Yahoo `^TWII` — daily **returns** corr/MAE.  
+2. **Dividend amounts** FinMind ledger vs Yahoo — **flag-only**, never auto-overwrite.  
+3. **Fin sleeve recent** live_market vs Yahoo `.TW` — gate on returns; level scale noted.
+
+Script: `scripts/data_source_shadow_reconcile.py`  
+Artifacts: `research/ops/DATA_SOURCE_SHADOW_RECONCILE.*`, `repro/data-source-shadow/`
 
 ### Phase C — research charter only
-1. Second vendor for full Fin-12 history (paid / alternate archive).  
+1. Second vendor for full Fin-12 history.  
 2. Corporate-action factor dual source.  
-3. Do **not** re-open Goodinfo/Wantgoo/CMoney as payment-date backups.
+3. Optional **runtime** TAIEX failover (today shadow-only).  
+4. Do **not** re-open Goodinfo/Wantgoo/CMoney as payment-date backups.
 
 ## Hard rules
 
@@ -50,4 +53,4 @@ Grade: **A** = primary+working backup · **B** = adequate for live cadence · **
 
 ## Label
 
-`DATA_SOURCE_RESILIENCE_2026-09-05`
+`DATA_SOURCE_RESILIENCE_2026-09-05_PHASE_B`

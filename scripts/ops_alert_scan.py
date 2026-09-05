@@ -35,6 +35,7 @@ RECON_JSON = ROOT / "research/ops/LIVE_PAPER_RECON.json"
 GAP6_JSON = ROOT / "research/ops/E22_GAP6_FIDELITY_KPI.json"
 E22_KPI_JSON = ROOT / "research/ops/E22_DATA_QUALITY_KPI.json"
 RESILIENCE_JSON = ROOT / "research/ops/DATA_SOURCE_RESILIENCE_KPI.json"
+SHADOW_JSON = ROOT / "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json"
 
 # Soft-Frozen clip — single source (never hardcode drift).
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -247,6 +248,38 @@ def main() -> int:
                     "message": "dividend payment-date backup path regressed",
                 }
             )
+
+    shadow = _load(SHADOW_JSON)
+    if shadow is None:
+        alerts.append(
+            {
+                "severity": "INFO",
+                "source": "data_source_shadow_reconcile",
+                "code": "SHADOW_RECONCILE_MISSING",
+                "message": f"missing {SHADOW_JSON} (run data_source_shadow_reconcile)",
+            }
+        )
+    else:
+        for c in shadow.get("checks") or []:
+            st = str(c.get("status") or "")
+            if st == "DRIFT":
+                alerts.append(
+                    {
+                        "severity": "INFO",
+                        "source": "data_source_shadow_reconcile",
+                        "code": f"SHADOW_DRIFT_{c.get('id')}".upper(),
+                        "message": f"{c.get('id')}: {st} detail={c.get('detail_csv') or c.get('note')}",
+                    }
+                )
+            elif st in {"NO_OVERLAP", "YAHOO_EMPTY", "MISSING_LEDGER"}:
+                alerts.append(
+                    {
+                        "severity": "INFO",
+                        "source": "data_source_shadow_reconcile",
+                        "code": f"SHADOW_FAIL_{c.get('id')}".upper(),
+                        "message": f"{c.get('id')}: {st}",
+                    }
+                )
 
     # Rank
     rank = {"CRITICAL": 0, "HIGH": 1, "INFO": 2}
