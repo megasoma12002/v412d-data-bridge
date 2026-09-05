@@ -1,0 +1,69 @@
+{
+  "generated_at_utc": "2026-09-05T01:03:22.223907+00:00",
+  "version_id": "E50-A3-S1",
+  "track": "B_STRESS_ENGINE",
+  "live_wire": false,
+  "retune_allowed": false,
+  "locked": {
+    "family": "S1-QRES",
+    "detector": "COMBO_VOL80_VAL00",
+    "shell": {
+      "top_k": 22,
+      "rebalance_every": 42,
+      "exit_multiple": 2.25,
+      "neutralization": "NONE",
+      "industry_cap": 5,
+      "min_hold_cycles": 0,
+      "liquidity_floor": 20000000.0,
+      "replace_rank_gap": 5
+    },
+    "vol_pctl": 0.8,
+    "val_ic_min": 0.0,
+    "hysteresis_on": 2,
+    "hysteresis_off": 5
+  },
+  "validation_2019_2022": {
+    "window": "validation_2019_2022",
+    "cagr": 0.1734730215707223,
+    "max_drawdown": -0.29663579964964926,
+    "utility": 0.02515512174589768,
+    "average_daily_turnover": 0.02066523042863266,
+    "block_bootstrap_positive_probability": 0.334,
+    "mean_gross_exposure": 0.9989764585465711,
+    "turnover_gate_pass": true,
+    "bootstrap_gate_pass": false,
+    "exact_t1_ok": true,
+    "stress_day_share": 0.05527123848515865,
+    "s_crisis_mean_excess": -0.00014018383020509453,
+    "c4_cagr": 0.2119897645416351,
+    "c4_max_drawdown": -0.26523677303728077,
+    "c4_s_crisis_mean_excess": 0.00036192686617059623,
+    "stress_beats_c4": false,
+    "both_gates_pass": false
+  },
+  "sealed_2023_latest": {
+    "window": "sealed_2023_latest",
+    "cagr": 0.42237609626504047,
+    "max_drawdown": -0.3176282401865931,
+    "utility": 0.26356197617174393,
+    "average_daily_turnover": 0.01954300797552265,
+    "block_bootstrap_positive_probability": 0.9654,
+    "mean_gross_exposure": 0.9988623435722411,
+    "turnover_gate_pass": true,
+    "bootstrap_gate_pass": true,
+    "exact_t1_ok": true,
+    "stress_day_share": 0.16496018202502843,
+    "s_crisis_mean_excess": -0.0007531143409322102,
+    "c4_cagr": 0.4881621706190584,
+    "c4_max_drawdown": -0.20993341008934885,
+    "c4_s_crisis_mean_excess": 0.0018366629725637318,
+    "stress_beats_c4": false,
+    "both_gates_pass": true
+  },
+  "heldout_label": "FAIL_HELDOUT",
+  "research_decision": "STOP_S1_HELDOUT_KEEP_TRACK_A",
+  "promotion": {
+    "replaces_track_a_paper_monitor": false,
+    "live_wire": false
+  }
+}
