@@ -88,3 +88,5 @@ Artifact verification (read-only, E45 unmodified): **`E45_NOT_VERIFIED`**
 Report: `research/ops/E45_ARTIFACT_VERIFICATION_2026-09-05.md`
 
 Claimed validation MDD ≈ −13.16% remains **NOT_VERIFIED**. DEFAULT path unchanged.
+
+Canonical status: `research/e45/E45_OFFICIAL_STATUS.md` (`NOT_VERIFIED` / `DEFERRED` / `SOFT_FROZEN_CRITICAL` / live auth `NO`; −13.16% = `NOT_VERIFIED_HISTORICAL_NARRATIVE`).

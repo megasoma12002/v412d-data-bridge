@@ -64,7 +64,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | L4 cutover PR | Only after register re-open trigger + checklist all-green | Soft-Frozen flip; static clip swap; open PR while PAUSE |
 | FIN50 static cutover PR | **Do not open** while `NOT_READY_SEALED_CAGR` | Retune FIN50 lock; ignore `NOT_READY` |
 | BLEND_025 live-wire | Only after `CUTOVER_CHECKLIST_BLEND025` all-green + human PR | Treat observe PASS / checklist draft as promote |
-| E45 / odd-lot / tax books | Charters drafted 2026-09-05 — **human ballot** (`ODD_LOT_PROMOTE_DECISION_PACK`, `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER`, `E45_LIVE_STITCH_CHARTER`) | Four-layer live stitch; silent default promote; accept-all-three in one PR |
+| E45 / odd-lot / tax books | Item1 DONE; Item2 ACCEPT charter; Item3 **DEFER stitch** — E45 `NOT_VERIFIED` / Soft-Frozen CRITICAL KEEP (`E45_OFFICIAL_STATUS.md`) | Four-layer live stitch; silent default promote; treat −13.16% as verified |
 
 ### WON’T
 L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 / BLEND_025 without human PR; reopen S1 residual detector grid; conflate FIN50 static promote with L4 DD-path or BLEND_025 observe.
@@ -76,7 +76,7 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 | FIN_CAP_50 | Static clip → **[0.35, 0.50]** | `NOT_READY_SEALED_CAGR` + YTD/1y PAUSE | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_FIN50.md` |
 | L4_DD_PATH_08_50 | Wire DD-path logic | YTD PAUSE + need clean month-end + human PR | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_L4.md` |
 | BLEND_025 | Soft-Frozen → blend weights | Observe ≠ promote; checklist prep only | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_BLEND025.md` (**NOT AUTHORIZED**) |
-| E50-A / E45 | Overlay / crisis | Not live-wired; E45 NOT_VERIFIED | N/A | — |
+| E50-A / E45 | Overlay / crisis | E45 Soft-Frozen CRITICAL; artifact NOT_VERIFIED; stitch DEFERRED; live auth NO; −13.16% = NOT_VERIFIED_HISTORICAL_NARRATIVE | N/A | `research/e45/E45_OFFICIAL_STATUS.md` |
 
 ## Snapshot
 | Topic | Number |

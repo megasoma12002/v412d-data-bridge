@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Verify handoff/spec claim: E45 MDD ≈ -13.16%.
+"""Verify handoff/spec historical narrative: E45 MDD ≈ -13.16%.
+
+Claim label: NOT_VERIFIED_HISTORICAL_NARRATIVE (do not treat as verified baseline).
+Canonical status: research/e45/E45_OFFICIAL_STATUS.md
 
 Scans research artifacts and recomputes early-stack+E45 challenger MDDs.
 Does not invent a replacement baseline number.

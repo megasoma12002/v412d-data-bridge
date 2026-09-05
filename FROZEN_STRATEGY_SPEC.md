@@ -131,7 +131,14 @@ Information(T)
 
 既有重要基準：
 - Single Exact-T+1 Full Model
-- MDD 約 -13.16%（**NOT_VERIFIED**：2026-09-04 查無對應 artifact；見 `research/e45/E45_MDD_1316_VERIFICATION.md`）
+- 歷史敘事 MDD ≈ −13.16% → 標籤 **`NOT_VERIFIED_HISTORICAL_NARRATIVE`**（不得當 verified 事實）
+- 現行 dated artifact（權威狀態：`research/e45/E45_OFFICIAL_STATUS.md`）：
+  - closest lineage validation MDD：**−15.81%**
+  - E3 locked winner validation MDD：**−18.49%**
+  - early-stack + E45_E3 MDD：**−20.76%**；CAGR **~10.79%**
+- 官方狀態：`E45_ARTIFACT_STATUS=NOT_VERIFIED` · `E45_STITCH_STATUS=DEFERRED` · `E45_GOVERNANCE_CLASS=SOFT_FROZEN_CRITICAL` · `E45_LIVE_AUTHORIZATION=NO`
+- Documented research lineage：`E38 → E43 → E44 → E45`
+- Importable code lineage：`E1 → E1.1 → E2 → E2.1 → E3 → E45 wrapper`
 
 危機處理順序：
 
@@ -152,7 +159,7 @@ E45 不是 Alpha Model。
 E45 是危機保護層。
 
 狀態：
-**FROZEN CRISIS CORE**
+**SOFT_FROZEN_CRITICAL**（official crisis class；**not** live-authorized；stitch **DEFERRED**)
 
 ---
 

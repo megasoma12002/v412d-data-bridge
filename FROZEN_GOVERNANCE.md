@@ -236,17 +236,40 @@ Changing dividend cashflow timing (e.g. payment-date credit) or tax treatment be
 
 ### E45 Crisis Protection Core — current official version (SOFT_FROZEN_CRITICAL)
 
-Current crisis implementation, parameters, and the reported MDD baseline claim. E45 is the official crisis-protection version, not an alpha model. Alpha weakening is not treated as crisis in this official operating logic.
+Current crisis implementation and parameters. E45 is the official crisis-protection **class**, not an alpha model. Alpha weakening is not treated as crisis in this official operating logic.
 
-The handoff claim “MDD about -13.16%” was re-verified on 2026-09-04 as **NOT_VERIFIED** (no research CSV/JSON MDD equals -0.1316). See `research/e45/E45_MDD_1316_VERIFICATION.md`. Prefer dated lineage MDDs in `scripts/e45_crisis_core.py` (`VERIFIED_LINEAGE_MDD`). It is not a new freeze and not a license to retune E45 in place.
+**Canonical status (2026-09-05):** see `research/e45/E45_OFFICIAL_STATUS.md`
 
-Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is an EXPERIMENTAL challenger. Because E45 is SOFT_FROZEN_CRITICAL, that challenger must use a separate folder, keep the original baseline, and clear the higher validation bar in §1 before any new frozen version.
+| Constant | Value |
+|---|---|
+| `E45_ARTIFACT_STATUS` | **`NOT_VERIFIED`** |
+| `E45_STITCH_STATUS` | **`DEFERRED`** |
+| `E45_GOVERNANCE_CLASS` | **`SOFT_FROZEN_CRITICAL`** |
+| `E45_LIVE_AUTHORIZATION` | **`NO`** |
+
+**Historical narrative (preserved, not deleted):** handoff/spec “MDD about −13.16%” is labeled **`NOT_VERIFIED_HISTORICAL_NARRATIVE`**. No research CSV/JSON MDD equals −0.1316 (scan 2026-09-04; reconfirmed 2026-09-05). Do **not** treat −13.16% as verified fact or PASS evidence.
+
+**Verified dated-artifact values (use these instead):**
+
+| Metric | Value |
+|---|---:|
+| Closest lineage validation MDD | **−15.81%** |
+| E3 locked winner validation MDD | **−18.49%** |
+| Early-stack + E45_E3 MDD | **−20.76%** |
+| Early-stack + E45_E3 CAGR | **~10.79%** |
+
+**Lineage distinction:**
+
+- **DOCUMENTED RESEARCH LINEAGE:** `E38 → E43 → E44 → E45` (narrative preserved)
+- **IMPORTABLE CODE LINEAGE:** `E1 → E1.1 → E2 → E2.1 → E3 → E45 wrapper`
+
+Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is an EXPERIMENTAL challenger. Because E45 is SOFT_FROZEN_CRITICAL, that challenger must use a separate folder, keep the original baseline, and clear the higher validation bar in §1 before any new frozen version. Stitch remains **DEFERRED** until a later human ballot after artifact PASS.
 
 #### Official class vs live cutover (read carefully)
 
 - **SOFT_FROZEN / SOFT_FROZEN_CRITICAL** names the *official strategy-version class* (E16 / E18 / E22 / E45). Class membership alone does **not** mean a module is live-wired into the forward book.
-- **Current live cutover default** (ops / debt board): **E16 + E18 + E22_v2s cutover-only**, with live E16 Financial clip **[0.50, 0.95]**. No overlay. No silent Soft-Frozen flip.
-- **E45** remains SOFT_FROZEN_CRITICAL as the official crisis-protection *version*, but it is **not** auto-live-wired. Any live attach requires a separate challenger PASS **and** an explicit human cutover PR. Unverified handoff numbers (including invented −13.16% MDD) must not be treated as PASS evidence.
+- **Current live cutover default** (ops / debt board): **E16 + E18 + E22_v2s_tw cutover-only**, with live E16 Financial clip **[0.50, 0.95]**. No overlay. No silent Soft-Frozen flip. Live DEFAULT books = **`E22_v2s_tw`**.
+- **E45** remains SOFT_FROZEN_CRITICAL as the official crisis-protection *version*, but **`E45_LIVE_AUTHORIZATION=NO`**. Any live attach requires a separate challenger PASS **and** an explicit human cutover PR. The historical −13.16% narrative must not be treated as PASS evidence.
 - Research challengers (FIN_CAP_50, MDD L1–L4, E50-A overlays) stay EXPERIMENTAL / paper until that human cutover path completes.
 
 ---

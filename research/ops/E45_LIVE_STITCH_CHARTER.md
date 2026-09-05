@@ -79,3 +79,5 @@ Do **not** accept all three in one cutover PR.
 ## Label
 
 `E45_LIVE_STITCH_CHARTER_2026-09-05__DEFER_STITCH`
+
+Canonical status: `research/e45/E45_OFFICIAL_STATUS.md` (`NOT_VERIFIED` / `DEFERRED` / `SOFT_FROZEN_CRITICAL` / live auth `NO`; −13.16% = `NOT_VERIFIED_HISTORICAL_NARRATIVE`).

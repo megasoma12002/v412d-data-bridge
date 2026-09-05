@@ -1,6 +1,6 @@
 # E45 MDD ≈ −13.16% Verification
 
-Generated: `2026-09-04T17:46:23.164149+00:00`
+Generated: `2026-09-05T15:23:38.988787+00:00`
 
 **Verdict: `NOT_VERIFIED`** — exact artifact match = `False`
 
