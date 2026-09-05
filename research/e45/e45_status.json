@@ -1,0 +1,51 @@
+{
+  "module_id": "E45",
+  "module_status": "CHALLENGER_CANDIDATE_NOT_PROMOTED",
+  "promotion_allowed": false,
+  "claimed_mdd": -0.1316,
+  "claimed_mdd_status": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
+  "verified_lineage_mdd": {
+    "E1_validation_2012_2014": -0.1721,
+    "E1_1_validation_2012_2014": -0.1581,
+    "E3_validation_2021_2022": -0.1849,
+    "V412D_validation_reported": -0.1891
+  },
+  "formal_strategy_still": "V4.12-D",
+  "e3_research_decision": "validation_pass_but_not_promoted",
+  "default_profile": "E3_VOLTARGET_WINNER",
+  "lineage_scripts": [
+    "scripts/v412e1_crisis_buffer.py",
+    "scripts/v412e11_graduated_crisis.py",
+    "scripts/v412e2_e3_three_rounds.py"
+  ],
+  "note": "Named E45 surface for integration. Not an in-place freeze. CLAIMED_MDD (-13.16%) = NOT_VERIFIED_HISTORICAL_NARRATIVE / EARLY_NON_RIGOROUS_RESEARCH_RESULT. Prefer VERIFIED_LINEAGE_MDD from dated E1/E1.1/E3/V4.12-D artifacts.",
+  "e3_winner": {
+    "mode": "voltarget",
+    "max_cut": 0.5,
+    "up_days": 20,
+    "target_vol": 0.14,
+    "blend": 0.5,
+    "rank_buffer": 0,
+    "cost_hurdle_mult": 5,
+    "min_hold": 42,
+    "source": "research/v412e2e3/e3_status.json"
+  },
+  "e1_binary_default": {
+    "dd_cut": -0.18,
+    "vol_cut": 0.3,
+    "breadth_cut": 0.3,
+    "crisis_scale": 0.5,
+    "on_need": 2,
+    "off_need": 5,
+    "source": "scripts/v412e1_crisis_buffer.py risk_state + crisis_defs family"
+  },
+  "governance_class_if_promoted": "SOFT_FROZEN_CRITICAL",
+  "claimed_mdd_claim": {
+    "mdd": -0.1316,
+    "label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
+    "interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
+    "note": "\u221213.16% is an early, non-rigorous research narrative \u2014 not a verified baseline. No dated CSV/JSON equals \u22120.1316. Prefer dated lineage MDDs (\u221215.81% / \u221218.49% / early-stack \u221220.76%)."
+  },
+  "claimed_mdd_interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
+  "claimed_mdd_note": "\u221213.16% is an early, non-rigorous research narrative \u2014 not a verified baseline. No dated CSV/JSON equals \u22120.1316. Prefer dated lineage MDDs (\u221215.81% / \u221218.49% / early-stack \u221220.76%)."
+}

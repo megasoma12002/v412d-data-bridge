@@ -1,0 +1,40 @@
+loading market / dividends ...
+building causal E16 targets ...
+computing named E45 exposures (E3 winner + E1 binary) ...
+simulating E16_E18 ...
+  E16_E18: CAGR=0.0729 MDD=-0.2277 util=-0.0409 fills=6105 mean_exp=1.0
+simulating E16_E18_E22_V2 ...
+  E16_E18_E22_V2: CAGR=0.1125 MDD=-0.2211 util=0.0019 fills=6222 mean_exp=1.0
+simulating E16_E18_E22 ...
+  E16_E18_E22: CAGR=0.1378 MDD=-0.2264 util=0.0246 fills=6271 mean_exp=1.0
+simulating E16_E18_E22_E45LEGACY ...
+  E16_E18_E22_E45LEGACY: CAGR=0.1279 MDD=-0.2062 util=0.0248 fills=6636 mean_exp=0.9621307072515667
+simulating E16_E18_E22_E45_E3 ...
+  E16_E18_E22_E45_E3: CAGR=0.1079 MDD=-0.2076 util=0.0042 fills=6931 mean_exp=0.9067972943914351
+simulating E16_E18_E22_E45_E1 ...
+  E16_E18_E22_E45_E1: CAGR=0.1314 MDD=-0.2264 util=0.0182 fills=6452 mean_exp=0.9935840047746941
+{
+  "decisions": {
+    "e16_full_history_reconstruction": "DONE_IN_CHALLENGER",
+    "e22_wired_into_nav_copy": "DONE_IN_CHALLENGER",
+    "e22_stock_share_increase": "DONE_IN_CHALLENGER_ON_STOCK_EX_DATE",
+    "e22_v2_official_cash_only_unchanged": true,
+    "e45_named_module": "CREATED_CHALLENGER_CANDIDATE",
+    "e45_promoted_to_soft_frozen_critical": false,
+    "e45_mdd_claim_13_16": "NOT_FOUND_IN_ARTIFACTS",
+    "combined_four_layer_engine": "CORE_EXEC_DIV_PLUS_NAMED_E45_CANDIDATE",
+    "next": "Named module scripts/e45_crisis_core.py exists and is wired. Stock dividends applied in challenger only. Promote stock-aware E22 only via explicit new version + governance approval."
+  },
+  "deltas": {
+    "e22_minus_e16e18_cagr": 0.06489784875039861,
+    "e22_stock_minus_cash_only_cagr": 0.025336937197000475,
+    "e22_stock_minus_cash_only_mdd": -0.005292689857208321,
+    "e45_e3_minus_e22_cagr": -0.029881957480160315,
+    "e45_e3_minus_e22_mdd": 0.018803690923791416,
+    "e45_e1_minus_e22_cagr": -0.0064035479953774566,
+    "e45_e1_minus_e22_mdd": 0.0,
+    "e22_dividend_cash_total": 3148579.0738225197,
+    "e22_stock_div_events": 34,
+    "e22_stock_div_shares_added": 78233.0
+  }
+}

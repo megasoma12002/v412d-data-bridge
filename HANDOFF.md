@@ -4,12 +4,14 @@
 Cursor 必須依序讀：
 1. `research/STRATEGY_DEBT_BOARD.md` ← **現行 live / paper 狀態（先讀）**
 2. `FROZEN_GOVERNANCE.md`（尤其 §4：SOFT_FROZEN class ≠ live cutover）
-3. `FROZEN_STRATEGY_SPEC.md`（角色定義；非 live wiring 證明）
-4. `E50_RESEARCH_OPERATING_RULES.md`
-5. `E50_RESEARCH_HISTORY.md`
-6. `CURSOR_RULES.md`
-7. `E50-A3-R1_TODO.md`（歷史研究帳本）
-8. 本文件
+3. `research/e45/E45_OFFICIAL_STATUS.md` ← E45 權威狀態（−13.16% = `NOT_VERIFIED_HISTORICAL_NARRATIVE`（`EARLY_NON_RIGOROUS_RESEARCH_RESULT`））
+4. `research/e45/E45_FEASIBILITY_CHARTER.md` + `E45_FEASIBILITY_STUDY_2026-09-05.md` ← paper 可行性已封（F1–F10；**未**授權 live；需另開 human live-switch ballot）
+5. `FROZEN_STRATEGY_SPEC.md`（角色定義；非 live wiring 證明）
+6. `E50_RESEARCH_OPERATING_RULES.md`
+7. `E50_RESEARCH_HISTORY.md`
+8. `CURSOR_RULES.md`
+9. `E50-A3-R1_TODO.md`（歷史研究帳本）
+10. 本文件
 
 ## 0.1 Live cutover default（強制）
 
@@ -21,7 +23,7 @@ Cursor 必須依序讀：
 |---|---|---|
 | E16 / E18 / E22_v2s | SOFT_FROZEN | **Yes (core cutover)** |
 | E50-A | EXPERIMENTAL / RESEARCH_ONLY | **No** |
-| E45 | SOFT_FROZEN_CRITICAL | **No**（NOT_VERIFIED；需獨立 human cutover PR） |
+| E45 | SOFT_FROZEN_CRITICAL | **No** — `NOT_VERIFIED` / stitch `DEFERRED` / live auth `NO`；paper 判決 `FEASIBLE_READY_FOR_LIVE_BALLOT`（F1–F10；見 `E45_FEASIBILITY_STUDY_2026-09-05.md`）；**仍需**另開 human live-switch ballot 才可切 live |
 | FIN_CAP_50 | paper dual-ledger | **No** — go-live **`NOT_READY_SEALED_CAGR`** |
 | L4_DD_PATH_08_50 | paper dual-ledger | **No** — held-out PASS；cutover FROZEN |
 

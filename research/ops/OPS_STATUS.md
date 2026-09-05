@@ -51,7 +51,7 @@ Odd-lot promote decision pack (**ACCEPT promote**): `research/ops/ODD_LOT_PROMOT
 Par-value lookup charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`  
 Par-value inventory: `research/ops/PAR_VALUE_INVENTORY.md` · `data/corporate_actions/par_value_by_code.csv`  
 Tax/receivable formal books (**Item 2 ACCEPT charter — Stage B OPEN**): `research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · decision pack `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
-E45 live-stitch (**Item 3 DEFER stitch path**): Soft-Frozen CRITICAL KEEP; E45 not rejected; artifact verdict `E45_NOT_VERIFIED` (`E45_ARTIFACT_VERIFICATION_2026-09-05.md`); MDD −13.16% still NOT_VERIFIED; live stitch forbidden  
+E45 live-stitch (**Item 3 DEFER stitch path**): Soft-Frozen CRITICAL KEEP; E45 not rejected; artifact verdict `E45_NOT_VERIFIED`; MDD −13.16% = `NOT_VERIFIED_HISTORICAL_NARRATIVE`（`EARLY_NON_RIGOROUS_RESEARCH_RESULT`）; paper feasibility **`FEASIBLE_READY_FOR_LIVE_BALLOT`** (F1–F10 sealed; `research/e45/E45_FEASIBILITY_STUDY_2026-09-05.md`); live auth still **NO** until separate human ballot; DEFAULT remains `E22_v2s_tw`  
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  

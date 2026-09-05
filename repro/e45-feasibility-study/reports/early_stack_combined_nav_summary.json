@@ -1,0 +1,481 @@
+{
+  "generated_at_utc": "2026-09-05T15:39:52.160984+00:00",
+  "stage": "EARLY_STACK_COMBINED_NAV_WITH_NAMED_E45",
+  "governance": {
+    "modifies_soft_frozen_files": false,
+    "e45_module_path": "scripts/e45_crisis_core.py",
+    "e45_module_status": "CHALLENGER_CANDIDATE_NOT_PROMOTED",
+    "e45_promoted": false,
+    "label": "EXPERIMENTAL_CHALLENGER_SANDBOX",
+    "e22_formal_books": "E22_v2s",
+    "e22_preserved_cash_only": "E22_v2"
+  },
+  "e45_manifest": {
+    "module_id": "E45",
+    "module_status": "CHALLENGER_CANDIDATE_NOT_PROMOTED",
+    "promotion_allowed": false,
+    "claimed_mdd": -0.1316,
+    "claimed_mdd_status": "NOT_VERIFIED_NO_ARTIFACT_MATCH",
+    "verified_lineage_mdd": {
+      "E1_validation_2012_2014": -0.1721,
+      "E1_1_validation_2012_2014": -0.1581,
+      "E3_validation_2021_2022": -0.1849,
+      "V412D_validation_reported": -0.1891
+    },
+    "formal_strategy_still": "V4.12-D",
+    "e3_research_decision": "validation_pass_but_not_promoted",
+    "default_profile": "E3_VOLTARGET_WINNER",
+    "lineage_scripts": [
+      "scripts/v412e1_crisis_buffer.py",
+      "scripts/v412e11_graduated_crisis.py",
+      "scripts/v412e2_e3_three_rounds.py"
+    ],
+    "note": "Named E45 surface for integration. Not an in-place freeze. CLAIMED_MDD (-13.16%) verified 2026-09-04 as NOT_VERIFIED_NO_ARTIFACT_MATCH. Prefer VERIFIED_LINEAGE_MDD from dated E1/E1.1/E3/V4.12-D artifacts.",
+    "e3_winner": {
+      "mode": "voltarget",
+      "max_cut": 0.5,
+      "up_days": 20,
+      "target_vol": 0.14,
+      "blend": 0.5,
+      "rank_buffer": 0,
+      "cost_hurdle_mult": 5,
+      "min_hold": 42,
+      "source": "research/v412e2e3/e3_status.json"
+    },
+    "e1_binary_default": {
+      "dd_cut": -0.18,
+      "vol_cut": 0.3,
+      "breadth_cut": 0.3,
+      "crisis_scale": 0.5,
+      "on_need": 2,
+      "off_need": 5,
+      "source": "scripts/v412e1_crisis_buffer.py risk_state + crisis_defs family"
+    },
+    "governance_class_if_promoted": "SOFT_FROZEN_CRITICAL"
+  },
+  "inputs": {
+    "market": "forward/e21/live_market.csv",
+    "dividends": "data/dividend_events/e22_dividend_events.csv",
+    "capital": 3000000.0,
+    "core_universe": [
+      "2880",
+      "2886",
+      "2892",
+      "5880",
+      "2412",
+      "3045",
+      "4904",
+      "0050"
+    ],
+    "stock_div_unit": "FinMind_yuan_per_share",
+    "stock_share_factor": "1 + stock_dividend/10"
+  },
+  "regime_share": {
+    "Bull": 0.6830419095198446,
+    "Crisis": 0.1176797113516514,
+    "Bear": 0.11545933943935609,
+    "Sideways": 0.08381903968914793
+  },
+  "variants": {
+    "E16_E18": {
+      "stats": {
+        "cagr": 0.0729270134821578,
+        "max_drawdown": -0.2276985835510028,
+        "utility": -0.040922278293343606,
+        "vol": 0.14005202155435073,
+        "n_days": 3351
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6105,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "e22_books_version": null,
+        "dividend_cash_total": 0.0,
+        "cil_cash_total": 0.0,
+        "fractional_shares_cashed": 0.0,
+        "stock_div_events": 0,
+        "stock_div_shares_added": 0.0,
+        "apply_stock_div": false,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 131031.0,
+          "2886": 7780.0,
+          "2892": 45.0,
+          "5880": 0.0,
+          "2412": 5856.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 5336.0
+        },
+        "lot_size": 1,
+        "e22_manifest": null
+      },
+      "apply_e22": false,
+      "apply_stock_div": false,
+      "e45_profile": null
+    },
+    "E16_E18_E22_V2": {
+      "stats": {
+        "cagr": 0.11248792503555594,
+        "max_drawdown": -0.2210946635650738,
+        "utility": 0.0019405932530190406,
+        "vol": 0.13302408199653676,
+        "n_days": 3351
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6222,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "e22_books_version": "E22_v2",
+        "dividend_cash_total": 2611580.65776718,
+        "cil_cash_total": 0.0,
+        "fractional_shares_cashed": 0.0,
+        "stock_div_events": 0,
+        "stock_div_shares_added": 0.0,
+        "apply_stock_div": false,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 197701.0,
+          "2886": 26218.0,
+          "2892": 175.0,
+          "5880": 0.0,
+          "2412": 9098.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 8647.0
+        },
+        "lot_size": 1,
+        "e22_manifest": {
+          "e22_books_version": "E22_v2",
+          "preserved_baseline": "E22_v2",
+          "formal_books": "E22_v2s",
+          "tw_practice_candidate": "E22_v2s_tw",
+          "market_cil_research": "E22_v2s_cil",
+          "signal_price": "adj_close",
+          "books_price": "raw_open_close",
+          "cash_timing": "cash_ex_date",
+          "stock_timing": "not_applied",
+          "stock_factor": null,
+          "fractional_policy": "n/a",
+          "par_value_twd": null,
+          "board_lot_forced": false,
+          "forbids_adj_close_nav_with_stock_shares": true,
+          "legal_refs": null
+        }
+      },
+      "apply_e22": true,
+      "apply_stock_div": false,
+      "e45_profile": null
+    },
+    "E16_E18_E22": {
+      "stats": {
+        "cagr": 0.1378248622325564,
+        "max_drawdown": -0.2263873534222821,
+        "utility": 0.024631185521415355,
+        "vol": 0.1332226477864947,
+        "n_days": 3351
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6271,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "e22_books_version": "E22_v2s_tw",
+        "dividend_cash_total": 3148579.0738225197,
+        "cil_cash_total": 153.0,
+        "fractional_shares_cashed": 17.00358,
+        "stock_div_events": 34,
+        "stock_div_shares_added": 78233.0,
+        "apply_stock_div": true,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 1.0,
+        "end_positions": {
+          "2880": 279019.0,
+          "2886": 24414.0,
+          "2892": 155.0,
+          "5880": 2.0,
+          "2412": 12447.0,
+          "3045": 0.0,
+          "4904": 0.0,
+          "0050": 11655.0
+        },
+        "lot_size": 1,
+        "e22_manifest": {
+          "e22_books_version": "E22_v2s_tw",
+          "preserved_baseline": "E22_v2",
+          "formal_books": "E22_v2s",
+          "tw_practice_candidate": "E22_v2s_tw",
+          "market_cil_research": "E22_v2s_cil",
+          "signal_price": "adj_close",
+          "books_price": "raw_open_close",
+          "cash_timing": "cash_ex_date",
+          "stock_timing": "stock_ex_date",
+          "stock_factor": "1 + stock_dividend/10",
+          "fractional_policy": "floor_shares_plus_cil_at_par_10_yuan_truncate",
+          "par_value_twd": 10.0,
+          "board_lot_forced": false,
+          "forbids_adj_close_nav_with_stock_shares": true,
+          "legal_refs": [
+            "Company_Act_240",
+            "issuer_announcement_par_cash_for_odd_lot"
+          ]
+        }
+      },
+      "apply_e22": true,
+      "apply_stock_div": true,
+      "e45_profile": null
+    },
+    "E16_E18_E22_E45LEGACY": {
+      "stats": {
+        "cagr": 0.12786036920313126,
+        "max_drawdown": -0.20621269927374164,
+        "utility": 0.024754019566260443,
+        "vol": 0.12193090653850791,
+        "n_days": 3351
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6636,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "e22_books_version": "E22_v2s_tw",
+        "dividend_cash_total": 2779356.7597054,
+        "cil_cash_total": 143.0,
+        "fractional_shares_cashed": 16.05285,
+        "stock_div_events": 36,
+        "stock_div_shares_added": 71989.0,
+        "apply_stock_div": true,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 0.9621307072515667,
+        "end_positions": {
+          "2880": 188616.0,
+          "2886": 36891.0,
+          "2892": 31863.0,
+          "5880": 35102.0,
+          "2412": 6615.0,
+          "3045": 2053.0,
+          "4904": 347.0,
+          "0050": 10386.0
+        },
+        "lot_size": 1,
+        "e22_manifest": {
+          "e22_books_version": "E22_v2s_tw",
+          "preserved_baseline": "E22_v2",
+          "formal_books": "E22_v2s",
+          "tw_practice_candidate": "E22_v2s_tw",
+          "market_cil_research": "E22_v2s_cil",
+          "signal_price": "adj_close",
+          "books_price": "raw_open_close",
+          "cash_timing": "cash_ex_date",
+          "stock_timing": "stock_ex_date",
+          "stock_factor": "1 + stock_dividend/10",
+          "fractional_policy": "floor_shares_plus_cil_at_par_10_yuan_truncate",
+          "par_value_twd": 10.0,
+          "board_lot_forced": false,
+          "forbids_adj_close_nav_with_stock_shares": true,
+          "legal_refs": [
+            "Company_Act_240",
+            "issuer_announcement_par_cash_for_odd_lot"
+          ]
+        }
+      },
+      "apply_e22": true,
+      "apply_stock_div": true,
+      "e45_profile": "LEGACY_CRISIS_SCALE"
+    },
+    "E16_E18_E22_E45_E3": {
+      "stats": {
+        "cagr": 0.1079429047523961,
+        "max_drawdown": -0.2075836624984907,
+        "utility": 0.004151073503150748,
+        "vol": 0.10785160901336184,
+        "n_days": 3351
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6931,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "e22_books_version": "E22_v2s_tw",
+        "dividend_cash_total": 2545749.0508516803,
+        "cil_cash_total": 164.0,
+        "fractional_shares_cashed": 18.21641,
+        "stock_div_events": 42,
+        "stock_div_shares_added": 68525.0,
+        "apply_stock_div": true,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 0.9067972943914351,
+        "end_positions": {
+          "2880": 68338.0,
+          "2886": 35862.0,
+          "2892": 55793.0,
+          "5880": 67075.0,
+          "2412": 1904.0,
+          "3045": 2293.0,
+          "4904": 2814.0,
+          "0050": 7184.0
+        },
+        "lot_size": 1,
+        "e22_manifest": {
+          "e22_books_version": "E22_v2s_tw",
+          "preserved_baseline": "E22_v2",
+          "formal_books": "E22_v2s",
+          "tw_practice_candidate": "E22_v2s_tw",
+          "market_cil_research": "E22_v2s_cil",
+          "signal_price": "adj_close",
+          "books_price": "raw_open_close",
+          "cash_timing": "cash_ex_date",
+          "stock_timing": "stock_ex_date",
+          "stock_factor": "1 + stock_dividend/10",
+          "fractional_policy": "floor_shares_plus_cil_at_par_10_yuan_truncate",
+          "par_value_twd": 10.0,
+          "board_lot_forced": false,
+          "forbids_adj_close_nav_with_stock_shares": true,
+          "legal_refs": [
+            "Company_Act_240",
+            "issuer_announcement_par_cash_for_odd_lot"
+          ]
+        }
+      },
+      "apply_e22": true,
+      "apply_stock_div": true,
+      "e45_profile": "E3_VOLTARGET_WINNER"
+    },
+    "E16_E18_E22_E45_E1": {
+      "stats": {
+        "cagr": 0.13142131423717895,
+        "max_drawdown": -0.2263873534222821,
+        "utility": 0.0182276375260379,
+        "vol": 0.12894600045551752,
+        "n_days": 3351
+      },
+      "meta": {
+        "n_days": 3351,
+        "n_fills": 6452,
+        "same_bar_fills": 0,
+        "exact_t1_ok": true,
+        "e22_books_version": "E22_v2s_tw",
+        "dividend_cash_total": 3088874.680927839,
+        "cil_cash_total": 149.0,
+        "fractional_shares_cashed": 16.54473,
+        "stock_div_events": 34,
+        "stock_div_shares_added": 77281.0,
+        "apply_stock_div": true,
+        "crisis_days": 423,
+        "start": "2012-12-04",
+        "end": "2026-09-04",
+        "mean_e45_exposure": 0.9935840047746941,
+        "end_positions": {
+          "2880": 217364.0,
+          "2886": 47509.0,
+          "2892": 16306.0,
+          "5880": 97.0,
+          "2412": 7597.0,
+          "3045": 3353.0,
+          "4904": 0.0,
+          "0050": 10833.0
+        },
+        "lot_size": 1,
+        "e22_manifest": {
+          "e22_books_version": "E22_v2s_tw",
+          "preserved_baseline": "E22_v2",
+          "formal_books": "E22_v2s",
+          "tw_practice_candidate": "E22_v2s_tw",
+          "market_cil_research": "E22_v2s_cil",
+          "signal_price": "adj_close",
+          "books_price": "raw_open_close",
+          "cash_timing": "cash_ex_date",
+          "stock_timing": "stock_ex_date",
+          "stock_factor": "1 + stock_dividend/10",
+          "fractional_policy": "floor_shares_plus_cil_at_par_10_yuan_truncate",
+          "par_value_twd": 10.0,
+          "board_lot_forced": false,
+          "forbids_adj_close_nav_with_stock_shares": true,
+          "legal_refs": [
+            "Company_Act_240",
+            "issuer_announcement_par_cash_for_odd_lot"
+          ]
+        }
+      },
+      "apply_e22": true,
+      "apply_stock_div": true,
+      "e45_profile": "E1_BINARY"
+    }
+  },
+  "deltas": {
+    "e22_minus_e16e18_cagr": 0.06489784875039861,
+    "e22_stock_minus_cash_only_cagr": 0.025336937197000475,
+    "e22_stock_minus_cash_only_mdd": -0.005292689857208321,
+    "e45_e3_minus_e22_cagr": -0.029881957480160315,
+    "e45_e3_minus_e22_mdd": 0.018803690923791416,
+    "e45_e1_minus_e22_cagr": -0.0064035479953774566,
+    "e45_e1_minus_e22_mdd": 0.0,
+    "e22_dividend_cash_total": 3148579.0738225197,
+    "e22_stock_div_events": 34,
+    "e22_stock_div_shares_added": 78233.0
+  },
+  "e45_verification": {
+    "claim_mdd": -0.1316,
+    "claim_status": "NOT_FOUND_IN_ARTIFACTS",
+    "text_mentions_only": [
+      "/workspace/FROZEN_STRATEGY_SPEC.md",
+      "/workspace/FROZEN_GOVERNANCE.md",
+      "/workspace/E50_HANDOFF_VERIFICATION.md"
+    ],
+    "artifact_files_with_13_16": [],
+    "lineage_reported_mdds": {
+      "E1_validation_mdd": -0.1721,
+      "E1_1_validation_mdd": -0.1581,
+      "E3_validation_mdd": -0.1849,
+      "V412D_validation_mdd_reported": -0.1891,
+      "handoff_claim_mdd": -0.1316
+    },
+    "e45_module_paths": [
+      "scripts/e45_verify_mdd_1316.py",
+      "scripts/e45_crisis_core.py"
+    ],
+    "lineage_scripts": [
+      "scripts/v412e1_crisis_buffer.py",
+      "scripts/v412e11_graduated_crisis.py",
+      "scripts/v412e2_e3_three_rounds.py"
+    ],
+    "research_decision": {
+      "formal_strategy": "V4.12-D",
+      "E2": "validation_fail",
+      "E2.1": "validation_fail",
+      "E3": "validation_pass_but_not_promoted",
+      "reason": "E3 improves volatility and some drawdowns, but later OOS return and Sharpe superiority over frozen D are inconsistent and transaction-cost drag remains material",
+      "blind_opened_after_E3_validation_pass": true,
+      "parameter_selection_used_2023_2026": false
+    },
+    "conclusion": "No official e45 module; MDD\u2248-13.16% remains UNVERIFIED text claim. Closest lineage MDDs are E1/E1.1/E3 validation figures (more severe). Formal strategy remains V4.12-D; E3 validation_pass but not promoted.",
+    "named_module": "scripts/e45_crisis_core.py",
+    "named_module_status": "CHALLENGER_CANDIDATE_NOT_PROMOTED",
+    "promotion_allowed": false
+  },
+  "decisions": {
+    "e16_full_history_reconstruction": "DONE_IN_CHALLENGER",
+    "e22_wired_into_nav_copy": "DONE_IN_CHALLENGER",
+    "e22_stock_share_increase": "DONE_IN_CHALLENGER_ON_STOCK_EX_DATE",
+    "e22_v2_official_cash_only_unchanged": true,
+    "e45_named_module": "CREATED_CHALLENGER_CANDIDATE",
+    "e45_promoted_to_soft_frozen_critical": false,
+    "e45_mdd_claim_13_16": "NOT_FOUND_IN_ARTIFACTS",
+    "combined_four_layer_engine": "CORE_EXEC_DIV_PLUS_NAMED_E45_CANDIDATE",
+    "next": "Named module scripts/e45_crisis_core.py exists and is wired. Stock dividends applied in challenger only. Promote stock-aware E22 only via explicit new version + governance approval."
+  }
+}

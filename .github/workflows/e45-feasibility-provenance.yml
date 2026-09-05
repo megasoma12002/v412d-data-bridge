@@ -1,0 +1,65 @@
+name: e45-feasibility-provenance
+
+on:
+  pull_request:
+    paths:
+      - "scripts/e45_feasibility_*.py"
+      - "scripts/e45_crisis_core.py"
+      - "scripts/e50_early_stack_combined_nav.py"
+      - "research/e45/**"
+      - "repro/e45-feasibility-study-regen-20260905/**"
+      - ".github/workflows/e45-feasibility-provenance.yml"
+  push:
+    paths:
+      - "scripts/e45_feasibility_*.py"
+      - "scripts/e45_crisis_core.py"
+      - "research/e45/**"
+      - "repro/e45-feasibility-study-regen-20260905/**"
+      - ".github/workflows/e45-feasibility-provenance.yml"
+
+jobs:
+  provenance-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: pip install pandas numpy
+      - name: Refuse superseded pack
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          old = Path("repro/e45-feasibility-study")
+          assert (old / "SUPERSEDED.md").exists() or (old / "ARCHIVED.md").exists(), old
+          print("superseded tombstone ok")
+          PY
+      - name: Verify OUTPUT_MANIFEST sha256 (fail-closed)
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          from pathlib import Path
+          from e45_feasibility_common import verify_output_manifest, claim_dict
+          v = verify_output_manifest(Path("repro/e45-feasibility-study-regen-20260905"))
+          assert v["ok"], v
+          c = claim_dict()
+          assert c["label"] == "NOT_VERIFIED_HISTORICAL_NARRATIVE", c
+          assert c["interpretation"] == "EARLY_NON_RIGOROUS_RESEARCH_RESULT", c
+          print("manifest+claim ok", v)
+          PY
+      - name: Run F1–F7 gates without clobbering seal
+        run: |
+          test -f repro/e45-feasibility-study-regen-20260905/SEAL_LOCK.json
+          before=$(sha256sum repro/e45-feasibility-study-regen-20260905/SEAL_LOCK.json | awk '{print $1}')
+          PYTHONPATH=scripts python scripts/e45_feasibility_gates.py \
+            --pack-dir repro/e45-feasibility-study-regen-20260905
+          after=$(sha256sum repro/e45-feasibility-study-regen-20260905/SEAL_LOCK.json | awk '{print $1}')
+          test "$before" = "$after"
+          test -f research/e45/E45_FEASIBILITY_STUDY_2026-09-05.json
+      - name: Confirm live default untouched
+        run: |
+          PYTHONPATH=scripts python - <<'PY'
+          from e22_dividend_accounting import DEFAULT_BOOKS_VERSION
+          assert DEFAULT_BOOKS_VERSION == "E22_v2s_tw", DEFAULT_BOOKS_VERSION
+          print("DEFAULT_BOOKS_VERSION", DEFAULT_BOOKS_VERSION)
+          PY
