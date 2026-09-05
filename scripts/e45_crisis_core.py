@@ -31,13 +31,20 @@ import numpy as np
 import pandas as pd
 
 MODULE_ID = "E45"
-MODULE_STATUS = "CHALLENGER_CANDIDATE_NOT_PROMOTED"
+MODULE_STATUS = "CHALLENGER_CANDIDATE_NOT_PROMOTED"  # Soft-Frozen CRITICAL class; stitch DEFERRED; live auth NO
 GOVERNANCE_CLASS_IF_PROMOTED = "SOFT_FROZEN_CRITICAL"
 PROMOTION_ALLOWED = False
 
 # Handoff / spec text claim — verification 2026-09-04: NOT FOUND in any research MDD artifact.
 CLAIMED_MDD = -0.1316
-CLAIMED_MDD_STATUS = "NOT_VERIFIED_NO_ARTIFACT_MATCH"
+CLAIMED_MDD_STATUS = "NOT_VERIFIED_HISTORICAL_NARRATIVE"
+E45_ARTIFACT_STATUS = "NOT_VERIFIED"
+E45_STITCH_STATUS = "DEFERRED"
+E45_GOVERNANCE_CLASS = "SOFT_FROZEN_CRITICAL"
+E45_LIVE_AUTHORIZATION = "NO"
+# Documented research lineage: E38→E43→E44→E45
+# Importable code lineage: E1→E1.1→E2→E2.1→E3→E45 wrapper
+# Canonical doc: research/e45/E45_OFFICIAL_STATUS.md
 
 # Numbers taken from dated research reports / status JSON (not invented).
 VERIFIED_LINEAGE_MDD = {
@@ -109,7 +116,7 @@ MANIFEST = E45Manifest(
     ),
     note=(
         "Named E45 surface for integration. Not an in-place freeze. "
-        "CLAIMED_MDD (-13.16%) verified 2026-09-04 as NOT_VERIFIED_NO_ARTIFACT_MATCH. "
+        "CLAIMED_MDD (-13.16%) = NOT_VERIFIED_HISTORICAL_NARRATIVE (2026-09-04/05). Use dated lineage MDDs (-15.81% / -18.49% / -20.76%). "
         "Prefer VERIFIED_LINEAGE_MDD from dated E1/E1.1/E3/V4.12-D artifacts."
     ),
 )

@@ -4,12 +4,13 @@
 Cursor 必須依序讀：
 1. `research/STRATEGY_DEBT_BOARD.md` ← **現行 live / paper 狀態（先讀）**
 2. `FROZEN_GOVERNANCE.md`（尤其 §4：SOFT_FROZEN class ≠ live cutover）
-3. `FROZEN_STRATEGY_SPEC.md`（角色定義；非 live wiring 證明）
-4. `E50_RESEARCH_OPERATING_RULES.md`
-5. `E50_RESEARCH_HISTORY.md`
-6. `CURSOR_RULES.md`
-7. `E50-A3-R1_TODO.md`（歷史研究帳本）
-8. 本文件
+3. `research/e45/E45_OFFICIAL_STATUS.md` ← **E45 權威狀態**（−13.16% = `NOT_VERIFIED_HISTORICAL_NARRATIVE`）
+4. `FROZEN_STRATEGY_SPEC.md`（角色定義；非 live wiring 證明）
+5. `E50_RESEARCH_OPERATING_RULES.md`
+6. `E50_RESEARCH_HISTORY.md`
+7. `CURSOR_RULES.md`
+8. `E50-A3-R1_TODO.md`（歷史研究帳本）
+9. 本文件
 
 ## 0.1 Live cutover default（強制）
 
@@ -21,7 +22,7 @@ Cursor 必須依序讀：
 |---|---|---|
 | E16 / E18 / E22_v2s | SOFT_FROZEN | **Yes (core cutover)** |
 | E50-A | EXPERIMENTAL / RESEARCH_ONLY | **No** |
-| E45 | SOFT_FROZEN_CRITICAL | **No**（NOT_VERIFIED；需獨立 human cutover PR） |
+| E45 | SOFT_FROZEN_CRITICAL | **No** — `E45_ARTIFACT_STATUS=NOT_VERIFIED`; `E45_STITCH_STATUS=DEFERRED`; `E45_LIVE_AUTHORIZATION=NO`; historical MDD ≈ −13.16% = **`NOT_VERIFIED_HISTORICAL_NARRATIVE`**; research lineage `E38→E43→E44→E45` ≠ code lineage `E1→…→E3→wrapper` (see `research/e45/E45_OFFICIAL_STATUS.md`) |
 | FIN_CAP_50 | paper dual-ledger | **No** — go-live **`NOT_READY_SEALED_CAGR`** |
 | L4_DD_PATH_08_50 | paper dual-ledger | **No** — held-out PASS；cutover FROZEN |
 
@@ -139,4 +140,4 @@ Audit / Exact T+1 / R1 reproduce / turnover·held-out 診斷 **已完成**（見
 2. ~~Stage-8 failure-signature / stress-sleeve~~ — **SATURATED**; do not re-grid TECH2
 3. ~~Track B S1~~ — `STOP_S1_HELDOUT_KEEP_TRACK_A`
 4. **Operate:** Track A S9A1 paper/monitor; FIN_CAP_50 paper (cutover frozen); L4 dual-paper (cutover frozen)
-5. **禁止：** live overlay、改寫歷史 NAV、發明 E45 −13.16%、把 dual-paper／held-out PASS 當 Soft-Frozen flip、重跑已飽和 Stage-8 grids
+5. **禁止：** live overlay、改寫歷史 NAV、把歷史敘事 MDD ≈ −13.16%（`NOT_VERIFIED_HISTORICAL_NARRATIVE`）當 verified／PASS、把 dual-paper／held-out PASS 當 Soft-Frozen flip、重跑已飽和 Stage-8 grids、在未新投票前 live-wire E45

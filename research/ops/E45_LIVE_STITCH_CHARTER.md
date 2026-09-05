@@ -11,7 +11,7 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6 · `research/e45/E45_MDD_1316_VERIFIC
 
 ## Problem
 
-E45 is process-class Soft-Frozen_CRITICAL in governance text, but the oft-cited MDD ≈ **−13.16%** is **`NOT_VERIFIED`** against dated lineage artifacts. Closest validated crisis MDDs are **more severe**. Early-stack+E45 challenger MDDs remain ~−21% to −23% on the repo path checked 2026-09-04.
+E45 is process-class Soft-Frozen_CRITICAL in governance text, but the oft-cited MDD ≈ **−13.16%** is **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** against dated lineage artifacts. Closest validated crisis MDDs are **more severe** (−15.81% / −18.49%). Early-stack+E45_E3 challenger MDD **−20.76%**, CAGR **~10.79%**. Documented research lineage `E38→E43→E44→E45` ≠ importable code `E1→E1.1→E2→E2.1→E3→wrapper`.
 
 Therefore live stitch is **not** a paperwork gap — it is a **verification + charter** gap.
 
@@ -79,3 +79,5 @@ Do **not** accept all three in one cutover PR.
 ## Label
 
 `E45_LIVE_STITCH_CHARTER_2026-09-05__DEFER_STITCH`
+
+Canonical status: `research/e45/E45_OFFICIAL_STATUS.md` (`NOT_VERIFIED` / `DEFERRED` / `SOFT_FROZEN_CRITICAL` / live auth `NO`; −13.16% = `NOT_VERIFIED_HISTORICAL_NARRATIVE`).

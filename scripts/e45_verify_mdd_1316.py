@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Verify handoff/spec claim: E45 MDD ≈ -13.16%.
+"""Verify handoff/spec historical narrative: E45 MDD ≈ -13.16%.
+
+Claim label: NOT_VERIFIED_HISTORICAL_NARRATIVE (do not treat as verified baseline).
+Canonical status: research/e45/E45_OFFICIAL_STATUS.md
 
 Scans research artifacts and recomputes early-stack+E45 challenger MDDs.
 Does not invent a replacement baseline number.
@@ -111,7 +114,9 @@ def main() -> None:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "claim_mdd": CLAIM,
         "claim_status": "NOT_VERIFIED",
+        "claim_label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
         "exact_artifact_match": False,
+        "canonical_status": "research/e45/E45_OFFICIAL_STATUS.md",
         "closest_lineage_mdd": closest,
         "e3_winner_validation_mdd": winner_mdd,
         "e3_winner_abs_err_to_claim": abs(winner_mdd - CLAIM) if winner_mdd is not None else None,
@@ -133,9 +138,14 @@ def main() -> None:
         "decision": {
             "accept_claim_as_verified_baseline": False,
             "replace_claim_with_invented_number": False,
-            "use_instead": "VERIFIED_LINEAGE_MDD from dated artifacts; keep claim labeled NOT_VERIFIED",
+            "use_instead": (
+                "dated artifacts: closest lineage val MDD -15.81%; E3 locked winner -18.49%; "
+                "early-stack+E45_E3 MDD -20.76% / CAGR ~10.79%; "
+                "keep claim labeled NOT_VERIFIED_HISTORICAL_NARRATIVE"
+            ),
             "promotion_impact": (
-                "E45 remains CHALLENGER_CANDIDATE; SOFT_FROZEN_CRITICAL is a process class, "
+                "E45 remains SOFT_FROZEN_CRITICAL process class with E45_ARTIFACT_STATUS=NOT_VERIFIED, "
+                "E45_STITCH_STATUS=DEFERRED, E45_LIVE_AUTHORIZATION=NO; "
                 "not a verified -13.16% number"
             ),
         },
@@ -148,11 +158,13 @@ def main() -> None:
         "",
         f"Generated: `{verdict['generated_at_utc']}`",
         "",
-        f"**Verdict: `{verdict['claim_status']}`** — exact artifact match = `{verdict['exact_artifact_match']}`",
+        f"**Verdict: `{verdict['claim_status']}`** — claim label = **`{verdict['claim_label']}`**; exact artifact match = `{verdict['exact_artifact_match']}`",
+        "",
+        "Canonical status: `research/e45/E45_OFFICIAL_STATUS.md`",
         "",
         "## Claim",
         "",
-        "Handoff / `FROZEN_STRATEGY_SPEC.md`: E45 crisis core MDD ≈ **-13.16%** (`-0.1316`).",
+        "Historical handoff/spec narrative: E45 crisis core validation MDD ≈ **-13.16%** (`-0.1316`) — **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** (preserved; not deleted; not verified fact).",
         "",
         "## Method",
         "",

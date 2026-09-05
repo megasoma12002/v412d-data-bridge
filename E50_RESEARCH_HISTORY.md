@@ -238,18 +238,25 @@ Execution-aware Layer。
 研究主題：
 Single Exact T+1 Full Model Rebuild。
 
-重要基準：
-- MDD 約 -13.16%（需由實體結果驗證）
-- 危機保護效果優先保留
-- 當時 CAGR 約 10% 左右，報酬仍不足
+重要基準（歷史與現行須分開讀）：
+- 歷史敘事 MDD ≈ −13.16% → **`NOT_VERIFIED_HISTORICAL_NARRATIVE`**（不得當 verified）
+- 現行 dated artifact（`research/e45/E45_OFFICIAL_STATUS.md`）：
+  - closest lineage validation MDD：**−15.81%**
+  - E3 locked winner validation MDD：**−18.49%**
+  - early-stack + E45_E3 MDD：**−20.76%**；CAGR **~10.79%**
+- 官方狀態：`NOT_VERIFIED` / stitch `DEFERRED` / class `SOFT_FROZEN_CRITICAL` / live auth `NO`
+- Documented research lineage：`E38 → E43 → E44 → E45`
+- Importable code lineage：`E1 → E1.1 → E2 → E2.1 → E3 → E45 wrapper`
+- 危機保護效果優先保留；報酬不足 → 另加 Alpha Layer（E50），勿就地改壞 E45
 
 結論：
-- 危機防守核心保留
-- 後續不要破壞 E45
+- 危機防守核心保留（SOFT_FROZEN_CRITICAL）
+- 後續不要破壞 E45；不要把 −13.16% 當 PASS
+- stitch **DEFERRED**；live DEFAULT 仍為 `E22_v2s_tw`
 - 用新的 Alpha Layer 取回正常市場報酬
 
 狀態：
-**FROZEN CRISIS PROTECTION CORE**
+**SOFT_FROZEN_CRITICAL**（artifact `NOT_VERIFIED`；stitch `DEFERRED`；live auth `NO`）
 
 ---
 

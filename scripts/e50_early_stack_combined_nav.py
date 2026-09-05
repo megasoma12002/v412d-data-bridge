@@ -374,7 +374,7 @@ def verify_e45_claim(repo: Path) -> dict:
         if (repo / "research" / "v412e2e3" / "research_decision.json").exists()
         else None,
         "conclusion": (
-            "No official e45 module; MDD≈-13.16% remains UNVERIFIED text claim. "
+            "No official e45 module; MDD≈-13.16% = NOT_VERIFIED_HISTORICAL_NARRATIVE (see research/e45/E45_OFFICIAL_STATUS.md). "
             "Closest lineage MDDs are E1/E1.1/E3 validation figures (more severe). "
             "Formal strategy remains V4.12-D; E3 validation_pass but not promoted."
         ),
@@ -566,7 +566,7 @@ def main() -> None:
         f"- Stock div events / shares added: "
         f"`{report['deltas']['e22_stock_div_events']}` / `{report['deltas']['e22_stock_div_shares_added']}`",
         f"- E45-E3 MDD delta vs E22: `{report['deltas']['e45_e3_minus_e22_mdd']:.4%}`",
-        f"- Claimed MDD -13.16%: `{e45.CLAIMED_MDD_STATUS}`",
+        f"- Historical narrative MDD -13.16% (NOT_VERIFIED_HISTORICAL_NARRATIVE): `{e45.CLAIMED_MDD_STATUS}`",
         "",
         "## Decisions",
         "",

@@ -1,12 +1,14 @@
 # E45 MDD ≈ −13.16% Verification
 
-Generated: `2026-09-04T17:46:23.164149+00:00`
+Generated: `2026-09-05T15:24:55.910406+00:00`
 
-**Verdict: `NOT_VERIFIED`** — exact artifact match = `False`
+**Verdict: `NOT_VERIFIED`** — claim label = **`NOT_VERIFIED_HISTORICAL_NARRATIVE`**; exact artifact match = `False`
+
+Canonical status: `research/e45/E45_OFFICIAL_STATUS.md`
 
 ## Claim
 
-Handoff / `FROZEN_STRATEGY_SPEC.md`: E45 crisis core MDD ≈ **-13.16%** (`-0.1316`).
+Historical handoff/spec narrative: E45 crisis core validation MDD ≈ **-13.16%** (`-0.1316`) — **`NOT_VERIFIED_HISTORICAL_NARRATIVE`** (preserved; not deleted; not verified fact).
 
 ## Method
 
@@ -45,8 +47,8 @@ Handoff / `FROZEN_STRATEGY_SPEC.md`: E45 crisis core MDD ≈ **-13.16%** (`-0.13
 
 - Accept claim as verified baseline: `False`
 - Invent replacement number: `False`
-- Use instead: VERIFIED_LINEAGE_MDD from dated artifacts; keep claim labeled NOT_VERIFIED
-- Promotion impact: E45 remains CHALLENGER_CANDIDATE; SOFT_FROZEN_CRITICAL is a process class, not a verified -13.16% number
+- Use instead: dated artifacts: closest lineage val MDD -15.81%; E3 locked winner -18.49%; early-stack+E45_E3 MDD -20.76% / CAGR ~10.79%; keep claim labeled NOT_VERIFIED_HISTORICAL_NARRATIVE
+- Promotion impact: E45 remains SOFT_FROZEN_CRITICAL process class with E45_ARTIFACT_STATUS=NOT_VERIFIED, E45_STITCH_STATUS=DEFERRED, E45_LIVE_AUTHORIZATION=NO; not a verified -13.16% number
 
 Conclusion: No research CSV/JSON contains MDD == -0.1316. Claim appears only in narrative spec/handoff text. Closest crisis-lineage validation MDDs are more severe than the claim. Early-stack+E45 challenger MDDs remain near -21% to -23%. Do not treat -13.16% as a verified E45 baseline.
 

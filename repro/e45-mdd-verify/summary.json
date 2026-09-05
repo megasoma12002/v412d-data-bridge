@@ -1,8 +1,10 @@
 {
-  "generated_at_utc": "2026-09-04T17:46:23.164149+00:00",
+  "generated_at_utc": "2026-09-05T15:24:55.910406+00:00",
   "claim_mdd": -0.1316,
   "claim_status": "NOT_VERIFIED",
+  "claim_label": "NOT_VERIFIED_HISTORICAL_NARRATIVE",
   "exact_artifact_match": false,
+  "canonical_status": "research/e45/E45_OFFICIAL_STATUS.md",
   "closest_lineage_mdd": {
     "source": "E1_1_validation",
     "path": "research/v412e11/e11_validation_gate.csv",
@@ -89,30 +91,30 @@
     },
     {
       "variant": "E16_E18_E22_v2s",
-      "cagr": 0.137829469400496,
-      "mdd": -0.22639131293777315,
-      "abs_err_to_claim": 0.09479131293777315,
+      "cagr": 0.1378248622325564,
+      "mdd": -0.2263873534222821,
+      "abs_err_to_claim": 0.09478735342228212,
       "n_days": 3351
     },
     {
       "variant": "E16_E18_E22_v2s_E45_E3",
-      "cagr": 0.10794644108639262,
-      "mdd": -0.20758421231988378,
-      "abs_err_to_claim": 0.07598421231988378,
+      "cagr": 0.1079429047523961,
+      "mdd": -0.2075836624984907,
+      "abs_err_to_claim": 0.0759836624984907,
       "n_days": 3351
     },
     {
       "variant": "E16_E18_E22_v2s_E45_E1",
-      "cagr": 0.13142372258023172,
-      "mdd": -0.22639131293777315,
-      "abs_err_to_claim": 0.09479131293777315,
+      "cagr": 0.13142131423717895,
+      "mdd": -0.2263873534222821,
+      "abs_err_to_claim": 0.09478735342228212,
       "n_days": 3351
     },
     {
       "variant": "E16_E18_E22_v2s_E45_LEGACY0.7",
-      "cagr": 0.12785722291197876,
-      "mdd": -0.20619199929288012,
-      "abs_err_to_claim": 0.07459199929288013,
+      "cagr": 0.12786036920313126,
+      "mdd": -0.20621269927374164,
+      "abs_err_to_claim": 0.07461269927374165,
       "n_days": 3351
     }
   ],
@@ -138,7 +140,7 @@
   "decision": {
     "accept_claim_as_verified_baseline": false,
     "replace_claim_with_invented_number": false,
-    "use_instead": "VERIFIED_LINEAGE_MDD from dated artifacts; keep claim labeled NOT_VERIFIED",
-    "promotion_impact": "E45 remains CHALLENGER_CANDIDATE; SOFT_FROZEN_CRITICAL is a process class, not a verified -13.16% number"
+    "use_instead": "dated artifacts: closest lineage val MDD -15.81%; E3 locked winner -18.49%; early-stack+E45_E3 MDD -20.76% / CAGR ~10.79%; keep claim labeled NOT_VERIFIED_HISTORICAL_NARRATIVE",
+    "promotion_impact": "E45 remains SOFT_FROZEN_CRITICAL process class with E45_ARTIFACT_STATUS=NOT_VERIFIED, E45_STITCH_STATUS=DEFERRED, E45_LIVE_AUTHORIZATION=NO; not a verified -13.16% number"
   }
 }
