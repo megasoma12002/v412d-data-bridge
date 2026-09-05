@@ -1,6 +1,6 @@
 # Ops Month-End Paper Pack
 
-Generated: `2026-09-05T06:42:59.296315+00:00`
+Generated: `2026-09-05T06:49:44.908348+00:00`
 Status: **RESEARCH / OPS** — Soft-Frozen **[0.50, 0.95] unchanged**; no cutover.
 
 - Refresh ledgers: **False**

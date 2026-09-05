@@ -1,6 +1,6 @@
 # Strategy Debt Board
 
-Date: 2026-09-05 (ops-convergence Phase 1 cadence wired)  
+Date: 2026-09-05 (ops Phase 2 hygiene + gated cutover prep)  
 Live rule: **E16 + E18 + E22_v2s cutover-only**. No overlay. No history rewrite.  
 Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 
@@ -25,70 +25,63 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | L4 path/mild-FIN charter | Frozen — util-rank; no harsh-cap family priority |
 | L4 Exact T+1 OOF → adv-lite → held-out | **`PASS_HELDOUT_L4`** — on main via #51 |
 | Dual-track A/B | On main via #37 — A KEEP / B S1 STOP |
-| Code-review fixes (round 1) | Month-end `0→nan`; fin_cap single-source; Soft-Frozen vs live wording |
-| Code-review P2 | Soft-Frozen BASE single-source (`e16_soft_frozen_base`); live Exact T+1 `qc_status.json`; scorers drop `x or 0`/`mdd or 9` |
-| Code-review residual | `e21_qc` defaults to `forward/e21` + preserves Exact T+1; SPEC live banner; FIN_CAP OOF None-safe deltas |
-| Ops convergence Phase 0 | Charter + OPS_STATUS map + live↔paper recon — **no Soft-Frozen change** (#58) |
-| Ops convergence Phase 1 | Live QC smoke + month-end paper pack workflow/orchestrator — **no Soft-Frozen / no cutover** |
+| Code-review residual path | Through #56 |
+| Ops Phase 0 | Map + recon (#58) |
+| Ops Phase 1 | Live QC smoke + month-end pack (#59) |
+| Ops Phase 2 hygiene | MTD non-decision labels; artifact retention; Track A pointer; cutover checklists (**prep only**) |
+| Obs PR #57 | **Superseded** by #58/#59 cadence (leave closed/ignored if API cannot close) |
 
 ### NOW
 | Item | Action | Status |
 |---|---|---|
-| Track A S9A1 | Paper/monitor harness + month-end KPI | **KEEP** |
+| Track A S9A1 | Paper/monitor via month-end pack | **KEEP** |
 | Live Soft-Frozen clip | **[0.50, 0.95]** | **KEEP (no auto flip)** |
-| FIN_CAP_50 paper | Dual-paper observation | **OPERATING (paper)** |
-| FIN_CAP_50 cutover | Blocked by go-live | **`NOT_READY_SEALED_CAGR` / FROZEN** |
-| L4 dual-paper | BASE vs `L4_DD_PATH_08_50` paper books + month-end | **OPERATING (paper)** |
-| L4 cutover | Human PR only after clean month-end | **FROZEN (not Soft-Frozen flip)** |
+| FIN_CAP_50 paper | Dual-paper + pack | **OPERATING**; cutover **`NOT_READY_SEALED_CAGR`** |
+| L4 dual-paper | Dual-paper + pack | **OPERATING**; YTD **PAUSE_REVIEW** → cutover **FROZEN** |
+| Cutover checklists | `research/ops/CUTOVER_CHECKLIST_{L4,FIN50}.md` | **BLOCKED** (gates red) |
 
 ### NEXT
 | Item | Action | Do not |
 |---|---|---|
-| Ops Phase 2 hygiene | MTD non-decision labels; Track A runbook pointer under `research/ops/`; artifact retention note | Soft-Frozen flip |
-| Live↔paper recon watch | Re-run with month-end; investigate durable INDEX_DRIFT if live history lengthens | Treat thin overlap as cutover evidence |
-| L4 month-end (continue) | Next calendar month-end via `ops-month-end-paper-pack`; watch YTD/1y cool off | Treat pack green as cutover green light |
-| L4 cutover PR (later) | Wire **DD-path logic** only after clean month-end + explicit approval | Static clip swap; auto live-wire |
-| FIN_CAP month-end | Continue via pack; Gate E YTD/1y still PAUSE | Auto-promote FIN50 / ignore `NOT_READY` |
-| Track A month-end | Included in pack; pause if stress edge vs C4 negative **two** reviews | Retune S9A1 cuts |
-| Strategy merge (gated) | Only human cutover after board gates — not ops cadence | Four-layer live NAV stitch now |
-| New alpha charter | Only with a **new** charter (not S1 residual re-grid) | Reopen S1 / TECH2 remix |
+| Calendar month-end | Re-run pack at next natural month-end; watch L4 YTD/1y cool | Treat pack green as cutover |
+| Live↔paper recon | Re-check INDEX_DRIFT as live history lengthens | Decision on <60 live sessions |
+| L4 cutover PR | Only after checklist all-green + explicit human approval | Soft-Frozen flip; static clip swap |
+| FIN50 cutover PR | Only after sealed CAGR gate + Gate E clear + human PR | Retune FIN50 lock; ignore `NOT_READY` |
+| Sealed-CAGR research charter | New charter if pursuing FIN50 path | Reopen Stage-8 / S1 |
+| New alpha charter | New charter only | Four-layer live stitch now |
 
 ### WON’T
 L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 without human PR; reopen S1 residual detector grid; conflate FIN50 static promote with L4 DD-path cutover.
 
 ## Cutover matrix (human PR only)
 
-| Challenger | Live change type | Blocked by | Soft-Frozen clip today |
-|---|---|---|---|
-| FIN_CAP_50 | Static Financial clip → **[0.35, 0.50]** | `NOT_READY_SEALED_CAGR` + YTD/1y PAUSE | **[0.50, 0.95]** |
-| L4_DD_PATH_08_50 | Wire **path-dependent DD-path** logic (not static clip) | Need ≥1 clean month-end + human PR | **[0.50, 0.95]** |
-| E50-A / E45 | Overlay / crisis attach | Not live-wired; E45 NOT_VERIFIED | N/A (core-only live) |
+| Challenger | Live change type | Blocked by | Soft-Frozen today | Checklist |
+|---|---|---|---|---|
+| FIN_CAP_50 | Static clip → **[0.35, 0.50]** | `NOT_READY_SEALED_CAGR` + YTD/1y PAUSE | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_FIN50.md` |
+| L4_DD_PATH_08_50 | Wire DD-path logic | YTD PAUSE + need clean month-end + human PR | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_L4.md` |
+| E50-A / E45 | Overlay / crisis | Not live-wired; E45 NOT_VERIFIED | N/A | — |
 
 ## Snapshot
 | Topic | Number |
 |---|---|
 | Go-live (FIN50) | **`NOT_READY_SEALED_CAGR`** |
-| FIN50 dual-paper | **OPERATING** / cutover **FROZEN** |
-| L4 held-out | **`PASS_HELDOUT_L4`** (`L4_DD_PATH_08_50`) |
-| L4 dual-paper | **OPERATING** / cutover **FROZEN** |
-| Track A | **KEEP** (S9A1 paper/monitor) |
-| Track B S1 | **`STOP_S1_HELDOUT_KEEP_TRACK_A`** |
+| FIN50 / L4 dual-paper | **OPERATING** / cutover **FROZEN** |
+| L4 held-out | **`PASS_HELDOUT_L4`** |
+| Track A | **KEEP** |
 | Soft-Frozen clip | **[0.50, 0.95]** |
 
 ## Pointers
-- `research/ops/OPS_STATUS.md` (one-page live/paper map + Phase 1 cadence)
+- `research/ops/OPS_STATUS.md`
 - `research/ops/OPS_CONVERGENCE_CHARTER.md`
-- `research/ops/LIVE_PAPER_RECON.md` / `MONTH_END_PAPER_PACK.md`
+- `research/ops/ARTIFACT_RETENTION.md`
+- `research/ops/CUTOVER_CHECKLIST_L4.md`
+- `research/ops/CUTOVER_CHECKLIST_FIN50.md`
+- `research/ops/TRACK_A_RUNBOOK_POINTER.md`
+- `research/ops/MONTH_END_PAPER_PACK.md` / `LIVE_PAPER_RECON.md`
 - `.github/workflows/e21-live-qc-smoke.yml`
 - `.github/workflows/ops-month-end-paper-pack.yml`
 - `scripts/ops_month_end_paper_pack.py`
-- `scripts/e16_soft_frozen_base.py` (live Financial clip **[0.50, 0.95]**)
-- `scripts/e21_forward_pipeline.py` / `scripts/e21_qc.py` (canonical `forward/e21`; Exact T+1 in `qc_status.json`)
-- `scripts/e21_live_vs_paper_recon.py`
-- `scripts/research_metric_helpers.py`
-- `research/gaps/L4_DD_PATH_PROMOTE_PROPOSAL.md`
-- `research/gaps/L4_DD_PATH_MONTH_END_RUNBOOK.md`
-- `research/gaps/MDD_L4_HELDOUT.md`
+- `scripts/e16_soft_frozen_base.py`
+- `scripts/e21_qc.py` / `e21_live_vs_paper_recon.py`
 - `research/gaps/FIN_CAP_50_GO_LIVE_VERIFY.md`
-- `research/gaps/FIN_CAP_50_PROMOTE_PROPOSAL.md` (cutover blocked banner)
 - `research/e50a/DUAL_TRACK_OPERATING_BOARD.md`

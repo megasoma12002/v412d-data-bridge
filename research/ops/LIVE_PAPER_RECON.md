@@ -1,6 +1,6 @@
 # Live vs Paper Soft-Frozen Recon
 
-Generated: `2026-09-05T06:42:59.256702+00:00`
+Generated: `2026-09-05T06:49:44.867421+00:00`
 Status: **RESEARCH / OPS** — Soft-Frozen clip **[0.50, 0.95] unchanged**.
 
 ## Coverage

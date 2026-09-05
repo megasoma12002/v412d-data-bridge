@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T06:42:58.654565+00:00",
+  "generated_at_utc": "2026-09-05T06:49:44.268901+00:00",
   "asof": "2026-09-04",
   "live_wire": false,
   "soft_frozen_default_unchanged": true,
@@ -97,5 +97,14 @@
     "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)"
   ],
   "cutover_blocked": true,
-  "note": "Paper monitor only. Soft-Frozen Financial clip remains [0.50,0.95]."
+  "non_decision_windows": [
+    "mtd"
+  ],
+  "decision_alert_windows": [
+    "validation_2019_2022",
+    "sealed_2023_plus",
+    "ytd",
+    "trailing_1y"
+  ],
+  "note": "Paper monitor only. Soft-Frozen Financial clip remains [0.50,0.95]. mtd CAGR is display-only (not a cutover gate)."
 }

@@ -168,7 +168,17 @@ def main() -> None:
         "windows": rows,
         "alerts": alerts,
         "cutover_blocked": any("PAUSE_REVIEW" in a for a in alerts),
-        "note": "Paper monitor only. Soft-Frozen Financial clip remains [0.50,0.95].",
+        "non_decision_windows": ["mtd"],
+        "decision_alert_windows": [
+            "validation_2019_2022",
+            "sealed_2023_plus",
+            "ytd",
+            "trailing_1y",
+        ],
+        "note": (
+            "Paper monitor only. Soft-Frozen Financial clip remains [0.50,0.95]. "
+            "mtd CAGR is display-only (not a cutover gate)."
+        ),
     }
     (args.out / "month_end_summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     pd.DataFrame(rows).to_csv(args.out / "month_end_windows.csv", index=False)
@@ -180,16 +190,34 @@ def main() -> None:
         "Status: **PAPER ONLY** — Soft-Frozen live default unchanged.",
         f"Locked: **{LOCKED_ID}**",
         "",
-        "| Window | BASE CAGR | BASE MDD | L4 CAGR | L4 MDD | MDD Δpp | CAGR giveback pp | Rel NAV |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|",
+        "> **Decision windows:** `validation_2019_2022`, `sealed_2023_plus`, `ytd`, `trailing_1y`.  ",
+        "> **`mtd` CAGR is display-only** (annualized MTD is unstable) — **not** a cutover gate.",
+        "",
+        "| Window | BASE CAGR | BASE MDD | L4 CAGR | L4 MDD | MDD Δpp | CAGR giveback pp | Rel NAV | Decision? |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|:---:|",
     ]
     for r in rows:
+        decision = "no" if r["window"] == "mtd" else "yes"
+        cagr_note = _pct(r["base_cagr"])
+        l4_cagr_note = _pct(r["l4_cagr"])
+        if r["window"] == "mtd":
+            cagr_note = f"{cagr_note}*"
+            l4_cagr_note = f"{l4_cagr_note}*"
         lines.append(
-            f"| {r['window']} | {_pct(r['base_cagr'])} | {_pct(r['base_mdd'])} | "
-            f"{_pct(r['l4_cagr'])} | {_pct(r['l4_mdd'])} | "
-            f"{r['mdd_improve_pp']:+.2f} | {r['cagr_giveback_pp']:+.2f} | {r['rel_nav_end']:.4f} |"
+            f"| {r['window']} | {cagr_note} | {_pct(r['base_mdd'])} | "
+            f"{l4_cagr_note} | {_pct(r['l4_mdd'])} | "
+            f"{r['mdd_improve_pp']:+.2f} | {r['cagr_giveback_pp']:+.2f} | {r['rel_nav_end']:.4f} | {decision} |"
         )
-    lines += ["", "## Alerts", ""]
+    lines += [
+        "",
+        "\\* `mtd` CAGR annualized from a short sample — **non-decision / display-only**.",
+        "",
+        "## Alerts",
+        "",
+        "Alert windows: `sealed` / `validation` (research gates) and `ytd` / `trailing_1y` (ops). "
+        "`mtd` is **never** used for alerts or cutover.",
+        "",
+    ]
     if alerts:
         for a in alerts:
             lines.append(f"- {a}")
@@ -201,6 +229,7 @@ def main() -> None:
         "",
         "- Refresh NAVs: `python3 scripts/e16_l4_dd_path_dual_paper_ledgers.py`",
         "- Re-run monitor: `python3 scripts/e16_l4_dd_path_month_end_monitor.py`",
+        "- Or month-end pack: `python3 scripts/ops_month_end_paper_pack.py`",
         "- Cutover still requires a **separate human PR**; this monitor never flips Soft-Frozen.",
         "",
     ]

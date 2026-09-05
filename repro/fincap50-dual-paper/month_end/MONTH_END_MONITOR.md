@@ -1,6 +1,6 @@
 # FIN_CAP_50 Month-End Paper Monitor — asof 2026-09-04
 
-Generated: `2026-09-05T06:42:58.951142+00:00`
+Generated: `2026-09-05T06:49:44.560765+00:00`
 Status: **PAPER ONLY** — Soft-Frozen live default unchanged.
 
 | Window | BASE CAGR | BASE MDD | FIN_CAP_50 CAGR | FIN_CAP_50 MDD | MDD Δpp | CAGR giveback pp | Rel NAV |
@@ -13,7 +13,7 @@ Status: **PAPER ONLY** — Soft-Frozen live default unchanged.
 
 ## Alerts
 
-Alert windows (match go-live Gate E): `heldout_2019_plus`, `ytd`, `trailing_1y`. `mtd` is reported but **not** used for cutover alerts.
+Alert windows (match go-live Gate E): `heldout_2019_plus`, `ytd`, `trailing_1y`. `mtd` CAGR is **display-only / non-decision** (annualized MTD unstable) — **not** used for cutover alerts.
 
 - ALERT: FIN_CAP_50 ytd CAGR giveback > 3.0 pp (paper)
 - PAUSE_REVIEW: ytd giveback > 5 pp — do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)
