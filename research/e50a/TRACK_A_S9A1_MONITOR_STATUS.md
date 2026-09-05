@@ -33,6 +33,8 @@ Mode: `ARCHIVE_BOOTSTRAP`
 
 Lock decision: `MIXED_HELDOUT`
 
+**2026-09-05:** Track B S1 held-out failed → keep this monitor (`STOP_S1_HELDOUT_KEEP_TRACK_A`). No successor.
+
 ## KPI snapshot (S9A1)
 
 | Window | CAGR | MDD | TO | Boot | Stress share | Stress mean excess |

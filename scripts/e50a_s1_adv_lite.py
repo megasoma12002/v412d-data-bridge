@@ -112,6 +112,20 @@ def main() -> None:
     )
     calendar = sorted(execution["date"].unique().to_list())
 
+    if not args.oof_scores.exists():
+        print(f"missing {args.oof_scores}; rebuilding TECH2 OOF scores ...", flush=True)
+        import e50a3r1_repair as r1
+        from e50a3r1_turnover_diagnosis import build_oof_scores
+
+        exact_labels = a3.build_exact_open_labels(panel, execution, calendar)
+        joined = a3.target_rank(
+            r1.add_regime(panel).join(
+                exact_labels.select("date", "code", a3.LABEL), on=["date", "code"], validate="1:1"
+            )
+        )
+        scored = build_oof_scores(joined, calendar)
+        args.oof_scores.parent.mkdir(parents=True, exist_ok=True)
+        scored.write_parquet(args.oof_scores, compression="zstd")
     scored = pl.read_parquet(args.oof_scores).sort(["date", "code"])
     scored = scored.filter(pl.col("date").is_between(OOF_START, OOF_END))
     fam_col = FAMILIES[family]
