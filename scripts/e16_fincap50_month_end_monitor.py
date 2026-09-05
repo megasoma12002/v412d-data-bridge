@@ -190,7 +190,8 @@ def main() -> None:
         "## Alerts",
         "",
         "Alert windows (match go-live Gate E): `heldout_2019_plus`, `ytd`, `trailing_1y`. "
-        "`mtd` is reported but **not** used for cutover alerts.",
+        "`mtd` CAGR is **display-only / non-decision** (annualized MTD unstable) — "
+        "**not** used for cutover alerts.",
         "",
     ]
     if alerts:

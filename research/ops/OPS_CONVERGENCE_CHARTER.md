@@ -118,12 +118,13 @@ Goal of this charter: design and stage that convergence **without** promoting an
 
 ### Phase 2 — Ops hygiene
 
-- Mark MTD CAGR non-decision in monitor markdown
-- Co-locate Track A runbook pointer under `research/ops/`
-- Document artifact retention + canonical paths
-- Label shadow sleeves in OPS_STATUS
+- [x] Mark MTD CAGR non-decision in L4 / FIN50 month-end monitors  
+- [x] Track A runbook pointer under `research/ops/` (`TRACK_A_RUNBOOK_POINTER.md`)  
+- [x] Artifact retention + canonical paths (`ARTIFACT_RETENTION.md`)  
+- [x] Shadow sleeves labeled in OPS_STATUS  
+- [x] Gated cutover checklists (prep only): `CUTOVER_CHECKLIST_L4.md`, `CUTOVER_CHECKLIST_FIN50.md`
 
-**Exit:** new agent can operate month-end without reading SPEC as live.
+**Exit:** new agent can operate month-end without reading SPEC as live; cutover remains checklist-blocked.
 
 ### Phase 3 — Explicitly out of scope here
 
