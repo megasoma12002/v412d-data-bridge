@@ -28,6 +28,12 @@ OUT_DIR = ROOT / "research/ops"
 SUMMARY_JSON = OUT_DIR / "MONTH_END_PAPER_PACK.json"
 SUMMARY_MD = OUT_DIR / "MONTH_END_PAPER_PACK.md"
 
+sys.path.insert(0, str(ROOT / "scripts"))
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
+
+SOFT_FROZEN_CLIP = [float(SOFT_FROZEN_FIN_LO), float(SOFT_FROZEN_FIN_HI)]
+CLIP_TXT = f"[{SOFT_FROZEN_CLIP[0]:.2f}, {SOFT_FROZEN_CLIP[1]:.2f}]"
+
 STEPS_MONITOR = [
     ("l4_month_end", ["python3", "scripts/e16_l4_dd_path_month_end_monitor.py"]),
     ("fincap50_month_end", ["python3", "scripts/e16_fincap50_month_end_monitor.py"]),
@@ -94,7 +100,7 @@ def main() -> int:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "OPS_MONTH_END_PAPER_PACK",
         "live_wire": False,
-        "soft_frozen_clip": [0.50, 0.95],
+        "soft_frozen_clip": list(SOFT_FROZEN_CLIP),
         "soft_frozen_unchanged": True,
         "refresh_ledgers": bool(args.refresh_ledgers),
         "all_ok": not failed and all(r["ok"] for r in results),
@@ -102,7 +108,7 @@ def main() -> int:
             {"name": r["name"], "ok": r["ok"], "returncode": r["returncode"]} for r in results
         ],
         "cutover_note": (
-            "Paper/ops cadence only. Soft-Frozen [0.50,0.95] unchanged. "
+            f"Paper/ops cadence only. Soft-Frozen {CLIP_TXT} unchanged. "
             "FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated."
         ),
     }
@@ -114,7 +120,7 @@ def main() -> int:
         "# Ops Month-End Paper Pack",
         "",
         f"Generated: `{payload['generated_at_utc']}`",
-        "Status: **RESEARCH / OPS** — Soft-Frozen **[0.50, 0.95] unchanged**; no cutover.",
+        f"Status: **RESEARCH / OPS** — Soft-Frozen **{CLIP_TXT} unchanged**; no cutover.",
         "",
         f"- Refresh ledgers: **{payload['refresh_ledgers']}**",
         f"- All steps OK: **{payload['all_ok']}**",

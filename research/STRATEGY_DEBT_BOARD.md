@@ -29,7 +29,9 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | Ops Phase 0 | Map + recon (#58) |
 | Ops Phase 1 | Live QC smoke + month-end pack (#59) |
 | Ops Phase 2 hygiene | MTD non-decision; retention; Track A pointer; cutover checklists — **#60** |
-| Ops hardening | Alert scan + GHA summaries; E22 data-quality KPI in pack; five-layer checklist; forward legacy note |
+| Ops hardening | Alert scan + GHA summaries; E22 data-quality KPI in pack; five-layer checklist; forward legacy note — **#61** |
+| Layer-3 Gap #6 fidelity | Ex→pay / receivable / tax / live evidence KPI + odd-lot promote checklist — **#62** |
+| FIN50 sealed-CAGR improve charter | `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md` (research path; Soft-Frozen KEEP) |
 | Obs PR #57 | **Superseded** by #58/#59 cadence (leave closed/ignored if API cannot close) |
 
 ### NOW
@@ -48,7 +50,7 @@ Live E16 Financial clip: **[0.50, 0.95]** (unchanged).
 | Live↔paper recon | Re-check INDEX_DRIFT as live history lengthens | Decision on <60 live sessions |
 | L4 cutover PR | Only after checklist all-green + explicit human approval | Soft-Frozen flip; static clip swap |
 | FIN50 cutover PR | Only after sealed CAGR gate + Gate E clear + human PR | Retune FIN50 lock; ignore `NOT_READY` |
-| Sealed-CAGR research charter | New charter if pursuing FIN50 path | Reopen Stage-8 / S1 |
+| Sealed-CAGR research charter | **Landed** — `FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`; screen via L4 families | Retune FIN_CAP_50 lock; Soft-Frozen flip |
 | New alpha charter | New charter only | Four-layer live stitch now |
 
 ### WON’T
@@ -77,6 +79,8 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wi
 - `research/ops/E22_DATA_QUALITY_KPI.md`
 - `research/ops/E22_GAP6_FIDELITY_KPI.md`
 - `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`
+- `research/ops/ARCHIVE_SENTINEL_HYGIENE.md`
+- `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`
 - `research/ops/FORWARD_LEGACY_NOTE.md`
 - `scripts/ops_alert_scan.py`
 - `scripts/e22_data_quality_kpi.py`

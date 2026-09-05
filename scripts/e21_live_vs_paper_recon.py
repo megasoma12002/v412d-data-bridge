@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -23,6 +24,12 @@ LIVE_NAV = ROOT / "forward/e21/nav.csv"
 LIVE_SIG = ROOT / "forward/e21/signals.csv"
 PAPER_NAV = ROOT / "repro/l4-dd-path-dual-paper/outputs/base_e16_daily_nav.csv"
 OUT_DIR = ROOT / "research/ops"
+
+sys.path.insert(0, str(ROOT / "scripts"))
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
+
+SOFT_FROZEN_CLIP = [float(SOFT_FROZEN_FIN_LO), float(SOFT_FROZEN_FIN_HI)]
+CLIP_TXT = f"[{SOFT_FROZEN_CLIP[0]:.2f}, {SOFT_FROZEN_CLIP[1]:.2f}]"
 
 
 def _load_nav(path: Path, nav_col: str) -> pd.DataFrame:
@@ -100,7 +107,7 @@ def main() -> None:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "LIVE_VS_PAPER_SOFT_FROZEN_RECON",
         "live_wire": False,
-        "soft_frozen_clip": [0.50, 0.95],
+        "soft_frozen_clip": list(SOFT_FROZEN_CLIP),
         "soft_frozen_unchanged": True,
         "paths": {
             "live_nav": str(args.live_nav),
@@ -138,7 +145,7 @@ def main() -> None:
         "# Live vs Paper Soft-Frozen Recon",
         "",
         f"Generated: `{payload['generated_at_utc']}`",
-        "Status: **RESEARCH / OPS** — Soft-Frozen clip **[0.50, 0.95] unchanged**.",
+        f"Status: **RESEARCH / OPS** — Soft-Frozen clip **{CLIP_TXT} unchanged**.",
         "",
         "## Coverage",
         "",
