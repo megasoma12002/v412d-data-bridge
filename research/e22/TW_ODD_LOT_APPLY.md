@@ -17,8 +17,11 @@ Generated: `2026-09-04T18:26:12.109787+00:00`
 ## Legal / practice anchors
 
 - **公司法 §240**：盈餘以發行新股分派時，**不滿一股之金額，以現金分派之**。
-- **發行人公告慣例**：不足一股按**面額**折現（通常 NT$10），**計算至元、元以下捨去**；停止過戶前後可拼湊；剩餘洽特定人按面額認購。
+- **發行人公告慣例**：不足一股按**面額**折現（通常 NT$10；少數彈性面額），**計算至元、元以下捨去**；停止過戶前後可拼湊；剩餘洽特定人按面額認購。
 - **證交所零股交易辦法**：零股以**1 股**為單位（1–999），與整股（1000）並行；**持股不必是 1000 倍數**。
+- **現金增資／股票股利**皆可產生 <1 股畸零股；策略帳以除權（stock ex）事件套用同一 floor+CIL 規則。
+- **市價落差爭議**：高價股按面額折現現金 ≪ 市值，屬制度結果；**正式帳必須跟面額慣例**，不可改用收盤市價 CIL 當 default（市價 CIL 僅 research `E22_v2s_cil`）。
+- **散戶自保（股務，非策略 alpha）**：關注股代公告之拼湊整股期限；逾期未湊則強制面額現金，劃撥費充抵後實領可能近 0。
 
 ## Named version ladder
 
@@ -61,6 +64,7 @@ Do not:
 
 - Force lot_size=1000 as formal books
 - Model 拼湊 window as portfolio alpha
+- Use market-price CIL to “make shareholders whole” in formal books
 - Silently replace E22_v2s without new version id
 - Rewrite forward/e21 history
 
