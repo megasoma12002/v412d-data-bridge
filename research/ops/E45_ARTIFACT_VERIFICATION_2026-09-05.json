@@ -1,6 +1,7 @@
 {
   "generated_at_utc": "2026-09-05T15:05:00+00:00",
-  "ballot": "E45_DEFER_STITCH_PATH",
+  "ballot": "E45_ACCEPT_CHARTER",
+  "ballot_prior_same_day": "E45_DEFER_STITCH_PATH",
   "reject_e45": false,
   "soft_frozen_critical_keep": true,
   "lineage_preserved": "E38->E43->E44->E45",
