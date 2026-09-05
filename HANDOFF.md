@@ -14,7 +14,7 @@ Cursor 必須依序讀：
 ## 0.1 Live cutover default（強制）
 
 **現行 live：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v2s cutover-only**。  
-**Live E16 Financial clip：** **[0.50, 0.95]**（Soft-Frozen clip）。  
+**Live E16 Financial clip：** **[0.50, 0.95]**（Soft-Frozen clip；單源 `scripts/e16_soft_frozen_base.py`）。  
 **禁止：** overlay live-wire、改寫歷史 NAV、自動翻 Soft-Frozen clip、把 held-out PASS 當 cutover 授權。
 
 | Module | Official class | Live? |
