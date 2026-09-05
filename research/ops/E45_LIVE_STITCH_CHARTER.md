@@ -1,7 +1,9 @@
 # E45 Live-Stitch Charter (Draft)
 
 Date: 2026-09-05  
-Status: **CHARTER DRAFTED — NOT ACCEPTED; LIVE STITCH FORBIDDEN**  
+Status: **ACTIVE — AWAITING HUMAN CHARTER BALLOT** (Register #6 Item 3)
+Decision pack: `E45_LIVE_STITCH_DECISION_PACK.md`
+Live stitch today: **FORBIDDEN**  
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 E45 class today: **CHALLENGER / NOT_VERIFIED** for claimed MDD ≈ −13.16%
 
@@ -55,6 +57,9 @@ Fail any V# → stop; do not stitch.
 
 ## Human ballot
 
+See **`E45_LIVE_STITCH_DECISION_PACK.md`** (Item 3 ACTIVE).
+
+
 | Ballot | Effect |
 |---|---|
 | **ACCEPT charter** | Allows Stage 1–2 research only; stitch still needs later PR |
@@ -73,4 +78,4 @@ Do **not** accept all three in one cutover PR.
 
 ## Label
 
-`E45_LIVE_STITCH_CHARTER_2026-09-05__DRAFTED_NOT_ACCEPTED`
+`E45_LIVE_STITCH_CHARTER_2026-09-05__ITEM3_ACTIVE`
