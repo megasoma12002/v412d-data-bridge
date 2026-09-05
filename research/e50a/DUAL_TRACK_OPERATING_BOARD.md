@@ -1,6 +1,6 @@
 # Dual-Track Operating Board — A Monitor + B Stress Engine
 
-Date: 2026-09-05  
+Date: 2026-09-05 (Track A KPI archive refresh; L4/FIN50 month-end asof 2026-09-04)  
 Governance: Option-2 accepted; Stage-8 saturated; **no live overlay**.
 Live Soft-Frozen Financial clip stays **[0.50, 0.95]**; dual-track is paper/monitor only.
 
@@ -60,9 +60,10 @@ Track A remains the paper/monitor. Track B S1 residual axis is closed.
 
 | Path | Status | Note |
 |---|---|---|
-| FIN_CAP_50 | Dual-paper OPERATING; cutover **`NOT_READY_SEALED_CAGR`** | Do not treat promote proposal as license |
-| L4_DD_PATH_08_50 | Held-out **`PASS_HELDOUT_L4`**; dual-paper OPERATING | Cutover = DD-path wire, **not** Soft-Frozen flip |
+| FIN_CAP_50 | Dual-paper OPERATING; cutover **`NOT_READY_SEALED_CAGR`** | Month-end asof 2026-09-04: YTD/1y **PAUSE_REVIEW** (Gate E) |
+| L4_DD_PATH_08_50 | Held-out **`PASS_HELDOUT_L4`**; dual-paper OPERATING | First month-end asof 2026-09-04: sealed OK; **YTD PAUSE_REVIEW** (gb 5.39 pp) — cutover talk frozen |
 | Soft-Frozen live clip | **[0.50, 0.95] KEEP** | No auto flip |
+| Track A S9A1 | **KEEP** (archive KPI refresh) | Val boot soft-warn &lt;0.70; stress edge vs C4 still + |
 
-Next alpha work needs a **new charter** (not S1 residual re-grid). Core-path cutovers stay human-PR only.
+Next alpha work needs a **new charter** (not S1 residual re-grid). Core-path cutovers stay human-PR only. L4 needs a **clean** month-end before any cutover PR.
 
