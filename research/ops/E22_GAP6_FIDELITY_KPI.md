@@ -1,6 +1,6 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-05T08:01:13.742609+00:00`
+Generated: `2026-09-05T13:55:11.020684+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen unchanged; no cutover; no odd-lot promote.
 
 ## Code wire

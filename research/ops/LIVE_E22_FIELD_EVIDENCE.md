@@ -1,13 +1,15 @@
 # Live E22 Field Evidence — Readiness Note
 
-Date: 2026-09-05  
+Date: 2026-09-05 (weekend verify pass)  
 Status: **CODE READY / LIVE EVIDENCE PENDING**  
-Soft-Frozen: **[0.50, 0.95] KEEP** — no history rewrite.
+Soft-Frozen: **[0.50, 0.95] KEEP** — no history rewrite.  
+Progress log: `PRIORITY_OPS_PROGRESS.md`
 
 ## Current live ledger
 
 `forward/e21/portfolio_state.json` keys today: `cash`, `last_date`, `last_nav`, `positions`  
-Gap #6 flag: **`LIVE_LEDGER_E22_FIELDS_MISSING`**
+Gap #6 flag: **`LIVE_LEDGER_E22_FIELDS_MISSING`**  
+Last verify: 2026-09-05 — QC PASS; fields still absent (expected: no weekday forward since code wire).
 
 Missing (expected until next weekday forward commit):
 

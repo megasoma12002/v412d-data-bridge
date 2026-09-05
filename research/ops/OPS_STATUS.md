@@ -61,6 +61,7 @@ Archive sentinel policy: `research/ops/ARCHIVE_SENTINEL_HYGIENE.md`
 Five-layer gaps: `research/ops/FIVE_LAYER_GAP_CHECKLIST.md`  
 Human decision register: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`  
+Priority ops progress: `research/ops/PRIORITY_OPS_PROGRESS.md`  
 Legacy forward config: `research/ops/FORWARD_LEGACY_NOTE.md`
 
 ## Commands
