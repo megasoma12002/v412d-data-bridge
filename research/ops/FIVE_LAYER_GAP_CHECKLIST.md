@@ -1,8 +1,8 @@
 # Five-Layer Gap Checklist — Operable System
 
-Date: 2026-09-05 (BLEND_025 dual-paper observe)  
+Date: 2026-09-05 (human decision register)  
 Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
-Authority: `research/STRATEGY_DEBT_BOARD.md` · map: `OPS_STATUS.md`
+Authority: `research/STRATEGY_DEBT_BOARD.md` · map: `OPS_STATUS.md` · decisions: `HUMAN_DECISION_REGISTER.md`
 
 Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scope)
 
@@ -13,13 +13,14 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 | Live = Soft-Frozen core only (E16+E18+E22_v2s) | **DONE** | |
 | Paper sleeves split (FIN50 / L4 / Track A / BLEND_025) | **DONE** | BLEND_025 observe opened |
 | Cutover checklists (prep only) | **DONE** | `CUTOVER_CHECKLIST_{L4,FIN50}.md` |
-| L4 YTD/1y clean for cutover | **OPEN** | PAUSE_REVIEW — observe |
-| FIN50 sealed CAGR gate | **OPEN** | `NOT_READY_SEALED_CAGR` — still blocked for live |
+| L4 YTD/1y clean for cutover | **OPEN** | PAUSE_REVIEW — observe; cutover **DEFER** (register #4) |
+| FIN50 sealed CAGR gate | **OPEN** | `NOT_READY_SEALED_CAGR` — **static cutover REJECT for now** (register #2) |
 | FIN50 sealed-CAGR improve charter | **DONE** | Charter + gate screen landed |
 | FIN50 charter screen (families) | **DONE** | → **BLEND_025** |
-| BLEND_025 dual-paper observe sleeve | **DONE** | OPERATING OBSERVE; cutover blocked |
+| BLEND_025 dual-paper observe sleeve | **DONE** | OPERATING OBSERVE; sole sealed successor (register #3) |
 | BLEND_025 month-end runbook | **DONE** | `BLEND_025_MONTH_END_RUNBOOK.md` (parity with FIN50/L4) |
-| Alpha / E45 live stitch | **DEFERRED** | needs new charter + human PR |
+| Human decision register | **DONE** | `HUMAN_DECISION_REGISTER.md` BINDING |
+| Alpha / E45 live stitch | **DEFERRED** | register #6 — needs new charter + human PR |
 
 ## Layer 2 — Live / ops cadence
 
@@ -68,15 +69,16 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 
 ## This batch completed
 
-1. Opened **BLEND_025 dual-paper observe** sleeve (Exact T+1 paper only)  
-2. Wired ledgers + month-end monitor into `ops_month_end_paper_pack` + `ops_alert_scan`  
-3. Updated OPS_STATUS / proposal status → **OPERATING OBSERVE**  
-4. Added **BLEND_025 month-end runbook** + STRATEGY_DEBT_BOARD NOW/NEXT alignment  
+1. Recorded binding **human decision register** (objective priority)  
+2. Soft-Frozen **KEEP**; FIN50 static cutover **REJECT for now**; BLEND_025 = sole sealed-CAGR successor observe  
+3. L4 / BLEND live cutover **DEFER**; E45 / odd-lot **DEFER**  
+4. Aligned STRATEGY_DEBT_BOARD + OPS_STATUS with register  
 
-## Still OPEN (observe / human)
+## Still OPEN (observe / calendar — not strategy votes)
 
-1. L4 / FIN50 trailing PAUSE — keep observing  
+1. L4 / FIN50 trailing PAUSE — observe until re-open triggers  
 2. Next weekday forward to persist live `e22_*` fields  
 3. BLEND_025 month-end trailing re-check on cadence (observe ≠ cutover)
 
-**Not OPEN for auto-work:** Soft-Frozen flip, L4/FIN50/BLEND_025 live cutover, odd-lot default promote.
+**Not OPEN for auto-work:** Soft-Frozen flip, L4/FIN50/BLEND_025 live cutover, odd-lot default promote.  
+**Do not re-open without register triggers:** FIN50 static cutover while `NOT_READY_SEALED_CAGR`.
