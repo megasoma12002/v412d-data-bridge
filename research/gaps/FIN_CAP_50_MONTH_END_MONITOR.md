@@ -1,6 +1,6 @@
 # FIN_CAP_50 Month-End Paper Monitor — asof 2026-09-04
 
-Generated: `2026-09-05T05:24:59.255374+00:00`
+Generated: `2026-09-05T06:42:58.951142+00:00`
 Status: **PAPER ONLY** — Soft-Frozen live default unchanged.
 
 | Window | BASE CAGR | BASE MDD | FIN_CAP_50 CAGR | FIN_CAP_50 MDD | MDD Δpp | CAGR giveback pp | Rel NAV |
