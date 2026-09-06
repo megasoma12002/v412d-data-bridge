@@ -1,0 +1,8 @@
+book,kind,heldout_1x_score,sealed_1x_score,covid_ex_heldout_1x_score,heldout_2x_score,multi_event,strict_noncovid_multi,heldout_score_pos,sealed_score_ok,covid_ex_heldout_pos,cost_1x_2x_ok,qualifies_section2,years_helped,n_years_helped
+BASE_E16_E18_E22_v2s,ref,0.0,0.0,0.0,0.0,False,False,False,True,False,False,False,[],0
+BLEND_E45_A05,ref_e45,0.22225024440115648,2.0686833418786854,-2.0536784087974325,0.25359612929610753,False,False,True,True,False,True,False,[2020],1
+SLEEVE_FIN_ONLY_A10,ref_e45_sleeve,0.2854667577512848,2.5176656414680365,-2.4079056535237564,0.3194633139722791,False,False,True,True,False,True,False,[2020],1
+M1_EQW_C25,m1,0.5839410425053759,1.1757713648363524,-1.3136531155909403,0.48707316782440335,True,True,True,True,False,True,False,"[2015, 2018, 2020, 2022]",4
+M1_EQW_C50,m1,2.3537880630126407,0.9059765493370282,-0.7011283328248075,2.0603310756627917,True,True,True,True,False,True,False,"[2015, 2018, 2020, 2022]",4
+M1_EQW_C75,m1,4.214980406583669,0.590390018964249,-0.15680950022489704,3.6819022992857002,True,True,True,True,False,True,False,"[2015, 2018, 2020, 2022]",4
+M1_EQW_C50_FIN,m1_sleeve,2.2691229892619624,0.9998003256465822,-1.2116775854711936,1.946476685618737,True,True,True,True,False,True,False,"[2015, 2018, 2020, 2022]",4

@@ -96,16 +96,16 @@ Master: `NEXT_RESEARCH_BATCH_INTEGRATED_2026-09-06.md` · Soft-Frozen KEEP · DE
 
 Integrated: `OPS_PRIORITY_OBSERVE_PHASEC_2026-09-06.md` · Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN**.
 
-## Successor new-mechanism ladder (2026-09-06) — CHARTER OPEN
+## Successor new-mechanism ladder (2026-09-06) — CHARTER OPEN / M1 DONE
 
 E45 same-knob search (mild α / sleeve densify / crisis-gate / mild `max_cut`) is treated as **exhausted** for the KPI “material non-2020 crisis help with small CAGR giveback”.
 
 | Stage | Mechanism | Status | Artifact |
 |---|---|---|---|
 | Charter | M1→M2→M3 paper ladder | **OPEN** | `E45_NEW_MECHANISM_CHARTER.md` (+ `.zh-TW.md`, ops pointer) |
-| M1 | New state-signal family (sensor) | **NEXT** (authorized) | paper pack TBD |
-| M2 | Cash/defensive sleeve relocate (actuator) | blocked on M1 pack | — |
+| **M1** | New state-signal family (equity/TAIEX proxy sensor) | **DONE — Section-2 FAIL (autopsy)** | `E45_M1_STATE_SIGNAL.md` · freeze `E45_M1_STATE_VECTOR_V0_FROZEN.md` |
+| M2 | Cash/defensive sleeve relocate (actuator) | **NEXT** (authorized after M1 pack) | — |
 | M3 | Three-state risk machine | blocked on M2 pack | — |
 
-Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN** · no invented −13.16% replacement · no E45 same-knob substitute.
+M1 read: multi-year help includes non-2020, but **COVID-ex held-out score stays negative** (best `M1_EQW_C75`). Do **not** densify E45 α; Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN** · no invented replacement for the retired MDD narrative · no E45 same-knob substitute.
 
