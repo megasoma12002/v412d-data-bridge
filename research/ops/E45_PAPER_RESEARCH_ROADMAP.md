@@ -86,3 +86,13 @@ Framing: **2020 = COVID-19 mega-DD** (expected large story). Honesty = non-COVID
 
 Master: `NEXT_RESEARCH_BATCH_INTEGRATED_2026-09-06.md` · Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN**.
 
+
+## Ops priority follow-up (2026-09-06)
+
+| # | Item | Status | Artifact |
+|---|---|---|---|
+| 1 | Observe trailing PAUSE refresh | **DONE** (tip still PAUSE/ALERT; stitch FORBIDDEN) | `E45_OBSERVE_PAUSE_REFRESH.md` |
+| 2 | Phase C `0050` sealed C1 DRIFT root-cause | **DONE** (`UNADJUSTED_CLOSE_SPIKE`) | `DATA_SOURCE_PHASE_C_0050_ROOTCAUSE.md` |
+
+Integrated: `OPS_PRIORITY_OBSERVE_PHASEC_2026-09-06.md` · Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN**.
+
