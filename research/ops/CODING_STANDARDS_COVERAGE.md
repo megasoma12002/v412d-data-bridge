@@ -30,7 +30,7 @@ Standards: `research/ops/CODING_STANDARDS.md` · E45 landmines: `research/ops/E4
 ## Explicitly not claimed
 
 - Did **not** re-run every historical research grid or rewrite every prose KEEP line  
-- Did **not** Soft-Frozen flip / live stitch / invent −13.16% replacement  
+- Did **not** Soft-Frozen flip / live stitch / invent the retired handoff MDD narrative replacement  
 - Did **not** auto-open new observe sleeves  
 
 ## Re-check

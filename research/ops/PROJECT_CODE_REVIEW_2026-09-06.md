@@ -81,7 +81,7 @@ PYTHONPATH=scripts python3 scripts/check_e45_paper_hygiene.py
 ## Explicit non-goals of this review
 
 - Soft-Frozen flip / DEFAULT change / live stitch
-- Inventing a −13.16% replacement number
+- Inventing a the retired handoff MDD narrative replacement number
 - Re-running all historical research grids
 - Full harness migration of every E45 paper script in one shot
 

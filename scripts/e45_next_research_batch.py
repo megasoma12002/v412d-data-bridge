@@ -9,7 +9,7 @@
 
 Governance unchanged:
   Soft-Frozen [0.50, 0.95] KEEP · DEFAULT E22_v2s_tw KEEP · stitch FORBIDDEN ·
-  claimed −13.16% RETIRED_HISTORICAL_NARRATIVE · HIGH_BETA stays DRAFT.
+  retired MDD narrative RETIRED_HISTORICAL_NARRATIVE · HIGH_BETA stays DRAFT.
 """
 from __future__ import annotations
 
@@ -322,7 +322,7 @@ def write_reports(
         "",
         f"Generated: `{generated}`",
         "Status: **PAPER ONLY** — Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN**",
-        f"Claimed −13.16%: **`{CLAIM_STATUS}`** (do not invent a replacement)",
+        f"Retired MDD narrative: **`{CLAIM_STATUS}`** (do not invent a replacement)",
         "",
         "## Scope",
         "",
@@ -473,7 +473,7 @@ def write_reports(
         "",
         f"Generated: `{generated}`",
         "Status: **PAPER / OBSERVE DIAG** — Soft-Frozen **KEEP** · DEFAULT **KEEP** · stitch **FORBIDDEN**",
-        f"Claimed −13.16%: **`{CLAIM_STATUS}`**",
+        f"Retired MDD narrative: **`{CLAIM_STATUS}`**",
         "",
         "## What ran",
         "",
@@ -491,7 +491,7 @@ def write_reports(
         "",
         "## Explicit non-actions",
         "",
-        "- No Soft-Frozen / DEFAULT flip · no live stitch · no −13.16% reinvention · no HIGH_BETA OPEN.",
+        "- No Soft-Frozen / DEFAULT flip · no live stitch · no retired-narrative reinvention · no HIGH_BETA OPEN.",
         "",
         f"Label: `E45_NEXT_RESEARCH_BATCH_{generated[:10]}__STITCH_FORBIDDEN`",
         "",

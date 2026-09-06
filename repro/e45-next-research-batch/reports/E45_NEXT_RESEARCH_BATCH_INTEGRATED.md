@@ -2,7 +2,7 @@
 
 Generated: `2026-09-06T06:53:45.232253+00:00`
 Status: **PAPER / OBSERVE DIAG** — Soft-Frozen **KEEP** · DEFAULT **KEEP** · stitch **FORBIDDEN**
-Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`**
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**
 
 ## What ran
 
@@ -20,6 +20,6 @@ Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`**
 
 ## Explicit non-actions
 
-- No Soft-Frozen / DEFAULT flip · no live stitch · no −13.16% reinvention · no HIGH_BETA OPEN.
+- No Soft-Frozen / DEFAULT flip · no live stitch · no retired-narrative reinvention · no HIGH_BETA OPEN.
 
 Label: `E45_NEXT_RESEARCH_BATCH_2026-09-06__STITCH_FORBIDDEN`

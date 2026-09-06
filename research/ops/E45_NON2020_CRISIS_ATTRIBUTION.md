@@ -1,7 +1,7 @@
 # E45 Non-2020 Crisis-Year Attribution
 
 Generated: `2026-09-06T04:26:26.694796+00:00`
-Status: **PAPER ONLY** — Soft-Frozen KEEP · stitch FORBIDDEN · −13.16% remains RETIRED
+Status: **PAPER ONLY** — Soft-Frozen KEEP · stitch FORBIDDEN · retired MDD narrative remains RETIRED
 
 Crisis years: **2015, 2018, 2020, 2022**. Help = BASE |MDD| − challenger |MDD| (pp).
 

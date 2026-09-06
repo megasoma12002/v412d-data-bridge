@@ -5,7 +5,7 @@ Why this file exists
 --------------------
 Governance names E45 as SOFT_FROZEN_CRITICAL, but the repo historically had
 only a *role* and a scattered lineage (E1 / E1.1 / E2 / E2.1 / E3), with no
-importable ``e45`` package and an unverified MDD≈-13.16% text claim.
+importable ``e45`` package and an unverified retired handoff MDD narrative.
 
 This module:
   - gives E45 a real, versioned Python surface
@@ -42,7 +42,11 @@ from claim_labels import (  # noqa: E402
     RETIRED_HISTORICAL_NARRATIVE,
 )
 
-CLAIMED_MDD = -0.1316
+# Numeric handoff claim removed from module surface (residue cleanup 2026-09-06).
+# Status + dated lineage only; full narrative lives in the MDD_1316 retirement pack.
+RETIRED_MDD_NARRATIVE_DOC = "research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md"
+RETIRED_MDD_VERIFICATION_DOC = "research/e45/E45_MDD_1316_VERIFICATION.md"
+CLAIMED_MDD = None  # intentionally absent — do not reintroduce a float claim
 CLAIMED_MDD_STATUS = RETIRED_HISTORICAL_NARRATIVE
 CLAIMED_MDD_INTERPRETATION = EARLY_NON_RIGOROUS_RESEARCH_RESULT
 # Deprecated alias kept for older readers only:
@@ -94,7 +98,7 @@ class E45Manifest:
     module_id: str
     module_status: str
     promotion_allowed: bool
-    claimed_mdd: float
+    claimed_mdd: float | None
     claimed_mdd_status: str
     claimed_mdd_interpretation: str
     verified_lineage_mdd: dict
@@ -127,7 +131,7 @@ MANIFEST = E45Manifest(
     ),
     note=(
         "Named E45 surface for integration. Not an in-place freeze. "
-        "CLAIMED_MDD (-13.16%) RETIRED_HISTORICAL_NARRATIVE (human 2026-09-05 path A). "
+        "retired handoff MDD narrative RETIRED_HISTORICAL_NARRATIVE (human 2026-09-05 path A). "
         "Use VERIFIED_LINEAGE_MDD / PRIMARY_COMPARABLE_MDD only; do not invent a replacement."
     ),
 )

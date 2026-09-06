@@ -146,7 +146,7 @@ Observed R1 NAV exposure: mean gross ~0.999, max 1.000, mean daily turnover 5.93
 | download failures = 0 | Match |
 | adjusted_rows was 0 | Match |
 | A2 ~795k rows / 1,347 stocks / ~5,300 days | Match (795000 / 1347 / 5300) |
-| E45 MDD ≈ -13.16% | **Not verified**. A3/R1 do not apply E45. No E45 NAV artifact was consumed. |
+| E45 MDD ≈ the retired handoff MDD narrative | **Not verified**. A3/R1 do not apply E45. No E45 NAV artifact was consumed. |
 | A3 has tradable OOS alpha | Engineering clock PASS; validation loses to PIT proxy; `RESEARCH_ONLY` |
 | R1 does not read 2019–2022 during selection | Match by code path |
 | R1 2.5% turnover ceiling | Match as **pre-existing EXPERIMENTAL** gate; 0 candidates satisfied it |

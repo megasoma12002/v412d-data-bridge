@@ -6,7 +6,7 @@ Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `E45_DUAL_
 
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live stitch: **FORBIDDEN**  
-−13.16% claim: **`RETIRED_HISTORICAL_NARRATIVE`**
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**
 
 ## Sleeve definition (paper only)
 
@@ -27,7 +27,7 @@ Record: `research/ops/E45_DUAL_PAPER_OBSERVE_OPEN.md`
 | 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** |
 | 2 | Live DEFAULT books remain `E22_v2s_tw` | **YES** |
 | 3 | Design metrics present (`repro/e45-dual-paper-observe-design/`) | **YES** |
-| 4 | −13.16% labeled RETIRED (not verified) | **YES** |
+| 4 | the retired handoff MDD narrative labeled RETIRED (not verified) | **YES** |
 | 5 | No stitch / live-wire PR bundled | **YES** |
 | 6 | Month-end monitor owner named | **YES** — `ops_month_end_paper_pack.py` / research/ops |
 | 7 | PAUSE_REVIEW policy understood (observe ≠ promote) | **YES** |

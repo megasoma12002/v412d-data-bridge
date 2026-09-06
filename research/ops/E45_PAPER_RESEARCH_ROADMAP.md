@@ -16,7 +16,7 @@ Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · l
 
 ## Binding constraints (unchanged)
 
-- Do **not** invent a −13.16% replacement (`RETIRED_HISTORICAL_NARRATIVE`).
+- Do **not** invent a replacement for the retired MDD narrative (`RETIRED_HISTORICAL_NARRATIVE`).
 - Do **not** retune frozen `E3_VOLTARGET_WINNER` in place.
 - Do **not** live-stitch without second human `E45 ACCEPT live stitch`.
 - Operating observe α targets change only via new **OPEN** ballot.

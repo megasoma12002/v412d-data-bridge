@@ -8,7 +8,7 @@
 - [x] E18 — FOUND (`scripts/e21_forward_pipeline.py`, `forward/e21/`)
 - [x] E22 — FOUND (`data/dividend_events/` + `e22_dividend_accounting.py`; **wired into E21 as E22_v2s cutover-forward** as of PR #30; historical live NAV not rewritten). Named TW odd-lot: `E22_v2s_tw` (not default).
 - [x] E44 — INCOMPLETE (clock FOUND in E18/A3; no e44 package)
-- [x] E45 — INCOMPLETE (named `scripts/e45_crisis_core.py` challenger exists; MDD −13.16% = **`NOT_VERIFIED_NO_ARTIFACT_MATCH`**)
+- [x] E45 — INCOMPLETE (named `scripts/e45_crisis_core.py` challenger exists; MDD the retired handoff MDD narrative = **`NOT_VERIFIED_NO_ARTIFACT_MATCH`**)
 - [x] E50-A0 — FOUND (pinned artifact + QC)
 - [x] E50-A1 — FOUND
 - [x] E50-A2 — FOUND
@@ -49,7 +49,7 @@ Verified in `E50_HANDOFF_VERIFICATION.md` §2. Combined four-layer engine is not
 - [x] E16 是否真為核心配置 — live E21 path yes; full-history NAV missing
 - [x] E18/E22 是否真負責執行 — E18 yes; E22 dataset yes; **E22_v2s cutover wired in E21** (no history rewrite)
 - [x] E44 是否落實 Exact T+1 — clock yes; no e44 package
-- [x] E45 是否為危機防守核心 — role yes; named challenger module; **−13.16% NOT_VERIFIED**
+- [x] E45 是否為危機防守核心 — role yes; named challenger module; **the retired handoff MDD narrative NOT_VERIFIED**
 - [x] E50-A 是否只作 Alpha Overlay — contract yes; not a live overlay on E16
 - [x] Alpha 弱與 Crisis 是否有分開 — spec yes; combined engine no
 - [x] 0050 正二是否未進核心 — yes

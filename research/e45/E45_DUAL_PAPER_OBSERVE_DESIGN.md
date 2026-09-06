@@ -3,7 +3,7 @@
 Generated: `2026-09-05T18:17:09.546625+00:00`
 Status: **DESIGN LOCKED — OBSERVE NOW OPERATING**
 Live stitch: **FORBIDDEN** · Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT books **`E22_v2s_tw` KEEP**
-Claimed MDD ≈ −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 Operating observe: **OPEN** (`E45_DUAL_PAPER_OBSERVE_OPEN.md`) — paper only; stitch still FORBIDDEN
 
 ## Locked paper books
@@ -43,7 +43,7 @@ Operating observe: **OPEN** (`E45_DUAL_PAPER_OBSERVE_OPEN.md`) — paper only; s
 3. Re-check trailing YTD / 1y PAUSE gates each month-end (observe ≠ promote)
 4. Do **not** silent-edit Soft-Frozen; do **not** rewrite `forward/e21` history
 5. Observe sleeve ≠ stitch license; V1–V6 still gate any live stitch
-6. Never cite −13.16% as verified; use dated lineage / challenger MDDs only
+6. Never cite the retired handoff MDD narrative as verified; use dated lineage / challenger MDDs only
 
 ## Explicit non-goals
 

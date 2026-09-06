@@ -41,7 +41,7 @@ Measure on E16→E18→E22_v2s paper books. L1/L2 locks remain frozen-stopped.
 | **L3-FINCAP-DD-ONLY** | Apply FIN hi-cap only while TAIEX (or book) in active DD from peak; else BASE | Path-conditional concentration |
 | **L3-UTIL-RANK** | Same candidate pool; OOF **select** by dual score (MDD improve, CAGR giveback) — not MDD-only | Avoid locking a sealed-fragile winner |
 
-**Forbidden:** retuning `L1_FINCAP50_COMBO_50`; reopening `L2_FINCAP_ONLY` as locked live cut; Stage-8 TECH2 remix; S1 residual cut retune; proxy-as-PASS; inventing E45 −13.16%; silent Soft-Frozen flip.
+**Forbidden:** retuning `L1_FINCAP50_COMBO_50`; reopening `L2_FINCAP_ONLY` as locked live cut; Stage-8 TECH2 remix; S1 residual cut retune; proxy-as-PASS; inventing E45 the retired handoff MDD narrative; silent Soft-Frozen flip.
 
 ## Frozen gates (EXPERIMENTAL paper books)
 

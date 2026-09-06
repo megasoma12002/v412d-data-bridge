@@ -5,7 +5,7 @@ Status: **DRAFTED — NOT AUTHORIZED**
 Human ballot required: **second dedicated** `E45 ACCEPT live stitch` (separate PR)  
 Soft-Frozen live Financial clip: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
-−13.16% claim: **`RETIRED_HISTORICAL_NARRATIVE`** — do not cite / invent replacement
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** — do not cite / invent replacement
 
 Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `HUMAN_DECISION_REGISTER.md` #6c · `E45_DUAL_PAPER_OBSERVE_OPEN.md`
 
@@ -17,7 +17,7 @@ It does **not** authorize live-wire, Soft-Frozen flip, or `forward/e21` history 
 - Attach E45 crisis overlay (`E3_VOLTARGET_WINNER` / `CHAL_E45_E3`) onto the Soft-Frozen early-stack live path **forward-only**.  
 - Soft-Frozen Financial clip stays **[0.50, 0.95]** unless a **separate** clip PR.  
 - DEFAULT books stay **`E22_v2s_tw`** unless a **separate** books PR.  
-- Comparable MDDs in any claim text: dated lineage (primary E1.1 val **−15.81%**) and/or dated challenger (~**−20.76%**) — **never −13.16%**.
+- Comparable MDDs in any claim text: dated lineage (primary E1.1 val **−15.81%**) and/or dated challenger (~**−20.76%**) — **never the retired handoff MDD narrative**.
 
 ## Gates (all required before second ACCEPT)
 
@@ -25,7 +25,7 @@ It does **not** authorize live-wire, Soft-Frozen flip, or `forward/e21` history 
 |---|---|---|---|
 | 1 | Charter ACCEPT + Stage 1–3 research DONE | Register #6c; board `E45_STAGE12_STATUS.md` | **YES** |
 | 2 | V1–V6 research bars all PASS | V1 via path-A retirement; V2–V6 dated packs | **YES** |
-| 3 | −13.16% formally retired / not used as stitch gate | `E45_MDD_1316_NARRATIVE_RETIREMENT.md` | **YES** |
+| 3 | the retired handoff MDD narrative formally retired / not used as stitch gate | `E45_MDD_1316_NARRATIVE_RETIREMENT.md` | **YES** |
 | 4 | Dual-paper observe **OPERATING** | Ledgers + month-end + pack/alert wire | **YES** |
 | 5 | ≥1 **clean** month-end on dynamic windows: no YTD / trailing_1y `PAUSE_REVIEW` | Asof 2026-09-04: YTD + trailing_1y **PAUSE_REVIEW** | **NO** |
 | 6 | Sustained clean trailing (not a single clean print) | Need additional clean month-ends after #5 clears | **NO** |
@@ -48,7 +48,7 @@ It does **not** authorize live-wire, Soft-Frozen flip, or `forward/e21` history 
 2. Body quotes **this checklist** with all gates YES + fresh `E45_MONTH_END_MONITOR.json`  
 3. Body cites comparable MDDs from dated lineage/challenger only (primary **−15.81%**; challenger dated)  
 4. Implementation: forward-only live attach; **no** silent Soft-Frozen edit; **no** `forward/e21` history rewrite  
-5. Forbidden in that PR: FIN50/L4/BLEND cutover, odd-lot/tax DEFAULT flip, inventing −13.16% replacement, Soft-Frozen clip retune  
+5. Forbidden in that PR: FIN50/L4/BLEND cutover, odd-lot/tax DEFAULT flip, inventing the retired handoff MDD narrative replacement, Soft-Frozen clip retune  
 
 ## Second human ballot (when ready)
 

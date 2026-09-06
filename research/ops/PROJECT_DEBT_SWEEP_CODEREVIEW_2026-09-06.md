@@ -1,7 +1,7 @@
 # Project Debt-Sweep Code Review — 2026-09-06
 
 Status: **REVIEW + REMEDIATION**  
-Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · claimed −13.16% **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · retired MDD narrative **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 
 Label: `PROJECT_DEBT_SWEEP_CODEREVIEW_2026-09-06__STITCH_FORBIDDEN`
 
@@ -79,7 +79,7 @@ No Soft-Frozen / DEFAULT / stitch ballot is implied.
 
 - No Soft-Frozen / DEFAULT flip
 - No live stitch / no HIGH_BETA OPEN
-- No −13.16% reinvention
+- No retired-narrative reinvention
 - No e21 primary rewrite / no Goodinfo·Wantgoo·CMoney reopen
 
 ## Verify

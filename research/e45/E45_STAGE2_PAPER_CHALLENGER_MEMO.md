@@ -14,13 +14,13 @@ Generated: `2026-09-05T18:10:35Z`
 
 | Claim | Status |
 |---|---|
-| Handoff/spec MDD ≈ **−13.16%** (−0.1316) | **`RETIRED_HISTORICAL_NARRATIVE`** — scan `exact_artifact_match=false`; do not invent replacement |
+| Handoff/spec MDD narrative (**RETIRED**) | **`RETIRED_HISTORICAL_NARRATIVE`** — scan `exact_artifact_match=false`; do not invent replacement |
 | Invented replacement MDD | **Forbidden** |
 | Use instead | Dated **verified lineage** + **early-stack challenger** MDDs below |
 
 ## Verified lineage (validation gates)
 
-| Source | Closest / best MDD | |err| vs −13.16% |
+| Source | Closest / best MDD | |err| vs the retired handoff MDD narrative |
 |---|---:|---:|
 | E1.1 validation | **−15.81%** | 2.65 pp |
 | E1 validation | −17.12% | 3.96 pp |
@@ -38,11 +38,11 @@ Generated: `2026-09-05T18:10:35Z`
 | E16+E18+E22_v2s+E45_E1 | 13.14% | −22.64% | 9.48 pp |
 | E16+E18+E22_v2s+E45_LEGACY0.7 | 12.79% | −20.62% | 7.46 pp |
 
-Interpretation for paper observe: E45_E3 overlay **reduces** early-stack CAGR and leaves MDD near **−21%**, still far from narrative −13.16%. This is a **challenger observation**, not a Soft-Frozen or live authorization.
+Interpretation for paper observe: E45_E3 overlay **reduces** early-stack CAGR and leaves MDD near **−21%**, still far from narrative the retired handoff MDD narrative. This is a **challenger observation**, not a Soft-Frozen or live authorization.
 
 ## V-bar implications
 
-- **V1 FAIL** (no artifact match for −13.16%) ⇒ stitch blocked  
+- **V1 FAIL** (no artifact match for the retired handoff MDD narrative) ⇒ stitch blocked  
 - **V2 PASS (labeled)** — this memo is the honest label surface  
 - **V3 PASS** on shared Exact T+1 path  
 - **V4/V5 PARTIAL** — cost / multi-crisis seal packs still open  
@@ -53,7 +53,7 @@ Interpretation for paper observe: E45_E3 overlay **reduces** early-stack CAGR an
 - No live-wire into `forward/e21`  
 - No Soft-Frozen flip  
 - No history rewrite  
-- No claim that Soft-Frozen_CRITICAL proves −13.16%  
+- No claim that Soft-Frozen_CRITICAL proves the retired handoff MDD narrative  
 
 ## Next
 

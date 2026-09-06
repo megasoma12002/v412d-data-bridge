@@ -2,7 +2,7 @@
 
 Generated: `2026-09-06T04:26:26.694796+00:00`
 Status: **PAPER / OBSERVE OPS** — Soft-Frozen **KEEP** · DEFAULT **KEEP** · live stitch **FORBIDDEN**
-Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 
 ## What ran
 
@@ -24,7 +24,7 @@ Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replaceme
 
 ## Explicit non-actions
 
-- No Soft-Frozen flip · no DEFAULT rewrite · no live stitch · no −13.16% reinvention · no auto-OPEN of HIGH_BETA.
+- No Soft-Frozen flip · no DEFAULT rewrite · no live stitch · no retired-narrative reinvention · no auto-OPEN of HIGH_BETA.
 
 ## Machine summary
 

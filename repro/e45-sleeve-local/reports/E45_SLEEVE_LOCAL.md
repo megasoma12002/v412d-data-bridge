@@ -43,7 +43,7 @@ High-β sleeves (β≥median vs TAIEX): **0050, Financial**
 
 ## Governance
 
-- Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · −13.16% RETIRED
+- Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · retired MDD narrative
 
 ## Reproduce
 

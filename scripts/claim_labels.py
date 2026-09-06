@@ -5,7 +5,7 @@ Prefer these labels over ad-hoc aliases like NOT_FOUND / UNVERIFIED_TEXT_ONLY.
 """
 from __future__ import annotations
 
-# Historical narrative numbers (e.g. retired E45 −13.16%)
+# Historical narrative labels (e.g. retired E45 handoff MDD — see E45_MDD_1316 pack)
 NOT_VERIFIED_HISTORICAL_NARRATIVE = "NOT_VERIFIED_HISTORICAL_NARRATIVE"
 RETIRED_HISTORICAL_NARRATIVE = "RETIRED_HISTORICAL_NARRATIVE"
 EARLY_NON_RIGOROUS_RESEARCH_RESULT = "EARLY_NON_RIGOROUS_RESEARCH_RESULT"

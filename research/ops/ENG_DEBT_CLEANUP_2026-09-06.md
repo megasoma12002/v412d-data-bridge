@@ -2,7 +2,7 @@
 
 Date: 2026-09-06  
 Branch: `cursor/eng-debt-cleanup-d049`  
-Governance: **unchanged** (Soft-Frozen KEEP · DEFAULT `E22_v2s_tw` KEEP · stitch FORBIDDEN · −13.16% retired narrative · HIGH_BETA DRAFT/NOT OPEN)
+Governance: **unchanged** (Soft-Frozen KEEP · DEFAULT `E22_v2s_tw` KEEP · stitch FORBIDDEN · MDD_1316 retired narrative · HIGH_BETA DRAFT/NOT OPEN)
 
 ## Closed in this PR
 
@@ -23,5 +23,5 @@ Governance: **unchanged** (Soft-Frozen KEEP · DEFAULT `E22_v2s_tw` KEEP · stit
 
 - Soft-Frozen / DEFAULT / stitch / HIGH_BETA ballots
 - Merging `FIN_ONLY_A10` with `SLEEVE_FIN_ONLY_A10`
-- Inventing a replacement for −13.16%
+- Inventing a replacement for MDD_1316
 - Review-doc historical mentions of banned labels (intentional archive)

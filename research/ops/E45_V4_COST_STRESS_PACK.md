@@ -3,7 +3,7 @@
 Generated: `2026-09-05T18:26:14.920671+00:00`
 Status: **PASS** (E45-named Exact T+1 cost multiples)
 Live stitch: **FORBIDDEN** (V1 still FAIL) · Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP**
-Claimed MDD ≈ −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`**
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**
 
 ## Method
 
@@ -55,7 +55,7 @@ Claimed MDD ≈ −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`**
 ## Non-actions
 
 - No live-wire / Soft-Frozen flip / history rewrite
-- No invented −13.16%
+- No invented replacement for the retired MDD narrative
 - V4 PASS ≠ stitch authorization (V1 still FAIL)
 
 ## Label

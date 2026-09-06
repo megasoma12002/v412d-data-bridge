@@ -1,6 +1,6 @@
 # Repo Naming Inconsistency — Code Review (2026-09-06)
 
-Status: **REVIEW ONLY** — Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · claimed −13.16% **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Status: **REVIEW ONLY** — Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · retired MDD narrative **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 
 **Baseline:** `main` @ review time  
 **Related open fix:** [PR #87](https://github.com/megasoma12002/v412d-data-bridge/pull/87) (`cursor/e45-naming-consistency-d049`) — clears primary E45 *script emitter* forks in §A  
@@ -106,14 +106,14 @@ mirrors under `repro/`.
 
 ### A5. Claim status still taught as `NOT_VERIFIED`
 
-**Why High:** Active packs present `NOT_VERIFIED` as the −13.16% *claim status*, contradicting `RETIRED_HISTORICAL_NARRATIVE`.
+**Why High:** Active packs present `NOT_VERIFIED` as the the retired handoff MDD narrative *claim status*, contradicting `RETIRED_HISTORICAL_NARRATIVE`.
 
 **Evidence:**  
 - `research/ops/E45_V4_COST_STRESS_PACK.md`, `E45_V5_MULTI_WINDOW_PACK.md`  
 - `repro/e45-v4v5-named-packs/summary.json`, `repro/e45-dual-paper-observe-design/summary.json`, `repro/e45-mdd-verify/summary.json`  
 - Register / debt / gap briefs still say claim “remains NOT_VERIFIED” in places
 
-**Note:** A verification *scan* may still report “no artifact matched −13.16%”. That is not the same as the claim-status const. Prefer: scan unmatched + policy `RETIRED_HISTORICAL_NARRATIVE`.
+**Note:** A verification *scan* may still report “no artifact matched the retired handoff MDD narrative”. That is not the same as the claim-status const. Prefer: scan unmatched + policy `RETIRED_HISTORICAL_NARRATIVE`.
 
 **Fix:** Regenerate V4/V5/stage3/verify summaries; patch operator briefs.
 
@@ -238,7 +238,7 @@ Runtime-equal today; hygiene Medium once profile const is the only write path.
 ## G. Non-actions
 
 - No Soft-Frozen / DEFAULT / stitch change.  
-- No −13.16% reinvention or claim reinstatement.  
+- No retired-narrative reinvention or claim reinstatement.  
 - Do not rewrite `oof_2012_2018` or paper densify `FIN_ONLY_A10` IDs.  
 - Do not treat dated landmine reviews that *describe* old bugs as active schema.
 

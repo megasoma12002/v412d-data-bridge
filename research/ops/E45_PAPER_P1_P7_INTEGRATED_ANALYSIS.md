@@ -3,7 +3,7 @@
 Date: 2026-09-06  
 Scope: cross-cut of paper roadmap priorities **#1–#7** (research only)  
 Soft-Frozen FIN **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN**  
-−13.16% remains **RETIRED_HISTORICAL_NARRATIVE** (do not invent a replacement)
+Retired MDD narrative: **RETIRED_HISTORICAL_NARRATIVE** (do not invent a replacement)
 
 Sources:  
 `E45_LOW_ALPHA_DEEP_DIVE` · `E45_CRISIS_TRIGGERED_ALPHA` · `E45_MAXCUT_MILD_PROFILE` ·  
@@ -69,7 +69,7 @@ Operating A25 is **harsher** than paper A05 (held-out giveback ~2.83 vs ~1.07). 
 |---|---|---|
 | Promote crisis-gated α | **No** (P2) | Do not ballot |
 | Retune frozen `max_cut` milder in place | **No** (P3) | Forbidden; only new paper profiles |
-| Claim −13.16% or invent replacement | **No** | Retired narrative |
+| Claim the retired handoff MDD narrative or invent replacement | **No** | Retired narrative |
 | Soft-Frozen / DEFAULT flip from these papers | **No** | KEEP |
 | Live stitch from dual-paper / PAUSE clear | **No** (P7) | FORBIDDEN until second stitch ACCEPT |
 | Keep A05 as paper intensity reference | **Yes** (P1–P4) | Informal reference only until OPEN ballot |
@@ -131,7 +131,7 @@ Score = MDD_improve_pp − 0.5·|CAGR_giveback_pp| (paper heuristic; not a Soft-
 | OPEN blend-α=0.05 observe | **OPERATING** parallel sleeve (`BLEND_E45_A05`). Tip asof 2026-09-04: YTD/1y **PAUSE_REVIEW** (expected). Soft-Frozen KEEP; stitch FORBIDDEN. |
 | Continue FULL+A25 cadence | **OPERATING** unchanged (full E45 + blend α=0.25 month-end). |
 
-**Still forbidden:** live stitch · Soft-Frozen flip · DEFAULT flip · sleeve-local observe without dedicated ballot · inventing −13.16% replacement.
+**Still forbidden:** live stitch · Soft-Frozen flip · DEFAULT flip · sleeve-local observe without dedicated ballot · inventing the retired handoff MDD narrative replacement.
 
 Label: `E45_POST_P7_ALL_NEXT_STEPS_2026-09-06__A05_OBSERVE_OPEN__SLEEVE_LOCAL_PAPER__STITCH_FORBIDDEN`
 

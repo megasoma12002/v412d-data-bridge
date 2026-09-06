@@ -54,7 +54,7 @@ On the same diagnosis lineage (also archived here):
 - More cash / DEF/VAL/QUAL / freeze grids on TECH2  
 - Promote 2.5% / 0.70 gates  
 - Live-wire overlay  
-- Invent E45 −13.16%
+- Invent E45 the retired handoff MDD narrative
 
 ## Artifacts (this PR)
 

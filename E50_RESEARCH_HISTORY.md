@@ -239,7 +239,7 @@ Execution-aware Layer。
 Single Exact T+1 Full Model Rebuild。
 
 重要基準：
-- MDD 約 -13.16%（需由實體結果驗證）
+- MDD 約 the retired handoff MDD narrative（需由實體結果驗證）
 - 危機保護效果優先保留
 - 當時 CAGR 約 10% 左右，報酬仍不足
 

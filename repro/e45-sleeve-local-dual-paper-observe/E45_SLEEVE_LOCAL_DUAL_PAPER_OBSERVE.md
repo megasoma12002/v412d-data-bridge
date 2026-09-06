@@ -7,7 +7,7 @@ Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged**; live s
 
 - **BASE_E16_E18_E22_v2s**: Soft-Frozen early-stack Exact T+1 + E22_v2s formal books
 - **SLEEVE_FIN_ONLY_A10**: same stack + α=0.10 × E45 `E3_VOLTARGET_WINNER` on sleeves `Financial` only
-- Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not cite)
+- Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not cite)
 
 ## Dual paper metrics
 
@@ -34,7 +34,7 @@ Sealed vs BASE: MDD improve **3.42 pp**; CAGR giveback **1.80 pp**; score **2.51
 3. Re-check YTD / trailing_1y PAUSE gates each month-end (observe ≠ promote)
 4. Do not silent-edit Soft-Frozen; do not rewrite forward/e21 history
 5. Observe sleeve ≠ stitch license; second human stitch ACCEPT still required
-6. Never cite −13.16%; use dated lineage / challenger MDDs only
+6. Never cite the retired handoff MDD narrative; use dated lineage / challenger MDDs only
 7. Leave FULL + A25 + A05 observe sleeves operating in parallel
 
 ## Explicit non-goals
@@ -42,7 +42,7 @@ Sealed vs BASE: MDD improve **3.42 pp**; CAGR giveback **1.80 pp**; score **2.51
 - Auto live-wire / four-layer stitch from this observe sleeve
 - Soft-Frozen clip flip
 - DEFAULT books flip away from E22_v2s_tw
-- Invent a replacement for retired −13.16% narrative
+- Invent replacement for retired MDD narrative
 - Retire FULL / A25 / A05 observe without separate ballot
 
 ## Label

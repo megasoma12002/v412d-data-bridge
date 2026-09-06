@@ -7,7 +7,7 @@ Authority: Register #6c follow-on · `E45_DUAL_PAPER_OBSERVE_CHECKLIST.md` · `E
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN** (second dedicated stitch ACCEPT still required)  
-−13.16% claim: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement
 
 ## Ballot
 
@@ -27,7 +27,7 @@ Live stitch: **still FORBIDDEN** (second dedicated stitch ACCEPT still required)
 | 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** |
 | 2 | Live DEFAULT books remain `E22_v2s_tw` | **YES** |
 | 3 | Design metrics present (`repro/e45-dual-paper-observe-design/`) | **YES** |
-| 4 | −13.16% labeled **RETIRED_HISTORICAL_NARRATIVE** (not verified) | **YES** |
+| 4 | the retired handoff MDD narrative labeled **RETIRED_HISTORICAL_NARRATIVE** (not verified) | **YES** |
 | 5 | No stitch / live-wire PR bundled | **YES** |
 | 6 | Month-end monitor owner | **`ops_month_end_paper_pack.py` / research/ops** |
 | 7 | PAUSE_REVIEW policy understood (observe ≠ promote / stitch) | **YES** |
@@ -47,7 +47,7 @@ Live stitch: **still FORBIDDEN** (second dedicated stitch ACCEPT still required)
 1. Do **not** live-stitch E45 / rewrite `forward/e21` history.  
 2. Do **not** flip Soft-Frozen or DEFAULT books.  
 3. Do **not** treat clean month-end as stitch license.  
-4. Do **not** cite −13.16% as verified.
+4. Do **not** cite the retired handoff MDD narrative as verified.
 
 ## Label
 

@@ -25,7 +25,7 @@ Status: **SCRIPT HYGIENE** — Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBID
 ## Non-actions
 
 - No Soft-Frozen / DEFAULT / stitch change.
-- No −13.16% reinvention.
+- No retired-narrative reinvention.
 - `oof_2012_2018` left intact where it is an intentional MDD-L1 window (not an E45 WINDOWS_STANDARD fork to silently rewrite).
 
 Label: `E45_NAMING_CONSISTENCY_2026-09-06__STITCH_FORBIDDEN`

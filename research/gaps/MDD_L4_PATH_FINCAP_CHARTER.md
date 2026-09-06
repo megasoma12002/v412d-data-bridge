@@ -40,7 +40,7 @@ Exact T+1 challengers that pass **sealed CAGR giveback ≤ 3.0 pp** and MDD impr
 | **L4-DD-PATH** | FIN cap only while TAIEX active drawdown ≤ −8% from 252d peak; else BASE | True path DD (stricter than Bear label) |
 | **L4-UTIL-RANK** | Same pool; OOF select by dual score (MDD improve, **minimize** late-bull CAGR giveback) — **no family priority to harsher caps** | Avoid L3’s MILD-first trap |
 
-**Forbidden:** retune `FIN_CAP_50` / `L2_FINCAP_ONLY` / `L3_MILD_35_60` / L1 COMBO; Stage-8 TECH2; S1 reopen; proxy-as-PASS; invent E45 −13.16%; silent Soft-Frozen flip.
+**Forbidden:** retune `FIN_CAP_50` / `L2_FINCAP_ONLY` / `L3_MILD_35_60` / L1 COMBO; Stage-8 TECH2; S1 reopen; proxy-as-PASS; reinvent retired E45 MDD narrative; silent Soft-Frozen flip.
 
 ## Frozen gates
 

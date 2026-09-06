@@ -2,7 +2,7 @@
 
 Generated: `2026-09-06T06:54:33.425680+00:00`  
 Status: **PAPER / SANDBOX / OPS DIAG** — Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN**  
-Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 
 ## Scope (all requested)
 
@@ -43,7 +43,7 @@ Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replaceme
 
 - No Soft-Frozen / DEFAULT flip  
 - No live stitch / no HIGH_BETA OPEN  
-- No −13.16% reinvention  
+- No retired-narrative reinvention  
 - No E22_v3 promote ballot  
 
 ## Runners

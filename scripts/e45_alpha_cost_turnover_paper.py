@@ -300,7 +300,7 @@ def main() -> None:
         "",
         "## Governance",
         "",
-        "- Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · −13.16% RETIRED",
+        "- Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · retired MDD narrative",
         "",
         "## Reproduce",
         "",

@@ -8,7 +8,7 @@ Soft-Frozen: **[0.50, 0.95] KEEP**
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN**  
 Parent sleeves still OPERATING: full-E45 + blend-α=0.25  
-−13.16% claim: **`RETIRED_HISTORICAL_NARRATIVE`**  
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**  
 Parent full-E45 observe: remains **OPERATING** in parallel (`E45_DUAL_PAPER_OBSERVE_OPEN.md`)
 
 ## Ballot
@@ -37,7 +37,7 @@ Opening this sleeve is **observe-only** (parallel to FULL + A25). Expect YTD/1y 
 | 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** |
 | 2 | Live DEFAULT books remain `E22_v2s_tw` | **YES** |
 | 3 | Parent blend-alpha screen present | **YES** |
-| 4 | −13.16% still RETIRED | **YES** |
+| 4 | retired MDD narrative still RETIRED | **YES** |
 | 5 | No stitch / live-wire PR bundled | **YES** |
 | 6 | Month-end owner = `ops_month_end_paper_pack.py` / research/ops | **YES** |
 | 7 | PAUSE_REVIEW policy understood (observe ≠ stitch) | **YES** |

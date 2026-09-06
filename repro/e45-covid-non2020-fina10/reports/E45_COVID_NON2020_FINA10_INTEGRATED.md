@@ -2,7 +2,7 @@
 
 Generated: `2026-09-06T06:00:44.136340+00:00`
 Status: **PAPER / OBSERVE OPS** — Soft-Frozen **KEEP** · DEFAULT **KEEP** · live stitch **FORBIDDEN**
-Claimed -13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 
 ## What ran
 
@@ -17,7 +17,7 @@ Claimed -13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement
 2. **Non-COVID multi-event** remains weak for mild a / FIN_ONLY sleeves under the strict >=2 non-COVID-year rule.
 3. **FIN densify preferred:** `FIN_ONLY_A10` · observe lock `SLEEVE_FIN_ONLY_A10` holds among FIN densify: **YES**.
 4. **COVID-ex held-out preferred:** `FIN_ONLY_A05`.
-5. No Soft-Frozen flip · no DEFAULT rewrite · no live stitch · no HIGH_BETA OPEN · no -13.16% reinvention.
+5. No Soft-Frozen flip · no DEFAULT rewrite · no live stitch · no HIGH_BETA OPEN · no retired-narrative reinvention.
 
 ## Machine summary
 

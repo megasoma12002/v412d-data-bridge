@@ -93,7 +93,7 @@ Policy: ALERT >3pp / PAUSE_REVIEW >5pp on YTD / trailing_1y.
 - Live DEFAULT **`E22_v2s_tw` KEEP**
 - Live E45 stitch **FORBIDDEN**
 - Frozen `E3_WINNER.max_cut=0.5` **untouched**
-- −13.16% remains **RETIRED_HISTORICAL_NARRATIVE**
+- Retired MDD narrative: **RETIRED_HISTORICAL_NARRATIVE**
 
 ## Artifacts
 

@@ -3,7 +3,7 @@
 Generated: `2026-09-06T07:54:32.918618+00:00`
 Status: **OBSERVE DIAGNOSTIC ONLY** — does **not** authorize stitch
 Soft-Frozen `[0.5, 0.95]` KEEP · DEFAULT KEEP · stitch **FORBIDDEN**
-Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 
 Gates: YTD / trailing_1y CAGR giveback vs BASE — ALERT >3pp · PAUSE_REVIEW >5pp.
 
@@ -24,6 +24,6 @@ Gates: YTD / trailing_1y CAGR giveback vs BASE — ALERT >3pp · PAUSE_REVIEW >5
 
 ## Non-actions
 
-- No Soft-Frozen / DEFAULT flip · no HIGH_BETA OPEN · no invented −13.16% replacement
+- No Soft-Frozen / DEFAULT flip · no HIGH_BETA OPEN · no invented replacement for the retired MDD narrative
 
 Label: `E45_OBSERVE_PAUSE_REFRESH_2026-09-06__STITCH_FORBIDDEN`

@@ -35,7 +35,7 @@ Build Exact T+1 challengers that **cut gross exposure and/or finance concentrati
 | **L1-FINCAP-STACK** | FIN_CAP_50 **plus** L1 exposure cut | Cap alone insufficient for ≤15% |
 | **L1-GROSS-FLOOR** | Hard max equity weight under flag | Simple alternative to continuous scale |
 
-Do **not** screen: Stage-8 TECH2 controllers, S1 residual cut retunes, overlay weight grids, inventing E45 −13.16%.
+Do **not** screen: Stage-8 TECH2 controllers, S1 residual cut retunes, overlay weight grids, inventing E45 the retired handoff MDD narrative.
 
 ## Frozen gates (EXPERIMENTAL paper books)
 

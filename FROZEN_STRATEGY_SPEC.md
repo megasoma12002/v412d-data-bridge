@@ -131,7 +131,7 @@ Information(T)
 
 既有重要基準：
 - Single Exact-T+1 Full Model
-- MDD 約 -13.16%（**`RETIRED_HISTORICAL_NARRATIVE`**：2026-09-04 查無對應 artifact，不另造替代數字；見 `research/e45/E45_MDD_1316_VERIFICATION.md` / `research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md`）
+- 舊 handoff MDD 敘事已廢止（**`RETIRED_HISTORICAL_NARRATIVE`**：2026-09-04 查無對應 artifact，不另造替代數字；見 `research/e45/E45_MDD_1316_VERIFICATION.md` / `research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md`）。可比數字只用 dated lineage MDD。
 
 危機處理順序：
 

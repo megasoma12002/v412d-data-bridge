@@ -1,7 +1,7 @@
 # E45 Live Stitch — Charter Decision Pack (Item 3)
 
 Date: 2026-09-05  
-Status: **ACCEPT charter** + **RETIRE −13.16% narrative (path A)** (human 2026-09-05) — Stage 1–3 DONE; Soft-Frozen CRITICAL KEEP  
+Status: **ACCEPT charter** + **RETIRE unmatched handoff MDD narrative (path A)** (human 2026-09-05) — Stage 1–3 DONE; Soft-Frozen CRITICAL KEEP  
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw`** (unchanged by this pack)  
 E45 live stitch today: **FORBIDDEN** (second stitch ACCEPT still required)
@@ -20,7 +20,7 @@ This pack **does not** stitch E45 live. Charter ACCEPT only unlocks Stage 1–2 
 
 | Fact | Status |
 |---|---|
-| Claimed MDD ≈ −13.16% | **`RETIRED_HISTORICAL_NARRATIVE`** (path A, 2026-09-05) — no dated CSV/JSON match; do not invent replacement |
+| Retired MDD narrative | **`RETIRED_HISTORICAL_NARRATIVE`** (path A, 2026-09-05) — no dated CSV/JSON match; do not invent replacement |
 | Closest verified crisis lineage MDDs | **More severe** (primary comparable E1.1 val **−15.81%**) |
 | Early-stack + E45 challenger MDDs | ~−21% to −23% (path checked / refreshed 2026-09-05) |
 | Soft-Frozen Financial clip | **KEEP** |
@@ -30,7 +30,7 @@ This pack **does not** stitch E45 live. Charter ACCEPT only unlocks Stage 1–2 
 ## What ACCEPT charter allows (Stage 1–2 only)
 
 1. Freeze verification bars V1–V6 from the charter  
-2. Recompute / attach dated MDD artifacts (no invented −13.16%)  
+2. Recompute / attach dated MDD artifacts (no invented the retired handoff MDD narrative)  
 3. Paper-only Exact T+1 challenger report with honest MDD label  
 4. Optional dual-paper observe sleeve design (checklist later)
 
@@ -40,7 +40,7 @@ This pack **does not** stitch E45 live. Charter ACCEPT only unlocks Stage 1–2 
 - Soft-Frozen clip flip  
 - Rewriting `forward/e21` history  
 - Bundling L4 / FIN50 / BLEND / odd-lot / tax DEFAULT promote  
-- Treating Soft-Frozen_CRITICAL process label as proof of −13.16%  
+- Treating Soft-Frozen_CRITICAL process label as proof of the retired handoff MDD narrative  
 
 ## Human ballot (Item 3 only)
 
@@ -54,7 +54,7 @@ This pack **does not** stitch E45 live. Charter ACCEPT only unlocks Stage 1–2 
 
 | Ballot cast | Effect |
 |---|---|
-| **ACCEPT charter** ✓ (human 2026-09-05) | Stage 1–2 **OPEN**; live/stitch **not** authorized; Soft-Frozen CRITICAL KEEP; −13.16% claim status **RETIRED_HISTORICAL_NARRATIVE** (scan unmatched; do not invent replacement) |
+| **ACCEPT charter** ✓ (human 2026-09-05) | Stage 1–2 **OPEN**; live/stitch **not** authorized; Soft-Frozen CRITICAL KEEP; the retired handoff MDD narrative claim status **RETIRED_HISTORICAL_NARRATIVE** (scan unmatched; do not invent replacement) |
 
 Prior cycle note: Item 3 was briefly parked as DEFER stitch path earlier the same day; this ACCEPT charter **reopens Stage 1–2 research only** (not live stitch).
 
@@ -68,7 +68,7 @@ Stage board: `research/ops/E45_STAGE12_STATUS.md`
 |---|---|
 | Charter ACCEPT | **This ballot — DONE** |
 | V1–V6 verification bars | All PASS on dated artifacts |
-| Paper challenger report | Verified MDD label (not narrative −13.16% if unmatched) |
+| Paper challenger report | Verified MDD label (not narrative the retired handoff MDD narrative if unmatched) |
 | Dual-paper observe (optional) | Checklist all YES |
 | Dedicated stitch PR | Second human ACCEPT; Soft-Frozen KEEP; Exact T+1 unchanged |
 | Forbidden bundle | Soft-Frozen flip, tax/odd-lot re-litigation, history rewrite |

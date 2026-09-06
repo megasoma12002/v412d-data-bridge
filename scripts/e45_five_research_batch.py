@@ -289,7 +289,7 @@ def write_all_reports(ctx: dict) -> None:
         "# E45 Non-2020 Crisis-Year Attribution",
         "",
         f"Generated: `{generated}`",
-        "Status: **PAPER ONLY** — Soft-Frozen KEEP · stitch FORBIDDEN · −13.16% remains RETIRED",
+        "Status: **PAPER ONLY** — Soft-Frozen KEEP · stitch FORBIDDEN · retired MDD narrative remains RETIRED",
         "",
         "Crisis years: **2015, 2018, 2020, 2022**. Help = BASE |MDD| − challenger |MDD| (pp).",
         "",
@@ -502,7 +502,7 @@ Label: `E45_HIGH_BETA_OBSERVE_BALLOT_DRAFT_{generated[:10]}__NOT_OPEN__STITCH_FO
         "",
         "- Not a live stitch gate (stitch still needs second human ACCEPT + clean trailing).",
         "- Not a Soft-Frozen / DEFAULT flip.",
-        "- Does not invent a −13.16% replacement (`RETIRED_HISTORICAL_NARRATIVE`).",
+        "- Does not invent a replacement for the retired MDD narrative (`RETIRED_HISTORICAL_NARRATIVE`).",
         "",
         f"Label: `E45_MULTI_EVENT_THRESHOLD_{generated[:10]}__STITCH_FORBIDDEN`",
         "",
@@ -513,7 +513,7 @@ Label: `E45_HIGH_BETA_OBSERVE_BALLOT_DRAFT_{generated[:10]}__NOT_OPEN__STITCH_FO
 
 Generated: `{generated}`
 Status: **PAPER / OBSERVE OPS** — Soft-Frozen **KEEP** · DEFAULT **KEEP** · live stitch **FORBIDDEN**
-Claimed −13.16%: **`{payload['claim_status']}`** (do not invent a replacement)
+Retired MDD narrative: **`{payload['claim_status']}`** (do not invent a replacement)
 
 ## What ran
 
@@ -535,7 +535,7 @@ Claimed −13.16%: **`{payload['claim_status']}`** (do not invent a replacement)
 
 ## Explicit non-actions
 
-- No Soft-Frozen flip · no DEFAULT rewrite · no live stitch · no −13.16% reinvention · no auto-OPEN of HIGH_BETA.
+- No Soft-Frozen flip · no DEFAULT rewrite · no live stitch · no retired-narrative reinvention · no auto-OPEN of HIGH_BETA.
 
 ## Machine summary
 
