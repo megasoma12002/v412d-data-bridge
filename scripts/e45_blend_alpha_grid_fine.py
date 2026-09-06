@@ -77,7 +77,7 @@ def book_id(alpha: float) -> str:
     if alpha <= 0:
         return "BASE_E16_E18_E22_v2s"
     if alpha >= 1:
-        return "CHAL_E45_E3_FULL"
+        return "CHAL_E45_E3"
     return f"BLEND_E45_A{int(round(alpha * 100)):02d}"
 
 

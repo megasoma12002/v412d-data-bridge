@@ -110,7 +110,7 @@ def main() -> None:
     verdict = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "claim_mdd": CLAIM,
-        "claim_status": "NOT_VERIFIED",
+        "claim_status": e45.CLAIMED_MDD_STATUS,
         "exact_artifact_match": False,
         "closest_lineage_mdd": closest,
         "e3_winner_validation_mdd": winner_mdd,
@@ -133,7 +133,7 @@ def main() -> None:
         "decision": {
             "accept_claim_as_verified_baseline": False,
             "replace_claim_with_invented_number": False,
-            "use_instead": "VERIFIED_LINEAGE_MDD from dated artifacts; keep claim labeled NOT_VERIFIED",
+            "use_instead": "VERIFIED_LINEAGE_MDD from dated artifacts; claim status is RETIRED_HISTORICAL_NARRATIVE (do not invent a replacement)",
             "promotion_impact": (
                 "E45 remains CHALLENGER_CANDIDATE; SOFT_FROZEN_CRITICAL is a process class, "
                 "not a verified -13.16% number"

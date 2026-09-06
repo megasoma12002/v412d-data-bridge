@@ -103,6 +103,12 @@ python3 scripts/e45_blend025_dual_paper_ledgers.py
 python3 scripts/e45_blend025_month_end_monitor.py
 ```
 
+## Engineering standards (2026-09-06)
+
+- E45 paper landmine review: `research/ops/E45_PAPER_LANDMINE_CODE_REVIEW.md`
+- Project coding standards: `research/ops/CODING_STANDARDS.md`
+- Hygiene: `python3 scripts/check_e45_paper_hygiene.py`
+
 ## Authority
 
 1. Cutover / Now-Next: `research/STRATEGY_DEBT_BOARD.md`  

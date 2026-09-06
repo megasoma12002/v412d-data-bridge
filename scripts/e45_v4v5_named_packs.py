@@ -2,7 +2,7 @@
 """E45-named V4 cost multiples + V5 crisis-year attribution (RESEARCH ONLY).
 
 Books: BASE_E16_E18_E22_v2s vs CHAL_E45_E3 on Exact T+1 early-stack.
-Cost multiples scale BUY_FEE/SELL_FEE/SLIP/TAX_* by 0×/1×/2×/3× (monkeypatch).
+Cost multiples scale BUY_FEE/SELL_FEE/SLIP/TAX_* by 0×/1×/2×/3× via ``cost_multiple`` (no module monkeypatch).
 Crisis years: 2011(partial)/2015/2018/2020/2022; 2008 documented N/A
 (market starts ~2011-12).
 
@@ -12,7 +12,6 @@ from __future__ import annotations
 
 import json
 import sys
-from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -20,7 +19,6 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import e50_early_stack_combined_nav as stack
 from e50_early_stack_combined_nav import ALL, e16_features, simulate_core, nav_stats
 import e45_crisis_core as e45
 
@@ -31,21 +29,6 @@ V5_MD = ROOT / "research/ops/E45_V5_MULTI_WINDOW_PACK.md"
 
 COST_MULTS = (0, 1, 2, 3)
 CRISIS_YEARS = (2011, 2015, 2018, 2020, 2022)
-FEE_KEYS = ("BUY_FEE", "SELL_FEE", "SLIP", "TAX_STOCK", "TAX_ETF")
-
-
-@contextmanager
-def fee_multiple(mult: float):
-    saved = {k: getattr(stack, k) for k in FEE_KEYS}
-    try:
-        for k, v in saved.items():
-            setattr(stack, k, float(v) * float(mult))
-        yield
-    finally:
-        for k, v in saved.items():
-            setattr(stack, k, v)
-
-
 def year_stats(nav: pd.DataFrame, year: int) -> dict:
     d = nav.copy()
     d["date"] = pd.to_datetime(d["date"])
@@ -112,38 +95,38 @@ def main() -> int:
     # ---------- V4 cost multiples ----------
     cost_rows: list[dict] = []
     for mult in COST_MULTS:
-        with fee_multiple(mult):
-            for book, expo in books.items():
-                nav, fills, _meta = simulate_core(
-                    market,
-                    target,
-                    regime,
-                    div,
-                    apply_e22=True,
-                    apply_stock_div=True,
-                    e45_exposure=expo,
-                )
-                st = nav_stats(nav)
-                fee_sum = (
-                    float(pd.to_numeric(fills["fees_tax"], errors="coerce").fillna(0).sum())
-                    if len(fills) and "fees_tax" in fills.columns
-                    else 0.0
-                )
-                cost_rows.append(
-                    {
-                        "book": book,
-                        "cost_multiple": int(mult),
-                        "cagr": st.get("cagr"),
-                        "mdd": st.get("max_drawdown"),
-                        "vol": st.get("vol"),
-                        "utility": st.get("utility"),
-                        "n_days": st.get("n_days"),
-                        "n_fills": int(len(fills)),
-                        "fees_tax_sum": fee_sum,
-                        "exact_t1": True,
-                        "live_wire": False,
-                    }
-                )
+        for book, expo in books.items():
+            nav, fills, _meta = simulate_core(
+                market,
+                target,
+                regime,
+                div,
+                apply_e22=True,
+                apply_stock_div=True,
+                e45_exposure=expo,
+                cost_multiple=float(mult),
+            )
+            st = nav_stats(nav)
+            fee_sum = (
+                float(pd.to_numeric(fills["fees_tax"], errors="coerce").fillna(0).sum())
+                if len(fills) and "fees_tax" in fills.columns
+                else 0.0
+            )
+            cost_rows.append(
+                {
+                    "book": book,
+                    "cost_multiple": int(mult),
+                    "cagr": st.get("cagr"),
+                    "mdd": st.get("max_drawdown"),
+                    "vol": st.get("vol"),
+                    "utility": st.get("utility"),
+                    "n_days": st.get("n_days"),
+                    "n_fills": int(len(fills)),
+                    "fees_tax_sum": fee_sum,
+                    "exact_t1": True,
+                    "live_wire": False,
+                }
+            )
 
     cost_df = pd.DataFrame(cost_rows)
     cost_csv = OUT / "outputs" / "e45_named_cost_multiples.csv"
@@ -182,32 +165,32 @@ def main() -> int:
 
     # ---------- V5 crisis years at 1× ----------
     crisis_rows: list[dict] = []
-    with fee_multiple(1):
-        for book, expo in books.items():
-            nav, _f, _m = simulate_core(
-                market,
-                target,
-                regime,
-                div,
-                apply_e22=True,
-                apply_stock_div=True,
-                e45_exposure=expo,
-            )
-            for y in CRISIS_YEARS:
-                st = year_stats(nav, y)
-                st["book"] = book
-                crisis_rows.append(st)
-            crisis_rows.append(
-                {
-                    "book": book,
-                    "year": 2008,
-                    "n_days": 0,
-                    "ret": None,
-                    "mdd": None,
-                    "available": False,
-                    "note": f"market starts {data_start}; 2008 N/A",
-                }
-            )
+    for book, expo in books.items():
+        nav, _f, _m = simulate_core(
+            market,
+            target,
+            regime,
+            div,
+            apply_e22=True,
+            apply_stock_div=True,
+            e45_exposure=expo,
+            cost_multiple=1.0,
+        )
+        for y in CRISIS_YEARS:
+            st = year_stats(nav, y)
+            st["book"] = book
+            crisis_rows.append(st)
+        crisis_rows.append(
+            {
+                "book": book,
+                "year": 2008,
+                "n_days": 0,
+                "ret": None,
+                "mdd": None,
+                "available": False,
+                "note": f"market starts {data_start}; 2008 N/A",
+            }
+        )
 
     crisis_df = pd.DataFrame(crisis_rows)
     crisis_csv = OUT / "outputs" / "e45_named_crisis_year_attribution.csv"
@@ -279,8 +262,8 @@ def main() -> int:
         "live_wire": False,
         "soft_frozen_keep": [0.50, 0.95],
         "default_books_keep": "E22_v2s_tw",
-        "claim_mdd_status": "NOT_VERIFIED",
-        "v1_status": "FAIL",
+        "claim_mdd_status": e45.CLAIMED_MDD_STATUS,
+        "v1_status": "PASS_RETIRED_NARRATIVE",
         "stitch_forbidden": True,
         "data_start": data_start,
         "data_end": data_end,
@@ -306,7 +289,7 @@ def main() -> int:
         f"Generated: `{summary['generated_at_utc']}`",
         f"Status: **{summary['v4']['status']}** (E45-named Exact T+1 cost multiples)",
         "Live stitch: **FORBIDDEN** (V1 still FAIL) · Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP**",
-        "Claimed MDD ≈ −13.16%: **`NOT_VERIFIED`**",
+        f"Claimed MDD ≈ −13.16%: **`{e45.CLAIMED_MDD_STATUS}`**",
         "",
         "## Method",
         "",
@@ -368,7 +351,7 @@ def main() -> int:
         f"Generated: `{summary['generated_at_utc']}`",
         f"Status: **{summary['v5']['status']}** (E45-named crisis-year attribution + Stage-3 multi-window)",
         "Live stitch: **FORBIDDEN** (V1 still FAIL) · Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP**",
-        "Claimed MDD ≈ −13.16%: **`NOT_VERIFIED`**",
+        f"Claimed MDD ≈ −13.16%: **`{e45.CLAIMED_MDD_STATUS}`**",
         "",
         "## Data coverage",
         "",

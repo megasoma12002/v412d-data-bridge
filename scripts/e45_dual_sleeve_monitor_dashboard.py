@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """E45 dual-sleeve long monitor dashboard (roadmap #7).
 
-Joins operating FULL_E45 + BLEND_A25 month-end monitors and adds a paper-only
+Joins operating CHAL_E45_E3 + BLEND_E45_A25 month-end monitors and adds a paper-only
 α=0.10 companion series (NOT an OPEN observe sleeve).
 
 Does NOT edit Soft-Frozen / DEFAULT / authorize stitch / open new observe.
@@ -63,7 +63,7 @@ def main() -> None:
     blend = load_json(BLEND_JSON)
 
     rows = []
-    for label, path in [("FULL_E45", FULL_CSV), ("BLEND_A25", BLEND_CSV)]:
+    for label, path in [("CHAL_E45_E3", FULL_CSV), ("BLEND_E45_A25", BLEND_CSV)]:
         if path.exists():
             d = pd.read_csv(path)
             d["sleeve"] = label
@@ -129,8 +129,8 @@ def main() -> None:
         "status": "PAPER_DASHBOARD",
         "ballot": "E45 PAPER dual-sleeve long monitor dashboard",
         "roadmap_priority": 7,
-        "operating_observe_sleeves": ["FULL_E45", "BLEND_A25"],
-        "paper_companion_not_observe": ["BLEND_A10"],
+        "operating_observe_sleeves": ["CHAL_E45_E3", "BLEND_E45_A25"],
+        "paper_companion_not_observe": ["BLEND_E45_A10"],
         "asof_paper_a10": str(asof.date()),
         "full_observe_asof": full.get("asof"),
         "blend025_observe_asof": blend.get("asof"),
@@ -153,15 +153,15 @@ def main() -> None:
         "",
         f"Generated: `{payload['generated_at_utc']}`",
         "Status: **PAPER DASHBOARD** — Soft-Frozen **KEEP**; stitch **FORBIDDEN**.",
-        "Operating observe: **FULL_E45** + **BLEND_A25**. Paper companion **A10** is NOT an OPEN observe sleeve.",
+        "Operating observe: **CHAL_E45_E3** + **BLEND_E45_A25**. Paper companion **A10** is NOT an OPEN observe sleeve.",
         "",
         "## Operating observe — latest alerts",
         "",
-        f"- FULL_E45 asof `{full.get('asof')}`:",
+        f"- CHAL_E45_E3 asof `{full.get('asof')}`:",
     ]
     for a in full.get("alerts", []) or ["(none)"]:
         lines.append(f"  - {a}")
-    lines.append(f"- BLEND_A25 asof `{blend.get('asof')}`:")
+    lines.append(f"- BLEND_E45_A25 asof `{blend.get('asof')}`:")
     for a in blend.get("alerts", []) or ["(none)"]:
         lines.append(f"  - {a}")
 
@@ -181,7 +181,7 @@ def main() -> None:
 
     lines += [
         "",
-        f"## Paper companion BLEND_A10 (asof {asof.date()}) — NOT OBSERVE",
+        f"## Paper companion BLEND_E45_A10 (asof {asof.date()}) — NOT OBSERVE",
         "",
         "| Window | MDD Δpp | Giveback pp | Flag |",
         "|---|---:|---:|---|",

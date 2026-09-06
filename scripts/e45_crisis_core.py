@@ -273,10 +273,22 @@ def compute_exposure(
 def apply_exposure_to_sleeve_weights(
     sleeve_weights: dict[str, float],
     exposure: float,
+    *,
+    sleeve_names: tuple[str, ...] | None = None,
 ) -> dict[str, float]:
-    """Scale sleeve target weights by equity exposure; residual stays cash."""
+    """Scale sleeve target weights by equity exposure; residual stays cash.
+
+    If ``sleeve_names`` is set, only those sleeves are scaled (paper sleeve-local
+    overlays). Otherwise every sleeve is scaled (default whole-book E45).
+    """
     e = float(np.clip(exposure, 0.0, 1.0))
-    return {k: float(v) * e for k, v in sleeve_weights.items()}
+    if sleeve_names is None:
+        return {k: float(v) * e for k, v in sleeve_weights.items()}
+    out = {k: float(v) for k, v in sleeve_weights.items()}
+    for k in sleeve_names:
+        if k in out:
+            out[k] = out[k] * e
+    return out
 
 
 def write_status(path: Path) -> None:

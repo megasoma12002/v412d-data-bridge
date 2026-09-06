@@ -69,6 +69,8 @@ def simulate_core(
     apply_stock_div: bool | None = None,
     e45_exposure: pd.Series | None = None,
     e45_legacy_crisis_scale: float | None = None,
+    e45_sleeve_names: tuple[str, ...] | None = None,
+    cost_multiple: float = 1.0,
     capital: float = CAPITAL,
     lot_size: int = 1,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
@@ -77,6 +79,9 @@ def simulate_core(
     Formal books default = E22_v2s (cash + stock shares). E22_v2 remains cash-only.
     E16 features use adj_close elsewhere; NAV here always marks with raw close.
     lot_size: 1 = research 1-share fills (default); 1000 = TW 整股 board-lot challenger.
+
+    cost_multiple: scale BUY_FEE/SELL_FEE/SLIP/TAX_* for this run only (no module
+    monkeypatch). e45_sleeve_names: if set, scale only those sleeves by exposure.
     """
     if e22_version is None:
         if apply_stock_div is False:
@@ -85,6 +90,14 @@ def simulate_core(
             e22_version = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s
     if apply_stock_div is None:
         apply_stock_div = e22_version in e22div.STOCK_SHARE_VERSIONS
+    cm = float(cost_multiple)
+    if cm < 0:
+        raise ValueError("cost_multiple must be >= 0")
+    buy_fee = BUY_FEE * cm
+    sell_fee = SELL_FEE * cm
+    slip = SLIP * cm
+    tax_stock = TAX_STOCK * cm
+    tax_etf = TAX_ETF * cm
     m = market.copy()
     m["date"] = pd.to_datetime(m["date"])
     closes = m.pivot(index="date", columns="code", values="close").sort_index().ffill()
@@ -130,17 +143,17 @@ def simulate_core(
             q = int(o["quantity"])
             if lot_size > 1:
                 q = (q // lot_size) * lot_size
-            fp = float(op[code]) * (1 + SLIP if side == "BUY" else 1 - SLIP)
+            fp = float(op[code]) * (1 + slip if side == "BUY" else 1 - slip)
             gross = q * fp
-            tax = TAX_ETF if code == "0050" else TAX_STOCK
-            fee = gross * (BUY_FEE if side == "BUY" else SELL_FEE + tax)
+            tax = tax_etf if code == "0050" else tax_stock
+            fee = gross * (buy_fee if side == "BUY" else sell_fee + tax)
             if side == "BUY" and gross + fee > cash:
-                afford = int(cash / (fp * (1 + BUY_FEE)))
+                afford = int(cash / (fp * (1 + buy_fee)))
                 if lot_size > 1:
                     afford = (afford // lot_size) * lot_size
                 q = max(0, afford)
                 gross = q * fp
-                fee = gross * BUY_FEE
+                fee = gross * buy_fee
             if q < 1:
                 continue
             if side == "BUY":
@@ -152,7 +165,7 @@ def simulate_core(
                 if q < 1:
                     continue
                 gross = q * fp
-                fee = gross * (SELL_FEE + tax)
+                fee = gross * (sell_fee + tax)
                 pos[code] -= q
                 cash += gross - fee
             sig_s = (
@@ -218,10 +231,14 @@ def simulate_core(
         equity_scale = 1.0
         if e45_exposure is not None and dt in e45_exposure.index:
             equity_scale = float(e45_exposure.loc[dt])
-            sleeve_w = e45.apply_exposure_to_sleeve_weights(sleeve_w, equity_scale)
+            sleeve_w = e45.apply_exposure_to_sleeve_weights(
+                sleeve_w, equity_scale, sleeve_names=e45_sleeve_names
+            )
         elif e45_legacy_crisis_scale is not None and rg == "Crisis":
             equity_scale = float(e45_legacy_crisis_scale)
-            sleeve_w = e45.apply_exposure_to_sleeve_weights(sleeve_w, equity_scale)
+            sleeve_w = e45.apply_exposure_to_sleeve_weights(
+                sleeve_w, equity_scale, sleeve_names=e45_sleeve_names
+            )
 
         sleeve_vals = {
             "Financial": sum(vals[c] for c in FIN),
@@ -299,6 +316,8 @@ def simulate_core(
         "start": nav_df["date"].iloc[0] if len(nav_df) else None,
         "end": nav_df["date"].iloc[-1] if len(nav_df) else None,
         "mean_e45_exposure": float(nav_df["e45_equity_scale"].mean()) if len(nav_df) else None,
+        "cost_multiple": float(cm),
+        "e45_sleeve_names": list(e45_sleeve_names) if e45_sleeve_names else None,
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
         "lot_size": int(lot_size),
         "e22_manifest": e22div.version_manifest(e22_version) if apply_e22 else None,

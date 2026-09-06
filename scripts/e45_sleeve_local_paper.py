@@ -14,7 +14,6 @@ from __future__ import annotations
 
 import json
 import sys
-from contextlib import contextmanager
 from datetime import date, datetime, timezone
 from pathlib import Path
 
@@ -57,29 +56,6 @@ def blend(full: pd.Series, alpha: float):
     if alpha >= 1:
         return full.astype(float)
     return ((1.0 - alpha) + alpha * full.astype(float)).clip(0.0, 1.0)
-
-
-@contextmanager
-def sleeve_scope(sleeves: tuple[str, ...] | None):
-    """None => all sleeves (default apply). Else only listed sleeves get scaled."""
-    if sleeves is None:
-        yield
-        return
-    orig = e45.apply_exposure_to_sleeve_weights
-
-    def _scoped(weights: dict[str, float], exposure: float) -> dict[str, float]:
-        e = float(np.clip(exposure, 0.0, 1.0))
-        out = {k: float(v) for k, v in weights.items()}
-        for k in sleeves:
-            if k in out:
-                out[k] = out[k] * e
-        return out
-
-    e45.apply_exposure_to_sleeve_weights = _scoped  # type: ignore
-    try:
-        yield
-    finally:
-        e45.apply_exposure_to_sleeve_weights = orig  # type: ignore
 
 
 def high_beta_sleeves(market: pd.DataFrame) -> tuple[str, ...]:
@@ -170,11 +146,11 @@ def main() -> None:
     for book, scope_name, alpha, sleeves in scopes:
         exp = blend(e45_full, alpha)
         print(f"sim {book} scope={scope_name} alpha={alpha} sleeves={sleeves} ...", flush=True)
-        with sleeve_scope(sleeves):
-            nav, fills, meta = simulate_core(
-                market, target, regime, dividends,
-                apply_e22=True, apply_stock_div=True, e45_exposure=exp,
-            )
+        nav, fills, meta = simulate_core(
+            market, target, regime, dividends,
+            apply_e22=True, apply_stock_div=True, e45_exposure=exp,
+            e45_sleeve_names=sleeves,
+        )
         tag = book.lower()
         nav.to_csv(OUT / "outputs" / f"{tag}_daily_nav.csv", index=False)
         fills.to_csv(OUT / "outputs" / f"{tag}_fills.csv", index=False)

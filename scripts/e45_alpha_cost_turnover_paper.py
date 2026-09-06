@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import json
 import sys
-from contextlib import contextmanager
 from datetime import date, datetime, timezone
 from pathlib import Path
 
@@ -19,7 +18,6 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
-import e50_early_stack_combined_nav as stack
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
 
@@ -33,25 +31,12 @@ DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 E45_PROFILE = "E3_VOLTARGET_WINNER"
 ALPHAS = (0.00, 0.05, 0.10, 0.25, 1.00)
 COST_MULTS = (0, 1, 2, 3)
-FEE_KEYS = ("BUY_FEE", "SELL_FEE", "SLIP", "TAX_STOCK", "TAX_ETF")
 FOCUS = ("heldout_2019_plus", "full")
 WINDOWS = {
     "full": (None, None),
     "heldout_2019_plus": (date(2019, 1, 1), None),
     "sealed_2023_plus": (date(2023, 1, 1), None),
 }
-
-
-@contextmanager
-def fee_multiple(mult: float):
-    saved = {k: getattr(stack, k) for k in FEE_KEYS}
-    try:
-        for k, v in saved.items():
-            setattr(stack, k, float(v) * float(mult))
-        yield
-    finally:
-        for k, v in saved.items():
-            setattr(stack, k, v)
 
 
 def load_market() -> pd.DataFrame:
@@ -64,10 +49,10 @@ def load_market() -> pd.DataFrame:
 
 def book_id(alpha: float) -> str:
     if alpha <= 0:
-        return "BASE"
+        return "BASE_E16_E18_E22_v2s"
     if alpha >= 1:
-        return "FULL_E45"
-    return f"BLEND_A{int(round(alpha * 100)):02d}"
+        return "CHAL_E45_E3"
+    return f"BLEND_E45_A{int(round(alpha * 100)):02d}"
 
 
 def blend(full: pd.Series, alpha: float) -> pd.Series | None:
@@ -155,11 +140,11 @@ def main() -> None:
         bid = book_id(alpha)
         for mult in COST_MULTS:
             print(f"sim {bid} alpha={alpha:.2f} cost×{mult} ...", flush=True)
-            with fee_multiple(mult):
-                nav, fills, meta = simulate_core(
-                    market, target, regime, dividends,
-                    apply_e22=True, apply_stock_div=True, e45_exposure=exp,
-                )
+            nav, fills, meta = simulate_core(
+                market, target, regime, dividends,
+                apply_e22=True, apply_stock_div=True, e45_exposure=exp,
+                cost_multiple=float(mult),
+            )
             tag = f"{bid.lower()}_x{mult}"
             nav.to_csv(OUT / "outputs" / f"{tag}_daily_nav.csv", index=False)
             fills.to_csv(OUT / "outputs" / f"{tag}_fills.csv", index=False)

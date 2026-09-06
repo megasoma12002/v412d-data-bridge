@@ -132,6 +132,16 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Soft-Frozen / DEFAULT **KEEP**; observe OPEN sleeves unchanged
 
 
+
+## PAPER landmine code review + coding standards (2026-09-06)
+
+- Ballot: `E45 PAPER landmine code review` — engineering hygiene (not Soft-Frozen / stitch)
+- Review: `research/ops/E45_PAPER_LANDMINE_CODE_REVIEW.md`
+- Standards: `research/ops/CODING_STANDARDS.md`
+- Harness: `scripts/e45_paper_harness.py` · hygiene: `scripts/check_e45_paper_hygiene.py`
+- Hardening: first-class `cost_multiple` / `e45_sleeve_names`; claim emitters → `CLAIMED_MDD_STATUS`; canonical book IDs
+- Soft-Frozen / DEFAULT **KEEP**; observe OPEN sleeves unchanged; live stitch **FORBIDDEN**
+
 ## Label
 
 `E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`
