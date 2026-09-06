@@ -1,6 +1,6 @@
 # E45 Five-Research Batch — Integrated Analysis
 
-Generated: `2026-09-06T04:17:39.744934+00:00`
+Generated: `2026-09-06T04:26:26.694796+00:00`
 Status: **PAPER / OBSERVE OPS** — Soft-Frozen **KEEP** · DEFAULT **KEEP** · live stitch **FORBIDDEN**
 Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 

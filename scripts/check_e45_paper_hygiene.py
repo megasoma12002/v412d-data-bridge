@@ -62,6 +62,9 @@ def _is_paper_regenerator(name: str) -> bool:
         return True
     if "_paper_screen" in name or "_grid_fine" in name or "_grid_" in name:
         return True
+    # Multi-item research batches (same landmine surface as paper regenerators)
+    if "research_batch" in name or name.endswith("_batch.py"):
+        return True
     return False
 
 
@@ -117,7 +120,7 @@ def main() -> int:
                     continue
                 violations.append(f"{rel}:{line}: non-canonical book id `{m.group(0)}`")
 
-    # harness must exist and expose canonical IDs
+    # harness must exist and expose canonical IDs + truthful __all__
     harness = SCRIPTS / "e45_paper_harness.py"
     if not harness.exists():
         violations.append("scripts/e45_paper_harness.py: missing")
@@ -128,9 +131,28 @@ def main() -> int:
             'BOOK_FULL = "CHAL_E45_E3"',
             'BOOK_BLEND_A25 = "BLEND_E45_A25"',
             "CLAIM_STATUS = e45.CLAIMED_MDD_STATUS",
+            "def load_market(",
+            "def e45_full_exposure(",
+            "def window_stats(",
+            "def run_early_stack(",
         ):
             if needle not in h:
                 violations.append(f"scripts/e45_paper_harness.py: missing `{needle}`")
+        # __all__ must not advertise names the module does not define (agent landmine)
+        try:
+            ns: dict = {"__file__": str(harness), "__name__": "e45_paper_harness"}
+            exec(compile(h, str(harness), "exec"), ns, ns)
+            exported = ns.get("__all__")
+            if not isinstance(exported, (list, tuple)):
+                violations.append("scripts/e45_paper_harness.py: __all__ missing or not a list")
+            else:
+                for name in exported:
+                    if name not in ns:
+                        violations.append(
+                            f"scripts/e45_paper_harness.py: __all__ lists `{name}` but name is undefined"
+                        )
+        except Exception as exc:  # noqa: BLE001 — surface as hygiene failure
+            violations.append(f"scripts/e45_paper_harness.py: failed __all__ exec check: {exc}")
 
     if violations:
         print("E45 paper hygiene FAIL:")

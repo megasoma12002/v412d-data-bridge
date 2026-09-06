@@ -1,6 +1,6 @@
 # E45 Observe Month-End PAUSE Time-Series
 
-Generated: `2026-09-06T04:17:39.744934+00:00`
+Generated: `2026-09-06T04:26:26.694796+00:00`
 Status: **PAPER / OPS OBSERVE** — Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN
 
 Gates: YTD / trailing_1y CAGR giveback vs BASE — ALERT >3pp · PAUSE_REVIEW >5pp.
@@ -9,9 +9,9 @@ Gates: YTD / trailing_1y CAGR giveback vs BASE — ALERT >3pp · PAUSE_REVIEW >5
 
 | Sleeve | Tip asof | YTD | Trailing 1y | Share PAUSE (YTD) | Share PAUSE (1y) | First clean both |
 |---|---|---|---|---:|---:|---|
-| `FULL_E45` | 2026-09-04 | **PAUSE_REVIEW** | **PAUSE_REVIEW** | 62% | 62% | 2023-02-24 |
-| `BLEND_A25` | 2026-09-04 | **PAUSE_REVIEW** | **PAUSE_REVIEW** | 53% | 56% | 2023-02-24 |
-| `BLEND_A05` | 2026-09-04 | **ALERT** | **PAUSE_REVIEW** | 7% | 9% | 2023-02-24 |
+| `CHAL_E45_E3` | 2026-09-04 | **PAUSE_REVIEW** | **PAUSE_REVIEW** | 62% | 62% | 2023-02-24 |
+| `BLEND_E45_A25` | 2026-09-04 | **PAUSE_REVIEW** | **PAUSE_REVIEW** | 53% | 56% | 2023-02-24 |
+| `BLEND_E45_A05` | 2026-09-04 | **ALERT** | **PAUSE_REVIEW** | 7% | 9% | 2023-02-24 |
 | `SLEEVE_FIN_ONLY_A10` | 2026-09-04 | **PAUSE_REVIEW** | **PAUSE_REVIEW** | 13% | 16% | 2023-02-24 |
 
 ## Read

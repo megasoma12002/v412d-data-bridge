@@ -61,21 +61,21 @@ ROLL_ENDS = (
 FOCUS_WINDOWS = ("heldout_2019_plus", "sealed_2023_plus", "full")
 
 OBSERVE_NAV = {
-    "FULL_E45": {
+    "CHAL_E45_E3": {
         "base": ROOT / "repro/e45-dual-paper-observe/outputs/base_e16_e18_e22_v2s_daily_nav.csv",
         "chal": ROOT / "repro/e45-dual-paper-observe/outputs/chal_e45_e3_daily_nav.csv",
         "book": BOOK_FULL,
         "alpha": 1.0,
         "scope": "ALL",
     },
-    "BLEND_A25": {
+    "BLEND_E45_A25": {
         "base": ROOT / "repro/e45-blend025-dual-paper-observe/outputs/base_e16_e18_e22_v2s_daily_nav.csv",
         "chal": ROOT / "repro/e45-blend025-dual-paper-observe/outputs/blend_e45_a25_daily_nav.csv",
         "book": BOOK_BLEND_A25,
         "alpha": 0.25,
         "scope": "ALL",
     },
-    "BLEND_A05": {
+    "BLEND_E45_A05": {
         "base": ROOT / "repro/e45-blend005-dual-paper-observe/outputs/base_e16_e18_e22_v2s_daily_nav.csv",
         "chal": ROOT / "repro/e45-blend005-dual-paper-observe/outputs/blend_e45_a05_daily_nav.csv",
         "book": BOOK_BLEND_A05,
@@ -364,11 +364,11 @@ def write_all_reports(ctx: dict) -> None:
             f"{'n/a' if to is None else f'{to:.2f}'} |"
         )
     tip = roll_delta_df[roll_delta_df.window_end == "2026-09-04"]
-    a05 = tip[tip.book == "ALL_A05"]
+    a05 = tip[tip.book == "BLEND_E45_A05"]
     f10 = tip[tip.book == "FIN_ONLY_A10"]
     winner = "n/a"
     if len(a05) and len(f10) and a05.iloc[0]["score"] is not None and f10.iloc[0]["score"] is not None:
-        winner = "FIN_ONLY_A10" if float(f10.iloc[0]["score"]) >= float(a05.iloc[0]["score"]) else "ALL_A05"
+        winner = "FIN_ONLY_A10" if float(f10.iloc[0]["score"]) >= float(a05.iloc[0]["score"]) else "BLEND_E45_A05"
     lines += [
         "",
         f"## Latest rolling-3y winner vs BASE: **`{winner}`**",
@@ -529,7 +529,7 @@ Claimed −13.16%: **`{payload['claimed_mdd_status']}`** (do not invent a replac
 
 1. **Observe:** tip PAUSE_REVIEW remains common; **no sleeve has a clean YTD+1y pair yet** → stitch still blocked by trailing gates (expected).
 2. **Crisis honesty:** help is still **2020-concentrated**; non-2020 years are weak or mixed.
-3. **FIN_ONLY_A10 vs ALL_A05:** re-validated under rolling 3y + cost 1–3×; observe lock unchanged.
+3. **FIN_ONLY_A10 vs BLEND_E45_A05:** re-validated under rolling 3y + cost 1–3×; observe lock unchanged.
 4. **HIGH_BETA:** paper densify complete; ballot stays **DRAFT / NOT OPEN**.
 5. **Multi-event rule:** future OPEN ballots should require ≥2 stress years with MDD help >0.25pp + held-out score>0 + sealed score>−1.
 
@@ -555,7 +555,7 @@ Label: `E45_FIVE_RESEARCH_BATCH_{generated[:10]}__STITCH_FORBIDDEN`
 |---|---|---|---|
 | 1 | Observe PAUSE time-series | **DONE** | `E45_OBSERVE_PAUSE_TIMESERIES.md` |
 | 2 | Non-2020 crisis attribution | **DONE** | `E45_NON2020_CRISIS_ATTRIBUTION.md` |
-| 3 | FIN_ONLY_A10 vs ALL_A05 rolling/cost | **DONE** | `E45_FINA10_VS_ALLA05_COMPARE.md` |
+| 3 | FIN_ONLY_A10 vs BLEND_E45_A05 rolling/cost | **DONE** | `E45_FINA10_VS_ALLA05_COMPARE.md` |
 | 4 | HIGH_BETA paper + DRAFT ballot | **DONE (DRAFT only)** | `E45_HIGH_BETA_SLEEVE_LOCAL_PAPER.md` |
 | 5 | Multi-event threshold charter | **DONE** | `E45_MULTI_EVENT_THRESHOLD_CHARTER.md` |
 
@@ -670,9 +670,9 @@ def main() -> None:
 
     base_key = f"{BOOK_BASE}_C1x"
     core_specs = [
-        ("ALL_A05", 0.05, None),
-        ("ALL_A25", 0.25, None),
-        ("FULL_E45", 1.00, None),
+        ("BLEND_E45_A05", 0.05, None),
+        ("BLEND_E45_A25", 0.25, None),
+        ("CHAL_E45_E3", 1.00, None),
         ("FIN_ONLY_A05", 0.05, SLEEVE_FIN_ONLY),
         ("FIN_ONLY_A08", 0.08, SLEEVE_FIN_ONLY),
         ("FIN_ONLY_A10", 0.10, SLEEVE_FIN_ONLY),
@@ -685,17 +685,17 @@ def main() -> None:
         nav, fills, meta = sim(label, alpha, sleeves, 1.0)
         put(label, label.rsplit("_", 1)[0], alpha, sleeves, 1.0, nav, fills, meta)
 
-    for label, alpha, sleeves in (("ALL_A05", 0.05, None), ("FIN_ONLY_A10", 0.10, SLEEVE_FIN_ONLY)):
+    for label, alpha, sleeves in (("BLEND_E45_A05", 0.05, None), ("FIN_ONLY_A10", 0.10, SLEEVE_FIN_ONLY)):
         for cost in (2.0, 3.0):
             key = f"{label}_C{int(cost)}x"
             nav, fills, meta = sim(key, alpha, sleeves, cost)
             put(key, label, alpha, sleeves, cost, nav, fills, meta)
 
-    for key in ("ALL_A05", "FIN_ONLY_A10", "HIGH_BETA_A10", "FULL_E45"):
+    for key in ("BLEND_E45_A05", "FIN_ONLY_A10", "HIGH_BETA_A10", "CHAL_E45_E3"):
         books[key]["nav"].to_csv(out_o / f"{key.lower()}_daily_nav.csv", index=False)
 
     print("==> (2) crisis-year attribution", flush=True)
-    focus_books = [base_key, "ALL_A05", "ALL_A25", "FULL_E45", "FIN_ONLY_A10", "HIGH_BETA_A10"]
+    focus_books = [base_key, "BLEND_E45_A05", "BLEND_E45_A25", "CHAL_E45_E3", "FIN_ONLY_A10", "HIGH_BETA_A10"]
     crisis_rows = []
     for bid in focus_books:
         for y in list(CRISIS_YEARS) + list(REF_YEARS):
@@ -746,11 +746,11 @@ def main() -> None:
     conc_df = pd.DataFrame(concentration)
     conc_df.to_csv(out_o / "crisis_help_concentration.csv", index=False)
 
-    print("==> (3) FIN_ONLY_A10 vs ALL_A05", flush=True)
+    print("==> (3) FIN_ONLY_A10 vs BLEND_E45_A05", flush=True)
     roll_rows = []
     for end in ROLL_ENDS:
         start = date(end.year - 3, 1, 1)
-        for bid in (base_key, "ALL_A05", "FIN_ONLY_A10"):
+        for bid in (base_key, "BLEND_E45_A05", "FIN_ONLY_A10"):
             st = custom_window_stats(books[bid]["nav"], start, end)
             roll_rows.append({
                 "book": bid,
@@ -763,7 +763,7 @@ def main() -> None:
     for end in ROLL_ENDS:
         start = date(end.year - 3, 1, 1)
         b = roll_df[(roll_df.book == base_key) & (roll_df.window_end == end.isoformat())].iloc[0]
-        for bid in ("ALL_A05", "FIN_ONLY_A10"):
+        for bid in ("BLEND_E45_A05", "FIN_ONLY_A10"):
             c = roll_df[(roll_df.book == bid) & (roll_df.window_end == end.isoformat())].iloc[0]
             dlt = deltas_vs_base(
                 {"cagr": b["cagr"], "max_drawdown": b["max_drawdown"]},
@@ -786,7 +786,7 @@ def main() -> None:
     cost_rows = []
     for cost in COST_MULTS:
         bk = f"{BOOK_BASE}_C{int(cost)}x"
-        for label in ("ALL_A05", "FIN_ONLY_A10"):
+        for label in ("BLEND_E45_A05", "FIN_ONLY_A10"):
             ck = label if cost == 1.0 else f"{label}_C{int(cost)}x"
             for w in FOCUS_WINDOWS:
                 b = books[bk]["windows"][w]
@@ -811,7 +811,7 @@ def main() -> None:
     print("==> (4) HIGH_BETA densify", flush=True)
     hb_rows = []
     for bid in [
-        "ALL_A05", "FIN_ONLY_A05", "FIN_ONLY_A08", "FIN_ONLY_A10",
+        "BLEND_E45_A05", "FIN_ONLY_A05", "FIN_ONLY_A08", "FIN_ONLY_A10",
         "HIGH_BETA_A05", "HIGH_BETA_A08", "HIGH_BETA_A10", "HIGH_BETA_A15",
     ]:
         for w in FOCUS_WINDOWS:
@@ -834,7 +834,7 @@ def main() -> None:
     print("==> (5) multi-event threshold", flush=True)
     threshold_rows = []
     candidates = [
-        "ALL_A05", "ALL_A25", "FULL_E45", "FIN_ONLY_A05", "FIN_ONLY_A10",
+        "BLEND_E45_A05", "BLEND_E45_A25", "CHAL_E45_E3", "FIN_ONLY_A05", "FIN_ONLY_A10",
         "HIGH_BETA_A05", "HIGH_BETA_A10", "HIGH_BETA_A15",
     ]
     for bid in candidates:

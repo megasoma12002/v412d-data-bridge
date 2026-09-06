@@ -49,3 +49,9 @@ PYTHONPATH=scripts python3 scripts/check_project_coding_hygiene.py
 - E45 regenerators must import `e45_paper_harness`; local `load_market`/`window_stats`/`blend` forks fail hygiene.
 - Live market path gate uses resolve equality; FIN/TEL single-sourced from Soft-Frozen base.
 - Month-end pack default behavior unchanged; opt-in `--fail-on-critical`.
+
+## 2026-09-06 landmine follow-up
+
+- Research batches (`*research_batch*` / `*_batch.py`) are regenerators (must import harness).
+- Harness `__all__` must match defined names (hygiene fail-closed).
+- Review: `PROJECT_LANDMINE_CODEREVIEW_2026-09-06.md`.

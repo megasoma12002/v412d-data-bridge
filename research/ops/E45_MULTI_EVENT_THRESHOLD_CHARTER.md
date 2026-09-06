@@ -1,6 +1,6 @@
 # E45 Multi-Event Stress-Year Threshold Charter
 
-Generated: `2026-09-06T04:17:39.744934+00:00`
+Generated: `2026-09-06T04:26:26.694796+00:00`
 Status: **PAPER GOVERNANCE RULE** — does not flip Soft-Frozen / DEFAULT / stitch
 
 ## Rule (binding for future paper ballots)
@@ -17,9 +17,9 @@ Rationale: block **2020-only** products from looking like general crisis protect
 
 | Book | Years helped | N | Multi≥2 | Held-out score | Sealed score | Qualifies? |
 |---|---|---:|:---:|---:|---:|:---:|
-| `ALL_A05` | [2020] | 1 | N | +0.22 | +2.07 | **NO** |
-| `ALL_A25` | [2018, 2020] | 2 | Y | -0.91 | +2.59 | **NO** |
-| `FULL_E45` | [2015, 2018, 2020, 2022] | 4 | Y | -1.00 | +0.03 | **NO** |
+| `BLEND_E45_A05` | [2020] | 1 | N | +0.22 | +2.07 | **NO** |
+| `BLEND_E45_A25` | [2018, 2020] | 2 | Y | -0.91 | +2.59 | **NO** |
+| `CHAL_E45_E3` | [2015, 2018, 2020, 2022] | 4 | Y | -1.00 | +0.03 | **NO** |
 | `FIN_ONLY_A05` | [2020] | 1 | N | +0.26 | +1.79 | **NO** |
 | `FIN_ONLY_A10` | [2020] | 1 | N | +0.29 | +2.52 | **NO** |
 | `HIGH_BETA_A05` | [2020] | 1 | N | +0.23 | +1.95 | **NO** |
