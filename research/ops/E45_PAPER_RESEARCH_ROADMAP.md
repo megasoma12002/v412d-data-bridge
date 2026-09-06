@@ -35,7 +35,7 @@ Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · l
 
 | # | Action | Status | Artifact |
 |---|---|---|---|
-| A | Sleeve-local deep-dive (α×sleeve×cost + crisis-year) | **DONE (PAPER)** | `E45_SLEEVE_LOCAL_DEEP_DIVE.md` — held-out pref **FIN_ONLY@α=0.10** (score 0.285) beats ALL@0.05; still 2020-concentrated (~84%) |
+| A | Sleeve-local deep-dive (α×sleeve×cost + crisis-year) | **DONE (PAPER)** · OPEN ballot **DRAFT** | `E45_SLEEVE_LOCAL_DEEP_DIVE.md` — held-out pref **FIN_ONLY@α=0.10** (score 0.285) beats ALL@0.05; still 2020-concentrated (~84%) |
 | B | OPEN blend-α=0.05 observe companion | **OPEN / OPERATING** | `E45_BLEND005_OBSERVE_OPEN.md` · tip YTD/1y **PAUSE_REVIEW** (expected) |
 | C | Continue FULL+A25 observe cadence | **OPERATING** | dual-paper + blend025 month-end unchanged; stitch still forbidden |
 
@@ -45,3 +45,5 @@ Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · l
 ## Label
 
 `E45_PAPER_ROADMAP_STATUS_2026-09-06__P1_P7_DONE__STITCH_FORBIDDEN`
+
+Sleeve-local OPEN ballot **DRAFT** (awaiting human ACCEPT, not OPEN): `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md`

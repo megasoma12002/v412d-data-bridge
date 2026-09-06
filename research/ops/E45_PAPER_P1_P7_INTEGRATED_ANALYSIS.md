@@ -135,3 +135,7 @@ Score = MDD_improve_pp − 0.5·|CAGR_giveback_pp| (paper heuristic; not a Soft-
 
 Label: `E45_POST_P7_ALL_NEXT_STEPS_2026-09-06__A05_OBSERVE_OPEN__SLEEVE_LOCAL_PAPER__STITCH_FORBIDDEN`
 
+### Sleeve-local observe ballot
+
+OPEN ballot **DRAFT only** (awaiting human ACCEPT; **not** auto-OPEN):  
+`research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md` — primary proposal **FIN_ONLY@α=0.10**.
