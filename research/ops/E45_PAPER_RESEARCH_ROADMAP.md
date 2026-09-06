@@ -63,6 +63,17 @@ Sleeve-local observe **OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.
 Integrated: `E45_FIVE_RESEARCH_BATCH_INTEGRATED.md` · stitch still **FORBIDDEN**.
 
 
+## COVID-framed follow-up #2+#3 (2026-09-06)
+
+| # | Item | Status | Artifact |
+|---|---|---|---|
+| 2 | COVID-framed non-2020 / multi-event empirics | **DONE** | `E45_COVID_NON2020_MULTI_EVENT.md` |
+| 3 | FIN_ONLY densify thicken (α grid + cost + COVID-ex held-out) | **DONE** | `E45_FINA10_THICKEN.md` |
+
+Integrated: `E45_COVID_NON2020_FINA10_INTEGRATED.md` · Soft-Frozen KEEP · stitch FORBIDDEN · HIGH_BETA stays DRAFT.
+
+Framing: **2020 = COVID-19 mega-DD** (expected large story). Honesty = non-COVID multi-event + COVID-year-excluded held-out. Observe lock `FIN_ONLY_A10` still holds among FIN densify; no multi-event qualifier under incl-COVID or strict non-COVID rules.
+
 ## Next research batch (2026-09-06) — ALL DONE
 
 | # | Item | Status | Artifact |
@@ -74,3 +85,4 @@ Integrated: `E45_FIVE_RESEARCH_BATCH_INTEGRATED.md` · stitch still **FORBIDDEN*
 | 5 | Data-source Phase C follow-up | **DONE** | `DATA_SOURCE_PHASE_C_FOLLOWUP.md` |
 
 Master: `NEXT_RESEARCH_BATCH_INTEGRATED_2026-09-06.md` · Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN**.
+

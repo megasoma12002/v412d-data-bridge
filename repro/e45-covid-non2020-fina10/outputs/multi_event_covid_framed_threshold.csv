@@ -1,0 +1,8 @@
+book,years_helped,n_years_helped,non_covid_years_helped,n_non_covid_years_helped,multi_event_incl_covid_ge_2,multi_event_non_covid_ge_2,heldout_score,sealed_score,qualifies_incl_covid_rule,qualifies_non_covid_strict_rule
+BLEND_E45_A05,[2020],1,[],0,False,False,0.22225024440115648,2.0686833418786854,False,False
+BLEND_E45_A10,[2020],1,[],0,False,False,0.044847310692042175,2.5959876445100782,False,False
+FIN_ONLY_A05,[2020],1,[],0,False,False,0.26123716637164174,1.7897244940327517,False,False
+FIN_ONLY_A08,[2020],1,[],0,False,False,0.18720330610407787,2.3438472506700836,False,False
+FIN_ONLY_A10,[2020],1,[],0,False,False,0.2854667577512848,2.5176656414680365,False,False
+FIN_ONLY_A12,[2020],1,[],0,False,False,0.11013985096876011,2.5797139468947017,False,False
+FIN_ONLY_A15,"[2018, 2020]",2,[2018],1,True,False,-0.12282346920415854,2.6760960319288207,False,False
