@@ -1,0 +1,137 @@
+{
+  "generated_at_utc": "2026-09-06T06:53:45.232253+00:00",
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "default_books_keep": "E22_v2s_tw",
+  "stitch": "FORBIDDEN",
+  "n_alt_challengers": 13,
+  "qualifiers_incl_covid": 0,
+  "qualifiers_strict_noncovid": 0,
+  "covid_ex_least_bad": {
+    "book": "E1BIN_A05",
+    "covid_ex_heldout_score": -0.10805676966567646
+  },
+  "observe_pause_summary": {
+    "CHAL_E45_E3": {
+      "ok": true,
+      "book": "CHAL_E45_E3",
+      "n_month_ends": 45,
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "PAUSE_REVIEW",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "share_pause_ytd": 0.6222222222222222,
+      "share_pause_1y": 0.6222222222222222,
+      "first_clean_both_asof": "2023-02-24",
+      "first_near_clean_both_asof": "2023-02-24",
+      "months_both_pause": 26,
+      "tip_need": {
+        "ytd": {
+          "current_giveback_pp": 23.22807683620185,
+          "pp_above_alert": 20.22807683620185,
+          "pp_above_pause": 18.22807683620185,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "current_giveback_pp": 20.493436961884793,
+          "pp_above_alert": 17.493436961884793,
+          "pp_above_pause": 15.493436961884793,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "stitch": "FORBIDDEN"
+    },
+    "BLEND_E45_A25": {
+      "ok": true,
+      "book": "BLEND_E45_A25",
+      "n_month_ends": 45,
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "PAUSE_REVIEW",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "share_pause_ytd": 0.5333333333333333,
+      "share_pause_1y": 0.5555555555555556,
+      "first_clean_both_asof": "2023-02-24",
+      "first_near_clean_both_asof": "2023-02-24",
+      "months_both_pause": 22,
+      "tip_need": {
+        "ytd": {
+          "current_giveback_pp": 11.5541113601636,
+          "pp_above_alert": 8.5541113601636,
+          "pp_above_pause": 6.554111360163599,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "current_giveback_pp": 11.68514135660148,
+          "pp_above_alert": 8.68514135660148,
+          "pp_above_pause": 6.685141356601481,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "stitch": "FORBIDDEN"
+    },
+    "BLEND_E45_A05": {
+      "ok": true,
+      "book": "BLEND_E45_A05",
+      "n_month_ends": 45,
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "ALERT",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "share_pause_ytd": 0.06666666666666667,
+      "share_pause_1y": 0.08888888888888889,
+      "first_clean_both_asof": "2023-02-24",
+      "first_near_clean_both_asof": "2023-02-24",
+      "months_both_pause": 1,
+      "tip_need": {
+        "ytd": {
+          "current_giveback_pp": 4.871078217702829,
+          "pp_above_alert": 1.871078217702829,
+          "pp_above_pause": 0.0,
+          "gate": "ALERT"
+        },
+        "trailing_1y": {
+          "current_giveback_pp": 5.171819858408888,
+          "pp_above_alert": 2.171819858408888,
+          "pp_above_pause": 0.17181985840888814,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "stitch": "FORBIDDEN"
+    },
+    "SLEEVE_FIN_ONLY_A10": {
+      "ok": true,
+      "book": "SLEEVE_FIN_ONLY_A10",
+      "n_month_ends": 45,
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "PAUSE_REVIEW",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "share_pause_ytd": 0.13333333333333333,
+      "share_pause_1y": 0.15555555555555556,
+      "first_clean_both_asof": "2023-02-24",
+      "first_near_clean_both_asof": "2023-02-24",
+      "months_both_pause": 4,
+      "tip_need": {
+        "ytd": {
+          "current_giveback_pp": 5.966024983944673,
+          "pp_above_alert": 2.9660249839446733,
+          "pp_above_pause": 0.9660249839446733,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "current_giveback_pp": 6.253514807942451,
+          "pp_above_alert": 3.2535148079424507,
+          "pp_above_pause": 1.2535148079424507,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "stitch": "FORBIDDEN"
+    }
+  },
+  "artifacts": {
+    "alt_levers": "research/ops/E45_NONCOVID_MULTIEVENT_ALT_LEVERS.md",
+    "covid_ex_kpi": "research/ops/E45_COVID_EX_HELDOUT_KPI.md",
+    "pause_diag": "research/ops/E45_OBSERVE_PAUSE_DIAGNOSTICS.md",
+    "integrated": "research/ops/E45_NEXT_RESEARCH_BATCH_INTEGRATED.md"
+  }
+}

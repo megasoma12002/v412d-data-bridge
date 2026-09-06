@@ -1,0 +1,14 @@
+{
+  "generated_at_utc": "2026-09-06T06:54:33.219493+00:00",
+  "soft_frozen_keep": true,
+  "live_wire": false,
+  "c1_sealed_drift_codes": [
+    "0050"
+  ],
+  "c2_sealed_warn_codes": [],
+  "artifacts": {
+    "c1_slice": "repro/data-source-phase-c-followup/outputs/c1_slice_drift.csv",
+    "c2_slice": "repro/data-source-phase-c-followup/outputs/c2_slice_adj_drift.csv",
+    "report": "research/ops/DATA_SOURCE_PHASE_C_FOLLOWUP.md"
+  }
+}
