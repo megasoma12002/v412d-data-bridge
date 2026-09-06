@@ -1,6 +1,6 @@
 # E45 PAPER Mild max_cut Profile Screen
 
-Generated: `2026-09-06T01:40:57.395013+00:00`
+Generated: `2026-09-06T05:13:58.122429+00:00`
 Status: **PAPER ONLY** — Soft-Frozen **KEEP**; DEFAULT **`E22_v2s_tw` KEEP**; live stitch **FORBIDDEN**.
 Observe sleeves (full-E45 + blend-α=0.25) **unchanged**.
 Frozen `E3_WINNER.max_cut` untouched: **True** (still 0.5).
@@ -25,34 +25,34 @@ Winner vs direct mc=0.50 series corr: **1.000000** (sanity).
 
 | Book | Family | max_cut | α | MDD Δpp | Giveback pp | Score | mean_exp |
 |---|---|---:|---:|---:|---:|---:|---:|
-| REF_BLEND_A05 | REF_BLEND | 0.50 | 0.05 | +0.85 | +1.07 | 0.320 | 0.995 |
-| REF_BLEND_A25 | REF_BLEND | 0.50 | 0.25 | +0.63 | +2.83 | -0.783 | 0.977 |
-| MILD_MC25_A50 | MILD_BLEND | 0.25 | 0.50 | +0.73 | +3.22 | -0.874 | 0.969 |
-| REF_WINNER_MC50_FULL | REF_WINNER | 0.50 | 1.00 | +1.88 | +5.65 | -0.943 | 0.907 |
-| MILD_MC35_A50 | MILD_BLEND | 0.35 | 0.50 | +0.84 | +3.57 | -0.945 | 0.962 |
-| MILD_MC40_FULL | MILD | 0.40 | 1.00 | +1.57 | +5.36 | -1.106 | 0.919 |
-| MILD_MC35_FULL | MILD | 0.35 | 1.00 | +1.42 | +5.19 | -1.177 | 0.925 |
-| MILD_MC25_FULL | MILD | 0.25 | 1.00 | +1.06 | +4.71 | -1.290 | 0.939 |
+| BLEND_E45_A05 | REF_BLEND | 0.50 | 0.05 | +0.70 | +0.96 | 0.222 | 0.995 |
+| BLEND_E45_A25 | REF_BLEND | 0.50 | 0.25 | +0.45 | +2.72 | -0.908 | 0.977 |
+| REF_WINNER_MC50_FULL | REF_WINNER | 0.50 | 1.00 | +1.71 | +5.41 | -0.996 | 0.907 |
+| MILD_MC25_A50 | MILD_BLEND | 0.25 | 0.50 | +0.56 | +3.13 | -1.003 | 0.969 |
+| MILD_MC35_A50 | MILD_BLEND | 0.35 | 0.50 | +0.68 | +3.47 | -1.062 | 0.962 |
+| MILD_MC40_FULL | MILD | 0.40 | 1.00 | +1.40 | +5.24 | -1.216 | 0.919 |
+| MILD_MC35_FULL | MILD | 0.35 | 1.00 | +1.24 | +5.04 | -1.277 | 0.925 |
+| MILD_MC25_FULL | MILD | 0.25 | 1.00 | +0.89 | +4.62 | -1.424 | 0.939 |
 
 ## Sealed top (same score)
 
 | Book | Family | max_cut | α | MDD Δpp | Giveback pp | Score |
 |---|---|---:|---:|---:|---:|---:|
-| REF_BLEND_A25 | REF_BLEND | 0.50 | 0.25 | +5.13 | +4.36 | 2.944 |
-| MILD_MC25_A50 | MILD_BLEND | 0.25 | 0.50 | +5.20 | +5.14 | 2.634 |
-| REF_BLEND_A05 | REF_BLEND | 0.50 | 0.05 | +3.07 | +1.50 | 2.317 |
-| MILD_MC35_A50 | MILD_BLEND | 0.35 | 0.50 | +5.20 | +5.89 | 2.253 |
-| MILD_MC25_FULL | MILD | 0.25 | 1.00 | +5.11 | +8.21 | 1.010 |
-| MILD_MC35_FULL | MILD | 0.35 | 1.00 | +4.96 | +9.00 | 0.465 |
+| BLEND_E45_A25 | REF_BLEND | 0.50 | 0.25 | +4.75 | +4.32 | 2.595 |
+| MILD_MC25_A50 | MILD_BLEND | 0.25 | 0.50 | +4.83 | +5.07 | 2.300 |
+| BLEND_E45_A05 | REF_BLEND | 0.50 | 0.05 | +2.78 | +1.42 | 2.069 |
+| MILD_MC35_A50 | MILD_BLEND | 0.35 | 0.50 | +4.84 | +5.89 | 1.891 |
+| MILD_MC25_FULL | MILD | 0.25 | 1.00 | +4.75 | +8.19 | 0.657 |
+| MILD_MC35_FULL | MILD | 0.35 | 1.00 | +4.59 | +8.90 | 0.134 |
 
-**Held-out preferred:** `REF_BLEND_A05` (family=REF_BLEND, max_cut=0.5, α=0.05) — MDD +0.85 / giveback +1.07
+**Held-out preferred:** `BLEND_E45_A05` (family=REF_BLEND, max_cut=0.5, α=0.05) — MDD +0.70 / giveback +0.96
 
 ### Best by family (held-out)
 
-- **REF_BLEND**: `REF_BLEND_A05` — MDD +0.85 / giveback +1.07 / score 0.320
-- **REF_WINNER**: `REF_WINNER_MC50_FULL` — MDD +1.88 / giveback +5.65 / score -0.943
-- **MILD**: `MILD_MC40_FULL` — MDD +1.57 / giveback +5.36 / score -1.106
-- **MILD_BLEND**: `MILD_MC25_A50` — MDD +0.73 / giveback +3.22 / score -0.874
+- **REF_BLEND**: `BLEND_E45_A05` — MDD +0.70 / giveback +0.96 / score 0.222
+- **REF_WINNER**: `REF_WINNER_MC50_FULL` — MDD +1.71 / giveback +5.41 / score -0.996
+- **MILD**: `MILD_MC40_FULL` — MDD +1.40 / giveback +5.24 / score -1.216
+- **MILD_BLEND**: `MILD_MC25_A50` — MDD +0.56 / giveback +3.13 / score -1.003
 
 ## Month-end PAUSE sensitivity (asof 2026-09-04)
 
@@ -62,29 +62,29 @@ Policy: ALERT >3pp / PAUSE_REVIEW >5pp on YTD / trailing_1y.
 |---|---|---|---:|---:|---|
 | BASE_E16_E18_E22_v2s | BASE | trailing_1y | +0.00 | +0.00 | **OK** |
 | BASE_E16_E18_E22_v2s | BASE | ytd | +0.00 | +0.00 | **OK** |
-| MILD_MC25_FULL | MILD | trailing_1y | +7.04 | +19.04 | **PAUSE_REVIEW** |
-| MILD_MC25_FULL | MILD | ytd | +7.04 | +21.46 | **PAUSE_REVIEW** |
-| MILD_MC35_FULL | MILD | trailing_1y | +7.17 | +19.96 | **PAUSE_REVIEW** |
-| MILD_MC35_FULL | MILD | ytd | +7.17 | +22.64 | **PAUSE_REVIEW** |
-| MILD_MC40_FULL | MILD | trailing_1y | +7.20 | +20.27 | **PAUSE_REVIEW** |
-| MILD_MC40_FULL | MILD | ytd | +7.20 | +22.93 | **PAUSE_REVIEW** |
-| MILD_MC25_A50 | MILD_BLEND | trailing_1y | +6.23 | +13.51 | **PAUSE_REVIEW** |
-| MILD_MC25_A50 | MILD_BLEND | ytd | +6.23 | +13.91 | **PAUSE_REVIEW** |
-| MILD_MC35_A50 | MILD_BLEND | trailing_1y | +6.44 | +14.68 | **PAUSE_REVIEW** |
-| MILD_MC35_A50 | MILD_BLEND | ytd | +6.44 | +15.28 | **PAUSE_REVIEW** |
-| REF_BLEND_A05 | REF_BLEND | trailing_1y | +3.07 | +5.62 | **PAUSE_REVIEW** |
-| REF_BLEND_A05 | REF_BLEND | ytd | +3.07 | +5.00 | **PAUSE_REVIEW** |
-| REF_BLEND_A25 | REF_BLEND | trailing_1y | +5.94 | +11.69 | **PAUSE_REVIEW** |
-| REF_BLEND_A25 | REF_BLEND | ytd | +5.94 | +11.55 | **PAUSE_REVIEW** |
-| REF_WINNER_MC50_FULL | REF_WINNER | trailing_1y | +7.23 | +20.49 | **PAUSE_REVIEW** |
-| REF_WINNER_MC50_FULL | REF_WINNER | ytd | +7.23 | +23.23 | **PAUSE_REVIEW** |
+| MILD_MC25_FULL | MILD | trailing_1y | +6.65 | +18.60 | **PAUSE_REVIEW** |
+| MILD_MC25_FULL | MILD | ytd | +6.65 | +21.25 | **PAUSE_REVIEW** |
+| MILD_MC35_FULL | MILD | trailing_1y | +6.80 | +19.61 | **PAUSE_REVIEW** |
+| MILD_MC35_FULL | MILD | ytd | +6.80 | +22.40 | **PAUSE_REVIEW** |
+| MILD_MC40_FULL | MILD | trailing_1y | +6.83 | +19.83 | **PAUSE_REVIEW** |
+| MILD_MC40_FULL | MILD | ytd | +6.83 | +22.71 | **PAUSE_REVIEW** |
+| MILD_MC25_A50 | MILD_BLEND | trailing_1y | +5.83 | +13.11 | **PAUSE_REVIEW** |
+| MILD_MC25_A50 | MILD_BLEND | ytd | +5.83 | +13.65 | **PAUSE_REVIEW** |
+| MILD_MC35_A50 | MILD_BLEND | trailing_1y | +6.07 | +14.42 | **PAUSE_REVIEW** |
+| MILD_MC35_A50 | MILD_BLEND | ytd | +6.07 | +15.26 | **PAUSE_REVIEW** |
+| BLEND_E45_A05 | REF_BLEND | trailing_1y | +2.78 | +5.17 | **PAUSE_REVIEW** |
+| BLEND_E45_A05 | REF_BLEND | ytd | +2.78 | +4.87 | **ALERT** |
+| BLEND_E45_A25 | REF_BLEND | trailing_1y | +5.59 | +11.25 | **PAUSE_REVIEW** |
+| BLEND_E45_A25 | REF_BLEND | ytd | +5.59 | +11.36 | **PAUSE_REVIEW** |
+| REF_WINNER_MC50_FULL | REF_WINNER | trailing_1y | +6.86 | +20.12 | **PAUSE_REVIEW** |
+| REF_WINNER_MC50_FULL | REF_WINNER | ytd | +6.86 | +23.08 | **PAUSE_REVIEW** |
 
 ## Read-through (paper)
 
 1. Mild max_cut profiles are **new paper challengers**, not edits to frozen winner.
-2. Compare best `MILD` / `MILD_BLEND` vs `REF_BLEND_A05` / `REF_BLEND_A25` on held-out score.
-3. Held-out preferred this screen: **`REF_BLEND_A05`** (score 0.320).
-4. Best mild (`MILD_MC40_FULL`) does **not** beat REF_BLEND_A05 on held-out score (-1.106 vs 0.320) — blend-α remains stronger paper path.
+2. Compare best `MILD` / `MILD_BLEND` vs `BLEND_E45_A05` / `BLEND_E45_A25` on held-out score.
+3. Held-out preferred this screen: **`BLEND_E45_A05`** (score 0.222).
+4. Best mild (`MILD_MC40_FULL`) does **not** beat BLEND_E45_A05 on held-out score (-1.216 vs 0.222) — blend-α remains stronger paper path.
 5. This screen does **not** open a new observe sleeve or authorize stitch.
 
 ## Governance

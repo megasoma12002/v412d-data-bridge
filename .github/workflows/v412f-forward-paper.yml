@@ -20,6 +20,9 @@ permissions:
 
 jobs:
   forward-paper:
+    # Prevent arbitrary issues from mutating forward/ (Cloud Agent / stray opens).
+    # Manual: workflow_dispatch · Scheduled cron · Issue title prefix RUN_E21_FORWARD
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'RUN_E21_FORWARD')
     runs-on: ubuntu-latest
     timeout-minutes: 55
     steps:

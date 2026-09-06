@@ -7,6 +7,9 @@ permissions:
   contents: write
 jobs:
   fetch-qc:
+    # Prevent arbitrary issues from committing data/telecom_0050_complete.
+    # Manual: workflow_dispatch · Issue title prefix RUN_TELECOM_0050
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'RUN_TELECOM_0050')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -22,6 +22,10 @@ DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 # --- Canonical constants (do not fork these strings in paper scripts) ---
 E45_PROFILE_DEFAULT = "E3_VOLTARGET_WINNER"
 BOOK_BASE = "BASE_E16_E18_E22_v2s"
+# Label honesty: BOOK_BASE is the paper ledger id string. The early-stack may run
+# under E22_v2s_tw (TW odd-lot practice) depending on call site — do not infer
+# formal E22_v2s books solely from this id. Prefer explicit e22_version kwargs.
+BOOK_BASE_RUNTIME_NOTE = "ledger_id_only__check_e22_version_at_call_site"
 BOOK_FULL = "CHAL_E45_E3"
 BOOK_BLEND_A25 = "BLEND_E45_A25"
 BOOK_BLEND_A05 = "BLEND_E45_A05"
@@ -167,6 +171,7 @@ __all__ = [
     "DIV_PATH",
     "E45_PROFILE_DEFAULT",
     "BOOK_BASE",
+    "BOOK_BASE_RUNTIME_NOTE",
     "BOOK_FULL",
     "BOOK_BLEND_A25",
     "BOOK_BLEND_A05",
