@@ -138,7 +138,7 @@
   "decision": {
     "accept_claim_as_verified_baseline": false,
     "replace_claim_with_invented_number": false,
-    "use_instead": "VERIFIED_LINEAGE_MDD from dated artifacts; keep claim labeled NOT_VERIFIED",
+    "use_instead": "VERIFIED_LINEAGE_MDD from dated artifacts; keep claim labeled RETIRED_HISTORICAL_NARRATIVE",
     "promotion_impact": "E45 remains CHALLENGER_CANDIDATE; SOFT_FROZEN_CRITICAL is a process class, not a verified -13.16% number"
   },
   "claim_interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",

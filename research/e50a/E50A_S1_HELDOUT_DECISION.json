@@ -41,8 +41,8 @@
     "stress_beats_c4": false,
     "both_gates_pass": false
   },
-  "sealed_2023_latest": {
-    "window": "sealed_2023_latest",
+  "sealed_2023_plus": {
+    "window": "sealed_2023_plus",
     "cagr": 0.42237609626504047,
     "max_drawdown": -0.3176282401865931,
     "utility": 0.26356197617174393,

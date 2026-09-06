@@ -72,7 +72,7 @@ Integrated: `E45_FIVE_RESEARCH_BATCH_INTEGRATED.md` · stitch still **FORBIDDEN*
 
 Integrated: `E45_COVID_NON2020_FINA10_INTEGRATED.md` · Soft-Frozen KEEP · stitch FORBIDDEN · HIGH_BETA stays DRAFT.
 
-Framing: **2020 = COVID-19 mega-DD** (expected large story). Honesty = non-COVID multi-event + COVID-year-excluded held-out. Observe lock `FIN_ONLY_A10` still holds among FIN densify; no multi-event qualifier under incl-COVID or strict non-COVID rules.
+Framing: **2020 = COVID-19 mega-DD** (expected large story). Honesty = non-COVID multi-event + COVID-year-excluded held-out. Observe lock `SLEEVE_FIN_ONLY_A10` still holds among FIN densify; no multi-event qualifier under incl-COVID or strict non-COVID rules.
 
 ## Next research batch (2026-09-06) — ALL DONE
 

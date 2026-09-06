@@ -54,17 +54,7 @@ DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
 BASE_ID = "BASE_E16_E18_E22_v2s"
 CHAL_ID = "CHAL_E45_E3"
-WINDOWS = {
-    "full": (None, None),
-    "oof_2011_2018": (date(2011, 1, 1), date(2018, 12, 31)),
-    "validation_2019_2022": (date(2019, 1, 1), date(2022, 12, 31)),
-    "sealed_2023_plus": (date(2023, 1, 1), None),
-    "heldout_2019_plus": (date(2019, 1, 1), None),
-}
-
-
-
-
+WINDOWS = WINDOWS_STANDARD
 def main() -> None:
     (OUT / "outputs").mkdir(parents=True, exist_ok=True)
     (OUT / "reports").mkdir(parents=True, exist_ok=True)

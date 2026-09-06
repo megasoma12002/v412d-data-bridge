@@ -15,7 +15,7 @@ E45 implementation: **NOT MODIFIED** during this verification
 | Keep class | **SOFT_FROZEN_CRITICAL** |
 | Preserve lineage | **E38 → E43 → E44 → E45** research lineage retained |
 | Reject E45? | **No** — research/orphan path stays open |
-| Authorize live/stitch? | **No** while historical performance claims (incl. ~−13.16% validation MDD) remain **NOT_VERIFIED** |
+| Authorize live/stitch? | **No** while historical performance claims (incl. ~−13.16% validation MDD) remain **RETIRED_HISTORICAL_NARRATIVE** |
 | Default path | **Unchanged** |
 
 ## Final verdict
@@ -39,7 +39,7 @@ Not chosen:
 | Exact T+1 integrity | **PASS on shared exec path** | Fills live in E18 / `scripts/e50_early_stack_combined_nav.py`; early-stack recompute reports `exact_t1_ok` / zero same-bar fills; E45 module emits exposure only |
 | Crisis state transitions | **PARTIAL** | Documented E38→E43→E44→E45 narrative preserved; **code lineage** is E1 / E1.1 / E2 / E2.1 / E3 + E45 wrapper. **No** `e38`/`e43`/`e44` packages |
 | Validation / OOS periods | **PASS (dated)** | E1/E1.1 val 2012–2014; E2 val 2015–2017; E2.1 val 2018–2020; E3 val 2021–2022 (pass, not promoted); E3 blind 2023–2025; final 2026 window opened after E3 val |
-| MDD (~−13.16% claim) | **FAIL / NOT_VERIFIED** | `research/e45/E45_MDD_1316_VERIFICATION.json` — `exact_artifact_match=false`; closest E1.1 val **−15.81%**; E3 winner val **−18.49%** |
+| MDD (~−13.16% claim) | **FAIL / RETIRED_HISTORICAL_NARRATIVE** | `research/e45/E45_MDD_1316_VERIFICATION.json` — `exact_artifact_match=false`; closest E1.1 val **−15.81%**; E3 winner val **−18.49%** |
 | CAGR | **PARTIAL** | Early-stack `E16+E18+E22_v2s+E45_E3` dated challenger CAGR **~10.79%**; no sealed E45-named frozen NAV baseline for handoff “~10%” as hash-pinned artifact |
 | Turnover | **PARTIAL** | E3 train grid reports turnover (e.g. winner train_turnover present in lineage CSVs); no dedicated E45 stitch turnover KPI pack |
 | Costs | **PARTIAL** | E3 cost sensitivity dated (fee multiples drag Blind returns materially); early-stack fees in fills; no E45-named sealed cost report for stitch |
@@ -52,7 +52,7 @@ Not chosen:
 
 | Metric | Value | Source |
 |---|---:|---|
-| Claimed validation MDD | −13.16% (−0.1316) | Narrative / module constant — **NOT_VERIFIED** |
+| Claimed validation MDD | −13.16% (−0.1316) | Narrative / module constant — **RETIRED_HISTORICAL_NARRATIVE** |
 | Closest lineage val MDD | −15.81% | E1.1 validation gate |
 | E3 locked winner val MDD | −18.49% | E3 validation |
 | Early-stack + E45_E3 MDD | −20.76% | `repro/e45-mdd-verify` / verification JSON |

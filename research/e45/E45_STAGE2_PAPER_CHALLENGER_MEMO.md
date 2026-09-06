@@ -14,7 +14,7 @@ Generated: `2026-09-05T18:10:35Z`
 
 | Claim | Status |
 |---|---|
-| Handoff/spec MDD ≈ **−13.16%** (−0.1316) | **`NOT_VERIFIED`** — `exact_artifact_match=false` |
+| Handoff/spec MDD ≈ **−13.16%** (−0.1316) | **`RETIRED_HISTORICAL_NARRATIVE`** — scan `exact_artifact_match=false`; do not invent replacement |
 | Invented replacement MDD | **Forbidden** |
 | Use instead | Dated **verified lineage** + **early-stack challenger** MDDs below |
 
@@ -63,4 +63,4 @@ Interpretation for paper observe: E45_E3 overlay **reduces** early-stack CAGR an
 
 ## Label
 
-`E45_STAGE2_PAPER_CHALLENGER_MEMO_2026-09-05__NOT_VERIFIED_CLAIM__STITCH_FORBIDDEN`
+`E45_STAGE2_PAPER_CHALLENGER_MEMO_2026-09-05__RETIRED_HISTORICAL_NARRATIVE__STITCH_FORBIDDEN`

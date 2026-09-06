@@ -65,7 +65,7 @@
         "n_days": 977,
         "start": "2019-01-02"
       },
-      "sealed_2023_latest": {
+      "sealed_2023_plus": {
         "cagr": 0.2270870403661951,
         "max_drawdown": -0.144568509835741,
         "end": "2026-08-28",
@@ -90,7 +90,7 @@
         "n_days": 977,
         "start": "2019-01-02"
       },
-      "sealed_2023_latest": {
+      "sealed_2023_plus": {
         "cagr": 0.26133311826596195,
         "max_drawdown": -0.11037315082953592,
         "end": "2026-08-28",
@@ -115,7 +115,7 @@
         "n_days": 977,
         "start": "2019-01-02"
       },
-      "sealed_2023_latest": {
+      "sealed_2023_plus": {
         "cagr": 0.29290557954556373,
         "max_drawdown": -0.1349979732865365,
         "end": "2026-08-28",
@@ -140,7 +140,7 @@
         "n_days": 977,
         "start": "2019-01-02"
       },
-      "sealed_2023_latest": {
+      "sealed_2023_plus": {
         "cagr": 0.32220106076201094,
         "max_drawdown": -0.15897107958754209,
         "end": "2026-08-28",
@@ -287,7 +287,7 @@
         "lose": false
       }
     ],
-    "note": "Stand-in proxy (0050), not the official PIT equal-weight proxy used in R1 gates. Overlay NAV chained across validation\u2192sealed reset."
+    "note": "Stand-in proxy (0050), not the official PIT equal-weight proxy used in R1 gates. Overlay NAV chained across validation→sealed reset."
   },
   "lot_policy": [
     {
@@ -394,7 +394,7 @@
         "n_days": 977,
         "start": "2019-01-02"
       },
-      "sealed_2023_latest": {
+      "sealed_2023_plus": {
         "cagr": 0.29290557954556373,
         "max_drawdown": -0.1349979732865365,
         "end": "2026-08-28",
@@ -423,7 +423,7 @@
         "n_days": 977,
         "start": "2019-01-02"
       },
-      "sealed_2023_latest": {
+      "sealed_2023_plus": {
         "cagr": 0.29290557954556373,
         "max_drawdown": -0.24061845934990234,
         "end": "2026-08-28",
@@ -452,7 +452,7 @@
         "n_days": 977,
         "start": "2019-01-02"
       },
-      "sealed_2023_latest": {
+      "sealed_2023_plus": {
         "cagr": 0.29290557954556373,
         "max_drawdown": -0.3768058601072899,
         "end": "2026-08-28",
@@ -481,7 +481,7 @@
         "n_days": 977,
         "start": "2019-01-02"
       },
-      "sealed_2023_latest": {
+      "sealed_2023_plus": {
         "cagr": 0.3856992000543935,
         "max_drawdown": -0.13499797328653662,
         "end": "2026-08-28",

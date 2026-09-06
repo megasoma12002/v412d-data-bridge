@@ -25,7 +25,7 @@ Source: `repro/e50a3r1-audit-20260903/outputs/a3r1/qc_status.json`, `E50_HANDOFF
 1. **Honesty:** Published live strategy = E16(+E18/E22 books). Do not imply ≥20% from core.
 2. **No live-wire** until a successor clears gates + promotion path.
 3. **Research order:** turnover/held-out diagnosis → failure signature → paper stitch with **predeclared** overlay weight → only then promotion review.
-4. **E45:** separate critical challenger; do not invent handoff cuts; −13.16% MDD remains NOT_VERIFIED.
+4. **E45:** separate critical challenger; do not invent handoff cuts; −13.16% MDD remains RETIRED_HISTORICAL_NARRATIVE.
 
 ## Anti-patterns
 

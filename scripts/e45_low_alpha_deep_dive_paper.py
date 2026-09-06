@@ -55,13 +55,7 @@ MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
 ALPHAS = (0.00, 0.05, 0.08, 0.10, 0.12, 0.15, 0.25)
-WINDOWS = {
-    "full": (None, None),
-    "oof_2011_2018": (date(2011, 1, 1), date(2018, 12, 31)),
-    "validation_2019_2022": (date(2019, 1, 1), date(2022, 12, 31)),
-    "sealed_2023_plus": (date(2023, 1, 1), None),
-    "heldout_2019_plus": (date(2019, 1, 1), None),
-}
+WINDOWS = WINDOWS_STANDARD
 FOCUS_WINDOWS = ("heldout_2019_plus", "sealed_2023_plus", "full")
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0

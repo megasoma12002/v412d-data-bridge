@@ -23,6 +23,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e45_paper_harness import WINDOWS_STANDARD
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e22_dividend_accounting as e22div
@@ -38,15 +39,7 @@ DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 LOCKED_ID = "L4_DD_PATH_08_50"
 LOCKED_DD_THR = -0.08
 LOCKED_FIN_LO, LOCKED_FIN_HI = 0.35, 0.50
-WINDOWS = {
-    "full": (None, None),
-    "oof_2011_2018": (date(2011, 1, 1), date(2018, 12, 31)),
-    "validation_2019_2022": (date(2019, 1, 1), date(2022, 12, 31)),
-    "sealed_2023_plus": (date(2023, 1, 1), None),
-    "heldout_2019_plus": (date(2019, 1, 1), None),
-}
-
-
+WINDOWS = WINDOWS_STANDARD
 def load_market() -> pd.DataFrame:
     market = pd.read_csv(MARKET_PATH, dtype={"code": str})
     market["date"] = pd.to_datetime(market["date"])

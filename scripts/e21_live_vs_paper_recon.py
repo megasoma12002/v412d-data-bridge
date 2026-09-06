@@ -26,10 +26,9 @@ PAPER_NAV = ROOT / "repro/l4-dd-path-dual-paper/outputs/base_e16_daily_nav.csv"
 OUT_DIR = ROOT / "research/ops"
 
 sys.path.insert(0, str(ROOT / "scripts"))
-from e16_soft_frozen_base import SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 
-SOFT_FROZEN_CLIP = [float(SOFT_FROZEN_FIN_LO), float(SOFT_FROZEN_FIN_HI)]
-CLIP_TXT = f"[{SOFT_FROZEN_CLIP[0]:.2f}, {SOFT_FROZEN_CLIP[1]:.2f}]"
+CLIP_TXT = f"[{SOFT_FROZEN_FIN_CLIP[0]:.2f}, {SOFT_FROZEN_FIN_CLIP[1]:.2f}]"
 
 
 def _load_nav(path: Path, nav_col: str) -> pd.DataFrame:
@@ -107,7 +106,7 @@ def main() -> None:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "LIVE_VS_PAPER_SOFT_FROZEN_RECON",
         "live_wire": False,
-        "soft_frozen_clip": list(SOFT_FROZEN_CLIP),
+        "soft_frozen_clip": list(SOFT_FROZEN_FIN_CLIP),
         "soft_frozen_unchanged": True,
         "paths": {
             "live_nav": str(args.live_nav),

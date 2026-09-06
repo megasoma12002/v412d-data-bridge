@@ -4,7 +4,7 @@ Generated: `2026-09-06T04:26:26.694796+00:00`
 Status: **PAPER ONLY** — **NOT an OPEN observe ballot**
 High-β sleeves (β ≥ median vs TAIEX): `['0050', 'Financial']` · betas={Financial:0.51, Telecom:0.18, 0050:1.02}
 
-Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · FIN_ONLY_A10 observe stays OPERATING
+Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · SLEEVE_FIN_ONLY_A10 observe stays OPERATING
 
 ## Held-out ranking (score = MDD improve − 0.5·|CAGR giveback|)
 
@@ -25,6 +25,6 @@ Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · FIN_ONLY_A10 observe sta
 
 - This densify does **not** OPEN a HIGH_BETA observe sleeve.
 - Draft ballot (human ACCEPT required before any OPEN): `research/ops/E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.md`
-- Do not displace FIN_ONLY_A10 observe without a dedicated ballot.
+- Do not displace SLEEVE_FIN_ONLY_A10 observe without a dedicated ballot.
 
 Label: `E45_HIGH_BETA_PAPER_2026-09-06__DRAFT_ONLY__STITCH_FORBIDDEN`

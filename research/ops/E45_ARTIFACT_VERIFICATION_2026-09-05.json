@@ -10,7 +10,7 @@
   "live_stitch_authorized": false,
   "verification_verdict": "E45_NOT_VERIFIED",
   "claim_mdd": -0.1316,
-  "claim_mdd_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
   "exact_artifact_match": false,
   "closest_lineage_mdd": -0.1580516582301149,
   "e3_winner_validation_mdd": -0.1848659743145534,

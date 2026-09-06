@@ -30,12 +30,23 @@ MONKEY = [
 CLAIM = re.compile(
     r"(claim_mdd_status|claim_status)\s*[:=]\s*['\"]NOT_VERIFIED"
 )
+CLAIM_KEY_FORK = re.compile(r"""['\"]claim_mdd_status['\"]\s*:""")
+SOFT_ALIAS = re.compile(r"^SOFT_FROZEN_CLIP\s*=", re.M)
+# Local date-literal WINDOWS copies (allow WINDOWS = WINDOWS_STANDARD / dict-comps).
+WINDOWS_LITERAL = re.compile(
+    r"^WINDOWS\s*=\s*\{[^}]*date\s*\(",
+    re.M | re.S,
+)
 CLIP_JSON = re.compile(
     r"""['\"]soft_frozen_(?:live_)?clip['\"]\s*:\s*\[\s*0\.50\s*,\s*0\.95\s*\]"""
 )
 CLIP_KEEP = re.compile(
     r"""['\"]soft_frozen_keep['\"]\s*:\s*\[\s*0\.50\s*,\s*0\.95\s*\]"""
 )
+ALLOW_WINDOWS_LITERAL = {
+    "e45_paper_harness.py",  # WINDOWS_STANDARD definition site may use date()
+    "v412e0_historical_stress.py",  # intentional non-E45 stress windows
+}
 
 ALLOW_OR_FILES = {
     # intentional non-metric or-0 (positions, cash amounts, rates) — none currently
@@ -69,6 +80,25 @@ def main() -> int:
         for m in CLAIM.finditer(text):
             line = text.count("\n", 0, m.start()) + 1
             violations.append(f"{rel}:{line}: banned claim emitter")
+
+        for m in CLAIM_KEY_FORK.finditer(text):
+            line = text.count("\n", 0, m.start()) + 1
+            violations.append(
+                f"{rel}:{line}: JSON key `claim_mdd_status` — emit `claim_status`"
+            )
+
+        for m in SOFT_ALIAS.finditer(text):
+            line = text.count("\n", 0, m.start()) + 1
+            violations.append(
+                f"{rel}:{line}: alias SOFT_FROZEN_CLIP — import SOFT_FROZEN_FIN_CLIP"
+            )
+
+        if path.name not in ALLOW_WINDOWS_LITERAL:
+            for m in WINDOWS_LITERAL.finditer(text):
+                line = text.count("\n", 0, m.start()) + 1
+                violations.append(
+                    f"{rel}:{line}: local WINDOWS date literals — use WINDOWS_STANDARD"
+                )
 
         if path.name != "e16_soft_frozen_base.py":
             for pat in (CLIP_JSON, CLIP_KEEP):

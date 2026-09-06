@@ -54,7 +54,7 @@ This pack **does not** stitch E45 live. Charter ACCEPT only unlocks Stage 1–2 
 
 | Ballot cast | Effect |
 |---|---|
-| **ACCEPT charter** ✓ (human 2026-09-05) | Stage 1–2 **OPEN**; live/stitch **not** authorized; Soft-Frozen CRITICAL KEEP; −13.16% remains **NOT_VERIFIED** |
+| **ACCEPT charter** ✓ (human 2026-09-05) | Stage 1–2 **OPEN**; live/stitch **not** authorized; Soft-Frozen CRITICAL KEEP; −13.16% claim status **RETIRED_HISTORICAL_NARRATIVE** (scan unmatched; do not invent replacement) |
 
 Prior cycle note: Item 3 was briefly parked as DEFER stitch path earlier the same day; this ACCEPT charter **reopens Stage 1–2 research only** (not live stitch).
 

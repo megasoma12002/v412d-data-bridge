@@ -12,7 +12,7 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6 · `research/e45/E45_MDD_1316_VERIFIC
 
 ## Problem
 
-E45 is process-class Soft-Frozen_CRITICAL in governance text, but the oft-cited MDD ≈ **−13.16%** is **`NOT_VERIFIED`** against dated lineage artifacts. Closest validated crisis MDDs are **more severe**. Early-stack+E45 challenger MDDs remain ~−21% to −23% on the repo path checked 2026-09-04 / refreshed 2026-09-05.
+E45 is process-class Soft-Frozen_CRITICAL in governance text, but the oft-cited MDD ≈ **−13.16%** has claim status **`RETIRED_HISTORICAL_NARRATIVE`** (no dated lineage artifact match; do not invent a replacement). Closest validated crisis MDDs are **more severe**. Early-stack+E45 challenger MDDs remain ~−21% to −23% on the repo path checked 2026-09-04 / refreshed 2026-09-05.
 
 Therefore live stitch is **not** a paperwork gap — it is a **verification + charter** gap.
 

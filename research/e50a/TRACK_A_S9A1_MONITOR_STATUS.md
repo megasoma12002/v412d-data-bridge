@@ -38,7 +38,7 @@ Lock decision: `MIXED_HELDOUT`
 | Window | CAGR | MDD | TO | Boot | Stress share | Stress mean excess |
 |---|---:|---:|---:|---:|---:|---:|
 | validation_2019_2022 | 23.45% | -29.79% | 2.38% | 0.6232 | 9.9% | 0.0007770435301989302 |
-| sealed_2023_latest | 59.00% | -25.01% | 1.38% | 1.0 | 18.6% | 0.001094896017991568 |
+| sealed_2023_plus | 59.00% | -25.01% | 1.38% | 1.0 | 18.6% | 0.001094896017991568 |
 
 ## Monitor alerts
 

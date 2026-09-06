@@ -56,17 +56,7 @@ ALPHAS = (0.00, 0.05, 0.10, 0.25, 1.00)
 COST_MULTS = (0, 1, 2, 3)
 FEE_KEYS = ("BUY_FEE", "SELL_FEE", "SLIP", "TAX_STOCK", "TAX_ETF")
 FOCUS = ("heldout_2019_plus", "full")
-WINDOWS = {
-    "full": (None, None),
-    "heldout_2019_plus": (date(2019, 1, 1), None),
-    "sealed_2023_plus": (date(2023, 1, 1), None),
-}
-
-
-
-
-
-
+WINDOWS = {k: WINDOWS_STANDARD[k] for k in ("full", "heldout_2019_plus", "sealed_2023_plus")}
 def turnover_metrics(nav: pd.DataFrame, fills: pd.DataFrame) -> dict:
     n = nav.copy()
     n["date"] = pd.to_datetime(n["date"])

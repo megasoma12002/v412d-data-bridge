@@ -29,10 +29,9 @@ SUMMARY_JSON = OUT_DIR / "MONTH_END_PAPER_PACK.json"
 SUMMARY_MD = OUT_DIR / "MONTH_END_PAPER_PACK.md"
 
 sys.path.insert(0, str(ROOT / "scripts"))
-from e16_soft_frozen_base import SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 
-SOFT_FROZEN_CLIP = [float(SOFT_FROZEN_FIN_LO), float(SOFT_FROZEN_FIN_HI)]
-CLIP_TXT = f"[{SOFT_FROZEN_CLIP[0]:.2f}, {SOFT_FROZEN_CLIP[1]:.2f}]"
+CLIP_TXT = f"[{SOFT_FROZEN_FIN_CLIP[0]:.2f}, {SOFT_FROZEN_FIN_CLIP[1]:.2f}]"
 
 STEPS_MONITOR = [
     ("l4_month_end", ["python3", "scripts/e16_l4_dd_path_month_end_monitor.py"]),
@@ -128,7 +127,7 @@ def main() -> int:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "OPS_MONTH_END_PAPER_PACK",
         "live_wire": False,
-        "soft_frozen_clip": list(SOFT_FROZEN_CLIP),
+        "soft_frozen_clip": list(SOFT_FROZEN_FIN_CLIP),
         "soft_frozen_unchanged": True,
         "refresh_ledgers": bool(args.refresh_ledgers),
         "continue_on_error": bool(args.continue_on_error),

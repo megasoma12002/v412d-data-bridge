@@ -263,7 +263,7 @@ def main() -> int:
         "live_wire": False,
         "soft_frozen_keep": list(SOFT_FROZEN_FIN_CLIP),
         "default_books_keep": "E22_v2s_tw",
-        "claim_mdd_status": e45.CLAIMED_MDD_STATUS,
+        "claim_status": e45.CLAIMED_MDD_STATUS,
         "v1_status": "PASS_RETIRED_NARRATIVE",
         "stitch_forbidden": True,
         "data_start": data_start,

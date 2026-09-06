@@ -8,7 +8,7 @@ Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replaceme
 
 | # | Item | Artifact |
 |---|---|---|
-| 1 | Month-end PAUSE time-series (FULL / A25 / A05 / FIN_ONLY_A10) | `E45_OBSERVE_PAUSE_TIMESERIES.md` |
+| 1 | Month-end PAUSE time-series (FULL / A25 / A05 / SLEEVE_FIN_ONLY_A10) | `E45_OBSERVE_PAUSE_TIMESERIES.md` |
 | 2 | Non-2020 crisis attribution | `E45_NON2020_CRISIS_ATTRIBUTION.md` |
 | 3 | FIN_ONLY@0.10 vs ALL@0.05 rolling/cost/turnover | `E45_FINA10_VS_ALLA05_COMPARE.md` |
 | 4 | HIGH_BETA sleeve-local paper + DRAFT ballot | `E45_HIGH_BETA_SLEEVE_LOCAL_PAPER.md` + ballot DRAFT |
