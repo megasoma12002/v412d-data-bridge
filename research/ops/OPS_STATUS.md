@@ -57,6 +57,7 @@ FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
 E45 blend-α=0.25 observe **OPERATING**: `research/ops/E45_BLEND025_OBSERVE_OPEN.md` · monitor `E45_BLEND025_MONTH_END_MONITOR.md`  
 E45 paper research roadmap (1–7 status): `research/ops/E45_PAPER_RESEARCH_ROADMAP.md`  
+E45 P1–P7 integrated analysis: `research/ops/E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md`  
 E45 dual-sleeve monitor dashboard (#7): `research/e45/E45_DUAL_SLEEVE_MONITOR_DASHBOARD.md`  
 E45 sleeve-local overlay (#6): `research/e45/E45_SLEEVE_LOCAL.md`  
 E45 crisis-year attribution (#5): `research/e45/E45_CRISIS_YEAR_ATTRIBUTION.md`  
