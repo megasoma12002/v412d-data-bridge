@@ -56,7 +56,6 @@ DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 BASE_ID = "BASE_E16_E18_E22_v2s"
 CHAL_ID = "BLEND_E45_A25"
 BLEND_ALPHA = 0.25
-E45_PROFILE = "E3_VOLTARGET_WINNER"
 # exposure = (1-α)·1 + α·E45_full
 WINDOWS = {
     "full": (None, None),
@@ -90,14 +89,14 @@ def main() -> None:
         e45_exposure=None,
     )
 
-    print(f"{CHAL_ID} {E45_PROFILE} + sim ...", flush=True)
+    print(f"{CHAL_ID} {E45_PROFILE_DEFAULT} + sim ...", flush=True)
     close_eq = (
         market[market["code"].isin(ALL)]
         .pivot(index="date", columns="code", values="close")
         .sort_index()
         .ffill()
     )
-    e45_full = e45.compute_exposure(close_eq, E45_PROFILE)["exposure"]
+    e45_full = e45.compute_exposure(close_eq, E45_PROFILE_DEFAULT)["exposure"]
     e45_blend = ((1.0 - BLEND_ALPHA) * 1.0 + BLEND_ALPHA * e45_full.astype(float)).clip(0.0, 1.0)
     e45_blend = e45_blend.rename("e45_blend_a25_exposure")
     nav_c, fills_c, meta_c = simulate_core(
@@ -159,8 +158,8 @@ def main() -> None:
         "base_id": BASE_ID,
         "locked_challenger": CHAL_ID,
         "blend_alpha": BLEND_ALPHA,
-        "e45_profile": E45_PROFILE,
-        "claimed_mdd_status": e45.CLAIMED_MDD_STATUS,
+        "e45_profile": E45_PROFILE_DEFAULT,
+        "claimed_mdd_status": CLAIM_STATUS,
         "primary_comparable_mdd": e45.PRIMARY_COMPARABLE_MDD,
         "current_live_clip": {"financial_lo": soft_frozen.SOFT_FROZEN_FIN_LO, "financial_hi": soft_frozen.SOFT_FROZEN_FIN_HI},
         "exact_t1": {
@@ -218,8 +217,8 @@ def main() -> None:
         "## Locked paper books",
         "",
         f"- **{BASE_ID}**: Soft-Frozen early-stack Exact T+1 + E22_v2s formal books",
-        f"- **{CHAL_ID}**: same stack + α=0.25 × E45 `{E45_PROFILE}` exposure overlay",
-        f"- Claimed −13.16%: **`{e45.CLAIMED_MDD_STATUS}`** (do not cite)",
+        f"- **{CHAL_ID}**: same stack + α=0.25 × E45 `{E45_PROFILE_DEFAULT}` exposure overlay",
+        f"- Claimed −13.16%: **`{CLAIM_STATUS}`** (do not cite)",
         f"- Primary comparable MDD: E1.1 val **{e45.PRIMARY_COMPARABLE_MDD:.2%}** (dated lineage)",
         "",
         "## Dual paper metrics",

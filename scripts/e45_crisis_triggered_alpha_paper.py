@@ -57,7 +57,6 @@ OPS = ROOT / "research/ops"
 MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
-E45_PROFILE = "E3_VOLTARGET_WINNER"
 WINDOWS = {
     "full": (None, None),
     "oof_2011_2018": (date(2011, 1, 1), date(2018, 12, 31)),
@@ -223,7 +222,7 @@ def main() -> None:
         .sort_index()
         .ffill()
     )
-    e45_pack = e45.compute_exposure(close_eq, E45_PROFILE)
+    e45_pack = e45.compute_exposure(close_eq, E45_PROFILE_DEFAULT)
     e45_full = e45_pack["exposure"]
     risk = e45.risk_features_from_closes(close_eq)
     e1_crisis = e45.binary_crisis_flag(risk)
@@ -350,7 +349,7 @@ def main() -> None:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "PAPER_ONLY",
         "ballot": "E45 PAPER crisis-triggered alpha",
-        "profile": E45_PROFILE,
+        "profile": E45_PROFILE_DEFAULT,
         "definition": {
             "CONST": "exposure=(1-α)·1 + α·E45",
             "GATE": "if E45_exp>=gate → 1.0 else (1-α)·1 + α·E45",
@@ -433,7 +432,7 @@ def main() -> None:
         "| `GATE` | if `E45_exp ≥ gate` → `1.0`; else constant-α blend |",
         "| `E1BIN` | if E1 binary crisis → constant-α blend; else `1.0` |",
         "",
-        f"- Profile: `{E45_PROFILE}` (frozen; not retuned)",
+        f"- Profile: `{E45_PROFILE_DEFAULT}` (frozen; not retuned)",
         f"- Gate day fractions (full sample): " + ", ".join(f"`<{g}` ≈ {gate_day_frac[str(g)]:.1%}" for g in GATE_THRESHOLDS),
         f"- E1 binary crisis fraction: ≈ **{e1_frac:.2%}**",
         "",

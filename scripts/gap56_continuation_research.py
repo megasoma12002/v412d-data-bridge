@@ -123,7 +123,7 @@ def paper_combined(core: pd.DataFrame, overlay: pd.DataFrame) -> tuple[pd.DataFr
                 "w_overlay": wo,
                 "full_overlap": cagr_mdd(out[col]),
                 "validation_2019_2022": window_stats(out.assign(nav=out[col]), OVERLAP_START, VAL_END),
-                "sealed_2023_latest": window_stats(
+                "sealed_2023_plus": window_stats(
                     out.assign(nav=out[col]), SEALED_START, out["date"].max().date().isoformat()
                 ),
             }
@@ -311,7 +311,7 @@ def overlay_risk_budget_paper(
                 "pct_days_scale_lt_1": float((sc < 1.0 - 1e-12).mean()),
                 "full_overlap": cagr_mdd(out[col]),
                 "validation_2019_2022": window_stats(out.assign(nav=out[col]), OVERLAP_START, VAL_END),
-                "sealed_2023_latest": window_stats(
+                "sealed_2023_plus": window_stats(
                     out.assign(nav=out[col]), SEALED_START, out["date"].max().date().isoformat()
                 ),
                 "governance": "EXPERIMENTAL_PAPER_ONLY",
@@ -413,8 +413,8 @@ def main() -> None:
                 "full_mdd": r["full_overlap"]["max_drawdown"],
                 "val_cagr": r["validation_2019_2022"]["cagr"],
                 "val_mdd": r["validation_2019_2022"]["max_drawdown"],
-                "sealed_cagr": r["sealed_2023_latest"]["cagr"],
-                "sealed_mdd": r["sealed_2023_latest"]["max_drawdown"],
+                "sealed_cagr": r["sealed_2023_plus"]["cagr"],
+                "sealed_mdd": r["sealed_2023_plus"]["max_drawdown"],
             }
             for r in mix_rows
         ]
@@ -445,8 +445,8 @@ def main() -> None:
                 "full_mdd": r["full_overlap"]["max_drawdown"],
                 "val_cagr": r["validation_2019_2022"]["cagr"],
                 "val_mdd": r["validation_2019_2022"]["max_drawdown"],
-                "sealed_cagr": r["sealed_2023_latest"]["cagr"],
-                "sealed_mdd": r["sealed_2023_latest"]["max_drawdown"],
+                "sealed_cagr": r["sealed_2023_plus"]["cagr"],
+                "sealed_mdd": r["sealed_2023_plus"]["max_drawdown"],
             }
             for r in rb_rows
         ]
@@ -516,7 +516,7 @@ def main() -> None:
         "|---|---:|---:|---:|---:|---:|---:|",
     ]
     for r in mix_rows:
-        f, v, s = r["full_overlap"], r["validation_2019_2022"], r["sealed_2023_latest"]
+        f, v, s = r["full_overlap"], r["validation_2019_2022"], r["sealed_2023_plus"]
         lines.append(
             f"| {r['mix']} | {fmt_pct(f['cagr'])} | {fmt_pct(f['max_drawdown'])} | "
             f"{fmt_pct(v['cagr'])} | {fmt_pct(v['max_drawdown'])} | "
@@ -553,7 +553,7 @@ def main() -> None:
         "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for r in rb_rows:
-        f, v, s = r["full_overlap"], r["validation_2019_2022"], r["sealed_2023_latest"]
+        f, v, s = r["full_overlap"], r["validation_2019_2022"], r["sealed_2023_plus"]
         lines.append(
             f"| {r['rule']} | {r['mean_overlay_scale']:.3f} | {100*r['pct_days_scale_lt_1']:.1f}% | "
             f"{fmt_pct(f['cagr'])} | {fmt_pct(f['max_drawdown'])} | "

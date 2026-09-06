@@ -53,7 +53,6 @@ OPS = ROOT / "research/ops"
 MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
-E45_PROFILE = "E3_VOLTARGET_WINNER"
 ALPHAS = (0.0, 0.25, 0.35, 0.50, 1.0)
 WINDOWS = {
     "full": (None, None),
@@ -95,7 +94,7 @@ def main() -> None:
         .sort_index()
         .ffill()
     )
-    e45_full = e45.compute_exposure(close_eq, E45_PROFILE)["exposure"]
+    e45_full = e45.compute_exposure(close_eq, E45_PROFILE_DEFAULT)["exposure"]
 
     books: dict = {}
     rows: list[dict] = []
@@ -195,10 +194,10 @@ def main() -> None:
         "stitch_authorized": False,
         "soft_frozen_unchanged": True,
         "default_books_unchanged": True,
-        "e45_profile": E45_PROFILE,
+        "e45_profile": E45_PROFILE_DEFAULT,
         "blend_definition": "exposure_alpha = (1-alpha)*1 + alpha*E3_VOLTARGET_WINNER",
         "alphas": list(ALPHAS),
-        "claimed_mdd_status": e45.CLAIMED_MDD_STATUS,
+        "claimed_mdd_status": CLAIM_STATUS,
         "primary_comparable_mdd": e45.PRIMARY_COMPARABLE_MDD,
         "books": books,
         "focus_deltas_vs_base": deltas,
@@ -231,7 +230,7 @@ def main() -> None:
         "",
         "## Definition",
         "",
-        f"- Profile: E45 `{E45_PROFILE}` (frozen winner lock **not** retuned)",
+        f"- Profile: E45 `{E45_PROFILE_DEFAULT}` (frozen winner lock **not** retuned)",
         "- Blend: `exposure_α = (1−α)·1 + α·E45_exposure`",
         "- Alphas: " + ", ".join(f"{a:.2f}" for a in ALPHAS),
         "- α=0 → BASE; α=1 → full CHAL_E45_E3 (same as operating observe challenger)",

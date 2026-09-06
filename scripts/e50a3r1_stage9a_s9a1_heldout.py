@@ -213,7 +213,7 @@ def main() -> None:
     label = classify(val, sealed)
     for tag, nav, trades, proxy in [
         ("s9a1_validation_2019_2022", val_nav, val_trades, val_proxy),
-        ("s9a1_sealed_2023_latest", sealed_nav, sealed_trades, sealed_proxy),
+        ("s9a1_sealed_2023_plus", sealed_nav, sealed_trades, sealed_proxy),
     ]:
         nav.write_csv(out / "outputs" / f"{tag}_daily_nav.csv")
         trades.write_csv(out / "outputs" / f"{tag}_trades.csv")
@@ -235,7 +235,7 @@ def main() -> None:
         "gates_remain_experimental": True,
         "research_decision": label,
         "validation_2019_2022": val,
-        "sealed_2023_latest": sealed,
+        "sealed_2023_plus": sealed,
         "c4_full_reference_validation": c4_val,
         "c4_full_reference_sealed": c4_sealed,
         "stress_vs_c4_validation": {

@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_frozen_base as soft_frozen
 import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
+CLAIM_STATUS = e45.CLAIMED_MDD_STATUS
 from research_metric_helpers import metric_delta, fmt_pct
 
 # Mirror E21 SOFT_FROZEN membership / fees (read-only copy of constants; not an edit).
@@ -380,7 +381,7 @@ def verify_e45_claim(repo: Path) -> dict:
                 numeric_hit = True
     return {
         "claim_mdd": claim,
-        "claim_status": (e45.CLAIMED_MDD_STATUS if not numeric_hit else "FOUND"),
+        "claim_status": (CLAIM_STATUS if not numeric_hit else "FOUND"),
         "text_mentions_only": text_hits,
         "artifact_files_with_13_16": found,
         "lineage_reported_mdds": lineage,
@@ -587,7 +588,7 @@ def main() -> None:
         f"- Stock div events / shares added: "
         f"`{report['deltas']['e22_stock_div_events']}` / `{report['deltas']['e22_stock_div_shares_added']}`",
         f"- E45-E3 MDD delta vs E22: `{report['deltas']['e45_e3_minus_e22_mdd']:.4%}`",
-        f"- Claimed MDD -13.16%: `{e45.CLAIMED_MDD_STATUS}`",
+        f"- Claimed MDD -13.16%: `{CLAIM_STATUS}`",
         "",
         "## Decisions",
         "",

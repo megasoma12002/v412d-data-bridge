@@ -85,6 +85,14 @@ def _check_harness_adoption(path: Path, text: str, violations: list[str]) -> Non
 
 
 
+
+# Canonical naming forks banned in e45 paper scripts (use harness names).
+NAMING_FORK_BANS = (
+    (r"^E45_PROFILE\s*=", "Use E45_PROFILE_DEFAULT from e45_paper_harness (do not fork E45_PROFILE)"),
+    (r"\bmdd_help_pp\b", "Use mdd_improve_pp (harness deltas_vs_base key)"),
+    (r"\bsealed_2023_latest\b", "Use sealed_2023_plus (WINDOWS_STANDARD)"),
+)
+
 def main() -> int:
     violations: list[str] = []
     for path in sorted(SCRIPTS.glob("e45*.py")):
@@ -119,6 +127,22 @@ def main() -> int:
                 if path.name == "check_e45_paper_hygiene.py":
                     continue
                 violations.append(f"{rel}:{line}: non-canonical book id `{m.group(0)}`")
+
+        # Canonical naming forks (claim/profile/window/metric dual names)
+        if path.name != "check_e45_paper_hygiene.py":
+            for pat_s, msg in NAMING_FORK_BANS:
+                pat = re.compile(pat_s, re.M)
+                for m in pat.finditer(text):
+                    line = text.count("\n", 0, m.start()) + 1
+                    line_txt = text.splitlines()[line - 1]
+                    # allow legacy archive read fallbacks
+                    if "sealed_2023_latest" in m.group(0) and (
+                        "or" in line_txt and "sealed_2023_plus" in line_txt
+                    ):
+                        continue
+                    if "NAMING_FORK" in line_txt or "banned" in line_txt.lower():
+                        continue
+                    violations.append(f"{rel}:{line}: naming fork `{m.group(0)}` — {msg}")
 
     # harness must exist and expose canonical IDs + truthful __all__
     harness = SCRIPTS / "e45_paper_harness.py"

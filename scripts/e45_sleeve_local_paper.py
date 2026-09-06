@@ -56,7 +56,6 @@ OPS = ROOT / "research/ops"
 MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
-E45_PROFILE = "E3_VOLTARGET_WINNER"
 ALPHAS = (0.05, 0.25, 1.00)
 WINDOWS = {
     "full": (None, None),
@@ -117,7 +116,7 @@ def main() -> None:
         .sort_index()
         .ffill()
     )
-    e45_full = e45.compute_exposure(close_eq, E45_PROFILE)["exposure"]
+    e45_full = e45.compute_exposure(close_eq, E45_PROFILE_DEFAULT)["exposure"]
     hb = high_beta_sleeves(market)
     print(f"high_beta_sleeves={hb}", flush=True)
 
