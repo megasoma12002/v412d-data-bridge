@@ -156,6 +156,12 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Research debt (harness adoption / book-ID aliases) tracked open
 - Soft-Frozen / DEFAULT **KEEP**; stitch **FORBIDDEN**
 
+## PAPER P1–P7 integrated analysis (2026-09-06)
+
+- Write-up: `research/ops/E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md`
+- Cross-cut: best simple intensity **α≈0.05**; crisis-gate / mild max_cut lose; cost-robust; MDD help **~98.7% in 2020**; sleeve-local FIN/high-β slight edge (future ballot)
+- Observe FULL+A25 still PAUSE; Soft-Frozen / DEFAULT **KEEP**; stitch **FORBIDDEN**
+
 ## Label
 
 `E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`

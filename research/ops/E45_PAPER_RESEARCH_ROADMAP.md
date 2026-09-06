@@ -29,6 +29,8 @@ Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · l
 4. **Sleeve-local (FIN/high-β)** slightly better score than whole-book α=0.05 — candidate for a future dedicated paper/observe ballot (not auto-opened here).
 5. Observe continues: FULL + A25; stitch still blocked by PAUSE/clean-trailing gates.
 
+**Integrated write-up:** `research/ops/E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md`
+
 ## Suggested next human ballots (only if desired)
 
 1. `E45 PAPER sleeve-local deep-dive` (densify FIN/high-β α) — or  
