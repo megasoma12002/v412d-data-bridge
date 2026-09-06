@@ -27,6 +27,29 @@ from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
 
+from e45_paper_harness import (
+    BOOK_BASE,
+    BOOK_BLEND_A25,
+    BOOK_FULL,
+    CLAIM_STATUS,
+    E45_PROFILE_DEFAULT,
+    MARKET_PATH,
+    DIV_PATH,
+    ROOT,
+    WINDOWS_STANDARD,
+    blend_exposure,
+    book_id_for_alpha,
+    deltas_vs_base,
+    e16_features,
+    e45_full_exposure,
+    load_dividends,
+    load_market,
+    run_early_stack,
+    window_stats,
+)
+blend = blend_exposure  # harness alias
+
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/e45-maxcut-mild-profile"
 RESEARCH = ROOT / "research/e45"
@@ -48,37 +71,7 @@ TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
 
 
-def load_market() -> pd.DataFrame:
-    market = pd.read_csv(MARKET_PATH, dtype={"code": str})
-    market["date"] = pd.to_datetime(market["date"])
-    required = set(ALL + ["TAIEX"])
-    complete = market.groupby("date")["code"].apply(lambda s: required.issubset(set(s)))
-    return market[market["date"].isin(complete[complete].index)].sort_values(["date", "code"])
 
-
-def window_stats(nav: pd.DataFrame, start: date | None, end: date | None) -> dict:
-    d = nav.copy()
-    d["date"] = pd.to_datetime(d["date"]).dt.date
-    if start is not None:
-        d = d[d["date"] >= start]
-    if end is not None:
-        d = d[d["date"] <= end]
-    d = d.reset_index(drop=True)
-    if len(d) < 30:
-        return {"cagr": None, "max_drawdown": None, "utility": None, "vol": None, "n_days": int(len(d))}
-    d = d.copy()
-    d["nav"] = d["nav"] / float(d["nav"].iloc[0])
-    out = nav_stats(d)
-    out["n_days"] = int(len(d))
-    return out
-
-
-def blend(full: pd.Series, alpha: float) -> pd.Series | None:
-    if alpha <= 0:
-        return None
-    if alpha >= 1:
-        return full.astype(float)
-    return ((1.0 - alpha) * 1.0 + alpha * full.astype(float)).clip(0.0, 1.0)
 
 
 def mild_exposure(risk: pd.DataFrame, max_cut: float) -> pd.Series:
@@ -99,8 +92,8 @@ def book_specs(winner_full: pd.Series, risk: pd.DataFrame) -> list[dict]:
     return [
         {"book": "BASE_E16_E18_E22_v2s", "family": "BASE", "max_cut": None, "alpha": 0.0, "tag": "base", "exposure": None},
         {"book": "REF_WINNER_MC50_FULL", "family": "REF_WINNER", "max_cut": FROZEN_MAX_CUT, "alpha": 1.0, "tag": "ref_winner_mc50_full", "exposure": winner_full.astype(float)},
-        {"book": "REF_BLEND_A05", "family": "REF_BLEND", "max_cut": FROZEN_MAX_CUT, "alpha": 0.05, "tag": "ref_blend_a05", "exposure": blend(winner_full, 0.05)},
-        {"book": "REF_BLEND_A25", "family": "REF_BLEND", "max_cut": FROZEN_MAX_CUT, "alpha": 0.25, "tag": "ref_blend_a25", "exposure": blend(winner_full, 0.25)},
+        {"book": "BLEND_E45_A05", "family": "REF_BLEND", "max_cut": FROZEN_MAX_CUT, "alpha": 0.05, "tag": "ref_blend_a05", "exposure": blend(winner_full, 0.05)},
+        {"book": "BLEND_E45_A25", "family": "REF_BLEND", "max_cut": FROZEN_MAX_CUT, "alpha": 0.25, "tag": "ref_blend_a25", "exposure": blend(winner_full, 0.25)},
         {"book": "MILD_MC25_FULL", "family": "MILD", "max_cut": 0.25, "alpha": 1.0, "tag": "mild_mc25_full", "exposure": mild25},
         {"book": "MILD_MC35_FULL", "family": "MILD", "max_cut": 0.35, "alpha": 1.0, "tag": "mild_mc35_full", "exposure": mild35},
         {"book": "MILD_MC40_FULL", "family": "MILD", "max_cut": 0.40, "alpha": 1.0, "tag": "mild_mc40_full", "exposure": mild40},
@@ -291,7 +284,7 @@ def main() -> None:
         sub = held_sorted[held_sorted["family"] == fam]
         best_by_family[fam] = None if sub.empty else sub.iloc[0].to_dict()
 
-    tip = min(pd.to_datetime(navs[base_id]["date"]).max(), pd.to_datetime(navs["REF_BLEND_A05"]["date"]).max())
+    tip = min(pd.to_datetime(navs[base_id]["date"]).max(), pd.to_datetime(navs["BLEND_E45_A05"]["date"]).max())
     pause_rows: list[dict] = []
     for spec in specs:
         bid = spec["book"]
@@ -445,14 +438,14 @@ def main() -> None:
         )
 
     # Compare mild full vs blend refs on held-out
-    ref_a05 = held[held["book"] == "REF_BLEND_A05"]
+    ref_a05 = held[held["book"] == "BLEND_E45_A05"]
     mild_best = held_sorted[held_sorted["family"] == "MILD"]
     lines += [
         "",
         "## Read-through (paper)",
         "",
         "1. Mild max_cut profiles are **new paper challengers**, not edits to frozen winner.",
-        "2. Compare best `MILD` / `MILD_BLEND` vs `REF_BLEND_A05` / `REF_BLEND_A25` on held-out score.",
+        "2. Compare best `MILD` / `MILD_BLEND` vs `BLEND_E45_A05` / `BLEND_E45_A25` on held-out score.",
     ]
     if preferred:
         lines.append(
@@ -464,12 +457,12 @@ def main() -> None:
         ra = ref_a05.iloc[0]
         if mb["score"] > ra["score"]:
             lines.append(
-                f"4. Best mild (`{mb['book']}`) **beats** REF_BLEND_A05 on held-out score "
+                f"4. Best mild (`{mb['book']}`) **beats** BLEND_E45_A05 on held-out score "
                 f"({mb['score']:.3f} vs {ra['score']:.3f})."
             )
         else:
             lines.append(
-                f"4. Best mild (`{mb['book']}`) does **not** beat REF_BLEND_A05 on held-out score "
+                f"4. Best mild (`{mb['book']}`) does **not** beat BLEND_E45_A05 on held-out score "
                 f"({mb['score']:.3f} vs {ra['score']:.3f}) — blend-α remains stronger paper path."
             )
     lines += [

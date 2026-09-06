@@ -81,7 +81,7 @@ def main() -> None:
     )
     # Soft-Frozen Financial envelope — import bounds, never hardcode.
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from e16_soft_frozen_base import SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
+    from e16_soft_frozen_base import FIN, TEL, SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
 
     checks["soft_frozen_fin_clip"] = bool(
         ((fin >= SOFT_FROZEN_FIN_LO - 1e-9) & (fin <= SOFT_FROZEN_FIN_HI + 1e-9)).all()
@@ -92,8 +92,8 @@ def main() -> None:
         pd.to_datetime(sig.date).is_monotonic_increasing
         and pd.to_datetime(nav.date).is_monotonic_increasing
     )
-    checks["frozen_financial_universe"] = set(["2880", "2886", "2892", "5880"]).issuperset(
-        set(orders.code.astype(str)) - set(["2412", "3045", "4904", "0050"])
+    checks["frozen_financial_universe"] = set(FIN).issuperset(
+        set(orders.code.astype(str)) - set(TEL + ["0050"])
     )
 
     fills = pd.DataFrame()

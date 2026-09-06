@@ -24,6 +24,29 @@ from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
 
+from e45_paper_harness import (
+    BOOK_BASE,
+    BOOK_BLEND_A25,
+    BOOK_FULL,
+    CLAIM_STATUS,
+    E45_PROFILE_DEFAULT,
+    MARKET_PATH,
+    DIV_PATH,
+    ROOT,
+    WINDOWS_STANDARD,
+    blend_exposure,
+    book_id_for_alpha,
+    deltas_vs_base,
+    e16_features,
+    e45_full_exposure,
+    load_dividends,
+    load_market,
+    run_early_stack,
+    window_stats,
+)
+book_id = book_id_for_alpha  # harness alias
+
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/e45-low-alpha-deep-dive"
 RESEARCH = ROOT / "research/e45"
@@ -45,44 +68,8 @@ TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
 
 
-def load_market() -> pd.DataFrame:
-    market = pd.read_csv(MARKET_PATH, dtype={"code": str})
-    market["date"] = pd.to_datetime(market["date"])
-    required = set(ALL + ["TAIEX"])
-    complete = market.groupby("date")["code"].apply(lambda s: required.issubset(set(s)))
-    return market[market["date"].isin(complete[complete].index)].sort_values(["date", "code"])
 
 
-def window_stats(nav: pd.DataFrame, start: date | None, end: date | None) -> dict:
-    d = nav.copy()
-    d["date"] = pd.to_datetime(d["date"]).dt.date
-    if start is not None:
-        d = d[d["date"] >= start]
-    if end is not None:
-        d = d[d["date"] <= end]
-    d = d.reset_index(drop=True)
-    if len(d) < 30:
-        return {"cagr": None, "max_drawdown": None, "utility": None, "vol": None, "n_days": int(len(d))}
-    d = d.copy()
-    d["nav"] = d["nav"] / float(d["nav"].iloc[0])
-    out = nav_stats(d)
-    out["n_days"] = int(len(d))
-    return out
-
-
-def book_id(alpha: float) -> str:
-    if alpha <= 0:
-        return "BASE_E16_E18_E22_v2s"
-    return f"BLEND_E45_A{int(round(alpha * 100)):02d}"
-
-
-def blend_exposure(full_e45: pd.Series, alpha: float) -> pd.Series | None:
-    if alpha <= 0:
-        return None
-    if alpha >= 1:
-        return full_e45.astype(float)
-    mixed = (1.0 - alpha) * 1.0 + alpha * full_e45.astype(float)
-    return mixed.clip(0.0, 1.0).rename(f"e45_blend_a{int(round(alpha * 100)):02d}")
 
 
 def pp(x: float | None) -> str:

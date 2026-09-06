@@ -21,6 +21,30 @@ from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
 
+from e45_paper_harness import (
+    BOOK_BASE,
+    BOOK_BLEND_A25,
+    BOOK_FULL,
+    CLAIM_STATUS,
+    E45_PROFILE_DEFAULT,
+    MARKET_PATH,
+    DIV_PATH,
+    ROOT,
+    WINDOWS_STANDARD,
+    blend_exposure,
+    book_id_for_alpha,
+    deltas_vs_base,
+    e16_features,
+    e45_full_exposure,
+    load_dividends,
+    load_market,
+    run_early_stack,
+    window_stats,
+)
+blend = blend_exposure  # harness alias
+book_id = book_id_for_alpha  # harness alias
+
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/e45-alpha-cost-turnover"
 RESEARCH = ROOT / "research/e45"
@@ -39,45 +63,8 @@ WINDOWS = {
 }
 
 
-def load_market() -> pd.DataFrame:
-    market = pd.read_csv(MARKET_PATH, dtype={"code": str})
-    market["date"] = pd.to_datetime(market["date"])
-    required = set(ALL + ["TAIEX"])
-    complete = market.groupby("date")["code"].apply(lambda s: required.issubset(set(s)))
-    return market[market["date"].isin(complete[complete].index)].sort_values(["date", "code"])
 
 
-def book_id(alpha: float) -> str:
-    if alpha <= 0:
-        return "BASE_E16_E18_E22_v2s"
-    if alpha >= 1:
-        return "CHAL_E45_E3"
-    return f"BLEND_E45_A{int(round(alpha * 100)):02d}"
-
-
-def blend(full: pd.Series, alpha: float) -> pd.Series | None:
-    if alpha <= 0:
-        return None
-    if alpha >= 1:
-        return full.astype(float)
-    return ((1.0 - alpha) + alpha * full.astype(float)).clip(0.0, 1.0)
-
-
-def window_stats(nav: pd.DataFrame, start: date | None, end: date | None) -> dict:
-    d = nav.copy()
-    d["date"] = pd.to_datetime(d["date"]).dt.date
-    if start is not None:
-        d = d[d["date"] >= start]
-    if end is not None:
-        d = d[d["date"] <= end]
-    d = d.reset_index(drop=True)
-    if len(d) < 30:
-        return {"cagr": None, "max_drawdown": None, "utility": None, "vol": None, "n_days": int(len(d))}
-    d = d.copy()
-    d["nav"] = d["nav"] / float(d["nav"].iloc[0])
-    out = nav_stats(d)
-    out["n_days"] = int(len(d))
-    return out
 
 
 def turnover_metrics(nav: pd.DataFrame, fills: pd.DataFrame) -> dict:

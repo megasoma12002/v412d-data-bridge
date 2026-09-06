@@ -115,7 +115,7 @@ def main() -> None:
             flag = "PAUSE_REVIEW" if gb > 5 else ("ALERT" if gb > 3 else "OK")
         a10_rows.append(
             {
-                "sleeve": "PAPER_BLEND_A10",
+                "sleeve": "BLEND_E45_A10",
                 "window": w,
                 "asof": str(asof.date()),
                 "mdd_improve_pp": mdd_delta_pp(sb.get("max_drawdown"), sc.get("max_drawdown")),

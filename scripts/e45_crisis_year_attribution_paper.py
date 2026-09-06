@@ -21,6 +21,30 @@ from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
 
+from e45_paper_harness import (
+    BOOK_BASE,
+    BOOK_BLEND_A25,
+    BOOK_FULL,
+    CLAIM_STATUS,
+    E45_PROFILE_DEFAULT,
+    MARKET_PATH,
+    DIV_PATH,
+    ROOT,
+    WINDOWS_STANDARD,
+    blend_exposure,
+    book_id_for_alpha,
+    deltas_vs_base,
+    e16_features,
+    e45_full_exposure,
+    load_dividends,
+    load_market,
+    run_early_stack,
+    window_stats,
+)
+blend = blend_exposure  # harness alias
+book_id = book_id_for_alpha  # harness alias
+
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/e45-crisis-year-attribution"
 RESEARCH = ROOT / "research/e45"
@@ -34,28 +58,7 @@ CRISIS_YEARS = (2011, 2015, 2018, 2020, 2022)
 REF_YEARS = (2023, 2024)
 
 
-def load_market() -> pd.DataFrame:
-    market = pd.read_csv(MARKET_PATH, dtype={"code": str})
-    market["date"] = pd.to_datetime(market["date"])
-    required = set(ALL + ["TAIEX"])
-    complete = market.groupby("date")["code"].apply(lambda s: required.issubset(set(s)))
-    return market[market["date"].isin(complete[complete].index)].sort_values(["date", "code"])
 
-
-def book_id(alpha: float) -> str:
-    if alpha <= 0:
-        return "BASE_E16_E18_E22_v2s"
-    if alpha >= 1:
-        return "CHAL_E45_E3"
-    return f"BLEND_E45_A{int(round(alpha * 100)):02d}"
-
-
-def blend(full: pd.Series, alpha: float):
-    if alpha <= 0:
-        return None
-    if alpha >= 1:
-        return full.astype(float)
-    return ((1.0 - alpha) + alpha * full.astype(float)).clip(0.0, 1.0)
 
 
 def year_stats(nav: pd.DataFrame, year: int) -> dict:
@@ -63,12 +66,12 @@ def year_stats(nav: pd.DataFrame, year: int) -> dict:
     d["date"] = pd.to_datetime(d["date"])
     part = d[d["date"].dt.year == year].reset_index(drop=True)
     if len(part) < 20:
-        return {"year": year, "n_days": int(len(part)), "ret": None, "mdd": None, "available": False}
+        return {"year": year, "n_days": int(len(part)), "ret": None, "max_drawdown": None, "available": False}
     path = part["nav"].to_numpy(float)
     ret = float(path[-1] / path[0] - 1.0)
     peak = np.maximum.accumulate(path)
     mdd = float(np.min(path / peak - 1.0))
-    return {"year": year, "n_days": int(len(part)), "ret": ret, "mdd": mdd, "available": True}
+    return {"year": year, "n_days": int(len(part)), "ret": ret, "max_drawdown": mdd, "available": True}
 
 
 def pp(x):
@@ -127,16 +130,16 @@ def main() -> None:
                 deltas.append({
                     "book": bid, "alpha": float(alpha), "year": y,
                     "ret_delta_pp": None, "mdd_improve_pp": None, "available": False,
-                    "book_ret": c["ret"], "base_ret": b["ret"], "book_mdd": c["mdd"], "base_mdd": b["mdd"],
+                    "book_ret": c["ret"], "base_ret": b["ret"], "book_mdd": c["max_drawdown"], "base_mdd": b["max_drawdown"],
                 })
                 continue
             # ret_delta_pp: book - base (negative = lag)
             ret_pp = (c["ret"] - b["ret"]) * 100.0
-            mdd_pp = mdd_delta_pp(b["mdd"], c["mdd"])
+            mdd_pp = mdd_delta_pp(b["max_drawdown"], c["max_drawdown"])
             deltas.append({
                 "book": bid, "alpha": float(alpha), "year": y,
                 "ret_delta_pp": ret_pp, "mdd_improve_pp": mdd_pp, "available": True,
-                "book_ret": c["ret"], "base_ret": b["ret"], "book_mdd": c["mdd"], "base_mdd": b["mdd"],
+                "book_ret": c["ret"], "base_ret": b["ret"], "book_mdd": c["max_drawdown"], "base_mdd": b["max_drawdown"],
                 "n_days": c["n_days"],
             })
     delta_df = pd.DataFrame(deltas)

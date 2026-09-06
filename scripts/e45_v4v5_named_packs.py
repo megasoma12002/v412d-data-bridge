@@ -39,7 +39,7 @@ def year_stats(nav: pd.DataFrame, year: int) -> dict:
             "year": year,
             "n_days": int(len(part)),
             "ret": None,
-            "mdd": None,
+            "max_drawdown": None,
             "available": False,
             "note": "insufficient days" if len(part) else "no data",
         }
@@ -51,7 +51,7 @@ def year_stats(nav: pd.DataFrame, year: int) -> dict:
         "year": year,
         "n_days": int(len(part)),
         "ret": ret,
-        "mdd": mdd,
+        "max_drawdown": mdd,
         "available": True,
         "note": "partial_year" if year == 2011 else "",
     }
@@ -118,7 +118,7 @@ def main() -> int:
                     "book": book,
                     "cost_multiple": int(mult),
                     "cagr": st.get("cagr"),
-                    "mdd": st.get("max_drawdown"),
+                    "max_drawdown": st.get("max_drawdown"),
                     "vol": st.get("vol"),
                     "utility": st.get("utility"),
                     "n_days": st.get("n_days"),
@@ -187,7 +187,7 @@ def main() -> int:
                 "year": 2008,
                 "n_days": 0,
                 "ret": None,
-                "mdd": None,
+                "max_drawdown": None,
                 "available": False,
                 "note": f"market starts {data_start}; 2008 N/A",
             }
