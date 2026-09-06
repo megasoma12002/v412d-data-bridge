@@ -105,8 +105,9 @@ E45 same-knob search (mild α / sleeve densify / crisis-gate / mild `max_cut`) i
 | Charter | M1→M2→M3 paper ladder | **OPEN** | `E45_NEW_MECHANISM_CHARTER.md` (+ `.zh-TW.md`, ops pointer) |
 | **M1** | New state-signal family (equity/TAIEX proxy sensor) | **DONE — Section-2 FAIL (autopsy)** | `E45_M1_STATE_SIGNAL.md` · freeze `E45_M1_STATE_VECTOR_V0_FROZEN.md` |
 | **M2** | Cash/defensive sleeve relocate (actuator) | **DONE — Section-2 PASS (`M2_RELOC_TEL_C50`)** | `E45_M2_DEF_SLEEVE_RELOCATE.md` · freeze `E45_M2_DEF_SLEEVE_V0_FROZEN.md` |
-| M3 | Three-state risk machine | **NEXT** (authorized after M2 pack) | — |
+| **M3** | Three-state risk machine | **DONE — Section-2 FAIL (autopsy)** | `E45_M3_THREE_STATE_RISK.md` · freeze `E45_M3_THREE_STATE_V0_FROZEN.md` |
 
 M1 read: multi-year help includes non-2020, but **COVID-ex held-out score stays negative** (best `M1_EQW_C75`) → §2 FAIL / autopsy.
 M2 read: `M2_RELOC_TEL_C50` clears §2 and beats matched SHRINK on COVID-ex held-out (DEF_TEL honesty: Telecom equity proxy only). Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN** · no invented replacement for the retired MDD narrative · no E45 same-knob densify.
+M3 read: `M3_STATE_V0` fails §2 and underperforms continuous M2 on COVID-ex held-out (−5.52 vs +0.16); keep observe E45 sleeves as tax-control refs; do **not** densify E45 α; no Soft-Frozen/stitch auto-open.
 

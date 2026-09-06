@@ -1,0 +1,271 @@
+{
+  "generated_at_utc": "2026-09-06T13:31:12.924388+00:00",
+  "status": "PAPER_ONLY",
+  "ballot": "E45 M3 three-state risk machine paper screen",
+  "m3_freeze": "E45_M3_THREE_STATE_V0_FROZEN_2026-09-06",
+  "honesty": "DEF_TEL=Telecom equity proxy only; discrete states are paper risk regimes; no Soft-Frozen/stitch auto-open",
+  "sensor": "E45_M1_STATE_VECTOR_V0_FROZEN (hysteresis on s_t; action lag-1)",
+  "profile_ref_e45_only": "E3_VOLTARGET_WINNER",
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "market_path": "forward/e21/live_market.csv",
+  "div_path": "data/dividend_events/e22_dividend_events.csv",
+  "books": [
+    "BASE_E16_E18_E22_v2s",
+    "BLEND_E45_A05",
+    "SLEEVE_FIN_ONLY_A10",
+    "M1_EQW_C75",
+    "M2_RELOC_TEL_C50",
+    "M3_STATE_V0"
+  ],
+  "cost_multiples": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "fee_keys_scaled": [
+    "BUY_FEE",
+    "SELL_FEE",
+    "SLIP",
+    "TAX_STOCK",
+    "TAX_ETF"
+  ],
+  "score_formula": "mdd_improve_pp - 0.5 * abs(cagr_giveback_pp)",
+  "help_threshold_pp": 0.25,
+  "stress_years": [
+    2015,
+    2018,
+    2020,
+    2022
+  ],
+  "state_occupancy": {
+    "NORMAL": 0.7191229530946434,
+    "SLOW_BEAR": 0.24063280599500417,
+    "CRASH": 0.04024424091035248
+  },
+  "heldout_1x_ranking": [
+    {
+      "book": "M1_EQW_C75",
+      "kind": "ref_m1_continuous",
+      "mode": "EQW_C75",
+      "score": 4.214980406583669,
+      "mdd_improve_pp": 8.082082514917388,
+      "cagr_giveback_pp": 7.73420421666744,
+      "covid_ex_score": -0.15680950022489704,
+      "years_helped": "2015,2018,2020,2022",
+      "turnover_per_year": 4.754136492654337
+    },
+    {
+      "book": "M2_RELOC_TEL_C50",
+      "kind": "ref_m2_continuous",
+      "mode": "RELOC_TEL_C50",
+      "score": 0.4750425921077883,
+      "mdd_improve_pp": 1.6068542333982583,
+      "cagr_giveback_pp": 2.26362328258094,
+      "covid_ex_score": 0.16194592780922612,
+      "years_helped": "2015,2018,2020,2022",
+      "turnover_per_year": 3.9875254576618993
+    },
+    {
+      "book": "SLEEVE_FIN_ONLY_A10",
+      "kind": "ref_e45_sleeve",
+      "mode": null,
+      "score": 0.2854667577512848,
+      "mdd_improve_pp": 0.9119746801036444,
+      "cagr_giveback_pp": 1.253015844704719,
+      "covid_ex_score": -2.4079056535237564,
+      "years_helped": "2020",
+      "turnover_per_year": 2.265940532357012
+    },
+    {
+      "book": "BLEND_E45_A05",
+      "kind": "ref_e45",
+      "mode": null,
+      "score": 0.22225024440115648,
+      "mdd_improve_pp": 0.702410619961702,
+      "cagr_giveback_pp": 0.9603207511210909,
+      "covid_ex_score": -2.0536784087974325,
+      "years_helped": "2020",
+      "turnover_per_year": 2.233277734222544
+    },
+    {
+      "book": "BASE_E16_E18_E22_v2s",
+      "kind": "ref",
+      "mode": null,
+      "score": 0.0,
+      "mdd_improve_pp": 0.0,
+      "cagr_giveback_pp": 0.0,
+      "covid_ex_score": 0.0,
+      "years_helped": "",
+      "turnover_per_year": 2.18569227557563
+    },
+    {
+      "book": "M3_STATE_V0",
+      "kind": "m3_state",
+      "mode": "STATE_V0",
+      "score": -1.6463561701035911,
+      "mdd_improve_pp": -0.2901782319477686,
+      "cagr_giveback_pp": 2.712355876311645,
+      "covid_ex_score": -5.520720763847464,
+      "years_helped": "",
+      "turnover_per_year": 3.674905822010429
+    }
+  ],
+  "section2_qualification": [
+    {
+      "book": "BASE_E16_E18_E22_v2s",
+      "kind": "ref",
+      "mode": null,
+      "heldout_1x_score": 0.0,
+      "sealed_1x_score": 0.0,
+      "covid_ex_heldout_1x_score": 0.0,
+      "heldout_2x_score": 0.0,
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": "False",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": false,
+      "qualifies_section2": false,
+      "years_helped": [],
+      "n_years_helped": 0
+    },
+    {
+      "book": "BLEND_E45_A05",
+      "kind": "ref_e45",
+      "mode": null,
+      "heldout_1x_score": 0.22225024440115648,
+      "sealed_1x_score": 2.0686833418786854,
+      "covid_ex_heldout_1x_score": -2.0536784087974325,
+      "heldout_2x_score": 0.25359612929610753,
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": "True",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": true,
+      "qualifies_section2": false,
+      "years_helped": [
+        2020
+      ],
+      "n_years_helped": 1
+    },
+    {
+      "book": "SLEEVE_FIN_ONLY_A10",
+      "kind": "ref_e45_sleeve",
+      "mode": null,
+      "heldout_1x_score": 0.2854667577512848,
+      "sealed_1x_score": 2.5176656414680365,
+      "covid_ex_heldout_1x_score": -2.4079056535237564,
+      "heldout_2x_score": 0.3194633139722791,
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": "True",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": true,
+      "qualifies_section2": false,
+      "years_helped": [
+        2020
+      ],
+      "n_years_helped": 1
+    },
+    {
+      "book": "M1_EQW_C75",
+      "kind": "ref_m1_continuous",
+      "mode": "EQW_C75",
+      "heldout_1x_score": 4.214980406583669,
+      "sealed_1x_score": 0.590390018964249,
+      "covid_ex_heldout_1x_score": -0.15680950022489704,
+      "heldout_2x_score": 3.6819022992857002,
+      "multi_event": true,
+      "strict_noncovid_multi": true,
+      "heldout_score_pos": "True",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": true,
+      "qualifies_section2": false,
+      "years_helped": [
+        2015,
+        2018,
+        2020,
+        2022
+      ],
+      "n_years_helped": 4
+    },
+    {
+      "book": "M2_RELOC_TEL_C50",
+      "kind": "ref_m2_continuous",
+      "mode": "RELOC_TEL_C50",
+      "heldout_1x_score": 0.4750425921077883,
+      "sealed_1x_score": 0.16564752661157867,
+      "covid_ex_heldout_1x_score": 0.16194592780922612,
+      "heldout_2x_score": 0.05596474121426498,
+      "multi_event": true,
+      "strict_noncovid_multi": true,
+      "heldout_score_pos": "True",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "True",
+      "cost_1x_2x_ok": true,
+      "qualifies_section2": true,
+      "years_helped": [
+        2015,
+        2018,
+        2020,
+        2022
+      ],
+      "n_years_helped": 4
+    },
+    {
+      "book": "M3_STATE_V0",
+      "kind": "m3_state",
+      "mode": "STATE_V0",
+      "heldout_1x_score": -1.6463561701035911,
+      "sealed_1x_score": 2.5575396886014956,
+      "covid_ex_heldout_1x_score": -5.520720763847464,
+      "heldout_2x_score": -2.053663219879709,
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": "False",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": false,
+      "qualifies_section2": false,
+      "years_helped": [],
+      "n_years_helped": 0
+    }
+  ],
+  "m3_section2_pass": false,
+  "m3_covid_ex_heldout_1x": -5.520720763847464,
+  "m2_ref_covid_ex_heldout_1x": 0.16194592780922612,
+  "beats_or_ties_m2_covid_ex": false,
+  "m3_stage_pass": false,
+  "verdict": "FAIL_AUTOPSY",
+  "giveback_diagnostics_nonbinding": {
+    "ytd": {
+      "cagr_giveback_pp": 6.855489873565412,
+      "mdd_improve_pp": 2.843973596010141,
+      "n_days": 162
+    },
+    "trailing_1y": {
+      "cagr_giveback_pp": 5.568301491663297,
+      "mdd_improve_pp": 2.843973596010141,
+      "n_days": 242
+    }
+  },
+  "soft_frozen": "KEEP",
+  "live_default": "KEEP",
+  "live_stitch": "FORBIDDEN",
+  "high_beta_observe": "DRAFT_NOT_OPEN",
+  "observe_sleeves_unchanged": true,
+  "auto_open_soft_frozen_or_stitch": false,
+  "next_if_fail": "Publish autopsy; keep observe E45 sleeves as tax-control refs only; do not densify E45 alpha; do not open Soft-Frozen/stitch",
+  "next_if_pass": "Charter paper ladder complete; dedicated human ballot still required before any Soft-Frozen/observe OPEN; stitch remains FORBIDDEN",
+  "non_actions": [
+    "No Soft-Frozen / DEFAULT / stitch / HIGH_BETA ballot",
+    "No invented replacement for retired claimed-MDD narrative",
+    "No E45 same-knob densify as substitute for M3",
+    "Do not treat DEF_TEL as cash or duration hedge",
+    "Do not auto-OPEN observe from Section-2 PASS alone"
+  ]
+}
