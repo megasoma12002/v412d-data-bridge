@@ -1,0 +1,56 @@
+{
+  "status": "PASS_QUARANTINE_COVERS_C1",
+  "code": "0050",
+  "has_adj_close": true,
+  "prefer_path": "adj_close_or_C2",
+  "c1_raw_close": "spike_sensitive_do_not_use_for_history_qc",
+  "quarantine_dates": [
+    "2014-01-02",
+    "2025-06-18"
+  ],
+  "quarantine_detail": [
+    {
+      "date": "2014-01-02",
+      "present": true,
+      "close": 58.55,
+      "adj_close": 10.024523921628871,
+      "close_ret": -0.0025553662691653045,
+      "adj_ret": -0.0025553662691654155
+    },
+    {
+      "date": "2025-06-18",
+      "present": true,
+      "close": 47.57,
+      "adj_close": 46.29797540749701,
+      "close_ret": -0.747839915186854,
+      "adj_ret": 0.00869380831212907
+    }
+  ],
+  "spike_threshold_abs_ret": 0.05,
+  "spikes_vs_adj": [
+    {
+      "date": "2025-06-18",
+      "close_ret": -0.747839915186854,
+      "adj_ret": 0.00869380831212907,
+      "abs_delta": 0.7565337234989831
+    }
+  ],
+  "spikes_on_quarantine": [
+    {
+      "date": "2025-06-18",
+      "close_ret": -0.747839915186854,
+      "adj_ret": 0.00869380831212907,
+      "abs_delta": 0.7565337234989831
+    }
+  ],
+  "extra_spikes_beyond_quarantine": [],
+  "n_spikes": 1,
+  "e21_primary_rewrite": false,
+  "yahoo_taiex_failover": "opt_in_helper_only",
+  "phase_c_root_class": "UNADJUSTED_CLOSE_SPIKE",
+  "ops_actions": [
+    "Prefer adj_close (or C2) for 0050 history QC",
+    "Quarantine C1 outlier dates when regenerating probes",
+    "Do not flip Soft-Frozen / DEFAULT / e21 primary on C1 DRIFT alone"
+  ]
+}
