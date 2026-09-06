@@ -10,7 +10,7 @@ Date: 2026-09-06
 Soft-Frozen: **[0.50, 0.95] KEEP**
 Live DEFAULT books: **KEEP**
 Live stitch: **still FORBIDDEN**
-Parent sleeves still OPERATING: FULL + A25 + A05 + FIN_ONLY_A10
+Parent sleeves still OPERATING: FULL + A25 + A05 + SLEEVE_FIN_ONLY_A10
 
 ## Proposal (if later ACCEPTed)
 
@@ -19,7 +19,7 @@ Parent sleeves still OPERATING: FULL + A25 + A05 + FIN_ONLY_A10
 | Choice | OPEN HIGH_BETA sleeve-local observe (paper) |
 | Locked book (candidate) | `FIN_ONLY_A10` |
 | Sleeves | `['0050', 'Financial']` |
-| Parallel | Do not replace FIN_ONLY_A10 |
+| Parallel | Do not replace SLEEVE_FIN_ONLY_A10 |
 | Stitch | FORBIDDEN |
 
 ## Evidence pointers
@@ -33,6 +33,6 @@ Parent sleeves still OPERATING: FULL + A25 + A05 + FIN_ONLY_A10
 |---|---|
 | **HOLD DRAFT** (default) | No OPEN; paper only |
 | **ACCEPT OPEN** | Separate PR to promote DRAFT→OPERATING (not this file alone) |
-| **REJECT** | Archive; keep FIN_ONLY_A10 path |
+| **REJECT** | Archive; keep SLEEVE_FIN_ONLY_A10 path |
 
 Label: `E45_HIGH_BETA_OBSERVE_BALLOT_DRAFT_2026-09-06__NOT_OPEN__STITCH_FORBIDDEN`

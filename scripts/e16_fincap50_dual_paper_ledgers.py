@@ -22,6 +22,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e45_paper_harness import WINDOWS_STANDARD
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e22_dividend_accounting as e22div
@@ -34,11 +35,7 @@ MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
 FIN_CAP_50 = {"fin_lo": 0.35, "fin_hi": 0.50}
-WINDOWS = {
-    "full": (None, None),
-    "oof_2011_2018": (date(2011, 1, 1), date(2018, 12, 31)),
-    "heldout_2019_plus": (date(2019, 1, 1), None),
-}
+WINDOWS = {k: WINDOWS_STANDARD[k] for k in ("full", "oof_2011_2018", "heldout_2019_plus")}
 
 
 def load_market() -> pd.DataFrame:

@@ -36,8 +36,8 @@
     "n_days_base": 977,
     "n_days_l3": 977
   },
-  "sealed_2023_latest": {
-    "window": "sealed_2023_latest",
+  "sealed_2023_plus": {
+    "window": "sealed_2023_plus",
     "start": "2023-01-01",
     "end": "2026-09-04",
     "base_cagr": 0.24925144125866705,

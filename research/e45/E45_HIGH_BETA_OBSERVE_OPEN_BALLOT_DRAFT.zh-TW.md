@@ -10,7 +10,7 @@
 Soft-Frozen：**[0.50, 0.95] KEEP**  
 Live DEFAULT：**KEEP**  
 Live stitch：**仍禁止 FORBIDDEN**  
-父 sleeves 仍 OPERATING：FULL + A25 + A05 + FIN_ONLY_A10
+父 sleeves 仍 OPERATING：FULL + A25 + A05 + SLEEVE_FIN_ONLY_A10
 
 詳見英文正本與 `E45_HIGH_BETA_SLEEVE_LOCAL_PAPER.md` / `E45_MULTI_EVENT_THRESHOLD_CHARTER.md`。
 

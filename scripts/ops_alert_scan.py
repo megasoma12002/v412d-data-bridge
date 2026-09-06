@@ -42,12 +42,7 @@ PHASE_C_JSON = ROOT / "research/ops/DATA_SOURCE_PHASE_C_PROBES.json"
 
 # Soft-Frozen clip — single source (never hardcode drift).
 sys.path.insert(0, str(ROOT / "scripts"))
-from e16_soft_frozen_base import SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
-
-SOFT_FROZEN_CLIP = [float(SOFT_FROZEN_FIN_LO), float(SOFT_FROZEN_FIN_HI)]
-
-
-def _load(path: Path) -> dict | None:
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIPdef _load(path: Path) -> dict | None:
     if not path.exists():
         return None
     return json.loads(path.read_text())
@@ -365,7 +360,7 @@ def main() -> int:
         "label": "OPS_ALERT_SCAN",
         "live_wire": False,
         "soft_frozen_unchanged": True,
-        "soft_frozen_clip": list(SOFT_FROZEN_CLIP),
+        "soft_frozen_clip": list(SOFT_FROZEN_FIN_CLIP),
         "overall": overall,
         "n_critical": sum(1 for a in alerts if a["severity"] == "CRITICAL"),
         "n_high": sum(1 for a in alerts if a["severity"] == "HIGH"),
@@ -385,7 +380,7 @@ def main() -> int:
         "",
         f"Generated: `{payload['generated_at_utc']}`",
         f"Overall: **{overall}**",
-        f"Soft-Frozen **[{SOFT_FROZEN_CLIP[0]:.2f}, {SOFT_FROZEN_CLIP[1]:.2f}] unchanged**. No auto cutover.",
+        f"Soft-Frozen **[{SOFT_FROZEN_FIN_CLIP[0]:.2f}, {SOFT_FROZEN_FIN_CLIP[1]:.2f}] unchanged**. No auto cutover.",
         "",
         f"- CRITICAL: {payload['n_critical']}",
         f"- HIGH (PAUSE_REVIEW etc.): {payload['n_high']}",

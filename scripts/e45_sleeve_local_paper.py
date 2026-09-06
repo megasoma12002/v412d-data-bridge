@@ -57,11 +57,7 @@ MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
 ALPHAS = (0.05, 0.25, 1.00)
-WINDOWS = {
-    "full": (None, None),
-    "heldout_2019_plus": (date(2019, 1, 1), None),
-    "sealed_2023_plus": (date(2023, 1, 1), None),
-}
+WINDOWS = {k: WINDOWS_STANDARD[k] for k in ("full", "heldout_2019_plus", "sealed_2023_plus")}
 FOCUS = ("heldout_2019_plus", "sealed_2023_plus", "full")
 
 

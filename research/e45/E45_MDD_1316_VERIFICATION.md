@@ -50,7 +50,7 @@ Handoff / `FROZEN_STRATEGY_SPEC.md`: E45 crisis core MDD ≈ **-13.16%** (`-0.13
 
 - Accept claim as verified baseline: `False`
 - Invent replacement number: `False`
-- Use instead: VERIFIED_LINEAGE_MDD from dated artifacts; keep claim labeled NOT_VERIFIED
+- Use instead: VERIFIED_LINEAGE_MDD from dated artifacts; keep claim labeled RETIRED_HISTORICAL_NARRATIVE
 - Promotion impact: E45 remains CHALLENGER_CANDIDATE; SOFT_FROZEN_CRITICAL is a process class, not a verified -13.16% number
 
 Conclusion: No research CSV/JSON contains MDD == -0.1316. Claim appears only in narrative spec/handoff text. Closest crisis-lineage validation MDDs are more severe than the claim. Early-stack+E45 challenger MDDs remain near -21% to -23%. Do not treat -13.16% as a verified E45 baseline.

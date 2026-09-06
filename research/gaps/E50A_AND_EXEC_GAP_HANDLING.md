@@ -57,7 +57,7 @@ Sealed window looks strong (CAGR ~48%) but **cannot promote** under the locked e
 
 - Early-stack core books exist (`e50_early_stack_combined_nav.py`) but are research.
 - Sibling paper stacks (80/20 static mix ~15–17% CAGR in other branches) are EXPERIMENTAL and not on official live.
-- E45 MDD −13.16% is **NOT_VERIFIED** (separate verification PR).
+- E45 MDD −13.16% claim status is **RETIRED_HISTORICAL_NARRATIVE** (separate verification PR; do not invent replacement).
 
 ### Options
 

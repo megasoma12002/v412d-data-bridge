@@ -64,7 +64,7 @@
     "s_all_mean_excess": 0.00010847273530382147,
     "both_experimental_gates_pass": false
   },
-  "sealed_2023_latest": {
+  "sealed_2023_plus": {
     "portfolio": "S9A1_SEALED_2023_LATEST",
     "controller": "FREEZE_REB",
     "fit_cutoff": "2022-12-01",

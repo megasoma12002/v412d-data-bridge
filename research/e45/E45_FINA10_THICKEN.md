@@ -18,7 +18,7 @@ Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · HIGH_BETA remains DRAFT
 
 **Held-out preferred (all candidates):** `FIN_ONLY_A10`
 **Held-out preferred among FIN_ONLY densify:** `FIN_ONLY_A10`
-**Observe lock `FIN_ONLY_A10` still preferred among FIN densify?** **YES**
+**Observe lock `SLEEVE_FIN_ONLY_A10` still preferred among FIN densify?** **YES**
 
 ## COVID-year-excluded held-out (2019+ minus all 2020 days)
 

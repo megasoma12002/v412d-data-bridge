@@ -15,6 +15,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e45_paper_harness import WINDOWS_STANDARD
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from e50_early_stack_combined_nav import ALL, e16_features, simulate_core, nav_stats
 import e45_crisis_core as e45
@@ -23,13 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/e45-dual-paper-observe-design"
 REPORT = ROOT / "research/e45/E45_DUAL_PAPER_OBSERVE_DESIGN.md"
 
-WINDOWS = {
-    "full": (None, None),
-    "oof_2011_2018": ("2011-01-01", "2018-12-31"),
-    "validation_2019_2022": ("2019-01-01", "2022-12-31"),
-    "sealed_2023_plus": ("2023-01-01", None),
-    "heldout_2019_plus": ("2019-01-01", None),
-}
+WINDOWS = WINDOWS_STANDARD
 
 
 def _slice(nav: pd.DataFrame, start: str | None, end: str | None) -> pd.DataFrame:
@@ -128,7 +123,7 @@ def main() -> int:
         "live_wire": False,
         "soft_frozen_keep": list(SOFT_FROZEN_FIN_CLIP),
         "default_books_keep": "E22_v2s_tw",
-        "claim_mdd_status": e45.CLAIMED_MDD_STATUS,
+        "claim_status": e45.CLAIMED_MDD_STATUS,
         "books": list(books),
         "windows": list(WINDOWS),
         "deltas_vs_base": deltas,

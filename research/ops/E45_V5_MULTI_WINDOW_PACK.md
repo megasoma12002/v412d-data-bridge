@@ -3,7 +3,7 @@
 Generated: `2026-09-05T18:26:14.920671+00:00`
 Status: **PASS** (E45-named crisis-year attribution + Stage-3 multi-window)
 Live stitch: **FORBIDDEN** (V1 still FAIL) · Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP**
-Claimed MDD ≈ −13.16%: **`NOT_VERIFIED`**
+Claimed MDD ≈ −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`**
 
 ## Data coverage
 

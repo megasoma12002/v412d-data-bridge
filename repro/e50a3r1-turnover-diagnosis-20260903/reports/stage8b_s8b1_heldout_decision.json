@@ -63,7 +63,7 @@
     "s_all_mean_excess": -8.23175265265931e-05,
     "both_experimental_gates_pass": false
   },
-  "sealed_2023_latest": {
+  "sealed_2023_plus": {
     "portfolio": "S8B1_SEALED_2023_LATEST",
     "controller": "CASH_070",
     "cash_scale": 0.7,

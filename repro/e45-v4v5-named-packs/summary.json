@@ -7,7 +7,7 @@
     0.95
   ],
   "default_books_keep": "E22_v2s_tw",
-  "claim_mdd_status": "NOT_VERIFIED",
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
   "v1_status": "FAIL",
   "stitch_forbidden": true,
   "data_start": "2011-12-01",
