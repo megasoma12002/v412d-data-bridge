@@ -154,6 +154,37 @@ def main() -> int:
         except Exception as exc:  # noqa: BLE001 — surface as hygiene failure
             violations.append(f"scripts/e45_paper_harness.py: failed __all__ exec check: {exc}")
 
+
+    # Stale regenerator report JSON still emitting retired book IDs (join landmine)
+    ARTIFACT_GLOBS = [
+        "repro/e45-alpha-cost-turnover/reports/*.json",
+        "repro/e45-crisis-year-attribution/reports/*.json",
+        "repro/e45-five-research-batch/outputs/*.json",
+        "repro/e45-five-research-batch/reports/*.json",
+        "repro/e45-sleeve-local/reports/*.json",
+        "research/e45/E45_ALPHA_COST_TURNOVER.json",
+        "research/e45/E45_CRISIS_YEAR_ATTRIBUTION.json",
+        "research/e45/E45_SLEEVE_LOCAL.json",
+        "research/e45/E45_FIVE_RESEARCH_BATCH_SUMMARY.json",
+        "research/ops/E45_FIVE_RESEARCH_BATCH_INTEGRATED.json",
+    ]
+    ARTIFACT_BAD = (
+        re.compile(r'"FULL_E45"'),
+        re.compile(r'"BLEND_A\d{2}"'),
+        re.compile(r'"ALL_FULL"'),
+        re.compile(r'"CHAL_E45_E3_FULL"'),
+        re.compile(r'"CONST_A\d{2}"'),
+        re.compile(r'"REF_BLEND_A\d{2}"'),
+    )
+    for pattern in ARTIFACT_GLOBS:
+        for apath in sorted(ROOT.glob(pattern)):
+            body = apath.read_text(encoding="utf-8", errors="ignore")
+            for pat in ARTIFACT_BAD:
+                if pat.search(body):
+                    violations.append(
+                        f"{apath.relative_to(ROOT)}: stale non-canonical book id matching {pat.pattern}"
+                    )
+
     if violations:
         print("E45 paper hygiene FAIL:")
         for v in violations:

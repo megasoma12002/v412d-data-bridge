@@ -55,6 +55,7 @@ DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 E45_PROFILE = "E3_VOLTARGET_WINNER"
 ALPHAS = (0.00, 0.05, 0.10, 0.25, 1.00)
 COST_MULTS = (0, 1, 2, 3)
+FEE_KEYS = ("BUY_FEE", "SELL_FEE", "SLIP", "TAX_STOCK", "TAX_ETF")
 FOCUS = ("heldout_2019_plus", "full")
 WINDOWS = {
     "full": (None, None),

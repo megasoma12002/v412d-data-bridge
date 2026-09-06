@@ -34,11 +34,23 @@ Soft-Frozen Financial **[0.50, 0.95] KEEP** · DEFAULT KEEP · live stitch **FOR
 - **Symptom:** Tip YTD/1y PAUSE_REVIEW across observe sleeves looks like “batch broken”.
 - **Rule:** Observe PAUSE is expected and does **not** revoke held-out paper scores; stitch stays forbidden until clean trailing + second human ACCEPT.
 
+
+### L5 — `FEE_KEYS` NameError in α cost/turnover regenerator
+- **Symptom:** `e45_alpha_cost_turnover_paper.py` completed all sims then crashed on undefined `FEE_KEYS`, leaving **stale** report JSON with `FULL_E45` / bare `BLEND_A##`.
+- **Impact:** Research mirrors disagreed with harness; next agents trusted broken artifacts.
+- **Fix:** Define `FEE_KEYS` to match `simulate_core` scaled fee constants; regenerate reports; hygiene now scans regenerator JSON for retired book IDs.
+
+### L6 — Sleeve-local scope labels colliding with observe IDs
+- **Symptom:** `ALL_A05` / `FIN_A05` / `HIGHBETA_A05` looked like observe books.
+- **Fix:** ALL-scope uses `BOOK_BLEND_A##` / `BOOK_FULL` / `BOOK_BASE`; sleeve overlays use `FIN_ONLY_*` / `FIN_0050_*` / `HIGH_BETA_*`. Deep-dive `book_tag("ALL", …)` emits `BLEND_E45_A##_C#x`.
+
 ## Fixes shipped this pass
 
 1. Canonicalize five-batch book / observe sleeve IDs; regenerate `repro/e45-five-research-batch/` + ops/research MD.
 2. Hygiene: batch regenerator detection + harness `__all__` truth check.
-3. Smoke: `check_e45_paper_hygiene` PASS · `check_project_coding_hygiene` PASS · month-end monitors EXIT 0 · `e21_qc` PASS.
+3. Fix `FEE_KEYS`; regenerate α-cost + crisis-year + sleeve-local artifacts to canonical IDs.
+4. Hygiene scans regenerator report JSON for stale `FULL_E45` / `BLEND_A##`.
+5. Smoke: `check_e45_paper_hygiene` PASS · `check_project_coding_hygiene` PASS · month-end monitors EXIT 0 · `e21_qc` PASS.
 
 ## Still deferred (not blocking)
 

@@ -19,6 +19,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e45_paper_harness import (
     BOOK_BASE,
+    book_id_for_alpha,
     CLAIM_STATUS,
     E45_PROFILE_DEFAULT,
     ROOT,
@@ -70,8 +71,13 @@ def high_beta_sleeves(market: pd.DataFrame) -> tuple[str, ...]:
 
 
 def book_tag(scope: str, alpha: float, cost: float) -> str:
+    """Canonical ALL-scope IDs; sleeve scopes keep scope_A## _C#x labels."""
     a = int(round(alpha * 100))
     c = int(round(cost))
+    if scope == "ALL":
+        return f"{book_id_for_alpha(alpha)}_C{c}x"
+    if scope == "BASE":
+        return f"{BOOK_BASE}_C{c}x"
     return f"{scope}_A{a:02d}_C{c}x"
 
 
@@ -210,7 +216,7 @@ def main() -> None:
     for extra in held_c1["book"].head(3).tolist():
         if extra not in attr_books:
             attr_books.append(extra)
-    for must in ("ALL_A05_C1x", "FIN_0050_A05_C1x", "HIGH_BETA_A05_C1x"):
+    for must in ("BLEND_E45_A05_C1x", "FIN_0050_A05_C1x", "HIGH_BETA_A05_C1x"):
         if must in books and must not in attr_books:
             attr_books.append(must)
 
@@ -352,19 +358,19 @@ def main() -> None:
             f"2. Preferred book's share of positive crisis-year MDD help in **2020**: "
             f"**{share_2020:.1%}** (same concentration risk as whole-book A05)."
         )
-    all05 = held_c1[held_c1.book == "ALL_A05_C1x"]
+    all05 = held_c1[held_c1.book == "BLEND_E45_A05_C1x"]
     best_sl = held_c1[held_c1.scope != "ALL"]
     if not all05.empty and not best_sl.empty:
         a, s = all05.iloc[0], best_sl.iloc[0]
         if s["score"] > a["score"]:
             lines.append(
                 f"3. Best sleeve-local (`{s['book']}`, score {s['score']:.3f}) **beats** "
-                f"`ALL_A05_C1x` ({a['score']:.3f}) — structure edge holds on denser grid."
+                f"`BLEND_E45_A05_C1x` ({a['score']:.3f}) — structure edge holds on denser grid."
             )
         else:
             lines.append(
                 f"3. Best sleeve-local (`{s['book']}`, score {s['score']:.3f}) does **not** beat "
-                f"`ALL_A05_C1x` ({a['score']:.3f}) on denser grid."
+                f"`BLEND_E45_A05_C1x` ({a['score']:.3f}) on denser grid."
             )
     if preferred:
         twin = held_c2[
