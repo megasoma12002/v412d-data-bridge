@@ -1,0 +1,25 @@
+{
+  "00679B": {
+    "errors": [],
+    "selected_source": "FinMind"
+  },
+  "00687B": {
+    "errors": [],
+    "selected_source": "FinMind"
+  },
+  "00719B": {
+    "errors": [],
+    "selected_source": "FinMind"
+  },
+  "BIL": {
+    "errors": [],
+    "selected_source": "Yahoo"
+  },
+  "SHY": {
+    "errors": [],
+    "selected_source": "Yahoo"
+  },
+  "USDTWD": {
+    "selected_source": "FinMind TaiwanExchangeRate"
+  }
+}

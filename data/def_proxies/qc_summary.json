@@ -1,0 +1,81 @@
+{
+  "start": "2010-01-01",
+  "out": "data/def_proxies",
+  "00679B": {
+    "pass": true,
+    "rows": 2347,
+    "first_date": "2017-01-17",
+    "last_date": "2026-09-04",
+    "currency": "TWD",
+    "proxy_class": "tw_bond_etf",
+    "note": "Yuanta 20Y US IG (TW wrapper) — long duration, not cash",
+    "path": "data/def_proxies/00679B_ohlcv.csv"
+  },
+  "00687B": {
+    "pass": true,
+    "rows": 2294,
+    "first_date": "2017-04-13",
+    "last_date": "2026-09-04",
+    "currency": "TWD",
+    "proxy_class": "tw_bond_etf",
+    "note": "Cathay 20Y US bond (TW wrapper) — long duration, not cash",
+    "path": "data/def_proxies/00687B_ohlcv.csv"
+  },
+  "00719B": {
+    "pass": true,
+    "rows": 2089,
+    "first_date": "2018-02-01",
+    "last_date": "2026-09-04",
+    "currency": "TWD",
+    "proxy_class": "tw_bond_etf",
+    "note": "Yuanta 1-3Y US bond (TW wrapper) — short-duration candidate",
+    "path": "data/def_proxies/00719B_ohlcv.csv"
+  },
+  "BIL": {
+    "pass": true,
+    "rows": 4194,
+    "first_date": "2010-01-04",
+    "last_date": "2026-09-04",
+    "currency": "USD",
+    "proxy_class": "usd_cash_like",
+    "path": "data/def_proxies/BIL_ohlcv.csv"
+  },
+  "SHY": {
+    "pass": true,
+    "rows": 4194,
+    "first_date": "2010-01-04",
+    "last_date": "2026-09-04",
+    "currency": "USD",
+    "proxy_class": "usd_cash_like",
+    "path": "data/def_proxies/SHY_ohlcv.csv"
+  },
+  "USDTWD": {
+    "pass": true,
+    "rows": 4138,
+    "first_date": "2010-01-04",
+    "last_date": "2026-09-04",
+    "path": "data/def_proxies/USDTWD_finmind.csv",
+    "note": "spot mid = (spot_buy+spot_sell)/2; research join only"
+  },
+  "combined": {
+    "rows": 15118,
+    "codes": [
+      "00679B",
+      "00687B",
+      "00719B",
+      "BIL",
+      "SHY"
+    ],
+    "path": "data/def_proxies/def_proxies_combined_ohlcv.csv"
+  },
+  "overall_pass": true,
+  "honesty": {
+    "not_merged_into_live_market": true,
+    "tw_bond_listing_lag": "00679B/00687B/00719B start 2017–2018; pre-list = no TWD bond DEF",
+    "usd_proxies_need_fx": true,
+    "00679B_00687B_are_long_duration": true,
+    "preferred_short_duration_twd": "00719B",
+    "preferred_cash_like_usd": "BIL",
+    "def_tel_still_equity_proxy": true
+  }
+}

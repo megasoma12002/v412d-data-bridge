@@ -1,0 +1,79 @@
+# E45 M2 Relocate Observe — OPEN Ballot **DRAFT**
+
+Status: **DRAFT ONLY — NOT OPEN**  
+Proposed ballot name: `E45 OPEN M2 relocate observe`  
+Date: 2026-09-06  
+Chinese mirror (non-binding): `research/ops/E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT.zh-TW.md`
+
+> **Does NOT** OPEN an observe sleeve, wire month-end, flip Soft-Frozen / DEFAULT, or authorize stitch.  
+> Remains **PAPER ONLY** until a separate human **ACCEPT**.  
+> §2 PASS on `M2_RELOC_TEL_C50` is **not** auto-OPEN.
+
+Soft-Frozen: **[0.50, 0.95] KEEP**  
+Live DEFAULT books: **`E22_v2s_tw` KEEP**  
+Live stitch: **still FORBIDDEN**  
+Parent sleeves still OPERATING: FULL + A25 + A05 + `SLEEVE_FIN_ONLY_A10`  
+HIGH_BETA: **DRAFT / NOT OPEN** (separate ballot)  
+True DEF ingest: available under `data/def_proxies/` — **not** required to ACCEPT this ballot (v0 still `DEF_TEL`)
+
+## Proposal (if later ACCEPTed)
+
+| Field | Value |
+|---|---|
+| Choice | OPEN **M2 relocate** paper observe (parallel) |
+| Locked book (candidate) | `M2_RELOC_TEL_C50` |
+| Sensor / actuator | M1 intensity `s_{t-1}` · `RELOC_TEL` · cut `c=0.50` |
+| DEF honesty | **`DEF_TEL` = Telecom equity proxy only** until a dedicated M2 v1 true-DEF freeze + paper |
+| Baseline refs | `BASE_E16_E18_E22_v2s` · `SLEEVE_FIN_ONLY_A10` (do not retire) |
+| Cadence (if ACCEPT) | Month-end parallel paper ledger + monitor (owner TBD in ACCEPT PR) |
+| Live wire? | **No** |
+| Soft-Frozen flip? | **No** |
+| Stitch authorized? | **No** |
+| Retire FULL / A25 / A05 / FIN_A10? | **No** |
+
+## Evidence pointers
+
+- Paper pack: `research/e45/E45_M2_DEF_SLEEVE_RELOCATE.md` (**§2 PASS**)
+- Freeze: `research/e45/E45_M2_DEF_SLEEVE_V0_FROZEN.md`
+- Repro: `repro/e45-m2-def-sleeve-relocate/`
+- M3 autopsy (does not unlock stitch): `research/e45/E45_M3_THREE_STATE_RISK.md`
+- True DEF ingest (optional next research): `research/e45/E45_M2_TRUE_DEF_DATA_INGEST.md`
+
+## Why this is ballot-gated
+
+1. Actuator is new vs operating E45 observe sleeves (different mechanism family).  
+2. Destination is still **equity DEF_TEL**, not cash/duration — observe must not be sold as “risk-free sleeve”.  
+3. Register rules: observe OPEN needs explicit human ACCEPT; pack green ≠ OPEN.  
+4. Soft-Frozen / DEFAULT / stitch stay out of scope for this ballot.
+
+## Human choices
+
+| Choice | Effect |
+|---|---|
+| **HOLD DRAFT** (default) | No OPEN; paper only; keep researching true DEF / M2 v1 |
+| **ACCEPT OPEN** | Separate PR to promote DRAFT→OPERATING observe for `M2_RELOC_TEL_C50` (not this file alone) |
+| **REJECT** | Archive; keep sleeve-local / blend observe path; optional true-DEF M2 v1 before any reopen |
+
+## Pre-ACCEPT checklist (must all be YES in the ACCEPT PR)
+
+| # | Item | Required |
+|---|---|---|
+| 1 | Soft-Frozen live clip remains [0.50, 0.95] | YES |
+| 2 | Live DEFAULT books remain `E22_v2s_tw` | YES |
+| 3 | M2 §2 PASS artifact present for `M2_RELOC_TEL_C50` | YES |
+| 4 | Retired MDD narrative still RETIRED | YES |
+| 5 | No stitch / Soft-Frozen / DEFAULT flip bundled | YES |
+| 6 | DEF_TEL honesty stated on observe monitor banner | YES |
+| 7 | Parent observe sleeves left operating in parallel | YES |
+| 8 | Explicit human ACCEPT recorded | YES |
+
+## Explicit non-actions
+
+1. Do **not** live-stitch E45 / rewrite `forward/e21` history.  
+2. Do **not** flip Soft-Frozen or DEFAULT books.  
+3. Do **not** treat M2 observe clean prints as stitch license.  
+4. Do **not** auto-OPEN from this draft file alone.  
+5. Do **not** invent a replacement for the retired MDD narrative.  
+6. Do **not** relabel `DEF_TEL` as cash/duration.
+
+Label: `E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT_2026-09-06__AWAITING_HUMAN_ACCEPT__NOT_OPEN__STITCH_FORBIDDEN`
