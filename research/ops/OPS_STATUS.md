@@ -55,6 +55,7 @@ E45 live-stitch (**Item 3 ACCEPT charter + RETIRE −13.16% + OPEN dual-paper ob
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
+E45 blend-alpha paper screen: `research/e45/E45_BLEND_ALPHA_PAPER_SCREEN.md`  
 E45 stitch checklist (DRAFTED / NOT AUTHORIZED): `research/ops/E45_STITCH_CHECKLIST.md`  
 E45 dual-paper observe: `research/e45/E45_DUAL_PAPER_OBSERVE.md` / open `E45_DUAL_PAPER_OBSERVE_OPEN.md`  
 E45 month-end: `research/gaps/E45_MONTH_END_MONITOR.md`  

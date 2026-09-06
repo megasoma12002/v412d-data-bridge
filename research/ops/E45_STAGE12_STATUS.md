@@ -60,6 +60,15 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Structural: heldout MDD improve ~1.88 pp / giveback ~5.65 pp; sealed ~4.90 / ~9.40 pp
 - Soft-Frozen KEEP · stitch still **FORBIDDEN** · continue observe cadence
 
+## PAPER blend-alpha screen (2026-09-06)
+
+- Ballot: `E45 PAPER blend-alpha screen` — **PAPER ONLY**
+- Artifact: `research/e45/E45_BLEND_ALPHA_PAPER_SCREEN.md`
+- Held-out heuristic pick: **α=0.25** (`BLEND_E45_A25`) — MDD improve ~**+0.63 pp**, CAGR giveback ~**2.83 pp**
+- Full E45 (α=1) remains operating observe challenger; this screen does **not** open a new observe sleeve or authorize stitch
+- Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
+
+
 ## Label
 
 `E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`
