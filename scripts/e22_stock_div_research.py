@@ -5,6 +5,8 @@ Does NOT modify SOFT_FROZEN E22_v2. Writes repro + research artifacts only.
 """
 from __future__ import annotations
 
+from research_metric_helpers import metric_delta, fmt_pct
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -219,11 +221,11 @@ def main() -> None:
         "inventory": inv,
         "variants": variants,
         "deltas": {
-            "stock_minus_cash_only_cagr": (b["cagr"] or 0) - (a["cagr"] or 0),
-            "stock_minus_cash_only_mdd": (b["max_drawdown"] or 0) - (a["max_drawdown"] or 0),
-            "stock_minus_cash_only_end_nav": (b["end_nav"] or 0) - (a["end_nav"] or 0),
-            "cash_only_minus_no_div_cagr": (a["cagr"] or 0) - (stats0["cagr"] or 0),
-            "stock_minus_no_div_cagr": (b["cagr"] or 0) - (stats0["cagr"] or 0),
+            "stock_minus_cash_only_cagr": metric_delta(b["cagr"], a["cagr"], missing_as_zero=True),
+            "stock_minus_cash_only_mdd": metric_delta(b["max_drawdown"], a["max_drawdown"], missing_as_zero=True),
+            "stock_minus_cash_only_end_nav": metric_delta(b["end_nav"], a["end_nav"], missing_as_zero=True),
+            "cash_only_minus_no_div_cagr": metric_delta(a["cagr"], stats0["cagr"], missing_as_zero=True),
+            "stock_minus_no_div_cagr": metric_delta(b["cagr"], stats0["cagr"], missing_as_zero=True),
             "stock_div_events_applied": m_b["stock_div_events"],
             "stock_div_shares_added": m_b["stock_div_shares_added"],
             "dividend_cash_total_cash_only": m_a["dividend_cash_total"],
@@ -287,7 +289,7 @@ def main() -> None:
         st = variants[name]["stats"]
         meta = variants[name]["meta"]
         lines.append(
-            f"| {name} | {100*(st['cagr'] or 0):.2f}% | {100*(st['max_drawdown'] or 0):.2f}% | "
+            f"| {name} | {fmt_pct(st['cagr'])} | {fmt_pct(st['max_drawdown'])} | "
             f"{st.get('end_nav', float('nan')):,.0f} | {meta.get('stock_div_events', 0)} |"
         )
     d = summary["deltas"]

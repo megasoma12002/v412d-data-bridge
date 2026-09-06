@@ -107,6 +107,8 @@ python3 scripts/e45_blend025_month_end_monitor.py
 
 - E45 paper landmine review: `research/ops/E45_PAPER_LANDMINE_CODE_REVIEW.md`
 - Project coding standards: `research/ops/CODING_STANDARDS.md`
+- Coverage map: `research/ops/CODING_STANDARDS_COVERAGE.md`
+- Hygiene: `python3 scripts/check_project_coding_hygiene.py`
 - Hygiene: `python3 scripts/check_e45_paper_hygiene.py`
 
 ## Authority

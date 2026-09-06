@@ -23,6 +23,7 @@ import numpy as np
 import polars as pl
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import utility_score, abs_mdd
 import e50a3_train_exact_open as a3
 from e50a3r1_turnover_diagnosis import (
     BOOTSTRAP_GATE,
@@ -108,7 +109,7 @@ def evaluate(orders, execution, name, stress_dates: set[date]):
         "challenger": name,
         "cagr": cagr,
         "max_drawdown": mdd,
-        "utility": (cagr or 0.0) - 0.5 * abs(mdd or 0.0),
+        "utility": utility_score(cagr, mdd),
         "average_daily_turnover": turn,
         "block_bootstrap_positive_probability": boot,
         "mean_gross_exposure": mean_gross_exposure(nav),
@@ -223,7 +224,7 @@ def main() -> None:
                 (sex is not None and bex is not None and sex > bex + 1e-12)
                 or (scomp is not None and bcomp is not None and scomp > bcomp + 1e-12)
             )
-            mdd_ok = abs(r["max_drawdown"] or 9) + 1e-12 < abs(base["max_drawdown"] or 9)
+            mdd_ok = abs_mdd(r["max_drawdown"]) + 1e-12 < abs_mdd(base["max_drawdown"])
             if util_ok and (stress_ok or mdd_ok):
                 candidates.append({**r, "base_utility": base["utility"], "base_mdd": base["max_drawdown"],
                                    "base_stress_ex": bex, "base_stress_comp": bcomp,
@@ -233,7 +234,7 @@ def main() -> None:
         candidates,
         key=lambda r: (
             -(r["s_crisis_strategy_compound"] or -9),
-            abs(r["max_drawdown"] or 9),
+            abs_mdd(r["max_drawdown"]),
             -(r["utility"] or -9),
         ),
     )

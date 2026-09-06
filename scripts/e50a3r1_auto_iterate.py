@@ -27,6 +27,7 @@ import numpy as np
 import polars as pl
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import utility_score
 import e50a3_train_exact_open as a3
 import e50a3r1_repair as r1
 from e50a3r1_turnover_diagnosis import (

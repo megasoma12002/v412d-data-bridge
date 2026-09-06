@@ -27,6 +27,7 @@ import numpy as np
 import polars as pl
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import utility_score, abs_mdd
 import e50a3_train_exact_open as a3
 from e50a3r1_turnover_diagnosis import (
     BOOTSTRAP_GATE,
@@ -114,7 +115,7 @@ def evaluate(orders, execution, name, stress_dates: set[date]):
         "challenger": name,
         "cagr": cagr,
         "max_drawdown": mdd,
-        "utility": (cagr or 0.0) - 0.5 * abs(mdd or 0.0),
+        "utility": utility_score(cagr, mdd),
         "average_daily_turnover": turn,
         "block_bootstrap_positive_probability": boot,
         "mean_gross_exposure": mean_gross_exposure(nav),
@@ -260,7 +261,7 @@ def main() -> None:
         key=lambda r: (
             -(r["s_crisis_strategy_compound"] or -9),
             -(r["utility"] or -9),
-            abs(r["max_drawdown"] or 9),
+            abs_mdd(r["max_drawdown"]),
         ),
     )
     winner = candidates[0] if candidates else None

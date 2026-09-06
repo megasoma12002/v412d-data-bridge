@@ -142,6 +142,13 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Hardening: first-class `cost_multiple` / `e45_sleeve_names`; claim emitters → `CLAIMED_MDD_STATUS`; canonical book IDs
 - Soft-Frozen / DEFAULT **KEEP**; observe OPEN sleeves unchanged; live stitch **FORBIDDEN**
 
+## Project coding-standards sweep (2026-09-06)
+
+- Prior E45 landmine pass expanded to **project `scripts/`** actionable violations
+- Coverage: `research/ops/CODING_STANDARDS_COVERAGE.md`
+- Hygiene: `scripts/check_project_coding_hygiene.py` (**PASS**)
+- Soft-Frozen / DEFAULT **KEEP**; stitch **FORBIDDEN**
+
 ## Label
 
 `E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`

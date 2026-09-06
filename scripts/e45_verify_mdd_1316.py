@@ -6,6 +6,8 @@ Does not invent a replacement baseline number.
 """
 from __future__ import annotations
 
+from research_metric_helpers import fmt_pct
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -98,7 +100,7 @@ def main() -> None:
                 "variant": name,
                 "cagr": st["cagr"],
                 "mdd": st["max_drawdown"],
-                "abs_err_to_claim": abs((st["max_drawdown"] or 0) - CLAIM),
+                "abs_err_to_claim": abs(metric_delta(st["max_drawdown"], CLAIM, missing_as_zero=True) or 0),
                 "n_days": meta["n_days"],
             }
         )
@@ -189,7 +191,7 @@ def main() -> None:
     ]
     for r in stack:
         lines.append(
-            f"| {r['variant']} | {100*(r['cagr'] or 0):.2f}% | {100*(r['mdd'] or 0):.2f}% | "
+            f"| {r['variant']} | {fmt_pct(r['cagr'])} | {fmt_pct(r['mdd'])} | "
             f"{100*r['abs_err_to_claim']:.2f} pp |"
         )
     d = verdict["decision"]

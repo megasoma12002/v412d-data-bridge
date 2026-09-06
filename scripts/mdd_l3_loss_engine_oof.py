@@ -24,6 +24,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof
@@ -244,7 +245,7 @@ def main() -> None:
         "retune_allowed": False,
         "l1_retune_forbidden": True,
         "l2_reopen_forbidden": True,
-        "soft_frozen_live_clip": [0.50, 0.95],
+        "soft_frozen_live_clip": list(SOFT_FROZEN_FIN_CLIP),
         "oof_window": {"start": str(OOF_START), "end": str(OOF_END)},
         "late_bull_window": {"start": str(LATE_BULL_START), "end": str(LATE_BULL_END)},
         "gates": {

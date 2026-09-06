@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_frozen_base as soft_frozen
 import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
+from research_metric_helpers import metric_delta, fmt_pct
 
 # Mirror E21 SOFT_FROZEN membership / fees (read-only copy of constants; not an edit).
 FIN = ["2880", "2886", "2892", "5880"]
@@ -528,13 +529,13 @@ def main() -> None:
         "regime_share": {str(k): float(v) for k, v in regime_share.items()},
         "variants": results,
         "deltas": {
-            "e22_minus_e16e18_cagr": (b["cagr"] or 0) - (a["cagr"] or 0),
-            "e22_stock_minus_cash_only_cagr": (b["cagr"] or 0) - (b_cash["cagr"] or 0),
-            "e22_stock_minus_cash_only_mdd": (b["max_drawdown"] or 0) - (b_cash["max_drawdown"] or 0),
-            "e45_e3_minus_e22_cagr": (e3s["cagr"] or 0) - (b["cagr"] or 0),
-            "e45_e3_minus_e22_mdd": (e3s["max_drawdown"] or 0) - (b["max_drawdown"] or 0),
-            "e45_e1_minus_e22_cagr": (e1s["cagr"] or 0) - (b["cagr"] or 0),
-            "e45_e1_minus_e22_mdd": (e1s["max_drawdown"] or 0) - (b["max_drawdown"] or 0),
+            "e22_minus_e16e18_cagr": metric_delta(b["cagr"], a["cagr"], missing_as_zero=True),
+            "e22_stock_minus_cash_only_cagr": metric_delta(b["cagr"], b_cash["cagr"], missing_as_zero=True),
+            "e22_stock_minus_cash_only_mdd": metric_delta(b["max_drawdown"], b_cash["max_drawdown"], missing_as_zero=True),
+            "e45_e3_minus_e22_cagr": metric_delta(e3s["cagr"], b["cagr"], missing_as_zero=True),
+            "e45_e3_minus_e22_mdd": metric_delta(e3s["max_drawdown"], b["max_drawdown"], missing_as_zero=True),
+            "e45_e1_minus_e22_cagr": metric_delta(e1s["cagr"], b["cagr"], missing_as_zero=True),
+            "e45_e1_minus_e22_mdd": metric_delta(e1s["max_drawdown"], b["max_drawdown"], missing_as_zero=True),
             "e22_dividend_cash_total": results["E16_E18_E22"]["meta"]["dividend_cash_total"],
             "e22_stock_div_events": results["E16_E18_E22"]["meta"]["stock_div_events"],
             "e22_stock_div_shares_added": results["E16_E18_E22"]["meta"]["stock_div_shares_added"],
@@ -575,7 +576,7 @@ def main() -> None:
         s = results[name]["stats"]
         m = results[name]["meta"]
         lines.append(
-            f"| {name} | {100*(s['cagr'] or 0):.2f}% | {100*(s['max_drawdown'] or 0):.2f}% | "
+            f"| {name} | {fmt_pct(s['cagr'])} | {fmt_pct(s['max_drawdown'])} | "
             f"{s['utility']:.4f} | {m.get('mean_e45_exposure')} |"
         )
     lines += [

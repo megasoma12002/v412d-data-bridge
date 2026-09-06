@@ -25,6 +25,8 @@ SOFT_FROZEN_TEL_LO = 0.03
 SOFT_FROZEN_TEL_HI = 0.35
 SOFT_FROZEN_ETF_LO = 0.00
 SOFT_FROZEN_ETF_HI = 0.35
+# Canonical list form for JSON / monitors (import this — do not re-type 0.50/0.95).
+SOFT_FROZEN_FIN_CLIP = [SOFT_FROZEN_FIN_LO, SOFT_FROZEN_FIN_HI]
 
 # Causal blend / rebalance threshold (shared).
 START_WEIGHTS = np.array([0.90, 0.10, 0.00], dtype=float)

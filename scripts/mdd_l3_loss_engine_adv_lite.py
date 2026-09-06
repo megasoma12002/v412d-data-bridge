@@ -23,6 +23,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof
@@ -180,7 +181,7 @@ def main() -> None:
         "retune_allowed": False,
         "l1_retune_forbidden": True,
         "l2_reopen_forbidden": True,
-        "soft_frozen_live_clip": [0.50, 0.95],
+        "soft_frozen_live_clip": list(SOFT_FROZEN_FIN_CLIP),
         "locked_id": LOCKED_ID,
         "locked_params": {"fin_lo": LOCKED_FIN_LO, "fin_hi": LOCKED_FIN_HI},
         "locked_from_oof": {

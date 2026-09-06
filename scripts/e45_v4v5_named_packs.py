@@ -19,6 +19,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from e50_early_stack_combined_nav import ALL, e16_features, simulate_core, nav_stats
 import e45_crisis_core as e45
 
@@ -260,7 +261,7 @@ def main() -> int:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "E45_NAMED_V4_V5_PACKS",
         "live_wire": False,
-        "soft_frozen_keep": [0.50, 0.95],
+        "soft_frozen_keep": list(SOFT_FROZEN_FIN_CLIP),
         "default_books_keep": "E22_v2s_tw",
         "claim_mdd_status": e45.CLAIMED_MDD_STATUS,
         "v1_status": "PASS_RETIRED_NARRATIVE",

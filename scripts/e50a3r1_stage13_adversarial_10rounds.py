@@ -33,6 +33,7 @@ import numpy as np
 import polars as pl
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import utility_score, abs_mdd
 import e50a3_train_exact_open as a3
 import e50a3r1_repair as r1
 from e50a3r1_turnover_diagnosis import BOOTSTRAP_GATE, TURNOVER_CEILING, buffered_orders_ext
@@ -87,7 +88,7 @@ def summarize_nav(nav, trades, proxy, name, stress_dates, flags=None):
         "name": name,
         "cagr": cagr,
         "max_drawdown": mdd,
-        "utility": (cagr or 0.0) - 0.5 * abs(mdd or 0.0),
+        "utility": utility_score(cagr, mdd),
         "average_daily_turnover": turn,
         "block_bootstrap_positive_probability": boot,
         "mean_daily_excess": stats.get("mean_daily_excess"),
@@ -260,7 +261,7 @@ def year_slices(nav: pl.DataFrame, proxy: pl.DataFrame) -> dict:
             "n_days": g.height,
             "cagr": cagr,
             "max_drawdown": mdd,
-            "utility": (cagr or 0.0) - 0.5 * abs(mdd),
+            "utility": utility_score(cagr, mdd),
             "mean_excess": float(g["excess"].mean()),
             "sum_excess": float(g["excess"].sum()),
         }

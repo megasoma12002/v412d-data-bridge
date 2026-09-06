@@ -22,6 +22,7 @@ import numpy as np
 import polars as pl
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import utility_score
 import e50a3_train_exact_open as a3
 import e50a3r1_repair as r1
 
@@ -271,7 +272,7 @@ def evaluate_cfg(
         "total_cost": metric.get("total_cost"),
         "trade_count": metric.get("trade_count"),
         "ending_nav": metric.get("ending_nav"),
-        "utility": (metric.get("cagr") or 0.0) - 0.5 * abs(metric.get("max_drawdown") or 0.0),
+        "utility": utility_score(metric.get("cagr"), metric.get("max_drawdown")),
         "block_bootstrap_positive_probability": stats.get("block_bootstrap_positive_probability"),
         "mean_daily_excess": stats.get("mean_daily_excess"),
         "hac_t_stat": stats.get("hac_t_stat"),

@@ -27,6 +27,7 @@ import numpy as np
 import polars as pl
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import utility_score, abs_mdd
 import e50a3_train_exact_open as a3
 import e50a3r1_repair as r1
 from e50a3r1_turnover_diagnosis import (
@@ -251,7 +252,7 @@ def evaluate_nav(orders: pl.DataFrame, execution: pl.DataFrame, name: str, crisi
         "challenger": name,
         "cagr": cagr,
         "max_drawdown": mdd,
-        "utility": (cagr or 0.0) - 0.5 * abs(mdd or 0.0),
+        "utility": utility_score(cagr, mdd),
         "average_daily_turnover": turn,
         "block_bootstrap_positive_probability": boot,
         "mean_daily_excess": stats.get("mean_daily_excess"),
@@ -385,7 +386,7 @@ def main() -> None:
             -int(r["crisis_excess_nonneg"]),
             -(r["c_crisis_mean_excess"] or -9),
             -(r["utility"] or -9),
-            abs(r["max_drawdown"] or 9),
+            abs_mdd(r["max_drawdown"]),
         ),
     )
     winner = candidates_sorted[0] if candidates_sorted else None

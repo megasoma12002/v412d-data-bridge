@@ -21,7 +21,8 @@ Derived from E45 paper landmines and prior code-review rounds (#55 Soft-Frozen s
 ## 3. Soft-Frozen is single-source
 
 - Live Financial clip **[0.50, 0.95]** lives in `scripts/e16_soft_frozen_base.py`.
-- Do not hardcode clip bounds in monitors, alerts, or paper scripts.
+- JSON / machine fields must import `SOFT_FROZEN_FIN_CLIP` (or `SOFT_FROZEN_FIN_LO/HI`) — do not re-type `[0.50, 0.95]` as data.
+- Markdown / log **KEEP** statements may still *mention* the band; that is prose, not a second source.
 - Challenger clips stay in challenger modules only.
 
 ## 4. Claim honesty (labels)
@@ -82,10 +83,14 @@ Derived from E45 paper landmines and prior code-review rounds (#55 Soft-Frozen s
 
 ```bash
 PYTHONPATH=scripts python3 scripts/check_e45_paper_hygiene.py
+PYTHONPATH=scripts python3 scripts/check_project_coding_hygiene.py
 ```
 
-Fails on banned claim labels, fee/sleeve monkeypatches, and non-canonical book-ID emitters in `scripts/e45*.py`.
+E45 checker: banned claim labels, fee/sleeve monkeypatches, non-canonical book IDs.  
+Project checker: also metric `or 0`/`or 9` on CAGR/MDD and Soft-Frozen clip list literals outside the single-source module.
+
+Coverage map: `research/ops/CODING_STANDARDS_COVERAGE.md`.
 
 ## Label
 
-`CODING_STANDARDS_2026-09-06__LANDMINE_PASS`
+`CODING_STANDARDS_2026-09-06__PROJECT_SCRIPTS_PASS`

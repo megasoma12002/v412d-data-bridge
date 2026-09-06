@@ -7,6 +7,8 @@ until explicit promotion.
 """
 from __future__ import annotations
 
+from research_metric_helpers import metric_delta, fmt_pct
+
 import json
 import math
 from datetime import datetime, timezone
@@ -128,11 +130,11 @@ def main() -> None:
             for k, v in results.items()
         },
         "deltas": {
-            "cil_minus_v2s_cagr_pp": ((b["cagr"] or 0) - (a["cagr"] or 0)) * 100.0,
-            "cil_minus_v2s_mdd_pp": ((b["max_drawdown"] or 0) - (a["max_drawdown"] or 0)) * 100.0,
-            "cil_minus_v2s_end_nav": (b["end_nav"] or 0) - (a["end_nav"] or 0),
+            "cil_minus_v2s_cagr_pp": metric_delta(b["cagr"], a["cagr"], missing_as_zero=True) * 100.0,
+            "cil_minus_v2s_mdd_pp": metric_delta(b["max_drawdown"], a["max_drawdown"], missing_as_zero=True) * 100.0,
+            "cil_minus_v2s_end_nav": metric_delta(b["end_nav"], a["end_nav"], missing_as_zero=True),
             "cil_minus_v2s_end_nav_ratio": (b["end_nav"] / a["end_nav"]) if a["end_nav"] else None,
-            "v2s_minus_v2_cagr_pp": ((a["cagr"] or 0) - (v2["cagr"] or 0)) * 100.0,
+            "v2s_minus_v2_cagr_pp": metric_delta(a["cagr"], v2["cagr"], missing_as_zero=True) * 100.0,
             "cil_cash_total": results["E22_v2s_cil"]["meta"].get("cil_cash_total"),
             "fractional_shares_cashed": results["E22_v2s_cil"]["meta"].get("fractional_shares_cashed"),
             "v2s_end_dust_shares": results["E22_v2s"]["end_fractional_dust_total"],
@@ -183,7 +185,7 @@ def main() -> None:
         st = results[name]["stats"]
         meta = results[name]["meta"]
         lines.append(
-            f"| {name} | {100*(st['cagr'] or 0):.2f}% | {100*(st['max_drawdown'] or 0):.2f}% | "
+            f"| {name} | {fmt_pct(st['cagr'])} | {fmt_pct(st['max_drawdown'])} | "
             f"{st['end_nav']:,.0f} | {meta.get('cil_cash_total') or 0:,.2f} | "
             f"{results[name]['end_fractional_dust_total']:.4f} |"
         )

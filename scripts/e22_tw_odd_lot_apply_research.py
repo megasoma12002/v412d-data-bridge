@@ -10,6 +10,8 @@ Also documents what NOT to model in formal books (拼湊、劃撥費充抵、整
 """
 from __future__ import annotations
 
+from research_metric_helpers import metric_delta, fmt_pct
+
 import json
 import math
 from datetime import datetime, timezone
@@ -127,9 +129,9 @@ def main() -> None:
     for name in ["E22_v2s_cil", "E22_v2s_tw"]:
         st = results[name]["stats"]
         deltas[name] = {
-            "cagr_delta_pp": ((st["cagr"] or 0) - (base["cagr"] or 0)) * 100.0,
-            "mdd_delta_pp": ((st["max_drawdown"] or 0) - (base["max_drawdown"] or 0)) * 100.0,
-            "end_nav_delta": (st["end_nav"] or 0) - (base["end_nav"] or 0),
+            "cagr_delta_pp": metric_delta(st["cagr"], base["cagr"], missing_as_zero=True) * 100.0,
+            "mdd_delta_pp": metric_delta(st["max_drawdown"], base["max_drawdown"], missing_as_zero=True) * 100.0,
+            "end_nav_delta": metric_delta(st["end_nav"], base["end_nav"], missing_as_zero=True),
             "end_nav_ratio": (st["end_nav"] / base["end_nav"]) if base["end_nav"] else None,
             "cil_cash_total": results[name]["meta"].get("cil_cash_total"),
             "fractional_shares_cashed": results[name]["meta"].get("fractional_shares_cashed"),
@@ -265,7 +267,7 @@ def main() -> None:
         st = results[name]["stats"]
         meta = results[name]["meta"]
         lines.append(
-            f"| {name} | {100*(st['cagr'] or 0):.4f}% | {100*(st['max_drawdown'] or 0):.2f}% | "
+            f"| {name} | {fmt_pct(st['cagr'], digits=4)} | {fmt_pct(st['max_drawdown'])} | "
             f"{st['end_nav']:,.0f} | {meta.get('cil_cash_total') or 0:,.2f} | "
             f"{results[name]['end_fractional_dust_total']:.4f} |"
         )
