@@ -1,5 +1,25 @@
 # Strategy Debt Board
 
+<!-- debt-sweep 2026-09-06 -->
+## Debt-sweep snapshot (2026-09-06)
+
+Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN** · −13.16% **`RETIRED_HISTORICAL_NARRATIVE`**
+
+| Track | Status |
+|---|---|
+| Naming High emitters (#87) | **DONE** |
+| Naming Medium + stale schema (#90) | **DONE** |
+| Observe PAUSE refresh + Phase C `0050` root-cause (#91) | **DONE** |
+| Project debt-sweep hygiene gaps (this PR) | **IN PROGRESS** — see `research/ops/PROJECT_DEBT_SWEEP_CODEREVIEW_2026-09-06.md` |
+| Sleeve-local observe `SLEEVE_FIN_ONLY_A10` | **OPERATING** |
+| HIGH_BETA observe | **DRAFT / NOT OPEN** |
+| Live stitch | **FORBIDDEN** until second human ACCEPT |
+
+Residual Medium/Low: regenerator overlap, v412 dtype gaps, cosmetic `mdd_help*` filenames, review-doc historical mentions of banned labels.
+
+---
+
+
 Date: 2026-09-05 (strategy closure prep — claim policy + BLEND checklist)  
 Live rule: **E16 + E18 + E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05). No overlay. No history rewrite.  
 Live E16 Financial clip: **[0.50, 0.95]** (unchanged).  

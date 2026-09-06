@@ -94,7 +94,7 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Ballot: `E45 PAPER crisis-triggered alpha` — **PAPER ONLY** (chose over low-alpha deep-dive)
 - Artifact: `research/e45/E45_CRISIS_TRIGGERED_ALPHA.md` · `repro/e45-crisis-triggered-alpha/`
 - Modes: `CONST` refs + `GATE` (E3_exp &lt; 0.90/0.85/0.80) + `E1BIN` (~1.2% days)
-- Held-out: **`CONST_A05` still preferred**; best gate `GATE_09_A25` weaker (~+0.26 / ~1.23); E1BIN MDD≈0 on held-out
+- Held-out: **`BLEND_E45_A05` still preferred**; best gate `GATE_09_A25` weaker (~+0.26 / ~1.23); E1BIN MDD≈0 on held-out
 - Verdict: crisis-gating α does **not** beat mild continuous low-α on held-out
 - Observe sleeves unchanged; Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
 
@@ -116,7 +116,7 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Ballot: `E45 PAPER max_cut mild profile` — roadmap priority **#3** — **PAPER ONLY**
 - Artifact: `research/e45/E45_MAXCUT_MILD_PROFILE.md` · `repro/e45-maxcut-mild-profile/`
 - New paper profiles: max_cut **0.25 / 0.35 / 0.40** (+ mild×α=0.50); frozen winner **max_cut=0.5 untouched**
-- Held-out: still **`REF_BLEND_A05`**; best mild `MILD_MC40_FULL` weaker on score (−1.11 vs +0.32)
+- Held-out: still **`BLEND_E45_A05`**; best mild `MILD_MC40_FULL` weaker on score (−1.11 vs +0.32)
 - Mild full / mild-blend do **not** beat low constant blend-α on held-out
 - Observe sleeves unchanged; Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
 - Roadmap: P1–P7 paper queue **DONE**; stitch still **FORBIDDEN**
@@ -168,7 +168,7 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 
 ## Post-P7 next steps — ALL EXECUTED (2026-09-06)
 
-- **Sleeve-local deep-dive (PAPER):** `research/e45/E45_SLEEVE_LOCAL_DEEP_DIVE.md` — denser α∈{0.05,0.08,0.10}×cost 1–2×; held-out preferred **FIN_ONLY@α=0.10** (score ~0.285) > ALL@0.05; crisis help still ~84% in 2020; does **not** open sleeve-local observe
+- **Sleeve-local deep-dive (PAPER):** `research/e45/E45_SLEEVE_LOCAL_DEEP_DIVE.md` — denser α∈{0.05,0.08,0.10}×cost 1–2×; held-out preferred **FIN_ONLY@α=0.10** (score ~0.285) > ALL@0.05; crisis help still ~84% in 2020; sleeve-local observe is now **OPERATING** (`SLEEVE_FIN_ONLY_A10`); this section no longer blocks that open observe
 - **OPEN blend-α=0.05 observe:** `research/ops/E45_BLEND005_OBSERVE_OPEN.md` — **OPERATING** (paper only); tip PAUSE_REVIEW on YTD/1y; Soft-Frozen KEEP; stitch FORBIDDEN
 - **FULL + A25 observe cadence:** remains **OPERATING** in parallel (unchanged)
 - Soft-Frozen FIN **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN**

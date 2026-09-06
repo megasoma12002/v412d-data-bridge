@@ -17,7 +17,7 @@ Parent sleeves still OPERATING: FULL + A25 + A05 + SLEEVE_FIN_ONLY_A10
 | Field | Value |
 |---|---|
 | Choice | OPEN HIGH_BETA sleeve-local observe (paper) |
-| Locked book (candidate) | `FIN_ONLY_A10` |
+| Locked book (candidate) | `HIGH_BETA_SLEEVE_LOCAL_A10` (paper densify evidence may cite `FIN_ONLY_A10`) |
 | Sleeves | `['0050', 'Financial']` |
 | Parallel | Do not replace SLEEVE_FIN_ONLY_A10 |
 | Stitch | FORBIDDEN |

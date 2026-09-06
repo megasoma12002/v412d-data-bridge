@@ -21,6 +21,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP, SOFT_FROZEN_FIN_LO, SOFT_FROZEN_FIN_HI
 from e45_paper_harness import WINDOWS_STANDARD
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
@@ -162,9 +163,9 @@ def main() -> None:
             "alpha": BLEND_ALPHA,
             "formula": "α·FIN_CAP_50([0.35,0.50]) + (1-α)·Soft-Frozen BASE([0.50,0.95]), renormalized",
             "fin_cap_50_lock": FIN_CAP_50,
-            "base_clip": {"financial_lo": 0.50, "financial_hi": 0.95},
+            "base_clip": {"financial_lo": float(SOFT_FROZEN_FIN_LO), "financial_hi": float(SOFT_FROZEN_FIN_HI)},
         },
-        "current_live_clip": {"financial_lo": 0.50, "financial_hi": 0.95},
+        "current_live_clip": {"financial_lo": float(SOFT_FROZEN_FIN_LO), "financial_hi": float(SOFT_FROZEN_FIN_HI)},
         "exact_t1": {
             "base": books["BASE_E16"]["exact_t1_ok"],
             "blend025": books[LOCKED_ID]["exact_t1_ok"],

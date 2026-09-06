@@ -20,6 +20,11 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import abs_mdd, mdd_delta_pp
+from e45_paper_harness import WINDOWS_STANDARD
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "repro/l4-dd-path-dual-paper/month_end"
 BASE_NAV = ROOT / "repro/l4-dd-path-dual-paper/outputs/base_e16_daily_nav.csv"
@@ -58,8 +63,6 @@ def _pct(x: float | None) -> str:
     return f"{x:.2%}"
 
 
-def _abs_or(x: float | None, default: float) -> float:
-    """abs(x) with None→default; do not treat 0.0 as missing via `or`."""
     return abs(default if x is None else x)
 
 
@@ -91,8 +94,8 @@ def main() -> None:
         "ytd": (pd.Timestamp(asof.year, 1, 1), asof),
         "trailing_1y": (asof - pd.Timedelta(days=365), asof),
         "validation_2019_2022": (pd.Timestamp("2019-01-01"), pd.Timestamp("2022-12-31")),
-        "sealed_2023_plus": (pd.Timestamp("2023-01-01"), asof),
-        "heldout_2019_plus": (pd.Timestamp("2019-01-01"), asof),
+        "sealed_2023_plus": (pd.Timestamp(WINDOWS_STANDARD["sealed_2023_plus"][0]), asof),
+        "heldout_2019_plus": (pd.Timestamp(WINDOWS_STANDARD["heldout_2019_plus"][0]), asof),
         "full": (base["date"].min(), asof),
     }
 
@@ -105,7 +108,7 @@ def main() -> None:
         bnav = b["nav"] / float(b["nav"].iloc[0])
         cnav = c["nav"] / float(c["nav"].iloc[0])
         sb, sc = _stats(bnav), _stats(cnav)
-        mdd_improve_pp = (_abs_or(sb["max_drawdown"], 9.0) - _abs_or(sc["max_drawdown"], 9.0)) * 100
+        mdd_improve_pp = mdd_delta_pp(sb["max_drawdown"], sc["max_drawdown"])
         base_cagr = 0.0 if sb["cagr"] is None else sb["cagr"]
         l4_cagr = 0.0 if sc["cagr"] is None else sc["cagr"]
         cagr_giveback_pp = (base_cagr - l4_cagr) * 100

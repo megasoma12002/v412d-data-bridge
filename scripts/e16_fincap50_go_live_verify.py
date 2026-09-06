@@ -26,7 +26,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e22_dividend_accounting as e22div
 from e16_fin_cap_oof_challenger import e16_features_fin_cap
-from e16_soft_frozen_base import SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP, SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/fincap50-go-live-verify"
@@ -36,7 +36,7 @@ DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
 # Expected Soft-Frozen live clip — must match e16_soft_frozen_base (single source of truth).
 SOFT_FROZEN_LIVE = (float(SOFT_FROZEN_FIN_LO), float(SOFT_FROZEN_FIN_HI))
-EXPECTED_SOFT_FROZEN_LIVE = (0.50, 0.95)
+EXPECTED_SOFT_FROZEN_LIVE = (float(SOFT_FROZEN_FIN_CLIP[0]), float(SOFT_FROZEN_FIN_CLIP[1]))
 FIN_CAP_50 = (0.35, 0.50)
 MDD_IMPROVE_MIN_PP = 1.0
 CAGR_GIVEBACK_MAX_PP = 3.0

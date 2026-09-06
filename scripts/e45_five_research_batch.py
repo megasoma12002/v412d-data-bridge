@@ -301,7 +301,7 @@ def write_all_reports(ctx: dict) -> None:
     for _, r in conc_df.sort_values("share_of_positive_help_in_2020", ascending=False).iterrows():
         share = r["share_of_positive_help_in_2020"]
         lines.append(
-            f"| `{r['book']}` | {fmt(r['mdd_help_2020_pp'])} | {fmt(r['mdd_help_non2020_positive_pp'])} | "
+            f"| `{r['book']}` | {fmt(r['mdd_improve_2020_pp'])} | {fmt(r['mdd_improve_non2020_positive_pp'])} | "
             f"{'n/a' if share is None else f'{share:.0%}'} | {int(r['n_crisis_years_helped_gt_0_25pp'])} | "
             f"{r['years_helped']} |"
         )
@@ -513,7 +513,7 @@ Label: `E45_HIGH_BETA_OBSERVE_BALLOT_DRAFT_{generated[:10]}__NOT_OPEN__STITCH_FO
 
 Generated: `{generated}`
 Status: **PAPER / OBSERVE OPS** — Soft-Frozen **KEEP** · DEFAULT **KEEP** · live stitch **FORBIDDEN**
-Claimed −13.16%: **`{payload['claimed_mdd_status']}`** (do not invent a replacement)
+Claimed −13.16%: **`{payload['claim_status']}`** (do not invent a replacement)
 
 ## What ran
 
@@ -737,8 +737,8 @@ def main() -> None:
         years_helped = sorted(g.loc[g["mdd_improve_pp"] > 0.25, "year"].tolist())
         concentration.append({
             "book": bid,
-            "mdd_help_2020_pp": y2020,
-            "mdd_help_non2020_positive_pp": non2020_pos,
+            "mdd_improve_2020_pp": y2020,
+            "mdd_improve_non2020_positive_pp": non2020_pos,
             "share_of_positive_help_in_2020": (y2020 / total_pos) if total_pos > 1e-9 else None,
             "n_crisis_years_helped_gt_0_25pp": len(years_helped),
             "years_helped": years_helped,
@@ -881,7 +881,7 @@ def main() -> None:
         "soft_frozen": "KEEP",
         "default_books": "KEEP",
         "live_stitch": "FORBIDDEN",
-        "claimed_mdd_status": CLAIM_STATUS,
+        "claim_status": CLAIM_STATUS,
         "observe_sleeves_operating": list(OBSERVE_NAV.keys()),
         "high_beta_sleeves": list(hb_sleeves),
         "high_beta_betas": {k: float(v) for k, v in betas.items()},
@@ -893,7 +893,7 @@ def main() -> None:
             "trail_alert_pp": TRAIL_ALERT_PP,
             "trail_pause_pp": TRAIL_PAUSE_PP,
             "multi_event_min_years": 2,
-            "mdd_help_threshold_pp": 0.25,
+            "mdd_improve_threshold_pp": 0.25,
         },
     }
     (out_o / "five_research_batch_summary.json").write_text(

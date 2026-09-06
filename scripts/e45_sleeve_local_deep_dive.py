@@ -272,7 +272,7 @@ def main() -> None:
         "heldout_top5_c1x": held_c1.head(5).to_dict(orient="records"),
         "heldout_top5_c2x": held_c2.head(5).to_dict(orient="records"),
         "preferred_crisis_mdd_share_2020": share_2020,
-        "claimed_mdd_status": CLAIM_STATUS,
+        "claim_status": CLAIM_STATUS,
         "soft_frozen": "KEEP",
         "live_stitch": "FORBIDDEN",
         "observe_open_from_this": False,
