@@ -3,7 +3,7 @@
 Date: 2026-09-06  
 Status: **FROZEN FOR PAPER SCREEN** — Soft-Frozen **KEEP** · DEFAULT **KEEP** · stitch **FORBIDDEN**  
 Parent: `E45_NEW_MECHANISM_CHARTER.md` (M1 sensor stage)  
-Claimed MDD −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement
+Claimed MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement
 
 ## Honesty bound
 

@@ -25,7 +25,11 @@
       "id": "M3",
       "name": "three_state_risk_machine",
       "role": "controller",
-      "states": ["NORMAL", "SLOW_BEAR", "CRASH"],
+      "states": [
+        "NORMAL",
+        "SLOW_BEAR",
+        "CRASH"
+      ],
       "depends_on": "M2 pack exists"
     }
   ],
@@ -37,13 +41,16 @@
     "sealed_score_min": -1.0,
     "strict_noncovid_min_years_among_2015_2018_2022": 2,
     "covid_ex_heldout_score_min": 0.0,
-    "cost_multiples_must_hold": [1, 2],
+    "cost_multiples_must_hold": [
+      1,
+      2
+    ],
     "score_formula": "mdd_improve_pp - 0.5 * abs(cagr_giveback_pp)"
   },
   "explicit_non_actions": [
     "no Soft-Frozen / DEFAULT / stitch / HIGH_BETA ballot from this charter alone",
     "no E45 mild-alpha densify / crisis-gate / mild-max_cut as substitute",
-    "no invented replacement for retired -13.16% MDD claim",
+    "no invented replacement for the retired MDD narrative",
     "no auto OPEN-observe without dedicated human ballot after full qualification"
   ],
   "immediate_next": "Start M1 paper pack only",

@@ -32,7 +32,7 @@
 ## 明确不动
 
 - Soft-Frozen / DEFAULT / stitch / HIGH_BETA  
-- 不发明 −13.16% 替代叙事  
+- 不发明已退役 MDD 叙事的替代数字  
 - 不把「再 densify E45」当成 M1–M3  
 
 ## 下一步（本章程授权）
