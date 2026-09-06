@@ -89,6 +89,16 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
 
 
+## PAPER crisis-triggered alpha (2026-09-06)
+
+- Ballot: `E45 PAPER crisis-triggered alpha` — **PAPER ONLY** (chose over low-alpha deep-dive)
+- Artifact: `research/e45/E45_CRISIS_TRIGGERED_ALPHA.md` · `repro/e45-crisis-triggered-alpha/`
+- Modes: `CONST` refs + `GATE` (E3_exp &lt; 0.90/0.85/0.80) + `E1BIN` (~1.2% days)
+- Held-out: **`CONST_A05` still preferred**; best gate `GATE_09_A25` weaker (~+0.26 / ~1.23); E1BIN MDD≈0 on held-out
+- Verdict: crisis-gating α does **not** beat mild continuous low-α on held-out
+- Observe sleeves unchanged; Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
+
+
 ## Label
 
 `E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`
