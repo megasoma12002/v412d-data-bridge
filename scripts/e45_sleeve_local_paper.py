@@ -27,6 +27,7 @@ import e45_crisis_core as e45
 
 from e45_paper_harness import (
     BOOK_BASE,
+    BOOK_BLEND_A05,
     BOOK_BLEND_A25,
     BOOK_FULL,
     CLAIM_STATUS,
@@ -121,17 +122,17 @@ def main() -> None:
     print(f"high_beta_sleeves={hb}", flush=True)
 
     scopes = [
-        ("BASE", None, 0.0, None),
-        ("ALL_A05", "ALL", 0.05, None),
-        ("ALL_A25", "ALL", 0.25, None),
-        ("CHAL_E45_E3", "ALL", 1.00, None),
-        ("FIN_A05", "FIN_ONLY", 0.05, ("Financial",)),
-        ("FIN_A25", "FIN_ONLY", 0.25, ("Financial",)),
-        ("FIN_FULL", "FIN_ONLY", 1.00, ("Financial",)),
-        ("FIN0050_A05", "FIN_0050", 0.05, ("Financial", "0050")),
-        ("FIN0050_A25", "FIN_0050", 0.25, ("Financial", "0050")),
-        ("HIGHBETA_A05", "HIGH_BETA", 0.05, hb),
-        ("HIGHBETA_A25", "HIGH_BETA", 0.25, hb),
+        (BOOK_BASE, None, 0.0, None),
+        (BOOK_BLEND_A05, "ALL", 0.05, None),
+        (BOOK_BLEND_A25, "ALL", 0.25, None),
+        (BOOK_FULL, "ALL", 1.00, None),
+        ("FIN_ONLY_A05", "FIN_ONLY", 0.05, ("Financial",)),
+        ("FIN_ONLY_A25", "FIN_ONLY", 0.25, ("Financial",)),
+        ("FIN_ONLY_FULL", "FIN_ONLY", 1.00, ("Financial",)),
+        ("FIN_0050_A05", "FIN_0050", 0.05, ("Financial", "0050")),
+        ("FIN_0050_A25", "FIN_0050", 0.25, ("Financial", "0050")),
+        ("HIGH_BETA_A05", "HIGH_BETA", 0.05, hb),
+        ("HIGH_BETA_A25", "HIGH_BETA", 0.25, hb),
     ]
 
     books = {}
@@ -164,7 +165,7 @@ def main() -> None:
     pd.DataFrame(rows).to_csv(OUT / "outputs" / "sleeve_local_window_metrics.csv", index=False)
 
     deltas = []
-    base_w = books["BASE"]["windows"]
+    base_w = books[BOOK_BASE]["windows"]
     for book, meta in books.items():
         for w in FOCUS:
             b, c = base_w[w], meta["windows"][w]
@@ -181,11 +182,11 @@ def main() -> None:
     delta_df = pd.DataFrame(deltas)
     delta_df.to_csv(OUT / "outputs" / "sleeve_local_deltas_vs_base.csv", index=False)
 
-    held = delta_df[(delta_df.window == "heldout_2019_plus") & (delta_df.book != "BASE")].sort_values("score", ascending=False)
+    held = delta_df[(delta_df.window == "heldout_2019_plus") & (delta_df.book != BOOK_BASE)].sort_values("score", ascending=False)
     preferred = None if held.empty else held.iloc[0].to_dict()
-    # compare FIN_A05 vs ALL_A05
-    fin = held[held.book == "FIN_A05"]
-    all05 = held[held.book == "ALL_A05"]
+    # compare FIN_ONLY_A05 vs BLEND_E45_A05 (ALL-scope)
+    fin = held[held.book == "FIN_ONLY_A05"]
+    all05 = held[held.book == BOOK_BLEND_A05]
 
     payload = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -224,7 +225,7 @@ def main() -> None:
     lines += ["", "## Sealed deltas vs BASE", "",
               "| Book | Scope | α | MDD Δpp | Giveback pp | Score |",
               "|---|---|---:|---:|---:|---:|"]
-    sealed = delta_df[(delta_df.window == "sealed_2023_plus") & (delta_df.book != "BASE")].sort_values("score", ascending=False)
+    sealed = delta_df[(delta_df.window == "sealed_2023_plus") & (delta_df.book != BOOK_BASE)].sort_values("score", ascending=False)
     for _, r in sealed.iterrows():
         lines.append(
             f"| {r['book']} | {r['scope']} | {r['alpha']:.2f} | "
@@ -238,12 +239,12 @@ def main() -> None:
         f, a = fin.iloc[0], all05.iloc[0]
         if f["score"] > a["score"]:
             lines.append(
-                f"2. **FIN_A05 beats ALL_A05** on held-out score ({f['score']:.3f} vs {a['score']:.3f}) — "
+                f"2. **FIN_ONLY_A05 beats BLEND_E45_A05** on held-out score ({f['score']:.3f} vs {a['score']:.3f}) — "
                 "localizing cut can reduce CAGR tax."
             )
         else:
             lines.append(
-                f"2. FIN_A05 does **not** beat ALL_A05 on held-out score ({f['score']:.3f} vs {a['score']:.3f})."
+                f"2. FIN_ONLY_A05 does **not** beat BLEND_E45_A05 on held-out score ({f['score']:.3f} vs {a['score']:.3f})."
             )
     lines += [
         "3. Does **not** open observe / authorize stitch.",

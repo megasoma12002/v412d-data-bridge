@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-06T01:46:41.228185+00:00",
+  "generated_at_utc": "2026-09-06T04:29:04.666153+00:00",
   "status": "PAPER_ONLY",
   "ballot": "E45 PAPER crisis-year attribution",
   "roadmap_priority": 5,
@@ -27,9 +27,9 @@
   "live_stitch": "FORBIDDEN",
   "a05_top_crisis_year": {
     "alpha": 0.05,
-    "book": "BLEND_A05",
+    "book": "BLEND_E45_A05",
     "year": 2020,
-    "mdd_improve_pp": 0.8526551636099389,
-    "share_of_positive_mdd_help": 0.9868647063173399
+    "mdd_improve_pp": 0.7024106199616797,
+    "share_of_positive_mdd_help": 0.9186313172868503
   }
 }

@@ -62,6 +62,9 @@ def _is_paper_regenerator(name: str) -> bool:
         return True
     if "_paper_screen" in name or "_grid_fine" in name or "_grid_" in name:
         return True
+    # Multi-item research batches (same landmine surface as paper regenerators)
+    if "research_batch" in name or name.endswith("_batch.py"):
+        return True
     return False
 
 
@@ -117,7 +120,7 @@ def main() -> int:
                     continue
                 violations.append(f"{rel}:{line}: non-canonical book id `{m.group(0)}`")
 
-    # harness must exist and expose canonical IDs
+    # harness must exist and expose canonical IDs + truthful __all__
     harness = SCRIPTS / "e45_paper_harness.py"
     if not harness.exists():
         violations.append("scripts/e45_paper_harness.py: missing")
@@ -128,9 +131,59 @@ def main() -> int:
             'BOOK_FULL = "CHAL_E45_E3"',
             'BOOK_BLEND_A25 = "BLEND_E45_A25"',
             "CLAIM_STATUS = e45.CLAIMED_MDD_STATUS",
+            "def load_market(",
+            "def e45_full_exposure(",
+            "def window_stats(",
+            "def run_early_stack(",
         ):
             if needle not in h:
                 violations.append(f"scripts/e45_paper_harness.py: missing `{needle}`")
+        # __all__ must not advertise names the module does not define (agent landmine)
+        try:
+            ns: dict = {"__file__": str(harness), "__name__": "e45_paper_harness"}
+            exec(compile(h, str(harness), "exec"), ns, ns)
+            exported = ns.get("__all__")
+            if not isinstance(exported, (list, tuple)):
+                violations.append("scripts/e45_paper_harness.py: __all__ missing or not a list")
+            else:
+                for name in exported:
+                    if name not in ns:
+                        violations.append(
+                            f"scripts/e45_paper_harness.py: __all__ lists `{name}` but name is undefined"
+                        )
+        except Exception as exc:  # noqa: BLE001 — surface as hygiene failure
+            violations.append(f"scripts/e45_paper_harness.py: failed __all__ exec check: {exc}")
+
+
+    # Stale regenerator report JSON still emitting retired book IDs (join landmine)
+    ARTIFACT_GLOBS = [
+        "repro/e45-alpha-cost-turnover/reports/*.json",
+        "repro/e45-crisis-year-attribution/reports/*.json",
+        "repro/e45-five-research-batch/outputs/*.json",
+        "repro/e45-five-research-batch/reports/*.json",
+        "repro/e45-sleeve-local/reports/*.json",
+        "research/e45/E45_ALPHA_COST_TURNOVER.json",
+        "research/e45/E45_CRISIS_YEAR_ATTRIBUTION.json",
+        "research/e45/E45_SLEEVE_LOCAL.json",
+        "research/e45/E45_FIVE_RESEARCH_BATCH_SUMMARY.json",
+        "research/ops/E45_FIVE_RESEARCH_BATCH_INTEGRATED.json",
+    ]
+    ARTIFACT_BAD = (
+        re.compile(r'"FULL_E45"'),
+        re.compile(r'"BLEND_A\d{2}"'),
+        re.compile(r'"ALL_FULL"'),
+        re.compile(r'"CHAL_E45_E3_FULL"'),
+        re.compile(r'"CONST_A\d{2}"'),
+        re.compile(r'"REF_BLEND_A\d{2}"'),
+    )
+    for pattern in ARTIFACT_GLOBS:
+        for apath in sorted(ROOT.glob(pattern)):
+            body = apath.read_text(encoding="utf-8", errors="ignore")
+            for pat in ARTIFACT_BAD:
+                if pat.search(body):
+                    violations.append(
+                        f"{apath.relative_to(ROOT)}: stale non-canonical book id matching {pat.pattern}"
+                    )
 
     if violations:
         print("E45 paper hygiene FAIL:")

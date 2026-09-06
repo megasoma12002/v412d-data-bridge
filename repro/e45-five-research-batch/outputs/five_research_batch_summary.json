@@ -1,0 +1,140 @@
+{
+  "generated_at_utc": "2026-09-06T04:26:26.694796+00:00",
+  "status": "PAPER_ONLY",
+  "soft_frozen": "KEEP",
+  "default_books": "KEEP",
+  "live_stitch": "FORBIDDEN",
+  "claimed_mdd_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "observe_sleeves_operating": [
+    "CHAL_E45_E3",
+    "BLEND_E45_A25",
+    "BLEND_E45_A05",
+    "SLEEVE_FIN_ONLY_A10"
+  ],
+  "high_beta_sleeves": [
+    "0050",
+    "Financial"
+  ],
+  "high_beta_betas": {
+    "Financial": 0.51479136798471,
+    "Telecom": 0.18350862274996074,
+    "0050": 1.0161314105861423
+  },
+  "pause_summary": {
+    "CHAL_E45_E3": {
+      "ok": true,
+      "n_month_ends": 45,
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "PAUSE_REVIEW",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "share_pause_ytd": 0.6222222222222222,
+      "share_pause_1y": 0.6222222222222222,
+      "first_clean_both_asof": "2023-02-24"
+    },
+    "BLEND_E45_A25": {
+      "ok": true,
+      "n_month_ends": 45,
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "PAUSE_REVIEW",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "share_pause_ytd": 0.5333333333333333,
+      "share_pause_1y": 0.5555555555555556,
+      "first_clean_both_asof": "2023-02-24"
+    },
+    "BLEND_E45_A05": {
+      "ok": true,
+      "n_month_ends": 45,
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "ALERT",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "share_pause_ytd": 0.06666666666666667,
+      "share_pause_1y": 0.08888888888888889,
+      "first_clean_both_asof": "2023-02-24"
+    },
+    "SLEEVE_FIN_ONLY_A10": {
+      "ok": true,
+      "n_month_ends": 45,
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "PAUSE_REVIEW",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "share_pause_ytd": 0.13333333333333333,
+      "share_pause_1y": 0.15555555555555556,
+      "first_clean_both_asof": "2023-02-24"
+    }
+  },
+  "crisis_concentration": [
+    {
+      "book": "BLEND_E45_A05",
+      "mdd_help_2020_pp": 0.7024106199616797,
+      "mdd_help_non2020_positive_pp": 0.062216719367691464,
+      "share_of_positive_help_in_2020": 0.9186313172868503,
+      "n_crisis_years_helped_gt_0_25pp": 1,
+      "years_helped": [
+        2020
+      ]
+    },
+    {
+      "book": "BLEND_E45_A25",
+      "mdd_help_2020_pp": 0.4519062135161733,
+      "mdd_help_non2020_positive_pp": 0.6588184271259623,
+      "share_of_positive_help_in_2020": 0.4068571065956688,
+      "n_crisis_years_helped_gt_0_25pp": 2,
+      "years_helped": [
+        2018,
+        2020
+      ]
+    },
+    {
+      "book": "CHAL_E45_E3",
+      "mdd_help_2020_pp": 1.7098029519699076,
+      "mdd_help_non2020_positive_pp": 2.1739619313364877,
+      "share_of_positive_help_in_2020": 0.4402436819281109,
+      "n_crisis_years_helped_gt_0_25pp": 4,
+      "years_helped": [
+        2015,
+        2018,
+        2020,
+        2022
+      ]
+    },
+    {
+      "book": "FIN_ONLY_A10",
+      "mdd_help_2020_pp": 0.9119746801036444,
+      "mdd_help_non2020_positive_pp": 0.17105472034134594,
+      "share_of_positive_help_in_2020": 0.8420590241861728,
+      "n_crisis_years_helped_gt_0_25pp": 1,
+      "years_helped": [
+        2020
+      ]
+    },
+    {
+      "book": "HIGH_BETA_A10",
+      "mdd_help_2020_pp": 0.8695227031677466,
+      "mdd_help_non2020_positive_pp": 0.19134880961440004,
+      "share_of_positive_help_in_2020": 0.8196305515711457,
+      "n_crisis_years_helped_gt_0_25pp": 1,
+      "years_helped": [
+        2020
+      ]
+    }
+  ],
+  "preferred_high_beta_heldout": {
+    "book": "FIN_ONLY_A10",
+    "alpha": 0.1,
+    "sleeves": "Financial",
+    "window": "heldout_2019_plus",
+    "mdd_improve_pp": 0.9119746801036444,
+    "cagr_giveback_pp": 1.253015844704719,
+    "score": 0.2854667577512848,
+    "chal_cagr": 0.16950506384767983,
+    "chal_mdd": -0.21631369757721874,
+    "ann_turnover_approx": 1.132970266178506
+  },
+  "multi_event_qualifiers": [],
+  "gates": {
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "multi_event_min_years": 2,
+    "mdd_help_threshold_pp": 0.25
+  }
+}
