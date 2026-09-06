@@ -119,7 +119,17 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Held-out: still **`REF_BLEND_A05`**; best mild `MILD_MC40_FULL` weaker on score (−1.11 vs +0.32)
 - Mild full / mild-blend do **not** beat low constant blend-α on held-out
 - Observe sleeves unchanged; Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
-- Roadmap: P1–P3 done; next paper candidates #4 cost/turnover or #5 year attribution
+- Roadmap: P1–P7 paper queue **DONE**; stitch still **FORBIDDEN**
+
+
+## PAPER roadmap #4–#7 batch (2026-09-06)
+
+- **#4 cost/turnover:** `E45_ALPHA_COST_TURNOVER.md` — α=0.05 survives 0–3× (MDD help ~+0.85–0.90pp)
+- **#5 crisis-year attribution:** `E45_CRISIS_YEAR_ATTRIBUTION.md` — α=0.05 help **~98.7% in 2020**
+- **#6 sleeve-local:** `E45_SLEEVE_LOCAL.md` — FIN+0050/high-β @α=0.05 **beats** whole-book α=0.05 on held-out score
+- **#7 dual-sleeve dashboard:** `E45_DUAL_SLEEVE_MONITOR_DASHBOARD.md` — FULL+A25 observe + paper A10 companion (not OPEN)
+- Roadmap map: `E45_PAPER_RESEARCH_ROADMAP.md` — **P1–P7 DONE (paper)**; stitch still **FORBIDDEN**
+- Soft-Frozen / DEFAULT **KEEP**; observe OPEN sleeves unchanged
 
 
 ## Label

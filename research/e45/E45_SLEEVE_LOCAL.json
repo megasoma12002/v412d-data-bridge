@@ -1,0 +1,30 @@
+{
+  "generated_at_utc": "2026-09-06T01:46:50.033044+00:00",
+  "status": "PAPER_ONLY",
+  "ballot": "E45 PAPER sleeve-local overlay",
+  "roadmap_priority": 6,
+  "high_beta_sleeves": [
+    "0050",
+    "Financial"
+  ],
+  "heldout_preferred": {
+    "book": "FIN0050_A05",
+    "scope": "FIN_0050",
+    "alpha": 0.05,
+    "sleeves": [
+      "Financial",
+      "0050"
+    ],
+    "window": "heldout_2019_plus",
+    "mdd_improve_pp": 0.7974275295300481,
+    "cagr_giveback_pp": 0.9052601425274531,
+    "score": 0.3447974582663216,
+    "book_cagr": 0.17329377784713373,
+    "base_cagr": 0.18234637927240827,
+    "book_mdd": -0.21841307812698163,
+    "base_mdd": -0.2263873534222821
+  },
+  "soft_frozen": "KEEP",
+  "live_stitch": "FORBIDDEN",
+  "observe_sleeves_unchanged": true
+}

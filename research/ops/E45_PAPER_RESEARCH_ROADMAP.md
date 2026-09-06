@@ -6,27 +6,35 @@ Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · l
 
 | Pri | Direction | Purpose | Status | Artifact / note |
 |---:|---|---|---|---|
-| **1** | **α band deep-dive (0.05–0.15)** | Dense grid + stability + month-end PAUSE | **DONE (paper)** | `research/e45/E45_LOW_ALPHA_DEEP_DIVE.md` — held-out still **α=0.05**; α=0.08 close 2nd; **no** dense α clears YTD/1y PAUSE asof 2026-09-04 |
-| **2** | **Crisis-triggered α** (calm≈0, crisis↑) | Cut calm-day CAGR tax | **DONE (paper)** | `research/e45/E45_CRISIS_TRIGGERED_ALPHA.md` — GATE/E1BIN **do not** beat `CONST_A05` on held-out |
-| **3** | **Lower `max_cut` new profile** (no frozen-winner edit) | Milder defense line vs blend-α | **DONE (paper)** | `research/e45/E45_MAXCUT_MILD_PROFILE.md` — mc∈{0.25,0.35,0.40} (+ mild×α=0.5); frozen mc=0.5 untouched; held-out still prefers **REF_BLEND_A05**; mild does **not** beat low blend-α |
-| **4** | **Cost / turnover stress** (0–3× fee) | Confirm mild α still pays under cost | **PARTIAL** | Stage V4 lineage cost pack exists; **α-specific 0–3× + turnover** still open |
-| **5** | **Crisis-year attribution** (2015/2018/2020/2022…) | Where protection concentrates | **PARTIAL** | Stage V5 / Stage-3 multi-window done; **year-by-year attribution table for blend α** still open |
-| **6** | **Sleeve-local apply** (FIN / high-β only) | Shrink whole-book CAGR drag | **OPEN** | Not started |
-| **7** | **Dual-sleeve long monitor** | full vs α=0.25 (or future 0.10) PAUSE/giveback track | **OPERATING (partial)** | full-E45 + blend-α=0.25 observe both **OPERATING**; long parallel dashboard / α=0.10 sleeve **not** opened |
+| **1** | **α band deep-dive (0.05–0.15)** | Dense grid + stability + month-end PAUSE | **DONE** | `E45_LOW_ALPHA_DEEP_DIVE.md` — held-out **α=0.05**; no dense α clears YTD/1y PAUSE |
+| **2** | **Crisis-triggered α** | Cut calm-day CAGR tax | **DONE** | `E45_CRISIS_TRIGGERED_ALPHA.md` — GATE/E1BIN lose to `CONST_A05` |
+| **3** | **Lower `max_cut` new profile** | Milder defense vs blend-α | **DONE** | `E45_MAXCUT_MILD_PROFILE.md` — mild mc loses to blend-α=0.05; frozen mc=0.5 untouched |
+| **4** | **Cost / turnover stress (0–3×)** | Confirm mild α still pays | **DONE** | `E45_ALPHA_COST_TURNOVER.md` — **α=0.05 survives 0–3×** with MDD help ~+0.84–0.90pp; turnover not explosive |
+| **5** | **Crisis-year attribution** | Where protection concentrates | **DONE** | `E45_CRISIS_YEAR_ATTRIBUTION.md` — α=0.05 MDD help **~98.7% in 2020**; 2018 tiny; 2015/2022 not helping |
+| **6** | **Sleeve-local apply** | Shrink whole-book CAGR drag | **DONE** | `E45_SLEEVE_LOCAL.md` — **FIN+0050 / high-β @α=0.05** beat ALL@0.05 on held-out score (~0.345 vs 0.320) |
+| **7** | **Dual-sleeve long monitor** | full vs α=0.25 (+ paper A10) | **DONE (dashboard)** | `E45_DUAL_SLEEVE_MONITOR_DASHBOARD.md` — FULL+A25 observe operating; paper A10 companion only (not OPEN) |
 
 ## Binding constraints (unchanged)
 
 - Do **not** invent a −13.16% replacement (`RETIRED_HISTORICAL_NARRATIVE`).
-- Do **not** retune frozen `E3_VOLTARGET_WINNER` in place (intensity only via blend α / new profile).
+- Do **not** retune frozen `E3_VOLTARGET_WINNER` in place.
 - Do **not** live-stitch without second human `E45 ACCEPT live stitch`.
 - Operating observe α targets change only via new **OPEN** ballot.
 
-## Suggested next ballot (paper)
+## Cross-roadmap paper verdict (as of 2026-09-06)
 
-1. **`E45 PAPER alpha cost/turnover stress`** (#4) — or  
-2. **`E45 PAPER crisis-year attribution (blend-α)`** (#5) — or  
-3. Continue observe cadence only (no new screen)
+1. Best simple intensity: **constant blend α≈0.05** (not crisis-gate, not milder max_cut).
+2. Cost-robust at 0–3× fees.
+3. Protection is **2020-concentrated** — diversification risk; keep multi-year honesty.
+4. **Sleeve-local (FIN/high-β)** slightly better score than whole-book α=0.05 — candidate for a future dedicated paper/observe ballot (not auto-opened here).
+5. Observe continues: FULL + A25; stitch still blocked by PAUSE/clean-trailing gates.
+
+## Suggested next human ballots (only if desired)
+
+1. `E45 PAPER sleeve-local deep-dive` (densify FIN/high-β α) — or  
+2. `E45 OPEN blend-α=0.05 observe` — or  
+3. Continue observe cadence only
 
 ## Label
 
-`E45_PAPER_ROADMAP_STATUS_2026-09-06__P1_P2_P3_DONE__STITCH_FORBIDDEN`
+`E45_PAPER_ROADMAP_STATUS_2026-09-06__P1_P7_DONE__STITCH_FORBIDDEN`

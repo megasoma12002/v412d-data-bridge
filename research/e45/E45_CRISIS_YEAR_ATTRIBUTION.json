@@ -1,0 +1,35 @@
+{
+  "generated_at_utc": "2026-09-06T01:46:41.228185+00:00",
+  "status": "PAPER_ONLY",
+  "ballot": "E45 PAPER crisis-year attribution",
+  "roadmap_priority": 5,
+  "profile": "E3_VOLTARGET_WINNER",
+  "alphas": [
+    0.0,
+    0.05,
+    0.1,
+    0.25,
+    1.0
+  ],
+  "crisis_years": [
+    2011,
+    2015,
+    2018,
+    2020,
+    2022
+  ],
+  "ref_years": [
+    2023,
+    2024
+  ],
+  "note_2011": "partial year (market starts ~2011-12)",
+  "soft_frozen": "KEEP",
+  "live_stitch": "FORBIDDEN",
+  "a05_top_crisis_year": {
+    "alpha": 0.05,
+    "book": "BLEND_A05",
+    "year": 2020,
+    "mdd_improve_pp": 0.8526551636099389,
+    "share_of_positive_mdd_help": 0.9868647063173399
+  }
+}
