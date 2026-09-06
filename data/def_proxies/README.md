@@ -8,3 +8,5 @@ Fetched by `scripts/fetch_e45_true_def_proxies.py`.
 
 Do **not** merge into `forward/e21/live_market.csv` without a dedicated paper pack + freeze.
 Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN.
+
+Also ingested for M2 BIL_FX improve pack: `00720B`, `00740B`, `00751B` (TWD short-bond ETF proxies).

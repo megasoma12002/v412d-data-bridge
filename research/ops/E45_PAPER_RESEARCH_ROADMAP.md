@@ -123,3 +123,4 @@ M2 v1 read: `M2_RELOC_BIL_FX_C50/C75` clear §2 on true DEF (`BIL×USDTWD`); `00
 
 Engineering: PR **#101** (M3) · **#102** (DEF ingest) · **#103** (M2 v1 paper) merged to `main`. Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN**.
 
+| — | M2 BIL_FX improve (FX sens + TWD twin + observe prep) | **DONE — PAPER / AWAITING_HUMAN_ACCEPT** | `E45_M2_BIL_FX_IMPROVE.md` · freeze `E45_M2_BIL_FX_IMPROVE_V0_FROZEN.md` |

@@ -1,0 +1,125 @@
+{
+  "generated_at_utc": "2026-09-06T16:32:02.675600+00:00",
+  "label": "E45_M2_BIL_FX_DUAL_PAPER_OBSERVE_PREP",
+  "status": "AWAITING_HUMAN_ACCEPT",
+  "operating_observe": false,
+  "live_wire": false,
+  "soft_frozen_default_unchanged": true,
+  "stitch_authorized": false,
+  "cutover_authorized": false,
+  "ballot": "E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT (NOT ACCEPTED)",
+  "base_id": "BASE_E16_E18_E22_v2s",
+  "locked_challenger": "M2_RELOC_BIL_FX_C50",
+  "mode": "RELOC_BIL_FX",
+  "cut": 0.5,
+  "def_code": "BIL_FX",
+  "def_honesty": "BIL \u00d7 USDTWD mid \u2014 FX risk; mid optimistic; not TWD cash",
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "exact_t1": {
+    "base": true,
+    "m2_reloc_bil_fx_c50": true
+  },
+  "heldout_vs_base": {
+    "mdd_improve_pp": 2.9585299388856345,
+    "cagr_giveback_pp": 3.431416298385259,
+    "score": 1.242821789693005
+  },
+  "sealed_vs_base": {
+    "mdd_improve_pp": 2.652963145586207,
+    "cagr_giveback_pp": 4.755390094477008,
+    "score": 0.27526809834770294
+  },
+  "windows": {
+    "BASE_E16_E18_E22_v2s": {
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 1.0,
+      "windows": {
+        "full": {
+          "cagr": 0.13789395672938531,
+          "max_drawdown": -0.22543344437825508,
+          "utility": 0.025177234540257776,
+          "vol": 0.13297638346349747,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08891395615228181,
+          "max_drawdown": -0.17552258063858128,
+          "utility": 0.0011526658329911732,
+          "vol": 0.10689317000099306,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12303252832234746,
+          "max_drawdown": -0.2254334443782552,
+          "utility": 0.010315806133219863,
+          "vol": 0.13563392852620926,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.2488922261012192,
+          "max_drawdown": -0.14087148125010163,
+          "utility": 0.17845648547616838,
+          "vol": 0.16567513128978922,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.18203522229472702,
+          "max_drawdown": -0.2254334443782552,
+          "utility": 0.06931850010559942,
+          "vol": 0.15058731210766724,
+          "n_days": 1856
+        }
+      }
+    },
+    "M2_RELOC_BIL_FX_C50": {
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 1.0,
+      "windows": {
+        "full": {
+          "cagr": 0.11329330137406912,
+          "max_drawdown": -0.19584814498939884,
+          "utility": 0.0153692288793697,
+          "vol": 0.11209750169531757,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.0747164386975594,
+          "max_drawdown": -0.12262916255408252,
+          "utility": 0.013401857420518137,
+          "vol": 0.09200640872323348,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.10001336917976311,
+          "max_drawdown": -0.19584814498939884,
+          "utility": 0.0020892966850636907,
+          "vol": 0.11399132895277295,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.20133832515644912,
+          "max_drawdown": -0.11434184979423956,
+          "utility": 0.14416740025932934,
+          "vol": 0.13791125710614938,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.14772105931087443,
+          "max_drawdown": -0.19584814498939884,
+          "utility": 0.049796986816175004,
+          "vol": 0.1258664276029641,
+          "n_days": 1856
+        }
+      }
+    }
+  },
+  "next_human": [
+    "Cast HOLD / ACCEPT OPEN / REJECT on draft observe ballot",
+    "Only after ACCEPT OPEN: mark OPERATING and add to ops month-end pack"
+  ],
+  "non_actions": [
+    "Do not treat AWAITING as OPERATING observe",
+    "Do not Soft-Frozen / DEFAULT / stitch",
+    "Do not merge DEF into live_market.csv"
+  ]
+}

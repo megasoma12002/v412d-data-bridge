@@ -93,3 +93,10 @@ HIGH_BETA: **DRAFT / NOT OPEN** (separate ballot)
 7. Do **not** default back to `M2_RELOC_TEL_C50` without an explicit human switch.
 
 Label: `E45_M2_BIL_FX_OBSERVE_OPEN_BALLOT_DRAFT_2026-09-06__AWAITING_HUMAN_ACCEPT__NOT_OPEN__STITCH_FORBIDDEN`
+
+## Improve pack cross-link
+
+- FX sensitivity + TWD twin paper: `research/e45/E45_M2_BIL_FX_IMPROVE.md`
+- Observe OPEN prep (await ACCEPT): `research/ops/E45_M2_BIL_FX_OBSERVE_OPEN_AWAITING_ACCEPT.md`
+- Status: **DRAFT / NOT OPEN** unchanged until human ACCEPT
+

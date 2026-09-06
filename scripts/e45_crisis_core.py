@@ -342,7 +342,7 @@ def apply_m2_def_relocate(
             "0050": w_0050_s - move_0050,
             "DEF": 0.0,
         }
-    if m in {"RELOC_719B", "RELOC_BIL_FX"}:
+    if m in {"RELOC_719B", "RELOC_BIL_FX", "RELOC_TWD_720B"}:
         move_fin = w_fin * u
         move_0050 = w_0050 * u
         return {
