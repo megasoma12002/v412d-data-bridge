@@ -17,4 +17,4 @@ OPEN **ACCEPTED / OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md` �
 
 ## Five-research batch (2026-09-06)
 
-Paper follow-ups **DONE** (PAUSE time-series / non-2020 attribution / FIN_A10 vs ALL_A05 / HIGH_BETA DRAFT / multi-event charter). See `E45_FIVE_RESEARCH_BATCH_INTEGRATED.md`. Soft-Frozen KEEP · stitch FORBIDDEN · no new OPEN.
+Paper follow-ups **DONE** (PAUSE time-series / non-2020 attribution / FIN_A10 vs BLEND_E45_A05 / HIGH_BETA DRAFT / multi-event charter). See `E45_FIVE_RESEARCH_BATCH_INTEGRATED.md`. Soft-Frozen KEEP · stitch FORBIDDEN · no new OPEN.

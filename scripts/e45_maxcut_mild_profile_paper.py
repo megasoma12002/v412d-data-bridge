@@ -23,6 +23,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
@@ -325,7 +326,7 @@ def main() -> None:
             "mild": "exposure_e3_voltarget(..., max_cut∈{0.25,0.35,0.40}) — paper-only override at call site",
             "blend": "exposure = (1−α)·1 + α·profile_exposure",
         },
-        "soft_frozen": "KEEP [0.50, 0.95]",
+        "soft_frozen_keep": list(SOFT_FROZEN_FIN_CLIP),
         "default_books": "E22_v2s_tw KEEP",
         "live_stitch": "FORBIDDEN",
         "observe_sleeves_unchanged": True,

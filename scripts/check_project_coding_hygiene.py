@@ -30,8 +30,11 @@ MONKEY = [
 CLAIM = re.compile(
     r"(claim_mdd_status|claim_status)\s*[:=]\s*['\"]NOT_VERIFIED"
 )
-CLAIM_KEY_FORK = re.compile(r"""['\"]claim_mdd_status['\"]\s*:""")
+CLAIM_KEY_FORK = re.compile(r"""['\"](?:claim_mdd_status|claimed_mdd_status)['\"]\s*:""")
 SOFT_ALIAS = re.compile(r"^SOFT_FROZEN_CLIP\s*=", re.M)
+ABS_OR9 = re.compile(r"_abs_or\s*\([^\n]{0,80}9\.0")
+SOFT_KEEP_STR = re.compile(r"""['\"]soft_frozen['\"]\s*:\s*['\"]KEEP \[0\.50, 0\.95\]['\"]""")
+
 # Local date-literal WINDOWS copies (allow WINDOWS = WINDOWS_STANDARD / dict-comps).
 WINDOWS_LITERAL = re.compile(
     r"^WINDOWS\s*=\s*\{[^}]*date\s*\(",
@@ -99,6 +102,16 @@ def main() -> int:
                 violations.append(
                     f"{rel}:{line}: local WINDOWS date literals — use WINDOWS_STANDARD"
                 )
+
+        for m in ABS_OR9.finditer(text):
+            line = text.count("\n", 0, m.start()) + 1
+            violations.append(f"{rel}:{line}: `_abs_or(..., 9.0)` — use abs_mdd/mdd_delta_pp")
+
+        for m in SOFT_KEEP_STR.finditer(text):
+            line = text.count("\n", 0, m.start()) + 1
+            violations.append(
+                f"{rel}:{line}: Soft-Frozen KEEP string hardcode — emit list(SOFT_FROZEN_FIN_CLIP)"
+            )
 
         if path.name != "e16_soft_frozen_base.py":
             for pat in (CLIP_JSON, CLIP_KEEP):

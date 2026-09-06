@@ -90,6 +90,11 @@ def _check_harness_adoption(path: Path, text: str, violations: list[str]) -> Non
 NAMING_FORK_BANS = (
     (r"^E45_PROFILE\s*=", "Use E45_PROFILE_DEFAULT from e45_paper_harness (do not fork E45_PROFILE)"),
     (r"\bmdd_help_pp\b", "Use mdd_improve_pp (harness deltas_vs_base key)"),
+    (
+        r"\bmdd_help_(?:2020|covid_year|non2020_positive|non_covid_positive|threshold)_pp\b",
+        "Use mdd_improve_* keys (not mdd_help_*)",
+    ),
+    (r"Observe lock `FIN_ONLY_A10`", "Observe OPERATING id is SLEEVE_FIN_ONLY_A10"),
     (r"\bsealed_2023_latest\b", "Use sealed_2023_plus (WINDOWS_STANDARD)"),
 )
 

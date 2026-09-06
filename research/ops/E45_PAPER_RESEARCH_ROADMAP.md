@@ -7,7 +7,7 @@ Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · l
 | Pri | Direction | Purpose | Status | Artifact / note |
 |---:|---|---|---|---|
 | **1** | **α band deep-dive (0.05–0.15)** | Dense grid + stability + month-end PAUSE | **DONE** | `E45_LOW_ALPHA_DEEP_DIVE.md` — held-out **α=0.05**; no dense α clears YTD/1y PAUSE |
-| **2** | **Crisis-triggered α** | Cut calm-day CAGR tax | **DONE** | `E45_CRISIS_TRIGGERED_ALPHA.md` — GATE/E1BIN lose to `CONST_A05` |
+| **2** | **Crisis-triggered α** | Cut calm-day CAGR tax | **DONE** | `E45_CRISIS_TRIGGERED_ALPHA.md` — GATE/E1BIN lose to `BLEND_E45_A05` |
 | **3** | **Lower `max_cut` new profile** | Milder defense vs blend-α | **DONE** | `E45_MAXCUT_MILD_PROFILE.md` — mild mc loses to blend-α=0.05; frozen mc=0.5 untouched |
 | **4** | **Cost / turnover stress (0–3×)** | Confirm mild α still pays | **DONE** | `E45_ALPHA_COST_TURNOVER.md` — **α=0.05 survives 0–3×** with MDD help ~+0.84–0.90pp; turnover not explosive |
 | **5** | **Crisis-year attribution** | Where protection concentrates | **DONE** | `E45_CRISIS_YEAR_ATTRIBUTION.md` — α=0.05 MDD help **~98.7% in 2020**; 2018 tiny; 2015/2022 not helping |

@@ -191,7 +191,7 @@ def main() -> None:
         "e45_profile": E45_PROFILE_DEFAULT,
         "blend_definition": "exposure_alpha = (1-alpha)*1 + alpha*E3_VOLTARGET_WINNER",
         "alphas": list(ALPHAS),
-        "claimed_mdd_status": CLAIM_STATUS,
+        "claim_status": CLAIM_STATUS,
         "primary_comparable_mdd": e45.PRIMARY_COMPARABLE_MDD,
         "books": books,
         "focus_deltas_vs_base": deltas,

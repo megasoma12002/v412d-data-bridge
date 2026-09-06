@@ -16,6 +16,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e45_paper_harness import WINDOWS_STANDARD
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
@@ -103,8 +104,8 @@ def main() -> None:
     dyn = {
         "ytd": (pd.Timestamp(asof.year, 1, 1), asof),
         "trailing_1y": (asof - pd.Timedelta(days=365), asof),
-        "heldout_2019_plus": (pd.Timestamp("2019-01-01"), asof),
-        "sealed_2023_plus": (pd.Timestamp("2023-01-01"), asof),
+        "heldout_2019_plus": (pd.Timestamp(WINDOWS_STANDARD["heldout_2019_plus"][0]), asof),
+        "sealed_2023_plus": (pd.Timestamp(WINDOWS_STANDARD["sealed_2023_plus"][0]), asof),
     }
     a10_rows = []
     for w, (a, b) in dyn.items():
@@ -131,7 +132,7 @@ def main() -> None:
         "status": "PAPER_DASHBOARD",
         "ballot": "E45 PAPER dual-sleeve long monitor dashboard",
         "roadmap_priority": 7,
-        "operating_observe_sleeves": ["CHAL_E45_E3", "BLEND_E45_A25"],
+        "operating_observe_sleeves": ["CHAL_E45_E3", "BLEND_E45_A25", "BLEND_E45_A05", "SLEEVE_FIN_ONLY_A10"],
         "paper_companion_not_observe": ["BLEND_E45_A10"],
         "asof_paper_a10": str(asof.date()),
         "full_observe_asof": full.get("asof"),

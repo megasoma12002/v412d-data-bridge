@@ -23,7 +23,7 @@ Across seven independent paper screens, the **best simple intensity remains cons
 | # | Question | Held-out answer | Implication |
 |---|---|---|---|
 | **1** Dense α 0.05–0.15 | Is there a better constant α than 0.05? | **No** — A05 score **0.320** tops dense band; A08 close but worse score; A12+ negative | Intensity ceiling is low; denser grid did not unlock a PAUSE-clearing α |
-| **2** Crisis-triggered α | Can gating cut calm-day tax? | **No** — best GATE/E1BIN lose to `CONST_A05` (0.320 vs ≤ −0.07) | Timing the overlay fails; sparsity (E1 ~1.2% days) → ~0 held-out MDD help |
+| **2** Crisis-triggered α | Can gating cut calm-day tax? | **No** — best GATE/E1BIN lose to `BLEND_E45_A05` (0.320 vs ≤ −0.07) | Timing the overlay fails; sparsity (E1 ~1.2% days) → ~0 held-out MDD help |
 | **3** Mild `max_cut` | Softer defense profile vs blend-α? | **No** — best mild full score **−1.11** vs REF_BLEND_A05 **+0.32**; frozen mc=0.5 untouched | Do not retune winner in place; milder profiles tax more than they help on held-out |
 | **4** Cost 0–3× | Does mild α still pay under fee stress? | **Yes** — A05 score stays **+0.32 → +0.38** from 0× to 3×; MDD help ~**+0.84–0.90pp**; ΔTO vs BASE ~**+0.04/yr** | Not a turnover bomb; fee robustness supports keeping A05 as paper reference |
 | **5** Crisis-year attribution | Where does A05 protection live? | **~98.7% of positive MDD help in 2020**; 2018 ~1.3%; 2015/2022 **hurt** | Single-crisis dependency — multi-year honesty required; do not sell “all-crisis shield” |

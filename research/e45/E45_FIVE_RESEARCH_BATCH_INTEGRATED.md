@@ -18,7 +18,7 @@ Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replaceme
 
 1. **Observe:** tip PAUSE_REVIEW remains common; **no sleeve has a clean YTD+1y pair yet** → stitch still blocked by trailing gates (expected).
 2. **Crisis honesty:** help is still **2020-concentrated**; non-2020 years are weak or mixed.
-3. **FIN_ONLY_A10 vs ALL_A05:** re-validated under rolling 3y + cost 1–3×; observe lock unchanged.
+3. **FIN_ONLY_A10 vs BLEND_E45_A05:** re-validated under rolling 3y + cost 1–3×; observe lock unchanged.
 4. **HIGH_BETA:** paper densify complete; ballot stays **DRAFT / NOT OPEN**.
 5. **Multi-event rule:** future OPEN ballots should require ≥2 stress years with MDD help >0.25pp + held-out score>0 + sealed score>−1.
 

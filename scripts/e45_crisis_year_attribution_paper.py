@@ -153,10 +153,10 @@ def main() -> None:
         mdds = sub["mdd_improve_pp"].fillna(0).clip(lower=0)
         total = float(mdds.sum())
         for _, r in sub.iterrows():
-            share = None if total <= 1e-12 else float(max(r["mdd_improve_pp"] or 0, 0) / total)
+            share = None if total <= 1e-12 else float((0.0 if r["mdd_improve_pp"] is None else max(float(r["mdd_improve_pp"]), 0.0)) / total)
             conc.append({
                 "alpha": float(alpha), "book": book_id(alpha), "year": int(r["year"]),
-                "mdd_improve_pp": r["mdd_improve_pp"], "share_of_positive_mdd_help": share,
+                "mdd_improve_pp": r["mdd_improve_pp"], "share_of_positive_mdd_improve": share,
             })
     conc_df = pd.DataFrame(conc)
     conc_df.to_csv(OUT / "outputs" / "crisis_year_mdd_concentration.csv", index=False)
@@ -216,7 +216,7 @@ def main() -> None:
         "|---:|---:|---:|",
     ]
     for _, r in a05.iterrows():
-        sh = "n/a" if r["share_of_positive_mdd_help"] is None else f"{100*r['share_of_positive_mdd_help']:.1f}%"
+        sh = "n/a" if r["share_of_positive_mdd_improve"] is None else f"{100*r['share_of_positive_mdd_improve']:.1f}%"
         lines.append(f"| {int(r['year'])} | {pp(r['mdd_improve_pp'])} | {sh} |")
 
     lines += [

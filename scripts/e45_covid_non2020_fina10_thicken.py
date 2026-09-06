@@ -234,8 +234,8 @@ def main() -> None:
         years_non_covid = sorted(g.loc[(~g["is_covid"]) & (g["mdd_improve_pp"] > HELP_THRESHOLD_PP), "year"].tolist())
         conc.append({
             "book": bid,
-            "mdd_help_covid_year_pp": covid_help,
-            "mdd_help_non_covid_positive_pp": non_covid_pos,
+            "mdd_improve_covid_year_pp": covid_help,
+            "mdd_improve_non_covid_positive_pp": non_covid_pos,
             "share_of_positive_help_in_covid_year": (covid_help / total_pos) if total_pos > 1e-9 else None,
             "n_stress_years_helped_gt_0_25pp": len(years_all),
             "years_helped": years_all,
@@ -390,7 +390,7 @@ def main() -> None:
               "|---|---:|---:|---:|---:|---|:---:|:---:|"]
     for _, r in conc_df.sort_values("share_of_positive_help_in_covid_year", ascending=False).iterrows():
         lines.append(
-            f"| `{r['book']}` | {fmt(r['mdd_help_covid_year_pp'])} | {fmt(r['mdd_help_non_covid_positive_pp'])} | "
+            f"| `{r['book']}` | {fmt(r['mdd_improve_covid_year_pp'])} | {fmt(r['mdd_improve_non_covid_positive_pp'])} | "
             f"{pct(r['share_of_positive_help_in_covid_year'])} | {int(r['n_stress_years_helped_gt_0_25pp'])} | "
             f"{r['non_covid_years_helped']} | {'Y' if r['multi_event_incl_covid'] else 'N'} | "
             f"{'Y' if r['multi_event_non_covid_only'] else 'N'} |"
@@ -452,7 +452,7 @@ def main() -> None:
     lines += ["",
               f"**Held-out preferred (all candidates):** `{preferred['book'] if preferred else 'n/a'}`",
               f"**Held-out preferred among FIN_ONLY densify:** `{fin_pref}`",
-              f"**Observe lock `FIN_ONLY_A10` still preferred among FIN densify?** **{'YES' if lock_holds else 'NO — paper flag only; do not auto-flip'}**",
+              f"**Observe lock `SLEEVE_FIN_ONLY_A10` still preferred among FIN densify (paper densify id `FIN_ONLY_A10`)?** **{'YES' if lock_holds else 'NO — paper flag only; do not auto-flip'}**",
               "", "## COVID-year-excluded held-out (2019+ minus all 2020 days)", "",
               "Removes the COVID mega-DD year from the held-out path so sleeve-local edge is not COVID-only.", "",
               "| Book | MDD improve pp | CAGR giveback pp | Score | n_days |", "|---|---:|---:|---:|---:|"]
@@ -510,7 +510,7 @@ def main() -> None:
         "soft_frozen": "KEEP",
         "default_books": "KEEP",
         "live_stitch": "FORBIDDEN",
-        "claimed_mdd_status": CLAIM_STATUS,
+        "claim_status": CLAIM_STATUS,
         "framing": {
             "covid_year": COVID_YEAR,
             "covid_episode": [COVID_EPISODE[0].isoformat(), COVID_EPISODE[1].isoformat()],

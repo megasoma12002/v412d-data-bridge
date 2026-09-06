@@ -149,7 +149,7 @@ def main() -> None:
         "locked_challenger": CHAL_ID,
         "blend_alpha": BLEND_ALPHA,
         "e45_profile": E45_PROFILE_DEFAULT,
-        "claimed_mdd_status": CLAIM_STATUS,
+        "claim_status": CLAIM_STATUS,
         "primary_comparable_mdd": e45.PRIMARY_COMPARABLE_MDD,
         "current_live_clip": {"financial_lo": soft_frozen.SOFT_FROZEN_FIN_LO, "financial_hi": soft_frozen.SOFT_FROZEN_FIN_HI},
         "exact_t1": {

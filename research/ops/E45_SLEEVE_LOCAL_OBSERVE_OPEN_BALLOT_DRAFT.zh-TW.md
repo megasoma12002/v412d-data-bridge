@@ -47,7 +47,7 @@ Live stitch：**仍禁止 FORBIDDEN**
 
 依據 `E45_SLEEVE_LOCAL_DEEP_DIVE.md`（P1–P7 之後）：
 
-1. Held-out @1× 首選：`FIN_ONLY_A10`（score **~0.285**）優於全書 `ALL_A05`（~0.222）。  
+1. Held-out @1× 首選：`FIN_ONLY_A10`（score **~0.285**）優於全書 `BLEND_E45_A05`（~0.222）。  
 2. 成本 2× 雙胞胎仍為正（score **~0.319**）— 此強度下不是換手炸彈。  
 3. 危機年 MDD 幫助仍約 **84% 集中在 2020** — 與全書 A05 同樣的誠實約束。  
 4. 結構優勢在於「α 套用在哪裡」；應與全書 A05 **分開觀察**，不要混成一條 sleeve。

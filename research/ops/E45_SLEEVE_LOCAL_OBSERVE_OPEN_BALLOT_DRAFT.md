@@ -48,7 +48,7 @@ Default proposal remains **FIN_ONLY @ α=0.10** unless the ACCEPT note explicitl
 
 From `E45_SLEEVE_LOCAL_DEEP_DIVE.md` (post P1–P7):
 
-1. Held-out preferred @1×: **`FIN_ONLY_A10`** (score **~0.285**) beats whole-book **`ALL_A05`** (~0.222).
+1. Held-out preferred @1×: **`FIN_ONLY_A10`** (score **~0.285**) beats whole-book **`BLEND_E45_A05`** (~0.222).
 2. Cost 2× twin still positive (score **~0.319**) — not a turnover bomb at this intensity.
 3. Crisis-year MDD help still **~84% concentrated in 2020** — same honesty constraint as whole-book A05.
 4. Structure edge (where α applies) is the reason to observe sleeve-local **separately** from whole-book A05; do not conflate the two sleeves.

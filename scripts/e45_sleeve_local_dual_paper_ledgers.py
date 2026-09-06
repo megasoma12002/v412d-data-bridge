@@ -114,7 +114,7 @@ def main() -> None:
         "blend_alpha": BLEND_ALPHA,
         "e45_profile": E45_PROFILE_DEFAULT,
         "e45_sleeve_names": list(SLEEVES),
-        "claimed_mdd_status": CLAIM_STATUS,
+        "claim_status": CLAIM_STATUS,
         "exact_t1": {
             "base": books[BASE_ID]["exact_t1_ok"],
             "sleeve_fin_only_a10": books[CHAL_ID]["exact_t1_ok"],
