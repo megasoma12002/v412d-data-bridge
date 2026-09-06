@@ -85,7 +85,8 @@ jobs:
             cat research/ops/E22_DATA_QUALITY_KPI.md >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Commit monitor refreshes (no Soft-Frozen / no forward rewrite policy)
-        if: success()
+        # Refuse partial commits when continue_on_error was used (incomplete pack risk).
+        if: success() && (github.event_name != 'workflow_dispatch' || inputs.continue_on_error != true)
         run: |
           set -euo pipefail
           git config user.name "ops-month-end-bot"

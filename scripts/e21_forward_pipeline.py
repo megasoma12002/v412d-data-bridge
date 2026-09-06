@@ -119,11 +119,21 @@ def main():
         choices=[e22div.E22_V2, e22div.E22_V2S, e22div.E22_V2S_CIL, e22div.E22_V2S_TW],
     )
     ap.add_argument(
+        "--confirm-e22-version-override",
+        action="store_true",
+        help="Required when --e22-version differs from live DEFAULT (E22_v2s_tw).",
+    )
+    ap.add_argument(
         "--allow-noncanonical-paths",
         action="store_true",
         help="Permit market/state paths outside forward/e21 (research only).",
     )
     a = ap.parse_args()
+    if a.e22_version != E22_BOOKS_VERSION and not a.confirm_e22_version_override:
+        raise SystemExit(
+            f"--e22-version={a.e22_version!r} overrides live DEFAULT {E22_BOOKS_VERSION!r}; "
+            "pass --confirm-e22-version-override to proceed (research/ops only)."
+        )
     CAPITAL = a.capital
     sdir = Path(a.state_dir)
     market_path = Path(a.market)
@@ -169,7 +179,7 @@ def main():
         orders = pd.read_csv(orders_path, dtype={"code": str})
         filled = set()
         if (sdir / "fills.csv").exists():
-            filled = set(pd.read_csv(sdir / "fills.csv").fill_id.astype(str))
+            filled = set(pd.read_csv(sdir / "fills.csv", dtype={"code": str}).fill_id.astype(str))
         pending = orders[(~orders.order_id.astype(str).isin(filled)) & (pd.to_datetime(orders.signal_date) < latest)]
         for _, o in pending.iterrows():
             q = int(o.quantity)
@@ -210,7 +220,7 @@ def main():
         if fill_dt <= sig:
             same_bar_fills += 1
     exact_t1_ok = same_bar_fills == 0
-    qc = {
+    audit = {
         "date": latest.date().isoformat(),
         "exact_t1_ok": exact_t1_ok,
         "same_bar_fills": same_bar_fills,
@@ -218,9 +228,13 @@ def main():
         "pending_filter": "signal_date < fill_date",
         "soft_frozen_financial_clip": [soft_frozen.SOFT_FROZEN_FIN_LO, soft_frozen.SOFT_FROZEN_FIN_HI],
         "live_wire": True,
-        "note": "Live Exact T+1 ledger check. Soft-Frozen clip unchanged by research challengers.",
+        "owns_qc_status": False,
+        "note": (
+            "Pipeline Exact T+1 audit only. qc_status.json is owned by e21_qc.py; "
+            "this file is pipeline_t1_audit.json."
+        ),
     }
-    (sdir / "qc_status.json").write_text(json.dumps(qc, indent=2) + "\n")
+    (sdir / "pipeline_t1_audit.json").write_text(json.dumps(audit, indent=2) + "\n")
     if not exact_t1_ok:
         raise SystemExit(
             f"Exact T+1 violation: {same_bar_fills} same-bar fill(s) on {latest.date()}"

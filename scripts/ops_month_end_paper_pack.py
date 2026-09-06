@@ -131,6 +131,8 @@ def main() -> int:
         "soft_frozen_clip": list(SOFT_FROZEN_CLIP),
         "soft_frozen_unchanged": True,
         "refresh_ledgers": bool(args.refresh_ledgers),
+        "continue_on_error": bool(args.continue_on_error),
+        "partial_pack": bool(args.continue_on_error and failed),
         "all_ok": not failed and all(r["ok"] for r in results),
         "steps": [
             {"name": r["name"], "ok": r["ok"], "returncode": r["returncode"]} for r in results

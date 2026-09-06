@@ -238,7 +238,7 @@ Changing dividend cashflow timing (e.g. payment-date credit) or tax treatment be
 
 Current crisis implementation, parameters, and the reported MDD baseline claim. E45 is the official crisis-protection version, not an alpha model. Alpha weakening is not treated as crisis in this official operating logic.
 
-The handoff claim “MDD about -13.16%” was re-verified on 2026-09-04 as **NOT_VERIFIED** (no research CSV/JSON MDD equals -0.1316). See `research/e45/E45_MDD_1316_VERIFICATION.md`. Prefer dated lineage MDDs in `scripts/e45_crisis_core.py` (`VERIFIED_LINEAGE_MDD`). It is not a new freeze and not a license to retune E45 in place.
+The handoff claim “MDD about -13.16%” was re-verified on 2026-09-04 as unmatched against dated artifacts, and is labeled **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement). See `research/e45/E45_MDD_1316_VERIFICATION.md` and `research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md`. Prefer dated lineage MDDs in `scripts/e45_crisis_core.py` (`VERIFIED_LINEAGE_MDD`). It is not a new freeze and not a license to retune E45 in place.
 
 Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is an EXPERIMENTAL challenger. Because E45 is SOFT_FROZEN_CRITICAL, that challenger must use a separate folder, keep the original baseline, and clear the higher validation bar in §1 before any new frozen version.
 

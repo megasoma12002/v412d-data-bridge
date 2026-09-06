@@ -1,6 +1,6 @@
-# E45 Blend-α=0.05 Month-End Paper Monitor — asof 2024-12-31
+# E45 Blend-α=0.05 Month-End Paper Monitor — asof 2026-09-04
 
-Generated: `2026-09-06T04:28:44.155636+00:00`
+Generated: `2026-09-06T05:28:04.947333+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **BLEND_E45_A05** (α=0.05 × E45 `E3_VOLTARGET_WINNER` on early-stack)
 
@@ -11,18 +11,20 @@ Locked: **BLEND_E45_A05** (α=0.05 × E45 `E3_VOLTARGET_WINNER` on early-stack)
 
 | Window | BASE CAGR | BASE MDD | BLEND_E45_A05 CAGR | BLEND_E45_A05 MDD | MDD Δpp | CAGR giveback pp | Rel NAV | Decision? |
 |---|---:|---:|---:|---:|---:|---:|---:|:---:|
-| mtd | -9.82%* | -5.70% | -10.61%* | -5.22% | +0.48 | +0.79 | 0.9993 | no |
-| ytd | 21.87% | -6.82% | 19.58% | -6.64% | +0.18 | +2.29 | 0.9820 | yes |
-| trailing_1y | 21.87% | -6.82% | 19.58% | -6.64% | +0.18 | +2.29 | 0.9820 | yes |
-| sealed_2023_plus | 14.79% | -6.97% | 15.32% | -6.87% | +0.10 | -0.53 | 1.0088 | yes |
-| heldout_2019_plus | 13.25% | -22.54% | 13.02% | -21.84% | +0.70 | +0.22 | 0.9886 | yes |
-| full | 10.84% | -22.54% | 10.83% | -21.84% | +0.70 | +0.01 | 0.9990 | no |
+| mtd | 1992.20%* | 0.00% | 1600.88%* | 0.00% | +0.00 | +391.32 | 0.9975 | no |
+| ytd | 68.37% | -14.09% | 63.50% | -11.31% | +2.78 | +4.87 | 0.9814 | yes |
+| trailing_1y | 54.17% | -14.09% | 48.99% | -11.31% | +2.78 | +5.17 | 0.9679 | yes |
+| sealed_2023_plus | 24.89% | -14.09% | 23.47% | -11.31% | +2.78 | +1.42 | 0.9610 | yes |
+| heldout_2019_plus | 18.20% | -22.54% | 17.24% | -21.84% | +0.70 | +0.96 | 0.9417 | yes |
+| full | 13.79% | -22.54% | 13.37% | -21.84% | +0.70 | +0.42 | 0.9516 | no |
 
 \* `mtd` CAGR annualized from a short sample — **non-decision / display-only**.
 
 ## Alerts
 
-- None (dynamic windows clean; stitch still blocked)
+- ALERT: BLEND_E45_A05 ytd CAGR giveback > 3.0 pp (paper)
+- ALERT: BLEND_E45_A05 trailing_1y CAGR giveback > 3.0 pp (paper)
+- PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
 
 ## Stitch / cutover status
 

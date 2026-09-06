@@ -82,3 +82,25 @@ class HygieneArtifactPatterns(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PipelineQcOwnership(unittest.TestCase):
+    def test_pipeline_does_not_write_qc_status(self):
+        src = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
+        self.assertNotIn('qc_status.json").write_text', src)
+        self.assertIn("pipeline_t1_audit.json", src)
+        self.assertIn("confirm_e22_version_override", src)
+
+
+class FrozenClaimLabel(unittest.TestCase):
+    def test_frozen_docs_use_retired_label(self):
+        for name in ("FROZEN_GOVERNANCE.md", "FROZEN_STRATEGY_SPEC.md"):
+            text = (ROOT / name).read_text(encoding="utf-8")
+            self.assertIn("RETIRED_HISTORICAL_NARRATIVE", text)
+            # Allow historical quotes only if retired label also present nearby — ban bare status use
+            # Simple: file must not claim the handoff MDD is currently NOT_VERIFIED as active status.
+            self.assertNotRegex(
+                text,
+                r"as \*\*NOT_VERIFIED\*\*|（\*\*NOT_VERIFIED\*\*）",
+            )
+
