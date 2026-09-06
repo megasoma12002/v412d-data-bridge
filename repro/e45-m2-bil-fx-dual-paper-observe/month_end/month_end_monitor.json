@@ -1,0 +1,110 @@
+{
+  "generated_at_utc": "2026-09-06T16:32:02.976850+00:00",
+  "asof": "2026-09-04",
+  "status": "AWAITING_HUMAN_ACCEPT",
+  "operating_observe": false,
+  "locked_id": "M2_RELOC_BIL_FX_C50",
+  "def_honesty": "BIL \u00d7 USDTWD mid \u2014 FX risk; mid optimistic; not TWD cash",
+  "soft_frozen_unchanged": true,
+  "stitch_authorized": false,
+  "alerts": [
+    "ALERT: M2_RELOC_BIL_FX_C50 ytd CAGR giveback > 3.0 pp (paper)",
+    "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk",
+    "ALERT: M2_RELOC_BIL_FX_C50 trailing_1y CAGR giveback > 3.0 pp (paper)",
+    "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+  ],
+  "windows": [
+    {
+      "window": "mtd",
+      "start": "2026-09-01",
+      "end": "2026-09-04",
+      "n_days": 4,
+      "base_cagr": 19.922000007664774,
+      "base_mdd": 0.0,
+      "m2_reloc_bil_fx_c50_cagr": 16.990432336457655,
+      "m2_reloc_bil_fx_c50_mdd": 0.0,
+      "mdd_improve_pp": 0.0,
+      "cagr_giveback_pp": 293.15676712071195,
+      "rel_nav_end": 0.9982044572812736
+    },
+    {
+      "window": "ytd",
+      "start": "2026-01-01",
+      "end": "2026-09-04",
+      "n_days": 162,
+      "base_cagr": 0.6837253898932076,
+      "base_mdd": -0.14087148125010152,
+      "m2_reloc_bil_fx_c50_cagr": 0.5510169027228238,
+      "m2_reloc_bil_fx_c50_mdd": -0.11434184979423967,
+      "mdd_improve_pp": 2.6529631455861846,
+      "cagr_giveback_pp": 13.270848717038387,
+      "rel_nav_end": 0.9489003111114679
+    },
+    {
+      "window": "trailing_1y",
+      "start": "2025-09-04",
+      "end": "2026-09-04",
+      "n_days": 242,
+      "base_cagr": 0.5416538629101519,
+      "base_mdd": -0.14087148125010152,
+      "m2_reloc_bil_fx_c50_cagr": 0.44588461374786825,
+      "m2_reloc_bil_fx_c50_mdd": -0.11434184979423956,
+      "mdd_improve_pp": 2.6529631455861957,
+      "cagr_giveback_pp": 9.576924916228368,
+      "rel_nav_end": 0.9405081791960853
+    },
+    {
+      "window": "sealed_2023_plus",
+      "start": "2023-01-01",
+      "end": "2026-09-04",
+      "n_days": 879,
+      "base_cagr": 0.2488922261012192,
+      "base_mdd": -0.14087148125010163,
+      "m2_reloc_bil_fx_c50_cagr": 0.20133832515644912,
+      "m2_reloc_bil_fx_c50_mdd": -0.11434184979423956,
+      "mdd_improve_pp": 2.652963145586207,
+      "cagr_giveback_pp": 4.755390094477008,
+      "rel_nav_end": 0.8734919517287468
+    },
+    {
+      "window": "heldout_2019_plus",
+      "start": "2019-01-01",
+      "end": "2026-09-04",
+      "n_days": 1856,
+      "base_cagr": 0.18203522229472702,
+      "base_mdd": -0.2254334443782552,
+      "m2_reloc_bil_fx_c50_cagr": 0.14772105931087443,
+      "m2_reloc_bil_fx_c50_mdd": -0.19584814498939884,
+      "mdd_improve_pp": 2.9585299388856345,
+      "cagr_giveback_pp": 3.431416298385259,
+      "rel_nav_end": 0.8050473943321049
+    },
+    {
+      "window": "full",
+      "start": "2012-12-04",
+      "end": "2026-09-04",
+      "n_days": 3351,
+      "base_cagr": 0.13789395672938531,
+      "base_mdd": -0.22543344437825508,
+      "m2_reloc_bil_fx_c50_cagr": 0.11329330137406912,
+      "m2_reloc_bil_fx_c50_mdd": -0.19584814498939884,
+      "mdd_improve_pp": 2.9585299388856234,
+      "cagr_giveback_pp": 2.460065535531619,
+      "rel_nav_end": 0.7478492712081214
+    }
+  ],
+  "gates": {
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "design_giveback_pp": {
+      "heldout_2019_plus": 3.5,
+      "sealed_2023_plus": 6.0
+    },
+    "structural_buffer_pp": 2.0
+  },
+  "non_actions": [
+    "AWAITING_HUMAN_ACCEPT \u2014 not OPERATING",
+    "No Soft-Frozen / DEFAULT / stitch",
+    "No live orders"
+  ]
+}
