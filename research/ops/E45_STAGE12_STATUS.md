@@ -47,9 +47,9 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 
 ## Next actions
 
-1. Continue observe month-end cadence when market tip advances (do not re-run same asof)  
-2. Review drafted `E45_STITCH_CHECKLIST.md` — still **NOT AUTHORIZED**  
-3. Live stitch only after gates clear + explicit second human `E45 ACCEPT live stitch`
+1. Continue **both** observe sleeves on month-end cadence when market tip advances  
+2. Compare full-E45 vs blend-α=0.25 PAUSE/trailing behavior over time  
+3. Live stitch only after checklist gates clear + second human `E45 ACCEPT live stitch`
 
 
 ## Latest month-end refresh
@@ -66,6 +66,17 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Artifact: `research/e45/E45_BLEND_ALPHA_PAPER_SCREEN.md`
 - Held-out heuristic pick: **α=0.25** (`BLEND_E45_A25`) — MDD improve ~**+0.63 pp**, CAGR giveback ~**2.83 pp**
 - Full E45 (α=1) remains operating observe challenger; this screen does **not** open a new observe sleeve or authorize stitch
+- Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
+
+
+## Blend-α=0.25 observe OPEN (2026-09-06)
+
+- Ballot: `E45 OPEN blend-α=0.25 observe` — **OPERATING** (paper only)
+- Books: `BASE_E16_E18_E22_v2s` vs `BLEND_E45_A25` (`exposure=0.75·1+0.25·E45`)
+- Artifacts: `E45_BLEND025_OBSERVE_OPEN.md` · `repro/e45-blend025-dual-paper-observe/` · `E45_BLEND025_MONTH_END_MONITOR.*`
+- Held-out vs BASE: MDD improve ~**+0.63 pp**; CAGR giveback ~**2.83 pp**
+- First month-end asof **2026-09-04**: YTD / trailing_1y still **PAUSE_REVIEW** (near-window giveback)
+- Full-E45 observe sleeve remains **OPERATING** in parallel
 - Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
 
 

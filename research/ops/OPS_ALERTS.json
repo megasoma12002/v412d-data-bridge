@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T18:59:15.059542+00:00",
+  "generated_at_utc": "2026-09-06T00:58:50.186083+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -9,8 +9,8 @@
   ],
   "overall": "HIGH",
   "n_critical": 0,
-  "n_high": 5,
-  "n_info": 16,
+  "n_high": 7,
+  "n_info": 19,
   "alerts": [
     {
       "severity": "HIGH",
@@ -39,6 +39,18 @@
     {
       "severity": "HIGH",
       "source": "e45_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+    },
+    {
+      "severity": "HIGH",
+      "source": "e45_blend025_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+    },
+    {
+      "severity": "HIGH",
+      "source": "e45_blend025_month_end",
       "code": "PAUSE_REVIEW",
       "message": "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
     },
@@ -105,6 +117,24 @@
     {
       "severity": "INFO",
       "source": "e45_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_blend025_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: BLEND_E45_A25 ytd CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_blend025_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: BLEND_E45_A25 trailing_1y CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_blend025_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },
