@@ -22,6 +22,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from e45_paper_harness import (
     BOOK_BASE,
     BOOK_BLEND_A05,
@@ -113,7 +114,7 @@ def year_mdd(nav: pd.DataFrame, year: int) -> float | None:
     return float(np.min(path / peak - 1.0))
 
 
-def mdd_help_pp(base_nav: pd.DataFrame, chal_nav: pd.DataFrame, year: int) -> float | None:
+def year_mdd_improve_pp(base_nav: pd.DataFrame, chal_nav: pd.DataFrame, year: int) -> float | None:
     b, c = year_mdd(base_nav, year), year_mdd(chal_nav, year)
     if b is None or c is None:
         return None
@@ -357,7 +358,7 @@ def write_reports(
         cells = []
         for y in CRISIS_YEARS:
             sub = help_df[(help_df["book"] == bid) & (help_df["year"] == y)]
-            cells.append(fmt(float(sub.iloc[0]["mdd_help_pp"])) if len(sub) else "n/a")
+            cells.append(fmt(float(sub.iloc[0]["mdd_improve_pp"])) if len(sub) else "n/a")
         lines.append(f"| `{bid}` | " + " | ".join(cells) + " |")
     lines += [
         "",
@@ -571,10 +572,10 @@ def main() -> int:
         if bid == BOOK_BASE:
             continue
         for y in CRISIS_YEARS:
-            hp = mdd_help_pp(base_nav, pack["nav"], y)
+            hp = year_mdd_improve_pp(base_nav, pack["nav"], y)
             if hp is None:
                 continue
-            help_rows.append({"book": bid, "year": y, "mdd_help_pp": hp, "is_2020": y == 2020})
+            help_rows.append({"book": bid, "year": y, "mdd_improve_pp": hp, "is_2020": y == 2020})
 
         held = window_stats(pack["nav"], held_bounds[0], held_bounds[1])
         sealed = window_stats(pack["nav"], sealed_bounds[0], sealed_bounds[1])
@@ -619,7 +620,7 @@ def main() -> int:
             helped = sorted(
                 int(y)
                 for y in years
-                if len(g[(g["year"] == y) & (g["mdd_help_pp"] > HELP_MIN_PP)])
+                if len(g[(g["year"] == y) & (g["mdd_improve_pp"] > HELP_MIN_PP)])
             )
             multi_ok = len(helped) >= 2
             held_ok = wr["heldout_score"] is not None and float(wr["heldout_score"]) > 0
@@ -645,7 +646,7 @@ def main() -> int:
     payload = {
         "generated_at_utc": generated,
         "claim_status": CLAIM_STATUS,
-        "soft_frozen_keep": [0.50, 0.95],
+        "soft_frozen_keep": list(SOFT_FROZEN_FIN_CLIP),
         "default_books_keep": "E22_v2s_tw",
         "stitch": "FORBIDDEN",
         "n_alt_challengers": int((~window_df["ref_observe"]).sum()) if len(window_df) else 0,

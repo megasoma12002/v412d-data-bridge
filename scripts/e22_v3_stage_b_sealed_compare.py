@@ -21,6 +21,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e22_dividend_accounting as formal
 import e22_v3_sandbox_books as sandbox
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from e45_paper_harness import ROOT, WINDOWS_STANDARD, load_market
 from e50_early_stack_combined_nav import FIN
 
@@ -250,7 +251,7 @@ def main() -> int:
     payload = {
         "generated_at_utc": generated,
         "default_books_version": formal.DEFAULT_BOOKS_VERSION,
-        "soft_frozen_keep": [0.50, 0.95],
+        "soft_frozen_keep": list(SOFT_FROZEN_FIN_CLIP),
         "sealed_start": str(SEALED_START),
         "hold_shares": HOLD_SHARES,
         "fin_codes": list(FIN),
