@@ -26,7 +26,9 @@ PAPER_NAV = ROOT / "repro/l4-dd-path-dual-paper/outputs/base_e16_daily_nav.csv"
 OUT_DIR = ROOT / "research/ops"
 
 sys.path.insert(0, str(ROOT / "scripts"))
-from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIPCLIP_TXT = f"[{SOFT_FROZEN_FIN_CLIP[0]:.2f}, {SOFT_FROZEN_FIN_CLIP[1]:.2f}]"
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+
+CLIP_TXT = f"[{SOFT_FROZEN_FIN_CLIP[0]:.2f}, {SOFT_FROZEN_FIN_CLIP[1]:.2f}]"
 
 
 def _load_nav(path: Path, nav_col: str) -> pd.DataFrame:

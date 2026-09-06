@@ -29,7 +29,9 @@ SUMMARY_JSON = OUT_DIR / "MONTH_END_PAPER_PACK.json"
 SUMMARY_MD = OUT_DIR / "MONTH_END_PAPER_PACK.md"
 
 sys.path.insert(0, str(ROOT / "scripts"))
-from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIPCLIP_TXT = f"[{SOFT_FROZEN_FIN_CLIP[0]:.2f}, {SOFT_FROZEN_FIN_CLIP[1]:.2f}]"
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+
+CLIP_TXT = f"[{SOFT_FROZEN_FIN_CLIP[0]:.2f}, {SOFT_FROZEN_FIN_CLIP[1]:.2f}]"
 
 STEPS_MONITOR = [
     ("l4_month_end", ["python3", "scripts/e16_l4_dd_path_month_end_monitor.py"]),

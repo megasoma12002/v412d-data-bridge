@@ -42,7 +42,10 @@ PHASE_C_JSON = ROOT / "research/ops/DATA_SOURCE_PHASE_C_PROBES.json"
 
 # Soft-Frozen clip — single source (never hardcode drift).
 sys.path.insert(0, str(ROOT / "scripts"))
-from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIPdef _load(path: Path) -> dict | None:
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+
+
+def _load(path: Path) -> dict | None:
     if not path.exists():
         return None
     return json.loads(path.read_text())
