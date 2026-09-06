@@ -1,0 +1,45 @@
+{
+  "generated_at_utc": "2026-09-06T07:54:32.569739+00:00",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "code": "0050",
+  "root_class": "UNADJUSTED_CLOSE_SPIKE",
+  "outlier_abs_threshold": 0.05,
+  "outliers": [
+    {
+      "date": "2014-01-02",
+      "ret_live": -0.0025553662691653,
+      "ret_yahoo": -0.7506388480576205,
+      "diff": 0.7480834817884552
+    },
+    {
+      "date": "2025-06-18",
+      "ret_live": -0.747839915186854,
+      "ret_yahoo": 0.0086403654150495,
+      "diff": -0.7564802806019035
+    }
+  ],
+  "sealed_all": {
+    "n": 878,
+    "mad": 0.0009117654967668204,
+    "corr": 0.5042695477228695
+  },
+  "sealed_drop_outliers": {
+    "n": 877,
+    "mad": 5.022785126495416e-05,
+    "corr": 0.9984951247004171
+  },
+  "full_drop_outliers": {
+    "n": 3583,
+    "mad": 3.72358165790573e-05,
+    "corr": 0.998620490635519
+  },
+  "c2_sealed_status_ref": "PASS (prior Phase C follow-up)",
+  "live_primary_rewrite": false,
+  "artifacts": {
+    "report": "research/ops/DATA_SOURCE_PHASE_C_0050_ROOTCAUSE.md",
+    "outliers_csv": "repro/data-source-phase-c-0050-rootcause/outputs/0050_c1_outliers.csv"
+  }
+}

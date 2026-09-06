@@ -1,0 +1,76 @@
+{
+  "generated_at_utc": "2026-09-06T07:54:32.918618+00:00",
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "default_books_keep": "E22_v2s_tw",
+  "stitch": "FORBIDDEN",
+  "tips": [
+    {
+      "sleeve": "CHAL_E45_E3",
+      "ok": true,
+      "book": "CHAL_E45_E3",
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "PAUSE_REVIEW",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "tip_ytd_giveback_pp": 23.22807683620185,
+      "tip_1y_giveback_pp": 20.493436961884793,
+      "share_pause_ytd": 0.6222222222222222,
+      "share_pause_1y": 0.6222222222222222,
+      "first_clean_both_asof": "2023-02-24",
+      "first_near_clean_both_asof": "2023-02-24",
+      "months_both_pause": 26
+    },
+    {
+      "sleeve": "BLEND_E45_A25",
+      "ok": true,
+      "book": "BLEND_E45_A25",
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "PAUSE_REVIEW",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "tip_ytd_giveback_pp": 11.5541113601636,
+      "tip_1y_giveback_pp": 11.68514135660148,
+      "share_pause_ytd": 0.5333333333333333,
+      "share_pause_1y": 0.5555555555555556,
+      "first_clean_both_asof": "2023-02-24",
+      "first_near_clean_both_asof": "2023-02-24",
+      "months_both_pause": 22
+    },
+    {
+      "sleeve": "BLEND_E45_A05",
+      "ok": true,
+      "book": "BLEND_E45_A05",
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "ALERT",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "tip_ytd_giveback_pp": 4.871078217702829,
+      "tip_1y_giveback_pp": 5.171819858408888,
+      "share_pause_ytd": 0.06666666666666667,
+      "share_pause_1y": 0.08888888888888889,
+      "first_clean_both_asof": "2023-02-24",
+      "first_near_clean_both_asof": "2023-02-24",
+      "months_both_pause": 1
+    },
+    {
+      "sleeve": "SLEEVE_FIN_ONLY_A10",
+      "ok": true,
+      "book": "SLEEVE_FIN_ONLY_A10",
+      "tip_asof": "2026-09-04",
+      "tip_ytd_gate": "PAUSE_REVIEW",
+      "tip_trailing_1y_gate": "PAUSE_REVIEW",
+      "tip_ytd_giveback_pp": 5.966024983944673,
+      "tip_1y_giveback_pp": 6.253514807942451,
+      "share_pause_ytd": 0.13333333333333333,
+      "share_pause_1y": 0.15555555555555556,
+      "first_clean_both_asof": "2023-02-24",
+      "first_near_clean_both_asof": "2023-02-24",
+      "months_both_pause": 4
+    }
+  ],
+  "artifacts": {
+    "report": "research/ops/E45_OBSERVE_PAUSE_REFRESH.md",
+    "timeseries": "repro/e45-observe-pause-refresh/outputs/observe_pause_timeseries.csv"
+  }
+}
