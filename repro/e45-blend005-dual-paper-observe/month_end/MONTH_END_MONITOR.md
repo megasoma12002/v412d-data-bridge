@@ -1,6 +1,6 @@
 # E45 Blend-α=0.05 Month-End Paper Monitor — asof 2026-09-04
 
-Generated: `2026-09-06T05:28:04.947333+00:00`
+Generated: `2026-09-06T10:05:40.245441+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **BLEND_E45_A05** (α=0.05 × E45 `E3_VOLTARGET_WINNER` on early-stack)
 

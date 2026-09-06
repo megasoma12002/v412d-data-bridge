@@ -1,0 +1,294 @@
+{
+  "generated_utc": "2026-09-06T10:06:18.232947+00:00",
+  "title": "OPS_RESEARCH_BATCH_DIRECT_CONTINUE_2026-09-06",
+  "governance": {
+    "soft_frozen": "KEEP [0.50, 0.95]",
+    "default": "E22_v2s_tw KEEP",
+    "e45_stitch": "FORBIDDEN",
+    "high_beta": "DRAFT/NOT OPEN",
+    "retired_mdd_narrative": "RETIRED_HISTORICAL_NARRATIVE \u2014 no invented replacement"
+  },
+  "items": {
+    "1_e45_observe_pause_refresh": {
+      "status": "DONE",
+      "tip_asof": null,
+      "sleeves": [
+        {
+          "sleeve": "CHAL_E45_E3",
+          "ok": true,
+          "book": "CHAL_E45_E3",
+          "tip_asof": "2026-09-04",
+          "tip_ytd_gate": "PAUSE_REVIEW",
+          "tip_trailing_1y_gate": "PAUSE_REVIEW",
+          "tip_ytd_giveback_pp": 23.22807683620185,
+          "tip_1y_giveback_pp": 20.493436961884793,
+          "share_pause_ytd": 0.6222222222222222,
+          "share_pause_1y": 0.6222222222222222,
+          "first_clean_both_asof": "2023-02-24",
+          "first_near_clean_both_asof": "2023-02-24",
+          "months_both_pause": 26
+        },
+        {
+          "sleeve": "BLEND_E45_A25",
+          "ok": true,
+          "book": "BLEND_E45_A25",
+          "tip_asof": "2026-09-04",
+          "tip_ytd_gate": "PAUSE_REVIEW",
+          "tip_trailing_1y_gate": "PAUSE_REVIEW",
+          "tip_ytd_giveback_pp": 11.5541113601636,
+          "tip_1y_giveback_pp": 11.68514135660148,
+          "share_pause_ytd": 0.5333333333333333,
+          "share_pause_1y": 0.5555555555555556,
+          "first_clean_both_asof": "2023-02-24",
+          "first_near_clean_both_asof": "2023-02-24",
+          "months_both_pause": 22
+        },
+        {
+          "sleeve": "BLEND_E45_A05",
+          "ok": true,
+          "book": "BLEND_E45_A05",
+          "tip_asof": "2026-09-04",
+          "tip_ytd_gate": "ALERT",
+          "tip_trailing_1y_gate": "PAUSE_REVIEW",
+          "tip_ytd_giveback_pp": 4.871078217702829,
+          "tip_1y_giveback_pp": 5.171819858408888,
+          "share_pause_ytd": 0.06666666666666667,
+          "share_pause_1y": 0.08888888888888889,
+          "first_clean_both_asof": "2023-02-24",
+          "first_near_clean_both_asof": "2023-02-24",
+          "months_both_pause": 1
+        },
+        {
+          "sleeve": "SLEEVE_FIN_ONLY_A10",
+          "ok": true,
+          "book": "SLEEVE_FIN_ONLY_A10",
+          "tip_asof": "2026-09-04",
+          "tip_ytd_gate": "PAUSE_REVIEW",
+          "tip_trailing_1y_gate": "PAUSE_REVIEW",
+          "tip_ytd_giveback_pp": 5.966024983944673,
+          "tip_1y_giveback_pp": 6.253514807942451,
+          "share_pause_ytd": 0.13333333333333333,
+          "share_pause_1y": 0.15555555555555556,
+          "first_clean_both_asof": "2023-02-24",
+          "first_near_clean_both_asof": "2023-02-24",
+          "months_both_pause": 4
+        }
+      ],
+      "stitch_signal": false,
+      "artifact": "research/ops/E45_OBSERVE_PAUSE_REFRESH.md"
+    },
+    "2_e22_v3_recv_pay_taxW": {
+      "status": "DONE_SANDBOX",
+      "versions_added": [
+        "E22_v3_recv_pay_tax10",
+        "E22_v3_recv_pay_tax20"
+      ],
+      "sealed_summary": {
+        "generated_at_utc": "2026-09-06T10:04:47.356207+00:00",
+        "default_books_version": "E22_v2s_tw",
+        "soft_frozen_keep": [
+          0.5,
+          0.95
+        ],
+        "sealed_start": "2023-01-01",
+        "hold_shares": 1000.0,
+        "fin_codes": [
+          "2880",
+          "2886",
+          "2892",
+          "5880"
+        ],
+        "summary": [
+          {
+            "version": "E22_v2s_tw",
+            "sandbox": false,
+            "end_wealth": 185405.14999999997,
+            "end_cash": 17630.199999999997,
+            "end_receivable": 0.0,
+            "cagr": 0.17576227068452077,
+            "max_drawdown": -0.10850160998106206,
+            "delta_cagr_pp_vs_default": null,
+            "delta_mdd_improve_pp_vs_default": null,
+            "n_days": 879,
+            "live_default_untouched": "E22_v2s_tw"
+          },
+          {
+            "version": "E22_v3_recv_pay",
+            "sandbox": true,
+            "end_wealth": 185405.15,
+            "end_cash": 16735.8,
+            "end_receivable": 894.4000000000001,
+            "cagr": 0.17576227068452077,
+            "max_drawdown": -0.10850160998106206,
+            "delta_cagr_pp_vs_default": 0.0,
+            "delta_mdd_improve_pp_vs_default": 0.0,
+            "n_days": 879,
+            "live_default_untouched": "E22_v2s_tw"
+          },
+          {
+            "version": "E22_v3_recv_pay_tax10",
+            "sandbox": true,
+            "end_wealth": 183646.12999999998,
+            "end_cash": 15066.22,
+            "end_receivable": 804.9600000000002,
+            "cagr": 0.17255337781826685,
+            "max_drawdown": -0.11194786960523162,
+            "delta_cagr_pp_vs_default": -0.32088928662539207,
+            "delta_mdd_improve_pp_vs_default": -0.34462596241695564,
+            "n_days": 879,
+            "live_default_untouched": "E22_v2s_tw"
+          },
+          {
+            "version": "E22_v3_recv_pay_tax20",
+            "sandbox": true,
+            "end_wealth": 181887.11,
+            "end_cash": 13396.640000000003,
+            "end_receivable": 715.5200000000001,
+            "cagr": 0.16932248527105798,
+            "max_drawdown": -0.11541029601203201,
+            "delta_cagr_pp_vs_default": -0.6439785413462795,
+            "delta_mdd_improve_pp_vs_default": -0.6908686030969946,
+            "n_days": 879,
+            "live_default_untouched": "E22_v2s_tw"
+          },
+          {
+            "version": "E22_v3_tax10",
+            "sandbox": true,
+            "end_wealth": 183646.12999999998,
+            "end_cash": 15871.18,
+            "end_receivable": 0.0,
+            "cagr": 0.17255337781826685,
+            "max_drawdown": -0.11194786960523162,
+            "delta_cagr_pp_vs_default": -0.32088928662539207,
+            "delta_mdd_improve_pp_vs_default": -0.34462596241695564,
+            "n_days": 879,
+            "live_default_untouched": "E22_v2s_tw"
+          },
+          {
+            "version": "E22_v3_tax20",
+            "sandbox": true,
+            "end_wealth": 181887.11,
+            "end_cash": 14112.160000000003,
+            "end_receivable": 0.0,
+            "cagr": 0.16932248527105798,
+            "max_drawdown": -0.11541029601203201,
+            "delta_cagr_pp_vs_default": -0.6439785413462795,
+            "delta_mdd_improve_pp_vs_default": -0.6908686030969946,
+            "n_days": 879,
+            "live_default_untouched": "E22_v2s_tw"
+          }
+        ],
+        "promote_ready": false,
+        "combined_recv_tax_started": false
+      },
+      "resident_note": "research/ops/E22_V3_WITHHOLDING_RESIDENT_NOTE.md",
+      "promote_ready": false
+    },
+    "3_live_e22_field_evidence": {
+      "status": "PENDING_WEEKDAY_FORWARD",
+      "reason": "2026-09-06 is Sunday; Gap6 still LIVE_LEDGER_E22_FIELDS_MISSING",
+      "qc_exact_t1_ok": true,
+      "gap6_live_evidence_ok": false,
+      "runbook": "research/ops/POST_FORWARD_E22_VERIFY_RUNBOOK.md",
+      "evidence_note": "research/ops/LIVE_E22_FIELD_EVIDENCE.md"
+    },
+    "4_0050_phase_c_quarantine": {
+      "status": "DONE",
+      "quarantine": {
+        "generated_utc": "2026-09-06T10:05:38.175958+00:00",
+        "code": "0050",
+        "soft_frozen_clip": [
+          0.5,
+          0.95
+        ],
+        "outlier_abs_threshold": 0.05,
+        "quarantine_dates": [
+          "2014-01-02",
+          "2025-06-18"
+        ],
+        "sealed_before": {
+          "n": 878,
+          "mad": 0.0009117654967668204,
+          "corr": 0.5042695477228695
+        },
+        "sealed_after_quarantine": {
+          "n": 877,
+          "mad": 5.022785126495416e-05,
+          "corr": 0.9984951247004171
+        },
+        "full_before": {
+          "n": 3585,
+          "mad": 0.00045689810130909925,
+          "corr": 0.4679383394435843
+        },
+        "full_after_quarantine": {
+          "n": 3583,
+          "mad": 3.72358165790573e-05,
+          "corr": 0.998620490635519
+        },
+        "adj_close_probe": {
+          "available": true,
+          "sealed_raw_vs_yahoo": {
+            "n": 878,
+            "mad": 0.0009117654967668239,
+            "corr": 0.5042695477228701
+          },
+          "sealed_adj_vs_yahoo": {
+            "n": 878,
+            "mad": 0.0001711011494605587,
+            "corr": 0.9943004147398405
+          },
+          "n_join_sealed": 878
+        },
+        "recommendation": {
+          "prefer_adj_close_or_c2_for_qc": true,
+          "quarantine_dates_in_c1_builder": [
+            "2014-01-02",
+            "2025-06-18"
+          ],
+          "flip_soft_frozen": false,
+          "rewrite_e21_primary": false
+        },
+        "governance": {
+          "soft_frozen": "KEEP",
+          "default": "KEEP",
+          "stitch": "FORBIDDEN"
+        }
+      },
+      "artifact": "research/ops/DATA_SOURCE_PHASE_C_0050_QUARANTINE.md",
+      "e21_primary_rewrite": false
+    },
+    "5_fincap_l4_blend025_month_end": {
+      "status": "DONE_DIAGNOSTIC",
+      "pack_all_ok": false,
+      "pack_note": "Paper/ops cadence only. Soft-Frozen [0.50, 0.95] unchanged. FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated; BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-\u03b1=0.25 observe is paper-only (parallel sleeve); E45 blend-\u03b1=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY \u03b1=0.10 observe is paper-only (parallel sleeve).",
+      "monitors": {
+        "L4": {
+          "asof": "2026-09-04",
+          "alerts": [
+            "ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops)",
+            "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4",
+            "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)"
+          ]
+        },
+        "FIN50": {
+          "missing": true,
+          "searched": "research/gaps/FINCAP50_MONTH_END_MONITOR.json"
+        },
+        "BLEND025": {
+          "missing": true,
+          "searched": "research/gaps/BLEND025_MONTH_END_MONITOR.json"
+        }
+      },
+      "promote": false
+    }
+  },
+  "non_actions": [
+    "No Soft-Frozen flip",
+    "No DEFAULT flip",
+    "No E45 stitch",
+    "No HIGH_BETA OPEN",
+    "No invented retired-MDD replacement",
+    "No FIN50/L4/BLEND025 cutover PR"
+  ]
+}

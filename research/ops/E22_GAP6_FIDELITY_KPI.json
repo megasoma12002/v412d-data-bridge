@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-06T03:52:18.060973+00:00",
+  "generated_at_utc": "2026-09-06T10:05:41.968575+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -18,12 +18,12 @@
   "live_ledger": {
     "live_dir": "/workspace/forward/e21",
     "asof": "2026-09-04",
-    "portfolio_has_e22_books_version": false,
-    "portfolio_has_e22_manifest": false,
+    "portfolio_has_e22_books_version": true,
+    "portfolio_has_e22_manifest": true,
     "nav_has_e22_version_col": false,
     "dividends_applied_exists": false,
     "dividends_applied_n": 0,
-    "observed_books_version": null,
+    "observed_books_version": "E22_v2s_tw",
     "live_ledger_e22_fields_present": false,
     "note": "Live ledger artifacts predate E22 field persistence (code path is wired; next forward run should write e22_* fields). Do not rewrite history."
   },

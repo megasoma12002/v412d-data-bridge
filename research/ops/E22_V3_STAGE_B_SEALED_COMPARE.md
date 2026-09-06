@@ -1,6 +1,6 @@
 # E22_v3 Stage B — Sealed-Window Dual-Book Compare
 
-Generated: `2026-09-06T06:53:44.487109+00:00`
+Generated: `2026-09-06T10:04:47.356207+00:00`
 Status: **SANDBOX RESEARCH** — Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · no promote
 
 ## Method
@@ -17,6 +17,8 @@ Status: **SANDBOX RESEARCH** — Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` 
 |---|:---:|---:|---:|---:|---:|---:|---:|
 | `E22_v2s_tw` | N | 185405.15 | 17.58% | -10.85% | +nan | +nan | 0.00 |
 | `E22_v3_recv_pay` | Y | 185405.15 | 17.58% | -10.85% | +0.00 | +0.00 | 894.40 |
+| `E22_v3_recv_pay_tax10` | Y | 183646.13 | 17.26% | -11.19% | -0.32 | -0.34 | 804.96 |
+| `E22_v3_recv_pay_tax20` | Y | 181887.11 | 16.93% | -11.54% | -0.64 | -0.69 | 715.52 |
 | `E22_v3_tax10` | Y | 183646.13 | 17.26% | -11.19% | -0.32 | -0.34 | 0.00 |
 | `E22_v3_tax20` | Y | 181887.11 | 16.93% | -11.54% | -0.64 | -0.69 | 0.00 |
 

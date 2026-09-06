@@ -1,0 +1,61 @@
+{
+  "generated_utc": "2026-09-06T10:05:38.175958+00:00",
+  "code": "0050",
+  "soft_frozen_clip": [
+    0.5,
+    0.95
+  ],
+  "outlier_abs_threshold": 0.05,
+  "quarantine_dates": [
+    "2014-01-02",
+    "2025-06-18"
+  ],
+  "sealed_before": {
+    "n": 878,
+    "mad": 0.0009117654967668204,
+    "corr": 0.5042695477228695
+  },
+  "sealed_after_quarantine": {
+    "n": 877,
+    "mad": 5.022785126495416e-05,
+    "corr": 0.9984951247004171
+  },
+  "full_before": {
+    "n": 3585,
+    "mad": 0.00045689810130909925,
+    "corr": 0.4679383394435843
+  },
+  "full_after_quarantine": {
+    "n": 3583,
+    "mad": 3.72358165790573e-05,
+    "corr": 0.998620490635519
+  },
+  "adj_close_probe": {
+    "available": true,
+    "sealed_raw_vs_yahoo": {
+      "n": 878,
+      "mad": 0.0009117654967668239,
+      "corr": 0.5042695477228701
+    },
+    "sealed_adj_vs_yahoo": {
+      "n": 878,
+      "mad": 0.0001711011494605587,
+      "corr": 0.9943004147398405
+    },
+    "n_join_sealed": 878
+  },
+  "recommendation": {
+    "prefer_adj_close_or_c2_for_qc": true,
+    "quarantine_dates_in_c1_builder": [
+      "2014-01-02",
+      "2025-06-18"
+    ],
+    "flip_soft_frozen": false,
+    "rewrite_e21_primary": false
+  },
+  "governance": {
+    "soft_frozen": "KEEP",
+    "default": "KEEP",
+    "stitch": "FORBIDDEN"
+  }
+}

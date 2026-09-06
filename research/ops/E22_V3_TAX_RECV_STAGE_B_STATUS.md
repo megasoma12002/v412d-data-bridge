@@ -12,7 +12,8 @@ Soft-Frozen: **[0.50, 0.95] KEEP**
 | `E22_v3_recv_pay` | Receivable on ex; cash on pay; TAX0; stock=TW | **SANDBOX OPEN** + sealed compare DONE |
 | `E22_v3_tax10` | Ex cash × 0.90; stock=TW | **SANDBOX OPEN** + sealed compare DONE |
 | `E22_v3_tax20` | Ex cash × 0.80; stock=TW | **SANDBOX OPEN** + sealed compare DONE |
-| `E22_v3_recv_pay_taxW` | Combined | **NOT STARTED** |
+| `E22_v3_recv_pay_tax10` / `tax20` (`taxW`) | Combined recv+flat withhold | **SANDBOX OPEN** + sealed compare DONE |
+| Resident/non-resident tax appendix | Promote gate | **DRAFTED** — `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` (not promote-ready) |
 
 ## Latest sealed evidence
 

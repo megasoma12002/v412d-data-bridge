@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-05T08:01:12.943703+00:00",
+  "generated_at_utc": "2026-09-06T10:05:40.599204+00:00",
   "track": "A_S9A1_PAPER_MONITOR",
   "mode": "ARCHIVE_BOOTSTRAP",
   "governance": "OPTION2_S9A1_PAPER_MONITOR",
@@ -92,12 +92,12 @@
     "stress_mean_excess_edge_vs_c4_val": 0.0004297539348247233,
     "stress_edge_positive": true,
     "bootstrap_soft_warning_val": true,
-    "pause_rule": "If stress edge vs C4 negative for two consecutive review periods → pause paper overlay; do not retune."
+    "pause_rule": "If stress edge vs C4 negative for two consecutive review periods \u2192 pause paper overlay; do not retune."
   },
   "cadence": "month_end_or_panel_refresh",
   "next_review_actions": [
     "Rebuild REF_C4 and PAPER_S9A1 NAVs (see runbook)",
     "Fill KPI table vs prior review",
-    "If stress edge flipped negative two periods → pause and reopen research (Track B)"
+    "If stress edge flipped negative two periods \u2192 pause and reopen research (Track B)"
   ]
 }
