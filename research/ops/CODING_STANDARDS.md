@@ -61,10 +61,11 @@ Derived from E45 paper landmines and prior code-review rounds (#55 Soft-Frozen s
 - New E45 paper screens import from `scripts/e45_paper_harness.py`:
   market load, blend exposure, window stats, claim status, book IDs, `run_early_stack`.
 - Do not fork local `load_market` / `window_stats` / `blend` copies unless the harness cannot express the experiment.
+- **Dual-alias ban (paper regenerators):** one script may use **at most one spelling** per book/window/harness family. Mixing canonical + fork in the same file fails `check_e45_paper_hygiene.py` (e.g. `heldout_2019_plus` with `held_out_2019_plus`, or `BASE_E16_E18_E22_v2s` with `BASE_E16_E18_E22`). Prefer harness constants / `WINDOWS_STANDARD` keys only.
 
 ## 9. Metric keys and paths
 
-- NAV MDD key: **`max_drawdown`** (not `mdd` / `max_dd` aliases in new code).
+- NAV MDD key: **`max_drawdown`** (not `max_dd` / `maxdd` aliases in new code).
 - Market: `forward/e21/live_market.csv`; dividends: `data/dividend_events/e22_dividend_events.csv`.
 - Trust `research/` mirrors over `repro/` scratch when they disagree (`ARTIFACT_RETENTION.md`).
 
@@ -86,11 +87,11 @@ PYTHONPATH=scripts python3 scripts/check_e45_paper_hygiene.py
 PYTHONPATH=scripts python3 scripts/check_project_coding_hygiene.py
 ```
 
-E45 checker: banned claim labels, fee/sleeve monkeypatches, non-canonical book IDs.  
+E45 checker: banned claim labels, fee/sleeve monkeypatches, non-canonical book IDs, **dual book/window aliases**.  
 Project checker: also metric `or 0`/`or 9` on CAGR/MDD and Soft-Frozen clip list literals outside the single-source module.
 
 Coverage map: `research/ops/CODING_STANDARDS_COVERAGE.md`.
 
 ## Label
 
-`CODING_STANDARDS_2026-09-06__PROJECT_SCRIPTS_PASS`
+`CODING_STANDARDS_2026-09-06__DUAL_ALIAS_BAN`

@@ -5,6 +5,7 @@ Checks scripts/e45*.py for:
   - banned claim labels in new emitters
   - fee / sleeve monkeypatches
   - non-canonical book-ID string literals in emitters
+  - dual book/window/harness aliases in the same paper regenerator
 
 Exit 0 = clean; exit 1 = violations.
 """
@@ -98,12 +99,160 @@ NAMING_FORK_BANS = (
     (r"\bsealed_2023_latest\b", "Use sealed_2023_plus (WINDOWS_STANDARD)"),
 )
 
+
+def _id_token_re(token: str) -> re.Pattern[str]:
+    """Match an identifier/book/window token without prefix/suffix glue (v2s vs v2)."""
+    return re.compile(rf"(?<![A-Za-z0-9_]){re.escape(token)}(?![A-Za-z0-9_])")
+
+
+# Dual-alias families: a paper regenerator may use at most ONE spelling per family.
+# Canonical token is first. Hitting canonical + any alias (or two aliases) = FAIL.
+# This blocks the agent landmine of mixing Soft-Frozen tip names with invented forks
+# in the same script mid-edit.
+WINDOW_DUAL_ALIAS_FAMILIES: tuple[tuple[str, ...], ...] = (
+    (
+        "heldout_2019_plus",
+        "held_out_2019_plus",
+        "holdout_2019_plus",
+        "heldout_2019",
+        "held_out_2019",
+        "oos_2019_plus",
+    ),
+    (
+        "sealed_2023_plus",
+        "sealed_2023_latest",
+        "sealed_2023",
+        "sealed_2023_plus_latest",
+        "seal_2023_plus",
+    ),
+    (
+        "oof_2011_2018",
+        "oos_2011_2018",
+        "oof_2011_18",
+        "train_2011_2018",
+    ),
+    (
+        "validation_2019_2022",
+        "val_2019_2022",
+        "valid_2019_2022",
+        "validation_2019_22",
+    ),
+)
+
+BOOK_DUAL_ALIAS_FAMILIES: tuple[tuple[str, ...], ...] = (
+    (
+        "BASE_E16_E18_E22_v2s",
+        "BASE_E16_E18_E22",
+        "BASE_SOFT_FROZEN",
+        "BASE_E16_E18",
+        "BASE_E16_E18_E22_V2S",
+    ),
+    (
+        "CHAL_E45_E3",
+        "FULL_E45",
+        "CHAL_E45_E3_FULL",
+        "ALL_FULL",
+        "FULL_E45_BOOK",
+    ),
+    (
+        "BLEND_E45_A05",
+        "BLEND_A05",
+        "CONST_A05",
+        "REF_BLEND_A05",
+    ),
+    (
+        "BLEND_E45_A10",
+        "BLEND_A10",
+        "CONST_A10",
+    ),
+    (
+        "BLEND_E45_A25",
+        "BLEND_A25",
+        "CONST_A25",
+    ),
+)
+
+HARNESS_DUAL_ALIAS_FAMILIES: tuple[tuple[str, ...], ...] = (
+    (
+        "WINDOWS_STANDARD",
+        "WINDOWS_STD",
+        "WINDOW_STANDARD",
+        "STANDARD_WINDOWS",
+        "WINDOWS_CANONICAL",
+    ),
+    (
+        "BOOK_BASE",
+        "BOOK_BASELINE",
+        "BASE_BOOK",
+        "BOOK_BASE_ID",
+    ),
+    (
+        "BOOK_FULL",
+        "BOOK_CHAL",
+        "BOOK_FULL_E45",
+        "BOOK_CHALLENGER",
+    ),
+    (
+        "max_drawdown",
+        "max_dd",
+        "maxdd",
+        "max_drawdown_pct",
+    ),
+)
+
+
+def _check_dual_alias_families(path: Path, text: str, violations: list[str]) -> None:
+    """Fail if a paper regenerator mixes two spellings of the same book/window concept."""
+    if path.name in SKIP_HARNESS:
+        return
+    if not _is_paper_regenerator(path.name):
+        return
+    rel = str(path.relative_to(ROOT))
+    families = (
+        ("window", WINDOW_DUAL_ALIAS_FAMILIES),
+        ("book", BOOK_DUAL_ALIAS_FAMILIES),
+        ("harness", HARNESS_DUAL_ALIAS_FAMILIES),
+    )
+    for kind, fams in families:
+        for family in fams:
+            hits: list[str] = []
+            first_line: int | None = None
+            for tok in family:
+                m = _id_token_re(tok).search(text)
+                if not m:
+                    continue
+                line = text.count("\n", 0, m.start()) + 1
+                line_txt = text.splitlines()[line - 1]
+                # allow ban-list / documentation lines that name aliases on purpose
+                if (
+                    "DUAL_ALIAS" in line_txt
+                    or "NAMING_FORK" in line_txt
+                    or "banned" in line_txt.lower()
+                    or "alias family" in line_txt.lower()
+                ):
+                    continue
+                hits.append(tok)
+                if first_line is None:
+                    first_line = line
+            # unique while preserving order
+            uniq: list[str] = []
+            for h in hits:
+                if h not in uniq:
+                    uniq.append(h)
+            if len(uniq) >= 2:
+                canon = family[0]
+                violations.append(
+                    f"{rel}:{first_line}: dual {kind} aliases {uniq} — "
+                    f"use only canonical `{canon}` (no second spelling in the same paper script)"
+                )
+
 def main() -> int:
     violations: list[str] = []
     for path in sorted(SCRIPTS.glob("e45*.py")):
         text = path.read_text(encoding="utf-8")
         rel = str(path.relative_to(ROOT))
         _check_harness_adoption(path, text, violations)
+        _check_dual_alias_families(path, text, violations)
 
         for pat in MONKEYPATCH_PATTERNS:
             for m in pat.finditer(text):
