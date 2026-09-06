@@ -99,6 +99,18 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Observe sleeves unchanged; Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
 
 
+## PAPER low-alpha deep-dive (2026-09-06)
+
+- Ballot: `E45 PAPER low-alpha deep-dive` — roadmap priority **#1** — **PAPER ONLY**
+- Artifact: `research/e45/E45_LOW_ALPHA_DEEP_DIVE.md` · `repro/e45-low-alpha-deep-dive/`
+- Dense α: **0.05 / 0.08 / 0.10 / 0.12 / 0.15** (+ 0.25 observe ref)
+- Held-out preferred: still **α=0.05** (~+0.85 / ~1.07); α=0.08 close 2nd (~+0.96 / ~1.33, score slightly lower)
+- Adjacent steps smooth on MDD, but giveback rises ~0.21–0.27pp per step
+- Month-end asof **2026-09-04**: **no** dense α clears YTD/1y PAUSE (even α=0.05)
+- Observe sleeves unchanged; Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
+- Roadmap map: `E45_PAPER_RESEARCH_ROADMAP.md` (P1+P2 done; P3–P6 open / partial)
+
+
 ## Label
 
 `E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`
