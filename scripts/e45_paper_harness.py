@@ -129,6 +129,7 @@ def run_early_stack(
     *,
     e45_exposure: pd.Series | None = None,
     e45_sleeve_names: tuple[str, ...] | None = None,
+    sleeve_weight_schedule: pd.DataFrame | None = None,
     cost_multiple: float = 1.0,
 ):
     """Thin wrapper: Exact T+1 early-stack with first-class cost/sleeve kwargs."""
@@ -141,6 +142,7 @@ def run_early_stack(
         apply_stock_div=True,
         e45_exposure=e45_exposure,
         e45_sleeve_names=e45_sleeve_names,
+        sleeve_weight_schedule=sleeve_weight_schedule,
         cost_multiple=float(cost_multiple),
     )
 
