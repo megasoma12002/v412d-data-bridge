@@ -54,7 +54,6 @@ OPS = ROOT / "research/ops"
 MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
-E45_PROFILE = "E3_VOLTARGET_WINNER"
 ALPHAS = (0.00, 0.05, 0.08, 0.10, 0.12, 0.15, 0.25)
 WINDOWS = {
     "full": (None, None),
@@ -122,7 +121,7 @@ def main() -> None:
         .sort_index()
         .ffill()
     )
-    e45_full = e45.compute_exposure(close_eq, E45_PROFILE)["exposure"]
+    e45_full = e45.compute_exposure(close_eq, E45_PROFILE_DEFAULT)["exposure"]
 
     books: dict = {}
     rows: list[dict] = []
@@ -293,7 +292,7 @@ def main() -> None:
         "status": "PAPER_ONLY",
         "ballot": "E45 PAPER low-alpha deep-dive",
         "roadmap_priority": 1,
-        "profile": E45_PROFILE,
+        "profile": E45_PROFILE_DEFAULT,
         "alphas": list(ALPHAS),
         "definition": "exposure_α = (1−α)·1 + α·E45_exposure",
         "soft_frozen": "KEEP [0.50, 0.95]",
@@ -339,7 +338,7 @@ def main() -> None:
         "",
         "- Priority **#1** on the E45 paper research list (dense band after fine grid; #2 crisis-triggered already run).",
         "- Dense α: **0.05 / 0.08 / 0.10 / 0.12 / 0.15** (+ 0.00 BASE, + 0.25 observe ref).",
-        f"- Profile: frozen `{E45_PROFILE}` (not retuned).",
+        f"- Profile: frozen `{E45_PROFILE_DEFAULT}` (not retuned).",
         "",
         "## Held-out deltas vs BASE",
         "",

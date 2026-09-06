@@ -45,7 +45,7 @@ def write_status(archive_decision: dict, mode: str) -> dict:
     (OUT / "outputs").mkdir(parents=True, exist_ok=True)
     locked = archive_decision.get("locked_config") or {}
     val = archive_decision.get("validation_2019_2022") or {}
-    sealed = archive_decision.get("sealed_2023_latest") or {}
+    sealed = archive_decision.get("sealed_2023_plus") or archive_decision.get("sealed_2023_latest") or {}
     c4_val = (archive_decision.get("reference_c4") or {}).get("validation_2019_2022") or {}
     # stage9a file may nest C4 under different keys — fall back to known baseline table
     if not c4_val:
@@ -72,7 +72,7 @@ def write_status(archive_decision: dict, mode: str) -> dict:
         "research_decision_at_lock": archive_decision.get("research_decision"),
         "kpi_s9a1": {
             "validation_2019_2022": kpi_row("val", val),
-            "sealed_2023_latest": kpi_row("sealed", sealed),
+            "sealed_2023_plus": kpi_row("sealed", sealed),
         },
         "kpi_ref_c4_baseline": c4_val,
         "monitor_alerts": {

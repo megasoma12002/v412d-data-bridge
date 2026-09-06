@@ -316,7 +316,7 @@ def write_all_reports(ctx: dict) -> None:
         cells = []
         for y in CRISIS_YEARS:
             sub = help_df[(help_df.book == bid) & (help_df.year == y)]
-            cells.append(fmt(float(sub.iloc[0]["mdd_help_pp"])) if len(sub) else "n/a")
+            cells.append(fmt(float(sub.iloc[0]["mdd_improve_pp"])) if len(sub) else "n/a")
         lines.append(f"| `{bid}` | " + " | ".join(cells) + " |")
     lines += [
         "",
@@ -394,7 +394,7 @@ def write_all_reports(ctx: dict) -> None:
         f"High-β sleeves (β ≥ median vs TAIEX): `{list(hb_sleeves)}` · "
         f"betas={{{', '.join(f'{k}:{v:.2f}' for k,v in betas.items())}}}",
         "",
-        "Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · FIN_ONLY_A10 observe stays OPERATING",
+        "Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · SLEEVE_FIN_ONLY_A10 observe stays OPERATING",
         "",
         "## Held-out ranking (score = MDD improve − 0.5·|CAGR giveback|)",
         "",
@@ -416,7 +416,7 @@ def write_all_reports(ctx: dict) -> None:
         "- This densify does **not** OPEN a HIGH_BETA observe sleeve.",
         "- Draft ballot (human ACCEPT required before any OPEN): "
         "`research/ops/E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.md`",
-        "- Do not displace FIN_ONLY_A10 observe without a dedicated ballot.",
+        "- Do not displace SLEEVE_FIN_ONLY_A10 observe without a dedicated ballot.",
         "",
         f"Label: `E45_HIGH_BETA_PAPER_{generated[:10]}__DRAFT_ONLY__STITCH_FORBIDDEN`",
         "",
@@ -435,7 +435,7 @@ Date: {generated[:10]}
 Soft-Frozen: **[0.50, 0.95] KEEP**
 Live DEFAULT books: **KEEP**
 Live stitch: **still FORBIDDEN**
-Parent sleeves still OPERATING: FULL + A25 + A05 + FIN_ONLY_A10
+Parent sleeves still OPERATING: FULL + A25 + A05 + SLEEVE_FIN_ONLY_A10
 
 ## Proposal (if later ACCEPTed)
 
@@ -444,7 +444,7 @@ Parent sleeves still OPERATING: FULL + A25 + A05 + FIN_ONLY_A10
 | Choice | OPEN HIGH_BETA sleeve-local observe (paper) |
 | Locked book (candidate) | `{pref}` |
 | Sleeves | `{list(hb_sleeves)}` |
-| Parallel | Do not replace FIN_ONLY_A10 |
+| Parallel | Do not replace SLEEVE_FIN_ONLY_A10 |
 | Stitch | FORBIDDEN |
 
 ## Evidence pointers
@@ -458,7 +458,7 @@ Parent sleeves still OPERATING: FULL + A25 + A05 + FIN_ONLY_A10
 |---|---|
 | **HOLD DRAFT** (default) | No OPEN; paper only |
 | **ACCEPT OPEN** | Separate PR to promote DRAFT→OPERATING (not this file alone) |
-| **REJECT** | Archive; keep FIN_ONLY_A10 path |
+| **REJECT** | Archive; keep SLEEVE_FIN_ONLY_A10 path |
 
 Label: `E45_HIGH_BETA_OBSERVE_BALLOT_DRAFT_{generated[:10]}__NOT_OPEN__STITCH_FORBIDDEN`
 """
@@ -519,7 +519,7 @@ Claimed −13.16%: **`{payload['claimed_mdd_status']}`** (do not invent a replac
 
 | # | Item | Artifact |
 |---|---|---|
-| 1 | Month-end PAUSE time-series (FULL / A25 / A05 / FIN_ONLY_A10) | `E45_OBSERVE_PAUSE_TIMESERIES.md` |
+| 1 | Month-end PAUSE time-series (FULL / A25 / A05 / SLEEVE_FIN_ONLY_A10) | `E45_OBSERVE_PAUSE_TIMESERIES.md` |
 | 2 | Non-2020 crisis attribution | `E45_NON2020_CRISIS_ATTRIBUTION.md` |
 | 3 | FIN_ONLY@0.10 vs ALL@0.05 rolling/cost/turnover | `E45_FINA10_VS_ALLA05_COMPARE.md` |
 | 4 | HIGH_BETA sleeve-local paper + DRAFT ballot | `E45_HIGH_BETA_SLEEVE_LOCAL_PAPER.md` + ballot DRAFT |
@@ -721,7 +721,7 @@ def main() -> None:
             help_rows.append({
                 "book": bid,
                 "year": y,
-                "mdd_help_pp": (abs(float(b["max_drawdown"])) - abs(float(c["max_drawdown"]))) * 100.0,
+                "mdd_improve_pp": (abs(float(b["max_drawdown"])) - abs(float(c["max_drawdown"]))) * 100.0,
                 "ret_delta_pp": (float(c["ret"]) - float(b["ret"])) * 100.0,
                 "is_2020": y == 2020,
             })
@@ -730,11 +730,11 @@ def main() -> None:
 
     concentration = []
     for bid, g in help_df.groupby("book"):
-        pos = g[g["mdd_help_pp"] > 0]
-        total_pos = float(pos["mdd_help_pp"].sum()) if len(pos) else 0.0
-        y2020 = float(g.loc[g["year"] == 2020, "mdd_help_pp"].sum())
-        non2020_pos = float(pos.loc[pos["year"] != 2020, "mdd_help_pp"].sum()) if len(pos) else 0.0
-        years_helped = sorted(g.loc[g["mdd_help_pp"] > 0.25, "year"].tolist())
+        pos = g[g["mdd_improve_pp"] > 0]
+        total_pos = float(pos["mdd_improve_pp"].sum()) if len(pos) else 0.0
+        y2020 = float(g.loc[g["year"] == 2020, "mdd_improve_pp"].sum())
+        non2020_pos = float(pos.loc[pos["year"] != 2020, "mdd_improve_pp"].sum()) if len(pos) else 0.0
+        years_helped = sorted(g.loc[g["mdd_improve_pp"] > 0.25, "year"].tolist())
         concentration.append({
             "book": bid,
             "mdd_help_2020_pp": y2020,

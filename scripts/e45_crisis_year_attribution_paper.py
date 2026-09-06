@@ -52,7 +52,6 @@ OPS = ROOT / "research/ops"
 MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
-E45_PROFILE = "E3_VOLTARGET_WINNER"
 ALPHAS = (0.00, 0.05, 0.10, 0.25, 1.00)
 CRISIS_YEARS = (2011, 2015, 2018, 2020, 2022)
 REF_YEARS = (2023, 2024)
@@ -98,7 +97,7 @@ def main() -> None:
         .sort_index()
         .ffill()
     )
-    e45_full = e45.compute_exposure(close_eq, E45_PROFILE)["exposure"]
+    e45_full = e45.compute_exposure(close_eq, E45_PROFILE_DEFAULT)["exposure"]
 
     navs = {}
     rows = []
@@ -171,7 +170,7 @@ def main() -> None:
         "status": "PAPER_ONLY",
         "ballot": "E45 PAPER crisis-year attribution",
         "roadmap_priority": 5,
-        "profile": E45_PROFILE,
+        "profile": E45_PROFILE_DEFAULT,
         "alphas": list(ALPHAS),
         "crisis_years": list(CRISIS_YEARS),
         "ref_years": list(REF_YEARS),
@@ -191,7 +190,7 @@ def main() -> None:
         "",
         "## Setup",
         "",
-        f"- Profile: `{E45_PROFILE}` (frozen)",
+        f"- Profile: `{E45_PROFILE_DEFAULT}` (frozen)",
         f"- Alphas: {', '.join(str(a) for a in ALPHAS)}",
         f"- Crisis years: {', '.join(str(y) for y in CRISIS_YEARS)} (2011 partial)",
         f"- Ref years: {', '.join(str(y) for y in REF_YEARS)}",

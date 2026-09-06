@@ -126,7 +126,7 @@ def main() -> None:
         }
 
     val = pack(nav_b, nav_l, VAL_START, VAL_END, "validation_2019_2022")
-    sealed = pack(nav_b, nav_l, SEALED_START, sealed_end, "sealed_2023_latest")
+    sealed = pack(nav_b, nav_l, SEALED_START, sealed_end, "sealed_2023_plus")
     label = classify(val["pass"], sealed["pass"])
     # research decision mapping
     if label == "PASS_HELDOUT_L1":
@@ -149,7 +149,7 @@ def main() -> None:
             "exact_t1": True,
         },
         "validation_2019_2022": val,
-        "sealed_2023_latest": sealed,
+        "sealed_2023_plus": sealed,
         "promotion": {
             "replaces_live": False,
             "dual_paper_ledgers_allowed": label == "PASS_HELDOUT_L1",

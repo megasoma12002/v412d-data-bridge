@@ -52,7 +52,6 @@ OPS = ROOT / "research/ops"
 MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
-E45_PROFILE = "E3_VOLTARGET_WINNER"
 ALPHAS = (0.00, 0.05, 0.10, 0.25, 1.00)
 COST_MULTS = (0, 1, 2, 3)
 FEE_KEYS = ("BUY_FEE", "SELL_FEE", "SLIP", "TAX_STOCK", "TAX_ETF")
@@ -120,7 +119,7 @@ def main() -> None:
         .sort_index()
         .ffill()
     )
-    e45_full = e45.compute_exposure(close_eq, E45_PROFILE)["exposure"]
+    e45_full = e45.compute_exposure(close_eq, E45_PROFILE_DEFAULT)["exposure"]
 
     rows = []
     for alpha in ALPHAS:
@@ -231,7 +230,7 @@ def main() -> None:
         "status": "PAPER_ONLY",
         "ballot": "E45 PAPER alpha cost/turnover stress",
         "roadmap_priority": 4,
-        "profile": E45_PROFILE,
+        "profile": E45_PROFILE_DEFAULT,
         "alphas": list(ALPHAS),
         "cost_multiples": list(COST_MULTS),
         "fee_keys_scaled": list(FEE_KEYS),
@@ -253,7 +252,7 @@ def main() -> None:
         "",
         "## Setup",
         "",
-        f"- Profile: frozen `{E45_PROFILE}`",
+        f"- Profile: frozen `{E45_PROFILE_DEFAULT}`",
         f"- Alphas: {', '.join(str(a) for a in ALPHAS)}",
         f"- Cost multiples: {', '.join(str(m)+'×' for m in COST_MULTS)} on `{', '.join(FEE_KEYS)}`",
         "- Turnover: annualized |gross traded| / mean NAV",

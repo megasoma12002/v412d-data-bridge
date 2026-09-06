@@ -42,7 +42,6 @@ RESEARCH = ROOT / "research/e45"
 BASE_ID = BOOK_BASE
 CHAL_ID = "SLEEVE_FIN_ONLY_A10"
 BLEND_ALPHA = 0.10
-E45_PROFILE = E45_PROFILE_DEFAULT
 SLEEVES = SLEEVE_FIN_ONLY
 
 
@@ -61,8 +60,8 @@ def main() -> None:
         market, target, regime, dividends, e45_exposure=None
     )
 
-    print(f"{CHAL_ID} {E45_PROFILE} sleeves={SLEEVES} α={BLEND_ALPHA} ...", flush=True)
-    e45_full = e45_full_exposure(market, E45_PROFILE)
+    print(f"{CHAL_ID} {E45_PROFILE_DEFAULT} sleeves={SLEEVES} α={BLEND_ALPHA} ...", flush=True)
+    e45_full = e45_full_exposure(market, E45_PROFILE_DEFAULT)
     e45_blend = blend_exposure(e45_full, BLEND_ALPHA)
     assert e45_blend is not None
     e45_blend = e45_blend.rename("e45_sleeve_fin_only_a10_exposure")
@@ -113,7 +112,7 @@ def main() -> None:
         "base_id": BASE_ID,
         "locked_challenger": CHAL_ID,
         "blend_alpha": BLEND_ALPHA,
-        "e45_profile": E45_PROFILE,
+        "e45_profile": E45_PROFILE_DEFAULT,
         "e45_sleeve_names": list(SLEEVES),
         "claimed_mdd_status": CLAIM_STATUS,
         "exact_t1": {
@@ -157,7 +156,7 @@ def main() -> None:
         "## Locked paper books",
         "",
         f"- **{BASE_ID}**: Soft-Frozen early-stack Exact T+1 + E22_v2s formal books",
-        f"- **{CHAL_ID}**: same stack + α={BLEND_ALPHA:.2f} × E45 `{E45_PROFILE}` on sleeves `{', '.join(SLEEVES)}` only",
+        f"- **{CHAL_ID}**: same stack + α={BLEND_ALPHA:.2f} × E45 `{E45_PROFILE_DEFAULT}` on sleeves `{', '.join(SLEEVES)}` only",
         f"- Claimed −13.16%: **`{CLAIM_STATUS}`** (do not cite)",
         "",
         "## Dual paper metrics",
