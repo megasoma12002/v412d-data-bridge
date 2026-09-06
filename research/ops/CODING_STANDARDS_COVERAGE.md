@@ -11,7 +11,7 @@ Standards: `research/ops/CODING_STANDARDS.md` · E45 landmines: `research/ops/E4
 |---|---|---|
 | Live path (`e21_*`, Soft-Frozen base, ops alerts/pack) | **Yes** | Single-source / fail-closed from #55/#56; re-checked |
 | Shared sim (`e50_early_stack_combined_nav`) | **Yes** | None-safe deltas; first-class cost/sleeve kwargs |
-| E45 paper / observe | **Yes** | Harness, claim labels, book IDs, no monkeypatches |
+| E45 paper / observe | **Yes** | Harness, claim labels, book IDs, no monkeypatches, **dual book/window alias ban** |
 | Active research (`e22_*`, `mdd_*`, gap/FINCAP screens) | **Yes** | Metric `or 0` cleared; Soft-Frozen JSON imports `SOFT_FROZEN_FIN_CLIP` |
 | Archived Stage-8 / E50-A3-R1 OOF scripts | **Yes (utility / sort keys)** | `utility_score` / `abs_mdd`; not a full grid rewrite |
 | Docs / Markdown KEEP mentioning `[0.50, 0.95]` | **Allowed** | Prose KEEP ≠ second clip source |
