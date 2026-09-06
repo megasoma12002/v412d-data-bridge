@@ -1,0 +1,53 @@
+{
+  "label": "E45_NEW_MECHANISM_CHARTER_M1M2M3_2026-09-06__PAPER_ONLY__STITCH_FORBIDDEN",
+  "generated_at_utc": "2026-09-06T11:07:00+00:00",
+  "status": "PAPER_CHARTER_OPEN",
+  "soft_frozen": "KEEP",
+  "live_default": "E22_v2s_tw_KEEP",
+  "live_stitch": "FORBIDDEN",
+  "high_beta_observe": "DRAFT_NOT_OPEN",
+  "retired_mdd_narrative": "RETIRED_HISTORICAL_NARRATIVE",
+  "problem": "E45 family lacks evidence for material non-2020 crisis help with small CAGR giveback; same-knob search exhausted",
+  "ladder": [
+    {
+      "id": "M1",
+      "name": "new_state_signal_family",
+      "role": "sensor",
+      "next": "paper pack first; unlock M2 on pass or documented autopsy"
+    },
+    {
+      "id": "M2",
+      "name": "cash_defensive_sleeve_relocation",
+      "role": "actuator",
+      "depends_on": "M1 pack exists"
+    },
+    {
+      "id": "M3",
+      "name": "three_state_risk_machine",
+      "role": "controller",
+      "states": ["NORMAL", "SLOW_BEAR", "CRASH"],
+      "depends_on": "M2 pack exists"
+    }
+  ],
+  "qualification_rules": {
+    "inherit_multi_event_charter": true,
+    "mdd_help_pp_min": 0.25,
+    "min_stress_years_among_2015_2018_2020_2022": 2,
+    "heldout_score_min": 0.0,
+    "sealed_score_min": -1.0,
+    "strict_noncovid_min_years_among_2015_2018_2022": 2,
+    "covid_ex_heldout_score_min": 0.0,
+    "cost_multiples_must_hold": [1, 2],
+    "score_formula": "mdd_improve_pp - 0.5 * abs(cagr_giveback_pp)"
+  },
+  "explicit_non_actions": [
+    "no Soft-Frozen / DEFAULT / stitch / HIGH_BETA ballot from this charter alone",
+    "no E45 mild-alpha densify / crisis-gate / mild-max_cut as substitute",
+    "no invented replacement for retired -13.16% MDD claim",
+    "no auto OPEN-observe without dedicated human ballot after full qualification"
+  ],
+  "immediate_next": "Start M1 paper pack only",
+  "primary_md": "research/e45/E45_NEW_MECHANISM_CHARTER.md",
+  "zh_tw_md": "research/e45/E45_NEW_MECHANISM_CHARTER.zh-TW.md",
+  "ops_pointer": "research/ops/E45_NEW_MECHANISM_CHARTER.md"
+}
