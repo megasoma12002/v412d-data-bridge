@@ -1,0 +1,72 @@
+{
+  "generated_at_utc": "2026-09-06T06:53:44.487109+00:00",
+  "default_books_version": "E22_v2s_tw",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "sealed_start": "2023-01-01",
+  "hold_shares": 1000.0,
+  "fin_codes": [
+    "2880",
+    "2886",
+    "2892",
+    "5880"
+  ],
+  "summary": [
+    {
+      "version": "E22_v2s_tw",
+      "sandbox": false,
+      "end_wealth": 185405.14999999997,
+      "end_cash": 17630.199999999997,
+      "end_receivable": 0.0,
+      "cagr": 0.17576227068452077,
+      "max_drawdown": -0.10850160998106206,
+      "delta_cagr_pp_vs_default": null,
+      "delta_mdd_improve_pp_vs_default": null,
+      "n_days": 879,
+      "live_default_untouched": "E22_v2s_tw"
+    },
+    {
+      "version": "E22_v3_recv_pay",
+      "sandbox": true,
+      "end_wealth": 185405.15,
+      "end_cash": 16735.8,
+      "end_receivable": 894.4000000000001,
+      "cagr": 0.17576227068452077,
+      "max_drawdown": -0.10850160998106206,
+      "delta_cagr_pp_vs_default": 0.0,
+      "delta_mdd_improve_pp_vs_default": 0.0,
+      "n_days": 879,
+      "live_default_untouched": "E22_v2s_tw"
+    },
+    {
+      "version": "E22_v3_tax10",
+      "sandbox": true,
+      "end_wealth": 183646.12999999998,
+      "end_cash": 15871.18,
+      "end_receivable": 0.0,
+      "cagr": 0.17255337781826685,
+      "max_drawdown": -0.11194786960523162,
+      "delta_cagr_pp_vs_default": -0.32088928662539207,
+      "delta_mdd_improve_pp_vs_default": -0.34462596241695564,
+      "n_days": 879,
+      "live_default_untouched": "E22_v2s_tw"
+    },
+    {
+      "version": "E22_v3_tax20",
+      "sandbox": true,
+      "end_wealth": 181887.11,
+      "end_cash": 14112.160000000003,
+      "end_receivable": 0.0,
+      "cagr": 0.16932248527105798,
+      "max_drawdown": -0.11541029601203201,
+      "delta_cagr_pp_vs_default": -0.6439785413462795,
+      "delta_mdd_improve_pp_vs_default": -0.6908686030969946,
+      "n_days": 879,
+      "live_default_untouched": "E22_v2s_tw"
+    }
+  ],
+  "promote_ready": false,
+  "combined_recv_tax_started": false
+}

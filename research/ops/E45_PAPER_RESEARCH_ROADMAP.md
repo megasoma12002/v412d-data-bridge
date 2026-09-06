@@ -62,3 +62,15 @@ Sleeve-local observe **OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.
 
 Integrated: `E45_FIVE_RESEARCH_BATCH_INTEGRATED.md` · stitch still **FORBIDDEN**.
 
+
+## Next research batch (2026-09-06) — ALL DONE
+
+| # | Item | Status | Artifact |
+|---|---|---|---|
+| 1 | Non-COVID multi-event alt levers | **DONE** (0 qualifiers) | `E45_NONCOVID_MULTIEVENT_ALT_LEVERS.md` |
+| 2 | COVID-ex held-out KPI | **DONE** (least-bad E1BIN_A05, still <0) | `E45_COVID_EX_HELDOUT_KPI.md` |
+| 3 | Observe trailing PAUSE diagnostics | **DONE** (tip still PAUSE; stitch FORBIDDEN) | `E45_OBSERVE_PAUSE_DIAGNOSTICS.md` |
+| 4 | E22_v3 Stage B sealed dual-book | **DONE** (sandbox; DEFAULT KEEP) | `E22_V3_STAGE_B_SEALED_COMPARE.md` |
+| 5 | Data-source Phase C follow-up | **DONE** | `DATA_SOURCE_PHASE_C_FOLLOWUP.md` |
+
+Master: `NEXT_RESEARCH_BATCH_INTEGRATED_2026-09-06.md` · Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN**.
