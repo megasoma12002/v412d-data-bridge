@@ -80,6 +80,15 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
 
 
+## PAPER alpha fine grid (2026-09-06)
+
+- Ballot: `E45 PAPER alpha grid fine` — step **0.05** (α=0.00…1.00) — **PAPER ONLY**
+- Artifact: `research/e45/E45_BLEND_ALPHA_GRID_FINE.md` · `repro/e45-blend-alpha-grid-fine/`
+- Held-out score pick: **α=0.05** (~+0.85pp MDD / ~1.07pp CAGR giveback)
+- Operating observe sleeves unchanged: full-E45 + blend-α=0.25 remain **OPERATING**
+- Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
+
+
 ## Label
 
 `E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`
