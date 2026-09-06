@@ -79,3 +79,16 @@ python3 scripts/e21_qc.py
 ## Label
 
 `PROJECT_LANDMINE_CODEREVIEW_2026-09-06__BATCH_IDS_FIXED__HYGIENE_EXTENDED__STITCH_FORBIDDEN`
+
+## Round 3 — whole-repo review hardening (no behavior change to live)
+
+| Fix | Effect |
+|---|---|
+| `fetch_telecom_0050_ohlcv.py` `__main__` guard | Import no longer hits network / writes |
+| `v412f-forward-paper.yml` / `complete-telecom-0050-ohlcv.yml` issue title gates | Only `RUN_E21_FORWARD` / `RUN_TELECOM_0050` issues can write |
+| Regenerated crisis / blend-grid / blend-screen / maxcut artifacts | Retired `CONST_A*` / `REF_BLEND_A*` / `CHAL_E45_E3_FULL` cleared |
+| Hygiene `ARTIFACT_GLOBS` expanded | Fail-closed on those JSON paths |
+| `BOOK_BASE_RUNTIME_NOTE` | Label honesty without renaming ledger ids |
+| `tests/test_landmine_guards.py` | Minimal fail-closed unit guards |
+
+Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · −13.16% RETIRED.
