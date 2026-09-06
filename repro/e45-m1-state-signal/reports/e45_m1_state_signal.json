@@ -1,0 +1,287 @@
+{
+  "generated_at_utc": "2026-09-06T11:20:28.545560+00:00",
+  "status": "PAPER_ONLY",
+  "ballot": "E45 M1 new state-signal paper screen",
+  "state_vector": "E45_M1_STATE_VECTOR_V0_FROZEN_2026-09-06",
+  "honesty": "equity_taiex_proxy_sensor__no_rates_fx_credit_in_repo",
+  "profile_ref_e45_only": "E3_VOLTARGET_WINNER",
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "market_path": "forward/e21/live_market.csv",
+  "div_path": "data/dividend_events/e22_dividend_events.csv",
+  "shock_path": "forward/e10s2/e10s2_taiex.csv",
+  "books": [
+    "BASE_E16_E18_E22_v2s",
+    "BLEND_E45_A05",
+    "SLEEVE_FIN_ONLY_A10",
+    "M1_EQW_C25",
+    "M1_EQW_C50",
+    "M1_EQW_C75",
+    "M1_EQW_C50_FIN"
+  ],
+  "cost_multiples": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "fee_keys_scaled": [
+    "BUY_FEE",
+    "SELL_FEE",
+    "SLIP",
+    "TAX_STOCK",
+    "TAX_ETF"
+  ],
+  "score_formula": "mdd_improve_pp - 0.5 * abs(cagr_giveback_pp)",
+  "help_threshold_pp": 0.25,
+  "stress_years": [
+    2015,
+    2018,
+    2020,
+    2022
+  ],
+  "heldout_1x_ranking": [
+    {
+      "book": "M1_EQW_C75",
+      "kind": "m1",
+      "score": 4.214980406583669,
+      "mdd_improve_pp": 8.082082514917388,
+      "cagr_giveback_pp": 7.73420421666744,
+      "covid_ex_score": -0.15680950022489704,
+      "years_helped": "2015,2018,2020,2022"
+    },
+    {
+      "book": "M1_EQW_C50",
+      "kind": "m1",
+      "score": 2.3537880630126407,
+      "mdd_improve_pp": 5.354807914755244,
+      "cagr_giveback_pp": 6.002039703485207,
+      "covid_ex_score": -0.7011283328248075,
+      "years_helped": "2015,2018,2020,2022"
+    },
+    {
+      "book": "M1_EQW_C50_FIN",
+      "kind": "m1_sleeve",
+      "score": 2.2691229892619624,
+      "mdd_improve_pp": 4.990323279814501,
+      "cagr_giveback_pp": 5.442400581105078,
+      "covid_ex_score": -1.2116775854711936,
+      "years_helped": "2015,2018,2020,2022"
+    },
+    {
+      "book": "M1_EQW_C25",
+      "kind": "m1",
+      "score": 0.5839410425053759,
+      "mdd_improve_pp": 2.7222522779820735,
+      "cagr_giveback_pp": 4.276622470953395,
+      "covid_ex_score": -1.3136531155909403,
+      "years_helped": "2015,2018,2020,2022"
+    },
+    {
+      "book": "SLEEVE_FIN_ONLY_A10",
+      "kind": "ref_e45_sleeve",
+      "score": 0.2854667577512848,
+      "mdd_improve_pp": 0.9119746801036444,
+      "cagr_giveback_pp": 1.253015844704719,
+      "covid_ex_score": -2.4079056535237564,
+      "years_helped": "2020"
+    },
+    {
+      "book": "BLEND_E45_A05",
+      "kind": "ref_e45",
+      "score": 0.22225024440115648,
+      "mdd_improve_pp": 0.702410619961702,
+      "cagr_giveback_pp": 0.9603207511210909,
+      "covid_ex_score": -2.0536784087974325,
+      "years_helped": "2020"
+    },
+    {
+      "book": "BASE_E16_E18_E22_v2s",
+      "kind": "ref",
+      "score": 0.0,
+      "mdd_improve_pp": 0.0,
+      "cagr_giveback_pp": 0.0,
+      "covid_ex_score": 0.0,
+      "years_helped": ""
+    }
+  ],
+  "preferred_m1_heldout_1x": {
+    "book": "M1_EQW_C75",
+    "kind": "m1",
+    "cut": 0.75,
+    "sleeves": "",
+    "cost_multiple": 1,
+    "window": "heldout_2019_plus",
+    "mdd_improve_pp": 8.082082514917388,
+    "cagr_giveback_pp": 7.73420421666744,
+    "score": 4.214980406583669,
+    "covid_ex_mdd_improve_pp": 4.3904230821729895,
+    "covid_ex_cagr_giveback_pp": 9.094465164795773,
+    "covid_ex_score": -0.15680950022489704,
+    "help_2015_pp": 3.3518665003118397,
+    "help_2018_pp": 1.746521977151294,
+    "help_2020_pp": 8.082082514917378,
+    "help_2022_pp": 4.390423082172978,
+    "years_helped": "2015,2018,2020,2022",
+    "n_years_helped": 4,
+    "turnover_per_year": 4.754136492654337,
+    "fees_tax_sum": 713027.0026916375
+  },
+  "section2_qualification": [
+    {
+      "book": "BASE_E16_E18_E22_v2s",
+      "kind": "ref",
+      "heldout_1x_score": 0.0,
+      "sealed_1x_score": 0.0,
+      "covid_ex_heldout_1x_score": 0.0,
+      "heldout_2x_score": 0.0,
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": "False",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": "False",
+      "qualifies_section2": false,
+      "years_helped": [],
+      "n_years_helped": 0
+    },
+    {
+      "book": "BLEND_E45_A05",
+      "kind": "ref_e45",
+      "heldout_1x_score": 0.22225024440115648,
+      "sealed_1x_score": 2.0686833418786854,
+      "covid_ex_heldout_1x_score": -2.0536784087974325,
+      "heldout_2x_score": 0.25359612929610753,
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": "True",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": "True",
+      "qualifies_section2": false,
+      "years_helped": [
+        2020
+      ],
+      "n_years_helped": 1
+    },
+    {
+      "book": "SLEEVE_FIN_ONLY_A10",
+      "kind": "ref_e45_sleeve",
+      "heldout_1x_score": 0.2854667577512848,
+      "sealed_1x_score": 2.5176656414680365,
+      "covid_ex_heldout_1x_score": -2.4079056535237564,
+      "heldout_2x_score": 0.3194633139722791,
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": "True",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": "True",
+      "qualifies_section2": false,
+      "years_helped": [
+        2020
+      ],
+      "n_years_helped": 1
+    },
+    {
+      "book": "M1_EQW_C25",
+      "kind": "m1",
+      "heldout_1x_score": 0.5839410425053759,
+      "sealed_1x_score": 1.1757713648363524,
+      "covid_ex_heldout_1x_score": -1.3136531155909403,
+      "heldout_2x_score": 0.48707316782440335,
+      "multi_event": true,
+      "strict_noncovid_multi": true,
+      "heldout_score_pos": "True",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": "True",
+      "qualifies_section2": false,
+      "years_helped": [
+        2015,
+        2018,
+        2020,
+        2022
+      ],
+      "n_years_helped": 4
+    },
+    {
+      "book": "M1_EQW_C50",
+      "kind": "m1",
+      "heldout_1x_score": 2.3537880630126407,
+      "sealed_1x_score": 0.9059765493370282,
+      "covid_ex_heldout_1x_score": -0.7011283328248075,
+      "heldout_2x_score": 2.0603310756627917,
+      "multi_event": true,
+      "strict_noncovid_multi": true,
+      "heldout_score_pos": "True",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": "True",
+      "qualifies_section2": false,
+      "years_helped": [
+        2015,
+        2018,
+        2020,
+        2022
+      ],
+      "n_years_helped": 4
+    },
+    {
+      "book": "M1_EQW_C75",
+      "kind": "m1",
+      "heldout_1x_score": 4.214980406583669,
+      "sealed_1x_score": 0.590390018964249,
+      "covid_ex_heldout_1x_score": -0.15680950022489704,
+      "heldout_2x_score": 3.6819022992857002,
+      "multi_event": true,
+      "strict_noncovid_multi": true,
+      "heldout_score_pos": "True",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": "True",
+      "qualifies_section2": false,
+      "years_helped": [
+        2015,
+        2018,
+        2020,
+        2022
+      ],
+      "n_years_helped": 4
+    },
+    {
+      "book": "M1_EQW_C50_FIN",
+      "kind": "m1_sleeve",
+      "heldout_1x_score": 2.2691229892619624,
+      "sealed_1x_score": 0.9998003256465822,
+      "covid_ex_heldout_1x_score": -1.2116775854711936,
+      "heldout_2x_score": 1.946476685618737,
+      "multi_event": true,
+      "strict_noncovid_multi": true,
+      "heldout_score_pos": "True",
+      "sealed_score_ok": "True",
+      "covid_ex_heldout_pos": "False",
+      "cost_1x_2x_ok": "True",
+      "qualifies_section2": false,
+      "years_helped": [
+        2015,
+        2018,
+        2020,
+        2022
+      ],
+      "n_years_helped": 4
+    }
+  ],
+  "m1_section2_qualifiers": [],
+  "m1_section2_any_pass": false,
+  "soft_frozen": "KEEP",
+  "live_default": "KEEP",
+  "live_stitch": "FORBIDDEN",
+  "high_beta_observe": "DRAFT_NOT_OPEN",
+  "observe_sleeves_unchanged": true,
+  "next_if_fail": "Publish autopsy; do not densify E45 alpha; M2 DEF sleeve still allowed per charter",
+  "non_actions": [
+    "No Soft-Frozen / DEFAULT / stitch / HIGH_BETA ballot",
+    "No invented replacement for retired claimed-MDD narrative",
+    "No E45 same-knob densify as substitute for M1"
+  ]
+}

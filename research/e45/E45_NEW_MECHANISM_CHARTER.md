@@ -3,7 +3,7 @@
 Date: 2026-09-06  
 Status: **PAPER CHARTER OPEN** — Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN** · HIGH_BETA observe **DRAFT / NOT OPEN**  
 Parent honesty: `E45_MULTI_EVENT_THRESHOLD_CHARTER.md` · `E45_NONCOVID_MULTIEVENT_ALT_LEVERS.md` · `E45_COVID_EX_HELDOUT_KPI.md`  
-Claimed MDD −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement
+Claimed MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement
 
 ## 0. Why this charter exists
 
@@ -35,7 +35,7 @@ Therefore next work must be a **new mechanism**, not another twist of E45 exposu
 | E45 live stitch | **FORBIDDEN** until second human stitch ACCEPT |
 | HIGH_BETA observe | **DRAFT / NOT OPEN** (unchanged by this charter) |
 | Existing observe sleeves | **Unchanged** by this charter alone |
-| Invented −13.16% replacement | **Forbidden** |
+| Invented replacement for the retired MDD narrative | **Forbidden** |
 
 This charter authorizes **paper research only**. It does **not** open Soft-Frozen, DEFAULT, stitch, or HIGH_BETA ballots.
 
@@ -192,7 +192,7 @@ Book · mechanism stage · window · cost × · `mdd_improve_pp` · `cagr_giveba
 1. Do **not** open Soft-Frozen / DEFAULT / stitch / HIGH_BETA ballots from this charter alone.  
 2. Do **not** densify E45 mild-α / crisis-gate / mild-`max_cut` as a substitute for M1–M3.  
 3. Do **not** claim multi-crisis protection from 2020-only MDD help.  
-4. Do **not** invent a replacement for retired −13.16% MDD.  
+4. Do **not** invent a replacement for the retired MDD narrative.  
 5. Do **not** rewrite e21 primary from Phase C `0050` C1 spikes (prefer adj_close / C2 + quarantine).  
 6. Do **not** auto-OPEN observe for any M1/M2/M3 challenger without a **dedicated human ballot** after §2 pass.
 

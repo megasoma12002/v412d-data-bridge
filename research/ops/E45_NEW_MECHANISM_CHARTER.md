@@ -18,7 +18,7 @@ Machine stub: `research/e45/E45_NEW_MECHANISM_CHARTER.json`
 - DEFAULT **`E22_v2s_tw` KEEP**
 - stitch **FORBIDDEN**
 - HIGH_BETA **DRAFT / NOT OPEN**
-- No invented −13.16% replacement (`RETIRED_HISTORICAL_NARRATIVE`)
+- No invented replacement for the retired MDD narrative (`RETIRED_HISTORICAL_NARRATIVE`)
 - E45 same-knob densify / crisis-gate / mild-`max_cut` **out of scope**
 
 ## Next authorized action
