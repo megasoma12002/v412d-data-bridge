@@ -1,14 +1,21 @@
 #!/usr/bin/env python3
-"""Fetch telecom + 0050 OHLCV. Network/file side effects only under __main__."""
+"""Fetch telecom + 0050 OHLCV. Network/file side effects only under __main__.
+
+Third-party imports (pandas/requests/yfinance) are deferred into main() so that
+importing this module stays dependency-light and side-effect free.
+Script execution behavior is unchanged.
+"""
+from __future__ import annotations
+
 import json
 from pathlib import Path
-import pandas as pd
-import requests
-import yfinance as yf
-
 
 
 def main() -> None:
+    import pandas as pd
+    import requests
+    import yfinance as yf
+
     TICKERS={"2412":"2412.TW","3045":"3045.TW","4904":"4904.TW","0050":"0050.TW"}
     OUT=Path("out_telecom_0050"); OUT.mkdir(exist_ok=True)
     all_rows=[]; qc={}; diagnostics={}

@@ -38,7 +38,20 @@ class BookIdGuards(unittest.TestCase):
 
 class FetchImportGuard(unittest.TestCase):
     def test_fetch_import_has_no_network_side_effect(self):
+        import ast
+
         path = SCRIPTS / "fetch_telecom_0050_ohlcv.py"
+        src = path.read_text(encoding="utf-8")
+        tree = ast.parse(src)
+        top = []
+        for node in tree.body:
+            if isinstance(node, ast.Import):
+                top.extend(a.name.split(".", 1)[0] for a in node.names)
+            elif isinstance(node, ast.ImportFrom) and node.module:
+                top.append(node.module.split(".", 1)[0])
+        for banned in ("pandas", "requests", "yfinance"):
+            self.assertNotIn(banned, top)
+
         spec = importlib.util.spec_from_file_location("fetch_telecom_0050_ohlcv", path)
         mod = importlib.util.module_from_spec(spec)
         t0 = time.time()
