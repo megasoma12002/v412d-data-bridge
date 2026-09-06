@@ -8,7 +8,7 @@ Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · l
 |---:|---|---|---|---|
 | **1** | **α band deep-dive (0.05–0.15)** | Dense grid + stability + month-end PAUSE | **DONE (paper)** | `research/e45/E45_LOW_ALPHA_DEEP_DIVE.md` — held-out still **α=0.05**; α=0.08 close 2nd; **no** dense α clears YTD/1y PAUSE asof 2026-09-04 |
 | **2** | **Crisis-triggered α** (calm≈0, crisis↑) | Cut calm-day CAGR tax | **DONE (paper)** | `research/e45/E45_CRISIS_TRIGGERED_ALPHA.md` — GATE/E1BIN **do not** beat `CONST_A05` on held-out |
-| **3** | **Lower `max_cut` new profile** (no frozen-winner edit) | Milder defense line vs blend-α | **OPEN** | Not started — must be a *new named profile*, not in-place E3 retune |
+| **3** | **Lower `max_cut` new profile** (no frozen-winner edit) | Milder defense line vs blend-α | **DONE (paper)** | `research/e45/E45_MAXCUT_MILD_PROFILE.md` — mc∈{0.25,0.35,0.40} (+ mild×α=0.5); frozen mc=0.5 untouched; held-out still prefers **REF_BLEND_A05**; mild does **not** beat low blend-α |
 | **4** | **Cost / turnover stress** (0–3× fee) | Confirm mild α still pays under cost | **PARTIAL** | Stage V4 lineage cost pack exists; **α-specific 0–3× + turnover** still open |
 | **5** | **Crisis-year attribution** (2015/2018/2020/2022…) | Where protection concentrates | **PARTIAL** | Stage V5 / Stage-3 multi-window done; **year-by-year attribution table for blend α** still open |
 | **6** | **Sleeve-local apply** (FIN / high-β only) | Shrink whole-book CAGR drag | **OPEN** | Not started |
@@ -23,10 +23,10 @@ Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · l
 
 ## Suggested next ballot (paper)
 
-1. **`E45 PAPER max_cut mild profile`** (#3) — or  
-2. **`E45 PAPER alpha cost/turnover stress`** (#4) — or  
+1. **`E45 PAPER alpha cost/turnover stress`** (#4) — or  
+2. **`E45 PAPER crisis-year attribution (blend-α)`** (#5) — or  
 3. Continue observe cadence only (no new screen)
 
 ## Label
 
-`E45_PAPER_ROADMAP_STATUS_2026-09-06__P1_P2_DONE__STITCH_FORBIDDEN`
+`E45_PAPER_ROADMAP_STATUS_2026-09-06__P1_P2_P3_DONE__STITCH_FORBIDDEN`

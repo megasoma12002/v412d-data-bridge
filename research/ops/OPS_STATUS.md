@@ -57,6 +57,7 @@ FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
 E45 blend-α=0.25 observe **OPERATING**: `research/ops/E45_BLEND025_OBSERVE_OPEN.md` · monitor `E45_BLEND025_MONTH_END_MONITOR.md`  
 E45 paper research roadmap (1–7 status): `research/ops/E45_PAPER_RESEARCH_ROADMAP.md`  
+E45 mild max_cut profile (paper #3): `research/e45/E45_MAXCUT_MILD_PROFILE.md`  
 E45 low-alpha deep-dive (0.05–0.15): `research/e45/E45_LOW_ALPHA_DEEP_DIVE.md`  
 E45 blend-alpha fine grid (step 0.05): `research/e45/E45_BLEND_ALPHA_GRID_FINE.md`  
 E45 crisis-triggered alpha (paper): `research/e45/E45_CRISIS_TRIGGERED_ALPHA.md`  

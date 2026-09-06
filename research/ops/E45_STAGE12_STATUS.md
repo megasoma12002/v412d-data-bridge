@@ -108,7 +108,18 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Adjacent steps smooth on MDD, but giveback rises ~0.21–0.27pp per step
 - Month-end asof **2026-09-04**: **no** dense α clears YTD/1y PAUSE (even α=0.05)
 - Observe sleeves unchanged; Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
-- Roadmap map: `E45_PAPER_RESEARCH_ROADMAP.md` (P1+P2 done; P3–P6 open / partial)
+- Roadmap map: `E45_PAPER_RESEARCH_ROADMAP.md` (P1–P3 done; P4–P6 open / partial)
+
+
+## PAPER mild max_cut profile (2026-09-06)
+
+- Ballot: `E45 PAPER max_cut mild profile` — roadmap priority **#3** — **PAPER ONLY**
+- Artifact: `research/e45/E45_MAXCUT_MILD_PROFILE.md` · `repro/e45-maxcut-mild-profile/`
+- New paper profiles: max_cut **0.25 / 0.35 / 0.40** (+ mild×α=0.50); frozen winner **max_cut=0.5 untouched**
+- Held-out: still **`REF_BLEND_A05`**; best mild `MILD_MC40_FULL` weaker on score (−1.11 vs +0.32)
+- Mild full / mild-blend do **not** beat low constant blend-α on held-out
+- Observe sleeves unchanged; Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
+- Roadmap: P1–P3 done; next paper candidates #4 cost/turnover or #5 year attribution
 
 
 ## Label
