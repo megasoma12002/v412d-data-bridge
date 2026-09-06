@@ -73,6 +73,7 @@ def simulate_core(
     e45_legacy_crisis_scale: float | None = None,
     e45_sleeve_names: tuple[str, ...] | None = None,
     sleeve_weight_schedule: pd.DataFrame | None = None,
+    def_code: str | None = None,
     cost_multiple: float = 1.0,
     capital: float = CAPITAL,
     lot_size: int = 1,
@@ -86,8 +87,10 @@ def simulate_core(
     cost_multiple: scale BUY_FEE/SELL_FEE/SLIP/TAX_* for this run only (no module
     monkeypatch). e45_sleeve_names: if set, scale only those sleeves by exposure.
     sleeve_weight_schedule: optional daily Soft-Frozen sleeve targets with columns
-    Financial/Telecom/0050 (paper M2 relocate). When present for a date, it overrides
-    e45_exposure / legacy crisis scale for that date.
+    Financial/Telecom/0050 and optional DEF (paper M2 relocate / true-DEF v1).
+    When present for a date, it overrides e45_exposure / legacy crisis scale.
+    def_code: optional synthetic/research DEF instrument code present in ``market``;
+    required when schedule carries a DEF column > 0.
     """
     if e22_version is None:
         if apply_stock_div is False:
@@ -112,13 +115,21 @@ def simulate_core(
     if len(dates) < WARMUP_DAYS + 10:
         raise RuntimeError("insufficient history for E16 warmup")
 
+    def_c = str(def_code) if def_code else None
+    if def_c is not None:
+        if def_c in ALL:
+            raise ValueError(f"def_code collides with equity universe: {def_c}")
+        if def_c not in closes.columns or def_c not in opens.columns:
+            raise ValueError(f"def_code {def_c} missing from market open/close")
+    universe = list(ALL) + ([def_c] if def_c else [])
+
     events: list[e22div.DivEvent] = []
     if apply_e22 and dividends is not None and len(dividends):
         tmp = Path("/tmp/e50_e22_div_events.csv")
         dividends.to_csv(tmp, index=False)
         events = [e for e in e22div.load_dividend_events(tmp) if e.code in ALL]
 
-    pos = {c: 0.0 for c in ALL}
+    pos = {c: 0.0 for c in universe}
     cash = float(capital)
     pending: list[dict] = []
     nav_rows = []
@@ -151,7 +162,7 @@ def simulate_core(
                 q = (q // lot_size) * lot_size
             fp = float(op[code]) * (1 + slip if side == "BUY" else 1 - slip)
             gross = q * fp
-            tax = tax_etf if code == "0050" else tax_stock
+            tax = tax_etf if code == "0050" or (def_c is not None and code == def_c) else tax_stock
             fee = gross * (buy_fee if side == "BUY" else sell_fee + tax)
             if side == "BUY" and gross + fee > cash:
                 afford = int(cash / (fp * (1 + buy_fee)))
@@ -221,7 +232,7 @@ def simulate_core(
             stock_div_shares_added += applied.stock_shares_added
 
         # 3) Mark NAV at raw close (never adj_close here)
-        vals = {c: pos[c] * float(cl[c]) for c in ALL}
+        vals = {c: pos[c] * float(cl[c]) for c in universe}
         nav = cash + sum(vals.values())
         rg = str(regime.loc[dt]) if dt in regime.index else "Sideways"
         if rg == "Crisis":
@@ -242,7 +253,13 @@ def simulate_core(
                 "Telecom": float(row["Telecom"]),
                 "0050": float(row["0050"]),
             }
+            if "DEF" in row.index:
+                sleeve_w["DEF"] = float(row["DEF"])
+            elif def_c is not None:
+                sleeve_w["DEF"] = 0.0
             equity_scale = float(sum(sleeve_w.values()))
+            if sleeve_w.get("DEF", 0.0) > 0 and def_c is None:
+                raise ValueError("schedule has DEF>0 but def_code was not provided")
         elif e45_exposure is not None and dt in e45_exposure.index:
             equity_scale = float(e45_exposure.loc[dt])
             sleeve_w = e45.apply_exposure_to_sleeve_weights(
@@ -259,17 +276,24 @@ def simulate_core(
             "Telecom": sum(vals[c] for c in TEL),
             "0050": vals["0050"],
         }
+        if def_c is not None:
+            sleeve_vals["DEF"] = float(vals.get(def_c, 0.0))
+            sleeve_w.setdefault("DEF", 0.0)
         pre = {k: (v / nav if nav > 0 else 0.0) for k, v in sleeve_vals.items()}
-        gap = {k: sleeve_w[k] - pre[k] for k in pre}
-        trade = np.zeros(3)
+        gap = {k: float(sleeve_w.get(k, 0.0)) - pre[k] for k in pre}
+        sleeve_names = ["Financial", "Telecom", "0050"] + (["DEF"] if def_c is not None else [])
+        trade = np.zeros(len(sleeve_names))
         if max(abs(v) for v in gap.values()) >= 0.015:
-            trade = np.array([gap["Financial"], gap["Telecom"], gap["0050"]]) * 0.75
+            trade = np.array([gap[n] for n in sleeve_names]) * 0.75
             if abs(trade).sum() > 0.20:
                 trade *= 0.20 / abs(trade).sum()
 
         # 5) Create next-day orders (signal today → fill tomorrow open)
-        sleeve_trade = dict(zip(["Financial", "Telecom", "0050"], trade))
-        for sleeve_name, codes in [("Financial", FIN), ("Telecom", TEL), ("0050", ["0050"])]:
+        sleeve_trade = dict(zip(sleeve_names, trade))
+        sleeve_codes = [("Financial", FIN), ("Telecom", TEL), ("0050", ["0050"])]
+        if def_c is not None:
+            sleeve_codes.append(("DEF", [def_c]))
+        for sleeve_name, codes in sleeve_codes:
             value = sleeve_trade[sleeve_name] * nav / len(codes)
             for c in codes:
                 px = float(cl[c])
@@ -306,9 +330,11 @@ def simulate_core(
                 "pre_financial": pre["Financial"],
                 "pre_telecom": pre["Telecom"],
                 "pre_0050": pre["0050"],
+                "pre_def": pre.get("DEF", 0.0),
                 "tgt_financial": sleeve_w["Financial"],
                 "tgt_telecom": sleeve_w["Telecom"],
                 "tgt_0050": sleeve_w["0050"],
+                "tgt_def": float(sleeve_w.get("DEF", 0.0)),
             }
         )
 
@@ -332,6 +358,7 @@ def simulate_core(
         "mean_e45_exposure": float(nav_df["e45_equity_scale"].mean()) if len(nav_df) else None,
         "cost_multiple": float(cm),
         "e45_sleeve_names": list(e45_sleeve_names) if e45_sleeve_names else None,
+        "def_code": def_c,
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
         "lot_size": int(lot_size),
         "e22_manifest": e22div.version_manifest(e22_version) if apply_e22 else None,

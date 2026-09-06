@@ -117,7 +117,9 @@ M3 read: `M3_STATE_V0` fails §2 and underperforms continuous M2 on COVID-ex hel
 |---|---|---|---|
 | 1 | True DEF data ingest (cash / short-duration / FX) | **DONE — INGEST PASS** | `E45_M2_TRUE_DEF_DATA_INGEST.md` · freeze `E45_M2_TRUE_DEF_DATA_V0_FROZEN.md` · `data/def_proxies/` |
 | 2 | Human ballot: OPEN M2 relocate observe (`M2_RELOC_TEL_C50`) | **DRAFT / NOT OPEN** | `E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT.md` (+ `.zh-TW.md`) |
-| 3 | M2 v1 relocate paper on true DEF | **NOT STARTED** (needs join freeze before metrics) | — |
+| 3 | M2 v1 relocate paper on true DEF | **DONE — Section-2 PASS (`M2_RELOC_BIL_FX_C50/C75`)** | `E45_M2_TRUE_DEF_RELOCATE.md` · freeze `E45_M2_DEF_SLEEVE_V1_FROZEN.md` |
 
-Engineering: PR **#101** (M3 pack) merged to `main`. Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN**.
+M2 v1 read: `M2_RELOC_BIL_FX_C50/C75` clear §2 on true DEF (`BIL×USDTWD`); `00719B` switch books did not qualify. Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN** · M2 observe ballot still DRAFT · no live_market merge.
+
+Engineering: PR **#101** (M3 pack) merged to `main`; #102 DEF ingest merged. Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN**.
 
