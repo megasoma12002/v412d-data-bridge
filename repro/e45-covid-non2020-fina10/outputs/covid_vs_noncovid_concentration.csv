@@ -1,4 +1,4 @@
-book,mdd_help_covid_year_pp,mdd_help_non_covid_positive_pp,share_of_positive_help_in_covid_year,n_stress_years_helped_gt_0_25pp,years_helped,n_non_covid_years_helped_gt_0_25pp,non_covid_years_helped,multi_event_incl_covid,multi_event_non_covid_only
+book,mdd_improve_covid_year_pp,mdd_improve_non_covid_positive_pp,share_of_positive_help_in_covid_year,n_stress_years_helped_gt_0_25pp,years_helped,n_non_covid_years_helped_gt_0_25pp,non_covid_years_helped,multi_event_incl_covid,multi_event_non_covid_only
 BLEND_E45_A05,0.7024106199616797,0.062216719367691464,0.9186313172868503,1,[2020],0,[],False,False
 BLEND_E45_A10,0.7995563710543108,0.2241912886051911,0.7810092296770114,1,[2020],0,[],False,False
 FIN_ONLY_A05,0.6421180471372079,0.0,1.0,1,[2020],0,[],False,False

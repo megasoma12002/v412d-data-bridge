@@ -94,6 +94,10 @@ NAMING_FORK_BANS = (
         r"\bmdd_help_(?:2020|covid_year|non2020_positive|non_covid_positive|threshold)_pp\b",
         "Use mdd_improve_* keys (not mdd_help_*)",
     ),
+    (
+        r'mdd_help[^"\']*\.csv',
+        "Use mdd_improve* CSV filenames (not mdd_help*)",
+    ),
     (r"Observe lock `FIN_ONLY_A10`", "Observe OPERATING id is SLEEVE_FIN_ONLY_A10"),
     (r"\bsealed_2023_latest\b", "Use sealed_2023_plus (WINDOWS_STANDARD)"),
 )

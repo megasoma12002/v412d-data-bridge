@@ -44,7 +44,7 @@ def main():
         future=act[(act.code==r.code)&(act.date>r.date)];factor=float(future.factor.prod()) if len(future) else 1.
         adj.append({'code':r.code,'date':r.date,'adjusted_close':r.close*factor,'volume':r.volume,'backward_adjustment_factor':factor})
     adj=pd.DataFrame(adj);adj.assign(date=adj.date.dt.date).to_csv(out/'e9_telecom_adjusted.csv',index=False)
-    fin=pd.read_csv(a.financial_adjusted);fin.date=pd.to_datetime(fin.date);fin.code=fin.code.astype(str)
+    fin=pd.read_csv(a.financial_adjusted, dtype={"code": str});fin.date=pd.to_datetime(fin.date);fin.code=fin.code.astype(str)
     fc=fin.pivot(index='date',columns='code',values='adjusted_close').sort_index();tc=adj.pivot(index='date',columns='code',values='adjusted_close').sort_index()
     dates=fc.index.intersection(tc.index);fc=fc.reindex(dates).ffill(limit=3);tc=tc.reindex(dates).ffill(limit=3)
     fr=fc.pct_change(fill_method=None).fillna(0);tr=tc.pct_change(fill_method=None).fillna(0);allret=pd.concat([fr,tr],axis=1)

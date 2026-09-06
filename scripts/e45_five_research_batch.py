@@ -726,7 +726,7 @@ def main() -> None:
                 "is_2020": y == 2020,
             })
     help_df = pd.DataFrame(help_rows)
-    help_df.to_csv(out_o / "crisis_year_mdd_help_vs_base.csv", index=False)
+    help_df.to_csv(out_o / "crisis_year_mdd_improve_vs_base.csv", index=False)
 
     concentration = []
     for bid, g in help_df.groupby("book"):
@@ -744,7 +744,7 @@ def main() -> None:
             "years_helped": years_helped,
         })
     conc_df = pd.DataFrame(concentration)
-    conc_df.to_csv(out_o / "crisis_help_concentration.csv", index=False)
+    conc_df.to_csv(out_o / "crisis_improve_concentration.csv", index=False)
 
     print("==> (3) FIN_ONLY_A10 vs BLEND_E45_A05", flush=True)
     roll_rows = []

@@ -137,7 +137,7 @@ def aligned_matrices(raw, adjusted):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--raw",required=True); ap.add_argument("--adjusted",required=True); ap.add_argument("--out",required=True)
     a=ap.parse_args(); out=Path(a.out); out.mkdir(parents=True,exist_ok=True)
-    raw=pd.read_csv(a.raw); adjusted=pd.read_csv(a.adjusted); z=d.prep(raw)
+    raw=pd.read_csv(a.raw, dtype={"code": str}); adjusted=pd.read_csv(a.adjusted, dtype={"code": str}); z=d.prep(raw)
     rc,ro,ac,ao=aligned_matrices(raw,adjusted); scores=d.make_scores(z,1)
     # Frozen D baseline, evaluated on the same adjusted layer.
     d_signal,_=d.targets(scores,list(rc.index),21,2,75)

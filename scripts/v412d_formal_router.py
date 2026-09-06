@@ -119,7 +119,7 @@ def metrics(nav,p):
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--input",required=True); ap.add_argument("--out",required=True); a=ap.parse_args()
-    out=Path(a.out); out.mkdir(parents=True,exist_ok=True); z=prep(pd.read_csv(a.input))
+    out=Path(a.out); out.mkdir(parents=True,exist_ok=True); z=prep(pd.read_csv(a.input, dtype={"code": str}))
     close=z.pivot(index="date",columns="stock_id",values="close").sort_index(); bench=(1+close.pct_change().mean(axis=1).fillna(0)).cumprod()
     score_cache={fam:make_scores(z,fam) for fam in (0,1,2)}
     grid=[]; runs=[]

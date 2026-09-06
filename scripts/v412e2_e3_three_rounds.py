@@ -59,7 +59,7 @@ def key(r): return tuple(r[x] for x in ["mode","max_cut","up_days","target_vol",
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--raw',required=True); ap.add_argument('--adjusted',required=True); ap.add_argument('--out',required=True)
     a=ap.parse_args(); out=Path(a.out); out.mkdir(parents=True,exist_ok=True)
-    raw=pd.read_csv(a.raw); adj=pd.read_csv(a.adjusted); z=d.prep(raw); rc,ro,ac,ao=e1.aligned_matrices(raw,adj); scores=d.make_scores(z,1)
+    raw=pd.read_csv(a.raw, dtype={"code": str}); adj=pd.read_csv(a.adjusted, dtype={"code": str}); z=d.prep(raw); rc,ro,ac,ao=e1.aligned_matrices(raw,adj); scores=d.make_scores(z,1)
     q=raw_risk_features(z); ones=pd.Series(1.,index=rc.index)
     d_sig,_=d.targets(scores,list(rc.index),21,2,75); d_nav,dw,dc,ds=e11.nav_with_exposure(ac,ao,d_sig,ones)
     ew=(1+ac.pct_change(fill_method=None).mean(axis=1,skipna=True).fillna(0)).cumprod()

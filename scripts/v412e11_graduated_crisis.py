@@ -44,7 +44,7 @@ def nav_with_exposure(eval_close,eval_open,signal_w,exposure,cost_mult=1):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--raw",required=True); ap.add_argument("--adjusted",required=True); ap.add_argument("--out",required=True)
     a=ap.parse_args(); out=Path(a.out); out.mkdir(parents=True,exist_ok=True)
-    raw=pd.read_csv(a.raw); adj=pd.read_csv(a.adjusted); z=d.prep(raw)
+    raw=pd.read_csv(a.raw, dtype={"code": str}); adj=pd.read_csv(a.adjusted, dtype={"code": str}); z=d.prep(raw)
     rc,ro,ac,ao=e1.aligned_matrices(raw,adj); scores=d.make_scores(z,1)
     d_sig,_=d.targets(scores,list(rc.index),21,2,75); d_nav,d_w,d_cost,_=nav_with_exposure(ac,ao,d_sig,pd.Series(1.0,index=rc.index))
     ew=(1+ac.pct_change(fill_method=None).mean(axis=1,skipna=True).fillna(0)).cumprod()

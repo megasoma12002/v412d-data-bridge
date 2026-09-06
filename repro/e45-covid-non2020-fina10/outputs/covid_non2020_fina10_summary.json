@@ -71,8 +71,8 @@
   "concentration": [
     {
       "book": "BLEND_E45_A05",
-      "mdd_help_covid_year_pp": 0.7024106199616797,
-      "mdd_help_non_covid_positive_pp": 0.062216719367691464,
+      "mdd_improve_covid_year_pp": 0.7024106199616797,
+      "mdd_improve_non_covid_positive_pp": 0.062216719367691464,
       "share_of_positive_help_in_covid_year": 0.9186313172868503,
       "n_stress_years_helped_gt_0_25pp": 1,
       "years_helped": [
@@ -85,8 +85,8 @@
     },
     {
       "book": "BLEND_E45_A10",
-      "mdd_help_covid_year_pp": 0.7995563710543108,
-      "mdd_help_non_covid_positive_pp": 0.2241912886051911,
+      "mdd_improve_covid_year_pp": 0.7995563710543108,
+      "mdd_improve_non_covid_positive_pp": 0.2241912886051911,
       "share_of_positive_help_in_covid_year": 0.7810092296770114,
       "n_stress_years_helped_gt_0_25pp": 1,
       "years_helped": [
@@ -99,8 +99,8 @@
     },
     {
       "book": "FIN_ONLY_A05",
-      "mdd_help_covid_year_pp": 0.6421180471372079,
-      "mdd_help_non_covid_positive_pp": 0.0,
+      "mdd_improve_covid_year_pp": 0.6421180471372079,
+      "mdd_improve_non_covid_positive_pp": 0.0,
       "share_of_positive_help_in_covid_year": 1.0,
       "n_stress_years_helped_gt_0_25pp": 1,
       "years_helped": [
@@ -113,8 +113,8 @@
     },
     {
       "book": "FIN_ONLY_A08",
-      "mdd_help_covid_year_pp": 0.7612498742001983,
-      "mdd_help_non_covid_positive_pp": 0.08666358127122908,
+      "mdd_improve_covid_year_pp": 0.7612498742001983,
+      "mdd_improve_non_covid_positive_pp": 0.08666358127122908,
       "share_of_positive_help_in_covid_year": 0.897791949506161,
       "n_stress_years_helped_gt_0_25pp": 1,
       "years_helped": [
@@ -127,8 +127,8 @@
     },
     {
       "book": "FIN_ONLY_A10",
-      "mdd_help_covid_year_pp": 0.9119746801036444,
-      "mdd_help_non_covid_positive_pp": 0.17105472034134594,
+      "mdd_improve_covid_year_pp": 0.9119746801036444,
+      "mdd_improve_non_covid_positive_pp": 0.17105472034134594,
       "share_of_positive_help_in_covid_year": 0.8420590241861728,
       "n_stress_years_helped_gt_0_25pp": 1,
       "years_helped": [
@@ -141,8 +141,8 @@
     },
     {
       "book": "FIN_ONLY_A12",
-      "mdd_help_covid_year_pp": 0.8264674948487483,
-      "mdd_help_non_covid_positive_pp": 0.21947771968912066,
+      "mdd_improve_covid_year_pp": 0.8264674948487483,
+      "mdd_improve_non_covid_positive_pp": 0.21947771968912066,
       "share_of_positive_help_in_covid_year": 0.7901632737178373,
       "n_stress_years_helped_gt_0_25pp": 1,
       "years_helped": [
@@ -155,8 +155,8 @@
     },
     {
       "book": "FIN_ONLY_A15",
-      "mdd_help_covid_year_pp": 0.7423469403666116,
-      "mdd_help_non_covid_positive_pp": 0.28773418982609433,
+      "mdd_improve_covid_year_pp": 0.7423469403666116,
+      "mdd_improve_non_covid_positive_pp": 0.28773418982609433,
       "share_of_positive_help_in_covid_year": 0.720668419804695,
       "n_stress_years_helped_gt_0_25pp": 2,
       "years_helped": [
