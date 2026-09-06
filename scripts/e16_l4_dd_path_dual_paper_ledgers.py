@@ -17,6 +17,8 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
+import e16_soft_frozen_base as soft_frozen
+
 import numpy as np
 import pandas as pd
 
@@ -190,7 +192,7 @@ def main() -> None:
         "live_wire": False,
         "soft_frozen_default_unchanged": True,
         "research_heldout_pass_reference": "PASS_HELDOUT_L4",
-        "current_live_clip": {"financial_lo": 0.50, "financial_hi": 0.95},
+        "current_live_clip": {"financial_lo": soft_frozen.SOFT_FROZEN_FIN_LO, "financial_hi": soft_frozen.SOFT_FROZEN_FIN_HI},
         "exact_t1": {
             "base": books["BASE_E16"]["exact_t1_ok"],
             "l4": books[LOCKED_ID]["exact_t1_ok"],

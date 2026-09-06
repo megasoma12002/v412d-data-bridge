@@ -92,3 +92,17 @@ python3 scripts/e21_qc.py
 | `tests/test_landmine_guards.py` | Minimal fail-closed unit guards |
 
 Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · −13.16% RETIRED.
+
+## Round 4 — High leftovers + Medium claim drift
+
+| Fix | Effect |
+|---|---|
+| `e21_forward_pipeline` → `pipeline_t1_audit.json` | Stops stomping `qc_status.json` (owned by `e21_qc.py`) |
+| `--confirm-e22-version-override` | Non-DEFAULT E22 books require explicit confirm |
+| E45 month-end monitors regenerated at NAV tip `2026-09-04` | Tip-aligned PAUSE (stitch still blocked) |
+| fills/orders `dtype={"code": str}` + hygiene guard | Blocks 0050→50 landmine |
+| dual-paper `current_live_clip` from Soft-Frozen constants | No hardcoded 0.50/0.95 literals |
+| Frozen governance/spec claim label | `NOT_VERIFIED` → `RETIRED_HISTORICAL_NARRATIVE` |
+| Month-end pack workflow | Skip git commit when `continue_on_error` |
+
+Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · −13.16% RETIRED.

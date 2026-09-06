@@ -193,6 +193,28 @@ def main() -> int:
                         f"{apath.relative_to(ROOT)}: stale non-canonical book id matching {pat.pattern}"
                     )
 
+
+    # Live/paper fills+orders must preserve code as str (0050 -> 50 landmine)
+    for path in sorted((ROOT / "scripts").glob("e21*.py")) + sorted((ROOT / "scripts").glob("e45*.py")):
+        text = path.read_text(encoding="utf-8")
+        for m in re.finditer(r"read_csv\(([^\n]{0,160})\)", text):
+            call = m.group(0)
+            args = m.group(1)
+            if "fills.csv" not in args and "orders.csv" not in args and "fills.csv" not in call and "orders.csv" not in call:
+                # also catch Path / "fills.csv" nearby — require fills/orders token in call
+                if "fills.csv" not in call and "orders.csv" not in call:
+                    continue
+            if "dtype" not in call or ("code" not in call and "str" not in call):
+                line = text.count("\n", 0, m.start()) + 1
+                # allow if dtype=str for whole frame
+                if re.search(r"dtype\s*=\s*str", call):
+                    continue
+                if re.search(r"dtype\s*=\s*\{[^}]*code[^}]*str", call):
+                    continue
+                violations.append(
+                    f"{path.relative_to(ROOT)}:{line}: read_csv fills/orders without dtype code=str (0050 landmine)"
+                )
+
     if violations:
         print("E45 paper hygiene FAIL:")
         for v in violations:

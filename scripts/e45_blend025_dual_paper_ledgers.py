@@ -16,6 +16,8 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
+import e16_soft_frozen_base as soft_frozen
+
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -160,7 +162,7 @@ def main() -> None:
         "e45_profile": E45_PROFILE,
         "claimed_mdd_status": e45.CLAIMED_MDD_STATUS,
         "primary_comparable_mdd": e45.PRIMARY_COMPARABLE_MDD,
-        "current_live_clip": {"financial_lo": 0.50, "financial_hi": 0.95},
+        "current_live_clip": {"financial_lo": soft_frozen.SOFT_FROZEN_FIN_LO, "financial_hi": soft_frozen.SOFT_FROZEN_FIN_HI},
         "exact_t1": {
             "base": books[BASE_ID]["exact_t1_ok"],
             "blend_e45_a25": books[CHAL_ID]["exact_t1_ok"],
