@@ -49,3 +49,16 @@ Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · l
 Sleeve-local OPEN ballot **DRAFT** (awaiting human ACCEPT, not OPEN): `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md`
 
 Sleeve-local observe **OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md`
+
+## Five-research batch (2026-09-06)
+
+| # | Item | Status | Artifact |
+|---|---|---|---|
+| 1 | Observe PAUSE time-series | **DONE** | `E45_OBSERVE_PAUSE_TIMESERIES.md` |
+| 2 | Non-2020 crisis attribution | **DONE** | `E45_NON2020_CRISIS_ATTRIBUTION.md` |
+| 3 | FIN_ONLY_A10 vs ALL_A05 rolling/cost | **DONE** | `E45_FINA10_VS_ALLA05_COMPARE.md` |
+| 4 | HIGH_BETA paper + DRAFT ballot | **DONE (DRAFT only)** | `E45_HIGH_BETA_SLEEVE_LOCAL_PAPER.md` |
+| 5 | Multi-event threshold charter | **DONE** | `E45_MULTI_EVENT_THRESHOLD_CHARTER.md` |
+
+Integrated: `E45_FIVE_RESEARCH_BATCH_INTEGRATED.md` · stitch still **FORBIDDEN**.
+

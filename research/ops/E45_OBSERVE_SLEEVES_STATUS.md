@@ -14,3 +14,7 @@ Cadence: `python3 scripts/ops_month_end_paper_pack.py` (incl. A05 + sleeve-local
 Label: `E45_OBSERVE_SLEEVES_FULL_A25_A05_SLEEVE_LOCAL_OPERATING__STITCH_FORBIDDEN`
 
 OPEN **ACCEPTED / OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md` — locked `SLEEVE_FIN_ONLY_A10`. Draft retained for history: `E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md`.
+
+## Five-research batch (2026-09-06)
+
+Paper follow-ups **DONE** (PAUSE time-series / non-2020 attribution / FIN_A10 vs ALL_A05 / HIGH_BETA DRAFT / multi-event charter). See `E45_FIVE_RESEARCH_BATCH_INTEGRATED.md`. Soft-Frozen KEEP · stitch FORBIDDEN · no new OPEN.
