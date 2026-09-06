@@ -35,6 +35,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install runtime deps for harness exec-check
+        run: pip install --disable-pip-version-check pandas
       - name: E45 paper hygiene
         run: PYTHONPATH=scripts python3 scripts/check_e45_paper_hygiene.py
       - name: Project coding hygiene
