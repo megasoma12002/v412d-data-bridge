@@ -301,10 +301,11 @@ def apply_m2_def_relocate(
     cut: float,
     mode: str,
 ) -> dict[str, float]:
-    """M2 DEF actuator (frozen v0): shrink / relocate-to-Telecom / hybrid.
+    """M2 DEF actuator (frozen v0+v1): shrink / relocate-to-TEL|true-DEF / hybrid.
 
     ``intensity`` is lag-1 state intensity in [0,1]. ``cut`` is c in {0.5,0.75}.
-    Modes match research/e45/E45_M2_DEF_SLEEVE_V0_FROZEN.md.
+    v0 modes: research/e45/E45_M2_DEF_SLEEVE_V0_FROZEN.md
+    v1 modes: research/e45/E45_M2_DEF_SLEEVE_V1_FROZEN.md (adds DEF sleeve weight).
     """
     u = float(np.clip(float(cut) * float(intensity), 0.0, 1.0))
     w_fin = float(sleeve_weights.get("Financial", 0.0))
@@ -317,6 +318,7 @@ def apply_m2_def_relocate(
             "Financial": w_fin * scale,
             "Telecom": w_tel * scale,
             "0050": w_0050 * scale,
+            "DEF": 0.0,
         }
     if m == "RELOC_TEL":
         move_fin = w_fin * u
@@ -325,6 +327,7 @@ def apply_m2_def_relocate(
             "Financial": w_fin - move_fin,
             "Telecom": w_tel + move_fin + move_0050,
             "0050": w_0050 - move_0050,
+            "DEF": 0.0,
         }
     if m == "HYBRID_TEL":
         half = 0.5 * u
@@ -337,6 +340,29 @@ def apply_m2_def_relocate(
             "Financial": w_fin_s - move_fin,
             "Telecom": w_tel_s + move_fin + move_0050,
             "0050": w_0050_s - move_0050,
+            "DEF": 0.0,
+        }
+    if m in {"RELOC_719B", "RELOC_BIL_FX"}:
+        move_fin = w_fin * u
+        move_0050 = w_0050 * u
+        return {
+            "Financial": w_fin - move_fin,
+            "Telecom": w_tel,
+            "0050": w_0050 - move_0050,
+            "DEF": move_fin + move_0050,
+        }
+    if m == "HYBRID_719B":
+        half = 0.5 * u
+        w_fin_s = w_fin * (1.0 - half)
+        w_tel_s = w_tel * (1.0 - half)
+        w_0050_s = w_0050 * (1.0 - half)
+        move_fin = w_fin * half
+        move_0050 = w_0050 * half
+        return {
+            "Financial": w_fin_s - move_fin,
+            "Telecom": w_tel_s,
+            "0050": w_0050_s - move_0050,
+            "DEF": move_fin + move_0050,
         }
     raise ValueError(f"unknown M2 mode: {mode}")
 

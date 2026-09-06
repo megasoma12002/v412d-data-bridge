@@ -14,7 +14,8 @@ Live DEFAULT books: **`E22_v2s_tw` KEEP**
 Live stitch: **still FORBIDDEN**  
 Parent sleeves still OPERATING: FULL + A25 + A05 + `SLEEVE_FIN_ONLY_A10`  
 HIGH_BETA: **DRAFT / NOT OPEN** (separate ballot)  
-True DEF ingest: available under `data/def_proxies/` — **not** required to ACCEPT this ballot (v0 still `DEF_TEL`)
+True DEF ingest + M2 v1 paper: `data/def_proxies/` · `E45_M2_TRUE_DEF_RELOCATE.md` (**§2 PASS** on `M2_RELOC_BIL_FX_C50/C75`).  
+This ballot still targets **v0 `M2_RELOC_TEL_C50`** unless a human explicitly switches the locked book.
 
 ## Proposal (if later ACCEPTed)
 

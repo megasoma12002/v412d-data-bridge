@@ -22,7 +22,7 @@ OPEN **ACCEPTED / OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md` �
 | HIGH_BETA sleeve-local observe | **DRAFT / NOT OPEN** | `E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.md` |
 | M2 relocate observe (`M2_RELOC_TEL_C50`) | **DRAFT / NOT OPEN** | `E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT.md` |
 
-True DEF ingest (research data only; not an observe OPEN): `E45_M2_TRUE_DEF_DATA_INGEST.md` · `data/def_proxies/`. Soft-Frozen KEEP · stitch FORBIDDEN.
+True DEF ingest + M2 v1 paper (**§2 PASS** `M2_RELOC_BIL_FX_C50/C75`; not an observe OPEN): `E45_M2_TRUE_DEF_DATA_INGEST.md` · `E45_M2_TRUE_DEF_RELOCATE.md` · `data/def_proxies/`. Soft-Frozen KEEP · stitch FORBIDDEN.
 
 ## Five-research batch (2026-09-06)
 
