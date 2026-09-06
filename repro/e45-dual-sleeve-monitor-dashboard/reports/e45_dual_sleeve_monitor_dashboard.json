@@ -1,14 +1,14 @@
 {
-  "generated_at_utc": "2026-09-06T01:47:24.226009+00:00",
+  "generated_at_utc": "2026-09-06T02:48:18.614883+00:00",
   "status": "PAPER_DASHBOARD",
   "ballot": "E45 PAPER dual-sleeve long monitor dashboard",
   "roadmap_priority": 7,
   "operating_observe_sleeves": [
-    "FULL_E45",
-    "BLEND_A25"
+    "CHAL_E45_E3",
+    "BLEND_E45_A25"
   ],
   "paper_companion_not_observe": [
-    "BLEND_A10"
+    "BLEND_E45_A10"
   ],
   "asof_paper_a10": "2026-09-04",
   "full_observe_asof": "2026-09-04",
@@ -30,56 +30,36 @@
       "sleeve": "PAPER_BLEND_A10",
       "window": "ytd",
       "asof": "2026-09-04",
-      "base_cagr": 0.6826979970195655,
-      "book_cagr": 0.6152278319282083,
-      "base_mdd": -0.1445727963916551,
-      "book_mdd": -0.10577429644608305,
-      "mdd_improve_pp": 3.879849994557205,
-      "cagr_giveback_pp": 6.747016509135717,
+      "mdd_improve_pp": 3.6543522255785277,
+      "cagr_giveback_pp": 6.564195533192474,
       "flag": "PAUSE_REVIEW",
-      "n_days": 162,
       "observe_operating": false
     },
     {
       "sleeve": "PAPER_BLEND_A10",
       "window": "trailing_1y",
       "asof": "2026-09-04",
-      "base_cagr": 0.5436980484500511,
-      "book_cagr": 0.47083553870104833,
-      "base_mdd": -0.14457279639165488,
-      "book_mdd": -0.10577429644608316,
-      "mdd_improve_pp": 3.879849994557172,
-      "cagr_giveback_pp": 7.286250974900277,
+      "mdd_improve_pp": 3.6543522255785277,
+      "cagr_giveback_pp": 6.927274929019678,
       "flag": "PAUSE_REVIEW",
-      "n_days": 242,
       "observe_operating": false
     },
     {
       "sleeve": "PAPER_BLEND_A10",
       "window": "heldout_2019_plus",
       "asof": "2026-09-04",
-      "base_cagr": 0.18234637927240827,
-      "book_cagr": 0.1663791782881041,
-      "base_mdd": -0.2263873534222821,
-      "book_mdd": -0.2168718841310523,
-      "mdd_improve_pp": 0.9515469291229817,
-      "cagr_giveback_pp": 1.5967200984304153,
+      "mdd_improve_pp": 0.799556371054333,
+      "cagr_giveback_pp": 1.5094181207245816,
       "flag": "n/a",
-      "n_days": 1856,
       "observe_operating": false
     },
     {
       "sleeve": "PAPER_BLEND_A10",
       "window": "sealed_2023_plus",
       "asof": "2026-09-04",
-      "base_cagr": 0.2492563398696781,
-      "book_cagr": 0.22739069565372372,
-      "base_mdd": -0.144572796391655,
-      "book_mdd": -0.10577429644608305,
-      "mdd_improve_pp": 3.879849994557194,
-      "cagr_giveback_pp": 2.1865644215954383,
+      "mdd_improve_pp": 3.654352225578539,
+      "cagr_giveback_pp": 2.116729162136921,
       "flag": "n/a",
-      "n_days": 879,
       "observe_operating": false
     }
   ],

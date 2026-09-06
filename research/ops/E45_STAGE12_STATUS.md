@@ -165,3 +165,11 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 ## Label
 
 `E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`
+
+## Post-P7 next steps — ALL EXECUTED (2026-09-06)
+
+- **Sleeve-local deep-dive (PAPER):** `research/e45/E45_SLEEVE_LOCAL_DEEP_DIVE.md` — denser α∈{0.05,0.08,0.10}×cost 1–2×; held-out preferred **FIN_ONLY@α=0.10** (score ~0.285) > ALL@0.05; crisis help still ~84% in 2020; does **not** open sleeve-local observe
+- **OPEN blend-α=0.05 observe:** `research/ops/E45_BLEND005_OBSERVE_OPEN.md` — **OPERATING** (paper only); tip PAUSE_REVIEW on YTD/1y; Soft-Frozen KEEP; stitch FORBIDDEN
+- **FULL + A25 observe cadence:** remains **OPERATING** in parallel (unchanged)
+- Soft-Frozen FIN **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN**
+

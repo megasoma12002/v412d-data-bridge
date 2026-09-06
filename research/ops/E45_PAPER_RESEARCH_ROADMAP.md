@@ -31,11 +31,16 @@ Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · l
 
 **Integrated write-up:** `research/ops/E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md`
 
-## Suggested next human ballots (only if desired)
+## Post-P7 execution (2026-09-06) — ALL DONE
 
-1. `E45 PAPER sleeve-local deep-dive` (densify FIN/high-β α) — or  
-2. `E45 OPEN blend-α=0.05 observe` — or  
-3. Continue observe cadence only
+| # | Action | Status | Artifact |
+|---|---|---|---|
+| A | Sleeve-local deep-dive (α×sleeve×cost + crisis-year) | **DONE (PAPER)** | `E45_SLEEVE_LOCAL_DEEP_DIVE.md` — held-out pref **FIN_ONLY@α=0.10** (score 0.285) beats ALL@0.05; still 2020-concentrated (~84%) |
+| B | OPEN blend-α=0.05 observe companion | **OPEN / OPERATING** | `E45_BLEND005_OBSERVE_OPEN.md` · tip YTD/1y **PAUSE_REVIEW** (expected) |
+| C | Continue FULL+A25 observe cadence | **OPERATING** | dual-paper + blend025 month-end unchanged; stitch still forbidden |
+
+**Not opened:** sleeve-local observe (still paper-only; needs dedicated ballot).
+
 
 ## Label
 

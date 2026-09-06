@@ -120,3 +120,18 @@ Score = MDD_improve_pp − 0.5·|CAGR_giveback_pp| (paper heuristic; not a Soft-
 ## Label
 
 `E45_PAPER_P1_P7_INTEGRATED_ANALYSIS_2026-09-06__A05_REF__SLEEVE_LOCAL_CANDIDATE__STITCH_FORBIDDEN`
+
+---
+
+## 8. Post-P7 execution (2026-09-06) — all three next steps done
+
+| Step | Result |
+|---|---|
+| Sleeve-local deep-dive | Held-out preferred **`FIN_ONLY@α=0.10`** (score **0.285**) beats whole-book ALL@0.05 (0.222); FIN@0.05 still competitive (0.26); cost 2× does not kill; crisis MDD help still **~84% in 2020**. Sleeve-local observe **not** auto-opened. |
+| OPEN blend-α=0.05 observe | **OPERATING** parallel sleeve (`BLEND_E45_A05`). Tip asof 2026-09-04: YTD/1y **PAUSE_REVIEW** (expected). Soft-Frozen KEEP; stitch FORBIDDEN. |
+| Continue FULL+A25 cadence | **OPERATING** unchanged (full E45 + blend α=0.25 month-end). |
+
+**Still forbidden:** live stitch · Soft-Frozen flip · DEFAULT flip · sleeve-local observe without dedicated ballot · inventing −13.16% replacement.
+
+Label: `E45_POST_P7_ALL_NEXT_STEPS_2026-09-06__A05_OBSERVE_OPEN__SLEEVE_LOCAL_PAPER__STITCH_FORBIDDEN`
+

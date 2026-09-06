@@ -1,0 +1,215 @@
+{
+  "generated_at_utc": "2026-09-06T02:47:38.341136+00:00",
+  "status": "PAPER_ONLY",
+  "ballot": "E45 PAPER sleeve-local deep-dive",
+  "parent": "E45_PAPER_P1_P7_INTEGRATED_ANALYSIS",
+  "high_beta_sleeves": [
+    "0050",
+    "Financial"
+  ],
+  "alphas": [
+    0.05,
+    0.08,
+    0.1
+  ],
+  "cost_multiples": [
+    1.0,
+    2.0
+  ],
+  "heldout_preferred_c1x": {
+    "book": "FIN_ONLY_A10_C1x",
+    "scope": "FIN_ONLY",
+    "alpha": 0.1,
+    "cost_multiple": 1.0,
+    "sleeves": [
+      "Financial"
+    ],
+    "window": "heldout_2019_plus",
+    "mdd_improve_pp": 0.9119746801036444,
+    "cagr_giveback_pp": 1.253015844704719,
+    "score": 0.2854667577512848,
+    "book_cagr": 0.16950506384767983,
+    "base_cagr": 0.18203522229472702,
+    "book_mdd": -0.21631369757721874,
+    "base_mdd": -0.2254334443782552
+  },
+  "heldout_top5_c1x": [
+    {
+      "book": "FIN_ONLY_A10_C1x",
+      "scope": "FIN_ONLY",
+      "alpha": 0.1,
+      "cost_multiple": 1.0,
+      "sleeves": [
+        "Financial"
+      ],
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.9119746801036444,
+      "cagr_giveback_pp": 1.253015844704719,
+      "score": 0.2854667577512848,
+      "book_cagr": 0.16950506384767983,
+      "base_cagr": 0.18203522229472702,
+      "book_mdd": -0.21631369757721874,
+      "base_mdd": -0.2254334443782552
+    },
+    {
+      "book": "FIN_ONLY_A05_C1x",
+      "scope": "FIN_ONLY",
+      "alpha": 0.05,
+      "cost_multiple": 1.0,
+      "sleeves": [
+        "Financial"
+      ],
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.6421180471372079,
+      "cagr_giveback_pp": 0.7617617615311323,
+      "score": 0.26123716637164174,
+      "book_cagr": 0.1744176046794157,
+      "base_cagr": 0.18203522229472702,
+      "book_mdd": -0.2190122639068831,
+      "base_mdd": -0.2254334443782552
+    },
+    {
+      "book": "FIN_0050_A05_C1x",
+      "scope": "FIN_0050",
+      "alpha": 0.05,
+      "cost_multiple": 1.0,
+      "sleeves": [
+        "Financial",
+        "0050"
+      ],
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.6596669796110177,
+      "cagr_giveback_pp": 0.8521528111249177,
+      "score": 0.23359057404855887,
+      "book_cagr": 0.17351369418347784,
+      "base_cagr": 0.18203522229472702,
+      "book_mdd": -0.218836774582145,
+      "base_mdd": -0.2254334443782552
+    },
+    {
+      "book": "HIGH_BETA_A05_C1x",
+      "scope": "HIGH_BETA",
+      "alpha": 0.05,
+      "cost_multiple": 1.0,
+      "sleeves": [
+        "0050",
+        "Financial"
+      ],
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.6596669796110177,
+      "cagr_giveback_pp": 0.8521528111249177,
+      "score": 0.23359057404855887,
+      "book_cagr": 0.17351369418347784,
+      "base_cagr": 0.18203522229472702,
+      "book_mdd": -0.218836774582145,
+      "base_mdd": -0.2254334443782552
+    },
+    {
+      "book": "ALL_A05_C1x",
+      "scope": "ALL",
+      "alpha": 0.05,
+      "cost_multiple": 1.0,
+      "sleeves": null,
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.702410619961702,
+      "cagr_giveback_pp": 0.9603207511210909,
+      "score": 0.22225024440115648,
+      "book_cagr": 0.1724320147835161,
+      "base_cagr": 0.18203522229472702,
+      "book_mdd": -0.21840933817863817,
+      "base_mdd": -0.2254334443782552
+    }
+  ],
+  "heldout_top5_c2x": [
+    {
+      "book": "FIN_ONLY_A10_C2x",
+      "scope": "FIN_ONLY",
+      "alpha": 0.1,
+      "cost_multiple": 2.0,
+      "sleeves": [
+        "Financial"
+      ],
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.964108002428965,
+      "cagr_giveback_pp": 1.2892893769133718,
+      "score": 0.3194633139722791,
+      "book_cagr": 0.16338992306149502,
+      "base_cagr": 0.17628281683062874,
+      "book_mdd": -0.21731457010859734,
+      "base_mdd": -0.226955650132887
+    },
+    {
+      "book": "FIN_0050_A10_C2x",
+      "scope": "FIN_0050",
+      "alpha": 0.1,
+      "cost_multiple": 2.0,
+      "sleeves": [
+        "Financial",
+        "0050"
+      ],
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.9558586239127309,
+      "cagr_giveback_pp": 1.3456201339333118,
+      "score": 0.283048556946075,
+      "book_cagr": 0.16282661549129562,
+      "base_cagr": 0.17628281683062874,
+      "book_mdd": -0.21739706389375968,
+      "base_mdd": -0.226955650132887
+    },
+    {
+      "book": "HIGH_BETA_A10_C2x",
+      "scope": "HIGH_BETA",
+      "alpha": 0.1,
+      "cost_multiple": 2.0,
+      "sleeves": [
+        "0050",
+        "Financial"
+      ],
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.9558586239127309,
+      "cagr_giveback_pp": 1.3456201339333118,
+      "score": 0.283048556946075,
+      "book_cagr": 0.16282661549129562,
+      "base_cagr": 0.17628281683062874,
+      "book_mdd": -0.21739706389375968,
+      "base_mdd": -0.226955650132887
+    },
+    {
+      "book": "FIN_ONLY_A08_C2x",
+      "scope": "FIN_ONLY",
+      "alpha": 0.08,
+      "cost_multiple": 2.0,
+      "sleeves": [
+        "Financial"
+      ],
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.8429775758586167,
+      "cagr_giveback_pp": 1.1682318355858534,
+      "score": 0.25886165806568995,
+      "book_cagr": 0.1646004984747702,
+      "base_cagr": 0.17628281683062874,
+      "book_mdd": -0.21852587437430082,
+      "base_mdd": -0.226955650132887
+    },
+    {
+      "book": "ALL_A08_C2x",
+      "scope": "ALL",
+      "alpha": 0.08,
+      "cost_multiple": 2.0,
+      "sleeves": null,
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.88586456143811,
+      "cagr_giveback_pp": 1.2546624587793653,
+      "score": 0.2585333320484273,
+      "book_cagr": 0.1637361922428351,
+      "base_cagr": 0.17628281683062874,
+      "book_mdd": -0.2180970045185059,
+      "base_mdd": -0.226955650132887
+    }
+  ],
+  "preferred_crisis_mdd_share_2020": 0.8420590241861728,
+  "claimed_mdd_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "soft_frozen": "KEEP",
+  "live_stitch": "FORBIDDEN",
+  "observe_open_from_this": false
+}

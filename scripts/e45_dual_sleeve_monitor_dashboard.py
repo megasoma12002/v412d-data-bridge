@@ -28,8 +28,10 @@ MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 FULL_JSON = ROOT / "research/gaps/E45_MONTH_END_MONITOR.json"
 BLEND_JSON = ROOT / "research/gaps/E45_BLEND025_MONTH_END_MONITOR.json"
+BLEND005_JSON = ROOT / "research/gaps/E45_BLEND005_MONTH_END_MONITOR.json"
 FULL_CSV = ROOT / "repro/e45-dual-paper-observe/month_end/month_end_windows.csv"
 BLEND_CSV = ROOT / "repro/e45-blend025-dual-paper-observe/month_end/month_end_windows.csv"
+BLEND005_CSV = ROOT / "repro/e45-blend005-dual-paper-observe/month_end/month_end_windows.csv"
 
 
 def load_json(path: Path) -> dict:
@@ -63,7 +65,7 @@ def main() -> None:
     blend = load_json(BLEND_JSON)
 
     rows = []
-    for label, path in [("CHAL_E45_E3", FULL_CSV), ("BLEND_E45_A25", BLEND_CSV)]:
+    for label, path in [("CHAL_E45_E3", FULL_CSV), ("BLEND_E45_A25", BLEND_CSV), ("BLEND_E45_A05", BLEND005_CSV)]:
         if path.exists():
             d = pd.read_csv(path)
             d["sleeve"] = label
