@@ -173,9 +173,10 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - **FULL + A25 observe cadence:** remains **OPERATING** in parallel (unchanged)
 - Soft-Frozen FIN **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN**
 
-## Sleeve-local observe OPEN ballot — DRAFT only (2026-09-06)
+## Sleeve-local observe OPEN — ACCEPTED / OPERATING (2026-09-06)
 
-- Draft: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md`
-- Proposed primary: **FIN_ONLY @ α=0.10** (deep-dive preferred); alternate FIN+0050 @ α=0.05
-- Status: **AWAITING HUMAN ACCEPT** — **not OPEN**; no ledgers/monitor/pack wire yet
-- Soft-Frozen / DEFAULT **KEEP**; live stitch **FORBIDDEN**
+- Ballot: `E45 ACCEPT OPEN sleeve-local observe` — **OPERATING** (paper only)
+- Locked: `SLEEVE_FIN_ONLY_A10` (Financial sleeve @ α=0.10 × E3_VOLTARGET_WINNER)
+- Artifacts: `E45_SLEEVE_LOCAL_OBSERVE_OPEN.md` · `repro/e45-sleeve-local-dual-paper-observe/` · `E45_SLEEVE_LOCAL_MONTH_END_MONITOR.*`
+- Soft-Frozen / DEFAULT **KEEP**; stitch **FORBIDDEN**; FULL+A25+A05 remain OPERATING in parallel
+

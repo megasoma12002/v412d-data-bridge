@@ -1,7 +1,7 @@
 # E45 Sleeve-Local Observe — OPEN 表決草案（繁中）
 
 日期：2026-09-06  
-狀態：**草案 DRAFT — 等待人工 ACCEPT**  
+狀態：**已取代 — 2026-09-06 已 ACCEPT** → 見 `E45_SLEEVE_LOCAL_OBSERVE_OPEN.zh-TW.md`  
 提議表決名：`E45 OPEN sleeve-local observe`  
 英文正本（治理以英文為準）：`research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md`
 

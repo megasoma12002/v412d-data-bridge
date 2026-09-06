@@ -137,5 +137,4 @@ Label: `E45_POST_P7_ALL_NEXT_STEPS_2026-09-06__A05_OBSERVE_OPEN__SLEEVE_LOCAL_PA
 
 ### Sleeve-local observe ballot
 
-OPEN ballot **DRAFT only** (awaiting human ACCEPT; **not** auto-OPEN):  
-`research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md` — primary proposal **FIN_ONLY@α=0.10**.
+OPEN **ACCEPTED / OPERATING** (2026-09-06): `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md` — locked **`SLEEVE_FIN_ONLY_A10`**. Soft-Frozen KEEP; stitch FORBIDDEN.
