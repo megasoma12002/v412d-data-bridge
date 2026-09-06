@@ -224,9 +224,17 @@ def main() -> int:
         "code_ok": bool(code["code_ok"] and code.get("tw_is_default")),
         "live_evidence_ok": bool(live["live_ledger_e22_fields_present"]),
         "kpi_ok": None,  # filled below
+        # CI smoke gate = code wire only. Full kpi_ok still requires live evidence
+        # (AND). Do not soft-OR live_evidence into kpi_ok.
+        "ci_smoke_ok": None,
     }
-    # Monitoring KPI is green when code path is correct; live evidence may lag until next forward.
-    kpi["kpi_ok"] = bool(kpi["code_ok"])
+    # Fail-closed: code path AND live ledger evidence must both be green.
+    # (Previously code_ok alone could greenwash missing live E22 fields.)
+    kpi["kpi_ok"] = bool(kpi["code_ok"] and kpi["live_evidence_ok"])
+    kpi["ci_smoke_ok"] = bool(kpi["code_ok"])
+    if kpi["code_ok"] and not kpi["live_evidence_ok"]:
+        flags.append("KPI_BLOCKED_LIVE_EVIDENCE_MISSING")
+        kpi["flags"] = flags
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(kpi, indent=2) + "\n")
@@ -298,14 +306,22 @@ def main() -> int:
         lines.append("- None")
     lines += [
         "",
-        f"Monitoring KPI OK (code path): **{kpi['kpi_ok']}**",
+        f"Monitoring KPI OK (code **and** live evidence): **{kpi['kpi_ok']}**",
+        f"- code_ok: **{kpi['code_ok']}**",
+        f"- live_evidence_ok: **{kpi['live_evidence_ok']}**",
+        f"- ci_smoke_ok (= code_ok): **{kpi['ci_smoke_ok']}**",
         "",
         "Re-run: `python3 scripts/e22_gap6_fidelity_kpi.py`",
         "",
     ]
     OUT_MD.write_text("\n".join(lines))
     print(json.dumps(kpi, indent=2))
-    return 0 if kpi["kpi_ok"] else 1
+    # Exit: 0 kpi_ok; 1 code wire fail; 2 live evidence missing (ops debt).
+    if not kpi["code_ok"]:
+        return 1
+    if not kpi["live_evidence_ok"]:
+        return 2
+    return 0
 
 
 if __name__ == "__main__":

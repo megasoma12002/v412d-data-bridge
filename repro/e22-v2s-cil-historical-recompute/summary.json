@@ -162,9 +162,12 @@
     "gap_6_5": "NAMED_VERSION_LANDED",
     "live_default": "KEEP_E22_v2s_UNTIL_EXPLICIT_PROMOTE",
     "promote_cil_to_default": "RECOMMENDED_CANDIDATE_DELTA_NEGLIGIBLE",
-    "promote_note": "Full-history CAGR delta vs E22_v2s is ~-0.0005 pp; end NAV ratio ~0.99994; end fractional dust 2.20 \u2192 0. Safe named successor for gap 6.5. Still requires explicit default cutover; no live history rewrite.",
+    "promote_note": "Full-history CAGR delta vs E22_v2s is ~-0.0005 pp; end NAV ratio ~0.99994; end fractional dust 2.20 → 0. Safe named successor for gap 6.5. Still requires explicit default cutover; no live history rewrite.",
     "live_history": "DO_NOT_REWRITE",
     "board_lot_1000": "STILL_CHALLENGER_ONLY",
     "pay_date_tax": "STILL_SANDBOX"
-  }
+  },
+  "live_default_status": "SUPERSEDED_FOR_LIVE_DEFAULT",
+  "current_live_default": "E22_v2s_tw",
+  "note_20260905": "default_remains/E22_v2s language is historical; live DEFAULT is E22_v2s_tw since 2026-09-05 promote."
 }

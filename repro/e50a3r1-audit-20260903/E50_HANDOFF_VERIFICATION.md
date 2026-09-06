@@ -1,3 +1,8 @@
+> **DATED SNAPSHOT (2026-09-03) — wiring claims in this file are SUPERSEDED.**
+> Live DEFAULT books are now **`E22_v2s_tw`** (promoted 2026-09-05). Named module `scripts/e45_crisis_core.py` exists.
+> Prefer `HANDOFF.md`, `research/STRATEGY_DEBT_BOARD.md`, and `research/e45/E45_OFFICIAL_STATUS.md` for current authority.
+> Do **not** treat “No module named e45” / “E22 not wired” / “default E22_v2s” statements below as current fact.
+
 # E50 HANDOFF VERIFICATION
 
 Date: 2026-09-03  

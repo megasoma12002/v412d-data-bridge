@@ -8,7 +8,7 @@
 
 | Probe | Status | Detail |
 |---|---|---|
-| C1_fin12_history_shadow | PASS | INFO_DRIFT on 1 ticker(s); flag-only, no overwrite |
+| C1_fin12_history_shadow | PASS | DRIFT on 1 ticker(s); does not count toward PASS |
 | C2_adj_corporate_action_shadow | PASS | n_ok=8 |
 | C3_taiex_optional_failover | PASS | Helper is opt-in only; e21 still uses FinMind TaiwanStockPrice(TAIEX). |
 

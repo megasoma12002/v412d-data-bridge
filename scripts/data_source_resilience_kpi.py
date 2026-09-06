@@ -178,6 +178,29 @@ def main() -> int:
     elif not pc["phase_c_done"]:
         flags.append(f"PHASE_C_PROBES_{pc['phase_c_overall'] or 'FAIL'}")
 
+    phase_a_doc = ROOT / "research/ops/DATA_SOURCE_RESILIENCE.md"
+    phase_b_json = ROOT / "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json"
+    phase_a_done = phase_a_doc.exists() and phase_a_doc.stat().st_size > 0
+    phase_b_done = False
+    if phase_b_json.exists():
+        try:
+            phase_b_done = bool(json.loads(phase_b_json.read_text(encoding="utf-8")))
+        except json.JSONDecodeError:
+            phase_b_done = False
+
+    # Evidence integrity: critical streams that declare evidence must have the file present.
+    missing_evidence = [
+        r["id"]
+        for r in rows
+        if r["critical_for_live"] and r.get("evidence") and not r.get("evidence_present")
+    ]
+    if missing_evidence:
+        flags.append(f"CRITICAL_EVIDENCE_MISSING:{','.join(missing_evidence)}")
+    if not phase_a_done:
+        flags.append("PHASE_A_ARTIFACT_MISSING")
+    if not phase_b_done:
+        flags.append("PHASE_B_ARTIFACT_MISSING_OR_INVALID")
+
     summary = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "DATA_SOURCE_RESILIENCE_KPI",
@@ -191,9 +214,14 @@ def main() -> int:
         "n_grade_d": n_grade_d,
         "streams": rows,
         "flags": flags,
-        "kpi_ok": "PAYMENT_DATE_BACKUP_REGRESSION" not in flags,
-        "phase_a_done": True,
-        "phase_b_done": True,
+        "kpi_ok": (
+            "PAYMENT_DATE_BACKUP_REGRESSION" not in flags
+            and "CRITICAL_EVIDENCE_MISSING" not in "".join(flags)
+            and phase_a_done
+            and phase_b_done
+        ),
+        "phase_a_done": phase_a_done,
+        "phase_b_done": phase_b_done,
         "phase_b_artifact": "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json",
         "phase_c_done": pc["phase_c_done"],
         "phase_c_overall": pc["phase_c_overall"],
