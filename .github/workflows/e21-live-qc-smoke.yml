@@ -3,6 +3,8 @@ name: E21 Live QC Smoke
 # Fail-closed Exact T+1 QC on existing forward/e21 tree.
 # Does NOT rebuild market data, does NOT flip Soft-Frozen, does NOT cutover.
 
+# Note: Cloud Agent GitHub tokens typically lack actions:write, so workflow_dispatch
+# from agents returns HTTP 403. Prefer pull_request path triggers (or human UI dispatch).
 on:
   workflow_dispatch:
   pull_request:
