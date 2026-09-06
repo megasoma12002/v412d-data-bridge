@@ -30,7 +30,7 @@ Help threshold: MDD help > **0.25 pp**.
 | `GATE085_A10` | incl_covid | [] | 0 | -0.26 | -0.99 | +1.13 | NO |
 | `GATE085_A25` | incl_covid | [] | 0 | -0.43 | -1.26 | +1.07 | NO |
 | `GATE090_FIN_A10` | incl_covid | [] | 0 | -0.21 | -1.00 | +1.29 | NO |
-| `REF_BLEND_A05` | incl_covid | [2020] | 1 | +0.22 | -2.05 | +2.07 | NO |
+| `REF_BLEND_E45_A05` | incl_covid | [2020] | 1 | +0.22 | -2.05 | +2.07 | NO |
 | `REF_CHAL_E3` | incl_covid | [2015, 2018, 2020, 2022] | 4 | -1.00 | -2.67 | +0.03 | NO |
 | `REF_FIN_ONLY_A10` | incl_covid | [2020] | 1 | +0.29 | -2.41 | +2.52 | NO |
 | `TEL_ONLY_A05` | incl_covid | [] | 0 | +0.01 | -0.43 | +0.45 | NO |
@@ -46,7 +46,7 @@ Help threshold: MDD help > **0.25 pp**.
 | `GATE085_A10` | strict_noncovid | [] | 0 | -0.26 | -0.99 | +1.13 | NO |
 | `GATE085_A25` | strict_noncovid | [] | 0 | -0.43 | -1.26 | +1.07 | NO |
 | `GATE090_FIN_A10` | strict_noncovid | [] | 0 | -0.21 | -1.00 | +1.29 | NO |
-| `REF_BLEND_A05` | strict_noncovid | [] | 0 | +0.22 | -2.05 | +2.07 | NO |
+| `REF_BLEND_E45_A05` | strict_noncovid | [] | 0 | +0.22 | -2.05 | +2.07 | NO |
 | `REF_CHAL_E3` | strict_noncovid | [2015, 2018, 2022] | 3 | -1.00 | -2.67 | +0.03 | NO |
 | `REF_FIN_ONLY_A10` | strict_noncovid | [] | 0 | +0.29 | -2.41 | +2.52 | NO |
 | `TEL_ONLY_A05` | strict_noncovid | [] | 0 | +0.01 | -0.43 | +0.45 | NO |
@@ -67,7 +67,7 @@ Help threshold: MDD help > **0.25 pp**.
 | `GATE085_A10` | -0.06 | -0.01 | +0.09 | -0.57 |
 | `GATE085_A25` | -0.10 | -0.01 | +0.13 | -0.61 |
 | `GATE090_FIN_A10` | -0.03 | -0.01 | +0.13 | -0.60 |
-| `REF_BLEND_A05` | -0.08 | +0.06 | +0.70 | -1.49 |
+| `REF_BLEND_E45_A05` | -0.08 | +0.06 | +0.70 | -1.49 |
 | `REF_CHAL_E3` | +0.83 | +0.83 | +1.71 | +0.51 |
 | `REF_FIN_ONLY_A10` | -0.06 | +0.17 | +0.91 | -1.67 |
 | `TEL_ONLY_A05` | -0.04 | -0.03 | +0.10 | -0.33 |

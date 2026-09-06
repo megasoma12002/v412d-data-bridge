@@ -90,7 +90,7 @@ ALT_SPECS: list[dict] = [
     {"book": "GATE085_A10", "alpha": 0.10, "sleeves": None, "profile": E45_PROFILE_DEFAULT, "gate": True, "gate_thr": 0.85},
     {"book": "GATE085_A25", "alpha": 0.25, "sleeves": None, "profile": E45_PROFILE_DEFAULT, "gate": True, "gate_thr": 0.85},
     {"book": "GATE090_FIN_A10", "alpha": 0.10, "sleeves": SLEEVE_FIN_ONLY, "profile": E45_PROFILE_DEFAULT, "gate": True, "gate_thr": 0.90},
-    {"book": "REF_BLEND_A05", "alpha": 0.05, "sleeves": None, "profile": E45_PROFILE_DEFAULT, "gate": False, "ref": True},
+    {"book": "REF_BLEND_E45_A05", "alpha": 0.05, "sleeves": None, "profile": E45_PROFILE_DEFAULT, "gate": False, "ref": True},
     {"book": "REF_FIN_ONLY_A10", "alpha": 0.10, "sleeves": SLEEVE_FIN_ONLY, "profile": E45_PROFILE_DEFAULT, "gate": False, "ref": True},
     {"book": "REF_CHAL_E3", "alpha": 1.00, "sleeves": None, "profile": E45_PROFILE_DEFAULT, "gate": False, "ref": True},
 ]
