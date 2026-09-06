@@ -204,7 +204,7 @@ def main() -> None:
             help_rows.append({
                 "book": bid, "year": y, "event_tag": meta["tag"], "event_label": meta["label"],
                 "is_covid": meta["covid"],
-                "mdd_help_pp": (abs(float(b["max_drawdown"])) - abs(float(c["max_drawdown"]))) * 100.0,
+                "mdd_improve_pp": (abs(float(b["max_drawdown"])) - abs(float(c["max_drawdown"]))) * 100.0,
                 "ret_delta_pp": (float(c["ret"]) - float(b["ret"])) * 100.0,
             })
     help_df = pd.DataFrame(help_rows)
@@ -226,12 +226,12 @@ def main() -> None:
 
     conc = []
     for bid, g in help_df.groupby("book"):
-        pos = g[g["mdd_help_pp"] > 0]
-        total_pos = float(pos["mdd_help_pp"].sum()) if len(pos) else 0.0
-        covid_help = float(g.loc[g["is_covid"], "mdd_help_pp"].sum())
-        non_covid_pos = float(pos.loc[~pos["is_covid"], "mdd_help_pp"].sum()) if len(pos) else 0.0
-        years_all = sorted(g.loc[g["mdd_help_pp"] > HELP_THRESHOLD_PP, "year"].tolist())
-        years_non_covid = sorted(g.loc[(~g["is_covid"]) & (g["mdd_help_pp"] > HELP_THRESHOLD_PP), "year"].tolist())
+        pos = g[g["mdd_improve_pp"] > 0]
+        total_pos = float(pos["mdd_improve_pp"].sum()) if len(pos) else 0.0
+        covid_help = float(g.loc[g["is_covid"], "mdd_improve_pp"].sum())
+        non_covid_pos = float(pos.loc[~pos["is_covid"], "mdd_improve_pp"].sum()) if len(pos) else 0.0
+        years_all = sorted(g.loc[g["mdd_improve_pp"] > HELP_THRESHOLD_PP, "year"].tolist())
+        years_non_covid = sorted(g.loc[(~g["is_covid"]) & (g["mdd_improve_pp"] > HELP_THRESHOLD_PP), "year"].tolist())
         conc.append({
             "book": bid,
             "mdd_help_covid_year_pp": covid_help,
@@ -249,7 +249,7 @@ def main() -> None:
 
     thr_rows = []
     for bid in candidates:
-        years_helped = sorted(help_df.loc[(help_df.book == bid) & (help_df.mdd_help_pp > HELP_THRESHOLD_PP), "year"].tolist())
+        years_helped = sorted(help_df.loc[(help_df.book == bid) & (help_df.mdd_improve_pp > HELP_THRESHOLD_PP), "year"].tolist())
         non_covid_helped = [y for y in years_helped if y != COVID_YEAR]
         held = deltas_vs_base(books[base_key]["windows"]["heldout_2019_plus"], books[bid]["windows"]["heldout_2019_plus"])
         sealed = deltas_vs_base(books[base_key]["windows"]["sealed_2023_plus"], books[bid]["windows"]["sealed_2023_plus"])
@@ -401,7 +401,7 @@ def main() -> None:
         cells = []
         for y in (2015, 2018, 2020, 2022):
             sub = help_df[(help_df.book == bid) & (help_df.year == y)]
-            cells.append(fmt(float(sub.iloc[0]["mdd_help_pp"])) if len(sub) else "n/a")
+            cells.append(fmt(float(sub.iloc[0]["mdd_improve_pp"])) if len(sub) else "n/a")
         lines.append(f"| `{bid}` | " + " | ".join(cells) + " |")
     lines += ["", "## COVID episode help (peak->trough)", "",
               "| Book | MDD improve pp | CAGR giveback pp | Score | Episode days |",

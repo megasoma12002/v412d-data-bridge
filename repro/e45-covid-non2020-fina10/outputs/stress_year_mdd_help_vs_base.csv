@@ -1,4 +1,4 @@
-book,year,event_tag,event_label,is_covid,mdd_help_pp,ret_delta_pp
+book,year,event_tag,event_label,is_covid,mdd_improve_pp,ret_delta_pp
 BLEND_E45_A05,2015,TW_EQUITY_STRESS_2015,2015 TW equity stress (China/EM spillover),False,-0.0757229701511597,-0.32959528861519205
 BLEND_E45_A05,2018,TRADE_WAR_EM_2018,2018 trade-war / EM stress,False,0.062216719367691464,-0.6876705440417963
 BLEND_E45_A05,2020,COVID19_MEGA_DD_2020,2020 COVID-19 mega-drawdown (expected large story),True,0.7024106199616797,0.8716645808913737
