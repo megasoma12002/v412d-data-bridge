@@ -53,7 +53,7 @@ STEPS_MONITOR = [
         "fincap50_sealed_cagr_charter_screen",
         ["python3", "scripts/fincap50_sealed_cagr_charter_screen.py"],
     ),
-    ("ops_alert_scan", ["python3", "scripts/ops_alert_scan.py", "--report-only"]),
+    ("ops_alert_scan", ["python3", "scripts/ops_alert_scan.py", "--report-only"]),  # swapped in main if fail-on-critical
 ]
 
 STEPS_REFRESH = [
@@ -96,12 +96,23 @@ def main() -> int:
         action="store_true",
         help="Run remaining steps even if one fails (still exit non-zero).",
     )
+    ap.add_argument(
+        "--fail-on-critical",
+        action="store_true",
+        help="Run ops_alert_scan without --report-only so CRITICAL exits non-zero.",
+    )
     args = ap.parse_args()
 
     steps = []
     if args.refresh_ledgers:
         steps.extend(STEPS_REFRESH)
-    steps.extend(STEPS_MONITOR)
+    monitor_steps = list(STEPS_MONITOR)
+    if args.fail_on_critical:
+        monitor_steps = [
+            (n, [c for c in cmd if c != "--report-only"]) if n == "ops_alert_scan" else (n, cmd)
+            for n, cmd in monitor_steps
+        ]
+    steps.extend(monitor_steps)
 
     results = []
     failed = False

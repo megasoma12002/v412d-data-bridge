@@ -99,7 +99,7 @@ def main() -> None:
             {
                 "variant": name,
                 "cagr": st["cagr"],
-                "mdd": st["max_drawdown"],
+                "max_drawdown": st["max_drawdown"],
                 "abs_err_to_claim": abs(metric_delta(st["max_drawdown"], CLAIM, missing_as_zero=True) or 0),
                 "n_days": meta["n_days"],
             }

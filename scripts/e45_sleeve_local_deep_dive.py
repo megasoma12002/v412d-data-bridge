@@ -80,12 +80,12 @@ def year_stats(nav: pd.DataFrame, year: int) -> dict:
     d["date"] = pd.to_datetime(d["date"])
     part = d[d["date"].dt.year == year].reset_index(drop=True)
     if len(part) < 20:
-        return {"year": year, "n_days": int(len(part)), "ret": None, "mdd": None, "available": False}
+        return {"year": year, "n_days": int(len(part)), "ret": None, "max_drawdown": None, "available": False}
     path = part["nav"].to_numpy(float)
     ret = float(path[-1] / path[0] - 1.0)
     peak = np.maximum.accumulate(path)
     mdd = float(np.min(path / peak - 1.0))
-    return {"year": year, "n_days": int(len(part)), "ret": ret, "mdd": mdd, "available": True}
+    return {"year": year, "n_days": int(len(part)), "ret": ret, "max_drawdown": mdd, "available": True}
 
 
 def pp(x):
@@ -233,8 +233,8 @@ def main() -> None:
             if not b or not c or not b.get("available") or not c.get("available"):
                 continue
             mdd_pp = None
-            if b["mdd"] is not None and c["mdd"] is not None:
-                mdd_pp = (abs(b["mdd"]) - abs(c["mdd"])) * 100.0
+            if b["max_drawdown"] is not None and c["max_drawdown"] is not None:
+                mdd_pp = (abs(b["max_drawdown"]) - abs(c["max_drawdown"])) * 100.0
             ret_pp = None
             if b["ret"] is not None and c["ret"] is not None:
                 ret_pp = (c["ret"] - b["ret"]) * 100.0

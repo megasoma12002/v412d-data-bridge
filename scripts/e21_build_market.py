@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 import pandas as pd
 
-FIN=['2880','2886','2892','5880']; TEL=['2412','3045','4904']
+from e16_soft_frozen_base import FIN, TEL
 
 def main():
     ap=argparse.ArgumentParser()

@@ -43,3 +43,9 @@ PYTHONPATH=scripts python3 scripts/check_project_coding_hygiene.py
 ## Label
 
 `CODING_STANDARDS_COVERAGE_2026-09-06__PROJECT_SCRIPTS_PASS`
+
+## 2026-09-06 debt closure
+
+- E45 regenerators must import `e45_paper_harness`; local `load_market`/`window_stats`/`blend` forks fail hygiene.
+- Live market path gate uses resolve equality; FIN/TEL single-sourced from Soft-Frozen base.
+- Month-end pack default behavior unchanged; opt-in `--fail-on-critical`.

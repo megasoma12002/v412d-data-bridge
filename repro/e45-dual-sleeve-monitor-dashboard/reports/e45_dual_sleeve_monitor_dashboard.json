@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-06T02:48:18.614883+00:00",
+  "generated_at_utc": "2026-09-06T03:04:19.457735+00:00",
   "status": "PAPER_DASHBOARD",
   "ballot": "E45 PAPER dual-sleeve long monitor dashboard",
   "roadmap_priority": 7,
@@ -27,7 +27,7 @@
   ],
   "paper_a10_windows": [
     {
-      "sleeve": "PAPER_BLEND_A10",
+      "sleeve": "BLEND_E45_A10",
       "window": "ytd",
       "asof": "2026-09-04",
       "mdd_improve_pp": 3.6543522255785277,
@@ -36,7 +36,7 @@
       "observe_operating": false
     },
     {
-      "sleeve": "PAPER_BLEND_A10",
+      "sleeve": "BLEND_E45_A10",
       "window": "trailing_1y",
       "asof": "2026-09-04",
       "mdd_improve_pp": 3.6543522255785277,
@@ -45,7 +45,7 @@
       "observe_operating": false
     },
     {
-      "sleeve": "PAPER_BLEND_A10",
+      "sleeve": "BLEND_E45_A10",
       "window": "heldout_2019_plus",
       "asof": "2026-09-04",
       "mdd_improve_pp": 0.799556371054333,
@@ -54,7 +54,7 @@
       "observe_operating": false
     },
     {
-      "sleeve": "PAPER_BLEND_A10",
+      "sleeve": "BLEND_E45_A10",
       "window": "sealed_2023_plus",
       "asof": "2026-09-04",
       "mdd_improve_pp": 3.654352225578539,

@@ -15,8 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e22_dividend_accounting as e22div
 import e16_soft_frozen_base as soft_frozen
 
-FIN = ["2880", "2886", "2892", "5880"]
-TEL = ["2412", "3045", "4904"]
+from e16_soft_frozen_base import FIN, TEL
 ALL = FIN + TEL + ["0050"]
 CAPITAL = 3_000_000.0
 BUY_FEE = 0.001425 * 0.6
@@ -130,7 +129,8 @@ def main():
     market_path = Path(a.market)
     if not a.allow_noncanonical_paths:
         canon_state = Path("forward/e21").resolve()
-        if sdir.resolve() != canon_state or "forward/e21" not in str(market_path.as_posix()):
+        canon_market = (Path("forward/e21") / "live_market.csv").resolve()
+        if sdir.resolve() != canon_state or market_path.resolve() != canon_market:
             raise SystemExit(
                 "Refusing non-canonical live paths. Use --market forward/e21/live_market.csv "
                 "and --state-dir forward/e21, or pass --allow-noncanonical-paths for research."

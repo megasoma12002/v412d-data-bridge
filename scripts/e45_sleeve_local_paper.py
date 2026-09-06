@@ -25,6 +25,29 @@ from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, FIN, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
 
+from e45_paper_harness import (
+    BOOK_BASE,
+    BOOK_BLEND_A25,
+    BOOK_FULL,
+    CLAIM_STATUS,
+    E45_PROFILE_DEFAULT,
+    MARKET_PATH,
+    DIV_PATH,
+    ROOT,
+    WINDOWS_STANDARD,
+    blend_exposure,
+    book_id_for_alpha,
+    deltas_vs_base,
+    e16_features,
+    e45_full_exposure,
+    load_dividends,
+    load_market,
+    run_early_stack,
+    window_stats,
+)
+blend = blend_exposure  # harness alias
+
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/e45-sleeve-local"
 RESEARCH = ROOT / "research/e45"
@@ -42,20 +65,6 @@ WINDOWS = {
 FOCUS = ("heldout_2019_plus", "sealed_2023_plus", "full")
 
 
-def load_market() -> pd.DataFrame:
-    market = pd.read_csv(MARKET_PATH, dtype={"code": str})
-    market["date"] = pd.to_datetime(market["date"])
-    required = set(ALL + ["TAIEX"])
-    complete = market.groupby("date")["code"].apply(lambda s: required.issubset(set(s)))
-    return market[market["date"].isin(complete[complete].index)].sort_values(["date", "code"])
-
-
-def blend(full: pd.Series, alpha: float):
-    if alpha <= 0:
-        return None
-    if alpha >= 1:
-        return full.astype(float)
-    return ((1.0 - alpha) + alpha * full.astype(float)).clip(0.0, 1.0)
 
 
 def high_beta_sleeves(market: pd.DataFrame) -> tuple[str, ...]:
@@ -86,22 +95,6 @@ def high_beta_sleeves(market: pd.DataFrame) -> tuple[str, ...]:
     return keep if keep else ("Financial",)
 
 
-def window_stats(nav, start, end):
-    d = nav.copy()
-    d["date"] = pd.to_datetime(d["date"]).dt.date
-    if start is not None:
-        d = d[d["date"] >= start]
-    if end is not None:
-        d = d[d["date"] <= end]
-    d = d.reset_index(drop=True)
-    if len(d) < 30:
-        return {"cagr": None, "max_drawdown": None, "utility": None, "vol": None, "n_days": int(len(d))}
-    d = d.copy()
-    d["nav"] = d["nav"] / float(d["nav"].iloc[0])
-    out = nav_stats(d)
-    out["n_days"] = int(len(d))
-    return out
-
 
 def pp(x):
     return "n/a" if x is None else f"{x:+.2f}"
@@ -131,7 +124,7 @@ def main() -> None:
         ("BASE", None, 0.0, None),
         ("ALL_A05", "ALL", 0.05, None),
         ("ALL_A25", "ALL", 0.25, None),
-        ("ALL_FULL", "ALL", 1.00, None),
+        ("CHAL_E45_E3", "ALL", 1.00, None),
         ("FIN_A05", "FIN_ONLY", 0.05, ("Financial",)),
         ("FIN_A25", "FIN_ONLY", 0.25, ("Financial",)),
         ("FIN_FULL", "FIN_ONLY", 1.00, ("Financial",)),

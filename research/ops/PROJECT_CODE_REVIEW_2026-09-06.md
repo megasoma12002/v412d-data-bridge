@@ -88,3 +88,22 @@ PYTHONPATH=scripts python3 scripts/check_e45_paper_hygiene.py
 ## Label
 
 `PROJECT_CODE_REVIEW_2026-09-06__LIVE_P0_FIXED__RESEARCH_DEBT_TRACKED`
+
+## Debt closure pass — 2026-09-06 (follow-up)
+
+Closed without Soft-Frozen / DEFAULT / stitch changes:
+
+| ID | Action | Status |
+|---|---|---|
+| O1 | Migrated E45 paper regenerators + dual/blend ledgers onto `e45_paper_harness` (removed local `load_market`/`window_stats`/`blend`) | **CLOSED** |
+| O2 | Canonicalized `REF_BLEND_*` / `CONST_*` / `ALL_FULL` / `PAPER_BLEND_A10` emitters to `BLEND_E45_A*` / `CHAL_E45_E3` | **CLOSED** |
+| O3 | Active E45 emitters normalized to `max_drawdown` (incl. year attribution / named packs / stage3 windows) | **CLOSED** |
+| O4 | `e21_forward_pipeline` market gate now `Path.resolve()` equality vs canonical live market | **CLOSED** |
+| O5 | `ops_month_end_paper_pack --fail-on-critical` (default unchanged: `--report-only`) | **CLOSED** |
+| O6 | Live pipeline / build_market / QC universe import `FIN`/`TEL` from `e16_soft_frozen_base` | **CLOSED** |
+| O7 | Oversized monoliths | **DEFERRED** (split when next touched) |
+| O8 | `check_e45_paper_hygiene` enforces harness import on regenerators + bans forked defs | **CLOSED** |
+
+Verification: both hygiene checkers PASS; A05/A25 month-end monitors EXIT:0; `load_market` parity vs harness; residual E45 forks = 0.
+
+Label: `PROJECT_CODE_REVIEW_DEBT_CLOSURE_2026-09-06__O1-O6_O8_CLOSED__O7_DEFERRED__STITCH_FORBIDDEN`

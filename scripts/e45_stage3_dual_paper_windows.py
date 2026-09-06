@@ -80,7 +80,7 @@ def main() -> int:
                     "book": book,
                     "window": wname,
                     "cagr": st.get("cagr"),
-                    "mdd": st.get("max_drawdown"),
+                    "max_drawdown": st.get("max_drawdown"),
                     "vol": st.get("vol"),
                     "utility": st.get("utility"),
                     "n_days": st.get("n_days"),

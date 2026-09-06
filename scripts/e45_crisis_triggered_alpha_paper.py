@@ -28,6 +28,28 @@ from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
 
+from e45_paper_harness import (
+    BOOK_BASE,
+    BOOK_BLEND_A25,
+    BOOK_FULL,
+    CLAIM_STATUS,
+    E45_PROFILE_DEFAULT,
+    MARKET_PATH,
+    DIV_PATH,
+    ROOT,
+    WINDOWS_STANDARD,
+    blend_exposure,
+    book_id_for_alpha,
+    deltas_vs_base,
+    e16_features,
+    e45_full_exposure,
+    load_dividends,
+    load_market,
+    run_early_stack,
+    window_stats,
+)
+
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/e45-crisis-triggered-alpha"
 RESEARCH = ROOT / "research/e45"
@@ -53,35 +75,6 @@ E1BIN_ALPHAS = (0.25, 0.50, 1.00)
 CONST_ALPHAS = (0.00, 0.05, 0.25, 1.00)
 
 
-def load_market() -> pd.DataFrame:
-    market = pd.read_csv(MARKET_PATH, dtype={"code": str})
-    market["date"] = pd.to_datetime(market["date"])
-    required = set(ALL + ["TAIEX"])
-    complete = market.groupby("date")["code"].apply(lambda s: required.issubset(set(s)))
-    return market[market["date"].isin(complete[complete].index)].sort_values(["date", "code"])
-
-
-def window_stats(nav: pd.DataFrame, start: date | None, end: date | None) -> dict:
-    d = nav.copy()
-    d["date"] = pd.to_datetime(d["date"]).dt.date
-    if start is not None:
-        d = d[d["date"] >= start]
-    if end is not None:
-        d = d[d["date"] <= end]
-    d = d.reset_index(drop=True)
-    if len(d) < 30:
-        return {
-            "cagr": None,
-            "max_drawdown": None,
-            "utility": None,
-            "vol": None,
-            "n_days": int(len(d)),
-        }
-    d = d.copy()
-    d["nav"] = d["nav"] / float(d["nav"].iloc[0])
-    out = nav_stats(d)
-    out["n_days"] = int(len(d))
-    return out
 
 
 def pct(x: float | None) -> str:
@@ -136,7 +129,7 @@ def book_specs() -> list[dict]:
         elif a >= 1:
             specs.append(
                 {
-                    "book": "CONST_A100_FULL",
+                    "book": "CHAL_E45_E3",
                     "mode": "CONST",
                     "alpha": 1.0,
                     "gate": None,
@@ -146,7 +139,7 @@ def book_specs() -> list[dict]:
         else:
             specs.append(
                 {
-                    "book": f"CONST_A{int(round(a * 100)):02d}",
+                    "book": book_id_for_alpha(a),  # canonical BLEND_E45_A## / BASE / CHAL,
                     "mode": "CONST",
                     "alpha": float(a),
                     "gate": None,
@@ -525,7 +518,7 @@ def main() -> None:
         "## Read-through (paper)",
         "",
         f"1. **Held-out winner remains low constant α:** `{preferred['book'] if preferred else 'n/a'}` beats gated / E1BIN books on the heuristic score.",
-        "2. **Deep-cut gates lose MDD more than they save giveback** on held-out vs `CONST_A05`.",
+        "2. **Deep-cut gates lose MDD more than they save giveback** on held-out vs `BLEND_E45_A05`.",
         "3. **E1 binary gate is too sparse (~1.2% days)** for held-out MDD help (often ≈0).",
         "4. **Sealed may still favor continuous moderate overlay** — same held-out vs sealed tension as the fine grid.",
         "5. **Paper path:** keep **low constant α**; do **not** promote crisis-gated α from this screen.",
