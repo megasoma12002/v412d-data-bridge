@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-09-06T04:25:00.156017+00:00",
+  "generated_at_utc": "2026-09-06T10:05:42.497010+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
-  "soft_frozen_fin_clip": [
+  "soft_frozen_clip": [
     0.5,
     0.95
   ],

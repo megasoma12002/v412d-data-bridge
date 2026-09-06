@@ -8,8 +8,11 @@ Named sandbox versions (charter):
   E22_v3_recv_pay — receivable on cash ex; cash on payment_date; TAX0; stock = TW odd-lot
   E22_v3_tax10    — ex-date cash × 0.90; stock = TW odd-lot
   E22_v3_tax20    — ex-date cash × 0.80; stock = TW odd-lot
+  E22_v3_recv_pay_tax10 — receivable on ex (net of 10%); cash on pay; stock = TW odd-lot
+  E22_v3_recv_pay_tax20 — receivable on ex (net of 20%); cash on pay; stock = TW odd-lot
 
-Combined recv+tax is intentionally NOT implemented until each axis alone has evidence.
+Flat sandbox withholding only — resident/non-resident rules are documented separately
+and must be written before any promote ballot. DEFAULT stays E22_v2s_tw.
 
 Receivables dict keys: ``f"{code}:{ex_date}"`` (pending gross credits).
 """
@@ -23,8 +26,24 @@ import e22_dividend_accounting as base
 E22_V3_RECV_PAY = "E22_v3_recv_pay"
 E22_V3_TAX10 = "E22_v3_tax10"
 E22_V3_TAX20 = "E22_v3_tax20"
-SANDBOX_VERSIONS = frozenset({E22_V3_RECV_PAY, E22_V3_TAX10, E22_V3_TAX20})
-TAX_HAIRCUT = {E22_V3_TAX10: 0.10, E22_V3_TAX20: 0.20}
+E22_V3_RECV_PAY_TAX10 = "E22_v3_recv_pay_tax10"
+E22_V3_RECV_PAY_TAX20 = "E22_v3_recv_pay_tax20"
+SANDBOX_VERSIONS = frozenset(
+    {
+        E22_V3_RECV_PAY,
+        E22_V3_TAX10,
+        E22_V3_TAX20,
+        E22_V3_RECV_PAY_TAX10,
+        E22_V3_RECV_PAY_TAX20,
+    }
+)
+TAX_HAIRCUT = {
+    E22_V3_TAX10: 0.10,
+    E22_V3_TAX20: 0.20,
+    E22_V3_RECV_PAY_TAX10: 0.10,
+    E22_V3_RECV_PAY_TAX20: 0.20,
+}
+RECV_PAY_FAMILY = frozenset({E22_V3_RECV_PAY, E22_V3_RECV_PAY_TAX10, E22_V3_RECV_PAY_TAX20})
 STOCK_BASE_VERSION = base.E22_V2S_TW
 
 
@@ -71,8 +90,10 @@ def apply_sandbox_for_date(
     recv = {k: float(v) for k, v in receivables.items()}
     out = SandboxApplyResult(sandbox_version=version)
 
-    if version == E22_V3_RECV_PAY:
-        # Ex-date: accrue receivable (not spendable cash)
+    if version in RECV_PAY_FAMILY:
+        w = float(TAX_HAIRCUT.get(version, 0.0))
+        out.tax_haircut_rate = w
+        # Ex-date: accrue receivable (gross for TAX0; net for recv_pay_taxW)
         for ev in base.events_on_date(events_list, day):
             if ev.kind != "cash":
                 continue
@@ -83,9 +104,10 @@ def apply_sandbox_for_date(
             if sh <= 0:
                 continue
             gross = sh * float(ev.amount)
+            credit = gross * (1.0 - w)
             pk = _pending_key(ev.code, ev.ex_date)
-            recv[pk] = float(recv.get(pk, 0.0) or 0.0) + gross
-            out.receivable_credit += gross
+            recv[pk] = float(recv.get(pk, 0.0) or 0.0) + credit
+            out.receivable_credit += credit
             out.cash_events += 1
             out.details.append(
                 {
@@ -96,7 +118,15 @@ def apply_sandbox_for_date(
                     "payment_date": ev.payment_date,
                     "pending_key": pk,
                     "gross_credit": gross,
+                    "tax_haircut_rate": w,
+                    "receivable_credit": credit,
                     "cash_credit": 0.0,
+                    "assumption": (
+                        "sandbox_flat_withholding_on_receivable; "
+                        "resident/non-resident rule must be written before promote"
+                        if w > 0
+                        else "tax0_receivable"
+                    ),
                     "version": version,
                 }
             )
@@ -112,13 +142,13 @@ def apply_sandbox_for_date(
             settle_key = f"settle:{pk}:{pay}"
             if settle_key in skip:
                 continue
-            gross = float(recv.get(pk, 0.0) or 0.0)
-            if gross <= 0:
+            credit = float(recv.get(pk, 0.0) or 0.0)
+            if credit <= 0:
                 continue
             recv[pk] = 0.0
-            cash_out += gross
-            out.cash_credit += gross
-            out.receivable_settled += gross
+            cash_out += credit
+            out.cash_credit += credit
+            out.receivable_settled += credit
             out.settle_events += 1
             out.details.append(
                 {
@@ -128,7 +158,8 @@ def apply_sandbox_for_date(
                     "ex_date": ev.ex_date,
                     "payment_date": pay,
                     "pending_key": pk,
-                    "cash_credit": gross,
+                    "cash_credit": credit,
+                    "tax_haircut_rate": w,
                     "version": version,
                 }
             )
@@ -198,12 +229,12 @@ def version_manifest(version: str) -> dict:
         "soft_frozen_unchanged": True,
         "cash_timing": (
             "receivable_on_ex_cash_on_pay"
-            if version == E22_V3_RECV_PAY
+            if version in RECV_PAY_FAMILY
             else "cash_ex_date_net_of_sandbox_withholding"
         ),
         "tax_haircut": TAX_HAIRCUT.get(version, 0.0),
         "stock_path": STOCK_BASE_VERSION,
-        "combined_recv_tax": False,
+        "combined_recv_tax": version in {E22_V3_RECV_PAY_TAX10, E22_V3_RECV_PAY_TAX20},
         "promote_ready": False,
         "charter": "research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md",
         "ballot": "ACCEPT charter 2026-09-05",
@@ -242,7 +273,7 @@ def smoke_compare() -> dict:
         )
         cash_pay = cash_s
         recv_pay = dict(recv_s)
-        if ver == E22_V3_RECV_PAY and ev.payment_date:
+        if ver in RECV_PAY_FAMILY and ev.payment_date:
             pos_s, cash_pay, recv_pay, res_pay = apply_sandbox_for_date(
                 ev.payment_date, pos_s, cash_s, recv_s, [ev], version=ver
             )
@@ -277,6 +308,22 @@ def smoke_compare() -> dict:
         < 1e-9,
         "tax10_net": abs(rows[E22_V3_TAX10]["cash_after_ex"] - tax10_net) < 1e-9,
         "tax20_net": abs(rows[E22_V3_TAX20]["cash_after_ex"] - tax20_net) < 1e-9,
+        "recv_tax10_ex_recv_eq_net": abs(
+            rows[E22_V3_RECV_PAY_TAX10]["receivable_after_ex"] - tax10_net
+        )
+        < 1e-9,
+        "recv_tax10_pay_cash_eq_net": abs(
+            rows[E22_V3_RECV_PAY_TAX10]["cash_after_pay"] - tax10_net
+        )
+        < 1e-9,
+        "recv_tax20_ex_recv_eq_net": abs(
+            rows[E22_V3_RECV_PAY_TAX20]["receivable_after_ex"] - tax20_net
+        )
+        < 1e-9,
+        "recv_tax20_pay_cash_eq_net": abs(
+            rows[E22_V3_RECV_PAY_TAX20]["cash_after_pay"] - tax20_net
+        )
+        < 1e-9,
     }
     return {
         "ok": all(checks.values()),

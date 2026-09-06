@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-09-05T08:01:13.191898+00:00",
+  "generated_at_utc": "2026-09-06T10:05:40.840233+00:00",
   "label": "LIVE_VS_PAPER_SOFT_FROZEN_RECON",
   "live_wire": false,
-  "soft_frozen_fin_clip": [
+  "soft_frozen_clip": [
     0.5,
     0.95
   ],

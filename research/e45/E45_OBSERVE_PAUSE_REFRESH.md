@@ -1,6 +1,6 @@
 # E45 Observe Trailing PAUSE Refresh
 
-Generated: `2026-09-06T07:54:32.918618+00:00`
+Generated: `2026-09-06T10:02:51.351738+00:00`
 Status: **OBSERVE DIAGNOSTIC ONLY** — does **not** authorize stitch
 Soft-Frozen `[0.5, 0.95]` KEEP · DEFAULT KEEP · stitch **FORBIDDEN**
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)

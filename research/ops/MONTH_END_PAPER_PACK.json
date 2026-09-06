@@ -1,14 +1,16 @@
 {
-  "generated_at_utc": "2026-09-05T08:01:17.556573+00:00",
+  "generated_at_utc": "2026-09-06T10:05:41.416055+00:00",
   "label": "OPS_MONTH_END_PAPER_PACK",
   "live_wire": false,
-  "soft_frozen_fin_clip": [
+  "soft_frozen_clip": [
     0.5,
     0.95
   ],
   "soft_frozen_unchanged": true,
   "refresh_ledgers": false,
-  "all_ok": true,
+  "continue_on_error": false,
+  "partial_pack": false,
+  "all_ok": false,
   "steps": [
     {
       "name": "l4_month_end",
@@ -17,6 +19,31 @@
     },
     {
       "name": "fincap50_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "blend025_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_blend025_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_blend005_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_sleeve_local_month_end",
       "ok": true,
       "returncode": 0
     },
@@ -37,19 +64,9 @@
     },
     {
       "name": "e22_gap6_fidelity_kpi",
-      "ok": true,
-      "returncode": 0
-    },
-    {
-      "name": "fincap50_sealed_cagr_charter_screen",
-      "ok": true,
-      "returncode": 0
-    },
-    {
-      "name": "ops_alert_scan",
-      "ok": true,
-      "returncode": 0
+      "ok": false,
+      "returncode": 2
     }
   ],
-  "cutover_note": "Paper/ops cadence only. Soft-Frozen [0.50, 0.95] unchanged. FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated."
+  "cutover_note": "Paper/ops cadence only. Soft-Frozen [0.50, 0.95] unchanged. FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated; BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-\u03b1=0.25 observe is paper-only (parallel sleeve); E45 blend-\u03b1=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY \u03b1=0.10 observe is paper-only (parallel sleeve)."
 }

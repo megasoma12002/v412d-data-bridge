@@ -44,3 +44,11 @@ python3 scripts/ops_alert_scan.py --report-only
 Full post-forward procedure: `research/ops/POST_FORWARD_E22_VERIFY_RUNBOOK.md`
 
 When live evidence lands, Gap6 flag `LIVE_LEDGER_E22_FIELDS_MISSING` should clear (INFO only while missing).
+
+## Refresh 2026-09-06 (ops research batch)
+
+- Weekday: **Sunday** — no forward bot commit expected.
+- Re-ran runbook checks: Exact T+1 QC **PASS**; Gap6 still **`LIVE_LEDGER_E22_FIELDS_MISSING`**.
+- Status remains **CODE READY / LIVE EVIDENCE PENDING**.
+- Soft-Frozen KEEP · no history rewrite · not a cutover signal.
+
