@@ -17,13 +17,26 @@ CANON_STATE = Path("forward/e21")
 
 
 def exact_t1_from_fills(fills: pd.DataFrame) -> dict:
-    """Require fill_date strictly after signal_date (calendar day)."""
-    if fills.empty or "signal_date" not in fills.columns or "fill_date" not in fills.columns:
+    """Require fill_date strictly after signal_date (calendar day).
+
+    Empty fills → ok (nothing to violate). Non-empty fills missing the
+    date schema → **fail closed** (do not treat corrupt ledgers as Exact T+1).
+    """
+    if fills.empty:
         return {
             "exact_t1_ok": True,
             "same_bar_fills": 0,
+            "fills_checked": 0,
+            "pending_filter": "signal_date < fill_date",
+            "schema_ok": True,
+        }
+    if "signal_date" not in fills.columns or "fill_date" not in fills.columns:
+        return {
+            "exact_t1_ok": False,
+            "same_bar_fills": -1,
             "fills_checked": int(len(fills)),
             "pending_filter": "signal_date < fill_date",
+            "schema_ok": False,
         }
     sig = pd.to_datetime(fills["signal_date"]).dt.normalize()
     fill_dt = pd.to_datetime(fills["fill_date"]).dt.normalize()
@@ -33,6 +46,7 @@ def exact_t1_from_fills(fills: pd.DataFrame) -> dict:
         "same_bar_fills": same_bar,
         "fills_checked": int(len(fills)),
         "pending_filter": "signal_date < fill_date",
+        "schema_ok": True,
     }
 
 
@@ -61,8 +75,16 @@ def main() -> None:
     checks["signals_unique_date"] = not sig.date.duplicated().any()
     checks["nav_unique_date"] = not nav.date.duplicated().any()
     checks["orders_unique_id"] = not orders.order_id.duplicated().any()
+    fin = sig["e16_financial"].astype(float)
     checks["weights_sum_one"] = bool(
         ((sig[["e16_financial", "e16_telecom", "e16_0050"]].sum(1) - 1).abs() < 1e-8).all()
+    )
+    # Soft-Frozen Financial envelope — import bounds, never hardcode.
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from e16_soft_frozen_base import SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
+
+    checks["soft_frozen_fin_clip"] = bool(
+        ((fin >= SOFT_FROZEN_FIN_LO - 1e-9) & (fin <= SOFT_FROZEN_FIN_HI + 1e-9)).all()
     )
     checks["nav_positive"] = bool((nav.nav_e16_e18 > 0).all())
     checks["no_negative_cash"] = bool((nav.cash >= -1).all())

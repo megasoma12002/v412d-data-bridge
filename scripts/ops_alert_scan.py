@@ -102,6 +102,15 @@ def main() -> int:
                     "message": "exact_t1_ok is false",
                 }
             )
+        elif exact is None:
+            alerts.append(
+                {
+                    "severity": "CRITICAL",
+                    "source": "live_qc",
+                    "code": "EXACT_T1_MISSING",
+                    "message": "exact_t1_ok missing from qc_status (fail closed)",
+                }
+            )
         if status == "PASS" and exact is True:
             alerts.append(
                 {

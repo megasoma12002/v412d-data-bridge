@@ -380,7 +380,7 @@ def verify_e45_claim(repo: Path) -> dict:
                 numeric_hit = True
     return {
         "claim_mdd": claim,
-        "claim_status": "NOT_FOUND_IN_ARTIFACTS" if not numeric_hit else "FOUND",
+        "claim_status": (e45.CLAIMED_MDD_STATUS if not numeric_hit else "FOUND"),
         "text_mentions_only": text_hits,
         "artifact_files_with_13_16": found,
         "lineage_reported_mdds": lineage,

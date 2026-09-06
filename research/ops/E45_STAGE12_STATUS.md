@@ -149,6 +149,13 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - Hygiene: `scripts/check_project_coding_hygiene.py` (**PASS**)
 - Soft-Frozen / DEFAULT **KEEP**; stitch **FORBIDDEN**
 
+## Project code review (2026-09-06)
+
+- Report: `research/ops/PROJECT_CODE_REVIEW_2026-09-06.md`
+- Live P0 Soft-Frozen renormalize + Exact T+1 schema fail-open **fixed**
+- Research debt (harness adoption / book-ID aliases) tracked open
+- Soft-Frozen / DEFAULT **KEEP**; stitch **FORBIDDEN**
+
 ## Label
 
 `E45_STAGE12_STATUS_2026-09-05__OBSERVE_OPERATING__V1_V6_PASS__STITCH_STILL_FORBIDDEN`

@@ -43,16 +43,53 @@ REGIME_PRIORS = {
 
 
 def apply_soft_frozen_clips(cand: np.ndarray) -> np.ndarray:
-    """Clip sleeve weights to Soft-Frozen bands and renormalize."""
-    out = np.asarray(cand, dtype=float).copy()
-    out[0] = np.clip(out[0], SOFT_FROZEN_FIN_LO, SOFT_FROZEN_FIN_HI)
-    out[1] = np.clip(out[1], SOFT_FROZEN_TEL_LO, SOFT_FROZEN_TEL_HI)
-    out[2] = np.clip(out[2], SOFT_FROZEN_ETF_LO, SOFT_FROZEN_ETF_HI)
-    s = float(out.sum())
-    if s <= 0:
-        return START_WEIGHTS.copy()
-    out /= s
-    return out
+    """Project sleeve weights onto Soft-Frozen box ∩ simplex (sum=1).
+
+    Plain clip-then-divide can push Financial **below** 0.50 (e.g. clip to
+    [0.50, 0.35, 0.35] → renormalize → FIN≈0.417). Iterate a bounded
+    projection so live targets cannot leave the Soft-Frozen envelope.
+    """
+    lo = np.array(
+        [SOFT_FROZEN_FIN_LO, SOFT_FROZEN_TEL_LO, SOFT_FROZEN_ETF_LO], dtype=float
+    )
+    hi = np.array(
+        [SOFT_FROZEN_FIN_HI, SOFT_FROZEN_TEL_HI, SOFT_FROZEN_ETF_HI], dtype=float
+    )
+    out = np.clip(np.asarray(cand, dtype=float).copy(), lo, hi)
+    for _ in range(64):
+        s = float(out.sum())
+        if s <= 0:
+            return START_WEIGHTS.copy()
+        out = out / s
+        clipped = np.clip(out, lo, hi)
+        if np.allclose(out, clipped, atol=1e-12, rtol=0.0):
+            if abs(float(clipped.sum()) - 1.0) <= 1e-10:
+                return clipped
+        gap = 1.0 - float(clipped.sum())
+        free = (clipped > lo + 1e-15) & (clipped < hi - 1e-15)
+        if free.any() and abs(gap) > 1e-12:
+            clipped = clipped.copy()
+            clipped[free] += gap / float(free.sum())
+            out = np.clip(clipped, lo, hi)
+            continue
+        # No free coordinate: push the gap onto a bound that can still move.
+        out = clipped.copy()
+        if abs(gap) <= 1e-12:
+            return out
+        if gap > 0:
+            can_up = out < hi - 1e-15
+            if not can_up.any():
+                return START_WEIGHTS.copy()
+            i = int(np.where(can_up)[0][0])
+            out[i] = min(hi[i], out[i] + gap)
+        else:
+            can_down = out > lo + 1e-15
+            if not can_down.any():
+                return START_WEIGHTS.copy()
+            i = int(np.where(can_down)[0][0])
+            out[i] = max(lo[i], out[i] + gap)
+    # Last resort: authoritative start weights (known in-envelope).
+    return START_WEIGHTS.copy()
 
 
 def build_soft_frozen_targets(market: pd.DataFrame):

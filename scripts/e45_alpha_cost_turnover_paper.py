@@ -174,7 +174,7 @@ def main() -> None:
     # deltas vs BASE at same cost multiple
     deltas = []
     for mult in COST_MULTS:
-        base = metrics[(metrics.book == "BASE") & (metrics.cost_multiple == mult)]
+        base = metrics[(metrics.book == book_id(0.0)) & (metrics.cost_multiple == mult)]
         for alpha in ALPHAS:
             bid = book_id(alpha)
             for w in FOCUS:
@@ -227,7 +227,7 @@ def main() -> None:
     for alpha in ALPHAS:
         bid = book_id(alpha)
         r = metrics[(metrics.book == bid) & (metrics.cost_multiple == 1) & (metrics.window == "full")].iloc[0]
-        b = metrics[(metrics.book == "BASE") & (metrics.cost_multiple == 1) & (metrics.window == "full")].iloc[0]
+        b = metrics[(metrics.book == book_id(0.0)) & (metrics.cost_multiple == 1) & (metrics.window == "full")].iloc[0]
         to_cmp.append({
             "book": bid,
             "alpha": alpha,

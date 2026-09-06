@@ -44,10 +44,10 @@ def load_market() -> pd.DataFrame:
 
 def book_id(alpha: float) -> str:
     if alpha <= 0:
-        return "BASE"
+        return "BASE_E16_E18_E22_v2s"
     if alpha >= 1:
         return "CHAL_E45_E3"
-    return f"BLEND_A{int(round(alpha * 100)):02d}"
+    return f"BLEND_E45_A{int(round(alpha * 100)):02d}"
 
 
 def blend(full: pd.Series, alpha: float):
@@ -121,7 +121,7 @@ def main() -> None:
     for alpha in ALPHAS:
         bid = book_id(alpha)
         for y in list(CRISIS_YEARS) + list(REF_YEARS):
-            b = year_df[(year_df.book == "BASE") & (year_df.year == y)].iloc[0]
+            b = year_df[(year_df.book == book_id(0.0)) & (year_df.year == y)].iloc[0]
             c = year_df[(year_df.book == bid) & (year_df.year == y)].iloc[0]
             if not b["available"] or not c["available"]:
                 deltas.append({

@@ -105,6 +105,7 @@ python3 scripts/e45_blend025_month_end_monitor.py
 
 ## Engineering standards (2026-09-06)
 
+- Full project code review: `research/ops/PROJECT_CODE_REVIEW_2026-09-06.md`
 - E45 paper landmine review: `research/ops/E45_PAPER_LANDMINE_CODE_REVIEW.md`
 - Project coding standards: `research/ops/CODING_STANDARDS.md`
 - Coverage map: `research/ops/CODING_STANDARDS_COVERAGE.md`
