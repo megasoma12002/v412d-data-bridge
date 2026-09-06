@@ -18,6 +18,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from e50_early_stack_combined_nav import e16_features, simulate_core
 import e22_dividend_accounting as e22div
 from e16_fin_cap_oof_challenger import e16_features_fin_cap
@@ -257,7 +258,7 @@ def main() -> int:
         "label": "FINCAP50_SEALED_CAGR_CHARTER_SCREEN",
         "live_wire": False,
         "soft_frozen_unchanged": True,
-        "soft_frozen_clip": [0.50, 0.95],
+        "soft_frozen_clip": list(SOFT_FROZEN_FIN_CLIP),
         "charter": "research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md",
         "diagnostic_source": str(DIAG_JSON),
         "gates": {

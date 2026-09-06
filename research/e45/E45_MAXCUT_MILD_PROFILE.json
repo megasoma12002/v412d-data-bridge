@@ -1,0 +1,975 @@
+{
+  "generated_at_utc": "2026-09-06T01:40:57.395013+00:00",
+  "status": "PAPER_ONLY",
+  "ballot": "E45 PAPER max_cut mild profile",
+  "roadmap_priority": 3,
+  "frozen_profile": "E3_VOLTARGET_WINNER",
+  "frozen_max_cut": 0.5,
+  "frozen_lock_untouched": true,
+  "winner_vs_direct_mc50_corr": 1.0,
+  "definition": {
+    "winner": "compute_exposure(..., E3_VOLTARGET_WINNER) \u2014 frozen max_cut=0.5",
+    "mild": "exposure_e3_voltarget(..., max_cut\u2208{0.25,0.35,0.40}) \u2014 paper-only override at call site",
+    "blend": "exposure = (1\u2212\u03b1)\u00b71 + \u03b1\u00b7profile_exposure"
+  },
+  "soft_frozen": "KEEP [0.50, 0.95]",
+  "default_books": "E22_v2s_tw KEEP",
+  "live_stitch": "FORBIDDEN",
+  "observe_sleeves_unchanged": true,
+  "heldout_preferred": {
+    "book": "REF_BLEND_A05",
+    "family": "REF_BLEND",
+    "max_cut": 0.5,
+    "alpha": 0.05,
+    "window": "heldout_2019_plus",
+    "base_cagr": 0.18234637927240827,
+    "book_cagr": 0.17168621919535254,
+    "base_mdd": -0.2263873534222821,
+    "book_mdd": -0.21786080178618272,
+    "mdd_improve_pp": 0.8526551636099389,
+    "cagr_giveback_pp": 1.0660160077055725,
+    "mdd_pp_per_cagr_giveback_pp": 0.7998521198993452,
+    "mean_e45_exposure": 0.9953398647195717,
+    "frac_days_lt_1": 0.9833472106577852,
+    "score": 0.31964715975715263
+  },
+  "heldout_ranking": [
+    {
+      "book": "REF_BLEND_A05",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.05,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.17168621919535254,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.21786080178618272,
+      "mdd_improve_pp": 0.8526551636099389,
+      "cagr_giveback_pp": 1.0660160077055725,
+      "mdd_pp_per_cagr_giveback_pp": 0.7998521198993452,
+      "mean_e45_exposure": 0.9953398647195717,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": 0.31964715975715263
+    },
+    {
+      "book": "REF_BLEND_A25",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.25,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.15406866712029776,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.22008177023841224,
+      "mdd_improve_pp": 0.6305583183869867,
+      "cagr_giveback_pp": 2.82777121521105,
+      "mdd_pp_per_cagr_giveback_pp": 0.22298774207584723,
+      "mean_e45_exposure": 0.9766993235978588,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": -0.7833272892185383
+    },
+    {
+      "book": "MILD_MC25_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.25,
+      "alpha": 0.5,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.15017722824996005,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.21903792349933604,
+      "mdd_improve_pp": 0.7349429922946071,
+      "cagr_giveback_pp": 3.2169151022448217,
+      "mdd_pp_per_cagr_giveback_pp": 0.22846204171871076,
+      "mean_e45_exposure": 0.9694373662834269,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": -0.8735145588278037
+    },
+    {
+      "book": "REF_WINNER_MC50_FULL",
+      "family": "REF_WINNER",
+      "max_cut": 0.5,
+      "alpha": 1.0,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.12587757186262594,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.2075836624984907,
+      "mdd_improve_pp": 1.8803690923791416,
+      "cagr_giveback_pp": 5.646880740978233,
+      "mdd_pp_per_cagr_giveback_pp": 0.33299252784527505,
+      "mean_e45_exposure": 0.9067972943914351,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": -0.9430712781099748
+    },
+    {
+      "book": "MILD_MC35_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.35,
+      "alpha": 0.5,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.146627817953757,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.21798025701126522,
+      "mdd_improve_pp": 0.840709641101689,
+      "cagr_giveback_pp": 3.5718561318651254,
+      "mdd_pp_per_cagr_giveback_pp": 0.23537052167403322,
+      "mean_e45_exposure": 0.9624815301379268,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": -0.9452184248308737
+    },
+    {
+      "book": "MILD_MC40_FULL",
+      "family": "MILD",
+      "max_cut": 0.4,
+      "alpha": 1.0,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.12873029136816516,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.21064031383651405,
+      "mdd_improve_pp": 1.5747039585768063,
+      "cagr_giveback_pp": 5.36160879042431,
+      "mdd_pp_per_cagr_giveback_pp": 0.2936998986925688,
+      "mean_e45_exposure": 0.9189333921715008,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": -1.1061004366353488
+    },
+    {
+      "book": "MILD_MC35_FULL",
+      "family": "MILD",
+      "max_cut": 0.35,
+      "alpha": 1.0,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.1304452825870004,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.21220189171081305,
+      "mdd_improve_pp": 1.418546171146906,
+      "cagr_giveback_pp": 5.190109668540788,
+      "mdd_pp_per_cagr_giveback_pp": 0.27331718629092744,
+      "mean_e45_exposure": 0.9249630602758537,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": -1.1765086631234878
+    },
+    {
+      "book": "MILD_MC25_FULL",
+      "family": "MILD",
+      "max_cut": 0.25,
+      "alpha": 1.0,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.13524838867713918,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.2157389300830883,
+      "mdd_improve_pp": 1.0648423339193802,
+      "cagr_giveback_pp": 4.709799059526909,
+      "mdd_pp_per_cagr_giveback_pp": 0.22609082053414434,
+      "mean_e45_exposure": 0.9388747325668539,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": -1.2900571958440743
+    }
+  ],
+  "heldout_best_by_family": {
+    "REF_BLEND": {
+      "book": "REF_BLEND_A05",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.05,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.17168621919535254,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.21786080178618272,
+      "mdd_improve_pp": 0.8526551636099389,
+      "cagr_giveback_pp": 1.0660160077055725,
+      "mdd_pp_per_cagr_giveback_pp": 0.7998521198993452,
+      "mean_e45_exposure": 0.9953398647195717,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": 0.31964715975715263
+    },
+    "REF_WINNER": {
+      "book": "REF_WINNER_MC50_FULL",
+      "family": "REF_WINNER",
+      "max_cut": 0.5,
+      "alpha": 1.0,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.12587757186262594,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.2075836624984907,
+      "mdd_improve_pp": 1.8803690923791416,
+      "cagr_giveback_pp": 5.646880740978233,
+      "mdd_pp_per_cagr_giveback_pp": 0.33299252784527505,
+      "mean_e45_exposure": 0.9067972943914351,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": -0.9430712781099748
+    },
+    "MILD": {
+      "book": "MILD_MC40_FULL",
+      "family": "MILD",
+      "max_cut": 0.4,
+      "alpha": 1.0,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.12873029136816516,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.21064031383651405,
+      "mdd_improve_pp": 1.5747039585768063,
+      "cagr_giveback_pp": 5.36160879042431,
+      "mdd_pp_per_cagr_giveback_pp": 0.2936998986925688,
+      "mean_e45_exposure": 0.9189333921715008,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": -1.1061004366353488
+    },
+    "MILD_BLEND": {
+      "book": "MILD_MC25_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.25,
+      "alpha": 0.5,
+      "window": "heldout_2019_plus",
+      "base_cagr": 0.18234637927240827,
+      "book_cagr": 0.15017722824996005,
+      "base_mdd": -0.2263873534222821,
+      "book_mdd": -0.21903792349933604,
+      "mdd_improve_pp": 0.7349429922946071,
+      "cagr_giveback_pp": 3.2169151022448217,
+      "mdd_pp_per_cagr_giveback_pp": 0.22846204171871076,
+      "mean_e45_exposure": 0.9694373662834269,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": -0.8735145588278037
+    }
+  },
+  "sealed_top": [
+    {
+      "book": "REF_BLEND_A25",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.25,
+      "window": "sealed_2023_plus",
+      "base_cagr": 0.2492563398696781,
+      "book_cagr": 0.20564512383990396,
+      "base_mdd": -0.144572796391655,
+      "book_mdd": -0.09332258706256946,
+      "mdd_improve_pp": 5.125020932908553,
+      "cagr_giveback_pp": 4.361121602977414,
+      "mdd_pp_per_cagr_giveback_pp": 1.1751612083941003,
+      "mean_e45_exposure": 0.9766993235978588,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": 2.9444601314198464
+    },
+    {
+      "book": "MILD_MC25_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.25,
+      "alpha": 0.5,
+      "window": "sealed_2023_plus",
+      "base_cagr": 0.2492563398696781,
+      "book_cagr": 0.19785589172705165,
+      "base_mdd": -0.144572796391655,
+      "book_mdd": -0.09252757243040932,
+      "mdd_improve_pp": 5.204522396124567,
+      "cagr_giveback_pp": 5.140044814262645,
+      "mdd_pp_per_cagr_giveback_pp": 1.012544167257649,
+      "mean_e45_exposure": 0.9694373662834269,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": 2.634499988993244
+    },
+    {
+      "book": "REF_BLEND_A05",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.05,
+      "window": "sealed_2023_plus",
+      "base_cagr": 0.2492563398696781,
+      "book_cagr": 0.23422475413471222,
+      "base_mdd": -0.144572796391655,
+      "book_mdd": -0.11388645226706673,
+      "mdd_improve_pp": 3.068634412458826,
+      "cagr_giveback_pp": 1.503158573496588,
+      "mdd_pp_per_cagr_giveback_pp": 2.041457545840084,
+      "mean_e45_exposure": 0.9953398647195717,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": 2.317055125710532
+    },
+    {
+      "book": "MILD_MC35_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.35,
+      "alpha": 0.5,
+      "window": "sealed_2023_plus",
+      "base_cagr": 0.2492563398696781,
+      "book_cagr": 0.1903117138482957,
+      "base_mdd": -0.144572796391655,
+      "book_mdd": -0.09256785929921663,
+      "mdd_improve_pp": 5.200493709243837,
+      "cagr_giveback_pp": 5.89446260213824,
+      "mdd_pp_per_cagr_giveback_pp": 0.8822676569968121,
+      "mean_e45_exposure": 0.9624815301379268,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": 2.253262408174717
+    },
+    {
+      "book": "MILD_MC25_FULL",
+      "family": "MILD",
+      "max_cut": 0.25,
+      "alpha": 1.0,
+      "window": "sealed_2023_plus",
+      "base_cagr": 0.2492563398696781,
+      "book_cagr": 0.16715061003570564,
+      "base_mdd": -0.144572796391655,
+      "book_mdd": -0.09342302703618632,
+      "mdd_improve_pp": 5.114976935546867,
+      "cagr_giveback_pp": 8.210572983397245,
+      "mdd_pp_per_cagr_giveback_pp": 0.6229744191897397,
+      "mean_e45_exposure": 0.9388747325668539,
+      "frac_days_lt_1": 0.9833472106577852,
+      "score": 1.0096904438482444
+    }
+  ],
+  "pause_asof": "2026-09-04",
+  "pause_rows": [
+    {
+      "book": "BASE_E16_E18_E22_v2s",
+      "family": "BASE",
+      "max_cut": null,
+      "alpha": 0.0,
+      "asof": "2026-09-04",
+      "window": "ytd",
+      "mdd_improve_pp": 0.0,
+      "cagr_giveback_pp": 0.0,
+      "flag": "OK",
+      "n_days": 162
+    },
+    {
+      "book": "BASE_E16_E18_E22_v2s",
+      "family": "BASE",
+      "max_cut": null,
+      "alpha": 0.0,
+      "asof": "2026-09-04",
+      "window": "trailing_1y",
+      "mdd_improve_pp": 0.0,
+      "cagr_giveback_pp": 0.0,
+      "flag": "OK",
+      "n_days": 242
+    },
+    {
+      "book": "REF_WINNER_MC50_FULL",
+      "family": "REF_WINNER",
+      "max_cut": 0.5,
+      "alpha": 1.0,
+      "asof": "2026-09-04",
+      "window": "ytd",
+      "mdd_improve_pp": 7.228128799143474,
+      "cagr_giveback_pp": 23.228076836201872,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 162
+    },
+    {
+      "book": "REF_WINNER_MC50_FULL",
+      "family": "REF_WINNER",
+      "max_cut": 0.5,
+      "alpha": 1.0,
+      "asof": "2026-09-04",
+      "window": "trailing_1y",
+      "mdd_improve_pp": 7.228128799143452,
+      "cagr_giveback_pp": 20.493436961884814,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 242
+    },
+    {
+      "book": "REF_BLEND_A05",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.05,
+      "asof": "2026-09-04",
+      "window": "ytd",
+      "mdd_improve_pp": 3.068634412458826,
+      "cagr_giveback_pp": 5.004516391649383,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 162
+    },
+    {
+      "book": "REF_BLEND_A05",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.05,
+      "asof": "2026-09-04",
+      "window": "trailing_1y",
+      "mdd_improve_pp": 3.0686344124587928,
+      "cagr_giveback_pp": 5.621855067181336,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 242
+    },
+    {
+      "book": "REF_BLEND_A25",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.25,
+      "asof": "2026-09-04",
+      "window": "ytd",
+      "mdd_improve_pp": 5.941594773596403,
+      "cagr_giveback_pp": 11.5541113601636,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 162
+    },
+    {
+      "book": "REF_BLEND_A25",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.25,
+      "asof": "2026-09-04",
+      "window": "trailing_1y",
+      "mdd_improve_pp": 5.94159477359637,
+      "cagr_giveback_pp": 11.685141356601502,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 242
+    },
+    {
+      "book": "MILD_MC25_FULL",
+      "family": "MILD",
+      "max_cut": 0.25,
+      "alpha": 1.0,
+      "asof": "2026-09-04",
+      "window": "ytd",
+      "mdd_improve_pp": 7.036649083219992,
+      "cagr_giveback_pp": 21.46232013982299,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 162
+    },
+    {
+      "book": "MILD_MC25_FULL",
+      "family": "MILD",
+      "max_cut": 0.25,
+      "alpha": 1.0,
+      "asof": "2026-09-04",
+      "window": "trailing_1y",
+      "mdd_improve_pp": 7.0366490832199595,
+      "cagr_giveback_pp": 19.0397249899523,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 242
+    },
+    {
+      "book": "MILD_MC35_FULL",
+      "family": "MILD",
+      "max_cut": 0.35,
+      "alpha": 1.0,
+      "asof": "2026-09-04",
+      "window": "ytd",
+      "mdd_improve_pp": 7.173468777125869,
+      "cagr_giveback_pp": 22.639148217919104,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 162
+    },
+    {
+      "book": "MILD_MC35_FULL",
+      "family": "MILD",
+      "max_cut": 0.35,
+      "alpha": 1.0,
+      "asof": "2026-09-04",
+      "window": "trailing_1y",
+      "mdd_improve_pp": 7.173468777125869,
+      "cagr_giveback_pp": 19.961589250997736,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 242
+    },
+    {
+      "book": "MILD_MC40_FULL",
+      "family": "MILD",
+      "max_cut": 0.4,
+      "alpha": 1.0,
+      "asof": "2026-09-04",
+      "window": "ytd",
+      "mdd_improve_pp": 7.200408924635838,
+      "cagr_giveback_pp": 22.93386058692417,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 162
+    },
+    {
+      "book": "MILD_MC40_FULL",
+      "family": "MILD",
+      "max_cut": 0.4,
+      "alpha": 1.0,
+      "asof": "2026-09-04",
+      "window": "trailing_1y",
+      "mdd_improve_pp": 7.2004089246358145,
+      "cagr_giveback_pp": 20.26575856332682,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 242
+    },
+    {
+      "book": "MILD_MC25_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.25,
+      "alpha": 0.5,
+      "asof": "2026-09-04",
+      "window": "ytd",
+      "mdd_improve_pp": 6.2283230233514,
+      "cagr_giveback_pp": 13.913320948736164,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 162
+    },
+    {
+      "book": "MILD_MC25_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.25,
+      "alpha": 0.5,
+      "asof": "2026-09-04",
+      "window": "trailing_1y",
+      "mdd_improve_pp": 6.228323023351379,
+      "cagr_giveback_pp": 13.51356038466478,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 242
+    },
+    {
+      "book": "MILD_MC35_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.35,
+      "alpha": 0.5,
+      "asof": "2026-09-04",
+      "window": "ytd",
+      "mdd_improve_pp": 6.438584122661628,
+      "cagr_giveback_pp": 15.280323859298651,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 162
+    },
+    {
+      "book": "MILD_MC35_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.35,
+      "alpha": 0.5,
+      "asof": "2026-09-04",
+      "window": "trailing_1y",
+      "mdd_improve_pp": 6.438584122661606,
+      "cagr_giveback_pp": 14.677661743656234,
+      "flag": "PAUSE_REVIEW",
+      "n_days": 242
+    }
+  ],
+  "books": {
+    "BASE_E16_E18_E22_v2s": {
+      "book": "BASE_E16_E18_E22_v2s",
+      "family": "BASE",
+      "max_cut": null,
+      "alpha": 0.0,
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 1.0,
+      "frac_days_lt_1": 0.0,
+      "mean_cut_vs_1": 0.0,
+      "windows": {
+        "full": {
+          "cagr": 0.1378248622325564,
+          "max_drawdown": -0.2263873534222821,
+          "utility": 0.024631185521415355,
+          "vol": 0.13322264778649467,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08846337485294886,
+          "max_drawdown": -0.17413755783374418,
+          "utility": 0.0013945959360767701,
+          "vol": 0.10679475834335891,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12329654723233241,
+          "max_drawdown": -0.2263873534222821,
+          "utility": 0.010102870521191354,
+          "vol": 0.1356113287117382,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.2492563398696781,
+          "max_drawdown": -0.144572796391655,
+          "utility": 0.1769699416738506,
+          "vol": 0.16654549266359758,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.18234637927240827,
+          "max_drawdown": -0.2263873534222821,
+          "utility": 0.06915270256126721,
+          "vol": 0.1510303139281758,
+          "n_days": 1856
+        }
+      }
+    },
+    "REF_WINNER_MC50_FULL": {
+      "book": "REF_WINNER_MC50_FULL",
+      "family": "REF_WINNER",
+      "max_cut": 0.5,
+      "alpha": 1.0,
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 0.9067972943914351,
+      "frac_days_lt_1": 0.9833472106577852,
+      "mean_cut_vs_1": 0.09153256735774709,
+      "windows": {
+        "full": {
+          "cagr": 0.1079429047523961,
+          "max_drawdown": -0.2075836624984908,
+          "utility": 0.004151073503150693,
+          "vol": 0.10785160901336181,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08906131377792659,
+          "max_drawdown": -0.15572113682777788,
+          "utility": 0.011200745364037645,
+          "vol": 0.0942689821675622,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.09971953722588722,
+          "max_drawdown": -0.2075836624984907,
+          "utility": -0.004072294023358125,
+          "vol": 0.11498865798471121,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.15521554345330602,
+          "max_drawdown": -0.095606636426529,
+          "utility": 0.10741222524004151,
+          "vol": 0.1204349273850096,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.12587757186262594,
+          "max_drawdown": -0.2075836624984907,
+          "utility": 0.02208574061338059,
+          "vol": 0.11754730382141575,
+          "n_days": 1856
+        }
+      }
+    },
+    "REF_BLEND_A05": {
+      "book": "REF_BLEND_A05",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.05,
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 0.9953398647195717,
+      "frac_days_lt_1": 0.9833472106577852,
+      "mean_cut_vs_1": 0.004576628367887394,
+      "windows": {
+        "full": {
+          "cagr": 0.13311077376297686,
+          "max_drawdown": -0.21786080178618272,
+          "utility": 0.024180372869885502,
+          "vol": 0.12792789520010944,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09030423969935275,
+          "max_drawdown": -0.1731338008122305,
+          "utility": 0.003737339293237496,
+          "vol": 0.1049626364476561,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.11635613431764802,
+          "max_drawdown": -0.21786080178618272,
+          "utility": 0.0074257334245566575,
+          "vol": 0.13245700878857386,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.23422475413471222,
+          "max_drawdown": -0.11388645226706673,
+          "utility": 0.17728152800117886,
+          "vol": 0.15519507509258892,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.17168621919535254,
+          "max_drawdown": -0.21786080178618272,
+          "utility": 0.06275581830226118,
+          "vol": 0.14365123828708692,
+          "n_days": 1856
+        }
+      }
+    },
+    "REF_BLEND_A25": {
+      "book": "REF_BLEND_A25",
+      "family": "REF_BLEND",
+      "max_cut": 0.5,
+      "alpha": 0.25,
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 0.9766993235978588,
+      "frac_days_lt_1": 0.9833472106577852,
+      "mean_cut_vs_1": 0.022883141839436773,
+      "windows": {
+        "full": {
+          "cagr": 0.124038092709855,
+          "max_drawdown": -0.22008177023841224,
+          "utility": 0.013997207590648875,
+          "vol": 0.11992778375578673,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09128144255463799,
+          "max_drawdown": -0.165746292631895,
+          "utility": 0.008408296238690494,
+          "vol": 0.1004628042853837,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.10846661305403948,
+          "max_drawdown": -0.22008177023841224,
+          "utility": -0.0015742720651666375,
+          "vol": 0.1274411027649833,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.20564512383990396,
+          "max_drawdown": -0.09332258706256946,
+          "utility": 0.15898383030861923,
+          "vol": 0.13983088916830658,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.15406866712029776,
+          "max_drawdown": -0.22008177023841224,
+          "utility": 0.04402778200109164,
+          "vol": 0.13341423752666234,
+          "n_days": 1856
+        }
+      }
+    },
+    "MILD_MC25_FULL": {
+      "book": "MILD_MC25_FULL",
+      "family": "MILD",
+      "max_cut": 0.25,
+      "alpha": 1.0,
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 0.9388747325668539,
+      "frac_days_lt_1": 0.9833472106577852,
+      "mean_cut_vs_1": 0.06030146171949589,
+      "windows": {
+        "full": {
+          "cagr": 0.11395853389993316,
+          "max_drawdown": -0.2157389300830883,
+          "utility": 0.006089068858389002,
+          "vol": 0.11183819345036522,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09120286235182928,
+          "max_drawdown": -0.16033562670639667,
+          "utility": 0.011035048998630947,
+          "vol": 0.0969914576390694,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.10678940379522817,
+          "max_drawdown": -0.2157389300830883,
+          "utility": -0.0010800612463159887,
+          "vol": 0.12032427731506509,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.16715061003570564,
+          "max_drawdown": -0.09342302703618632,
+          "utility": 0.12043909651761248,
+          "vol": 0.12472819539096104,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.13524838867713918,
+          "max_drawdown": -0.2157389300830883,
+          "utility": 0.02737892363559502,
+          "vol": 0.12237675131376938,
+          "n_days": 1856
+        }
+      }
+    },
+    "MILD_MC35_FULL": {
+      "book": "MILD_MC35_FULL",
+      "family": "MILD",
+      "max_cut": 0.35,
+      "alpha": 1.0,
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 0.9249630602758537,
+      "frac_days_lt_1": 0.9833472106577852,
+      "mean_cut_vs_1": 0.07377367923293886,
+      "windows": {
+        "full": {
+          "cagr": 0.11110145844679709,
+          "max_drawdown": -0.21220189171081305,
+          "utility": 0.00500051259139056,
+          "vol": 0.10995746263469446,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09061204430350678,
+          "max_drawdown": -0.15825845164969854,
+          "utility": 0.011482818478657508,
+          "vol": 0.09595514220865878,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.10467953789523055,
+          "max_drawdown": -0.21220189171081305,
+          "utility": -0.00142140796017598,
+          "vol": 0.11801724319575845,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.1592841910766012,
+          "max_drawdown": -0.09493986729871573,
+          "utility": 0.11181425742724332,
+          "vol": 0.12215207812061939,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1304452825870004,
+          "max_drawdown": -0.21220189171081305,
+          "utility": 0.024344336731593863,
+          "vol": 0.11993938168281572,
+          "n_days": 1856
+        }
+      }
+    },
+    "MILD_MC40_FULL": {
+      "book": "MILD_MC40_FULL",
+      "family": "MILD",
+      "max_cut": 0.4,
+      "alpha": 1.0,
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 0.9189333921715008,
+      "frac_days_lt_1": 0.9833472106577852,
+      "mean_cut_vs_1": 0.07966767054418906,
+      "windows": {
+        "full": {
+          "cagr": 0.11005858970348581,
+          "max_drawdown": -0.21064031383651405,
+          "utility": 0.0047384327852287855,
+          "vol": 0.10924470329991866,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09033981584668749,
+          "max_drawdown": -0.15745685728239456,
+          "utility": 0.011611387205490209,
+          "vol": 0.09543173257246045,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.1030942450919432,
+          "max_drawdown": -0.21064031383651405,
+          "utility": -0.00222591182631382,
+          "vol": 0.11702968695503613,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.15744254375169975,
+          "max_drawdown": -0.09512555359856845,
+          "utility": 0.10987976695241553,
+          "vol": 0.12147101252061143,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.12873029136816516,
+          "max_drawdown": -0.21064031383651405,
+          "utility": 0.023410134449908138,
+          "vol": 0.11910020481426331,
+          "n_days": 1856
+        }
+      }
+    },
+    "MILD_MC25_A50": {
+      "book": "MILD_MC25_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.25,
+      "alpha": 0.5,
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 0.9694373662834269,
+      "frac_days_lt_1": 0.9833472106577852,
+      "mean_cut_vs_1": 0.030150730859747933,
+      "windows": {
+        "full": {
+          "cagr": 0.1220967039860803,
+          "max_drawdown": -0.21903792349933604,
+          "utility": 0.012577742236412282,
+          "vol": 0.1182252833553271,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09159571387978427,
+          "max_drawdown": -0.16528108570529654,
+          "utility": 0.008955171027136,
+          "vol": 0.09996621235859292,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.10788815951990438,
+          "max_drawdown": -0.21903792349933604,
+          "utility": -0.0016308022297636393,
+          "vol": 0.12605732030612032,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.19785589172705165,
+          "max_drawdown": -0.09252757243040932,
+          "utility": 0.151592105511847,
+          "vol": 0.13627218346240932,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.15017722824996005,
+          "max_drawdown": -0.21903792349933604,
+          "utility": 0.04065826650029203,
+          "vol": 0.13095352713896166,
+          "n_days": 1856
+        }
+      }
+    },
+    "MILD_MC35_A50": {
+      "book": "MILD_MC35_A50",
+      "family": "MILD_BLEND",
+      "max_cut": 0.35,
+      "alpha": 0.5,
+      "exact_t1_ok": true,
+      "mean_e45_exposure": 0.9624815301379268,
+      "frac_days_lt_1": 0.9833472106577852,
+      "mean_cut_vs_1": 0.03688683961646943,
+      "windows": {
+        "full": {
+          "cagr": 0.12039742917179419,
+          "max_drawdown": -0.21798025701126522,
+          "utility": 0.01140730066616158,
+          "vol": 0.1163307714440509,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09190501930460626,
+          "max_drawdown": -0.16249319560285447,
+          "utility": 0.010658421503179027,
+          "vol": 0.09881279296763626,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.10787740273177282,
+          "max_drawdown": -0.21798025701126522,
+          "utility": -0.0011127257738597907,
+          "vol": 0.12423054169249854,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.1903117138482957,
+          "max_drawdown": -0.09256785929921663,
+          "utility": 0.1440277841986874,
+          "vol": 0.13336439862141758,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.146627817953757,
+          "max_drawdown": -0.21798025701126522,
+          "utility": 0.0376376894481244,
+          "vol": 0.12859208231553387,
+          "n_days": 1856
+        }
+      }
+    }
+  }
+}

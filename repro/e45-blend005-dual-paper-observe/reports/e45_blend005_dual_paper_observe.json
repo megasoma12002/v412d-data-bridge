@@ -1,0 +1,143 @@
+{
+  "generated_at_utc": "2026-09-06T02:47:46.428350+00:00",
+  "label": "E45_BLEND005_DUAL_PAPER_OBSERVE_SLEEVE",
+  "status": "OPERATING_OBSERVE",
+  "live_wire": false,
+  "soft_frozen_default_unchanged": true,
+  "stitch_authorized": false,
+  "cutover_authorized": false,
+  "ballot": "E45 OPEN blend-\u03b1=0.05 observe",
+  "base_id": "BASE_E16_E18_E22_v2s",
+  "locked_challenger": "BLEND_E45_A05",
+  "blend_alpha": 0.05,
+  "e45_profile": "E3_VOLTARGET_WINNER",
+  "claimed_mdd_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "primary_comparable_mdd": -0.1581,
+  "current_live_clip": {
+    "financial_lo": 0.5,
+    "financial_hi": 0.95
+  },
+  "exact_t1": {
+    "base": true,
+    "blend_e45_a05": true
+  },
+  "books": {
+    "BASE_E16_E18_E22_v2s": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 1.0,
+      "windows": {
+        "full": {
+          "cagr": 0.13789395672938531,
+          "max_drawdown": -0.22543344437825508,
+          "utility": 0.025177234540257776,
+          "vol": 0.13297638346349747,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08891395615228181,
+          "max_drawdown": -0.17552258063858128,
+          "utility": 0.0011526658329911732,
+          "vol": 0.10689317000099306,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12303252832234746,
+          "max_drawdown": -0.2254334443782552,
+          "utility": 0.010315806133219863,
+          "vol": 0.13563392852620926,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.2488922261012192,
+          "max_drawdown": -0.14087148125010163,
+          "utility": 0.17845648547616838,
+          "vol": 0.16567513128978922,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.18203522229472702,
+          "max_drawdown": -0.2254334443782552,
+          "utility": 0.06931850010559942,
+          "vol": 0.15058731210766724,
+          "n_days": 1856
+        }
+      }
+    },
+    "BLEND_E45_A05": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 0.9953398647195717,
+      "windows": {
+        "full": {
+          "cagr": 0.13365973293663336,
+          "max_drawdown": -0.21840933817863817,
+          "utility": 0.024455063847314273,
+          "vol": 0.12820091869049402,
+          "n_days": 3351
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09059826880442223,
+          "max_drawdown": -0.17400932146960701,
+          "utility": 0.0035936080696187256,
+          "vol": 0.10509644430893639,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.11728002355878164,
+          "max_drawdown": -0.21840933817863817,
+          "utility": 0.008075354469462559,
+          "vol": 0.13297288345496505,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.2346963910554447,
+          "max_drawdown": -0.11308673030842753,
+          "utility": 0.17815302590123094,
+          "vol": 0.15541388862284303,
+          "n_days": 879
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1724320147835161,
+          "max_drawdown": -0.21840933817863817,
+          "utility": 0.06322734569419702,
+          "vol": 0.14401385009266165,
+          "n_days": 1856
+        }
+      }
+    }
+  },
+  "heldout_delta_vs_base": {
+    "mdd_improve_pp": 0.702410619961702,
+    "cagr_giveback_pp": 0.9603207511210909
+  },
+  "sealed_delta_vs_base": {
+    "mdd_improve_pp": 2.7784750941674097,
+    "cagr_giveback_pp": 1.4195835045774485
+  },
+  "parent_artifacts": [
+    "research/ops/E45_LIVE_STITCH_CHARTER.md",
+    "research/ops/E45_STAGE12_STATUS.md",
+    "research/e45/E45_DUAL_PAPER_OBSERVE_DESIGN.md",
+    "research/ops/E45_DUAL_PAPER_OBSERVE_CHECKLIST.md",
+    "research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md",
+    "research/ops/E45_DUAL_PAPER_OBSERVE_OPEN.md",
+    "research/e45/E45_BLEND_ALPHA_PAPER_SCREEN.md",
+    "research/ops/E45_BLEND025_OBSERVE_OPEN.md"
+  ],
+  "ops_checklist": [
+    "Keep Soft-Frozen live default = BASE until a separate stitch / cutover PR",
+    "Run BASE + BLEND_E45_A05 paper ledgers in parallel with month-end monitor",
+    "Re-check YTD / trailing_1y PAUSE gates each month-end (observe \u2260 promote)",
+    "Do not silent-edit Soft-Frozen; do not rewrite forward/e21 history",
+    "Observe sleeve \u2260 stitch license; second human stitch ACCEPT still required",
+    "Never cite \u221213.16%; use dated lineage / challenger MDDs only"
+  ],
+  "non_goals": [
+    "Auto live-wire / four-layer stitch from this observe sleeve",
+    "Soft-Frozen clip flip",
+    "DEFAULT books flip away from E22_v2s_tw",
+    "Invent a replacement for retired \u221213.16% narrative",
+    "Bundle FIN50 / L4 / BLEND / odd-lot / tax DEFAULT promote"
+  ]
+}

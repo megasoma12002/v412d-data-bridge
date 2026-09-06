@@ -1,0 +1,51 @@
+# E45 Paper Research Roadmap — Status Map
+
+Date: 2026-09-06  
+Scope: paper-only research queue (not live / not stitch)  
+Soft-Frozen FIN clip **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN**
+
+| Pri | Direction | Purpose | Status | Artifact / note |
+|---:|---|---|---|---|
+| **1** | **α band deep-dive (0.05–0.15)** | Dense grid + stability + month-end PAUSE | **DONE** | `E45_LOW_ALPHA_DEEP_DIVE.md` — held-out **α=0.05**; no dense α clears YTD/1y PAUSE |
+| **2** | **Crisis-triggered α** | Cut calm-day CAGR tax | **DONE** | `E45_CRISIS_TRIGGERED_ALPHA.md` — GATE/E1BIN lose to `CONST_A05` |
+| **3** | **Lower `max_cut` new profile** | Milder defense vs blend-α | **DONE** | `E45_MAXCUT_MILD_PROFILE.md` — mild mc loses to blend-α=0.05; frozen mc=0.5 untouched |
+| **4** | **Cost / turnover stress (0–3×)** | Confirm mild α still pays | **DONE** | `E45_ALPHA_COST_TURNOVER.md` — **α=0.05 survives 0–3×** with MDD help ~+0.84–0.90pp; turnover not explosive |
+| **5** | **Crisis-year attribution** | Where protection concentrates | **DONE** | `E45_CRISIS_YEAR_ATTRIBUTION.md` — α=0.05 MDD help **~98.7% in 2020**; 2018 tiny; 2015/2022 not helping |
+| **6** | **Sleeve-local apply** | Shrink whole-book CAGR drag | **DONE** | `E45_SLEEVE_LOCAL.md` — **FIN+0050 / high-β @α=0.05** beat ALL@0.05 on held-out score (~0.345 vs 0.320) |
+| **7** | **Dual-sleeve long monitor** | full vs α=0.25 (+ paper A10) | **DONE (dashboard)** | `E45_DUAL_SLEEVE_MONITOR_DASHBOARD.md` — FULL+A25 observe operating; paper A10 companion only (not OPEN) |
+
+## Binding constraints (unchanged)
+
+- Do **not** invent a −13.16% replacement (`RETIRED_HISTORICAL_NARRATIVE`).
+- Do **not** retune frozen `E3_VOLTARGET_WINNER` in place.
+- Do **not** live-stitch without second human `E45 ACCEPT live stitch`.
+- Operating observe α targets change only via new **OPEN** ballot.
+
+## Cross-roadmap paper verdict (as of 2026-09-06)
+
+1. Best simple intensity: **constant blend α≈0.05** (not crisis-gate, not milder max_cut).
+2. Cost-robust at 0–3× fees.
+3. Protection is **2020-concentrated** — diversification risk; keep multi-year honesty.
+4. **Sleeve-local (FIN/high-β)** slightly better score than whole-book α=0.05 — candidate for a future dedicated paper/observe ballot (not auto-opened here).
+5. Observe continues: FULL + A25; stitch still blocked by PAUSE/clean-trailing gates.
+
+**Integrated write-up:** `research/ops/E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md`
+
+## Post-P7 execution (2026-09-06) — ALL DONE
+
+| # | Action | Status | Artifact |
+|---|---|---|---|
+| A | Sleeve-local deep-dive + OPEN observe | **DONE** · observe **OPERATING** (`SLEEVE_FIN_ONLY_A10`) | `E45_SLEEVE_LOCAL_DEEP_DIVE.md` — held-out pref **FIN_ONLY@α=0.10** (score 0.285) beats ALL@0.05; still 2020-concentrated (~84%) |
+| B | OPEN blend-α=0.05 observe companion | **OPEN / OPERATING** | `E45_BLEND005_OBSERVE_OPEN.md` · tip YTD/1y **PAUSE_REVIEW** (expected) |
+| C | Continue FULL+A25 observe cadence | **OPERATING** | dual-paper + blend025 month-end unchanged; stitch still forbidden |
+
+**Not opened:** sleeve-local observe (still paper-only; needs dedicated ballot).
+
+
+## Label
+
+`E45_PAPER_ROADMAP_STATUS_2026-09-06__P1_P7_DONE__STITCH_FORBIDDEN`
+
+Sleeve-local OPEN ballot **DRAFT** (awaiting human ACCEPT, not OPEN): `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md`
+
+Sleeve-local observe **OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md`

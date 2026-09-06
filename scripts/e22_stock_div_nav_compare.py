@@ -2,6 +2,8 @@
 """Quick cash-only vs stock-share-increase NAV compare (challenger sandbox)."""
 from __future__ import annotations
 
+from research_metric_helpers import metric_delta
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -51,8 +53,8 @@ def main() -> None:
         },
         "unit_note": "stock_dividend FinMind 元/股; shares *= 1 + stock/10 on stock_ex_date",
         "variants": rows,
-        "delta_cagr": (b["cagr"] or 0) - (a["cagr"] or 0),
-        "delta_mdd": (b["max_drawdown"] or 0) - (a["max_drawdown"] or 0),
+        "delta_cagr": metric_delta(b["cagr"], a["cagr"], missing_as_zero=True),
+        "delta_mdd": metric_delta(b["max_drawdown"], a["max_drawdown"], missing_as_zero=True),
     }
     (OUT / "summary.json").write_text(json.dumps(summary, indent=2, default=str) + "\n")
     print(json.dumps({"delta_cagr": summary["delta_cagr"], "delta_mdd": summary["delta_mdd"]}, indent=2))

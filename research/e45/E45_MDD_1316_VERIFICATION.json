@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-04T17:46:23.164149+00:00",
+  "generated_at_utc": "2026-09-05T18:10:35.778629+00:00",
   "claim_mdd": -0.1316,
-  "claim_status": "NOT_VERIFIED",
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
   "exact_artifact_match": false,
   "closest_lineage_mdd": {
     "source": "E1_1_validation",
@@ -89,30 +89,30 @@
     },
     {
       "variant": "E16_E18_E22_v2s",
-      "cagr": 0.137829469400496,
-      "mdd": -0.22639131293777315,
-      "abs_err_to_claim": 0.09479131293777315,
+      "cagr": 0.1378248622325564,
+      "mdd": -0.2263873534222821,
+      "abs_err_to_claim": 0.09478735342228212,
       "n_days": 3351
     },
     {
       "variant": "E16_E18_E22_v2s_E45_E3",
-      "cagr": 0.10794644108639262,
-      "mdd": -0.20758421231988378,
-      "abs_err_to_claim": 0.07598421231988378,
+      "cagr": 0.1079429047523961,
+      "mdd": -0.2075836624984907,
+      "abs_err_to_claim": 0.0759836624984907,
       "n_days": 3351
     },
     {
       "variant": "E16_E18_E22_v2s_E45_E1",
-      "cagr": 0.13142372258023172,
-      "mdd": -0.22639131293777315,
-      "abs_err_to_claim": 0.09479131293777315,
+      "cagr": 0.13142131423717895,
+      "mdd": -0.2263873534222821,
+      "abs_err_to_claim": 0.09478735342228212,
       "n_days": 3351
     },
     {
       "variant": "E16_E18_E22_v2s_E45_LEGACY0.7",
-      "cagr": 0.12785722291197876,
-      "mdd": -0.20619199929288012,
-      "abs_err_to_claim": 0.07459199929288013,
+      "cagr": 0.12786036920313126,
+      "mdd": -0.20621269927374164,
+      "abs_err_to_claim": 0.07461269927374165,
       "n_days": 3351
     }
   ],
@@ -140,5 +140,16 @@
     "replace_claim_with_invented_number": false,
     "use_instead": "VERIFIED_LINEAGE_MDD from dated artifacts; keep claim labeled NOT_VERIFIED",
     "promotion_impact": "E45 remains CHALLENGER_CANDIDATE; SOFT_FROZEN_CRITICAL is a process class, not a verified -13.16% number"
-  }
+  },
+  "claim_interpretation": "EARLY_NON_RIGOROUS_RESEARCH_RESULT",
+  "narrative_retirement": {
+    "ballot": "E45 RETIRE -13.16% narrative (path A)",
+    "date": "2026-09-05",
+    "doc": "research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md",
+    "invent_replacement": false,
+    "primary_comparable_mdd": -0.1581,
+    "primary_comparable_source": "E1_1_validation_2012_2014",
+    "stitch_authorized": false
+  },
+  "updated_at_utc": "2026-09-05T18:33:45.044730+00:00"
 }

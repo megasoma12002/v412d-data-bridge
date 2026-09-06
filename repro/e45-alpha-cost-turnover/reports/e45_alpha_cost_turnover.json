@@ -1,0 +1,203 @@
+{
+  "generated_at_utc": "2026-09-06T01:45:24.801413+00:00",
+  "status": "PAPER_ONLY",
+  "ballot": "E45 PAPER alpha cost/turnover stress",
+  "roadmap_priority": 4,
+  "profile": "E3_VOLTARGET_WINNER",
+  "alphas": [
+    0.0,
+    0.05,
+    0.1,
+    0.25,
+    1.0
+  ],
+  "cost_multiples": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "fee_keys_scaled": [
+    "BUY_FEE",
+    "SELL_FEE",
+    "SLIP",
+    "TAX_STOCK",
+    "TAX_ETF"
+  ],
+  "soft_frozen": "KEEP",
+  "live_stitch": "FORBIDDEN",
+  "observe_sleeves_unchanged": true,
+  "heldout_1x_preferred": {
+    "book": "BLEND_A05",
+    "alpha": 0.05,
+    "cost_multiple": 1,
+    "window": "heldout_2019_plus",
+    "mdd_improve_pp": 0.8526551636099389,
+    "cagr_giveback_pp": 1.0660160077055725,
+    "score": 0.31964715975715263,
+    "turnover_per_year": 2.2796910822378633,
+    "fees_tax_sum": 407845.0174122666,
+    "n_fills": 6295,
+    "book_cagr": 0.17168621919535254,
+    "base_cagr": 0.18234637927240827,
+    "book_mdd": -0.21786080178618272,
+    "base_mdd": -0.2263873534222821
+  },
+  "survival_heldout": [
+    {
+      "alpha": 0.05,
+      "cost_multiple": 0,
+      "mdd_improve_pp": 0.8396755401887224,
+      "cagr_giveback_pp": 1.0362303474140466,
+      "score": 0.32156036648169906,
+      "score_nonneg": "True",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.05,
+      "cost_multiple": 1,
+      "mdd_improve_pp": 0.8526551636099389,
+      "cagr_giveback_pp": 1.0660160077055725,
+      "score": 0.31964715975715263,
+      "score_nonneg": "True",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.05,
+      "cost_multiple": 2,
+      "mdd_improve_pp": 0.8658048576430377,
+      "cagr_giveback_pp": 1.0101021614463024,
+      "score": 0.3607537769198865,
+      "score_nonneg": "True",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.05,
+      "cost_multiple": 3,
+      "mdd_improve_pp": 0.8986658299056538,
+      "cagr_giveback_pp": 1.0328954248146616,
+      "score": 0.382218117498323,
+      "score_nonneg": "True",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.1,
+      "cost_multiple": 0,
+      "mdd_improve_pp": 0.9003261754525038,
+      "cagr_giveback_pp": 1.5697734924011497,
+      "score": 0.11543942925192896,
+      "score_nonneg": "True",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.1,
+      "cost_multiple": 1,
+      "mdd_improve_pp": 0.9515469291229817,
+      "cagr_giveback_pp": 1.5967200984304153,
+      "score": 0.15318687990777402,
+      "score_nonneg": "True",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.1,
+      "cost_multiple": 2,
+      "mdd_improve_pp": 1.0515316281034637,
+      "cagr_giveback_pp": 1.5906635548610826,
+      "score": 0.2561998506729224,
+      "score_nonneg": "True",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.1,
+      "cost_multiple": 3,
+      "mdd_improve_pp": 1.1403963114894111,
+      "cagr_giveback_pp": 1.6172361286493242,
+      "score": 0.331778247164749,
+      "score_nonneg": "True",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.25,
+      "cost_multiple": 0,
+      "mdd_improve_pp": 0.6507650199117476,
+      "cagr_giveback_pp": 2.7378712121917337,
+      "score": -0.7181705861841192,
+      "score_nonneg": "False",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.25,
+      "cost_multiple": 1,
+      "mdd_improve_pp": 0.6305583183869867,
+      "cagr_giveback_pp": 2.82777121521105,
+      "score": -0.7833272892185383,
+      "score_nonneg": "False",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.25,
+      "cost_multiple": 2,
+      "mdd_improve_pp": 0.6789244530790328,
+      "cagr_giveback_pp": 2.8713477307245716,
+      "score": -0.756749412283253,
+      "score_nonneg": "False",
+      "mdd_still_helps": "True"
+    },
+    {
+      "alpha": 0.25,
+      "cost_multiple": 3,
+      "mdd_improve_pp": 0.7509689513363504,
+      "cagr_giveback_pp": 2.9441323304103983,
+      "score": -0.7210972138688487,
+      "score_nonneg": "False",
+      "mdd_still_helps": "True"
+    }
+  ],
+  "turnover_vs_base_1x": [
+    {
+      "book": "BASE",
+      "alpha": 0.0,
+      "turnover_per_year": 2.239655789524995,
+      "base_turnover_per_year": 2.239655789524995,
+      "turnover_delta": 0.0,
+      "n_fills": "6271",
+      "fees_tax_sum_1x": 400789.8376174609
+    },
+    {
+      "book": "BLEND_A05",
+      "alpha": 0.05,
+      "turnover_per_year": 2.2796910822378633,
+      "base_turnover_per_year": 2.239655789524995,
+      "turnover_delta": 0.04003529271286821,
+      "n_fills": "6295",
+      "fees_tax_sum_1x": 407845.0174122666
+    },
+    {
+      "book": "BLEND_A10",
+      "alpha": 0.1,
+      "turnover_per_year": 2.323482628320205,
+      "base_turnover_per_year": 2.239655789524995,
+      "turnover_delta": 0.08382683879520991,
+      "n_fills": "6455",
+      "fees_tax_sum_1x": 413573.98340234323
+    },
+    {
+      "book": "BLEND_A25",
+      "alpha": 0.25,
+      "turnover_per_year": 2.354246268183291,
+      "base_turnover_per_year": 2.239655789524995,
+      "turnover_delta": 0.11459047865829586,
+      "n_fills": "6603",
+      "fees_tax_sum_1x": 413546.6622187926
+    },
+    {
+      "book": "FULL_E45",
+      "alpha": 1.0,
+      "turnover_per_year": 2.3516192485938587,
+      "base_turnover_per_year": 2.239655789524995,
+      "turnover_delta": 0.11196345906886362,
+      "n_fills": "6931",
+      "fees_tax_sum_1x": 394842.78251258924
+    }
+  ]
+}

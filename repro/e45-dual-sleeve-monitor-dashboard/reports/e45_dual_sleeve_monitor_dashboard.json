@@ -1,0 +1,69 @@
+{
+  "generated_at_utc": "2026-09-06T02:48:18.614883+00:00",
+  "status": "PAPER_DASHBOARD",
+  "ballot": "E45 PAPER dual-sleeve long monitor dashboard",
+  "roadmap_priority": 7,
+  "operating_observe_sleeves": [
+    "CHAL_E45_E3",
+    "BLEND_E45_A25"
+  ],
+  "paper_companion_not_observe": [
+    "BLEND_E45_A10"
+  ],
+  "asof_paper_a10": "2026-09-04",
+  "full_observe_asof": "2026-09-04",
+  "blend025_observe_asof": "2026-09-04",
+  "full_alerts": [
+    "ALERT: CHAL_E45_E3 ytd CAGR giveback > 3.0 pp (paper)",
+    "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk",
+    "ALERT: CHAL_E45_E3 trailing_1y CAGR giveback > 3.0 pp (paper)",
+    "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+  ],
+  "blend025_alerts": [
+    "ALERT: BLEND_E45_A25 ytd CAGR giveback > 3.0 pp (paper)",
+    "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk",
+    "ALERT: BLEND_E45_A25 trailing_1y CAGR giveback > 3.0 pp (paper)",
+    "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+  ],
+  "paper_a10_windows": [
+    {
+      "sleeve": "PAPER_BLEND_A10",
+      "window": "ytd",
+      "asof": "2026-09-04",
+      "mdd_improve_pp": 3.6543522255785277,
+      "cagr_giveback_pp": 6.564195533192474,
+      "flag": "PAUSE_REVIEW",
+      "observe_operating": false
+    },
+    {
+      "sleeve": "PAPER_BLEND_A10",
+      "window": "trailing_1y",
+      "asof": "2026-09-04",
+      "mdd_improve_pp": 3.6543522255785277,
+      "cagr_giveback_pp": 6.927274929019678,
+      "flag": "PAUSE_REVIEW",
+      "observe_operating": false
+    },
+    {
+      "sleeve": "PAPER_BLEND_A10",
+      "window": "heldout_2019_plus",
+      "asof": "2026-09-04",
+      "mdd_improve_pp": 0.799556371054333,
+      "cagr_giveback_pp": 1.5094181207245816,
+      "flag": "n/a",
+      "observe_operating": false
+    },
+    {
+      "sleeve": "PAPER_BLEND_A10",
+      "window": "sealed_2023_plus",
+      "asof": "2026-09-04",
+      "mdd_improve_pp": 3.654352225578539,
+      "cagr_giveback_pp": 2.116729162136921,
+      "flag": "n/a",
+      "observe_operating": false
+    }
+  ],
+  "soft_frozen": "KEEP",
+  "live_stitch": "FORBIDDEN",
+  "note": "Dashboard only. Does not OPEN \u03b1=0.10 observe sleeve."
+}

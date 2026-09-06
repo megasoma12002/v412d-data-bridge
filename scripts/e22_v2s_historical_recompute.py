@@ -6,6 +6,8 @@ Writes side-by-side research artifacts only.
 """
 from __future__ import annotations
 
+from research_metric_helpers import metric_delta, fmt_pct
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -110,11 +112,11 @@ def main() -> None:
         },
         "variants": results,
         "deltas": {
-            "v2s_minus_v2_cagr": (b["cagr"] or 0) - (a["cagr"] or 0),
-            "v2s_minus_v2_mdd": (b["max_drawdown"] or 0) - (a["max_drawdown"] or 0),
-            "v2s_minus_v2_end_nav": (b["end_nav"] or 0) - (a["end_nav"] or 0),
-            "v2_minus_nodiv_cagr": (a["cagr"] or 0) - (z["cagr"] or 0),
-            "v2s_minus_nodiv_cagr": (b["cagr"] or 0) - (z["cagr"] or 0),
+            "v2s_minus_v2_cagr": metric_delta(b["cagr"], a["cagr"], missing_as_zero=True),
+            "v2s_minus_v2_mdd": metric_delta(b["max_drawdown"], a["max_drawdown"], missing_as_zero=True),
+            "v2s_minus_v2_end_nav": metric_delta(b["end_nav"], a["end_nav"], missing_as_zero=True),
+            "v2_minus_nodiv_cagr": metric_delta(a["cagr"], z["cagr"], missing_as_zero=True),
+            "v2s_minus_nodiv_cagr": metric_delta(b["cagr"], z["cagr"], missing_as_zero=True),
             "stock_div_events_v2s": results["E22_v2s"]["meta"]["stock_div_events"],
             "stock_div_shares_added_v2s": results["E22_v2s"]["meta"]["stock_div_shares_added"],
         },
@@ -158,7 +160,7 @@ def main() -> None:
         st = results[name]["stats"]
         meta = results[name]["meta"]
         lines.append(
-            f"| {name} | {100*(st['cagr'] or 0):.2f}% | {100*(st['max_drawdown'] or 0):.2f}% | "
+            f"| {name} | {fmt_pct(st['cagr'])} | {fmt_pct(st['max_drawdown'])} | "
             f"{st['start_nav']:,.0f} | {st['end_nav']:,.0f} | {meta.get('stock_div_events', 0)} |"
         )
     d = summary["deltas"]
@@ -178,8 +180,8 @@ def main() -> None:
     ]
     for row in year_delta:
         lines.append(
-            f"| {row['year']} | {100*(row['e22_v2_return'] or 0):.2f}% | "
-            f"{100*(row['e22_v2s_return'] or 0):.2f}% | {100*row['delta_return']:.2f} pp |"
+            f"| {row['year']} | {fmt_pct(row['e22_v2_return'])} | "
+            f"{fmt_pct(row['e22_v2s_return'])} | {100*row['delta_return']:.2f} pp |"
         )
     lines += [
         "",

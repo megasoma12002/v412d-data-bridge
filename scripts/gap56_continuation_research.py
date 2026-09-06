@@ -9,6 +9,8 @@ Does NOT modify forward/e21 or promote R1.
 """
 from __future__ import annotations
 
+from research_metric_helpers import fmt_pct
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -516,9 +518,9 @@ def main() -> None:
     for r in mix_rows:
         f, v, s = r["full_overlap"], r["validation_2019_2022"], r["sealed_2023_latest"]
         lines.append(
-            f"| {r['mix']} | {100*(f['cagr'] or 0):.2f}% | {100*(f['max_drawdown'] or 0):.2f}% | "
-            f"{100*(v['cagr'] or 0):.2f}% | {100*(v['max_drawdown'] or 0):.2f}% | "
-            f"{100*(s['cagr'] or 0):.2f}% | {100*(s['max_drawdown'] or 0):.2f}% |"
+            f"| {r['mix']} | {fmt_pct(f['cagr'])} | {fmt_pct(f['max_drawdown'])} | "
+            f"{fmt_pct(v['cagr'])} | {fmt_pct(v['max_drawdown'])} | "
+            f"{fmt_pct(s['cagr'])} | {fmt_pct(s['max_drawdown'])} |"
         )
     lines += [
         "",
@@ -554,9 +556,9 @@ def main() -> None:
         f, v, s = r["full_overlap"], r["validation_2019_2022"], r["sealed_2023_latest"]
         lines.append(
             f"| {r['rule']} | {r['mean_overlay_scale']:.3f} | {100*r['pct_days_scale_lt_1']:.1f}% | "
-            f"{100*(f['cagr'] or 0):.2f}% | {100*(f['max_drawdown'] or 0):.2f}% | "
-            f"{100*(v['cagr'] or 0):.2f}% | {100*(v['max_drawdown'] or 0):.2f}% | "
-            f"{100*(s['cagr'] or 0):.2f}% | {100*(s['max_drawdown'] or 0):.2f}% |"
+            f"{fmt_pct(f['cagr'])} | {fmt_pct(f['max_drawdown'])} | "
+            f"{fmt_pct(v['cagr'])} | {fmt_pct(v['max_drawdown'])} | "
+            f"{fmt_pct(s['cagr'])} | {fmt_pct(s['max_drawdown'])} |"
         )
     lines += [
         "",
@@ -589,8 +591,8 @@ def main() -> None:
             )
             continue
         lines.append(
-            f"| {row['policy']} | {row['lot_size']} | {100*(row['cagr'] or 0):.2f}% | "
-            f"{100*(row['max_drawdown'] or 0):.2f}% | {row['n_fills']} | "
+            f"| {row['policy']} | {row['lot_size']} | {fmt_pct(row['cagr'])} | "
+            f"{fmt_pct(row['max_drawdown'])} | {row['n_fills']} | "
             f"{row['end_nav']:.2f} | {row['stranded_total_vs_board_lot']:.2f} |"
         )
     lines += [

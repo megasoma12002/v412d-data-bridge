@@ -19,6 +19,7 @@ import numpy as np
 import polars as pl
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import utility_score, abs_mdd
 import e50a3_train_exact_open as a3
 from e50a3r1_turnover_diagnosis import buffered_orders_ext
 from e50a3r1_stage6_risk_overlay_oof import C4, build_market_state, hysteresis, scale_orders
@@ -147,7 +148,7 @@ def main() -> None:
         key=lambda r: (
             -(r["c_crisis_strategy_compound"] or -9),
             -(r["utility"] or -9),
-            abs(r["max_drawdown"] or 9),
+            abs_mdd(r["max_drawdown"]),
         ),
     )
     winner = candidates[0] if candidates else None

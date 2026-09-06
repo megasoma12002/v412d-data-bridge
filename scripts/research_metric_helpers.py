@@ -43,3 +43,45 @@ def cagr_delta_pp(
         o = 0.0 if other_cagr is None else float(other_cagr)
         return (b - o) * 100.0
     return (float(base_cagr) - float(other_cagr)) * 100.0
+
+
+def metric_delta(
+    a: float | None,
+    b: float | None,
+    *,
+    missing_as_zero: bool = False,
+) -> float | None:
+    """a − b for raw CAGR/MDD (not percentage points).
+
+    Prefer this over ``(a or 0) - (b or 0)`` so a true 0.0 is preserved and
+    missing values do not silently become zero unless opted in.
+    """
+    if a is None or b is None:
+        if not missing_as_zero:
+            return None
+        return (0.0 if a is None else float(a)) - (0.0 if b is None else float(b))
+    return float(a) - float(b)
+
+
+def utility_score(
+    cagr: float | None,
+    mdd: float | None,
+    *,
+    lam: float = 0.5,
+    missing_as_zero: bool = False,
+) -> float | None:
+    """cagr − lam * |mdd|. None-safe (0.0 MDD is valid)."""
+    if cagr is None or mdd is None:
+        if not missing_as_zero:
+            return None
+        c = 0.0 if cagr is None else float(cagr)
+        m = 0.0 if mdd is None else float(mdd)
+        return c - lam * abs(m)
+    return float(cagr) - lam * abs(float(mdd))
+
+
+def fmt_pct(x: float | None, *, digits: int = 2, na: str = "n/a") -> str:
+    """Format a fraction as percent; None → na (never coerce via ``or 0``)."""
+    if x is None:
+        return na
+    return f"{100.0 * float(x):.{digits}f}%"

@@ -1,0 +1,47 @@
+{
+  "generated_at_utc": "2026-09-05T18:26:14.920671+00:00",
+  "label": "E45_NAMED_V4_V5_PACKS",
+  "live_wire": false,
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "default_books_keep": "E22_v2s_tw",
+  "claim_mdd_status": "NOT_VERIFIED",
+  "v1_status": "FAIL",
+  "stitch_forbidden": true,
+  "data_start": "2011-12-01",
+  "data_end": "2026-09-04",
+  "v4": {
+    "status": "PASS",
+    "checks": {
+      "has_e45_named_cost_table": true,
+      "multiples": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "at_1x_chal_mdd_not_worse_than_base": true,
+      "at_2x_chal_still_shallower_or_within_5pp": true,
+      "at_3x_chal_still_shallower_or_within_5pp": true
+    },
+    "cost_csv": "repro/e45-v4v5-named-packs/outputs/e45_named_cost_multiples.csv",
+    "delta_csv": "repro/e45-v4v5-named-packs/outputs/e45_named_cost_multiples_delta.csv"
+  },
+  "v5": {
+    "status": "PASS",
+    "checks": {
+      "has_e45_named_crisis_table": true,
+      "years_available": 4,
+      "years_with_mdd_improve": 4,
+      "max_share_of_positive_mdd_improve": 0.5013925996297951,
+      "not_single_year_gt_80pct": true,
+      "at_least_two_crisis_years_improve": true,
+      "year_2008_documented_unavailable": true,
+      "stage3_multiwindow_design_present": true
+    },
+    "crisis_csv": "repro/e45-v4v5-named-packs/outputs/e45_named_crisis_year_attribution.csv",
+    "delta_csv": "repro/e45-v4v5-named-packs/outputs/e45_named_crisis_year_delta.csv"
+  }
+}

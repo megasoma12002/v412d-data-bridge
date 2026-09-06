@@ -22,6 +22,7 @@ import numpy as np
 import polars as pl
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from research_metric_helpers import utility_score, abs_mdd
 import e50a3_train_exact_open as a3
 import e50a3r1_repair as r1
 from e50a3r1_turnover_diagnosis import (
@@ -224,7 +225,7 @@ def evaluate_overlay(orders: pl.DataFrame, execution: pl.DataFrame, name: str) -
     mdd = metric.get("max_drawdown")
     turn = metric.get("average_daily_turnover")
     boot = stats.get("block_bootstrap_positive_probability")
-    utility = (cagr or 0.0) - 0.5 * abs(mdd or 0.0)
+    utility = utility_score(cagr, mdd)
     out = {
         "overlay": name,
         "cagr": cagr,
@@ -315,12 +316,12 @@ def main() -> None:
     dual = [r for r in rows if r["both_gates_pass"] and not r["is_baseline"]]
     # Prefer improved utility vs baseline among dual-gate; else best utility dual-gate
     improved = [r for r in dual if (r["utility"] or -9) > (baseline["utility"] or -9)]
-    improved_mdd = [r for r in dual if abs(r["max_drawdown"] or 9) < abs(baseline["max_drawdown"] or 9)]
+    improved_mdd = [r for r in dual if abs_mdd(r["max_drawdown"]) < abs_mdd(baseline["max_drawdown"])]
     dual_sorted = sorted(
         dual,
         key=lambda r: (
             -((r["utility"] or -9)),
-            abs(r["max_drawdown"] or 9),
+            abs_mdd(r["max_drawdown"]),
             -(r["cagr"] or -9),
             -(r["block_bootstrap_positive_probability"] or 0),
         ),
@@ -330,7 +331,7 @@ def main() -> None:
     if improved:
         winner = sorted(
             improved,
-            key=lambda r: (-(r["utility"] or -9), abs(r["max_drawdown"] or 9)),
+            key=lambda r: (-(r["utility"] or -9), abs_mdd(r["max_drawdown"])),
         )[0]
         decision = "OOF_NEW_RISK_OVERLAY_UTILITY_WINNER"
     elif dual_sorted:

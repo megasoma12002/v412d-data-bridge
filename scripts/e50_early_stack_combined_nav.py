@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_frozen_base as soft_frozen
 import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
+from research_metric_helpers import metric_delta, fmt_pct
 
 # Mirror E21 SOFT_FROZEN membership / fees (read-only copy of constants; not an edit).
 FIN = ["2880", "2886", "2892", "5880"]
@@ -69,6 +70,8 @@ def simulate_core(
     apply_stock_div: bool | None = None,
     e45_exposure: pd.Series | None = None,
     e45_legacy_crisis_scale: float | None = None,
+    e45_sleeve_names: tuple[str, ...] | None = None,
+    cost_multiple: float = 1.0,
     capital: float = CAPITAL,
     lot_size: int = 1,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
@@ -77,6 +80,9 @@ def simulate_core(
     Formal books default = E22_v2s (cash + stock shares). E22_v2 remains cash-only.
     E16 features use adj_close elsewhere; NAV here always marks with raw close.
     lot_size: 1 = research 1-share fills (default); 1000 = TW 整股 board-lot challenger.
+
+    cost_multiple: scale BUY_FEE/SELL_FEE/SLIP/TAX_* for this run only (no module
+    monkeypatch). e45_sleeve_names: if set, scale only those sleeves by exposure.
     """
     if e22_version is None:
         if apply_stock_div is False:
@@ -85,6 +91,14 @@ def simulate_core(
             e22_version = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s
     if apply_stock_div is None:
         apply_stock_div = e22_version in e22div.STOCK_SHARE_VERSIONS
+    cm = float(cost_multiple)
+    if cm < 0:
+        raise ValueError("cost_multiple must be >= 0")
+    buy_fee = BUY_FEE * cm
+    sell_fee = SELL_FEE * cm
+    slip = SLIP * cm
+    tax_stock = TAX_STOCK * cm
+    tax_etf = TAX_ETF * cm
     m = market.copy()
     m["date"] = pd.to_datetime(m["date"])
     closes = m.pivot(index="date", columns="code", values="close").sort_index().ffill()
@@ -130,17 +144,17 @@ def simulate_core(
             q = int(o["quantity"])
             if lot_size > 1:
                 q = (q // lot_size) * lot_size
-            fp = float(op[code]) * (1 + SLIP if side == "BUY" else 1 - SLIP)
+            fp = float(op[code]) * (1 + slip if side == "BUY" else 1 - slip)
             gross = q * fp
-            tax = TAX_ETF if code == "0050" else TAX_STOCK
-            fee = gross * (BUY_FEE if side == "BUY" else SELL_FEE + tax)
+            tax = tax_etf if code == "0050" else tax_stock
+            fee = gross * (buy_fee if side == "BUY" else sell_fee + tax)
             if side == "BUY" and gross + fee > cash:
-                afford = int(cash / (fp * (1 + BUY_FEE)))
+                afford = int(cash / (fp * (1 + buy_fee)))
                 if lot_size > 1:
                     afford = (afford // lot_size) * lot_size
                 q = max(0, afford)
                 gross = q * fp
-                fee = gross * BUY_FEE
+                fee = gross * buy_fee
             if q < 1:
                 continue
             if side == "BUY":
@@ -152,7 +166,7 @@ def simulate_core(
                 if q < 1:
                     continue
                 gross = q * fp
-                fee = gross * (SELL_FEE + tax)
+                fee = gross * (sell_fee + tax)
                 pos[code] -= q
                 cash += gross - fee
             sig_s = (
@@ -218,10 +232,14 @@ def simulate_core(
         equity_scale = 1.0
         if e45_exposure is not None and dt in e45_exposure.index:
             equity_scale = float(e45_exposure.loc[dt])
-            sleeve_w = e45.apply_exposure_to_sleeve_weights(sleeve_w, equity_scale)
+            sleeve_w = e45.apply_exposure_to_sleeve_weights(
+                sleeve_w, equity_scale, sleeve_names=e45_sleeve_names
+            )
         elif e45_legacy_crisis_scale is not None and rg == "Crisis":
             equity_scale = float(e45_legacy_crisis_scale)
-            sleeve_w = e45.apply_exposure_to_sleeve_weights(sleeve_w, equity_scale)
+            sleeve_w = e45.apply_exposure_to_sleeve_weights(
+                sleeve_w, equity_scale, sleeve_names=e45_sleeve_names
+            )
 
         sleeve_vals = {
             "Financial": sum(vals[c] for c in FIN),
@@ -299,6 +317,8 @@ def simulate_core(
         "start": nav_df["date"].iloc[0] if len(nav_df) else None,
         "end": nav_df["date"].iloc[-1] if len(nav_df) else None,
         "mean_e45_exposure": float(nav_df["e45_equity_scale"].mean()) if len(nav_df) else None,
+        "cost_multiple": float(cm),
+        "e45_sleeve_names": list(e45_sleeve_names) if e45_sleeve_names else None,
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
         "lot_size": int(lot_size),
         "e22_manifest": e22div.version_manifest(e22_version) if apply_e22 else None,
@@ -360,7 +380,7 @@ def verify_e45_claim(repo: Path) -> dict:
                 numeric_hit = True
     return {
         "claim_mdd": claim,
-        "claim_status": "NOT_FOUND_IN_ARTIFACTS" if not numeric_hit else "FOUND",
+        "claim_status": (e45.CLAIMED_MDD_STATUS if not numeric_hit else "FOUND"),
         "text_mentions_only": text_hits,
         "artifact_files_with_13_16": found,
         "lineage_reported_mdds": lineage,
@@ -509,13 +529,13 @@ def main() -> None:
         "regime_share": {str(k): float(v) for k, v in regime_share.items()},
         "variants": results,
         "deltas": {
-            "e22_minus_e16e18_cagr": (b["cagr"] or 0) - (a["cagr"] or 0),
-            "e22_stock_minus_cash_only_cagr": (b["cagr"] or 0) - (b_cash["cagr"] or 0),
-            "e22_stock_minus_cash_only_mdd": (b["max_drawdown"] or 0) - (b_cash["max_drawdown"] or 0),
-            "e45_e3_minus_e22_cagr": (e3s["cagr"] or 0) - (b["cagr"] or 0),
-            "e45_e3_minus_e22_mdd": (e3s["max_drawdown"] or 0) - (b["max_drawdown"] or 0),
-            "e45_e1_minus_e22_cagr": (e1s["cagr"] or 0) - (b["cagr"] or 0),
-            "e45_e1_minus_e22_mdd": (e1s["max_drawdown"] or 0) - (b["max_drawdown"] or 0),
+            "e22_minus_e16e18_cagr": metric_delta(b["cagr"], a["cagr"], missing_as_zero=True),
+            "e22_stock_minus_cash_only_cagr": metric_delta(b["cagr"], b_cash["cagr"], missing_as_zero=True),
+            "e22_stock_minus_cash_only_mdd": metric_delta(b["max_drawdown"], b_cash["max_drawdown"], missing_as_zero=True),
+            "e45_e3_minus_e22_cagr": metric_delta(e3s["cagr"], b["cagr"], missing_as_zero=True),
+            "e45_e3_minus_e22_mdd": metric_delta(e3s["max_drawdown"], b["max_drawdown"], missing_as_zero=True),
+            "e45_e1_minus_e22_cagr": metric_delta(e1s["cagr"], b["cagr"], missing_as_zero=True),
+            "e45_e1_minus_e22_mdd": metric_delta(e1s["max_drawdown"], b["max_drawdown"], missing_as_zero=True),
             "e22_dividend_cash_total": results["E16_E18_E22"]["meta"]["dividend_cash_total"],
             "e22_stock_div_events": results["E16_E18_E22"]["meta"]["stock_div_events"],
             "e22_stock_div_shares_added": results["E16_E18_E22"]["meta"]["stock_div_shares_added"],
@@ -556,7 +576,7 @@ def main() -> None:
         s = results[name]["stats"]
         m = results[name]["meta"]
         lines.append(
-            f"| {name} | {100*(s['cagr'] or 0):.2f}% | {100*(s['max_drawdown'] or 0):.2f}% | "
+            f"| {name} | {fmt_pct(s['cagr'])} | {fmt_pct(s['max_drawdown'])} | "
             f"{s['utility']:.4f} | {m.get('mean_e45_exposure')} |"
         )
     lines += [

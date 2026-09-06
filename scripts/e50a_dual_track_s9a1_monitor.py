@@ -8,6 +8,8 @@ EXPERIMENTAL / RESEARCH ONLY. No live wire. No cut retune.
 """
 from __future__ import annotations
 
+from research_metric_helpers import fmt_pct
+
 import argparse
 import json
 import subprocess
@@ -115,9 +117,9 @@ def write_status(archive_decision: dict, mode: str) -> dict:
     ]
     for tag, block in status["kpi_s9a1"].items():
         lines.append(
-            f"| {tag} | {100*(block['cagr'] or 0):.2f}% | {100*(block['max_drawdown'] or 0):.2f}% | "
-            f"{100*(block['average_daily_turnover'] or 0):.2f}% | {block['bootstrap']} | "
-            f"{100*(block['stress_flag_share'] or 0):.1f}% | {block['stress_mean_excess']} |"
+            f"| {tag} | {fmt_pct(block['cagr'])} | {fmt_pct(block['max_drawdown'])} | "
+            f"{fmt_pct(block['average_daily_turnover'])} | {block['bootstrap']} | "
+            f"{fmt_pct(block['stress_flag_share'], digits=1)} | {block['stress_mean_excess']} |"
         )
     lines += [
         "",

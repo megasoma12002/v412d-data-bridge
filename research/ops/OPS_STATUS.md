@@ -51,10 +51,29 @@ Odd-lot promote decision pack (**ACCEPT promote**): `research/ops/ODD_LOT_PROMOT
 Par-value lookup charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`  
 Par-value inventory: `research/ops/PAR_VALUE_INVENTORY.md` · `data/corporate_actions/par_value_by_code.csv`  
 Tax/receivable formal books (**Item 2 ACCEPT charter — Stage B OPEN**): `research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · decision pack `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
-E45 live-stitch (**Item 3 DEFER stitch path**): Soft-Frozen CRITICAL KEEP; E45 not rejected; artifact verdict `E45_NOT_VERIFIED` (`E45_ARTIFACT_VERIFICATION_2026-09-05.md`); MDD −13.16% still NOT_VERIFIED; live stitch forbidden  
+E45 live-stitch (**Item 3 ACCEPT charter + RETIRE −13.16% + OPEN dual-paper observe**): Soft-Frozen CRITICAL KEEP; Stage board `E45_STAGE12_STATUS.md`; **V1–V6 PASS**; dual-paper observe **OPERATING** (`E45_DUAL_PAPER_OBSERVE_OPEN.md`); primary comparable MDD = lineage E1.1 **−15.81%**; first month-end shows YTD/1y PAUSE_REVIEW (expected crisis giveback); stitch checklist **DRAFTED / NOT AUTHORIZED**; **live stitch still forbidden** until second stitch ACCEPT
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
+E45 blend-α=0.25 observe **OPERATING**: `research/ops/E45_BLEND025_OBSERVE_OPEN.md` · monitor `E45_BLEND025_MONTH_END_MONITOR.md`  
+E45 paper research roadmap (1–7 status): `research/ops/E45_PAPER_RESEARCH_ROADMAP.md`  
+E45 P1–P7 integrated analysis: `research/ops/E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md`
+E45 sleeve-local deep-dive (post-P7): `research/e45/E45_SLEEVE_LOCAL_DEEP_DIVE.md`  
+E45 sleeve-local observe **OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md`（中文：`E45_SLEEVE_LOCAL_OBSERVE_OPEN.zh-TW.md`）  
+E45 blend-α=0.05 observe **OPERATING**: `research/ops/E45_BLEND005_OBSERVE_OPEN.md` · monitor `research/gaps/E45_BLEND005_MONTH_END_MONITOR.md`  
+  
+E45 dual-sleeve monitor dashboard (#7): `research/e45/E45_DUAL_SLEEVE_MONITOR_DASHBOARD.md`  
+E45 sleeve-local overlay (#6): `research/e45/E45_SLEEVE_LOCAL.md`  
+E45 crisis-year attribution (#5): `research/e45/E45_CRISIS_YEAR_ATTRIBUTION.md`  
+E45 alpha cost/turnover (#4): `research/e45/E45_ALPHA_COST_TURNOVER.md`  
+E45 mild max_cut profile (#3): `research/e45/E45_MAXCUT_MILD_PROFILE.md`  
+E45 low-alpha deep-dive (0.05–0.15): `research/e45/E45_LOW_ALPHA_DEEP_DIVE.md`  
+E45 blend-alpha fine grid (step 0.05): `research/e45/E45_BLEND_ALPHA_GRID_FINE.md`  
+E45 crisis-triggered alpha (paper): `research/e45/E45_CRISIS_TRIGGERED_ALPHA.md`  
+E45 blend-alpha paper screen: `research/e45/E45_BLEND_ALPHA_PAPER_SCREEN.md`  
+E45 stitch checklist (DRAFTED / NOT AUTHORIZED): `research/ops/E45_STITCH_CHECKLIST.md`  
+E45 dual-paper observe: `research/e45/E45_DUAL_PAPER_OBSERVE.md` / open `E45_DUAL_PAPER_OBSERVE_OPEN.md`  
+E45 month-end: `research/gaps/E45_MONTH_END_MONITOR.md`  
 BLEND_025 dual-paper observe: `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md`  
 BLEND_025 month-end: `research/gaps/BLEND_025_MONTH_END_MONITOR.md`  
 BLEND_025 month-end runbook: `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md`  
@@ -83,7 +102,20 @@ python3 scripts/taiex_fetch_with_failover.py --help
 python3 scripts/e21_live_vs_paper_recon.py
 python3 scripts/e16_blend025_dual_paper_ledgers.py
 python3 scripts/e16_blend025_month_end_monitor.py
+python3 scripts/e45_dual_paper_ledgers.py
+python3 scripts/e45_month_end_monitor.py
+python3 scripts/e45_blend025_dual_paper_ledgers.py
+python3 scripts/e45_blend025_month_end_monitor.py
 ```
+
+## Engineering standards (2026-09-06)
+
+- Full project code review: `research/ops/PROJECT_CODE_REVIEW_2026-09-06.md`
+- E45 paper landmine review: `research/ops/E45_PAPER_LANDMINE_CODE_REVIEW.md`
+- Project coding standards: `research/ops/CODING_STANDARDS.md`
+- Coverage map: `research/ops/CODING_STANDARDS_COVERAGE.md`
+- Hygiene: `python3 scripts/check_project_coding_hygiene.py`
+- Hygiene: `python3 scripts/check_e45_paper_hygiene.py`
 
 ## Authority
 

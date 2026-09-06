@@ -1,13 +1,14 @@
 # E45 Live Stitch — Charter Decision Pack (Item 3)
 
 Date: 2026-09-05  
-Status: **DEFER stitch path** (human 2026-09-05) — not REJECT; Soft-Frozen CRITICAL KEEP  
+Status: **ACCEPT charter** + **RETIRE −13.16% narrative (path A)** (human 2026-09-05) — Stage 1–3 DONE; Soft-Frozen CRITICAL KEEP  
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw`** (unchanged by this pack)  
-E45 live stitch today: **FORBIDDEN**
+E45 live stitch today: **FORBIDDEN** (second stitch ACCEPT still required)
 
 Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_LIVE_STITCH_CHARTER.md` · `REGISTER6_SEQUENTIAL_BALLOTS.md`  
-MDD claim check: `research/e45/E45_MDD_1316_VERIFICATION.md` → **`NOT_VERIFIED`**
+MDD claim: `research/e45/E45_MDD_1316_VERIFICATION.md` → unmatched → **`RETIRED_HISTORICAL_NARRATIVE`** (`E45_MDD_1316_NARRATIVE_RETIREMENT.md`)  
+Stage board: `E45_STAGE12_STATUS.md`
 
 ## Purpose
 
@@ -19,11 +20,12 @@ This pack **does not** stitch E45 live. Charter ACCEPT only unlocks Stage 1–2 
 
 | Fact | Status |
 |---|---|
-| Claimed MDD ≈ −13.16% | **`NOT_VERIFIED`** — no dated CSV/JSON match |
-| Closest verified crisis lineage MDDs | **More severe** than −13.16% |
-| Early-stack + E45 challenger MDDs | ~−21% to −23% (path checked 2026-09-04) |
+| Claimed MDD ≈ −13.16% | **`RETIRED_HISTORICAL_NARRATIVE`** (path A, 2026-09-05) — no dated CSV/JSON match; do not invent replacement |
+| Closest verified crisis lineage MDDs | **More severe** (primary comparable E1.1 val **−15.81%**) |
+| Early-stack + E45 challenger MDDs | ~−21% to −23% (path checked / refreshed 2026-09-05) |
 | Soft-Frozen Financial clip | **KEEP** |
-| Live stitch | Still **forbidden** until later promote PR |
+| Live stitch | Still **forbidden** until later promote PR / second ACCEPT |
+| V1–V6 research bars | **PASS** (V1 via narrative retirement) |
 
 ## What ACCEPT charter allows (Stage 1–2 only)
 
@@ -45,20 +47,26 @@ This pack **does not** stitch E45 live. Charter ACCEPT only unlocks Stage 1–2 
 | Ballot | Meaning | Next action |
 |---|---|---|
 | **ACCEPT charter** | Authorize Stage 1–2 verification + paper research | Open research PR(s); stitch still forbidden |
-| **DEFER** | No E45-toward-live work this cycle | Park Item 3; Register #6 sequential set complete for now |
+| **DEFER** | No E45-toward-live work this cycle | Park Item 3 |
 | **REJECT stitch path** | Close live-stitch agenda this cycle | E45 stays research orphan; park Item 3 |
 
-Reply with one of:
+## Ballot result
 
-- `E45 ACCEPT charter`
-- `E45 DEFER`
-- `E45 REJECT stitch path`
+| Ballot cast | Effect |
+|---|---|
+| **ACCEPT charter** ✓ (human 2026-09-05) | Stage 1–2 **OPEN**; live/stitch **not** authorized; Soft-Frozen CRITICAL KEEP; −13.16% remains **NOT_VERIFIED** |
+
+Prior cycle note: Item 3 was briefly parked as DEFER stitch path earlier the same day; this ACCEPT charter **reopens Stage 1–2 research only** (not live stitch).
+
+Artifact verification (read-only baseline): **`E45_NOT_VERIFIED`**  
+Report: `research/ops/E45_ARTIFACT_VERIFICATION_2026-09-05.md`  
+Stage board: `research/ops/E45_STAGE12_STATUS.md`
 
 ## Gates before any future live stitch (not this ballot)
 
 | Gate | Required |
 |---|---|
-| Charter ACCEPT | This ballot |
+| Charter ACCEPT | **This ballot — DONE** |
 | V1–V6 verification bars | All PASS on dated artifacts |
 | Paper challenger report | Verified MDD label (not narrative −13.16% if unmatched) |
 | Dual-paper observe (optional) | Checklist all YES |
@@ -71,20 +79,8 @@ Reply with one of:
 |---|---|---|
 | 1 Odd-lot DEFAULT | **DONE** (`E22_v2s_tw`) | Separate |
 | 2 Tax/receivable | **ACCEPT charter** — Stage B sandbox OPEN | Separate; no DEFAULT flip |
-| 3 E45 stitch | **This ballot** | Separate |
+| 3 E45 stitch | **ACCEPT charter** — Stage 1–2 OPEN | Separate; stitch still forbidden |
 
 ## Label
 
-`E45_LIVE_STITCH_DECISION_PACK_2026-09-05__DEFER_STITCH`
-
-
-## Ballot result
-
-| Ballot cast | Effect |
-|---|---|
-| **DEFER stitch path** ✓ (2026-09-05) | No live/stitch authorization; E45 not rejected; Soft-Frozen CRITICAL KEEP; lineage preserved |
-
-Artifact verification (read-only, E45 unmodified): **`E45_NOT_VERIFIED`**  
-Report: `research/ops/E45_ARTIFACT_VERIFICATION_2026-09-05.md`
-
-Claimed validation MDD ≈ −13.16% remains **NOT_VERIFIED**. DEFAULT path unchanged.
+`E45_LIVE_STITCH_DECISION_PACK_2026-09-05__ACCEPT_CHARTER__STITCH_FORBIDDEN`

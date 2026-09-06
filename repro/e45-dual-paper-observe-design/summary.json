@@ -1,0 +1,39 @@
+{
+  "generated_at_utc": "2026-09-05T18:17:09.546625+00:00",
+  "label": "E45_DUAL_PAPER_OBSERVE_DESIGN",
+  "status": "DESIGN_ONLY_NOT_OPERATING",
+  "live_wire": false,
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "default_books_keep": "E22_v2s_tw",
+  "claim_mdd_status": "NOT_VERIFIED",
+  "books": [
+    "BASE_E16_E18_E22_v2s",
+    "CHAL_E45_E3"
+  ],
+  "windows": [
+    "full",
+    "oof_2011_2018",
+    "validation_2019_2022",
+    "sealed_2023_plus",
+    "heldout_2019_plus"
+  ],
+  "deltas_vs_base": {
+    "heldout_2019_plus": {
+      "mdd_improve_pp": 1.8803690923791416,
+      "cagr_giveback_pp": 5.646880740978233
+    },
+    "sealed_2023_plus": {
+      "mdd_improve_pp": 4.89661599651261,
+      "cagr_giveback_pp": 9.404079641637209
+    },
+    "full": {
+      "mdd_improve_pp": 1.8803690923791416,
+      "cagr_giveback_pp": 2.9881957480160315
+    }
+  },
+  "metrics_csv": "repro/e45-dual-paper-observe-design/outputs/dual_paper_window_metrics.csv",
+  "cost_csv": "repro/e45-dual-paper-observe-design/outputs/lineage_e3_cost_sensitivity.csv"
+}

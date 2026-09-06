@@ -2,3 +2,9 @@
 # Do not commit them (A0 universe alone is ~1.2GB).
 e50a3r1-audit-20260903/inputs/
 e50a3r1-audit-20260903/ci_reference/
+
+# Paper research scratch — do not commit bulky sim dumps
+**/outputs/*_fills.csv
+**/outputs/*fills*.csv
+**/outputs/*_daily_nav.csv
+**/outputs/*daily_nav*.csv
