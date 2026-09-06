@@ -59,7 +59,7 @@ E45 blend-α=0.25 observe **OPERATING**: `research/ops/E45_BLEND025_OBSERVE_OPEN
 E45 paper research roadmap (1–7 status): `research/ops/E45_PAPER_RESEARCH_ROADMAP.md`  
 E45 P1–P7 integrated analysis: `research/ops/E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md`
 E45 sleeve-local deep-dive (post-P7): `research/e45/E45_SLEEVE_LOCAL_DEEP_DIVE.md`  
-E45 sleeve-local observe OPEN ballot **DRAFT** (not authorized): `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md`  
+E45 sleeve-local observe OPEN ballot **DRAFT** (not authorized): `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md`（中文：`E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.zh-TW.md`）  
 E45 blend-α=0.05 observe **OPERATING**: `research/ops/E45_BLEND005_OBSERVE_OPEN.md` · monitor `research/gaps/E45_BLEND005_MONTH_END_MONITOR.md`  
   
 E45 dual-sleeve monitor dashboard (#7): `research/e45/E45_DUAL_SLEEVE_MONITOR_DASHBOARD.md`  

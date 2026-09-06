@@ -3,7 +3,8 @@
 Date: 2026-09-06  
 Status: **DRAFT — AWAITING HUMAN ACCEPT**  
 Human ballot (proposed name): **`E45 OPEN sleeve-local observe`**  
-Authority (if accepted): Register #6c follow-on · `E45_SLEEVE_LOCAL.md` · `E45_SLEEVE_LOCAL_DEEP_DIVE.md` · `E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md` · `E45_STAGE12_STATUS.md`
+Authority (if accepted): Register #6c follow-on · `E45_SLEEVE_LOCAL.md` · `E45_SLEEVE_LOCAL_DEEP_DIVE.md` · `E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md` · `E45_STAGE12_STATUS.md`  
+Chinese translation (non-binding mirror): `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.zh-TW.md`
 
 > **Not authorized.** This file is a **draft ballot only**.  
 > It does **not** OPEN an observe sleeve, does **not** wire month-end, does **not** flip Soft-Frozen / DEFAULT, and does **not** authorize stitch.  
