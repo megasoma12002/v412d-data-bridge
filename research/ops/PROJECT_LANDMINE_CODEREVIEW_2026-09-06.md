@@ -1,7 +1,7 @@
 # Project Code Review — Landmines from E45 five-research batch (2026-09-06)
 
 Scope: whole-repo engineering hygiene after the five-item paper batch.  
-Soft-Frozen Financial **[0.50, 0.95] KEEP** · DEFAULT KEEP · live stitch **FORBIDDEN** · −13.16% **RETIRED**.
+Soft-Frozen Financial **[0.50, 0.95] KEEP** · DEFAULT KEEP · live stitch **FORBIDDEN** · retired MDD narrative **RETIRED**.
 
 ## Verdict
 
@@ -74,7 +74,7 @@ python3 scripts/e21_qc.py
 
 - Soft-Frozen flip / DEFAULT rewrite / live stitch
 - Auto-OPEN HIGH_BETA
-- Invent −13.16% replacement
+- Invent the retired handoff MDD narrative replacement
 
 ## Label
 
@@ -91,7 +91,7 @@ python3 scripts/e21_qc.py
 | `BOOK_BASE_RUNTIME_NOTE` | Label honesty without renaming ledger ids |
 | `tests/test_landmine_guards.py` | Minimal fail-closed unit guards |
 
-Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · −13.16% RETIRED.
+Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · retired MDD narrative.
 
 ## Round 4 — High leftovers + Medium claim drift
 
@@ -105,4 +105,4 @@ Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · −13.16% RETIRED.
 | Frozen governance/spec claim label | `NOT_VERIFIED` → `RETIRED_HISTORICAL_NARRATIVE` |
 | Month-end pack workflow | Skip git commit when `continue_on_error` |
 
-Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · −13.16% RETIRED.
+Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · retired MDD narrative.

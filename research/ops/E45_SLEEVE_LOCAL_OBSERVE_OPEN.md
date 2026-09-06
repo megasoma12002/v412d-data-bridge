@@ -9,7 +9,7 @@ Authority: Register #6c follow-on · `E45_SLEEVE_LOCAL.md` · `E45_SLEEVE_LOCAL_
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN**  
-−13.16% claim: **`RETIRED_HISTORICAL_NARRATIVE`**  
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**  
 Parent observe sleeves still OPERATING in parallel: FULL E45 + blend-α=0.25 + blend-α=0.05
 
 Chinese mirror (non-binding): `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.zh-TW.md`
@@ -38,7 +38,7 @@ Sleeve-local deep-dive held-out preferred **`FIN_ONLY @ α=0.10`** (score ~0.285
 | 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** |
 | 2 | Live DEFAULT books remain `E22_v2s_tw` | **YES** |
 | 3 | Parent sleeve-local paper + deep-dive present | **YES** |
-| 4 | −13.16% still RETIRED | **YES** |
+| 4 | retired MDD narrative still RETIRED | **YES** |
 | 5 | No stitch / live-wire PR bundled | **YES** |
 | 6 | Month-end owner = `ops_month_end_paper_pack.py` / research/ops | **YES** |
 | 7 | PAUSE_REVIEW policy understood (observe ≠ stitch) | **YES** |
@@ -60,7 +60,7 @@ Sleeve-local deep-dive held-out preferred **`FIN_ONLY @ α=0.10`** (score ~0.285
 2. Do **not** flip Soft-Frozen or DEFAULT books.  
 3. Do **not** treat sleeve-local clean prints as stitch license.  
 4. Do **not** retire FULL / A25 / A05 observe without a separate ballot.  
-5. Do **not** invent a −13.16% replacement number.
+5. Do **not** invent a replacement for the retired MDD narrative number.
 
 ## Label
 

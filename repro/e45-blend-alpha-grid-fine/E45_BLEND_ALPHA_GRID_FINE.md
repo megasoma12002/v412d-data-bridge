@@ -224,13 +224,13 @@ Status: **PAPER ONLY** — Soft-Frozen **KEEP**; DEFAULT **`E22_v2s_tw` KEEP**; 
 2. Operating observe sleeve remains full CHAL_E45_E3 unless human opens a new blend observe
 3. Do not silent-edit Soft-Frozen; do not rewrite `forward/e21` history
 4. Screen ≠ stitch; second human stitch ACCEPT still required for any live attach
-5. Never cite −13.16%; use dated lineage / challenger MDDs only
+5. Never cite the retired handoff MDD narrative; use dated lineage / challenger MDDs only
 
 ## Explicit non-goals
 
 - Live stitch / Soft-Frozen flip / DEFAULT flip
 - Retune frozen E3_VOLTARGET_WINNER lock in place
-- Invent replacement for retired -13.16% narrative
+- Invent replacement for retired MDD narrative
 - Treat screen winner as stitch license
 
 ## Label

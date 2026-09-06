@@ -204,7 +204,7 @@ def main() -> None:
         "",
         "## Governance",
         "",
-        "- Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · −13.16% RETIRED",
+        "- Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · retired MDD narrative",
         "- Observe OPEN sleeves unchanged (FULL + A25 only)",
         "",
         "## Reproduce",

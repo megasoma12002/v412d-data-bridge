@@ -342,62 +342,24 @@ def nav_stats(nav: pd.DataFrame, col: str = "nav") -> dict:
 
 
 def verify_e45_claim(repo: Path) -> dict:
-    """Artifact audit for the handoff claim MDD ≈ -13.16%."""
-    claim = -0.1316
-    found = []
-    search_paths = [
-        repo / "research" / "v412e1",
-        repo / "research" / "v412e11",
-        repo / "research" / "v412e2e3",
-        repo / "FROZEN_STRATEGY_SPEC.md",
-        repo / "E50_HANDOFF_VERIFICATION.md",
-    ]
-    # documented lineage MDDs from reports
-    lineage = {
-        "E1_validation_mdd": -0.1721,
-        "E1_1_validation_mdd": -0.1581,
-        "E3_validation_mdd": -0.1849,
-        "V412D_validation_mdd_reported": -0.1891,
-        "handoff_claim_mdd": claim,
-    }
-    text_hits = []
-    for p in [repo / "FROZEN_STRATEGY_SPEC.md", repo / "FROZEN_GOVERNANCE.md", repo / "E50_HANDOFF_VERIFICATION.md"]:
-        if p.exists() and "13.16" in p.read_text():
-            text_hits.append(str(p))
-    # scan json/csv for exact -0.1316 or -13.16
-    numeric_hit = False
-    for root in [repo / "research" / "v412e1", repo / "research" / "v412e11", repo / "research" / "v412e2e3"]:
-        if not root.exists():
-            continue
-        for f in root.rglob("*"):
-            if f.suffix.lower() not in {".json", ".csv", ".md"}:
-                continue
-            try:
-                txt = f.read_text(errors="ignore")
-            except Exception:
-                continue
-            if "13.16" in txt or "-0.1316" in txt:
-                found.append(str(f.relative_to(repo)))
-                numeric_hit = True
+    """Pointer to retired handoff MDD narrative docs (no numeric restatement)."""
+    import e45_crisis_core as e45_mod
+
+    retirement = repo / "research" / "ops" / "E45_MDD_1316_NARRATIVE_RETIREMENT.md"
+    verification = repo / "research" / "e45" / "E45_MDD_1316_VERIFICATION.md"
     return {
-        "claim_mdd": claim,
-        "claim_status": (CLAIM_STATUS if not numeric_hit else "FOUND"),
-        "text_mentions_only": text_hits,
-        "artifact_files_with_13_16": found,
-        "lineage_reported_mdds": lineage,
+        "claim_mdd": None,
+        "claim_status": CLAIM_STATUS,
+        "retirement_doc": str(retirement.relative_to(repo)) if retirement.exists() else None,
+        "verification_doc": str(verification.relative_to(repo)) if verification.exists() else None,
+        "primary_comparable_mdd": e45_mod.PRIMARY_COMPARABLE_MDD,
+        "primary_comparable_source": e45_mod.PRIMARY_COMPARABLE_SOURCE,
+        "verified_lineage_mdd": dict(e45_mod.VERIFIED_LINEAGE_MDD),
         "e45_module_paths": [str(p.relative_to(repo)) for p in (repo / "scripts").glob("e45*")],
-        "lineage_scripts": [
-            "scripts/v412e1_crisis_buffer.py",
-            "scripts/v412e11_graduated_crisis.py",
-            "scripts/v412e2_e3_three_rounds.py",
-        ],
-        "research_decision": json.loads((repo / "research" / "v412e2e3" / "research_decision.json").read_text())
-        if (repo / "research" / "v412e2e3" / "research_decision.json").exists()
-        else None,
         "conclusion": (
             "Named module scripts/e45_crisis_core.py exists; live stitch remains DEFERRED. "
-            "MDD≈-13.16% = NOT_VERIFIED_HISTORICAL_NARRATIVE / EARLY_NON_RIGOROUS_RESEARCH_RESULT. "
-            "Closest lineage MDDs are E1/E1.1/E3 validation figures (more severe). "
+            "Handoff MDD narrative is RETIRED_HISTORICAL_NARRATIVE — see E45_MDD_1316 retirement/verification pack. "
+            "Use dated lineage / PRIMARY_COMPARABLE_MDD only; do not invent a replacement. "
             "Formal live stack remains Soft-Frozen E16 + Exact T+1 E18 + E22_v2s_tw; E45 not live-wired."
         ),
     }
@@ -588,7 +550,7 @@ def main() -> None:
         f"- Stock div events / shares added: "
         f"`{report['deltas']['e22_stock_div_events']}` / `{report['deltas']['e22_stock_div_shares_added']}`",
         f"- E45-E3 MDD delta vs E22: `{report['deltas']['e45_e3_minus_e22_mdd']:.4%}`",
-        f"- Claimed MDD -13.16%: `{CLAIM_STATUS}`",
+        f"- Retired MDD narrative: `{CLAIM_STATUS}`",
         "",
         "## Decisions",
         "",

@@ -13,7 +13,7 @@ Chinese translation (non-binding mirror): `research/ops/E45_SLEEVE_LOCAL_OBSERVE
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN**  
-−13.16% claim: **`RETIRED_HISTORICAL_NARRATIVE`**  
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**  
 Parent observe sleeves still OPERATING (unchanged by this draft): FULL E45 + blend-α=0.25 + blend-α=0.05
 
 ---
@@ -64,7 +64,7 @@ Opening (only after ACCEPT) would be **observe-only**. Expect YTD/1y **PAUSE_REV
 | 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** (current) |
 | 2 | Live DEFAULT books remain `E22_v2s_tw` | **YES** (current) |
 | 3 | Parent sleeve-local paper + deep-dive present | **YES** |
-| 4 | −13.16% still RETIRED | **YES** |
+| 4 | retired MDD narrative still RETIRED | **YES** |
 | 5 | No stitch / live-wire PR bundled | **REQUIRED at ACCEPT** |
 | 6 | Month-end owner = `ops_month_end_paper_pack.py` / research/ops | **REQUIRED at ACCEPT** (scripts not built until ACCEPT) |
 | 7 | PAUSE_REVIEW policy understood (observe ≠ stitch) | **REQUIRED** |
@@ -95,7 +95,7 @@ Opening (only after ACCEPT) would be **observe-only**. Expect YTD/1y **PAUSE_REV
 3. Do **not** flip Soft-Frozen or DEFAULT books.  
 4. Do **not** auto-build ledgers / month-end / pack steps from this draft alone.  
 5. Do **not** retire FULL / A25 / A05 observe sleeves.  
-6. Do **not** invent a −13.16% replacement number.  
+6. Do **not** invent a replacement for the retired MDD narrative number.  
 7. Do **not** open crisis-gate or mild-`max_cut` observe from this ballot.
 
 ---

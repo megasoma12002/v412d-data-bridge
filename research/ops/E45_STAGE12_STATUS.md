@@ -1,11 +1,11 @@
 # E45 Stage 1–3 Status (Post Charter ACCEPT + V1 narrative retirement + observe OPEN)
 
 Date: 2026-09-05  
-Ballot: **ACCEPT charter** + **RETIRE −13.16% narrative (path A)** + **OPEN dual-paper observe**  
+Ballot: **ACCEPT charter** + **RETIRE unmatched handoff MDD narrative (path A)** + **OPEN dual-paper observe**  
 Live stitch: **still FORBIDDEN** (needs second dedicated stitch ACCEPT)  
 Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
-−13.16% claim: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement  
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement  
 Dual-paper observe: **OPERATING** (paper month-end; first monitor may show YTD/1y PAUSE_REVIEW — expected for crisis overlay)
 
 Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMENT.md` · `E45_DUAL_PAPER_OBSERVE_OPEN.md` · `E45_LIVE_STITCH_CHARTER.md`
@@ -14,7 +14,7 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 
 | # | Bar | Status | Notes |
 |---|---|---|---|
-| V1 | Artifact / claim gate | **PASS (narrative retired)** | Human path A retires −13.16%; stitch/paper must use dated lineage/challenger MDDs only |
+| V1 | Artifact / claim gate | **PASS (narrative retired)** | Human path A retires the retired handoff MDD narrative; stitch/paper must use dated lineage/challenger MDDs only |
 | V2 | Lineage honesty | **PASS** | Primary comparable = E1.1 val **−15.81%**; challenger E45_E3 ≈ **−20.76%** |
 | V3 | Exact T+1 | **PASS** | Shared early-stack fill clock |
 | V4 | Cost / stress | **PASS** | E45-named 0–3× cost table |
@@ -27,7 +27,7 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 
 | Use | Number | Status |
 |---|---:|---|
-| Spec/handoff −13.16% | −13.16% | **RETIRED_HISTORICAL_NARRATIVE** — do not cite as verified |
+| Spec/handoff the retired handoff MDD narrative | the retired handoff MDD narrative | **RETIRED_HISTORICAL_NARRATIVE** — do not cite as verified |
 | Primary lineage comparable | **−15.81%** | E1.1 validation (dated) |
 | E3 locked winner val | −18.49% | Dated lineage |
 | Early-stack + E45_E3 challenger | ≈ −20.76% | Dated recompute / paper |

@@ -29,7 +29,7 @@ Derived from E45 paper landmines and prior code-review rounds (#55 Soft-Frozen s
 
 - Emit claim status from `e45_crisis_core.CLAIMED_MDD_STATUS` (`RETIRED_HISTORICAL_NARRATIVE`).
 - **Banned in new artifacts:** bare `NOT_VERIFIED`, `NOT_VERIFIED_NO_ARTIFACT_MATCH`, and aliases in `claim_labels.DEPRECATED_CLAIM_ALIASES`.
-- Do **not** invent a replacement for −13.16%. Use dated lineage MDDs (`VERIFIED_LINEAGE_MDD` / `PRIMARY_COMPARABLE_MDD`).
+- Do **not** invent a replacement for the retired MDD narrative. Use dated lineage MDDs (`VERIFIED_LINEAGE_MDD` / `PRIMARY_COMPARABLE_MDD`).
 - Paper metrics stay labeled PAPER/RESEARCH — never restated as live achievement.
 
 ## 5. Dual-paper / observe ≠ cutover / stitch

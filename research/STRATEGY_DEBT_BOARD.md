@@ -3,7 +3,7 @@
 <!-- debt-sweep 2026-09-06 -->
 ## Debt-sweep snapshot (2026-09-06)
 
-Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN** · −13.16% **`RETIRED_HISTORICAL_NARRATIVE`**
+Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN** · retired MDD narrative **`RETIRED_HISTORICAL_NARRATIVE`**
 
 | Track | Status |
 |---|---|
@@ -11,12 +11,13 @@ Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN** ·
 | Naming Medium + stale schema (#90) | **DONE** |
 | Observe PAUSE refresh + Phase C `0050` root-cause (#91) | **DONE** |
 | Project debt-sweep hygiene gaps (#92) | **DONE** — see `research/ops/PROJECT_DEBT_SWEEP_CODEREVIEW_2026-09-06.md` |
-| Eng-only residual (filenames / dtype / regenerator note) | **THIS PR** — `research/ops/ENG_DEBT_CLEANUP_2026-09-06.md` |
+| Eng-only residual (filenames / dtype / regenerator note) (#93) | **DONE** — `research/ops/ENG_DEBT_CLEANUP_2026-09-06.md` |
+| MDD_1316 numeric residue cleanup | **THIS PR** — `research/ops/MDD_1316_RESIDUE_CLEANUP_2026-09-06.md` |
 | Sleeve-local observe `SLEEVE_FIN_ONLY_A10` | **OPERATING** |
 | HIGH_BETA observe | **DRAFT / NOT OPEN** |
 | Live stitch | **FORBIDDEN** until second human ACCEPT |
 
-Residual Medium/Low after eng cleanup: review-doc historical mentions of banned labels (intentional keep); regenerator runners stay split — see `research/ops/E45_REGENERATOR_OWNERSHIP_2026-09-06.md`.
+Residual Medium/Low after eng cleanup (#93): review-doc historical mentions of banned labels (intentional keep); regenerator runners stay split — see `research/ops/E45_REGENERATOR_OWNERSHIP_2026-09-06.md`. Numeric retired-MDD spellings cleared outside the MDD_1316 pack (this PR).
 
 ---
 
@@ -90,7 +91,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | E45 / odd-lot / tax books | Odd-lot DEFAULT **DONE**; tax **ACCEPT charter** (Stage B); E45 **ACCEPT charter** (Stage 1–2 OPEN, stitch forbidden) | Four-layer live stitch; silent default promote; accept-all-three in one PR |
 
 ### WON’T
-L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; invent E45 −13.16%; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 / BLEND_025 without human PR; reopen S1 residual detector grid; conflate FIN50 static promote with L4 DD-path or BLEND_025 observe.
+L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; reinvent retired E45 MDD narrative; live-wire overlay; proxy-as-PASS; auto-promote FIN_CAP_50 / L4 / BLEND_025 without human PR; reopen S1 residual detector grid; conflate FIN50 static promote with L4 DD-path or BLEND_025 observe.
 
 ## Cutover matrix (human PR only)
 

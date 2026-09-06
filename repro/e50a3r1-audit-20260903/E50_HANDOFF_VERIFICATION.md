@@ -128,7 +128,7 @@ Status vocabulary: FOUND / INCOMPLETE / MISSING / SUSPICIOUS.
 | E18 | FOUND | Execution in `scripts/e21_forward_pipeline.py` (pending orders filled when `signal_date < latest` at today’s open ±5bp). Ledgers: `forward/e21/orders.csv`, `forward/e21/fills.csv`, `forward/e21/audit_chain.jsonl`. QC: `scripts/e21_qc.py`, `forward/e21/qc_status.json` (`status=PASS`). |
 | E22 | FOUND | `scripts/v412e22_fetch_dividend_events.py`, `.github/workflows/v412e22-dividend-events.yml`, `data/dividend_events/e22_dividend_events.csv`, `e22_dividend_raw.json`, `e22_dividend_fetch_status.json` (`status=PASS`, 150 rows, E16 universe). Related research: `scripts/v412e6_dividend_lifecycle.py`, `research/v412e6/`. |
 | E44 | INCOMPLETE | Principle FOUND in E18/A3 clocks and `E50_RESEARCH_HISTORY.md` §E44. No `scripts/e44_*.py` and no isolated E44 audit package. |
-| E45 | INCOMPLETE | Lineage FOUND: `scripts/v412e1_crisis_buffer.py`, `scripts/v412e11_graduated_crisis.py`, `scripts/v412e2_e3_three_rounds.py`, `research/v412e1/`, `research/v412e11/`, `research/v412e2e3/`, reports dated 2026-08-24. No `e45` module. MDD ≈ -13.16% **not in any artifact** (see §7). |
+| E45 | INCOMPLETE | Lineage FOUND: `scripts/v412e1_crisis_buffer.py`, `scripts/v412e11_graduated_crisis.py`, `scripts/v412e2_e3_three_rounds.py`, `research/v412e1/`, `research/v412e11/`, `research/v412e2e3/`, reports dated 2026-08-24. No `e45` module. MDD ≈ the retired handoff MDD narrative **not in any artifact** (see §7). |
 | E50-A0 | FOUND | Code: `scripts/e50a0_build_point_in_time.py`, `research/e50a0/README.md`, `.github/workflows/e50a0-point-in-time.yml`. Pinned run `33532322856`. Local QC: `repro/e50a3r1-audit-20260903/inputs/a0/qc_status.json`. Large parquet/csv gitignored; hashes in that QC file. |
 | E50-A1 | FOUND | Code: `scripts/e50a1_build_causal_layer.py`, `scripts/e50a1_probe_schemas.py`, `research/e50a1/`. Pinned run `33637154310`. QC: `inputs/a1/qc_status.json`. |
 | E50-A2 | FOUND | Code: `scripts/e50a2_build_causal_factors.py`, `research/e50a2/`. Pinned run `33645002188`. QC: `inputs/a2/qc_status.json`, `inputs/a2/factor_dictionary.json`. |
@@ -308,7 +308,7 @@ Sources: `HANDOFF.md`, `FROZEN_STRATEGY_SPEC.md`, `E50_RESEARCH_HISTORY.md`, `re
 | A3 is current research asking whether A2 has tradable OOS alpha | VERIFIED | Engineering PASS; validation loses to PIT proxy; `RESEARCH_ONLY` |
 | R1 does not read 2019–2022 during selection | VERIFIED | code + selected-config `fitted_through=2018-11-30` for validation model |
 | R1 2.5% turnover ceiling | VERIFIED as EXPERIMENTAL gate | 0 feasible candidates |
-| E45 MDD ≈ -13.16% | NOT FOUND | Number appears only in handoff/spec text. Closest crisis artifacts: E1 validation MDD -17.21%; E1.1 -15.81%; E3 validation -18.49%; V4.12-D validation -18.91%. No CSV/JSON equals -13.16% |
+| E45 MDD ≈ the retired handoff MDD narrative | NOT FOUND | Number appears only in handoff/spec text. Closest crisis artifacts: E1 validation MDD -17.21%; E1.1 -15.81%; E3 validation -18.49%; V4.12-D validation -18.91%. No CSV/JSON equals the retired handoff MDD narrative |
 | E45 CAGR then ~10%, return insufficient | NOT FOUND | No E45-named NAV. Do not treat as verified |
 | E22 is frozen execution/dividend layer | PARTIALLY VERIFIED | Dataset FOUND; not applied to E21 NAV |
 | E44 causal-clock package | PARTIALLY VERIFIED | Principle FOUND; package MISSING |
@@ -419,7 +419,7 @@ Blockers that would have produced `HANDOFF_BLOCKED` were **not** found (no missi
 Warnings (do not ignore, do not “fix” by retuning):
 
 1. **Four-layer portfolio is not wired.** E50-A is a standalone research sleeve. Alpha-weak ≠ crisis is documented, not executed as a combined state machine.
-2. **E45 is SOFT_FROZEN_CRITICAL but incomplete as a named module.** Lineage exists (E1/E11/E2–E3). MDD ≈ -13.16% is **NOT FOUND**. Do not invent a replacement number.
+2. **E45 is SOFT_FROZEN_CRITICAL but incomplete as a named module.** Lineage exists (E1/E11/E2–E3). MDD ≈ the retired handoff MDD narrative is **NOT FOUND**. Do not invent a replacement number.
 3. **E16 live ledger is short** (9 signal days). Historical E16 target code exists; a full-history official E16 NAV file does not.
 4. **E22 is not applied to E21 NAV.** Dividend layer exists beside the live execution ledger.
 5. **E44 has no isolated package.** Clock is implemented inside E18 and A3.

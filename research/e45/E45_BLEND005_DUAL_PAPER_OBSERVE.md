@@ -7,7 +7,7 @@ Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Finan
 
 - **BASE_E16_E18_E22_v2s**: Soft-Frozen early-stack Exact T+1 + E22_v2s formal books
 - **BLEND_E45_A05**: same stack + α=0.05 × E45 `E3_VOLTARGET_WINNER` exposure overlay
-- Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not cite)
+- Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not cite)
 - Primary comparable MDD: E1.1 val **-15.81%** (dated lineage)
 
 ## Dual paper metrics
@@ -35,14 +35,14 @@ Sealed vs BASE: MDD improve **2.78 pp**; CAGR giveback **1.42 pp**.
 3. Re-check YTD / trailing_1y PAUSE gates each month-end (observe ≠ promote)
 4. Do not silent-edit Soft-Frozen; do not rewrite forward/e21 history
 5. Observe sleeve ≠ stitch license; second human stitch ACCEPT still required
-6. Never cite −13.16%; use dated lineage / challenger MDDs only
+6. Never cite the retired handoff MDD narrative; use dated lineage / challenger MDDs only
 
 ## Explicit non-goals
 
 - Auto live-wire / four-layer stitch from this observe sleeve
 - Soft-Frozen clip flip
 - DEFAULT books flip away from E22_v2s_tw
-- Invent a replacement for retired −13.16% narrative
+- Invent replacement for retired MDD narrative
 - Bundle FIN50 / L4 / BLEND / odd-lot / tax DEFAULT promote
 
 ## Label

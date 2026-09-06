@@ -21,7 +21,7 @@ Cursor 必須依序讀：
 |---|---|---|
 | E16 / E18 / E22_v2s_tw | SOFT_FROZEN | **Yes (core cutover)** |
 | E50-A | EXPERIMENTAL / RESEARCH_ONLY | **No** |
-| E45 | SOFT_FROZEN_CRITICAL | **No**（−13.16% **RETIRE**；dual-paper observe **OPERATING**（含 blend-α=0.25 平行 sleeve）；stitch checklist **DRAFTED / NOT AUTHORIZED**；V1–V6 PASS；live stitch 仍需 **第二次** human ACCEPT） |
+| E45 | SOFT_FROZEN_CRITICAL | **No**（the retired handoff MDD narrative **RETIRE**；dual-paper observe **OPERATING**（含 blend-α=0.25 平行 sleeve）；stitch checklist **DRAFTED / NOT AUTHORIZED**；V1–V6 PASS；live stitch 仍需 **第二次** human ACCEPT） |
 | FIN_CAP_50 | paper dual-ledger | **No** — go-live **`NOT_READY_SEALED_CAGR`** |
 | L4_DD_PATH_08_50 | paper dual-ledger | **No** — held-out PASS；cutover FROZEN |
 
@@ -139,4 +139,4 @@ Audit / Exact T+1 / R1 reproduce / turnover·held-out 診斷 **已完成**（見
 2. ~~Stage-8 failure-signature / stress-sleeve~~ — **SATURATED**; do not re-grid TECH2
 3. ~~Track B S1~~ — `STOP_S1_HELDOUT_KEEP_TRACK_A`
 4. **Operate:** Track A S9A1 paper/monitor; FIN_CAP_50 paper (cutover frozen); L4 dual-paper (cutover frozen)
-5. **禁止：** live overlay、改寫歷史 NAV、發明 E45 −13.16%、把 dual-paper／held-out PASS 當 Soft-Frozen flip、重跑已飽和 Stage-8 grids
+5. **禁止：** live overlay、改寫歷史 NAV、發明 E45 the retired handoff MDD narrative、把 dual-paper／held-out PASS 當 Soft-Frozen flip、重跑已飽和 Stage-8 grids

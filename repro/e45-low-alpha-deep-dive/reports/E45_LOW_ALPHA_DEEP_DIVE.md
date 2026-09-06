@@ -88,7 +88,7 @@ Policy: ALERT >3pp / PAUSE_REVIEW >5pp CAGR giveback on YTD / trailing_1y.
 - Soft-Frozen FIN clip **[0.50, 0.95] KEEP**
 - Live DEFAULT **`E22_v2s_tw` KEEP**
 - Live E45 stitch **FORBIDDEN**
-- −13.16% remains **RETIRED_HISTORICAL_NARRATIVE**
+- Retired MDD narrative: **RETIRED_HISTORICAL_NARRATIVE**
 
 ## Artifacts
 

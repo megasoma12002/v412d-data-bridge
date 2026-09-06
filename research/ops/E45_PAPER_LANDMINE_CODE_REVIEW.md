@@ -17,7 +17,7 @@ Paper research hit recurring engineering landmines (claim-label drift, book-ID f
 | Exact T+1 fail-closed | #55/#56 | Same-bar fills hard-fail; QC preserves `exact_t1_ok` |
 | `None` ≠ `0` | #55/#56 | `mdd_delta_pp` / `cagr_delta_pp`; no `or 0`/`or 9` on MDD |
 | Dual-paper ≠ cutover | debt board / claim policy | Observe PASS ≠ Soft-Frozen flip |
-| Claim honesty | path A retirement | −13.16% = `RETIRED_HISTORICAL_NARRATIVE`; no invented replacement |
+| Claim honesty | path A retirement | the retired handoff MDD narrative = `RETIRED_HISTORICAL_NARRATIVE`; no invented replacement |
 | No history rewrite | ops | Never rewrite `forward/e21` to “fix” recon |
 
 ## Landmines found this research
@@ -55,7 +55,7 @@ Paper research hit recurring engineering landmines (claim-label drift, book-ID f
 
 - Live stitch / Soft-Frozen / DEFAULT flip
 - Auto-open α=0.05 or sleeve-local observe
-- Invent −13.16% replacement number
+- Invent the retired handoff MDD narrative replacement number
 - Retune frozen E3 winner lock in place
 
 ## Cross-cut research note (unchanged)

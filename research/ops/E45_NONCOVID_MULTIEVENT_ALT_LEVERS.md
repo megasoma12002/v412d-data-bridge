@@ -2,7 +2,7 @@
 
 Generated: `2026-09-06T06:53:45.232253+00:00`
 Status: **PAPER ONLY** — Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN**
-Claimed −13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 
 ## Scope
 

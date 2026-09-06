@@ -2,7 +2,7 @@
 
 Generated: `2026-09-06T06:00:44.136340+00:00`
 Status: **PAPER ONLY** — Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN
-Claimed -13.16%: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 
 ## Framing
 

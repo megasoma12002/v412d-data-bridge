@@ -57,7 +57,7 @@ Operating observe: **CHAL_E45_E3** + **BLEND_E45_A25**. Paper companion **A10** 
 
 ## Governance
 
-- Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · −13.16% RETIRED
+- Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · retired MDD narrative
 - Observe OPEN sleeves unchanged (FULL + A25 only)
 
 ## Reproduce

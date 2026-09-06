@@ -78,7 +78,7 @@ Grid: alpha in {0.05, 0.08, 0.1} · cost in {1x, 2x} · scopes ALL / FIN_ONLY / 
 
 ## Governance
 
-- Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · -13.16% `RETIRED_HISTORICAL_NARRATIVE`
+- Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · the retired handoff MDD narrative `RETIRED_HISTORICAL_NARRATIVE`
 
 ## Reproduce
 

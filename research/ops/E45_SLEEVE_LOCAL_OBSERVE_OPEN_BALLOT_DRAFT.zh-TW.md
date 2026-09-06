@@ -12,7 +12,7 @@
 Soft-Frozen：**[0.50, 0.95] KEEP**  
 Live DEFAULT 書本：`E22_v2s_tw` **KEEP**  
 Live stitch：**仍禁止 FORBIDDEN**  
-−13.16% 主張：`RETIRED_HISTORICAL_NARRATIVE`  
+已退休 MDD 敘事：`RETIRED_HISTORICAL_NARRATIVE`  
 父級 observe（本草案不改動，仍在跑）：FULL E45 + blend-α=0.25 + blend-α=0.05
 
 ---
@@ -63,7 +63,7 @@ Live stitch：**仍禁止 FORBIDDEN**
 | 1 | Soft-Frozen live clip 仍為 [0.50, 0.95] | **YES**（當前） |
 | 2 | Live DEFAULT 仍為 `E22_v2s_tw` | **YES**（當前） |
 | 3 | 父級 sleeve-local 紙上 + 深挖檔已存在 | **YES** |
-| 4 | −13.16% 仍為 RETIRED | **YES** |
+| 4 | 已退休 MDD 敘事仍為 RETIRED | **YES** |
 | 5 | 未捆綁 stitch / live-wire PR | **ACCEPT 時必填** |
 | 6 | 月末負責 = `ops_month_end_paper_pack.py` / research/ops | **ACCEPT 時必填**（腳本要 ACCEPT 後才建） |
 | 7 | 理解 PAUSE_REVIEW（observe ≠ stitch） | **必填** |
@@ -94,7 +94,7 @@ Live stitch：**仍禁止 FORBIDDEN**
 3. **不要**翻轉 Soft-Frozen 或 DEFAULT。  
 4. **不要**僅憑本草案自動建 ledger / month-end / pack。  
 5. **不要**退役 FULL / A25 / A05 observe。  
-6. **不要**編造 −13.16% 替代數字。  
+6. **不要**編造已退休 MDD 敘事的替代數字。  
 7. **不要**用本表決去開 crisis-gate 或溫和 `max_cut` observe。
 
 ---

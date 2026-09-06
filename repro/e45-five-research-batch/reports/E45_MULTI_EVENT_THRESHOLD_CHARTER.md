@@ -32,6 +32,6 @@ Rationale: block **2020-only** products from looking like general crisis protect
 
 - Not a live stitch gate (stitch still needs second human ACCEPT + clean trailing).
 - Not a Soft-Frozen / DEFAULT flip.
-- Does not invent a −13.16% replacement (`RETIRED_HISTORICAL_NARRATIVE`).
+- Does not invent a replacement for the retired MDD narrative (`RETIRED_HISTORICAL_NARRATIVE`).
 
 Label: `E45_MULTI_EVENT_THRESHOLD_2026-09-06__STITCH_FORBIDDEN`

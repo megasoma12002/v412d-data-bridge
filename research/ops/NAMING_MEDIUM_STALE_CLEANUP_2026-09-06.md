@@ -1,6 +1,6 @@
 # Naming Medium + Stale Artifact Cleanup — 2026-09-06
 
-Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · claimed −13.16% **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
+Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · retired MDD narrative **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 
 Label: `NAMING_MEDIUM_STALE_CLEANUP_2026-09-06__STITCH_FORBIDDEN`
 
@@ -30,5 +30,5 @@ Hygiene bans added in `scripts/check_project_coding_hygiene.py` for the three fo
 ## Non-actions
 
 - No Soft-Frozen / DEFAULT / stitch ballot
-- No −13.16% reinvention
+- No retired-narrative reinvention
 - No live observe book flip

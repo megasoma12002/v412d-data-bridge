@@ -35,7 +35,7 @@ Measure on E16→E18→E22_v2s paper books. L1 cuts are **frozen-stopped** (no r
 | **L2-ASYM-SCALE** | Hard cut on stress; slower/partial restore only after clear | Asymmetric: save left tail, release upside |
 | **L2-FINCAP+DD** | FIN_CAP_50 **plus** DD-PATH only (not COMBO) | Stack concentration with path cut, not L1 COMBO |
 
-**Forbidden:** retuning `L1_FINCAP50_COMBO_50`; Stage-8 TECH2 remix; S1 residual cut retune; proxy-as-PASS; inventing E45 −13.16%.
+**Forbidden:** retuning `L1_FINCAP50_COMBO_50`; Stage-8 TECH2 remix; S1 residual cut retune; proxy-as-PASS; inventing E45 the retired handoff MDD narrative.
 
 ## Frozen gates (EXPERIMENTAL paper books)
 

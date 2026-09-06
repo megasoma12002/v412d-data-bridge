@@ -6,20 +6,20 @@ Decision pack: `E45_LIVE_STITCH_DECISION_PACK.md`
 Stage board: `E45_STAGE12_STATUS.md`  
 Live stitch today: **FORBIDDEN**  
 Soft-Frozen: **[0.50, 0.95] KEEP**  
-E45 class today: **CHALLENGER**; −13.16% claim **`RETIRED_HISTORICAL_NARRATIVE`** (path A, 2026-09-05)
+E45 class today: **CHALLENGER**; the retired handoff MDD narrative claim **`RETIRED_HISTORICAL_NARRATIVE`** (path A, 2026-09-05)
 
 Authority: `HUMAN_DECISION_REGISTER.md` #6 · `research/e45/E45_MDD_1316_VERIFICATION.md` · `FROZEN_GOVERNANCE.md` · `STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
 ## Problem
 
-E45 is process-class Soft-Frozen_CRITICAL in governance text, but the oft-cited MDD ≈ **−13.16%** has claim status **`RETIRED_HISTORICAL_NARRATIVE`** (no dated lineage artifact match; do not invent a replacement). Closest validated crisis MDDs are **more severe**. Early-stack+E45 challenger MDDs remain ~−21% to −23% on the repo path checked 2026-09-04 / refreshed 2026-09-05.
+E45 is process-class Soft-Frozen_CRITICAL in governance text, but the oft-cited MDD ≈ **the retired handoff MDD narrative** has claim status **`RETIRED_HISTORICAL_NARRATIVE`** (no dated lineage artifact match; do not invent a replacement). Closest validated crisis MDDs are **more severe**. Early-stack+E45 challenger MDDs remain ~−21% to −23% on the repo path checked 2026-09-04 / refreshed 2026-09-05.
 
 Therefore live stitch is **not** a paperwork gap — it is a **verification + charter** gap.
 
 ## In scope (after human ACCEPT of this charter)
 
 1. Freeze a **verification bar** for any E45 profile proposed for stitch.  
-2. Recompute / attach dated artifacts; forbid inventing a replacement −13.16%.  
+2. Recompute / attach dated artifacts; forbid inventing a replacement the retired handoff MDD narrative.  
 3. Paper-only crisis overlay experiments under Exact T+1.  
 4. If bars pass: dual-paper observe → dedicated stitch checklist → human PR.
 
@@ -30,14 +30,14 @@ Therefore live stitch is **not** a paperwork gap — it is a **verification + ch
 - Inventing MDD to match handoff prose  
 - Bundling L4 / FIN50 / BLEND / odd-lot / tax books  
 - Rewriting `forward/e21` history  
-- Treating Soft-Frozen_CRITICAL label as proof of −13.16%  
+- Treating Soft-Frozen_CRITICAL label as proof of the retired handoff MDD narrative  
 
 ## Verification bar (minimum)
 
 | # | Bar | Rule |
 |---|---|---|
 | V1 | Artifact / claim gate | Named profile MDD from dated CSV/JSON **or** unmatched narrative claim formally **retired** and not used as a stitch/live gate (path A, 2026-09-05) |
-| V2 | Lineage honesty | Publish verified lineage / challenger MDDs; never invent a replacement for −13.16% |
+| V2 | Lineage honesty | Publish verified lineage / challenger MDDs; never invent a replacement for the retired MDD narrative |
 | V3 | Exact T+1 | Unchanged fill clock |
 | V4 | Cost / stress | Challenger survives documented cost + stress gates (E50 rules) |
 | V5 | No single-year | Not driven by one crisis year alone |
@@ -47,7 +47,7 @@ Fail any V# → stop; do not stitch.
 
 ### V1 resolution (2026-09-05)
 
-Human **RETIRE −13.16% narrative (path A)**. See `E45_MDD_1316_NARRATIVE_RETIREMENT.md`.  
+Human **RETIRE unmatched handoff MDD narrative (path A)**. See `E45_MDD_1316_NARRATIVE_RETIREMENT.md`.  
 V1 → **PASS (narrative retired)**. Live stitch still needs second human ACCEPT.
 
 ## Stage plan

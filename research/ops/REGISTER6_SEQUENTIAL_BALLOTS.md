@@ -22,7 +22,7 @@ Human vote: **`E45 ACCEPT charter`** (2026-09-05).
 | Soft-Frozen CRITICAL | **KEEP** |
 | Stage 1–2 (verify + paper) | **OPEN** — see `E45_STAGE12_STATUS.md` |
 | Live / stitch integration | **Not authorized** until V1–V6 all PASS + dedicated stitch PR |
-| Claimed MDD ≈ −13.16% | Remains **RETIRED_HISTORICAL_NARRATIVE** (do not invent replacement) |
+| Retired MDD narrative | Remains **RETIRED_HISTORICAL_NARRATIVE** (do not invent replacement) |
 | DEFAULT books | **Unchanged** (`E22_v2s_tw`) |
 | Artifact verification verdict | **`E45_NOT_VERIFIED`** — see `E45_ARTIFACT_VERIFICATION_2026-09-05.md` |
 

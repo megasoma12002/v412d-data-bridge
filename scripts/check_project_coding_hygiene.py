@@ -135,6 +135,42 @@ def main() -> int:
                 continue
             violations.append(f"{rel}:{line}: max_drawdown `or 9` — use abs_mdd()")
 
+    # Retired handoff MDD narrative: numeric spellings only in the MDD_1316 pack / verifier.
+    MDD_1316_SPELLING = re.compile(r"(?:−|-|–)?13\.16\s*%|(?<![0-9])-0\.1316(?![0-9])")
+    MDD_1316_ALLOW = {
+        "scripts/e45_verify_mdd_1316.py",
+        "research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md",
+        "research/e45/E45_MDD_1316_VERIFICATION.md",
+        "research/e45/E45_MDD_1316_VERIFICATION.json",
+        "research/ops/E45_ARTIFACT_VERIFICATION_2026-09-05.md",
+        "research/ops/E45_ARTIFACT_VERIFICATION_2026-09-05.json",
+        "repro/e45-mdd-verify/summary.json",
+    }
+    scan_roots = [SCRIPTS, ROOT / "research" / "ops", ROOT / "research" / "e45", ROOT]
+    seen: set[str] = set()
+    for root in scan_roots:
+        if not root.exists():
+            continue
+        paths = list(root.glob("*.py")) + list(root.glob("*.md")) if root == SCRIPTS or root == ROOT else list(root.glob("*.md")) + list(root.glob("*.json"))
+        if root == ROOT:
+            paths = [ROOT / "FROZEN_GOVERNANCE.md", ROOT / "FROZEN_STRATEGY_SPEC.md"]
+        for path in paths:
+            if not path.is_file():
+                continue
+            rel = str(path.relative_to(ROOT)).replace("\\", "/")
+            if rel in seen:
+                continue
+            seen.add(rel)
+            if rel in MDD_1316_ALLOW or "MDD_1316" in rel:
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            for m in MDD_1316_SPELLING.finditer(text):
+                line = text.count("\n", 0, m.start()) + 1
+                violations.append(
+                    f"{rel}:{line}: retired handoff MDD numeric spelling `{m.group(0)}` — "
+                    "keep only in E45_MDD_1316 retirement/verification pack"
+                )
+
     if violations:
         print("Project coding hygiene FAIL:")
         for v in violations:

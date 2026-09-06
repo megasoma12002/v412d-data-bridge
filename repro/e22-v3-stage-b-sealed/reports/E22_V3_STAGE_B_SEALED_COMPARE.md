@@ -25,7 +25,7 @@ Status: **SANDBOX RESEARCH** — Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` 
 - Live DEFAULT remains **`E22_v2s_tw`** (untouched).
 - Soft-Frozen FIN clip **[0.50, 0.95] KEEP**.
 - Combined `recv_pay_taxW` still **NOT STARTED** (needs each axis alone first).
-- No E45 stitch; no Soft-Frozen / DEFAULT flip; no −13.16% reinvention.
+- No E45 stitch; no Soft-Frozen / DEFAULT flip; no retired-narrative reinvention.
 
 ## Withholding note
 

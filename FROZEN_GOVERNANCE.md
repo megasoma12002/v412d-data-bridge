@@ -236,9 +236,9 @@ Changing dividend cashflow timing (e.g. payment-date credit) or tax treatment be
 
 ### E45 Crisis Protection Core — current official version (SOFT_FROZEN_CRITICAL)
 
-Current crisis implementation, parameters, and the reported MDD baseline claim. E45 is the official crisis-protection version, not an alpha model. Alpha weakening is not treated as crisis in this official operating logic.
+Current crisis implementation and parameters. E45 is the official crisis-protection version, not an alpha model. Alpha weakening is not treated as crisis in this official operating logic.
 
-The handoff claim “MDD about -13.16%” was re-verified on 2026-09-04 as unmatched against dated artifacts, and is labeled **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement). See `research/e45/E45_MDD_1316_VERIFICATION.md` and `research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md`. Prefer dated lineage MDDs in `scripts/e45_crisis_core.py` (`VERIFIED_LINEAGE_MDD`). It is not a new freeze and not a license to retune E45 in place.
+The unmatched handoff MDD narrative was re-verified on 2026-09-04 as unmatched against dated artifacts, and is labeled **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement; the numeric claim is retained only in the retirement/verification pack). See `research/e45/E45_MDD_1316_VERIFICATION.md` and `research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md`. Prefer dated lineage MDDs in `scripts/e45_crisis_core.py` (`VERIFIED_LINEAGE_MDD` / `PRIMARY_COMPARABLE_MDD`). It is not a new freeze and not a license to retune E45 in place.
 
 Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is an EXPERIMENTAL challenger. Because E45 is SOFT_FROZEN_CRITICAL, that challenger must use a separate folder, keep the original baseline, and clear the higher validation bar in §1 before any new frozen version.
 
@@ -246,7 +246,7 @@ Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is an E
 
 - **SOFT_FROZEN / SOFT_FROZEN_CRITICAL** names the *official strategy-version class* (E16 / E18 / E22 / E45). Class membership alone does **not** mean a module is live-wired into the forward book.
 - **Current live cutover default** (ops / debt board): **E16 + E18 + E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05), with live E16 Financial clip **[0.50, 0.95]**. No overlay. No silent Soft-Frozen flip.
-- **E45** remains SOFT_FROZEN_CRITICAL as the official crisis-protection *version*, but it is **not** auto-live-wired. Any live attach requires a separate challenger PASS **and** an explicit human cutover PR. Unverified handoff numbers (including invented −13.16% MDD) must not be treated as PASS evidence.
+- **E45** remains SOFT_FROZEN_CRITICAL as the official crisis-protection *version*, but it is **not** auto-live-wired. Any live attach requires a separate challenger PASS **and** an explicit human cutover PR. Unverified handoff numbers (including the retired MDD narrative) must not be treated as PASS evidence.
 - Research challengers (FIN_CAP_50, MDD L1–L4, E50-A overlays) stay EXPERIMENTAL / paper until that human cutover path completes.
 
 ---
