@@ -33,7 +33,7 @@ def run(ac,ao,signal,exposure,cost_mult=1): return e11.nav_with_exposure(ac,ao,s
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--raw',required=True); ap.add_argument('--adjusted',required=True); ap.add_argument('--out',required=True)
     a=ap.parse_args(); out=Path(a.out); out.mkdir(parents=True,exist_ok=True)
-    raw=pd.read_csv(a.raw); adj=pd.read_csv(a.adjusted); z=d.prep(raw); rc,ro,ac,ao=e1.aligned_matrices(raw,adj); scores=d.make_scores(z,1)
+    raw=pd.read_csv(a.raw, dtype={"code": str}); adj=pd.read_csv(a.adjusted, dtype={"code": str}); z=d.prep(raw); rc,ro,ac,ao=e1.aligned_matrices(raw,adj); scores=d.make_scores(z,1)
     q=e3mod.raw_risk_features(z); exposure=e3mod.exposure_controller(q,'voltarget',.5,20,.14,.5); ones=pd.Series(1.,index=rc.index)
     d_sig,_=d.targets(scores,list(rc.index),21,2,75); dnav,dw,dc,_=run(ac,ao,d_sig,ones)
     rt=2*d.FEE+d.TAX

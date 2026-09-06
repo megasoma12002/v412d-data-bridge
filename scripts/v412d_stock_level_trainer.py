@@ -307,7 +307,7 @@ def main():
     args=ap.parse_args()
     out=Path(args.out); out.mkdir(parents=True,exist_ok=True)
 
-    raw=pd.read_csv(args.input)
+    raw=pd.read_csv(args.input, dtype={"code": str})
     raw=raw.rename(columns={"code":"stock_id","volume":"Trading_Volume"})
     required={"date","stock_id","open","high","low","close","Trading_Volume"}
     absent=required-set(raw.columns)

@@ -37,7 +37,7 @@ def backtest(score,returns,exposure=None,rebalance=21,topn=3,core_weight=.80):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--adjusted',required=True); ap.add_argument('--out',required=True); a=ap.parse_args()
     out=Path(a.out); out.mkdir(parents=True,exist_ok=True)
-    x=pd.read_csv(a.adjusted); x.date=pd.to_datetime(x.date); x.code=x.code.astype(str)
+    x=pd.read_csv(a.adjusted, dtype={"code": str}); x.date=pd.to_datetime(x.date); x.code=x.code.astype(str)
     close=x.pivot(index='date',columns='code',values='adjusted_close').sort_index().ffill(limit=3)
     volume=x.pivot(index='date',columns='code',values='volume').sort_index().reindex(close.index).fillna(0)
     ret=close.pct_change(fill_method=None).fillna(0); bench=(1+ret.mean(axis=1)).cumprod()

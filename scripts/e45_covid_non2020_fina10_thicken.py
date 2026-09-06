@@ -208,7 +208,7 @@ def main() -> None:
                 "ret_delta_pp": (float(c["ret"]) - float(b["ret"])) * 100.0,
             })
     help_df = pd.DataFrame(help_rows)
-    help_df.to_csv(out_o / "stress_year_mdd_help_vs_base.csv", index=False)
+    help_df.to_csv(out_o / "stress_year_mdd_improve_vs_base.csv", index=False)
 
     b_ep = window_stats(books[base_key]["nav"], *COVID_EPISODE, min_days=15)
     ep_rows = []
@@ -222,7 +222,7 @@ def main() -> None:
             "score": dlt["score"], "n_days": c_ep.get("n_days"),
         })
     ep_df = pd.DataFrame(ep_rows)
-    ep_df.to_csv(out_o / "covid_episode_mdd_help.csv", index=False)
+    ep_df.to_csv(out_o / "covid_episode_mdd_improve.csv", index=False)
 
     conc = []
     for bid, g in help_df.groupby("book"):

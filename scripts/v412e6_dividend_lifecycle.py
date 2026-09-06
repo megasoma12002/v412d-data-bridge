@@ -46,8 +46,8 @@ def event_return(close,bench,sid,anchor,start,end):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--raw',required=True); ap.add_argument('--adjusted',required=True); ap.add_argument('--out',required=True); ap.add_argument('--end-date',default=date.today().isoformat())
     a=ap.parse_args(); out=Path(a.out); out.mkdir(parents=True,exist_ok=True)
-    raw=pd.read_csv(a.raw); raw['date']=pd.to_datetime(raw.date); raw['stock_id']=raw.code.astype(str)
-    adj=pd.read_csv(a.adjusted); adj['date']=pd.to_datetime(adj.date); adj['stock_id']=adj.code.astype(str)
+    raw=pd.read_csv(a.raw, dtype={"code": str}); raw['date']=pd.to_datetime(raw.date); raw['stock_id']=raw.code.astype(str)
+    adj=pd.read_csv(a.adjusted, dtype={"code": str}); adj['date']=pd.to_datetime(adj.date); adj['stock_id']=adj.code.astype(str)
     close=adj.pivot(index='date',columns='stock_id',values='adjusted_close').sort_index(); raw_close=raw.pivot(index='date',columns='stock_id',values='close').sort_index(); calendar=close.index
     bench=(1+close.pct_change(fill_method=None).mean(axis=1,skipna=True).fillna(0)).cumprod()
     rows=[]

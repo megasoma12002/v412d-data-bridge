@@ -16,9 +16,9 @@ def met(nav,st,en):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument("--raw",required=True);p.add_argument("--adjusted",required=True);p.add_argument("--out",required=True);a=p.parse_args();out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
-    raw=pd.read_csv(a.raw);z=model.prep(raw);scores=model.make_scores(z,1)
+    raw=pd.read_csv(a.raw, dtype={"code": str});z=model.prep(raw);scores=model.make_scores(z,1)
     raw_nav,w,state,cost=model.simulate(z,1,21,2,75,1,scores=scores)
-    adj=pd.read_csv(a.adjusted,parse_dates=["date"]);adj.code=adj.code.astype(str)
+    adj=pd.read_csv(a.adjusted, dtype={"code": str}, parse_dates=["date"]);adj.code=adj.code.astype(str)
     ac=adj.pivot(index="date",columns="code",values="adjusted_close").reindex(w.index);ao=adj.pivot(index="date",columns="code",values="adjusted_open").reindex(w.index)
     ww=w.reindex(columns=ac.columns).fillna(0);prev=ww.shift(1).fillna(0)
     adjret=(prev*(ao/ac.shift(1)-1).fillna(0)).sum(axis=1)+(ww*(ac/ao-1).fillna(0)).sum(axis=1)-cost

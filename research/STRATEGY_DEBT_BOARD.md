@@ -10,12 +10,13 @@ Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN** ·
 | Naming High emitters (#87) | **DONE** |
 | Naming Medium + stale schema (#90) | **DONE** |
 | Observe PAUSE refresh + Phase C `0050` root-cause (#91) | **DONE** |
-| Project debt-sweep hygiene gaps (this PR) | **IN PROGRESS** — see `research/ops/PROJECT_DEBT_SWEEP_CODEREVIEW_2026-09-06.md` |
+| Project debt-sweep hygiene gaps (#92) | **DONE** — see `research/ops/PROJECT_DEBT_SWEEP_CODEREVIEW_2026-09-06.md` |
+| Eng-only residual (filenames / dtype / regenerator note) | **THIS PR** — `research/ops/ENG_DEBT_CLEANUP_2026-09-06.md` |
 | Sleeve-local observe `SLEEVE_FIN_ONLY_A10` | **OPERATING** |
 | HIGH_BETA observe | **DRAFT / NOT OPEN** |
 | Live stitch | **FORBIDDEN** until second human ACCEPT |
 
-Residual Medium/Low: regenerator overlap, v412 dtype gaps, cosmetic `mdd_help*` filenames, review-doc historical mentions of banned labels.
+Residual Medium/Low after eng cleanup: review-doc historical mentions of banned labels (intentional keep); regenerator runners stay split — see `research/ops/E45_REGENERATOR_OWNERSHIP_2026-09-06.md`.
 
 ---
 

@@ -53,9 +53,9 @@ No Soft-Frozen / DEFAULT / stitch ballot is implied.
 | Paper densify book `FIN_ONLY_A10` | Different ID from observe `SLEEVE_FIN_ONLY_A10` |
 | `sealed_2023_latest` **read** fallback in monitors | Intentional dual-read |
 | `CLAIMED_MDD_STATUS_LEGACY` / claim_labels vocabulary | Not claim-status emitters |
-| Overlapping regenerators (five-batch vs covid thicken vs next-batch) | Consolidate later; behavior OK |
-| Cosmetic CSV filenames still containing `mdd_help` | Columns already `mdd_improve_*` |
-| v412* market `read_csv` without dtype=str | Legacy path; often re-casts later |
+| Overlapping regenerators (five-batch vs covid thicken vs next-batch) | Documented ownership — `E45_REGENERATOR_OWNERSHIP_2026-09-06.md` (no merge) |
+| Cosmetic CSV filenames still containing `mdd_help` | **Closed** in eng-debt-cleanup → `mdd_improve*` |
+| v412* market `read_csv` without dtype=str | **Closed** in eng-debt-cleanup (`dtype={"code": str}`) |
 | Review docs mentioning banned labels | Historical findings — leave |
 | FIN_CAP_50 challenger clip `[0.35,0.50]` literals | Challenger design, not Soft-Frozen |
 | HIGH_BETA observe | Still **DRAFT / NOT OPEN** |

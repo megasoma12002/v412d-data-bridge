@@ -50,7 +50,7 @@ def portfolio(ret,w):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--financial-adjusted',required=True);ap.add_argument('--telecom-adjusted',required=True);ap.add_argument('--out',required=True);ap.add_argument('--end-date',required=True);a=ap.parse_args();out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
-    f=pd.read_csv(a.financial_adjusted);t=pd.read_csv(a.telecom_adjusted)
+    f=pd.read_csv(a.financial_adjusted, dtype={"code": str});t=pd.read_csv(a.telecom_adjusted, dtype={"code": str})
     for x in(f,t):x.date=pd.to_datetime(x.date);x.code=x.code.astype(str)
     fc=f.pivot(index='date',columns='code',values='adjusted_close').sort_index();tc=t.pivot(index='date',columns='code',values='adjusted_close').sort_index();raw0050,adj0050=build_0050(a.end_date,out)
     ta=pd.DataFrame(get('TaiwanStockPrice','TAIEX','2010-01-01',a.end_date));ta.date=pd.to_datetime(ta.date);ta=ta.set_index('date').sort_index();ta.close=pd.to_numeric(ta.close);dates=fc.index.intersection(tc.index).intersection(adj0050.index).intersection(ta.index)

@@ -36,7 +36,7 @@ def bootstrap_pair(e4r,dr,block,nboot=1000,seed=4125):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--raw',required=True); ap.add_argument('--adjusted',required=True); ap.add_argument('--weights',required=True); ap.add_argument('--out',required=True)
     a=ap.parse_args(); out=Path(a.out); out.mkdir(parents=True,exist_ok=True)
-    raw=pd.read_csv(a.raw); adj=pd.read_csv(a.adjusted); z=d.prep(raw); rc,ro,ac,ao=e1.aligned_matrices(raw,adj)
+    raw=pd.read_csv(a.raw, dtype={"code": str}); adj=pd.read_csv(a.adjusted, dtype={"code": str}); z=d.prep(raw); rc,ro,ac,ao=e1.aligned_matrices(raw,adj)
     e4w=pd.read_csv(a.weights); e4w['date']=pd.to_datetime(e4w.date); e4w=e4w.set_index('date'); e4nav,e4cost,e4to=nav_from_w(ac,ao,e4w)
     scores=d.make_scores(z,1); dsig,_=d.targets(scores,list(rc.index),21,2,75); dw=dsig.shift(1).fillna(0); dnav,dcost,dto=nav_from_w(ac,ao,dw)
     # Baseline reconciliation with E4 output.

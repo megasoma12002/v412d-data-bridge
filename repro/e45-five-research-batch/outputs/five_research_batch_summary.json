@@ -65,8 +65,8 @@
   "crisis_concentration": [
     {
       "book": "BLEND_E45_A05",
-      "mdd_help_2020_pp": 0.7024106199616797,
-      "mdd_help_non2020_positive_pp": 0.062216719367691464,
+      "mdd_improve_2020_pp": 0.7024106199616797,
+      "mdd_improve_non2020_positive_pp": 0.062216719367691464,
       "share_of_positive_help_in_2020": 0.9186313172868503,
       "n_crisis_years_helped_gt_0_25pp": 1,
       "years_helped": [
@@ -75,8 +75,8 @@
     },
     {
       "book": "BLEND_E45_A25",
-      "mdd_help_2020_pp": 0.4519062135161733,
-      "mdd_help_non2020_positive_pp": 0.6588184271259623,
+      "mdd_improve_2020_pp": 0.4519062135161733,
+      "mdd_improve_non2020_positive_pp": 0.6588184271259623,
       "share_of_positive_help_in_2020": 0.4068571065956688,
       "n_crisis_years_helped_gt_0_25pp": 2,
       "years_helped": [
@@ -86,8 +86,8 @@
     },
     {
       "book": "CHAL_E45_E3",
-      "mdd_help_2020_pp": 1.7098029519699076,
-      "mdd_help_non2020_positive_pp": 2.1739619313364877,
+      "mdd_improve_2020_pp": 1.7098029519699076,
+      "mdd_improve_non2020_positive_pp": 2.1739619313364877,
       "share_of_positive_help_in_2020": 0.4402436819281109,
       "n_crisis_years_helped_gt_0_25pp": 4,
       "years_helped": [
@@ -99,8 +99,8 @@
     },
     {
       "book": "FIN_ONLY_A10",
-      "mdd_help_2020_pp": 0.9119746801036444,
-      "mdd_help_non2020_positive_pp": 0.17105472034134594,
+      "mdd_improve_2020_pp": 0.9119746801036444,
+      "mdd_improve_non2020_positive_pp": 0.17105472034134594,
       "share_of_positive_help_in_2020": 0.8420590241861728,
       "n_crisis_years_helped_gt_0_25pp": 1,
       "years_helped": [
@@ -109,8 +109,8 @@
     },
     {
       "book": "HIGH_BETA_A10",
-      "mdd_help_2020_pp": 0.8695227031677466,
-      "mdd_help_non2020_positive_pp": 0.19134880961440004,
+      "mdd_improve_2020_pp": 0.8695227031677466,
+      "mdd_improve_non2020_positive_pp": 0.19134880961440004,
       "share_of_positive_help_in_2020": 0.8196305515711457,
       "n_crisis_years_helped_gt_0_25pp": 1,
       "years_helped": [
@@ -135,6 +135,6 @@
     "trail_alert_pp": 3.0,
     "trail_pause_pp": 5.0,
     "multi_event_min_years": 2,
-    "mdd_help_threshold_pp": 0.25
+    "mdd_improve_threshold_pp": 0.25
   }
 }

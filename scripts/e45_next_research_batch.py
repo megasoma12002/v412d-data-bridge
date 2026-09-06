@@ -609,7 +609,7 @@ def main() -> int:
 
     help_df = pd.DataFrame(help_rows)
     window_df = pd.DataFrame(window_rows)
-    help_df.to_csv(out_o / "alt_lever_crisis_mdd_help.csv", index=False)
+    help_df.to_csv(out_o / "alt_lever_crisis_mdd_improve.csv", index=False)
     window_df.to_csv(out_o / "alt_lever_window_scores.csv", index=False)
 
     qualify_rows = []

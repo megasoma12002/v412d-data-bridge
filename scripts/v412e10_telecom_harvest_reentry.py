@@ -45,7 +45,7 @@ def make_weights(dates,cols,fin_index,tel_index,fin_close,mode):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--financial-adjusted',required=True);ap.add_argument('--telecom-adjusted',required=True);ap.add_argument('--out',required=True);a=ap.parse_args();out=Path(a.out);out.mkdir(parents=True,exist_ok=True)
-    f=pd.read_csv(a.financial_adjusted);t=pd.read_csv(a.telecom_adjusted)
+    f=pd.read_csv(a.financial_adjusted, dtype={"code": str});t=pd.read_csv(a.telecom_adjusted, dtype={"code": str})
     for x in (f,t):x.date=pd.to_datetime(x.date);x.code=x.code.astype(str)
     fc=f.pivot(index='date',columns='code',values='adjusted_close').sort_index();tc=t.pivot(index='date',columns='code',values='adjusted_close').sort_index();dates=fc.index.intersection(tc.index);fc=fc.reindex(dates).ffill(limit=3);tc=tc.reindex(dates).ffill(limit=3)
     ret=pd.concat([fc.pct_change(fill_method=None),tc.pct_change(fill_method=None)],axis=1).fillna(0);fi=(1+ret[FIN].mean(axis=1)).cumprod();ti=(1+ret[TEL].mean(axis=1)).cumprod()

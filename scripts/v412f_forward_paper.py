@@ -17,7 +17,7 @@ def weights_dict(row): return {s:round(float(row.get(s,0)),8) for s in STOCKS if
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument('--raw',required=True); p.add_argument('--adjusted',required=True); p.add_argument('--forward-dir',required=True); p.add_argument('--start-date',default='2026-08-24'); a=p.parse_args()
-    out=Path(a.forward_dir); out.mkdir(parents=True,exist_ok=True); raw=pd.read_csv(a.raw); adj=pd.read_csv(a.adjusted)
+    out=Path(a.forward_dir); out.mkdir(parents=True,exist_ok=True); raw=pd.read_csv(a.raw, dtype={"code": str}); adj=pd.read_csv(a.adjusted, dtype={"code": str})
     z=d.prep(raw); rc,ro,ac,ao=e1.aligned_matrices(raw,adj); scores=d.make_scores(z,1); dates=list(rc.index); latest=dates[-1]
     dsig,_=d.targets(scores,dates,21,2,75)
     q=e3mod.raw_risk_features(z); exposure=e3mod.exposure_controller(q,'voltarget',.5,20,.14,.5)

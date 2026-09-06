@@ -21,7 +21,7 @@ def main():
     raw_cols=['date','code','open','high','low','close','volume']
     t=raw[raw.code.isin(TEL)][raw_cols].merge(ta[['date','code','adjusted_close']],on=['date','code'],how='inner').rename(columns={'adjusted_close':'adj_close'})
     pieces.append(t[['date','code','open','high','low','close','adj_close','volume']])
-    ea=pd.read_csv(a.etf0050_adjusted);ea.date=pd.to_datetime(ea.date);ea['code']='0050'
+    ea=pd.read_csv(a.etf0050_adjusted, dtype={"code": str});ea.date=pd.to_datetime(ea.date);ea['code']='0050'
     e=raw[raw.code.eq('0050')][raw_cols].merge(ea[['date','code','adjusted_close']],on=['date','code'],how='inner').rename(columns={'adjusted_close':'adj_close'})
     pieces.append(e[['date','code','open','high','low','close','adj_close','volume']])
     ix=pd.read_csv(a.taiex);ix.date=pd.to_datetime(ix.date);ix['code']='TAIEX';ix['open']=ix.close;ix['high']=ix.close;ix['low']=ix.close;ix['adj_close']=ix.close;ix['volume']=0
