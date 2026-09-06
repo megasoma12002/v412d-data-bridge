@@ -368,6 +368,101 @@ def build_m2_sleeve_schedule(
     return pd.DataFrame(rows, index=pd.DatetimeIndex(idx))
 
 
+# --- M3 three-state machine (frozen v0) ---------------------------------
+M3_ENTER_SLOW = 0.45
+M3_EXIT_SLOW = 0.32
+M3_ENTER_CRASH = 0.70
+M3_EXIT_CRASH = 0.52
+M3_EXIT_CRASH_TO_NORMAL = 0.30
+M3_CONFIRM_SLOW = 5
+M3_CONFIRM_CRASH = 3
+M3_CONFIRM_EXIT = 5
+M3_ACTION_U = {"NORMAL": 0.0, "SLOW_BEAR": 0.40, "CRASH": 0.75}
+
+
+def build_m3_state_series(intensity: pd.Series) -> pd.Series:
+    """Frozen M3 hysteresis state path from M1 intensity s_t (close-t)."""
+    s = intensity.astype(float).copy()
+    states: list[str] = []
+    state = "NORMAL"
+    up_slow = up_crash = down_slow = down_crash = down_crash_norm = 0
+    for v in s.tolist():
+        x = float(v) if v == v else 0.0  # NaN -> 0
+        if state == "NORMAL":
+            up_slow = up_slow + 1 if x >= M3_ENTER_SLOW else 0
+            up_crash = up_crash + 1 if x >= M3_ENTER_CRASH else 0
+            down_slow = down_crash = down_crash_norm = 0
+            if up_crash >= M3_CONFIRM_CRASH:
+                state = "CRASH"
+                up_slow = up_crash = 0
+            elif up_slow >= M3_CONFIRM_SLOW:
+                state = "SLOW_BEAR"
+                up_slow = up_crash = 0
+        elif state == "SLOW_BEAR":
+            up_crash = up_crash + 1 if x >= M3_ENTER_CRASH else 0
+            down_slow = down_slow + 1 if x <= M3_EXIT_SLOW else 0
+            up_slow = down_crash = down_crash_norm = 0
+            if up_crash >= M3_CONFIRM_CRASH:
+                state = "CRASH"
+                up_crash = down_slow = 0
+            elif down_slow >= M3_CONFIRM_EXIT:
+                state = "NORMAL"
+                up_crash = down_slow = 0
+        else:  # CRASH
+            down_crash = down_crash + 1 if x <= M3_EXIT_CRASH else 0
+            down_crash_norm = down_crash_norm + 1 if x <= M3_EXIT_CRASH_TO_NORMAL else 0
+            up_slow = up_crash = down_slow = 0
+            if down_crash_norm >= M3_CONFIRM_EXIT:
+                state = "NORMAL"
+                down_crash = down_crash_norm = 0
+            elif down_crash >= M3_CONFIRM_EXIT:
+                state = "SLOW_BEAR"
+                down_crash = down_crash_norm = 0
+        states.append(state)
+    return pd.Series(states, index=s.index, name="m3_state")
+
+
+def apply_m3_state_action(
+    sleeve_weights: dict[str, float],
+    state: str,
+) -> dict[str, float]:
+    """Apply frozen per-state RELOC_TEL action (u from M3_ACTION_U)."""
+    st = str(state).upper()
+    u = float(M3_ACTION_U.get(st, 0.0))
+    if u <= 0.0 or st == "NORMAL":
+        return {
+            "Financial": float(sleeve_weights.get("Financial", 0.0)),
+            "Telecom": float(sleeve_weights.get("Telecom", 0.0)),
+            "0050": float(sleeve_weights.get("0050", 0.0)),
+        }
+    # intensity=1, cut=u => relocate fraction u (matches frozen action table)
+    return apply_m2_def_relocate(sleeve_weights, intensity=1.0, cut=u, mode="RELOC_TEL")
+
+
+def build_m3_sleeve_schedule(
+    base_targets: pd.DataFrame,
+    intensity: pd.Series,
+) -> tuple[pd.DataFrame, pd.Series]:
+    """Build Exact-T+1 M3 sleeve schedule from close-t states (action uses state_{t-1})."""
+    state_t = build_m3_state_series(intensity.reindex(base_targets.index).fillna(0.0))
+    state_lag = state_t.shift(1).fillna("NORMAL")
+    rows = []
+    idx = []
+    for dt, row in base_targets.iterrows():
+        out = apply_m3_state_action(
+            {
+                "Financial": float(row["Financial"]),
+                "Telecom": float(row["Telecom"]),
+                "0050": float(row["0050"]),
+            },
+            str(state_lag.loc[dt]),
+        )
+        rows.append(out)
+        idx.append(dt)
+    sched = pd.DataFrame(rows, index=pd.DatetimeIndex(idx))
+    return sched, state_t
+
+
 def write_status(path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(manifest_dict(), indent=2) + "\n")
