@@ -97,7 +97,8 @@ mirrors under `repro/`.
 **Evidence:**  
 - `scripts/e45_five_research_batch.py` — still emits observe prose with `FIN_ONLY_A10` (mixed with one `SLEEVE_FIN_ONLY_A10` book field)  
 - `research/ops/E45_HIGH_BETA_SLEEVE_LOCAL_PAPER.md` — “FIN_ONLY_A10 observe stays OPERATING”  
-- `research/ops/E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.md` (+ `.zh-TW.md`)  
+- `research/ops/E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.md`  
+- `research/ops/E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.zh-TW.md`  
 - `research/ops/E45_FIVE_RESEARCH_BATCH_INTEGRATED.md` + `research/e45/` / `repro/` mirrors
 
 **Fix:** Re-publish five-batch / HIGH_BETA docs from fixed generator; ballot text must say `SLEEVE_FIN_ONLY_A10` for observe.  
