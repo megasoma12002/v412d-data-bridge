@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-06T16:32:02.976850+00:00",
+  "generated_at_utc": "2026-09-06T17:08:02.594169+00:00",
   "asof": "2026-09-04",
-  "status": "AWAITING_HUMAN_ACCEPT",
+  "status": "OPERATING_OBSERVE",
   "operating_observe": false,
   "locked_id": "M2_RELOC_BIL_FX_C50",
   "def_honesty": "BIL \u00d7 USDTWD mid \u2014 FX risk; mid optimistic; not TWD cash",
@@ -103,7 +103,7 @@
     "structural_buffer_pp": 2.0
   },
   "non_actions": [
-    "AWAITING_HUMAN_ACCEPT \u2014 not OPERATING",
+    "OPERATING_OBSERVE \u2014 OPERATING (paper only)",
     "No Soft-Frozen / DEFAULT / stitch",
     "No live orders"
   ]
