@@ -111,3 +111,13 @@ M1 read: multi-year help includes non-2020, but **COVID-ex held-out score stays 
 M2 read: `M2_RELOC_TEL_C50` clears §2 and beats matched SHRINK on COVID-ex held-out (DEF_TEL honesty: Telecom equity proxy only). Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN** · no invented replacement for the retired MDD narrative · no E45 same-knob densify.
 M3 read: `M3_STATE_V0` fails §2 and underperforms continuous M2 on COVID-ex held-out (−5.52 vs +0.16); keep observe E45 sleeves as tax-control refs; do **not** densify E45 α; no Soft-Frozen/stitch auto-open.
 
+## Post-M3 follow-ups (2026-09-06) — no Soft-Frozen / stitch
+
+| # | Item | Status | Artifact |
+|---|---|---|---|
+| 1 | True DEF data ingest (cash / short-duration / FX) | **DONE — INGEST PASS** | `E45_M2_TRUE_DEF_DATA_INGEST.md` · freeze `E45_M2_TRUE_DEF_DATA_V0_FROZEN.md` · `data/def_proxies/` |
+| 2 | Human ballot: OPEN M2 relocate observe (`M2_RELOC_TEL_C50`) | **DRAFT / NOT OPEN** | `E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT.md` (+ `.zh-TW.md`) |
+| 3 | M2 v1 relocate paper on true DEF | **NOT STARTED** (needs join freeze before metrics) | — |
+
+Engineering: PR **#101** (M3 pack) merged to `main`. Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN**.
+
