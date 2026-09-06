@@ -295,6 +295,79 @@ def apply_exposure_to_sleeve_weights(
     return out
 
 
+def apply_m2_def_relocate(
+    sleeve_weights: dict[str, float],
+    intensity: float,
+    cut: float,
+    mode: str,
+) -> dict[str, float]:
+    """M2 DEF actuator (frozen v0): shrink / relocate-to-Telecom / hybrid.
+
+    ``intensity`` is lag-1 state intensity in [0,1]. ``cut`` is c in {0.5,0.75}.
+    Modes match research/e45/E45_M2_DEF_SLEEVE_V0_FROZEN.md.
+    """
+    u = float(np.clip(float(cut) * float(intensity), 0.0, 1.0))
+    w_fin = float(sleeve_weights.get("Financial", 0.0))
+    w_tel = float(sleeve_weights.get("Telecom", 0.0))
+    w_0050 = float(sleeve_weights.get("0050", 0.0))
+    m = str(mode).upper()
+    if m == "SHRINK":
+        scale = 1.0 - u
+        return {
+            "Financial": w_fin * scale,
+            "Telecom": w_tel * scale,
+            "0050": w_0050 * scale,
+        }
+    if m == "RELOC_TEL":
+        move_fin = w_fin * u
+        move_0050 = w_0050 * u
+        return {
+            "Financial": w_fin - move_fin,
+            "Telecom": w_tel + move_fin + move_0050,
+            "0050": w_0050 - move_0050,
+        }
+    if m == "HYBRID_TEL":
+        half = 0.5 * u
+        w_fin_s = w_fin * (1.0 - half)
+        w_tel_s = w_tel * (1.0 - half)
+        w_0050_s = w_0050 * (1.0 - half)
+        move_fin = w_fin * half
+        move_0050 = w_0050 * half
+        return {
+            "Financial": w_fin_s - move_fin,
+            "Telecom": w_tel_s + move_fin + move_0050,
+            "0050": w_0050_s - move_0050,
+        }
+    raise ValueError(f"unknown M2 mode: {mode}")
+
+
+def build_m2_sleeve_schedule(
+    base_targets: pd.DataFrame,
+    intensity_lag1: pd.Series,
+    cut: float,
+    mode: str,
+) -> pd.DataFrame:
+    """Daily Soft-Frozen sleeve schedule under frozen M2 relocate rule."""
+    rows = []
+    idx = []
+    for dt, row in base_targets.iterrows():
+        if dt not in intensity_lag1.index:
+            continue
+        out = apply_m2_def_relocate(
+            {
+                "Financial": float(row["Financial"]),
+                "Telecom": float(row["Telecom"]),
+                "0050": float(row["0050"]),
+            },
+            float(intensity_lag1.loc[dt]),
+            cut,
+            mode,
+        )
+        rows.append(out)
+        idx.append(dt)
+    return pd.DataFrame(rows, index=pd.DatetimeIndex(idx))
+
+
 def write_status(path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(manifest_dict(), indent=2) + "\n")

@@ -72,6 +72,7 @@ def simulate_core(
     e45_exposure: pd.Series | None = None,
     e45_legacy_crisis_scale: float | None = None,
     e45_sleeve_names: tuple[str, ...] | None = None,
+    sleeve_weight_schedule: pd.DataFrame | None = None,
     cost_multiple: float = 1.0,
     capital: float = CAPITAL,
     lot_size: int = 1,
@@ -84,6 +85,9 @@ def simulate_core(
 
     cost_multiple: scale BUY_FEE/SELL_FEE/SLIP/TAX_* for this run only (no module
     monkeypatch). e45_sleeve_names: if set, scale only those sleeves by exposure.
+    sleeve_weight_schedule: optional daily Soft-Frozen sleeve targets with columns
+    Financial/Telecom/0050 (paper M2 relocate). When present for a date, it overrides
+    e45_exposure / legacy crisis scale for that date.
     """
     if e22_version is None:
         if apply_stock_div is False:
@@ -231,7 +235,15 @@ def simulate_core(
             "0050": float(tw["0050"]),
         }
         equity_scale = 1.0
-        if e45_exposure is not None and dt in e45_exposure.index:
+        if sleeve_weight_schedule is not None and dt in sleeve_weight_schedule.index:
+            row = sleeve_weight_schedule.loc[dt]
+            sleeve_w = {
+                "Financial": float(row["Financial"]),
+                "Telecom": float(row["Telecom"]),
+                "0050": float(row["0050"]),
+            }
+            equity_scale = float(sum(sleeve_w.values()))
+        elif e45_exposure is not None and dt in e45_exposure.index:
             equity_scale = float(e45_exposure.loc[dt])
             sleeve_w = e45.apply_exposure_to_sleeve_weights(
                 sleeve_w, equity_scale, sleeve_names=e45_sleeve_names
