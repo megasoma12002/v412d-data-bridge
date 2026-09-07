@@ -1,13 +1,21 @@
 # Ops Month-End Paper Pack
 
-Generated: `2026-09-07T03:27:51.179198+00:00`
+Generated: `2026-09-07T15:50:55.971191+00:00`
 Status: **RESEARCH / OPS** — Soft-Frozen **[0.50, 0.95] unchanged**; no cutover.
 
-- Refresh ledgers: **False**
-- All steps OK: **False**
+- Refresh ledgers: **True**
+- All steps OK: **True**
 
 | Step | OK | Exit |
 |---|---|---:|
+| `l4_dual_paper_ledgers` | True | 0 |
+| `fincap50_dual_paper_ledgers` | True | 0 |
+| `blend025_dual_paper_ledgers` | True | 0 |
+| `e45_dual_paper_ledgers` | True | 0 |
+| `e45_blend025_dual_paper_ledgers` | True | 0 |
+| `e45_blend005_dual_paper_ledgers` | True | 0 |
+| `e45_sleeve_local_dual_paper_ledgers` | True | 0 |
+| `e45_m2_bil_fx_dual_paper_ledgers` | True | 0 |
 | `l4_month_end` | True | 0 |
 | `fincap50_month_end` | True | 0 |
 | `blend025_month_end` | True | 0 |
@@ -19,7 +27,7 @@ Status: **RESEARCH / OPS** — Soft-Frozen **[0.50, 0.95] unchanged**; no cutove
 | `track_a_s9a1` | True | 0 |
 | `live_paper_recon` | True | 0 |
 | `e22_data_quality_kpi` | True | 0 |
-| `e22_gap6_fidelity_kpi` | False | 2 |
+| `e22_gap6_fidelity_kpi` | True | 0 |
 | `data_source_shadow_reconcile` | True | 0 |
 | `data_source_phase_c_probes` | True | 0 |
 | `data_source_resilience_kpi` | True | 0 |

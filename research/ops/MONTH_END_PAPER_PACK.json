@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-07T03:27:51.179198+00:00",
+  "generated_at_utc": "2026-09-07T15:50:55.971191+00:00",
   "label": "OPS_MONTH_END_PAPER_PACK",
   "live_wire": false,
   "soft_frozen_clip": [
@@ -7,11 +7,51 @@
     0.95
   ],
   "soft_frozen_unchanged": true,
-  "refresh_ledgers": false,
+  "refresh_ledgers": true,
   "continue_on_error": true,
-  "partial_pack": true,
-  "all_ok": false,
+  "partial_pack": false,
+  "all_ok": true,
   "steps": [
+    {
+      "name": "l4_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "fincap50_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "blend025_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_blend025_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_blend005_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_sleeve_local_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_m2_bil_fx_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
     {
       "name": "l4_month_end",
       "ok": true,
@@ -69,8 +109,8 @@
     },
     {
       "name": "e22_gap6_fidelity_kpi",
-      "ok": false,
-      "returncode": 2
+      "ok": true,
+      "returncode": 0
     },
     {
       "name": "data_source_shadow_reconcile",

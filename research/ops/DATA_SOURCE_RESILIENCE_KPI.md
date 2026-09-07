@@ -1,6 +1,6 @@
 # Data Source Resilience KPI
 
-Generated: `2026-09-07T03:27:46.128827+00:00`
+Generated: `2026-09-07T15:50:50.862708+00:00`
 Status: **OPS** — Soft-Frozen unchanged; no live-wire.
 
 - Critical streams: **7**

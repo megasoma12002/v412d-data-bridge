@@ -178,3 +178,7 @@ Human 「是的」 — TW 整股 1 張 = 1000 股. Live order/fill sizing + ledg
 ## Paper board-lot 1000 + lot glossary (2026-09-07)
 
 Human: paper 也改整張 1000；定義 一張=1000／零股=1–999／畸零股=0.x（面額）. Note: `TW_SHARE_LOT_DEFINITIONS.md`. Soft-Frozen KEEP.
+
+## Paper dual-ledger re-run board-lot 1000 (2026-09-07)
+
+Human 「請重跑回測數據」. `ops_month_end_paper_pack.py --refresh-ledgers` — all active dual-paper observe fills 整張 1000. Note: `PAPER_BOARD_LOT_1000_RERUN_2026-09-07.md`. Soft-Frozen KEEP.

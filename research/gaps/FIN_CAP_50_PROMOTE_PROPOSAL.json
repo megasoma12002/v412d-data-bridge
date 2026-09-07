@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-09-05T01:33:13.170662+00:00",
-  "label": "FIN_CAP_50_DUAL_PAPER_PROMOTE_PROPOSAL__CUTOVER_BLOCKED",
+  "generated_at_utc": "2026-09-07T15:50:12.437165+00:00",
+  "label": "FIN_CAP_50_DUAL_PAPER_PROMOTE_PROPOSAL",
   "live_wire": false,
   "soft_frozen_default_unchanged": true,
   "proposed_live_clip_if_cutover": {
@@ -21,31 +21,31 @@
       "same_bar_fills": 0,
       "windows": {
         "full": {
-          "cagr": 0.137829469400496,
-          "max_drawdown": -0.22639131293777315,
-          "utility": 0.024633812931609433,
-          "vol": 0.13322336551614303,
-          "n_days": 3351,
-          "fin_mean": 0.7980753983577771,
-          "fin_max": 0.9194479273989314
+          "cagr": 0.13777356146130426,
+          "max_drawdown": -0.22386188574516097,
+          "utility": 0.025842618588723776,
+          "vol": 0.12759772536731773,
+          "n_days": 3352,
+          "fin_mean": 0.7992568698944301,
+          "fin_max": 0.9194447157487543
         },
         "oof_2011_2018": {
-          "cagr": 0.08846959052336945,
-          "max_drawdown": -0.17412900003864262,
-          "utility": 0.0014050905040481343,
-          "vol": 0.10679608464774304,
+          "cagr": 0.09459268677864463,
+          "max_drawdown": -0.16489595982227312,
+          "utility": 0.01214470686750807,
+          "vol": 0.09970715005868673,
           "n_days": 1495,
-          "fin_mean": 0.8023022268225258,
-          "fin_max": 0.9109549155231154
+          "fin_mean": 0.8032773087650682,
+          "fin_max": 0.9109298470060324
         },
         "heldout_2019_plus": {
-          "cagr": 0.18235031521908462,
-          "max_drawdown": -0.22639131293777337,
-          "utility": 0.06915465875019794,
-          "vol": 0.1510306267187083,
-          "n_days": 1856,
-          "fin_mean": 0.7940968049698915,
-          "fin_max": 0.9194479273989314
+          "cagr": 0.17718012973138508,
+          "max_drawdown": -0.22386188574516086,
+          "utility": 0.06524918685880465,
+          "vol": 0.14604525705580276,
+          "n_days": 1857,
+          "fin_mean": 0.79547458303013,
+          "fin_max": 0.9194447157487543
         }
       }
     },
@@ -54,29 +54,29 @@
       "same_bar_fills": 0,
       "windows": {
         "full": {
-          "cagr": 0.12703815231932358,
-          "max_drawdown": -0.19575705858876424,
-          "utility": 0.02915962302494146,
-          "vol": 0.11255413038141437,
-          "n_days": 3351,
+          "cagr": 0.13073228021148275,
+          "max_drawdown": -0.19240314149144877,
+          "utility": 0.03453070946575837,
+          "vol": 0.11056322743888153,
+          "n_days": 3352,
           "fin_mean": 0.5,
           "fin_max": 0.5000000000000001
         },
         "oof_2011_2018": {
-          "cagr": 0.08498439286806181,
-          "max_drawdown": -0.128423137196493,
-          "utility": 0.020772824269815304,
-          "vol": 0.09547796401772216,
+          "cagr": 0.08851688768558841,
+          "max_drawdown": -0.1257874281621365,
+          "utility": 0.025623173604520155,
+          "vol": 0.09473660054761508,
           "n_days": 1495,
           "fin_mean": 0.5,
           "fin_max": 0.5000000000000001
         },
         "heldout_2019_plus": {
-          "cagr": 0.16601509541261028,
-          "max_drawdown": -0.19575705858876413,
-          "utility": 0.06813656611822821,
-          "vol": 0.1243012183590252,
-          "n_days": 1856,
+          "cagr": 0.17003159748497976,
+          "max_drawdown": -0.19240314149144877,
+          "utility": 0.07383002673925537,
+          "vol": 0.12145950458588595,
+          "n_days": 1857,
           "fin_mean": 0.5,
           "fin_max": 0.5000000000000001
         }
@@ -84,8 +84,8 @@
     }
   },
   "heldout_delta_vs_base": {
-    "mdd_improve_pp": 3.063425434900924,
-    "cagr_giveback_pp": 1.6335219806474344,
+    "mdd_improve_pp": 3.145874425371209,
+    "cagr_giveback_pp": 0.7148532246405326,
     "research_heldout_pass_reference": true,
     "note": "Matches prior PASS_HELDOUT_FIN_CAP research; this run refreshes dual paper books"
   },
@@ -102,9 +102,5 @@
     "FIN_CAP cut retune",
     "L1 loss-engine reattach",
     "Claim CAGR\u226520% / MDD\u226415% as live results"
-  ],
-  "cutover_blocked": true,
-  "authoritative_go_live_status": "NOT_READY_SEALED_CAGR",
-  "banner": "Held-out PASS does not authorize cutover. Go-live is NOT_READY_SEALED_CAGR. Soft-Frozen stays [0.50,0.95].",
-  "doc_refreshed_at_utc": "2026-09-05T05:25:32.324205+00:00"
+  ]
 }

@@ -1,6 +1,6 @@
-# E45 Blend-α=0.05 Month-End Paper Monitor — asof 2026-09-04
+# E45 Blend-α=0.05 Month-End Paper Monitor — asof 2026-09-07
 
-Generated: `2026-09-07T03:27:24.051260+00:00`
+Generated: `2026-09-07T15:50:27.923084+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **BLEND_E45_A05** (α=0.05 × E45 `E3_VOLTARGET_WINNER` on early-stack)
 
@@ -11,20 +11,18 @@ Locked: **BLEND_E45_A05** (α=0.05 × E45 `E3_VOLTARGET_WINNER` on early-stack)
 
 | Window | BASE CAGR | BASE MDD | BLEND_E45_A05 CAGR | BLEND_E45_A05 MDD | MDD Δpp | CAGR giveback pp | Rel NAV | Decision? |
 |---|---:|---:|---:|---:|---:|---:|---:|:---:|
-| mtd | 1992.20%* | 0.00% | 1600.88%* | 0.00% | +0.00 | +391.32 | 0.9975 | no |
-| ytd | 68.37% | -14.09% | 63.50% | -11.31% | +2.78 | +4.87 | 0.9814 | yes |
-| trailing_1y | 54.17% | -14.09% | 48.99% | -11.31% | +2.78 | +5.17 | 0.9679 | yes |
-| sealed_2023_plus | 24.89% | -14.09% | 23.47% | -11.31% | +2.78 | +1.42 | 0.9610 | yes |
-| heldout_2019_plus | 18.20% | -22.54% | 17.24% | -21.84% | +0.70 | +0.96 | 0.9417 | yes |
-| full | 13.79% | -22.54% | 13.37% | -21.84% | +0.70 | +0.42 | 0.9516 | no |
+| mtd | 1509.63%* | 0.00% | 1441.31%* | 0.00% | +0.00 | +68.32 | 0.9993 | no |
+| ytd | 68.87% | -13.04% | 67.00% | -12.24% | +0.79 | +1.86 | 0.9929 | yes |
+| trailing_1y | 53.96% | -13.04% | 52.06% | -12.24% | +0.79 | +1.91 | 0.9882 | yes |
+| sealed_2023_plus | 25.33% | -13.04% | 24.64% | -12.24% | +0.79 | +0.69 | 0.9809 | yes |
+| heldout_2019_plus | 17.78% | -22.39% | 17.69% | -22.24% | +0.14 | +0.09 | 0.9943 | yes |
+| full | 13.81% | -22.39% | 13.74% | -22.24% | +0.14 | +0.07 | 0.9923 | no |
 
 \* `mtd` CAGR annualized from a short sample — **non-decision / display-only**.
 
 ## Alerts
 
-- ALERT: BLEND_E45_A05 ytd CAGR giveback > 3.0 pp (paper)
-- ALERT: BLEND_E45_A05 trailing_1y CAGR giveback > 3.0 pp (paper)
-- PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
+- None (dynamic windows clean; stitch still blocked)
 
 ## Stitch / cutover status
 
