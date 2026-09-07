@@ -180,7 +180,12 @@ def main():
         filled = set()
         if (sdir / "fills.csv").exists():
             filled = set(pd.read_csv(sdir / "fills.csv", dtype={"code": str}).fill_id.astype(str))
-        pending = orders[(~orders.order_id.astype(str).isin(filled)) & (pd.to_datetime(orders.signal_date) < latest)]
+        pending = orders[
+            (~orders.order_id.astype(str).isin(filled)) & (pd.to_datetime(orders.signal_date) < latest)
+        ].copy()
+        # SELL before BUY so rebalance cash is freed before buys (avoids qty=0 BUY fills).
+        pending["_side_rank"] = pending["side"].map({"SELL": 0, "BUY": 1}).fillna(2)
+        pending = pending.sort_values(["signal_date", "_side_rank", "code"])
         for _, o in pending.iterrows():
             q = int(o.quantity)
             side = o.side
@@ -193,6 +198,9 @@ def main():
                 gross = q * fp
                 fee = gross * BUY_FEE
                 signed = q
+            # Never persist qty<=0 fills (would burn order_id and block retries).
+            if q < 1:
+                continue
             pos[o.code] = pos.get(o.code, 0) + signed
             cash += -gross - fee if side == "BUY" else gross - fee
             fills.append(
@@ -241,7 +249,7 @@ def main():
         )
 
     # E22 formal books on today's ex-date (forward-only; idempotent via applied keys).
-    div_events = e22div.load_dividend_events(a.dividends)
+    div_events = e22div.load_dividend_events(a.dividends, require_exists=True)
     skip = set(state.get("e22_applied_keys") or [])
     div_path = sdir / "dividends_applied.csv"
     if div_path.exists():

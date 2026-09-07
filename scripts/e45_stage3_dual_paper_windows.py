@@ -93,8 +93,8 @@ def main() -> int:
 
     deltas = {}
     for w in ("heldout_2019_plus", "sealed_2023_plus", "full"):
-        b_mdd = _get("BASE_E16_E18_E22_v2s", w, "mdd")
-        c_mdd = _get("CHAL_E45_E3", w, "mdd")
+        b_mdd = _get("BASE_E16_E18_E22_v2s", w, "max_drawdown")
+        c_mdd = _get("CHAL_E45_E3", w, "max_drawdown")
         b_cagr = _get("BASE_E16_E18_E22_v2s", w, "cagr")
         c_cagr = _get("CHAL_E45_E3", w, "cagr")
         deltas[w] = {
@@ -160,7 +160,7 @@ def main() -> int:
     ]
     for r in rows:
         lines.append(
-            f"| {r['book']} | {r['window']} | {pct(r['cagr'])} | {pct(r['mdd'])} | {r['n_days']} |"
+            f"| {r['book']} | {r['window']} | {pct(r['cagr'])} | {pct(r['max_drawdown'])} | {r['n_days']} |"
         )
     lines += [
         "",

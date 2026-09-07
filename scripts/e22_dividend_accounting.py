@@ -110,9 +110,13 @@ class DivApplyResult:
             self.details = []
 
 
-def load_dividend_events(path: Path | str = DIV_PATH_DEFAULT) -> list[DivEvent]:
+def load_dividend_events(
+    path: Path | str = DIV_PATH_DEFAULT, *, require_exists: bool = False
+) -> list[DivEvent]:
     path = Path(path)
     if not path.exists():
+        if require_exists:
+            raise FileNotFoundError(f"dividend events file missing: {path}")
         return []
     out: list[DivEvent] = []
     with path.open(newline="", encoding="utf-8") as handle:
