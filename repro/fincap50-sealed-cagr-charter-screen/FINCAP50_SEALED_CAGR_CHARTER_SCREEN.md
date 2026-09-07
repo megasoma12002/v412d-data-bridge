@@ -1,6 +1,6 @@
 # FIN_CAP_50 Sealed-CAGR Charter Screen
 
-Generated: `2026-09-05T08:01:17.243710+00:00`
+Generated: `2026-09-07T02:20:59.051702+00:00`
 Status: **RESEARCH_ONLY** — Soft-Frozen **[0.50, 0.95] KEEP**; no cutover.
 
 ## Decision: **PAPER_PROMOTE_PROPOSAL_ONLY**

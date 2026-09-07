@@ -44,3 +44,8 @@ Parent sleeves OPERATING: FULL + A25 + A05 + FIN_A10 + **BIL_FX_C50**
 4. Do not label BIL_FX as TWD cash.
 
 Label: `E45_M2_C35_OBSERVE_RETARGET_BALLOT_DRAFT_2026-09-07__NOT_OPEN__STITCH_FORBIDDEN`
+
+## Hold record (2026-09-07)
+
+Human ops-cadence 「請全做」 recorded **HOLD DRAFT** (not ACCEPT): `research/ops/E45_M2_C35_OBSERVE_RETARGET_HOLD.md`  
+Operating lock remains `M2_RELOC_BIL_FX_C50`.

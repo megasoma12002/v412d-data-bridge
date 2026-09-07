@@ -11,3 +11,7 @@
 | **REJECT** | 封存；維持 C50 |
 
 Soft-Frozen／DEFAULT **KEEP** · stitch **FORBIDDEN** · 不發明 MDD · 不把 BIL_FX 當台幣現金
+
+## HOLD 紀錄（2026-09-07）
+
+人類 ops「請全做」已記錄 **HOLD DRAFT**（非 ACCEPT）：`research/ops/E45_M2_C35_OBSERVE_RETARGET_HOLD.md`

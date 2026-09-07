@@ -149,3 +149,8 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; reinvent retired E45 MDD narr
 - `scripts/e21_qc.py` / `e21_live_vs_paper_recon.py`
 - `research/gaps/FIN_CAP_50_GO_LIVE_VERIFY.md`
 - `research/e50a/DUAL_TRACK_OPERATING_BOARD.md`
+
+## Ops cadence note (2026-09-07)
+
+Merged E45 M2 BIL_FX optimize OPEN C50 (#106) + research A–C (#107).  
+C35 / HIGH_BETA remain **HOLD DRAFT**. Month-end pack run: `research/ops/OPS_CADENCE_2026-09-07.md` (partial: gap6 live evidence missing). Soft-Frozen KEEP · stitch FORBIDDEN.
