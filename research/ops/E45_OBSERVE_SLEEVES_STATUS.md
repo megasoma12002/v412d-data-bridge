@@ -1,28 +1,30 @@
 # E45 Observe Sleeves — Status
 
-Generated: `2026-09-06T02:48:16.662561+00:00`
+Generated: `2026-09-07T03:27:51+00:00` (post month-end cadence)
 
-| Sleeve | α | Status | Stitch | Soft-Frozen |
+| Sleeve | α / cut | Status | Stitch | Soft-Frozen |
 |---|---:|---|---|---|
-| CHAL_E45_E3 (FULL) | 1.00 | **OPERATING** | FORBIDDEN | KEEP |
-| BLEND_E45_A25 | 0.25 | **OPERATING** | FORBIDDEN | KEEP |
-| BLEND_E45_A05 | 0.05 | **OPERATING** (opened 2026-09-06) | FORBIDDEN | KEEP |
-| Sleeve-local FIN_ONLY @ α=0.10 | 0.10 (FIN only) | **OPERATING** (opened 2026-09-06) | FORBIDDEN | KEEP |
+| CHAL_E45_E3 (FULL) | 1.00 | **OPERATING** (tip PAUSE) | FORBIDDEN | KEEP |
+| BLEND_E45_A25 | 0.25 | **OPERATING** (tip PAUSE) | FORBIDDEN | KEEP |
+| BLEND_E45_A05 | 0.05 | **OPERATING** (tip PAUSE) | FORBIDDEN | KEEP |
+| Sleeve-local FIN_ONLY @ α=0.10 | 0.10 (FIN only) | **OPERATING** (tip PAUSE) | FORBIDDEN | KEEP |
+| M2 BIL_FX relocate | cut=0.35 | **OPERATING** lock **`M2_RELOC_BIL_FX_C35`** (tip PAUSE) | FORBIDDEN | KEEP |
 
-Cadence: `python3 scripts/ops_month_end_paper_pack.py` (incl. A05 + sleeve-local after ledger refresh).
+Cadence: `python3 scripts/ops_month_end_paper_pack.py` (incl. A05 + sleeve-local + BIL_FX C35). Latest note: `OPS_CADENCE_2026-09-07_C35_OBSERVE.md`.
 
-Label: `E45_OBSERVE_SLEEVES_FULL_A25_A05_SLEEVE_LOCAL_OPERATING__STITCH_FORBIDDEN`
+Label: `E45_OBSERVE_SLEEVES_FULL_A25_A05_FINA10_BILFX_C35_OPERATING__STITCH_FORBIDDEN`
 
-OPEN **ACCEPTED / OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md` — locked `SLEEVE_FIN_ONLY_A10`. Draft retained for history: `E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md`.
+OPEN **ACCEPTED / OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md` — locked `SLEEVE_FIN_ONLY_A10`.  
+OPEN **ACCEPTED / OPERATING**: `research/ops/E45_M2_BIL_FX_OBSERVE_OPEN.md` — locked `M2_RELOC_BIL_FX_C35` (C50 lock retired).
 
-## Draft ballots (NOT OPEN)
+## Draft / HOLD ballots (NOT OPEN)
 
 | Ballot | Status | Artifact |
 |---|---|---|
-| HIGH_BETA sleeve-local observe | **DRAFT / NOT OPEN** | `E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.md` |
-| M2 BIL_FX relocate observe (`M2_RELOC_BIL_FX_C50`) | **DRAFT / NOT OPEN** | `E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT.md` |
+| HIGH_BETA sleeve-local observe | **HOLD DRAFT / NOT OPEN** | `E45_HIGH_BETA_HOLD_DRAFT_HYGIENE.md` · ballot `E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.md` |
+| M2 BIL_FX C50 (prior lock) | **RETIRED as lock** (evidence retained) | history via `E45_M2_BIL_FX_OBSERVE_OPEN.md` |
 
-Default lock is **`M2_RELOC_BIL_FX_C50`** (not TEL). M2 v1 paper §2 PASS: `E45_M2_TRUE_DEF_RELOCATE.md` · ingest `data/def_proxies/`. Soft-Frozen KEEP · stitch FORBIDDEN.
+M2 lock is **`M2_RELOC_BIL_FX_C35`**. Soft-Frozen KEEP · stitch FORBIDDEN.
 
 ## Five-research batch (2026-09-06)
 

@@ -1,6 +1,6 @@
 # E45 Blend-α=0.10 FIN_ONLY Month-End Paper Monitor — asof 2026-09-04
 
-Generated: `2026-09-07T02:20:31.849081+00:00`
+Generated: `2026-09-07T03:27:24.343059+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **SLEEVE_FIN_ONLY_A10** (α=0.10 FIN_ONLY × E45 `E3_VOLTARGET_WINNER` on early-stack)
 

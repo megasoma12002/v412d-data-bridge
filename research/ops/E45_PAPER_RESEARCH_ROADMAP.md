@@ -135,3 +135,5 @@ Engineering: PR **#101** (M3) · **#102** (DEF ingest) · **#103** (M2 v1 paper)
 
 | — | C35 observe lock retarget ACCEPT (「請優化」) | **DONE — OPERATING C35** | OPEN `E45_M2_BIL_FX_OBSERVE_OPEN.md` · ballot accepted · HIGH_BETA still HOLD DRAFT |
 
+| — | Month-end cadence continue observe (post-C35) | **DONE — PACK PARTIAL (gap6 live)** | `OPS_CADENCE_2026-09-07_C35_OBSERVE.md` · pack `MONTH_END_PAPER_PACK.md` · tip PAUSE expected |
+
