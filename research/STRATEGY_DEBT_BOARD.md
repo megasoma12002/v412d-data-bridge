@@ -182,3 +182,7 @@ Human: paper 也改整張 1000；定義 一張=1000／零股=1–999／畸零股
 ## Paper dual-ledger re-run board-lot 1000 (2026-09-07)
 
 Human 「請重跑回測數據」. `ops_month_end_paper_pack.py --refresh-ledgers` — all active dual-paper observe fills 整張 1000. Note: `PAPER_BOARD_LOT_1000_RERUN_2026-09-07.md`. Soft-Frozen KEEP.
+
+## Capital 15M live+paper (2026-09-07)
+
+Human 「提高模擬／實盤資本」 — `DEFAULT_CAPITAL=15M` so TEL floor can fund 3×1張 under board-lot; live replay + paper refresh. Note: `CAPITAL_15M_2026-09-07.md`. Soft-Frozen KEEP.

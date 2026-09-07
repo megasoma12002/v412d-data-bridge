@@ -1,6 +1,6 @@
 # E45 Blend-α=0.10 FIN_ONLY Month-End Paper Monitor — asof 2026-09-07
 
-Generated: `2026-09-07T15:50:28.241485+00:00`
+Generated: `2026-09-07T17:02:54.671775+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **SLEEVE_FIN_ONLY_A10** (α=0.10 FIN_ONLY × E45 `E3_VOLTARGET_WINNER` on early-stack)
 
@@ -11,18 +11,21 @@ Locked: **SLEEVE_FIN_ONLY_A10** (α=0.10 FIN_ONLY × E45 `E3_VOLTARGET_WINNER` o
 
 | Window | BASE CAGR | BASE MDD | SLEEVE_FIN_ONLY_A10 CAGR | SLEEVE_FIN_ONLY_A10 MDD | MDD Δpp | CAGR giveback pp | Rel NAV | Decision? |
 |---|---:|---:|---:|---:|---:|---:|---:|:---:|
-| mtd | 1509.63%* | 0.00% | 1385.74%* | 0.00% | +0.00 | +123.89 | 0.9987 | no |
-| ytd | 68.87% | -13.04% | 65.89% | -11.78% | +1.26 | +2.98 | 0.9886 | yes |
-| trailing_1y | 53.96% | -13.04% | 51.16% | -11.78% | +1.26 | +2.80 | 0.9827 | yes |
-| sealed_2023_plus | 25.33% | -13.04% | 24.44% | -11.78% | +1.26 | +0.90 | 0.9752 | yes |
-| heldout_2019_plus | 17.78% | -22.39% | 17.47% | -21.91% | +0.47 | +0.31 | 0.9807 | yes |
-| full | 13.81% | -22.39% | 13.63% | -21.91% | +0.47 | +0.17 | 0.9798 | no |
+| mtd | 1635.40%* | 0.00% | 1371.57%* | 0.00% | +0.00 | +263.83 | 0.9974 | no |
+| ytd | 71.86% | -15.09% | 65.87% | -11.72% | +3.37 | +5.99 | 0.9774 | yes |
+| trailing_1y | 57.90% | -15.09% | 51.29% | -11.72% | +3.37 | +6.61 | 0.9601 | yes |
+| sealed_2023_plus | 25.68% | -15.09% | 23.88% | -11.72% | +3.37 | +1.80 | 0.9508 | yes |
+| heldout_2019_plus | 18.89% | -23.37% | 17.52% | -22.22% | +1.15 | +1.37 | 0.9180 | yes |
+| full | 14.21% | -23.37% | 13.52% | -22.22% | +1.15 | +0.69 | 0.9221 | no |
 
 \* `mtd` CAGR annualized from a short sample — **non-decision / display-only**.
 
 ## Alerts
 
-- None (dynamic windows clean; stitch still blocked)
+- ALERT: SLEEVE_FIN_ONLY_A10 ytd CAGR giveback > 3.0 pp (paper)
+- PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
+- ALERT: SLEEVE_FIN_ONLY_A10 trailing_1y CAGR giveback > 3.0 pp (paper)
+- PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
 
 ## Stitch / cutover status
 

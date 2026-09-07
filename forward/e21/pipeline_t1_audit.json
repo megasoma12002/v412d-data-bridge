@@ -2,7 +2,7 @@
   "date": "2026-09-07",
   "exact_t1_ok": true,
   "same_bar_fills": 0,
-  "fills_checked": 0,
+  "fills_checked": 6,
   "pending_filter": "signal_date < fill_date",
   "soft_frozen_financial_clip": [
     0.5,
