@@ -128,6 +128,11 @@ def main():
         action="store_true",
         help="Permit market/state paths outside forward/e21 (research only).",
     )
+    ap.add_argument(
+        "--asof",
+        default=None,
+        help="Process this session date (YYYY-MM-DD) instead of market max (replay/ops).",
+    )
     a = ap.parse_args()
     if a.e22_version != E22_BOOKS_VERSION and not a.confirm_e22_version_override:
         raise SystemExit(
@@ -154,7 +159,13 @@ def main():
     common = available[available].index
     if len(common) == 0:
         raise RuntimeError("no complete common trading date for all required instruments")
-    latest = common.max()
+    if a.asof:
+        asof = pd.Timestamp(a.asof).normalize()
+        if asof not in common:
+            raise SystemExit(f"--asof {a.asof} is not a complete common trading date in market")
+        latest = asof
+    else:
+        latest = common.max()
     m = m[m.date <= latest]
     day = m[m.date == latest].set_index("code")
     missing = [c for c in ALL + ["TAIEX"] if c not in day.index]
@@ -319,6 +330,8 @@ def main():
                     "reference_close": prices[c],
                 }
             )
+    # Persist SELL before BUY so CSV order matches fill preference.
+    order_rows.sort(key=lambda o: (0 if o["side"] == "SELL" else 1, o["code"]))
     for o in order_rows:
         append_immutable(orders_path, o, "order_id")
     stamp = datetime.now(timezone.utc).isoformat()

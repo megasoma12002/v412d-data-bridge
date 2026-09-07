@@ -17,16 +17,8 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 CANON_STATE = REPO_ROOT / "forward" / "e21"
 
 
-# Frozen allowlist: pre-fix zero-qty fills already in forward/e21 (do not rewrite history).
-# New zero-qty fills must FAIL QC. Do not grow this set.
-LEGACY_ZERO_QTY_FILL_IDS = frozenset(
-    {
-        "2026-09-01-5880-BUY",
-        "2026-09-02-5880-BUY",
-        "2026-09-03-5880-BUY",
-        "2026-09-04-5880-BUY",
-    }
-)
+# Frozen allowlist removed after authorized replay cleared historical qty=0 fills (2026-09-07).
+LEGACY_ZERO_QTY_FILL_IDS = frozenset()
 
 
 def exact_t1_from_fills(fills: pd.DataFrame, *, fills_required: bool = True) -> dict:

@@ -1,0 +1,37 @@
+{
+  "generated_at_utc": "2026-09-07T15:10:43.129427+00:00",
+  "label": "E21_LIVE_ZEROFILL_REPLAY",
+  "authority": "human \u300c\u8acb\u6e05\u6389\u5f8c\u91cd\u8dd1\u6b63\u78ba\u6578\u64da\u300d 2026-09-07",
+  "cleared": [
+    "fills.csv",
+    "orders.csv",
+    "signals.csv",
+    "nav.csv",
+    "audit_chain.jsonl",
+    "portfolio_state.json",
+    "qc_status.json",
+    "pipeline_t1_audit.json",
+    "E21_forward_dashboard.xlsx"
+  ],
+  "kept": [
+    "live_market.csv"
+  ],
+  "start_date": "2026-08-24",
+  "soft_frozen_unchanged": true,
+  "stitch_authorized": false,
+  "replayed_dates": [
+    "2026-08-24",
+    "2026-08-25",
+    "2026-08-26",
+    "2026-08-27",
+    "2026-08-28",
+    "2026-08-31",
+    "2026-09-01",
+    "2026-09-02",
+    "2026-09-03",
+    "2026-09-04",
+    "2026-09-07"
+  ],
+  "qc_ok": true,
+  "gap6_ok": true
+}
