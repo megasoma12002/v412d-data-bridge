@@ -23,6 +23,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_frozen_base as soft_frozen
 import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
+from tw_share_lots import BOARD_LOT
 CLAIM_STATUS = e45.CLAIMED_MDD_STATUS
 from research_metric_helpers import metric_delta, fmt_pct
 
@@ -49,9 +50,8 @@ def e16_features(m: pd.DataFrame):
     return p, sleeve, target, reg
 
 
-
-def lot_qty(value: float, price: float, lot_size: int = 1) -> int:
-    """Share quantity from notional; lot_size=1 is 1-share, 1000 is TW board lot."""
+def lot_qty(value: float, price: float, lot_size: int = BOARD_LOT) -> int:
+    """Share quantity from notional; default TW 整股 (一張=1000). Pass lot_size=1 for 1-share sensitivity."""
     if price <= 0 or not math.isfinite(price) or lot_size < 1:
         return 0
     raw = int(abs(value) / price)
@@ -76,13 +76,15 @@ def simulate_core(
     def_code: str | None = None,
     cost_multiple: float = 1.0,
     capital: float = CAPITAL,
-    lot_size: int = 1,
+    lot_size: int = BOARD_LOT,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
-    Formal books default = E22_v2s (cash + stock shares). E22_v2 remains cash-only.
+    Formal books default = E22_v2s_tw (cash + stock + 畸零股面額 CIL). E22_v2 remains cash-only.
     E16 features use adj_close elsewhere; NAV here always marks with raw close.
-    lot_size: 1 = research 1-share fills (default); 1000 = TW 整股 board-lot challenger.
+    lot_size: default ``BOARD_LOT`` (1000 = 一張 / 整股) for live-aligned paper.
+    Pass ``lot_size=1`` only for explicit 1-share / 零股-capable sensitivity research.
+    畸零股 (0.x) are not traded here — E22_v2s_tw cashes them at 面額.
 
     cost_multiple: scale BUY_FEE/SELL_FEE/SLIP/TAX_* for this run only (no module
     monkeypatch). e45_sleeve_names: if set, scale only those sleeves by exposure.

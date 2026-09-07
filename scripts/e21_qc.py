@@ -13,6 +13,9 @@ from pathlib import Path
 
 import pandas as pd
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from tw_share_lots import BOARD_LOT
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CANON_STATE = REPO_ROOT / "forward" / "e21"
 
@@ -134,9 +137,11 @@ def main() -> None:
             legacy = fills["fill_id"].astype(str).isin(LEGACY_ZERO_QTY_FILL_IDS)
             # Fail-closed on qty<=0 except frozen pre-fix residue (no history rewrite).
             checks["fills_positive_qty"] = bool(((qty > 0) | legacy).all() and not qty.isna().any())
-            # Taiwan 整股：live fills must be multiples of 1000 (張).
+            # Taiwan 整股：live fills must be multiples of 一張=1000.
+            from tw_share_lots import BOARD_LOT
+
             checks["fills_board_lot_1000"] = bool(
-                ((qty % 1000 == 0) | legacy).all() and not qty.isna().any()
+                ((qty % BOARD_LOT == 0) | legacy).all() and not qty.isna().any()
             )
     else:
         checks["fills_unique_id"] = False

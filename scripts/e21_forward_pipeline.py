@@ -3,8 +3,8 @@
 
 Formal price split:
   - E16 signals: adj_close
-  - Books / fills / NAV: raw open/close + E22_v2s_tw dividend accounting (odd-lot TW practice)
-  - Order sizing: Taiwan board lot 1 張 = 1000 股 (整股); no odd-lot continuous book trades
+  - Books / fills / NAV: raw open/close + E22_v2s_tw (畸零股面額 CIL)
+  - Order sizing: 一張 = 1000 股 (整股); no 零股 (1–999) continuous-book orders
 """
 import argparse, hashlib, json, sys
 from datetime import datetime, timezone
@@ -15,6 +15,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e22_dividend_accounting as e22div
 import e16_soft_frozen_base as soft_frozen
+from tw_share_lots import BOARD_LOT, board_lots
 
 from e16_soft_frozen_base import FIN, TEL
 ALL = FIN + TEL + ["0050"]
@@ -24,14 +25,8 @@ SELL_FEE = 0.001425 * 0.6
 TAX_STOCK = 0.003
 TAX_ETF = 0.001
 SLIP = 0.0005
-BOARD_LOT = 1000  # Taiwan 整股：1 張 = 1000 股
-E22_BOOKS_VERSION = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw (odd-lot TW practice; promoted 2026-09-05)
+E22_BOOKS_VERSION = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw (畸零股面額 CIL; promoted 2026-09-05)
 DIV_PATH = Path("data/dividend_events/e22_dividend_events.csv")
-
-
-def board_lots(shares: float | int) -> int:
-    """Floor to whole Taiwan board lots (張)."""
-    return BOARD_LOT * int(max(0.0, float(shares)) // BOARD_LOT)
 
 
 def append_immutable(path, row, key):
