@@ -35,7 +35,7 @@ OVERLAY_MIXES = [
 OVERLAP_START = "2019-01-02"  # R1 validation start
 VAL_END = "2022-12-30"
 SEALED_START = "2023-01-03"
-BOARD_LOT = 1000
+BOARD_LOT = 1000  # kept local for legacy; prefer tw_share_lots.BOARD_LOT
 
 # --- PREDECLARED overlay risk-budget challengers (paper only; not live weights) ---
 # Informed by failure-signature study; evaluated causally (use only prior complete months).
@@ -48,7 +48,7 @@ RISK_BUDGET_RULES = [
     "COMBINED_DD15_CUT",  # if combined peak DD < -15% → overlay ×0 until new high
 ]
 
-# E18 board-lot challenger policies (full fill re-sim under E22_v2s)
+# E18 lot sensitivity: share_1 = legacy 1-share; board_lot_1000 = current paper/live default (一張)
 LOT_RESIM_POLICIES = [
     ("share_1", 1),
     ("board_lot_1000", 1000),

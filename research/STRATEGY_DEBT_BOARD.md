@@ -174,3 +174,7 @@ Human 「請清掉後重跑正確數據」. Cleared + replayed `forward/e21` 202
 ## Live board-lot 1000 (2026-09-07)
 
 Human 「是的」 — TW 整股 1 張 = 1000 股. Live order/fill sizing + ledger replay. Note: `LIVE_BOARD_LOT_1000_2026-09-07.md`. Soft-Frozen KEEP.
+
+## Paper board-lot 1000 + lot glossary (2026-09-07)
+
+Human: paper 也改整張 1000；定義 一張=1000／零股=1–999／畸零股=0.x（面額）. Note: `TW_SHARE_LOT_DEFINITIONS.md`. Soft-Frozen KEEP.

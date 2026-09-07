@@ -83,7 +83,9 @@ Information(T)
 - Odd lot
 - Fill / non-fill
 
-正式帳本（E22_v2s_tw）：raw open/close 標價；現金在 `cash_ex_date` 入帳；股票股利在 `stock_ex_date` 整股入帳並對畸零股依面額 CIL（`floor(frac × par)`）。E16 訊號可用 `adj_close`，但不得用還原價標 NAV 又同時加股。E22_v2s（非整股）與 E22_v2（僅現金）保留為對照。
+正式帳本（E22_v2s_tw）：raw open/close 標價；現金在 `cash_ex_date` 入帳；股票股利在 `stock_ex_date` 整股入帳並對**畸零股（0.x 股）**依面額 CIL（`floor(frac × par)`）。E16 訊號可用 `adj_close`，但不得用還原價標 NAV 又同時加股。E22_v2s（非整股）與 E22_v2（僅現金）保留為對照。
+
+交易單位（live + paper）：**一張 = 1000 股**；下單僅整張。**零股 = 1～999 股**不作為 early-stack 新單單位。術語見 `research/ops/TW_SHARE_LOT_DEFINITIONS.md`。
 
 狀態：
 **FROZEN EXECUTION BASELINE**（E22_v2s_tw = formal books after 2026-09-05 promote；E22_v2 = preserved cash-only）

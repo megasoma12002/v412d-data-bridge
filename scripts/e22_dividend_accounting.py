@@ -15,7 +15,10 @@ E22_v2s_tw (Taiwan corporate-practice CIL for gap 6.5):
   - Floor whole shares; cash-in-lieu = floor(frac × per-code par) NTD
     (Company Act §240 + typical issuer announcements: 面額折現、元以下捨去).
   - Par from data/corporate_actions/par_value_by_code.csv (else provisional 10).
-  - Does NOT force board-lot 1000 (TW 零股 trading allows 1–999).
+  - Terminology (see tw_share_lots.py):
+      一張 = 1000 股 (live/paper trade sizing — separate from this module)
+      零股 = 1～999 股 (may remain after integer stock-div floor; not CIL)
+      畸零股 = 0.x 股 → CIL at 面額 (this module)
   - Does NOT model 拼湊整股 window or 劃撥費用充抵 (optional haircuts).
 
 E22_v2 (preserved): cash credit only — SOFT_FROZEN cash-only baseline label.

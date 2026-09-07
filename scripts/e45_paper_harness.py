@@ -14,6 +14,7 @@ import pandas as pd
 from research_metric_helpers import cagr_delta_pp, mdd_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
+from tw_share_lots import BOARD_LOT
 
 ROOT = Path(__file__).resolve().parents[1]
 MARKET_PATH = ROOT / "forward/e21/live_market.csv"
@@ -132,8 +133,9 @@ def run_early_stack(
     sleeve_weight_schedule: pd.DataFrame | None = None,
     def_code: str | None = None,
     cost_multiple: float = 1.0,
+    lot_size: int = BOARD_LOT,
 ):
-    """Thin wrapper: Exact T+1 early-stack with first-class cost/sleeve kwargs."""
+    """Thin wrapper: Exact T+1 early-stack; default 整股一張=1000 (aligned with live)."""
     return simulate_core(
         market,
         target,
@@ -146,6 +148,7 @@ def run_early_stack(
         sleeve_weight_schedule=sleeve_weight_schedule,
         def_code=def_code,
         cost_multiple=float(cost_multiple),
+        lot_size=int(lot_size),
     )
 
 
@@ -173,6 +176,7 @@ __all__ = [
     "ROOT",
     "MARKET_PATH",
     "DIV_PATH",
+    "BOARD_LOT",
     "E45_PROFILE_DEFAULT",
     "BOOK_BASE",
     "BOOK_BASE_RUNTIME_NOTE",
