@@ -166,3 +166,7 @@ Human 「依 month-end cadence 繼續觀察」. Pack re-run: `research/ops/OPS_C
 ## Full-repo code review (2026-09-07)
 
 `research/ops/PROJECT_CODE_REVIEW_2026-09-07.md` — P0 zero-qty fills + Exact T+1 NaT + stage3/v4v5 `max_drawdown` half-migration **fixed forward-only**. Soft-Frozen KEEP · stitch FORBIDDEN · no history rewrite.
+
+## Live zero-fill authorized replay (2026-09-07)
+
+Human 「請清掉後重跑正確數據」. Cleared + replayed `forward/e21` 2026-08-24→09-07 with SELL-before-BUY. Zero-qty fills **0**; QC/Gap6 PASS. Note: `LIVE_ZEROFILL_REPLAY_2026-09-07.md`. Soft-Frozen KEEP.
