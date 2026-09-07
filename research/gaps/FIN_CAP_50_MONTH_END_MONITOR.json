@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-07T17:02:53.004360+00:00",
+  "generated_at_utc": "2026-09-07T17:20:33.647786+00:00",
   "asof": "2026-09-07",
   "live_wire": false,
   "soft_frozen_default_unchanged": true,
@@ -11,65 +11,65 @@
       "start": "2026-09-01",
       "end": "2026-09-07",
       "n_days": 5,
-      "base_cagr": 16.43438325244177,
+      "base_cagr": 13.583289801566142,
       "base_mdd": 0.0,
       "fincap50_cagr": 5.953517024250764,
       "fincap50_mdd": 0.0,
       "mdd_improve_pp": 0.0,
-      "cagr_giveback_pp": 1048.0866228191005,
-      "rel_nav_end": 0.9855155002124383
+      "cagr_giveback_pp": 762.9772777315378,
+      "rel_nav_end": 0.988312819839145
     },
     {
       "window": "ytd",
       "start": "2026-01-01",
       "end": "2026-09-07",
       "n_days": 163,
-      "base_cagr": 0.7183498900160983,
-      "base_mdd": -0.15099073390481044,
+      "base_cagr": 0.7194643138570944,
+      "base_mdd": -0.11409639228034985,
       "fincap50_cagr": 0.535174118389367,
       "fincap50_mdd": -0.07542086281029126,
-      "mdd_improve_pp": 7.556987109451918,
-      "cagr_giveback_pp": 18.317577162673125,
-      "rel_nav_end": 0.930099899594628
+      "mdd_improve_pp": 3.867552947005859,
+      "cagr_giveback_pp": 18.42901954677274,
+      "rel_nav_end": 0.9297123283262021
     },
     {
       "window": "trailing_1y",
       "start": "2025-09-07",
       "end": "2026-09-07",
       "n_days": 241,
-      "base_cagr": 0.5790148851876278,
-      "base_mdd": -0.15099073390481044,
+      "base_cagr": 0.5618945743738737,
+      "base_mdd": -0.11409639228034996,
       "fincap50_cagr": 0.4793092701466948,
       "fincap50_mdd": -0.07542086281029114,
-      "mdd_improve_pp": 7.55698710945193,
-      "cagr_giveback_pp": 9.9705615040933,
-      "rel_nav_end": 0.9397702036226272
+      "mdd_improve_pp": 3.867552947005881,
+      "cagr_giveback_pp": 8.258530422717891,
+      "rel_nav_end": 0.9495781791690336
     },
     {
       "window": "heldout_2019_plus",
       "start": "2019-01-01",
       "end": "2026-09-07",
       "n_days": 1857,
-      "base_cagr": 0.1884887356117968,
-      "base_mdd": -0.23356333618776137,
+      "base_cagr": 0.1757446228537478,
+      "base_mdd": -0.22072064495898414,
       "fincap50_cagr": 0.16772171439368777,
       "fincap50_mdd": -0.19563901022995467,
-      "mdd_improve_pp": 3.7924325957806704,
-      "cagr_giveback_pp": 2.0767021218109027,
-      "rel_nav_end": 0.8782437367228086
+      "mdd_improve_pp": 2.5081634729029467,
+      "cagr_giveback_pp": 0.8022908460060041,
+      "rel_nav_end": 0.9508212265049882
     },
     {
       "window": "full",
       "start": "2012-12-04",
       "end": "2026-09-07",
       "n_days": 3352,
-      "base_cagr": 0.14193771311071357,
-      "base_mdd": -0.23356333618776137,
+      "base_cagr": 0.13426361976542767,
+      "base_mdd": -0.22072064495898414,
       "fincap50_cagr": 0.12843786741506813,
       "fincap50_mdd": -0.19563901022995456,
-      "mdd_improve_pp": 3.7924325957806815,
-      "cagr_giveback_pp": 1.349984569564544,
-      "rel_nav_end": 0.853730759906922
+      "mdd_improve_pp": 2.508163472902958,
+      "cagr_giveback_pp": 0.5825752350359537,
+      "rel_nav_end": 0.9338171647475162
     }
   ],
   "alerts": [

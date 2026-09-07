@@ -1,27 +1,27 @@
 # Live vs Paper Soft-Frozen Recon
 
-Generated: `2026-09-07T17:02:55.325643+00:00`
+Generated: `2026-09-07T17:20:35.871448+00:00`
 Status: **RESEARCH / OPS** — Soft-Frozen clip **[0.50, 0.95] unchanged**.
 
 ## Coverage
 
 | Book | Start | End | N | Last NAV |
 |---|---|---|---:|---:|
-| Live `forward/e21` | 2026-08-24 | 2026-09-07 | 11 | 16027790.182171628 |
-| Paper BASE | 2012-12-04 | 2026-09-07 | 3352 | 87618970.90699138 |
+| Live `forward/e21` | 2026-08-24 | 2026-09-07 | 11 | 15982908.911468128 |
+| Paper BASE | 2012-12-04 | 2026-09-07 | 3352 | 80104557.33581781 |
 | Overlap | | | **11** | |
 
 ## Overlap indexed returns (rebased to 1.0 on first overlap date)
 
 - Window: `2026-08-24` → `2026-09-07`
-- Live cum return: **6.8519%**
-- Paper BASE cum return: **9.7731%**
-- Gap (live − paper): **-2.9212%**
-- Max |indexed NAV gap|: **2.9212%**
+- Live cum return: **6.5527%**
+- Paper BASE cum return: **9.2591%**
+- Gap (live − paper): **-2.7064%**
+- Max |indexed NAV gap|: **2.7064%**
 
 ## Alerts
 
-- `INDEX_DRIFT: max |live_idx-paper_idx|=2.9212% > 2% on overlap`
+- `INDEX_DRIFT: max |live_idx-paper_idx|=2.7064% > 2% on overlap`
 
 ## Ops note
 

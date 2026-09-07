@@ -1,6 +1,6 @@
 {
   "as_of": "2026-09-07",
-  "generated_at_utc": "2026-09-07T17:03:19.603911+00:00",
+  "generated_at_utc": "2026-09-07T17:20:58.283110+00:00",
   "label": "DATA_SOURCE_PHASE_C_PROBES",
   "overall_status": "PASS",
   "live_wire": false,
@@ -85,55 +85,55 @@
         "2880": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 9.212445944065559e-05,
-          "corr": 0.9945640425904334
+          "mean_abs_return_diff": 9.213215231914795e-05,
+          "corr": 0.9945640246489572
         },
         "2886": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 9.904967849643999e-05,
-          "corr": 0.9943365139645959
+          "mean_abs_return_diff": 9.904390926568655e-05,
+          "corr": 0.9943364900559113
         },
         "2892": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 0.00011317524944134223,
-          "corr": 0.9881523679603884
+          "mean_abs_return_diff": 0.00011317597443860469,
+          "corr": 0.9881523664513546
         },
         "5880": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 9.577375096088261e-05,
-          "corr": 0.9903602198212331
+          "mean_abs_return_diff": 9.57732579225493e-05,
+          "corr": 0.9903602015249111
         },
         "2412": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 7.091664972167907e-05,
-          "corr": 0.985432296194305
+          "mean_abs_return_diff": 7.09109485491839e-05,
+          "corr": 0.9854322941450986
         },
         "3045": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 7.831323316325335e-05,
-          "corr": 0.9968114664294322
+          "mean_abs_return_diff": 7.831243846920267e-05,
+          "corr": 0.9968114623460167
         },
         "4904": {
           "status": "OK",
           "n": 3585,
-          "mean_abs_return_diff": 7.823039250430052e-05,
-          "corr": 0.9950239906921858
+          "mean_abs_return_diff": 7.823166125855696e-05,
+          "corr": 0.9950239776287024
         },
         "0050": {
           "status": "OK",
           "n": 3587,
-          "mean_abs_return_diff": 0.0002779887358096243,
-          "corr": 0.683838540544347
+          "mean_abs_return_diff": 0.0002779881941110273,
+          "corr": 0.6838384352492257
         }
       },
       "n_ok": 8,
       "n_info_drift": 0,
-      "mean_abs_return_diff": 0.0001131965186922722,
+      "mean_abs_return_diff": 0.00011319606704174491,
       "drift_warn_threshold": 0.015,
       "detail_csv": "repro/data-source-phase-c/c2_adj_returns.csv",
       "note": "",
@@ -157,7 +157,7 @@
           "failover_used": false,
           "source": "finmind_TAIEX",
           "error_primary": null,
-          "generated_at_utc": "2026-09-07T17:03:18.346337+00:00",
+          "generated_at_utc": "2026-09-07T17:20:57.083153+00:00",
           "n_rows": 649,
           "out": "repro/data-source-phase-c/taiex_primary_dryrun.csv",
           "soft_frozen_unchanged": true,
@@ -177,7 +177,7 @@
           "failover_used": true,
           "source": "yahoo_^TWII",
           "error_primary": "RuntimeError:simulated_finmind_failure",
-          "generated_at_utc": "2026-09-07T17:03:18.939047+00:00",
+          "generated_at_utc": "2026-09-07T17:20:57.650853+00:00",
           "n_rows": 648,
           "out": "repro/data-source-phase-c/taiex_failover_dryrun.csv",
           "soft_frozen_unchanged": true,
@@ -197,7 +197,7 @@
           "failover_used": false,
           "source": "yahoo_^TWII",
           "error_primary": null,
-          "generated_at_utc": "2026-09-07T17:03:19.535449+00:00",
+          "generated_at_utc": "2026-09-07T17:20:58.215841+00:00",
           "n_rows": 648,
           "out": "repro/data-source-phase-c/taiex_force_yahoo_dryrun.csv",
           "soft_frozen_unchanged": true,

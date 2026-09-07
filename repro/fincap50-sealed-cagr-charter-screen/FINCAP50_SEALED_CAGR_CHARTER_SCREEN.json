@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-07T17:03:24.527872+00:00",
+  "generated_at_utc": "2026-09-07T17:21:03.190753+00:00",
   "label": "FINCAP50_SEALED_CAGR_CHARTER_SCREEN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -23,14 +23,9 @@
     "BLEND_050",
     "CRISIS_ONLY_50"
   ],
-  "promote_eligible": [
-    {
-      "family": "L4-BLEND-LIGHT",
-      "id": "BLEND_025"
-    }
-  ],
-  "decision": "PAPER_PROMOTE_PROPOSAL_ONLY",
-  "charter_exit_hint": "Named challenger may enter dual-paper observe + promote proposal only (not live cutover).",
+  "promote_eligible": [],
+  "decision": "HIST_PASS_TRAIL_FAIL",
+  "charter_exit_hint": "STOP for promote \u2014 hist gates clear for some families but trailing FAIL; keep FIN50 dual-paper; Soft-Frozen KEEP.",
   "operating_dual_paper": {
     "FIN_CAP_50": {
       "available": true,
@@ -46,12 +41,12 @@
       ],
       "windows": {
         "ytd": {
-          "cagr_giveback_pp": 18.317577162673125,
-          "mdd_improve_pp": 7.556987109451918
+          "cagr_giveback_pp": 18.42901954677274,
+          "mdd_improve_pp": 3.867552947005859
         },
         "trailing_1y": {
-          "cagr_giveback_pp": 9.9705615040933,
-          "mdd_improve_pp": 7.55698710945193
+          "cagr_giveback_pp": 8.258530422717891,
+          "mdd_improve_pp": 3.867552947005881
         }
       },
       "trail_pass": false
@@ -69,12 +64,12 @@
       ],
       "windows": {
         "ytd": {
-          "cagr_giveback_pp": 5.395985714137064,
-          "mdd_improve_pp": 1.4819119479697829
+          "cagr_giveback_pp": 5.302350680698287,
+          "mdd_improve_pp": 0.04839024225022914
         },
         "trailing_1y": {
-          "cagr_giveback_pp": 4.893990216446631,
-          "mdd_improve_pp": 1.4819119479697718
+          "cagr_giveback_pp": 3.4148594562032786,
+          "mdd_improve_pp": 0.048390242250240245
         }
       },
       "trail_pass": false
@@ -116,23 +111,23 @@
             "asof": "2026-09-07",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7183498900160983,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.6546734041204454,
-              "cand_mdd": -0.13843400688639962,
-              "mdd_improve_pp": 1.2556727018410818,
-              "cagr_giveback_pp": 6.367648589565289,
+              "base_cagr": 0.7194643138570944,
+              "base_mdd": -0.11409639228035007,
+              "cand_cagr": 0.6571281152867103,
+              "cand_mdd": -0.12856941347028228,
+              "mdd_improve_pp": -1.4473021189932211,
+              "cagr_giveback_pp": 6.233619857038408,
               "n_days": 163,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.5790148851876278,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.5270881626544284,
-              "cand_mdd": -0.13843400688639973,
-              "mdd_improve_pp": 1.2556727018410707,
-              "cagr_giveback_pp": 5.192672253319941,
+              "base_cagr": 0.5618945743738737,
+              "base_mdd": -0.11409639228035007,
+              "cand_cagr": 0.53257316461756,
+              "cand_mdd": -0.12856941347028228,
+              "mdd_improve_pp": -1.4473021189932211,
+              "cagr_giveback_pp": 2.93214097563137,
               "n_days": 241,
               "pass_diag": false
             },
@@ -179,23 +174,23 @@
             "asof": "2026-09-07",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7183498900160983,
-              "base_mdd": -0.15099073390481044,
+              "base_cagr": 0.7194643138570944,
+              "base_mdd": -0.11409639228035007,
               "cand_cagr": 0.6278904440336885,
               "cand_mdd": -0.09345051758615663,
-              "mdd_improve_pp": 5.75402163186538,
-              "cagr_giveback_pp": 9.045944598240974,
+              "mdd_improve_pp": 2.0645874694193433,
+              "cagr_giveback_pp": 9.157386982340586,
               "n_days": 163,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.5790148851876278,
-              "base_mdd": -0.15099073390481044,
+              "base_cagr": 0.5618945743738737,
+              "base_mdd": -0.11409639228035007,
               "cand_cagr": 0.5103305205119728,
               "cand_mdd": -0.09345051758615652,
-              "mdd_improve_pp": 5.754021631865392,
-              "cagr_giveback_pp": 6.868436467565497,
+              "mdd_improve_pp": 2.0645874694193544,
+              "cagr_giveback_pp": 5.156405386190088,
               "n_days": 241,
               "pass_diag": false
             },
@@ -209,13 +204,13 @@
     },
     {
       "family": "L4-BLEND-LIGHT",
-      "any_charter_pass": true,
+      "any_charter_pass": false,
       "members": [
         {
           "id": "BLEND_025",
           "hist_pass": true,
-          "trail_pass": true,
-          "charter_pass": true,
+          "trail_pass": false,
+          "charter_pass": false,
           "hist": {
             "id": "BLEND_025",
             "family": "static_blend",
@@ -242,29 +237,29 @@
             "asof": "2026-09-07",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7183498900160983,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.6912274221858874,
-              "cand_mdd": -0.12519436062113176,
-              "mdd_improve_pp": 2.5796373283678675,
-              "cagr_giveback_pp": 2.7122467830210883,
+              "base_cagr": 0.7194643138570944,
+              "base_mdd": -0.11409639228035007,
+              "cand_cagr": 0.6863872923626038,
+              "cand_mdd": -0.1012090968127306,
+              "mdd_improve_pp": 1.2887295467619464,
+              "cagr_giveback_pp": 3.3077021494490655,
               "n_days": 163,
-              "pass_diag": true
+              "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.5790148851876278,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.5675076923663935,
-              "cand_mdd": -0.12519436062113165,
-              "mdd_improve_pp": 2.5796373283678786,
-              "cagr_giveback_pp": 1.1507192821234247,
+              "base_cagr": 0.5618945743738737,
+              "base_mdd": -0.11409639228035007,
+              "cand_cagr": 0.551784073839465,
+              "cand_mdd": -0.10120909681273083,
+              "mdd_improve_pp": 1.2887295467619242,
+              "cagr_giveback_pp": 1.011050053440865,
               "n_days": 241,
               "pass_diag": true
             },
             "pause_review": false,
-            "alert": false,
-            "trail_pass": true
+            "alert": true,
+            "trail_pass": false
           }
         },
         {
@@ -298,25 +293,25 @@
             "asof": "2026-09-07",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7183498900160983,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.6512198696400491,
-              "cand_mdd": -0.10046064986102743,
-              "mdd_improve_pp": 5.053008404378301,
-              "cagr_giveback_pp": 6.71300203760492,
+              "base_cagr": 0.7194643138570944,
+              "base_mdd": -0.11409639228035007,
+              "cand_cagr": 0.6511227791023892,
+              "cand_mdd": -0.09492923733757774,
+              "mdd_improve_pp": 1.9167154942772324,
+              "cagr_giveback_pp": 6.834153475470517,
               "n_days": 163,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.5790148851876278,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.5471796707176804,
-              "cand_mdd": -0.10046064986102754,
-              "mdd_improve_pp": 5.053008404378289,
-              "cagr_giveback_pp": 3.1835214469947415,
+              "base_cagr": 0.5618945743738737,
+              "base_mdd": -0.11409639228035007,
+              "cand_cagr": 0.5403884557240999,
+              "cand_mdd": -0.09492923733757763,
+              "mdd_improve_pp": 1.9167154942772435,
+              "cagr_giveback_pp": 2.150611864977381,
               "n_days": 241,
-              "pass_diag": false
+              "pass_diag": true
             },
             "pause_review": true,
             "alert": true,
@@ -361,23 +356,23 @@
             "asof": "2026-09-07",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7183498900160983,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.6569176760573578,
-              "cand_mdd": -0.14166662280526898,
-              "mdd_improve_pp": 0.9324111099541454,
-              "cagr_giveback_pp": 6.143221395874043,
+              "base_cagr": 0.7194643138570944,
+              "base_mdd": -0.11409639228035007,
+              "cand_cagr": 0.6577307725589399,
+              "cand_mdd": -0.13064223741386838,
+              "mdd_improve_pp": -1.654584513351831,
+              "cagr_giveback_pp": 6.173354129815456,
               "n_days": 163,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.5790148851876278,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.5295246480446747,
-              "cand_mdd": -0.1416666228052691,
-              "mdd_improve_pp": 0.9324111099541343,
-              "cagr_giveback_pp": 4.949023714295309,
+              "base_cagr": 0.5618945743738737,
+              "base_mdd": -0.11409639228035007,
+              "cand_cagr": 0.5343920059740381,
+              "cand_mdd": -0.13064223741386838,
+              "mdd_improve_pp": -1.654584513351831,
+              "cagr_giveback_pp": 2.750256839983556,
               "n_days": 241,
               "pass_diag": false
             },
@@ -400,12 +395,12 @@
         ],
         "windows": {
           "ytd": {
-            "cagr_giveback_pp": 5.395985714137064,
-            "mdd_improve_pp": 1.4819119479697829
+            "cagr_giveback_pp": 5.302350680698287,
+            "mdd_improve_pp": 0.04839024225022914
           },
           "trailing_1y": {
-            "cagr_giveback_pp": 4.893990216446631,
-            "mdd_improve_pp": 1.4819119479697718
+            "cagr_giveback_pp": 3.4148594562032786,
+            "mdd_improve_pp": 0.048390242250240245
           }
         },
         "trail_pass": false

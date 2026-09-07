@@ -5,12 +5,12 @@
 
 | Window | MDD dpp | Giveback pp | Rel NAV |
 |---|---:|---:|---:|
-| mtd | 0.0 | 242.5880571499933 | 0.9976 |
-| ytd | 2.288363517446379 | 10.404333361794249 | 0.9607 |
-| trailing_1y | 2.28836351744639 | 7.980619760498486 | 0.9518 |
-| sealed_2023_plus | 2.288363517446379 | 3.303639538617409 | 0.9113 |
-| heldout_2019_plus | 2.223693801227644 | 2.5759489529906476 | 0.8510 |
-| full | 2.223693801227644 | 1.7146655664981747 | 0.8178 |
+| mtd | 0.0 | 141.103004248407 | 0.9984 |
+| ytd | 0.847639939138134 | 9.508101920169821 | 0.9641 |
+| trailing_1y | 0.8476399391381229 | 6.274226468500221 | 0.9617 |
+| sealed_2023_plus | -0.655458146199861 | 3.1087957269206212 | 0.9156 |
+| heldout_2019_plus | 2.308622276182526 | 2.0426327897418384 | 0.8789 |
+| full | 2.308622276182537 | 1.4297765316865663 | 0.8448 |
 
 ## Alerts
 
@@ -18,6 +18,7 @@
 - PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
 - ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper)
 - PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
+- ALERT: M2_RELOC_BIL_FX_C35 sealed_2023_plus MDD worse than BASE (structural window; design expected MDD improve)
 
 ## Honesty
 

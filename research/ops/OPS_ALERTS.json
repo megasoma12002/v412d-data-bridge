@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-07T17:03:24.833096+00:00",
+  "generated_at_utc": "2026-09-07T17:21:03.490472+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -10,7 +10,7 @@
   "overall": "HIGH",
   "n_critical": 0,
   "n_high": 7,
-  "n_info": 18,
+  "n_info": 19,
   "alerts": [
     {
       "severity": "HIGH",
@@ -99,6 +99,12 @@
     {
       "severity": "INFO",
       "source": "blend025_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: BLEND_025 ytd CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "blend025_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },
@@ -142,7 +148,7 @@
       "severity": "INFO",
       "source": "live_paper_recon",
       "code": "RECON_NOTE",
-      "message": "INDEX_DRIFT: max |live_idx-paper_idx|=2.9212% > 2% on overlap"
+      "message": "INDEX_DRIFT: max |live_idx-paper_idx|=2.7064% > 2% on overlap"
     },
     {
       "severity": "INFO",

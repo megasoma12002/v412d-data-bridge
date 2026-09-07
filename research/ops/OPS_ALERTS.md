@@ -1,12 +1,12 @@
 # Ops Alerts
 
-Generated: `2026-09-07T17:03:24.833096+00:00`
+Generated: `2026-09-07T17:21:03.490472+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 
 - CRITICAL: 0
 - HIGH (PAUSE_REVIEW etc.): 7
-- INFO: 18
+- INFO: 19
 
 | Severity | Source | Code | Message |
 |---|---|---|---|
@@ -24,6 +24,7 @@ Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 | INFO | `fincap50_month_end` | `MONITOR_ALERT` | ALERT: FIN_CAP_50 ytd CAGR giveback > 3.0 pp (paper) |
 | INFO | `fincap50_month_end` | `MONITOR_ALERT` | ALERT: FIN_CAP_50 trailing_1y CAGR giveback > 3.0 pp (paper) |
 | INFO | `fincap50_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `blend025_month_end` | `MONITOR_ALERT` | ALERT: BLEND_025 ytd CAGR giveback > 3.0 pp (paper) |
 | INFO | `blend025_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `e45_month_end` | `MONITOR_ALERT` | ALERT: CHAL_E45_E3 ytd CAGR giveback > 3.0 pp (paper) |
 | INFO | `e45_month_end` | `MONITOR_ALERT` | ALERT: CHAL_E45_E3 trailing_1y CAGR giveback > 3.0 pp (paper) |
@@ -31,7 +32,7 @@ Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 | INFO | `e45_blend025_month_end` | `MONITOR_ALERT` | ALERT: BLEND_E45_A25 ytd CAGR giveback > 3.0 pp (paper) |
 | INFO | `e45_blend025_month_end` | `MONITOR_ALERT` | ALERT: BLEND_E45_A25 trailing_1y CAGR giveback > 3.0 pp (paper) |
 | INFO | `e45_blend025_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
-| INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=2.9212% > 2% on overlap |
+| INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=2.7064% > 2% on overlap |
 | INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=11 (<60) — not decision-grade for cutover |
 | INFO | `data_source_phase_c_probes` | `PHASE_C_C1_FIN12_HISTORY_SHADOW_NOTE` | DRIFT on 1 ticker(s); does not count toward PASS |
 | INFO | `data_source_phase_c_probes` | `PHASE_C_C3_TAIEX_OPTIONAL_FAILOVER_NOTE` | Helper is opt-in only; e21 still uses FinMind TaiwanStockPrice(TAIEX). |

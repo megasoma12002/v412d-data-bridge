@@ -6,7 +6,7 @@
   "failover_used": false,
   "source": "yahoo_^TWII",
   "error_primary": null,
-  "generated_at_utc": "2026-09-07T17:03:19.535449+00:00",
+  "generated_at_utc": "2026-09-07T17:20:58.215841+00:00",
   "n_rows": 648,
   "out": "repro/data-source-phase-c/taiex_force_yahoo_dryrun.csv",
   "soft_frozen_unchanged": true,

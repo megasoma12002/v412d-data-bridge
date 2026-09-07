@@ -1,6 +1,6 @@
 # Data Source Shadow Reconcile — Phase B
 
-Generated: `2026-09-07T17:03:11.281938+00:00`
+Generated: `2026-09-07T17:20:50.053962+00:00`
 Status: **OPS SHADOW** — Soft-Frozen unchanged; no ledger overwrite.
 
 - Lookback days: **40**

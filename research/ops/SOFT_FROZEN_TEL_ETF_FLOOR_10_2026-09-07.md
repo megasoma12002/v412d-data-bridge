@@ -23,3 +23,16 @@ Also updated in-envelope `START_WEIGHTS` / regime priors (Bull/Sideways start at
 
 TEL-only floor 10% (ETF still 0) already improved full MDD ≈1.8pp vs 3% TEL floor.  
 This ACCEPT also floors **0050 at 10%** — live/paper numbers from the post-ACCEPT replay are authoritative.
+
+## Live tip after ACCEPT replay (2026-09-07, 15M + 整張)
+
+| | Before (TEL≥3%, ETF≥0%) | **After (TEL≥10%, ETF≥10%)** |
+|---|---:|---:|
+| Signal FIN/TEL/0050 | ~86% / 6% / 8% | **~76% / 14% / 10%** |
+| Held TEL | ~8% | ≈**15.4%** |
+| Held 0050 | ~7.5% | ≈**9.6%** (target ≥10%; lot residual) |
+| QC TEL/ETF clips | n/a | **PASS** |
+
+## Paper BASE (full) after refresh
+
+See `research/e45/E45_DUAL_PAPER_OBSERVE.json` post-ACCEPT regenerate.
