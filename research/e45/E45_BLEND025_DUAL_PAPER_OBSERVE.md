@@ -1,6 +1,6 @@
 # E45 Blend-α=0.25 Dual-Paper Observe Sleeve
 
-Generated: `2026-09-06T00:58:49.623058+00:00`
+Generated: `2026-09-07T15:50:19.168750+00:00`
 Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`); live stitch **FORBIDDEN**.
 
 ## Locked paper books
@@ -14,19 +14,19 @@ Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Finan
 
 | Book | Window | CAGR | MDD | n_days | Exact T+1 |
 |---|---|---:|---:|---:|---|
-| BASE_E16_E18_E22_v2s | full | 13.78% | -22.64% | 3351 | True |
-| BASE_E16_E18_E22_v2s | oof_2011_2018 | 8.85% | -17.41% | 1495 | True |
-| BASE_E16_E18_E22_v2s | validation_2019_2022 | 12.33% | -22.64% | 977 | True |
-| BASE_E16_E18_E22_v2s | sealed_2023_plus | 24.93% | -14.46% | 879 | True |
-| BASE_E16_E18_E22_v2s | heldout_2019_plus | 18.23% | -22.64% | 1856 | True |
-| BLEND_E45_A25 | full | 12.40% | -22.01% | 3351 | True |
-| BLEND_E45_A25 | oof_2011_2018 | 9.13% | -16.57% | 1495 | True |
-| BLEND_E45_A25 | validation_2019_2022 | 10.85% | -22.01% | 977 | True |
-| BLEND_E45_A25 | sealed_2023_plus | 20.56% | -9.33% | 879 | True |
-| BLEND_E45_A25 | heldout_2019_plus | 15.41% | -22.01% | 1856 | True |
+| BASE_E16_E18_E22_v2s | full | 13.81% | -22.39% | 3352 | True |
+| BASE_E16_E18_E22_v2s | oof_2011_2018 | 9.46% | -16.49% | 1495 | True |
+| BASE_E16_E18_E22_v2s | validation_2019_2022 | 11.18% | -22.39% | 977 | True |
+| BASE_E16_E18_E22_v2s | sealed_2023_plus | 25.33% | -13.04% | 880 | True |
+| BASE_E16_E18_E22_v2s | heldout_2019_plus | 17.78% | -22.39% | 1857 | True |
+| BLEND_E45_A25 | full | 13.31% | -21.98% | 3352 | True |
+| BLEND_E45_A25 | oof_2011_2018 | 9.35% | -16.47% | 1495 | True |
+| BLEND_E45_A25 | validation_2019_2022 | 11.39% | -21.98% | 977 | True |
+| BLEND_E45_A25 | sealed_2023_plus | 23.13% | -10.71% | 880 | True |
+| BLEND_E45_A25 | heldout_2019_plus | 16.91% | -21.98% | 1857 | True |
 
-Held-out vs BASE: MDD improve **0.63 pp**; CAGR giveback **2.83 pp**.
-Sealed vs BASE: MDD improve **5.13 pp**; CAGR giveback **4.36 pp**.
+Held-out vs BASE: MDD improve **0.41 pp**; CAGR giveback **0.87 pp**.
+Sealed vs BASE: MDD improve **2.33 pp**; CAGR giveback **2.21 pp**.
 
 ## Ops checklist
 

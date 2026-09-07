@@ -1,6 +1,6 @@
-# E45 Month-End Paper Monitor — asof 2026-09-04
+# E45 Month-End Paper Monitor — asof 2026-09-07
 
-Generated: `2026-09-07T03:27:23.464033+00:00`
+Generated: `2026-09-07T15:50:27.283077+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **CHAL_E45_E3** (E45 `E3_VOLTARGET_WINNER` on early-stack)
 
@@ -11,12 +11,12 @@ Locked: **CHAL_E45_E3** (E45 `E3_VOLTARGET_WINNER` on early-stack)
 
 | Window | BASE CAGR | BASE MDD | CHAL_E45_E3 CAGR | CHAL_E45_E3 MDD | MDD Δpp | CAGR giveback pp | Rel NAV | Decision? |
 |---|---:|---:|---:|---:|---:|---:|---:|:---:|
-| mtd | 2025.54%* | 0.00% | 1012.73%* | 0.00% | +0.00 | +1012.81 | 0.9923 | no |
-| ytd | 68.27% | -14.46% | 45.04% | -7.23% | +7.23 | +23.23 | 0.9095 | yes |
-| trailing_1y | 54.37% | -14.46% | 33.88% | -7.23% | +7.23 | +20.49 | 0.8727 | yes |
-| sealed_2023_plus | 24.93% | -14.46% | 15.52% | -9.56% | +4.90 | +9.40 | 0.7613 | yes |
-| heldout_2019_plus | 18.23% | -22.64% | 12.59% | -20.76% | +1.88 | +5.65 | 0.6975 | yes |
-| full | 13.78% | -22.64% | 10.79% | -20.76% | +1.88 | +2.99 | 0.7020 | no |
+| mtd | 1509.63%* | 0.00% | 840.94%* | 0.00% | +0.00 | +668.69 | 0.9915 | no |
+| ytd | 68.87% | -13.04% | 49.75% | -9.47% | +3.57 | +19.12 | 0.9257 | yes |
+| trailing_1y | 53.96% | -13.04% | 39.07% | -9.47% | +3.57 | +14.89 | 0.9077 | yes |
+| sealed_2023_plus | 25.33% | -13.04% | 17.87% | -9.47% | +3.57 | +7.46 | 0.8072 | yes |
+| heldout_2019_plus | 17.78% | -22.39% | 14.20% | -21.64% | +0.74 | +3.58 | 0.7966 | yes |
+| full | 13.81% | -22.39% | 11.84% | -21.64% | +0.74 | +1.97 | 0.7928 | no |
 
 \* `mtd` CAGR annualized from a short sample — **non-decision / display-only**.
 

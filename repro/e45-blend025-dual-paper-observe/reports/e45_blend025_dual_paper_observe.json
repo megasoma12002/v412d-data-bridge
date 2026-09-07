@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-06T00:58:49.623058+00:00",
+  "generated_at_utc": "2026-09-07T15:50:19.168750+00:00",
   "label": "E45_BLEND025_DUAL_PAPER_OBSERVE_SLEEVE",
   "status": "OPERATING_OBSERVE",
   "live_wire": false,
@@ -11,7 +11,7 @@
   "locked_challenger": "BLEND_E45_A25",
   "blend_alpha": 0.25,
   "e45_profile": "E3_VOLTARGET_WINNER",
-  "claimed_mdd_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
   "primary_comparable_mdd": -0.1581,
   "current_live_clip": {
     "financial_lo": 0.5,
@@ -28,92 +28,92 @@
       "mean_e45_exposure": 1.0,
       "windows": {
         "full": {
-          "cagr": 0.1378248622325564,
-          "max_drawdown": -0.2263873534222821,
-          "utility": 0.024631185521415355,
-          "vol": 0.13322264778649467,
-          "n_days": 3351
+          "cagr": 0.13809233236544483,
+          "max_drawdown": -0.2238581865512097,
+          "utility": 0.026163239089839974,
+          "vol": 0.12789273129453765,
+          "n_days": 3352
         },
         "oof_2011_2018": {
-          "cagr": 0.08846337485294886,
-          "max_drawdown": -0.17413755783374418,
-          "utility": 0.0013945959360767701,
-          "vol": 0.10679475834335891,
+          "cagr": 0.09458971437818464,
+          "max_drawdown": -0.1648971955501326,
+          "utility": 0.01214111660311834,
+          "vol": 0.09970667237982528,
           "n_days": 1495
         },
         "validation_2019_2022": {
-          "cagr": 0.12329654723233241,
-          "max_drawdown": -0.2263873534222821,
-          "utility": 0.010102870521191354,
-          "vol": 0.1356113287117382,
+          "cagr": 0.11177792616354365,
+          "max_drawdown": -0.22385818655120981,
+          "utility": -0.00015116711206125677,
+          "vol": 0.13238109729866188,
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.2492563398696781,
-          "max_drawdown": -0.144572796391655,
-          "utility": 0.1769699416738506,
-          "vol": 0.16654549266359758,
-          "n_days": 879
+          "cagr": 0.2533411521635798,
+          "max_drawdown": -0.13038721645267615,
+          "utility": 0.1881475439372417,
+          "vol": 0.16076647046175016,
+          "n_days": 880
         },
         "heldout_2019_plus": {
-          "cagr": 0.18234637927240827,
-          "max_drawdown": -0.2263873534222821,
-          "utility": 0.06915270256126721,
-          "vol": 0.1510303139281758,
-          "n_days": 1856
+          "cagr": 0.17777827046900496,
+          "max_drawdown": -0.22385818655120981,
+          "utility": 0.06584917719340005,
+          "vol": 0.14651020134897216,
+          "n_days": 1857
         }
       }
     },
     "BLEND_E45_A25": {
       "exact_t1_ok": true,
       "same_bar_fills": 0,
-      "mean_e45_exposure": 0.9766993235978588,
+      "mean_e45_exposure": 0.9766968843202669,
       "windows": {
         "full": {
-          "cagr": 0.124038092709855,
-          "max_drawdown": -0.22008177023841224,
-          "utility": 0.013997207590648875,
-          "vol": 0.11992778375578673,
-          "n_days": 3351
+          "cagr": 0.13314188752110612,
+          "max_drawdown": -0.21975173832868033,
+          "utility": 0.02326601835676595,
+          "vol": 0.12273382117033113,
+          "n_days": 3352
         },
         "oof_2011_2018": {
-          "cagr": 0.09128144255463799,
-          "max_drawdown": -0.165746292631895,
-          "utility": 0.008408296238690494,
-          "vol": 0.1004628042853837,
+          "cagr": 0.09348026905352724,
+          "max_drawdown": -0.16469768939684948,
+          "utility": 0.011131424355102504,
+          "vol": 0.09777552180536134,
           "n_days": 1495
         },
         "validation_2019_2022": {
-          "cagr": 0.10846661305403948,
-          "max_drawdown": -0.22008177023841224,
-          "utility": -0.0015742720651666375,
-          "vol": 0.1274411027649833,
+          "cagr": 0.1139453604824483,
+          "max_drawdown": -0.21975173832868022,
+          "utility": 0.004069491318108187,
+          "vol": 0.12907052625522816,
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.20564512383990396,
-          "max_drawdown": -0.09332258706256946,
-          "utility": 0.15898383030861923,
-          "vol": 0.13983088916830658,
-          "n_days": 879
+          "cagr": 0.2312699237707625,
+          "max_drawdown": -0.1070646608658753,
+          "utility": 0.17773759333782485,
+          "vol": 0.15021432189782596,
+          "n_days": 880
         },
         "heldout_2019_plus": {
-          "cagr": 0.15406866712029776,
-          "max_drawdown": -0.22008177023841224,
-          "utility": 0.04402778200109164,
-          "vol": 0.13341423752666234,
-          "n_days": 1856
+          "cagr": 0.16910487094254023,
+          "max_drawdown": -0.21975173832868022,
+          "utility": 0.05922900177820012,
+          "vol": 0.13947200155191358,
+          "n_days": 1857
         }
       }
     }
   },
   "heldout_delta_vs_base": {
-    "mdd_improve_pp": 0.6305583183869867,
-    "cagr_giveback_pp": 2.82777121521105
+    "mdd_improve_pp": 0.41064482225295906,
+    "cagr_giveback_pp": 0.8673399526464731
   },
   "sealed_delta_vs_base": {
-    "mdd_improve_pp": 5.125020932908553,
-    "cagr_giveback_pp": 4.361121602977414
+    "mdd_improve_pp": 2.3322555586800853,
+    "cagr_giveback_pp": 2.2071228392817277
   },
   "parent_artifacts": [
     "research/ops/E45_LIVE_STITCH_CHARTER.md",
@@ -137,7 +137,7 @@
     "Auto live-wire / four-layer stitch from this observe sleeve",
     "Soft-Frozen clip flip",
     "DEFAULT books flip away from E22_v2s_tw",
-    "Invent a replacement for retired the retired handoff MDD narrative narrative",
+    "Invent replacement for retired MDD narrative",
     "Bundle FIN50 / L4 / BLEND / odd-lot / tax DEFAULT promote"
   ]
 }
