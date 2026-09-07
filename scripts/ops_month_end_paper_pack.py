@@ -141,7 +141,7 @@ def main() -> int:
         "cutover_note": (
             f"Paper/ops cadence only. Soft-Frozen {CLIP_TXT} unchanged. "
             "FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated; "
-            "BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-α=0.25 observe is paper-only (parallel sleeve); E45 blend-α=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY α=0.10 observe is paper-only (parallel sleeve); E45 M2 BIL_FX C50 relocate observe is paper-only (parallel sleeve; stitch still forbidden)."
+            "BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-α=0.25 observe is paper-only (parallel sleeve); E45 blend-α=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY α=0.10 observe is paper-only (parallel sleeve); E45 M2 BIL_FX C35 relocate observe is paper-only (parallel sleeve; stitch still forbidden)."
         ),
     }
 

@@ -1,16 +1,16 @@
 {
-  "generated_at_utc": "2026-09-07T02:20:32.142722+00:00",
+  "generated_at_utc": "2026-09-07T02:43:11.801421+00:00",
   "asof": "2026-09-04",
   "status": "OPERATING_OBSERVE",
   "operating_observe": false,
-  "locked_id": "M2_RELOC_BIL_FX_C50",
+  "locked_id": "M2_RELOC_BIL_FX_C35",
   "def_honesty": "BIL \u00d7 USDTWD mid \u2014 FX risk; mid optimistic; not TWD cash",
   "soft_frozen_unchanged": true,
   "stitch_authorized": false,
   "alerts": [
-    "ALERT: M2_RELOC_BIL_FX_C50 ytd CAGR giveback > 3.0 pp (paper)",
+    "ALERT: M2_RELOC_BIL_FX_C35 ytd CAGR giveback > 3.0 pp (paper)",
     "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk",
-    "ALERT: M2_RELOC_BIL_FX_C50 trailing_1y CAGR giveback > 3.0 pp (paper)",
+    "ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper)",
     "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
   ],
   "windows": [
@@ -21,11 +21,11 @@
       "n_days": 4,
       "base_cagr": 19.922000007664774,
       "base_mdd": 0.0,
-      "m2_reloc_bil_fx_c50_cagr": 16.990432336457655,
-      "m2_reloc_bil_fx_c50_mdd": 0.0,
+      "m2_reloc_bil_fx_c35_cagr": 18.170948782538915,
+      "m2_reloc_bil_fx_c35_mdd": 0.0,
       "mdd_improve_pp": 0.0,
-      "cagr_giveback_pp": 293.15676712071195,
-      "rel_nav_end": 0.9982044572812736
+      "cagr_giveback_pp": 175.10512251258598,
+      "rel_nav_end": 0.9989600032151749
     },
     {
       "window": "ytd",
@@ -34,11 +34,11 @@
       "n_days": 162,
       "base_cagr": 0.6837253898932076,
       "base_mdd": -0.14087148125010152,
-      "m2_reloc_bil_fx_c50_cagr": 0.5510169027228238,
-      "m2_reloc_bil_fx_c50_mdd": -0.11434184979423967,
-      "mdd_improve_pp": 2.6529631455861846,
-      "cagr_giveback_pp": 13.270848717038387,
-      "rel_nav_end": 0.9489003111114679
+      "m2_reloc_bil_fx_c35_cagr": 0.5968905026016602,
+      "m2_reloc_bil_fx_c35_mdd": -0.12560400157531282,
+      "mdd_improve_pp": 1.5267479674788698,
+      "cagr_giveback_pp": 8.683488729154742,
+      "rel_nav_end": 0.9667363140650799
     },
     {
       "window": "trailing_1y",
@@ -47,11 +47,11 @@
       "n_days": 242,
       "base_cagr": 0.5416538629101519,
       "base_mdd": -0.14087148125010152,
-      "m2_reloc_bil_fx_c50_cagr": 0.44588461374786825,
-      "m2_reloc_bil_fx_c50_mdd": -0.11434184979423956,
-      "mdd_improve_pp": 2.6529631455861957,
-      "cagr_giveback_pp": 9.576924916228368,
-      "rel_nav_end": 0.9405081791960853
+      "m2_reloc_bil_fx_c35_cagr": 0.4817663835506867,
+      "m2_reloc_bil_fx_c35_mdd": -0.12560400157531282,
+      "mdd_improve_pp": 1.5267479674788698,
+      "cagr_giveback_pp": 5.988747935946526,
+      "rel_nav_end": 0.9628174828134114
     },
     {
       "window": "sealed_2023_plus",
@@ -60,11 +60,11 @@
       "n_days": 879,
       "base_cagr": 0.2488922261012192,
       "base_mdd": -0.14087148125010163,
-      "m2_reloc_bil_fx_c50_cagr": 0.20133832515644912,
-      "m2_reloc_bil_fx_c50_mdd": -0.11434184979423956,
-      "mdd_improve_pp": 2.652963145586207,
-      "cagr_giveback_pp": 4.755390094477008,
-      "rel_nav_end": 0.8734919517287468
+      "m2_reloc_bil_fx_c35_cagr": 0.21731411725867766,
+      "m2_reloc_bil_fx_c35_mdd": -0.12560400157531293,
+      "mdd_improve_pp": 1.5267479674788698,
+      "cagr_giveback_pp": 3.157810884254153,
+      "rel_nav_end": 0.9146364008863062
     },
     {
       "window": "heldout_2019_plus",
@@ -73,11 +73,11 @@
       "n_days": 1856,
       "base_cagr": 0.18203522229472702,
       "base_mdd": -0.2254334443782552,
-      "m2_reloc_bil_fx_c50_cagr": 0.14772105931087443,
-      "m2_reloc_bil_fx_c50_mdd": -0.19584814498939884,
-      "mdd_improve_pp": 2.9585299388856345,
-      "cagr_giveback_pp": 3.431416298385259,
-      "rel_nav_end": 0.8050473943321049
+      "m2_reloc_bil_fx_c35_cagr": 0.15976717560259424,
+      "m2_reloc_bil_fx_c35_mdd": -0.19924316616177107,
+      "mdd_improve_pp": 2.619027821648412,
+      "cagr_giveback_pp": 2.226804669213278,
+      "rel_nav_end": 0.8693609537241012
     },
     {
       "window": "full",
@@ -86,18 +86,18 @@
       "n_days": 3351,
       "base_cagr": 0.13789395672938531,
       "base_mdd": -0.22543344437825508,
-      "m2_reloc_bil_fx_c50_cagr": 0.11329330137406912,
-      "m2_reloc_bil_fx_c50_mdd": -0.19584814498939884,
-      "mdd_improve_pp": 2.9585299388856234,
-      "cagr_giveback_pp": 2.460065535531619,
-      "rel_nav_end": 0.7478492712081214
+      "m2_reloc_bil_fx_c35_cagr": 0.12171018898121178,
+      "m2_reloc_bil_fx_c35_mdd": -0.19924316616177107,
+      "mdd_improve_pp": 2.619027821648401,
+      "cagr_giveback_pp": 1.6183767748173539,
+      "rel_nav_end": 0.8266059393872857
     }
   ],
   "gates": {
     "trail_alert_pp": 3.0,
     "trail_pause_pp": 5.0,
     "design_giveback_pp": {
-      "heldout_2019_plus": 3.5,
+      "heldout_2019_plus": 2.5,
       "sealed_2023_plus": 6.0
     },
     "structural_buffer_pp": 2.0

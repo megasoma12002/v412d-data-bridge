@@ -1,22 +1,22 @@
 # E45 M2 BIL_FX month-end monitor (asof 2026-09-04)
 
 **Status:** `OPERATING_OBSERVE` — **OPERATING (paper only)**
-**Locked:** `M2_RELOC_BIL_FX_C50` vs BASE
+**Locked:** `M2_RELOC_BIL_FX_C35` vs BASE
 
 | Window | MDD dpp | Giveback pp | Rel NAV |
 |---|---:|---:|---:|
-| mtd | 0.0 | 293.15676712071195 | 0.9982 |
-| ytd | 2.6529631455861846 | 13.270848717038387 | 0.9489 |
-| trailing_1y | 2.6529631455861957 | 9.576924916228368 | 0.9405 |
-| sealed_2023_plus | 2.652963145586207 | 4.755390094477008 | 0.8735 |
-| heldout_2019_plus | 2.9585299388856345 | 3.431416298385259 | 0.8050 |
-| full | 2.9585299388856234 | 2.460065535531619 | 0.7478 |
+| mtd | 0.0 | 175.10512251258598 | 0.9990 |
+| ytd | 1.5267479674788698 | 8.683488729154742 | 0.9667 |
+| trailing_1y | 1.5267479674788698 | 5.988747935946526 | 0.9628 |
+| sealed_2023_plus | 1.5267479674788698 | 3.157810884254153 | 0.9146 |
+| heldout_2019_plus | 2.619027821648412 | 2.226804669213278 | 0.8694 |
+| full | 2.619027821648401 | 1.6183767748173539 | 0.8266 |
 
 ## Alerts
 
-- ALERT: M2_RELOC_BIL_FX_C50 ytd CAGR giveback > 3.0 pp (paper)
+- ALERT: M2_RELOC_BIL_FX_C35 ytd CAGR giveback > 3.0 pp (paper)
 - PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
-- ALERT: M2_RELOC_BIL_FX_C50 trailing_1y CAGR giveback > 3.0 pp (paper)
+- ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper)
 - PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
 
 ## Honesty

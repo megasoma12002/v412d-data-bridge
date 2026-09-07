@@ -1,3 +1,15 @@
+# E45 M2 BIL_FX Observe Retarget C35 — Ballot (**ACCEPTED**)
+
+Status: **ACCEPTED → OPERATING OBSERVE** (paper only)  
+Accepted: 2026-09-07 via human 「請優化」  
+Operating doc: `research/ops/E45_M2_BIL_FX_OBSERVE_OPEN.md`  
+Locked book now: **`M2_RELOC_BIL_FX_C35`** (prior `M2_RELOC_BIL_FX_C50` lock retired)
+
+> Soft-Frozen / DEFAULT / stitch remain KEEP / KEEP / FORBIDDEN.  
+> HIGH_BETA remains HOLD DRAFT. C75 not auto-OPEN.
+
+---
+
 # E45 M2 BIL_FX Observe Retarget C35 — OPEN Ballot **DRAFT**
 
 Status: **DRAFT ONLY — NOT OPEN**  
@@ -49,3 +61,16 @@ Label: `E45_M2_C35_OBSERVE_RETARGET_BALLOT_DRAFT_2026-09-07__NOT_OPEN__STITCH_FO
 
 Human ops-cadence 「請全做」 recorded **HOLD DRAFT** (not ACCEPT): `research/ops/E45_M2_C35_OBSERVE_RETARGET_HOLD.md`  
 Operating lock remains `M2_RELOC_BIL_FX_C50`.
+
+## Acceptance record
+
+| Field | Value |
+|---|---|
+| Decision | **ACCEPT OPEN C35** |
+| Human cue | 「請優化」 |
+| Date | 2026-09-07 |
+| New lock | `M2_RELOC_BIL_FX_C35` |
+| Prior lock | `M2_RELOC_BIL_FX_C50` |
+| HIGH_BETA | HOLD DRAFT (unchanged) |
+
+Label: `E45_M2_C35_OBSERVE_RETARGET_ACCEPTED_2026-09-07__OPERATING_C35__STITCH_FORBIDDEN`

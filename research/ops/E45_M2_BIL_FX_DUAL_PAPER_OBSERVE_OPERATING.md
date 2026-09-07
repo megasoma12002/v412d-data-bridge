@@ -5,21 +5,21 @@
 | Book | Role |
 |---|---|
 | `BASE_E16_E18_E22_v2s` | Soft-Frozen early-stack ref |
-| `M2_RELOC_BIL_FX_C50` | M2 relocate → `BIL_FX` @ c=0.5 |
+| `M2_RELOC_BIL_FX_C35` | M2 relocate → `BIL_FX` @ c=0.35 |
 
 **Honesty:** BIL × USDTWD mid — FX risk; mid optimistic; **not** TWD cash.
 
 ## Held-out vs BASE
 
-- MDD improve pp: 2.9585299388856345
-- CAGR giveback pp: 3.431416298385259
-- Score: 1.242821789693005
+- MDD improve pp: 2.619027821648412
+- CAGR giveback pp: 2.226804669213278
+- Score: 1.505625487041773
 
 ## Sealed vs BASE
 
-- MDD improve pp: 2.652963145586207
-- CAGR giveback pp: 4.755390094477008
-- Score: 0.27526809834770294
+- MDD improve pp: 1.5267479674788587
+- CAGR giveback pp: 3.157810884254153
+- Score: -0.05215747464821785
 
 ## Reproduce
 

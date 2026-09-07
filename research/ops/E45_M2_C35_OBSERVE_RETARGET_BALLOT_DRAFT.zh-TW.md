@@ -1,3 +1,13 @@
+# E45 M2 BIL_FX Observe 改鎖 C35 — 票（**已 ACCEPT**）
+
+狀態：**ACCEPTED → OPERATING OBSERVE**  
+接受：2026-09-07 人類「請優化」  
+現行鎖定：**`M2_RELOC_BIL_FX_C35`**
+
+Soft-Frozen／DEFAULT KEEP · stitch FORBIDDEN · HIGH_BETA 仍 HOLD DRAFT
+
+---
+
 # E45 M2 BIL_FX Observe 改鎖 C35 — OPEN 票 **DRAFT**
 
 狀態：**DRAFT ONLY — 尚未 OPEN**  
