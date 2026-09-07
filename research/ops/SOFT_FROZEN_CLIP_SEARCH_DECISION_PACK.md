@@ -1,10 +1,11 @@
 # Soft-Frozen Clip Search — Decision Pack (Charter)
 
 Date: 2026-09-07  
-Status: **ACTIVE — awaiting human charter ballot**  
+Status: **ACCEPT charter** (2026-09-07) — Stage B complete; Soft-Frozen **KEEP**  
 Soft-Frozen live: **KEEP** (FIN [0.50, 0.95] · TEL [0.03, 0.35] · 0050 [0.00, 0.35])  
 Related: `SOFT_FROZEN_CLIP_SEARCH_CHARTER.md` · withdrawn floor-10: `SOFT_FROZEN_TEL_ETF_FLOOR_10_WITHDRAWN_2026-09-07.md`  
-Charter execution context: **5M + 整張 1000** (live `DEFAULT_CAPITAL` stays 15M).
+Charter execution context: **5M + 整張 1000** (live `DEFAULT_CAPITAL` stays 15M).  
+Stage B: `SOFT_FROZEN_CLIP_SEARCH_STAGE_B.md` · `scripts/e16_clip_search_challenger.py`
 
 ## What you are voting on
 

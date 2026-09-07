@@ -1,0 +1,366 @@
+{
+  "generated_at_utc": "2026-09-07T17:42:13.139271+00:00",
+  "label": "SOFT_FROZEN_CLIP_SEARCH_STAGE_B",
+  "status": "STAGE_B_CANDIDATES_LOCKED",
+  "charter": "research/ops/SOFT_FROZEN_CLIP_SEARCH_CHARTER.md",
+  "ballot": "ACCEPT clip-search charter 2026-09-07",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "soft_frozen_live_clips": {
+    "financial": [
+      0.5,
+      0.95
+    ],
+    "telecom": [
+      0.03,
+      0.35
+    ],
+    "etf_0050": [
+      0.0,
+      0.35
+    ]
+  },
+  "execution_context": {
+    "capital": 5000000.0,
+    "board_lot": 1000,
+    "e22_books": "E22_v2s_tw",
+    "live_default_capital_untouched": 15000000.0
+  },
+  "stage_b_mode": "fin_locked_floors_hi_soft_frozen",
+  "n_challengers_attempted": 19,
+  "n_challengers_ok": 19,
+  "base": {
+    "id": "BASE_SOFT_FROZEN",
+    "clips": {
+      "fin": [
+        0.5,
+        0.95
+      ],
+      "tel": [
+        0.03,
+        0.35
+      ],
+      "etf": [
+        0.0,
+        0.35
+      ]
+    },
+    "is_live_soft_frozen": true,
+    "exact_t1_ok": true,
+    "lot_size": 1000,
+    "capital": 5000000.0,
+    "n_fills": 3149,
+    "fills_board_lot_ok": true,
+    "mean_target": {
+      "Financial": 0.7988402575612965,
+      "Telecom": 0.12075703971556864,
+      "0050": 0.08040270272313489
+    },
+    "windows": {
+      "full": {
+        "cagr": 0.14096135188141767,
+        "max_drawdown": -0.23305299070914165,
+        "utility": 0.02443485652684685,
+        "vol": 0.13206757855351844,
+        "n_days": 3352
+      },
+      "oof_2011_2018": {
+        "cagr": 0.09293174684389571,
+        "max_drawdown": -0.16465873103668205,
+        "utility": 0.010602381325554688,
+        "vol": 0.10121444258812809,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12109820048892983,
+        "max_drawdown": -0.23305299070914165,
+        "utility": 0.004571705134359005,
+        "vol": 0.13709562116440216,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.25548807345171887,
+        "max_drawdown": -0.14470194442933482,
+        "utility": 0.18313710123705146,
+        "vol": 0.16761394432762786,
+        "n_days": 880
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.18403341057399403,
+        "max_drawdown": -0.23305299070914165,
+        "utility": 0.0675069152194232,
+        "vol": 0.15230588619951507,
+        "n_days": 1857
+      }
+    }
+  },
+  "top_k_heldout": [
+    {
+      "id": "CLIP_SEARCH_F0.50-0.95_T0.08-0.35_E0.05-0.35",
+      "clips": {
+        "fin": [
+          0.5,
+          0.95
+        ],
+        "tel": [
+          0.08,
+          0.35
+        ],
+        "etf": [
+          0.05,
+          0.35
+        ]
+      },
+      "is_live_soft_frozen": false,
+      "exact_t1_ok": true,
+      "lot_size": 1000,
+      "capital": 5000000.0,
+      "n_fills": 2105,
+      "fills_board_lot_ok": true,
+      "mean_target": {
+        "Financial": 0.76726032064836,
+        "Telecom": 0.14299005652583074,
+        "0050": 0.08974962282580924
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.13890196237468144,
+          "max_drawdown": -0.22743245621824904,
+          "utility": 0.025185734265556925,
+          "vol": 0.12956199531643292,
+          "n_days": 3352
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09288119439538578,
+          "max_drawdown": -0.1622972250519824,
+          "utility": 0.011732581869394576,
+          "vol": 0.09963995275331376,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.11591454129635248,
+          "max_drawdown": -0.22743245621824904,
+          "utility": 0.0021983131872279627,
+          "vol": 0.133193041570901,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.2547303147311213,
+          "max_drawdown": -0.1363735409133623,
+          "utility": 0.18654354427444014,
+          "vol": 0.16513845985432307,
+          "n_days": 880
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.18071971545198262,
+          "max_drawdown": -0.22743245621824904,
+          "utility": 0.0670034873428581,
+          "vol": 0.1491733713524784,
+          "n_days": 1857
+        }
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.5620534490892615,
+          "cagr_giveback_pp": 0.33136951220114064,
+          "score": 0.39636869298869115
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": 0.5620534490892615,
+          "cagr_giveback_pp": 0.518365919257735,
+          "score": 0.30287048946039397
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": 0.2361505984699641,
+          "cagr_giveback_pp": 0.00505524485099329,
+          "score": 0.23362297604446747
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 0.8328403515972527,
+          "cagr_giveback_pp": 0.07577587205975789,
+          "score": 0.7949524155673737
+        }
+      },
+      "fragile_sealed_mdd": false
+    },
+    {
+      "id": "CLIP_SEARCH_F0.50-0.95_T0.10-0.35_E0.00-0.35",
+      "clips": {
+        "fin": [
+          0.5,
+          0.95
+        ],
+        "tel": [
+          0.1,
+          0.35
+        ],
+        "etf": [
+          0.0,
+          0.35
+        ]
+      },
+      "is_live_soft_frozen": false,
+      "exact_t1_ok": true,
+      "lot_size": 1000,
+      "capital": 5000000.0,
+      "n_fills": 2413,
+      "fills_board_lot_ok": true,
+      "mean_target": {
+        "Financial": 0.7702406641151458,
+        "Telecom": 0.15558221660797894,
+        "0050": 0.07417711927687519
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.13681624800526082,
+          "max_drawdown": -0.2264011763702668,
+          "utility": 0.02361565982012742,
+          "vol": 0.12788669738592995,
+          "n_days": 3352
+        },
+        "oof_2011_2018": {
+          "cagr": 0.0912501645153081,
+          "max_drawdown": -0.16045223999960123,
+          "utility": 0.01102404451550748,
+          "vol": 0.09854252446195802,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.1145592133065716,
+          "max_drawdown": -0.2264011763702669,
+          "utility": 0.0013586251214381395,
+          "vol": 0.1325746548862829,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.24959131997227257,
+          "max_drawdown": -0.13387965559088089,
+          "utility": 0.18265149217683213,
+          "vol": 0.16190834180014382,
+          "n_days": 880
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.17771352853139621,
+          "max_drawdown": -0.2264011763702669,
+          "utility": 0.06451294034626276,
+          "vol": 0.14719367008770384,
+          "n_days": 1857
+        }
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.665181433887474,
+          "cagr_giveback_pp": 0.6319882042597813,
+          "score": 0.3491873317575833
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": 0.665181433887474,
+          "cagr_giveback_pp": 0.6538987182358236,
+          "score": 0.3382320747695622
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": 0.42064910370808173,
+          "cagr_giveback_pp": 0.16815823285876164,
+          "score": 0.3365699872787009
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 1.082228883845393,
+          "cagr_giveback_pp": 0.5896753479446293,
+          "score": 0.7873912098730784
+        }
+      },
+      "fragile_sealed_mdd": false
+    },
+    {
+      "id": "CLIP_SEARCH_F0.50-0.95_T0.08-0.35_E0.00-0.35",
+      "clips": {
+        "fin": [
+          0.5,
+          0.95
+        ],
+        "tel": [
+          0.08,
+          0.35
+        ],
+        "etf": [
+          0.0,
+          0.35
+        ]
+      },
+      "is_live_soft_frozen": false,
+      "exact_t1_ok": true,
+      "lot_size": 1000,
+      "capital": 5000000.0,
+      "n_fills": 2583,
+      "fills_board_lot_ok": true,
+      "mean_target": {
+        "Financial": 0.7801525642387158,
+        "Telecom": 0.1439476063380353,
+        "0050": 0.07589982942324895
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.1388625171783877,
+          "max_drawdown": -0.22846644852167475,
+          "utility": 0.02462929291755034,
+          "vol": 0.12926468028056445,
+          "n_days": 3352
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09218938387699316,
+          "max_drawdown": -0.1636902607013423,
+          "utility": 0.010344253526322011,
+          "vol": 0.0991126416738263,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.1151492608217175,
+          "max_drawdown": -0.22846644852167497,
+          "utility": 0.0009160365608800181,
+          "vol": 0.13396173661243738,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.2556246948940868,
+          "max_drawdown": -0.14040059488676193,
+          "utility": 0.18542439745070582,
+          "vol": 0.16419178284574698,
+          "n_days": 880
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1807471553869664,
+          "max_drawdown": -0.22846644852167497,
+          "utility": 0.06651393112612891,
+          "vol": 0.14904353054209735,
+          "n_days": 1857
+        }
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.458654218746668,
+          "cagr_giveback_pp": 0.32862551870276313,
+          "score": 0.29434145939528644
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": 0.458654218746668,
+          "cagr_giveback_pp": 0.5948939667212327,
+          "score": 0.16120723538605164
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": 0.0968470335339755,
+          "cagr_giveback_pp": 0.07423629669025544,
+          "score": 0.05972888518884778
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 0.43013495425728854,
+          "cagr_giveback_pp": -0.01366214423679235,
+          "score": 0.42330388213889236
+        }
+      },
+      "fragile_sealed_mdd": false
+    }
+  ],
+  "stop_no_positive_heldout_score": false,
+  "objective": "heldout_mdd_improve_pp - 0.5 * abs(cagr_giveback_pp)",
+  "all_rows_path": "outputs/stage_b_all_candidates.json"
+}
