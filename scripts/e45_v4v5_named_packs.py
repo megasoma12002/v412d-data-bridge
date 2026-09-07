@@ -140,12 +140,12 @@ def main() -> int:
         cost_delta.append(
             {
                 "cost_multiple": int(mult),
-                "mdd_improve_pp": (c["mdd"] - b["mdd"]) * 100.0,
+                "mdd_improve_pp": (c["max_drawdown"] - b["max_drawdown"]) * 100.0,
                 "cagr_giveback_pp": (b["cagr"] - c["cagr"]) * 100.0,
                 "base_cagr": b["cagr"],
                 "chal_cagr": c["cagr"],
-                "base_mdd": b["mdd"],
-                "chal_mdd": c["mdd"],
+                "base_mdd": b["max_drawdown"],
+                "chal_mdd": c["max_drawdown"],
             }
         )
     cost_delta_df = pd.DataFrame(cost_delta)
@@ -216,12 +216,12 @@ def main() -> int:
             {
                 "year": int(y),
                 "available": True,
-                "mdd_improve_pp": (c["mdd"] - b["mdd"]) * 100.0,
+                "mdd_improve_pp": (c["max_drawdown"] - b["max_drawdown"]) * 100.0,
                 "ret_delta_pp": (c["ret"] - b["ret"]) * 100.0,
                 "base_ret": b["ret"],
                 "chal_ret": c["ret"],
-                "base_mdd": b["mdd"],
-                "chal_mdd": c["mdd"],
+                "base_mdd": b["max_drawdown"],
+                "chal_mdd": c["max_drawdown"],
                 "note": b.get("note") or "",
             }
         )
@@ -305,7 +305,7 @@ def main() -> int:
     ]
     for r in cost_rows:
         v4_lines.append(
-            f"| {r['book']} | {r['cost_multiple']} | {pct(r['cagr'])} | {pct(r['mdd'])} | "
+            f"| {r['book']} | {r['cost_multiple']} | {pct(r['cagr'])} | {pct(r['max_drawdown'])} | "
             f"{r['n_fills']} | {r['fees_tax_sum']:.2f} |"
         )
     v4_lines += [
@@ -368,7 +368,7 @@ def main() -> int:
     for r in crisis_rows:
         v5_lines.append(
             f"| {r['book']} | {r['year']} | {r['available']} | {r['n_days']} | "
-            f"{pct(r['ret'])} | {pct(r['mdd'])} | {r.get('note') or ''} |"
+            f"{pct(r['ret'])} | {pct(r['max_drawdown'])} | {r.get('note') or ''} |"
         )
     v5_lines += [
         "",

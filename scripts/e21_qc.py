@@ -17,12 +17,25 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 CANON_STATE = REPO_ROOT / "forward" / "e21"
 
 
+# Frozen allowlist: pre-fix zero-qty fills already in forward/e21 (do not rewrite history).
+# New zero-qty fills must FAIL QC. Do not grow this set.
+LEGACY_ZERO_QTY_FILL_IDS = frozenset(
+    {
+        "2026-09-01-5880-BUY",
+        "2026-09-02-5880-BUY",
+        "2026-09-03-5880-BUY",
+        "2026-09-04-5880-BUY",
+    }
+)
+
+
 def exact_t1_from_fills(fills: pd.DataFrame, *, fills_required: bool = True) -> dict:
     """Require fill_date strictly after signal_date (calendar day).
 
     Live default (fills_required=True): empty/missing fills ⇒ Exact T+1 FAIL.
     Research opt-out (fills_required=False): empty fills → ok (nothing to violate).
     Non-empty fills missing the date schema → always fail closed.
+    Blank / NaT dates → fail closed (not same-bar-ok).
     """
     if fills.empty:
         return {
@@ -42,8 +55,17 @@ def exact_t1_from_fills(fills: pd.DataFrame, *, fills_required: bool = True) -> 
             "schema_ok": False,
             "reason": "fills_missing_or_incomplete",
         }
-    sig = pd.to_datetime(fills["signal_date"]).dt.normalize()
-    fill_dt = pd.to_datetime(fills["fill_date"]).dt.normalize()
+    sig = pd.to_datetime(fills["signal_date"], errors="coerce").dt.normalize()
+    fill_dt = pd.to_datetime(fills["fill_date"], errors="coerce").dt.normalize()
+    if int(sig.isna().sum() + fill_dt.isna().sum()) > 0:
+        return {
+            "exact_t1_ok": False,
+            "same_bar_fills": -1,
+            "fills_checked": int(len(fills)),
+            "pending_filter": "signal_date < fill_date",
+            "schema_ok": False,
+            "reason": "fills_date_nat_or_blank",
+        }
     same_bar = int((fill_dt <= sig).sum())
     return {
         "exact_t1_ok": same_bar == 0,
@@ -112,9 +134,17 @@ def main() -> None:
         checks["fills_reference_existing_orders"] = set(fills.fill_id.astype(str)).issubset(
             set(orders.order_id.astype(str))
         )
+        if "quantity" not in fills.columns:
+            checks["fills_positive_qty"] = False
+        else:
+            qty = pd.to_numeric(fills["quantity"], errors="coerce")
+            legacy = fills["fill_id"].astype(str).isin(LEGACY_ZERO_QTY_FILL_IDS)
+            # Fail-closed on qty<=0 except frozen pre-fix residue (no history rewrite).
+            checks["fills_positive_qty"] = bool(((qty > 0) | legacy).all() and not qty.isna().any())
     else:
         checks["fills_unique_id"] = False
         checks["fills_reference_existing_orders"] = False
+        checks["fills_positive_qty"] = False
 
     # Live ledgers must have an auditable fills file; empty/missing ⇒ Exact T+1 FAIL.
     t1 = exact_t1_from_fills(fills, fills_required=True)

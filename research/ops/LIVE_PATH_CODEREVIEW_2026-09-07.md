@@ -27,6 +27,18 @@ Label: `LIVE_PATH_CODEREVIEW_2026-09-07__P0_ZERO_FILL__T1_NAT_GAP__SF_HEALTHY`
 
 Current tip: `last_date=2026-09-07`, `e21_qc` PASS, Soft-Frozen signal FIN ∈ `[0.66, 0.86]`.
 
+## Fix status (same-day follow-up on `cursor/repo-codereview-d049`)
+
+| ID | Status |
+|---|---|
+| L1 zero-qty fills | **FIXED forward-only** — SELL-before-BUY; skip `q&lt;1`; QC `fills_positive_qty` + frozen legacy allowlist (4 ids; no history rewrite) |
+| L2 NaT Exact T+1 | **FIXED** — fail-closed `fills_date_nat_or_blank` |
+| L4 missing div file | **FIXED** — `load_dividend_events(..., require_exists=True)` from live pipeline |
+| L3 partial-write | **OPEN** (P2) |
+| L5 tip e22_version QC | **OPEN** (P2) |
+
+See integrated `PROJECT_CODE_REVIEW_2026-09-07.md`.
+
 ---
 
 ## P0 — Live correctness (NEW — not fixed in prior reviews)

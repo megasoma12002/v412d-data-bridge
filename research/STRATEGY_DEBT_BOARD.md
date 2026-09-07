@@ -162,3 +162,7 @@ Operating observe lock **C50 → C35** via human 「請優化」. HIGH_BETA rema
 ## Ops cadence note (2026-09-07 post-C35)
 
 Human 「依 month-end cadence 繼續觀察」. Pack re-run: `research/ops/OPS_CADENCE_2026-09-07_C35_OBSERVE.md` (partial: gap6 live evidence missing). C35 tip YTD/1y PAUSE_REVIEW — extend observe. Soft-Frozen KEEP · stitch FORBIDDEN · HIGH_BETA HOLD.
+
+## Full-repo code review (2026-09-07)
+
+`research/ops/PROJECT_CODE_REVIEW_2026-09-07.md` — P0 zero-qty fills + Exact T+1 NaT + stage3/v4v5 `max_drawdown` half-migration **fixed forward-only**. Soft-Frozen KEEP · stitch FORBIDDEN · no history rewrite.

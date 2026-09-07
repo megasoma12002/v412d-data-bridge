@@ -13,6 +13,7 @@
     "fills_file_present": true,
     "fills_unique_id": true,
     "fills_reference_existing_orders": true,
+    "fills_positive_qty": true,
     "exact_t1_ok": true,
     "audit_unique_date": true,
     "audit_chain_links": true
