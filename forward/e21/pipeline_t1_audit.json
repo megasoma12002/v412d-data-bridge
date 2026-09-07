@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-07",
+  "exact_t1_ok": true,
+  "same_bar_fills": 0,
+  "fills_checked": 8,
+  "pending_filter": "signal_date < fill_date",
+  "soft_frozen_financial_clip": [
+    0.5,
+    0.95
+  ],
+  "live_wire": true,
+  "owns_qc_status": false,
+  "note": "Pipeline Exact T+1 audit only. qc_status.json is owned by e21_qc.py; this file is pipeline_t1_audit.json."
+}
