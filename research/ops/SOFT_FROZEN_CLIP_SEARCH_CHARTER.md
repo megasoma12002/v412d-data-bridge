@@ -1,7 +1,7 @@
 # Soft-Frozen Clip Search Charter — Research Only
 
 Date: 2026-09-07  
-Status: **CHARTER DRAFT / OPEN** — awaiting human **ACCEPT charter** (research only)  
+Status: **CHARTER ACCEPTED** — Stage B **DONE** (`SOFT_FROZEN_CLIP_SEARCH_STAGE_B.md`)  
 Class: **A. Research / EXPERIMENTAL** (`STRATEGY_UPDATE_STANDARD_PROCESS.md`)  
 Soft-Frozen live: **KEEP** — FIN **[0.50, 0.95]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]**  
 Execution context (fixed for this charter): board-lot **1000** · capital **5M** · books **`E22_v2s_tw`**  
@@ -133,11 +133,11 @@ Fail → stay research; Soft-Frozen KEEP.
 ## Stage plan
 
 ```
-A  ACCEPT charter (this file + decision pack)     ← YOU ARE HERE
-B  Grid harness + BASE control @ 5M/1000          paper only
-C  Optional Bayesian within same box              paper only
-D  Lock ≤3 candidates; sealed report              paper only
-E  Dual-paper / month-end observe (if score>0)    observe only
+A  ACCEPT charter (this file + decision pack)     DONE 2026-09-07
+B  Grid harness + BASE control @ 5M/1000          DONE — floors screen (FIN locked; hi=Soft-Frozen)
+C  Optional Bayesian / --expand-fin full grid     optional
+D  Lock ≤3 candidates; sealed report              DONE (see Stage B top-K)
+E  Dual-paper / month-end observe (if score>0)    NEXT (optional)
 F  Class D Soft-Frozen ballot (separate)          human only; optional
 ```
 
