@@ -191,3 +191,7 @@ Human 「提高模擬／實盤資本」 — `DEFAULT_CAPITAL=15M` so TEL floor c
 
 Human 「還是先還原 soft frozen」. Draft PR #119 (TEL/0050 floors → 10%) **closed without merge**. Live Soft-Frozen remains FIN **[0.50, 0.95]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]** (@ 15M + board-lot). stitch FORBIDDEN.
 
+## Soft-Frozen clip-search charter (2026-09-07)
+
+Research-only Class A charter drafted — grid/Bayesian clip challengers; **Soft-Frozen KEEP**. Awaiting `ACCEPT clip-search charter`. Pack: `SOFT_FROZEN_CLIP_SEARCH_DECISION_PACK.md`.
+
