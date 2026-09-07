@@ -3,11 +3,11 @@
 
 Side-by-side Exact T+1 paper books:
   BASE (Soft-Frozen early-stack)
-  M2_RELOC_BIL_FX_C50 (same stack + relocate to BIL×USDTWD mid @ c=0.50)
+  M2_RELOC_BIL_FX_C35 (same stack + relocate to BIL×USDTWD mid @ c=0.35)
 
 Status: OPERATING_OBSERVE — OPERATING OBSERVE (paper only; stitch forbidden).
 Does NOT edit Soft-Frozen / DEFAULT / stitch.
-Does NOT add to ops_month_end_paper_pack.py (human ACCEPT recorded 2026-09-06).
+Wired in ops_month_end_paper_pack.py. Lock retarget ACCEPT C35 recorded 2026-09-07 via 「請優化」.
 """
 from __future__ import annotations
 
@@ -40,8 +40,9 @@ RESEARCH = ROOT / "research/e45"
 OPS = ROOT / "research/ops"
 
 BASE_ID = BOOK_BASE
-CHAL_ID = "M2_RELOC_BIL_FX_C50"
-CUT = 0.50
+CHAL_ID = "M2_RELOC_BIL_FX_C35"
+CUT = 0.35
+CHAL_SLUG = "m2_reloc_bil_fx_c35"
 MODE = "RELOC_BIL_FX"
 STATUS = "OPERATING_OBSERVE"
 
@@ -64,7 +65,7 @@ def main() -> None:
     bil_bars = def_bars[def_bars["code"] == CODE_BIL_FX].copy()
     market_aug = pd.concat([market, bil_bars], ignore_index=True)
     sched = build_m2_sleeve_schedule(target, intensity_lag1, CUT, MODE)
-    sched.to_csv(OUT / "outputs" / "m2_reloc_bil_fx_c50_sleeve_schedule.csv")
+    sched.to_csv(OUT / "outputs" / f"{CHAL_SLUG}_sleeve_schedule.csv")
 
     print(f"{BASE_ID} sim ...", flush=True)
     nav_b, fills_b, meta_b = run_early_stack(
@@ -84,14 +85,14 @@ def main() -> None:
     )
 
     nav_b.to_csv(OUT / "outputs" / "base_e16_e18_e22_v2s_daily_nav.csv", index=False)
-    nav_c.to_csv(OUT / "outputs" / "m2_reloc_bil_fx_c50_daily_nav.csv", index=False)
+    nav_c.to_csv(OUT / "outputs" / f"{CHAL_SLUG}_daily_nav.csv", index=False)
     fills_b.to_csv(OUT / "outputs" / "base_e16_e18_e22_v2s_fills.csv", index=False)
-    fills_c.to_csv(OUT / "outputs" / "m2_reloc_bil_fx_c50_fills.csv", index=False)
+    fills_c.to_csv(OUT / "outputs" / f"{CHAL_SLUG}_fills.csv", index=False)
 
     jb = nav_b[["date", "nav"]].rename(columns={"nav": "nav_base"})
-    jc = nav_c[["date", "nav"]].rename(columns={"nav": "nav_m2_reloc_bil_fx_c50"})
+    jc = nav_c[["date", "nav"]].rename(columns={"nav": f"nav_{CHAL_SLUG}"})
     joined = jb.merge(jc, on="date", how="inner")
-    joined["rel_chal_vs_base"] = joined["nav_m2_reloc_bil_fx_c50"] / joined["nav_base"]
+    joined["rel_chal_vs_base"] = joined[f"nav_{CHAL_SLUG}"] / joined["nav_base"]
     joined.to_csv(OUT / "outputs" / "dual_paper_nav_compare.csv", index=False)
 
     books: dict = {}
@@ -116,12 +117,12 @@ def main() -> None:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "E45_M2_BIL_FX_DUAL_PAPER_OBSERVE_OPERATING",
         "status": STATUS,
-        "operating_observe": False,
+        "operating_observe": True,
         "live_wire": False,
         "soft_frozen_default_unchanged": True,
         "stitch_authorized": False,
         "cutover_authorized": False,
-        "ballot": "E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT (ACCEPTED 2026-09-06 via 請全做)",
+        "ballot": "E45_M2_C35_OBSERVE_RETARGET ACCEPTED 2026-09-07 via 請優化 (prior C50 OPEN 2026-09-06)",
         "base_id": BASE_ID,
         "locked_challenger": CHAL_ID,
         "mode": MODE,
@@ -131,14 +132,14 @@ def main() -> None:
         "claim_status": CLAIM_STATUS,
         "exact_t1": {
             "base": books[BASE_ID]["exact_t1_ok"],
-            "m2_reloc_bil_fx_c50": books[CHAL_ID]["exact_t1_ok"],
+            "m2_reloc_bil_fx_c35": books[CHAL_ID]["exact_t1_ok"],
         },
         "heldout_vs_base": held,
         "sealed_vs_base": sealed,
         "windows": books,
         "next_human": [
-            "Cast HOLD / ACCEPT OPEN / REJECT on draft observe ballot",
-            "OPERATING observe wired into ops_month_end_paper_pack.py",
+            "C35 OPERATING observe — prior C50 retired as lock (evidence retained)",
+            "HIGH_BETA remains HOLD DRAFT",
         ],
         "non_actions": [
             "Paper-only; stitch still FORBIDDEN; Soft-Frozen/DEFAULT KEEP",

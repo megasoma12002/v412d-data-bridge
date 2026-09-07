@@ -1,33 +1,33 @@
 {
-  "generated_at_utc": "2026-09-07T02:20:24.755455+00:00",
+  "generated_at_utc": "2026-09-07T02:43:11.497950+00:00",
   "label": "E45_M2_BIL_FX_DUAL_PAPER_OBSERVE_OPERATING",
   "status": "OPERATING_OBSERVE",
-  "operating_observe": false,
+  "operating_observe": true,
   "live_wire": false,
   "soft_frozen_default_unchanged": true,
   "stitch_authorized": false,
   "cutover_authorized": false,
-  "ballot": "E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT (ACCEPTED 2026-09-06 via \u8acb\u5168\u505a)",
+  "ballot": "E45_M2_C35_OBSERVE_RETARGET ACCEPTED 2026-09-07 via \u8acb\u512a\u5316 (prior C50 OPEN 2026-09-06)",
   "base_id": "BASE_E16_E18_E22_v2s",
-  "locked_challenger": "M2_RELOC_BIL_FX_C50",
+  "locked_challenger": "M2_RELOC_BIL_FX_C35",
   "mode": "RELOC_BIL_FX",
-  "cut": 0.5,
+  "cut": 0.35,
   "def_code": "BIL_FX",
   "def_honesty": "BIL \u00d7 USDTWD mid \u2014 FX risk; mid optimistic; not TWD cash",
   "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
   "exact_t1": {
     "base": true,
-    "m2_reloc_bil_fx_c50": true
+    "m2_reloc_bil_fx_c35": true
   },
   "heldout_vs_base": {
-    "mdd_improve_pp": 2.9585299388856345,
-    "cagr_giveback_pp": 3.431416298385259,
-    "score": 1.242821789693005
+    "mdd_improve_pp": 2.619027821648412,
+    "cagr_giveback_pp": 2.226804669213278,
+    "score": 1.505625487041773
   },
   "sealed_vs_base": {
-    "mdd_improve_pp": 2.652963145586207,
-    "cagr_giveback_pp": 4.755390094477008,
-    "score": 0.27526809834770294
+    "mdd_improve_pp": 1.5267479674788587,
+    "cagr_giveback_pp": 3.157810884254153,
+    "score": -0.05215747464821785
   },
   "windows": {
     "BASE_E16_E18_E22_v2s": {
@@ -71,51 +71,51 @@
         }
       }
     },
-    "M2_RELOC_BIL_FX_C50": {
+    "M2_RELOC_BIL_FX_C35": {
       "exact_t1_ok": true,
       "mean_e45_exposure": 1.0,
       "windows": {
         "full": {
-          "cagr": 0.11329330137406912,
-          "max_drawdown": -0.19584814498939884,
-          "utility": 0.0153692288793697,
-          "vol": 0.11209750169531757,
+          "cagr": 0.12171018898121178,
+          "max_drawdown": -0.19924316616177107,
+          "utility": 0.02208860590032624,
+          "vol": 0.11872556770183945,
           "n_days": 3351
         },
         "oof_2011_2018": {
-          "cagr": 0.0747164386975594,
-          "max_drawdown": -0.12262916255408252,
-          "utility": 0.013401857420518137,
-          "vol": 0.09200640872323348,
+          "cagr": 0.0790854769468361,
+          "max_drawdown": -0.14021297534609511,
+          "utility": 0.00897898927378854,
+          "vol": 0.09660727086066735,
           "n_days": 1495
         },
         "validation_2019_2022": {
-          "cagr": 0.10001336917976311,
-          "max_drawdown": -0.19584814498939884,
-          "utility": 0.0020892966850636907,
-          "vol": 0.11399132895277295,
+          "cagr": 0.10861896483567124,
+          "max_drawdown": -0.19924316616177107,
+          "utility": 0.008997381754785705,
+          "vol": 0.11992675342676846,
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.20133832515644912,
-          "max_drawdown": -0.11434184979423956,
-          "utility": 0.14416740025932934,
-          "vol": 0.13791125710614938,
+          "cagr": 0.21731411725867766,
+          "max_drawdown": -0.12560400157531304,
+          "utility": 0.15451211647102114,
+          "vol": 0.14773483243051225,
           "n_days": 879
         },
         "heldout_2019_plus": {
-          "cagr": 0.14772105931087443,
-          "max_drawdown": -0.19584814498939884,
-          "utility": 0.049796986816175004,
-          "vol": 0.1258664276029641,
+          "cagr": 0.15976717560259424,
+          "max_drawdown": -0.19924316616177107,
+          "utility": 0.0601455925217087,
+          "vol": 0.13379812205819208,
           "n_days": 1856
         }
       }
     }
   },
   "next_human": [
-    "Cast HOLD / ACCEPT OPEN / REJECT on draft observe ballot",
-    "OPERATING observe wired into ops_month_end_paper_pack.py"
+    "C35 OPERATING observe \u2014 prior C50 retired as lock (evidence retained)",
+    "HIGH_BETA remains HOLD DRAFT"
   ],
   "non_actions": [
     "Paper-only; stitch still FORBIDDEN; Soft-Frozen/DEFAULT KEEP",

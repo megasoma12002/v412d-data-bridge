@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """E45 M2 BIL_FX month-end dual-paper monitor — OPERATING (OPERATING_OBSERVE).
 
-Compares BASE vs M2_RELOC_BIL_FX_C50 paper NAVs at month-end (or as-of).
+Compares BASE vs M2_RELOC_BIL_FX_C35 paper NAVs at month-end (or as-of).
 Does NOT change Soft-Frozen. Does NOT place orders. Stitch always blocked.
-Status remains OPERATING_OBSERVE (ACCEPT recorded 2026-09-06 via 「請全做」).
+Status OPERATING_OBSERVE — lock retarget ACCEPT C35 (2026-09-07 via 「請優化」).
 """
 from __future__ import annotations
 
@@ -23,15 +23,15 @@ from research_metric_helpers import mdd_delta_pp
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/month_end"
 BASE_NAV = ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/outputs/base_e16_e18_e22_v2s_daily_nav.csv"
-CHAL_NAV = ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/outputs/m2_reloc_bil_fx_c50_daily_nav.csv"
+CHAL_NAV = ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/outputs/m2_reloc_bil_fx_c35_daily_nav.csv"
 OPS = ROOT / "research/ops"
 
-LOCKED_ID = "M2_RELOC_BIL_FX_C50"
+LOCKED_ID = "M2_RELOC_BIL_FX_C35"
 STATUS = "OPERATING_OBSERVE"
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
 DESIGN_GIVEBACK_PP = {
-    "heldout_2019_plus": 3.5,
+    "heldout_2019_plus": 2.5,  # C35 design giveback ~2.23
     "sealed_2023_plus": 6.0,
 }
 STRUCTURAL_BUFFER_PP = 2.0
@@ -110,8 +110,8 @@ def main() -> None:
                 "n_days": int(min(len(b), len(c))),
                 "base_cagr": sb["cagr"],
                 "base_mdd": sb["max_drawdown"],
-                "m2_reloc_bil_fx_c50_cagr": sc["cagr"],
-                "m2_reloc_bil_fx_c50_mdd": sc["max_drawdown"],
+                "m2_reloc_bil_fx_c35_cagr": sc["cagr"],
+                "m2_reloc_bil_fx_c35_mdd": sc["max_drawdown"],
                 "mdd_improve_pp": mdd_improve_pp,
                 "cagr_giveback_pp": cagr_giveback_pp,
                 "rel_nav_end": float(cnav.iloc[-1] / bnav.iloc[-1]),

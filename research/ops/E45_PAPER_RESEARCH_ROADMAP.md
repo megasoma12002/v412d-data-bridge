@@ -127,8 +127,11 @@ Engineering: PR **#101** (M3) · **#102** (DEF ingest) · **#103** (M2 v1 paper)
 
 | — | M2 BIL_FX optimize (path FX + CBC cash + cut/κ) + observe OPEN C50 | **DONE — PAPER + OPERATING_OBSERVE** | `E45_M2_BIL_FX_OPTIMIZE.md` · freeze `E45_M2_BIL_FX_OPTIMIZE_V0_FROZEN.md` · OPEN `E45_M2_BIL_FX_OBSERVE_OPEN.md` |
 
-| — | A C35 retarget ballot (DRAFT) | **DONE — DRAFT / NOT OPEN** (C50 stays OPERATING) | `E45_M2_C35_RETARGET_BALLOT.md` · ballot `E45_M2_C35_OBSERVE_RETARGET_BALLOT_DRAFT.md` |
+| — | A C35 retarget ballot | **ACCEPTED / OPERATING_OBSERVE (C35)** (was DRAFT; C50 lock retired) | `E45_M2_C35_RETARGET_BALLOT.md` · ballot `E45_M2_C35_OBSERVE_RETARGET_BALLOT_DRAFT.md` |
 | — | B Tradable TWD short-bond twin (740B/751B/basket) | **DONE — PAPER** (retail deposit NAV unavailable free FinMind; challengers §2 fail) | `E45_M2_TWD_TRADABLE_CASH.md` · freeze `E45_M2_C35_TWDCASH_HIGHBETA_V0_FROZEN.md` |
 | — | C HIGH_BETA HOLD DRAFT hygiene | **DONE — HOLD DRAFT / NOT OPEN** | `E45_HIGH_BETA_HOLD_DRAFT_HYGIENE.md` |
 
 | — | Ops cadence: merge #106/#107 + HOLD C35/HIGH_BETA + month-end pack | **DONE** | HOLD `E45_M2_C35_OBSERVE_RETARGET_HOLD.md` · HIGH_BETA stays DRAFT · pack `MONTH_END_PAPER_PACK.md` |
+
+| — | C35 observe lock retarget ACCEPT (「請優化」) | **DONE — OPERATING C35** | OPEN `E45_M2_BIL_FX_OBSERVE_OPEN.md` · ballot accepted · HIGH_BETA still HOLD DRAFT |
+

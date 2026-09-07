@@ -154,3 +154,7 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; reinvent retired E45 MDD narr
 
 Merged E45 M2 BIL_FX optimize OPEN C50 (#106) + research A–C (#107).  
 C35 / HIGH_BETA remain **HOLD DRAFT**. Month-end pack run: `research/ops/OPS_CADENCE_2026-09-07.md` (partial: gap6 live evidence missing). Soft-Frozen KEEP · stitch FORBIDDEN.
+
+## E45 M2 BIL_FX lock retarget (2026-09-07)
+
+Operating observe lock **C50 → C35** via human 「請優化」. HIGH_BETA remains HOLD DRAFT. Soft-Frozen KEEP · stitch FORBIDDEN.
