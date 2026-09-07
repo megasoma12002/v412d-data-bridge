@@ -3,7 +3,8 @@
 Date: 2026-09-07  
 Status: **ACTIVE — awaiting human charter ballot**  
 Soft-Frozen live: **KEEP** (FIN [0.50, 0.95] · TEL [0.03, 0.35] · 0050 [0.00, 0.35])  
-Related: `SOFT_FROZEN_CLIP_SEARCH_CHARTER.md` · withdrawn floor-10: `SOFT_FROZEN_TEL_ETF_FLOOR_10_WITHDRAWN_2026-09-07.md`
+Related: `SOFT_FROZEN_CLIP_SEARCH_CHARTER.md` · withdrawn floor-10: `SOFT_FROZEN_TEL_ETF_FLOOR_10_WITHDRAWN_2026-09-07.md`  
+Charter execution context: **5M + 整張 1000** (live `DEFAULT_CAPITAL` stays 15M).
 
 ## What you are voting on
 
