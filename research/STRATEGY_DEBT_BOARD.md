@@ -158,3 +158,7 @@ C35 / HIGH_BETA remain **HOLD DRAFT**. Month-end pack run: `research/ops/OPS_CAD
 ## E45 M2 BIL_FX lock retarget (2026-09-07)
 
 Operating observe lock **C50 → C35** via human 「請優化」. HIGH_BETA remains HOLD DRAFT. Soft-Frozen KEEP · stitch FORBIDDEN.
+
+## Ops cadence note (2026-09-07 post-C35)
+
+Human 「依 month-end cadence 繼續觀察」. Pack re-run: `research/ops/OPS_CADENCE_2026-09-07_C35_OBSERVE.md` (partial: gap6 live evidence missing). C35 tip YTD/1y PAUSE_REVIEW — extend observe. Soft-Frozen KEEP · stitch FORBIDDEN · HIGH_BETA HOLD.

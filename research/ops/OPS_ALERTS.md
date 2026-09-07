@@ -1,6 +1,6 @@
 # Ops Alerts
 
-Generated: `2026-09-07T02:20:59.317224+00:00`
+Generated: `2026-09-07T03:27:51.138568+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 

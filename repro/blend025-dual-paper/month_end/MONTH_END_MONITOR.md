@@ -1,6 +1,6 @@
 # BLEND_025 Month-End Paper Monitor — asof 2026-09-04
 
-Generated: `2026-09-07T02:20:30.661935+00:00`
+Generated: `2026-09-07T03:27:23.163833+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **BLEND_025** (α=0.25·FIN50 + 0.75·BASE)
 
