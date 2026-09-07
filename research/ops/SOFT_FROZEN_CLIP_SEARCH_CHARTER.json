@@ -1,0 +1,29 @@
+{
+  "generated_at_utc": "2026-09-07T17:30:00+00:00",
+  "label": "SOFT_FROZEN_CLIP_SEARCH_CHARTER",
+  "status": "CHARTER_DRAFT_OPEN",
+  "class": "A_RESEARCH_EXPERIMENTAL",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "soft_frozen_clips": {
+    "financial": [0.5, 0.95],
+    "telecom": [0.03, 0.35],
+    "etf_0050": [0.0, 0.35]
+  },
+  "execution_context": {
+    "board_lot": 1000,
+    "capital": 15000000,
+    "e22_books": "E22_v2s_tw"
+  },
+  "objective": "heldout_mdd_improve_pp - 0.5 * abs(cagr_giveback_pp)",
+  "sealed_role": "report_only_after_lock",
+  "decision_pack": "research/ops/SOFT_FROZEN_CLIP_SEARCH_DECISION_PACK.md",
+  "charter": "research/ops/SOFT_FROZEN_CLIP_SEARCH_CHARTER.md",
+  "wont": [
+    "edit_e16_soft_frozen_base_live_constants",
+    "rewrite_forward_e21",
+    "e45_stitch",
+    "sealed_peek_for_selection",
+    "claim_perfect_ratios"
+  ]
+}
