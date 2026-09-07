@@ -186,3 +186,8 @@ Human 「請重跑回測數據」. `ops_month_end_paper_pack.py --refresh-ledger
 ## Capital 15M live+paper (2026-09-07)
 
 Human 「提高模擬／實盤資本」 — `DEFAULT_CAPITAL=15M` so TEL floor can fund 3×1張 under board-lot; live replay + paper refresh. Note: `CAPITAL_15M_2026-09-07.md`. Soft-Frozen KEEP.
+
+## Soft-Frozen TEL+0050 floor-10 ACCEPT withdrawn (2026-09-07)
+
+Human 「還是先還原 soft frozen」. Draft PR #119 (TEL/0050 floors → 10%) **closed without merge**. Live Soft-Frozen remains FIN **[0.50, 0.95]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]** (@ 15M + board-lot). stitch FORBIDDEN.
+
