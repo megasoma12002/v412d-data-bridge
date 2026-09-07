@@ -36,3 +36,10 @@ Parent sleeves still OPERATING: FULL + A25 + A05 + SLEEVE_FIN_ONLY_A10
 | **REJECT** | Archive; keep SLEEVE_FIN_ONLY_A10 path |
 
 Label: `E45_HIGH_BETA_OBSERVE_BALLOT_DRAFT_2026-09-06__NOT_OPEN__STITCH_FORBIDDEN`
+
+## Hygiene refresh (2026-09-07)
+
+- Status remains **HOLD DRAFT / NOT OPEN**
+- Record: `research/ops/E45_HIGH_BETA_HOLD_DRAFT_HYGIENE.md`
+- Densify still prefers `FIN_ONLY_A10` over HIGH_BETA α grid
+- Parallel observe now also includes operating `M2_RELOC_BIL_FX_C50` (do not retire)
