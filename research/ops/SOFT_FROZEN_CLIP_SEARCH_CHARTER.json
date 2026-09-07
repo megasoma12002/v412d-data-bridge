@@ -12,8 +12,9 @@
   },
   "execution_context": {
     "board_lot": 1000,
-    "capital": 15000000,
-    "e22_books": "E22_v2s_tw"
+    "capital": 5000000,
+    "e22_books": "E22_v2s_tw",
+    "note": "Charter research capital 5M+整張; live DEFAULT_CAPITAL stays 15M until separate PR"
   },
   "objective": "heldout_mdd_improve_pp - 0.5 * abs(cagr_giveback_pp)",
   "sealed_role": "report_only_after_lock",

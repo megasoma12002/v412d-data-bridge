@@ -4,7 +4,8 @@ Date: 2026-09-07
 Status: **CHARTER DRAFT / OPEN** — awaiting human **ACCEPT charter** (research only)  
 Class: **A. Research / EXPERIMENTAL** (`STRATEGY_UPDATE_STANDARD_PROCESS.md`)  
 Soft-Frozen live: **KEEP** — FIN **[0.50, 0.95]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]**  
-Execution context (fixed for this charter): board-lot **1000** · capital **15M** · books **`E22_v2s_tw`**
+Execution context (fixed for this charter): board-lot **1000** · capital **5M** · books **`E22_v2s_tw`**  
+(Amended 2026-09-07 human「5M+整張」. Live/paper `DEFAULT_CAPITAL` remains **15M** until a separate capital PR.)
 
 Authority: `STRATEGY_UPDATE_STANDARD_PROCESS.md` · `E50_RESEARCH_OPERATING_RULES.md` · `HUMAN_DECISION_REGISTER.md` · `SOFT_FROZEN_TEL_ETF_FLOOR_10_WITHDRAWN_2026-09-07.md`
 
@@ -109,7 +110,7 @@ Stop / fail:
 | Sealed | 2023+ | **Frozen report** after candidate lock |
 | Full | all | Diagnostics only |
 
-Execution: Exact T+1 · `E22_v2s_tw` · `lot_size=1000` · `capital=15_000_000`.
+Execution: Exact T+1 · `E22_v2s_tw` · `lot_size=1000` · `capital=5_000_000`.
 
 ---
 
@@ -133,7 +134,7 @@ Fail → stay research; Soft-Frozen KEEP.
 
 ```
 A  ACCEPT charter (this file + decision pack)     ← YOU ARE HERE
-B  Grid harness + BASE control @ 15M/1000         paper only
+B  Grid harness + BASE control @ 5M/1000          paper only
 C  Optional Bayesian within same box              paper only
 D  Lock ≤3 candidates; sealed report              paper only
 E  Dual-paper / month-end observe (if score>0)    observe only

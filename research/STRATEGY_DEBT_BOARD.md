@@ -193,5 +193,6 @@ Human 「還是先還原 soft frozen」. Draft PR #119 (TEL/0050 floors → 10%)
 
 ## Soft-Frozen clip-search charter (2026-09-07)
 
-Research-only Class A charter drafted — grid/Bayesian clip challengers; **Soft-Frozen KEEP**. Awaiting `ACCEPT clip-search charter`. Pack: `SOFT_FROZEN_CLIP_SEARCH_DECISION_PACK.md`.
+Research-only Class A charter drafted — grid/Bayesian clip challengers; **Soft-Frozen KEEP**. Awaiting `ACCEPT clip-search charter`. Pack: `SOFT_FROZEN_CLIP_SEARCH_DECISION_PACK.md`.  
+Execution context amended: **5M + 整張 1000** (live capital remains 15M).
 
