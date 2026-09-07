@@ -15,11 +15,12 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e22_dividend_accounting as e22div
 import e16_soft_frozen_base as soft_frozen
-from tw_share_lots import BOARD_LOT, board_lots
-
 from e16_soft_frozen_base import FIN, TEL
+from tw_share_lots import BOARD_LOT, board_lots
+from portfolio_capital import DEFAULT_CAPITAL
+
 ALL = FIN + TEL + ["0050"]
-CAPITAL = 3_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 BUY_FEE = 0.001425 * 0.6
 SELL_FEE = 0.001425 * 0.6
 TAX_STOCK = 0.003
