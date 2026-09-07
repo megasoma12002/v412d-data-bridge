@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-07T15:50:55.928837+00:00",
+  "generated_at_utc": "2026-09-07T17:03:24.833096+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -9,9 +9,15 @@
   ],
   "overall": "HIGH",
   "n_critical": 0,
-  "n_high": 6,
-  "n_info": 16,
+  "n_high": 7,
+  "n_info": 18,
   "alerts": [
+    {
+      "severity": "HIGH",
+      "source": "l4_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4"
+    },
     {
       "severity": "HIGH",
       "source": "fincap50_month_end",
@@ -58,7 +64,19 @@
       "severity": "INFO",
       "source": "l4_month_end",
       "code": "MONITOR_ALERT",
-      "message": "ALERT: L4_DD_PATH_08_50 sealed MDD worse than BASE (paper)"
+      "message": "ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops)"
+    },
+    {
+      "severity": "INFO",
+      "source": "l4_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)"
+    },
+    {
+      "severity": "INFO",
+      "source": "l4_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },
     {
       "severity": "INFO",
@@ -124,7 +142,7 @@
       "severity": "INFO",
       "source": "live_paper_recon",
       "code": "RECON_NOTE",
-      "message": "INDEX_DRIFT: max |live_idx-paper_idx|=3.9328% > 2% on overlap"
+      "message": "INDEX_DRIFT: max |live_idx-paper_idx|=2.9212% > 2% on overlap"
     },
     {
       "severity": "INFO",

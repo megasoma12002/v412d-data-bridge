@@ -41,14 +41,16 @@ def main() -> int:
         help="Required. Human authorized clearing historical live fills/NAV and replaying.",
     )
     ap.add_argument("--start-date", default="2026-08-24")
-    ap.add_argument("--capital", type=float, default=3_000_000.0)
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from portfolio_capital import DEFAULT_CAPITAL
+
+    ap.add_argument("--capital", type=float, default=DEFAULT_CAPITAL)
     a = ap.parse_args()
     if not a.confirm_history_rewrite:
         raise SystemExit("Refusing replay without --confirm-history-rewrite")
 
     market = pd.read_csv(LIVE / "live_market.csv", dtype={"code": str})
     market["date"] = pd.to_datetime(market["date"])
-    sys.path.insert(0, str(ROOT / "scripts"))
     from e16_soft_frozen_base import FIN, TEL
 
     required = set(FIN + TEL + ["0050", "TAIEX"])
@@ -69,13 +71,17 @@ def main() -> int:
 
     note = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "label": "E21_LIVE_LEDGER_REPLAY",
-        "authority": "human-authorized --confirm-history-rewrite",
+        "label": "E21_LIVE_CAPITAL_15M_BOARD_LOT_REPLAY",
+        "authority": "human 「提高模擬／實盤資本」 2026-09-07",
         "cleared": cleared,
         "kept": sorted(KEEP),
         "start_date": a.start_date,
+        "capital": float(a.capital),
+        "board_lot": 1000,
         "soft_frozen_unchanged": True,
         "stitch_authorized": False,
+        "prior_authority": "board-lot 1000 + zero-fill replays 2026-09-07",
+        "note": "DEFAULT_CAPITAL 15M so Soft-Frozen TEL floor can fund 3×1張; see research/ops/CAPITAL_15M_2026-09-07.md",
     }
     (LIVE / "REPLAY_AUTHORITY.json").write_text(json.dumps(note, indent=2) + "\n")
 

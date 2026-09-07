@@ -24,6 +24,7 @@ import e16_soft_frozen_base as soft_frozen
 import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
 from tw_share_lots import BOARD_LOT
+from portfolio_capital import DEFAULT_CAPITAL
 CLAIM_STATUS = e45.CLAIMED_MDD_STATUS
 from research_metric_helpers import metric_delta, fmt_pct
 
@@ -36,7 +37,7 @@ SELL_FEE = 0.001425 * 0.6
 TAX_STOCK = 0.003
 TAX_ETF = 0.001
 SLIP = 0.0005
-CAPITAL = 3_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 WARMUP_DAYS = 252
 
 

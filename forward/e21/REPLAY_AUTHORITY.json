@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-07T15:22:15.940973+00:00",
-  "label": "E21_LIVE_BOARD_LOT_1000_REPLAY",
-  "authority": "human \u300c\u662f\u7684\u300d board-lot 1000 TW practice 2026-09-07",
+  "generated_at_utc": "2026-09-07T17:02:17.365637+00:00",
+  "label": "E21_LIVE_CAPITAL_15M_BOARD_LOT_REPLAY",
+  "authority": "human \u300c\u63d0\u9ad8\u6a21\u64ec\uff0f\u5be6\u76e4\u8cc7\u672c\u300d 2026-09-07",
   "cleared": [
     "fills.csv",
     "orders.csv",
@@ -17,8 +17,12 @@
     "live_market.csv"
   ],
   "start_date": "2026-08-24",
+  "capital": 15000000.0,
+  "board_lot": 1000,
   "soft_frozen_unchanged": true,
   "stitch_authorized": false,
+  "prior_authority": "board-lot 1000 + zero-fill replays 2026-09-07",
+  "note": "DEFAULT_CAPITAL 15M so Soft-Frozen TEL floor can fund 3\u00d71\u5f35; see research/ops/CAPITAL_15M_2026-09-07.md",
   "replayed_dates": [
     "2026-08-24",
     "2026-08-25",
@@ -33,8 +37,5 @@
     "2026-09-07"
   ],
   "qc_ok": true,
-  "gap6_ok": true,
-  "board_lot": 1000,
-  "prior_authority": "human \u300c\u8acb\u6e05\u6389\u5f8c\u91cd\u8dd1\u6b63\u78ba\u6578\u64da\u300d 2026-09-07",
-  "note": "\u6574\u80a1 1\u5f35=1000\u80a1; see research/ops/LIVE_BOARD_LOT_1000_2026-09-07.md"
+  "gap6_ok": true
 }

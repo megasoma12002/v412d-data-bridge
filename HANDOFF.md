@@ -13,7 +13,7 @@ Cursor 必須依序讀：
 
 ## 0.1 Live cutover default（強制）
 
-**現行 live：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v2s_tw**（畸零股面額 CIL；2026-09-05 promote）+ **整股一張=1000**（live+paper；2026-09-07）。術語：`TW_SHARE_LOT_DEFINITIONS.md`。  
+**現行 live：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v2s_tw**（畸零股面額 CIL；2026-09-05 promote）+ **整股一張=1000**（live+paper；2026-09-07）+ **起始資本 15M**（2026-09-07；讓 TEL 下限仍夠 3×1張）。術語：`TW_SHARE_LOT_DEFINITIONS.md` · 資本：`CAPITAL_15M_2026-09-07.md`。  
 **Live E16 Financial clip：** **[0.50, 0.95]**（Soft-Frozen clip；單源 `scripts/e16_soft_frozen_base.py`）。  
 **禁止：** overlay live-wire、改寫歷史 NAV、自動翻 Soft-Frozen clip、把 held-out PASS 當 cutover 授權。
 

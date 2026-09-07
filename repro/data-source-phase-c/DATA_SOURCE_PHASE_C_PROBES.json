@@ -1,6 +1,6 @@
 {
   "as_of": "2026-09-07",
-  "generated_at_utc": "2026-09-07T15:50:50.753341+00:00",
+  "generated_at_utc": "2026-09-07T17:03:19.603911+00:00",
   "label": "DATA_SOURCE_PHASE_C_PROBES",
   "overall_status": "PASS",
   "live_wire": false,
@@ -14,45 +14,45 @@
       "tickers": {
         "2880": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 0.00023140523017311663,
-          "corr": 0.9705056475161982
+          "n": 3585,
+          "mean_abs_return_diff": 0.00023146976868109628,
+          "corr": 0.9705018054342648
         },
         "2886": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 0.00012321852155427573,
-          "corr": 0.9930736662213435
+          "n": 3585,
+          "mean_abs_return_diff": 0.00012325288348589072,
+          "corr": 0.993071404453333
         },
         "2892": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 0.00024197699058975684,
-          "corr": 0.9604228401249796
+          "n": 3585,
+          "mean_abs_return_diff": 0.00024204448765826166,
+          "corr": 0.96042286679455
         },
         "5880": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 0.00024813451006615767,
-          "corr": 0.9534348062444064
+          "n": 3585,
+          "mean_abs_return_diff": 0.00024820372074302565,
+          "corr": 0.9534301920289994
         },
         "2412": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 5.559438739656697e-05,
-          "corr": 0.995326779726115
+          "n": 3585,
+          "mean_abs_return_diff": 5.5609894896538114e-05,
+          "corr": 0.9953264652957886
         },
         "3045": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 7.720612989664075e-05,
-          "corr": 0.9971720901561438
+          "n": 3585,
+          "mean_abs_return_diff": 7.72276657766677e-05,
+          "corr": 0.99717152978101
         },
         "4904": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 6.507257816609999e-05,
-          "corr": 0.9971786760228647
+          "n": 3585,
+          "mean_abs_return_diff": 6.509072951286878e-05,
+          "corr": 0.9971764790311751
         },
         "0050": {
           "status": "DRIFT",
@@ -63,8 +63,8 @@
       },
       "n_ok": 7,
       "n_drift": 1,
-      "mean_abs_return_diff": 0.00018740646364408343,
-      "mean_corr": 0.9169171062870078,
+      "mean_abs_return_diff": 0.0001874428140080502,
+      "mean_corr": 0.9169153858878916,
       "thresholds": {
         "mean_abs_return_diff_max": 0.008,
         "corr_min": 0.95
@@ -84,56 +84,56 @@
       "tickers": {
         "2880": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 9.210031334369327e-05,
-          "corr": 0.9945647816092232
+          "n": 3585,
+          "mean_abs_return_diff": 9.212445944065559e-05,
+          "corr": 0.9945640425904334
         },
         "2886": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 9.902155556930111e-05,
-          "corr": 0.9943384384622753
+          "n": 3585,
+          "mean_abs_return_diff": 9.904967849643999e-05,
+          "corr": 0.9943365139645959
         },
         "2892": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 0.00011314262852992472,
-          "corr": 0.9881523610135643
+          "n": 3585,
+          "mean_abs_return_diff": 0.00011317524944134223,
+          "corr": 0.9881523679603884
         },
         "5880": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 9.574975905830787e-05,
-          "corr": 0.9903614697833567
+          "n": 3585,
+          "mean_abs_return_diff": 9.577375096088261e-05,
+          "corr": 0.9903602198212331
         },
         "2412": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 7.08974176295248e-05,
-          "corr": 0.985433381026921
+          "n": 3585,
+          "mean_abs_return_diff": 7.091664972167907e-05,
+          "corr": 0.985432296194305
         },
         "3045": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 7.82876996391702e-05,
-          "corr": 0.9968122180847394
+          "n": 3585,
+          "mean_abs_return_diff": 7.831323316325335e-05,
+          "corr": 0.9968114664294322
         },
         "4904": {
           "status": "OK",
-          "n": 3586,
-          "mean_abs_return_diff": 7.821186626097006e-05,
-          "corr": 0.9950284240506944
+          "n": 3585,
+          "mean_abs_return_diff": 7.823039250430052e-05,
+          "corr": 0.9950239906921858
         },
         "0050": {
           "status": "OK",
           "n": 3587,
-          "mean_abs_return_diff": 0.00027798728263656,
-          "corr": 0.6838385261932018
+          "mean_abs_return_diff": 0.0002779887358096243,
+          "corr": 0.683838540544347
         }
       },
       "n_ok": 8,
       "n_info_drift": 0,
-      "mean_abs_return_diff": 0.0001131748153334315,
+      "mean_abs_return_diff": 0.0001131965186922722,
       "drift_warn_threshold": 0.015,
       "detail_csv": "repro/data-source-phase-c/c2_adj_returns.csv",
       "note": "",
@@ -157,7 +157,7 @@
           "failover_used": false,
           "source": "finmind_TAIEX",
           "error_primary": null,
-          "generated_at_utc": "2026-09-07T15:50:49.497134+00:00",
+          "generated_at_utc": "2026-09-07T17:03:18.346337+00:00",
           "n_rows": 649,
           "out": "repro/data-source-phase-c/taiex_primary_dryrun.csv",
           "soft_frozen_unchanged": true,
@@ -177,15 +177,15 @@
           "failover_used": true,
           "source": "yahoo_^TWII",
           "error_primary": "RuntimeError:simulated_finmind_failure",
-          "generated_at_utc": "2026-09-07T15:50:50.115916+00:00",
-          "n_rows": 649,
+          "generated_at_utc": "2026-09-07T17:03:18.939047+00:00",
+          "n_rows": 648,
           "out": "repro/data-source-phase-c/taiex_failover_dryrun.csv",
           "soft_frozen_unchanged": true,
           "e21_default_unchanged": true,
           "note": "Opt-in tool only; e21 forward does not auto-call this without human wiring PR"
         },
         "stderr_tail": "",
-        "n_rows": 649
+        "n_rows": 648
       },
       "force_yahoo": {
         "returncode": 0,
@@ -197,15 +197,15 @@
           "failover_used": false,
           "source": "yahoo_^TWII",
           "error_primary": null,
-          "generated_at_utc": "2026-09-07T15:50:50.686147+00:00",
-          "n_rows": 649,
+          "generated_at_utc": "2026-09-07T17:03:19.535449+00:00",
+          "n_rows": 648,
           "out": "repro/data-source-phase-c/taiex_force_yahoo_dryrun.csv",
           "soft_frozen_unchanged": true,
           "e21_default_unchanged": true,
           "note": "Opt-in tool only; e21 forward does not auto-call this without human wiring PR"
         },
         "stderr_tail": "",
-        "n_rows": 649
+        "n_rows": 648
       },
       "gate": {
         "status": "PASS",
