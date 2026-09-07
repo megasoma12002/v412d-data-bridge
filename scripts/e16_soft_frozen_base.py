@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Soft-Frozen E16 BASE sleeve — single source of truth for live + research.
 
-Live Financial clip: **[0.50, 0.95]** (Soft-Frozen). Do not edit these bounds
-without an explicit human cutover PR. Challenger clips belong in
+Live Financial clip: **[0.50, 0.95]**; Telecom **[0.10, 0.35]**; 0050 **[0.10, 0.35]**
+(TEL/ETF floors raised to 10% by human ACCEPT 2026-09-07). Do not edit these
+bounds without an explicit human cutover PR. Challenger clips belong in
 `e16_fin_cap_oof_challenger` only.
 
 Both `e21_forward_pipeline.features` and `e50_early_stack_combined_nav.e16_features`
@@ -19,26 +20,30 @@ TEL = ["2412", "3045", "4904"]
 SLEEVE_COLS = ["Financial", "Telecom", "0050"]
 
 # Soft-Frozen live clip bounds (authoritative).
+# Human ACCEPT 2026-09-07: TEL + 0050 floors raised to 10% (was TEL 3% / ETF 0%).
 SOFT_FROZEN_FIN_LO = 0.50
 SOFT_FROZEN_FIN_HI = 0.95
-SOFT_FROZEN_TEL_LO = 0.03
+SOFT_FROZEN_TEL_LO = 0.10
 SOFT_FROZEN_TEL_HI = 0.35
-SOFT_FROZEN_ETF_LO = 0.00
+SOFT_FROZEN_ETF_LO = 0.10
 SOFT_FROZEN_ETF_HI = 0.35
-# Canonical list form for JSON / monitors (import this — do not re-type 0.50/0.95).
+# Canonical list forms for JSON / monitors (import — do not re-type).
 SOFT_FROZEN_FIN_CLIP = [SOFT_FROZEN_FIN_LO, SOFT_FROZEN_FIN_HI]
+SOFT_FROZEN_TEL_CLIP = [SOFT_FROZEN_TEL_LO, SOFT_FROZEN_TEL_HI]
+SOFT_FROZEN_ETF_CLIP = [SOFT_FROZEN_ETF_LO, SOFT_FROZEN_ETF_HI]
 
-# Causal blend / rebalance threshold (shared).
-START_WEIGHTS = np.array([0.90, 0.10, 0.00], dtype=float)
+# Causal blend / rebalance threshold (shared). Must stay inside Soft-Frozen box.
+START_WEIGHTS = np.array([0.80, 0.10, 0.10], dtype=float)
 BLEND_OLD = 0.75
 BLEND_NEW = 0.25
 REBALANCE_L1_MIN = 0.02
 
 REGIME_PRIORS = {
-    "Bull": np.array([0.85, 0.05, 0.10], dtype=float),
-    "Crisis": np.array([0.60, 0.35, 0.05], dtype=float),
-    "Bear": np.array([0.70, 0.25, 0.05], dtype=float),
-    "Sideways": np.array([0.85, 0.10, 0.05], dtype=float),
+    # Priors kept inside [lo,hi] after ACCEPT floors (TEL/ETF ≥ 10%).
+    "Bull": np.array([0.80, 0.10, 0.10], dtype=float),
+    "Crisis": np.array([0.55, 0.35, 0.10], dtype=float),
+    "Bear": np.array([0.65, 0.25, 0.10], dtype=float),
+    "Sideways": np.array([0.80, 0.10, 0.10], dtype=float),
 }
 
 

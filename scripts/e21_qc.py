@@ -103,12 +103,29 @@ def main() -> None:
     checks["weights_sum_one"] = bool(
         ((sig[["e16_financial", "e16_telecom", "e16_0050"]].sum(1) - 1).abs() < 1e-8).all()
     )
-    # Soft-Frozen Financial envelope — import bounds, never hardcode.
+    # Soft-Frozen sleeve envelope — import bounds, never hardcode.
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from e16_soft_frozen_base import FIN, TEL, SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
+    from e16_soft_frozen_base import (
+        FIN,
+        TEL,
+        SOFT_FROZEN_FIN_HI,
+        SOFT_FROZEN_FIN_LO,
+        SOFT_FROZEN_TEL_HI,
+        SOFT_FROZEN_TEL_LO,
+        SOFT_FROZEN_ETF_HI,
+        SOFT_FROZEN_ETF_LO,
+    )
 
+    tel = sig["e16_telecom"].astype(float)
+    etf = sig["e16_0050"].astype(float)
     checks["soft_frozen_fin_clip"] = bool(
         ((fin >= SOFT_FROZEN_FIN_LO - 1e-9) & (fin <= SOFT_FROZEN_FIN_HI + 1e-9)).all()
+    )
+    checks["soft_frozen_tel_clip"] = bool(
+        ((tel >= SOFT_FROZEN_TEL_LO - 1e-9) & (tel <= SOFT_FROZEN_TEL_HI + 1e-9)).all()
+    )
+    checks["soft_frozen_etf_clip"] = bool(
+        ((etf >= SOFT_FROZEN_ETF_LO - 1e-9) & (etf <= SOFT_FROZEN_ETF_HI + 1e-9)).all()
     )
     checks["nav_positive"] = bool((nav.nav_e16_e18 > 0).all())
     checks["no_negative_cash"] = bool((nav.cash >= -1).all())

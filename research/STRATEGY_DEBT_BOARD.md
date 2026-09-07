@@ -24,7 +24,7 @@ Residual Medium/Low after eng cleanup (#93): review-doc historical mentions of b
 
 Date: 2026-09-05 (strategy closure prep — claim policy + BLEND checklist)  
 Live rule: **E16 + E18 + E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05). No overlay. No history rewrite.  
-Live E16 Financial clip: **[0.50, 0.95]** (unchanged).  
+Live Soft-Frozen clips: FIN **[0.50, 0.95]** · TEL **[0.10, 0.35]** · 0050 **[0.10, 0.35]**（ACCEPT 2026-09-07；was TEL 3% / ETF 0%）.  
 Human decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 
@@ -33,7 +33,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | Term | Meaning |
 |---|---|
 | **SOFT_FROZEN** (class) | Official strategy-version class for E16/E18/E22/E45 — **not** “is live” |
-| **Live Soft-Frozen clip** | Live E16 Financial band **[0.50, 0.95]** |
+| **Live Soft-Frozen clip** | Live E16 sleeve bands — FIN **[0.50, 0.95]** · TEL **[0.10, 0.35]** · 0050 **[0.10, 0.35]** |
 | **Dual-paper** | Parallel Exact T+1 paper books — observation only |
 | **Cutover** | Human PR that changes live books / live clip / live path logic |
 
@@ -70,7 +70,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | Item | Action | Status |
 |---|---|---|
 | Track A S9A1 | Paper/monitor via month-end pack | **KEEP** |
-| Live Soft-Frozen clip | **[0.50, 0.95]** | **KEEP** (register #1) |
+| Live Soft-Frozen clip | FIN **[0.50, 0.95]** · TEL **[0.10, 0.35]** · 0050 **[0.10, 0.35]** | **UPDATED** ACCEPT 2026-09-07（TEL/ETF floors 10%） |
 | FIN_CAP_50 paper | Dual-paper + pack | **OPERATING**; **static cutover REJECT for now** (register #2) |
 | L4 dual-paper | Dual-paper + pack | **OPERATING**; cutover **DEFER** until clean month-end (register #4) |
 | BLEND_025 dual-paper | Dual-paper + pack + runbook | **OPERATING OBSERVE** — sole sealed-CAGR successor (register #3); live **NOT READY** (#5) |
@@ -186,3 +186,7 @@ Human 「請重跑回測數據」. `ops_month_end_paper_pack.py --refresh-ledger
 ## Capital 15M live+paper (2026-09-07)
 
 Human 「提高模擬／實盤資本」 — `DEFAULT_CAPITAL=15M` so TEL floor can fund 3×1張 under board-lot; live replay + paper refresh. Note: `CAPITAL_15M_2026-09-07.md`. Soft-Frozen KEEP.
+
+## Soft-Frozen TEL+0050 floors 10% (2026-09-07)
+
+Human **ACCEPT 「電信 0050下限 10%」**. TEL **[0.10, 0.35]** · 0050 **[0.10, 0.35]**; FIN **[0.50, 0.95] KEEP**. Note: `SOFT_FROZEN_TEL_ETF_FLOOR_10_2026-09-07.md`. stitch FORBIDDEN.
