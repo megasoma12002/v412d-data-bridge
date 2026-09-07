@@ -128,15 +128,21 @@ def main() -> None:
         )
         if "quantity" not in fills.columns:
             checks["fills_positive_qty"] = False
+            checks["fills_board_lot_1000"] = False
         else:
             qty = pd.to_numeric(fills["quantity"], errors="coerce")
             legacy = fills["fill_id"].astype(str).isin(LEGACY_ZERO_QTY_FILL_IDS)
             # Fail-closed on qty<=0 except frozen pre-fix residue (no history rewrite).
             checks["fills_positive_qty"] = bool(((qty > 0) | legacy).all() and not qty.isna().any())
+            # Taiwan 整股：live fills must be multiples of 1000 (張).
+            checks["fills_board_lot_1000"] = bool(
+                ((qty % 1000 == 0) | legacy).all() and not qty.isna().any()
+            )
     else:
         checks["fills_unique_id"] = False
         checks["fills_reference_existing_orders"] = False
         checks["fills_positive_qty"] = False
+        checks["fills_board_lot_1000"] = False
 
     # Live ledgers must have an auditable fills file; empty/missing ⇒ Exact T+1 FAIL.
     t1 = exact_t1_from_fills(fills, fills_required=True)

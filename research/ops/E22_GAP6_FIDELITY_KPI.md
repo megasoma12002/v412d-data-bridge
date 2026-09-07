@@ -1,6 +1,6 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-07T15:10:51.263901+00:00`
+Generated: `2026-09-07T15:21:53.931564+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED** to E22_v2s_tw (forward-only).
 
 ## Code wire
