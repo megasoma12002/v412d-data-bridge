@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""E45 M2 BIL_FX month-end dual-paper monitor — PREP (AWAITING_HUMAN_ACCEPT).
+"""E45 M2 BIL_FX month-end dual-paper monitor — OPERATING (OPERATING_OBSERVE).
 
 Compares BASE vs M2_RELOC_BIL_FX_C50 paper NAVs at month-end (or as-of).
 Does NOT change Soft-Frozen. Does NOT place orders. Stitch always blocked.
-Status remains AWAITING_HUMAN_ACCEPT until a separate ACCEPT OPEN ballot.
+Status remains OPERATING_OBSERVE (ACCEPT recorded 2026-09-06 via 「請全做」).
 """
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ CHAL_NAV = ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/outputs/m2_reloc_bil_f
 OPS = ROOT / "research/ops"
 
 LOCKED_ID = "M2_RELOC_BIL_FX_C50"
-STATUS = "AWAITING_HUMAN_ACCEPT"
+STATUS = "OPERATING_OBSERVE"
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
 DESIGN_GIVEBACK_PP = {
@@ -177,7 +177,7 @@ def main() -> None:
             "structural_buffer_pp": STRUCTURAL_BUFFER_PP,
         },
         "non_actions": [
-            "AWAITING_HUMAN_ACCEPT — not OPERATING",
+            "OPERATING_OBSERVE — OPERATING (paper only)",
             "No Soft-Frozen / DEFAULT / stitch",
             "No live orders",
         ],
@@ -189,7 +189,7 @@ def main() -> None:
     lines = [
         f"# E45 M2 BIL_FX month-end monitor (asof {asof.date()})",
         "",
-        f"**Status:** `{STATUS}` — **NOT OPERATING**",
+        f"**Status:** `{STATUS}` — **OPERATING (paper only)**",
         f"**Locked:** `{LOCKED_ID}` vs BASE",
         "",
         "| Window | MDD dpp | Giveback pp | Rel NAV |",
@@ -218,7 +218,7 @@ def main() -> None:
     md = "\n".join(lines) + "\n"
     (args.out / "month_end_monitor.md").write_text(md, encoding="utf-8")
     OPS.mkdir(parents=True, exist_ok=True)
-    (OPS / "E45_M2_BIL_FX_MONTH_END_MONITOR_PREP.md").write_text(md, encoding="utf-8")
+    (OPS / "E45_M2_BIL_FX_MONTH_END_MONITOR_OPERATING.md").write_text(md, encoding="utf-8")
     print(json.dumps({"asof": str(asof.date()), "status": STATUS, "n_alerts": len(alerts)}, indent=2))
 
 

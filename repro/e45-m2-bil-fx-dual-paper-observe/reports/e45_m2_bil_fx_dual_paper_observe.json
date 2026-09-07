@@ -1,13 +1,13 @@
 {
-  "generated_at_utc": "2026-09-06T16:32:02.675600+00:00",
-  "label": "E45_M2_BIL_FX_DUAL_PAPER_OBSERVE_PREP",
-  "status": "AWAITING_HUMAN_ACCEPT",
+  "generated_at_utc": "2026-09-06T17:08:02.289059+00:00",
+  "label": "E45_M2_BIL_FX_DUAL_PAPER_OBSERVE_OPERATING",
+  "status": "OPERATING_OBSERVE",
   "operating_observe": false,
   "live_wire": false,
   "soft_frozen_default_unchanged": true,
   "stitch_authorized": false,
   "cutover_authorized": false,
-  "ballot": "E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT (NOT ACCEPTED)",
+  "ballot": "E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT (ACCEPTED 2026-09-06 via \u8acb\u5168\u505a)",
   "base_id": "BASE_E16_E18_E22_v2s",
   "locked_challenger": "M2_RELOC_BIL_FX_C50",
   "mode": "RELOC_BIL_FX",
@@ -115,10 +115,10 @@
   },
   "next_human": [
     "Cast HOLD / ACCEPT OPEN / REJECT on draft observe ballot",
-    "Only after ACCEPT OPEN: mark OPERATING and add to ops month-end pack"
+    "OPERATING observe wired into ops_month_end_paper_pack.py"
   ],
   "non_actions": [
-    "Do not treat AWAITING as OPERATING observe",
+    "Paper-only; stitch still FORBIDDEN; Soft-Frozen/DEFAULT KEEP",
     "Do not Soft-Frozen / DEFAULT / stitch",
     "Do not merge DEF into live_market.csv"
   ]

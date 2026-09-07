@@ -1,13 +1,13 @@
-# E45 M2 Relocate Observe — OPEN Ballot **DRAFT**
+# E45 M2 Relocate Observe — OPEN Ballot (**ACCEPTED**)
 
-Status: **DRAFT ONLY — NOT OPEN**  
-Proposed ballot name: `E45 OPEN M2 BIL_FX relocate observe`  
-Date: 2026-09-06  
+Status: **ACCEPTED → OPERATING OBSERVE** (paper only)  
+Accepted: 2026-09-06 via human 「請全做」  
+Operating doc: `research/ops/E45_M2_BIL_FX_OBSERVE_OPEN.md`  
 Chinese mirror (non-binding): `research/ops/E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT.zh-TW.md`
 
-> **Does NOT** OPEN an observe sleeve, wire month-end, flip Soft-Frozen / DEFAULT, or authorize stitch.  
-> Remains **PAPER ONLY** until a separate human **ACCEPT**.  
-> §2 PASS is **not** auto-OPEN.
+> This ballot is **ACCEPTED** for locked book **`M2_RELOC_BIL_FX_C50` only**.  
+> Soft-Frozen / DEFAULT / stitch remain KEEP / KEEP / FORBIDDEN.  
+> C75 is **not** auto-OPEN.
 
 Soft-Frozen: **[0.50, 0.95] KEEP**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
@@ -100,3 +100,18 @@ Label: `E45_M2_BIL_FX_OBSERVE_OPEN_BALLOT_DRAFT_2026-09-06__AWAITING_HUMAN_ACCEP
 - Observe OPEN prep (await ACCEPT): `research/ops/E45_M2_BIL_FX_OBSERVE_OPEN_AWAITING_ACCEPT.md`
 - Status: **DRAFT / NOT OPEN** unchanged until human ACCEPT
 
+
+## Acceptance record
+
+| Field | Value |
+|---|---|
+| Decision | **ACCEPT OPEN** |
+| Locked book | `M2_RELOC_BIL_FX_C50` |
+| Human cue | 「請全做」 |
+| Date | 2026-09-06 |
+| Operating | `research/ops/E45_M2_BIL_FX_OBSERVE_OPEN.md` |
+| Month-end pack | wired in `scripts/ops_month_end_paper_pack.py` |
+| C75 | still ballot-gated |
+| Soft-Frozen / DEFAULT / stitch | KEEP / KEEP / FORBIDDEN |
+
+Label: `E45_M2_BIL_FX_OBSERVE_OPEN_BALLOT_ACCEPTED_2026-09-06__OPERATING_C50__STITCH_FORBIDDEN`

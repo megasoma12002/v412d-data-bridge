@@ -116,11 +116,14 @@ M3 read: `M3_STATE_V0` fails §2 and underperforms continuous M2 on COVID-ex hel
 | # | Item | Status | Artifact |
 |---|---|---|---|
 | 1 | True DEF data ingest (cash / short-duration / FX) | **DONE — INGEST PASS** | `E45_M2_TRUE_DEF_DATA_INGEST.md` · freeze `E45_M2_TRUE_DEF_DATA_V0_FROZEN.md` · `data/def_proxies/` |
-| 2 | Human ballot: OPEN M2 BIL_FX relocate observe (`M2_RELOC_BIL_FX_C50`) | **DRAFT / NOT OPEN** (default lock **BIL_FX**, not TEL) | `E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT.md` (+ `.zh-TW.md`) |
+| 2 | Human ballot: OPEN M2 BIL_FX relocate observe (`M2_RELOC_BIL_FX_C50`) | **ACCEPTED / OPERATING_OBSERVE** (C50 only; C75 still gated) | `E45_M2_BIL_FX_OBSERVE_OPEN.md` · ballot `E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT.md` |
 | 3 | M2 v1 relocate paper on true DEF | **DONE — Section-2 PASS (`M2_RELOC_BIL_FX_C50/C75`)** | `E45_M2_TRUE_DEF_RELOCATE.md` · freeze `E45_M2_DEF_SLEEVE_V1_FROZEN.md` |
 
 M2 v1 read: `M2_RELOC_BIL_FX_C50/C75` clear §2 on true DEF (`BIL×USDTWD`); `00719B` switch books did not qualify. Observe ballot retargeted to **BIL_FX_C50** (TEL no longer default). Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN** · no live_market merge.
 
 Engineering: PR **#101** (M3) · **#102** (DEF ingest) · **#103** (M2 v1 paper) merged to `main`. Soft-Frozen KEEP · DEFAULT KEEP · stitch **FORBIDDEN**.
 
-| — | M2 BIL_FX improve (FX sens + TWD twin + observe prep) | **DONE — PAPER / AWAITING_HUMAN_ACCEPT** | `E45_M2_BIL_FX_IMPROVE.md` · freeze `E45_M2_BIL_FX_IMPROVE_V0_FROZEN.md` |
+| — | M2 BIL_FX improve (FX sens + TWD twin + observe prep) | **DONE — PAPER** (observe OPEN shipped in optimize batch) | `E45_M2_BIL_FX_IMPROVE.md` · freeze `E45_M2_BIL_FX_IMPROVE_V0_FROZEN.md` |
+
+| — | M2 BIL_FX optimize (path FX + CBC cash + cut/κ) + observe OPEN C50 | **DONE — PAPER + OPERATING_OBSERVE** | `E45_M2_BIL_FX_OPTIMIZE.md` · freeze `E45_M2_BIL_FX_OPTIMIZE_V0_FROZEN.md` · OPEN `E45_M2_BIL_FX_OBSERVE_OPEN.md` |
+

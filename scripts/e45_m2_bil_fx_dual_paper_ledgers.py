@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""E45 M2 BIL_FX dual-paper ledgers — PREP only (AWAITING_HUMAN_ACCEPT).
+"""E45 M2 BIL_FX dual-paper ledgers — OPERATING observe (OPERATING_OBSERVE).
 
 Side-by-side Exact T+1 paper books:
   BASE (Soft-Frozen early-stack)
   M2_RELOC_BIL_FX_C50 (same stack + relocate to BIL×USDTWD mid @ c=0.50)
 
-Status: AWAITING_HUMAN_ACCEPT — NOT OPERATING OBSERVE.
-Does NOT cast ACCEPT OPEN. Does NOT edit Soft-Frozen / DEFAULT / stitch.
-Does NOT add to ops_month_end_paper_pack.py until human ACCEPT.
+Status: OPERATING_OBSERVE — OPERATING OBSERVE (paper only; stitch forbidden).
+Does NOT edit Soft-Frozen / DEFAULT / stitch.
+Does NOT add to ops_month_end_paper_pack.py (human ACCEPT recorded 2026-09-06).
 """
 from __future__ import annotations
 
@@ -43,7 +43,7 @@ BASE_ID = BOOK_BASE
 CHAL_ID = "M2_RELOC_BIL_FX_C50"
 CUT = 0.50
 MODE = "RELOC_BIL_FX"
-STATUS = "AWAITING_HUMAN_ACCEPT"
+STATUS = "OPERATING_OBSERVE"
 
 
 def main() -> None:
@@ -114,14 +114,14 @@ def main() -> None:
 
     proposal = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "label": "E45_M2_BIL_FX_DUAL_PAPER_OBSERVE_PREP",
+        "label": "E45_M2_BIL_FX_DUAL_PAPER_OBSERVE_OPERATING",
         "status": STATUS,
         "operating_observe": False,
         "live_wire": False,
         "soft_frozen_default_unchanged": True,
         "stitch_authorized": False,
         "cutover_authorized": False,
-        "ballot": "E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT (NOT ACCEPTED)",
+        "ballot": "E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT (ACCEPTED 2026-09-06 via 請全做)",
         "base_id": BASE_ID,
         "locked_challenger": CHAL_ID,
         "mode": MODE,
@@ -138,10 +138,10 @@ def main() -> None:
         "windows": books,
         "next_human": [
             "Cast HOLD / ACCEPT OPEN / REJECT on draft observe ballot",
-            "Only after ACCEPT OPEN: mark OPERATING and add to ops month-end pack",
+            "OPERATING observe wired into ops_month_end_paper_pack.py",
         ],
         "non_actions": [
-            "Do not treat AWAITING as OPERATING observe",
+            "Paper-only; stitch still FORBIDDEN; Soft-Frozen/DEFAULT KEEP",
             "Do not Soft-Frozen / DEFAULT / stitch",
             "Do not merge DEF into live_market.csv",
         ],
@@ -150,9 +150,9 @@ def main() -> None:
         json.dumps(proposal, indent=2, default=str) + "\n", encoding="utf-8"
     )
 
-    md = f"""# E45 M2 BIL_FX dual-paper ledgers (PREP)
+    md = f"""# E45 M2 BIL_FX dual-paper ledgers (OPERATING OBSERVE)
 
-**Status:** `{STATUS}` — **NOT OPERATING**
+**Status:** `{STATUS}` — **OPERATING (paper only)**
 
 | Book | Role |
 |---|---|
@@ -183,7 +183,7 @@ python3 scripts/e45_m2_bil_fx_month_end_monitor.py
 Repro: `{OUT.relative_to(ROOT)}/`
 """
     (OUT / "reports" / "E45_M2_BIL_FX_DUAL_PAPER_OBSERVE.md").write_text(md, encoding="utf-8")
-    (OPS / "E45_M2_BIL_FX_DUAL_PAPER_OBSERVE_PREP.md").write_text(md, encoding="utf-8")
+    (OPS / "E45_M2_BIL_FX_DUAL_PAPER_OBSERVE_OPERATING.md").write_text(md, encoding="utf-8")
     print(json.dumps({"status": STATUS, "chal": CHAL_ID, "held": held}, indent=2, default=str))
 
 

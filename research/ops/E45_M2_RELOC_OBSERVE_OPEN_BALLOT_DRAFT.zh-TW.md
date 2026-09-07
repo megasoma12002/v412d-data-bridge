@@ -1,3 +1,11 @@
+# E45 M2 Relocate Observe — OPEN 票（**已 ACCEPT**）
+
+狀態：**ACCEPTED → OPERATING OBSERVE**（僅紙上）  
+接受：2026-09-06 人類「請全做」  
+現行：`research/ops/E45_M2_BIL_FX_OBSERVE_OPEN.md`
+
+> 僅鎖定 **`M2_RELOC_BIL_FX_C50`**。Soft-Frozen／DEFAULT／stitch 不變。C75 不自動 OPEN。
+
 # E45 M2 Relocate Observe — OPEN 表決草案（繁中）
 
 狀態：**草案 DRAFT ONLY — 未 OPEN**  
@@ -37,3 +45,15 @@ Label: `E45_M2_BIL_FX_OBSERVE_OPEN_BALLOT_DRAFT_ZH_TW__NOT_OPEN__STITCH_FORBIDDE
 - Observe OPEN prep（等候 ACCEPT）：`research/ops/E45_M2_BIL_FX_OBSERVE_OPEN_AWAITING_ACCEPT.md`
 - 狀態：人類 ACCEPT 前維持 **DRAFT / NOT OPEN**
 
+
+
+## 接受紀錄
+
+| 欄位 | 值 |
+|---|---|
+| 決定 | **ACCEPT OPEN** |
+| 鎖定書 | `M2_RELOC_BIL_FX_C50` |
+| 人類指令 | 「請全做」 |
+| 日期 | 2026-09-06 |
+| C75 | 仍需另票 |
+| Soft-Frozen／DEFAULT／stitch | KEEP／KEEP／FORBIDDEN |
