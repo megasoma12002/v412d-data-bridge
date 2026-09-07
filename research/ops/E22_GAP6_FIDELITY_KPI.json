@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-07T09:09:02.244955+00:00",
+  "generated_at_utc": "2026-09-07T14:29:10.727874+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -17,15 +17,15 @@
   },
   "live_ledger": {
     "live_dir": "/workspace/forward/e21",
-    "asof": "2026-09-04",
+    "asof": "2026-09-07",
     "portfolio_has_e22_books_version": true,
     "portfolio_has_e22_manifest": true,
-    "nav_has_e22_version_col": false,
+    "nav_has_e22_version_col": true,
     "dividends_applied_exists": false,
     "dividends_applied_n": 0,
     "observed_books_version": "E22_v2s_tw",
-    "live_ledger_e22_fields_present": false,
-    "note": "Live ledger artifacts predate E22 field persistence (code path is wired; next forward run should write e22_* fields). Do not rewrite history."
+    "live_ledger_e22_fields_present": true,
+    "note": null
   },
   "ex_to_pay_lag": {
     "cash": {
@@ -46,7 +46,7 @@
     }
   },
   "receivable_stub": {
-    "asof": "2026-09-04",
+    "asof": "2026-09-07",
     "n_cash_events_in_receivable_window": 1,
     "codes": [
       "5880"
@@ -75,12 +75,9 @@
     "brief": "research/e22/EXECUTION_DETAIL_GAP6_BRIEF.md",
     "handling": "research/gaps/E50A_AND_EXEC_GAP_HANDLING.md"
   },
-  "flags": [
-    "LIVE_LEDGER_E22_FIELDS_MISSING",
-    "KPI_BLOCKED_LIVE_EVIDENCE_MISSING"
-  ],
+  "flags": [],
   "code_ok": true,
-  "live_evidence_ok": false,
-  "kpi_ok": false,
+  "live_evidence_ok": true,
+  "kpi_ok": true,
   "ci_smoke_ok": true
 }

@@ -1,6 +1,6 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-07T09:09:02.244955+00:00`
+Generated: `2026-09-07T14:29:10.727874+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED** to E22_v2s_tw (forward-only).
 
 ## Code wire
@@ -12,14 +12,12 @@ Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED
 
 ## Live ledger evidence (`forward/e21`)
 
-- asof: **2026-09-04**
+- asof: **2026-09-07**
 - `e22_books_version` in portfolio_state: **True**
 - `e22_manifest` in portfolio_state: **True**
-- `e22_version` col in nav.csv: **False**
+- `e22_version` col in nav.csv: **True**
 - `dividends_applied.csv`: **False** (n=0)
-- Live evidence OK: **False**
-
-> Live ledger artifacts predate E22 field persistence (code path is wired; next forward run should write e22_* fields). Do not rewrite history.
+- Live evidence OK: **True**
 
 ## Ex → pay lag (ledger completeness already green; this is timing fidelity)
 
@@ -43,12 +41,11 @@ Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED
 
 ## Flags
 
-- `LIVE_LEDGER_E22_FIELDS_MISSING`
-- `KPI_BLOCKED_LIVE_EVIDENCE_MISSING`
+- None
 
-Monitoring KPI OK (code **and** live evidence): **False**
+Monitoring KPI OK (code **and** live evidence): **True**
 - code_ok: **True**
-- live_evidence_ok: **False**
+- live_evidence_ok: **True**
 - ci_smoke_ok (= code_ok): **True**
 
 Re-run: `python3 scripts/e22_gap6_fidelity_kpi.py`
