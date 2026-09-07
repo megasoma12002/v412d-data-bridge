@@ -69,8 +69,8 @@ def main() -> int:
 
     note = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "label": "E21_LIVE_ZEROFILL_REPLAY",
-        "authority": "human 「請清掉後重跑正確數據」 2026-09-07",
+        "label": "E21_LIVE_LEDGER_REPLAY",
+        "authority": "human-authorized --confirm-history-rewrite",
         "cleared": cleared,
         "kept": sorted(KEEP),
         "start_date": a.start_date,

@@ -4,6 +4,7 @@
 Formal price split:
   - E16 signals: adj_close
   - Books / fills / NAV: raw open/close + E22_v2s_tw dividend accounting (odd-lot TW practice)
+  - Order sizing: Taiwan board lot 1 張 = 1000 股 (整股); no odd-lot continuous book trades
 """
 import argparse, hashlib, json, sys
 from datetime import datetime, timezone
@@ -23,8 +24,14 @@ SELL_FEE = 0.001425 * 0.6
 TAX_STOCK = 0.003
 TAX_ETF = 0.001
 SLIP = 0.0005
+BOARD_LOT = 1000  # Taiwan 整股：1 張 = 1000 股
 E22_BOOKS_VERSION = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw (odd-lot TW practice; promoted 2026-09-05)
 DIV_PATH = Path("data/dividend_events/e22_dividend_events.csv")
+
+
+def board_lots(shares: float | int) -> int:
+    """Floor to whole Taiwan board lots (張)."""
+    return BOARD_LOT * int(max(0.0, float(shares)) // BOARD_LOT)
 
 
 def append_immutable(path, row, key):
@@ -205,12 +212,14 @@ def main():
             fee = gross * (BUY_FEE if side == "BUY" else SELL_FEE + (TAX_ETF if o.code == "0050" else TAX_STOCK))
             signed = q if side == "BUY" else -q
             if side == "BUY" and gross + fee > cash:
-                q = max(0, int(cash / (fp * (1 + BUY_FEE))))
+                # Partial fill only in whole 張.
+                q = board_lots(int(cash / (fp * (1 + BUY_FEE))))
                 gross = q * fp
                 fee = gross * BUY_FEE
                 signed = q
             # Never persist qty<=0 fills (would burn order_id and block retries).
-            if q < 1:
+            # Also reject non-board-lot fills (should not occur if orders are lot-sized).
+            if q < BOARD_LOT or q % BOARD_LOT != 0:
                 continue
             pos[o.code] = pos.get(o.code, 0) + signed
             cash += -gross - fee if side == "BUY" else gross - fee
@@ -312,12 +321,14 @@ def main():
     for sleeve, codes in [("Financial", FIN), ("Telecom", TEL), ("0050", ["0050"])]:
         value = sleeve_trade[sleeve] * nav / len(codes)
         for c in codes:
-            qty = int(abs(value) / prices[c])
-            if qty < 1:
+            # Taiwan 整股：1 張 = 1000 股
+            qty = board_lots(abs(value) / prices[c])
+            if qty < BOARD_LOT:
                 continue
             side = "BUY" if value > 0 else "SELL"
-            qty = min(qty, int(pos.get(c, 0))) if side == "SELL" else qty
-            if qty < 1:
+            if side == "SELL":
+                qty = min(qty, board_lots(pos.get(c, 0)))
+            if qty < BOARD_LOT:
                 continue
             oid = f"{latest.date()}-{c}-{side}"
             order_rows.append(

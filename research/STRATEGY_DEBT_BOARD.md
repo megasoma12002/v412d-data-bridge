@@ -170,3 +170,7 @@ Human 「依 month-end cadence 繼續觀察」. Pack re-run: `research/ops/OPS_C
 ## Live zero-fill authorized replay (2026-09-07)
 
 Human 「請清掉後重跑正確數據」. Cleared + replayed `forward/e21` 2026-08-24→09-07 with SELL-before-BUY. Zero-qty fills **0**; QC/Gap6 PASS. Note: `LIVE_ZEROFILL_REPLAY_2026-09-07.md`. Soft-Frozen KEEP.
+
+## Live board-lot 1000 (2026-09-07)
+
+Human 「是的」 — TW 整股 1 張 = 1000 股. Live order/fill sizing + ledger replay. Note: `LIVE_BOARD_LOT_1000_2026-09-07.md`. Soft-Frozen KEEP.
