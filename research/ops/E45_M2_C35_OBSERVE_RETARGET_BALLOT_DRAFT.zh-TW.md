@@ -1,0 +1,13 @@
+# E45 M2 BIL_FX Observe 改鎖 C35 — OPEN 票 **DRAFT**
+
+狀態：**DRAFT ONLY — 尚未 OPEN**  
+現行 OPERATING 鎖定：**`M2_RELOC_BIL_FX_C50`**（不變）  
+證據：`research/e45/E45_M2_C35_RETARGET_BALLOT.md`
+
+| 選擇 | 效果 |
+|---|---|
+| **HOLD DRAFT**（預設） | 維持 C50 OPERATING |
+| **ACCEPT OPEN C35** | 另 PR 改鎖雙帳本／月底監看 |
+| **REJECT** | 封存；維持 C50 |
+
+Soft-Frozen／DEFAULT **KEEP** · stitch **FORBIDDEN** · 不發明 MDD · 不把 BIL_FX 當台幣現金
