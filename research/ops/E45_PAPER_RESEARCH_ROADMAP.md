@@ -131,3 +131,4 @@ Engineering: PR **#101** (M3) · **#102** (DEF ingest) · **#103** (M2 v1 paper)
 | — | B Tradable TWD short-bond twin (740B/751B/basket) | **DONE — PAPER** (retail deposit NAV unavailable free FinMind; challengers §2 fail) | `E45_M2_TWD_TRADABLE_CASH.md` · freeze `E45_M2_C35_TWDCASH_HIGHBETA_V0_FROZEN.md` |
 | — | C HIGH_BETA HOLD DRAFT hygiene | **DONE — HOLD DRAFT / NOT OPEN** | `E45_HIGH_BETA_HOLD_DRAFT_HYGIENE.md` |
 
+| — | Ops cadence: merge #106/#107 + HOLD C35/HIGH_BETA + month-end pack | **DONE** | HOLD `E45_M2_C35_OBSERVE_RETARGET_HOLD.md` · HIGH_BETA stays DRAFT · pack `MONTH_END_PAPER_PACK.md` |

@@ -1,6 +1,6 @@
 # Ops Month-End Paper Pack
 
-Generated: `2026-09-06T10:05:41.416055+00:00`
+Generated: `2026-09-07T02:20:59.357168+00:00`
 Status: **RESEARCH / OPS** — Soft-Frozen **[0.50, 0.95] unchanged**; no cutover.
 
 - Refresh ledgers: **False**
@@ -15,10 +15,16 @@ Status: **RESEARCH / OPS** — Soft-Frozen **[0.50, 0.95] unchanged**; no cutove
 | `e45_blend025_month_end` | True | 0 |
 | `e45_blend005_month_end` | True | 0 |
 | `e45_sleeve_local_month_end` | True | 0 |
+| `e45_m2_bil_fx_month_end` | True | 0 |
 | `track_a_s9a1` | True | 0 |
 | `live_paper_recon` | True | 0 |
 | `e22_data_quality_kpi` | True | 0 |
 | `e22_gap6_fidelity_kpi` | False | 2 |
+| `data_source_shadow_reconcile` | True | 0 |
+| `data_source_phase_c_probes` | True | 0 |
+| `data_source_resilience_kpi` | True | 0 |
+| `fincap50_sealed_cagr_charter_screen` | True | 0 |
+| `ops_alert_scan` | True | 0 |
 
 ## Hard rules
 

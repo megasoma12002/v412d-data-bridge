@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-06T10:05:41.416055+00:00",
+  "generated_at_utc": "2026-09-07T02:20:59.357168+00:00",
   "label": "OPS_MONTH_END_PAPER_PACK",
   "live_wire": false,
   "soft_frozen_clip": [
@@ -8,8 +8,8 @@
   ],
   "soft_frozen_unchanged": true,
   "refresh_ledgers": false,
-  "continue_on_error": false,
-  "partial_pack": false,
+  "continue_on_error": true,
+  "partial_pack": true,
   "all_ok": false,
   "steps": [
     {
@@ -48,6 +48,11 @@
       "returncode": 0
     },
     {
+      "name": "e45_m2_bil_fx_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
       "name": "track_a_s9a1",
       "ok": true,
       "returncode": 0
@@ -66,7 +71,32 @@
       "name": "e22_gap6_fidelity_kpi",
       "ok": false,
       "returncode": 2
+    },
+    {
+      "name": "data_source_shadow_reconcile",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "data_source_phase_c_probes",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "data_source_resilience_kpi",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "fincap50_sealed_cagr_charter_screen",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "ops_alert_scan",
+      "ok": true,
+      "returncode": 0
     }
   ],
-  "cutover_note": "Paper/ops cadence only. Soft-Frozen [0.50, 0.95] unchanged. FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated; BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-\u03b1=0.25 observe is paper-only (parallel sleeve); E45 blend-\u03b1=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY \u03b1=0.10 observe is paper-only (parallel sleeve)."
+  "cutover_note": "Paper/ops cadence only. Soft-Frozen [0.50, 0.95] unchanged. FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated; BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-\u03b1=0.25 observe is paper-only (parallel sleeve); E45 blend-\u03b1=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY \u03b1=0.10 observe is paper-only (parallel sleeve); E45 M2 BIL_FX C50 relocate observe is paper-only (parallel sleeve; stitch still forbidden)."
 }

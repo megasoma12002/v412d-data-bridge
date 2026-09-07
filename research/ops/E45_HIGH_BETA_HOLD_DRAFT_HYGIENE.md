@@ -29,3 +29,7 @@ FULL · A25 · A05 · FIN_A10 · **BIL_FX_C50**
 - Do not densify E45 mild-α as a substitute for HOLD  
 
 Label: `E45_HIGH_BETA_HOLD_DRAFT_HYGIENE_2026-09-07__NOT_OPEN__STITCH_FORBIDDEN`
+
+## Ops cadence reaffirm (2026-09-07)
+
+Human 「請全做」 on merge + month-end next-steps **reaffirms HOLD DRAFT** — still **NOT OPEN**, not wired to month-end pack.
