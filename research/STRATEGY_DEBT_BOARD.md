@@ -84,7 +84,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | Strategy update SOP | Use `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md` for any future challenger / Soft-Frozen / live-path change | Skip classify→observe→register→checklist→human PR |
 | Calendar month-end | Re-run pack; watch L4/FIN50/BLEND_025 trailing | Treat pack green / observe clean as cutover |
 | Live↔paper recon | Re-check INDEX_DRIFT as live history lengthens | Decision on <60 live sessions |
-| Live E22 field evidence | After next weekday forward; run `POST_FORWARD_E22_VERIFY_RUNBOOK.md` | Rewrite `forward/e21` history |
+| Live E22 field evidence | **DONE 2026-09-07** — Gap6 PASS / EVIDENCE PRESENT (`61f188c`); see `LIVE_E22_FIELD_EVIDENCE.md` | Rewrite `forward/e21` history |
 | L4 cutover PR | Only after register re-open trigger + checklist all-green | Soft-Frozen flip; static clip swap; open PR while PAUSE |
 | FIN50 static cutover PR | **Do not open** while `NOT_READY_SEALED_CAGR` | Retune FIN50 lock; ignore `NOT_READY` |
 | BLEND_025 live-wire | Only after `CUTOVER_CHECKLIST_BLEND025` all-green + human PR | Treat observe PASS / checklist draft as promote |

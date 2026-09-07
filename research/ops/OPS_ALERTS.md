@@ -1,11 +1,11 @@
 # Ops Alerts
 
-Generated: `2026-09-07T09:09:02.795867+00:00`
+Generated: `2026-09-07T14:29:11.276814+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 
 - CRITICAL: 0
-- HIGH (PAUSE_REVIEW etc.): 10
+- HIGH (PAUSE_REVIEW etc.): 7
 - INFO: 18
 
 | Severity | Source | Code | Message |
@@ -17,9 +17,6 @@ Soft-Frozen **[0.50, 0.95] unchanged**. No auto cutover.
 | HIGH | `e45_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk |
 | HIGH | `e45_blend025_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk |
 | HIGH | `e45_blend025_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk |
-| HIGH | `e22_gap6_fidelity_kpi` | `GAP6_KPI_BLOCKED_LIVE_EVIDENCE` | kpi_ok=false with code_ok=true — live e22_* fields missing; next forward run must persist fields (no history rewrite) |
-| HIGH | `e22_gap6_fidelity_kpi` | `LIVE_LEDGER_E22_FIELDS_MISSING` | LIVE_LEDGER_E22_FIELDS_MISSING |
-| HIGH | `e22_gap6_fidelity_kpi` | `KPI_BLOCKED_LIVE_EVIDENCE_MISSING` | KPI_BLOCKED_LIVE_EVIDENCE_MISSING |
 | INFO | `live_qc` | `QC_PASS` | live QC PASS; Exact T+1 ok |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops) |
