@@ -139,10 +139,10 @@ Engineering: PR **#101** (M3) · **#102** (DEF ingest) · **#103** (M2 v1 paper)
 
 | — | C35 Soft-Frozen regime gate (tip hygiene) | **DONE — PAPER** | `E45_C35_REGIME_GATE_RESEARCH.md` — hard Bear+Crisis tip PASS; held-out +1.81→+0.72 |
 | — | Soft-gate recover sacrificed held-out | **DONE — PAPER** | `E45_C35_SOFT_GATE_RESEARCH.md` — best tip-clean **Soft_A** (+0.83, ~11% gap); same-family full recovery exhausted |
-<<<<<<< HEAD
-=======
 | — | Four-path recover (Soft_A / dual / new-mech / tradeoff) | **DONE — PAPER** | `E45_FOUR_PATH_RECOVER_RESEARCH.md` — Path3 no Soft_A beater; stack Soft_A+dual+tradeoff+continue M1–M3 |
 | — | M3 discrete v1 on RELOC_BIL_FX (leave C35×regime soft-mult) | **DONE — FAIL_AUTOPSY** | `E45_M3_BIL_FX_V1.md` · ladder status `E45_NEW_MECHANISM_LADDER_STATUS.md` |
 | — | C35 arc integrated Pareto read | **DONE — SYNTHESIS** | `E45_C35_ARC_INTEGRATED_OPTIMAL.md` — Soft_A tip + ungated C35 long-score dual-monitor |
->>>>>>> origin/main
+| — | Soft_A × ungated C35 mix λ-grid | **DONE — PAPER** | `E45_SOFTA_C35_MIX` — only λ=1 tip-clean; interpolates poles |
+| — | Sideways-conditional gates | **DONE — PAPER** | residue closed; no Soft_A beater |
+| — | Novel strategy screen (outside C35×regime knobs) | **DONE — PAPER** | `E45_NOVEL_STRATEGY_SCREEN.md` — no tip-clean Soft_A beater |
 
