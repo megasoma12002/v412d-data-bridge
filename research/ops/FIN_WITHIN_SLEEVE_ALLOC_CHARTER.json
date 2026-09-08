@@ -1,0 +1,26 @@
+{
+  "generated_at_utc": "2026-09-08T02:20:00+00:00",
+  "label": "FIN_WITHIN_SLEEVE_ALLOC_CHARTER",
+  "status": "CHARTER_ACCEPTED_STAGE_B_STOP",
+  "stage_b_status": "STOP_NO_POSITIVE_HELDOUT_SCORE",
+  "stage_b_artifact": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_STAGE_B.json",
+  "ballot": "金融也研究分開",
+  "class": "A_RESEARCH_EXPERIMENTAL",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "execution_context": {
+    "capital": 500000000,
+    "board_lot": 1000,
+    "e22_books": "E22_v2s_tw",
+    "telecom_held_at": "TEL_EQUAL"
+  },
+  "policies_predeclared": [
+    "FIN_EQUAL",
+    "FIN_MIN_LOT_PACK",
+    "FIN_TOP1",
+    "FIN_TOP2_EQUAL"
+  ],
+  "stage_b_script": "scripts/e16_fin_within_sleeve_challenger.py",
+  "decision_pack": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md",
+  "charter": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_CHARTER.md"
+}

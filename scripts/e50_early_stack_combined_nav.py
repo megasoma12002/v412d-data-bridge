@@ -25,6 +25,24 @@ import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
 from tw_share_lots import BOARD_LOT
 from portfolio_capital import DEFAULT_CAPITAL
+from within_sleeve_alloc import (
+    FIN_EQUAL,
+    FIN_ALLOC_POLICIES,
+    TEL_EQUAL,
+    TEL_MIN_LOT_PACK,
+    TEL_TOP1,
+    TEL_TOP2_EQUAL,
+    TEL_ALLOC_POLICIES,
+    allocate_sleeve_orders,
+    build_name_scores,
+)
+
+# Back-compat aliases for Stage B telecom challenger (#125)
+TEL_ALLOC_EQUAL = TEL_EQUAL
+TEL_ALLOC_MIN_LOT_PACK = TEL_MIN_LOT_PACK
+TEL_ALLOC_TOP1 = TEL_TOP1
+TEL_ALLOC_TOP2_EQUAL = TEL_TOP2_EQUAL
+
 CLAIM_STATUS = e45.CLAIMED_MDD_STATUS
 from research_metric_helpers import metric_delta, fmt_pct
 
@@ -39,6 +57,11 @@ TAX_ETF = 0.001
 SLIP = 0.0005
 CAPITAL = DEFAULT_CAPITAL
 WARMUP_DAYS = 252
+
+
+def build_tel_name_scores(market: pd.DataFrame):
+    """Causal within-Telecom scores — delegates to shared within_sleeve_alloc."""
+    return build_name_scores(market, TEL)
 
 
 def e16_features(m: pd.DataFrame):
@@ -61,170 +84,6 @@ def lot_qty(value: float, price: float, lot_size: int = BOARD_LOT) -> int:
     return (raw // lot_size) * lot_size
 
 
-# Paper-only Telecom within-sleeve policies (research charter). Live e21 stays equal-split.
-TEL_ALLOC_EQUAL = "TEL_EQUAL"
-TEL_ALLOC_MIN_LOT_PACK = "TEL_MIN_LOT_PACK"
-TEL_ALLOC_TOP1 = "TEL_TOP1"
-TEL_ALLOC_TOP2_EQUAL = "TEL_TOP2_EQUAL"
-TEL_ALLOC_POLICIES = (
-    TEL_ALLOC_EQUAL,
-    TEL_ALLOC_MIN_LOT_PACK,
-    TEL_ALLOC_TOP1,
-    TEL_ALLOC_TOP2_EQUAL,
-)
-
-
-def build_tel_name_scores(market: pd.DataFrame) -> pd.DataFrame:
-    """Causal within-Telecom name scores from adj_close momentum (paper TOP1/TOP2).
-
-    Cross-sectional z of 20d/60d mean returns among TEL names only — no look-ahead.
-    """
-    m = market.copy()
-    m["date"] = pd.to_datetime(m["date"])
-    adj = (
-        m.pivot(index="date", columns="code", values="adj_close")
-        .sort_index()
-        .ffill()
-    )
-    for c in TEL:
-        if c not in adj.columns:
-            raise ValueError(f"missing TEL code {c} in market adj_close")
-    panel = adj[TEL]
-    rets = panel.pct_change()
-    m20 = rets.rolling(20, min_periods=10).mean()
-    m60 = rets.rolling(60, min_periods=20).mean()
-
-    def _xz(df: pd.DataFrame) -> pd.DataFrame:
-        mu = df.mean(axis=1)
-        sd = df.std(axis=1).replace(0.0, np.nan)
-        return df.sub(mu, axis=0).div(sd, axis=0).fillna(0.0)
-
-    return (0.5 * _xz(m20) + 0.5 * _xz(m60)).clip(-3.0, 3.0)
-
-
-def _held_board_qty(pos: dict, code: str, lot_size: int) -> int:
-    held = float(pos.get(code, 0.0))
-    if lot_size == 1:
-        return int(held)
-    return int(held // lot_size) * lot_size
-
-
-def _queue_order(pending: list, dt, code: str, side: str, qty: int) -> None:
-    if qty < 1:
-        return
-    pending.append({"signal_date": dt, "code": code, "side": side, "quantity": int(qty)})
-
-
-def _allocate_equal_notional(
-    pending: list,
-    dt,
-    codes: list[str],
-    sleeve_dollars: float,
-    closes: dict[str, float],
-    pos: dict,
-    lot_size: int,
-) -> None:
-    if abs(sleeve_dollars) < 1e-9 or not codes:
-        return
-    per = sleeve_dollars / len(codes)
-    side = "BUY" if per > 0 else "SELL"
-    for c in codes:
-        px = float(closes[c])
-        qty = lot_qty(per, px, lot_size=lot_size)
-        if side == "SELL":
-            qty = min(qty, _held_board_qty(pos, c, lot_size))
-        _queue_order(pending, dt, c, side, qty)
-
-
-def _allocate_telecom_within_sleeve(
-    pending: list,
-    dt,
-    *,
-    sleeve_dollars: float,
-    closes: dict[str, float],
-    pos: dict,
-    lot_size: int,
-    policy: str,
-    scores_row: pd.Series | None,
-) -> None:
-    """Paper-only within-Telecom order allocation (FIN/0050 untouched)."""
-    if policy == TEL_ALLOC_EQUAL:
-        _allocate_equal_notional(pending, dt, TEL, sleeve_dollars, closes, pos, lot_size)
-        return
-
-    score_map = {c: 0.0 for c in TEL}
-    if scores_row is not None:
-        for c in TEL:
-            if c in scores_row.index and pd.notna(scores_row[c]):
-                score_map[c] = float(scores_row[c])
-
-    if policy == TEL_ALLOC_TOP1:
-        active = [max(TEL, key=lambda c: (score_map[c], -float(closes[c]), c))]
-    elif policy == TEL_ALLOC_TOP2_EQUAL:
-        active = sorted(TEL, key=lambda c: (score_map[c], -float(closes[c]), c), reverse=True)[:2]
-    elif policy == TEL_ALLOC_MIN_LOT_PACK:
-        active = None
-    else:
-        raise ValueError(f"unknown telecom_alloc policy: {policy}")
-
-    # Concentrate: exit non-active TEL names on rebalance / pack days when sleeve trades
-    # or whenever TOP policies have residual off-target holdings.
-    if active is not None:
-        for c in TEL:
-            if c in active:
-                continue
-            q = _held_board_qty(pos, c, lot_size)
-            _queue_order(pending, dt, c, "SELL", q)
-
-    if abs(sleeve_dollars) < 1e-9:
-        return
-
-    if sleeve_dollars < 0:
-        # Delever: sell pro-rata from current TEL holdings (after concentration sells queued).
-        holders = [c for c in TEL if _held_board_qty(pos, c, lot_size) > 0]
-        if not holders:
-            return
-        # Prefer selling active names' book for TOP policies; else all holders.
-        sell_pool = [c for c in (active or holders) if c in holders] or holders
-        _allocate_equal_notional(
-            pending, dt, sell_pool, sleeve_dollars, closes, pos, lot_size
-        )
-        return
-
-    # Buys
-    if policy == TEL_ALLOC_TOP1:
-        _allocate_equal_notional(pending, dt, active, sleeve_dollars, closes, pos, lot_size)
-        return
-    if policy == TEL_ALLOC_TOP2_EQUAL:
-        _allocate_equal_notional(pending, dt, active, sleeve_dollars, closes, pos, lot_size)
-        return
-
-    # TEL_MIN_LOT_PACK: cheapest-first ≥1 張, then dump remainder into cheapest affordable.
-    remaining = float(sleeve_dollars)
-    order_names = sorted(TEL, key=lambda c: (float(closes[c]), c))
-    bought: list[str] = []
-    for c in order_names:
-        px = float(closes[c])
-        lot_cost = px * lot_size
-        if lot_cost <= 0 or remaining + 1e-9 < lot_cost:
-            continue
-        _queue_order(pending, dt, c, "BUY", lot_size)
-        remaining -= lot_cost
-        bought.append(c)
-    # Remainder → max additional lots cheapest-first among names that already got ≥1 張,
-    # else among any affordable name.
-    refill = bought if bought else order_names
-    for c in refill:
-        px = float(closes[c])
-        if px <= 0:
-            continue
-        extra = lot_qty(remaining, px, lot_size=lot_size)
-        if extra < lot_size:
-            continue
-        _queue_order(pending, dt, c, "BUY", extra)
-        remaining -= extra * px
-
-
 def simulate_core(
     market: pd.DataFrame,
     target: pd.DataFrame,
@@ -242,7 +101,9 @@ def simulate_core(
     cost_multiple: float = 1.0,
     capital: float = CAPITAL,
     lot_size: int = BOARD_LOT,
-    telecom_alloc: str = TEL_ALLOC_EQUAL,
+    financial_alloc: str = FIN_EQUAL,
+    telecom_alloc: str = TEL_EQUAL,
+    fin_name_scores: pd.DataFrame | None = None,
     tel_name_scores: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
@@ -260,10 +121,11 @@ def simulate_core(
     When present for a date, it overrides e45_exposure / legacy crisis scale.
     def_code: optional synthetic/research DEF instrument code present in ``market``;
     required when schedule carries a DEF column > 0.
-    telecom_alloc: paper-only within-Telecom policy (default TEL_EQUAL). Does not
-    change Soft-Frozen sleeve clips; live e21 equal-split is separate.
-    tel_name_scores: optional date×TEL score panel for TOP1/TOP2 (causal).
+    financial_alloc / telecom_alloc: paper within-sleeve policies (default EQUAL).
+    Live e21 unchanged until dedicated cutover ACCEPT.
     """
+    if financial_alloc not in FIN_ALLOC_POLICIES:
+        raise ValueError(f"financial_alloc must be one of {FIN_ALLOC_POLICIES}")
     if telecom_alloc not in TEL_ALLOC_POLICIES:
         raise ValueError(f"telecom_alloc must be one of {TEL_ALLOC_POLICIES}")
     if e22_version is None:
@@ -467,44 +329,61 @@ def simulate_core(
         sleeve_codes = [("Financial", FIN), ("Telecom", TEL), ("0050", ["0050"])]
         if def_c is not None:
             sleeve_codes.append(("DEF", [def_c]))
-        scores_today = None
+        fin_scores_today = None
+        if fin_name_scores is not None and dt in fin_name_scores.index:
+            fin_scores_today = {
+                c: float(fin_name_scores.loc[dt, c])
+                for c in FIN
+                if c in fin_name_scores.columns and pd.notna(fin_name_scores.loc[dt, c])
+            }
+        tel_scores_today = None
         if tel_name_scores is not None and dt in tel_name_scores.index:
-            scores_today = tel_name_scores.loc[dt]
+            tel_scores_today = {
+                c: float(tel_name_scores.loc[dt, c])
+                for c in TEL
+                if c in tel_name_scores.columns and pd.notna(tel_name_scores.loc[dt, c])
+            }
         for sleeve_name, codes in sleeve_codes:
-            if sleeve_name == "Telecom" and telecom_alloc != TEL_ALLOC_EQUAL:
-                # Paper within-sleeve policies: only when sleeve trades, or TOP*
-                # needs to exit residual non-active names.
-                tel_dollars = float(sleeve_trade[sleeve_name]) * nav
-                need_top_exit = False
-                if telecom_alloc in (TEL_ALLOC_TOP1, TEL_ALLOC_TOP2_EQUAL) and scores_today is not None:
-                    score_map = {
-                        c: float(scores_today[c]) if c in scores_today.index and pd.notna(scores_today[c]) else 0.0
-                        for c in TEL
-                    }
-                    if telecom_alloc == TEL_ALLOC_TOP1:
-                        active = {max(TEL, key=lambda c: (score_map[c], -float(cl[c]), c))}
-                    else:
-                        active = set(
-                            sorted(
-                                TEL,
-                                key=lambda c: (score_map[c], -float(cl[c]), c),
-                                reverse=True,
-                            )[:2]
-                        )
-                    need_top_exit = any(
-                        _held_board_qty(pos, c, lot_size) > 0 for c in TEL if c not in active
-                    )
-                if abs(tel_dollars) >= 1e-9 or need_top_exit:
-                    _allocate_telecom_within_sleeve(
-                        pending,
-                        dt,
-                        sleeve_dollars=tel_dollars,
-                        closes={c: float(cl[c]) for c in TEL},
-                        pos=pos,
+            if sleeve_name == "Financial" and financial_alloc != FIN_EQUAL:
+                dollars = float(sleeve_trade[sleeve_name]) * nav
+                if abs(dollars) >= 1e-9 or financial_alloc in ("FIN_TOP1", "FIN_TOP2_EQUAL"):
+                    for c, side, qty in allocate_sleeve_orders(
+                        dollars,
+                        {x: float(cl[x]) for x in FIN},
+                        pos,
+                        policy_id=financial_alloc,
+                        codes=FIN,
                         lot_size=lot_size,
-                        policy=telecom_alloc,
-                        scores_row=scores_today,
-                    )
+                        scores=fin_scores_today,
+                    ):
+                        if qty < 1:
+                            continue
+                        pending.append(
+                            {"signal_date": dt, "code": c, "side": side, "quantity": qty}
+                        )
+                continue
+            if sleeve_name == "Telecom" and telecom_alloc != TEL_EQUAL:
+                dollars = float(sleeve_trade[sleeve_name]) * nav
+                need_scores = telecom_alloc in (
+                    "TEL_TOP1",
+                    "TEL_TOP2_EQUAL",
+                    "TEL_SCORE_LOT_PACK",
+                )
+                if abs(dollars) >= 1e-9 or telecom_alloc in ("TEL_TOP1", "TEL_TOP2_EQUAL"):
+                    for c, side, qty in allocate_sleeve_orders(
+                        dollars,
+                        {x: float(cl[x]) for x in TEL},
+                        pos,
+                        policy_id=telecom_alloc,
+                        codes=TEL,
+                        lot_size=lot_size,
+                        scores=tel_scores_today if need_scores else None,
+                    ):
+                        if qty < 1:
+                            continue
+                        pending.append(
+                            {"signal_date": dt, "code": c, "side": side, "quantity": qty}
+                        )
                 continue
             value = sleeve_trade[sleeve_name] * nav / len(codes)
             for c in codes:
@@ -514,10 +393,18 @@ def simulate_core(
                     continue
                 side = "BUY" if value > 0 else "SELL"
                 if side == "SELL":
-                    qty = min(qty, _held_board_qty(pos, c, lot_size))
+                    held = int(pos.get(c, 0)) if lot_size == 1 else int(pos.get(c, 0) // lot_size) * lot_size
+                    qty = min(qty, held)
                 if qty < 1:
                     continue
-                _queue_order(pending, dt, c, side, qty)
+                pending.append(
+                    {
+                        "signal_date": dt,
+                        "code": c,
+                        "side": side,
+                        "quantity": qty,
+                    }
+                )
 
         nav_rows.append(
             {
@@ -536,7 +423,12 @@ def simulate_core(
                 "pre_0050": pre["0050"],
                 "pre_def": pre.get("DEF", 0.0),
                 "tel_board_names": int(
-                    sum(1 for c in TEL if _held_board_qty(pos, c, lot_size) >= lot_size)
+                    sum(
+                        1
+                        for c in TEL
+                        if (int(pos.get(c, 0)) if lot_size == 1 else int(pos.get(c, 0) // lot_size) * lot_size)
+                        >= lot_size
+                    )
                 ),
                 "tgt_financial": sleeve_w["Financial"],
                 "tgt_telecom": sleeve_w["Telecom"],
@@ -568,6 +460,7 @@ def simulate_core(
         "def_code": def_c,
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
         "lot_size": int(lot_size),
+        "financial_alloc": str(financial_alloc),
         "telecom_alloc": str(telecom_alloc),
         "e22_manifest": e22div.version_manifest(e22_version) if apply_e22 else None,
     }

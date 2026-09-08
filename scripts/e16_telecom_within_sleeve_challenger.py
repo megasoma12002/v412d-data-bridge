@@ -26,7 +26,6 @@ from e50_early_stack_combined_nav import (
     TEL,
     TEL_ALLOC_EQUAL,
     TEL_ALLOC_MIN_LOT_PACK,
-    TEL_ALLOC_POLICIES,
     TEL_ALLOC_TOP1,
     TEL_ALLOC_TOP2_EQUAL,
     build_tel_name_scores,
@@ -44,7 +43,14 @@ RESEARCH = ROOT / "research/ops"
 CHARTER_CAPITAL = 3_000_000.0
 CHARTER_LOT = BOARD_LOT  # 1000
 
-POLICIES = list(TEL_ALLOC_POLICIES)
+# Stage B predeclared set only (Stage C extras live in optimize script)
+POLICIES = [
+    TEL_ALLOC_EQUAL,
+    TEL_ALLOC_MIN_LOT_PACK,
+    TEL_ALLOC_TOP1,
+    TEL_ALLOC_TOP2_EQUAL,
+]
+TEL_ALLOC_POLICIES = tuple(POLICIES)
 
 
 def score_vs_base(base_stats: dict, chal_stats: dict) -> dict:
