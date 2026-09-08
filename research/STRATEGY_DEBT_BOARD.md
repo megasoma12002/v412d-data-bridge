@@ -215,3 +215,8 @@ Artifacts: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_B.md` · `repro/fin-within-sleeve-2026
 Human 「電信這條再研究一下怎麼優化以及各項數據是否有變好」. @ **500M**: `TEL_DIVERSIFY_PACK` / `TEL_SCORE_LOT_PACK` beat EQUAL and live-intent MIN_LOT on held-out; @ **3M**: still no beat EQUAL. Soft-Frozen KEEP · no auto live flip.  
 Artifacts: `TELECOM_WITHIN_SLEEVE_OPTIMIZE_STAGE_C.md` · `repro/telecom-sleeve-optimize-20260908/`.
 
+## E45 remaining-improve research batch (2026-09-08)
+
+Human 「請進行研究」 after E45 improve-avenues ask. Paper batch: tip PAUSE refresh (+C35) · cross-sleeve scoreboard · cheap-protect×cost. Tip **PASS/PASS**: `BLEND_E45_A05`, `SLEEVE_FIN_ONLY_A10`; still PAUSE: FULL / A25 / C35(YTD). Best held-out observe=`M2_RELOC_BIL_FX_C35`. Soft-Frozen KEEP · stitch FORBIDDEN · HIGH_BETA HOLD.  
+Artifacts: `E45_REMAINING_IMPROVE_RESEARCH_BATCH.md` · `repro/e45-remaining-improve-20260908/`.
+
