@@ -137,3 +137,5 @@ Engineering: PR **#101** (M3) · **#102** (DEF ingest) · **#103** (M2 v1 paper)
 
 | — | Month-end cadence continue observe (post-C35) | **DONE — PACK PARTIAL (gap6 live)** | `OPS_CADENCE_2026-09-07_C35_OBSERVE.md` · pack `MONTH_END_PAPER_PACK.md` · tip PAUSE expected |
 
+| — | M3 discrete v1 on RELOC_BIL_FX (leave C35×regime soft-mult) | **DONE — FAIL_AUTOPSY** | `E45_M3_BIL_FX_V1.md` · ladder status `E45_NEW_MECHANISM_LADDER_STATUS.md` |
+
