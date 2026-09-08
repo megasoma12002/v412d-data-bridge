@@ -1,9 +1,11 @@
 {
   "generated_at_utc": "2026-09-08T01:10:00+00:00",
   "label": "TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER",
-  "status": "CHARTER_ACCEPTED",
+  "status": "CHARTER_ACCEPTED_STAGE_B_STOP",
   "ballot": "ACCEPT telecom within-sleeve charter",
   "accepted_at_utc": "2026-09-08T01:10:00+00:00",
+  "stage_b_status": "STOP_NO_POSITIVE_HELDOUT_SCORE",
+  "stage_b_artifact": "research/ops/TELECOM_WITHIN_SLEEVE_ALLOC_STAGE_B.json",
   "class": "A_RESEARCH_EXPERIMENTAL",
   "live_wire": false,
   "soft_frozen_keep": true,
