@@ -62,12 +62,15 @@ def score_vs_base(base_stats: dict, chal_stats: dict) -> dict:
 def tip_gate(base_nav: pd.DataFrame, chal_nav: pd.DataFrame, asof: pd.Timestamp) -> dict:
     """YTD / trailing-1y CAGR giveback gates vs EQUAL (same as month-end monitor)."""
     out = {}
+    asof = pd.Timestamp(asof)
+    b_dates = pd.to_datetime(base_nav["date"])
+    c_dates = pd.to_datetime(chal_nav["date"])
     for wname, start in (
         ("ytd", pd.Timestamp(asof.year, 1, 1)),
         ("trailing_1y", asof - pd.Timedelta(days=365)),
     ):
-        b = base_nav[(base_nav["date"] >= start) & (base_nav["date"] <= asof)].reset_index(drop=True)
-        c = chal_nav[(chal_nav["date"] >= start) & (chal_nav["date"] <= asof)].reset_index(drop=True)
+        b = base_nav[(b_dates >= start) & (b_dates <= asof)].reset_index(drop=True)
+        c = chal_nav[(c_dates >= start) & (c_dates <= asof)].reset_index(drop=True)
         if len(b) < 20 or len(c) < 20:
             out[wname] = {"giveback_pp": None, "gate": "INSUFFICIENT", "rel_nav": None}
             continue
