@@ -42,6 +42,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | BLEND_025 promote | Sustained clean trailing on observe **and** cutover checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md` — **drafted 2026-09-05**, still NOT AUTHORIZED) |
 | Soft-Frozen flip | Explicit human cutover PR only (never pack/monitor green alone) |
 | Soft-Frozen clip **search** (paper) | `SOFT_FROZEN_CLIP_SEARCH_DECISION_PACK.md` — **ACCEPT charter** ✓ Stage B done; Soft-Frozen KEEP; Class D flip still separate |
+| Telecom within-sleeve alloc (paper) | `TELECOM_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md` — awaiting **ACCEPT charter**; Soft-Frozen KEEP |
 | Odd-lot default | Human **ACCEPT promote** on `ODD_LOT_PROMOTE_DECISION_PACK.md` + checklist all YES + **par inventory VERIFIED** (`PAR_VALUE_LOOKUP_CHARTER.md`) |
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
 | E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; **second** human ACCEPT still required for any live stitch PR |

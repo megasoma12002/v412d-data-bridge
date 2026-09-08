@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-07T17:02:54.996911+00:00",
+  "generated_at_utc": "2026-09-08T00:52:28.683553+00:00",
   "asof": "2026-09-07",
   "status": "OPERATING_OBSERVE",
   "operating_observe": false,
@@ -10,8 +10,7 @@
   "alerts": [
     "ALERT: M2_RELOC_BIL_FX_C35 ytd CAGR giveback > 3.0 pp (paper)",
     "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk",
-    "ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper)",
-    "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+    "ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper)"
   ],
   "windows": [
     {
@@ -19,78 +18,78 @@
       "start": "2026-09-01",
       "end": "2026-09-07",
       "n_days": 5,
-      "base_cagr": 16.35399179332424,
+      "base_cagr": 15.096297122838031,
       "base_mdd": 0.0,
-      "m2_reloc_bil_fx_c35_cagr": 13.928111221824308,
+      "m2_reloc_bil_fx_c35_cagr": 13.740843720964783,
       "m2_reloc_bil_fx_c35_mdd": 0.0,
       "mdd_improve_pp": 0.0,
-      "cagr_giveback_pp": 242.5880571499933,
-      "rel_nav_end": 0.9976127514835966
+      "cagr_giveback_pp": 135.54534018732483,
+      "rel_nav_end": 0.9986046707621972
     },
     {
       "window": "ytd",
       "start": "2026-01-01",
       "end": "2026-09-07",
       "n_days": 163,
-      "base_cagr": 0.7186469959871042,
-      "base_mdd": -0.15086441276798168,
-      "m2_reloc_bil_fx_c35_cagr": 0.6146036623691618,
-      "m2_reloc_bil_fx_c35_mdd": -0.1279807775935179,
-      "mdd_improve_pp": 2.288363517446379,
-      "cagr_giveback_pp": 10.404333361794249,
-      "rel_nav_end": 0.9606500995869628
+      "base_cagr": 0.6886768552943701,
+      "base_mdd": -0.13038721645267637,
+      "m2_reloc_bil_fx_c35_cagr": 0.6130645622184807,
+      "m2_reloc_bil_fx_c35_mdd": -0.12228718394786142,
+      "mdd_improve_pp": 0.8100032504814947,
+      "cagr_giveback_pp": 7.561229307588935,
+      "rel_nav_end": 0.9709804485896124
     },
     {
       "window": "trailing_1y",
       "start": "2025-09-07",
       "end": "2026-09-07",
       "n_days": 241,
-      "base_cagr": 0.5790165066881037,
-      "base_mdd": -0.1508644127679818,
-      "m2_reloc_bil_fx_c35_cagr": 0.4992103090831188,
-      "m2_reloc_bil_fx_c35_mdd": -0.1279807775935179,
-      "mdd_improve_pp": 2.28836351744639,
-      "cagr_giveback_pp": 7.980619760498486,
-      "rel_nav_end": 0.9518060621436866
+      "base_cagr": 0.539604447430919,
+      "base_mdd": -0.13038721645267648,
+      "m2_reloc_bil_fx_c35_cagr": 0.49198015052543975,
+      "m2_reloc_bil_fx_c35_mdd": -0.12228718394786142,
+      "mdd_improve_pp": 0.8100032504815058,
+      "cagr_giveback_pp": 4.76242969054792,
+      "rel_nav_end": 0.9705182426430173
     },
     {
       "window": "sealed_2023_plus",
       "start": "2023-01-01",
       "end": "2026-09-07",
       "n_days": 880,
-      "base_cagr": 0.2568180574835115,
-      "base_mdd": -0.15086441276798168,
-      "m2_reloc_bil_fx_c35_cagr": 0.2237816620973374,
-      "m2_reloc_bil_fx_c35_mdd": -0.1279807775935179,
-      "mdd_improve_pp": 2.288363517446379,
-      "cagr_giveback_pp": 3.303639538617409,
-      "rel_nav_end": 0.9112720970987187
+      "base_cagr": 0.2533411521635798,
+      "base_mdd": -0.13038721645267626,
+      "m2_reloc_bil_fx_c35_cagr": 0.22963425339124566,
+      "m2_reloc_bil_fx_c35_mdd": -0.12228718394786153,
+      "mdd_improve_pp": 0.8100032504814725,
+      "cagr_giveback_pp": 2.3706898772334117,
+      "rel_nav_end": 0.9355607991189688
     },
     {
       "window": "heldout_2019_plus",
       "start": "2019-01-01",
       "end": "2026-09-07",
       "n_days": 1857,
-      "base_cagr": 0.18887646878917996,
-      "base_mdd": -0.2336934788716235,
-      "m2_reloc_bil_fx_c35_cagr": 0.1631169792592735,
-      "m2_reloc_bil_fx_c35_mdd": -0.21145654085934706,
-      "mdd_improve_pp": 2.223693801227644,
-      "cagr_giveback_pp": 2.5759489529906476,
-      "rel_nav_end": 0.8510077757699553
+      "base_cagr": 0.17777827046900496,
+      "base_mdd": -0.22385818655120981,
+      "m2_reloc_bil_fx_c35_cagr": 0.1635093867308306,
+      "m2_reloc_bil_fx_c35_mdd": -0.1986512741479014,
+      "mdd_improve_pp": 2.5206912403308412,
+      "cagr_giveback_pp": 1.4268883738174365,
+      "rel_nav_end": 0.914138238663092
     },
     {
       "window": "full",
       "start": "2012-12-04",
       "end": "2026-09-07",
       "n_days": 3352,
-      "base_cagr": 0.14211665803497753,
-      "base_mdd": -0.2336934788716235,
-      "m2_reloc_bil_fx_c35_cagr": 0.12497000236999578,
-      "m2_reloc_bil_fx_c35_mdd": -0.21145654085934706,
-      "mdd_improve_pp": 2.223693801227644,
-      "cagr_giveback_pp": 1.7146655664981747,
-      "rel_nav_end": 0.8177884539159656
+      "base_cagr": 0.13809233236544483,
+      "base_mdd": -0.2238581865512097,
+      "m2_reloc_bil_fx_c35_cagr": 0.12717917670053813,
+      "m2_reloc_bil_fx_c35_mdd": -0.19865127414790162,
+      "mdd_improve_pp": 2.520691240330808,
+      "cagr_giveback_pp": 1.0913155664906693,
+      "rel_nav_end": 0.8797425085494402
     }
   ],
   "gates": {

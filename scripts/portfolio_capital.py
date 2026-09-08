@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 """Shared starting capital for live + paper early-stack.
 
-Sized so Soft-Frozen Telecom floor (3%) can still fund **3×1 張** at ~2026
-telecom prices (~NT$100–140 → ~NT$357k for three board lots):
+Restored **3_000_000** (human 2026-09-08: 「先復原成原3M時的條件版本」).
 
-  357k / 0.03 ≈ 11.9M  → round up to **15_000_000**
-
-Prior default 3M left TEL target (~6%) too small for any 1 張 after equal
-name-split (board-lot 1000), so live telecom holdings went to zero.
+Note: under board-lot 1000 + equal name-split, Soft-Frozen TEL (~6%) often
+cannot fund 1 張 per telecom name at 3M — see telecom within-sleeve research
+(`TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER.md`). Soft-Frozen clips unchanged.
 """
 from __future__ import annotations
 
-DEFAULT_CAPITAL = 15_000_000.0
+DEFAULT_CAPITAL = 3_000_000.0
 
 __all__ = ["DEFAULT_CAPITAL"]

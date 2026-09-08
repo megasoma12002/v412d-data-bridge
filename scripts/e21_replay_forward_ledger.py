@@ -71,8 +71,8 @@ def main() -> int:
 
     note = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "label": "E21_LIVE_CAPITAL_15M_BOARD_LOT_REPLAY",
-        "authority": "human 「提高模擬／實盤資本」 2026-09-07",
+        "label": "E21_LIVE_CAPITAL_3M_RESTORE_REPLAY",
+        "authority": "human 「先復原成原3M時的條件版本」 2026-09-08",
         "cleared": cleared,
         "kept": sorted(KEEP),
         "start_date": a.start_date,
@@ -80,8 +80,8 @@ def main() -> int:
         "board_lot": 1000,
         "soft_frozen_unchanged": True,
         "stitch_authorized": False,
-        "prior_authority": "board-lot 1000 + zero-fill replays 2026-09-07",
-        "note": "DEFAULT_CAPITAL 15M so Soft-Frozen TEL floor can fund 3×1張; see research/ops/CAPITAL_15M_2026-09-07.md",
+        "prior_authority": "capital 15M board-lot replay 2026-09-07",
+        "note": "Restore DEFAULT_CAPITAL=3M + board-lot 1000; Soft-Frozen KEEP; see CAPITAL_3M_RESTORE_2026-09-08.md",
     }
     (LIVE / "REPLAY_AUTHORITY.json").write_text(json.dumps(note, indent=2) + "\n")
 

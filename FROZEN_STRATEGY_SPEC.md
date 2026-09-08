@@ -87,7 +87,7 @@ Information(T)
 
 交易單位（live + paper）：**一張 = 1000 股**；下單僅整張。**零股 = 1～999 股**不作為 early-stack 新單單位。術語見 `research/ops/TW_SHARE_LOT_DEFINITIONS.md`。
 
-起始資本（live + paper early-stack）：**NT$15,000,000**（`scripts/portfolio_capital.py`）— 使 Soft-Frozen 電信下限約 3% 在整張下仍可配置三檔各至少一張；見 `research/ops/CAPITAL_15M_2026-09-07.md`。
+起始資本（live + paper early-stack）：**NT$3,000,000**（`scripts/portfolio_capital.py`；2026-09-08 restore from 15M）。整張下電信三檔均分可能買不滿——見 `TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER.md`。
 
 狀態：
 **FROZEN EXECUTION BASELINE**（E22_v2s_tw = formal books after 2026-09-05 promote；E22_v2 = preserved cash-only）
