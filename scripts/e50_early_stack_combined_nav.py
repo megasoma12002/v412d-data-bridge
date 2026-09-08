@@ -535,6 +535,9 @@ def simulate_core(
                 "pre_telecom": pre["Telecom"],
                 "pre_0050": pre["0050"],
                 "pre_def": pre.get("DEF", 0.0),
+                "tel_board_names": int(
+                    sum(1 for c in TEL if _held_board_qty(pos, c, lot_size) >= lot_size)
+                ),
                 "tgt_financial": sleeve_w["Financial"],
                 "tgt_telecom": sleeve_w["Telecom"],
                 "tgt_0050": sleeve_w["0050"],

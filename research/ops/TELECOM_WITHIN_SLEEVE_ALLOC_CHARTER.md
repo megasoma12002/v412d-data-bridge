@@ -76,11 +76,13 @@ Fail → keep equal-split live; Soft-Frozen KEEP.
 
 ```
 A  ACCEPT charter                                      ← DONE 2026-09-08
-B  Implement paper policies + BASE equal-split @ 3M    ← THIS PR
-C  Held-out rank; sealed report for top ≤2
-D  Optional dual-paper observe
-E  Separate human ballot for live within-sleeve cutover
+B  Implement paper policies + BASE equal-split @ 3M    ← DONE (STOP held-out)
+C  Held-out rank; sealed report for top ≤2             ← DONE report-only (no promote)
+D  Optional dual-paper observe                         ← SKIP (no positive held-out)
+E  Separate human ballot for live within-sleeve cutover ← NOT opened (fail → equal-split KEEP)
 ```
+
+Stage B verdict: **no challenger beat `TEL_EQUAL` on held-out score** → keep live equal-split; Soft-Frozen KEEP; no live wire.
 
 ## Human ballot
 

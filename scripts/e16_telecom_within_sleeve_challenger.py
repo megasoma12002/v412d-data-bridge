@@ -67,6 +67,10 @@ def tip_telecom_diagnostics(nav: pd.DataFrame, meta: dict) -> dict:
     end_pos = meta.get("end_positions") or {}
     tel_held = {c: float(end_pos.get(c, 0.0)) for c in TEL}
     names_with_lot = sum(1 for v in tel_held.values() if abs(v) >= CHARTER_LOT - 1e-9)
+    zero_days = int((nav["tel_board_names"] == 0).sum()) if "tel_board_names" in nav.columns else None
+    n = len(nav)
+    # Scale band: days while NAV still near starting capital (illustrates 3M board-lot bind).
+    near3m = nav[nav["nav"] <= 4_000_000.0] if len(nav) else nav
     return {
         "tip_date": None if tip is None else str(tip["date"]),
         "tip_nav": None if tip is None else float(tip["nav"]),
@@ -79,6 +83,22 @@ def tip_telecom_diagnostics(nav: pd.DataFrame, meta: dict) -> dict:
         "tip_tel_positions": tel_held,
         "tip_tel_names_with_board_lot": int(names_with_lot),
         "mean_pre_telecom": float(nav["pre_telecom"].mean()) if len(nav) else None,
+        "pct_days_tel_zero_board": None if not n or zero_days is None else zero_days / n,
+        "mean_tel_board_names": float(nav["tel_board_names"].mean())
+        if "tel_board_names" in nav.columns and len(nav)
+        else None,
+        "near_3m_band": {
+            "n_days": int(len(near3m)),
+            "pct_days_tel_zero_board": None
+            if len(near3m) == 0 or "tel_board_names" not in near3m.columns
+            else float((near3m["tel_board_names"] == 0).mean()),
+            "mean_pre_telecom": None
+            if len(near3m) == 0
+            else float(near3m["pre_telecom"].mean()),
+            "mean_cash_weight": None
+            if len(near3m) == 0
+            else float((near3m["cash"] / near3m["nav"]).mean()),
+        },
     }
 
 
@@ -253,19 +273,24 @@ def main() -> int:
         f"names w/ 張 `{base['tip'].get('tip_tel_names_with_board_lot')}` · "
         f"cash w `{base['tip'].get('tip_cash_weight')}`",
         f"- tip positions `{base['tip'].get('tip_tel_positions')}`",
+        f"- pct days TEL zero-board `{base['tip'].get('pct_days_tel_zero_board')}` · "
+        f"near-3M band `{base['tip'].get('near_3m_band')}`",
         "",
         "## Challengers vs BASE (held-out score; sealed report-only for top ≤2)",
         "",
-        "| id | heldout score | MDD↑pp | CAGRΔpp | tip TEL w | tip #names | tip cash w |",
-        "|---|---:|---:|---:|---:|---:|---:|",
+        "| id | heldout score | MDD↑pp | CAGRΔpp | tip TEL w | tip #names | pct TEL=0 | near3M TEL=0 |",
+        "|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for r in ranked:
         h = r["scores"]["heldout_2019_plus"]
         tip = r["tip"]
+        near = tip.get("near_3m_band") or {}
         lines.append(
             f"| `{r['id']}` | {h['score']:.3f} | {h['mdd_improve_pp']:.3f} | "
             f"{h['cagr_giveback_pp']:.3f} | {tip.get('tip_pre_telecom'):.4f} | "
-            f"{tip.get('tip_tel_names_with_board_lot')} | {tip.get('tip_cash_weight'):.4f} |"
+            f"{tip.get('tip_tel_names_with_board_lot')} | "
+            f"{tip.get('pct_days_tel_zero_board'):.3f} | "
+            f"{near.get('pct_days_tel_zero_board'):.3f} |"
         )
     if top:
         lines += [

@@ -1,11 +1,11 @@
 # Telecom Within-Sleeve Allocation — Decision Pack
 
 Date: 2026-09-08  
-Status: **CHARTER ACCEPTED** — Stage B paper in progress / complete on this PR  
+Status: **CHARTER ACCEPTED** — Stage B complete (`STOP_NO_POSITIVE_HELDOUT_SCORE`)  
 Soft-Frozen: **KEEP** · capital **3M** · board-lot **1000**  
 Charter: `TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER.md`  
 Context: `CAPITAL_3M_RESTORE_2026-09-08.md`  
-Stage B: `TELECOM_WITHIN_SLEEVE_ALLOC_STAGE_B.md`
+Stage B: `TELECOM_WITHIN_SLEEVE_ALLOC_STAGE_B.md` · live wire **false**
 
 ## What you voted on
 
