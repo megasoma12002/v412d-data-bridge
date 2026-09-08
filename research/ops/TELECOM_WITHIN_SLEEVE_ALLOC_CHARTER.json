@@ -1,7 +1,9 @@
 {
-  "generated_at_utc": "2026-09-08T00:50:00+00:00",
+  "generated_at_utc": "2026-09-08T01:10:00+00:00",
   "label": "TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER",
-  "status": "CHARTER_DRAFT_OPEN",
+  "status": "CHARTER_ACCEPTED",
+  "ballot": "ACCEPT telecom within-sleeve charter",
+  "accepted_at_utc": "2026-09-08T01:10:00+00:00",
   "class": "A_RESEARCH_EXPERIMENTAL",
   "live_wire": false,
   "soft_frozen_keep": true,
@@ -17,6 +19,7 @@
     "TEL_TOP1",
     "TEL_TOP2_EQUAL"
   ],
+  "stage_b_script": "scripts/e16_telecom_within_sleeve_challenger.py",
   "decision_pack": "research/ops/TELECOM_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md",
   "charter": "research/ops/TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER.md"
 }

@@ -202,5 +202,6 @@ Human 「先復原成原3M時的條件版本」. `DEFAULT_CAPITAL=3M` + board-lo
 
 ## Telecom within-sleeve alloc charter (2026-09-08)
 
-Research-only: **不強制三家電信全買**. Awaiting `ACCEPT telecom within-sleeve charter`. Pack: `TELECOM_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md`.
+Research-only: **不強制三家電信全買**. Ballot **ACCEPT** 2026-09-08. Stage B @ **3M+整張** vs `TEL_EQUAL`. Soft-Frozen KEEP · live e21 equal-split untouched until later cutover ballot.  
+Artifacts: `TELECOM_WITHIN_SLEEVE_ALLOC_STAGE_B.md` · `repro/telecom-within-sleeve-20260908/`.
 
