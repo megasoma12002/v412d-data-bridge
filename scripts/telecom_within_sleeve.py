@@ -115,7 +115,7 @@ def allocate_telecom_sleeve_orders(
                 out.append((c, "SELL", int(q)))
 
     if abs(sleeve_dollars) < 1e-9:
-        return out
+        return _coalesce_orders(out)
 
     if sleeve_dollars < 0:
         holders = [c for c in tel if held_board_qty(pos, c, lot_size) > 0]
@@ -123,13 +123,13 @@ def allocate_telecom_sleeve_orders(
         out.extend(
             allocate_equal_notional(sell_pool, sleeve_dollars, closes, pos, lot_size=lot_size)
         )
-        return out
+        return _coalesce_orders(out)
 
     if policy in (TEL_ALLOC_TOP1, TEL_ALLOC_TOP2_EQUAL):
         out.extend(
             allocate_equal_notional(active, sleeve_dollars, closes, pos, lot_size=lot_size)
         )
-        return out
+        return _coalesce_orders(out)
 
     # TEL_MIN_LOT_PACK: cheapest-first ≥1 張, then dump remainder.
     remaining = float(sleeve_dollars)
@@ -153,7 +153,21 @@ def allocate_telecom_sleeve_orders(
             continue
         out.append((c, "BUY", int(extra)))
         remaining -= extra * px
-    return out
+    return _coalesce_orders(out)
+
+
+def _coalesce_orders(rows: list[tuple[str, str, int]]) -> list[tuple[str, str, int]]:
+    """Merge same (code, side) qty — required for e21 unique order_id per day."""
+    acc: dict[tuple[str, str], int] = {}
+    for code, side, qty in rows:
+        if qty < 1:
+            continue
+        key = (code, side)
+        acc[key] = acc.get(key, 0) + int(qty)
+    # Stable-ish: SELL before BUY, then code.
+    side_rank = {"SELL": 0, "BUY": 1}
+    keys = sorted(acc.keys(), key=lambda k: (side_rank.get(k[1], 9), k[0]))
+    return [(c, s, acc[(c, s)]) for c, s in keys]
 
 
 __all__ = [

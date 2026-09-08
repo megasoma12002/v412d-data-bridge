@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-08T00:51:54.019015+00:00",
-  "label": "E21_LIVE_CAPITAL_3M_RESTORE_REPLAY",
-  "authority": "human \u300c\u5148\u5fa9\u539f\u6210\u539f3M\u6642\u7684\u689d\u4ef6\u7248\u672c\u300d 2026-09-08",
+  "generated_at_utc": "2026-09-08T01:32:12.417819+00:00",
+  "label": "E21_LIVE_CAPITAL_500M_TEL_MINLOT_REPLAY",
+  "authority": "human \u300cA\u63a5\u53d7 B 500m\u300d 2026-09-08",
   "cleared": [
     "fills.csv",
     "orders.csv",
@@ -17,12 +17,13 @@
     "live_market.csv"
   ],
   "start_date": "2026-08-24",
-  "capital": 3000000.0,
+  "capital": 500000000.0,
   "board_lot": 1000,
+  "telecom_within_sleeve": "TEL_MIN_LOT_PACK",
   "soft_frozen_unchanged": true,
   "stitch_authorized": false,
-  "prior_authority": "capital 15M board-lot replay 2026-09-07",
-  "note": "Restore DEFAULT_CAPITAL=3M + board-lot 1000; Soft-Frozen KEEP; see CAPITAL_3M_RESTORE_2026-09-08.md",
+  "prior_authority": "capital 3M restore replay 2026-09-08",
+  "note": "DEFAULT_CAPITAL=500M + live TEL_MIN_LOT_PACK + board-lot 1000; Soft-Frozen KEEP; see CAPITAL_500M_TEL_MINLOT_2026-09-08.md",
   "replayed_dates": [
     "2026-08-24",
     "2026-08-25",

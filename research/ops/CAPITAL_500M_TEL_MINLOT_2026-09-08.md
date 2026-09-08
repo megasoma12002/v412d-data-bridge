@@ -22,11 +22,14 @@ Live cutover is an **explicit human override** (fill / scale priority).
 - Paper `simulate_core` — default `telecom_alloc` aligned to live
 - Authorized wipe+replay `forward/e21` 2026-08-24→tip @ 500M + board-lot 1000
 
-## Soft-Frozen
+## Live tip after replay (2026-09-07)
 
-**Untouched.** No clip edit. No E45 stitch.
+| | 3M equal-split | **500M + TEL_MIN_LOT_PACK** |
+|---|---:|---:|
+| NAV | ≈3.16M | ≈**534.4M** |
+| cash | ≈14.6% | ≈**0%** |
+| TEL weight | **0%** | ≈**6.7%** |
+| TEL 張 (2412/3045/4904) | 0/0/0 | **0 / 0 / 352** (cheapest-first pack) |
+| Soft-Frozen clips | KEEP | **KEEP** |
 
-## Artifacts
-
-- `forward/e21/REPLAY_AUTHORITY.json`
-- This note
+QC + Gap6 PASS. `telecom_within_sleeve=TEL_MIN_LOT_PACK`.
