@@ -2,13 +2,15 @@
 
 Generated: `2026-09-07T03:27:51+00:00` (post month-end cadence)
 
-| Sleeve | α / cut | Status | Stitch | Soft-Frozen |
-|---|---:|---|---|---|
-| CHAL_E45_E3 (FULL) | 1.00 | **OPERATING** (tip PAUSE) | FORBIDDEN | KEEP |
-| BLEND_E45_A25 | 0.25 | **OPERATING** (tip PAUSE) | FORBIDDEN | KEEP |
-| BLEND_E45_A05 | 0.05 | **OPERATING** (tip PAUSE) | FORBIDDEN | KEEP |
-| Sleeve-local FIN_ONLY @ α=0.10 | 0.10 (FIN only) | **OPERATING** (tip PAUSE) | FORBIDDEN | KEEP |
-| M2 BIL_FX relocate | cut=0.35 | **OPERATING** lock **`M2_RELOC_BIL_FX_C35`** (tip PAUSE) | FORBIDDEN | KEEP |
+| Sleeve | α / cut | Status | Role | Stitch | Soft-Frozen |
+|---|---:|---|---|---|---|
+| CHAL_E45_E3 (FULL) | 1.00 | **OPERATING** (tip PAUSE) | **ARCHIVE / secondary** | FORBIDDEN | KEEP |
+| BLEND_E45_A25 | 0.25 | **OPERATING** (tip PAUSE) | **ARCHIVE / secondary** | FORBIDDEN | KEEP |
+| BLEND_E45_A05 | 0.05 | **OPERATING** (tip PAUSE) | **KEEP / primary** | FORBIDDEN | KEEP |
+| Sleeve-local FIN_ONLY @ α=0.10 | 0.10 (FIN only) | **OPERATING** (tip PAUSE) | **ARCHIVE / secondary** | FORBIDDEN | KEEP |
+| M2 BIL_FX relocate | cut=0.35 | **OPERATING** lock **`M2_RELOC_BIL_FX_C35`** (tip PAUSE) | **KEEP / primary** | FORBIDDEN | KEEP |
+
+Portfolio lock: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` — primary agenda = **A05 + C35** (+ FIN MIX_L75 triad + month-end gates).
 
 Cadence: `python3 scripts/ops_month_end_paper_pack.py` (incl. A05 + sleeve-local + BIL_FX C35). Latest note: `OPS_CADENCE_2026-09-07_C35_OBSERVE.md`.
 

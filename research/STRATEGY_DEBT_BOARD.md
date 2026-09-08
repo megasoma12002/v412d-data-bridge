@@ -16,6 +16,7 @@ Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN** ·
 | Sleeve-local observe `SLEEVE_FIN_ONLY_A10` | **OPERATING** |
 | HIGH_BETA observe | **DRAFT / NOT OPEN** |
 | Live stitch | **FORBIDDEN** until second human ACCEPT |
+| Research portfolio KEEP/ARCHIVE | **LOCKED 2026-09-08** — `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (FIN MIX_L75 triad · E45 A05/C35 · month-end gates; rest archived) |
 
 Residual Medium/Low after eng cleanup (#93): review-doc historical mentions of banned labels (intentional keep); regenerator runners stay split — see `research/ops/E45_REGENERATOR_OWNERSHIP_2026-09-06.md`. Numeric retired-MDD spellings cleared outside the MDD_1316 pack (this PR).
 

@@ -36,6 +36,8 @@ Soft-Frozen: **KEEP** · live wire: **FORBIDDEN**
 - No Stage B hard reopen  
 - No E45 stitch on this FIN within-sleeve line  
 
+Portfolio lock: active agenda = this FIN triad (focus MIX_L75) + E45 A05/C35 + month-end gates — `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`.
+
 ## Label
 
 `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE_LOCKED_2026-09-08__OPERATING__LIVE_WIRE_FORBIDDEN`

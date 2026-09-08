@@ -1,0 +1,39 @@
+{
+  "generated_at_utc": "2026-09-08T14:24:00+00:00",
+  "label": "RESEARCH_PORTFOLIO_KEEP_ARCHIVE",
+  "status": "LOCKED",
+  "ballot": "FIN 三本 observe（重心 MIX_L75）+ E45 少數 sleeve（A05 / C35）+ 月結閘門。其餘可以封存",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "default_books_keep": "E22_v2s_tw",
+  "stitch_forbidden": true,
+  "keep": {
+    "fin_within_sleeve": ["FIN_EQUAL", "FIN_RS_SOFT_TILT_EXDIV", "MIX_L75"],
+    "fin_focus": "MIX_L75",
+    "e45_primary": ["BLEND_E45_A05", "M2_RELOC_BIL_FX_C35"],
+    "ops": ["month_end_gates", "ops_month_end_paper_pack"]
+  },
+  "archive": [
+    "FIN_STAGE_B_HARD_TOP1_TOP2_MIN_LOT",
+    "TELECOM_WITHIN_SLEEVE",
+    "SOFT_FROZEN_CLIP_SEARCH_NO_LIVE_FLIP",
+    "E45_SOFT_A_C35_FAMILY_EXHAUSTED",
+    "E45_FULL_A25_SLEEVE_LOCAL_SECONDARY",
+    "E45_DRAFT_BALLOTS_NOT_OPEN",
+    "FIN50_STATIC_REJECT_L4_DEFER",
+    "TEL_ETF_FLOOR_10_WITHDRAWN"
+  ],
+  "archive_means": "retain evidence; no new research expansion; not primary agenda; slim month-end pack needs separate ballot",
+  "non_actions": [
+    "No Soft-Frozen flip from archive alone",
+    "No FIN within-sleeve or E45 stitch without dedicated ACCEPT",
+    "No Stage B hard reopen",
+    "No invent MDD narrative replacement",
+    "No cutover from archived sleeve month-end green alone"
+  ],
+  "artifacts": {
+    "posture_fin": "research/ops/FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md",
+    "e45_sleeves": "research/ops/E45_OBSERVE_SLEEVES_STATUS.md",
+    "register": "research/ops/HUMAN_DECISION_REGISTER.md"
+  }
+}

@@ -25,6 +25,15 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | 6b | Formal tax·receivable books | **ACCEPT charter** (2026-09-05) | Stage B sandbox OPEN; DEFAULT stays `E22_v2s_tw`; Soft-Frozen KEEP; promote needs later ballot |
 | 6c | E45 live stitch | **ACCEPT charter** + **RETIRE unmatched handoff MDD narrative** + **OPEN dual-paper observe** (2026-09-05) | Stage 1–3 DONE; observe **OPERATING**; **V1–V6 PASS**; Soft-Frozen CRITICAL KEEP; live/stitch still **FORBIDDEN** until **second** stitch ACCEPT; board `E45_STAGE12_STATUS.md`; open `E45_DUAL_PAPER_OBSERVE_OPEN.md` |
 
+## Research portfolio (2026-09-08)
+
+| Decision | Verdict | Binding effect |
+|---|---|---|
+| Active research KEEP | **LOCKED** | FIN triad (focus **`MIX_L75`**) + E45 **`A05`/`C35`** + month-end gates |
+| Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
+
+Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`
+
 ### Register #6 sequential ballots
 
 | Topic | Pack | Status |

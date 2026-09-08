@@ -8,7 +8,8 @@ Stage B: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_B.md`
 Stage C: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_C.md`  
 Dual-paper: `FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md` · live wire **false**  
 Mix: `FIN_EQUAL_RS_EXDIV_MIX.md`  
-Posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`
+Posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`  
+Portfolio: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (**KEEP** FIN triad · archive other research lines)
 
 ## Ballot
 
@@ -18,6 +19,7 @@ Posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`
 | **OPEN dual-paper observe** | `dual-paper 觀察 FIN_RS_SOFT_TILT_EXDIV 並排 FIN_EQUAL` | Stage D observe | **OPEN / OPERATING 2026-09-08** |
 | **ADD MIX_L75 observe** | `把 MIX_L75 加進 dual-paper observe` | Third paper ledger | **OPERATING 2026-09-08** |
 | **LOCK observe posture** | 維持 OPERATING · 不開 live · 窗後再選 · 先不做 TOP1/stitch | Stage D posture | **LOCKED 2026-09-08** |
+| **LOCK research portfolio** | FIN 三本（重心 MIX_L75）+ E45 A05/C35 + 月結閘門；其餘封存 | Active agenda | **LOCKED 2026-09-08** |
 
 ## Accepted operating posture (2026-09-08)
 
