@@ -18,6 +18,7 @@ import e16_soft_frozen_base as soft_frozen
 from e16_soft_frozen_base import FIN, TEL
 from tw_share_lots import BOARD_LOT, board_lots
 from portfolio_capital import DEFAULT_CAPITAL
+from telecom_within_sleeve import LIVE_TELECOM_ALLOC, allocate_telecom_sleeve_orders
 
 ALL = FIN + TEL + ["0050"]
 CAPITAL = DEFAULT_CAPITAL
@@ -315,6 +316,35 @@ def main():
     sleeve_trade = dict(zip(["Financial", "Telecom", "0050"], trade))
     order_rows = []
     for sleeve, codes in [("Financial", FIN), ("Telecom", TEL), ("0050", ["0050"])]:
+        if sleeve == "Telecom":
+            tel_dollars = float(sleeve_trade[sleeve]) * nav
+            tel_orders = allocate_telecom_sleeve_orders(
+                tel_dollars,
+                {c: float(prices[c]) for c in TEL},
+                pos,
+                policy=LIVE_TELECOM_ALLOC,
+                tel_codes=TEL,
+                lot_size=BOARD_LOT,
+            )
+            for c, side, qty in tel_orders:
+                if qty < BOARD_LOT or qty % BOARD_LOT != 0:
+                    continue
+                if side == "SELL":
+                    qty = min(qty, board_lots(pos.get(c, 0)))
+                if qty < BOARD_LOT:
+                    continue
+                oid = f"{latest.date()}-{c}-{side}"
+                order_rows.append(
+                    {
+                        "order_id": oid,
+                        "signal_date": latest.date().isoformat(),
+                        "code": c,
+                        "side": side,
+                        "quantity": qty,
+                        "reference_close": prices[c],
+                    }
+                )
+            continue
         value = sleeve_trade[sleeve] * nav / len(codes)
         for c in codes:
             # Taiwan 整股：1 張 = 1000 股
@@ -377,6 +407,8 @@ def main():
         "positions": pos,
         "last_date": latest.date().isoformat(),
         "last_nav": nav,
+        "capital_default": float(DEFAULT_CAPITAL),
+        "telecom_within_sleeve": LIVE_TELECOM_ALLOC,
         "e22_books_version": a.e22_version,
         "e22_applied_keys": sorted(skip),
         "e22_manifest": e22div.version_manifest(a.e22_version),

@@ -202,5 +202,9 @@ Human 「先復原成原3M時的條件版本」. `DEFAULT_CAPITAL=3M` + board-lo
 
 ## Telecom within-sleeve alloc charter (2026-09-08)
 
-Research-only: **不強制三家電信全買**. Awaiting `ACCEPT telecom within-sleeve charter`. Pack: `TELECOM_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md`.
+Research-only: **不強制三家電信全買**. Ballot **ACCEPT** charter 2026-09-08. Stage B @ **3M+整張** → **STOP_NO_POSITIVE_HELDOUT_SCORE**. Soft-Frozen KEEP.
+
+## Capital 500M + live TEL_MIN_LOT_PACK (2026-09-08)
+
+Human **「A接受 B 500m」**. Live wire `TEL_MIN_LOT_PACK` + `DEFAULT_CAPITAL=500M` (human override of Stage B STOP). Soft-Frozen clips KEEP · stitch FORBIDDEN. Note: `CAPITAL_500M_TEL_MINLOT_2026-09-08.md`.
 

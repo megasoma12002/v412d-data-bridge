@@ -71,17 +71,21 @@ def main() -> int:
 
     note = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "label": "E21_LIVE_CAPITAL_3M_RESTORE_REPLAY",
-        "authority": "human 「先復原成原3M時的條件版本」 2026-09-08",
+        "label": "E21_LIVE_CAPITAL_500M_TEL_MINLOT_REPLAY",
+        "authority": "human 「A接受 B 500m」 2026-09-08",
         "cleared": cleared,
         "kept": sorted(KEEP),
         "start_date": a.start_date,
         "capital": float(a.capital),
         "board_lot": 1000,
+        "telecom_within_sleeve": "TEL_MIN_LOT_PACK",
         "soft_frozen_unchanged": True,
         "stitch_authorized": False,
-        "prior_authority": "capital 15M board-lot replay 2026-09-07",
-        "note": "Restore DEFAULT_CAPITAL=3M + board-lot 1000; Soft-Frozen KEEP; see CAPITAL_3M_RESTORE_2026-09-08.md",
+        "prior_authority": "capital 3M restore replay 2026-09-08",
+        "note": (
+            "DEFAULT_CAPITAL=500M + live TEL_MIN_LOT_PACK + board-lot 1000; "
+            "Soft-Frozen KEEP; see CAPITAL_500M_TEL_MINLOT_2026-09-08.md"
+        ),
     }
     (LIVE / "REPLAY_AUTHORITY.json").write_text(json.dumps(note, indent=2) + "\n")
 

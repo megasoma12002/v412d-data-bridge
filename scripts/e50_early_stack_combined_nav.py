@@ -25,6 +25,12 @@ import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
 from tw_share_lots import BOARD_LOT
 from portfolio_capital import DEFAULT_CAPITAL
+from telecom_within_sleeve import (
+    LIVE_TELECOM_ALLOC,
+    TEL_ALLOC_EQUAL,
+    TEL_ALLOC_POLICIES,
+    allocate_telecom_sleeve_orders,
+)
 CLAIM_STATUS = e45.CLAIMED_MDD_STATUS
 from research_metric_helpers import metric_delta, fmt_pct
 
@@ -78,6 +84,7 @@ def simulate_core(
     cost_multiple: float = 1.0,
     capital: float = CAPITAL,
     lot_size: int = BOARD_LOT,
+    telecom_alloc: str = LIVE_TELECOM_ALLOC,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
@@ -94,7 +101,11 @@ def simulate_core(
     When present for a date, it overrides e45_exposure / legacy crisis scale.
     def_code: optional synthetic/research DEF instrument code present in ``market``;
     required when schedule carries a DEF column > 0.
+    telecom_alloc: within-Telecom policy (default live ``TEL_MIN_LOT_PACK``).
+    Pass ``TEL_EQUAL`` for equal-split research controls.
     """
+    if telecom_alloc not in TEL_ALLOC_POLICIES:
+        raise ValueError(f"telecom_alloc must be one of {TEL_ALLOC_POLICIES}")
     if e22_version is None:
         if apply_stock_div is False:
             e22_version = e22div.E22_V2
@@ -297,6 +308,28 @@ def simulate_core(
         if def_c is not None:
             sleeve_codes.append(("DEF", [def_c]))
         for sleeve_name, codes in sleeve_codes:
+            if sleeve_name == "Telecom" and telecom_alloc != TEL_ALLOC_EQUAL:
+                tel_dollars = float(sleeve_trade[sleeve_name]) * nav
+                if abs(tel_dollars) >= 1e-9:
+                    for c, side, qty in allocate_telecom_sleeve_orders(
+                        tel_dollars,
+                        {x: float(cl[x]) for x in TEL},
+                        pos,
+                        policy=telecom_alloc,
+                        tel_codes=TEL,
+                        lot_size=lot_size,
+                    ):
+                        if qty < 1:
+                            continue
+                        pending.append(
+                            {
+                                "signal_date": dt,
+                                "code": c,
+                                "side": side,
+                                "quantity": qty,
+                            }
+                        )
+                continue
             value = sleeve_trade[sleeve_name] * nav / len(codes)
             for c in codes:
                 px = float(cl[c])
@@ -364,6 +397,7 @@ def simulate_core(
         "def_code": def_c,
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
         "lot_size": int(lot_size),
+        "telecom_alloc": str(telecom_alloc),
         "e22_manifest": e22div.version_manifest(e22_version) if apply_e22 else None,
     }
     return nav_df, fills_df, meta

@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Shared starting capital for live + paper early-stack.
 
-Restored **3_000_000** (human 2026-09-08: 「先復原成原3M時的條件版本」).
+Human 2026-09-08: **「A接受 B 500m」** —
+  A) live within-sleeve ``TEL_MIN_LOT_PACK``
+  B) ``DEFAULT_CAPITAL = 500_000_000``
 
-Note: under board-lot 1000 + equal name-split, Soft-Frozen TEL (~6%) often
-cannot fund 1 張 per telecom name at 3M — see telecom within-sleeve research
-(`TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER.md`). Soft-Frozen clips unchanged.
+Soft-Frozen sleeve clips unchanged. Board-lot 1000 KEEP.
+See `CAPITAL_500M_TEL_MINLOT_2026-09-08.md`.
 """
 from __future__ import annotations
 
-DEFAULT_CAPITAL = 3_000_000.0
+DEFAULT_CAPITAL = 500_000_000.0
 
 __all__ = ["DEFAULT_CAPITAL"]
