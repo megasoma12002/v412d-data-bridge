@@ -1,0 +1,231 @@
+{
+  "generated_at_utc": "2026-09-08T08:43:15.088617+00:00",
+  "label": "E45_NOVEL_STRATEGY_SCREEN",
+  "freeze": "E45_NOVEL_STRATEGY_SCREEN_FROZEN_2026-09-08",
+  "ballot": "\u8acb\u60f3\u65b0\u7684\u7b56\u7565",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "stitch": "FORBIDDEN",
+  "observe_lock_unchanged": "M2_RELOC_BIL_FX_C35",
+  "live_wire": false,
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "books": {
+    "UNGATED_C35": {
+      "share_days_on": 0.9997225305216426,
+      "heldout_score": 1.807247053422123,
+      "heldout_mdd_improve_pp": 2.5206912403308412,
+      "heldout_cagr_giveback_pp": 1.4268883738174365,
+      "sealed_score": -0.3753416881352445,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.561229307588935,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.762429690547942,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.6453464504780135,
+        "2018": 0.693978866234124,
+        "2020": 2.52069124033083,
+        "2022": 4.564855730835571
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2746,
+      "id": "UNGATED_C35",
+      "family": "baseline"
+    },
+    "SOFT_A": {
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.8294917867472384,
+      "heldout_mdd_improve_pp": 0.9286879010787064,
+      "heldout_cagr_giveback_pp": 0.19839222866293582,
+      "sealed_score": -0.8802027032566717,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9810309248109448,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.18295396332685954,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.284508589190835,
+        "2020": 0.9286879010787064,
+        "2022": 4.672864327977566
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2239,
+      "id": "SOFT_A",
+      "family": "baseline"
+    },
+    "DD05_FULL_ELSE_SOFT": {
+      "share_days_on": 0.40260821309655936,
+      "heldout_score": 0.1743668676332466,
+      "heldout_mdd_improve_pp": 0.39059665166110147,
+      "heldout_cagr_giveback_pp": 0.43245956805570973,
+      "sealed_score": -1.2312303939769786,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.6846733507943643,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 1.35474583223969,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.2888359152929851,
+        "2018": 0.5169958559494203,
+        "2020": 0.39059665166109037,
+        "2022": 4.702700547956818
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2616,
+      "id": "DD05_FULL_ELSE_SOFT",
+      "family": "novel"
+    },
+    "DD05_FULL_ELSE_OFF": {
+      "share_days_on": 0.16259711431742507,
+      "heldout_score": 0.3778763797448792,
+      "heldout_mdd_improve_pp": 0.4722380096712997,
+      "heldout_cagr_giveback_pp": 0.188723259852841,
+      "sealed_score": -1.2161598011767527,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": -0.7831642211364453,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": -0.6171267897768784,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 0.5143801493047495,
+        "2018": 0.04419697312553206,
+        "2020": 0.4722380096712997,
+        "2022": 3.544564061859179
+      },
+      "non2020_events_gt_025pp": 2,
+      "n_fills": 2401,
+      "id": "DD05_FULL_ELSE_OFF",
+      "family": "novel"
+    },
+    "FXZ_RELOC_C35": {
+      "share_days_on": 0.51165371809101,
+      "heldout_score": -1.0395629817183227,
+      "heldout_mdd_improve_pp": -0.3956713677765067,
+      "heldout_cagr_giveback_pp": 1.287783227883632,
+      "sealed_score": -2.7639120779867854,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 3.29423631891268,
+        "ytd_gate": "ALERT",
+        "trailing_1y_giveback_pp": 1.2594959726575539,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 0.06797005084780983,
+        "2018": 0.06659065747783854,
+        "2020": -0.3956713677765178,
+        "2022": 4.093368853759438
+      },
+      "non2020_events_gt_025pp": 1,
+      "n_fills": 6393,
+      "id": "FXZ_RELOC_C35",
+      "family": "novel"
+    },
+    "FXZ_GATE_SOFT_A": {
+      "share_days_on": 0.038013318534961156,
+      "heldout_score": -0.7721752057294085,
+      "heldout_mdd_improve_pp": -0.6049133644375648,
+      "heldout_cagr_giveback_pp": -0.33452368258368725,
+      "sealed_score": -1.6609359347260044,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": -2.213233668657333,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": -3.0484744092747817,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 0.2676545277425335,
+        "2018": 0.1964310026238647,
+        "2020": -0.6049133644375759,
+        "2022": 3.2750648012921713
+      },
+      "non2020_events_gt_025pp": 2,
+      "n_fills": 2223,
+      "id": "FXZ_GATE_SOFT_A",
+      "family": "novel"
+    },
+    "FINONLY_SOFT_A": {
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.11662764843226592,
+      "heldout_mdd_improve_pp": 0.2130659112442146,
+      "heldout_cagr_giveback_pp": 0.19287652562389734,
+      "sealed_score": -0.8294068918910713,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.391348353401357,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.43436066260269524,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.32231093741485,
+        "2018": 0.3237667873995709,
+        "2020": 0.2130659112442146,
+        "2022": 4.605352920546402
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2210,
+      "id": "FINONLY_SOFT_A",
+      "family": "novel"
+    },
+    "SOFT_A_NEST_A05": {
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.8294917867472384,
+      "heldout_mdd_improve_pp": 0.9286879010787064,
+      "heldout_cagr_giveback_pp": 0.19839222866293582,
+      "sealed_score": -0.8802027032566717,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9810309248109448,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.18295396332685954,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.284508589190835,
+        "2020": 0.9286879010787064,
+        "2022": 4.672864327977566
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2239,
+      "id": "SOFT_A_NEST_A05",
+      "family": "novel"
+    }
+  },
+  "tip_clean_novel": [
+    "DD05_FULL_ELSE_SOFT",
+    "DD05_FULL_ELSE_OFF",
+    "FXZ_GATE_SOFT_A",
+    "FINONLY_SOFT_A",
+    "SOFT_A_NEST_A05"
+  ],
+  "tip_clean_beat_soft_a": [],
+  "tip_dirty_beat_soft_a": [],
+  "best_tip_clean_novel": "SOFT_A_NEST_A05",
+  "soft_a_heldout": 0.8294917867472384,
+  "verdict": {
+    "novel_beats_soft_a_tip_clean": false,
+    "operational_stack_unchanged": true
+  }
+}

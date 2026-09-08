@@ -1,0 +1,328 @@
+{
+  "generated_at_utc": "2026-09-08T08:03:39.667037+00:00",
+  "label": "E45_SOFTA_C35_MIX_RESEARCH",
+  "freeze": "E45_SOFTA_C35_MIX_FROZEN_2026-09-08",
+  "ballot": "\u5408\u6210\u4e00\u6a94 Soft_A\u00d7C35 \u6df7\u5009\u56de\u6e2c",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "stitch": "FORBIDDEN",
+  "observe_lock_unchanged": "M2_RELOC_BIL_FX_C35",
+  "live_wire": false,
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "lambdas": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "schedule_mix": {
+    "MIX_SCHED_L00": {
+      "share_days_on": 0.9997225305216426,
+      "heldout_score": 1.807247053422123,
+      "heldout_mdd_improve_pp": 2.5206912403308412,
+      "heldout_cagr_giveback_pp": 1.4268883738174365,
+      "sealed_score": -0.3753416881352445,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.561229307588935,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.762429690547942,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.6453464504780135,
+        "2018": 0.693978866234124,
+        "2020": 2.52069124033083,
+        "2022": 4.564855730835571
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2746,
+      "id": "MIX_SCHED_L00",
+      "lambda": 0.0,
+      "kind": "schedule_mix"
+    },
+    "MIX_SCHED_L25": {
+      "share_days_on": 0.9997225305216426,
+      "heldout_score": 1.5936021403255785,
+      "heldout_mdd_improve_pp": 2.0620717612397033,
+      "heldout_cagr_giveback_pp": 0.9369392418282496,
+      "sealed_score": -0.7454405123838326,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 5.264039075027904,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 3.057536580688236,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.6402512569825278,
+        "2018": 0.5455014798248836,
+        "2020": 2.0620717612397033,
+        "2022": 4.958996939064331
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2615,
+      "id": "MIX_SCHED_L25",
+      "lambda": 0.25,
+      "kind": "schedule_mix"
+    },
+    "MIX_SCHED_L50": {
+      "share_days_on": 0.9997225305216426,
+      "heldout_score": 1.177963444393204,
+      "heldout_mdd_improve_pp": 1.6273208920259519,
+      "heldout_cagr_giveback_pp": 0.8987148952654955,
+      "sealed_score": -1.5063196220865605,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 4.742833222255327,
+        "ytd_gate": "ALERT",
+        "trailing_1y_giveback_pp": 2.229673841303881,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.2384777792493584,
+        "2018": 0.5354494762072837,
+        "2020": 1.627320892025963,
+        "2022": 5.100631538466227
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2482,
+      "id": "MIX_SCHED_L50",
+      "lambda": 0.5,
+      "kind": "schedule_mix"
+    },
+    "MIX_SCHED_L75": {
+      "share_days_on": 0.9997225305216426,
+      "heldout_score": 0.8176391667920613,
+      "heldout_mdd_improve_pp": 0.977613326505522,
+      "heldout_cagr_giveback_pp": 0.3199483194269215,
+      "sealed_score": -1.1001945342967279,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 3.126603077317358,
+        "ytd_gate": "ALERT",
+        "trailing_1y_giveback_pp": 1.1662083762073339,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.0840884348655488,
+        "2018": 0.4769892903867312,
+        "2020": 0.977613326505522,
+        "2022": 4.86682947690511
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2390,
+      "id": "MIX_SCHED_L75",
+      "lambda": 0.75,
+      "kind": "schedule_mix"
+    },
+    "MIX_SCHED_L100": {
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.8294917867472384,
+      "heldout_mdd_improve_pp": 0.9286879010787064,
+      "heldout_cagr_giveback_pp": 0.19839222866293582,
+      "sealed_score": -0.8802027032566717,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9810309248109448,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.18295396332685954,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.284508589190835,
+        "2020": 0.9286879010787064,
+        "2022": 4.672864327977566
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2239,
+      "id": "MIX_SCHED_L100",
+      "lambda": 1.0,
+      "kind": "schedule_mix"
+    }
+  },
+  "nav_capital_mix": {
+    "MIX_NAV_L00": {
+      "share_days_on": null,
+      "heldout_score": 1.8072470534220564,
+      "heldout_mdd_improve_pp": 2.520691240330808,
+      "heldout_cagr_giveback_pp": 1.426888373817503,
+      "sealed_score": -0.3753416881352778,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.561229307589312,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.762429690548253,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.6453464504780357,
+        "2018": 0.6939788662341018,
+        "2020": 2.520691240330797,
+        "2022": 4.564855730835616
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": null,
+      "id": "MIX_NAV_L00",
+      "lambda": 0.0,
+      "kind": "nav_capital_mix"
+    },
+    "MIX_NAV_L25": {
+      "share_days_on": null,
+      "heldout_score": 1.5605927115476814,
+      "heldout_mdd_improve_pp": 2.120117953127043,
+      "heldout_cagr_giveback_pp": 1.1190504831587234,
+      "sealed_score": -0.5003611524963869,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 6.177207271738494,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 3.6257654041801146,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.5686800817127922,
+        "2018": 0.5916254381078789,
+        "2020": 2.120117953127032,
+        "2022": 4.636000128724705
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": null,
+      "id": "MIX_NAV_L25",
+      "lambda": 0.25,
+      "kind": "nav_capital_mix"
+    },
+    "MIX_NAV_L50": {
+      "share_days_on": null,
+      "heldout_score": 1.3154220456539134,
+      "heldout_mdd_improve_pp": 1.7212637370026207,
+      "heldout_cagr_giveback_pp": 0.8116833826974146,
+      "sealed_score": -0.628099284373651,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 4.7858257238889035,
+        "ytd_gate": "ALERT",
+        "trailing_1y_giveback_pp": 2.48362792184027,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.491345437180136,
+        "2018": 0.4892624180538929,
+        "2020": 1.7212637370026207,
+        "2022": 4.64869683099317
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": null,
+      "id": "MIX_NAV_L50",
+      "lambda": 0.5,
+      "kind": "nav_capital_mix"
+    },
+    "MIX_NAV_L75": {
+      "share_days_on": null,
+      "heldout_score": 1.0717250633091258,
+      "heldout_mdd_improve_pp": 1.3241224333342294,
+      "heldout_cagr_giveback_pp": 0.5047947400502073,
+      "sealed_score": -0.7547111167836573,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 3.387096203936224,
+        "ytd_gate": "ALERT",
+        "trailing_1y_giveback_pp": 1.3360223006172456,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.4133443869888018,
+        "2018": 0.3868900528796737,
+        "2020": 1.3241224333342294,
+        "2022": 4.660984963355618
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": null,
+      "id": "MIX_NAV_L75",
+      "lambda": 0.75,
+      "kind": "nav_capital_mix"
+    },
+    "MIX_NAV_L100": {
+      "share_days_on": null,
+      "heldout_score": 0.8294917867472607,
+      "heldout_mdd_improve_pp": 0.9286879010787397,
+      "heldout_cagr_giveback_pp": 0.19839222866295803,
+      "sealed_score": -0.8802027032566717,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9810309248106561,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.18295396332679292,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153976163,
+        "2018": 0.284508589190835,
+        "2020": 0.9286879010787286,
+        "2022": 4.672864327977633
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": null,
+      "id": "MIX_NAV_L100",
+      "lambda": 1.0,
+      "kind": "nav_capital_mix"
+    }
+  },
+  "poles": {
+    "ungated_heldout": 1.807247053422123,
+    "soft_a_heldout": 0.8294917867472384,
+    "ungated_tip": {
+      "asof": "2026-09-07",
+      "ytd_giveback_pp": 7.561229307588935,
+      "ytd_gate": "PAUSE_REVIEW",
+      "trailing_1y_giveback_pp": 4.762429690547942,
+      "trailing_1y_gate": "ALERT",
+      "tip_clean": false
+    },
+    "soft_a_tip": {
+      "asof": "2026-09-07",
+      "ytd_giveback_pp": 1.9810309248109448,
+      "ytd_gate": "PASS",
+      "trailing_1y_giveback_pp": 0.18295396332685954,
+      "trailing_1y_gate": "PASS",
+      "tip_clean": true
+    }
+  },
+  "schedule_frontier": {
+    "tip_clean_ids": [
+      "MIX_SCHED_L100"
+    ],
+    "tip_clean_beat_soft_a": [],
+    "best_tip_clean": "MIX_SCHED_L100",
+    "best_tip_clean_heldout": 0.8294917867472384,
+    "improves_pareto_vs_soft_a": false
+  },
+  "nav_frontier": {
+    "tip_clean_ids": [
+      "MIX_NAV_L100"
+    ],
+    "tip_clean_beat_soft_a": [],
+    "best_tip_clean": "MIX_NAV_L100",
+    "best_tip_clean_heldout": 0.8294917867472607,
+    "improves_pareto_vs_soft_a": false
+  },
+  "verdict": {
+    "schedule_mix_beats_soft_a_tip_clean": false,
+    "nav_mix_beats_soft_a_tip_clean": false,
+    "preferred_read": "MIX_INTERPOLATES_POLES__DUAL_MONITOR_STILL_CLEANER_FOR_HONESTY"
+  }
+}
