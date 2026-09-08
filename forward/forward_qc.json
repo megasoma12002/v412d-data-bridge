@@ -1,10 +1,10 @@
 {
   "status": "PASS",
-  "run_utc": "2026-09-07T14:22:35.743218+00:00",
-  "latest_date": "2026-09-07",
-  "raw_rows": 64667,
-  "signal_rows_total": 22,
-  "paper_rows": 11,
+  "run_utc": "2026-09-08T12:59:21.617586+00:00",
+  "latest_date": "2026-09-08",
+  "raw_rows": 64679,
+  "signal_rows_total": 24,
+  "paper_rows": 12,
   "rules": [
     "raw OHLCV signals through T",
     "T+1 open target",
