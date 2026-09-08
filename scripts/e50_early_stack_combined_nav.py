@@ -105,6 +105,7 @@ def simulate_core(
     telecom_alloc: str = TEL_EQUAL,
     fin_name_scores: pd.DataFrame | None = None,
     tel_name_scores: pd.DataFrame | None = None,
+    fin_buy_ok: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
@@ -336,6 +337,13 @@ def simulate_core(
                 for c in FIN
                 if c in fin_name_scores.columns and pd.notna(fin_name_scores.loc[dt, c])
             }
+        fin_buy_ok_today = None
+        if fin_buy_ok is not None and dt in fin_buy_ok.index:
+            fin_buy_ok_today = {
+                c: bool(fin_buy_ok.loc[dt, c])
+                for c in FIN
+                if c in fin_buy_ok.columns
+            }
         tel_scores_today = None
         if tel_name_scores is not None and dt in tel_name_scores.index:
             tel_scores_today = {
@@ -355,6 +363,7 @@ def simulate_core(
                         codes=FIN,
                         lot_size=lot_size,
                         scores=fin_scores_today,
+                        buy_ok=fin_buy_ok_today,
                     ):
                         if qty < 1:
                             continue
@@ -364,11 +373,6 @@ def simulate_core(
                 continue
             if sleeve_name == "Telecom" and telecom_alloc != TEL_EQUAL:
                 dollars = float(sleeve_trade[sleeve_name]) * nav
-                need_scores = telecom_alloc in (
-                    "TEL_TOP1",
-                    "TEL_TOP2_EQUAL",
-                    "TEL_SCORE_LOT_PACK",
-                )
                 if abs(dollars) >= 1e-9 or telecom_alloc in ("TEL_TOP1", "TEL_TOP2_EQUAL"):
                     for c, side, qty in allocate_sleeve_orders(
                         dollars,
@@ -377,7 +381,7 @@ def simulate_core(
                         policy_id=telecom_alloc,
                         codes=TEL,
                         lot_size=lot_size,
-                        scores=tel_scores_today if need_scores else None,
+                        scores=tel_scores_today,
                     ):
                         if qty < 1:
                             continue
@@ -422,14 +426,6 @@ def simulate_core(
                 "pre_telecom": pre["Telecom"],
                 "pre_0050": pre["0050"],
                 "pre_def": pre.get("DEF", 0.0),
-                "tel_board_names": int(
-                    sum(
-                        1
-                        for c in TEL
-                        if (int(pos.get(c, 0)) if lot_size == 1 else int(pos.get(c, 0) // lot_size) * lot_size)
-                        >= lot_size
-                    )
-                ),
                 "tgt_financial": sleeve_w["Financial"],
                 "tgt_telecom": sleeve_w["Telecom"],
                 "tgt_0050": sleeve_w["0050"],

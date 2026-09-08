@@ -1,10 +1,17 @@
 {
-  "generated_at_utc": "2026-09-08T02:20:00+00:00",
+  "generated_at_utc": "2026-09-08T09:45:00+00:00",
   "label": "FIN_WITHIN_SLEEVE_ALLOC_CHARTER",
-  "status": "CHARTER_ACCEPTED_STAGE_B_STOP",
+  "status": "CHARTER_ACCEPTED_STAGE_D_OPERATING_OBSERVE",
   "stage_b_status": "STOP_NO_POSITIVE_HELDOUT_SCORE",
   "stage_b_artifact": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_STAGE_B.json",
+  "stage_c_status": "STAGE_C_CANDIDATES_LOCKED",
+  "stage_c_artifact": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_STAGE_C.json",
+  "stage_c_top": ["FIN_RS_SOFT_TILT_EXDIV", "FIN_RS_SOFT_TILT"],
+  "stage_d_status": "OPERATING_OBSERVE",
+  "stage_d_artifact": "research/ops/FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md",
+  "locked_challenger": "FIN_RS_SOFT_TILT_EXDIV",
   "ballot": "金融也研究分開",
+  "dual_paper_ballot": "dual-paper 觀察 FIN_RS_SOFT_TILT_EXDIV 並排 FIN_EQUAL",
   "class": "A_RESEARCH_EXPERIMENTAL",
   "live_wire": false,
   "soft_frozen_keep": true,
@@ -14,13 +21,21 @@
     "e22_books": "E22_v2s_tw",
     "telecom_held_at": "TEL_EQUAL"
   },
-  "policies_predeclared": [
+  "policies_predeclared_stage_b": [
     "FIN_EQUAL",
     "FIN_MIN_LOT_PACK",
     "FIN_TOP1",
     "FIN_TOP2_EQUAL"
   ],
+  "policies_predeclared_stage_c": [
+    "FIN_RS_SOFT_TILT",
+    "FIN_EXDIV_SKIP_BUY",
+    "FIN_RS_SOFT_TILT_EXDIV"
+  ],
   "stage_b_script": "scripts/e16_fin_within_sleeve_challenger.py",
+  "stage_c_script": "scripts/e16_fin_within_sleeve_stage_c.py",
+  "dual_paper_ledgers": "scripts/e16_fin_within_sleeve_dual_paper_ledgers.py",
+  "month_end_monitor": "scripts/e16_fin_within_sleeve_month_end_monitor.py",
   "decision_pack": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md",
   "charter": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_CHARTER.md"
 }

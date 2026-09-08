@@ -42,6 +42,10 @@ STEPS_MONITOR = [
     ("e45_blend005_month_end", ["python3", "scripts/e45_blend005_month_end_monitor.py"]),
     ("e45_sleeve_local_month_end", ["python3", "scripts/e45_sleeve_local_month_end_monitor.py"]),
     ("e45_m2_bil_fx_month_end", ["python3", "scripts/e45_m2_bil_fx_month_end_monitor.py"]),
+    (
+        "fin_within_sleeve_month_end",
+        ["python3", "scripts/e16_fin_within_sleeve_month_end_monitor.py"],
+    ),
     ("track_a_s9a1", ["python3", "scripts/e50a_dual_track_s9a1_monitor.py"]),
     ("live_paper_recon", ["python3", "scripts/e21_live_vs_paper_recon.py"]),
     ("e22_data_quality_kpi", ["python3", "scripts/e22_data_quality_kpi.py"]),
@@ -65,6 +69,10 @@ STEPS_REFRESH = [
     ("e45_blend005_dual_paper_ledgers", ["python3", "scripts/e45_blend005_dual_paper_ledgers.py"]),
     ("e45_sleeve_local_dual_paper_ledgers", ["python3", "scripts/e45_sleeve_local_dual_paper_ledgers.py"]),
     ("e45_m2_bil_fx_dual_paper_ledgers", ["python3", "scripts/e45_m2_bil_fx_dual_paper_ledgers.py"]),
+    (
+        "fin_within_sleeve_dual_paper_ledgers",
+        ["python3", "scripts/e16_fin_within_sleeve_dual_paper_ledgers.py"],
+    ),
 ]
 
 
@@ -141,7 +149,7 @@ def main() -> int:
         "cutover_note": (
             f"Paper/ops cadence only. Soft-Frozen {CLIP_TXT} unchanged. "
             "FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated; "
-            "BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-α=0.25 observe is paper-only (parallel sleeve); E45 blend-α=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY α=0.10 observe is paper-only (parallel sleeve); E45 M2 BIL_FX C35 relocate observe is paper-only (parallel sleeve; stitch still forbidden)."
+            "BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-α=0.25 observe is paper-only (parallel sleeve); E45 blend-α=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY α=0.10 observe is paper-only (parallel sleeve); E45 M2 BIL_FX C35 relocate observe is paper-only (parallel sleeve; stitch still forbidden); FIN within-sleeve FIN_RS_SOFT_TILT_EXDIV dual-paper observe is paper-only (live e21 FIN equal-split untouched)."
         ),
     }
 

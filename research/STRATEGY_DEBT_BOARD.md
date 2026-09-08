@@ -225,3 +225,8 @@ Artifacts: `TELECOM_WITHIN_SLEEVE_OPTIMIZE_STAGE_C.md` · `repro/telecom-sleeve-
 Human 「請進行研究」 after E45 improve-avenues ask. Paper batch: tip PAUSE refresh (+C35) · cross-sleeve scoreboard · cheap-protect×cost. Tip **PASS/PASS**: `BLEND_E45_A05`, `SLEEVE_FIN_ONLY_A10`; still PAUSE: FULL / A25 / C35(YTD). Best held-out observe=`M2_RELOC_BIL_FX_C35`. Soft-Frozen KEEP · stitch FORBIDDEN · HIGH_BETA HOLD.  
 Artifacts: `E45_REMAINING_IMPROVE_RESEARCH_BATCH.md` · `repro/e45-remaining-improve-20260908/`.
 
+## Financial within-sleeve alloc charter (2026-09-08)
+
+Human **「金融也研究分開」**. Research-only FIN within-sleeve @ **500M+整張** vs `FIN_EQUAL` → Stage B **STOP** · Stage C **LOCK** (`FIN_RS_SOFT_TILT_EXDIV` held-out +0.54) · Stage D **OPERATING OBSERVE** (EQUAL ∥ RS+EXDIV). Soft-Frozen KEEP · live FIN equal-split untouched.  
+Artifacts: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_C.md` · `FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md` · `repro/fin-within-sleeve-dual-paper-observe/`.
+
