@@ -139,4 +139,5 @@ Engineering: PR **#101** (M3) · **#102** (DEF ingest) · **#103** (M2 v1 paper)
 
 | — | C35 Soft-Frozen regime gate (tip hygiene) | **DONE — PAPER** | `E45_C35_REGIME_GATE_RESEARCH.md` — hard Bear+Crisis tip PASS; held-out +1.81→+0.72 |
 | — | Soft-gate recover sacrificed held-out | **DONE — PAPER** | `E45_C35_SOFT_GATE_RESEARCH.md` — best tip-clean **Soft_A** (+0.83, ~11% gap); same-family full recovery exhausted |
+| — | Four-path recover (Soft_A / dual / new-mech / tradeoff) | **DONE — PAPER** | `E45_FOUR_PATH_RECOVER_RESEARCH.md` — Path3 no Soft_A beater; stack Soft_A+dual+tradeoff+continue M1–M3 |
 
