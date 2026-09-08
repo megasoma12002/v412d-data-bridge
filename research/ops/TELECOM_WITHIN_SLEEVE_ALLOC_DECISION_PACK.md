@@ -25,4 +25,5 @@ Whether to open **paper-only** research on Telecom **within-sleeve** allocation
 |---|---|
 | Soft-Frozen TEL floor → 10% | WITHDRAWN (#119) |
 | Capital 15M | Restored to **3M** (this restore PR) |
-| Live within-sleeve wire | Needs **later** dedicated ACCEPT after Stage B/C |
+| Live within-sleeve wire | **ACCEPTED 2026-09-08** — `TEL_MIN_LOT_PACK` (+ capital 500M); see `LIVE_TEL_MINLOT_CUTOVER_DECISION_PACK.md` |
+| Soft-Frozen clips | **KEEP** |
