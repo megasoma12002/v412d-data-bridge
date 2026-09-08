@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""FIN within-sleeve dual-paper ledgers — OPERATING OBSERVE (paper only).
+"""FIN within-sleeve multi-paper ledgers — OPERATING OBSERVE (paper only).
 
 Side-by-side Exact T+1 paper books @ charter capital 500M / board-lot 1000:
-  BASE  FIN_EQUAL
-  CHAL  FIN_RS_SOFT_TILT_EXDIV  (Stage C locked top)
+  BASE     FIN_EQUAL
+  CHAL_RS  FIN_RS_SOFT_TILT_EXDIV          (Stage C locked top)
+  CHAL_MIX FIN_MIX_EQUAL_RS_EXDIV λ=0.75   (MIX_L75 coexist candidate)
 
-Human: 各檔各做各的 — open dual-paper observe beside equal-split.
+Human: 各檔各做各的 — open observe beside equal-split; mix tip-clean coexist.
 Soft-Frozen KEEP · live e21 FIN equal-split untouched · no live wire.
 Telecom held at TEL_EQUAL (isolate FIN within-sleeve).
 """
@@ -25,6 +26,7 @@ from e50_early_stack_combined_nav import FIN, e16_features, simulate_core
 from tw_share_lots import BOARD_LOT
 from within_sleeve_alloc import (
     FIN_EQUAL,
+    FIN_MIX_EQUAL_RS_EXDIV,
     FIN_RS_SOFT_TILT_EXDIV,
     TEL_EQUAL,
     build_exdiv_buy_ok,
@@ -36,14 +38,30 @@ OUT = ROOT / "repro/fin-within-sleeve-dual-paper-observe"
 OPS = ROOT / "research/ops"
 
 BASE_ID = "FIN_EQUAL"
-CHAL_ID = "FIN_RS_SOFT_TILT_EXDIV"
-CHAL_SLUG = "fin_rs_soft_tilt_exdiv"
+CHAL_RS_ID = "FIN_RS_SOFT_TILT_EXDIV"
+CHAL_RS_SLUG = "fin_rs_soft_tilt_exdiv"
+CHAL_MIX_ID = "FIN_MIX_EQUAL_RS_EXDIV"
+CHAL_MIX_LABEL = "MIX_L75"
+CHAL_MIX_SLUG = "fin_mix_l75"
+MIX_LAMBDA = 0.75
 STATUS = "OPERATING_OBSERVE"
 CHARTER_CAPITAL = 500_000_000.0
 CHARTER_LOT = BOARD_LOT
 
 
-def _run(market, dividends, target, regime, *, policy: str, fin_scores, fin_buy_ok):
+def _run(
+    market,
+    dividends,
+    target,
+    regime,
+    *,
+    policy: str,
+    fin_scores,
+    fin_buy_ok,
+    fin_mix_lambda: float | None = None,
+):
+    need_scores = policy in (FIN_RS_SOFT_TILT_EXDIV, FIN_MIX_EQUAL_RS_EXDIV)
+    need_ok = need_scores
     return simulate_core(
         market,
         target,
@@ -55,8 +73,9 @@ def _run(market, dividends, target, regime, *, policy: str, fin_scores, fin_buy_
         lot_size=CHARTER_LOT,
         financial_alloc=policy,
         telecom_alloc=TEL_EQUAL,
-        fin_name_scores=fin_scores if policy == FIN_RS_SOFT_TILT_EXDIV else None,
-        fin_buy_ok=fin_buy_ok if policy == FIN_RS_SOFT_TILT_EXDIV else None,
+        fin_name_scores=fin_scores if need_scores else None,
+        fin_buy_ok=fin_buy_ok if need_ok else None,
+        fin_mix_lambda=fin_mix_lambda,
     )
 
 
@@ -75,42 +94,57 @@ def main() -> None:
     fin_scores = build_name_scores(market, FIN)
     fin_buy_ok = build_exdiv_buy_ok(cal, dividends, FIN, also_stock_ex=True)
 
-    print(f"{BASE_ID} sim @ 500M/1000 ...", flush=True)
-    nav_b, fills_b, meta_b = _run(
-        market, dividends, target, regime, policy=FIN_EQUAL, fin_scores=fin_scores, fin_buy_ok=fin_buy_ok
-    )
+    runs = [
+        ("base", BASE_ID, FIN_EQUAL, None, "base_fin_equal"),
+        ("chal_rs", CHAL_RS_ID, FIN_RS_SOFT_TILT_EXDIV, None, CHAL_RS_SLUG),
+        ("chal_mix", CHAL_MIX_LABEL, FIN_MIX_EQUAL_RS_EXDIV, MIX_LAMBDA, CHAL_MIX_SLUG),
+    ]
+    navs: dict[str, pd.DataFrame] = {}
+    metas: dict[str, dict] = {}
+    for key, label, policy, mix_lam, slug in runs:
+        print(f"{label} sim @ 500M/1000 ...", flush=True)
+        nav, fills, meta = _run(
+            market,
+            dividends,
+            target,
+            regime,
+            policy=policy,
+            fin_scores=fin_scores,
+            fin_buy_ok=fin_buy_ok,
+            fin_mix_lambda=mix_lam,
+        )
+        assert meta.get("exact_t1_ok"), label
+        nav.to_csv(OUT / "outputs" / f"{slug}_daily_nav.csv", index=False)
+        fills.to_csv(OUT / "outputs" / f"{slug}_fills.csv", index=False)
+        navs[key] = nav
+        metas[key] = meta
 
-    print(f"{CHAL_ID} sim @ 500M/1000 ...", flush=True)
-    nav_c, fills_c, meta_c = _run(
-        market,
-        dividends,
-        target,
-        regime,
-        policy=FIN_RS_SOFT_TILT_EXDIV,
-        fin_scores=fin_scores,
-        fin_buy_ok=fin_buy_ok,
-    )
-
-    nav_b.to_csv(OUT / "outputs" / "base_fin_equal_daily_nav.csv", index=False)
-    nav_c.to_csv(OUT / "outputs" / f"{CHAL_SLUG}_daily_nav.csv", index=False)
-    fills_b.to_csv(OUT / "outputs" / "base_fin_equal_fills.csv", index=False)
-    fills_c.to_csv(OUT / "outputs" / f"{CHAL_SLUG}_fills.csv", index=False)
-
-    jb = nav_b[["date", "nav"]].rename(columns={"nav": "nav_base"})
-    jc = nav_c[["date", "nav"]].rename(columns={"nav": f"nav_{CHAL_SLUG}"})
-    joined = jb.merge(jc, on="date", how="inner")
-    joined["rel_chal_vs_base"] = joined[f"nav_{CHAL_SLUG}"] / joined["nav_base"]
+    jb = navs["base"][["date", "nav"]].rename(columns={"nav": "nav_base"})
+    jrs = navs["chal_rs"][["date", "nav"]].rename(columns={"nav": f"nav_{CHAL_RS_SLUG}"})
+    jmx = navs["chal_mix"][["date", "nav"]].rename(columns={"nav": f"nav_{CHAL_MIX_SLUG}"})
+    joined = jb.merge(jrs, on="date", how="inner").merge(jmx, on="date", how="inner")
+    joined[f"rel_{CHAL_RS_SLUG}_vs_base"] = joined[f"nav_{CHAL_RS_SLUG}"] / joined["nav_base"]
+    joined[f"rel_{CHAL_MIX_SLUG}_vs_base"] = joined[f"nav_{CHAL_MIX_SLUG}"] / joined["nav_base"]
     joined.to_csv(OUT / "outputs" / "dual_paper_nav_compare.csv", index=False)
 
     books: dict = {}
-    for name, nav, meta in [(BASE_ID, nav_b, meta_b), (CHAL_ID, nav_c, meta_c)]:
+    id_by_key = {
+        "base": BASE_ID,
+        "chal_rs": CHAL_RS_ID,
+        "chal_mix": CHAL_MIX_LABEL,
+    }
+    for key, book_id in id_by_key.items():
+        nav = navs[key]
+        meta = metas[key]
         win = {w: window_stats(nav, a, b) for w, (a, b) in WINDOWS_STANDARD.items()}
         end_pos = meta.get("end_positions") or {}
         fin_held = {c: float(end_pos.get(c, 0.0)) for c in FIN}
-        books[name] = {
+        books[book_id] = {
             "exact_t1_ok": bool(meta.get("exact_t1_ok")),
             "lot_size": int(meta.get("lot_size", CHARTER_LOT)),
             "capital": CHARTER_CAPITAL,
+            "financial_alloc": meta.get("financial_alloc"),
+            "fin_mix_lambda": meta.get("fin_mix_lambda"),
             "tip_fin_positions": fin_held,
             "tip_fin_names_with_board_lot": int(
                 sum(1 for v in fin_held.values() if abs(v) >= CHARTER_LOT - 1e-9)
@@ -118,13 +152,21 @@ def main() -> None:
             "windows": win,
         }
 
-    held = deltas_vs_base(
+    held_rs = deltas_vs_base(
         books[BASE_ID]["windows"]["heldout_2019_plus"],
-        books[CHAL_ID]["windows"]["heldout_2019_plus"],
+        books[CHAL_RS_ID]["windows"]["heldout_2019_plus"],
     )
-    sealed = deltas_vs_base(
+    sealed_rs = deltas_vs_base(
         books[BASE_ID]["windows"]["sealed_2023_plus"],
-        books[CHAL_ID]["windows"]["sealed_2023_plus"],
+        books[CHAL_RS_ID]["windows"]["sealed_2023_plus"],
+    )
+    held_mx = deltas_vs_base(
+        books[BASE_ID]["windows"]["heldout_2019_plus"],
+        books[CHAL_MIX_LABEL]["windows"]["heldout_2019_plus"],
+    )
+    sealed_mx = deltas_vs_base(
+        books[BASE_ID]["windows"]["sealed_2023_plus"],
+        books[CHAL_MIX_LABEL]["windows"]["sealed_2023_plus"],
     )
 
     proposal = {
@@ -135,11 +177,25 @@ def main() -> None:
         "live_wire": False,
         "soft_frozen_default_unchanged": True,
         "cutover_authorized": False,
-        "ballot": "dual-paper 觀察 FIN_RS_SOFT_TILT_EXDIV 並排 FIN_EQUAL",
-        "human_rationale": "各檔各做各的 — ex-div dates + RS timing differ",
+        "ballot": (
+            "dual-paper 觀察 FIN_RS_SOFT_TILT_EXDIV 並排 FIN_EQUAL；"
+            "加進 MIX_L75 (λ=0.75 EQUAL×RS_EXDIV) 第三本"
+        ),
+        "human_rationale": (
+            "各檔各做各的 — ex-div dates + RS timing differ; "
+            "MIX_L75 tip-clean coexist candidate from λ-grid"
+        ),
         "stage_c": "STAGE_C_CANDIDATES_LOCKED",
+        "mix_probe": "COEXIST_CANDIDATE_FOUND",
         "base_id": BASE_ID,
-        "locked_challenger": CHAL_ID,
+        "locked_challenger": CHAL_RS_ID,
+        "mix_challenger": {
+            "id": CHAL_MIX_LABEL,
+            "financial_alloc": CHAL_MIX_ID,
+            "fin_mix_lambda": MIX_LAMBDA,
+            "definition": f"λ·FIN_EQUAL + (1−λ)·FIN_RS_SOFT_TILT_EXDIV with λ={MIX_LAMBDA}",
+        },
+        "books": [BASE_ID, CHAL_RS_ID, CHAL_MIX_LABEL],
         "execution_context": {
             "capital": CHARTER_CAPITAL,
             "board_lot": CHARTER_LOT,
@@ -148,10 +204,17 @@ def main() -> None:
         },
         "exact_t1": {
             "base": books[BASE_ID]["exact_t1_ok"],
-            "chal": books[CHAL_ID]["exact_t1_ok"],
+            "chal_rs": books[CHAL_RS_ID]["exact_t1_ok"],
+            "chal_mix": books[CHAL_MIX_LABEL]["exact_t1_ok"],
         },
-        "heldout_vs_base": held,
-        "sealed_vs_base": sealed,
+        "heldout_vs_base": {
+            CHAL_RS_ID: held_rs,
+            CHAL_MIX_LABEL: held_mx,
+        },
+        "sealed_vs_base": {
+            CHAL_RS_ID: sealed_rs,
+            CHAL_MIX_LABEL: sealed_mx,
+        },
         "windows": books,
         "next_human": [
             "Month-end cadence via ops_month_end_paper_pack.py --refresh-ledgers",
@@ -159,7 +222,7 @@ def main() -> None:
         ],
         "non_actions": [
             "Paper-only; Soft-Frozen KEEP; live e21 FIN equal-split untouched",
-            "Do not wire FIN_RS_SOFT_TILT_EXDIV into e21 without cutover ACCEPT",
+            "Do not wire FIN_RS_SOFT_TILT_EXDIV or MIX_L75 into e21 without cutover ACCEPT",
             "Stage B hard policies remain STOP",
         ],
     }
@@ -170,33 +233,37 @@ def main() -> None:
         json.dumps(proposal, indent=2, default=str) + "\n", encoding="utf-8"
     )
 
-    md = f"""# FIN within-sleeve dual-paper (OPERATING OBSERVE)
+    md = f"""# FIN within-sleeve multi-paper (OPERATING OBSERVE)
 
 **Status:** `{STATUS}` — **paper only** · Soft-Frozen **KEEP** · live wire **false**
 
 | Book | Role |
 |---|---|
 | `{BASE_ID}` | Equal-split Financial sleeve (control) |
-| `{CHAL_ID}` | Stage C locked: RS soft-tilt + ex-div skip-buy |
+| `{CHAL_RS_ID}` | Stage C locked: RS soft-tilt + ex-div skip-buy |
+| `{CHAL_MIX_LABEL}` | Mix coexist: λ={MIX_LAMBDA} EQUAL + (1−λ) RS_EXDIV |
 
 Execution: capital **{CHARTER_CAPITAL:,.0f}** · lot **{CHARTER_LOT}** · Telecom=`TEL_EQUAL`
 
 ## Held-out vs BASE
 
-- MDD improve pp: {held.get('mdd_improve_pp')}
-- CAGR giveback pp: {held.get('cagr_giveback_pp')}
-- Score: {held.get('score')}
+| Challenger | MDD↑pp | CAGR giveback | Score |
+|---|---:|---:|---:|
+| `{CHAL_RS_ID}` | {held_rs.get('mdd_improve_pp')} | {held_rs.get('cagr_giveback_pp')} | {held_rs.get('score')} |
+| `{CHAL_MIX_LABEL}` | {held_mx.get('mdd_improve_pp')} | {held_mx.get('cagr_giveback_pp')} | {held_mx.get('score')} |
 
 ## Sealed vs BASE
 
-- MDD improve pp: {sealed.get('mdd_improve_pp')}
-- CAGR giveback pp: {sealed.get('cagr_giveback_pp')}
-- Score: {sealed.get('score')}
+| Challenger | MDD↑pp | CAGR giveback | Score |
+|---|---:|---:|---:|
+| `{CHAL_RS_ID}` | {sealed_rs.get('mdd_improve_pp')} | {sealed_rs.get('cagr_giveback_pp')} | {sealed_rs.get('score')} |
+| `{CHAL_MIX_LABEL}` | {sealed_mx.get('mdd_improve_pp')} | {sealed_mx.get('cagr_giveback_pp')} | {sealed_mx.get('score')} |
 
-## Tip FIN names
+## Tip FIN names (張)
 
-- BASE names w/ 張: {books[BASE_ID]['tip_fin_names_with_board_lot']}
-- CHAL names w/ 張: {books[CHAL_ID]['tip_fin_names_with_board_lot']}
+- BASE: {books[BASE_ID]['tip_fin_names_with_board_lot']}
+- RS_EXDIV: {books[CHAL_RS_ID]['tip_fin_names_with_board_lot']}
+- MIX_L75: {books[CHAL_MIX_LABEL]['tip_fin_names_with_board_lot']}
 
 ## Reproduce
 
@@ -209,7 +276,18 @@ Repro: `{OUT.relative_to(ROOT)}/`
 """
     (OUT / "reports" / "FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE.md").write_text(md, encoding="utf-8")
     OPS.joinpath("FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPERATING.md").write_text(md, encoding="utf-8")
-    print(json.dumps({"status": STATUS, "chal": CHAL_ID, "held": held, "sealed": sealed}, indent=2, default=str))
+    print(
+        json.dumps(
+            {
+                "status": STATUS,
+                "books": [BASE_ID, CHAL_RS_ID, CHAL_MIX_LABEL],
+                "held_rs": held_rs,
+                "held_mix": held_mx,
+            },
+            indent=2,
+            default=str,
+        )
+    )
 
 
 if __name__ == "__main__":

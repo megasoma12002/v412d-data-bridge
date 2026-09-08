@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""FIN within-sleeve month-end dual-paper monitor — OPERATING OBSERVE.
+"""FIN within-sleeve month-end multi-paper monitor — OPERATING OBSERVE.
 
-Compares FIN_EQUAL vs FIN_RS_SOFT_TILT_EXDIV paper NAVs at month-end (or as-of).
-Does NOT change Soft-Frozen. Does NOT place orders. Live FIN equal-split untouched.
+Compares FIN_EQUAL vs FIN_RS_SOFT_TILT_EXDIV and vs MIX_L75 (λ=0.75) paper NAVs
+at month-end (or as-of). Does NOT change Soft-Frozen. Does NOT place orders.
+Live FIN equal-split untouched.
 """
 from __future__ import annotations
 
@@ -22,21 +23,43 @@ from research_metric_helpers import mdd_delta_pp
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "repro/fin-within-sleeve-dual-paper-observe/month_end"
 BASE_NAV = ROOT / "repro/fin-within-sleeve-dual-paper-observe/outputs/base_fin_equal_daily_nav.csv"
-CHAL_NAV = (
+CHAL_RS_NAV = (
     ROOT / "repro/fin-within-sleeve-dual-paper-observe/outputs/fin_rs_soft_tilt_exdiv_daily_nav.csv"
 )
+CHAL_MIX_NAV = ROOT / "repro/fin-within-sleeve-dual-paper-observe/outputs/fin_mix_l75_daily_nav.csv"
 OPS = ROOT / "research/ops"
 
-LOCKED_ID = "FIN_RS_SOFT_TILT_EXDIV"
+BASE_ID = "FIN_EQUAL"
+CHAL_RS_ID = "FIN_RS_SOFT_TILT_EXDIV"
+CHAL_MIX_ID = "MIX_L75"
 STATUS = "OPERATING_OBSERVE"
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
-# Stage C design giveback (BASE−CHAL): held-out ~1.14 · sealed ~1.60
+# Design giveback (BASE−CHAL) from Stage C / mix probe
 DESIGN_GIVEBACK_PP = {
-    "heldout_2019_plus": 1.5,
-    "sealed_2023_plus": 2.0,
+    CHAL_RS_ID: {
+        "heldout_2019_plus": 1.5,
+        "sealed_2023_plus": 2.0,
+    },
+    CHAL_MIX_ID: {
+        "heldout_2019_plus": 0.5,
+        "sealed_2023_plus": 0.8,
+    },
 }
 STRUCTURAL_BUFFER_PP = 2.0
+
+CHALLENGERS = (
+    {
+        "id": CHAL_RS_ID,
+        "slug": "fin_rs_soft_tilt_exdiv",
+        "path": CHAL_RS_NAV,
+    },
+    {
+        "id": CHAL_MIX_ID,
+        "slug": "fin_mix_l75",
+        "path": CHAL_MIX_NAV,
+    },
+)
 
 
 def _load(path: Path) -> pd.DataFrame:
@@ -66,23 +89,7 @@ def _window(df: pd.DataFrame, start, end) -> pd.DataFrame:
     return df.loc[m].reset_index(drop=True)
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--asof", default=None, help="YYYY-MM-DD (default: last NAV date)")
-    ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
-    args = ap.parse_args()
-
-    if not BASE_NAV.exists() or not CHAL_NAV.exists():
-        raise SystemExit(
-            "Missing dual-paper NAVs. Run scripts/e16_fin_within_sleeve_dual_paper_ledgers.py first."
-        )
-
-    base = _load(BASE_NAV)
-    chal = _load(CHAL_NAV)
-    asof = pd.Timestamp(args.asof) if args.asof else min(base["date"].max(), chal["date"].max())
-    base = base[base["date"] <= asof]
-    chal = chal[chal["date"] <= asof]
-
+def _compare_windows(base: pd.DataFrame, chal: pd.DataFrame, asof: pd.Timestamp, chal_id: str) -> list[dict]:
     month_start = pd.Timestamp(asof.year, asof.month, 1)
     windows = {
         "mtd": (month_start, asof),
@@ -92,7 +99,6 @@ def main() -> None:
         "heldout_2019_plus": (pd.Timestamp(WINDOWS_STANDARD["heldout_2019_plus"][0]), asof),
         "full": (base["date"].min(), asof),
     }
-
     rows = []
     for wname, (ws, we) in windows.items():
         b = _window(base, ws, we)
@@ -108,73 +114,129 @@ def main() -> None:
         mdd_improve_pp = mdd_delta_pp(sb["max_drawdown"], sc["max_drawdown"])
         rows.append(
             {
+                "challenger": chal_id,
                 "window": wname,
                 "start": str(pd.Timestamp(ws).date()),
                 "end": str(pd.Timestamp(we).date()),
                 "n_days": int(min(len(b), len(c))),
                 "base_cagr": sb["cagr"],
                 "base_mdd": sb["max_drawdown"],
-                "fin_rs_soft_tilt_exdiv_cagr": sc["cagr"],
-                "fin_rs_soft_tilt_exdiv_mdd": sc["max_drawdown"],
+                "chal_cagr": sc["cagr"],
+                "chal_mdd": sc["max_drawdown"],
                 "mdd_improve_pp": mdd_improve_pp,
                 "cagr_giveback_pp": cagr_giveback_pp,
                 "rel_nav_end": float(cnav.iloc[-1] / bnav.iloc[-1]),
             }
         )
+    return rows
 
+
+def _alerts_for(rows: list[dict], chal_id: str) -> list[str]:
     alerts: list[str] = []
     for wname in ("ytd", "trailing_1y"):
         r = next((x for x in rows if x["window"] == wname), None)
         if not r:
             continue
         if r["mdd_improve_pp"] is not None and r["mdd_improve_pp"] < 0:
-            alerts.append(f"ALERT: {LOCKED_ID} {wname} MDD worse than BASE (paper)")
+            alerts.append(f"ALERT: {chal_id} {wname} MDD worse than BASE (paper)")
         gb = r["cagr_giveback_pp"]
         if gb is None:
             continue
         if gb > TRAIL_ALERT_PP:
-            alerts.append(f"ALERT: {LOCKED_ID} {wname} CAGR giveback > {TRAIL_ALERT_PP:.1f} pp (paper)")
+            alerts.append(f"ALERT: {chal_id} {wname} CAGR giveback > {TRAIL_ALERT_PP:.1f} pp (paper)")
         if gb > TRAIL_PAUSE_PP:
             alerts.append(
-                f"PAUSE_REVIEW: {wname} giveback > {TRAIL_PAUSE_PP:.0f} pp — "
+                f"PAUSE_REVIEW: {chal_id} {wname} giveback > {TRAIL_PAUSE_PP:.0f} pp — "
                 "extend observe; Soft-Frozen unchanged; no live wire"
             )
 
+    design = DESIGN_GIVEBACK_PP.get(chal_id, {})
     for wname in ("heldout_2019_plus", "sealed_2023_plus"):
         r = next((x for x in rows if x["window"] == wname), None)
         if not r:
             continue
         if r["mdd_improve_pp"] is not None and r["mdd_improve_pp"] < 0:
             alerts.append(
-                f"ALERT: {LOCKED_ID} {wname} MDD worse than BASE "
-                "(structural window; Stage C expected MDD improve)"
+                f"ALERT: {chal_id} {wname} MDD worse than BASE "
+                "(structural window; expected MDD improve)"
             )
         gb = r["cagr_giveback_pp"]
-        design_gb = DESIGN_GIVEBACK_PP.get(wname)
+        design_gb = design.get(wname)
         if gb is None or design_gb is None:
             continue
         if gb > design_gb + STRUCTURAL_BUFFER_PP:
             alerts.append(
-                f"ALERT: {LOCKED_ID} {wname} CAGR giveback {gb:.2f} pp exceeds "
+                f"ALERT: {chal_id} {wname} CAGR giveback {gb:.2f} pp exceeds "
                 f"design {design_gb:.2f}+{STRUCTURAL_BUFFER_PP:.0f} pp "
                 "(structural; live wire still forbidden)"
             )
+    return alerts
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--asof", default=None, help="YYYY-MM-DD (default: last NAV date)")
+    ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    args = ap.parse_args()
+
+    missing = [p for p in [BASE_NAV] + [c["path"] for c in CHALLENGERS] if not p.exists()]
+    if missing:
+        raise SystemExit(
+            "Missing dual-paper NAVs "
+            f"({', '.join(str(p) for p in missing)}). "
+            "Run scripts/e16_fin_within_sleeve_dual_paper_ledgers.py first."
+        )
+
+    base = _load(BASE_NAV)
+    chal_dfs = {c["id"]: _load(c["path"]) for c in CHALLENGERS}
+    asof = pd.Timestamp(args.asof) if args.asof else min(
+        [base["date"].max()] + [d["date"].max() for d in chal_dfs.values()]
+    )
+    base = base[base["date"] <= asof]
+    for cid in list(chal_dfs):
+        chal_dfs[cid] = chal_dfs[cid][chal_dfs[cid]["date"] <= asof]
+
+    all_rows: list[dict] = []
+    alerts: list[str] = []
+    by_chal: dict[str, list[dict]] = {}
+    for c in CHALLENGERS:
+        rows = _compare_windows(base, chal_dfs[c["id"]], asof, c["id"])
+        by_chal[c["id"]] = rows
+        all_rows.extend(rows)
+        alerts.extend(_alerts_for(rows, c["id"]))
 
     args.out.mkdir(parents=True, exist_ok=True)
-    pd.DataFrame(rows).to_csv(args.out / "month_end_windows.csv", index=False)
+    pd.DataFrame(all_rows).to_csv(args.out / "month_end_windows.csv", index=False)
+
+    # Backward-compat wide columns for RS challenger (ops consumers)
+    rs_rows = by_chal.get(CHAL_RS_ID, [])
+    legacy_rs = []
+    for r in rs_rows:
+        legacy_rs.append(
+            {
+                **{k: v for k, v in r.items() if k not in ("chal_cagr", "chal_mdd", "challenger")},
+                "fin_rs_soft_tilt_exdiv_cagr": r["chal_cagr"],
+                "fin_rs_soft_tilt_exdiv_mdd": r["chal_mdd"],
+            }
+        )
+    if legacy_rs:
+        pd.DataFrame(legacy_rs).to_csv(args.out / "month_end_windows_rs_legacy.csv", index=False)
 
     payload = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "asof": str(asof.date()),
         "status": STATUS,
         "operating_observe": True,
-        "locked_id": LOCKED_ID,
-        "base_id": "FIN_EQUAL",
+        "base_id": BASE_ID,
+        "challengers": [c["id"] for c in CHALLENGERS],
+        "locked_id": CHAL_RS_ID,
+        "mix_id": CHAL_MIX_ID,
         "soft_frozen_unchanged": True,
         "live_wire": False,
         "cutover_authorized": False,
         "alerts": alerts,
-        "windows": rows,
+        "windows": all_rows,
+        "windows_by_challenger": by_chal,
         "gates": {
             "trail_alert_pp": TRAIL_ALERT_PP,
             "trail_pause_pp": TRAIL_PAUSE_PP,
@@ -198,19 +260,25 @@ def main() -> None:
         f"# FIN within-sleeve month-end monitor (asof {asof.date()})",
         "",
         f"**Status:** `{STATUS}` — **paper only**",
-        f"**Locked:** `{LOCKED_ID}` vs `FIN_EQUAL`",
+        f"**Books:** `{BASE_ID}` ∥ `{CHAL_RS_ID}` ∥ `{CHAL_MIX_ID}`",
         "",
-        "| Window | MDD dpp | Giveback pp | Rel NAV |",
-        "|---|---:|---:|---:|",
     ]
-    for r in rows:
-        mdpp = r["mdd_improve_pp"]
-        gb = r["cagr_giveback_pp"]
-        lines.append(
-            f"| {r['window']} | {mdpp if mdpp is not None else 'n/a'} | "
-            f"{gb if gb is not None else 'n/a'} | {r['rel_nav_end']:.4f} |"
-        )
-    lines += ["", "## Alerts", ""]
+    for cid, rows in by_chal.items():
+        lines += [
+            f"## {cid} vs {BASE_ID}",
+            "",
+            "| Window | MDD dpp | Giveback pp | Rel NAV |",
+            "|---|---:|---:|---:|",
+        ]
+        for r in rows:
+            mdpp = r["mdd_improve_pp"]
+            gb = r["cagr_giveback_pp"]
+            lines.append(
+                f"| {r['window']} | {mdpp if mdpp is not None else 'n/a'} | "
+                f"{gb if gb is not None else 'n/a'} | {r['rel_nav_end']:.4f} |"
+            )
+        lines.append("")
+    lines += ["## Alerts", ""]
     if alerts:
         lines.extend(f"- {a}" for a in alerts)
     else:
@@ -225,7 +293,17 @@ def main() -> None:
     md = "\n".join(lines) + "\n"
     (args.out / "month_end_monitor.md").write_text(md, encoding="utf-8")
     OPS.joinpath("FIN_WITHIN_SLEEVE_MONTH_END_MONITOR.md").write_text(md, encoding="utf-8")
-    print(json.dumps({"status": STATUS, "asof": str(asof.date()), "alerts": alerts}, indent=2))
+    print(
+        json.dumps(
+            {
+                "status": STATUS,
+                "asof": str(asof.date()),
+                "challengers": [c["id"] for c in CHALLENGERS],
+                "alerts": alerts,
+            },
+            indent=2,
+        )
+    )
 
 
 if __name__ == "__main__":

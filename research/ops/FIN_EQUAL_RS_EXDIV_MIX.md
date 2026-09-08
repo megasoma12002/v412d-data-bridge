@@ -32,7 +32,7 @@ Coexist rule: held-out score > 0 **and** tip YTD+1y both PASS (giveback ≤ 3pp)
 
 Tradeoff is smooth on this grid: more EQUAL → tip cleaner, less held-out MDD lift. Pure RS_EXDIV still best held-out (+0.540) but remains tip **PAUSE**. Mid λ (`MIX_L50`) is tip **ALERT** only — not tip-clean under the ≤3pp rule.
 
-**Next (optional, not this ballot):** add `MIX_L75` as a third dual-paper observe leg, or replace RS_EXDIV challenger with mix for tip-clean observe. Live wire still **FORBIDDEN** until dedicated ACCEPT.
+**Follow-on (2026-09-08):** `MIX_L75` added as third dual-paper observe leg (`FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md`). Live wire still **FORBIDDEN** until dedicated ACCEPT.
 
 ## Hard rules
 
