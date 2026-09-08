@@ -46,8 +46,13 @@ Live within-sleeve cutover: **still FORBIDDEN** (dedicated ACCEPT required)
 1. Do **not** wire `FIN_RS_SOFT_TILT_EXDIV` or `MIX_L75` into `e21` from this observe.  
 2. Do **not** flip Soft-Frozen clips.  
 3. Do **not** treat clean month-end as live cutover license.  
-4. Stage B hard policies remain **STOP**.
+4. Stage B hard policies remain **STOP**.  
+5. Do **not** stitch / wire live `e21` on this line without dedicated cutover ACCEPT.
+
+## Accepted posture (LOCKED 2026-09-08)
+
+See `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`: maintain OPERATING · no live wire · choose after window · no Stage B reopen / no stitch.
 
 ## Label
 
-`FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN_2026-09-08__OPERATING__MIX_L75_ADDED__LIVE_WIRE_FORBIDDEN`
+`FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN_2026-09-08__OPERATING__MIX_L75_ADDED__POSTURE_LOCKED__LIVE_WIRE_FORBIDDEN`
