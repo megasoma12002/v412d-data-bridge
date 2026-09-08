@@ -42,6 +42,16 @@ Telecom already has a within-sleeve research/live line (`TEL_MIN_LOT_PACK`). Hum
 | `FIN_TOP1` | Concentrate Financial sleeve into single highest-score name |
 | `FIN_TOP2_EQUAL` | Top-2 by score; equal-split those two only |
 
+## Predeclared policies (Stage C — per-name timing)
+
+Human: **各檔各做各的**（除權息日不同 · 個股強弱時間不同）。Stage B hard concentrate **STOP**; Stage C is softer.
+
+| id | Rule sketch |
+|---|---|
+| `FIN_RS_SOFT_TILT` | Buy $ soft-tilt by causal mom score (`exp(0.5·clip(z))`); sells equal among holders |
+| `FIN_EXDIV_SKIP_BUY` | On cash/stock ex-date for a name, skip **buy** that name only; redistribute to others |
+| `FIN_RS_SOFT_TILT_EXDIV` | Soft-tilt buys among non-exdiv names only |
+
 Selection: **held-out 2019+**  
 Score: `MDD_improve_pp − 0.5 × |CAGR_giveback_pp|` vs `FIN_EQUAL`  
 Sealed 2023+: report-only after lock.
@@ -52,8 +62,8 @@ Sealed 2023+: report-only after lock.
 
 ```
 A  ACCEPT charter                         ← DONE (「金融也研究分開」)
-B  Paper policies + BASE @ 500M/整張      ← THIS PR
-C  Held-out rank; sealed report top ≤2
+B  Paper hard policies @ 500M/整張          ← DONE · STOP_NO_POSITIVE_HELDOUT_SCORE
+C  Ex-div skip-buy + RS soft-tilt         ← THIS PR
 D  Optional dual-paper observe
 E  Separate human ballot for live cutover
 ```
