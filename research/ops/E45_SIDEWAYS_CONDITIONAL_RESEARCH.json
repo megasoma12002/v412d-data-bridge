@@ -1,0 +1,265 @@
+{
+  "generated_at_utc": "2026-09-08T07:43:05.781483+00:00",
+  "label": "E45_SIDEWAYS_CONDITIONAL_RESEARCH",
+  "freeze": "E45_SIDEWAYS_CONDITIONAL_FROZEN_2026-09-08",
+  "ballot": "\u5074\u76e4\u600e\u9ebc\u8fa6 / tip vs held-out \u2014 conditional Sideways screen",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "stitch": "FORBIDDEN",
+  "observe_lock_unchanged": "M2_RELOC_BIL_FX_C35",
+  "live_wire": false,
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "books": {
+    "M2_RELOC_BIL_FX_C35": {
+      "id": "M2_RELOC_BIL_FX_C35",
+      "kind": "ungated",
+      "share_days_on": 0.9997225305216426,
+      "heldout_score": 1.807247053422123,
+      "heldout_mdd_improve_pp": 2.5206912403308412,
+      "heldout_cagr_giveback_pp": 1.4268883738174365,
+      "sealed_score": -0.3753416881352445,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.561229307588935,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.762429690547942,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.6453464504780135,
+        "2018": 0.693978866234124,
+        "2020": 2.52069124033083,
+        "2022": 4.564855730835571
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2746,
+      "recovery_vs_hard_to_ungated": 1.0
+    },
+    "M2_C35_HARD_BEAR_CRISIS": {
+      "id": "M2_C35_HARD_BEAR_CRISIS",
+      "kind": "hard",
+      "share_days_on": 0.23307436182019978,
+      "heldout_score": 0.7145869463400678,
+      "heldout_mdd_improve_pp": 0.7929037639536896,
+      "heldout_cagr_giveback_pp": 0.1566336352272435,
+      "sealed_score": -0.8450276323340611,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9400224160196045,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.3208004205088155,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.1653003085524305,
+        "2018": 0.5292162243395016,
+        "2020": 0.7929037639537007,
+        "2022": 5.061875284083628
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2218,
+      "recovery_vs_hard_to_ungated": 0.0
+    },
+    "M2_C35_SOFT_A": {
+      "id": "M2_C35_SOFT_A",
+      "kind": "soft_a",
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.8294917867472384,
+      "heldout_mdd_improve_pp": 0.9286879010787064,
+      "heldout_cagr_giveback_pp": 0.19839222866293582,
+      "sealed_score": -0.8802027032566717,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9810309248109448,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.18295396332685954,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.284508589190835,
+        "2020": 0.9286879010787064,
+        "2022": 4.672864327977566
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2239,
+      "recovery_vs_hard_to_ungated": 0.10516064388405613
+    },
+    "M2_C35_SIDE_CONT": {
+      "id": "M2_C35_SIDE_CONT",
+      "kind": "side_cont",
+      "share_days_on": 0.23446170921198667,
+      "heldout_score": 0.18363693041494322,
+      "heldout_mdd_improve_pp": 0.3524658332303421,
+      "heldout_cagr_giveback_pp": 0.3376578056307977,
+      "sealed_score": -1.157821823056815,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.8228241124765399,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": -0.04366035048843919,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.26003865899425493,
+        "2020": 0.352465833230331,
+        "2022": 4.777707671179954
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2166,
+      "recovery_vs_hard_to_ungated": -0.4859242251856569
+    },
+    "M2_C35_SIDE_HIGH_S80": {
+      "id": "M2_C35_SIDE_HIGH_S80",
+      "kind": "side_high_s80",
+      "share_days_on": 0.25055493895671477,
+      "heldout_score": 0.22897943196853454,
+      "heldout_mdd_improve_pp": 0.3524658332303421,
+      "heldout_cagr_giveback_pp": 0.2469728025236151,
+      "sealed_score": -0.788153372528777,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.300808005960775,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.6248170552480392,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.26003865899425493,
+        "2020": 0.352465833230331,
+        "2022": 4.638757892066215
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2203,
+      "recovery_vs_hard_to_ungated": -0.4444268727521739
+    },
+    "M2_C35_SIDE_DD05": {
+      "id": "M2_C35_SIDE_DD05",
+      "kind": "side_dd05",
+      "share_days_on": 0.23501664816870144,
+      "heldout_score": 0.32001002567497716,
+      "heldout_mdd_improve_pp": 0.3524658332303421,
+      "heldout_cagr_giveback_pp": 0.06491161511072985,
+      "sealed_score": -0.836617078307067,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.806559334574298,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.09777349013639913,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.26003865899425493,
+        "2020": 0.352465833230331,
+        "2022": 4.807396453050461
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2193,
+      "recovery_vs_hard_to_ungated": -0.36111588416896345
+    },
+    "M2_C35_SIDE_DD10": {
+      "id": "M2_C35_SIDE_DD10",
+      "kind": "side_dd10",
+      "share_days_on": 0.23307436182019978,
+      "heldout_score": 0.1661245017185009,
+      "heldout_mdd_improve_pp": 0.3524658332303421,
+      "heldout_cagr_giveback_pp": 0.37268266302368236,
+      "sealed_score": -1.2971886119781173,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.392697925895204,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.31117159026958774,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.26003865899425493,
+        "2020": 0.352465833230331,
+        "2022": 4.777707671179954
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2160,
+      "recovery_vs_hard_to_ungated": -0.5019515593794615
+    },
+    "M2_C35_SIDE_MAX10": {
+      "id": "M2_C35_SIDE_MAX10",
+      "kind": "side_max10",
+      "share_days_on": 0.2599889012208657,
+      "heldout_score": 0.7948361032620643,
+      "heldout_mdd_improve_pp": 0.9286879010787064,
+      "heldout_cagr_giveback_pp": 0.26770359563328405,
+      "sealed_score": -0.9122601277921083,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.165830898757526,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.21137765379422024,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.284508589190835,
+        "2020": 0.9286879010787064,
+        "2022": 4.529417452612472
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2219,
+      "recovery_vs_hard_to_ungated": 0.07344384260197949
+    },
+    "M2_C35_SIDE_MAX20": {
+      "id": "M2_C35_SIDE_MAX20",
+      "kind": "side_max20",
+      "share_days_on": 0.2724750277469478,
+      "heldout_score": 0.8287364978835865,
+      "heldout_mdd_improve_pp": 0.9286879010787064,
+      "heldout_cagr_giveback_pp": 0.19990280639023972,
+      "sealed_score": -0.8621478793753856,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.076865495357283,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.21232620638977906,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.284508589190835,
+        "2020": 0.9286879010787064,
+        "2022": 4.6732330652241245
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2236,
+      "recovery_vs_hard_to_ungated": 0.10446940526487661
+    }
+  },
+  "tip_clean_challengers": [
+    "M2_C35_SIDE_CONT",
+    "M2_C35_SIDE_HIGH_S80",
+    "M2_C35_SIDE_DD05",
+    "M2_C35_SIDE_DD10",
+    "M2_C35_SIDE_MAX10",
+    "M2_C35_SIDE_MAX20"
+  ],
+  "tip_clean_beat_soft_a": [],
+  "best_tip_clean_challenger": "M2_C35_SIDE_MAX20",
+  "soft_a_heldout": 0.8294917867472384,
+  "verdict": {
+    "sideways_conditional_beats_soft_a_tip_clean": false,
+    "residue_closed": true
+  }
+}
