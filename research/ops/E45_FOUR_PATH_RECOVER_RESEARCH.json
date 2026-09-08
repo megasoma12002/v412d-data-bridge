@@ -1,0 +1,559 @@
+{
+  "generated_at_utc": "2026-09-08T04:31:23.180058+00:00",
+  "label": "E45_FOUR_PATH_RECOVER_RESEARCH",
+  "ballot": "\u56db\u689d\u8def\u90fd\u7814\u7a76",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "stitch": "FORBIDDEN",
+  "observe_lock_unchanged": "M2_RELOC_BIL_FX_C35",
+  "live_wire": false,
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "books": {
+    "M2_RELOC_BIL_FX_C35": {
+      "share_days_on": 0.9997225305216426,
+      "heldout_score": 1.807247053422123,
+      "heldout_mdd_improve_pp": 2.5206912403308412,
+      "heldout_cagr_giveback_pp": 1.4268883738174365,
+      "sealed_score": -0.3753416881352445,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.561229307588935,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.762429690547942,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.6453464504780135,
+        "2018": 0.693978866234124,
+        "2020": 2.52069124033083,
+        "2022": 4.564855730835571
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2746,
+      "meta_notes": {
+        "exact_t1_ok": true,
+        "mean_e45_exposure": 1.0
+      },
+      "id": "M2_RELOC_BIL_FX_C35",
+      "family": "C35_x_regime",
+      "spec": {
+        "kind": "ungated",
+        "cut": 0.35
+      },
+      "role": "lock",
+      "heldout_recovery_vs_hard_to_ungated": 1.0
+    },
+    "M2_C35_HARD_BEAR_CRISIS": {
+      "share_days_on": 0.23307436182019978,
+      "heldout_score": 0.7145869463400678,
+      "heldout_mdd_improve_pp": 0.7929037639536896,
+      "heldout_cagr_giveback_pp": 0.1566336352272435,
+      "sealed_score": -0.8450276323340611,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9400224160196045,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.3208004205088155,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.1653003085524305,
+        "2018": 0.5292162243395016,
+        "2020": 0.7929037639537007,
+        "2022": 5.061875284083628
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2218,
+      "meta_notes": {
+        "exact_t1_ok": true,
+        "mean_e45_exposure": 1.0
+      },
+      "id": "M2_C35_HARD_BEAR_CRISIS",
+      "family": "C35_x_regime",
+      "spec": {
+        "kind": "mult",
+        "mult": {
+          "Bull": 0.0,
+          "Sideways": 0.0,
+          "Bear": 1.0,
+          "Crisis": 1.0
+        },
+        "cut": 0.35
+      },
+      "role": "tip_hygiene",
+      "heldout_recovery_vs_hard_to_ungated": 0.0
+    },
+    "M2_C35_SOFT_A": {
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.8294917867472384,
+      "heldout_mdd_improve_pp": 0.9286879010787064,
+      "heldout_cagr_giveback_pp": 0.19839222866293582,
+      "sealed_score": -0.8802027032566717,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9810309248109448,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.18295396332685954,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.284508589190835,
+        "2020": 0.9286879010787064,
+        "2022": 4.672864327977566
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2239,
+      "meta_notes": {
+        "exact_t1_ok": true,
+        "mean_e45_exposure": 1.0
+      },
+      "id": "M2_C35_SOFT_A",
+      "family": "C35_x_regime",
+      "spec": {
+        "kind": "mult",
+        "mult": {
+          "Bull": 0.0,
+          "Sideways": 0.25,
+          "Bear": 0.75,
+          "Crisis": 1.0
+        },
+        "cut": 0.35
+      },
+      "role": "path1_candidate",
+      "heldout_recovery_vs_hard_to_ungated": 0.10516064388405613
+    },
+    "M2_C35_INTEN_Q70": {
+      "share_days_on": 0.29994450610432855,
+      "heldout_score": 0.19567601452008532,
+      "heldout_mdd_improve_pp": 0.7471539672979532,
+      "heldout_cagr_giveback_pp": 1.1029559055557359,
+      "sealed_score": -1.6617439691995695,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 6.955073206059259,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.374047201991549,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3849375709070633,
+        "2018": 0.24466420520432575,
+        "2020": 0.7471539672979643,
+        "2022": 3.5104091151011763
+      },
+      "non2020_events_gt_025pp": 2,
+      "n_fills": 3073,
+      "meta_notes": {
+        "exact_t1_ok": true,
+        "mean_e45_exposure": 1.0
+      },
+      "id": "M2_C35_INTEN_Q70",
+      "family": "C35_intensity_gate_no_regime",
+      "spec": {
+        "kind": "intensity_quantile",
+        "q": 0.7,
+        "thr": 0.38984408543236276,
+        "cut": 0.35
+      },
+      "role": "path3",
+      "heldout_recovery_vs_hard_to_ungated": -0.4749060832885464
+    },
+    "M2_C35_INTEN_Q80": {
+      "share_days_on": 0.20005549389567148,
+      "heldout_score": 0.8941352395080315,
+      "heldout_mdd_improve_pp": 1.2643191134957488,
+      "heldout_cagr_giveback_pp": 0.7403677479754345,
+      "sealed_score": -1.6402695389737487,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 6.394757703088394,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 3.4467170600742003,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.179075224300763,
+        "2018": 0.08760794544498962,
+        "2020": 1.2643191134957377,
+        "2022": 3.424011213383793
+      },
+      "non2020_events_gt_025pp": 2,
+      "n_fills": 2839,
+      "meta_notes": {
+        "exact_t1_ok": true,
+        "mean_e45_exposure": 1.0
+      },
+      "id": "M2_C35_INTEN_Q80",
+      "family": "C35_intensity_gate_no_regime",
+      "spec": {
+        "kind": "intensity_quantile",
+        "q": 0.8,
+        "thr": 0.4354097737167892,
+        "cut": 0.35
+      },
+      "role": "path3",
+      "heldout_recovery_vs_hard_to_ungated": 0.16432218217195352
+    },
+    "M2_C35_INTEN_Q90": {
+      "share_days_on": 0.10016648168701443,
+      "heldout_score": -0.5705665164660423,
+      "heldout_mdd_improve_pp": -0.3788684788495478,
+      "heldout_cagr_giveback_pp": 0.383396075232989,
+      "sealed_score": -0.8547774909269612,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 0.43892171915502765,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": -0.33120190744164724,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 0.7089214419526035,
+        "2018": -0.15116386972516827,
+        "2020": -0.3788684788495589,
+        "2022": 2.9854425893828807
+      },
+      "non2020_events_gt_025pp": 2,
+      "n_fills": 2366,
+      "meta_notes": {
+        "exact_t1_ok": true,
+        "mean_e45_exposure": 1.0
+      },
+      "id": "M2_C35_INTEN_Q90",
+      "family": "C35_intensity_gate_no_regime",
+      "spec": {
+        "kind": "intensity_quantile",
+        "q": 0.9,
+        "thr": 0.5047768654188177,
+        "cut": 0.35
+      },
+      "role": "path3",
+      "heldout_recovery_vs_hard_to_ungated": -1.1761694734496235
+    },
+    "BLEND_E45_A05": {
+      "share_days_on": null,
+      "heldout_score": 0.09627454108416256,
+      "heldout_mdd_improve_pp": 0.14167195278711464,
+      "heldout_cagr_giveback_pp": 0.09079482340590417,
+      "sealed_score": 0.44956382066340117,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.8628141012363875,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 1.905398320239171,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": -0.5547030082077242,
+        "2018": 0.02807805615315795,
+        "2020": 0.14167195278711464,
+        "2022": 0.228582365307195
+      },
+      "non2020_events_gt_025pp": 0,
+      "n_fills": 2036,
+      "meta_notes": {
+        "exact_t1_ok": true,
+        "mean_e45_exposure": 0.9953393768640533
+      },
+      "id": "BLEND_E45_A05",
+      "family": "cheap_protect_e45_exposure",
+      "spec": {
+        "alpha": 0.05,
+        "sleeves": null
+      },
+      "role": "path3",
+      "heldout_recovery_vs_hard_to_ungated": -0.565878081617811
+    },
+    "SLEEVE_FIN_ONLY_A10": {
+      "share_days_on": null,
+      "heldout_score": 0.3155242368333644,
+      "heldout_mdd_improve_pp": 0.4715392331031687,
+      "heldout_cagr_giveback_pp": 0.3120299925396086,
+      "sealed_score": 0.8123509645969196,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.980031217287671,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 2.795623663812896,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 0.052347234704652745,
+        "2018": 0.035444390516425894,
+        "2020": 0.4715392331031576,
+        "2022": -0.24859997458845928
+      },
+      "non2020_events_gt_025pp": 0,
+      "n_fills": 2054,
+      "meta_notes": {
+        "exact_t1_ok": true,
+        "mean_e45_exposure": 0.9906787537281068
+      },
+      "id": "SLEEVE_FIN_ONLY_A10",
+      "family": "cheap_protect_e45_exposure",
+      "spec": {
+        "alpha": 0.1,
+        "sleeves": [
+          "Financial"
+        ]
+      },
+      "role": "path3",
+      "heldout_recovery_vs_hard_to_ungated": -0.36522126773018093
+    },
+    "M3_STATE_V0": {
+      "share_days_on": null,
+      "heldout_score": -1.7183494435601743,
+      "heldout_mdd_improve_pp": -0.5378067398665198,
+      "heldout_cagr_giveback_pp": 2.361085407387309,
+      "sealed_score": 1.7684175201745367,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.471739417485801,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 5.581854913554851,
+        "trailing_1y_gate": "PAUSE_REVIEW",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": -1.0203883341039721,
+        "2018": -0.10516157277709048,
+        "2020": -0.5378067398665198,
+        "2022": -2.956058264052275
+      },
+      "non2020_events_gt_025pp": 0,
+      "n_fills": 2593,
+      "meta_notes": {
+        "exact_t1_ok": true,
+        "mean_e45_exposure": 1.0
+      },
+      "id": "M3_STATE_V0",
+      "family": "M3_three_state",
+      "spec": {
+        "kind": "m3_state_v0"
+      },
+      "role": "path3",
+      "heldout_recovery_vs_hard_to_ungated": -2.226617750690459
+    }
+  },
+  "path1_soft_a_retarget": {
+    "proposed_lock": "M2_C35_SOFT_A",
+    "current_lock": "M2_RELOC_BIL_FX_C35",
+    "delta_heldout_vs_lock": -0.9777552666748845,
+    "delta_heldout_vs_hard": 0.11490484040717064,
+    "tip_lock": {
+      "asof": "2026-09-07",
+      "ytd_giveback_pp": 7.561229307588935,
+      "ytd_gate": "PAUSE_REVIEW",
+      "trailing_1y_giveback_pp": 4.762429690547942,
+      "trailing_1y_gate": "ALERT",
+      "tip_clean": false
+    },
+    "tip_soft_a": {
+      "asof": "2026-09-07",
+      "ytd_giveback_pp": 1.9810309248109448,
+      "ytd_gate": "PASS",
+      "trailing_1y_giveback_pp": 0.18295396332685954,
+      "trailing_1y_gate": "PASS",
+      "tip_clean": true
+    },
+    "recommendation": "DRAFT_BALLOT_ONLY",
+    "human_choices": [
+      "HOLD_ungated_C35",
+      "ACCEPT_observe_retarget_SOFT_A",
+      "REJECT"
+    ],
+    "live_wire": false
+  },
+  "path2_dual_monitor": {
+    "long_score_twin": {
+      "book": "M2_RELOC_BIL_FX_C35",
+      "job": "track held-out / sealed / year MDD help (long research score)",
+      "heldout_score": 1.807247053422123,
+      "tip_clean": false,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.561229307588935,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.762429690547942,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      }
+    },
+    "tip_hygiene_twins": [
+      {
+        "book": "M2_C35_SOFT_A",
+        "job": "primary tip-hygiene twin (best tip-clean soft recover)",
+        "heldout_score": 0.8294917867472384,
+        "tip_clean": true,
+        "tip": {
+          "asof": "2026-09-07",
+          "ytd_giveback_pp": 1.9810309248109448,
+          "ytd_gate": "PASS",
+          "trailing_1y_giveback_pp": 0.18295396332685954,
+          "trailing_1y_gate": "PASS",
+          "tip_clean": true
+        }
+      },
+      {
+        "book": "M2_C35_HARD_BEAR_CRISIS",
+        "book_alias": "M2_C35_HARD_BEAR_CRISIS",
+        "job": "strict tip-hygiene twin (hard allow Bear+Crisis)",
+        "heldout_score": 0.7145869463400678,
+        "tip_clean": true,
+        "tip": {
+          "asof": "2026-09-07",
+          "ytd_giveback_pp": 1.9400224160196045,
+          "ytd_gate": "PASS",
+          "trailing_1y_giveback_pp": 0.3208004205088155,
+          "trailing_1y_gate": "PASS",
+          "tip_clean": true
+        }
+      }
+    ],
+    "ops_rule": "Month-end: report long-score twin held-out/sealed deltas AND tip twin YTD/1y gates. Do not auto-flip observe lock. Promote/stitch still requires separate ACCEPT.",
+    "conflict_policy": "If long-score twin tip is PAUSE/ALERT while tip twin is PASS: expected under this design; do not treat long-score tip dirt as Soft_A failure."
+  },
+  "path3_new_mechanism": {
+    "screened_ids": [
+      "M2_C35_INTEN_Q70",
+      "M2_C35_INTEN_Q80",
+      "M2_C35_INTEN_Q90",
+      "BLEND_E45_A05",
+      "SLEEVE_FIN_ONLY_A10",
+      "M3_STATE_V0"
+    ],
+    "tip_clean_ids": [
+      "M2_C35_INTEN_Q90",
+      "BLEND_E45_A05",
+      "SLEEVE_FIN_ONLY_A10"
+    ],
+    "tip_clean_beat_hard": [],
+    "tip_clean_beat_soft_a": [],
+    "best_tip_clean": "SLEEVE_FIN_ONLY_A10",
+    "best_tip_clean_heldout": 0.3155242368333644,
+    "verdict": "NO_PATH3_BEATS_SOFT_A_WHILE_TIP_CLEAN"
+  },
+  "path4_accept_tradeoff": {
+    "what_you_buy": {
+      "tip_ytd_gate": "PASS",
+      "tip_1y_gate": "PASS",
+      "ytd_giveback_pp_hard": 1.9400224160196045,
+      "ytd_giveback_pp_ungated": 7.561229307588935,
+      "tip_giveback_saved_pp_ytd": 5.62120689156933
+    },
+    "what_you_pay": {
+      "heldout_score_ungated": 1.807247053422123,
+      "heldout_score_hard": 0.7145869463400678,
+      "heldout_score_soft_a": 0.8294917867472384,
+      "heldout_gap_hard_vs_ungated": 1.0926601070820552,
+      "mdd2020_help_ungated": 2.52069124033083,
+      "mdd2020_help_hard": 0.7929037639537007,
+      "mdd2020_help_soft_a": 0.9286879010787064
+    },
+    "when_rational": [
+      "Live/stitch path is tip-gated (YTD/1y PASS required) and ungated C35 fails tip.",
+      "Operator prefers tip hygiene over maximizing paper held-out score.",
+      "Same-family soft gates cannot close most of the gap (Soft_A ~11%).",
+      "Path3 screens did not deliver tip-clean held-out near ungated."
+    ],
+    "when_not_rational": [
+      "Research objective is maximize held-out score regardless of tip (keep ungated lock).",
+      "A Path3 / new mechanism later clears tip PASS with held-out >> Soft_A."
+    ],
+    "formal_stance": "ACCEPT_TRADEOFF_IS_VALID_DEFAULT_IF_TIP_BINDING"
+  },
+  "tip_clean_ranked": [
+    {
+      "id": "M2_C35_SOFT_A",
+      "heldout_score": 0.8294917867472384,
+      "family": "C35_x_regime",
+      "recovery": 0.10516064388405613,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9810309248109448,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.18295396332685954,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      }
+    },
+    {
+      "id": "M2_C35_HARD_BEAR_CRISIS",
+      "heldout_score": 0.7145869463400678,
+      "family": "C35_x_regime",
+      "recovery": 0.0,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9400224160196045,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.3208004205088155,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      }
+    },
+    {
+      "id": "SLEEVE_FIN_ONLY_A10",
+      "heldout_score": 0.3155242368333644,
+      "family": "cheap_protect_e45_exposure",
+      "recovery": -0.36522126773018093,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.980031217287671,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 2.795623663812896,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      }
+    },
+    {
+      "id": "BLEND_E45_A05",
+      "heldout_score": 0.09627454108416256,
+      "family": "cheap_protect_e45_exposure",
+      "recovery": -0.565878081617811,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.8628141012363875,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 1.905398320239171,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      }
+    },
+    {
+      "id": "M2_C35_INTEN_Q90",
+      "heldout_score": -0.5705665164660423,
+      "family": "C35_intensity_gate_no_regime",
+      "recovery": -1.1761694734496235,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 0.43892171915502765,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": -0.33120190744164724,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      }
+    }
+  ],
+  "verdict": {
+    "best_tip_clean_overall": "M2_C35_SOFT_A",
+    "soft_a_still_best_c35_family_recover": true,
+    "path3_replaces_soft_a": false,
+    "recommended_stack": [
+      "KEEP_or_ACCEPT_Soft_A_for_tip_hygiene",
+      "DUAL_MONITOR_ungated_for_long_score",
+      "CONTINUE_new_mechanism_ladder_outside_C35_x_regime",
+      "ACCEPT_tradeoff_if_tip_binding_and_no_Path3_winner"
+    ]
+  }
+}

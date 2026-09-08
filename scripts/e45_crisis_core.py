@@ -465,6 +465,23 @@ def apply_m3_state_action(
     return apply_m2_def_relocate(sleeve_weights, intensity=1.0, cut=u, mode="RELOC_TEL")
 
 
+def apply_m3_state_action_bil_fx(
+    sleeve_weights: dict[str, float],
+    state: str,
+) -> dict[str, float]:
+    """M3 v1: same hysteresis states / u table, actuator = RELOC_BIL_FX (true DEF)."""
+    st = str(state).upper()
+    u = float(M3_ACTION_U.get(st, 0.0))
+    if u <= 0.0 or st == "NORMAL":
+        return {
+            "Financial": float(sleeve_weights.get("Financial", 0.0)),
+            "Telecom": float(sleeve_weights.get("Telecom", 0.0)),
+            "0050": float(sleeve_weights.get("0050", 0.0)),
+            "DEF": 0.0,
+        }
+    return apply_m2_def_relocate(sleeve_weights, intensity=1.0, cut=u, mode="RELOC_BIL_FX")
+
+
 def build_m3_sleeve_schedule(
     base_targets: pd.DataFrame,
     intensity: pd.Series,
@@ -476,6 +493,30 @@ def build_m3_sleeve_schedule(
     idx = []
     for dt, row in base_targets.iterrows():
         out = apply_m3_state_action(
+            {
+                "Financial": float(row["Financial"]),
+                "Telecom": float(row["Telecom"]),
+                "0050": float(row["0050"]),
+            },
+            str(state_lag.loc[dt]),
+        )
+        rows.append(out)
+        idx.append(dt)
+    sched = pd.DataFrame(rows, index=pd.DatetimeIndex(idx))
+    return sched, state_t
+
+
+def build_m3_sleeve_schedule_bil_fx(
+    base_targets: pd.DataFrame,
+    intensity: pd.Series,
+) -> tuple[pd.DataFrame, pd.Series]:
+    """M3 v1 schedule: frozen hysteresis + RELOC_BIL_FX per-state u (Exact T+1 lag)."""
+    state_t = build_m3_state_series(intensity.reindex(base_targets.index).fillna(0.0))
+    state_lag = state_t.shift(1).fillna("NORMAL")
+    rows = []
+    idx = []
+    for dt, row in base_targets.iterrows():
+        out = apply_m3_state_action_bil_fx(
             {
                 "Financial": float(row["Financial"]),
                 "Telecom": float(row["Telecom"]),

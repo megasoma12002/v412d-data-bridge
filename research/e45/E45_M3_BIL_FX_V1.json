@@ -1,0 +1,342 @@
+{
+  "generated_at_utc": "2026-09-08T06:11:16.854209+00:00",
+  "label": "E45_M3_BIL_FX_V1",
+  "freeze": "E45_M3_THREE_STATE_BIL_FX_V1_FROZEN_2026-09-08",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "stitch": "FORBIDDEN",
+  "observe_lock_unchanged": "M2_RELOC_BIL_FX_C35",
+  "live_wire": false,
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "state_occupancy": {
+    "NORMAL": 0.7192008879023307,
+    "SLOW_BEAR": 0.24056603773584906,
+    "CRASH": 0.0402330743618202
+  },
+  "section2": [
+    {
+      "book": "BASE_E16_E18_E22_v2s",
+      "kind": "ref",
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": false,
+      "sealed_score_ok": true,
+      "covid_ex_heldout_pos": false,
+      "cost_1x_2x_ok": false,
+      "qualifies_section2": false,
+      "years_helped": [],
+      "n_years_helped": 0,
+      "heldout_score": 0.0,
+      "sealed_score": 0.0,
+      "covid_ex_score": 0.0,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 0.0,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.0,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      }
+    },
+    {
+      "book": "BLEND_E45_A05",
+      "kind": "ref_e45",
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": true,
+      "sealed_score_ok": true,
+      "covid_ex_heldout_pos": true,
+      "cost_1x_2x_ok": false,
+      "qualifies_section2": false,
+      "years_helped": [],
+      "n_years_helped": 0,
+      "heldout_score": 0.09627454108416256,
+      "sealed_score": 0.44956382066340117,
+      "covid_ex_score": 0.17496624760926505,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.8628141012363875,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 1.905398320239171,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      }
+    },
+    {
+      "book": "SLEEVE_FIN_ONLY_A10",
+      "kind": "ref_e45_sleeve",
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": true,
+      "sealed_score_ok": true,
+      "covid_ex_heldout_pos": false,
+      "cost_1x_2x_ok": true,
+      "qualifies_section2": false,
+      "years_helped": [
+        2020
+      ],
+      "n_years_helped": 1,
+      "heldout_score": 0.3155242368333644,
+      "sealed_score": 0.8123509645969196,
+      "covid_ex_score": -0.4328334378780774,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.980031217287671,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 2.795623663812896,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      }
+    },
+    {
+      "book": "M2_RELOC_BIL_FX_C35",
+      "kind": "ref_m2_continuous",
+      "multi_event": true,
+      "strict_noncovid_multi": true,
+      "heldout_score_pos": true,
+      "sealed_score_ok": true,
+      "covid_ex_heldout_pos": true,
+      "cost_1x_2x_ok": true,
+      "qualifies_section2": true,
+      "years_helped": [
+        2015,
+        2018,
+        2020,
+        2022
+      ],
+      "n_years_helped": 4,
+      "heldout_score": 1.807247053422123,
+      "sealed_score": -0.3753416881352445,
+      "covid_ex_score": 3.7229798031146566,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.561229307588935,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.762429690547942,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      }
+    },
+    {
+      "book": "M3_STATE_V0",
+      "kind": "ref_m3_v0_tel",
+      "multi_event": false,
+      "strict_noncovid_multi": false,
+      "heldout_score_pos": false,
+      "sealed_score_ok": true,
+      "covid_ex_heldout_pos": false,
+      "cost_1x_2x_ok": false,
+      "qualifies_section2": false,
+      "years_helped": [],
+      "n_years_helped": 0,
+      "heldout_score": -1.5074495075166783,
+      "sealed_score": 1.6506133643754417,
+      "covid_ex_score": -3.8471718571649216,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.18745516143906,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.9657953060118,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      }
+    },
+    {
+      "book": "M3_BIL_FX_V1",
+      "kind": "m3_bil_fx_v1",
+      "multi_event": true,
+      "strict_noncovid_multi": true,
+      "heldout_score_pos": false,
+      "sealed_score_ok": true,
+      "covid_ex_heldout_pos": false,
+      "cost_1x_2x_ok": false,
+      "qualifies_section2": false,
+      "years_helped": [
+        2015,
+        2018,
+        2022
+      ],
+      "n_years_helped": 3,
+      "heldout_score": -2.0961333175933294,
+      "sealed_score": 0.11724350283954799,
+      "covid_ex_score": -2.1096480915282267,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 15.239926932560799,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 11.168720441750036,
+        "trailing_1y_gate": "PAUSE_REVIEW",
+        "tip_clean": false
+      }
+    }
+  ],
+  "heldout_1x": {
+    "BASE_E16_E18_E22_v2s": {
+      "book": "BASE_E16_E18_E22_v2s",
+      "kind": "ref",
+      "mode": null,
+      "cost_multiple": 1,
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.0,
+      "cagr_giveback_pp": 0.0,
+      "score": 0.0,
+      "covid_ex_score": 0.0,
+      "years_helped": "",
+      "year_help_2015": 0.0,
+      "year_help_2018": 0.0,
+      "year_help_2020": 0.0,
+      "year_help_2022": 0.0,
+      "turnover_per_year": 1.2959339538078969
+    },
+    "BLEND_E45_A05": {
+      "book": "BLEND_E45_A05",
+      "kind": "ref_e45",
+      "mode": null,
+      "cost_multiple": 1,
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.14167195278711464,
+      "cagr_giveback_pp": 0.09079482340590417,
+      "score": 0.09627454108416256,
+      "covid_ex_score": 0.17496624760926505,
+      "years_helped": "",
+      "year_help_2015": -0.5547030082077353,
+      "year_help_2018": 0.028078056153146846,
+      "year_help_2020": 0.14167195278711464,
+      "year_help_2022": 0.228582365307195,
+      "turnover_per_year": 1.3476640887923266
+    },
+    "SLEEVE_FIN_ONLY_A10": {
+      "book": "SLEEVE_FIN_ONLY_A10",
+      "kind": "ref_e45_sleeve",
+      "mode": null,
+      "cost_multiple": 1,
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.4715392331031687,
+      "cagr_giveback_pp": 0.3120299925396086,
+      "score": 0.3155242368333644,
+      "covid_ex_score": -0.4328334378780774,
+      "years_helped": "2020",
+      "year_help_2015": 0.05234723470464164,
+      "year_help_2018": 0.03544439051640369,
+      "year_help_2020": 0.4715392331031465,
+      "year_help_2022": -0.2485999745884815,
+      "turnover_per_year": 1.3480085279293912
+    },
+    "M2_RELOC_BIL_FX_C35": {
+      "book": "M2_RELOC_BIL_FX_C35",
+      "kind": "ref_m2_continuous",
+      "mode": "RELOC_BIL_FX_C35",
+      "cost_multiple": 1,
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 2.5206912403308412,
+      "cagr_giveback_pp": 1.4268883738174365,
+      "score": 1.807247053422123,
+      "covid_ex_score": 3.7229798031146566,
+      "years_helped": "2015,2018,2020,2022",
+      "year_help_2015": 1.6453464504780024,
+      "year_help_2018": 0.6939788662341018,
+      "year_help_2020": 2.520691240330819,
+      "year_help_2022": 4.564855730835548,
+      "turnover_per_year": 2.071168770305509
+    },
+    "M3_STATE_V0": {
+      "book": "M3_STATE_V0",
+      "kind": "ref_m3_v0_tel",
+      "mode": "STATE_V0_TEL",
+      "cost_multiple": 1,
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": -0.4405440457507126,
+      "cagr_giveback_pp": 2.1338109235319314,
+      "score": -1.5074495075166783,
+      "covid_ex_score": -3.8471718571649216,
+      "years_helped": "",
+      "year_help_2015": -0.5462022766131391,
+      "year_help_2018": 0.06097621706553369,
+      "year_help_2020": -0.4405440457507126,
+      "year_help_2022": -2.5887858805860087,
+      "turnover_per_year": 2.6765465274304088
+    },
+    "M3_BIL_FX_V1": {
+      "book": "M3_BIL_FX_V1",
+      "kind": "m3_bil_fx_v1",
+      "mode": "STATE_V1_BIL_FX",
+      "cost_multiple": 1,
+      "window": "heldout_2019_plus",
+      "mdd_improve_pp": 0.24613519212206558,
+      "cagr_giveback_pp": 4.68453701943079,
+      "score": -2.0961333175933294,
+      "covid_ex_score": -2.1096480915282267,
+      "years_helped": "2015,2018,2022",
+      "year_help_2015": 0.9105029252704511,
+      "year_help_2018": 0.26336511359768,
+      "year_help_2020": 0.24613519212207668,
+      "year_help_2022": 1.4182346236870758,
+      "turnover_per_year": 2.656743906139041
+    }
+  },
+  "tip_diagnostics_1x": {
+    "BASE_E16_E18_E22_v2s": {
+      "asof": "2026-09-07",
+      "ytd_giveback_pp": 0.0,
+      "ytd_gate": "PASS",
+      "trailing_1y_giveback_pp": 0.0,
+      "trailing_1y_gate": "PASS",
+      "tip_clean": true
+    },
+    "BLEND_E45_A05": {
+      "asof": "2026-09-07",
+      "ytd_giveback_pp": 1.8628141012363875,
+      "ytd_gate": "PASS",
+      "trailing_1y_giveback_pp": 1.905398320239171,
+      "trailing_1y_gate": "PASS",
+      "tip_clean": true
+    },
+    "SLEEVE_FIN_ONLY_A10": {
+      "asof": "2026-09-07",
+      "ytd_giveback_pp": 2.980031217287671,
+      "ytd_gate": "PASS",
+      "trailing_1y_giveback_pp": 2.795623663812896,
+      "trailing_1y_gate": "PASS",
+      "tip_clean": true
+    },
+    "M2_RELOC_BIL_FX_C35": {
+      "asof": "2026-09-07",
+      "ytd_giveback_pp": 7.561229307588935,
+      "ytd_gate": "PAUSE_REVIEW",
+      "trailing_1y_giveback_pp": 4.762429690547942,
+      "trailing_1y_gate": "ALERT",
+      "tip_clean": false
+    },
+    "M3_STATE_V0": {
+      "asof": "2026-09-07",
+      "ytd_giveback_pp": 7.18745516143906,
+      "ytd_gate": "PAUSE_REVIEW",
+      "trailing_1y_giveback_pp": 4.9657953060118,
+      "trailing_1y_gate": "ALERT",
+      "tip_clean": false
+    },
+    "M3_BIL_FX_V1": {
+      "asof": "2026-09-07",
+      "ytd_giveback_pp": 15.239926932560799,
+      "ytd_gate": "PAUSE_REVIEW",
+      "trailing_1y_giveback_pp": 11.168720441750036,
+      "trailing_1y_gate": "PAUSE_REVIEW",
+      "tip_clean": false
+    }
+  },
+  "stage_gate": {
+    "m3_section2_pass": false,
+    "m3_covid_ex": -2.1096480915282267,
+    "m2_c35_covid_ex": 3.7229798031146566,
+    "m3_ge_m2_covid_ex": false,
+    "stage_pass": false,
+    "verdict": "FAIL_AUTOPSY"
+  },
+  "read": [
+    "M3 v1 swaps v0 RELOC_TEL \u2192 RELOC_BIL_FX; hysteresis unchanged.",
+    "Not a Soft-Frozen regime soft-gate on continuous C35.",
+    "Even on PASS: no auto Soft-Frozen / stitch / observe OPEN."
+  ]
+}
