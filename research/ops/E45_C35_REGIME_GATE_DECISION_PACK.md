@@ -22,3 +22,9 @@ Soft-Frozen **KEEP** · stitch **FORBIDDEN** · observe lock today **`M2_RELOC_B
 | `DEFER` | Wait |
 
 Live stitch still requires separate second ACCEPT after clean trailing on the chosen book.
+
+## Follow-up (2026-09-08): soft-gate recover held-out
+
+Same-family soft multipliers / Crisis-boost / hysteresis: best tip-clean recovery is **`SOFT_A`** (held-out **+0.72 → +0.83**, gap closed **~11%**). Full recovery to ungated **+1.81** while tip PASS is **not** available in-family.
+
+See `E45_C35_SOFT_GATE_RESEARCH.md` · `E45_C35_SOFT_GATE_DECISION_PACK.md`.

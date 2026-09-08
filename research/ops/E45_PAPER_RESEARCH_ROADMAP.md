@@ -137,3 +137,6 @@ Engineering: PR **#101** (M3) · **#102** (DEF ingest) · **#103** (M2 v1 paper)
 
 | — | Month-end cadence continue observe (post-C35) | **DONE — PACK PARTIAL (gap6 live)** | `OPS_CADENCE_2026-09-07_C35_OBSERVE.md` · pack `MONTH_END_PAPER_PACK.md` · tip PAUSE expected |
 
+| — | C35 Soft-Frozen regime gate (tip hygiene) | **DONE — PAPER** | `E45_C35_REGIME_GATE_RESEARCH.md` — hard Bear+Crisis tip PASS; held-out +1.81→+0.72 |
+| — | Soft-gate recover sacrificed held-out | **DONE — PAPER** | `E45_C35_SOFT_GATE_RESEARCH.md` — best tip-clean **Soft_A** (+0.83, ~11% gap); same-family full recovery exhausted |
+
