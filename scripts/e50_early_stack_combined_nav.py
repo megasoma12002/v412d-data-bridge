@@ -25,6 +25,13 @@ import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
 from tw_share_lots import BOARD_LOT
 from portfolio_capital import DEFAULT_CAPITAL
+from within_sleeve_alloc import (
+    FIN_EQUAL,
+    FIN_ALLOC_POLICIES,
+    TEL_EQUAL,
+    TEL_ALLOC_POLICIES,
+    allocate_sleeve_orders,
+)
 CLAIM_STATUS = e45.CLAIMED_MDD_STATUS
 from research_metric_helpers import metric_delta, fmt_pct
 
@@ -78,6 +85,10 @@ def simulate_core(
     cost_multiple: float = 1.0,
     capital: float = CAPITAL,
     lot_size: int = BOARD_LOT,
+    financial_alloc: str = FIN_EQUAL,
+    telecom_alloc: str = TEL_EQUAL,
+    fin_name_scores: pd.DataFrame | None = None,
+    tel_name_scores: pd.DataFrame | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
@@ -94,7 +105,13 @@ def simulate_core(
     When present for a date, it overrides e45_exposure / legacy crisis scale.
     def_code: optional synthetic/research DEF instrument code present in ``market``;
     required when schedule carries a DEF column > 0.
+    financial_alloc / telecom_alloc: paper within-sleeve policies (default EQUAL).
+    Live e21 unchanged until dedicated cutover ACCEPT.
     """
+    if financial_alloc not in FIN_ALLOC_POLICIES:
+        raise ValueError(f"financial_alloc must be one of {FIN_ALLOC_POLICIES}")
+    if telecom_alloc not in TEL_ALLOC_POLICIES:
+        raise ValueError(f"telecom_alloc must be one of {TEL_ALLOC_POLICIES}")
     if e22_version is None:
         if apply_stock_div is False:
             e22_version = e22div.E22_V2
@@ -296,7 +313,57 @@ def simulate_core(
         sleeve_codes = [("Financial", FIN), ("Telecom", TEL), ("0050", ["0050"])]
         if def_c is not None:
             sleeve_codes.append(("DEF", [def_c]))
+        fin_scores_today = None
+        if fin_name_scores is not None and dt in fin_name_scores.index:
+            fin_scores_today = {
+                c: float(fin_name_scores.loc[dt, c])
+                for c in FIN
+                if c in fin_name_scores.columns and pd.notna(fin_name_scores.loc[dt, c])
+            }
+        tel_scores_today = None
+        if tel_name_scores is not None and dt in tel_name_scores.index:
+            tel_scores_today = {
+                c: float(tel_name_scores.loc[dt, c])
+                for c in TEL
+                if c in tel_name_scores.columns and pd.notna(tel_name_scores.loc[dt, c])
+            }
         for sleeve_name, codes in sleeve_codes:
+            if sleeve_name == "Financial" and financial_alloc != FIN_EQUAL:
+                dollars = float(sleeve_trade[sleeve_name]) * nav
+                if abs(dollars) >= 1e-9 or financial_alloc in ("FIN_TOP1", "FIN_TOP2_EQUAL"):
+                    for c, side, qty in allocate_sleeve_orders(
+                        dollars,
+                        {x: float(cl[x]) for x in FIN},
+                        pos,
+                        policy_id=financial_alloc,
+                        codes=FIN,
+                        lot_size=lot_size,
+                        scores=fin_scores_today,
+                    ):
+                        if qty < 1:
+                            continue
+                        pending.append(
+                            {"signal_date": dt, "code": c, "side": side, "quantity": qty}
+                        )
+                continue
+            if sleeve_name == "Telecom" and telecom_alloc != TEL_EQUAL:
+                dollars = float(sleeve_trade[sleeve_name]) * nav
+                if abs(dollars) >= 1e-9 or telecom_alloc in ("TEL_TOP1", "TEL_TOP2_EQUAL"):
+                    for c, side, qty in allocate_sleeve_orders(
+                        dollars,
+                        {x: float(cl[x]) for x in TEL},
+                        pos,
+                        policy_id=telecom_alloc,
+                        codes=TEL,
+                        lot_size=lot_size,
+                        scores=tel_scores_today,
+                    ):
+                        if qty < 1:
+                            continue
+                        pending.append(
+                            {"signal_date": dt, "code": c, "side": side, "quantity": qty}
+                        )
+                continue
             value = sleeve_trade[sleeve_name] * nav / len(codes)
             for c in codes:
                 px = float(cl[c])
@@ -364,6 +431,8 @@ def simulate_core(
         "def_code": def_c,
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
         "lot_size": int(lot_size),
+        "financial_alloc": str(financial_alloc),
+        "telecom_alloc": str(telecom_alloc),
         "e22_manifest": e22div.version_manifest(e22_version) if apply_e22 else None,
     }
     return nav_df, fills_df, meta
