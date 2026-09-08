@@ -29,9 +29,20 @@ from within_sleeve_alloc import (
     FIN_EQUAL,
     FIN_ALLOC_POLICIES,
     TEL_EQUAL,
+    TEL_MIN_LOT_PACK,
+    TEL_TOP1,
+    TEL_TOP2_EQUAL,
     TEL_ALLOC_POLICIES,
     allocate_sleeve_orders,
+    build_name_scores,
 )
+
+# Back-compat aliases for Stage B telecom challenger (#125)
+TEL_ALLOC_EQUAL = TEL_EQUAL
+TEL_ALLOC_MIN_LOT_PACK = TEL_MIN_LOT_PACK
+TEL_ALLOC_TOP1 = TEL_TOP1
+TEL_ALLOC_TOP2_EQUAL = TEL_TOP2_EQUAL
+
 CLAIM_STATUS = e45.CLAIMED_MDD_STATUS
 from research_metric_helpers import metric_delta, fmt_pct
 
@@ -46,6 +57,11 @@ TAX_ETF = 0.001
 SLIP = 0.0005
 CAPITAL = DEFAULT_CAPITAL
 WARMUP_DAYS = 252
+
+
+def build_tel_name_scores(market: pd.DataFrame):
+    """Causal within-Telecom scores — delegates to shared within_sleeve_alloc."""
+    return build_name_scores(market, TEL)
 
 
 def e16_features(m: pd.DataFrame):

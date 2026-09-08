@@ -11,6 +11,8 @@ from tw_share_lots import BOARD_LOT, board_lots
 
 POLICY_EQUAL = "EQUAL"
 POLICY_MIN_LOT_PACK = "MIN_LOT_PACK"
+POLICY_SCORE_LOT_PACK = "SCORE_LOT_PACK"
+POLICY_DIVERSIFY_PACK = "DIVERSIFY_PACK"
 POLICY_TOP1 = "TOP1"
 POLICY_TOP2_EQUAL = "TOP2_EQUAL"
 POLICY_RS_SOFT_TILT = "RS_SOFT_TILT"
@@ -19,6 +21,8 @@ POLICY_RS_SOFT_TILT_EXDIV = "RS_SOFT_TILT_EXDIV"
 POLICY_SUFFIXES = (
     POLICY_EQUAL,
     POLICY_MIN_LOT_PACK,
+    POLICY_SCORE_LOT_PACK,
+    POLICY_DIVERSIFY_PACK,
     POLICY_TOP1,
     POLICY_TOP2_EQUAL,
     POLICY_RS_SOFT_TILT,
@@ -46,16 +50,27 @@ FIN_ALLOC_POLICIES = (
 
 TEL_EQUAL = "TEL_EQUAL"
 TEL_MIN_LOT_PACK = "TEL_MIN_LOT_PACK"
+TEL_SCORE_LOT_PACK = "TEL_SCORE_LOT_PACK"
+TEL_DIVERSIFY_PACK = "TEL_DIVERSIFY_PACK"
 TEL_TOP1 = "TEL_TOP1"
 TEL_TOP2_EQUAL = "TEL_TOP2_EQUAL"
-TEL_ALLOC_POLICIES = (TEL_EQUAL, TEL_MIN_LOT_PACK, TEL_TOP1, TEL_TOP2_EQUAL)
+TEL_ALLOC_POLICIES = (
+    TEL_EQUAL,
+    TEL_MIN_LOT_PACK,
+    TEL_SCORE_LOT_PACK,
+    TEL_DIVERSIFY_PACK,
+    TEL_TOP1,
+    TEL_TOP2_EQUAL,
+)
 
 
 def policy_kind(policy_id: str) -> str:
-    if policy_id.endswith("_EQUAL") and not policy_id.endswith("_TOP2_EQUAL"):
-        # FIN_EQUAL / TEL_EQUAL
-        if policy_id in (FIN_EQUAL, TEL_EQUAL):
-            return POLICY_EQUAL
+    if policy_id in (FIN_EQUAL, TEL_EQUAL):
+        return POLICY_EQUAL
+    if policy_id.endswith("_SCORE_LOT_PACK"):
+        return POLICY_SCORE_LOT_PACK
+    if policy_id.endswith("_DIVERSIFY_PACK"):
+        return POLICY_DIVERSIFY_PACK
     if policy_id.endswith("_MIN_LOT_PACK"):
         return POLICY_MIN_LOT_PACK
     if policy_id.endswith("_TOP1"):
@@ -186,6 +201,49 @@ def _buy_eligible(
     return [c for c in names if bool(buy_ok.get(c, True))]
 
 
+
+def _pack_one_lot_then_dump(
+    names: list[str],
+    sleeve_dollars: float,
+    closes: dict[str, float],
+    *,
+    lot_size: int,
+    order_names: list[str],
+    dump_equal: bool,
+) -> list[tuple[str, str, int]]:
+    """≥1 張 along order_names; remainder dump to first or equal-split among bought."""
+    out: list[tuple[str, str, int]] = []
+    remaining = float(sleeve_dollars)
+    bought: list[str] = []
+    for c in order_names:
+        px = float(closes[c])
+        lot_cost = px * lot_size
+        if lot_cost <= 0 or remaining + 1e-9 < lot_cost:
+            continue
+        out.append((c, "BUY", int(lot_size)))
+        remaining -= lot_cost
+        bought.append(c)
+    positives = [float(closes[c]) for c in names if float(closes[c]) > 0]
+    if positives and remaining < lot_size * min(positives):
+        return out
+    if dump_equal and bought:
+        out.extend(
+            allocate_equal_notional(bought, remaining, closes, {c: 0 for c in bought}, lot_size=lot_size)
+        )
+        return out
+    refill = bought if bought else order_names
+    for c in refill:
+        px = float(closes[c])
+        if px <= 0:
+            continue
+        extra = lot_qty_from_notional(remaining, px, lot_size=lot_size)
+        if extra < lot_size:
+            continue
+        out.append((c, "BUY", int(extra)))
+        remaining -= extra * px
+    return out
+
+
 def allocate_sleeve_orders(
     sleeve_dollars: float,
     closes: dict[str, float],
@@ -247,7 +305,7 @@ def allocate_sleeve_orders(
         active = [max(names, key=lambda c: (score_map[c], -float(closes[c]), c))]
     elif kind == POLICY_TOP2_EQUAL:
         active = sorted(names, key=lambda c: (score_map[c], -float(closes[c]), c), reverse=True)[:2]
-    elif kind == POLICY_MIN_LOT_PACK:
+    elif kind in (POLICY_MIN_LOT_PACK, POLICY_SCORE_LOT_PACK, POLICY_DIVERSIFY_PACK):
         active = None
     else:
         raise ValueError(f"unsupported policy kind: {kind}")
@@ -277,28 +335,31 @@ def allocate_sleeve_orders(
         )
         return _coalesce_orders(out)
 
-    # MIN_LOT_PACK
-    remaining = float(sleeve_dollars)
+    if kind == POLICY_SCORE_LOT_PACK:
+        order_names = sorted(names, key=lambda c: (score_map[c], -float(closes[c]), c), reverse=True)
+        out.extend(
+            _pack_one_lot_then_dump(
+                names, sleeve_dollars, closes, lot_size=lot_size, order_names=order_names, dump_equal=False
+            )
+        )
+        return _coalesce_orders(out)
+
+    if kind == POLICY_DIVERSIFY_PACK:
+        order_names = sorted(names, key=lambda c: (float(closes[c]), c))
+        out.extend(
+            _pack_one_lot_then_dump(
+                names, sleeve_dollars, closes, lot_size=lot_size, order_names=order_names, dump_equal=True
+            )
+        )
+        return _coalesce_orders(out)
+
+    # MIN_LOT_PACK (cheapest-first)
     order_names = sorted(names, key=lambda c: (float(closes[c]), c))
-    bought: list[str] = []
-    for c in order_names:
-        px = float(closes[c])
-        lot_cost = px * lot_size
-        if lot_cost <= 0 or remaining + 1e-9 < lot_cost:
-            continue
-        out.append((c, "BUY", int(lot_size)))
-        remaining -= lot_cost
-        bought.append(c)
-    refill = bought if bought else order_names
-    for c in refill:
-        px = float(closes[c])
-        if px <= 0:
-            continue
-        extra = lot_qty_from_notional(remaining, px, lot_size=lot_size)
-        if extra < lot_size:
-            continue
-        out.append((c, "BUY", int(extra)))
-        remaining -= extra * px
+    out.extend(
+        _pack_one_lot_then_dump(
+            names, sleeve_dollars, closes, lot_size=lot_size, order_names=order_names, dump_equal=False
+        )
+    )
     return _coalesce_orders(out)
 
 
@@ -368,6 +429,8 @@ def build_name_scores(market, codes: list[str] | tuple[str, ...]):
 __all__ = [
     "POLICY_EQUAL",
     "POLICY_MIN_LOT_PACK",
+    "POLICY_SCORE_LOT_PACK",
+    "POLICY_DIVERSIFY_PACK",
     "POLICY_TOP1",
     "POLICY_TOP2_EQUAL",
     "POLICY_RS_SOFT_TILT",
@@ -383,6 +446,8 @@ __all__ = [
     "FIN_ALLOC_POLICIES",
     "TEL_EQUAL",
     "TEL_MIN_LOT_PACK",
+    "TEL_SCORE_LOT_PACK",
+    "TEL_DIVERSIFY_PACK",
     "TEL_TOP1",
     "TEL_TOP2_EQUAL",
     "TEL_ALLOC_POLICIES",

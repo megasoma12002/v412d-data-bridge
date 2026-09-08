@@ -1,12 +1,14 @@
 # Telecom Within-Sleeve Allocation Charter — Research Only
 
 Date: 2026-09-08  
-Status: **CHARTER DRAFT / OPEN** — awaiting human **ACCEPT charter** (research only)  
+Status: **CHARTER ACCEPTED** — Stage B paper implementation authorized  
 Class: **A. Research / EXPERIMENTAL**  
 Soft-Frozen live: **KEEP** (FIN [0.50, 0.95] · TEL [0.03, 0.35] · 0050 [0.00, 0.35])  
 Execution context: capital **3M** · board-lot **1000** · books **`E22_v2s_tw`**
 
 Authority: `STRATEGY_UPDATE_STANDARD_PROCESS.md` · `CAPITAL_3M_RESTORE_2026-09-08.md` · `TW_SHARE_LOT_DEFINITIONS.md`
+
+Ballot: human **`ACCEPT telecom within-sleeve charter`** (2026-09-08)
 
 **Passing ≠ Soft-Frozen flip ≠ live cutover.**
 
@@ -44,7 +46,7 @@ Raising capital to 15M fixed fills but changed scale economics; human restored *
 | id | Rule sketch |
 |---|---|
 | `TEL_EQUAL` | Current: equal split 3 names (BASE control) |
-| `TEL_MIN_LOT_PACK` | Greedy: buy ≥1 張 on cheapest-first (or score-first) names until sleeve budget exhausted; skip unaffordable |
+| `TEL_MIN_LOT_PACK` | Greedy: buy ≥1 張 on cheapest-first names until sleeve budget exhausted; skip unaffordable |
 | `TEL_TOP1` | Concentrate Telecom sleeve into single highest-score name (board-lot) |
 | `TEL_TOP2_EQUAL` | Pick top-2 by score; equal-split those two only |
 
@@ -73,12 +75,14 @@ Fail → keep equal-split live; Soft-Frozen KEEP.
 ## Stage plan
 
 ```
-A  ACCEPT charter                                      ← YOU ARE HERE
-B  Implement paper policies + BASE equal-split @ 3M
-C  Held-out rank; sealed report for top ≤2
-D  Optional dual-paper observe
-E  Separate human ballot for live within-sleeve cutover
+A  ACCEPT charter                                      ← DONE 2026-09-08
+B  Implement paper policies + BASE equal-split @ 3M    ← DONE (STOP held-out)
+C  Held-out rank; sealed report for top ≤2             ← DONE report-only (no promote)
+D  Optional dual-paper observe                         ← SKIP (no positive held-out)
+E  Separate human ballot for live within-sleeve cutover ← NOT opened (fail → equal-split KEEP)
 ```
+
+Stage B verdict: **no challenger beat `TEL_EQUAL` on held-out score** → keep live equal-split; Soft-Frozen KEEP; no live wire.
 
 ## Human ballot
 
@@ -86,5 +90,5 @@ See **`TELECOM_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md`**.
 
 | Ballot | Effect |
 |---|---|
-| **ACCEPT charter** | Stage B paper implementation allowed |
+| **ACCEPT charter** | Stage B paper implementation allowed — **ACCEPTED** |
 | **DEFER / REJECT** | No code; live stays equal-split @ 3M |

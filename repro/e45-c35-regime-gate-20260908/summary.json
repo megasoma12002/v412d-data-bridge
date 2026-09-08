@@ -1,0 +1,255 @@
+{
+  "generated_at_utc": "2026-09-08T03:44:27.305032+00:00",
+  "label": "E45_C35_REGIME_GATE_RESEARCH",
+  "ballot": "\u7814\u7a76 C35 + \u591a\u7a7a\u9598\u9580",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "default_books_keep": "E22_v2s_tw",
+  "stitch": "FORBIDDEN",
+  "observe_lock_unchanged": "M2_RELOC_BIL_FX_C35",
+  "live_wire": false,
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "cut": 0.35,
+  "mode": "RELOC_BIL_FX",
+  "sensor": "M1 s_{t-1} \u00d7 Soft-Frozen regime_{t-1} gate",
+  "books": {
+    "M2_RELOC_BIL_FX_C35": {
+      "allow_regimes": null,
+      "share_days_intensity_on": 0.9997225305216426,
+      "exact_t1_ok": true,
+      "windows_vs_base": {
+        "full": {
+          "mdd_improve_pp": 2.520691240330808,
+          "cagr_giveback_pp": 1.0913155664906693,
+          "score": 1.9750334570854733
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": 2.4572813686574047,
+          "cagr_giveback_pp": 0.7712175813803679,
+          "score": 2.0716725779672207
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": 2.5206912403308412,
+          "cagr_giveback_pp": 0.6475536902258217,
+          "score": 2.1969143952179304
+        },
+        "sealed_2023_plus": {
+          "mdd_improve_pp": 0.8100032504814614,
+          "cagr_giveback_pp": 2.3706898772334117,
+          "score": -0.3753416881352445
+        },
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 2.5206912403308412,
+          "cagr_giveback_pp": 1.4268883738174365,
+          "score": 1.807247053422123
+        }
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.6453464504780135,
+        "2018": 0.693978866234124,
+        "2020": 2.52069124033083,
+        "2022": 4.564855730835571
+      },
+      "non2020_events_gt_025pp": 3,
+      "multi_events_gt_025pp": 4,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.561229307588935,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.762429690547942,
+        "trailing_1y_gate": "ALERT"
+      },
+      "heldout_score": 1.807247053422123,
+      "heldout_mdd_improve_pp": 2.5206912403308412,
+      "heldout_cagr_giveback_pp": 1.4268883738174365,
+      "sealed_score": -0.3753416881352445,
+      "n_fills": 2746,
+      "id": "M2_RELOC_BIL_FX_C35"
+    },
+    "M2_C35_GATE_NOT_BULL": {
+      "allow_regimes": [
+        "Bear",
+        "Crisis",
+        "Sideways"
+      ],
+      "share_days_intensity_on": 0.31687014428412874,
+      "exact_t1_ok": true,
+      "windows_vs_base": {
+        "full": {
+          "mdd_improve_pp": 0.2597457675175274,
+          "cagr_giveback_pp": 0.6369844572905459,
+          "score": -0.05874646112774551
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": 1.7774175434460027,
+          "cagr_giveback_pp": 0.4316488909080096,
+          "score": 1.5615930979919979
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": 0.25974576751753853,
+          "cagr_giveback_pp": 0.23258730318662657,
+          "score": 0.14345211592422524
+        },
+        "sealed_2023_plus": {
+          "mdd_improve_pp": -0.6572483016362041,
+          "cagr_giveback_pp": 1.68352810348944,
+          "score": -1.499012353380924
+        },
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.25974576751753853,
+          "cagr_giveback_pp": 0.8901178263204024,
+          "score": -0.18531314564266266
+        }
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.1653003085524305,
+        "2018": 0.46199591248281546,
+        "2020": 0.25974576751754963,
+        "2022": 4.745662344317559
+      },
+      "non2020_events_gt_025pp": 3,
+      "multi_events_gt_025pp": 4,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.521487823946127,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 3.8090256917282517,
+        "trailing_1y_gate": "ALERT"
+      },
+      "heldout_score": -0.18531314564266266,
+      "heldout_mdd_improve_pp": 0.25974576751753853,
+      "heldout_cagr_giveback_pp": 0.8901178263204024,
+      "sealed_score": -1.499012353380924,
+      "n_fills": 2353,
+      "id": "M2_C35_GATE_NOT_BULL"
+    },
+    "M2_C35_GATE_BEAR_CRISIS": {
+      "allow_regimes": [
+        "Bear",
+        "Crisis"
+      ],
+      "share_days_intensity_on": 0.23307436182019978,
+      "exact_t1_ok": true,
+      "windows_vs_base": {
+        "full": {
+          "mdd_improve_pp": 0.7929037639536896,
+          "cagr_giveback_pp": 0.21521017649757113,
+          "score": 0.685298675704904
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": 1.7774175434460027,
+          "cagr_giveback_pp": 0.3771347877692621,
+          "score": 1.5888501495613716
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": 0.7929037639536896,
+          "cagr_giveback_pp": -0.2181300054850066,
+          "score": 0.6838387612111863
+        },
+        "sealed_2023_plus": {
+          "mdd_improve_pp": -0.5441680602800147,
+          "cagr_giveback_pp": 0.6017191441080927,
+          "score": -0.8450276323340611
+        },
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.7929037639536896,
+          "cagr_giveback_pp": 0.1566336352272435,
+          "score": 0.7145869463400678
+        }
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.1653003085524305,
+        "2018": 0.5292162243395016,
+        "2020": 0.7929037639537007,
+        "2022": 5.061875284083628
+      },
+      "non2020_events_gt_025pp": 3,
+      "multi_events_gt_025pp": 4,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9400224160196045,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.3208004205088155,
+        "trailing_1y_gate": "PASS"
+      },
+      "heldout_score": 0.7145869463400678,
+      "heldout_mdd_improve_pp": 0.7929037639536896,
+      "heldout_cagr_giveback_pp": 0.1566336352272435,
+      "sealed_score": -0.8450276323340611,
+      "n_fills": 2218,
+      "id": "M2_C35_GATE_BEAR_CRISIS"
+    },
+    "M2_C35_GATE_CRISIS_ONLY": {
+      "allow_regimes": [
+        "Crisis"
+      ],
+      "share_days_intensity_on": 0.11764705882352941,
+      "exact_t1_ok": true,
+      "windows_vs_base": {
+        "full": {
+          "mdd_improve_pp": -0.5903532122150112,
+          "cagr_giveback_pp": 0.19058213496270238,
+          "score": -0.6856442796963624
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": 1.8704572336496916,
+          "cagr_giveback_pp": 0.25510828651573725,
+          "score": 1.742903090391823
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": -0.5903532122150001,
+          "cagr_giveback_pp": 0.05160349535795472,
+          "score": -0.6161549598939775
+        },
+        "sealed_2023_plus": {
+          "mdd_improve_pp": -0.5103945237900254,
+          "cagr_giveback_pp": 0.2485522197411827,
+          "score": -0.6346706336606167
+        },
+        "heldout_2019_plus": {
+          "mdd_improve_pp": -0.5903532122150001,
+          "cagr_giveback_pp": 0.1480005987603894,
+          "score": -0.6643535115951948
+        }
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.024656857484063,
+        "2018": -0.2154816810687521,
+        "2020": -0.5903532122150001,
+        "2022": 4.0611930647470595
+      },
+      "non2020_events_gt_025pp": 2,
+      "multi_events_gt_025pp": 2,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.6646976911859568,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.15075134253825784,
+        "trailing_1y_gate": "PASS"
+      },
+      "heldout_score": -0.6643535115951948,
+      "heldout_mdd_improve_pp": -0.5903532122150001,
+      "heldout_cagr_giveback_pp": 0.1480005987603894,
+      "sealed_score": -0.6346706336606167,
+      "n_fills": 2062,
+      "id": "M2_C35_GATE_CRISIS_ONLY"
+    }
+  },
+  "ranked_vs_c35_heldout": [
+    "M2_C35_GATE_BEAR_CRISIS",
+    "M2_C35_GATE_NOT_BULL",
+    "M2_C35_GATE_CRISIS_ONLY"
+  ],
+  "beat_c35_heldout": [],
+  "tip_ytd_giveback_improved_vs_c35": [
+    "M2_C35_GATE_BEAR_CRISIS",
+    "M2_C35_GATE_CRISIS_ONLY"
+  ],
+  "verdict": {
+    "best_heldout": "M2_C35_GATE_BEAR_CRISIS",
+    "baseline_tip_ytd_gate": "PAUSE_REVIEW",
+    "hypothesis_supported": true
+  }
+}
