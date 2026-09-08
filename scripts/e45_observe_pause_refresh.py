@@ -47,6 +47,11 @@ OBSERVE_NAV = {
         "chal": ROOT / "repro/e45-sleeve-local-dual-paper-observe/outputs/sleeve_fin_only_a10_daily_nav.csv",
         "book": "SLEEVE_FIN_ONLY_A10",
     },
+    "M2_RELOC_BIL_FX_C35": {
+        "base": ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/outputs/base_e16_e18_e22_v2s_daily_nav.csv",
+        "chal": ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/outputs/m2_reloc_bil_fx_c35_daily_nav.csv",
+        "book": "M2_RELOC_BIL_FX_C35",
+    },
 }
 
 

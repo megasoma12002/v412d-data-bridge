@@ -200,7 +200,28 @@ Artifacts: `SOFT_FROZEN_CLIP_SEARCH_STAGE_B.md` · `repro/clip-search-20260907/`
 
 Human 「先復原成原3M時的條件版本」. `DEFAULT_CAPITAL=3M` + board-lot 1000 replay; TEL tip 0% under equal-split. Note: `CAPITAL_3M_RESTORE_2026-09-08.md`. Soft-Frozen KEEP.
 
+## E45 C35 + regime gate research (2026-09-08)
+
+Human 「研究 C35 + 多空閘門」. Paper: Soft-Frozen `regime_{t-1}` gates on M2 C35. **`GATE_BEAR_CRISIS`** clears tip YTD/1y to **PASS** (giveback 7.56→1.94 / 4.76→0.32) but held-out score drops vs ungated C35 (1.81→0.72). Observe lock unchanged; stitch FORBIDDEN.  
+Artifacts: `E45_C35_REGIME_GATE_RESEARCH.md` · `repro/e45-c35-regime-gate-20260908/`.
+
 ## Telecom within-sleeve alloc charter (2026-09-08)
 
-Research-only: **不強制三家電信全買**. Awaiting `ACCEPT telecom within-sleeve charter`. Pack: `TELECOM_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md`.
+Research-only: **不強制三家電信全買**. Ballot **ACCEPT** 2026-09-08. Stage B @ **3M+整張** vs `TEL_EQUAL` → **STOP_NO_POSITIVE_HELDOUT_SCORE** (best `TEL_MIN_LOT_PACK` held-out score &lt; 0). Soft-Frozen KEEP · live e21 equal-split **KEEP** (no cutover ballot).  
+Artifacts: `TELECOM_WITHIN_SLEEVE_ALLOC_STAGE_B.md` · `repro/telecom-within-sleeve-20260908/`.
+
+## Financial within-sleeve alloc charter (2026-09-08)
+
+Human **「金融也研究分開」**. Research-only FIN within-sleeve @ **500M+整張** vs `FIN_EQUAL` → Stage B **STOP** (best `FIN_MIN_LOT_PACK` held-out &lt; 0). Soft-Frozen KEEP · live FIN equal-split untouched.  
+Artifacts: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_B.md` · `repro/fin-within-sleeve-20260908/`.
+
+## Telecom within-sleeve optimize Stage C (2026-09-08)
+
+Human 「電信這條再研究一下怎麼優化以及各項數據是否有變好」. @ **500M**: `TEL_DIVERSIFY_PACK` / `TEL_SCORE_LOT_PACK` beat EQUAL and live-intent MIN_LOT on held-out; @ **3M**: still no beat EQUAL. Soft-Frozen KEEP · no auto live flip.  
+Artifacts: `TELECOM_WITHIN_SLEEVE_OPTIMIZE_STAGE_C.md` · `repro/telecom-sleeve-optimize-20260908/`.
+
+## E45 remaining-improve research batch (2026-09-08)
+
+Human 「請進行研究」 after E45 improve-avenues ask. Paper batch: tip PAUSE refresh (+C35) · cross-sleeve scoreboard · cheap-protect×cost. Tip **PASS/PASS**: `BLEND_E45_A05`, `SLEEVE_FIN_ONLY_A10`; still PAUSE: FULL / A25 / C35(YTD). Best held-out observe=`M2_RELOC_BIL_FX_C35`. Soft-Frozen KEEP · stitch FORBIDDEN · HIGH_BETA HOLD.  
+Artifacts: `E45_REMAINING_IMPROVE_RESEARCH_BATCH.md` · `repro/e45-remaining-improve-20260908/`.
 

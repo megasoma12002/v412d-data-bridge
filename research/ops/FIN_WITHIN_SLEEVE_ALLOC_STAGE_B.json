@@ -1,0 +1,503 @@
+{
+  "generated_at_utc": "2026-09-08T02:20:49.579468+00:00",
+  "label": "FIN_WITHIN_SLEEVE_ALLOC_STAGE_B",
+  "status": "STOP_NO_POSITIVE_HELDOUT_SCORE",
+  "charter": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_CHARTER.md",
+  "ballot": "\u91d1\u878d\u4e5f\u7814\u7a76\u5206\u958b",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "execution_context": {
+    "capital": 500000000.0,
+    "board_lot": 1000,
+    "e22_books": "E22_v2s_tw",
+    "telecom_held_at": "TEL_EQUAL"
+  },
+  "base_id": "FIN_EQUAL",
+  "base": {
+    "id": "FIN_EQUAL",
+    "financial_alloc": "FIN_EQUAL",
+    "telecom_alloc": "TEL_EQUAL",
+    "exact_t1_ok": true,
+    "lot_size": 1000,
+    "capital": 500000000.0,
+    "n_fills": 6112,
+    "fills_board_lot_ok": true,
+    "windows": {
+      "full": {
+        "cagr": 0.1386380201628883,
+        "max_drawdown": -0.22577077146946323,
+        "utility": 0.025752634428156673,
+        "vol": 0.13311757669657698,
+        "n_days": 3352
+      },
+      "oof_2011_2018": {
+        "cagr": 0.08878876935776892,
+        "max_drawdown": -0.17547826880206385,
+        "utility": 0.001049634956736989,
+        "vol": 0.106924745885964,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12318138677970114,
+        "max_drawdown": -0.22577077146946323,
+        "utility": 0.010296001044969527,
+        "vol": 0.1357340398105706,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.25198269270137574,
+        "max_drawdown": -0.1413129993083171,
+        "utility": 0.1813261930472172,
+        "vol": 0.16593629239426477,
+        "n_days": 880
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.18354255225903504,
+        "max_drawdown": -0.22577077146946323,
+        "utility": 0.07065716652430343,
+        "vol": 0.1507811831987624,
+        "n_days": 1857
+      }
+    },
+    "tip": {
+      "tip_date": "2026-09-07",
+      "tip_nav": 2810381725.30988,
+      "tip_cash_weight": 0.0071610379574543,
+      "tip_pre_financial": 0.8252276387273614,
+      "tip_pre_telecom": 0.09010519735431251,
+      "tip_fin_positions": {
+        "2880": 46888250.0,
+        "2886": 4752096.0,
+        "2892": 28243.0,
+        "5880": 3853.0
+      },
+      "tip_fin_names_with_board_lot": 4,
+      "mean_pre_financial": 0.7954110343581302
+    }
+  },
+  "challengers": {
+    "FIN_MIN_LOT_PACK": {
+      "id": "FIN_MIN_LOT_PACK",
+      "financial_alloc": "FIN_MIN_LOT_PACK",
+      "telecom_alloc": "TEL_EQUAL",
+      "exact_t1_ok": true,
+      "lot_size": 1000,
+      "capital": 500000000.0,
+      "n_fills": 5664,
+      "fills_board_lot_ok": true,
+      "windows": {
+        "full": {
+          "cagr": 0.14533831855755297,
+          "max_drawdown": -0.22507925642846283,
+          "utility": 0.03279869034332156,
+          "vol": 0.12858819973440888,
+          "n_days": 3352
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09814322066710379,
+          "max_drawdown": -0.1347771253000667,
+          "utility": 0.030754658017070446,
+          "vol": 0.09831351375424206,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.14901433160851574,
+          "max_drawdown": -0.22507925642846294,
+          "utility": 0.03647470339428427,
+          "vol": 0.13739448666527282,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.22894154232371422,
+          "max_drawdown": -0.12226781382061802,
+          "utility": 0.1678076354134052,
+          "vol": 0.15994522694668784,
+          "n_days": 880
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1871579397133385,
+          "max_drawdown": -0.22507925642846294,
+          "utility": 0.07461831149910703,
+          "vol": 0.14845909335107346,
+          "n_days": 1857
+        }
+      },
+      "tip": {
+        "tip_date": "2026-09-07",
+        "tip_nav": 3038429073.048549,
+        "tip_cash_weight": 0.011998799765291274,
+        "tip_pre_financial": 0.8322133280744831,
+        "tip_pre_telecom": 0.07780533766510028,
+        "tip_fin_positions": {
+          "2880": 29300762.0,
+          "2886": 8000.0,
+          "2892": 7381.0,
+          "5880": 46356810.0
+        },
+        "tip_fin_names_with_board_lot": 4,
+        "mean_pre_financial": 0.7949581737790195
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.06915150410002902,
+          "cagr_giveback_pp": -0.36153874543034537,
+          "score": -0.11161786861514367
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": 0.06915150410002902,
+          "cagr_giveback_pp": -2.5832944828814597,
+          "score": -1.2224957373407008
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": 4.070114350199717,
+          "cagr_giveback_pp": -0.9354451309334877,
+          "score": 3.6023917847329727
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 1.9045185487699068,
+          "cagr_giveback_pp": 2.3041150377661523,
+          "score": 0.7524610298868306
+        }
+      },
+      "fragile_sealed_mdd": false
+    },
+    "FIN_TOP1": {
+      "id": "FIN_TOP1",
+      "financial_alloc": "FIN_TOP1",
+      "telecom_alloc": "TEL_EQUAL",
+      "exact_t1_ok": true,
+      "lot_size": 1000,
+      "capital": 500000000.0,
+      "n_fills": 8751,
+      "fills_board_lot_ok": true,
+      "windows": {
+        "full": {
+          "cagr": -0.03358130648891866,
+          "max_drawdown": -0.5551108822592794,
+          "utility": -0.31113674761855836,
+          "vol": 0.11797715386410842,
+          "n_days": 3352
+        },
+        "oof_2011_2018": {
+          "cagr": -0.10876195758555884,
+          "max_drawdown": -0.5117960344700341,
+          "utility": -0.3646599748205759,
+          "vol": 0.10000072019851557,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.015214558025324676,
+          "max_drawdown": -0.2530606944777629,
+          "utility": -0.11131578921355678,
+          "vol": 0.11999059623843758,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.05515437925045674,
+          "max_drawdown": -0.1824460735285408,
+          "utility": -0.03606865751381366,
+          "vol": 0.14124196861029178,
+          "n_days": 880
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.033776020437020327,
+          "max_drawdown": -0.26401457161956343,
+          "utility": -0.09823126537276139,
+          "vol": 0.13042915917671677,
+          "n_days": 1857
+        }
+      },
+      "tip": {
+        "tip_date": "2026-09-07",
+        "tip_nav": 317471034.3259454,
+        "tip_cash_weight": 0.008263131096401456,
+        "tip_pre_financial": 0.8422287410179268,
+        "tip_pre_telecom": 0.07161913227225661,
+        "tip_fin_positions": {
+          "2880": 369.0,
+          "2886": 288.0,
+          "2892": 7167411.0,
+          "5880": 301.0
+        },
+        "tip_fin_names_with_board_lot": 1,
+        "mean_pre_financial": 0.5761203691242203
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": -3.8243800150100205,
+          "cagr_giveback_pp": 14.97665318220147,
+          "score": -11.312706606110755
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": -2.728992300829969,
+          "cagr_giveback_pp": 10.796682875437646,
+          "score": -8.127333738548792
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": -33.63177656679702,
+          "cagr_giveback_pp": 19.755072694332775,
+          "score": -43.50931291396341
+        }
+      }
+    },
+    "FIN_TOP2_EQUAL": {
+      "id": "FIN_TOP2_EQUAL",
+      "financial_alloc": "FIN_TOP2_EQUAL",
+      "telecom_alloc": "TEL_EQUAL",
+      "exact_t1_ok": true,
+      "lot_size": 1000,
+      "capital": 500000000.0,
+      "n_fills": 9914,
+      "fills_board_lot_ok": true,
+      "windows": {
+        "full": {
+          "cagr": 0.031536602316889484,
+          "max_drawdown": -0.29849290775485304,
+          "utility": -0.11770985156053704,
+          "vol": 0.1243692744402184,
+          "n_days": 3352
+        },
+        "oof_2011_2018": {
+          "cagr": -0.03413742001429554,
+          "max_drawdown": -0.29849290775485304,
+          "utility": -0.18338387389172206,
+          "vol": 0.10526881351345993,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.06438021553546247,
+          "max_drawdown": -0.2128837081055276,
+          "utility": -0.042061638517301325,
+          "vol": 0.12449654054578504,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.11797134461495729,
+          "max_drawdown": -0.15640315744149436,
+          "utility": 0.03976976589421011,
+          "vol": 0.15109172136180218,
+          "n_days": 880
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.08988889829708469,
+          "max_drawdown": -0.2128837081055276,
+          "utility": -0.01655295575567911,
+          "vol": 0.13767972397447806,
+          "n_days": 1857
+        }
+      },
+      "tip": {
+        "tip_date": "2026-09-07",
+        "tip_nav": 755585555.6732255,
+        "tip_cash_weight": 0.007271411002993961,
+        "tip_pre_financial": 0.8440073764800766,
+        "tip_pre_telecom": 0.07105085532262029,
+        "tip_fin_positions": {
+          "2880": 10031421.0,
+          "2886": 444.0,
+          "2892": 5168348.0,
+          "5880": 928.0
+        },
+        "tip_fin_names_with_board_lot": 2,
+        "mean_pre_financial": 0.6921183232354592
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 1.2887063363935636,
+          "cagr_giveback_pp": 9.365365396195035,
+          "score": -3.393976361703954
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": 1.2887063363935636,
+          "cagr_giveback_pp": 5.880117124423867,
+          "score": -1.65135222581837
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": -12.30146389527892,
+          "cagr_giveback_pp": 12.292618937206445,
+          "score": -18.447773363882142
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": -1.5090158133177267,
+          "cagr_giveback_pp": 13.401134808641846,
+          "score": -8.209583217638649
+        }
+      },
+      "fragile_sealed_mdd": false
+    }
+  },
+  "top_k_heldout": [
+    {
+      "id": "FIN_MIN_LOT_PACK",
+      "financial_alloc": "FIN_MIN_LOT_PACK",
+      "telecom_alloc": "TEL_EQUAL",
+      "exact_t1_ok": true,
+      "lot_size": 1000,
+      "capital": 500000000.0,
+      "n_fills": 5664,
+      "fills_board_lot_ok": true,
+      "windows": {
+        "full": {
+          "cagr": 0.14533831855755297,
+          "max_drawdown": -0.22507925642846283,
+          "utility": 0.03279869034332156,
+          "vol": 0.12858819973440888,
+          "n_days": 3352
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09814322066710379,
+          "max_drawdown": -0.1347771253000667,
+          "utility": 0.030754658017070446,
+          "vol": 0.09831351375424206,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.14901433160851574,
+          "max_drawdown": -0.22507925642846294,
+          "utility": 0.03647470339428427,
+          "vol": 0.13739448666527282,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.22894154232371422,
+          "max_drawdown": -0.12226781382061802,
+          "utility": 0.1678076354134052,
+          "vol": 0.15994522694668784,
+          "n_days": 880
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1871579397133385,
+          "max_drawdown": -0.22507925642846294,
+          "utility": 0.07461831149910703,
+          "vol": 0.14845909335107346,
+          "n_days": 1857
+        }
+      },
+      "tip": {
+        "tip_date": "2026-09-07",
+        "tip_nav": 3038429073.048549,
+        "tip_cash_weight": 0.011998799765291274,
+        "tip_pre_financial": 0.8322133280744831,
+        "tip_pre_telecom": 0.07780533766510028,
+        "tip_fin_positions": {
+          "2880": 29300762.0,
+          "2886": 8000.0,
+          "2892": 7381.0,
+          "5880": 46356810.0
+        },
+        "tip_fin_names_with_board_lot": 4,
+        "mean_pre_financial": 0.7949581737790195
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.06915150410002902,
+          "cagr_giveback_pp": -0.36153874543034537,
+          "score": -0.11161786861514367
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": 0.06915150410002902,
+          "cagr_giveback_pp": -2.5832944828814597,
+          "score": -1.2224957373407008
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": 4.070114350199717,
+          "cagr_giveback_pp": -0.9354451309334877,
+          "score": 3.6023917847329727
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 1.9045185487699068,
+          "cagr_giveback_pp": 2.3041150377661523,
+          "score": 0.7524610298868306
+        }
+      },
+      "fragile_sealed_mdd": false
+    },
+    {
+      "id": "FIN_TOP2_EQUAL",
+      "financial_alloc": "FIN_TOP2_EQUAL",
+      "telecom_alloc": "TEL_EQUAL",
+      "exact_t1_ok": true,
+      "lot_size": 1000,
+      "capital": 500000000.0,
+      "n_fills": 9914,
+      "fills_board_lot_ok": true,
+      "windows": {
+        "full": {
+          "cagr": 0.031536602316889484,
+          "max_drawdown": -0.29849290775485304,
+          "utility": -0.11770985156053704,
+          "vol": 0.1243692744402184,
+          "n_days": 3352
+        },
+        "oof_2011_2018": {
+          "cagr": -0.03413742001429554,
+          "max_drawdown": -0.29849290775485304,
+          "utility": -0.18338387389172206,
+          "vol": 0.10526881351345993,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.06438021553546247,
+          "max_drawdown": -0.2128837081055276,
+          "utility": -0.042061638517301325,
+          "vol": 0.12449654054578504,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.11797134461495729,
+          "max_drawdown": -0.15640315744149436,
+          "utility": 0.03976976589421011,
+          "vol": 0.15109172136180218,
+          "n_days": 880
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.08988889829708469,
+          "max_drawdown": -0.2128837081055276,
+          "utility": -0.01655295575567911,
+          "vol": 0.13767972397447806,
+          "n_days": 1857
+        }
+      },
+      "tip": {
+        "tip_date": "2026-09-07",
+        "tip_nav": 755585555.6732255,
+        "tip_cash_weight": 0.007271411002993961,
+        "tip_pre_financial": 0.8440073764800766,
+        "tip_pre_telecom": 0.07105085532262029,
+        "tip_fin_positions": {
+          "2880": 10031421.0,
+          "2886": 444.0,
+          "2892": 5168348.0,
+          "5880": 928.0
+        },
+        "tip_fin_names_with_board_lot": 2,
+        "mean_pre_financial": 0.6921183232354592
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 1.2887063363935636,
+          "cagr_giveback_pp": 9.365365396195035,
+          "score": -3.393976361703954
+        },
+        "validation_2019_2022": {
+          "mdd_improve_pp": 1.2887063363935636,
+          "cagr_giveback_pp": 5.880117124423867,
+          "score": -1.65135222581837
+        },
+        "oof_2011_2018": {
+          "mdd_improve_pp": -12.30146389527892,
+          "cagr_giveback_pp": 12.292618937206445,
+          "score": -18.447773363882142
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": -1.5090158133177267,
+          "cagr_giveback_pp": 13.401134808641846,
+          "score": -8.209583217638649
+        }
+      },
+      "fragile_sealed_mdd": false
+    }
+  ],
+  "stop_no_positive_heldout_score": true,
+  "objective": "heldout_mdd_improve_pp - 0.5 * abs(cagr_giveback_pp) vs FIN_EQUAL"
+}

@@ -29,3 +29,7 @@ M2 lock is **`M2_RELOC_BIL_FX_C35`**. Soft-Frozen KEEP · stitch FORBIDDEN.
 ## Five-research batch (2026-09-06)
 
 Paper follow-ups **DONE** (PAUSE time-series / non-2020 attribution / FIN_A10 vs BLEND_E45_A05 / HIGH_BETA DRAFT / multi-event charter). See `E45_FIVE_RESEARCH_BATCH_INTEGRATED.md`. Soft-Frozen KEEP · stitch FORBIDDEN · no new OPEN.
+
+## Remaining-improve batch (2026-09-08)
+
+Paper batch `E45_REMAINING_IMPROVE_RESEARCH_BATCH.md` refreshed tip PAUSE (incl. C35) + cross-sleeve scoreboard + cheap-protect. stitch FORBIDDEN.
