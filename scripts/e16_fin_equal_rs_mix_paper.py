@@ -242,10 +242,30 @@ def main() -> int:
         "ranked_heldout": [slim(r) for r in ranked],
         "best_tip_clean_by_heldout": [slim(r) for r in best_tip_clean[:3]],
         "verdict": (
-            "At least one λ has positive held-out and tip-clean vs EQUAL."
-            if any_coexist
-            else "No λ on this grid jointly clears tip PAUSE/ALERT and positive held-out. "
+            (
+                f"Coexist candidate {best_tip_clean[0]['id']} "
+                f"(λ={best_tip_clean[0]['lambda_equal']:.2f}): "
+                f"held-out {best_tip_clean[0]['scores']['heldout_2019_plus']['score']:+.3f} "
+                "and tip YTD/1y PASS. Soft-Frozen KEEP · no live wire."
+            )
+            if any_coexist and best_tip_clean
+            else "No λ on this grid jointly clears tip PASS (≤3pp) and positive held-out. "
             "Poles trade off as before; mix interpolates."
+        ),
+        "coexist_candidate": (
+            {
+                "id": best_tip_clean[0]["id"],
+                "lambda_equal": best_tip_clean[0]["lambda_equal"],
+                "heldout_score": best_tip_clean[0]["scores"]["heldout_2019_plus"]["score"],
+                "tip_ytd_giveback_pp": (best_tip_clean[0]["tip_gates"] or {})
+                .get("ytd", {})
+                .get("giveback_pp"),
+                "tip_1y_giveback_pp": (best_tip_clean[0]["tip_gates"] or {})
+                .get("trailing_1y", {})
+                .get("giveback_pp"),
+            }
+            if any_coexist and best_tip_clean
+            else None
         ),
     }
 
