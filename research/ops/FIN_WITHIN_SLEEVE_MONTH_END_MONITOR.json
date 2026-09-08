@@ -1,0 +1,111 @@
+{
+  "generated_at_utc": "2026-09-08T09:45:48.197369+00:00",
+  "asof": "2026-09-07",
+  "status": "OPERATING_OBSERVE",
+  "operating_observe": true,
+  "locked_id": "FIN_RS_SOFT_TILT_EXDIV",
+  "base_id": "FIN_EQUAL",
+  "soft_frozen_unchanged": true,
+  "live_wire": false,
+  "cutover_authorized": false,
+  "alerts": [
+    "ALERT: FIN_RS_SOFT_TILT_EXDIV ytd CAGR giveback > 3.0 pp (paper)",
+    "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no live wire",
+    "ALERT: FIN_RS_SOFT_TILT_EXDIV trailing_1y CAGR giveback > 3.0 pp (paper)",
+    "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no live wire"
+  ],
+  "windows": [
+    {
+      "window": "mtd",
+      "start": "2026-09-01",
+      "end": "2026-09-07",
+      "n_days": 5,
+      "base_cagr": 15.696151741080989,
+      "base_mdd": 0.0,
+      "fin_rs_soft_tilt_exdiv_cagr": 13.074729560787736,
+      "fin_rs_soft_tilt_exdiv_mdd": 0.0,
+      "mdd_improve_pp": 0.0,
+      "cagr_giveback_pp": 262.1422180293253,
+      "rel_nav_end": 0.997292603396315
+    },
+    {
+      "window": "ytd",
+      "start": "2026-01-01",
+      "end": "2026-09-07",
+      "n_days": 163,
+      "base_cagr": 0.7024480445706285,
+      "base_mdd": -0.1413129993083171,
+      "fin_rs_soft_tilt_exdiv_cagr": 0.6434171115216978,
+      "fin_rs_soft_tilt_exdiv_mdd": -0.11409157182952201,
+      "mdd_improve_pp": 2.722142747879508,
+      "cagr_giveback_pp": 5.90309330489307,
+      "rel_nav_end": 0.9775692482278665
+    },
+    {
+      "window": "trailing_1y",
+      "start": "2025-09-07",
+      "end": "2026-09-07",
+      "n_days": 241,
+      "base_cagr": 0.5576999047353484,
+      "base_mdd": -0.1413129993083172,
+      "fin_rs_soft_tilt_exdiv_cagr": 0.49328307695899043,
+      "fin_rs_soft_tilt_exdiv_mdd": -0.11409157182952212,
+      "mdd_improve_pp": 2.722142747879508,
+      "cagr_giveback_pp": 6.441682777635793,
+      "rel_nav_end": 0.9605760671011848
+    },
+    {
+      "window": "sealed_2023_plus",
+      "start": "2023-01-01",
+      "end": "2026-09-07",
+      "n_days": 880,
+      "base_cagr": 0.25198269270137574,
+      "base_mdd": -0.1413129993083172,
+      "fin_rs_soft_tilt_exdiv_cagr": 0.23597132458224213,
+      "fin_rs_soft_tilt_exdiv_mdd": -0.11409157182952201,
+      "mdd_improve_pp": 2.722142747879519,
+      "cagr_giveback_pp": 1.6011368119133618,
+      "rel_nav_end": 0.9560966370078697
+    },
+    {
+      "window": "heldout_2019_plus",
+      "start": "2019-01-01",
+      "end": "2026-09-07",
+      "n_days": 1857,
+      "base_cagr": 0.18354255225903504,
+      "base_mdd": -0.22577077146946312,
+      "fin_rs_soft_tilt_exdiv_cagr": 0.17210562978051502,
+      "fin_rs_soft_tilt_exdiv_mdd": -0.21465418343282705,
+      "mdd_improve_pp": 1.1116588036636066,
+      "cagr_giveback_pp": 1.1436922478520017,
+      "rel_nav_end": 0.9309804048742093
+    },
+    {
+      "window": "full",
+      "start": "2012-12-04",
+      "end": "2026-09-07",
+      "n_days": 3352,
+      "base_cagr": 0.1386380201628883,
+      "base_mdd": -0.225770771469463,
+      "fin_rs_soft_tilt_exdiv_cagr": 0.13208444951183074,
+      "fin_rs_soft_tilt_exdiv_mdd": -0.21465418343282705,
+      "mdd_improve_pp": 1.1116588036635955,
+      "cagr_giveback_pp": 0.655357065105755,
+      "rel_nav_end": 0.9261147044825329
+    }
+  ],
+  "gates": {
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "design_giveback_pp": {
+      "heldout_2019_plus": 1.5,
+      "sealed_2023_plus": 2.0
+    },
+    "structural_buffer_pp": 2.0
+  },
+  "non_actions": [
+    "OPERATING_OBSERVE \u2014 paper only",
+    "No Soft-Frozen flip",
+    "No live e21 FIN within-sleeve wire"
+  ]
+}

@@ -206,6 +206,6 @@ Research-only: **不強制三家電信全買**. Awaiting `ACCEPT telecom within-
 
 ## Financial within-sleeve alloc charter (2026-09-08)
 
-Human **「金融也研究分開」**. Research-only FIN within-sleeve @ **500M+整張** vs `FIN_EQUAL` → Stage B **STOP** (best `FIN_MIN_LOT_PACK` held-out &lt; 0). Soft-Frozen KEEP · live FIN equal-split untouched.  
-Artifacts: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_B.md` · `repro/fin-within-sleeve-20260908/`.
+Human **「金融也研究分開」**. Research-only FIN within-sleeve @ **500M+整張** vs `FIN_EQUAL` → Stage B **STOP** · Stage C **LOCK** (`FIN_RS_SOFT_TILT_EXDIV` held-out +0.54) · Stage D **OPERATING OBSERVE** (EQUAL ∥ RS+EXDIV). Soft-Frozen KEEP · live FIN equal-split untouched.  
+Artifacts: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_C.md` · `FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md` · `repro/fin-within-sleeve-dual-paper-observe/`.
 
