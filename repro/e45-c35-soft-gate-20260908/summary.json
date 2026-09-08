@@ -1,0 +1,386 @@
+{
+  "generated_at_utc": "2026-09-08T03:51:49.879673+00:00",
+  "label": "E45_C35_SOFT_GATE_RESEARCH",
+  "ballot": "\u72a7\u7272\u9577\u671f\u5206\u6578\u600e\u9ebc\u6539\u5584 \u2192 soft-gate / Crisis-boost / hysteresis screen",
+  "soft_frozen_keep": [
+    0.5,
+    0.95
+  ],
+  "stitch": "FORBIDDEN",
+  "observe_lock_unchanged": "M2_RELOC_BIL_FX_C35",
+  "live_wire": false,
+  "claim_status": "RETIRED_HISTORICAL_NARRATIVE",
+  "books": {
+    "M2_RELOC_BIL_FX_C35": {
+      "id": "M2_RELOC_BIL_FX_C35",
+      "spec": {
+        "kind": "ungated"
+      },
+      "share_days_on": 0.9997225305216426,
+      "heldout_score": 1.807247053422123,
+      "heldout_mdd_improve_pp": 2.5206912403308412,
+      "heldout_cagr_giveback_pp": 1.4268883738174365,
+      "sealed_score": -0.3753416881352445,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 7.561229307588935,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 4.762429690547942,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.6453464504780135,
+        "2018": 0.693978866234124,
+        "2020": 2.52069124033083,
+        "2022": 4.564855730835571
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2746,
+      "heldout_recovery_vs_hard_to_ungated": 1.0
+    },
+    "M2_C35_HARD_BEAR_CRISIS": {
+      "id": "M2_C35_HARD_BEAR_CRISIS",
+      "spec": {
+        "kind": "mult",
+        "mult": {
+          "Bull": 0.0,
+          "Sideways": 0.0,
+          "Bear": 1.0,
+          "Crisis": 1.0
+        },
+        "cut": 0.35
+      },
+      "share_days_on": 0.23307436182019978,
+      "heldout_score": 0.7145869463400678,
+      "heldout_mdd_improve_pp": 0.7929037639536896,
+      "heldout_cagr_giveback_pp": 0.1566336352272435,
+      "sealed_score": -0.8450276323340611,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9400224160196045,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.3208004205088155,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.1653003085524305,
+        "2018": 0.5292162243395016,
+        "2020": 0.7929037639537007,
+        "2022": 5.061875284083628
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2218,
+      "heldout_recovery_vs_hard_to_ungated": 0.0
+    },
+    "M2_C35_SOFT_A": {
+      "id": "M2_C35_SOFT_A",
+      "spec": {
+        "kind": "mult",
+        "mult": {
+          "Bull": 0.0,
+          "Sideways": 0.25,
+          "Bear": 0.75,
+          "Crisis": 1.0
+        },
+        "cut": 0.35
+      },
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.8294917867472384,
+      "heldout_mdd_improve_pp": 0.9286879010787064,
+      "heldout_cagr_giveback_pp": 0.19839222866293582,
+      "sealed_score": -0.8802027032566717,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.9810309248109448,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.18295396332685954,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.284508589190835,
+        "2020": 0.9286879010787064,
+        "2022": 4.672864327977566
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2239,
+      "heldout_recovery_vs_hard_to_ungated": 0.10516064388405613
+    },
+    "M2_C35_SOFT_B": {
+      "id": "M2_C35_SOFT_B",
+      "spec": {
+        "kind": "mult",
+        "mult": {
+          "Bull": 0.0,
+          "Sideways": 0.15,
+          "Bear": 1.0,
+          "Crisis": 1.0
+        },
+        "cut": 0.35
+      },
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.6687013479433346,
+      "heldout_mdd_improve_pp": 0.7929037639536896,
+      "heldout_cagr_giveback_pp": 0.24840483202070995,
+      "sealed_score": -0.9084395499473263,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.354304292301812,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.632687333669324,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.1653003085524305,
+        "2018": 0.5292162243395016,
+        "2020": 0.7929037639537007,
+        "2022": 5.0045996409124545
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2228,
+      "heldout_recovery_vs_hard_to_ungated": -0.04199439340681207
+    },
+    "M2_C35_SOFT_SIDE40": {
+      "id": "M2_C35_SOFT_SIDE40",
+      "spec": {
+        "kind": "mult",
+        "mult": {
+          "Bull": 0.0,
+          "Sideways": 0.4,
+          "Bear": 0.75,
+          "Crisis": 1.0
+        },
+        "cut": 0.35
+      },
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.1892583057188535,
+      "heldout_mdd_improve_pp": 0.3524658332303421,
+      "heldout_cagr_giveback_pp": 0.3264150550229772,
+      "sealed_score": -0.9501999420985507,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 3.3344981308077504,
+        "ytd_gate": "ALERT",
+        "trailing_1y_giveback_pp": 0.9966812619339072,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.3346788153975608,
+        "2018": 0.26003865899425493,
+        "2020": 0.352465833230331,
+        "2022": 4.571235509663019
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2229,
+      "heldout_recovery_vs_hard_to_ungated": -0.4807795555235402
+    },
+    "M2_C35_SOFT_BEAR50": {
+      "id": "M2_C35_SOFT_BEAR50",
+      "spec": {
+        "kind": "mult",
+        "mult": {
+          "Bull": 0.0,
+          "Sideways": 0.0,
+          "Bear": 0.5,
+          "Crisis": 1.0
+        },
+        "cut": 0.35
+      },
+      "share_days_on": 0.23307436182019978,
+      "heldout_score": 0.04008838974320916,
+      "heldout_mdd_improve_pp": 0.156820685598269,
+      "heldout_cagr_giveback_pp": 0.23346459171011968,
+      "sealed_score": -0.9010017408627835,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 1.8179117379011567,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.035291048273977665,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.0005234542547425,
+        "2018": 0.21531546022114378,
+        "2020": 0.156820685598269,
+        "2022": 4.350950055749669
+      },
+      "non2020_events_gt_025pp": 2,
+      "n_fills": 2232,
+      "heldout_recovery_vs_hard_to_ungated": -0.6172995172287424
+    },
+    "M2_C35_SOFT_CRISIS50_HARD": {
+      "id": "M2_C35_SOFT_CRISIS50_HARD",
+      "spec": {
+        "kind": "cut_map",
+        "cut_map": {
+          "Bull": 0.0,
+          "Sideways": 0.0,
+          "Bear": 0.35,
+          "Crisis": 0.5
+        },
+        "cut": 0.35
+      },
+      "share_days_on": 0.23307436182019978,
+      "heldout_score": 0.194252388024585,
+      "heldout_mdd_improve_pp": 0.5340778698195048,
+      "heldout_cagr_giveback_pp": 0.6796509635898396,
+      "sealed_score": -1.0054820212944238,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 4.6500354053760296,
+        "ytd_gate": "ALERT",
+        "trailing_1y_giveback_pp": 2.249003115256265,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.5272547447512497,
+        "2018": 0.425776494947272,
+        "2020": 0.5340778698195048,
+        "2022": 5.790464306142217
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2480,
+      "heldout_recovery_vs_hard_to_ungated": -0.47620898296089015
+    },
+    "M2_C35_SOFT_CRISIS_BOOST": {
+      "id": "M2_C35_SOFT_CRISIS_BOOST",
+      "spec": {
+        "kind": "cut_map",
+        "cut_map": {
+          "Bull": 0.0,
+          "Sideways": 0.15,
+          "Bear": 0.35,
+          "Crisis": 0.5
+        },
+        "cut": 0.35
+      },
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.13865909716872515,
+      "heldout_mdd_improve_pp": 0.5340778698195048,
+      "heldout_cagr_giveback_pp": 0.7908375453015593,
+      "sealed_score": -1.0686872422557836,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 6.449795065089692,
+        "ytd_gate": "PAUSE_REVIEW",
+        "trailing_1y_giveback_pp": 3.5116924435115937,
+        "trailing_1y_gate": "ALERT",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.5272547447512497,
+        "2018": 0.425776494947272,
+        "2020": 0.5340778698195048,
+        "2022": 5.789209983965449
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2545,
+      "heldout_recovery_vs_hard_to_ungated": -0.5270878340286037
+    },
+    "M2_C35_SOFT_A_C40": {
+      "id": "M2_C35_SOFT_A_C40",
+      "spec": {
+        "kind": "mult",
+        "mult": {
+          "Bull": 0.0,
+          "Sideways": 0.25,
+          "Bear": 0.75,
+          "Crisis": 1.0
+        },
+        "cut": 0.4
+      },
+      "share_days_on": 0.31687014428412874,
+      "heldout_score": 0.5446879061495213,
+      "heldout_mdd_improve_pp": 0.6731304415005912,
+      "heldout_cagr_giveback_pp": 0.25688507070213973,
+      "sealed_score": -0.9194784018457969,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 2.9345187025719754,
+        "ytd_gate": "PASS",
+        "trailing_1y_giveback_pp": 0.9274766618023511,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": true
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.4855107584988314,
+        "2018": 0.3365093755084092,
+        "2020": 0.6731304415005912,
+        "2022": 5.078619469867219
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2337,
+      "heldout_recovery_vs_hard_to_ungated": -0.15549120818939866
+    },
+    "M2_C35_HYST_K10": {
+      "id": "M2_C35_HYST_K10",
+      "spec": {
+        "kind": "hysteresis",
+        "allow": [
+          "Bear",
+          "Crisis"
+        ],
+        "exit_days": 10,
+        "cut": 0.35
+      },
+      "share_days_on": 0.31520532741398444,
+      "heldout_score": 0.9576656323365795,
+      "heldout_mdd_improve_pp": 1.3400401107145576,
+      "heldout_cagr_giveback_pp": 0.7647489567559562,
+      "sealed_score": -1.2011800354342794,
+      "tip": {
+        "asof": "2026-09-07",
+        "ytd_giveback_pp": 3.697998139188785,
+        "ytd_gate": "ALERT",
+        "trailing_1y_giveback_pp": 1.7042540789822924,
+        "trailing_1y_gate": "PASS",
+        "tip_clean": false
+      },
+      "year_mdd_help_pp": {
+        "2015": 1.4713822807515764,
+        "2018": 0.7380166343913586,
+        "2020": 1.3400401107145576,
+        "2022": 4.993421099942386
+      },
+      "non2020_events_gt_025pp": 3,
+      "n_fills": 2118,
+      "heldout_recovery_vs_hard_to_ungated": 0.22246505058709654
+    }
+  },
+  "tip_clean_ids": [
+    "M2_C35_HARD_BEAR_CRISIS",
+    "M2_C35_SOFT_A",
+    "M2_C35_SOFT_B",
+    "M2_C35_SOFT_BEAR50",
+    "M2_C35_SOFT_A_C40"
+  ],
+  "recover_heldout_while_tip_clean": [
+    "M2_C35_SOFT_A",
+    "M2_C35_HARD_BEAR_CRISIS"
+  ],
+  "best_tip_clean_by_heldout": "M2_C35_SOFT_A",
+  "best_recover": "M2_C35_SOFT_A",
+  "tip_dirty_beat_soft_a": [
+    "M2_C35_HYST_K10"
+  ],
+  "baseline_heldout": 1.807247053422123,
+  "hard_heldout": 0.7145869463400678,
+  "verdict": {
+    "soft_gate_helps_recovery": true,
+    "closes_most_of_gap": 0.10516064388405613,
+    "same_family_exhausted_for_full_recovery": true
+  },
+  "improve_paths": [
+    "ACCEPT_observe_retarget_SOFT_A_paper_only",
+    "DUAL_MONITOR_ungated_score_plus_SOFT_A_tip",
+    "NEW_MECHANISM_outside_C35_x_regime",
+    "ACCEPT_tip_PASS_tradeoff_heldout_near_0p8"
+  ]
+}

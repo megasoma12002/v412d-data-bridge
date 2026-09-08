@@ -200,6 +200,11 @@ Artifacts: `SOFT_FROZEN_CLIP_SEARCH_STAGE_B.md` · `repro/clip-search-20260907/`
 
 Human 「先復原成原3M時的條件版本」. `DEFAULT_CAPITAL=3M` + board-lot 1000 replay; TEL tip 0% under equal-split. Note: `CAPITAL_3M_RESTORE_2026-09-08.md`. Soft-Frozen KEEP.
 
+## E45 C35 + regime gate research (2026-09-08)
+
+Human 「研究 C35 + 多空閘門」. Paper: Soft-Frozen `regime_{t-1}` gates on M2 C35. **`GATE_BEAR_CRISIS`** clears tip YTD/1y to **PASS** (giveback 7.56→1.94 / 4.76→0.32) but held-out score drops vs ungated C35 (1.81→0.72). Observe lock unchanged; stitch FORBIDDEN.  
+Artifacts: `E45_C35_REGIME_GATE_RESEARCH.md` · `repro/e45-c35-regime-gate-20260908/`.
+
 ## Telecom within-sleeve alloc charter (2026-09-08)
 
 Research-only: **不強制三家電信全買**. Ballot **ACCEPT** 2026-09-08. Stage B @ **3M+整張** vs `TEL_EQUAL` → **STOP_NO_POSITIVE_HELDOUT_SCORE** (best `TEL_MIN_LOT_PACK` held-out score &lt; 0). Soft-Frozen KEEP · live e21 equal-split **KEEP** (no cutover ballot).  
