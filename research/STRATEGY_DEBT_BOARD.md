@@ -209,3 +209,8 @@ Research-only: **不強制三家電信全買**. Awaiting `ACCEPT telecom within-
 Human **「金融也研究分開」**. Research-only FIN within-sleeve @ **500M+整張** vs `FIN_EQUAL` → Stage B **STOP** (best `FIN_MIN_LOT_PACK` held-out &lt; 0). Soft-Frozen KEEP · live FIN equal-split untouched.  
 Artifacts: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_B.md` · `repro/fin-within-sleeve-20260908/`.
 
+## Telecom within-sleeve optimize Stage C (2026-09-08)
+
+Human 「電信這條再研究一下怎麼優化以及各項數據是否有變好」. @ **500M**: `TEL_DIVERSIFY_PACK` / `TEL_SCORE_LOT_PACK` beat EQUAL and live-intent MIN_LOT on held-out; @ **3M**: still no beat EQUAL. Soft-Frozen KEEP · no auto live flip.  
+Artifacts: `TELECOM_WITHIN_SLEEVE_OPTIMIZE_STAGE_C.md` · `repro/telecom-sleeve-optimize-20260908/`.
+

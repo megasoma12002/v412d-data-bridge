@@ -348,6 +348,11 @@ def simulate_core(
                 continue
             if sleeve_name == "Telecom" and telecom_alloc != TEL_EQUAL:
                 dollars = float(sleeve_trade[sleeve_name]) * nav
+                need_scores = telecom_alloc in (
+                    "TEL_TOP1",
+                    "TEL_TOP2_EQUAL",
+                    "TEL_SCORE_LOT_PACK",
+                )
                 if abs(dollars) >= 1e-9 or telecom_alloc in ("TEL_TOP1", "TEL_TOP2_EQUAL"):
                     for c, side, qty in allocate_sleeve_orders(
                         dollars,
@@ -356,7 +361,7 @@ def simulate_core(
                         policy_id=telecom_alloc,
                         codes=TEL,
                         lot_size=lot_size,
-                        scores=tel_scores_today,
+                        scores=tel_scores_today if need_scores else None,
                     ):
                         if qty < 1:
                             continue
@@ -401,6 +406,14 @@ def simulate_core(
                 "pre_telecom": pre["Telecom"],
                 "pre_0050": pre["0050"],
                 "pre_def": pre.get("DEF", 0.0),
+                "tel_board_names": int(
+                    sum(
+                        1
+                        for c in TEL
+                        if (int(pos.get(c, 0)) if lot_size == 1 else int(pos.get(c, 0) // lot_size) * lot_size)
+                        >= lot_size
+                    )
+                ),
                 "tgt_financial": sleeve_w["Financial"],
                 "tgt_telecom": sleeve_w["Telecom"],
                 "tgt_0050": sleeve_w["0050"],
