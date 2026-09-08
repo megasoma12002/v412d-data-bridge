@@ -194,5 +194,13 @@ Human 「還是先還原 soft frozen」. Draft PR #119 (TEL/0050 floors → 10%)
 ## Soft-Frozen clip-search charter (2026-09-07)
 
 Research-only Class A charter — **ACCEPT** 2026-09-07. Stage B floors screen @ **5M+整張** locked top-K (Soft-Frozen KEEP).  
-Artifacts: `SOFT_FROZEN_CLIP_SEARCH_STAGE_B.md` · `repro/clip-search-20260907/`. Live capital remains 15M.
+Artifacts: `SOFT_FROZEN_CLIP_SEARCH_STAGE_B.md` · `repro/clip-search-20260907/`.
+
+## Capital restore to 3M (2026-09-08)
+
+Human 「先復原成原3M時的條件版本」. `DEFAULT_CAPITAL=3M` + board-lot 1000 replay; TEL tip 0% under equal-split. Note: `CAPITAL_3M_RESTORE_2026-09-08.md`. Soft-Frozen KEEP.
+
+## Telecom within-sleeve alloc charter (2026-09-08)
+
+Research-only: **不強制三家電信全買**. Awaiting `ACCEPT telecom within-sleeve charter`. Pack: `TELECOM_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md`.
 

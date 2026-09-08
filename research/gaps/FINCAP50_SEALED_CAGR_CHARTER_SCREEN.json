@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-07T17:03:24.527872+00:00",
+  "generated_at_utc": "2026-09-08T00:52:56.859629+00:00",
   "label": "FINCAP50_SEALED_CAGR_CHARTER_SCREEN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -25,6 +25,10 @@
   ],
   "promote_eligible": [
     {
+      "family": "L4-CRISIS-ONLY",
+      "id": "CRISIS_ONLY_50"
+    },
+    {
       "family": "L4-BLEND-LIGHT",
       "id": "BLEND_025"
     }
@@ -46,12 +50,12 @@
       ],
       "windows": {
         "ytd": {
-          "cagr_giveback_pp": 18.317577162673125,
-          "mdd_improve_pp": 7.556987109451918
+          "cagr_giveback_pp": 15.50891883637069,
+          "mdd_improve_pp": 5.835055230834884
         },
         "trailing_1y": {
-          "cagr_giveback_pp": 9.9705615040933,
-          "mdd_improve_pp": 7.55698710945193
+          "cagr_giveback_pp": 6.837681264321938,
+          "mdd_improve_pp": 5.835055230834896
         }
       },
       "trail_pass": false
@@ -59,37 +63,35 @@
     "L4_DD_PATH_08_50": {
       "available": true,
       "sleeve": "L4_DD_PATH_08_50",
-      "pause_review": true,
-      "cutover_blocked": true,
+      "pause_review": false,
+      "cutover_blocked": false,
       "authoritative_go_live_status": null,
       "alerts": [
-        "ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops)",
-        "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4",
-        "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)"
+        "ALERT: L4_DD_PATH_08_50 sealed MDD worse than BASE (paper)"
       ],
       "windows": {
         "ytd": {
-          "cagr_giveback_pp": 5.395985714137064,
-          "mdd_improve_pp": 1.4819119479697829
+          "cagr_giveback_pp": 0.37336756387635894,
+          "mdd_improve_pp": -0.8922417209654254
         },
         "trailing_1y": {
-          "cagr_giveback_pp": 4.893990216446631,
-          "mdd_improve_pp": 1.4819119479697718
+          "cagr_giveback_pp": -0.8185327268854126,
+          "mdd_improve_pp": -0.8922417209654143
         }
       },
-      "trail_pass": false
+      "trail_pass": true
     }
   },
   "families": [
     {
       "family": "L4-CRISIS-ONLY",
-      "any_charter_pass": false,
+      "any_charter_pass": true,
       "members": [
         {
           "id": "CRISIS_ONLY_50",
           "hist_pass": true,
-          "trail_pass": false,
-          "charter_pass": false,
+          "trail_pass": true,
+          "charter_pass": true,
           "hist": {
             "id": "CRISIS_ONLY_50",
             "family": "path_conditional",
@@ -116,29 +118,29 @@
             "asof": "2026-09-07",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7183498900160983,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.6546734041204454,
-              "cand_mdd": -0.13843400688639962,
-              "mdd_improve_pp": 1.2556727018410818,
-              "cagr_giveback_pp": 6.367648589565289,
+              "base_cagr": 0.682751760017682,
+              "base_mdd": -0.12850400896846814,
+              "cand_cagr": 0.6587880016592991,
+              "cand_mdd": -0.13501099504020964,
+              "mdd_improve_pp": -0.6506986071741494,
+              "cagr_giveback_pp": 2.3963758358382936,
               "n_days": 163,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.5790148851876278,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.5270881626544284,
-              "cand_mdd": -0.13843400688639973,
-              "mdd_improve_pp": 1.2556727018410707,
-              "cagr_giveback_pp": 5.192672253319941,
+              "base_cagr": 0.5332884892129479,
+              "base_mdd": -0.12850400896846825,
+              "cand_cagr": 0.527068402259012,
+              "cand_mdd": -0.13501099504020975,
+              "mdd_improve_pp": -0.6506986071741494,
+              "cagr_giveback_pp": 0.6220086953935944,
               "n_days": 241,
               "pass_diag": false
             },
-            "pause_review": true,
-            "alert": true,
-            "trail_pass": false
+            "pause_review": false,
+            "alert": false,
+            "trail_pass": true
           }
         }
       ],
@@ -179,23 +181,23 @@
             "asof": "2026-09-07",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7183498900160983,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.6278904440336885,
-              "cand_mdd": -0.09345051758615663,
-              "mdd_improve_pp": 5.75402163186538,
-              "cagr_giveback_pp": 9.045944598240974,
+              "base_cagr": 0.682751760017682,
+              "base_mdd": -0.12850400896846814,
+              "cand_cagr": 0.599385107439002,
+              "cand_mdd": -0.08315660511444434,
+              "mdd_improve_pp": 4.5347403854023804,
+              "cagr_giveback_pp": 8.336665257868002,
               "n_days": 163,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.5790148851876278,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.5103305205119728,
-              "cand_mdd": -0.09345051758615652,
-              "mdd_improve_pp": 5.754021631865392,
-              "cagr_giveback_pp": 6.868436467565497,
+              "base_cagr": 0.5332884892129479,
+              "base_mdd": -0.12850400896846825,
+              "cand_cagr": 0.47672814787723206,
+              "cand_mdd": -0.08315660511444434,
+              "mdd_improve_pp": 4.534740385402392,
+              "cagr_giveback_pp": 5.656034133571586,
               "n_days": 241,
               "pass_diag": false
             },
@@ -242,23 +244,23 @@
             "asof": "2026-09-07",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7183498900160983,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.6912274221858874,
-              "cand_mdd": -0.12519436062113176,
-              "mdd_improve_pp": 2.5796373283678675,
-              "cagr_giveback_pp": 2.7122467830210883,
+              "base_cagr": 0.682751760017682,
+              "base_mdd": -0.12850400896846814,
+              "cand_cagr": 0.6620799238601078,
+              "cand_mdd": -0.10545264916175445,
+              "mdd_improve_pp": 2.305135980671369,
+              "cagr_giveback_pp": 2.0671836157574175,
               "n_days": 163,
               "pass_diag": true
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.5790148851876278,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.5675076923663935,
-              "cand_mdd": -0.12519436062113165,
-              "mdd_improve_pp": 2.5796373283678786,
-              "cagr_giveback_pp": 1.1507192821234247,
+              "base_cagr": 0.5332884892129479,
+              "base_mdd": -0.12850400896846825,
+              "cand_cagr": 0.5321780329539993,
+              "cand_mdd": -0.10545264916175434,
+              "mdd_improve_pp": 2.305135980671391,
+              "cagr_giveback_pp": 0.11104562589485667,
               "n_days": 241,
               "pass_diag": true
             },
@@ -298,23 +300,23 @@
             "asof": "2026-09-07",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7183498900160983,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.6512198696400491,
-              "cand_mdd": -0.10046064986102743,
-              "mdd_improve_pp": 5.053008404378301,
-              "cagr_giveback_pp": 6.71300203760492,
+              "base_cagr": 0.682751760017682,
+              "base_mdd": -0.12850400896846814,
+              "cand_cagr": 0.5832204365131455,
+              "cand_mdd": -0.08558540317315144,
+              "mdd_improve_pp": 4.29186057953167,
+              "cagr_giveback_pp": 9.953132350453654,
               "n_days": 163,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.5790148851876278,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.5471796707176804,
-              "cand_mdd": -0.10046064986102754,
-              "mdd_improve_pp": 5.053008404378289,
-              "cagr_giveback_pp": 3.1835214469947415,
+              "base_cagr": 0.5332884892129479,
+              "base_mdd": -0.12850400896846825,
+              "cand_cagr": 0.4799076139615901,
+              "cand_mdd": -0.08558540317315133,
+              "mdd_improve_pp": 4.291860579531692,
+              "cagr_giveback_pp": 5.338087525135782,
               "n_days": 241,
               "pass_diag": false
             },
@@ -333,7 +335,7 @@
         {
           "id": "DD_BEAR_CRISIS_50",
           "hist_pass": false,
-          "trail_pass": false,
+          "trail_pass": true,
           "charter_pass": false,
           "hist": {
             "id": "DD_BEAR_CRISIS_50",
@@ -361,54 +363,52 @@
             "asof": "2026-09-07",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7183498900160983,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.6569176760573578,
-              "cand_mdd": -0.14166662280526898,
-              "mdd_improve_pp": 0.9324111099541454,
-              "cagr_giveback_pp": 6.143221395874043,
+              "base_cagr": 0.682751760017682,
+              "base_mdd": -0.12850400896846814,
+              "cand_cagr": 0.6604797784098582,
+              "cand_mdd": -0.14013894125142012,
+              "mdd_improve_pp": -1.1634932282951982,
+              "cagr_giveback_pp": 2.2271981607823843,
               "n_days": 163,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.5790148851876278,
-              "base_mdd": -0.15099073390481044,
-              "cand_cagr": 0.5295246480446747,
-              "cand_mdd": -0.1416666228052691,
-              "mdd_improve_pp": 0.9324111099541343,
-              "cagr_giveback_pp": 4.949023714295309,
+              "base_cagr": 0.5332884892129479,
+              "base_mdd": -0.12850400896846825,
+              "cand_cagr": 0.5321338623926619,
+              "cand_mdd": -0.14013894125142023,
+              "mdd_improve_pp": -1.1634932282951982,
+              "cagr_giveback_pp": 0.11546268202859977,
               "n_days": 241,
               "pass_diag": false
             },
-            "pause_review": true,
-            "alert": true,
-            "trail_pass": false
+            "pause_review": false,
+            "alert": false,
+            "trail_pass": true
           }
         }
       ],
       "operating_dual_paper": {
         "available": true,
         "sleeve": "L4_DD_PATH_08_50",
-        "pause_review": true,
-        "cutover_blocked": true,
+        "pause_review": false,
+        "cutover_blocked": false,
         "authoritative_go_live_status": null,
         "alerts": [
-          "ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops)",
-          "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4",
-          "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)"
+          "ALERT: L4_DD_PATH_08_50 sealed MDD worse than BASE (paper)"
         ],
         "windows": {
           "ytd": {
-            "cagr_giveback_pp": 5.395985714137064,
-            "mdd_improve_pp": 1.4819119479697829
+            "cagr_giveback_pp": 0.37336756387635894,
+            "mdd_improve_pp": -0.8922417209654254
           },
           "trailing_1y": {
-            "cagr_giveback_pp": 4.893990216446631,
-            "mdd_improve_pp": 1.4819119479697718
+            "cagr_giveback_pp": -0.8185327268854126,
+            "mdd_improve_pp": -0.8922417209654143
           }
         },
-        "trail_pass": false
+        "trail_pass": true
       }
     }
   ],

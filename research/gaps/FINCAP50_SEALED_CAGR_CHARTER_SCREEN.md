@@ -1,6 +1,6 @@
 # FIN_CAP_50 Sealed-CAGR Charter Screen
 
-Generated: `2026-09-07T17:03:24.527872+00:00`
+Generated: `2026-09-08T00:52:56.859629+00:00`
 Status: **RESEARCH_ONLY** — Soft-Frozen **[0.50, 0.95] KEEP**; no cutover.
 
 ## Decision: **PAPER_PROMOTE_PROPOSAL_ONLY**
@@ -16,22 +16,23 @@ Named challenger may enter dual-paper observe + promote proposal only (not live 
 
 ### Promote-eligible (hist + trailing)
 
+- `L4-CRISIS-ONLY` / `CRISIS_ONLY_50`
 - `L4-BLEND-LIGHT` / `BLEND_025`
 
 ### Operating dual-paper trailing
 
 - FIN_CAP_50 pause/cutover_blocked: **True** / **True**
-- L4_DD_PATH_08_50 pause/cutover_blocked: **True** / **True**
+- L4_DD_PATH_08_50 pause/cutover_blocked: **False** / **False**
 
 ### Family table
 
 | Family | Member | Hist pass | Trail pass | Charter pass |
 |---|---|---|---|---|
-| `L4-CRISIS-ONLY` | `CRISIS_ONLY_50` | True | False | False |
+| `L4-CRISIS-ONLY` | `CRISIS_ONLY_50` | True | True | True |
 | `L4-FINCAP-70` | `FIN_CAP_70_STATIC` | True | False | False |
 | `L4-BLEND-LIGHT` | `BLEND_025` | True | True | True |
 | `L4-BLEND-LIGHT` | `BLEND_050` | True | False | False |
-| `L4-DD-PATH` | `DD_BEAR_CRISIS_50` | False | False | False |
+| `L4-DD-PATH` | `DD_BEAR_CRISIS_50` | False | True | False |
 
 ## Hard rules
 

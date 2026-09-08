@@ -5,19 +5,18 @@
 
 | Window | MDD dpp | Giveback pp | Rel NAV |
 |---|---:|---:|---:|
-| mtd | 0.0 | 242.5880571499933 | 0.9976 |
-| ytd | 2.288363517446379 | 10.404333361794249 | 0.9607 |
-| trailing_1y | 2.28836351744639 | 7.980619760498486 | 0.9518 |
-| sealed_2023_plus | 2.288363517446379 | 3.303639538617409 | 0.9113 |
-| heldout_2019_plus | 2.223693801227644 | 2.5759489529906476 | 0.8510 |
-| full | 2.223693801227644 | 1.7146655664981747 | 0.8178 |
+| mtd | 0.0 | 135.54534018732483 | 0.9986 |
+| ytd | 0.8100032504814947 | 7.561229307588935 | 0.9710 |
+| trailing_1y | 0.8100032504815058 | 4.76242969054792 | 0.9705 |
+| sealed_2023_plus | 0.8100032504814725 | 2.3706898772334117 | 0.9356 |
+| heldout_2019_plus | 2.5206912403308412 | 1.4268883738174365 | 0.9141 |
+| full | 2.520691240330808 | 1.0913155664906693 | 0.8797 |
 
 ## Alerts
 
 - ALERT: M2_RELOC_BIL_FX_C35 ytd CAGR giveback > 3.0 pp (paper)
 - PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
 - ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper)
-- PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
 
 ## Honesty
 

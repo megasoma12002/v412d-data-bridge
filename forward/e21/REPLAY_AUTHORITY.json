@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-07T17:02:17.365637+00:00",
-  "label": "E21_LIVE_CAPITAL_15M_BOARD_LOT_REPLAY",
-  "authority": "human \u300c\u63d0\u9ad8\u6a21\u64ec\uff0f\u5be6\u76e4\u8cc7\u672c\u300d 2026-09-07",
+  "generated_at_utc": "2026-09-08T00:51:54.019015+00:00",
+  "label": "E21_LIVE_CAPITAL_3M_RESTORE_REPLAY",
+  "authority": "human \u300c\u5148\u5fa9\u539f\u6210\u539f3M\u6642\u7684\u689d\u4ef6\u7248\u672c\u300d 2026-09-08",
   "cleared": [
     "fills.csv",
     "orders.csv",
@@ -17,12 +17,12 @@
     "live_market.csv"
   ],
   "start_date": "2026-08-24",
-  "capital": 15000000.0,
+  "capital": 3000000.0,
   "board_lot": 1000,
   "soft_frozen_unchanged": true,
   "stitch_authorized": false,
-  "prior_authority": "board-lot 1000 + zero-fill replays 2026-09-07",
-  "note": "DEFAULT_CAPITAL 15M so Soft-Frozen TEL floor can fund 3\u00d71\u5f35; see research/ops/CAPITAL_15M_2026-09-07.md",
+  "prior_authority": "capital 15M board-lot replay 2026-09-07",
+  "note": "Restore DEFAULT_CAPITAL=3M + board-lot 1000; Soft-Frozen KEEP; see CAPITAL_3M_RESTORE_2026-09-08.md",
   "replayed_dates": [
     "2026-08-24",
     "2026-08-25",
