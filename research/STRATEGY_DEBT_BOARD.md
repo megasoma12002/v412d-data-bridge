@@ -204,3 +204,8 @@ Human 「先復原成原3M時的條件版本」. `DEFAULT_CAPITAL=3M` + board-lo
 
 Research-only: **不強制三家電信全買**. Awaiting `ACCEPT telecom within-sleeve charter`. Pack: `TELECOM_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md`.
 
+## E45 remaining-improve research batch (2026-09-08)
+
+Human 「請進行研究」 after E45 improve-avenues ask. Paper batch: tip PAUSE refresh (+C35) · cross-sleeve scoreboard · cheap-protect×cost. Tip **PASS/PASS**: `BLEND_E45_A05`, `SLEEVE_FIN_ONLY_A10`; still PAUSE: FULL / A25 / C35(YTD). Best held-out observe=`M2_RELOC_BIL_FX_C35`. Soft-Frozen KEEP · stitch FORBIDDEN · HIGH_BETA HOLD.  
+Artifacts: `E45_REMAINING_IMPROVE_RESEARCH_BATCH.md` · `repro/e45-remaining-improve-20260908/`.
+
