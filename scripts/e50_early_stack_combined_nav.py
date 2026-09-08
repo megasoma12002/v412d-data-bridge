@@ -28,6 +28,7 @@ from portfolio_capital import DEFAULT_CAPITAL
 from within_sleeve_alloc import (
     FIN_EQUAL,
     FIN_ALLOC_POLICIES,
+    FIN_MIX_EQUAL_RS_EXDIV,
     TEL_EQUAL,
     TEL_MIN_LOT_PACK,
     TEL_TOP1,
@@ -106,6 +107,7 @@ def simulate_core(
     fin_name_scores: pd.DataFrame | None = None,
     tel_name_scores: pd.DataFrame | None = None,
     fin_buy_ok: pd.DataFrame | None = None,
+    fin_mix_lambda: float | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
@@ -123,10 +125,17 @@ def simulate_core(
     def_code: optional synthetic/research DEF instrument code present in ``market``;
     required when schedule carries a DEF column > 0.
     financial_alloc / telecom_alloc: paper within-sleeve policies (default EQUAL).
+    fin_mix_lambda: when financial_alloc=`FIN_MIX_EQUAL_RS_EXDIV`, weight on EQUAL
+    in λ·EQUAL+(1−λ)·RS_EXDIV (required in [0,1]).
     Live e21 unchanged until dedicated cutover ACCEPT.
     """
     if financial_alloc not in FIN_ALLOC_POLICIES:
         raise ValueError(f"financial_alloc must be one of {FIN_ALLOC_POLICIES}")
+    if financial_alloc == FIN_MIX_EQUAL_RS_EXDIV:
+        if fin_mix_lambda is None:
+            raise ValueError("fin_mix_lambda required for FIN_MIX_EQUAL_RS_EXDIV")
+        if not (0.0 <= float(fin_mix_lambda) <= 1.0):
+            raise ValueError("fin_mix_lambda must be in [0,1]")
     if telecom_alloc not in TEL_ALLOC_POLICIES:
         raise ValueError(f"telecom_alloc must be one of {TEL_ALLOC_POLICIES}")
     if e22_version is None:
@@ -354,7 +363,11 @@ def simulate_core(
         for sleeve_name, codes in sleeve_codes:
             if sleeve_name == "Financial" and financial_alloc != FIN_EQUAL:
                 dollars = float(sleeve_trade[sleeve_name]) * nav
-                if abs(dollars) >= 1e-9 or financial_alloc in ("FIN_TOP1", "FIN_TOP2_EQUAL"):
+                if abs(dollars) >= 1e-9 or financial_alloc in (
+                    "FIN_TOP1",
+                    "FIN_TOP2_EQUAL",
+                    FIN_MIX_EQUAL_RS_EXDIV,
+                ):
                     for c, side, qty in allocate_sleeve_orders(
                         dollars,
                         {x: float(cl[x]) for x in FIN},
@@ -364,6 +377,7 @@ def simulate_core(
                         lot_size=lot_size,
                         scores=fin_scores_today,
                         buy_ok=fin_buy_ok_today,
+                        mix_lambda=fin_mix_lambda,
                     ):
                         if qty < 1:
                             continue
@@ -457,6 +471,7 @@ def simulate_core(
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
         "lot_size": int(lot_size),
         "financial_alloc": str(financial_alloc),
+        "fin_mix_lambda": None if fin_mix_lambda is None else float(fin_mix_lambda),
         "telecom_alloc": str(telecom_alloc),
         "e22_manifest": e22div.version_manifest(e22_version) if apply_e22 else None,
     }

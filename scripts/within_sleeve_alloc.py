@@ -18,6 +18,7 @@ POLICY_TOP2_EQUAL = "TOP2_EQUAL"
 POLICY_RS_SOFT_TILT = "RS_SOFT_TILT"
 POLICY_EXDIV_SKIP_BUY = "EXDIV_SKIP_BUY"
 POLICY_RS_SOFT_TILT_EXDIV = "RS_SOFT_TILT_EXDIV"
+POLICY_MIX_EQUAL_RS_EXDIV = "MIX_EQUAL_RS_EXDIV"
 POLICY_SUFFIXES = (
     POLICY_EQUAL,
     POLICY_MIN_LOT_PACK,
@@ -28,6 +29,7 @@ POLICY_SUFFIXES = (
     POLICY_RS_SOFT_TILT,
     POLICY_EXDIV_SKIP_BUY,
     POLICY_RS_SOFT_TILT_EXDIV,
+    POLICY_MIX_EQUAL_RS_EXDIV,
 )
 
 # Predeclared ids (Stage B + Stage C)
@@ -38,6 +40,7 @@ FIN_TOP2_EQUAL = "FIN_TOP2_EQUAL"
 FIN_RS_SOFT_TILT = "FIN_RS_SOFT_TILT"
 FIN_EXDIV_SKIP_BUY = "FIN_EXDIV_SKIP_BUY"
 FIN_RS_SOFT_TILT_EXDIV = "FIN_RS_SOFT_TILT_EXDIV"
+FIN_MIX_EQUAL_RS_EXDIV = "FIN_MIX_EQUAL_RS_EXDIV"
 FIN_ALLOC_POLICIES = (
     FIN_EQUAL,
     FIN_MIN_LOT_PACK,
@@ -46,6 +49,7 @@ FIN_ALLOC_POLICIES = (
     FIN_RS_SOFT_TILT,
     FIN_EXDIV_SKIP_BUY,
     FIN_RS_SOFT_TILT_EXDIV,
+    FIN_MIX_EQUAL_RS_EXDIV,
 )
 
 TEL_EQUAL = "TEL_EQUAL"
@@ -77,6 +81,8 @@ def policy_kind(policy_id: str) -> str:
         return POLICY_TOP1
     if policy_id.endswith("_TOP2_EQUAL"):
         return POLICY_TOP2_EQUAL
+    if policy_id.endswith("_MIX_EQUAL_RS_EXDIV") or policy_id == FIN_MIX_EQUAL_RS_EXDIV:
+        return POLICY_MIX_EQUAL_RS_EXDIV
     if policy_id.endswith("_RS_SOFT_TILT_EXDIV"):
         return POLICY_RS_SOFT_TILT_EXDIV
     if policy_id.endswith("_RS_SOFT_TILT"):
@@ -244,6 +250,60 @@ def _pack_one_lot_then_dump(
     return out
 
 
+def allocate_mix_equal_rs_exdiv(
+    sleeve_dollars: float,
+    closes: dict[str, float],
+    pos: dict,
+    *,
+    codes: list[str] | tuple[str, ...],
+    lot_size: int = BOARD_LOT,
+    scores: dict[str, float] | None = None,
+    buy_ok: dict[str, bool] | None = None,
+    mix_lambda: float = 0.5,
+) -> list[tuple[str, str, int]]:
+    """Blend notionals: λ·EQUAL + (1−λ)·RS_SOFT_TILT_EXDIV, then board-lot.
+
+    λ=1 → pure equal-split; λ=0 → pure RS+exdiv skip-buy.
+    """
+    names = list(codes)
+    if not names or abs(sleeve_dollars) < 1e-9:
+        return []
+    lam = float(mix_lambda)
+    if lam < 0.0 or lam > 1.0:
+        raise ValueError(f"mix_lambda must be in [0,1], got {lam}")
+
+    eq_each = float(sleeve_dollars) / float(len(names))
+    eq = {c: eq_each for c in names}
+
+    score_map = _score_map(names, scores)
+    if sleeve_dollars < 0:
+        holders = [c for c in names if held_board_qty(pos, c, lot_size) > 0] or names
+        rs_each = float(sleeve_dollars) / float(len(holders))
+        rs = {c: (rs_each if c in holders else 0.0) for c in names}
+    else:
+        eligible = _buy_eligible(names, buy_ok)
+        rs = {c: 0.0 for c in names}
+        if eligible:
+            w = soft_tilt_weights(eligible, score_map)
+            for c in eligible:
+                rs[c] = float(sleeve_dollars) * w[c]
+
+    mix = {c: lam * eq[c] + (1.0 - lam) * rs[c] for c in names}
+    out: list[tuple[str, str, int]] = []
+    for c, dollars in mix.items():
+        if abs(dollars) < 1e-9:
+            continue
+        side = "BUY" if dollars > 0 else "SELL"
+        px = float(closes[c])
+        qty = lot_qty_from_notional(dollars, px, lot_size=lot_size)
+        if side == "SELL":
+            qty = min(qty, held_board_qty(pos, c, lot_size))
+        if qty < (1 if lot_size == 1 else lot_size):
+            continue
+        out.append((c, side, int(qty)))
+    return _coalesce_orders(out)
+
+
 def allocate_sleeve_orders(
     sleeve_dollars: float,
     closes: dict[str, float],
@@ -254,6 +314,7 @@ def allocate_sleeve_orders(
     lot_size: int = BOARD_LOT,
     scores: dict[str, float] | None = None,
     buy_ok: dict[str, bool] | None = None,
+    mix_lambda: float | None = None,
 ) -> list[tuple[str, str, int]]:
     """Allocate one sleeve's trade dollars across member codes.
 
@@ -263,9 +324,23 @@ def allocate_sleeve_orders(
       - RS_SOFT_TILT: buy dollars soft-tilted by momentum scores; sells equal among holders
       - EXDIV_SKIP_BUY: buys only among buy_ok names; sells equal among holders
       - RS_SOFT_TILT_EXDIV: soft-tilt buys among buy_ok only
+    Mix:
+      - MIX_EQUAL_RS_EXDIV: λ·EQUAL + (1−λ)·RS_SOFT_TILT_EXDIV notionals
     """
     names = list(codes)
     kind = policy_kind(policy_id)
+    if kind == POLICY_MIX_EQUAL_RS_EXDIV:
+        lam = 0.5 if mix_lambda is None else float(mix_lambda)
+        return allocate_mix_equal_rs_exdiv(
+            sleeve_dollars,
+            closes,
+            pos,
+            codes=names,
+            lot_size=lot_size,
+            scores=scores,
+            buy_ok=buy_ok,
+            mix_lambda=lam,
+        )
     if kind == POLICY_EQUAL:
         return allocate_equal_notional(names, sleeve_dollars, closes, pos, lot_size=lot_size)
 
@@ -436,6 +511,7 @@ __all__ = [
     "POLICY_RS_SOFT_TILT",
     "POLICY_EXDIV_SKIP_BUY",
     "POLICY_RS_SOFT_TILT_EXDIV",
+    "POLICY_MIX_EQUAL_RS_EXDIV",
     "FIN_EQUAL",
     "FIN_MIN_LOT_PACK",
     "FIN_TOP1",
@@ -443,6 +519,7 @@ __all__ = [
     "FIN_RS_SOFT_TILT",
     "FIN_EXDIV_SKIP_BUY",
     "FIN_RS_SOFT_TILT_EXDIV",
+    "FIN_MIX_EQUAL_RS_EXDIV",
     "FIN_ALLOC_POLICIES",
     "TEL_EQUAL",
     "TEL_MIN_LOT_PACK",
@@ -456,6 +533,7 @@ __all__ = [
     "lot_qty_from_notional",
     "allocate_equal_notional",
     "allocate_weighted_notional",
+    "allocate_mix_equal_rs_exdiv",
     "soft_tilt_weights",
     "allocate_sleeve_orders",
     "build_name_scores",
