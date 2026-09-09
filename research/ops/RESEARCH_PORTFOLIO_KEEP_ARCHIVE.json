@@ -14,6 +14,12 @@
       "MIX_L75"
     ],
     "fin_focus": "MIX_L75",
+    "fin_pre_exdiv_kd_probe": {
+      "kd": "Yahoo K9/D9",
+      "primary": "Klt25",
+      "season": "May15-Jun10",
+      "artifact": "research/ops/FIN_PRE_EXDIV_KD_PROBE.md"
+    },
     "e45_primary": [
       "BLEND_E45_A05",
       "M2_RELOC_BIL_FX_C35"
