@@ -25,6 +25,18 @@ Soft-Frozen **sleeve weights** from live FINBAND (公股 features); Financial do
 Same tip gates as other observes: YTD / trailing 1y vs `PRIV_EQUAL` (ALERT 3pp / PAUSE 5pp).  
 Held-out score is historical lock; tip is operating.
 
+## Operating artifacts (wired)
+
+| Artifact | Path |
+|---|---|
+| Dual-paper ledgers | `scripts/e16_fin_priv_native_dual_paper_ledgers.py` |
+| Month-end monitor | `scripts/e16_fin_priv_native_month_end_monitor.py` |
+| Observe operating memo | `research/ops/FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPERATING.md` |
+| Month-end monitor output | `research/ops/FIN_PRIV_NATIVE_MONTH_END_MONITOR.{md,json}` |
+| Repro root | `repro/fin-priv-native-dual-paper-observe/` |
+
+As-of `2026-09-09`: month-end monitor alerts = **none**.
+
 ## WON’T
 
 - Soft-Frozen flip · live e21 expand · auto-promote to live KD

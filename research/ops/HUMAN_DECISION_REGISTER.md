@@ -45,7 +45,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | 民營金控 paper re-screen | **STOP** (2026-09-09) | Stage A vs `LIVE_PUB_KD` · 0 coexist · Soft-Frozen 公股 R1 KEEP · post div/adj fill still STOP · `PRIVATE_FIN_HOLDINGS_DECISION_PACK.md` |
 | 金融公/金融民 dual-sleeve | **STOP** (2026-09-09) | Dollar-split Stage A tip-clean but held-out&lt;0 · keep 公股 R1 · `FIN_PUB_PRIV_DUAL_SLEEVE_DECISION_PACK.md` |
 | Soft-Frozen 4-sleeve (公/民 clips) | **STOP** (2026-09-09) | Stage A 48-challenger grid 0 coexist · live 3-sleeve KEEP · `SOFT_FROZEN_4SLEEVE_DECISION_PACK.md` |
-| 民營 native within-sleeve | **OPTIMAL + OBSERVE OPEN** (2026-09-09) | vs PRIV_EQUAL · native `MAY_Klt25_T15` · `FIN_PRIV_NATIVE_WITHIN_SLEEVE_DECISION_PACK.md` |
+| 民營 native within-sleeve | **OPTIMAL + OBSERVE OPERATING** (2026-09-09) | `PRIV_EQUAL`∥`PRIV_KD_MAY_Klt25_T15` month-end wired (asof 2026-09-09 alerts=0) · `FIN_PRIV_NATIVE_WITHIN_SLEEVE_DECISION_PACK.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`

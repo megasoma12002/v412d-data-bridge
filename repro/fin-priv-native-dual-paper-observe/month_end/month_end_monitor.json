@@ -1,0 +1,111 @@
+{
+  "generated_at_utc": "2026-09-09T15:53:34.702320+00:00",
+  "asof": "2026-09-09",
+  "label": "FIN_PRIV_NATIVE_MONTH_END_MONITOR",
+  "status": "OPERATING_OBSERVE",
+  "base_id": "PRIV_EQUAL",
+  "challenger_id": "PRIV_KD_MAY_Klt25_T15",
+  "live_wire": false,
+  "soft_frozen_unchanged": true,
+  "alerts": [],
+  "windows": [
+    {
+      "window": "mtd",
+      "start": "2026-09-01",
+      "end": "2026-09-09",
+      "n_days": 7,
+      "base_cagr": 9.368430342342686,
+      "base_mdd": 0.0,
+      "chal_cagr": 8.585075084967706,
+      "chal_mdd": 0.0,
+      "mdd_improve_pp": 0.0,
+      "cagr_giveback_pp": 78.33552573749802,
+      "score": -39.16776286874901,
+      "rel_nav_end": 0.998131309240898
+    },
+    {
+      "window": "ytd",
+      "start": "2026-01-01",
+      "end": "2026-09-09",
+      "n_days": 165,
+      "base_cagr": 0.7959923703815179,
+      "base_mdd": -0.09688777084098543,
+      "chal_cagr": 0.793049024920536,
+      "chal_mdd": -0.09137813259645766,
+      "mdd_improve_pp": 0.550963824452777,
+      "cagr_giveback_pp": 0.2943345460981961,
+      "score": 0.403796551403679,
+      "rel_nav_end": 0.9989331474391115
+    },
+    {
+      "window": "trailing_1y",
+      "start": "2025-09-09",
+      "end": "2026-09-09",
+      "n_days": 242,
+      "base_cagr": 0.6231999705778954,
+      "base_mdd": -0.09688777084098543,
+      "chal_cagr": 0.6294163378849738,
+      "chal_mdd": -0.091378132596458,
+      "mdd_improve_pp": 0.5509638244527437,
+      "cagr_giveback_pp": -0.6216367307078308,
+      "score": 0.24014545909882834,
+      "rel_nav_end": 1.003662223876568
+    },
+    {
+      "window": "heldout_2019_plus",
+      "start": "2019-01-01",
+      "end": "2026-09-09",
+      "n_days": 1864,
+      "base_cagr": 0.20739049335335502,
+      "base_mdd": -0.2746592115991304,
+      "chal_cagr": 0.2095191611844034,
+      "chal_mdd": -0.26734446949922863,
+      "mdd_improve_pp": 0.7314742099901794,
+      "cagr_giveback_pp": -0.21286678310483698,
+      "score": 0.6250408184377609,
+      "rel_nav_end": 1.0131075264315113
+    },
+    {
+      "window": "sealed_2023_plus",
+      "start": "2023-01-01",
+      "end": "2026-09-09",
+      "n_days": 887,
+      "base_cagr": 0.27504002144985984,
+      "base_mdd": -0.14954825689766138,
+      "chal_cagr": 0.27635426809536545,
+      "chal_mdd": -0.14814070238802246,
+      "mdd_improve_pp": 0.14075545096389197,
+      "cagr_giveback_pp": -0.13142466455056123,
+      "score": 0.07504311868861135,
+      "rel_nav_end": 1.003628685116415
+    },
+    {
+      "window": "full",
+      "start": "2012-12-04",
+      "end": "2026-09-09",
+      "n_days": 3359,
+      "base_cagr": 0.16390652281171803,
+      "base_mdd": -0.27465921159913054,
+      "chal_cagr": 0.1648530270089732,
+      "chal_mdd": -0.26734446949922874,
+      "mdd_improve_pp": 0.7314742099901794,
+      "cagr_giveback_pp": -0.09465041972551713,
+      "score": 0.6841490001274209,
+      "rel_nav_end": 1.0108908637498542
+    }
+  ],
+  "gates": {
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "design_giveback_pp": {
+      "heldout_2019_plus": 0.5,
+      "sealed_2023_plus": 0.8
+    },
+    "structural_buffer_pp": 2.0
+  },
+  "non_actions": [
+    "paper observe only",
+    "no Soft-Frozen flip",
+    "no live e21 universe expansion"
+  ]
+}
