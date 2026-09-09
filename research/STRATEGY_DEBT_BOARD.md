@@ -298,3 +298,7 @@ Human **「應該策略要把金融分成 金融公 金融民」**. Paper dollar
 ## Soft-Frozen 4-sleeve FinPub/FinPriv clips (2026-09-09)
 
 Human **「做成 Soft-Frozen 四條 sleeve（公／民各自 clip），另開 charter」**. Paper challenger router + 48-clip Stage A @ 500M. **STOP** — 0 coexist (best −1.29); live 3-sleeve SSOT KEEP. Pack: `SOFT_FROZEN_4SLEEVE_DECISION_PACK.md`.
+
+## 民營 native within-sleeve (2026-09-09)
+
+Human **「民營的策略再研究一下畢竟跟公股的習性不一樣」**. PRIV cash-ex ~Jun–Jul vs 公股 ~Aug. Native KD grid vs `PRIV_EQUAL` → coexist; native winner **`PRIV_KD_MAY_Klt25_T15`** (+0.63). Dual-paper observe OPEN. Pack: `FIN_PRIV_NATIVE_WITHIN_SLEEVE_DECISION_PACK.md`.

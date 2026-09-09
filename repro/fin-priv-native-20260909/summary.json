@@ -1,0 +1,2121 @@
+{
+  "generated_at_utc": "2026-09-09T15:32:50.272170+00:00",
+  "label": "FIN_PRIV_NATIVE_WITHIN_SLEEVE_OPTIMIZE",
+  "status": "OPTIMAL_SELECTED",
+  "charter": "research/ops/FIN_PRIV_NATIVE_WITHIN_SLEEVE_CHARTER.md",
+  "live_wire": false,
+  "baseline": "PRIV_EQUAL",
+  "universe": [
+    "2884",
+    "2885",
+    "2890",
+    "2891",
+    "2881",
+    "2882"
+  ],
+  "calendar_note": "PUB cash-ex ~Aug; PRIV cash-ex ~Jun\u2013Jul",
+  "optimal_rule": "coexist (tip PASS + heldout>0 vs PRIV_EQUAL)",
+  "optimal": {
+    "id": "PRIV_MIX_L75_TRANSPLANT",
+    "financial_alloc": "FIN_MIX_EQUAL_PRE_EXDIV_KD",
+    "season": null,
+    "season_start": null,
+    "season_end": null,
+    "k_thresh": null,
+    "pre_days": null,
+    "heldout_score": 0.6519035117130589,
+    "mdd_improve_pp": 0.9138549842103716,
+    "cagr_giveback_pp": 0.5239029449946253,
+    "tip_ytd": "PASS",
+    "tip_1y": "PASS",
+    "tip_clean": true,
+    "sealed_score_REPORT_ONLY": -5.433974510135653,
+    "vs_live_pub_kd_REPORT_ONLY": -6.4614662685201,
+    "n_fills": 7048,
+    "coexist": true
+  },
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "n_grid": 62,
+  "absolute": {
+    "PRIV_EQUAL": {
+      "full_cagr": 0.16390652281171825,
+      "full_mdd": -0.27465921159913065,
+      "heldout_cagr": 0.20739049335335502,
+      "heldout_mdd": -0.27465921159913054
+    },
+    "TRANSPLANT_PUB_KD_APR15_MAY15_Klt30_T15": {
+      "full_cagr": 0.16480213294030865,
+      "full_mdd": -0.2680817860053013,
+      "heldout_cagr": 0.20912279240400333,
+      "heldout_mdd": -0.2680817860053012
+    },
+    "PRIV_RS_SOFT_TILT_EXDIV": {
+      "full_cagr": 0.16055158670211012,
+      "full_mdd": -0.27526456705851066,
+      "heldout_cagr": 0.20184308214981939,
+      "heldout_mdd": -0.27526456705851077
+    },
+    "PRIV_MIX_L75_TRANSPLANT": {
+      "full_cagr": 0.15816473236691375,
+      "full_mdd": -0.2655206617570267,
+      "heldout_cagr": 0.20215146390340877,
+      "heldout_mdd": -0.2655206617570268
+    },
+    "PRIV_KD_APR15_MAY15_Klt20_T5": {
+      "full_cagr": 0.1666987310007506,
+      "full_mdd": -0.26879860889565976,
+      "heldout_cagr": 0.21244872946586013,
+      "heldout_mdd": -0.2687986088956599
+    },
+    "PRIV_KD_APR15_MAY15_Klt20_T10": {
+      "full_cagr": 0.16609955903902263,
+      "full_mdd": -0.26827476365481684,
+      "heldout_cagr": 0.2107416205083663,
+      "heldout_mdd": -0.26827476365481673
+    },
+    "PRIV_KD_APR15_MAY15_Klt20_T15": {
+      "full_cagr": 0.16418947290340657,
+      "full_mdd": -0.2686590799227988,
+      "heldout_cagr": 0.207302077804995,
+      "heldout_mdd": -0.2686590799227988
+    },
+    "PRIV_KD_APR15_MAY15_Klt25_T5": {
+      "full_cagr": 0.16806289925945217,
+      "full_mdd": -0.2682357084753948,
+      "heldout_cagr": 0.2155410665558819,
+      "heldout_mdd": -0.2682357084753949
+    },
+    "PRIV_KD_APR15_MAY15_Klt25_T10": {
+      "full_cagr": 0.1670083362663799,
+      "full_mdd": -0.2679851449824636,
+      "heldout_cagr": 0.21319981566118962,
+      "heldout_mdd": -0.2679851449824636
+    },
+    "PRIV_KD_APR15_MAY15_Klt25_T15": {
+      "full_cagr": 0.1651901096753443,
+      "full_mdd": -0.26781444214358163,
+      "heldout_cagr": 0.2098772886892908,
+      "heldout_mdd": -0.2678144421435815
+    },
+    "PRIV_KD_APR15_MAY15_Klt30_T5": {
+      "full_cagr": 0.16794591507609913,
+      "full_mdd": -0.2686236633328649,
+      "heldout_cagr": 0.2153204014438319,
+      "heldout_mdd": -0.2686236633328649
+    },
+    "PRIV_KD_APR15_MAY15_Klt30_T10": {
+      "full_cagr": 0.166818218393602,
+      "full_mdd": -0.26808844620054273,
+      "heldout_cagr": 0.21276002652747872,
+      "heldout_mdd": -0.26808844620054273
+    },
+    "PRIV_KD_MAY_Klt20_T5": {
+      "full_cagr": 0.16794244946336212,
+      "full_mdd": -0.26935970000828735,
+      "heldout_cagr": 0.21449365625428163,
+      "heldout_mdd": -0.26935970000828746
+    },
+    "PRIV_KD_MAY_Klt20_T10": {
+      "full_cagr": 0.16708680078293447,
+      "full_mdd": -0.26924702163272296,
+      "heldout_cagr": 0.2123938848671294,
+      "heldout_mdd": -0.26924702163272285
+    },
+    "PRIV_KD_MAY_Klt20_T15": {
+      "full_cagr": 0.1643896602601269,
+      "full_mdd": -0.26928046419203844,
+      "heldout_cagr": 0.20751465434527638,
+      "heldout_mdd": -0.26928046419203855
+    },
+    "PRIV_KD_MAY_Klt25_T5": {
+      "full_cagr": 0.16842377271700304,
+      "full_mdd": -0.2680137592260463,
+      "heldout_cagr": 0.21694870515114317,
+      "heldout_mdd": -0.2680137592260462
+    },
+    "PRIV_KD_MAY_Klt25_T10": {
+      "full_cagr": 0.16752542206062793,
+      "full_mdd": -0.2675141679775528,
+      "heldout_cagr": 0.21481647227362588,
+      "heldout_mdd": -0.2675141679775528
+    },
+    "PRIV_KD_MAY_Klt25_T15": {
+      "full_cagr": 0.1648530270089732,
+      "full_mdd": -0.26734446949922874,
+      "heldout_cagr": 0.20951916118440317,
+      "heldout_mdd": -0.26734446949922863
+    },
+    "PRIV_KD_MAY_Klt30_T5": {
+      "full_cagr": 0.16879664367385083,
+      "full_mdd": -0.2678385885435648,
+      "heldout_cagr": 0.21764879517042202,
+      "heldout_mdd": -0.2678385885435647
+    },
+    "PRIV_KD_MAY_Klt30_T10": {
+      "full_cagr": 0.16760578856071628,
+      "full_mdd": -0.2674923937157151,
+      "heldout_cagr": 0.214967202104972,
+      "heldout_mdd": -0.267492393715715
+    },
+    "PRIV_KD_MAY_Klt30_T15": {
+      "full_cagr": 0.16518462627809183,
+      "full_mdd": -0.2673179112243683,
+      "heldout_cagr": 0.21013984814669673,
+      "heldout_mdd": -0.26731791122436843
+    },
+    "PRIV_KD_MAY15_JUN15_Klt20_T5": {
+      "full_cagr": 0.16758398330664903,
+      "full_mdd": -0.2701986454238837,
+      "heldout_cagr": 0.2137777710272104,
+      "heldout_mdd": -0.27019864542388383
+    },
+    "PRIV_KD_MAY15_JUN15_Klt20_T10": {
+      "full_cagr": 0.16693100202067845,
+      "full_mdd": -0.2699194577835786,
+      "heldout_cagr": 0.21202937285652323,
+      "heldout_mdd": -0.2699194577835786
+    },
+    "PRIV_KD_MAY15_JUN15_Klt20_T15": {
+      "full_cagr": 0.16440044960448996,
+      "full_mdd": -0.2698093560457653,
+      "heldout_cagr": 0.20743948377255994,
+      "heldout_mdd": -0.2698093560457653
+    },
+    "PRIV_KD_MAY15_JUN15_Klt25_T5": {
+      "full_cagr": 0.16761939365484424,
+      "full_mdd": -0.2696570562149081,
+      "heldout_cagr": 0.21499509162710417,
+      "heldout_mdd": -0.2696570562149082
+    },
+    "PRIV_KD_MAY15_JUN15_Klt25_T10": {
+      "full_cagr": 0.16695537588326426,
+      "full_mdd": -0.26925114343216583,
+      "heldout_cagr": 0.21335098995298796,
+      "heldout_mdd": -0.26925114343216583
+    },
+    "PRIV_KD_MAY15_JUN15_Klt25_T15": {
+      "full_cagr": 0.16429713341703178,
+      "full_mdd": -0.2692762786412567,
+      "heldout_cagr": 0.20823040253426695,
+      "heldout_mdd": -0.2692762786412567
+    },
+    "PRIV_KD_MAY15_JUN15_Klt30_T5": {
+      "full_cagr": 0.16800562390602658,
+      "full_mdd": -0.2700205873902126,
+      "heldout_cagr": 0.21480416920166467,
+      "heldout_mdd": -0.2700205873902125
+    },
+    "PRIV_KD_MAY15_JUN15_Klt30_T10": {
+      "full_cagr": 0.16714417837667894,
+      "full_mdd": -0.26966215224088885,
+      "heldout_cagr": 0.21272340816425483,
+      "heldout_mdd": -0.26966215224088874
+    },
+    "PRIV_KD_MAY15_JUN15_Klt30_T15": {
+      "full_cagr": 0.16447185059277025,
+      "full_mdd": -0.2695073378039814,
+      "heldout_cagr": 0.20770824363264828,
+      "heldout_mdd": -0.2695073378039814
+    },
+    "PRIV_KD_MAY15_JUN30_Klt20_T5": {
+      "full_cagr": 0.16659107555108732,
+      "full_mdd": -0.27040343943181877,
+      "heldout_cagr": 0.21276297359446716,
+      "heldout_mdd": -0.27040343943181866
+    },
+    "PRIV_KD_MAY15_JUN30_Klt20_T10": {
+      "full_cagr": 0.16605808074450734,
+      "full_mdd": -0.26941562383462225,
+      "heldout_cagr": 0.2114799288638698,
+      "heldout_mdd": -0.26941562383462225
+    },
+    "PRIV_KD_MAY15_JUN30_Klt20_T15": {
+      "full_cagr": 0.16327385887674017,
+      "full_mdd": -0.2695873104603077,
+      "heldout_cagr": 0.20619992006973598,
+      "heldout_mdd": -0.2695873104603077
+    },
+    "PRIV_KD_MAY15_JUN30_Klt25_T5": {
+      "full_cagr": 0.16688032846097567,
+      "full_mdd": -0.2710643054653552,
+      "heldout_cagr": 0.21192930728528303,
+      "heldout_mdd": -0.2710643054653551
+    },
+    "PRIV_KD_MAY15_JUN30_Klt25_T10": {
+      "full_cagr": 0.1661664455379992,
+      "full_mdd": -0.2701194966782069,
+      "heldout_cagr": 0.21025090831293514,
+      "heldout_mdd": -0.2701194966782069
+    },
+    "PRIV_KD_MAY15_JUN30_Klt25_T15": {
+      "full_cagr": 0.1634664052446555,
+      "full_mdd": -0.2696317294668126,
+      "heldout_cagr": 0.20562550680384573,
+      "heldout_mdd": -0.2696317294668126
+    },
+    "PRIV_KD_MAY15_JUN30_Klt30_T5": {
+      "full_cagr": 0.1672558312845427,
+      "full_mdd": -0.2704138709052407,
+      "heldout_cagr": 0.21291891143788844,
+      "heldout_mdd": -0.2704138709052408
+    },
+    "PRIV_KD_MAY15_JUN30_Klt30_T10": {
+      "full_cagr": 0.16666320426440384,
+      "full_mdd": -0.2696742446701901,
+      "heldout_cagr": 0.21136241482070584,
+      "heldout_mdd": -0.26967424467018997
+    },
+    "PRIV_KD_MAY15_JUN30_Klt30_T15": {
+      "full_cagr": 0.16381650375259138,
+      "full_mdd": -0.2693500639832769,
+      "heldout_cagr": 0.20645252332048303,
+      "heldout_mdd": -0.269350063983277
+    },
+    "PRIV_KD_JUN_Klt20_T5": {
+      "full_cagr": 0.16452106321770854,
+      "full_mdd": -0.26942619180282834,
+      "heldout_cagr": 0.2095865498184979,
+      "heldout_mdd": -0.26942619180282834
+    },
+    "PRIV_KD_JUN_Klt20_T10": {
+      "full_cagr": 0.16437314313635665,
+      "full_mdd": -0.2684822081887328,
+      "heldout_cagr": 0.20905164284517763,
+      "heldout_mdd": -0.2684822081887329
+    },
+    "PRIV_KD_JUN_Klt20_T15": {
+      "full_cagr": 0.16246041214403562,
+      "full_mdd": -0.26819448018667746,
+      "heldout_cagr": 0.20539655931280665,
+      "heldout_mdd": -0.2681944801866776
+    },
+    "PRIV_KD_JUN_Klt25_T5": {
+      "full_cagr": 0.16494160644589062,
+      "full_mdd": -0.27050842030677835,
+      "heldout_cagr": 0.20815648159728228,
+      "heldout_mdd": -0.27050842030677835
+    },
+    "PRIV_KD_JUN_Klt25_T10": {
+      "full_cagr": 0.16434234212434062,
+      "full_mdd": -0.2696029700469481,
+      "heldout_cagr": 0.20655945737392445,
+      "heldout_mdd": -0.2696029700469481
+    },
+    "PRIV_KD_JUN_Klt25_T15": {
+      "full_cagr": 0.16188854616642545,
+      "full_mdd": -0.269482013011053,
+      "heldout_cagr": 0.2022248753449134,
+      "heldout_mdd": -0.2694820130110531
+    },
+    "PRIV_KD_JUN_Klt30_T5": {
+      "full_cagr": 0.1651860006242516,
+      "full_mdd": -0.2700312841012208,
+      "heldout_cagr": 0.20887925420996445,
+      "heldout_mdd": -0.2700312841012208
+    },
+    "PRIV_KD_JUN_Klt30_T10": {
+      "full_cagr": 0.16430180305565334,
+      "full_mdd": -0.2692772217381656,
+      "heldout_cagr": 0.20674038551179974,
+      "heldout_mdd": -0.2692772217381658
+    },
+    "PRIV_KD_JUN_Klt30_T15": {
+      "full_cagr": 0.16179101329272694,
+      "full_mdd": -0.26907073201711285,
+      "heldout_cagr": 0.2023353769566547,
+      "heldout_mdd": -0.26907073201711285
+    },
+    "PRIV_KD_JUN01_JUL15_Klt20_T5": {
+      "full_cagr": 0.16452106321770854,
+      "full_mdd": -0.26942619180282834,
+      "heldout_cagr": 0.2095865498184979,
+      "heldout_mdd": -0.26942619180282834
+    },
+    "PRIV_KD_JUN01_JUL15_Klt20_T10": {
+      "full_cagr": 0.16437314313635665,
+      "full_mdd": -0.2684822081887328,
+      "heldout_cagr": 0.20905164284517763,
+      "heldout_mdd": -0.2684822081887329
+    },
+    "PRIV_KD_JUN01_JUL15_Klt20_T15": {
+      "full_cagr": 0.16246041214403562,
+      "full_mdd": -0.26819448018667746,
+      "heldout_cagr": 0.20539655931280665,
+      "heldout_mdd": -0.2681944801866776
+    },
+    "PRIV_KD_JUN01_JUL15_Klt25_T5": {
+      "full_cagr": 0.16486478276114136,
+      "full_mdd": -0.27050842030677835,
+      "heldout_cagr": 0.20801287628339504,
+      "heldout_mdd": -0.27050842030677835
+    },
+    "PRIV_KD_JUN01_JUL15_Klt25_T10": {
+      "full_cagr": 0.16434234212434062,
+      "full_mdd": -0.2696029700469481,
+      "heldout_cagr": 0.20655945737392445,
+      "heldout_mdd": -0.2696029700469481
+    },
+    "PRIV_KD_JUN01_JUL15_Klt25_T15": {
+      "full_cagr": 0.16188854616642545,
+      "full_mdd": -0.269482013011053,
+      "heldout_cagr": 0.2022248753449134,
+      "heldout_mdd": -0.2694820130110531
+    },
+    "PRIV_KD_JUN01_JUL15_Klt30_T5": {
+      "full_cagr": 0.1651512860688007,
+      "full_mdd": -0.2700312841012208,
+      "heldout_cagr": 0.2088143366900277,
+      "heldout_mdd": -0.2700312841012208
+    },
+    "PRIV_KD_JUN01_JUL15_Klt30_T10": {
+      "full_cagr": 0.16430180305565334,
+      "full_mdd": -0.2692772217381656,
+      "heldout_cagr": 0.20674038551179974,
+      "heldout_mdd": -0.2692772217381658
+    },
+    "PRIV_KD_JUN01_JUL15_Klt30_T15": {
+      "full_cagr": 0.16179101329272694,
+      "full_mdd": -0.26907073201711285,
+      "heldout_cagr": 0.2023353769566547,
+      "heldout_mdd": -0.26907073201711285
+    },
+    "PRIV_KD_MAY15_JUL15_Klt20_T5": {
+      "full_cagr": 0.16659107555108732,
+      "full_mdd": -0.27040343943181877,
+      "heldout_cagr": 0.21276297359446716,
+      "heldout_mdd": -0.27040343943181866
+    },
+    "PRIV_KD_MAY15_JUL15_Klt20_T10": {
+      "full_cagr": 0.16605808074450734,
+      "full_mdd": -0.26941562383462225,
+      "heldout_cagr": 0.2114799288638698,
+      "heldout_mdd": -0.26941562383462225
+    },
+    "PRIV_KD_MAY15_JUL15_Klt20_T15": {
+      "full_cagr": 0.16327385887674017,
+      "full_mdd": -0.2695873104603077,
+      "heldout_cagr": 0.20619992006973598,
+      "heldout_mdd": -0.2695873104603077
+    },
+    "PRIV_KD_MAY15_JUL15_Klt25_T5": {
+      "full_cagr": 0.16688032846097567,
+      "full_mdd": -0.2710643054653552,
+      "heldout_cagr": 0.21192930728528303,
+      "heldout_mdd": -0.2710643054653551
+    },
+    "PRIV_KD_MAY15_JUL15_Klt25_T10": {
+      "full_cagr": 0.1661664455379992,
+      "full_mdd": -0.2701194966782069,
+      "heldout_cagr": 0.21025090831293514,
+      "heldout_mdd": -0.2701194966782069
+    },
+    "PRIV_KD_MAY15_JUL15_Klt25_T15": {
+      "full_cagr": 0.1634664052446555,
+      "full_mdd": -0.2696317294668126,
+      "heldout_cagr": 0.20562550680384573,
+      "heldout_mdd": -0.2696317294668126
+    },
+    "PRIV_KD_MAY15_JUL15_Klt30_T5": {
+      "full_cagr": 0.1672558312845427,
+      "full_mdd": -0.2704138709052407,
+      "heldout_cagr": 0.21291891143788844,
+      "heldout_mdd": -0.2704138709052408
+    },
+    "PRIV_KD_MAY15_JUL15_Klt30_T10": {
+      "full_cagr": 0.16666320426440384,
+      "full_mdd": -0.2696742446701901,
+      "heldout_cagr": 0.21136241482070584,
+      "heldout_mdd": -0.26967424467018997
+    },
+    "PRIV_KD_MAY15_JUL15_Klt30_T15": {
+      "full_cagr": 0.16381650375259138,
+      "full_mdd": -0.2693500639832769,
+      "heldout_cagr": 0.20645252332048303,
+      "heldout_mdd": -0.269350063983277
+    },
+    "LIVE_PUB_KD_REPORT_ONLY": {
+      "full_cagr": 0.13257429692254097,
+      "full_mdd": -0.21720270077643722,
+      "heldout_cagr": 0.16955806049418576,
+      "heldout_mdd": -0.21720270077643733
+    }
+  },
+  "ranked_vs_priv_equal": [
+    {
+      "id": "PRIV_MIX_L75_TRANSPLANT",
+      "financial_alloc": "FIN_MIX_EQUAL_PRE_EXDIV_KD",
+      "season": null,
+      "season_start": null,
+      "season_end": null,
+      "k_thresh": null,
+      "pre_days": null,
+      "heldout_score": 0.6519035117130589,
+      "mdd_improve_pp": 0.9138549842103716,
+      "cagr_giveback_pp": 0.5239029449946253,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -5.433974510135653,
+      "vs_live_pub_kd_REPORT_ONLY": -6.4614662685201,
+      "n_fills": 7048,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY_Klt25_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": 0.6250408184377831,
+      "mdd_improve_pp": 0.7314742099901905,
+      "cagr_giveback_pp": -0.21286678310481477,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.07504311868863356,
+      "vs_live_pub_kd_REPORT_ONLY": -7.01223190679,
+      "n_fills": 6715,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY_Klt30_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": 0.5966622978091252,
+      "mdd_improve_pp": 0.7341300374762105,
+      "cagr_giveback_pp": -0.27493547933417073,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.025654995273882708,
+      "vs_live_pub_kd_REPORT_ONLY": -7.040610427418658,
+      "n_fills": 6734,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_APR15_MAY15_Klt20_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": 0.5955923902151716,
+      "mdd_improve_pp": 0.6000131676331732,
+      "cagr_giveback_pp": 0.00884155483600324,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.05530110592663062,
+      "vs_live_pub_kd_REPORT_ONLY": -7.032838780176609,
+      "n_fills": 6742,
+      "coexist": true
+    },
+    {
+      "id": "TRANSPLANT_PUB_KD_APR15_MAY15_Klt30_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": 0.5711276068505189,
+      "mdd_improve_pp": 0.6577425593829345,
+      "cagr_giveback_pp": -0.17322990506483116,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.016560118731834272,
+      "vs_live_pub_kd_REPORT_ONLY": -7.066145118377265,
+      "n_fills": 6756,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_APR15_MAY15_Klt25_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": 0.5601371787581133,
+      "mdd_improve_pp": 0.6844769455549016,
+      "cagr_giveback_pp": -0.24867953359357653,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.026777095933649964,
+      "vs_live_pub_kd_REPORT_ONLY": -7.07713554646967,
+      "n_fills": 6801,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN_Klt20_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": 0.5467764392178776,
+      "mdd_improve_pp": 0.6464731412452962,
+      "cagr_giveback_pp": 0.1993934040548373,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.06124010861070506,
+      "vs_live_pub_kd_REPORT_ONLY": -6.891102881955069,
+      "n_fills": 6736,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN01_JUL15_Klt20_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN01_JUL15",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": 0.5467764392178776,
+      "mdd_improve_pp": 0.6464731412452962,
+      "cagr_giveback_pp": 0.1993934040548373,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.06124010861070506,
+      "vs_live_pub_kd_REPORT_ONLY": -6.891102881955069,
+      "n_fills": 6736,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN_Klt20_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": 0.5346428664486313,
+      "mdd_improve_pp": 0.6177003410397619,
+      "cagr_giveback_pp": -0.1661149491822611,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.03669842607845197,
+      "vs_live_pub_kd_REPORT_ONLY": -7.102629858779153,
+      "n_fills": 6803,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN01_JUL15_Klt20_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN01_JUL15",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": 0.5346428664486313,
+      "mdd_improve_pp": 0.6177003410397619,
+      "cagr_giveback_pp": -0.1661149491822611,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.03669842607845197,
+      "vs_live_pub_kd_REPORT_ONLY": -7.102629858779153,
+      "n_fills": 6803,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY_Klt20_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": 0.5316666911131307,
+      "mdd_improve_pp": 0.5378747407091988,
+      "cagr_giveback_pp": -0.012416099192136265,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.024369516312972017,
+      "vs_live_pub_kd_REPORT_ONLY": -7.105606034114652,
+      "n_fills": 6736,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN_Klt30_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": 0.505693594018708,
+      "mdd_improve_pp": 0.538198986096472,
+      "cagr_giveback_pp": 0.06501078415552808,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.1534536830329003,
+      "vs_live_pub_kd_REPORT_ONLY": -7.066568347053549,
+      "n_fills": 6774,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN01_JUL15_Klt30_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN01_JUL15",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": 0.505693594018708,
+      "mdd_improve_pp": 0.538198986096472,
+      "cagr_giveback_pp": 0.06501078415552808,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.1534536830329003,
+      "vs_live_pub_kd_REPORT_ONLY": -7.066568347053549,
+      "n_fills": 6774,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN15_Klt30_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": 0.4992998655502512,
+      "mdd_improve_pp": 0.5151873795149142,
+      "cagr_giveback_pp": -0.03177502792932607,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.03313750879018196,
+      "vs_live_pub_kd_REPORT_ONLY": -7.137972859677532,
+      "n_fills": 6740,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN15_Klt25_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": 0.49629783674178807,
+      "mdd_improve_pp": 0.5382932957873843,
+      "cagr_giveback_pp": -0.08399091809119241,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.0017815738861504116,
+      "vs_live_pub_kd_REPORT_ONLY": -7.140974888485996,
+      "n_fills": 6729,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN30_Klt30_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN30",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": 0.48401625994175523,
+      "mdd_improve_pp": 0.5309147615853549,
+      "cagr_giveback_pp": 0.09379700328719931,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.024663226874410693,
+      "vs_live_pub_kd_REPORT_ONLY": -7.059459461998829,
+      "n_fills": 6694,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUL15_Klt30_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUL15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": 0.48401625994175523,
+      "mdd_improve_pp": 0.5309147615853549,
+      "cagr_giveback_pp": 0.09379700328719931,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.024663226874410693,
+      "vs_live_pub_kd_REPORT_ONLY": -7.059459461998829,
+      "n_fills": 6694,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN15_Klt20_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": 0.4825360343762797,
+      "mdd_improve_pp": 0.48498555533652565,
+      "cagr_giveback_pp": -0.004899041920491953,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.042061233589629765,
+      "vs_live_pub_kd_REPORT_ONLY": -7.154736690851505,
+      "n_fills": 6740,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_APR15_MAY15_Klt20_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": 0.47088843668081637,
+      "mdd_improve_pp": 0.6384447944313809,
+      "cagr_giveback_pp": -0.3351127155011291,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.2594372785484689,
+      "vs_live_pub_kd_REPORT_ONLY": -7.1663842885469675,
+      "n_fills": 6813,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN_Klt25_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": 0.46407235624671417,
+      "mdd_improve_pp": 0.5056241552182428,
+      "cagr_giveback_pp": 0.08310359794305722,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.11687064753834742,
+      "vs_live_pub_kd_REPORT_ONLY": -7.090096771038013,
+      "n_fills": 6767,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN01_JUL15_Klt25_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN01_JUL15",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": 0.46407235624671417,
+      "mdd_improve_pp": 0.5056241552182428,
+      "cagr_giveback_pp": 0.08310359794305722,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.11687064753834742,
+      "vs_live_pub_kd_REPORT_ONLY": -7.090096771038013,
+      "n_fills": 6767,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN30_Klt20_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN30",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": 0.4476614497013309,
+      "mdd_improve_pp": 0.5071901138822832,
+      "cagr_giveback_pp": 0.11905732836190452,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.08689236030916536,
+      "vs_live_pub_kd_REPORT_ONLY": -7.070553947164549,
+      "n_fills": 6750,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUL15_Klt20_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUL15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": 0.4476614497013309,
+      "mdd_improve_pp": 0.5071901138822832,
+      "cagr_giveback_pp": 0.11905732836190452,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.08689236030916536,
+      "vs_live_pub_kd_REPORT_ONLY": -7.070553947164549,
+      "n_fills": 6750,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN30_Klt25_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN30",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": 0.4144988857563314,
+      "mdd_improve_pp": 0.5027482132317962,
+      "cagr_giveback_pp": 0.17649865495092953,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.03964361010888595,
+      "vs_live_pub_kd_REPORT_ONLY": -7.046275184520523,
+      "n_fills": 6722,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUL15_Klt25_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUL15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": 0.4144988857563314,
+      "mdd_improve_pp": 0.5027482132317962,
+      "cagr_giveback_pp": 0.17649865495092953,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.03964361010888595,
+      "vs_live_pub_kd_REPORT_ONLY": -7.046275184520523,
+      "n_fills": 6722,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN_Klt20_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": 0.4134991563730761,
+      "mdd_improve_pp": 0.5233019796302196,
+      "cagr_giveback_pp": -0.21960564651428705,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.1575638323407902,
+      "vs_live_pub_kd_REPORT_ONLY": -7.223773568854708,
+      "n_fills": 6779,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN01_JUL15_Klt20_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN01_JUL15",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": 0.4134991563730761,
+      "mdd_improve_pp": 0.5233019796302196,
+      "cagr_giveback_pp": -0.21960564651428705,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.1575638323407902,
+      "vs_live_pub_kd_REPORT_ONLY": -7.223773568854708,
+      "n_fills": 6779,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN01_JUL15_Klt30_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN01_JUL15",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": 0.391600582957341,
+      "mdd_improve_pp": 0.4627927497909745,
+      "cagr_giveback_pp": -0.142384333667267,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.13618619819142364,
+      "vs_live_pub_kd_REPORT_ONLY": -7.245672142270443,
+      "n_fills": 6788,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_APR15_MAY15_Klt30_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": 0.3885998811525959,
+      "mdd_improve_pp": 0.6570765398587808,
+      "cagr_giveback_pp": -0.5369533174123697,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.5585077369708258,
+      "vs_live_pub_kd_REPORT_ONLY": -7.2486728440751875,
+      "n_fills": 6793,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN_Klt30_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": 0.3883547069605031,
+      "mdd_improve_pp": 0.4627927497909745,
+      "cagr_giveback_pp": -0.1488760856609428,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.13000912962751743,
+      "vs_live_pub_kd_REPORT_ONLY": -7.248918018267281,
+      "n_fills": 6790,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN01_JUL15_Klt25_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN01_JUL15",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": 0.3839599827332174,
+      "mdd_improve_pp": 0.4150791292352185,
+      "cagr_giveback_pp": -0.06223829300400219,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.11690618121679153,
+      "vs_live_pub_kd_REPORT_ONLY": -7.2533127424945665,
+      "n_fills": 6803,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_APR15_MAY15_Klt25_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": 0.376940546274962,
+      "mdd_improve_pp": 0.6674066616666918,
+      "cagr_giveback_pp": -0.5809322307834597,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.6245058131209125,
+      "vs_live_pub_kd_REPORT_ONLY": -7.260332178952822,
+      "n_fills": 6820,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN_Klt25_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": 0.3767797170388554,
+      "mdd_improve_pp": 0.4150791292352185,
+      "cagr_giveback_pp": -0.07659882439272625,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 0.1293255250374381,
+      "vs_live_pub_kd_REPORT_ONLY": -7.260493008188929,
+      "n_fills": 6815,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY_Klt25_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": 0.34320541614423217,
+      "mdd_improve_pp": 0.7145043621577751,
+      "cagr_giveback_pp": -0.7425978920270859,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.7783923743750809,
+      "vs_live_pub_kd_REPORT_ONLY": -7.294067309083552,
+      "n_fills": 6783,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY_Klt30_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": 0.33784635076070657,
+      "mdd_improve_pp": 0.7166817883415555,
+      "cagr_giveback_pp": -0.7576708751616978,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.7907046250485106,
+      "vs_live_pub_kd_REPORT_ONLY": -7.299426374467078,
+      "n_fills": 6774,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_APR15_MAY15_Klt20_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": 0.3331484647218108,
+      "mdd_improve_pp": 0.5860602703470663,
+      "cagr_giveback_pp": -0.505823611250511,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.5467626368419243,
+      "vs_live_pub_kd_REPORT_ONLY": -7.304124260505973,
+      "n_fills": 6843,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN30_Klt20_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN30",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": 0.3198870009250898,
+      "mdd_improve_pp": 0.5243587764508284,
+      "cagr_giveback_pp": -0.40894355105147717,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.5164933263909988,
+      "vs_live_pub_kd_REPORT_ONLY": -7.317385724302694,
+      "n_fills": 6741,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUL15_Klt20_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUL15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": 0.3198870009250898,
+      "mdd_improve_pp": 0.5243587764508284,
+      "cagr_giveback_pp": -0.40894355105147717,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.5164933263909988,
+      "vs_live_pub_kd_REPORT_ONLY": -7.317385724302694,
+      "n_fills": 6741,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN30_Klt25_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN30",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": 0.31095074411335855,
+      "mdd_improve_pp": 0.4539714920923643,
+      "cagr_giveback_pp": -0.28604149595801154,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.3495964200172952,
+      "vs_live_pub_kd_REPORT_ONLY": -7.326321981114425,
+      "n_fills": 6778,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUL15_Klt25_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUL15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": 0.31095074411335855,
+      "mdd_improve_pp": 0.4539714920923643,
+      "cagr_giveback_pp": -0.28604149595801154,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.3495964200172952,
+      "vs_live_pub_kd_REPORT_ONLY": -7.326321981114425,
+      "n_fills": 6778,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN_Klt30_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": 0.30609213836675364,
+      "mdd_improve_pp": 0.5588479582017691,
+      "cagr_giveback_pp": 0.505511639670031,
+      "tip_ytd": "PAUSE_REVIEW",
+      "tip_1y": "ALERT",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": 0.06052034865127176,
+      "vs_live_pub_kd_REPORT_ONLY": -6.825668947191,
+      "n_fills": 6692,
+      "coexist": false
+    },
+    {
+      "id": "PRIV_KD_JUN01_JUL15_Klt30_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN01_JUL15",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": 0.30609213836675364,
+      "mdd_improve_pp": 0.5588479582017691,
+      "cagr_giveback_pp": 0.505511639670031,
+      "tip_ytd": "PAUSE_REVIEW",
+      "tip_1y": "ALERT",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": 0.06052034865127176,
+      "vs_live_pub_kd_REPORT_ONLY": -6.825668947191,
+      "n_fills": 6692,
+      "coexist": false
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN30_Klt30_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN30",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": 0.29990061952651637,
+      "mdd_improve_pp": 0.49849669289405707,
+      "cagr_giveback_pp": -0.3971921467350814,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.4280561465471955,
+      "vs_live_pub_kd_REPORT_ONLY": -7.3373721057012675,
+      "n_fills": 6789,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUL15_Klt30_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUL15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": 0.29990061952651637,
+      "mdd_improve_pp": 0.49849669289405707,
+      "cagr_giveback_pp": -0.3971921467350814,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.4280561465471955,
+      "vs_live_pub_kd_REPORT_ONLY": -7.3373721057012675,
+      "n_fills": 6789,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY_Klt20_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": 0.2910494209520498,
+      "mdd_improve_pp": 0.5412189966407688,
+      "cagr_giveback_pp": -0.500339151377438,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.5939225914874169,
+      "vs_live_pub_kd_REPORT_ONLY": -7.346223304275734,
+      "n_fills": 6781,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_JUN_Klt25_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": 0.25943895838566045,
+      "mdd_improve_pp": 0.5177198588077414,
+      "cagr_giveback_pp": 0.5165618008441619,
+      "tip_ytd": "ALERT",
+      "tip_1y": "ALERT",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": 0.004692994903410241,
+      "vs_live_pub_kd_REPORT_ONLY": -6.861271965997962,
+      "n_fills": 6709,
+      "coexist": false
+    },
+    {
+      "id": "PRIV_KD_JUN01_JUL15_Klt25_T15",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "JUN01_JUL15",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": 0.25943895838566045,
+      "mdd_improve_pp": 0.5177198588077414,
+      "cagr_giveback_pp": 0.5165618008441619,
+      "tip_ytd": "ALERT",
+      "tip_1y": "ALERT",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": 0.004692994903410241,
+      "vs_live_pub_kd_REPORT_ONLY": -6.861271965997962,
+      "n_fills": 6709,
+      "coexist": false
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN15_Klt25_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": 0.24278198671482398,
+      "mdd_improve_pp": 0.5408068166964708,
+      "cagr_giveback_pp": -0.5960496599632936,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.8343393358646645,
+      "vs_live_pub_kd_REPORT_ONLY": -7.39449073851296,
+      "n_fills": 6780,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN15_Klt20_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": 0.242031406396781,
+      "mdd_improve_pp": 0.4739753815551917,
+      "cagr_giveback_pp": -0.4638879503168214,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.6485240197204423,
+      "vs_live_pub_kd_REPORT_ONLY": -7.395241318831003,
+      "n_fills": 6755,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_APR15_MAY15_Klt25_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": 0.23482165224721907,
+      "mdd_improve_pp": 0.642350312373563,
+      "cagr_giveback_pp": -0.8150573202526878,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.9552488045697416,
+      "vs_live_pub_kd_REPORT_ONLY": -7.402451072980565,
+      "n_fills": 6803,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN15_Klt30_T10",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": 0.23306019527918886,
+      "mdd_improve_pp": 0.49970593582417955,
+      "cagr_giveback_pp": -0.5332914810899814,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.7546290154661239,
+      "vs_live_pub_kd_REPORT_ONLY": -7.404212529948595,
+      "n_fills": 6791,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_APR15_MAY15_Klt30_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": 0.20705942210271777,
+      "mdd_improve_pp": 0.6035548266265622,
+      "cagr_giveback_pp": -0.7929908090476889,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.8500514601322062,
+      "vs_live_pub_kd_REPORT_ONLY": -7.430213303125067,
+      "n_fills": 6779,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY_Klt25_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": 0.18663464741902613,
+      "mdd_improve_pp": 0.6645452373084337,
+      "cagr_giveback_pp": -0.9558211797788152,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -1.1473852188329858,
+      "vs_live_pub_kd_REPORT_ONLY": -7.450638077808758,
+      "n_fills": 6836,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY_Klt20_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": 0.1747930140379772,
+      "mdd_improve_pp": 0.5299511590843076,
+      "cagr_giveback_pp": -0.7103162900926607,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.8676344725837559,
+      "vs_live_pub_kd_REPORT_ONLY": -7.462479711189808,
+      "n_fills": 6794,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY_Klt30_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": 0.1691472147032358,
+      "mdd_improve_pp": 0.6820623055565855,
+      "cagr_giveback_pp": -1.0258301817066995,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -1.222726781222916,
+      "vs_live_pub_kd_REPORT_ONLY": -7.468125510524548,
+      "n_fills": 6824,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN30_Klt20_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN30",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": 0.1569532046755806,
+      "mdd_improve_pp": 0.42557721673118776,
+      "cagr_giveback_pp": -0.5372480241112143,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.7951586769861074,
+      "vs_live_pub_kd_REPORT_ONLY": -7.480319520552203,
+      "n_fills": 6795,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUL15_Klt20_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUL15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": 0.1569532046755806,
+      "mdd_improve_pp": 0.42557721673118776,
+      "cagr_giveback_pp": -0.5372480241112143,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.7951586769861074,
+      "vs_live_pub_kd_REPORT_ONLY": -7.480319520552203,
+      "n_fills": 6795,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN30_Klt30_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN30",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": 0.14811316516230022,
+      "mdd_improve_pp": 0.424534069388971,
+      "cagr_giveback_pp": -0.5528418084533415,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.7111821931516271,
+      "vs_live_pub_kd_REPORT_ONLY": -7.4891595600654846,
+      "n_fills": 6833,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUL15_Klt30_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUL15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": 0.14811316516230022,
+      "mdd_improve_pp": 0.424534069388971,
+      "cagr_giveback_pp": -0.5528418084533415,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.7111821931516271,
+      "vs_live_pub_kd_REPORT_ONLY": -7.4891595600654846,
+      "n_fills": 6833,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN30_Klt25_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN30",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": 0.13254991678114392,
+      "mdd_improve_pp": 0.3594906133775444,
+      "cagr_giveback_pp": -0.45388139319280096,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.6634834752527796,
+      "vs_live_pub_kd_REPORT_ONLY": -7.50472280844664,
+      "n_fills": 6816,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUL15_Klt25_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUL15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        7,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": 0.13254991678114392,
+      "mdd_improve_pp": 0.3594906133775444,
+      "cagr_giveback_pp": -0.45388139319280096,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.6634834752527796,
+      "vs_live_pub_kd_REPORT_ONLY": -7.50472280844664,
+      "n_fills": 6816,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN15_Klt20_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": 0.12669273383190127,
+      "mdd_improve_pp": 0.4460566175246705,
+      "cagr_giveback_pp": -0.6387277673855385,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.8686074410939715,
+      "vs_live_pub_kd_REPORT_ONLY": -7.510579991395883,
+      "n_fills": 6733,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN15_Klt25_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": 0.11998562473477525,
+      "mdd_improve_pp": 0.5002155384222329,
+      "cagr_giveback_pp": -0.7604598273749152,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -1.0400910212930436,
+      "vs_live_pub_kd_REPORT_ONLY": -7.517287100493009,
+      "n_fills": 6748,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_KD_MAY15_JUN15_Klt30_T5",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "season": "MAY15_JUN15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": 0.0931786284763203,
+      "mdd_improve_pp": 0.46386242089180296,
+      "cagr_giveback_pp": -0.7413675848309653,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -1.0519263254611833,
+      "vs_live_pub_kd_REPORT_ONLY": -7.544094096751463,
+      "n_fills": 6793,
+      "coexist": true
+    },
+    {
+      "id": "PRIV_RS_SOFT_TILT_EXDIV",
+      "financial_alloc": "FIN_RS_SOFT_TILT_EXDIV",
+      "season": null,
+      "season_start": null,
+      "season_end": null,
+      "k_thresh": null,
+      "pre_days": null,
+      "heldout_score": -0.33790610611480476,
+      "mdd_improve_pp": -0.06053554593802302,
+      "cagr_giveback_pp": 0.5547411203535635,
+      "tip_ytd": "PAUSE_REVIEW",
+      "tip_1y": "ALERT",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": -0.2272270808784005,
+      "vs_live_pub_kd_REPORT_ONLY": -7.420437710989026,
+      "n_fills": 6916,
+      "coexist": false
+    }
+  ],
+  "coexist_ids": [
+    "PRIV_MIX_L75_TRANSPLANT",
+    "PRIV_KD_MAY_Klt25_T15",
+    "PRIV_KD_MAY_Klt30_T15",
+    "PRIV_KD_APR15_MAY15_Klt20_T15",
+    "TRANSPLANT_PUB_KD_APR15_MAY15_Klt30_T15",
+    "PRIV_KD_APR15_MAY15_Klt25_T15",
+    "PRIV_KD_JUN_Klt20_T15",
+    "PRIV_KD_JUN01_JUL15_Klt20_T15",
+    "PRIV_KD_JUN_Klt20_T10",
+    "PRIV_KD_JUN01_JUL15_Klt20_T10",
+    "PRIV_KD_MAY_Klt20_T15",
+    "PRIV_KD_JUN_Klt30_T10",
+    "PRIV_KD_JUN01_JUL15_Klt30_T10",
+    "PRIV_KD_MAY15_JUN15_Klt30_T15",
+    "PRIV_KD_MAY15_JUN15_Klt25_T15",
+    "PRIV_KD_MAY15_JUN30_Klt30_T15",
+    "PRIV_KD_MAY15_JUL15_Klt30_T15",
+    "PRIV_KD_MAY15_JUN15_Klt20_T15",
+    "PRIV_KD_APR15_MAY15_Klt20_T10",
+    "PRIV_KD_JUN_Klt25_T10",
+    "PRIV_KD_JUN01_JUL15_Klt25_T10",
+    "PRIV_KD_MAY15_JUN30_Klt20_T15",
+    "PRIV_KD_MAY15_JUL15_Klt20_T15",
+    "PRIV_KD_MAY15_JUN30_Klt25_T15",
+    "PRIV_KD_MAY15_JUL15_Klt25_T15",
+    "PRIV_KD_JUN_Klt20_T5",
+    "PRIV_KD_JUN01_JUL15_Klt20_T5",
+    "PRIV_KD_JUN01_JUL15_Klt30_T5",
+    "PRIV_KD_APR15_MAY15_Klt30_T10",
+    "PRIV_KD_JUN_Klt30_T5",
+    "PRIV_KD_JUN01_JUL15_Klt25_T5",
+    "PRIV_KD_APR15_MAY15_Klt25_T10",
+    "PRIV_KD_JUN_Klt25_T5",
+    "PRIV_KD_MAY_Klt25_T10",
+    "PRIV_KD_MAY_Klt30_T10",
+    "PRIV_KD_APR15_MAY15_Klt20_T5",
+    "PRIV_KD_MAY15_JUN30_Klt20_T10",
+    "PRIV_KD_MAY15_JUL15_Klt20_T10",
+    "PRIV_KD_MAY15_JUN30_Klt25_T10",
+    "PRIV_KD_MAY15_JUL15_Klt25_T10",
+    "PRIV_KD_MAY15_JUN30_Klt30_T10",
+    "PRIV_KD_MAY15_JUL15_Klt30_T10",
+    "PRIV_KD_MAY_Klt20_T10",
+    "PRIV_KD_MAY15_JUN15_Klt25_T10",
+    "PRIV_KD_MAY15_JUN15_Klt20_T10",
+    "PRIV_KD_APR15_MAY15_Klt25_T5",
+    "PRIV_KD_MAY15_JUN15_Klt30_T10",
+    "PRIV_KD_APR15_MAY15_Klt30_T5",
+    "PRIV_KD_MAY_Klt25_T5",
+    "PRIV_KD_MAY_Klt20_T5",
+    "PRIV_KD_MAY_Klt30_T5",
+    "PRIV_KD_MAY15_JUN30_Klt20_T5",
+    "PRIV_KD_MAY15_JUL15_Klt20_T5",
+    "PRIV_KD_MAY15_JUN30_Klt30_T5",
+    "PRIV_KD_MAY15_JUL15_Klt30_T5",
+    "PRIV_KD_MAY15_JUN30_Klt25_T5",
+    "PRIV_KD_MAY15_JUL15_Klt25_T5",
+    "PRIV_KD_MAY15_JUN15_Klt20_T5",
+    "PRIV_KD_MAY15_JUN15_Klt25_T5",
+    "PRIV_KD_MAY15_JUN15_Klt30_T5"
+  ]
+}

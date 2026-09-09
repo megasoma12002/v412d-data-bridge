@@ -1,0 +1,32 @@
+{
+  "label": "FIN_PRIV_NATIVE_DECISION_2026-09-09__OPTIMAL_MAY_KD__OBSERVE_OPEN",
+  "date": "2026-09-09",
+  "status": "OPTIMAL_SELECTED",
+  "baseline": "PRIV_EQUAL",
+  "live_wire": false,
+  "overall_coexist_winner": {
+    "id": "PRIV_MIX_L75_TRANSPLANT",
+    "heldout_score": 0.6519035117130589,
+    "sealed_score_REPORT_ONLY": -5.433974510135653,
+    "caveat": "sealed RO weak — observe only"
+  },
+  "native_kd_winner": {
+    "id": "PRIV_KD_MAY_Klt25_T15",
+    "season": "MAY",
+    "season_start": [5, 1],
+    "season_end": [5, 31],
+    "k_thresh": 25.0,
+    "pre_days": 15,
+    "heldout_score": 0.6250408184377831,
+    "sealed_score_REPORT_ONLY": 0.07504311868863356
+  },
+  "calendar_note": "PUB cash-ex ~Aug; PRIV ~Jun-Jul",
+  "observe": "research/ops/FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPEN.md",
+  "binding": [
+    "Keep Soft-Frozen 公股 R1 + live KD_OPT",
+    "Native MAY KD is preferred 民營 within-sleeve line",
+    "MIX_L75 sealed-weak — not sole promote",
+    "Dual-paper observe OPEN paper-only",
+    "No live universe expand / no 4-sleeve flip"
+  ]
+}
