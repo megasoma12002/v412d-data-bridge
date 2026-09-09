@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """FIN within-sleeve month-end multi-paper monitor — OPERATING OBSERVE.
 
-Compares FIN_EQUAL vs FIN_RS_SOFT_TILT_EXDIV and vs MIX_L75 (λ=0.75) paper NAVs
-at month-end (or as-of). Does NOT change Soft-Frozen. Does NOT place orders.
+Compares FIN_EQUAL vs FIN_RS_SOFT_TILT_EXDIV, MIX_L75 (λ=0.75), and KD_OPT
+(KD_APR15_MAY15_Klt30_T15) paper NAVs at month-end (or as-of).
+Does NOT change Soft-Frozen. Does NOT place orders.
 Live FIN equal-split untouched.
 """
 from __future__ import annotations
@@ -27,21 +28,27 @@ CHAL_RS_NAV = (
     ROOT / "repro/fin-within-sleeve-dual-paper-observe/outputs/fin_rs_soft_tilt_exdiv_daily_nav.csv"
 )
 CHAL_MIX_NAV = ROOT / "repro/fin-within-sleeve-dual-paper-observe/outputs/fin_mix_l75_daily_nav.csv"
+CHAL_KD_NAV = ROOT / "repro/fin-within-sleeve-dual-paper-observe/outputs/fin_kd_opt_daily_nav.csv"
 OPS = ROOT / "research/ops"
 
 BASE_ID = "FIN_EQUAL"
 CHAL_RS_ID = "FIN_RS_SOFT_TILT_EXDIV"
 CHAL_MIX_ID = "MIX_L75"
+CHAL_KD_ID = "KD_OPT"
 STATUS = "OPERATING_OBSERVE"
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
-# Design giveback (BASE−CHAL) from Stage C / mix probe
+# Design giveback (BASE−CHAL) from Stage C / mix probe / KD optimize
 DESIGN_GIVEBACK_PP = {
     CHAL_RS_ID: {
         "heldout_2019_plus": 1.5,
         "sealed_2023_plus": 2.0,
     },
     CHAL_MIX_ID: {
+        "heldout_2019_plus": 0.5,
+        "sealed_2023_plus": 0.8,
+    },
+    CHAL_KD_ID: {
         "heldout_2019_plus": 0.5,
         "sealed_2023_plus": 0.8,
     },
@@ -58,6 +65,11 @@ CHALLENGERS = (
         "id": CHAL_MIX_ID,
         "slug": "fin_mix_l75",
         "path": CHAL_MIX_NAV,
+    },
+    {
+        "id": CHAL_KD_ID,
+        "slug": "fin_kd_opt",
+        "path": CHAL_KD_NAV,
     },
 )
 
@@ -231,6 +243,8 @@ def main() -> None:
         "challengers": [c["id"] for c in CHALLENGERS],
         "locked_id": CHAL_RS_ID,
         "mix_id": CHAL_MIX_ID,
+        "kd_id": CHAL_KD_ID,
+        "kd_optimal_id": "KD_APR15_MAY15_Klt30_T15",
         "soft_frozen_unchanged": True,
         "live_wire": False,
         "cutover_authorized": False,
@@ -260,7 +274,7 @@ def main() -> None:
         f"# FIN within-sleeve month-end monitor (asof {asof.date()})",
         "",
         f"**Status:** `{STATUS}` — **paper only**",
-        f"**Books:** `{BASE_ID}` ∥ `{CHAL_RS_ID}` ∥ `{CHAL_MIX_ID}`",
+        f"**Books:** `{BASE_ID}` ∥ `{CHAL_RS_ID}` ∥ `{CHAL_MIX_ID}` ∥ `{CHAL_KD_ID}`",
         "",
     ]
     for cid, rows in by_chal.items():

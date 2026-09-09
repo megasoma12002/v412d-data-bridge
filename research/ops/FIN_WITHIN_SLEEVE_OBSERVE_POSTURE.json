@@ -1,19 +1,20 @@
 {
-  "generated_at_utc": "2026-09-08T13:05:00+00:00",
+  "generated_at_utc": "2026-09-09T01:10:00+00:00",
   "label": "FIN_WITHIN_SLEEVE_OBSERVE_POSTURE",
   "status": "LOCKED",
   "operating_observe": true,
   "live_wire": false,
   "soft_frozen_keep": true,
-  "books": ["FIN_EQUAL", "FIN_RS_SOFT_TILT_EXDIV", "MIX_L75"],
+  "books": ["FIN_EQUAL", "FIN_RS_SOFT_TILT_EXDIV", "MIX_L75", "KD_OPT"],
+  "kd_optimal_id": "KD_APR15_MAY15_Klt30_T15",
   "posture": [
-    "Maintain OPERATING month-end refresh EQUAL || RS_EXDIV || MIX_L75",
+    "Maintain OPERATING month-end refresh EQUAL || RS_EXDIV || MIX_L75 || KD_OPT",
     "No live wire; Soft-Frozen KEEP; cutover needs dedicated ACCEPT",
-    "After observe window: prefer MIX_L75 if tip-clean+held-out holds; else RS if max MDD and tip PAUSE OK",
+    "After observe window: prefer MIX_L75 or KD_OPT if tip-clean+held-out holds; else RS if max MDD and tip PAUSE OK",
     "Do not reopen Stage B TOP1/TOP2; no stitch/e21 on this line"
   ],
   "selection_after_window": {
-    "prefer_mix_l75_when": "tip YTD+1y PASS and held-out score > 0",
+    "prefer_mix_or_kd_when": "tip YTD+1y PASS and held-out score > 0",
     "consider_rs_when": "need max MDD lift and accept tip PAUSE",
     "default_live": "FIN_EQUAL until cutover ACCEPT"
   },
