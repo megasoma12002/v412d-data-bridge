@@ -38,6 +38,7 @@ vs `LIVE_PUB_KD` (report-only): all still **~−6.5～−7** — within-民營 l
 
 See `FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPEN.md`.
 Operating check: `FIN_PRIV_NATIVE_MONTH_END_MONITOR.json` as-of `2026-09-09` → alerts **0**.
+Cadence lock: `FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md` · posture `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md` · status ballot DRAFT `FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md` · cutover **BLOCKED** `CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md`.
 
 ## Label
 

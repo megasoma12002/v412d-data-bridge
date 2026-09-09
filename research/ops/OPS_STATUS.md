@@ -78,6 +78,8 @@ BLEND_025 dual-paper observe: `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md`
 BLEND_025 month-end: `research/gaps/BLEND_025_MONTH_END_MONITOR.md`  
 BLEND_025 month-end runbook: `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md`  
 BLEND_025 cutover checklist (prep): `research/ops/CUTOVER_CHECKLIST_BLEND025.md`  
+民營 native dual-paper **OPERATING OBSERVE** (KEEP OBSERVE): `FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPEN.md` · runbook `FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md` · posture `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md` · status ballot DRAFT `FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md` · cutover **BLOCKED** `CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md`  
+ 
 Live claim / target policy: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  
 Live E22 evidence readiness: `research/ops/LIVE_E22_FIELD_EVIDENCE.md`  
 Post-forward E22 verify: `research/ops/POST_FORWARD_E22_VERIFY_RUNBOOK.md`  

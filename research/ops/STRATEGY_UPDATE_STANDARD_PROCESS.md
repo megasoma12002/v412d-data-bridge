@@ -121,6 +121,7 @@ Current sleeves:
 | FIN_CAP_50 | FIN50 month-end + go-live verify | `CUTOVER_CHECKLIST_FIN50.md` |
 | L4_DD_PATH | L4 month-end | `CUTOVER_CHECKLIST_L4.md` |
 | BLEND_025 | BLEND dual-paper + month-end runbook | `CUTOVER_CHECKLIST_BLEND025.md` (**NOT AUTHORIZED**) |
+| FIN 民營 native | `FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md` · posture · status ballot DRAFT | `CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md` (**BLOCKED**) |
 
 ### Stage 5 — Decision gate
 

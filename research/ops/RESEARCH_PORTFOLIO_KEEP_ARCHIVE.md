@@ -10,6 +10,7 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN
 | Track | Focus | Cadence / gate |
 |---|---|---|
 | **FIN within-sleeve** | `FIN_EQUAL` ∥ `FIN_RS_SOFT_TILT_EXDIV` ∥ **`MIX_L75`** ∥ **`KD_OPT`** | Month-end ledgers + tip/held-out · **hold** `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` |
+| **FIN 民營 native (paper)** | `PRIV_EQUAL` ∥ **`PRIV_KD_MAY_Klt25_T15`** | Month-end dual-paper · **KEEP OBSERVE** · `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md` · **no live wire** |
 | **FIN KD_OPT** | `KD_APR15_MAY15_Klt30_T15` · Apr15–May15 K&lt;30 · T−15 | **LIVE HOLD** · no further FIN micro-tune · Soft-Frozen KEEP |
 | **FIN autumn post-ex (paper)** | Oct20–Dec10 · post-ex · K9 · hold | **STOP** after small-search+dual · `FIN_POST_EXDIV_AUTUMN_OPTIMIZE.md` · `FIN_KD_AUTUMN_DUAL_SEASON.md` · **no live wire** |
 | **E45 primary observe** | **`BLEND_E45_A05`** · **`M2_RELOC_BIL_FX_C35`** | Month-end dual-paper + tip PAUSE gates · stitch FORBIDDEN |
@@ -34,9 +35,10 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN
 
 1. Do **not** flip Soft-Frozen clips from archived clip-search evidence alone.  
 2. Do **not** live-wire FIN within-sleeve or E45 stitch without dedicated ACCEPT.  
-3. Do **not** reopen Stage B hard FIN/TEL TOP policies.  
-4. Do **not** invent a replacement for `RETIRED_HISTORICAL_NARRATIVE`.  
-5. Do **not** treat month-end green on archived sleeves as cutover license.
+3. Do **not** live-wire 民營 native observe (e21 expand / Soft-Frozen 4-sleeve) from paper green alone.  
+4. Do **not** reopen Stage B hard FIN/TEL TOP policies.  
+5. Do **not** invent a replacement for `RETIRED_HISTORICAL_NARRATIVE`.  
+6. Do **not** treat month-end green on archived sleeves as cutover license.
 
 ## Selection after FIN observe window (unchanged)
 

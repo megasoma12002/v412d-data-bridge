@@ -132,9 +132,14 @@ def main() -> None:
             BASE_ID: base["n_fills"],
             CHAL_ID: chal["n_fills"],
         },
+        "default_status": "KEEP_OBSERVE",
+        "posture": "research/ops/FIN_PRIV_NATIVE_OBSERVE_POSTURE.md",
+        "runbook": "research/ops/FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md",
+        "status_ballot": "research/ops/FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md",
+        "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md",
         "next_human": [
             "Run month-end monitor on this dual-paper pair",
-            "Keep observe-only; no live wiring without dedicated ACCEPT",
+            "Default KEEP OBSERVE; status ballot is paper-only (no live wire)",
         ],
     }
     (OUT / "reports" / "fin_priv_native_dual_paper_observe.json").write_text(
@@ -149,6 +154,7 @@ def main() -> None:
     md = f"""# 民營 native dual-paper (OPERATING OBSERVE)
 
 Status: `{STATUS}` · paper only · Soft-Frozen KEEP · live wire false
+Default status: **KEEP OBSERVE** · posture `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
 
 Books: `{BASE_ID}` ∥ `{CHAL_ID}`
 Execution: capital **{CAPITAL:,.0f}** · lot **{LOT}**
@@ -163,6 +169,15 @@ Sealed vs `{BASE_ID}` (report-only):
 - CAGR giveback pp: **{sealed.get('cagr_giveback_pp')}**
 - Score: **{sealed.get('score')}**
 
+## Reproduce
+
+```bash
+python3 scripts/e16_fin_priv_native_dual_paper_ledgers.py
+python3 scripts/e16_fin_priv_native_month_end_monitor.py
+```
+
+Runbook: `FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md` · checklist: `FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_CHECKLIST.md`
+Status ballot (DRAFT): `FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md`
 Repro: `{OUT.relative_to(ROOT)}/`
 """
     (OUT / "reports" / "FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE.md").write_text(md, encoding="utf-8")
