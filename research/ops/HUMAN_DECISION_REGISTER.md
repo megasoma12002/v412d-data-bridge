@@ -30,7 +30,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 
 | Decision | Verdict | Binding effect |
 |---|---|---|
-| Active research KEEP | **LOCKED** | FIN triad (focus **`MIX_L75`**) + E45 **`A05`/`C35`** + month-end gates |
+| Active research KEEP | **LOCKED** | FIN quartet (**`MIX_L75`** + **`KD_OPT`**) + E45 **`A05`/`C35`** + month-end gates |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`

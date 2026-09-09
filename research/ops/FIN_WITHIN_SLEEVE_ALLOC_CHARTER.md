@@ -64,7 +64,7 @@ Sealed 2023+: report-only after lock.
 A  ACCEPT charter                         ← DONE (「金融也研究分開」)
 B  Paper hard policies @ 500M/整張          ← DONE · STOP_NO_POSITIVE_HELDOUT_SCORE
 C  Ex-div skip-buy + RS soft-tilt         ← DONE · STAGE_C_CANDIDATES_LOCKED
-D  Dual-paper observe EQUAL ∥ RS+EXDIV    ← OPERATING (this ballot)
+D  Dual-paper EQUAL ∥ RS ∥ MIX_L75 ∥ KD_OPT ← OPERATING (+KD_OPT 2026-09-09)
 E  Separate human ballot for live cutover
 ```
 
