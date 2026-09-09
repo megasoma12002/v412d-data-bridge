@@ -168,7 +168,13 @@ def main() -> int:
     assert soft.SOFT_FROZEN_TEL_LO == 0.03
     assert soft.SOFT_FROZEN_TEL_HI == 0.35
     assert soft.SOFT_FROZEN_ETF_LO == 0.0
-    assert float(DEFAULT_CAPITAL) == CHARTER_CAPITAL
+    # Stage B evidence locked @ 3M; live DEFAULT may differ (e.g. 500M ACCEPT).
+    if float(DEFAULT_CAPITAL) != CHARTER_CAPITAL:
+        print(
+            f"NOTE: live DEFAULT_CAPITAL={DEFAULT_CAPITAL:,.0f} != Stage B "
+            f"CHARTER_CAPITAL={CHARTER_CAPITAL:,.0f} — running Stage B scale.",
+            flush=True,
+        )
 
     print("loading market + dividends ...", flush=True)
     market = load_market()

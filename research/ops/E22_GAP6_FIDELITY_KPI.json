@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-08T00:52:29.607061+00:00",
+  "generated_at_utc": "2026-09-09T02:21:43.980907+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -17,7 +17,7 @@
   },
   "live_ledger": {
     "live_dir": "/workspace/forward/e21",
-    "asof": "2026-09-07",
+    "asof": "2026-09-08",
     "portfolio_has_e22_books_version": true,
     "portfolio_has_e22_manifest": true,
     "nav_has_e22_version_col": true,
@@ -46,7 +46,7 @@
     }
   },
   "receivable_stub": {
-    "asof": "2026-09-07",
+    "asof": "2026-09-08",
     "n_cash_events_in_receivable_window": 1,
     "codes": [
       "5880"

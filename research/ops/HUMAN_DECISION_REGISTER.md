@@ -17,6 +17,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | Pri | Decision | Verdict | Binding effect |
 |---:|---|---|---|
 | 1 | Soft-Frozen live clip **[0.50, 0.95]** | **KEEP** | No auto-flip; any change = dedicated human PR |
+| 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
 | 3 | Sealed-CAGR successor path | **BLEND_025 OPERATING OBSERVE** | Sole in-flight successor; observe ≠ promote |
 | 4 | L4_DD_PATH live cutover | **DEFER** | No PR until checklist all-green (≥1 clean month-end, no YTD/1y PAUSE) |

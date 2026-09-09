@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Shared starting capital for live + paper early-stack.
 
-Restored **3_000_000** (human 2026-09-08: 「先復原成原3M時的條件版本」).
+Live capital **500_000_000** (human ACCEPT 2026-09-09: 「ACCEPT live capital 500M」).
 
-Note: under board-lot 1000 + equal name-split, Soft-Frozen TEL (~6%) often
-cannot fund 1 張 per telecom name at 3M — see telecom within-sleeve research
-(`TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER.md`). Soft-Frozen clips unchanged.
+Prior: 3M (2026-09-08 restore) ← 15M (2026-09-07) ← 3M.
+Board-lot 1000 KEEP. Soft-Frozen clips unchanged.
+See research/ops/CAPITAL_500M_2026-09-09.md.
 """
 from __future__ import annotations
 
-DEFAULT_CAPITAL = 3_000_000.0
+DEFAULT_CAPITAL = 500_000_000.0
 
 __all__ = ["DEFAULT_CAPITAL"]
