@@ -278,3 +278,7 @@ Human **「電信三檔也做跟金融股一樣拆開的研究」**. FIN-paralle
 ## Telecom pack cutover ballot OPEN (2026-09-09)
 
 Human **「另開 ballot」**. Opened pack cutover ballot with re-screen under live FIN KD_OPT: **no pack beats TEL_EQUAL** (DIVERSIFY −0.385). Recommend **`KEEP live TEL_EQUAL`**. Pack: `TELECOM_PACK_CUTOVER_BALLOT_OPEN.md`.
+
+## Telecom pack cutover EXECUTED (2026-09-09)
+
+Human **`KEEP live TEL_EQUAL`**. No live wire. Note: `TELECOM_PACK_CUTOVER_KEEP_TEL_EQUAL.md`.
