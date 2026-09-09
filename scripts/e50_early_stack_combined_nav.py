@@ -28,8 +28,10 @@ from portfolio_capital import DEFAULT_CAPITAL
 from within_sleeve_alloc import (
     FIN_EQUAL,
     FIN_ALLOC_POLICIES,
+    FIN_DUAL_PUB_PRIV,
     FIN_MIX_EQUAL_PRE_EXDIV_KD,
     FIN_MIX_EQUAL_RS_EXDIV,
+    FIN_PRE_EXDIV_KD,
     TEL_EQUAL,
     TEL_MIN_LOT_PACK,
     TEL_TOP1,
@@ -117,6 +119,10 @@ def simulate_core(
     tel_buy_ok: pd.DataFrame | None = None,
     fin_mix_lambda: float | None = None,
     tel_mix_lambda: float | None = None,
+    fin_dual_pub_codes: list[str] | tuple[str, ...] | None = None,
+    fin_dual_priv_codes: list[str] | tuple[str, ...] | None = None,
+    fin_dual_pub_policy: str = FIN_PRE_EXDIV_KD,
+    fin_dual_priv_policy: str = FIN_EQUAL,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
@@ -136,15 +142,20 @@ def simulate_core(
     financial_alloc / telecom_alloc: paper within-sleeve policies (default EQUAL).
     fin_mix_lambda / tel_mix_lambda: when *_alloc is a MIX_EQUAL_* policy, weight on
     EQUAL in λ·EQUAL+(1−λ)·challenger (required in [0,1]).
+    For FIN_DUAL_PUB_PRIV, fin_mix_lambda is 金融公 share of Financial dollars;
+    fin_dual_* codes/policies nest within-group alloc.
     Live e21 unchanged until dedicated cutover ACCEPT.
     """
     if financial_alloc not in FIN_ALLOC_POLICIES:
         raise ValueError(f"financial_alloc must be one of {FIN_ALLOC_POLICIES}")
-    if financial_alloc in (FIN_MIX_EQUAL_RS_EXDIV, FIN_MIX_EQUAL_PRE_EXDIV_KD):
+    if financial_alloc in (FIN_MIX_EQUAL_RS_EXDIV, FIN_MIX_EQUAL_PRE_EXDIV_KD, FIN_DUAL_PUB_PRIV):
         if fin_mix_lambda is None:
             raise ValueError(f"fin_mix_lambda required for {financial_alloc}")
         if not (0.0 <= float(fin_mix_lambda) <= 1.0):
             raise ValueError("fin_mix_lambda must be in [0,1]")
+    if financial_alloc == FIN_DUAL_PUB_PRIV:
+        if not fin_dual_pub_codes and not fin_dual_priv_codes:
+            raise ValueError("fin_dual_pub_codes / fin_dual_priv_codes required for FIN_DUAL_PUB_PRIV")
     if telecom_alloc not in TEL_ALLOC_POLICIES:
         raise ValueError(f"telecom_alloc must be one of {TEL_ALLOC_POLICIES}")
     if telecom_alloc in (TEL_MIX_EQUAL_RS_EXDIV, TEL_MIX_EQUAL_PRE_EXDIV_KD):
@@ -389,6 +400,7 @@ def simulate_core(
                     "FIN_TOP2_EQUAL",
                     FIN_MIX_EQUAL_RS_EXDIV,
                     FIN_MIX_EQUAL_PRE_EXDIV_KD,
+                    FIN_DUAL_PUB_PRIV,
                 ):
                     for c, side, qty in allocate_sleeve_orders(
                         dollars,
@@ -400,6 +412,10 @@ def simulate_core(
                         scores=fin_scores_today,
                         buy_ok=fin_buy_ok_today,
                         mix_lambda=fin_mix_lambda,
+                        dual_pub_codes=fin_dual_pub_codes,
+                        dual_priv_codes=fin_dual_priv_codes,
+                        dual_pub_policy=fin_dual_pub_policy,
+                        dual_priv_policy=fin_dual_priv_policy,
                     ):
                         if qty < 1:
                             continue

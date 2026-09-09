@@ -1,0 +1,249 @@
+{
+  "generated_at_utc": "2026-09-09T14:40:17.742961+00:00",
+  "label": "FIN_PUB_PRIV_DUAL_SLEEVE_RESCREEN",
+  "status": "STOP_NO_POSITIVE_HELDOUT_VS_LIVE_PUB_KD",
+  "charter": "research/ops/FIN_PUB_PRIV_DUAL_SLEEVE_CHARTER.md",
+  "live_wire": false,
+  "soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
+  "router_features": "Soft-Frozen \u516c\u80a1 R1 only",
+  "mechanism": "Split Soft-Frozen Financial dollars into \u91d1\u878d\u516c+\u91d1\u878d\u6c11 (coexist)",
+  "baseline": "LIVE_PUB_KD",
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "pub_r1": [
+    "2880",
+    "2886",
+    "2892",
+    "5880"
+  ],
+  "priv_r3r4": [
+    "2884",
+    "2885",
+    "2890",
+    "2891",
+    "2881",
+    "2882"
+  ],
+  "kd_probe": {
+    "id": "KD_APR15_MAY15_Klt30_T15",
+    "season_start": [
+      4,
+      15
+    ],
+    "season_end": [
+      5,
+      15
+    ],
+    "k_thresh": 30.0,
+    "pre_days": 15,
+    "active_score": 1.5
+  },
+  "absolute": {
+    "LIVE_PUB_KD": {
+      "full_cagr": 0.13257429692254097,
+      "full_mdd": -0.21720270077643722,
+      "heldout_cagr": 0.16955806049418576,
+      "heldout_mdd": -0.21720270077643733,
+      "pub_share": 1.0,
+      "priv_policy": "FIN_EQUAL"
+    },
+    "DUAL_P85_EQ": {
+      "full_cagr": 0.14344835011783807,
+      "full_mdd": -0.23317884119048093,
+      "heldout_cagr": 0.18943010397388438,
+      "heldout_mdd": -0.23317884119048093,
+      "pub_share": 0.85,
+      "priv_policy": "FIN_EQUAL"
+    },
+    "DUAL_P85_KD": {
+      "full_cagr": 0.14355722256733627,
+      "full_mdd": -0.2326559969676445,
+      "heldout_cagr": 0.18946157979787537,
+      "heldout_mdd": -0.23265599696764439,
+      "pub_share": 0.85,
+      "priv_policy": "FIN_PRE_EXDIV_KD"
+    },
+    "DUAL_P75_EQ": {
+      "full_cagr": 0.14711938463287333,
+      "full_mdd": -0.24110959353332895,
+      "heldout_cagr": 0.1953558182787829,
+      "heldout_mdd": -0.24110959353332895,
+      "pub_share": 0.75,
+      "priv_policy": "FIN_EQUAL"
+    },
+    "DUAL_P75_KD": {
+      "full_cagr": 0.14692846772422175,
+      "full_mdd": -0.2408790580261143,
+      "heldout_cagr": 0.1944877397262863,
+      "heldout_mdd": -0.24087905802611442,
+      "pub_share": 0.75,
+      "priv_policy": "FIN_PRE_EXDIV_KD"
+    },
+    "DUAL_P60_EQ": {
+      "full_cagr": 0.15098622568547837,
+      "full_mdd": -0.2447510837475403,
+      "heldout_cagr": 0.2001736730448036,
+      "heldout_mdd": -0.2447510837475404,
+      "pub_share": 0.6,
+      "priv_policy": "FIN_EQUAL"
+    },
+    "DUAL_P60_KD": {
+      "full_cagr": 0.15087929645381237,
+      "full_mdd": -0.24465756558745055,
+      "heldout_cagr": 0.19924535135213883,
+      "heldout_mdd": -0.24465756558745055,
+      "pub_share": 0.6,
+      "priv_policy": "FIN_PRE_EXDIV_KD"
+    },
+    "DUAL_P50_EQ": {
+      "full_cagr": 0.15145043428086868,
+      "full_mdd": -0.24962113074571313,
+      "heldout_cagr": 0.1998648873728064,
+      "heldout_mdd": -0.24962113074571313,
+      "pub_share": 0.5,
+      "priv_policy": "FIN_EQUAL"
+    },
+    "DUAL_P50_KD": {
+      "full_cagr": 0.15188236561969637,
+      "full_mdd": -0.24436291114377728,
+      "heldout_cagr": 0.19900415789167836,
+      "heldout_mdd": -0.24436291114377717,
+      "pub_share": 0.5,
+      "priv_policy": "FIN_PRE_EXDIV_KD"
+    }
+  },
+  "ranked_vs_live_pub_kd": [
+    {
+      "id": "DUAL_P85_KD",
+      "pub_share": 0.85,
+      "priv_policy": "FIN_PRE_EXDIV_KD",
+      "heldout_score": -2.540505584305186,
+      "mdd_improve_pp": -1.5453296191207055,
+      "cagr_giveback_pp": -1.990351930368961,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -1.303872327718636,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "n_fills": 9989,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_P85_EQ",
+      "pub_share": 0.85,
+      "priv_policy": "FIN_EQUAL",
+      "heldout_score": -2.5912162153892915,
+      "mdd_improve_pp": -1.5976140414043605,
+      "cagr_giveback_pp": -1.987204347969862,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -1.428057678744965,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "n_fills": 10179,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_P75_KD",
+      "pub_share": 0.75,
+      "priv_policy": "FIN_PRE_EXDIV_KD",
+      "heldout_score": -3.6141196865727365,
+      "mdd_improve_pp": -2.3676357249677094,
+      "cagr_giveback_pp": -2.4929679232100543,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -3.196539914930463,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "n_fills": 9865,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_P75_EQ",
+      "pub_share": 0.75,
+      "priv_policy": "FIN_EQUAL",
+      "heldout_score": -3.680577164919019,
+      "mdd_improve_pp": -2.390689275689162,
+      "cagr_giveback_pp": -2.579775778459714,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -3.4974223049237585,
+      "tip_pub_names": 3,
+      "tip_priv_names": 6,
+      "n_fills": 10071,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_P50_KD",
+      "pub_share": 0.5,
+      "priv_policy": "FIN_PRE_EXDIV_KD",
+      "heldout_score": -4.188325906608615,
+      "mdd_improve_pp": -2.7160210367339843,
+      "cagr_giveback_pp": -2.94460973974926,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -6.013369749646236,
+      "tip_pub_names": 3,
+      "tip_priv_names": 6,
+      "n_fills": 9341,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_P60_KD",
+      "pub_share": 0.6,
+      "priv_policy": "FIN_PRE_EXDIV_KD",
+      "heldout_score": -4.229851023998976,
+      "mdd_improve_pp": -2.7454864811013224,
+      "cagr_giveback_pp": -2.9687290857953075,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -5.731445724040651,
+      "tip_pub_names": 3,
+      "tip_priv_names": 6,
+      "n_fills": 9604,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_P60_EQ",
+      "pub_share": 0.6,
+      "priv_policy": "FIN_EQUAL",
+      "heldout_score": -4.285618924641199,
+      "mdd_improve_pp": -2.754838297110307,
+      "cagr_giveback_pp": -3.0615612550617843,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -6.634490706124696,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "n_fills": 9639,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_P50_EQ",
+      "pub_share": 0.5,
+      "priv_policy": "FIN_EQUAL",
+      "heldout_score": -4.757184340858611,
+      "mdd_improve_pp": -3.2418429969275797,
+      "cagr_giveback_pp": -3.030682687862063,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -6.752773826626168,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "n_fills": 9522,
+      "coexist": false
+    }
+  ],
+  "coexist_ids": []
+}

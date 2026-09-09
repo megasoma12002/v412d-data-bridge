@@ -290,3 +290,7 @@ Human **「直接開 charter 並開跑」**. Stage A @ 500M under live FINBAND+�
 ## 民營金控 div/adj fill (2026-09-09)
 
 Human **「民營缺完整股利／adj 資料 這些資料先補上」**. Filled E22 dividends + FinMind adj panel + par for 8 private/R2 names. Re-screen **still STOP**. Note: `PRIVATE_FIN_DIV_ADJ_FILL.md`.
+
+## 金融公/金融民 dual-sleeve (2026-09-09)
+
+Human **「應該策略要把金融分成 金融公 金融民」**. Paper dollar-split of Soft-Frozen Financial into 公股+民營 coexist @ 500M. Tip-clean but held-out scores &lt; 0 (best `DUAL_P85_KD` −2.54). **STOP** — live 公股 R1 KEEP; no 4-sleeve cutover. Pack: `FIN_PUB_PRIV_DUAL_SLEEVE_DECISION_PACK.md`.
