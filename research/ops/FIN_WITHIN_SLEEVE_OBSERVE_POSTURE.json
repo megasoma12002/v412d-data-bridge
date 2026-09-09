@@ -3,9 +3,14 @@
   "label": "FIN_WITHIN_SLEEVE_OBSERVE_POSTURE",
   "status": "LOCKED",
   "operating_observe": true,
-  "live_wire": false,
+  "live_wire": true,
   "soft_frozen_keep": true,
-  "books": ["FIN_EQUAL", "FIN_RS_SOFT_TILT_EXDIV", "MIX_L75", "KD_OPT"],
+  "books": [
+    "FIN_EQUAL",
+    "FIN_RS_SOFT_TILT_EXDIV",
+    "MIX_L75",
+    "KD_OPT"
+  ],
   "kd_optimal_id": "KD_APR15_MAY15_Klt30_T15",
   "posture": [
     "Maintain OPERATING month-end refresh EQUAL || RS_EXDIV || MIX_L75 || KD_OPT",
@@ -25,5 +30,8 @@
     "No E45 stitch on this FIN within-sleeve line"
   ],
   "decision_pack": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md",
-  "observe_open": "research/ops/FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md"
+  "observe_open": "research/ops/FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md",
+  "live_financial_alloc": "FIN_PRE_EXDIV_KD",
+  "live_kd_opt_id": "KD_APR15_MAY15_Klt30_T15",
+  "cutover": "ACCEPTED_2026-09-09_KD_OPT"
 }

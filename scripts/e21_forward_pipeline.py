@@ -18,6 +18,12 @@ import e16_soft_frozen_base as soft_frozen
 from e16_soft_frozen_base import FIN, TEL
 from tw_share_lots import BOARD_LOT, board_lots
 from portfolio_capital import DEFAULT_CAPITAL
+from within_sleeve_alloc import (
+    FIN_PRE_EXDIV_KD,
+    allocate_sleeve_orders,
+    build_kd_season_tilt_scores,
+    build_pre_exdiv_window_buy_ok,
+)
 
 ALL = FIN + TEL + ["0050"]
 CAPITAL = DEFAULT_CAPITAL
@@ -28,6 +34,18 @@ TAX_ETF = 0.001
 SLIP = 0.0005
 E22_BOOKS_VERSION = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw (畸零股面額 CIL; promoted 2026-09-05)
 DIV_PATH = Path("data/dividend_events/e22_dividend_events.csv")
+
+# Live FIN within-sleeve — human ACCEPT 2026-09-09: KD_OPT cutover
+# Soft-Frozen sleeve clips unchanged; Telecom stays equal-split.
+LIVE_FIN_WITHIN_SLEEVE = FIN_PRE_EXDIV_KD
+KD_OPT = {
+    "id": "KD_APR15_MAY15_Klt30_T15",
+    "season_start": (4, 15),
+    "season_end": (5, 15),
+    "k_thresh": 30.0,
+    "pre_days": 15,
+    "active_score": 1.5,
+}
 
 
 def append_immutable(path, row, key):
@@ -251,6 +269,8 @@ def main():
         "fills_checked": len(fills),
         "pending_filter": "signal_date < fill_date",
         "soft_frozen_financial_clip": [soft_frozen.SOFT_FROZEN_FIN_LO, soft_frozen.SOFT_FROZEN_FIN_HI],
+        "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
+        "kd_opt_id": KD_OPT["id"],
         "live_wire": True,
         "owns_qc_status": False,
         "note": (
@@ -313,8 +333,74 @@ def main():
         if abs(trade).sum() > 0.20:
             trade *= 0.20 / abs(trade).sum()
     sleeve_trade = dict(zip(["Financial", "Telecom", "0050"], trade))
+    # KD_OPT panels for Financial within-sleeve (forward-only cutover).
+    div_df = (
+        pd.read_csv(a.dividends, dtype={"code": str})
+        if Path(a.dividends).exists()
+        else pd.DataFrame()
+    )
+    cal = pd.to_datetime(m["date"]).drop_duplicates().sort_values()
+    kd_scores = build_kd_season_tilt_scores(
+        m,
+        div_df,
+        FIN,
+        k_thresh=float(KD_OPT["k_thresh"]),
+        season_start=KD_OPT["season_start"],
+        season_end=KD_OPT["season_end"],
+        pre_days=int(KD_OPT["pre_days"]),
+        active_score=float(KD_OPT["active_score"]),
+    )
+    kd_buy_ok = build_pre_exdiv_window_buy_ok(
+        cal,
+        div_df,
+        FIN,
+        pre_days=int(KD_OPT["pre_days"]),
+        also_stock_ex=True,
+    )
+    fin_scores_today = None
+    if latest in kd_scores.index:
+        fin_scores_today = {
+            c: float(kd_scores.loc[latest, c])
+            for c in FIN
+            if c in kd_scores.columns and pd.notna(kd_scores.loc[latest, c])
+        }
+    fin_buy_ok_today = None
+    if latest in kd_buy_ok.index:
+        fin_buy_ok_today = {
+            c: bool(kd_buy_ok.loc[latest, c])
+            for c in FIN
+            if c in kd_buy_ok.columns
+        }
+
     order_rows = []
-    for sleeve, codes in [("Financial", FIN), ("Telecom", TEL), ("0050", ["0050"])]:
+    # Financial: LIVE KD_OPT (FIN_PRE_EXDIV_KD)
+    fin_dollars = float(sleeve_trade["Financial"]) * nav
+    if abs(fin_dollars) >= 1e-9:
+        for c, side, qty in allocate_sleeve_orders(
+            fin_dollars,
+            {x: float(prices[x]) for x in FIN},
+            pos,
+            policy_id=LIVE_FIN_WITHIN_SLEEVE,
+            codes=FIN,
+            lot_size=BOARD_LOT,
+            scores=fin_scores_today,
+            buy_ok=fin_buy_ok_today,
+        ):
+            if qty < BOARD_LOT or qty % BOARD_LOT != 0:
+                continue
+            oid = f"{latest.date()}-{c}-{side}"
+            order_rows.append(
+                {
+                    "order_id": oid,
+                    "signal_date": latest.date().isoformat(),
+                    "code": c,
+                    "side": side,
+                    "quantity": int(qty),
+                    "reference_close": prices[c],
+                }
+            )
+    # Telecom + 0050: keep equal-split within sleeve
+    for sleeve, codes in [("Telecom", TEL), ("0050", ["0050"])]:
         value = sleeve_trade[sleeve] * nav / len(codes)
         for c in codes:
             # Taiwan 整股：1 張 = 1000 股
@@ -353,6 +439,8 @@ def main():
         "e20_financial": e20w.Financial,
         "e20_telecom": e20w.Telecom,
         "e20_0050": e20w["0050"],
+        "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
+        "kd_opt_id": KD_OPT["id"],
     }
     append_immutable(sdir / "signals.csv", signal, "date")
     navrow = {
@@ -380,6 +468,9 @@ def main():
         "e22_books_version": a.e22_version,
         "e22_applied_keys": sorted(skip),
         "e22_manifest": e22div.version_manifest(a.e22_version),
+        "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
+        "kd_opt_id": KD_OPT["id"],
+        "fin_within_sleeve_cutover": "ACCEPT_2026-09-09_KD_OPT",
     }
     state_path.write_text(json.dumps(state, indent=2) + "\n")
     # Hash-chain audit: each row commits to the prior row and today's immutable outputs.

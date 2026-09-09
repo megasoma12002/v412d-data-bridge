@@ -235,3 +235,7 @@ Artifacts: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_C.md` · `FIN_WITHIN_SLEEVE_DUAL_PAPER
 
 Human **`ACCEPT live capital 500M`**. `DEFAULT_CAPITAL=500M` + board-lot 1000 wipe+replay `forward/e21`. Soft-Frozen KEEP · stitch FORBIDDEN · no FIN within-sleeve live wire. Note: `CAPITAL_500M_2026-09-09.md`.
 
+## FIN within-sleeve live cutover KD_OPT (2026-09-09)
+
+Human **`ACCEPT`** → `KD_OPT` (`FIN_PRE_EXDIV_KD` / `KD_APR15_MAY15_Klt30_T15`) wired into `e21_forward_pipeline` **forward-only**. Soft-Frozen KEEP · DEFAULT KEEP · Telecom EQUAL · no E45 stitch · no history rewrite. Note: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md`.
+
