@@ -23,7 +23,8 @@ Soft-Frozen **sleeve weights** from live FINBAND (公股 features); Financial do
 ## Gates (month-end)
 
 Same tip gates as other observes: YTD / trailing 1y vs `PRIV_EQUAL` (ALERT 3pp / PAUSE 5pp).  
-Held-out score is historical lock; tip is operating.
+Held-out score is historical lock; tip is operating.  
+Cadence SSOT: `FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md` · checklist `FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_CHECKLIST.md`.
 
 ## Operating artifacts (wired)
 
@@ -32,14 +33,19 @@ Held-out score is historical lock; tip is operating.
 | Dual-paper ledgers | `scripts/e16_fin_priv_native_dual_paper_ledgers.py` |
 | Month-end monitor | `scripts/e16_fin_priv_native_month_end_monitor.py` |
 | Observe operating memo | `research/ops/FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPERATING.md` |
+| Month-end runbook | `research/ops/FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md` |
+| Observe checklist | `research/ops/FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_CHECKLIST.md` |
+| Observe posture | `research/ops/FIN_PRIV_NATIVE_OBSERVE_POSTURE.md` |
+| Status ballot (DRAFT) | `research/ops/FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md` |
+| Cutover stub | `research/ops/CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md` (**BLOCKED**) |
 | Month-end monitor output | `research/ops/FIN_PRIV_NATIVE_MONTH_END_MONITOR.{md,json}` |
 | Repro root | `repro/fin-priv-native-dual-paper-observe/` |
 
-As-of `2026-09-09`: month-end monitor alerts = **none**.
+As-of `2026-09-09`: month-end monitor alerts = **none** · default status **KEEP OBSERVE**.
 
 ## WON’T
 
-- Soft-Frozen flip · live e21 expand · auto-promote to live KD
+- Soft-Frozen flip · live e21 expand · 4-sleeve Class D · auto-promote to live KD
 
 ## Artifacts
 

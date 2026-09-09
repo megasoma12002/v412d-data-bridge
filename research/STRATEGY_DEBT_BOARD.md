@@ -303,3 +303,7 @@ Human **「做成 Soft-Frozen 四條 sleeve（公／民各自 clip），另開 c
 
 Human **「民營的策略再研究一下畢竟跟公股的習性不一樣」**. PRIV cash-ex ~Jun–Jul vs 公股 ~Aug. Native KD grid vs `PRIV_EQUAL` → coexist; native winner **`PRIV_KD_MAY_Klt25_T15`** (+0.63). Dual-paper observe OPEN. Pack: `FIN_PRIV_NATIVE_WITHIN_SLEEVE_DECISION_PACK.md`.
 Follow-up wiring complete: dual ledgers + month-end monitor (`FIN_PRIV_NATIVE_MONTH_END_MONITOR.json`) as-of 2026-09-09 alerts=0.
+
+## 民營 native observe runbook + status ballot (2026-09-09)
+
+Human **「請全做」**. Locked fixed month-end cadence (ledgers+monitor), tip YTD/1y + structural watch, observe-status ballot DRAFT (KEEP OBSERVE / STRICTER PAPER / STOP — **no live**), posture + blocked cutover stub. Artifacts: `FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md` · `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md` · `FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md` · `CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md`.

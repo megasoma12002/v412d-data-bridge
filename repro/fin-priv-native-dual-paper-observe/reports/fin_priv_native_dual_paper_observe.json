@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-09T15:53:20.665626+00:00",
+  "generated_at_utc": "2026-09-09T19:22:50.081927+00:00",
   "label": "FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPERATING",
   "status": "OPERATING_OBSERVE",
   "live_wire": false,
@@ -115,8 +115,13 @@
     "PRIV_EQUAL": 6889,
     "PRIV_KD_MAY_Klt25_T15": 6715
   },
+  "default_status": "KEEP_OBSERVE",
+  "posture": "research/ops/FIN_PRIV_NATIVE_OBSERVE_POSTURE.md",
+  "runbook": "research/ops/FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md",
+  "status_ballot": "research/ops/FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md",
+  "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md",
   "next_human": [
     "Run month-end monitor on this dual-paper pair",
-    "Keep observe-only; no live wiring without dedicated ACCEPT"
+    "Default KEEP OBSERVE; status ballot is paper-only (no live wire)"
   ]
 }

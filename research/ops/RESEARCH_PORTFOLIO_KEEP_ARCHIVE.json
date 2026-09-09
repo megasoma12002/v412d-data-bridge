@@ -41,6 +41,15 @@
       "live_wire": false,
       "live_kd_opt_unchanged": true
     },
+    "fin_priv_native_observe": {
+      "books": ["PRIV_EQUAL", "PRIV_KD_MAY_Klt25_T15"],
+      "status": "OPERATING_OBSERVE_KEEP",
+      "live_wire": false,
+      "posture": "research/ops/FIN_PRIV_NATIVE_OBSERVE_POSTURE.md",
+      "runbook": "research/ops/FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md",
+      "status_ballot": "research/ops/FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md",
+      "cutover": "research/ops/CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md"
+    },
     "e45_primary": [
       "BLEND_E45_A05",
       "M2_RELOC_BIL_FX_C35"
@@ -65,12 +74,14 @@
   "non_actions": [
     "No Soft-Frozen flip from archive alone",
     "No FIN within-sleeve or E45 stitch without dedicated ACCEPT",
+    "No live-wire 民營 native from paper green alone",
     "No Stage B hard reopen",
     "No invent MDD narrative replacement",
     "No cutover from archived sleeve month-end green alone"
   ],
   "artifacts": {
     "posture_fin": "research/ops/FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md",
+    "posture_fin_priv": "research/ops/FIN_PRIV_NATIVE_OBSERVE_POSTURE.md",
     "e45_sleeves": "research/ops/E45_OBSERVE_SLEEVES_STATUS.md",
     "register": "research/ops/HUMAN_DECISION_REGISTER.md"
   },

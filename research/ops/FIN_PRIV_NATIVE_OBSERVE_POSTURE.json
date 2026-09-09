@@ -1,0 +1,48 @@
+{
+  "generated_at_utc": "2026-09-09T19:20:00+00:00",
+  "label": "FIN_PRIV_NATIVE_OBSERVE_POSTURE",
+  "status": "LOCKED_KEEP_OBSERVE",
+  "operating_observe": true,
+  "live_wire": false,
+  "soft_frozen_clip": [0.6, 0.9],
+  "soft_frozen_membership": "PUB_R1",
+  "live_financial_alloc": "FIN_PRE_EXDIV_KD",
+  "live_kd_opt_id": "KD_APR15_MAY15_Klt30_T15",
+  "books": ["PRIV_EQUAL", "PRIV_KD_MAY_Klt25_T15"],
+  "challenger_policy": "FIN_PRE_EXDIV_KD",
+  "native_kd": {
+    "season_start": [5, 1],
+    "season_end": [5, 31],
+    "k_thresh": 25.0,
+    "pre_days": 15
+  },
+  "human_confirm": "請全做 — fixed cadence + tip/structural watch + observe-status ballot",
+  "posture": [
+    "Maintain PRIV_EQUAL || PRIV_KD_MAY_Klt25_T15 paper dual-book",
+    "Month-end ledgers + monitor; tip YTD/1y + held-out/sealed",
+    "Default KEEP OBSERVE while alerts empty and held-out score > 0",
+    "No live e21 expand / Soft-Frozen 4-sleeve / 公股 KD retune"
+  ],
+  "non_actions": [
+    "No Soft-Frozen flip without dedicated ACCEPT",
+    "No live universe expand",
+    "No 4-sleeve Class D from this posture",
+    "No native May KD retune without new OPEN",
+    "No history rewrite"
+  ],
+  "status_ballot_choices": [
+    "KEEP_OBSERVE",
+    "STRICTER_PAPER",
+    "STOP_OBSERVE"
+  ],
+  "artifacts": {
+    "posture_md": "research/ops/FIN_PRIV_NATIVE_OBSERVE_POSTURE.md",
+    "checklist": "research/ops/FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_CHECKLIST.md",
+    "runbook": "research/ops/FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md",
+    "status_ballot": "research/ops/FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md",
+    "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md",
+    "observe_open": "research/ops/FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPEN.md",
+    "decision_pack": "research/ops/FIN_PRIV_NATIVE_WITHIN_SLEEVE_DECISION_PACK.md"
+  },
+  "label_tag": "FIN_PRIV_NATIVE_OBSERVE_POSTURE_2026-09-09__KEEP_OBSERVE__NO_LIVE_WIRE"
+}

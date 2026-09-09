@@ -1,0 +1,17 @@
+{
+  "generated_at_utc": "2026-09-09T19:20:00+00:00",
+  "label": "CUTOVER_CHECKLIST_FIN_PRIV_NATIVE",
+  "status": "NOT_AUTHORIZED_BLOCKED",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "authorized": false,
+  "blocking_reasons": [
+    "PRIV_replace_STOP_vs_LIVE_PUB_KD",
+    "dual_sleeve_STOP",
+    "four_sleeve_STOP",
+    "native_observe_is_not_cutover_license"
+  ],
+  "observe_only": true,
+  "checklist_md": "research/ops/CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md",
+  "label_tag": "CUTOVER_CHECKLIST_FIN_PRIV_NATIVE__NOT_AUTHORIZED_BLOCKED_2026-09-09"
+}
