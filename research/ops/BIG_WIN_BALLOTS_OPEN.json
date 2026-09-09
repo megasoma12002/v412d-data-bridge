@@ -1,13 +1,19 @@
 {
   "label": "BIG_WIN_BALLOTS_OPEN",
-  "status": "OPEN_PACK",
-  "live_wire": false,
-  "soft_frozen_keep": true,
+  "status": "EXECUTED",
+  "live_wire": true,
+  "soft_frozen_keep": false,
   "paths": [
     "soft_frozen_clip",
     "e45_stitch"
   ],
   "clip_edge": "tiny_finband_plus_0.023",
   "tel_floors_at_500m": "no_lift",
-  "generated_at_utc": "2026-09-09T11:20:00.459359+00:00"
+  "generated_at_utc": "2026-09-09T11:20:00.459359+00:00",
+  "executed_at_utc": "2026-09-09T11:32:37.568777+00:00",
+  "soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
+  "e45_stitch_live": "BLEND_E45_A05"
 }

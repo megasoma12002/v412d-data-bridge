@@ -36,7 +36,8 @@ E22_BOOKS_VERSION = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw (畸零股面額 
 DIV_PATH = Path("data/dividend_events/e22_dividend_events.csv")
 
 # Live FIN within-sleeve — human ACCEPT 2026-09-09: KD_OPT cutover
-# Soft-Frozen sleeve clips unchanged; Telecom stays equal-split.
+# Soft-Frozen FIN clip — Class D ACCEPT 2026-09-09: FINBAND_F0.60-0.90 → [0.60, 0.90]
+# E45 live stitch — second ACCEPT 2026-09-09: BLEND_E45_A05 (α=0.05 × E3_VOLTARGET_WINNER)
 LIVE_FIN_WITHIN_SLEEVE = FIN_PRE_EXDIV_KD
 KD_OPT = {
     "id": "KD_APR15_MAY15_Klt30_T15",
@@ -46,6 +47,10 @@ KD_OPT = {
     "pre_days": 15,
     "active_score": 1.5,
 }
+LIVE_E45_STITCH = True
+LIVE_E45_BOOK = "BLEND_E45_A05"
+LIVE_E45_PROFILE = "E3_VOLTARGET_WINNER"
+LIVE_E45_BLEND_ALPHA = 0.05
 
 
 def append_immutable(path, row, key):
@@ -64,7 +69,7 @@ def append_immutable(path, row, key):
 
 
 def features(m):
-    """Live Soft-Frozen E16 targets (Financial clip [0.50, 0.95]).
+    """Live Soft-Frozen E16 targets (Financial clip from e16_soft_frozen_base SSOT).
 
     Clip/prior/blend: single source `e16_soft_frozen_base` (shared with research).
     Challenger clips: `e16_fin_cap_oof_challenger.e16_features_fin_cap` only.
@@ -195,6 +200,31 @@ def main():
     px, sleeve, target, e20, diag = features(m)
     tw = target.iloc[-1]
     e20w = e20.iloc[-1]
+    # E45 BLEND_E45_A05 stitch (forward-only): scale Soft-Frozen sleeve targets by
+    # exposure = (1-α)·1 + α·E3_VOLTARGET_WINNER (same as paper blend005).
+    e45_exposure_today = 1.0
+    if LIVE_E45_STITCH:
+        import e45_crisis_core as e45
+
+        close_eq = (
+            m[m["code"].isin(ALL)]
+            .pivot(index="date", columns="code", values="close")
+            .sort_index()
+            .ffill()
+        )
+        e45_full = e45.compute_exposure(close_eq, LIVE_E45_PROFILE)["exposure"]
+        if latest in e45_full.index and pd.notna(e45_full.loc[latest]):
+            e45_full_today = float(e45_full.loc[latest])
+        else:
+            e45_full_today = float(e45_full.dropna().iloc[-1]) if e45_full.dropna().size else 1.0
+        e45_exposure_today = float(
+            np.clip((1.0 - LIVE_E45_BLEND_ALPHA) * 1.0 + LIVE_E45_BLEND_ALPHA * e45_full_today, 0.0, 1.0)
+        )
+        tw_scaled = e45.apply_exposure_to_sleeve_weights(
+            {"Financial": float(tw.Financial), "Telecom": float(tw.Telecom), "0050": float(tw["0050"])},
+            e45_exposure_today,
+        )
+        tw = pd.Series(tw_scaled)
     prices = day.close.astype(float).to_dict()
     state_path = sdir / "portfolio_state.json"
     state = (
@@ -271,6 +301,11 @@ def main():
         "soft_frozen_financial_clip": [soft_frozen.SOFT_FROZEN_FIN_LO, soft_frozen.SOFT_FROZEN_FIN_HI],
         "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
         "kd_opt_id": KD_OPT["id"],
+        "e45_stitch": LIVE_E45_STITCH,
+        "e45_book": LIVE_E45_BOOK if LIVE_E45_STITCH else None,
+        "e45_profile": LIVE_E45_PROFILE if LIVE_E45_STITCH else None,
+        "e45_blend_alpha": LIVE_E45_BLEND_ALPHA if LIVE_E45_STITCH else None,
+        "e45_exposure": float(e45_exposure_today) if LIVE_E45_STITCH else None,
         "live_wire": True,
         "owns_qc_status": False,
         "note": (
@@ -441,6 +476,10 @@ def main():
         "e20_0050": e20w["0050"],
         "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
         "kd_opt_id": KD_OPT["id"],
+        "e45_stitch": LIVE_E45_STITCH,
+        "e45_book": LIVE_E45_BOOK if LIVE_E45_STITCH else None,
+        "e45_blend_alpha": LIVE_E45_BLEND_ALPHA if LIVE_E45_STITCH else None,
+        "e45_exposure": float(e45_exposure_today) if LIVE_E45_STITCH else None,
     }
     append_immutable(sdir / "signals.csv", signal, "date")
     navrow = {
@@ -471,6 +510,10 @@ def main():
         "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
         "kd_opt_id": KD_OPT["id"],
         "fin_within_sleeve_cutover": "ACCEPT_2026-09-09_KD_OPT",
+        "soft_frozen_clip_flip": "ACCEPT_2026-09-09_FINBAND_F0.60-0.90",
+        "e45_stitch": LIVE_E45_STITCH,
+        "e45_book": LIVE_E45_BOOK if LIVE_E45_STITCH else None,
+        "e45_stitch_ballot": "E45_ACCEPT_LIVE_STITCH_BLEND_E45_A05_2026-09-09",
     }
     state_path.write_text(json.dumps(state, indent=2) + "\n")
     # Hash-chain audit: each row commits to the prior row and today's immutable outputs.

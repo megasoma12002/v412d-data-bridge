@@ -8,7 +8,7 @@ Gates (all required for READY_FOR_HUMAN_CUTOVER_PR):
   B) Combined held-out 2019+: MDD improve >=1.0pp AND CAGR giveback <=3.0pp
   C) Sealed 2023+:         MDD improve >=1.0pp AND CAGR giveback <=3.0pp
      (required after L1/L2/L3 sealed CAGR failures)
-  D) Soft-Frozen live clip remains [0.50, 0.95] (this harness never flips it)
+  D) Soft-Frozen live clip remains SSOT (`e16_soft_frozen_base.SOFT_FROZEN_FIN_CLIP`; this harness never flips it)
   E) No PAUSE_REVIEW on trailing windows (CAGR giveback >5pp)
 
 Does NOT edit live clips. Does NOT open cutover automatically.
@@ -232,7 +232,7 @@ def main() -> None:
                 "expected_clip": list(EXPECTED_SOFT_FROZEN_LIVE),
                 "module_source": "scripts/e16_soft_frozen_base.py",
                 "module_clip": [float(SOFT_FROZEN_FIN_LO), float(SOFT_FROZEN_FIN_HI)],
-                "rule": "SOFT_FROZEN_FIN_LO/HI must remain [0.50, 0.95]; no hardcoded True",
+                "rule": "SOFT_FROZEN_FIN_LO/HI must match e16_soft_frozen_base SSOT; no hardcoded True",
             },
             "E_no_pause_review": {
                 "pass": gate_e,
@@ -283,7 +283,7 @@ def main() -> None:
             f"{'PASS' if gate_c else 'FAIL'} "
             f"(MDD {sealed['mdd_improve_pp']:+.2f}pp; CAGR gb {sealed['cagr_giveback_pp']:+.2f}pp) |"
         ),
-        f"| D Soft-Frozen | stays [0.50, 0.95] | {'PASS' if gate_d else 'FAIL'} |",
+        f"| D Soft-Frozen | stays SSOT {list(SOFT_FROZEN_LIVE)} | {'PASS' if gate_d else 'FAIL'} |",
         f"| E Month-end | no PAUSE_REVIEW | {'PASS' if gate_e else 'FAIL'} |",
         "",
         "### Windows",
@@ -313,7 +313,7 @@ def main() -> None:
         ]
     else:
         lines += [
-            "- **Do not cut over live.** Soft-Frozen stays **[0.50, 0.95]**.",
+            "- **Do not cut over live from this verify harness.** Soft-Frozen is SSOT (`e16_soft_frozen_base`).",
             "- Continue dual-paper month-end observation only.",
             "- If blocked on sealed CAGR: new charter required (do not retune FIN_CAP_50 lock).",
         ]

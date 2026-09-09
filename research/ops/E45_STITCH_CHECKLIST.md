@@ -1,16 +1,30 @@
 # E45 Live-Stitch Checklist (Stage 4 — PREP ONLY)
 
-Date: 2026-09-05  
-Status: **DRAFTED — NOT AUTHORIZED**  
-Human ballot required: **second dedicated** `E45 ACCEPT live stitch` (separate PR)  
-Soft-Frozen live Financial clip: **[0.50, 0.95] KEEP**  
+Date: 2026-09-05 · refresh 2026-09-09  
+Status: **ACCEPTED — LIVE STITCHED (`BLEND_E45_A05`)**  
+Human ballot: **`E45 ACCEPT live stitch: BLEND_E45_A05`** (2026-09-09「請都做」)  
+Soft-Frozen live Financial clip: **[0.60, 0.90]** (FINBAND flip same day)  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** — do not cite / invent replacement
 
-Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `HUMAN_DECISION_REGISTER.md` #6c · `E45_DUAL_PAPER_OBSERVE_OPEN.md`
+Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `HUMAN_DECISION_REGISTER.md` #6c · `E45_STITCH_ACCEPTED_BLEND_A05.md`
 
-This file satisfies Stage-4 **“stitch checklist drafted.”**  
-It does **not** authorize live-wire, Soft-Frozen flip, or `forward/e21` history rewrite.
+## What stitch changed (2026-09-09)
+
+- Attach E45 **`BLEND_E45_A05`** (`α=0.05 × E3_VOLTARGET_WINNER`) onto Soft-Frozen early-stack live path **forward-only** via `e21_forward_pipeline.py`.  
+- Soft-Frozen FIN band flipped same day to **[0.60, 0.90]** (separate Class D).  
+- DEFAULT books stay **`E22_v2s_tw`**.  
+
+## Gates at ACCEPT
+
+| # | Gate | Pass? |
+|---|---|---|
+| 1–4 | Charter / V1–V6 / retire / observe | **YES** |
+| 5 | Clean tip on chosen book | **YES** for `BLEND_E45_A05` (asof 2026-09-07) |
+| 6 | Sustained clean trailing | **THIN** — human ACCEPT overrode |
+| 7–9 | Exact T+1 / Soft-Frozen PR / DEFAULT | **YES** |
+| 10 | Second human ACCEPT | **YES** 2026-09-09 |
+| 11 | No forbidden bundle | **YES** (clip flip was separate ballot same day) |
 
 ## What stitch would change (future human PR only)
 
