@@ -6,7 +6,7 @@
   "failover_used": false,
   "source": "finmind_TAIEX",
   "error_primary": null,
-  "generated_at_utc": "2026-09-09T12:45:44.440523+00:00",
+  "generated_at_utc": "2026-09-09T12:53:10.674069+00:00",
   "n_rows": 651,
   "out": "repro/data-source-phase-c/taiex_primary_dryrun.csv",
   "soft_frozen_unchanged": true,

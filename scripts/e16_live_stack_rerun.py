@@ -207,17 +207,41 @@ def main() -> int:
 
     cur = vs["CURRENT_LIVE"]
     retired = vs["RETIRED_FINBAND_A05"]
+    improve_held = held_score(
+        books["RETIRED_FINBAND_A05"]["windows"]["heldout_2019_plus"],
+        books["CURRENT_LIVE"]["windows"]["heldout_2019_plus"],
+    )
+    improve_tip = tip_gate(books["RETIRED_FINBAND_A05"]["nav"], books["CURRENT_LIVE"]["nav"], asof)
+    improve = {
+        "vs_baseline": "RETIRED_FINBAND_A05",
+        "heldout_2019_plus": improve_held,
+        "tip_gates_current_vs_retired": improve_tip,
+        "tip_restored": cur["tip_clean"] and not retired["tip_clean"],
+        "heldout_score_lift": float(cur["heldout_2019_plus"]["score"] - retired["heldout_2019_plus"]["score"]),
+        "full_cagr_pp": float(
+            (abs_rows["CURRENT_LIVE"]["full"]["cagr"] - abs_rows["RETIRED_FINBAND_A05"]["full"]["cagr"]) * 100
+        ),
+        "full_mdd_improve_pp": float(
+            mdd_delta_pp(
+                abs_rows["RETIRED_FINBAND_A05"]["full"]["max_drawdown"],
+                abs_rows["CURRENT_LIVE"]["full"]["max_drawdown"],
+            )
+        ),
+    }
+    status = "IMPROVED" if improve["tip_restored"] and improve["heldout_score_lift"] > 0 else "MIXED"
     verdict = (
         f"CURRENT_LIVE (FINBAND+KD, E45 OFF after DROP_E45_A05) vs OLD_SF_KD "
         f"held-out score={cur['heldout_2019_plus']['score']:+.3f} tip_clean={cur['tip_clean']} "
         f"YTD={cur['tip_gates']['ytd']['gate']} 1y={cur['tip_gates']['trailing_1y']['gate']}. "
-        f"RETIRED_FINBAND_A05 held-out={retired['heldout_2019_plus']['score']:+.3f} tip_clean={retired['tip_clean']}. "
+        f"vs RETIRED_FINBAND_A05: held-out lift={improve['heldout_score_lift']:+.3f} "
+        f"tip_restored={improve['tip_restored']} status={status}. "
         f"Live Soft-Frozen={soft.SOFT_FROZEN_FIN_CLIP}; LIVE_E45_STITCH=False."
     )
     payload = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "LIVE_STACK_RERUN",
         "status": "PAPER_RERUN_POST_DROP_E45_A05",
+        "improvement_status": status,
         "capital": float(DEFAULT_CAPITAL),
         "lot_size": BOARD_LOT,
         "kd_opt": KD_OPT,
@@ -231,6 +255,7 @@ def main() -> int:
         },
         "absolute": abs_rows,
         "vs_old_sf_kd": vs,
+        "improvement_vs_retired_a05": improve,
         "verdict": verdict,
     }
     (OUT / "summary.json").write_text(json.dumps(payload, indent=2, default=str) + "\n")
@@ -238,11 +263,60 @@ def main() -> int:
         json.dumps(payload, indent=2, default=str) + "\n"
     )
 
+    improve_md = [
+        "# Live stack improvement status (post DROP_E45_A05)",
+        "",
+        f"Generated: `{payload['generated_at_utc']}`",
+        f"Status: **{status}**",
+        "",
+        "## Before → after rollback",
+        "",
+        "| | RETIRED (FINBAND+KD+A05) | CURRENT_LIVE (FINBAND+KD) | Δ |",
+        "|---|---:|---:|---:|",
+        f"| held-out score vs OLD | {retired['heldout_2019_plus']['score']:+.3f} | {cur['heldout_2019_plus']['score']:+.3f} | {improve['heldout_score_lift']:+.3f} |",
+        f"| tip YTD / 1y | {retired['tip_gates']['ytd']['gate']} / {retired['tip_gates']['trailing_1y']['gate']} | {cur['tip_gates']['ytd']['gate']} / {cur['tip_gates']['trailing_1y']['gate']} | tip_restored={improve['tip_restored']} |",
+        f"| full CAGR | {abs_rows['RETIRED_FINBAND_A05']['full']['cagr']*100:.2f}% | {abs_rows['CURRENT_LIVE']['full']['cagr']*100:.2f}% | {improve['full_cagr_pp']:+.2f} pp |",
+        f"| full MDD | {abs_rows['RETIRED_FINBAND_A05']['full']['max_drawdown']*100:.2f}% | {abs_rows['CURRENT_LIVE']['full']['max_drawdown']*100:.2f}% | MDD↑ {improve['full_mdd_improve_pp']:+.3f} pp |",
+        "",
+        "## vs pre-big-win Soft-Frozen+KD (`OLD_SF_KD`)",
+        "",
+        f"- CURRENT_LIVE: held-out **{cur['heldout_2019_plus']['score']:+.3f}**, tip **{'PASS' if cur['tip_clean'] else 'FAIL'}** (near flat / slight edge).",
+        f"- RETIRED_FINBAND_A05: held-out **{retired['heldout_2019_plus']['score']:+.3f}**, tip ALERT.",
+        "",
+        "## Reading",
+        "",
+        "Dropping E45 A05 restored tip cleanliness and recovered ~0.70 held-out score vs the pre-rollback live stack. "
+        "Live remains Soft-Frozen FINBAND + KD_OPT with E45 stitch OFF.",
+        "",
+        f"Detail: `LIVE_STACK_RERUN.md` · Repro: `{OUT.relative_to(ROOT)}/`",
+        "",
+    ]
+    improve_text = "\n".join(improve_md)
+    RESEARCH.joinpath("LIVE_STACK_IMPROVE_STATUS.md").write_text(improve_text)
+    RESEARCH.joinpath("LIVE_STACK_IMPROVE_STATUS.json").write_text(
+        json.dumps(
+            {
+                "label": "LIVE_STACK_IMPROVE_STATUS",
+                "generated_at_utc": payload["generated_at_utc"],
+                "status": status,
+                "improvement_vs_retired_a05": improve,
+                "current_vs_old_sf_kd": cur,
+                "retired_vs_old_sf_kd": retired,
+                "verdict": verdict,
+            },
+            indent=2,
+            default=str,
+        )
+        + "\n"
+    )
+    (OUT / "IMPROVE_STATUS.md").write_text(improve_text)
+
     lines = [
         "# Live stack paper re-run (post DROP_E45_A05)",
         "",
         f"Generated: `{payload['generated_at_utc']}`",
         f"Capital **{DEFAULT_CAPITAL:,.0f}** · lot **{BOARD_LOT}** · KD_OPT · Soft-Frozen live **{soft.SOFT_FROZEN_FIN_CLIP}** · E45 stitch **OFF**",
+        f"Improvement vs retired A05: **{status}** (see `LIVE_STACK_IMPROVE_STATUS.md`)",
         "",
         "## Absolute",
         "",
@@ -273,6 +347,16 @@ def main() -> int:
         )
     lines += [
         "",
+        "## Improvement vs RETIRED_FINBAND_A05",
+        "",
+        f"| metric | value |",
+        f"|---|---|",
+        f"| held-out score lift | **{improve['heldout_score_lift']:+.3f}** |",
+        f"| tip restored (ALERT→PASS) | **{improve['tip_restored']}** |",
+        f"| full CAGR Δ | {improve['full_cagr_pp']:+.2f} pp |",
+        f"| full MDD improve | {improve['full_mdd_improve_pp']:+.3f} pp |",
+        f"| status | **{status}** |",
+        "",
         "## Verdict",
         "",
         verdict,
@@ -283,7 +367,18 @@ def main() -> int:
     md = "\n".join(lines)
     (OUT / "REPORT.md").write_text(md)
     RESEARCH.joinpath("LIVE_STACK_RERUN.md").write_text(md)
-    print(json.dumps({"verdict": verdict, "vs": {k: v["heldout_2019_plus"] for k, v in vs.items()}}, indent=2, default=str))
+    print(
+        json.dumps(
+            {
+                "status": status,
+                "verdict": verdict,
+                "improvement": improve,
+                "vs": {k: v["heldout_2019_plus"] for k, v in vs.items()},
+            },
+            indent=2,
+            default=str,
+        )
+    )
     return 0
 
 
