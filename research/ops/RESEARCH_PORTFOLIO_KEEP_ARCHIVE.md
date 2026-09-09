@@ -2,15 +2,15 @@
 
 Date: 2026-09-08  
 Status: **LOCKED**  
-Authority: human confirm — `FIN 三本 observe（重心 MIX_L75）+ E45 少數 sleeve（A05 / C35）+ 月結閘門。其餘可以封存`  
+Authority: human confirm — `FIN 三本 observe（重心 MIX_L75）+ E45…` · extended 2026-09-09 **`請照順序`** → FIN **四本** (+`KD_OPT`)  
 Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · live capital **500M** (ACCEPT 2026-09-09)
 
 ## KEEP (active agenda)
 
 | Track | Focus | Cadence / gate |
 |---|---|---|
-| **FIN within-sleeve** | `FIN_EQUAL` ∥ `FIN_RS_SOFT_TILT_EXDIV` ∥ **`MIX_L75`** (重心) | Month-end ledgers + tip/held-out · posture `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` |
-| **FIN pre-exdiv KD probe** | Yahoo **K9/D9** · May15–Jun10 `K<25` · pre-ex T−10…T−1 | Paper only · `FIN_PRE_EXDIV_KD_PROBE.md` — does **not** replace triad observe |
+| **FIN within-sleeve** | `FIN_EQUAL` ∥ `FIN_RS_SOFT_TILT_EXDIV` ∥ **`MIX_L75`** ∥ **`KD_OPT`** | Month-end ledgers + tip/held-out · posture `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` |
+| **FIN KD_OPT** | `KD_APR15_MAY15_Klt30_T15` · Apr15–May15 K&lt;30 · T−15 | 4th OPERATING observe · `FIN_PRE_EXDIV_KD_OPTIMIZE.md` · live wire **false** |
 | **E45 primary observe** | **`BLEND_E45_A05`** · **`M2_RELOC_BIL_FX_C35`** | Month-end dual-paper + tip PAUSE gates · stitch FORBIDDEN |
 | **Month-end gates** | tip ALERT/PAUSE · held-out score · pack hygiene | `ops_month_end_paper_pack.py` + per-line monitors |
 
@@ -39,10 +39,10 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN
 
 ## Selection after FIN observe window (unchanged)
 
-- Tip-clean + held-out holds → prefer **`MIX_L75`**  
+- Tip-clean + held-out holds → prefer **`MIX_L75`** or **`KD_OPT`**  
 - Max MDD + tip PAUSE OK → consider **RS_EXDIV**  
 - Else live stays **EQUAL** until cutover ACCEPT  
 
 ## Label
 
-`RESEARCH_PORTFOLIO_KEEP_ARCHIVE_LOCKED_2026-09-08__FIN_MIXL75__E45_A05_C35__MONTH_END_GATES`
+`RESEARCH_PORTFOLIO_KEEP_ARCHIVE_LOCKED_2026-09-09__FIN_MIXL75_KD_OPT__E45_A05_C35__MONTH_END_GATES`

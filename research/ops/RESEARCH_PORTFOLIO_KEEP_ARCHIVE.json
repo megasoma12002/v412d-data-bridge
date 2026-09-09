@@ -1,8 +1,8 @@
 {
-  "generated_at_utc": "2026-09-09T02:21:27.524979+00:00",
+  "generated_at_utc": "2026-09-09T03:50:00+00:00",
   "label": "RESEARCH_PORTFOLIO_KEEP_ARCHIVE",
   "status": "LOCKED",
-  "ballot": "FIN 三本 observe（重心 MIX_L75）+ E45 少數 sleeve（A05 / C35）+ 月結閘門。其餘可以封存",
+  "ballot": "FIN 四本 observe（MIX_L75 + KD_OPT）+ E45 少數 sleeve（A05 / C35）+ 月結閘門。其餘可以封存",
   "live_wire": false,
   "soft_frozen_keep": true,
   "default_books_keep": "E22_v2s_tw",
@@ -11,14 +11,22 @@
     "fin_within_sleeve": [
       "FIN_EQUAL",
       "FIN_RS_SOFT_TILT_EXDIV",
-      "MIX_L75"
+      "MIX_L75",
+      "KD_OPT"
     ],
-    "fin_focus": "MIX_L75",
+    "fin_focus": [
+      "MIX_L75",
+      "KD_OPT"
+    ],
     "fin_pre_exdiv_kd_probe": {
       "kd": "Yahoo K9/D9",
-      "primary": "Klt25",
-      "season": "May15-Jun10",
-      "artifact": "research/ops/FIN_PRE_EXDIV_KD_PROBE.md"
+      "optimal_id": "KD_APR15_MAY15_Klt30_T15",
+      "observe_label": "KD_OPT",
+      "season": "Apr15-May15",
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "artifact": "research/ops/FIN_PRE_EXDIV_KD_OPTIMIZE.md",
+      "status": "OPTIMAL_SELECTED_OBSERVE"
     },
     "e45_primary": [
       "BLEND_E45_A05",
