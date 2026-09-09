@@ -1,6 +1,7 @@
 # Telecom PRE_EXDIV_KD optimize (FIN-parallel)
 
 Generated: `2026-09-09T13:39:45.660707+00:00`
+Status: **STOP** — **0 coexist**
 Soft-Frozen **[0.6, 0.9]** · FIN=`KD_OPT` · live wire **false** · capital **500,000,000**
 Grid: seasons=['JUN', 'JUN15_JUL31', 'JUL', 'JUL15_AUG15', 'JUN_AUG', 'MAY15_AUG15'] · K=[20.0, 25.0, 30.0] · T=[5, 10, 15] · n=54
 
