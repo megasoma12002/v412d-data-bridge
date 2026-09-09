@@ -1,0 +1,232 @@
+{
+  "generated_at_utc": "2026-09-09T11:17:49.056920+00:00",
+  "label": "SOFT_FROZEN_CLIP_500M_RESCREEN",
+  "status": "PAPER_RESCREEN",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "fin_within_sleeve": "KD_APR15_MAY15_Klt30_T15",
+  "base": {
+    "id": "BASE_SOFT_FROZEN_KD_OPT",
+    "clips": {
+      "fin": [
+        0.5,
+        0.95
+      ],
+      "tel": [
+        0.03,
+        0.35
+      ],
+      "etf": [
+        0.0,
+        0.35
+      ]
+    },
+    "windows": {
+      "full": {
+        "cagr": 0.13944393899174168,
+        "max_drawdown": -0.21770449232697875
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.1825632701129869,
+        "max_drawdown": -0.21770449232697886
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.25215909351103827,
+        "max_drawdown": -0.12952390859389928
+      }
+    },
+    "n_fills": 6011
+  },
+  "ranked": [
+    {
+      "id": "CLIP_SEARCH_F0.50-0.95_T0.10-0.35_E0.00-0.35",
+      "clips": {
+        "fin": [
+          0.5,
+          0.95
+        ],
+        "tel": [
+          0.1,
+          0.35
+        ],
+        "etf": [
+          0.0,
+          0.35
+        ]
+      },
+      "n_fills": 4746,
+      "mean_target": {
+        "Financial": 0.7702536748068609,
+        "Telecom": 0.15557251420543944,
+        "0050": 0.07417381098769951
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.33542675230116004,
+          "cagr_giveback_pp": 0.7113395206154838,
+          "score": -0.020243008006581853
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 1.4419569678896904,
+          "cagr_giveback_pp": 0.8996860147865826,
+          "score": 0.9921139604963991
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.7699706891263,
+          "gate": "PASS",
+          "rel_nav": 0.9895662101701524
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.167780342850124,
+          "gate": "ALERT",
+          "rel_nav": 0.9806031870215215
+        }
+      },
+      "tip_clean": false,
+      "windows": {
+        "full": {
+          "cagr": 0.1355319174888867,
+          "max_drawdown": -0.21435022480396726
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.17544987490683206,
+          "max_drawdown": -0.21435022480396726
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.24316223336317244,
+          "max_drawdown": -0.11510433891500238
+        }
+      }
+    },
+    {
+      "id": "CLIP_SEARCH_F0.50-0.95_T0.08-0.35_E0.00-0.35",
+      "clips": {
+        "fin": [
+          0.5,
+          0.95
+        ],
+        "tel": [
+          0.08,
+          0.35
+        ],
+        "etf": [
+          0.0,
+          0.35
+        ]
+      },
+      "n_fills": 5009,
+      "mean_target": {
+        "Financial": 0.7801669499946099,
+        "Telecom": 0.14393635576845631,
+        "0050": 0.07589669423693386
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.1726498548803468,
+          "cagr_giveback_pp": 0.40493245075625683,
+          "score": -0.02981637049778163
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 0.7629221052653512,
+          "cagr_giveback_pp": 0.46284712094353253,
+          "score": 0.5314985447935849
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.682189067361839,
+          "gate": "PASS",
+          "rel_nav": 0.9936707434175981
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.9622512412404536,
+          "gate": "PASS",
+          "rel_nav": 0.9879868753628687
+        }
+      },
+      "tip_clean": true,
+      "windows": {
+        "full": {
+          "cagr": 0.13720431888087403,
+          "max_drawdown": -0.2159779937781755
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.17851394560542433,
+          "max_drawdown": -0.2159779937781754
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.24753062230160294,
+          "max_drawdown": -0.12189468754124577
+        }
+      }
+    },
+    {
+      "id": "CLIP_SEARCH_F0.50-0.95_T0.08-0.35_E0.05-0.35",
+      "clips": {
+        "fin": [
+          0.5,
+          0.95
+        ],
+        "tel": [
+          0.08,
+          0.35
+        ],
+        "etf": [
+          0.05,
+          0.35
+        ]
+      },
+      "n_fills": 4318,
+      "mean_target": {
+        "Financial": 0.7672774089714566,
+        "Telecom": 0.14297892958691555,
+        "0050": 0.08974366144162789
+      },
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.05502161401838013,
+          "cagr_giveback_pp": 0.7858133272937939,
+          "score": -0.33788504962851684
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 1.8497382262602002,
+          "cagr_giveback_pp": 0.6868399046102924,
+          "score": 1.506318273955054
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.83545050068461,
+          "gate": "PASS",
+          "rel_nav": 0.9930930019315961
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.7187236925025227,
+          "gate": "PASS",
+          "rel_nav": 0.9833538884900064
+        }
+      },
+      "tip_clean": true,
+      "windows": {
+        "full": {
+          "cagr": 0.13520047968005366,
+          "max_drawdown": -0.21715427618679506
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.17470513684004896,
+          "max_drawdown": -0.21715427618679506
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.24529069446493534,
+          "max_drawdown": -0.11102652633129728
+        }
+      }
+    }
+  ],
+  "recommended_observe_id": "CLIP_SEARCH_F0.50-0.95_T0.10-0.35_E0.00-0.35",
+  "verdict": "Best @500M+KD_OPT `CLIP_SEARCH_F0.50-0.95_T0.10-0.35_E0.00-0.35` held-out=-0.020 tip_clean=False. Soft-Frozen KEEP \u00b7 Class D flip needs ACCEPT."
+}
