@@ -35,6 +35,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/private-fin-holdings-20260909"
 RESEARCH = ROOT / "research/ops"
 TW12 = Path("/tmp/tw12/artifact/v412d_12stocks_2010_2026.csv")
+PRIVATE_ADJ = ROOT / "data/market/private_fin_adjusted.csv"
 
 CAPITAL = 500_000_000.0
 LOT = BOARD_LOT
@@ -109,10 +110,17 @@ def build_extended_market() -> pd.DataFrame:
         raise SystemExit(f"missing TW12 artifact: {TW12}")
     tw = pd.read_csv(TW12, dtype={"code": str})
     tw["date"] = pd.to_datetime(tw["date"])
-    # archive columns → live schema; adj_close proxy = close for research
     keep = ["date", "code", "open", "high", "low", "close", "volume"]
     tw = tw[[c for c in keep if c in tw.columns]].copy()
-    tw["adj_close"] = tw["close"]
+    # Prefer FinMind backward adj panel for private / R2 banks.
+    if PRIVATE_ADJ.exists():
+        adj = pd.read_csv(PRIVATE_ADJ, dtype={"code": str})
+        adj["date"] = pd.to_datetime(adj["date"])
+        adj = adj.rename(columns={"adjusted_close": "adj_close"})
+        tw = tw.merge(adj[["date", "code", "adj_close"]], on=["date", "code"], how="left")
+        tw["adj_close"] = tw["adj_close"].fillna(tw["close"])
+    else:
+        tw["adj_close"] = tw["close"]
     # Prefer live rows for Soft-Frozen universe (has true adj_close).
     live_codes = set(live["code"])
     tw_extra = tw[~tw["code"].isin(live_codes)].copy()
@@ -279,8 +287,8 @@ def main() -> int:
         "baseline": "LIVE_PUB_KD",
         "data_notes": [
             "Private OHLCV from TWSE-archive 12-stock build",
-            "Private adj_close proxied by close",
-            "Dividend events CSV lacks private names → E22 credits incomplete for PRIV/ALL12 books",
+            "Private adj_close from data/market/private_fin_adjusted.csv (FinMind factors)",
+            "Private dividend events merged into data/dividend_events/e22_dividend_events.csv",
         ],
         "universes": {"PUB_R1": PUB_R1, "PRIV_R3R4": PRIV_R3R4, "ALL12": ALL12},
         "absolute": abs_rows,
@@ -343,8 +351,9 @@ def main() -> int:
         "",
         f"- Coexist (tip-clean + held-out>0): `{payload['coexist_ids'] or 'none'}`",
         "- Soft-Frozen membership stays 公股 R1; this only rewires Financial sleeve dollars on paper.",
-        "- Private dividend E22 coverage incomplete — treat PRIV/ALL12 levels as directional.",
+        "- Private E22 dividends + adj_close filled (`PRIVATE_FIN_DIV_ADJ_FILL.md`).",
         "- No live universe expansion from this screen.",
+        "- Decision: **STOP** — `PRIVATE_FIN_HOLDINGS_DECISION_PACK.md`",
         "",
         f"Repro: `{OUT.relative_to(ROOT)}/`",
         "",

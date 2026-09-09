@@ -1,8 +1,8 @@
 # PAR_VALUE_INVENTORY
 
-- generated: `2026-09-05T14:21:22.225995+00:00`
+- generated: `2026-09-09T14:25:11.131831+00:00`
 - coverage_pass_for_promote: **True**
-- verified / lookup / etf / expand: **8** / **0** / **1** / **1**
+- verified / lookup / etf / expand: **16** / **0** / **1** / **9**
 - method: `TWSE openapi t187ap03_L field 普通股每股面額 (+ watchlist)`
 - extensible: watchlist `data/corporate_actions/par_value_watchlist.csv` + `--add-codes` + `--fetch-twse`
 
@@ -16,6 +16,14 @@
 | 3045 | telecom | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-04 |
 | 4904 | telecom | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-04 |
 | 2330 | expand | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-04 |
+| 2801 | expand | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-08 |
+| 2834 | expand | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-08 |
+| 2881 | expand | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-08 |
+| 2882 | expand | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-08 |
+| 2884 | expand | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-08 |
+| 2885 | expand | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-08 |
+| 2890 | expand | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-08 |
+| 2891 | expand | 10.0 | 10.0 | VERIFIED | TWSE_openapi_t187ap03_L | 2026-09-08 |
 | 0050 | etf | nan | None | ETF_RULES_LOOKUP_NEEDED | — | — |
 
 Charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`

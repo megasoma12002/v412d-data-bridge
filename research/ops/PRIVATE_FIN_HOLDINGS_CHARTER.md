@@ -44,16 +44,18 @@ Human asks to **re-open paper research** on 民營金控 under the current stack
 - Re-tuning V4.12-D formal router Blind/Final (frozen generation)  
 - Inventing replacement for retired E45 MDD narrative  
 
-## Known data limits (this run)
+## Known data limits (updated 2026-09-09 fill)
 
 - Private-name OHLCV from official-derived TWSE archives (`v412d_build_12stocks`).  
-- `adj_close` for private names ≈ raw `close` (no separate adj panel yet).  
-- Dividend events CSV currently covers Soft-Frozen live names only → **E22 cash/stock credits may miss private names** (document in results).
+- Private `adj_close`: **filled** → `data/market/private_fin_adjusted.csv` (FinMind factors).  
+- Private dividend events: **filled** → merged into `e22_dividend_events.csv` (+ Yahoo payment dates). See `PRIVATE_FIN_DIV_ADJ_FILL.md`.  
+- Live Soft-Frozen membership still 公股 R1 only (no e21 expand).
 
 ## Stage plan
 
 ```
-A  Charter ACCEPT + paper screen @ 500M     ← this PR
+A  Charter ACCEPT + paper screen @ 500M     ← DONE → STOP
+A′ Div/adj data fill + re-screen            ← DONE → still STOP
 B  If tip-clean + held-out>0 → dual-paper observe ballot
 C  Live universe / sleeve cutover ONLY after dedicated ACCEPT
 ```
@@ -61,7 +63,9 @@ C  Live universe / sleeve cutover ONLY after dedicated ACCEPT
 ## Artifacts
 
 - `scripts/e16_private_fin_holdings_rescreen.py`
+- `scripts/e22_fill_private_fin_div_adj.py`
 - `research/ops/PRIVATE_FIN_HOLDINGS_CHARTER.md` (this file)
+- `research/ops/PRIVATE_FIN_DIV_ADJ_FILL.md`
 - `research/ops/PRIVATE_FIN_HOLDINGS_RESCREEN.{md,json}`
 - `repro/private-fin-holdings-20260909/`
 

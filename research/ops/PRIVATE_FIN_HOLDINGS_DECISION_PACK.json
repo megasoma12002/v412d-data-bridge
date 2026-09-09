@@ -1,16 +1,18 @@
 {
-  "label": "PRIVATE_FIN_HOLDINGS_DECISION_2026-09-09__STOP__KEEP_PUB_R1",
+  "label": "PRIVATE_FIN_HOLDINGS_DECISION_2026-09-09__STOP__KEEP_PUB_R1__POST_DIV_ADJ_FILL",
   "date": "2026-09-09",
   "status": "STOP",
   "stage": "A",
   "baseline": "LIVE_PUB_KD",
   "live_wire": false,
+  "data_fill": "research/ops/PRIVATE_FIN_DIV_ADJ_FILL.md",
   "soft_frozen_membership_keep": ["2880", "2886", "2892", "5880"],
   "coexist_ids": [],
   "best_challenger": {
     "id": "LIVE_PUB_EQ",
     "heldout_score": -0.7825685214593148
   },
+  "post_fill_note": "PRIV has higher held-out CAGR but worse MDD; score still << 0",
   "binding": [
     "Keep Soft-Frozen FIN = 公股 R1",
     "No live universe expansion",
@@ -19,9 +21,12 @@
   ],
   "artifacts": [
     "research/ops/PRIVATE_FIN_HOLDINGS_CHARTER.md",
+    "research/ops/PRIVATE_FIN_DIV_ADJ_FILL.md",
     "research/ops/PRIVATE_FIN_HOLDINGS_RESCREEN.md",
     "research/ops/PRIVATE_FIN_HOLDINGS_DECISION_PACK.md",
+    "scripts/e22_fill_private_fin_div_adj.py",
     "scripts/e16_private_fin_holdings_rescreen.py",
+    "data/market/private_fin_adjusted.csv",
     "repro/private-fin-holdings-20260909/"
   ]
 }

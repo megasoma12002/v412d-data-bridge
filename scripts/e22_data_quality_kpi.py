@@ -32,9 +32,17 @@ def main() -> int:
     if not EVENTS.exists():
         raise SystemExit(f"missing {EVENTS}")
 
-    d = pd.read_csv(EVENTS)
+    d_all = pd.read_csv(EVENTS, dtype={"code": str})
+    d_all["code"] = d_all["code"].astype(str).str.zfill(4)
+    # Soft-Frozen live books path (promote-gate KPI); private FIN is research-only.
+    soft_frozen = {"2880", "2886", "2892", "5880", "2412", "3045", "4904", "0050"}
+    private_fin = {"2884", "2885", "2890", "2891", "2881", "2882", "2801", "2834"}
+    d = d_all[d_all["code"].isin(soft_frozen)].copy()
+    d_priv = d_all[d_all["code"].isin(private_fin)].copy()
     cash = d[d["cash_dividend"].fillna(0).astype(float) > 0].copy()
     stock = d[d["stock_dividend"].fillna(0).astype(float) > 0].copy()
+    cash_p = d_priv[d_priv["cash_dividend"].fillna(0).astype(float) > 0].copy()
+    stock_p = d_priv[d_priv["stock_dividend"].fillna(0).astype(float) > 0].copy()
 
     kpi = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -43,6 +51,7 @@ def main() -> int:
         "soft_frozen_unchanged": True,
         "formal_books": "E22_v2s",
         "events_path": str(EVENTS),
+        "n_events_all": int(len(d_all)),
         "n_events": int(len(d)),
         "n_cash_rows": int(len(cash)),
         "n_stock_rows": int(len(stock)),
@@ -51,6 +60,14 @@ def main() -> int:
         "stock_payment_date_blank_rate": _blank_rate(stock["stock_payment_date"]) if len(stock) else None,
         "stock_ex_date_blank_rate": _blank_rate(stock["stock_ex_date"]) if len(stock) else None,
         "announcement_date_blank_rate": _blank_rate(d["announcement_date"]),
+        "private_fin_research": {
+            "n_events": int(len(d_priv)),
+            "n_cash_rows": int(len(cash_p)),
+            "n_stock_rows": int(len(stock_p)),
+            "codes": sorted(private_fin),
+            "cash_payment_date_blank_rate": _blank_rate(cash_p["cash_payment_date"]) if len(cash_p) else None,
+            "stock_ex_date_blank_rate": _blank_rate(stock_p["stock_ex_date"]) if len(stock_p) else None,
+        },
     }
 
     if GAP_REPORT.exists():

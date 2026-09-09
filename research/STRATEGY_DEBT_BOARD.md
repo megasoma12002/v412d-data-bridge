@@ -286,3 +286,7 @@ Human **`KEEP live TEL_EQUAL`**. No live wire. Note: `TELECOM_PACK_CUTOVER_KEEP_
 ## 民營金控 paper re-screen (2026-09-09)
 
 Human **「直接開 charter 並開跑」**. Stage A @ 500M under live FINBAND+公股 KD_OPT: PRIV / ALL12 / EQUAL all **lose** to `LIVE_PUB_KD` (0 coexist). **STOP** — Soft-Frozen 公股 R1 KEEP · no live universe expand. Pack: `PRIVATE_FIN_HOLDINGS_DECISION_PACK.md`.
+
+## 民營金控 div/adj fill (2026-09-09)
+
+Human **「民營缺完整股利／adj 資料 這些資料先補上」**. Filled E22 dividends + FinMind adj panel + par for 8 private/R2 names. Re-screen **still STOP**. Note: `PRIVATE_FIN_DIV_ADJ_FILL.md`.
