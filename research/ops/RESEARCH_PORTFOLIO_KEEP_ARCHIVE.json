@@ -26,7 +26,20 @@
       "k_thresh": 30.0,
       "pre_days": 15,
       "artifact": "research/ops/FIN_PRE_EXDIV_KD_OPTIMIZE.md",
-      "status": "OPTIMAL_SELECTED_OBSERVE"
+      "status": "OPTIMAL_SELECTED_OBSERVE",
+      "live_wire": true
+    },
+    "fin_post_exdiv_autumn_probe": {
+      "kd": "Yahoo K9/D9",
+      "primary": "Klt25",
+      "season": "Oct20-Dec10",
+      "hold_days": 40,
+      "heldout_score": 0.422,
+      "artifact": "research/ops/FIN_POST_EXDIV_AUTUMN_PROBE.md",
+      "nav_artifact": "research/ops/FIN_POST_EXDIV_AUTUMN_NAV.md",
+      "status": "PAPER_PROBE",
+      "live_wire": false,
+      "live_kd_opt_unchanged": true
     },
     "e45_primary": [
       "BLEND_E45_A05",

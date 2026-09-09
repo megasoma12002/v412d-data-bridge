@@ -13,6 +13,7 @@ Cutover: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` · checklist **ACCEPTED*
 Portfolio: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (**KEEP** FIN quartet · archive other research lines)  
 Pre-exdiv KD probe: `FIN_PRE_EXDIV_KD_PROBE.md` (**PAPER_PROBE** · Yahoo K9/D9)  
 KD NAV / optimize: `FIN_PRE_EXDIV_KD_NAV.md` · `FIN_PRE_EXDIV_KD_OPTIMIZE.md` (**optimal `KD_APR15_MAY15_Klt30_T15`** → observe **`KD_OPT`** → **live**)  
+Post-exdiv autumn probe: `FIN_POST_EXDIV_AUTUMN_PROBE.md` · NAV `FIN_POST_EXDIV_AUTUMN_NAV.md` (**PAPER only** · live KD_OPT untouched)  
 Objective scan: `FIN_OBJECTIVE_REGULARITY.md`
 EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 
@@ -29,6 +30,7 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | **ADD KD_OPT observe** | `請照順序` → 第 4 本 OPERATING | `KD_APR15_MAY15_Klt30_T15` ledger | **OPERATING 2026-09-09** |
 | **OPEN EQUAL×KD mix probe** | `開 paper probe（EQUAL×KD λ-grid）` | Paper λ-grid only | **OPEN 2026-09-09** |
 | **ACCEPT live cutover** | `ACCEPT` → **`KD_OPT`** | Wire `FIN_PRE_EXDIV_KD` into `e21` | **ACCEPTED 2026-09-09** |
+| **OPEN autumn post-ex probe** | `開秋冬除息後低點 paper probe` | Paper Oct20–Dec10 K9 | **OPEN 2026-09-09** |
 
 ## Accepted operating posture (2026-09-09)
 
@@ -46,12 +48,14 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | Mix λ-grid | **`MIX_L75`** held **+0.129** · tip YTD/1y **PASS** | **COEXIST_CANDIDATE_FOUND** |
 | KD optimize | **`KD_OPT`** held **~+0.65** · tip YTD/1y **PASS** | **OPTIMAL_SELECTED_OBSERVE** |
 | Live cutover | **`KD_OPT`** → `e21` | **ACCEPTED 2026-09-09** |
+| Autumn post-ex probe | held **+0.422** · tip **PASS** · < live KD_OPT | **PAPER_PROBE** · no live wire |
 
 ## Still required later
 
 | Ballot | Effect |
 |---|---|
-| *(none for FIN within-sleeve)* | Live `KD_OPT` already wired; further policy change needs new ACCEPT |
+| Autumn optimize / dual-season mix (optional) | Only if human opens; **not** live cutover from this probe |
+| Further FIN within-sleeve live change | Needs new ACCEPT (live already `KD_OPT`) |
 
 ## Non-ballots
 
@@ -63,3 +67,4 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | Mix / RS live wire | **NOT** selected this cycle |
 | E45 stitch on this line | **FORBIDDEN** |
 | EQUAL×KD_OPT mix | Paper only — not live |
+| Autumn `FIN_POST_EXDIV_KD` | Paper only — **does not** replace live KD_OPT |

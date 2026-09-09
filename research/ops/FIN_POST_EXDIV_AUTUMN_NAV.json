@@ -1,0 +1,111 @@
+{
+  "generated_at_utc": "2026-09-09T09:37:35.851121+00:00",
+  "label": "FIN_POST_EXDIV_AUTUMN_NAV",
+  "status": "PAPER_NAV",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "live_kd_opt_unchanged": true,
+  "autumn_params": {
+    "season_start": [
+      10,
+      20
+    ],
+    "season_end": [
+      12,
+      10
+    ],
+    "k_thresh": 25.0,
+    "hold_days": 40,
+    "active_score": 1.5
+  },
+  "ranked": [
+    {
+      "id": "KD_OPT",
+      "n_fills": 6011,
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.8066279142484367,
+          "cagr_giveback_pp": 0.3186621887207419,
+          "score": 0.6472968198880658
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 1.1789090714417805,
+          "cagr_giveback_pp": 0.46757526403025107,
+          "score": 0.9451214394266549
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.2988977782536715,
+          "gate": "PASS",
+          "rel_nav": 0.9951514332365174
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.5872881136167694,
+          "gate": "PASS",
+          "rel_nav": 0.9903806926548473
+        }
+      },
+      "tip_clean": true
+    },
+    {
+      "id": "AUTUMN_POST_EX",
+      "n_fills": 6037,
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.6765925883455037,
+          "cagr_giveback_pp": 0.5086780252042011,
+          "score": 0.42225357574340316
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 1.5784320645434557,
+          "cagr_giveback_pp": 0.8076240892839204,
+          "score": 1.1746200199014956
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.5115365988163774,
+          "gate": "PASS",
+          "rel_nav": 0.990613186053415
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.7505929274428853,
+          "gate": "PASS",
+          "rel_nav": 0.9833281086703811
+        }
+      },
+      "tip_clean": true
+    }
+  ],
+  "autumn": {
+    "id": "AUTUMN_POST_EX",
+    "n_fills": 6037,
+    "scores": {
+      "heldout_2019_plus": {
+        "mdd_improve_pp": 0.6765925883455037,
+        "cagr_giveback_pp": 0.5086780252042011,
+        "score": 0.42225357574340316
+      },
+      "sealed_2023_plus_REPORT_ONLY": {
+        "mdd_improve_pp": 1.5784320645434557,
+        "cagr_giveback_pp": 0.8076240892839204,
+        "score": 1.1746200199014956
+      }
+    },
+    "tip_gates": {
+      "ytd": {
+        "giveback_pp": 2.5115365988163774,
+        "gate": "PASS",
+        "rel_nav": 0.990613186053415
+      },
+      "trailing_1y": {
+        "giveback_pp": 2.7505929274428853,
+        "gate": "PASS",
+        "rel_nav": 0.9833281086703811
+      }
+    },
+    "tip_clean": true
+  },
+  "verdict": "AUTUMN_POST_EX held-out score=+0.422 tip_clean=True. Soft-Frozen KEEP \u00b7 live KD_OPT untouched."
+}
