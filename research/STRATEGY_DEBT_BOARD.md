@@ -231,3 +231,7 @@ Artifacts: `E45_REMAINING_IMPROVE_RESEARCH_BATCH.md` · `repro/e45-remaining-imp
 Human **「金融也研究分開」**. Research-only FIN within-sleeve @ **500M+整張** vs `FIN_EQUAL` → Stage B **STOP** · Stage C **LOCK** (`FIN_RS_SOFT_TILT_EXDIV` held-out +0.54) · Stage D **OPERATING OBSERVE** (EQUAL ∥ RS+EXDIV). Soft-Frozen KEEP · live FIN equal-split untouched.  
 Artifacts: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_C.md` · `FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md` · `repro/fin-within-sleeve-dual-paper-observe/`.
 
+## Capital 500M live+paper default (2026-09-09)
+
+Human **`ACCEPT live capital 500M`**. `DEFAULT_CAPITAL=500M` + board-lot 1000 wipe+replay `forward/e21`. Soft-Frozen KEEP · stitch FORBIDDEN · no FIN within-sleeve live wire. Note: `CAPITAL_500M_2026-09-09.md`.
+

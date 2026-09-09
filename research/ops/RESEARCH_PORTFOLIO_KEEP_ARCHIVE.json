@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-08T14:24:00+00:00",
+  "generated_at_utc": "2026-09-09T02:21:27.524979+00:00",
   "label": "RESEARCH_PORTFOLIO_KEEP_ARCHIVE",
   "status": "LOCKED",
   "ballot": "FIN 三本 observe（重心 MIX_L75）+ E45 少數 sleeve（A05 / C35）+ 月結閘門。其餘可以封存",
@@ -8,10 +8,20 @@
   "default_books_keep": "E22_v2s_tw",
   "stitch_forbidden": true,
   "keep": {
-    "fin_within_sleeve": ["FIN_EQUAL", "FIN_RS_SOFT_TILT_EXDIV", "MIX_L75"],
+    "fin_within_sleeve": [
+      "FIN_EQUAL",
+      "FIN_RS_SOFT_TILT_EXDIV",
+      "MIX_L75"
+    ],
     "fin_focus": "MIX_L75",
-    "e45_primary": ["BLEND_E45_A05", "M2_RELOC_BIL_FX_C35"],
-    "ops": ["month_end_gates", "ops_month_end_paper_pack"]
+    "e45_primary": [
+      "BLEND_E45_A05",
+      "M2_RELOC_BIL_FX_C35"
+    ],
+    "ops": [
+      "month_end_gates",
+      "ops_month_end_paper_pack"
+    ]
   },
   "archive": [
     "FIN_STAGE_B_HARD_TOP1_TOP2_MIN_LOT",
@@ -35,5 +45,8 @@
     "posture_fin": "research/ops/FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md",
     "e45_sleeves": "research/ops/E45_OBSERVE_SLEEVES_STATUS.md",
     "register": "research/ops/HUMAN_DECISION_REGISTER.md"
-  }
+  },
+  "live_capital": 500000000,
+  "live_capital_ballot": "ACCEPT live capital 500M",
+  "live_capital_note": "research/ops/CAPITAL_500M_2026-09-09.md"
 }

@@ -3,7 +3,7 @@
 Date: 2026-09-08  
 Status: **LOCKED**  
 Authority: human confirm — `FIN 三本 observe（重心 MIX_L75）+ E45 少數 sleeve（A05 / C35）+ 月結閘門。其餘可以封存`  
-Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · live capital **3M**
+Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · live capital **500M** (ACCEPT 2026-09-09)
 
 ## KEEP (active agenda)
 
