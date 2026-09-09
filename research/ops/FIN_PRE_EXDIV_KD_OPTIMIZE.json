@@ -1,0 +1,2840 @@
+{
+  "generated_at_utc": "2026-09-09T00:56:46.650792+00:00",
+  "label": "FIN_PRE_EXDIV_KD_OPTIMIZE",
+  "status": "OPTIMAL_SELECTED",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "objective_order": [
+    "coexist: tip YTD+1y PASS and heldout score>0",
+    "else: no tip PAUSE, max heldout",
+    "else: max heldout"
+  ],
+  "optimal_selection_rule": "coexist (tip PASS + heldout>0)",
+  "optimal": {
+    "id": "KD_APR15_MAY15_Klt30_T15",
+    "family": "kd_season",
+    "season": "APR15_MAY15",
+    "season_start": [
+      4,
+      15
+    ],
+    "season_end": [
+      5,
+      15
+    ],
+    "k_thresh": 30.0,
+    "pre_days": 15,
+    "active_score": 1.5,
+    "heldout": {
+      "mdd_improve_pp": 0.8066279142484367,
+      "cagr_giveback_pp": 0.3186621887207419,
+      "score": 0.6472968198880658
+    },
+    "sealed_REPORT_ONLY": {
+      "mdd_improve_pp": 1.1789090714417805,
+      "cagr_giveback_pp": 0.46757526403025107,
+      "score": 0.9451214394266549
+    },
+    "tip_gates": {
+      "ytd": {
+        "giveback_pp": 1.2988977782536715,
+        "gate": "PASS",
+        "rel_nav": 0.9951514332365174
+      },
+      "trailing_1y": {
+        "giveback_pp": 1.5872881136167694,
+        "gate": "PASS",
+        "rel_nav": 0.9903806926548473
+      }
+    },
+    "tip_clean": true,
+    "n_fills": 6011,
+    "kd_active_days": {
+      "2880": 760,
+      "2886": 483,
+      "2892": 553,
+      "5880": 678
+    }
+  },
+  "best_coexist": {
+    "id": "KD_APR15_MAY15_Klt30_T15",
+    "family": "kd_season",
+    "season": "APR15_MAY15",
+    "season_start": [
+      4,
+      15
+    ],
+    "season_end": [
+      5,
+      15
+    ],
+    "k_thresh": 30.0,
+    "pre_days": 15,
+    "active_score": 1.5,
+    "heldout": {
+      "mdd_improve_pp": 0.8066279142484367,
+      "cagr_giveback_pp": 0.3186621887207419,
+      "score": 0.6472968198880658
+    },
+    "sealed_REPORT_ONLY": {
+      "mdd_improve_pp": 1.1789090714417805,
+      "cagr_giveback_pp": 0.46757526403025107,
+      "score": 0.9451214394266549
+    },
+    "tip_gates": {
+      "ytd": {
+        "giveback_pp": 1.2988977782536715,
+        "gate": "PASS",
+        "rel_nav": 0.9951514332365174
+      },
+      "trailing_1y": {
+        "giveback_pp": 1.5872881136167694,
+        "gate": "PASS",
+        "rel_nav": 0.9903806926548473
+      }
+    },
+    "tip_clean": true,
+    "n_fills": 6011,
+    "kd_active_days": {
+      "2880": 760,
+      "2886": 483,
+      "2892": 553,
+      "5880": 678
+    }
+  },
+  "best_no_pause": {
+    "id": "KD_APR15_MAY15_Klt30_T15",
+    "family": "kd_season",
+    "season": "APR15_MAY15",
+    "season_start": [
+      4,
+      15
+    ],
+    "season_end": [
+      5,
+      15
+    ],
+    "k_thresh": 30.0,
+    "pre_days": 15,
+    "active_score": 1.5,
+    "heldout": {
+      "mdd_improve_pp": 0.8066279142484367,
+      "cagr_giveback_pp": 0.3186621887207419,
+      "score": 0.6472968198880658
+    },
+    "sealed_REPORT_ONLY": {
+      "mdd_improve_pp": 1.1789090714417805,
+      "cagr_giveback_pp": 0.46757526403025107,
+      "score": 0.9451214394266549
+    },
+    "tip_gates": {
+      "ytd": {
+        "giveback_pp": 1.2988977782536715,
+        "gate": "PASS",
+        "rel_nav": 0.9951514332365174
+      },
+      "trailing_1y": {
+        "giveback_pp": 1.5872881136167694,
+        "gate": "PASS",
+        "rel_nav": 0.9903806926548473
+      }
+    },
+    "tip_clean": true,
+    "n_fills": 6011,
+    "kd_active_days": {
+      "2880": 760,
+      "2886": 483,
+      "2892": 553,
+      "5880": 678
+    }
+  },
+  "best_heldout": {
+    "id": "KD_APR_Klt30_T10",
+    "family": "kd_season",
+    "season": "APR",
+    "season_start": [
+      4,
+      1
+    ],
+    "season_end": [
+      4,
+      30
+    ],
+    "k_thresh": 30.0,
+    "pre_days": 10,
+    "active_score": 1.5,
+    "heldout": {
+      "mdd_improve_pp": 1.1935399083392695,
+      "cagr_giveback_pp": 0.7865074229480573,
+      "score": 0.8002861968652408
+    },
+    "sealed_REPORT_ONLY": {
+      "mdd_improve_pp": 2.4963846853093385,
+      "cagr_giveback_pp": 1.0726242106117168,
+      "score": 1.9600725800034802
+    },
+    "tip_gates": {
+      "ytd": {
+        "giveback_pp": 4.07821957224932,
+        "gate": "ALERT",
+        "rel_nav": 0.9847330787505643
+      },
+      "trailing_1y": {
+        "giveback_pp": 4.551668181042046,
+        "gate": "ALERT",
+        "rel_nav": 0.9724044523795199
+      }
+    },
+    "tip_clean": false,
+    "n_fills": 6067,
+    "kd_active_days": {
+      "2880": 586,
+      "2886": 655,
+      "2892": 618,
+      "5880": 730
+    }
+  },
+  "n_grid": 54,
+  "ranked": [
+    {
+      "id": "KD_APR15_MAY15_Klt30_T15",
+      "family": "kd_season",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.8066279142484367,
+        "cagr_giveback_pp": 0.3186621887207419,
+        "score": 0.6472968198880658
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.1789090714417805,
+        "cagr_giveback_pp": 0.46757526403025107,
+        "score": 0.9451214394266549
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.2988977782536715,
+          "gate": "PASS",
+          "rel_nav": 0.9951514332365174
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.5872881136167694,
+          "gate": "PASS",
+          "rel_nav": 0.9903806926548473
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6011,
+      "kd_active_days": {
+        "2880": 760,
+        "2886": 483,
+        "2892": 553,
+        "5880": 678
+      }
+    },
+    {
+      "id": "KD_APR_MAY_Klt30_T15",
+      "family": "kd_season",
+      "season": "APR_MAY",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.8437724314136696,
+        "cagr_giveback_pp": 0.4295392047454438,
+        "score": 0.6290028290409477
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.5618608392976352,
+        "cagr_giveback_pp": 0.740793704171927,
+        "score": 1.1914639872116717
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.3356154570040255,
+          "gate": "PASS",
+          "rel_nav": 0.9912722663169463
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.5544576791259654,
+          "gate": "PASS",
+          "rel_nav": 0.9845173481737993
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6035,
+      "kd_active_days": {
+        "2880": 880,
+        "2886": 700,
+        "2892": 703,
+        "5880": 783
+      }
+    },
+    {
+      "id": "KD_APR_MAY_Klt30_T10",
+      "family": "kd_season",
+      "season": "APR_MAY",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.8660120234217805,
+        "cagr_giveback_pp": 0.48279990486497226,
+        "score": 0.6246120709892944
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.595283078650822,
+        "cagr_giveback_pp": 0.7943653441567999,
+        "score": 1.1981004065724221
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.474888156535493,
+          "gate": "PASS",
+          "rel_nav": 0.9907505074544195
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.7754689146454847,
+          "gate": "PASS",
+          "rel_nav": 0.9831772718029759
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6039,
+      "kd_active_days": {
+        "2880": 950,
+        "2886": 755,
+        "2892": 763,
+        "5880": 843
+      }
+    },
+    {
+      "id": "KD_APR15_MAY15_Klt30_T10",
+      "family": "kd_season",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.814830375248321,
+        "cagr_giveback_pp": 0.382636083610266,
+        "score": 0.623512333443188
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.2621017917772592,
+        "cagr_giveback_pp": 0.5464634984634342,
+        "score": 0.9888700425455421
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.5115717313592736,
+          "gate": "PASS",
+          "rel_nav": 0.9943563285275058
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.7843359195265807,
+          "gate": "PASS",
+          "rel_nav": 0.9891862438018227
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6006,
+      "kd_active_days": {
+        "2880": 820,
+        "2886": 523,
+        "2892": 603,
+        "5880": 733
+      }
+    },
+    {
+      "id": "KD_MAY15_JUN10_Klt20_T15",
+      "family": "kd_season",
+      "season": "MAY15_JUN10",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        10
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.8331387547090396,
+        "cagr_giveback_pp": 0.48714965015599354,
+        "score": 0.5895639296310429
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.6551667777861323,
+        "cagr_giveback_pp": 0.6891678540686286,
+        "score": 1.310582850751818
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.529763646170924,
+          "gate": "PASS",
+          "rel_nav": 0.9905448855919999
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.742189550796126,
+          "gate": "PASS",
+          "rel_nav": 0.9833790627516119
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6018,
+      "kd_active_days": {
+        "2880": 290,
+        "2886": 234,
+        "2892": 224,
+        "5880": 354
+      }
+    },
+    {
+      "id": "KD_APR15_MAY15_Klt30_T5",
+      "family": "kd_season",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.7352461034738633,
+        "cagr_giveback_pp": 0.40260542232817276,
+        "score": 0.5339433923097769
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.2661968614800068,
+        "cagr_giveback_pp": 0.6389261256489975,
+        "score": 0.946733798655508
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.5959325333664953,
+          "gate": "PASS",
+          "rel_nav": 0.9940408403216648
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.9567231475484004,
+          "gate": "PASS",
+          "rel_nav": 0.9881412265067078
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6028,
+      "kd_active_days": {
+        "2880": 880,
+        "2886": 563,
+        "2892": 653,
+        "5880": 788
+      }
+    },
+    {
+      "id": "KD_MAY_Klt25_T15",
+      "family": "kd_season",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6891415479588714,
+        "cagr_giveback_pp": 0.32725792277044086,
+        "score": 0.525512586573651
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.2159547606360066,
+        "cagr_giveback_pp": 0.5552410201751679,
+        "score": 0.9383342505484227
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.5604015290043627,
+          "gate": "PASS",
+          "rel_nav": 0.9941737240148698
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.7787310229529618,
+          "gate": "PASS",
+          "rel_nav": 0.9892202200312102
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6001,
+      "kd_active_days": {
+        "2880": 455,
+        "2886": 306,
+        "2892": 256,
+        "5880": 366
+      }
+    },
+    {
+      "id": "KD_APR_MAY_Klt30_T5",
+      "family": "kd_season",
+      "season": "APR_MAY",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.7686379230228857,
+        "cagr_giveback_pp": 0.4928403025153294,
+        "score": 0.522217771765221
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.5996246902776456,
+        "cagr_giveback_pp": 0.8711087132526218,
+        "score": 1.1640703336513347
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.3965239262059956,
+          "gate": "PASS",
+          "rel_nav": 0.9910441026955163
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.7309004213441623,
+          "gate": "PASS",
+          "rel_nav": 0.9834475144763537
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6071,
+      "kd_active_days": {
+        "2880": 1020,
+        "2886": 810,
+        "2892": 823,
+        "5880": 903
+      }
+    },
+    {
+      "id": "KD_MAY_Klt30_T15",
+      "family": "kd_season",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6024200229224119,
+        "cagr_giveback_pp": 0.24247075150423125,
+        "score": 0.4811846471702963
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 0.9880122214469989,
+        "cagr_giveback_pp": 0.44074587208546845,
+        "score": 0.7676392854042646
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.1095924847448924,
+          "gate": "PASS",
+          "rel_nav": 0.9958588799893433
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.2956671857160096,
+          "gate": "PASS",
+          "rel_nav": 0.992148296772364
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 5991,
+      "kd_active_days": {
+        "2880": 563,
+        "2886": 323,
+        "2892": 291,
+        "5880": 437
+      }
+    },
+    {
+      "id": "KD_APR15_MAY31_Klt30_T15",
+      "family": "kd_season",
+      "season": "APR15_MAY31",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6047585792224086,
+        "cagr_giveback_pp": 0.25421367981124376,
+        "score": 0.4776517393167867
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 0.9913848321906893,
+        "cagr_giveback_pp": 0.48950280599868723,
+        "score": 0.7466334291913457
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.3449813438079827,
+          "gate": "PASS",
+          "rel_nav": 0.9949791742580849
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.4849106429260184,
+          "gate": "PASS",
+          "rel_nav": 0.9910012503749367
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6024,
+      "kd_active_days": {
+        "2880": 851,
+        "2886": 522,
+        "2892": 593,
+        "5880": 712
+      }
+    },
+    {
+      "id": "KD_MAY_Klt25_T10",
+      "family": "kd_season",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6783269107039303,
+        "cagr_giveback_pp": 0.40962503242782944,
+        "score": 0.47351439449001553
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.2769453370571338,
+        "cagr_giveback_pp": 0.6674236639031772,
+        "score": 0.9432335051055452
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.8009277468974627,
+          "gate": "PASS",
+          "rel_nav": 0.9932739817719743
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.1030485886392336,
+          "gate": "PASS",
+          "rel_nav": 0.9872541570785553
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6001,
+      "kd_active_days": {
+        "2880": 500,
+        "2886": 341,
+        "2892": 286,
+        "5880": 406
+      }
+    },
+    {
+      "id": "KD_MAY_Klt20_T10",
+      "family": "kd_season",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6293894827853808,
+        "cagr_giveback_pp": 0.32552973842223665,
+        "score": 0.46662461357426244
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.132471279507441,
+        "cagr_giveback_pp": 0.570078530125806,
+        "score": 0.847432014444538
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.388621310614524,
+          "gate": "PASS",
+          "rel_nav": 0.9948160343653784
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.5983489906722603,
+          "gate": "PASS",
+          "rel_nav": 0.9903136464449892
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6011,
+      "kd_active_days": {
+        "2880": 445,
+        "2886": 190,
+        "2892": 195,
+        "5880": 353
+      }
+    },
+    {
+      "id": "KD_APR15_MAY31_Klt25_T15",
+      "family": "kd_season",
+      "season": "APR15_MAY31",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6180321967356739,
+        "cagr_giveback_pp": 0.30359165358138096,
+        "score": 0.4662363699449834
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.196507230413868,
+        "cagr_giveback_pp": 0.6032457571448102,
+        "score": 0.8948843518414629
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.712767066464993,
+          "gate": "PASS",
+          "rel_nav": 0.9936038182059302
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.8557121886265016,
+          "gate": "PASS",
+          "rel_nav": 0.9887535645235022
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 5988,
+      "kd_active_days": {
+        "2880": 717,
+        "2886": 506,
+        "2892": 467,
+        "5880": 560
+      }
+    },
+    {
+      "id": "KD_MAY_Klt30_T10",
+      "family": "kd_season",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.622527483233748,
+        "cagr_giveback_pp": 0.3199325746395809,
+        "score": 0.4625611959139575
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.0428204192315382,
+        "cagr_giveback_pp": 0.5156555173940536,
+        "score": 0.7849926605345114
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.2257277967274494,
+          "gate": "PASS",
+          "rel_nav": 0.9954249069794721
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.419004921392819,
+          "gate": "PASS",
+          "rel_nav": 0.9914007263851609
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 5982,
+      "kd_active_days": {
+        "2880": 618,
+        "2886": 358,
+        "2892": 326,
+        "5880": 482
+      }
+    },
+    {
+      "id": "KD_MAY15_JUN10_Klt30_T10",
+      "family": "kd_season",
+      "season": "MAY15_JUN10",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        10
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.672231176668725,
+        "cagr_giveback_pp": 0.4375338496503067,
+        "score": 0.45346425184357164
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.4290867986383682,
+        "cagr_giveback_pp": 0.7774109787728412,
+        "score": 1.0403813092519476
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.151447868783807,
+          "gate": "PASS",
+          "rel_nav": 0.9919619852461545
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.4427789322649662,
+          "gate": "PASS",
+          "rel_nav": 0.9851944678238712
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6036,
+      "kd_active_days": {
+        "2880": 548,
+        "2886": 354,
+        "2892": 310,
+        "5880": 423
+      }
+    },
+    {
+      "id": "KD_MAY15_JUN10_Klt30_T15",
+      "family": "kd_season",
+      "season": "MAY15_JUN10",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        10
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6374651331594094,
+        "cagr_giveback_pp": 0.3711781301686701,
+        "score": 0.4518760680750744
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.3789905518821755,
+        "cagr_giveback_pp": 0.6867758032218285,
+        "score": 1.0356026502712612
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.952061146656825,
+          "gate": "PASS",
+          "rel_nav": 0.9927084056890089
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.144619894643829,
+          "gate": "PASS",
+          "rel_nav": 0.9870021325147084
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6003,
+      "kd_active_days": {
+        "2880": 493,
+        "2886": 314,
+        "2892": 275,
+        "5880": 378
+      }
+    },
+    {
+      "id": "KD_APR_MAY_Klt25_T10",
+      "family": "kd_season",
+      "season": "APR_MAY",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6825702617717422,
+        "cagr_giveback_pp": 0.4714822665955909,
+        "score": 0.44682912847394674
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.527555577729789,
+        "cagr_giveback_pp": 0.8578034690618574,
+        "score": 1.0986538431988602
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.3252107921212017,
+          "gate": "PASS",
+          "rel_nav": 0.9913112394086977
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.6118066054239497,
+          "gate": "PASS",
+          "rel_nav": 0.9841696275159871
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6022,
+      "kd_active_days": {
+        "2880": 824,
+        "2886": 661,
+        "2892": 627,
+        "5880": 617
+      }
+    },
+    {
+      "id": "KD_APR15_MAY31_Klt30_T10",
+      "family": "kd_season",
+      "season": "APR15_MAY31",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6123504116991252,
+        "cagr_giveback_pp": 0.33588070375853984,
+        "score": 0.44441005981985526
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.0460969166339762,
+        "cagr_giveback_pp": 0.5711251867010825,
+        "score": 0.760534323283435
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.460858750713112,
+          "gate": "PASS",
+          "rel_nav": 0.9945459560339062
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.6061656332463814,
+          "gate": "PASS",
+          "rel_nav": 0.9902662652438656
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6007,
+      "kd_active_days": {
+        "2880": 921,
+        "2886": 567,
+        "2892": 648,
+        "5880": 772
+      }
+    },
+    {
+      "id": "KD_MAY_Klt20_T15",
+      "family": "kd_season",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.56790308810718,
+        "cagr_giveback_pp": 0.2521467114102949,
+        "score": 0.4418297324020326
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.0325859133263116,
+        "cagr_giveback_pp": 0.49526736516840586,
+        "score": 0.7849522307421086
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.1789941728242104,
+          "gate": "PASS",
+          "rel_nav": 0.9955995530310356
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.3789757676206937,
+          "gate": "PASS",
+          "rel_nav": 0.99164335251689
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6029,
+      "kd_active_days": {
+        "2880": 405,
+        "2886": 170,
+        "2892": 175,
+        "5880": 318
+      }
+    },
+    {
+      "id": "KD_APR_MAY_Klt25_T15",
+      "family": "kd_season",
+      "season": "APR_MAY",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6359271278483125,
+        "cagr_giveback_pp": 0.39394299336756866,
+        "score": 0.4389556311645282
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.39707039782192,
+        "cagr_giveback_pp": 0.7322300284341665,
+        "score": 1.0309553836048369
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.9928949222959957,
+          "gate": "PASS",
+          "rel_nav": 0.9925555660805591
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.1869365874534585,
+          "gate": "PASS",
+          "rel_nav": 0.9867455860530937
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6004,
+      "kd_active_days": {
+        "2880": 764,
+        "2886": 611,
+        "2892": 577,
+        "5880": 567
+      }
+    },
+    {
+      "id": "KD_APR15_MAY31_Klt25_T10",
+      "family": "kd_season",
+      "season": "APR15_MAY31",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6264682556770707,
+        "cagr_giveback_pp": 0.37998966563190795,
+        "score": 0.4364734228611167
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.2874946513786623,
+        "cagr_giveback_pp": 0.6866839990365303,
+        "score": 0.9441526518603971
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.892842988894472,
+          "gate": "PASS",
+          "rel_nav": 0.9929300346685105
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.047338223660655,
+          "gate": "PASS",
+          "rel_nav": 0.9875918945801697
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 5999,
+      "kd_active_days": {
+        "2880": 777,
+        "2886": 551,
+        "2892": 512,
+        "5880": 610
+      }
+    },
+    {
+      "id": "KD_APR15_MAY15_Klt25_T15",
+      "family": "kd_season",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5893886194254239,
+        "cagr_giveback_pp": 0.3835134204907442,
+        "score": 0.39763190918005176
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.513866113921658,
+        "cagr_giveback_pp": 0.7867596182736358,
+        "score": 1.1204863047848401
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.0959196022045656,
+          "gate": "PASS",
+          "rel_nav": 0.9921698906399293
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.369451947582535,
+          "gate": "PASS",
+          "rel_nav": 0.9856390452694961
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6013,
+      "kd_active_days": {
+        "2880": 639,
+        "2886": 383,
+        "2892": 428,
+        "5880": 484
+      }
+    },
+    {
+      "id": "KD_APR15_MAY31_Klt20_T10",
+      "family": "kd_season",
+      "season": "APR15_MAY31",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5920273540385934,
+        "cagr_giveback_pp": 0.40184188719916136,
+        "score": 0.39110641043901273
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.3502145249068453,
+        "cagr_giveback_pp": 0.7599500512331936,
+        "score": 0.9702394992902486
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.0427086474044565,
+          "gate": "PASS",
+          "rel_nav": 0.9923690973860588
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.195733863870375,
+          "gate": "PASS",
+          "rel_nav": 0.9866922518683808
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6002,
+      "kd_active_days": {
+        "2880": 625,
+        "2886": 372,
+        "2892": 448,
+        "5880": 453
+      }
+    },
+    {
+      "id": "KD_MAY_Klt30_T5",
+      "family": "kd_season",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5441173166161328,
+        "cagr_giveback_pp": 0.33075042531460763,
+        "score": 0.378742103958829
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.0083422723159319,
+        "cagr_giveback_pp": 0.5890252085062775,
+        "score": 0.7138296680627931
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.2487277308000033,
+          "gate": "PASS",
+          "rel_nav": 0.9953389488525883
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.532448884009474,
+          "gate": "PASS",
+          "rel_nav": 0.9907131010739815
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 5991,
+      "kd_active_days": {
+        "2880": 673,
+        "2886": 393,
+        "2892": 361,
+        "5880": 527
+      }
+    },
+    {
+      "id": "KD_APR15_MAY31_Klt30_T5",
+      "family": "kd_season",
+      "season": "APR15_MAY31",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5471405730162582,
+        "cagr_giveback_pp": 0.34192140564948126,
+        "score": 0.37617987019151755
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.0440290189142165,
+        "cagr_giveback_pp": 0.663013593071371,
+        "score": 0.712522222378531
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.4976123518213313,
+          "gate": "PASS",
+          "rel_nav": 0.9944085278297894
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.7719930772470027,
+          "gate": "PASS",
+          "rel_nav": 0.9892610646017987
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6010,
+      "kd_active_days": {
+        "2880": 991,
+        "2886": 612,
+        "2892": 703,
+        "5880": 832
+      }
+    },
+    {
+      "id": "KD_MAY_Klt25_T5",
+      "family": "kd_season",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.565870612864916,
+        "cagr_giveback_pp": 0.3828739351661836,
+        "score": 0.3744336452818242
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.1414371736226059,
+        "cagr_giveback_pp": 0.6407389935377372,
+        "score": 0.8210676768537373
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.5304132432107043,
+          "gate": "PASS",
+          "rel_nav": 0.9942858707473677
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.8019864579453815,
+          "gate": "PASS",
+          "rel_nav": 0.9890792479483312
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6006,
+      "kd_active_days": {
+        "2880": 545,
+        "2886": 376,
+        "2892": 316,
+        "5880": 446
+      }
+    },
+    {
+      "id": "KD_APR15_MAY31_Klt25_T5",
+      "family": "kd_season",
+      "season": "APR15_MAY31",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5705055005017834,
+        "cagr_giveback_pp": 0.39667392049724803,
+        "score": 0.3721685402531594
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.2802230333208486,
+        "cagr_giveback_pp": 0.7490327381216799,
+        "score": 0.9057066642600087
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.8853219234969965,
+          "gate": "PASS",
+          "rel_nav": 0.9929581809607071
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.1547400701271924,
+          "gate": "PASS",
+          "rel_nav": 0.9869407788663064
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6017,
+      "kd_active_days": {
+        "2880": 837,
+        "2886": 596,
+        "2892": 557,
+        "5880": 660
+      }
+    },
+    {
+      "id": "KD_APR15_MAY31_Klt20_T15",
+      "family": "kd_season",
+      "season": "APR15_MAY31",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5227527062637294,
+        "cagr_giveback_pp": 0.3125141997339931,
+        "score": 0.36649560639673284
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.222242604638546,
+        "cagr_giveback_pp": 0.6626650807603163,
+        "score": 0.8909100642583878
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.758319580248724,
+          "gate": "PASS",
+          "rel_nav": 0.9934333995972424
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.908919672817344,
+          "gate": "PASS",
+          "rel_nav": 0.9884310178641731
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6015,
+      "kd_active_days": {
+        "2880": 575,
+        "2886": 342,
+        "2892": 408,
+        "5880": 413
+      }
+    },
+    {
+      "id": "KD_APR_MAY_Klt20_T10",
+      "family": "kd_season",
+      "season": "APR_MAY",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5920273540385934,
+        "cagr_giveback_pp": 0.4513455539405298,
+        "score": 0.3663545770683285
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.504384312683238,
+        "cagr_giveback_pp": 0.8703556403813595,
+        "score": 1.0692064924925582
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.22024637541669,
+          "gate": "PASS",
+          "rel_nav": 0.991704361260312
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.423534150287976,
+          "gate": "PASS",
+          "rel_nav": 0.9853111487568756
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6002,
+      "kd_active_days": {
+        "2880": 671,
+        "2886": 473,
+        "2892": 488,
+        "5880": 458
+      }
+    },
+    {
+      "id": "KD_APR15_MAY15_Klt25_T10",
+      "family": "kd_season",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5962665875599571,
+        "cagr_giveback_pp": 0.46878922972835024,
+        "score": 0.361871972695782
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.6103951628647084,
+        "cagr_giveback_pp": 0.899866538510441,
+        "score": 1.160461893609488
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.366962840690001,
+          "gate": "PASS",
+          "rel_nav": 0.9911548423441917
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.731781374481246,
+          "gate": "PASS",
+          "rel_nav": 0.983442172817939
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6024,
+      "kd_active_days": {
+        "2880": 689,
+        "2886": 413,
+        "2892": 468,
+        "5880": 524
+      }
+    },
+    {
+      "id": "KD_APR_MAY_Klt25_T5",
+      "family": "kd_season",
+      "season": "APR_MAY",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.590513177802332,
+        "cagr_giveback_pp": 0.4629049848746236,
+        "score": 0.3590606853650202
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.4596525399925953,
+        "cagr_giveback_pp": 0.8742089141310361,
+        "score": 1.0225480829270772
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.174578766124502,
+          "gate": "PASS",
+          "rel_nav": 0.9918753729958013
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.479719654006729,
+          "gate": "PASS",
+          "rel_nav": 0.9849704948062503
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6040,
+      "kd_active_days": {
+        "2880": 884,
+        "2886": 711,
+        "2892": 677,
+        "5880": 667
+      }
+    },
+    {
+      "id": "KD_APR_MAY_Klt20_T15",
+      "family": "kd_season",
+      "season": "APR_MAY",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5227527062637294,
+        "cagr_giveback_pp": 0.3624243964599483,
+        "score": 0.34154050803375524
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.3784530618400903,
+        "cagr_giveback_pp": 0.7739796824837164,
+        "score": 0.9914632205982321
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.9584772239025439,
+          "gate": "PASS",
+          "rel_nav": 0.9926843913534421
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.15183318531158,
+          "gate": "PASS",
+          "rel_nav": 0.9869584018976024
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6007,
+      "kd_active_days": {
+        "2880": 621,
+        "2886": 438,
+        "2892": 448,
+        "5880": 418
+      }
+    },
+    {
+      "id": "KD_APR15_MAY15_Klt20_T15",
+      "family": "kd_season",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5227527062637294,
+        "cagr_giveback_pp": 0.3995727051124831,
+        "score": 0.32296635370748783
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.5609049082965343,
+        "cagr_giveback_pp": 0.8567976099141283,
+        "score": 1.13250610333947
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.2171996988809006,
+          "gate": "PASS",
+          "rel_nav": 0.9917157706671349
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.5108872958903294,
+          "gate": "PASS",
+          "rel_nav": 0.9847815223859593
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6006,
+      "kd_active_days": {
+        "2880": 506,
+        "2886": 260,
+        "2892": 369,
+        "5880": 343
+      }
+    },
+    {
+      "id": "KD_APR15_MAY15_Klt25_T5",
+      "family": "kd_season",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5694553374054889,
+        "cagr_giveback_pp": 0.4982841777853464,
+        "score": 0.32031324851281573
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.6831629353938338,
+        "cagr_giveback_pp": 0.9757500218666504,
+        "score": 1.1952879244605086
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.5192572412923164,
+          "gate": "PASS",
+          "rel_nav": 0.9905842555463705
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.888204357844315,
+          "gate": "PASS",
+          "rel_nav": 0.9824936812229992
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6026,
+      "kd_active_days": {
+        "2880": 739,
+        "2886": 443,
+        "2892": 508,
+        "5880": 564
+      }
+    },
+    {
+      "id": "KD_MAY_Klt20_T5",
+      "family": "kd_season",
+      "season": "MAY",
+      "season_start": [
+        5,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.4767605857232238,
+        "cagr_giveback_pp": 0.32997631563076446,
+        "score": 0.31177242790784154
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.0366818853121296,
+        "cagr_giveback_pp": 0.6328048136678754,
+        "score": 0.7202794784781918
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.3083602209696954,
+          "gate": "PASS",
+          "rel_nav": 0.9951160642393247
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.5925942882611288,
+          "gate": "PASS",
+          "rel_nav": 0.9903485289655671
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 6015,
+      "kd_active_days": {
+        "2880": 485,
+        "2886": 210,
+        "2892": 215,
+        "5880": 388
+      }
+    },
+    {
+      "id": "KD_MAY15_JUN10_Klt30_T5",
+      "family": "kd_season",
+      "season": "MAY15_JUN10",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        10
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5180344255836911,
+        "cagr_giveback_pp": 0.4196331603400827,
+        "score": 0.3082178454136497
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.3420038724585193,
+        "cagr_giveback_pp": 0.8125737049994086,
+        "score": 0.935717019958815
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.9771069660657226,
+          "gate": "PASS",
+          "rel_nav": 0.9926146614550817
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.2395237563881842,
+          "gate": "PASS",
+          "rel_nav": 0.9864267702205737
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 5990,
+      "kd_active_days": {
+        "2880": 603,
+        "2886": 394,
+        "2892": 345,
+        "5880": 468
+      }
+    },
+    {
+      "id": "KD_APR15_MAY31_Klt20_T5",
+      "family": "kd_season",
+      "season": "APR15_MAY31",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.4526094808983694,
+        "cagr_giveback_pp": 0.38388362125334474,
+        "score": 0.260667670271697
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.2496797087528932,
+        "cagr_giveback_pp": 0.8004230014548641,
+        "score": 0.8494682080254612
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.799353705468798,
+          "gate": "PASS",
+          "rel_nav": 0.9932798712732049
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.080373089979215,
+          "gate": "PASS",
+          "rel_nav": 0.9873916252447908
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 5988,
+      "kd_active_days": {
+        "2880": 675,
+        "2886": 402,
+        "2892": 488,
+        "5880": 493
+      }
+    },
+    {
+      "id": "KD_APR_MAY_Klt20_T5",
+      "family": "kd_season",
+      "season": "APR_MAY",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        5,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.4526094808983694,
+        "cagr_giveback_pp": 0.4423300970148647,
+        "score": 0.23144443239093704
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.420446332527503,
+        "cagr_giveback_pp": 0.9307057976590816,
+        "score": 0.9550934336979622
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.1031205448127865,
+          "gate": "PASS",
+          "rel_nav": 0.9921429306723747
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.392472753428887,
+          "gate": "PASS",
+          "rel_nav": 0.9854994723849362
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 5990,
+      "kd_active_days": {
+        "2880": 721,
+        "2886": 508,
+        "2892": 528,
+        "5880": 498
+      }
+    },
+    {
+      "id": "MIX_L75",
+      "family": "anchor",
+      "season": null,
+      "k_thresh": null,
+      "pre_days": null,
+      "heldout": {
+        "mdd_improve_pp": 0.30259323641053104,
+        "cagr_giveback_pp": 0.35116300722883853,
+        "score": 0.12701173279611178
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 0.7668936128127024,
+        "cagr_giveback_pp": 0.5652499184702009,
+        "score": 0.48426865357760196
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.101515852102742,
+          "gate": "PASS",
+          "rel_nav": 0.9921489385959442
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.2629743716836126,
+          "gate": "PASS",
+          "rel_nav": 0.9862845966196021
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 5979
+    },
+    {
+      "id": "KD_APR_Klt30_T10",
+      "family": "kd_season",
+      "season": "APR",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        4,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 1.1935399083392695,
+        "cagr_giveback_pp": 0.7865074229480573,
+        "score": 0.8002861968652408
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.4963846853093385,
+        "cagr_giveback_pp": 1.0726242106117168,
+        "score": 1.9600725800034802
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 4.07821957224932,
+          "gate": "ALERT",
+          "rel_nav": 0.9847330787505643
+        },
+        "trailing_1y": {
+          "giveback_pp": 4.551668181042046,
+          "gate": "ALERT",
+          "rel_nav": 0.9724044523795199
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6067,
+      "kd_active_days": {
+        "2880": 586,
+        "2886": 655,
+        "2892": 618,
+        "5880": 730
+      }
+    },
+    {
+      "id": "KD_APR_Klt30_T5",
+      "family": "kd_season",
+      "season": "APR",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        4,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 1.1415997961872204,
+        "cagr_giveback_pp": 0.7784501948211453,
+        "score": 0.7523746987766478
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.462960393571445,
+        "cagr_giveback_pp": 1.1008581379893911,
+        "score": 1.9125313245767495
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 4.0078581495934795,
+          "gate": "ALERT",
+          "rel_nav": 0.9849975714363467
+        },
+        "trailing_1y": {
+          "giveback_pp": 4.482233540392677,
+          "gate": "ALERT",
+          "rel_nav": 0.9728256820914715
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6089,
+      "kd_active_days": {
+        "2880": 626,
+        "2886": 700,
+        "2892": 663,
+        "5880": 780
+      }
+    },
+    {
+      "id": "KD_APR_Klt30_T15",
+      "family": "kd_season",
+      "season": "APR",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        4,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 1.0811114445855252,
+        "cagr_giveback_pp": 0.7450248763259282,
+        "score": 0.7085990064225611
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.3793480585514892,
+        "cagr_giveback_pp": 1.0021336096790456,
+        "score": 1.8782812537119664
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.841160480681105,
+          "gate": "ALERT",
+          "rel_nav": 0.9856240429768776
+        },
+        "trailing_1y": {
+          "giveback_pp": 4.199828556863938,
+          "gate": "ALERT",
+          "rel_nav": 0.9745388243396002
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6039,
+      "kd_active_days": {
+        "2880": 546,
+        "2886": 610,
+        "2892": 573,
+        "5880": 680
+      }
+    },
+    {
+      "id": "KD_APR_Klt25_T10",
+      "family": "kd_season",
+      "season": "APR",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        4,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.9919370412572737,
+        "cagr_giveback_pp": 0.6293224577260892,
+        "score": 0.6772758123942291
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.011982539789492,
+        "cagr_giveback_pp": 0.9282039531766761,
+        "score": 1.5478805632011539
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.1648106051110236,
+          "gate": "ALERT",
+          "rel_nav": 0.9881636270108548
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.5561444295309386,
+          "gate": "ALERT",
+          "rel_nav": 0.9784430668079251
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6022,
+      "kd_active_days": {
+        "2880": 576,
+        "2886": 572,
+        "2892": 486,
+        "5880": 419
+      }
+    },
+    {
+      "id": "KD_MAY15_JUN10_Klt20_T10",
+      "family": "kd_season",
+      "season": "MAY15_JUN10",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        10
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.9559543883624566,
+        "cagr_giveback_pp": 0.5955148011834943,
+        "score": 0.6581969877707095
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.8685957180986534,
+        "cagr_giveback_pp": 0.7962081529464538,
+        "score": 1.4704916416254266
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.9666042419800087,
+          "gate": "PASS",
+          "rel_nav": 0.9889071846356922
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.3031415151135057,
+          "gate": "ALERT",
+          "rel_nav": 0.9799774518980204
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6059,
+      "kd_active_days": {
+        "2880": 325,
+        "2886": 264,
+        "2892": 254,
+        "5880": 399
+      }
+    },
+    {
+      "id": "KD_APR_Klt25_T5",
+      "family": "kd_season",
+      "season": "APR",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        4,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.9616640523932407,
+        "cagr_giveback_pp": 0.6419374656093213,
+        "score": 0.6406953195885801
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.0574495994000297,
+        "cagr_giveback_pp": 0.9900953540712631,
+        "score": 1.5624019223643981
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.1765568290207824,
+          "gate": "ALERT",
+          "rel_nav": 0.988119552266806
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.606054763206834,
+          "gate": "ALERT",
+          "rel_nav": 0.9781403629747882
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6020,
+      "kd_active_days": {
+        "2880": 616,
+        "2886": 612,
+        "2892": 521,
+        "5880": 449
+      }
+    },
+    {
+      "id": "SKIP_ONLY_T15",
+      "family": "skip_only",
+      "season": null,
+      "k_thresh": null,
+      "pre_days": 15,
+      "heldout": {
+        "mdd_improve_pp": 0.9050227338072481,
+        "cagr_giveback_pp": 0.5789383522041947,
+        "score": 0.6155535577051507
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.002311178389793,
+        "cagr_giveback_pp": 0.9170925531391871,
+        "score": 1.5437649018201993
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.3470597476689123,
+          "gate": "ALERT",
+          "rel_nav": 0.9874796621169513
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.552346341613166,
+          "gate": "ALERT",
+          "rel_nav": 0.9784661018580009
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6032
+    },
+    {
+      "id": "KD_APR_Klt25_T15",
+      "family": "kd_season",
+      "season": "APR",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        4,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.9101567002022914,
+        "cagr_giveback_pp": 0.595920027818031,
+        "score": 0.612196686293276
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.8987094268295257,
+        "cagr_giveback_pp": 0.8383870709296248,
+        "score": 1.4795158913647133
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.913320116457996,
+          "gate": "PASS",
+          "rel_nav": 0.9891070243291472
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.29723489313809,
+          "gate": "ALERT",
+          "rel_nav": 0.9800132724384528
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 5994,
+      "kd_active_days": {
+        "2880": 536,
+        "2886": 532,
+        "2892": 451,
+        "5880": 389
+      }
+    },
+    {
+      "id": "SKIP_ONLY_T10",
+      "family": "skip_only",
+      "season": null,
+      "k_thresh": null,
+      "pre_days": 10,
+      "heldout": {
+        "mdd_improve_pp": 0.9338478496573765,
+        "cagr_giveback_pp": 0.6560583836972667,
+        "score": 0.6058186578087432
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.0783827343240024,
+        "cagr_giveback_pp": 0.9970352673122962,
+        "score": 1.5798651006678543
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.497338341209999,
+          "gate": "ALERT",
+          "rel_nav": 0.9869154852219398
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.8130985995031175,
+          "gate": "ALERT",
+          "rel_nav": 0.9768846061423436
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6024
+    },
+    {
+      "id": "KD_APR_Klt20_T10",
+      "family": "kd_season",
+      "season": "APR",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        4,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.9066835050479338,
+        "cagr_giveback_pp": 0.6686329407356251,
+        "score": 0.5723670346801213
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.1698291993646923,
+        "cagr_giveback_pp": 1.0717481971805443,
+        "score": 1.6339551007744202
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.4843588574550832,
+          "gate": "ALERT",
+          "rel_nav": 0.9869642198332135
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.8935892935018535,
+          "gate": "ALERT",
+          "rel_nav": 0.9763963962162934
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6011,
+      "kd_active_days": {
+        "2880": 433,
+        "2886": 430,
+        "2892": 346,
+        "5880": 267
+      }
+    },
+    {
+      "id": "KD_APR_Klt20_T15",
+      "family": "kd_season",
+      "season": "APR",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        4,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.8423921113614563,
+        "cagr_giveback_pp": 0.5430863493737892,
+        "score": 0.5708489366745617
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.869631214788292,
+        "cagr_giveback_pp": 0.874342494556557,
+        "score": 1.4324599675100136
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.849864412795977,
+          "gate": "PASS",
+          "rel_nav": 0.9893449833086774
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.232826088307039,
+          "gate": "ALERT",
+          "rel_nav": 0.9804038739192664
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 5990,
+      "kd_active_days": {
+        "2880": 403,
+        "2886": 400,
+        "2892": 321,
+        "5880": 247
+      }
+    },
+    {
+      "id": "KD_MAY15_JUN10_Klt20_T5",
+      "family": "kd_season",
+      "season": "MAY15_JUN10",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        10
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.8217657516426335,
+        "cagr_giveback_pp": 0.5699213998347163,
+        "score": 0.5368050517252754
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.764802285514655,
+        "cagr_giveback_pp": 0.8385976721771327,
+        "score": 1.3455034494260887
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.744969532026742,
+          "gate": "PASS",
+          "rel_nav": 0.9897382707519858
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.0798266506434135,
+          "gate": "ALERT",
+          "rel_nav": 0.9813316969606226
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6017,
+      "kd_active_days": {
+        "2880": 360,
+        "2886": 294,
+        "2892": 284,
+        "5880": 444
+      }
+    },
+    {
+      "id": "KD_MAY15_JUN10_Klt25_T15",
+      "family": "kd_season",
+      "season": "MAY15_JUN10",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        10
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.7633949298475384,
+        "cagr_giveback_pp": 0.5132439369526454,
+        "score": 0.5067729613712157
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.7727344874006734,
+        "cagr_giveback_pp": 0.8014467329820807,
+        "score": 1.372011120909633
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.8225690161286066,
+          "gate": "PASS",
+          "rel_nav": 0.9894473314732466
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.026227294766426,
+          "gate": "ALERT",
+          "rel_nav": 0.9816567260516987
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6019,
+      "kd_active_days": {
+        "2880": 372,
+        "2886": 304,
+        "2892": 226,
+        "5880": 372
+      }
+    },
+    {
+      "id": "SKIP_ONLY_T5",
+      "family": "skip_only",
+      "season": null,
+      "k_thresh": null,
+      "pre_days": 5,
+      "heldout": {
+        "mdd_improve_pp": 0.7959924857347089,
+        "cagr_giveback_pp": 0.6070952973509902,
+        "score": 0.4924448370592138
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.9417372670730626,
+        "cagr_giveback_pp": 0.9978520363081333,
+        "score": 1.442811248918996
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.2149878379963637,
+          "gate": "ALERT",
+          "rel_nav": 0.9879753420919405
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.5268227127877916,
+          "gate": "ALERT",
+          "rel_nav": 0.9786208996516093
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6011
+    },
+    {
+      "id": "KD_MAY15_JUN10_Klt25_T10",
+      "family": "kd_season",
+      "season": "MAY15_JUN10",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        10
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.7831123614669533,
+        "cagr_giveback_pp": 0.5823844768993114,
+        "score": 0.4919201230172976
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.84837174647976,
+        "cagr_giveback_pp": 0.8970508327486026,
+        "score": 1.3998463301054587
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.014895462762146,
+          "gate": "ALERT",
+          "rel_nav": 0.9887260515552746
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.3105217395135167,
+          "gate": "ALERT",
+          "rel_nav": 0.979932694653745
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 5994,
+      "kd_active_days": {
+        "2880": 417,
+        "2886": 344,
+        "2892": 256,
+        "5880": 417
+      }
+    },
+    {
+      "id": "KD_APR_Klt20_T5",
+      "family": "kd_season",
+      "season": "APR",
+      "season_start": [
+        4,
+        1
+      ],
+      "season_end": [
+        4,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.7897620568854236,
+        "cagr_giveback_pp": 0.665700333637953,
+        "score": 0.45691189006644706
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.1373543088569646,
+        "cagr_giveback_pp": 1.1335835945264439,
+        "score": 1.5705625115937427
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.330886679510625,
+          "gate": "ALERT",
+          "rel_nav": 0.987540368666848
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.776820513701429,
+          "gate": "ALERT",
+          "rel_nav": 0.9771046443558874
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 5994,
+      "kd_active_days": {
+        "2880": 463,
+        "2886": 460,
+        "2892": 371,
+        "5880": 287
+      }
+    },
+    {
+      "id": "KD_MAY15_JUN10_Klt25_T5",
+      "family": "kd_season",
+      "season": "MAY15_JUN10",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        6,
+        10
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.6443683071652329,
+        "cagr_giveback_pp": 0.5486186009915128,
+        "score": 0.37005900666947644
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.7132282592760562,
+        "cagr_giveback_pp": 0.9063072410944617,
+        "score": 1.2600746387288253
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.742197479728814,
+          "gate": "PASS",
+          "rel_nav": 0.9897486629842027
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.0314980791179114,
+          "gate": "ALERT",
+          "rel_nav": 0.9816247639777989
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6001,
+      "kd_active_days": {
+        "2880": 462,
+        "2886": 384,
+        "2892": 286,
+        "5880": 462
+      }
+    },
+    {
+      "id": "KD_APR15_MAY15_Klt20_T10",
+      "family": "kd_season",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.5920273540385934,
+        "cagr_giveback_pp": 0.5239388812165346,
+        "score": 0.3300579134303261
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.784761522940559,
+        "cagr_giveback_pp": 1.0321640874578542,
+        "score": 1.2686794792116318
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.7146370038124923,
+          "gate": "PASS",
+          "rel_nav": 0.9898519820603991
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.0995183556804973,
+          "gate": "ALERT",
+          "rel_nav": 0.9812122842730239
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6018,
+      "kd_active_days": {
+        "2880": 546,
+        "2886": 280,
+        "2892": 404,
+        "5880": 373
+      }
+    },
+    {
+      "id": "KD_APR15_MAY15_Klt20_T5",
+      "family": "kd_season",
+      "season": "APR15_MAY15",
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "active_score": 1.5,
+      "heldout": {
+        "mdd_improve_pp": 0.4526094808983694,
+        "cagr_giveback_pp": 0.5178849830274057,
+        "score": 0.19366698938466653
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.766053690268743,
+        "cagr_giveback_pp": 1.099018859303058,
+        "score": 1.2165442606172139
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.5952019849040164,
+          "gate": "PASS",
+          "rel_nav": 0.9902996536078514
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.0094011105419316,
+          "gate": "ALERT",
+          "rel_nav": 0.9817587598350018
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 5999,
+      "kd_active_days": {
+        "2880": 586,
+        "2886": 300,
+        "2892": 439,
+        "5880": 403
+      }
+    },
+    {
+      "id": "FIN_RS_SOFT_TILT_EXDIV",
+      "family": "anchor",
+      "season": null,
+      "k_thresh": null,
+      "pre_days": null,
+      "heldout": {
+        "mdd_improve_pp": 1.1116588036636177,
+        "cagr_giveback_pp": 1.1630172428419128,
+        "score": 0.5301501822426613
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.722142747879508,
+        "cagr_giveback_pp": 1.6452259928403157,
+        "score": 1.89952975145935
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 6.269218855309244,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.9764774616182734
+        },
+        "trailing_1y": {
+          "giveback_pp": 6.677606737125119,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.959503259124197
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 5985
+    }
+  ],
+  "verdict": "Optimal under paper objective: `KD_APR15_MAY15_Klt30_T15` (rule=coexist (tip PASS + heldout>0)) heldout=+0.647 tip YTD=PASS 1y=PASS. Soft-Frozen KEEP \u00b7 no live wire."
+}
