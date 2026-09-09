@@ -1,0 +1,27 @@
+{
+  "label": "TELECOM_PACK_CUTOVER_BALLOT_OPEN",
+  "status": "OPEN",
+  "date": "2026-09-09",
+  "live_telecom": "TEL_EQUAL",
+  "recommendation": "KEEP live TEL_EQUAL",
+  "prior_stage_c_best": {
+    "id": "TEL_DIVERSIFY_PACK",
+    "heldout_vs_equal": 0.331,
+    "fin_held_at": "FIN_EQUAL"
+  },
+  "rescreen_under_live_kd_opt": {
+    "artifact": "research/ops/TELECOM_PACK_BALLOT_RESCREEN.md",
+    "best_id": "TEL_DIVERSIFY_PACK",
+    "best_heldout": -0.385,
+    "tip_clean": true,
+    "any_positive_heldout": false
+  },
+  "options": [
+    "KEEP live TEL_EQUAL",
+    "REJECT telecom pack cutover",
+    "DEFER telecom pack cutover",
+    "ACCEPT live TEL within-sleeve cutover: TEL_DIVERSIFY_PACK",
+    "ACCEPT live TEL within-sleeve cutover: TEL_SCORE_LOT_PACK",
+    "ACCEPT live TEL within-sleeve cutover: TEL_MIN_LOT_PACK"
+  ]
+}

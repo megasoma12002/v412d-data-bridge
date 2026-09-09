@@ -33,10 +33,12 @@ Top @ 500M: **`TEL_DIVERSIFY_PACK`** → then `TEL_SCORE_LOT_PACK` → then `TEL
 
 | Ballot | Effect |
 |---|---|
-| `KEEP live TEL_MIN_LOT_PACK` | No change to #126 |
-| `ACCEPT live TEL_DIVERSIFY_PACK cutover` | Switch live within-Telecom policy |
+| `KEEP live TEL_EQUAL` | **Recommended 2026-09-09** after KD_OPT re-screen |
+| `ACCEPT live TEL within-sleeve cutover: TEL_DIVERSIFY_PACK` | Not recommended — re-screen held-out &lt; 0 under live FIN KD_OPT |
 
-Passing Stage C ≠ Soft-Frozen flip.
+See **`TELECOM_PACK_CUTOVER_BALLOT_OPEN.md`** (OPEN) · rescreen `TELECOM_PACK_BALLOT_RESCREEN.md`.
+
+Passing Stage C ≠ Soft-Frozen flip. Stage C lift was under FIN=`EQUAL`; does **not** hold under live FIN=`KD_OPT`.
 
 ## Artifacts
 

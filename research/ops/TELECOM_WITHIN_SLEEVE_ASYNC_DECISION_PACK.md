@@ -32,6 +32,8 @@ That is **lot-packing**, not FIN-style async timing. Not auto-promoted; optional
 KEEP live TEL_EQUAL
 ```
 
+Pack cutover ballot now **OPEN**: `TELECOM_PACK_CUTOVER_BALLOT_OPEN.md` (re-screen under live KD_OPT → recommend KEEP EQUAL).
+
 ```
 OPEN telecom pack cutover ballot: TEL_DIVERSIFY_PACK
 ```

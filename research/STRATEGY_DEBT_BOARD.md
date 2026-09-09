@@ -274,3 +274,7 @@ Human **「請重跑數據看改善狀態」**. Status **IMPROVED**: vs RETIRED_
 ## Telecom async split research (2026-09-09)
 
 Human **「電信三檔也做跟金融股一樣拆開的研究」**. FIN-parallel Stage D (RS/EXDIV/MIX) + summer PRE_EXDIV_KD grid @ 500M with live FIN KD_OPT held. **STOP** — no positive held-out / 0 coexist. Live **TEL_EQUAL KEEP**. Pack: `TELECOM_WITHIN_SLEEVE_ASYNC_DECISION_PACK.md`.
+
+## Telecom pack cutover ballot OPEN (2026-09-09)
+
+Human **「另開 ballot」**. Opened pack cutover ballot with re-screen under live FIN KD_OPT: **no pack beats TEL_EQUAL** (DIVERSIFY −0.385). Recommend **`KEEP live TEL_EQUAL`**. Pack: `TELECOM_PACK_CUTOVER_BALLOT_OPEN.md`.
