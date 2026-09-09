@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-09T03:50:00+00:00",
+  "generated_at_utc": "2026-09-09T10:34:10.753360+00:00",
   "label": "RESEARCH_PORTFOLIO_KEEP_ARCHIVE",
   "status": "LOCKED",
   "ballot": "FIN 四本 observe（MIX_L75 + KD_OPT）+ E45 少數 sleeve（A05 / C35）+ 月結閘門。其餘可以封存",
@@ -31,13 +31,13 @@
     },
     "fin_post_exdiv_autumn_probe": {
       "kd": "Yahoo K9/D9",
-      "primary": "Klt25",
-      "season": "Oct20-Dec10",
-      "hold_days": 40,
-      "heldout_score": 0.422,
-      "artifact": "research/ops/FIN_POST_EXDIV_AUTUMN_PROBE.md",
-      "nav_artifact": "research/ops/FIN_POST_EXDIV_AUTUMN_NAV.md",
-      "status": "PAPER_PROBE",
+      "best_id": "AUT_OCT20_DEC10_Klt20_H40",
+      "heldout_score": 0.428,
+      "dual_heldout": 0.621,
+      "vs_kd_opt_delta": -0.026,
+      "artifact": "research/ops/FIN_POST_EXDIV_AUTUMN_OPTIMIZE.md",
+      "dual_artifact": "research/ops/FIN_KD_AUTUMN_DUAL_SEASON.md",
+      "status": "STOP",
       "live_wire": false,
       "live_kd_opt_unchanged": true
     },
@@ -58,7 +58,8 @@
     "E45_FULL_A25_SLEEVE_LOCAL_SECONDARY",
     "E45_DRAFT_BALLOTS_NOT_OPEN",
     "FIN50_STATIC_REJECT_L4_DEFER",
-    "TEL_ETF_FLOOR_10_WITHDRAWN"
+    "TEL_ETF_FLOOR_10_WITHDRAWN",
+    "FIN_AUTUMN_POST_EX_NO_LIFT_STOP"
   ],
   "archive_means": "retain evidence; no new research expansion; not primary agenda; slim month-end pack needs separate ballot",
   "non_actions": [

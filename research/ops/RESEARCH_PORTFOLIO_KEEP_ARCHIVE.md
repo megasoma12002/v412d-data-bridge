@@ -11,7 +11,7 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN
 |---|---|---|
 | **FIN within-sleeve** | `FIN_EQUAL` ∥ `FIN_RS_SOFT_TILT_EXDIV` ∥ **`MIX_L75`** ∥ **`KD_OPT`** | Month-end ledgers + tip/held-out · posture `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` |
 | **FIN KD_OPT** | `KD_APR15_MAY15_Klt30_T15` · Apr15–May15 K&lt;30 · T−15 | 4th OPERATING observe · live **`FIN_PRE_EXDIV_KD`** · `FIN_PRE_EXDIV_KD_OPTIMIZE.md` |
-| **FIN autumn post-ex (paper)** | Oct20–Dec10 · post-ex · K9&lt;25 · hold≤40d | Probe+NAV only · `FIN_POST_EXDIV_AUTUMN_PROBE.md` · **no live wire** |
+| **FIN autumn post-ex (paper)** | Oct20–Dec10 · post-ex · K9 · hold | **STOP** after small-search+dual · `FIN_POST_EXDIV_AUTUMN_OPTIMIZE.md` · `FIN_KD_AUTUMN_DUAL_SEASON.md` · **no live wire** |
 | **E45 primary observe** | **`BLEND_E45_A05`** · **`M2_RELOC_BIL_FX_C35`** | Month-end dual-paper + tip PAUSE gates · stitch FORBIDDEN |
 | **Month-end gates** | tip ALERT/PAUSE · held-out score · pack hygiene | `ops_month_end_paper_pack.py` + per-line monitors |
 
