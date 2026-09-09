@@ -266,3 +266,7 @@ Human **`ACCEPT live-stack rollback: DROP_E45_A05`**. Unwired E45 A05 from `e21`
 ## Post-rollback data re-run (2026-09-09)
 
 Human **「請重跑數據」**. `LIVE_STACK_RERUN.md` CURRENT_LIVE (FINBAND+KD) held-out **+0.02** tip PASS vs OLD; RETIRED_FINBAND_A05 still −0.68. Month-end pack `--refresh-ledgers` 27/27 OK.
+
+## Post-rollback improve status (2026-09-09)
+
+Human **「請重跑數據看改善狀態」**. Status **IMPROVED**: vs RETIRED_FINBAND_A05 held-out lift **+0.70**, tip restored ALERT→PASS. Pack: `LIVE_STACK_IMPROVE_STATUS.md`.
