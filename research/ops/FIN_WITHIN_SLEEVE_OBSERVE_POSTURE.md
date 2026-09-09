@@ -7,13 +7,13 @@ Cutover notes: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` · `SOFT_FROZEN_CL
 
 ## Binding hold (updated 2026-09-09 EXECUTED)
 
-Human「請都做」executed clip flip + E45 A05 stitch. Continuing month-end observe on the new live stack.
+Human「請都做」executed clip flip + E45 A05 stitch. Paper re-run: NEW_LIVE worse (A05 drag). **Rollback ballot OPEN** — see `LIVE_STACK_ROLLBACK_BALLOT_OPEN.md`.
 
 1. **Maintain live `KD_OPT`** — no further FIN within-sleeve param / season / mix probes unless new human OPEN.  
 2. **Month-end observe** — refresh `FIN_EQUAL` ∥ `FIN_RS_SOFT_TILT_EXDIV` ∥ `MIX_L75` ∥ `KD_OPT`; read tip + held-out.  
-3. **Soft-Frozen KEEP** — clip flip needs dedicated ballot (path to larger P&L move).  
+3. **Soft-Frozen / E45 live** — change only via rollback ballot (or later dedicated ACCEPT).  
 4. **No FIN sleeve micro-tuning** — autumn / dual-season / EQUAL×KD already STOP or paper-exhausted.  
-5. **「大勝」paths (separate ballots only)** — Soft-Frozen clip change **or** new mechanism (e.g. E45 stitch second ACCEPT); not another KD variant.
+5. **「大勝」paths** — prior pack EXECUTED; next live change is rollback ballot, not another KD variant.
 
 ## Posture (4 paper books + live)
 

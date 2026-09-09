@@ -75,3 +75,8 @@ E45 DEFER live stitch
 3. `E45 ACCEPT live stitch: BLEND_E45_A05`  
 
 Notes: `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` · `E45_STITCH_ACCEPTED_BLEND_A05.md`
+
+## Follow-up — rollback ballot OPEN (2026-09-09)
+
+Paper re-run: NEW_LIVE held-out **−0.68** tip ALERT vs OLD Soft-Frozen+KD (drag = A05).  
+Open: `LIVE_STACK_ROLLBACK_BALLOT_OPEN.md` — recommend **`ACCEPT live-stack rollback: DROP_E45_A05`**.

@@ -1,0 +1,51 @@
+{
+  "label": "LIVE_STACK_ROLLBACK_BALLOT_OPEN",
+  "status": "OPEN",
+  "date": "2026-09-09",
+  "evidence": "research/ops/LIVE_STACK_RERUN.md",
+  "repro": "repro/live-stack-rerun-20260909/",
+  "current_live": {
+    "soft_frozen_fin": [0.6, 0.9],
+    "fin_within_sleeve": "KD_OPT",
+    "e45_stitch": "BLEND_E45_A05",
+    "capital": 500000000,
+    "lot": 1000,
+    "default_books": "E22_v2s_tw"
+  },
+  "paper_vs_old_sf_kd": {
+    "FINBAND_KD": {"heldout_score": 0.023, "tip_clean": true},
+    "OLD_SF_KD_A05": {"heldout_score": -0.76, "tip_clean": false},
+    "NEW_LIVE": {"heldout_score": -0.679, "tip_clean": false}
+  },
+  "options": [
+    {
+      "id": "DROP_E45_A05",
+      "reply": "ACCEPT live-stack rollback: DROP_E45_A05",
+      "recommended": true,
+      "effect": "remove E45 A05 stitch; keep FINBAND + KD_OPT"
+    },
+    {
+      "id": "FULL_RESTORE_OLD_SF_KD",
+      "reply": "ACCEPT live-stack rollback: FULL_RESTORE_OLD_SF_KD",
+      "recommended": false,
+      "effect": "drop A05 + Soft-Frozen Financial back to [0.50, 0.95]"
+    },
+    {
+      "id": "REVERT_FINBAND_KEEP_A05",
+      "reply": "ACCEPT live-stack rollback: REVERT_FINBAND_KEEP_A05",
+      "recommended": false,
+      "effect": "Soft-Frozen [0.50, 0.95]; keep A05 (not recommended)"
+    },
+    {
+      "id": "DEFER",
+      "reply": "DEFER live-stack rollback",
+      "recommended": false
+    },
+    {
+      "id": "REJECT_OR_KEEP",
+      "reply": ["REJECT live-stack rollback", "KEEP live-stack NEW_LIVE"],
+      "recommended": false
+    }
+  ],
+  "recommendation": "ACCEPT live-stack rollback: DROP_E45_A05"
+}

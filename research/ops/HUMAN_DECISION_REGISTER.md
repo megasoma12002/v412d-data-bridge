@@ -37,6 +37,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | 「大勝」ballots OPEN | **EXECUTED** (2026-09-09) | Clip observe OPEN + Class D FINBAND flip + E45 A05 stitch · `BIG_WIN_BALLOTS_OPEN.md` |
 | Soft-Frozen clip flip | **`FINBAND_F0.60-0.90` LIVE** | `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` |
 | 「大勝」EXECUTED data re-run | **DONE** (2026-09-09) | `LIVE_STACK_RERUN.md` + `MONTH_END_PAPER_PACK.md` (--refresh-ledgers); NEW_LIVE held-out −0.68 tip ALERT vs pre-flip Soft-Frozen+KD |
+| Live-stack rollback | **BALLOT OPEN** (2026-09-09) | A05 drag vs OLD; recommend `DROP_E45_A05` · `LIVE_STACK_ROLLBACK_BALLOT_OPEN.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`
