@@ -28,6 +28,7 @@ from portfolio_capital import DEFAULT_CAPITAL
 from within_sleeve_alloc import (
     FIN_EQUAL,
     FIN_ALLOC_POLICIES,
+    FIN_MIX_EQUAL_PRE_EXDIV_KD,
     FIN_MIX_EQUAL_RS_EXDIV,
     TEL_EQUAL,
     TEL_MIN_LOT_PACK,
@@ -125,15 +126,16 @@ def simulate_core(
     def_code: optional synthetic/research DEF instrument code present in ``market``;
     required when schedule carries a DEF column > 0.
     financial_alloc / telecom_alloc: paper within-sleeve policies (default EQUAL).
-    fin_mix_lambda: when financial_alloc=`FIN_MIX_EQUAL_RS_EXDIV`, weight on EQUAL
-    in λ·EQUAL+(1−λ)·RS_EXDIV (required in [0,1]).
+    fin_mix_lambda: when financial_alloc is a MIX_EQUAL_* policy, weight on EQUAL
+    in λ·EQUAL+(1−λ)·challenger (required in [0,1]). Challenger is RS_EXDIV or
+    PRE_EXDIV_KD depending on policy id.
     Live e21 unchanged until dedicated cutover ACCEPT.
     """
     if financial_alloc not in FIN_ALLOC_POLICIES:
         raise ValueError(f"financial_alloc must be one of {FIN_ALLOC_POLICIES}")
-    if financial_alloc == FIN_MIX_EQUAL_RS_EXDIV:
+    if financial_alloc in (FIN_MIX_EQUAL_RS_EXDIV, FIN_MIX_EQUAL_PRE_EXDIV_KD):
         if fin_mix_lambda is None:
-            raise ValueError("fin_mix_lambda required for FIN_MIX_EQUAL_RS_EXDIV")
+            raise ValueError(f"fin_mix_lambda required for {financial_alloc}")
         if not (0.0 <= float(fin_mix_lambda) <= 1.0):
             raise ValueError("fin_mix_lambda must be in [0,1]")
     if telecom_alloc not in TEL_ALLOC_POLICIES:
@@ -367,6 +369,7 @@ def simulate_core(
                     "FIN_TOP1",
                     "FIN_TOP2_EQUAL",
                     FIN_MIX_EQUAL_RS_EXDIV,
+                    FIN_MIX_EQUAL_PRE_EXDIV_KD,
                 ):
                     for c, side, qty in allocate_sleeve_orders(
                         dollars,
