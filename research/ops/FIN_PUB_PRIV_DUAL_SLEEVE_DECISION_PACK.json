@@ -1,0 +1,27 @@
+{
+  "label": "FIN_PUB_PRIV_DUAL_SLEEVE_DECISION_2026-09-09__STOP__KEEP_PUB_R1",
+  "date": "2026-09-09",
+  "status": "STOP",
+  "stage": "A_dollar_split",
+  "baseline": "LIVE_PUB_KD",
+  "live_wire": false,
+  "coexist_ids": [],
+  "best_challenger": {
+    "id": "DUAL_P85_KD",
+    "heldout_score": -2.540550113167709
+  },
+  "pattern": "More private share raises CAGR but worsens MDD; score stays negative",
+  "binding": [
+    "Keep Soft-Frozen FIN = 公股 R1",
+    "No FIN_DUAL_PUB_PRIV live wire",
+    "No Soft-Frozen 4-sleeve cutover from this screen",
+    "Dual policy remains paper-only research machinery"
+  ],
+  "artifacts": [
+    "research/ops/FIN_PUB_PRIV_DUAL_SLEEVE_CHARTER.md",
+    "research/ops/FIN_PUB_PRIV_DUAL_SLEEVE_RESCREEN.md",
+    "research/ops/FIN_PUB_PRIV_DUAL_SLEEVE_DECISION_PACK.md",
+    "scripts/e16_fin_pub_priv_dual_sleeve.py",
+    "repro/fin-pub-priv-dual-sleeve-20260909/"
+  ]
+}

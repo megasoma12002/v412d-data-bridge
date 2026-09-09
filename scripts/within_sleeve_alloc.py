@@ -22,6 +22,7 @@ POLICY_MIX_EQUAL_RS_EXDIV = "MIX_EQUAL_RS_EXDIV"
 POLICY_MIX_EQUAL_PRE_EXDIV_KD = "MIX_EQUAL_PRE_EXDIV_KD"
 POLICY_PRE_EXDIV_KD = "PRE_EXDIV_KD"
 POLICY_POST_EXDIV_KD = "POST_EXDIV_KD"
+POLICY_DUAL_PUB_PRIV = "DUAL_PUB_PRIV"
 POLICY_SUFFIXES = (
     POLICY_EQUAL,
     POLICY_MIN_LOT_PACK,
@@ -36,6 +37,7 @@ POLICY_SUFFIXES = (
     POLICY_MIX_EQUAL_PRE_EXDIV_KD,
     POLICY_PRE_EXDIV_KD,
     POLICY_POST_EXDIV_KD,
+    POLICY_DUAL_PUB_PRIV,
 )
 
 # Predeclared ids (Stage B + Stage C)
@@ -50,6 +52,8 @@ FIN_MIX_EQUAL_RS_EXDIV = "FIN_MIX_EQUAL_RS_EXDIV"
 FIN_MIX_EQUAL_PRE_EXDIV_KD = "FIN_MIX_EQUAL_PRE_EXDIV_KD"
 FIN_PRE_EXDIV_KD = "FIN_PRE_EXDIV_KD"
 FIN_POST_EXDIV_KD = "FIN_POST_EXDIV_KD"
+# Paper-only: Soft-Frozen Financial dollars split into 金融公 + 金融民 (coexist).
+FIN_DUAL_PUB_PRIV = "FIN_DUAL_PUB_PRIV"
 FIN_ALLOC_POLICIES = (
     FIN_EQUAL,
     FIN_MIN_LOT_PACK,
@@ -62,6 +66,7 @@ FIN_ALLOC_POLICIES = (
     FIN_MIX_EQUAL_PRE_EXDIV_KD,
     FIN_PRE_EXDIV_KD,
     FIN_POST_EXDIV_KD,
+    FIN_DUAL_PUB_PRIV,
 )
 
 TEL_EQUAL = "TEL_EQUAL"
@@ -95,6 +100,8 @@ TEL_ALLOC_POLICIES = (
 def policy_kind(policy_id: str) -> str:
     if policy_id in (FIN_EQUAL, TEL_EQUAL):
         return POLICY_EQUAL
+    if policy_id == FIN_DUAL_PUB_PRIV:
+        return POLICY_DUAL_PUB_PRIV
     if policy_id.endswith("_SCORE_LOT_PACK"):
         return POLICY_SCORE_LOT_PACK
     if policy_id.endswith("_DIVERSIFY_PACK"):
@@ -342,6 +349,64 @@ def allocate_mix_equal_rs_exdiv(
     return _coalesce_orders(out)
 
 
+def allocate_dual_pub_priv(
+    sleeve_dollars: float,
+    closes: dict[str, float],
+    pos: dict,
+    *,
+    pub_codes: list[str] | tuple[str, ...],
+    priv_codes: list[str] | tuple[str, ...],
+    pub_share: float,
+    lot_size: int = BOARD_LOT,
+    scores: dict[str, float] | None = None,
+    buy_ok: dict[str, bool] | None = None,
+    pub_policy: str = FIN_PRE_EXDIV_KD,
+    priv_policy: str = FIN_EQUAL,
+) -> list[tuple[str, str, int]]:
+    """Split Financial trade dollars into 金融公 / 金融民, then within-group policy.
+
+    ``pub_share`` ∈ [0,1] is the fraction of Financial sleeve dollars for 公股.
+    Soft-Frozen Financial *weight* is unchanged; this only splits that sleeve.
+    """
+    share = float(pub_share)
+    if share < 0.0 or share > 1.0:
+        raise ValueError(f"pub_share must be in [0,1], got {share}")
+    pub = list(pub_codes)
+    priv = list(priv_codes)
+    if not pub and not priv:
+        return []
+    d_pub = float(sleeve_dollars) * share
+    d_priv = float(sleeve_dollars) * (1.0 - share)
+    out: list[tuple[str, str, int]] = []
+    if pub and abs(d_pub) >= 1e-9:
+        out.extend(
+            allocate_sleeve_orders(
+                d_pub,
+                closes,
+                pos,
+                policy_id=pub_policy,
+                codes=pub,
+                lot_size=lot_size,
+                scores=scores,
+                buy_ok=buy_ok,
+            )
+        )
+    if priv and abs(d_priv) >= 1e-9:
+        out.extend(
+            allocate_sleeve_orders(
+                d_priv,
+                closes,
+                pos,
+                policy_id=priv_policy,
+                codes=priv,
+                lot_size=lot_size,
+                scores=scores,
+                buy_ok=buy_ok,
+            )
+        )
+    return _coalesce_orders(out)
+
+
 def allocate_sleeve_orders(
     sleeve_dollars: float,
     closes: dict[str, float],
@@ -353,6 +418,10 @@ def allocate_sleeve_orders(
     scores: dict[str, float] | None = None,
     buy_ok: dict[str, bool] | None = None,
     mix_lambda: float | None = None,
+    dual_pub_codes: list[str] | tuple[str, ...] | None = None,
+    dual_priv_codes: list[str] | tuple[str, ...] | None = None,
+    dual_pub_policy: str = FIN_PRE_EXDIV_KD,
+    dual_priv_policy: str = FIN_EQUAL,
 ) -> list[tuple[str, str, int]]:
     """Allocate one sleeve's trade dollars across member codes.
 
@@ -368,9 +437,31 @@ def allocate_sleeve_orders(
       - MIX_EQUAL_RS_EXDIV: λ·EQUAL + (1−λ)·RS_SOFT_TILT_EXDIV notionals
       - MIX_EQUAL_PRE_EXDIV_KD: λ·EQUAL + (1−λ)·PRE_EXDIV_KD notionals
         (same blend helper; KD scores + pre-ex buy_ok supplied by caller)
+    Dual (paper):
+      - DUAL_PUB_PRIV: mix_lambda = 金融公 share of Financial dollars; nested policies
     """
     names = list(codes)
     kind = policy_kind(policy_id)
+    if kind == POLICY_DUAL_PUB_PRIV:
+        if mix_lambda is None:
+            raise ValueError("mix_lambda (pub_share) required for FIN_DUAL_PUB_PRIV")
+        pub = list(dual_pub_codes or [])
+        priv = list(dual_priv_codes or [])
+        if not pub and not priv:
+            raise ValueError("dual_pub_codes / dual_priv_codes required for FIN_DUAL_PUB_PRIV")
+        return allocate_dual_pub_priv(
+            sleeve_dollars,
+            closes,
+            pos,
+            pub_codes=pub,
+            priv_codes=priv,
+            pub_share=float(mix_lambda),
+            lot_size=lot_size,
+            scores=scores,
+            buy_ok=buy_ok,
+            pub_policy=dual_pub_policy,
+            priv_policy=dual_priv_policy,
+        )
     if kind in (POLICY_MIX_EQUAL_RS_EXDIV, POLICY_MIX_EQUAL_PRE_EXDIV_KD):
         lam = 0.5 if mix_lambda is None else float(mix_lambda)
         return allocate_mix_equal_rs_exdiv(
