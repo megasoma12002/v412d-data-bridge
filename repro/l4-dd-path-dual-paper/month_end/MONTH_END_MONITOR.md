@@ -1,6 +1,6 @@
-# L4_DD_PATH Month-End Paper Monitor — asof 2026-09-07
+# L4_DD_PATH Month-End Paper Monitor — asof 2026-09-08
 
-Generated: `2026-09-08T00:52:26.420862+00:00`
+Generated: `2026-09-09T12:06:48.999159+00:00`
 Status: **PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **L4_DD_PATH_08_50**
 
@@ -9,13 +9,13 @@ Locked: **L4_DD_PATH_08_50**
 
 | Window | BASE CAGR | BASE MDD | L4 CAGR | L4 MDD | MDD Δpp | CAGR giveback pp | Rel NAV | Decision? |
 |---|---:|---:|---:|---:|---:|---:|---:|:---:|
-| mtd | 1461.75%* | 0.00% | 1411.97%* | 0.00% | +0.00 | +49.78 | 0.9995 | no |
-| ytd | 68.28% | -12.85% | 67.90% | -13.74% | -0.89 | +0.37 | 0.9986 | yes |
-| trailing_1y | 53.33% | -12.85% | 54.15% | -13.74% | -0.89 | -0.82 | 1.0051 | yes |
-| validation_2019_2022 | 11.18% | -22.39% | 10.97% | -21.96% | +0.43 | +0.21 | 0.9928 | yes |
-| sealed_2023_plus | 25.20% | -12.85% | 24.42% | -13.74% | -0.89 | +0.78 | 0.9783 | yes |
-| heldout_2019_plus | 17.72% | -22.39% | 17.26% | -21.96% | +0.43 | +0.46 | 0.9714 | yes |
-| full | 13.78% | -22.39% | 13.50% | -21.96% | +0.43 | +0.28 | 0.9676 | yes |
+| mtd | 1835.01%* | 0.00% | 1653.75%* | 0.00% | +0.00 | +181.26 | 0.9981 | no |
+| ytd | 72.42% | -13.95% | 66.78% | -12.85% | +1.10 | +5.64 | 0.9787 | yes |
+| trailing_1y | 56.82% | -13.95% | 52.32% | -12.85% | +1.10 | +4.50 | 0.9725 | yes |
+| validation_2019_2022 | 12.25% | -22.39% | 11.12% | -20.76% | +1.63 | +1.14 | 0.9613 | yes |
+| sealed_2023_plus | 25.54% | -13.95% | 22.86% | -12.85% | +1.10 | +2.68 | 0.9275 | yes |
+| heldout_2019_plus | 18.47% | -22.39% | 16.64% | -20.76% | +1.63 | +1.84 | 0.8913 | yes |
+| full | 13.97% | -22.39% | 13.27% | -20.76% | +1.63 | +0.70 | 0.9213 | yes |
 
 \* `mtd` CAGR annualized from a short sample — **non-decision / display-only**.
 
@@ -23,7 +23,9 @@ Locked: **L4_DD_PATH_08_50**
 
 Alert windows: `sealed` / `validation` (research gates) and `ytd` / `trailing_1y` (ops). `mtd` is **never** used for alerts or cutover.
 
-- ALERT: L4_DD_PATH_08_50 sealed MDD worse than BASE (paper)
+- ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops)
+- PAUSE_REVIEW: ytd giveback > 5 pp — extend observation; does not revoke PASS_HELDOUT_L4
+- ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)
 
 ## Ops note
 

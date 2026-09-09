@@ -1,6 +1,6 @@
 # L4_DD_PATH_08_50 Promote Proposal — Dual Paper Ledgers
 
-Generated: `2026-09-08T00:52:11.092719+00:00`
+Generated: `2026-09-09T12:06:28.854138+00:00`
 Status: **PROPOSAL ONLY** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`).
 
 ## Why this exists
@@ -19,19 +19,19 @@ without flipping live clips.
 
 | Book | Window | CAGR | MDD | Fin mean | Fin max | DD-path on | Exact T+1 |
 |---|---|---:|---:|---:|---:|---:|---|
-| BASE_E16 | full | 13.78% | -22.39% | 79.9% | 91.9% | — | True |
-| BASE_E16 | oof_2011_2018 | 9.46% | -16.49% | 80.3% | 91.1% | — | True |
-| BASE_E16 | validation_2019_2022 | 11.18% | -22.39% | 80.0% | 91.9% | — | True |
-| BASE_E16 | sealed_2023_plus | 25.20% | -12.85% | 79.0% | 88.7% | — | True |
-| BASE_E16 | heldout_2019_plus | 17.72% | -22.39% | 79.5% | 91.9% | — | True |
-| L4_DD_PATH_08_50 | full | 13.50% | -21.96% | 74.4% | 91.9% | 26.3% | True |
-| L4_DD_PATH_08_50 | oof_2011_2018 | 9.35% | -14.36% | 74.8% | 91.1% | 25.0% | True |
-| L4_DD_PATH_08_50 | validation_2019_2022 | 10.97% | -21.96% | 74.1% | 91.9% | 31.1% | True |
-| L4_DD_PATH_08_50 | sealed_2023_plus | 24.42% | -13.74% | 73.7% | 88.7% | 23.6% | True |
-| L4_DD_PATH_08_50 | heldout_2019_plus | 17.26% | -21.96% | 74.0% | 91.9% | 27.6% | True |
+| BASE_E16 | full | 13.97% | -22.39% | 79.8% | 89.4% | — | True |
+| BASE_E16 | oof_2011_2018 | 8.98% | -17.57% | 80.3% | 88.8% | — | True |
+| BASE_E16 | validation_2019_2022 | 12.25% | -22.39% | 79.7% | 89.4% | — | True |
+| BASE_E16 | sealed_2023_plus | 25.54% | -13.95% | 79.1% | 87.9% | — | True |
+| BASE_E16 | heldout_2019_plus | 18.47% | -22.39% | 79.4% | 89.4% | — | True |
+| L4_DD_PATH_08_50 | full | 13.27% | -20.76% | 74.2% | 89.4% | 26.3% | True |
+| L4_DD_PATH_08_50 | oof_2011_2018 | 9.63% | -15.12% | 74.6% | 88.8% | 25.0% | True |
+| L4_DD_PATH_08_50 | validation_2019_2022 | 11.12% | -20.76% | 73.8% | 89.4% | 31.1% | True |
+| L4_DD_PATH_08_50 | sealed_2023_plus | 22.86% | -12.85% | 73.8% | 87.9% | 23.6% | True |
+| L4_DD_PATH_08_50 | heldout_2019_plus | 16.64% | -20.76% | 73.8% | 89.4% | 27.6% | True |
 
-Validation vs BASE: MDD improve **0.43 pp**; CAGR giveback **0.21 pp**.
-Sealed vs BASE: MDD improve **-0.89 pp**; CAGR giveback **0.78 pp**.
+Validation vs BASE: MDD improve **1.63 pp**; CAGR giveback **1.14 pp**.
+Sealed vs BASE: MDD improve **1.10 pp**; CAGR giveback **2.68 pp**.
 
 ## Cutover checklist (future human PR only)
 

@@ -1,0 +1,170 @@
+{
+  "generated_at_utc": "2026-09-09T12:06:32.092527+00:00",
+  "label": "LIVE_STACK_RERUN",
+  "status": "PAPER_RERUN",
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "kd_opt": {
+    "id": "KD_APR15_MAY15_Klt30_T15",
+    "season_start": [
+      4,
+      15
+    ],
+    "season_end": [
+      5,
+      15
+    ],
+    "k_thresh": 30.0,
+    "pre_days": 15,
+    "active_score": 1.5
+  },
+  "live_soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
+  "books": {
+    "OLD_SF_KD": "Soft-Frozen FIN [0.50,0.95] + KD_OPT",
+    "FINBAND_KD": "Soft-Frozen FIN [0.60,0.90] + KD_OPT",
+    "OLD_SF_KD_A05": "Soft-Frozen FIN [0.50,0.95] + KD_OPT + BLEND_E45_A05",
+    "NEW_LIVE": "Soft-Frozen FIN [0.60,0.90] + KD_OPT + BLEND_E45_A05 (current live)"
+  },
+  "absolute": {
+    "OLD_SF_KD": {
+      "full": {
+        "cagr": 0.13944393899174168,
+        "max_drawdown": -0.21770449232697875
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.1825632701129869,
+        "max_drawdown": -0.21770449232697886
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.25215909351103827,
+        "max_drawdown": -0.12952390859389928
+      }
+    },
+    "FINBAND_KD": {
+      "full": {
+        "cagr": 0.13917311652011,
+        "max_drawdown": -0.21720270077643722
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.18200984516738639,
+        "max_drawdown": -0.21720270077643733
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.25168030604411684,
+        "max_drawdown": -0.12807794587413646
+      }
+    },
+    "OLD_SF_KD_A05": {
+      "full": {
+        "cagr": 0.13590346323281954,
+        "max_drawdown": -0.22145156205305905
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.17484830348011338,
+        "max_drawdown": -0.22145156205305905
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.24181190081584547,
+        "max_drawdown": -0.11330224956083113
+      }
+    },
+    "NEW_LIVE": {
+      "full": {
+        "cagr": 0.1355994385056889,
+        "max_drawdown": -0.22049463933814772
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.17456750858756953,
+        "max_drawdown": -0.2204946393381476
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.24117531178450125,
+        "max_drawdown": -0.1127681508409425
+      }
+    }
+  },
+  "vs_old_sf_kd": {
+    "FINBAND_KD": {
+      "heldout_2019_plus": {
+        "mdd_improve_pp": 0.050179155054153046,
+        "cagr_giveback_pp": 0.055342494560051136,
+        "score": 0.022507907774127478
+      },
+      "sealed_2023_plus_REPORT_ONLY": {
+        "mdd_improve_pp": 0.14459627197628278,
+        "cagr_giveback_pp": 0.04787874669214265,
+        "score": 0.12065689863021145
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 0.5724702881614085,
+          "gate": "PASS",
+          "rel_nav": 0.9978485349558792
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.5902809061944847,
+          "gate": "PASS",
+          "rel_nav": 0.996386929639757
+        }
+      },
+      "tip_clean": true,
+      "n_fills": 5740
+    },
+    "OLD_SF_KD_A05": {
+      "heldout_2019_plus": {
+        "mdd_improve_pp": -0.3747069726080188,
+        "cagr_giveback_pp": 0.7714966632873521,
+        "score": -0.7604553042516948
+      },
+      "sealed_2023_plus_REPORT_ONLY": {
+        "mdd_improve_pp": 1.6221659033068159,
+        "cagr_giveback_pp": 1.0347192695192797,
+        "score": 1.104806268547176
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.797235563815904,
+          "gate": "ALERT",
+          "rel_nav": 0.9856814726876345
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.6613017481682553,
+          "gate": "ALERT",
+          "rel_nav": 0.9775797098928672
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 6086
+    },
+    "NEW_LIVE": {
+      "heldout_2019_plus": {
+        "mdd_improve_pp": -0.2790147011168753,
+        "cagr_giveback_pp": 0.7995761525417366,
+        "score": -0.6788027773877436
+      },
+      "sealed_2023_plus_REPORT_ONLY": {
+        "mdd_improve_pp": 1.675575775295679,
+        "cagr_giveback_pp": 1.0983781726537023,
+        "score": 1.1263866889688279
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 4.081142501471469,
+          "gate": "ALERT",
+          "rel_nav": 0.9846063665015184
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.97172028398185,
+          "gate": "ALERT",
+          "rel_nav": 0.9756777635615959
+        }
+      },
+      "tip_clean": false,
+      "n_fills": 5770
+    }
+  },
+  "verdict": "NEW_LIVE (FINBAND+KD+A05) vs OLD_SF_KD held-out score=-0.679 tip_clean=False YTD=ALERT 1y=ALERT. Live Soft-Frozen=[0.6, 0.9]."
+}

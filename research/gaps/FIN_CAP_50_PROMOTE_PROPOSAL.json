@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-08T00:52:13.233709+00:00",
+  "generated_at_utc": "2026-09-09T12:06:31.225438+00:00",
   "label": "FIN_CAP_50_DUAL_PAPER_PROMOTE_PROPOSAL",
   "live_wire": false,
   "soft_frozen_default_unchanged": true,
@@ -8,8 +8,8 @@
     "financial_hi": 0.5
   },
   "current_live_clip": {
-    "financial_lo": 0.5,
-    "financial_hi": 0.95
+    "financial_lo": 0.6,
+    "financial_hi": 0.9
   },
   "exact_t1": {
     "base": true,
@@ -21,31 +21,31 @@
       "same_bar_fills": 0,
       "windows": {
         "full": {
-          "cagr": 0.13777356146130426,
-          "max_drawdown": -0.22386188574516097,
-          "utility": 0.025842618588723776,
-          "vol": 0.12759772536731773,
-          "n_days": 3352,
-          "fin_mean": 0.7992568698944301,
-          "fin_max": 0.9194447157487543
+          "cagr": 0.13973785027618724,
+          "max_drawdown": -0.22385675312504238,
+          "utility": 0.027809473713666044,
+          "vol": 0.13226856014259966,
+          "n_days": 3353,
+          "fin_mean": 0.7983087470507857,
+          "fin_max": 0.8935405067901961
         },
         "oof_2011_2018": {
-          "cagr": 0.09459268677864463,
-          "max_drawdown": -0.16489595982227312,
-          "utility": 0.01214470686750807,
-          "vol": 0.09970715005868673,
+          "cagr": 0.08984372490778081,
+          "max_drawdown": -0.17572882922073452,
+          "utility": 0.00197931029741355,
+          "vol": 0.10644948027437844,
           "n_days": 1495,
-          "fin_mean": 0.8032773087650682,
-          "fin_max": 0.9109298470060324
+          "fin_mean": 0.8025249116357995,
+          "fin_max": 0.8875000000000001
         },
         "heldout_2019_plus": {
-          "cagr": 0.17718012973138508,
-          "max_drawdown": -0.22386188574516086,
-          "utility": 0.06524918685880465,
-          "vol": 0.14604525705580276,
-          "n_days": 1857,
-          "fin_mean": 0.79547458303013,
-          "fin_max": 0.9194447157487543
+          "cagr": 0.1847195576267029,
+          "max_drawdown": -0.22385675312504238,
+          "utility": 0.0727911810641817,
+          "vol": 0.14968323786661158,
+          "n_days": 1858,
+          "fin_mean": 0.7943444631272017,
+          "fin_max": 0.8935405067901961
         }
       }
     },
@@ -54,29 +54,29 @@
       "same_bar_fills": 0,
       "windows": {
         "full": {
-          "cagr": 0.13073228021148275,
-          "max_drawdown": -0.19240314149144877,
-          "utility": 0.03453070946575837,
-          "vol": 0.11056322743888153,
-          "n_days": 3352,
+          "cagr": 0.1285387041512729,
+          "max_drawdown": -0.1957521477524421,
+          "utility": 0.03066263027505184,
+          "vol": 0.11263696441937195,
+          "n_days": 3353,
           "fin_mean": 0.5,
           "fin_max": 0.5000000000000001
         },
         "oof_2011_2018": {
-          "cagr": 0.08851688768558841,
-          "max_drawdown": -0.1257874281621365,
-          "utility": 0.025623173604520155,
-          "vol": 0.09473660054761508,
+          "cagr": 0.08494640160025058,
+          "max_drawdown": -0.12844269738164493,
+          "utility": 0.02072505290942811,
+          "vol": 0.0954826944803033,
           "n_days": 1495,
           "fin_mean": 0.5,
           "fin_max": 0.5000000000000001
         },
         "heldout_2019_plus": {
-          "cagr": 0.17003159748497976,
-          "max_drawdown": -0.19240314149144877,
-          "utility": 0.07383002673925537,
-          "vol": 0.12145950458588595,
-          "n_days": 1857,
+          "cagr": 0.1688388050075118,
+          "max_drawdown": -0.1957521477524421,
+          "utility": 0.07096273113129076,
+          "vol": 0.12441386397538771,
+          "n_days": 1858,
           "fin_mean": 0.5,
           "fin_max": 0.5000000000000001
         }
@@ -84,8 +84,8 @@
     }
   },
   "heldout_delta_vs_base": {
-    "mdd_improve_pp": 3.145874425371209,
-    "cagr_giveback_pp": 0.7148532246405326,
+    "mdd_improve_pp": 2.810460537260029,
+    "cagr_giveback_pp": 1.5880752619191085,
     "research_heldout_pass_reference": true,
     "note": "Matches prior PASS_HELDOUT_FIN_CAP research; this run refreshes dual paper books"
   },

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-08T00:52:43.790534+00:00",
+  "generated_at_utc": "2026-09-09T12:07:06.981594+00:00",
   "label": "DATA_SOURCE_SHADOW_RECONCILE",
   "phase": "B",
   "live_wire": false,
@@ -11,10 +11,10 @@
       "status": "PASS",
       "ok": true,
       "n_overlap": 29,
-      "start": "2026-07-29",
-      "asof": "2026-09-07",
-      "ret_corr": 0.9999999999983886,
-      "ret_mae": 2.4889700958993392e-08,
+      "start": "2026-07-30",
+      "asof": "2026-09-08",
+      "ret_corr": 0.9999999999983666,
+      "ret_mae": 2.5210220264534503e-08,
       "detail_csv": "repro/data-source-shadow/taiex_live_vs_yahoo.csv",
       "thresholds": {
         "ret_mae_max": 0.005,
@@ -33,8 +33,8 @@
         "5880"
       ],
       "n_overlap_rows": 116,
-      "start": "2026-07-29",
-      "asof": "2026-09-07",
+      "start": "2026-07-30",
+      "asof": "2026-09-08",
       "max_abs_rel_diff_level": 0.025000059695647683,
       "returns_ok": true,
       "per_code": [
@@ -42,36 +42,36 @@
           "code": "2880",
           "n": 29,
           "max_abs_rel_level": 0.010000060021402893,
-          "mean_abs_rel_level": 0.0037931197548989656,
-          "ret_corr": 0.9990124033956548,
-          "ret_mae": 0.0003232724172529479,
+          "mean_abs_rel_level": 0.003448293588334519,
+          "ret_corr": 0.9990144021281526,
+          "ret_mae": 0.00032327410940872055,
           "returns_ok": true
         },
         {
           "code": "2886",
           "n": 29,
           "max_abs_rel_level": 3.3279802801571095e-08,
-          "mean_abs_rel_level": 2.0602118653041388e-08,
-          "ret_corr": 0.9999999999987272,
-          "ret_mae": 2.983052908657667e-08,
+          "mean_abs_rel_level": 2.058753161364564e-08,
+          "ret_corr": 0.9999999999985905,
+          "ret_mae": 3.0336096047887754e-08,
           "returns_ok": true
         },
         {
           "code": "2892",
           "n": 29,
           "max_abs_rel_level": 4.60295275244525e-08,
-          "mean_abs_rel_level": 2.8318327375917114e-08,
-          "ret_corr": 0.9999999999962541,
-          "ret_mae": 4.307335949820563e-08,
+          "mean_abs_rel_level": 2.8952475493325342e-08,
+          "ret_corr": 0.9999999999961875,
+          "ret_mae": 4.299435949325517e-08,
           "returns_ok": true
         },
         {
           "code": "5880",
           "n": 29,
           "max_abs_rel_level": 0.025000059695647683,
-          "mean_abs_rel_level": 0.007758643346229333,
-          "ret_corr": 0.9874398576209986,
-          "ret_mae": 0.000821046344160565,
+          "mean_abs_rel_level": 0.006896572933413635,
+          "ret_corr": 0.9873191792122641,
+          "ret_mae": 0.000821045290052986,
           "returns_ok": true
         }
       ],
