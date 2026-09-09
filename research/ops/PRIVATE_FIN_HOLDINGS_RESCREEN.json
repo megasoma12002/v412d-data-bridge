@@ -1,0 +1,185 @@
+{
+  "generated_at_utc": "2026-09-09T14:09:29.967585+00:00",
+  "label": "PRIVATE_FIN_HOLDINGS_RESCREEN",
+  "status": "STOP_NO_POSITIVE_HELDOUT_VS_LIVE_PUB_KD",
+  "charter": "research/ops/PRIVATE_FIN_HOLDINGS_CHARTER.md",
+  "live_wire": false,
+  "soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
+  "soft_frozen_fin_membership": [
+    "2880",
+    "2886",
+    "2892",
+    "5880"
+  ],
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "baseline": "LIVE_PUB_KD",
+  "data_notes": [
+    "Private OHLCV from TWSE-archive 12-stock build",
+    "Private adj_close proxied by close",
+    "Dividend events CSV lacks private names \u2192 E22 credits incomplete for PRIV/ALL12 books"
+  ],
+  "universes": {
+    "PUB_R1": [
+      "2880",
+      "2886",
+      "2892",
+      "5880"
+    ],
+    "PRIV_R3R4": [
+      "2884",
+      "2885",
+      "2890",
+      "2891",
+      "2881",
+      "2882"
+    ],
+    "ALL12": [
+      "2880",
+      "2886",
+      "2892",
+      "5880",
+      "2801",
+      "2834",
+      "2884",
+      "2885",
+      "2890",
+      "2891",
+      "2881",
+      "2882"
+    ]
+  },
+  "absolute": {
+    "LIVE_PUB_KD": {
+      "full_cagr": 0.13257429692254097,
+      "full_mdd": -0.21720270077643722,
+      "heldout_cagr": 0.16955806049418576,
+      "heldout_mdd": -0.21720270077643733
+    },
+    "LIVE_PUB_EQ": {
+      "full_cagr": 0.13294570260048877,
+      "full_mdd": -0.22386722284139682,
+      "heldout_cagr": 0.17188038679345308,
+      "heldout_mdd": -0.22386722284139682
+    },
+    "PRIV_EQ": {
+      "full_cagr": 0.10185892860009615,
+      "full_mdd": -0.28490572112754764,
+      "heldout_cagr": 0.14999330952311007,
+      "heldout_mdd": -0.2777821510236931
+    },
+    "PRIV_KD": {
+      "full_cagr": 0.10545909719741009,
+      "full_mdd": -0.28490572112754764,
+      "heldout_cagr": 0.15699836499897524,
+      "heldout_mdd": -0.26946809513095094
+    },
+    "ALL12_EQ": {
+      "full_cagr": 0.11278084675592859,
+      "full_mdd": -0.22281314989233159,
+      "heldout_cagr": 0.14144018762250576,
+      "heldout_mdd": -0.2228131498923317
+    },
+    "ALL12_KD": {
+      "full_cagr": 0.11411956089214725,
+      "full_mdd": -0.22090746617034063,
+      "heldout_cagr": 0.14324078540758256,
+      "heldout_mdd": -0.22090746617034074
+    }
+  },
+  "ranked_vs_live_pub_kd": [
+    {
+      "id": "LIVE_PUB_EQ",
+      "financial_alloc": "FIN_EQUAL",
+      "n_fin_names": 4,
+      "heldout_score": -0.7825685214593148,
+      "mdd_improve_pp": -0.6664522064959488,
+      "cagr_giveback_pp": -0.23223262992673188,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -0.05829189562399639,
+      "tip_fin_names": 4,
+      "n_fills": 5793,
+      "coexist": false
+    },
+    {
+      "id": "ALL12_KD",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "n_fin_names": 12,
+      "heldout_score": -1.6863402937205008,
+      "mdd_improve_pp": -0.37047653939034086,
+      "cagr_giveback_pp": 2.63172750866032,
+      "tip_ytd": "PAUSE_REVIEW",
+      "tip_1y": "PAUSE_REVIEW",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": -0.4917897029526497,
+      "tip_fin_names": 9,
+      "n_fills": 10316,
+      "coexist": false
+    },
+    {
+      "id": "ALL12_EQ",
+      "financial_alloc": "FIN_EQUAL",
+      "n_fin_names": 12,
+      "heldout_score": -1.9669385551734364,
+      "mdd_improve_pp": -0.5610449115894367,
+      "cagr_giveback_pp": 2.8117872871679994,
+      "tip_ytd": "PAUSE_REVIEW",
+      "tip_1y": "PAUSE_REVIEW",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": 0.15568890729935614,
+      "tip_fin_names": 7,
+      "n_fills": 10563,
+      "coexist": false
+    },
+    {
+      "id": "PRIV_KD",
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "n_fin_names": 6,
+      "heldout_score": -5.854524210211887,
+      "mdd_improve_pp": -5.226539435451361,
+      "cagr_giveback_pp": 1.255969549521052,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -2.520187512703742,
+      "tip_fin_names": 5,
+      "n_fills": 6737,
+      "coexist": false
+    },
+    {
+      "id": "PRIV_EQ",
+      "financial_alloc": "FIN_EQUAL",
+      "n_fin_names": 6,
+      "heldout_score": -7.036182573279358,
+      "mdd_improve_pp": -6.057945024725575,
+      "cagr_giveback_pp": 1.9564750971075684,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": -2.021793847522735,
+      "tip_fin_names": 3,
+      "n_fills": 6716,
+      "coexist": false
+    }
+  ],
+  "coexist_ids": [],
+  "kd_probe": {
+    "id": "KD_APR15_MAY15_Klt30_T15",
+    "season_start": [
+      4,
+      15
+    ],
+    "season_end": [
+      5,
+      15
+    ],
+    "k_thresh": 30.0,
+    "pre_days": 15,
+    "active_score": 1.5
+  }
+}
