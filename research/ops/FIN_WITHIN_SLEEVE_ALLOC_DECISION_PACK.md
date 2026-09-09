@@ -20,6 +20,7 @@ Portfolio: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (**KEEP** FIN triad · archive o
 | **ADD MIX_L75 observe** | `把 MIX_L75 加進 dual-paper observe` | Third paper ledger | **OPERATING 2026-09-08** |
 | **LOCK observe posture** | 維持 OPERATING · 不開 live · 窗後再選 · 先不做 TOP1/stitch | Stage D posture | **LOCKED 2026-09-08** |
 | **LOCK research portfolio** | FIN 三本（重心 MIX_L75）+ E45 A05/C35 + 月結閘門；其餘封存 | Active agenda | **LOCKED 2026-09-08** |
+| **OPEN pre-exdiv KD probe** | Yahoo K9/D9 · May–Jun K&lt;25 · pre-ex T−10…T−1 | Paper probe only | **OPEN 2026-09-09** |
 
 ## Accepted operating posture (2026-09-08)
 

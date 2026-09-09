@@ -10,6 +10,7 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN
 | Track | Focus | Cadence / gate |
 |---|---|---|
 | **FIN within-sleeve** | `FIN_EQUAL` ∥ `FIN_RS_SOFT_TILT_EXDIV` ∥ **`MIX_L75`** (重心) | Month-end ledgers + tip/held-out · posture `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` |
+| **FIN pre-exdiv KD probe** | Yahoo **K9/D9** · May15–Jun10 `K<25` · pre-ex T−10…T−1 | Paper only · `FIN_PRE_EXDIV_KD_PROBE.md` — does **not** replace triad observe |
 | **E45 primary observe** | **`BLEND_E45_A05`** · **`M2_RELOC_BIL_FX_C35`** | Month-end dual-paper + tip PAUSE gates · stitch FORBIDDEN |
 | **Month-end gates** | tip ALERT/PAUSE · held-out score · pack hygiene | `ops_month_end_paper_pack.py` + per-line monitors |
 
