@@ -1,13 +1,20 @@
 {
-  "date": "2026-09-08",
+  "date": "2026-09-09",
   "exact_t1_ok": true,
   "same_bar_fills": 0,
-  "fills_checked": 0,
+  "fills_checked": 8,
   "pending_filter": "signal_date < fill_date",
   "soft_frozen_financial_clip": [
-    0.5,
-    0.95
+    0.6,
+    0.9
   ],
+  "financial_alloc": "FIN_PRE_EXDIV_KD",
+  "kd_opt_id": "KD_APR15_MAY15_Klt30_T15",
+  "e45_stitch": false,
+  "e45_book": null,
+  "e45_profile": null,
+  "e45_blend_alpha": null,
+  "e45_exposure": null,
   "live_wire": true,
   "owns_qc_status": false,
   "note": "Pipeline Exact T+1 audit only. qc_status.json is owned by e21_qc.py; this file is pipeline_t1_audit.json."

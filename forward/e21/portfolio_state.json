@@ -1,17 +1,17 @@
 {
-  "cash": 22371.781056978274,
+  "cash": 1022.1721829783637,
   "positions": {
-    "2880": 2645000.0,
-    "2886": 2241000.0,
-    "2892": 3112000.0,
-    "5880": 4187000.0,
-    "2412": 89000.0,
-    "3045": 104000.0,
-    "4904": 117000.0,
-    "0050": 379000.0
+    "2880": 2683000.0,
+    "2886": 2274000.0,
+    "2892": 3157000.0,
+    "5880": 4243000.0,
+    "2412": 78000.0,
+    "3045": 90000.0,
+    "4904": 102000.0,
+    "0050": 362000.0
   },
-  "last_date": "2026-09-08",
-  "last_nav": 541417221.781057,
+  "last_date": "2026-09-09",
+  "last_nav": 538570722.172183,
   "e22_books_version": "E22_v2s_tw",
   "e22_applied_keys": [],
   "e22_manifest": {
@@ -36,5 +36,10 @@
   },
   "financial_alloc": "FIN_PRE_EXDIV_KD",
   "kd_opt_id": "KD_APR15_MAY15_Klt30_T15",
-  "fin_within_sleeve_cutover": "ACCEPT_2026-09-09_KD_OPT"
+  "fin_within_sleeve_cutover": "ACCEPT_2026-09-09_KD_OPT",
+  "soft_frozen_clip_flip": "ACCEPT_2026-09-09_FINBAND_F0.60-0.90",
+  "e45_stitch": false,
+  "e45_book": null,
+  "e45_stitch_ballot": null,
+  "e45_stitch_rollback": "ACCEPT_2026-09-09_DROP_E45_A05"
 }
