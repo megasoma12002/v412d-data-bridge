@@ -41,6 +41,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Post-rollback data re-run | **DONE** (2026-09-09) | `LIVE_STACK_RERUN.md` CURRENT_LIVE tip PASS held-out +0.02 · month-end pack refresh |
 | Post-rollback improve status | **IMPROVED** (2026-09-09) | vs retired A05: held-out lift **+0.70**, tip ALERT→PASS · `LIVE_STACK_IMPROVE_STATUS.md` |
 | Telecom async split (FIN-parallel) | **STOP** (2026-09-09) | Stage D + summer KD grid no lift vs TEL_EQUAL · keep live EQUAL · `TELECOM_WITHIN_SLEEVE_ASYNC_DECISION_PACK.md` |
+| Telecom pack cutover ballot | **OPEN** (2026-09-09) | Re-screen under KD_OPT: packs held-out &lt;0 · recommend **KEEP TEL_EQUAL** · `TELECOM_PACK_CUTOVER_BALLOT_OPEN.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`
@@ -63,7 +64,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Soft-Frozen flip | Explicit human cutover PR only (never pack/monitor green alone) |
 | Soft-Frozen clip **search** (paper) | `SOFT_FROZEN_CLIP_SEARCH_DECISION_PACK.md` — **ACCEPT charter** ✓ Stage B done; Soft-Frozen KEEP; Class D flip still separate |
 | FIN within-sleeve live cutover | `CUTOVER_CHECKLIST_FIN_WITHIN_SLEEVE.md` · **ACCEPTED KD_OPT 2026-09-09** · `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` |
-| Telecom within-sleeve alloc (paper) | `TELECOM_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md` · async FIN-parallel **STOP** 2026-09-09 (`TELECOM_WITHIN_SLEEVE_ASYNC_DECISION_PACK.md`); live **TEL_EQUAL KEEP** |
+| Telecom within-sleeve alloc (paper) | Async **STOP** · pack cutover ballot **OPEN** (`TELECOM_PACK_CUTOVER_BALLOT_OPEN.md`) — re-screen no lift under live KD_OPT; recommend KEEP EQUAL |
 | Odd-lot default | Human **ACCEPT promote** on `ODD_LOT_PROMOTE_DECISION_PACK.md` + checklist all YES + **par inventory VERIFIED** (`PAR_VALUE_LOOKUP_CHARTER.md`) |
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
 | E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; live stitch **rolled back** `DROP_E45_A05` (2026-09-09); any future live stitch needs a new dedicated ACCEPT |

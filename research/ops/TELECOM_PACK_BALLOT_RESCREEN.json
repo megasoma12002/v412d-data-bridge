@@ -1,0 +1,98 @@
+{
+  "generated_at_utc": "2026-09-09T13:45:08.739296+00:00",
+  "label": "TELECOM_PACK_BALLOT_RESCREEN",
+  "live_wire": false,
+  "soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
+  "financial_held_at": "FIN_PRE_EXDIV_KD / KD_OPT",
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "base_id": "TEL_EQUAL",
+  "ranked": [
+    {
+      "id": "TEL_DIVERSIFY_PACK",
+      "heldout_score": -0.38501350591368944,
+      "mdd_improve_pp": -0.1794896771511345,
+      "cagr_giveback_pp": 0.41104765752510986,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "tip_tel_names": 2,
+      "tip_positions": {
+        "2412": 1038000.0,
+        "3045": 215000.0,
+        "4904": 0.0
+      },
+      "n_fills": 5636
+    },
+    {
+      "id": "TEL_SCORE_LOT_PACK",
+      "heldout_score": -0.4647804190838989,
+      "mdd_improve_pp": -0.3471420454700169,
+      "cagr_giveback_pp": 0.23527674722776393,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "tip_tel_names": 1,
+      "tip_positions": {
+        "2412": 0.0,
+        "3045": 0.0,
+        "4904": 1630000.0
+      },
+      "n_fills": 5345
+    },
+    {
+      "id": "TEL_MIN_LOT_PACK",
+      "heldout_score": -0.9454924476238302,
+      "mdd_improve_pp": -0.8228418227564926,
+      "cagr_giveback_pp": 0.24530124973467515,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "tip_tel_names": 1,
+      "tip_positions": {
+        "2412": 0.0,
+        "3045": 0.0,
+        "4904": 1664000.0
+      },
+      "n_fills": 5249
+    },
+    {
+      "id": "TEL_TOP2_EQUAL",
+      "heldout_score": -1.180350745528036,
+      "mdd_improve_pp": -0.6050610072104945,
+      "cagr_giveback_pp": 1.150579476635083,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "tip_tel_names": 2,
+      "tip_positions": {
+        "2412": 0.0,
+        "3045": 469000.0,
+        "4904": 532000.0
+      },
+      "n_fills": 7117
+    },
+    {
+      "id": "TEL_TOP1",
+      "heldout_score": -2.916250814147403,
+      "mdd_improve_pp": -0.666139770837193,
+      "cagr_giveback_pp": 4.50022208662042,
+      "tip_ytd": "PAUSE_REVIEW",
+      "tip_1y": "PAUSE_REVIEW",
+      "tip_clean": false,
+      "tip_tel_names": 1,
+      "tip_positions": {
+        "2412": 0.0,
+        "3045": 942000.0,
+        "4904": 0.0
+      },
+      "n_fills": 7896
+    }
+  ],
+  "recommended": null,
+  "prior_stage_c_best": "TEL_DIVERSIFY_PACK",
+  "note": "Rescreen under live FIN KD_OPT for pack cutover ballot honesty"
+}
