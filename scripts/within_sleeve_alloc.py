@@ -19,6 +19,7 @@ POLICY_RS_SOFT_TILT = "RS_SOFT_TILT"
 POLICY_EXDIV_SKIP_BUY = "EXDIV_SKIP_BUY"
 POLICY_RS_SOFT_TILT_EXDIV = "RS_SOFT_TILT_EXDIV"
 POLICY_MIX_EQUAL_RS_EXDIV = "MIX_EQUAL_RS_EXDIV"
+POLICY_PRE_EXDIV_KD = "PRE_EXDIV_KD"
 POLICY_SUFFIXES = (
     POLICY_EQUAL,
     POLICY_MIN_LOT_PACK,
@@ -30,6 +31,7 @@ POLICY_SUFFIXES = (
     POLICY_EXDIV_SKIP_BUY,
     POLICY_RS_SOFT_TILT_EXDIV,
     POLICY_MIX_EQUAL_RS_EXDIV,
+    POLICY_PRE_EXDIV_KD,
 )
 
 # Predeclared ids (Stage B + Stage C)
@@ -41,6 +43,7 @@ FIN_RS_SOFT_TILT = "FIN_RS_SOFT_TILT"
 FIN_EXDIV_SKIP_BUY = "FIN_EXDIV_SKIP_BUY"
 FIN_RS_SOFT_TILT_EXDIV = "FIN_RS_SOFT_TILT_EXDIV"
 FIN_MIX_EQUAL_RS_EXDIV = "FIN_MIX_EQUAL_RS_EXDIV"
+FIN_PRE_EXDIV_KD = "FIN_PRE_EXDIV_KD"
 FIN_ALLOC_POLICIES = (
     FIN_EQUAL,
     FIN_MIN_LOT_PACK,
@@ -50,6 +53,7 @@ FIN_ALLOC_POLICIES = (
     FIN_EXDIV_SKIP_BUY,
     FIN_RS_SOFT_TILT_EXDIV,
     FIN_MIX_EQUAL_RS_EXDIV,
+    FIN_PRE_EXDIV_KD,
 )
 
 TEL_EQUAL = "TEL_EQUAL"
@@ -83,6 +87,8 @@ def policy_kind(policy_id: str) -> str:
         return POLICY_TOP2_EQUAL
     if policy_id.endswith("_MIX_EQUAL_RS_EXDIV") or policy_id == FIN_MIX_EQUAL_RS_EXDIV:
         return POLICY_MIX_EQUAL_RS_EXDIV
+    if policy_id.endswith("_PRE_EXDIV_KD") or policy_id == FIN_PRE_EXDIV_KD:
+        return POLICY_PRE_EXDIV_KD
     if policy_id.endswith("_RS_SOFT_TILT_EXDIV"):
         return POLICY_RS_SOFT_TILT_EXDIV
     if policy_id.endswith("_RS_SOFT_TILT"):
@@ -324,6 +330,7 @@ def allocate_sleeve_orders(
       - RS_SOFT_TILT: buy dollars soft-tilted by momentum scores; sells equal among holders
       - EXDIV_SKIP_BUY: buys only among buy_ok names; sells equal among holders
       - RS_SOFT_TILT_EXDIV: soft-tilt buys among buy_ok only
+      - PRE_EXDIV_KD: Yahoo K9 season tilt + pre-ex T-10..ex skip-buy (same mechanics)
     Mix:
       - MIX_EQUAL_RS_EXDIV: λ·EQUAL + (1−λ)·RS_SOFT_TILT_EXDIV notionals
     """
@@ -351,6 +358,7 @@ def allocate_sleeve_orders(
         POLICY_RS_SOFT_TILT,
         POLICY_EXDIV_SKIP_BUY,
         POLICY_RS_SOFT_TILT_EXDIV,
+        POLICY_PRE_EXDIV_KD,
     ):
         if abs(sleeve_dollars) < 1e-9:
             return []
@@ -361,7 +369,7 @@ def allocate_sleeve_orders(
             )
         eligible = (
             _buy_eligible(names, buy_ok)
-            if kind in (POLICY_EXDIV_SKIP_BUY, POLICY_RS_SOFT_TILT_EXDIV)
+            if kind in (POLICY_EXDIV_SKIP_BUY, POLICY_RS_SOFT_TILT_EXDIV, POLICY_PRE_EXDIV_KD)
             else list(names)
         )
         if not eligible:
@@ -473,6 +481,135 @@ def build_exdiv_buy_ok(
     return ok
 
 
+def build_pre_exdiv_window_buy_ok(
+    calendar_index,
+    dividends,
+    codes: list[str] | tuple[str, ...],
+    *,
+    pre_days: int = 10,
+    also_stock_ex: bool = True,
+):
+    """Skip buy on cash-ex T-``pre_days``..T0 (and stock ex-date).
+
+    Extends ex-date skip into the pre-ex local-high window from the KD probe.
+    """
+    import pandas as pd
+
+    if pre_days < 0:
+        raise ValueError("pre_days must be >= 0")
+    idx = pd.DatetimeIndex(pd.to_datetime(calendar_index)).sort_values().unique()
+    names = list(codes)
+    ok = pd.DataFrame(True, index=idx, columns=names)
+    if dividends is None or len(dividends) == 0:
+        return ok
+    pos = {dt: i for i, dt in enumerate(idx)}
+    d = dividends.copy()
+    d["code"] = d["code"].astype(str)
+    for c in names:
+        sub = d[d["code"] == c]
+        cash = pd.to_datetime(sub.get("cash_ex_date"), errors="coerce").dropna()
+        for ex0 in cash:
+            # first calendar session on/after listed ex-date
+            later = idx[idx >= pd.Timestamp(ex0)]
+            if len(later) == 0:
+                continue
+            ex = later[0]
+            i_ex = pos[ex]
+            lo = max(0, i_ex - int(pre_days))
+            for i in range(lo, i_ex + 1):
+                ok.iat[i, ok.columns.get_loc(c)] = False
+        if also_stock_ex and "stock_ex_date" in sub.columns:
+            stock = pd.to_datetime(sub["stock_ex_date"], errors="coerce").dropna()
+            for dt in stock:
+                if dt in ok.index:
+                    ok.loc[dt, c] = False
+    return ok
+
+
+def build_kd_season_tilt_scores(
+    market,
+    dividends,
+    codes: list[str] | tuple[str, ...],
+    *,
+    k_thresh: float = 25.0,
+    season_start: tuple[int, int] = (5, 15),
+    season_end: tuple[int, int] = (6, 10),
+    pre_days: int = 10,
+    active_score: float = 1.5,
+):
+    """Yahoo K9 season accumulation scores for ``FIN_PRE_EXDIV_KD``.
+
+    Per name/year: first day in [May15, Jun10] with K9 < ``k_thresh`` starts
+    accumulation until the day before cash-ex T-``pre_days`` (pre-ex skip window).
+    Score = ``active_score`` while accumulating, else 0 (soft-tilt → near-equal).
+    """
+    import pandas as pd
+    from tw_yahoo_kd import yahoo_kd
+
+    m = market.copy()
+    m["date"] = pd.to_datetime(m["date"])
+    m["code"] = m["code"].astype(str)
+    for col in ("high", "low", "close"):
+        m[col] = pd.to_numeric(m[col], errors="coerce")
+
+    cal = pd.DatetimeIndex(m["date"].drop_duplicates().sort_values())
+    names = list(codes)
+    scores = pd.DataFrame(0.0, index=cal, columns=names)
+
+    d = dividends.copy() if dividends is not None and len(dividends) else pd.DataFrame()
+    if len(d):
+        d["code"] = d["code"].astype(str)
+        d["cash_ex_date"] = pd.to_datetime(d["cash_ex_date"], errors="coerce")
+
+    pos = {dt: i for i, dt in enumerate(cal)}
+    for c in names:
+        g = m[m["code"] == c].sort_values("date").drop_duplicates("date").set_index("date")
+        if g.empty:
+            continue
+        kd = yahoo_kd(g["high"], g["low"], g["close"], n=9)
+        k = kd["k"].reindex(cal)
+        ex_list = []
+        if len(d):
+            ex_list = sorted(
+                pd.to_datetime(d.loc[d["code"] == c, "cash_ex_date"], errors="coerce")
+                .dropna()
+                .unique()
+            )
+        # map each season year → next cash ex on/after season start
+        years = sorted({dt.year for dt in cal})
+        for year in years:
+            start = pd.Timestamp(year, season_start[0], season_start[1])
+            end = pd.Timestamp(year, season_end[0], season_end[1])
+            # cash ex after season start (typical Aug FIN ex)
+            ex = None
+            for ex0 in ex_list:
+                if pd.Timestamp(ex0) >= start:
+                    later = cal[cal >= pd.Timestamp(ex0)]
+                    if len(later):
+                        ex = later[0]
+                        break
+            if ex is None:
+                continue
+            i_ex = pos[ex]
+            i_pre0 = max(0, i_ex - int(pre_days))  # first skip day T-pre_days
+            # season mask for K trigger
+            season_mask = (cal >= start) & (cal <= end) & (cal < ex)
+            if not bool(season_mask.any()):
+                continue
+            seg = k.loc[season_mask]
+            hit = seg[seg < float(k_thresh)].dropna()
+            if hit.empty:
+                continue
+            sig = hit.index[0]
+            i_sig = pos[sig]
+            # accumulate sig .. day before pre-ex window
+            i_end = i_pre0 - 1
+            if i_end < i_sig:
+                continue
+            scores.iloc[i_sig : i_end + 1, scores.columns.get_loc(c)] = float(active_score)
+    return scores
+
+
 def build_name_scores(market, codes: list[str] | tuple[str, ...]):
     """Causal within-sleeve name scores from adj_close momentum (TOP1/TOP2)."""
     import numpy as np
@@ -498,6 +635,7 @@ def build_name_scores(market, codes: list[str] | tuple[str, ...]):
         sd = df.std(axis=1).replace(0.0, np.nan)
         return df.sub(mu, axis=0).div(sd, axis=0).fillna(0.0)
 
+
     return (0.5 * _xz(m20) + 0.5 * _xz(m60)).clip(-3.0, 3.0)
 
 
@@ -512,6 +650,7 @@ __all__ = [
     "POLICY_EXDIV_SKIP_BUY",
     "POLICY_RS_SOFT_TILT_EXDIV",
     "POLICY_MIX_EQUAL_RS_EXDIV",
+    "POLICY_PRE_EXDIV_KD",
     "FIN_EQUAL",
     "FIN_MIN_LOT_PACK",
     "FIN_TOP1",
@@ -520,6 +659,7 @@ __all__ = [
     "FIN_EXDIV_SKIP_BUY",
     "FIN_RS_SOFT_TILT_EXDIV",
     "FIN_MIX_EQUAL_RS_EXDIV",
+    "FIN_PRE_EXDIV_KD",
     "FIN_ALLOC_POLICIES",
     "TEL_EQUAL",
     "TEL_MIN_LOT_PACK",
@@ -538,4 +678,6 @@ __all__ = [
     "allocate_sleeve_orders",
     "build_name_scores",
     "build_exdiv_buy_ok",
+    "build_pre_exdiv_window_buy_ok",
+    "build_kd_season_tilt_scores",
 ]

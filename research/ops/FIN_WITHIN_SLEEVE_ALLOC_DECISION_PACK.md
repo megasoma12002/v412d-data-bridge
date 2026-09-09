@@ -9,7 +9,8 @@ Stage C: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_C.md`
 Dual-paper: `FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md` · live wire **false**  
 Mix: `FIN_EQUAL_RS_EXDIV_MIX.md`  
 Posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`  
-Portfolio: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (**KEEP** FIN triad · archive other research lines)
+Portfolio: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (**KEEP** FIN triad · archive other research lines)  
+Pre-exdiv KD probe: `FIN_PRE_EXDIV_KD_PROBE.md` (**PAPER_PROBE** · Yahoo K9/D9)
 
 ## Ballot
 

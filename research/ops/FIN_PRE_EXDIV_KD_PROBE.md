@@ -31,12 +31,13 @@ Window `[T-60, T+20]` close argmax → share in **T-10..T-1**:
 ## Implications
 
 - Pre-exdiv high clustering is strong on FIN names — skip-buy on ex-date alone is too late/narrow
-- Yahoo K9 seasonal signal has modest edge vs random same-window day; useful as observe probe not live knife
-- Next paper option: PRE_EXDIV_T10 reduce/skip buy, optional May–Jun K9<25 add bias — still Soft-Frozen KEEP
+- Yahoo K9 seasonal signal has modest edge vs random same-window day in the event study
+- **Paper NAV follow-up:** `FIN_PRE_EXDIV_KD_NAV.md` — sleeve rule Exact T+1 vs EQUAL
 
 ## Hard rules
 
 - Soft-Frozen KEEP · no live wire · no cutover from this probe
 - Does not replace OPERATING FIN triad (`EQUAL` ∥ `RS_EXDIV` ∥ `MIX_L75`)
 
-Repro: `repro/fin-pre-exdiv-kd-probe-20260909/`
+Repro: `repro/fin-pre-exdiv-kd-probe-20260909/`  
+NAV screen: `research/ops/FIN_PRE_EXDIV_KD_NAV.md`
