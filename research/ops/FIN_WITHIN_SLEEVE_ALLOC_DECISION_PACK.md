@@ -13,6 +13,7 @@ Portfolio: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (**KEEP** FIN quartet · archive
 Pre-exdiv KD probe: `FIN_PRE_EXDIV_KD_PROBE.md` (**PAPER_PROBE** · Yahoo K9/D9)  
 KD NAV / optimize: `FIN_PRE_EXDIV_KD_NAV.md` · `FIN_PRE_EXDIV_KD_OPTIMIZE.md` (**optimal `KD_APR15_MAY15_Klt30_T15`** → observe **`KD_OPT`**)  
 Objective scan: `FIN_OBJECTIVE_REGULARITY.md`
+EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 
 ## Ballot
 
@@ -25,6 +26,7 @@ Objective scan: `FIN_OBJECTIVE_REGULARITY.md`
 | **LOCK research portfolio** | FIN observe + E45 A05/C35 + 月結閘門；其餘封存 | Active agenda | **LOCKED 2026-09-08** |
 | **OPEN pre-exdiv KD probe** | Yahoo K9/D9 · May–Jun K&lt;25 · pre-ex T−10…T−1 | Paper probe only | **OPEN 2026-09-09** |
 | **ADD KD_OPT observe** | `請照順序` → 第 4 本 OPERATING | `KD_APR15_MAY15_Klt30_T15` ledger | **OPERATING 2026-09-09** |
+| **OPEN EQUAL×KD mix probe** | `開 paper probe（EQUAL×KD λ-grid）` | Paper λ-grid only | **OPEN 2026-09-09** |
 
 ## Accepted operating posture (2026-09-09)
 

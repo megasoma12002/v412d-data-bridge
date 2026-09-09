@@ -19,6 +19,7 @@ POLICY_RS_SOFT_TILT = "RS_SOFT_TILT"
 POLICY_EXDIV_SKIP_BUY = "EXDIV_SKIP_BUY"
 POLICY_RS_SOFT_TILT_EXDIV = "RS_SOFT_TILT_EXDIV"
 POLICY_MIX_EQUAL_RS_EXDIV = "MIX_EQUAL_RS_EXDIV"
+POLICY_MIX_EQUAL_PRE_EXDIV_KD = "MIX_EQUAL_PRE_EXDIV_KD"
 POLICY_PRE_EXDIV_KD = "PRE_EXDIV_KD"
 POLICY_SUFFIXES = (
     POLICY_EQUAL,
@@ -31,6 +32,7 @@ POLICY_SUFFIXES = (
     POLICY_EXDIV_SKIP_BUY,
     POLICY_RS_SOFT_TILT_EXDIV,
     POLICY_MIX_EQUAL_RS_EXDIV,
+    POLICY_MIX_EQUAL_PRE_EXDIV_KD,
     POLICY_PRE_EXDIV_KD,
 )
 
@@ -43,6 +45,7 @@ FIN_RS_SOFT_TILT = "FIN_RS_SOFT_TILT"
 FIN_EXDIV_SKIP_BUY = "FIN_EXDIV_SKIP_BUY"
 FIN_RS_SOFT_TILT_EXDIV = "FIN_RS_SOFT_TILT_EXDIV"
 FIN_MIX_EQUAL_RS_EXDIV = "FIN_MIX_EQUAL_RS_EXDIV"
+FIN_MIX_EQUAL_PRE_EXDIV_KD = "FIN_MIX_EQUAL_PRE_EXDIV_KD"
 FIN_PRE_EXDIV_KD = "FIN_PRE_EXDIV_KD"
 FIN_ALLOC_POLICIES = (
     FIN_EQUAL,
@@ -53,6 +56,7 @@ FIN_ALLOC_POLICIES = (
     FIN_EXDIV_SKIP_BUY,
     FIN_RS_SOFT_TILT_EXDIV,
     FIN_MIX_EQUAL_RS_EXDIV,
+    FIN_MIX_EQUAL_PRE_EXDIV_KD,
     FIN_PRE_EXDIV_KD,
 )
 
@@ -87,6 +91,11 @@ def policy_kind(policy_id: str) -> str:
         return POLICY_TOP2_EQUAL
     if policy_id.endswith("_MIX_EQUAL_RS_EXDIV") or policy_id == FIN_MIX_EQUAL_RS_EXDIV:
         return POLICY_MIX_EQUAL_RS_EXDIV
+    if (
+        policy_id.endswith("_MIX_EQUAL_PRE_EXDIV_KD")
+        or policy_id == FIN_MIX_EQUAL_PRE_EXDIV_KD
+    ):
+        return POLICY_MIX_EQUAL_PRE_EXDIV_KD
     if policy_id.endswith("_PRE_EXDIV_KD") or policy_id == FIN_PRE_EXDIV_KD:
         return POLICY_PRE_EXDIV_KD
     if policy_id.endswith("_RS_SOFT_TILT_EXDIV"):
@@ -333,10 +342,12 @@ def allocate_sleeve_orders(
       - PRE_EXDIV_KD: Yahoo K9 season tilt + pre-ex T-10..ex skip-buy (same mechanics)
     Mix:
       - MIX_EQUAL_RS_EXDIV: λ·EQUAL + (1−λ)·RS_SOFT_TILT_EXDIV notionals
+      - MIX_EQUAL_PRE_EXDIV_KD: λ·EQUAL + (1−λ)·PRE_EXDIV_KD notionals
+        (same blend helper; KD scores + pre-ex buy_ok supplied by caller)
     """
     names = list(codes)
     kind = policy_kind(policy_id)
-    if kind == POLICY_MIX_EQUAL_RS_EXDIV:
+    if kind in (POLICY_MIX_EQUAL_RS_EXDIV, POLICY_MIX_EQUAL_PRE_EXDIV_KD):
         lam = 0.5 if mix_lambda is None else float(mix_lambda)
         return allocate_mix_equal_rs_exdiv(
             sleeve_dollars,
@@ -650,6 +661,7 @@ __all__ = [
     "POLICY_EXDIV_SKIP_BUY",
     "POLICY_RS_SOFT_TILT_EXDIV",
     "POLICY_MIX_EQUAL_RS_EXDIV",
+    "POLICY_MIX_EQUAL_PRE_EXDIV_KD",
     "POLICY_PRE_EXDIV_KD",
     "FIN_EQUAL",
     "FIN_MIN_LOT_PACK",
@@ -659,6 +671,7 @@ __all__ = [
     "FIN_EXDIV_SKIP_BUY",
     "FIN_RS_SOFT_TILT_EXDIV",
     "FIN_MIX_EQUAL_RS_EXDIV",
+    "FIN_MIX_EQUAL_PRE_EXDIV_KD",
     "FIN_PRE_EXDIV_KD",
     "FIN_ALLOC_POLICIES",
     "TEL_EQUAL",
