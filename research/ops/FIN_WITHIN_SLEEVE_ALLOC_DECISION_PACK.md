@@ -13,7 +13,7 @@ Cutover: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` · checklist **ACCEPTED*
 Portfolio: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (**KEEP** FIN quartet · archive other research lines)  
 Pre-exdiv KD probe: `FIN_PRE_EXDIV_KD_PROBE.md` (**PAPER_PROBE** · Yahoo K9/D9)  
 KD NAV / optimize: `FIN_PRE_EXDIV_KD_NAV.md` · `FIN_PRE_EXDIV_KD_OPTIMIZE.md` (**optimal `KD_APR15_MAY15_Klt30_T15`** → observe **`KD_OPT`** → **live**)  
-Post-exdiv autumn probe: `FIN_POST_EXDIV_AUTUMN_PROBE.md` · NAV `FIN_POST_EXDIV_AUTUMN_NAV.md` (**PAPER only** · live KD_OPT untouched)  
+Post-exdiv autumn: `FIN_POST_EXDIV_AUTUMN_PROBE.md` · NAV · `FIN_POST_EXDIV_AUTUMN_OPTIMIZE.md` · dual `FIN_KD_AUTUMN_DUAL_SEASON.md` (**STOP** · no lift vs KD_OPT)  
 Objective scan: `FIN_OBJECTIVE_REGULARITY.md`
 EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 
