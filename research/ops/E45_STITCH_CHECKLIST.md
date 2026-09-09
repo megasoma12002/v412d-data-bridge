@@ -27,7 +27,7 @@ It does **not** authorize live-wire, Soft-Frozen flip, or `forward/e21` history 
 | 2 | V1–V6 research bars all PASS | V1 via path-A retirement; V2–V6 dated packs | **YES** |
 | 3 | the retired handoff MDD narrative formally retired / not used as stitch gate | `E45_MDD_1316_NARRATIVE_RETIREMENT.md` | **YES** |
 | 4 | Dual-paper observe **OPERATING** | Ledgers + month-end + pack/alert wire | **YES** |
-| 5 | ≥1 **clean** month-end on dynamic windows: no YTD / trailing_1y `PAUSE_REVIEW` | Asof 2026-09-04: YTD + trailing_1y **PAUSE_REVIEW** | **NO** |
+| 5 | ≥1 **clean** month-end on dynamic windows: no YTD / trailing_1y `PAUSE_REVIEW` | FULL E3 still PAUSE (2026-09-07). **`BLEND_E45_A05` tip PASS/PASS** — clean on that book only | **NO for FULL** · **YES candidate for A05** |
 | 6 | Sustained clean trailing (not a single clean print) | Need additional clean month-ends after #5 clears | **NO** |
 | 7 | Exact T+1 unchanged on BASE + CHAL paper books | Shared early-stack fill clock | **YES** (paper) |
 | 8 | Soft-Frozen clip unchanged until stitch PR | [0.50, 0.95] KEEP | **YES** |

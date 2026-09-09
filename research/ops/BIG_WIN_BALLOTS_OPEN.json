@@ -1,0 +1,13 @@
+{
+  "label": "BIG_WIN_BALLOTS_OPEN",
+  "status": "OPEN_PACK",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "paths": [
+    "soft_frozen_clip",
+    "e45_stitch"
+  ],
+  "clip_edge": "tiny_finband_plus_0.023",
+  "tel_floors_at_500m": "no_lift",
+  "generated_at_utc": "2026-09-09T11:20:00.459359+00:00"
+}

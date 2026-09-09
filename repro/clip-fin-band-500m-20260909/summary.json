@@ -1,0 +1,314 @@
+{
+  "generated_at_utc": "2026-09-09T11:18:39.106603+00:00",
+  "label": "SOFT_FROZEN_FIN_BAND_500M_SCREEN",
+  "status": "PAPER_SCREEN",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "base_fin": [
+    0.5,
+    0.95
+  ],
+  "ranked": [
+    {
+      "id": "FINBAND_F0.60-0.90",
+      "fin": [
+        0.6,
+        0.9
+      ],
+      "heldout": {
+        "mdd_improve_pp": 0.050179155054153046,
+        "cagr_giveback_pp": 0.055342494560051136,
+        "score": 0.022507907774127478
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": 0.5724702881614085,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.5902809061944847,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.13917311652011,
+      "full_mdd": -0.21720270077643722
+    },
+    {
+      "id": "FINBAND_F0.45-0.90",
+      "fin": [
+        0.45,
+        0.9
+      ],
+      "heldout": {
+        "mdd_improve_pp": 0.024848654144005167,
+        "cagr_giveback_pp": 0.04783737179916425,
+        "score": 0.0009299682444230406
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": 0.38043891570447297,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.37225846100061855,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.13915222440712816,
+      "full_mdd": -0.2174560057855387
+    },
+    {
+      "id": "FINBAND_F0.50-0.90",
+      "fin": [
+        0.5,
+        0.9
+      ],
+      "heldout": {
+        "mdd_improve_pp": 0.024848654144005167,
+        "cagr_giveback_pp": 0.04783737179916425,
+        "score": 0.0009299682444230406
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": 0.38043891570447297,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.37225846100061855,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.13915222440712816,
+      "full_mdd": -0.2174560057855387
+    },
+    {
+      "id": "FINBAND_F0.45-0.95",
+      "fin": [
+        0.45,
+        0.95
+      ],
+      "heldout": {
+        "mdd_improve_pp": 0.0,
+        "cagr_giveback_pp": 0.0,
+        "score": 0.0
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.13944393899174168,
+      "full_mdd": -0.21770449232697875
+    },
+    {
+      "id": "FINBAND_F0.55-0.95",
+      "fin": [
+        0.55,
+        0.95
+      ],
+      "heldout": {
+        "mdd_improve_pp": -0.01271207895139348,
+        "cagr_giveback_pp": 0.004902450839550099,
+        "score": -0.015163304371168529
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": 0.12672928694095198,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.06264138711773448,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.13939940308790066,
+      "full_mdd": -0.2178316131164928
+    },
+    {
+      "id": "FINBAND_F0.55-0.90",
+      "fin": [
+        0.55,
+        0.9
+      ],
+      "heldout": {
+        "mdd_improve_pp": 0.011093303998344073,
+        "cagr_giveback_pp": 0.05384645062866955,
+        "score": -0.015829921315990703
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": 0.4941973711009684,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.4458537266041507,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.13916758798340756,
+      "full_mdd": -0.21759355928699553
+    },
+    {
+      "id": "FINBAND_F0.60-0.95",
+      "fin": [
+        0.6,
+        0.95
+      ],
+      "heldout": {
+        "mdd_improve_pp": -0.04578042874617827,
+        "cagr_giveback_pp": -0.013202497992637063,
+        "score": -0.0523816777424968
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": -0.032995219780906915,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": -0.044642998390154176,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.1395409801155676,
+      "full_mdd": -0.21816229661444064
+    },
+    {
+      "id": "FINBAND_F0.60-0.85",
+      "fin": [
+        0.6,
+        0.85
+      ],
+      "heldout": {
+        "mdd_improve_pp": -0.20084140830443076,
+        "cagr_giveback_pp": 0.2743801045624217,
+        "score": -0.3380314605856416
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": 1.7961354406312635,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.4293111954536641,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.13820275237564617,
+      "full_mdd": -0.21971290641002317
+    },
+    {
+      "id": "FINBAND_F0.45-0.85",
+      "fin": [
+        0.45,
+        0.85
+      ],
+      "heldout": {
+        "mdd_improve_pp": -0.21210778373316197,
+        "cagr_giveback_pp": 0.2961317800742602,
+        "score": -0.3601736737702921
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": 1.611624275730672,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.3093500800177127,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.13798264839639596,
+      "full_mdd": -0.21982557016431048
+    },
+    {
+      "id": "FINBAND_F0.50-0.85",
+      "fin": [
+        0.5,
+        0.85
+      ],
+      "heldout": {
+        "mdd_improve_pp": -0.21210778373316197,
+        "cagr_giveback_pp": 0.2961317800742602,
+        "score": -0.3601736737702921
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": 1.611624275730672,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.3093500800177127,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.13798264839639596,
+      "full_mdd": -0.21982557016431048
+    },
+    {
+      "id": "FINBAND_F0.55-0.85",
+      "fin": [
+        0.55,
+        0.85
+      ],
+      "heldout": {
+        "mdd_improve_pp": -0.22911093453654718,
+        "cagr_giveback_pp": 0.29052807528302527,
+        "score": -0.3743749721780598
+      },
+      "tip": {
+        "ytd": {
+          "giveback_pp": 1.6672263035603319,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.2995633667444828,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "full_cagr": 0.1380516507602727,
+      "full_mdd": -0.21999560167234444
+    }
+  ],
+  "best": {
+    "id": "FINBAND_F0.60-0.90",
+    "fin": [
+      0.6,
+      0.9
+    ],
+    "heldout": {
+      "mdd_improve_pp": 0.050179155054153046,
+      "cagr_giveback_pp": 0.055342494560051136,
+      "score": 0.022507907774127478
+    },
+    "tip": {
+      "ytd": {
+        "giveback_pp": 0.5724702881614085,
+        "gate": "PASS"
+      },
+      "trailing_1y": {
+        "giveback_pp": 0.5902809061944847,
+        "gate": "PASS"
+      }
+    },
+    "tip_clean": true,
+    "full_cagr": 0.13917311652011,
+    "full_mdd": -0.21720270077643722
+  },
+  "verdict": "Best FIN-band `FINBAND_F0.60-0.90` held-out=+0.023 tip_clean=True. Soft-Frozen KEEP \u00b7 Class D needs ACCEPT."
+}

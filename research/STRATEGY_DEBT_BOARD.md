@@ -243,3 +243,7 @@ Human **`ACCEPT`** → `KD_OPT` (`FIN_PRE_EXDIV_KD` / `KD_APR15_MAY15_Klt30_T15`
 
 Human confirm: **維持 KD_OPT + 月結觀察；大勝 → clip 或新機制 ballot；不再金融 sleeve 微調**. Live `KD_OPT` HOLD · Soft-Frozen KEEP · autumn/dual STOP. Note: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`.
 
+## 「大勝」ballots OPEN (2026-09-09)
+
+Human **「請把每個都做」**. Opened Soft-Frozen clip observe/flip ballots + E45 stitch cutover ballot. 500M evidence: TEL floors no lift; FIN-band ~+0.02 only; A05 tip-clean for stitch candidate. Soft-Frozen KEEP · no live wire this PR. Pack: `BIG_WIN_BALLOTS_OPEN.md`.
+
