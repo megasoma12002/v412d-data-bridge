@@ -1,0 +1,156 @@
+{
+  "generated_at_utc": "2026-09-09T09:37:32.465258+00:00",
+  "label": "FIN_POST_EXDIV_AUTUMN_PROBE",
+  "status": "PAPER_PROBE",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "live_kd_opt_unchanged": true,
+  "season": {
+    "start": [
+      10,
+      20
+    ],
+    "end": [
+      12,
+      10
+    ]
+  },
+  "kd": "Yahoo K9/D9",
+  "local_low_post_ex": {
+    "baseline_share_autumn_in_post_window": 0.3393548387096774,
+    "n_events": 62,
+    "by_kind": {
+      "close": {
+        "n": 62,
+        "share_in_autumn_Oct20_Dec10": 0.25806451612903225,
+        "lift_vs_baseline": 0.7604562737642585,
+        "median_dist_to_low": 31.5,
+        "by_code": {
+          "2880": 0.25,
+          "2886": 0.1875,
+          "2892": 0.375,
+          "5880": 0.21428571428571427
+        },
+        "by_month": {
+          "1": 4,
+          "8": 20,
+          "9": 7,
+          "10": 13,
+          "11": 8,
+          "12": 10
+        }
+      },
+      "low": {
+        "n": 62,
+        "share_in_autumn_Oct20_Dec10": 0.3064516129032258,
+        "lift_vs_baseline": 0.903041825095057,
+        "median_dist_to_low": 30.0,
+        "by_code": {
+          "2880": 0.25,
+          "2886": 0.375,
+          "2892": 0.3125,
+          "5880": 0.2857142857142857
+        },
+        "by_month": {
+          "1": 4,
+          "8": 22,
+          "9": 8,
+          "10": 12,
+          "11": 8,
+          "12": 8
+        }
+      }
+    }
+  },
+  "autumn_kd": {
+    "Klt20": {
+      "thresh": 20.0,
+      "hold_days": 40,
+      "n_hits": 43,
+      "n_eligible_events": 62,
+      "hit_rate": 0.6935483870967742,
+      "med_ret_hold": 0.028481012658227778,
+      "med_rnd_ret": 0.019607843137255054,
+      "edge_vs_random_pp": 0.8873169520972723,
+      "share_near_season_low": 0.627906976744186,
+      "by_code": {
+        "2880": {
+          "n": 11,
+          "med_ret": 0.05362776025236582
+        },
+        "2886": {
+          "n": 11,
+          "med_ret": 0.035196687370600444
+        },
+        "2892": {
+          "n": 11,
+          "med_ret": 0.03327495621716281
+        },
+        "5880": {
+          "n": 10,
+          "med_ret": 0.025264432267108394
+        }
+      }
+    },
+    "Klt25": {
+      "thresh": 25.0,
+      "hold_days": 40,
+      "n_hits": 47,
+      "n_eligible_events": 62,
+      "hit_rate": 0.7580645161290323,
+      "med_ret_hold": 0.022687609075043635,
+      "med_rnd_ret": 0.013661202185792254,
+      "edge_vs_random_pp": 0.9026406889251382,
+      "share_near_season_low": 0.6382978723404256,
+      "by_code": {
+        "2880": {
+          "n": 13,
+          "med_ret": 0.025236593059936974
+        },
+        "2886": {
+          "n": 11,
+          "med_ret": 0.035196687370600444
+        },
+        "2892": {
+          "n": 11,
+          "med_ret": 0.022687609075043635
+        },
+        "5880": {
+          "n": 12,
+          "med_ret": 0.017545787545787617
+        }
+      }
+    },
+    "Klt30": {
+      "thresh": 30.0,
+      "hold_days": 40,
+      "n_hits": 52,
+      "n_eligible_events": 62,
+      "hit_rate": 0.8387096774193549,
+      "med_ret_hold": 0.023962101067490305,
+      "med_rnd_ret": 0.013413057530704542,
+      "edge_vs_random_pp": 1.0549043536785763,
+      "share_near_season_low": 0.5769230769230769,
+      "by_code": {
+        "2880": {
+          "n": 14,
+          "med_ret": 0.022882226148736806
+        },
+        "2886": {
+          "n": 13,
+          "med_ret": 0.039094650205761194
+        },
+        "2892": {
+          "n": 13,
+          "med_ret": 0.029906542056074903
+        },
+        "5880": {
+          "n": 12,
+          "med_ret": 0.017545787545787617
+        }
+      }
+    }
+  },
+  "primary_observe": "Klt25",
+  "verdict": "Post-ex local-low autumn share (close)=0.25806451612903225; primary Klt25 med hold ret=0.022687609075043635 edge_pp=0.9026406889251382. Soft-Frozen KEEP \u00b7 live KD_OPT untouched \u00b7 no cutover."
+}
