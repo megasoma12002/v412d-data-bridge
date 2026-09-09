@@ -147,9 +147,10 @@ def main() -> int:
             {"name": r["name"], "ok": r["ok"], "returncode": r["returncode"]} for r in results
         ],
         "cutover_note": (
-            f"Paper/ops cadence only. Soft-Frozen {CLIP_TXT} unchanged. "
-            "FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated; "
-            "BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-α=0.25 observe is paper-only (parallel sleeve); E45 blend-α=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY α=0.10 observe is paper-only (parallel sleeve); E45 M2 BIL_FX C35 relocate observe is paper-only (parallel sleeve; stitch still forbidden); FIN within-sleeve FIN_RS_SOFT_TILT_EXDIV dual-paper observe is paper-only (live e21 FIN equal-split untouched)."
+            f"Paper/ops cadence only. Soft-Frozen live clip {CLIP_TXT} (FINBAND). "
+            "Live stack: Soft-Frozen FINBAND + KD_OPT + E45 BLEND_E45_A05 stitch (forward-only). "
+            "FIN50 remains NOT_READY_SEALED_CAGR; L4 / BLEND_025 cutover still human-PR gated. "
+            "Paper observe sleeves (E45 FULL/A25/A05/FIN_A10/C35, FIN within-sleeve quartet) remain paper monitors beside live."
         ),
     }
 

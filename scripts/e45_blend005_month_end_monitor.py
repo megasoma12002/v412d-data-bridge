@@ -22,6 +22,7 @@ import pandas as pd
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from research_metric_helpers import abs_mdd, mdd_delta_pp
 from e45_paper_harness import WINDOWS_STANDARD
 
@@ -260,7 +261,7 @@ def main() -> None:
         f"- `stitch_blocked`: **{summary['stitch_blocked']}** (always on observe sleeve)",
         f"- `cutover_blocked`: **{summary['cutover_blocked']}**",
         f"- `stitch_authorized`: **{summary['stitch_authorized']}**",
-        "- Soft-Frozen live clip stays **[0.50, 0.95]** — this monitor never flips it.",
+        f"- Soft-Frozen live clip stays **[{SOFT_FROZEN_FIN_CLIP[0]:.2f}, {SOFT_FROZEN_FIN_CLIP[1]:.2f}]** — this monitor never flips it.",
         "- Live DEFAULT books stay **`E22_v2s_tw`**.",
         "",
         "## Ops note",

@@ -1,6 +1,6 @@
 # Data Source Shadow Reconcile — Phase B
 
-Generated: `2026-09-08T00:52:43.790534+00:00`
+Generated: `2026-09-09T12:07:06.981594+00:00`
 Status: **OPS SHADOW** — Soft-Frozen unchanged; no ledger overwrite.
 
 - Lookback days: **40**
@@ -9,7 +9,7 @@ Status: **OPS SHADOW** — Soft-Frozen unchanged; no ledger overwrite.
 
 | Check | Status | OK | Notes |
 |---|---|:---:|---|
-| `taiex` | PASS | True | repro/data-source-shadow/taiex_live_vs_yahoo.csv (ret_mae=2.489e-08, corr=1) |
+| `taiex` | PASS | True | repro/data-source-shadow/taiex_live_vs_yahoo.csv (ret_mae=2.521e-08, corr=1) |
 | `fin12_recent` | PASS | True | repro/data-source-shadow/fin_sleeve_recent_live_vs_yahoo.csv |
 | `dividend_amount` | PASS | True | repro/data-source-shadow/dividend_amount_live_vs_yahoo.csv (flagged=0/114, max|rel|=6.978e-06) |
 

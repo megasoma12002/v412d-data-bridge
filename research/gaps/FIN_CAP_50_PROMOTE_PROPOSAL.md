@@ -1,6 +1,6 @@
 # FIN_CAP_50 Promote Proposal — Dual Paper Ledgers
 
-Generated: `2026-09-08T00:52:13.233709+00:00`
+Generated: `2026-09-09T12:06:31.225438+00:00`
 Status: **PROPOSAL ONLY** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`).
 
 ## Why this exists
@@ -18,14 +18,14 @@ without flipping live clips.
 
 | Book | Window | CAGR | MDD | Fin mean | Fin max | Exact T+1 |
 |---|---|---:|---:|---:|---:|---|
-| BASE_E16 | full | 13.78% | -22.39% | 79.9% | 91.9% | True |
-| BASE_E16 | oof_2011_2018 | 9.46% | -16.49% | 80.3% | 91.1% | True |
-| BASE_E16 | heldout_2019_plus | 17.72% | -22.39% | 79.5% | 91.9% | True |
-| FIN_CAP_50 | full | 13.07% | -19.24% | 50.0% | 50.0% | True |
-| FIN_CAP_50 | oof_2011_2018 | 8.85% | -12.58% | 50.0% | 50.0% | True |
-| FIN_CAP_50 | heldout_2019_plus | 17.00% | -19.24% | 50.0% | 50.0% | True |
+| BASE_E16 | full | 13.97% | -22.39% | 79.8% | 89.4% | True |
+| BASE_E16 | oof_2011_2018 | 8.98% | -17.57% | 80.3% | 88.8% | True |
+| BASE_E16 | heldout_2019_plus | 18.47% | -22.39% | 79.4% | 89.4% | True |
+| FIN_CAP_50 | full | 12.85% | -19.58% | 50.0% | 50.0% | True |
+| FIN_CAP_50 | oof_2011_2018 | 8.49% | -12.84% | 50.0% | 50.0% | True |
+| FIN_CAP_50 | heldout_2019_plus | 16.88% | -19.58% | 50.0% | 50.0% | True |
 
-Held-out vs BASE: MDD improve **3.15 pp**; CAGR giveback **0.71 pp**.
+Held-out vs BASE: MDD improve **2.81 pp**; CAGR giveback **1.59 pp**.
 
 ## Cutover checklist (future human PR only)
 
