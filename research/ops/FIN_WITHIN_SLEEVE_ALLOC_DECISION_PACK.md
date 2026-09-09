@@ -50,12 +50,12 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | KD optimize | **`KD_OPT`** held **~+0.65** · tip YTD/1y **PASS** | **OPTIMAL_SELECTED_OBSERVE** |
 | Live cutover | **`KD_OPT`** → `e21` | **ACCEPTED 2026-09-09** |
 | Autumn post-ex probe | held **+0.422** · tip **PASS** · < live KD_OPT | **PAPER_PROBE** · no live wire |
+| Autumn optimize + dual-season | best held **+0.428** · dual **+0.621** · vs KD Δ**−0.026** | **STOP** — no tip/held-out lift |
 
 ## Still required later
 
 | Ballot | Effect |
 |---|---|
-| Autumn optimize / dual-season mix (optional) | Only if human opens; **not** live cutover from this probe |
 | Further FIN within-sleeve live change | Needs new ACCEPT (live already `KD_OPT`) |
 
 ## Non-ballots
@@ -68,4 +68,4 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | Mix / RS live wire | **NOT** selected this cycle |
 | E45 stitch on this line | **FORBIDDEN** |
 | EQUAL×KD_OPT mix | Paper only — not live |
-| Autumn `FIN_POST_EXDIV_KD` | Paper only — **does not** replace live KD_OPT |
+| Autumn `FIN_POST_EXDIV_KD` / dual-season | **STOP** — no further expansion; live KD_OPT unchanged |
