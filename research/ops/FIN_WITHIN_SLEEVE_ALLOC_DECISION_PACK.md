@@ -13,7 +13,7 @@ Cutover: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` · checklist **ACCEPTED*
 Portfolio: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (**KEEP** FIN quartet · archive other research lines)  
 Pre-exdiv KD probe: `FIN_PRE_EXDIV_KD_PROBE.md` (**PAPER_PROBE** · Yahoo K9/D9)  
 KD NAV / optimize: `FIN_PRE_EXDIV_KD_NAV.md` · `FIN_PRE_EXDIV_KD_OPTIMIZE.md` (**optimal `KD_APR15_MAY15_Klt30_T15`** → observe **`KD_OPT`** → **live**)  
-Post-exdiv autumn probe: `FIN_POST_EXDIV_AUTUMN_PROBE.md` · NAV `FIN_POST_EXDIV_AUTUMN_NAV.md` (**PAPER only** · live KD_OPT untouched)  
+Post-exdiv autumn: `FIN_POST_EXDIV_AUTUMN_PROBE.md` · NAV · `FIN_POST_EXDIV_AUTUMN_OPTIMIZE.md` · dual `FIN_KD_AUTUMN_DUAL_SEASON.md` (**STOP** · no lift vs KD_OPT)  
 Objective scan: `FIN_OBJECTIVE_REGULARITY.md`
 EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 
@@ -50,12 +50,12 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | KD optimize | **`KD_OPT`** held **~+0.65** · tip YTD/1y **PASS** | **OPTIMAL_SELECTED_OBSERVE** |
 | Live cutover | **`KD_OPT`** → `e21` | **ACCEPTED 2026-09-09** |
 | Autumn post-ex probe | held **+0.422** · tip **PASS** · < live KD_OPT | **PAPER_PROBE** · no live wire |
+| Autumn optimize + dual-season | best held **+0.428** · dual **+0.621** · vs KD Δ**−0.026** | **STOP** — no tip/held-out lift |
 
 ## Still required later
 
 | Ballot | Effect |
 |---|---|
-| Autumn optimize / dual-season mix (optional) | Only if human opens; **not** live cutover from this probe |
 | Further FIN within-sleeve live change | Needs new ACCEPT (live already `KD_OPT`) |
 
 ## Non-ballots
@@ -68,4 +68,4 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | Mix / RS live wire | **NOT** selected this cycle |
 | E45 stitch on this line | **FORBIDDEN** |
 | EQUAL×KD_OPT mix | Paper only — not live |
-| Autumn `FIN_POST_EXDIV_KD` | Paper only — **does not** replace live KD_OPT |
+| Autumn `FIN_POST_EXDIV_KD` / dual-season | **STOP** — no further expansion; live KD_OPT unchanged |
