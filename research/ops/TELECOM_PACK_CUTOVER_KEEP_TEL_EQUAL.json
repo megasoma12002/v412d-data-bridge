@@ -1,0 +1,8 @@
+{
+  "label": "TELECOM_PACK_CUTOVER_KEEP_TEL_EQUAL",
+  "status": "EXECUTED",
+  "date": "2026-09-09",
+  "human_ballot": "KEEP live TEL_EQUAL",
+  "live_telecom": "TEL_EQUAL",
+  "live_wire": false
+}
