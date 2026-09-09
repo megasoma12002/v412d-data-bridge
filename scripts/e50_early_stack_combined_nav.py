@@ -35,6 +35,12 @@ from within_sleeve_alloc import (
     TEL_TOP1,
     TEL_TOP2_EQUAL,
     TEL_ALLOC_POLICIES,
+    TEL_MIX_EQUAL_PRE_EXDIV_KD,
+    TEL_MIX_EQUAL_RS_EXDIV,
+    TEL_EXDIV_SKIP_BUY,
+    TEL_RS_SOFT_TILT,
+    TEL_RS_SOFT_TILT_EXDIV,
+    TEL_PRE_EXDIV_KD,
     allocate_sleeve_orders,
     build_name_scores,
 )
@@ -108,7 +114,9 @@ def simulate_core(
     fin_name_scores: pd.DataFrame | None = None,
     tel_name_scores: pd.DataFrame | None = None,
     fin_buy_ok: pd.DataFrame | None = None,
+    tel_buy_ok: pd.DataFrame | None = None,
     fin_mix_lambda: float | None = None,
+    tel_mix_lambda: float | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
@@ -126,9 +134,8 @@ def simulate_core(
     def_code: optional synthetic/research DEF instrument code present in ``market``;
     required when schedule carries a DEF column > 0.
     financial_alloc / telecom_alloc: paper within-sleeve policies (default EQUAL).
-    fin_mix_lambda: when financial_alloc is a MIX_EQUAL_* policy, weight on EQUAL
-    in λ·EQUAL+(1−λ)·challenger (required in [0,1]). Challenger is RS_EXDIV or
-    PRE_EXDIV_KD depending on policy id.
+    fin_mix_lambda / tel_mix_lambda: when *_alloc is a MIX_EQUAL_* policy, weight on
+    EQUAL in λ·EQUAL+(1−λ)·challenger (required in [0,1]).
     Live e21 unchanged until dedicated cutover ACCEPT.
     """
     if financial_alloc not in FIN_ALLOC_POLICIES:
@@ -140,6 +147,11 @@ def simulate_core(
             raise ValueError("fin_mix_lambda must be in [0,1]")
     if telecom_alloc not in TEL_ALLOC_POLICIES:
         raise ValueError(f"telecom_alloc must be one of {TEL_ALLOC_POLICIES}")
+    if telecom_alloc in (TEL_MIX_EQUAL_RS_EXDIV, TEL_MIX_EQUAL_PRE_EXDIV_KD):
+        if tel_mix_lambda is None:
+            raise ValueError(f"tel_mix_lambda required for {telecom_alloc}")
+        if not (0.0 <= float(tel_mix_lambda) <= 1.0):
+            raise ValueError("tel_mix_lambda must be in [0,1]")
     if e22_version is None:
         if apply_stock_div is False:
             e22_version = e22div.E22_V2
@@ -362,6 +374,13 @@ def simulate_core(
                 for c in TEL
                 if c in tel_name_scores.columns and pd.notna(tel_name_scores.loc[dt, c])
             }
+        tel_buy_ok_today = None
+        if tel_buy_ok is not None and dt in tel_buy_ok.index:
+            tel_buy_ok_today = {
+                c: bool(tel_buy_ok.loc[dt, c])
+                for c in TEL
+                if c in tel_buy_ok.columns
+            }
         for sleeve_name, codes in sleeve_codes:
             if sleeve_name == "Financial" and financial_alloc != FIN_EQUAL:
                 dollars = float(sleeve_trade[sleeve_name]) * nav
@@ -390,7 +409,16 @@ def simulate_core(
                 continue
             if sleeve_name == "Telecom" and telecom_alloc != TEL_EQUAL:
                 dollars = float(sleeve_trade[sleeve_name]) * nav
-                if abs(dollars) >= 1e-9 or telecom_alloc in ("TEL_TOP1", "TEL_TOP2_EQUAL"):
+                if abs(dollars) >= 1e-9 or telecom_alloc in (
+                    "TEL_TOP1",
+                    "TEL_TOP2_EQUAL",
+                    TEL_MIX_EQUAL_RS_EXDIV,
+                    TEL_MIX_EQUAL_PRE_EXDIV_KD,
+                    TEL_RS_SOFT_TILT,
+                    TEL_EXDIV_SKIP_BUY,
+                    TEL_RS_SOFT_TILT_EXDIV,
+                    TEL_PRE_EXDIV_KD,
+                ):
                     for c, side, qty in allocate_sleeve_orders(
                         dollars,
                         {x: float(cl[x]) for x in TEL},
@@ -399,6 +427,8 @@ def simulate_core(
                         codes=TEL,
                         lot_size=lot_size,
                         scores=tel_scores_today,
+                        buy_ok=tel_buy_ok_today,
+                        mix_lambda=tel_mix_lambda,
                     ):
                         if qty < 1:
                             continue

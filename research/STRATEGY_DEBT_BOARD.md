@@ -270,3 +270,7 @@ Human **「請重跑數據」**. `LIVE_STACK_RERUN.md` CURRENT_LIVE (FINBAND+KD)
 ## Post-rollback improve status (2026-09-09)
 
 Human **「請重跑數據看改善狀態」**. Status **IMPROVED**: vs RETIRED_FINBAND_A05 held-out lift **+0.70**, tip restored ALERT→PASS. Pack: `LIVE_STACK_IMPROVE_STATUS.md`.
+
+## Telecom async split research (2026-09-09)
+
+Human **「電信三檔也做跟金融股一樣拆開的研究」**. FIN-parallel Stage D (RS/EXDIV/MIX) + summer PRE_EXDIV_KD grid @ 500M with live FIN KD_OPT held. **STOP** — no positive held-out / 0 coexist. Live **TEL_EQUAL KEEP**. Pack: `TELECOM_WITHIN_SLEEVE_ASYNC_DECISION_PACK.md`.

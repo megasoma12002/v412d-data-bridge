@@ -70,6 +70,12 @@ TEL_SCORE_LOT_PACK = "TEL_SCORE_LOT_PACK"
 TEL_DIVERSIFY_PACK = "TEL_DIVERSIFY_PACK"
 TEL_TOP1 = "TEL_TOP1"
 TEL_TOP2_EQUAL = "TEL_TOP2_EQUAL"
+TEL_RS_SOFT_TILT = "TEL_RS_SOFT_TILT"
+TEL_EXDIV_SKIP_BUY = "TEL_EXDIV_SKIP_BUY"
+TEL_RS_SOFT_TILT_EXDIV = "TEL_RS_SOFT_TILT_EXDIV"
+TEL_MIX_EQUAL_RS_EXDIV = "TEL_MIX_EQUAL_RS_EXDIV"
+TEL_PRE_EXDIV_KD = "TEL_PRE_EXDIV_KD"
+TEL_MIX_EQUAL_PRE_EXDIV_KD = "TEL_MIX_EQUAL_PRE_EXDIV_KD"
 TEL_ALLOC_POLICIES = (
     TEL_EQUAL,
     TEL_MIN_LOT_PACK,
@@ -77,6 +83,12 @@ TEL_ALLOC_POLICIES = (
     TEL_DIVERSIFY_PACK,
     TEL_TOP1,
     TEL_TOP2_EQUAL,
+    TEL_RS_SOFT_TILT,
+    TEL_EXDIV_SKIP_BUY,
+    TEL_RS_SOFT_TILT_EXDIV,
+    TEL_MIX_EQUAL_RS_EXDIV,
+    TEL_PRE_EXDIV_KD,
+    TEL_MIX_EQUAL_PRE_EXDIV_KD,
 )
 
 
@@ -98,9 +110,14 @@ def policy_kind(policy_id: str) -> str:
     if (
         policy_id.endswith("_MIX_EQUAL_PRE_EXDIV_KD")
         or policy_id == FIN_MIX_EQUAL_PRE_EXDIV_KD
+        or policy_id == TEL_MIX_EQUAL_PRE_EXDIV_KD
     ):
         return POLICY_MIX_EQUAL_PRE_EXDIV_KD
-    if policy_id.endswith("_PRE_EXDIV_KD") or policy_id == FIN_PRE_EXDIV_KD:
+    if (
+        policy_id.endswith("_PRE_EXDIV_KD")
+        or policy_id == FIN_PRE_EXDIV_KD
+        or policy_id == TEL_PRE_EXDIV_KD
+    ):
         return POLICY_PRE_EXDIV_KD
     if policy_id.endswith("_POST_EXDIV_KD") or policy_id == FIN_POST_EXDIV_KD:
         return POLICY_POST_EXDIV_KD
@@ -791,6 +808,12 @@ __all__ = [
     "TEL_DIVERSIFY_PACK",
     "TEL_TOP1",
     "TEL_TOP2_EQUAL",
+    "TEL_RS_SOFT_TILT",
+    "TEL_EXDIV_SKIP_BUY",
+    "TEL_RS_SOFT_TILT_EXDIV",
+    "TEL_MIX_EQUAL_RS_EXDIV",
+    "TEL_PRE_EXDIV_KD",
+    "TEL_MIX_EQUAL_PRE_EXDIV_KD",
     "TEL_ALLOC_POLICIES",
     "policy_kind",
     "held_board_qty",

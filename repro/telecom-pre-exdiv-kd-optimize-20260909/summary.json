@@ -1,0 +1,1420 @@
+{
+  "generated_at_utc": "2026-09-09T13:39:45.660707+00:00",
+  "label": "TELECOM_PRE_EXDIV_KD_OPTIMIZE",
+  "live_wire": false,
+  "soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
+  "financial_held_at": "FIN_PRE_EXDIV_KD / KD_OPT",
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "grid": {
+    "seasons": [
+      "JUN",
+      "JUN15_JUL31",
+      "JUL",
+      "JUL15_AUG15",
+      "JUN_AUG",
+      "MAY15_AUG15"
+    ],
+    "k_thresh": [
+      20.0,
+      25.0,
+      30.0
+    ],
+    "pre_days": [
+      5,
+      10,
+      15
+    ],
+    "n": 54
+  },
+  "selection_rule": "max_heldout_only",
+  "best": {
+    "id": "TEL_KD_MAY15_AUG15_Klt25_T10",
+    "season": "MAY15_AUG15",
+    "season_start": [
+      5,
+      15
+    ],
+    "season_end": [
+      8,
+      15
+    ],
+    "k_thresh": 25.0,
+    "pre_days": 10,
+    "heldout_score": -0.37634689280927613,
+    "mdd_improve_pp": -0.20087428917836547,
+    "cagr_giveback_pp": 0.3509452072618213,
+    "tip_ytd": "PASS",
+    "tip_1y": "PASS",
+    "tip_clean": true,
+    "no_pause": true,
+    "n_fills": 5565,
+    "coexist": false
+  },
+  "n_coexist": 0,
+  "n_no_pause_pos": 0,
+  "top5_heldout": [
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt25_T10",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": -0.37634689280927613,
+      "mdd_improve_pp": -0.20087428917836547,
+      "cagr_giveback_pp": 0.3509452072618213,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5565,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt20_T10",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": -0.38990803728043977,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3666283377956825,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5544,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_Klt20_T10",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": -0.39123170801247387,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3692756792597507,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5543,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_Klt25_T10",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": -0.39123170801247387,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3692756792597507,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5543,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_AUG_Klt20_T10",
+      "season": "JUN_AUG",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        8,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": -0.39123170801247387,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3692756792597507,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5543,
+      "coexist": false
+    }
+  ],
+  "all_rows": [
+    {
+      "id": "TEL_KD_JUN_Klt20_T5",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": -0.49263065128566375,
+      "mdd_improve_pp": -0.2756527845760859,
+      "cagr_giveback_pp": 0.4339557334191557,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5587,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_Klt20_T10",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": -0.39123170801247387,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3692756792597507,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5543,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_Klt20_T15",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": -0.4450798966740943,
+      "mdd_improve_pp": -0.26637553580560747,
+      "cagr_giveback_pp": 0.3574087217369737,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5606,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_Klt25_T5",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": -0.4932077854956862,
+      "mdd_improve_pp": -0.27350720107102156,
+      "cagr_giveback_pp": 0.43940116884932934,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5602,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_Klt25_T10",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": -0.39123170801247387,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3692756792597507,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5543,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_Klt25_T15",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": -0.4450798966740943,
+      "mdd_improve_pp": -0.26637553580560747,
+      "cagr_giveback_pp": 0.3574087217369737,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5606,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_Klt30_T5",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": -0.4955564698466475,
+      "mdd_improve_pp": -0.27350720107102156,
+      "cagr_giveback_pp": 0.44409853755125184,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5601,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_Klt30_T10",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": -0.3940445897969824,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3749014428287678,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5544,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_Klt30_T15",
+      "season": "JUN",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        6,
+        30
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": -0.4478855236432766,
+      "mdd_improve_pp": -0.26637553580560747,
+      "cagr_giveback_pp": 0.3630199756753383,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5606,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN15_JUL31_Klt20_T5",
+      "season": "JUN15_JUL31",
+      "season_start": [
+        6,
+        15
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": -0.45923585569056513,
+      "mdd_improve_pp": -0.2525588248363575,
+      "cagr_giveback_pp": 0.41335406170841527,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5599,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN15_JUL31_Klt20_T10",
+      "season": "JUN15_JUL31",
+      "season_start": [
+        6,
+        15
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": -0.4226674448421397,
+      "mdd_improve_pp": -0.23314486182973715,
+      "cagr_giveback_pp": 0.3790451660248051,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5592,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN15_JUL31_Klt20_T15",
+      "season": "JUN15_JUL31",
+      "season_start": [
+        6,
+        15
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": -0.4443384149561025,
+      "mdd_improve_pp": -0.2492605246862012,
+      "cagr_giveback_pp": 0.3901557805398026,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5577,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN15_JUL31_Klt25_T5",
+      "season": "JUN15_JUL31",
+      "season_start": [
+        6,
+        15
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": -0.4616637436818505,
+      "mdd_improve_pp": -0.2554557456029172,
+      "cagr_giveback_pp": 0.4124159961578666,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5590,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN15_JUL31_Klt25_T10",
+      "season": "JUN15_JUL31",
+      "season_start": [
+        6,
+        15
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": -0.4226674448421397,
+      "mdd_improve_pp": -0.23314486182973715,
+      "cagr_giveback_pp": 0.3790451660248051,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5592,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN15_JUL31_Klt25_T15",
+      "season": "JUN15_JUL31",
+      "season_start": [
+        6,
+        15
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": -0.4443384149561025,
+      "mdd_improve_pp": -0.2492605246862012,
+      "cagr_giveback_pp": 0.3901557805398026,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5577,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN15_JUL31_Klt30_T5",
+      "season": "JUN15_JUL31",
+      "season_start": [
+        6,
+        15
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": -0.449994419866917,
+      "mdd_improve_pp": -0.23745850420325842,
+      "cagr_giveback_pp": 0.4250718313273172,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5579,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN15_JUL31_Klt30_T10",
+      "season": "JUN15_JUL31",
+      "season_start": [
+        6,
+        15
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": -0.4049415240479415,
+      "mdd_improve_pp": -0.22242452427619908,
+      "cagr_giveback_pp": 0.3650339995434848,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5565,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN15_JUL31_Klt30_T15",
+      "season": "JUN15_JUL31",
+      "season_start": [
+        6,
+        15
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": -0.4443384149561025,
+      "mdd_improve_pp": -0.2492605246862012,
+      "cagr_giveback_pp": 0.3901557805398026,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5577,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL_Klt20_T5",
+      "season": "JUL",
+      "season_start": [
+        7,
+        1
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": -0.5379576080003834,
+      "mdd_improve_pp": -0.3695189084614192,
+      "cagr_giveback_pp": 0.33687739907792835,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5519,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL_Klt20_T10",
+      "season": "JUL",
+      "season_start": [
+        7,
+        1
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": -0.5093414427166043,
+      "mdd_improve_pp": -0.34055293143896437,
+      "cagr_giveback_pp": 0.3375770225552799,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5535,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL_Klt20_T15",
+      "season": "JUL",
+      "season_start": [
+        7,
+        1
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": -0.4557712405816261,
+      "mdd_improve_pp": -0.2747552587922808,
+      "cagr_giveback_pp": 0.3620319635786906,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5519,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL_Klt25_T5",
+      "season": "JUL",
+      "season_start": [
+        7,
+        1
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": -0.5379576080003834,
+      "mdd_improve_pp": -0.3695189084614192,
+      "cagr_giveback_pp": 0.33687739907792835,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5519,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL_Klt25_T10",
+      "season": "JUL",
+      "season_start": [
+        7,
+        1
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": -0.5093414427166043,
+      "mdd_improve_pp": -0.34055293143896437,
+      "cagr_giveback_pp": 0.3375770225552799,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5535,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL_Klt25_T15",
+      "season": "JUL",
+      "season_start": [
+        7,
+        1
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": -0.4557712405816261,
+      "mdd_improve_pp": -0.2747552587922808,
+      "cagr_giveback_pp": 0.3620319635786906,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5519,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL_Klt30_T5",
+      "season": "JUL",
+      "season_start": [
+        7,
+        1
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": -0.5183628254325168,
+      "mdd_improve_pp": -0.34713107597440507,
+      "cagr_giveback_pp": 0.3424634989162234,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5524,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL_Klt30_T10",
+      "season": "JUL",
+      "season_start": [
+        7,
+        1
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": -0.5100475574614016,
+      "mdd_improve_pp": -0.3648719306328374,
+      "cagr_giveback_pp": 0.29035125365712844,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5519,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL_Klt30_T15",
+      "season": "JUL",
+      "season_start": [
+        7,
+        1
+      ],
+      "season_end": [
+        7,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": -0.4840583354100758,
+      "mdd_improve_pp": -0.3134748519679542,
+      "cagr_giveback_pp": 0.3411669668842432,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5524,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL15_AUG15_Klt20_T5",
+      "season": "JUL15_AUG15",
+      "season_start": [
+        7,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": -0.7024377885438304,
+      "mdd_improve_pp": -0.4873070310416727,
+      "cagr_giveback_pp": 0.4302615150043154,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5572,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL15_AUG15_Klt20_T10",
+      "season": "JUL15_AUG15",
+      "season_start": [
+        7,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": -0.6523509944288186,
+      "mdd_improve_pp": -0.4143236247125426,
+      "cagr_giveback_pp": 0.47605473943255205,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5594,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL15_AUG15_Klt20_T15",
+      "season": "JUL15_AUG15",
+      "season_start": [
+        7,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": -0.6989645814868162,
+      "mdd_improve_pp": -0.4898505589715385,
+      "cagr_giveback_pp": 0.41822804503055533,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5586,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL15_AUG15_Klt25_T5",
+      "season": "JUL15_AUG15",
+      "season_start": [
+        7,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": -0.6946880848059944,
+      "mdd_improve_pp": -0.4873070310416727,
+      "cagr_giveback_pp": 0.4147621075286434,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5582,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL15_AUG15_Klt25_T10",
+      "season": "JUL15_AUG15",
+      "season_start": [
+        7,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": -0.6376233930637465,
+      "mdd_improve_pp": -0.4143236247125426,
+      "cagr_giveback_pp": 0.4465995367024078,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5616,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL15_AUG15_Klt25_T15",
+      "season": "JUL15_AUG15",
+      "season_start": [
+        7,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": -0.6844119848069874,
+      "mdd_improve_pp": -0.4898505589715385,
+      "cagr_giveback_pp": 0.3891228516708978,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5602,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL15_AUG15_Klt30_T5",
+      "season": "JUL15_AUG15",
+      "season_start": [
+        7,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": -0.709999043833065,
+      "mdd_improve_pp": -0.4953270208276406,
+      "cagr_giveback_pp": 0.42934404601084886,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5580,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL15_AUG15_Klt30_T10",
+      "season": "JUL15_AUG15",
+      "season_start": [
+        7,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": -0.6763330965428249,
+      "mdd_improve_pp": -0.45598732782508034,
+      "cagr_giveback_pp": 0.44069153743548917,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5579,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUL15_AUG15_Klt30_T15",
+      "season": "JUL15_AUG15",
+      "season_start": [
+        7,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": -0.716760157490004,
+      "mdd_improve_pp": -0.4968555591444934,
+      "cagr_giveback_pp": 0.43980919669102114,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5552,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_AUG_Klt20_T5",
+      "season": "JUN_AUG",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        8,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": -0.49263065128566375,
+      "mdd_improve_pp": -0.2756527845760859,
+      "cagr_giveback_pp": 0.4339557334191557,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5587,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_AUG_Klt20_T10",
+      "season": "JUN_AUG",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        8,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": -0.39123170801247387,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3692756792597507,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5543,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_AUG_Klt20_T15",
+      "season": "JUN_AUG",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        8,
+        31
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": -0.4450798966740943,
+      "mdd_improve_pp": -0.26637553580560747,
+      "cagr_giveback_pp": 0.3574087217369737,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5606,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_AUG_Klt25_T5",
+      "season": "JUN_AUG",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        8,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": -0.4932077854956862,
+      "mdd_improve_pp": -0.27350720107102156,
+      "cagr_giveback_pp": 0.43940116884932934,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5602,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_AUG_Klt25_T10",
+      "season": "JUN_AUG",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        8,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": -0.39123170801247387,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3692756792597507,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5543,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_AUG_Klt25_T15",
+      "season": "JUN_AUG",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        8,
+        31
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": -0.4450798966740943,
+      "mdd_improve_pp": -0.26637553580560747,
+      "cagr_giveback_pp": 0.3574087217369737,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5606,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_AUG_Klt30_T5",
+      "season": "JUN_AUG",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        8,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": -0.4955564698466475,
+      "mdd_improve_pp": -0.27350720107102156,
+      "cagr_giveback_pp": 0.44409853755125184,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5601,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_AUG_Klt30_T10",
+      "season": "JUN_AUG",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        8,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": -0.3940445897969824,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3749014428287678,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5544,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_JUN_AUG_Klt30_T15",
+      "season": "JUN_AUG",
+      "season_start": [
+        6,
+        1
+      ],
+      "season_end": [
+        8,
+        31
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": -0.4478855236432766,
+      "mdd_improve_pp": -0.26637553580560747,
+      "cagr_giveback_pp": 0.3630199756753383,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5606,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt20_T5",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 5,
+      "heldout_score": -0.48895066249512453,
+      "mdd_improve_pp": -0.27350720107102156,
+      "cagr_giveback_pp": 0.43088692284820596,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5591,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt20_T10",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 10,
+      "heldout_score": -0.38990803728043977,
+      "mdd_improve_pp": -0.20659386838259852,
+      "cagr_giveback_pp": 0.3666283377956825,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5544,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt20_T15",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 20.0,
+      "pre_days": 15,
+      "heldout_score": -0.4438261313859937,
+      "mdd_improve_pp": -0.26637553580560747,
+      "cagr_giveback_pp": 0.35490119116077246,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5614,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt25_T5",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 5,
+      "heldout_score": -0.5009816371018272,
+      "mdd_improve_pp": -0.2872880145390999,
+      "cagr_giveback_pp": 0.42738724512545456,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5606,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt25_T10",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 10,
+      "heldout_score": -0.37634689280927613,
+      "mdd_improve_pp": -0.20087428917836547,
+      "cagr_giveback_pp": 0.3509452072618213,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5565,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt25_T15",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 25.0,
+      "pre_days": 15,
+      "heldout_score": -0.42900168707870057,
+      "mdd_improve_pp": -0.24493808411059081,
+      "cagr_giveback_pp": 0.3681272059362195,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5569,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt30_T5",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 5,
+      "heldout_score": -0.43484035671874643,
+      "mdd_improve_pp": -0.22673593526066904,
+      "cagr_giveback_pp": 0.4162088429161548,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5611,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt30_T10",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 10,
+      "heldout_score": -0.40144566662709824,
+      "mdd_improve_pp": -0.21554004620357725,
+      "cagr_giveback_pp": 0.371811240847042,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5562,
+      "coexist": false
+    },
+    {
+      "id": "TEL_KD_MAY15_AUG15_Klt30_T15",
+      "season": "MAY15_AUG15",
+      "season_start": [
+        5,
+        15
+      ],
+      "season_end": [
+        8,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "heldout_score": -0.41382139361346715,
+      "mdd_improve_pp": -0.22317148202296577,
+      "cagr_giveback_pp": 0.38129982318100275,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "no_pause": true,
+      "n_fills": 5581,
+      "coexist": false
+    }
+  ]
+}
