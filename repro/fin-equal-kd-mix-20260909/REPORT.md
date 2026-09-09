@@ -19,7 +19,11 @@ Coexist rule: held-out score > 0 **and** tip YTD+1y both PASS (giveback ≤ 3pp)
 
 ## Verdict
 
-Coexist candidate KD_OPT (λ=0.00): held-out +0.647 and tip YTD/1y PASS. Soft-Frozen KEEP · no live wire.
+Coexist candidate `KD_OPT` (λ=0.00): held-out +0.647 and tip YTD/1y PASS. Soft-Frozen KEEP · no live wire.
+
+**Reading:** EQUAL×KD λ-grid **interpolates** — all mid-λ tip PASS + held>0, but **none beat pure `KD_OPT` on held-out**. Mixing EQUAL only softens KD (smaller MDD lift, smaller tip giveback at high λ). Does **not** create a new Pareto winner vs pure KD_OPT.
+
+Compare: `MIX_L75` (EQUAL×RS) held ~+0.13 tip PASS; `KD_MIX_L75` held ~+0.15 tip PASS — similar “soft” mix tier; pure KD still dominates held-out among tip-clean books.
 
 ## Hard rules
 
