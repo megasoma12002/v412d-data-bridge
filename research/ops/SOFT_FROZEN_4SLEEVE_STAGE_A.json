@@ -1,0 +1,1935 @@
+{
+  "generated_at_utc": "2026-09-09T15:10:39.545950+00:00",
+  "label": "SOFT_FROZEN_4SLEEVE_STAGE_A",
+  "status": "STOP_NO_POSITIVE_HELDOUT_VS_LIVE_PUB_KD",
+  "charter": "research/ops/SOFT_FROZEN_4SLEEVE_CHARTER.md",
+  "live_wire": false,
+  "soft_frozen_live_ssot_unchanged": true,
+  "baseline": "LIVE_PUB_KD",
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "n_challengers": 48,
+  "absolute": {
+    "LIVE_PUB_KD": {
+      "full_cagr": 0.13257429692254097,
+      "full_mdd": -0.21720270077643722,
+      "heldout_cagr": 0.16955806049418576,
+      "heldout_mdd": -0.21720270077643733
+    },
+    "SF4_CTRL_PUB_ONLY": {
+      "full_cagr": 0.1350074369058918,
+      "full_mdd": -0.2164801788390105,
+      "heldout_cagr": 0.17378211788356812,
+      "heldout_mdd": -0.2164801788390106
+    },
+    "SF4_P50-85_V0-20_F15_EQ": {
+      "full_cagr": 0.14042713137709018,
+      "full_mdd": -0.23322427912268695,
+      "heldout_cagr": 0.17729759972009562,
+      "heldout_mdd": -0.23322427912268706
+    },
+    "SF4_P50-85_V0-20_F15_KD": {
+      "full_cagr": 0.13750014055814197,
+      "full_mdd": -0.23185367003010027,
+      "heldout_cagr": 0.17222262669791477,
+      "heldout_mdd": -0.23185367003010027
+    },
+    "SF4_P50-85_V0-20_F25_EQ": {
+      "full_cagr": 0.1412813185161237,
+      "full_mdd": -0.23672251241565623,
+      "heldout_cagr": 0.1766154483145157,
+      "heldout_mdd": -0.23672251241565623
+    },
+    "SF4_P50-85_V0-20_F25_KD": {
+      "full_cagr": 0.1410267641922598,
+      "full_mdd": -0.2355476533963331,
+      "heldout_cagr": 0.17607726526310774,
+      "heldout_mdd": -0.235547653396333
+    },
+    "SF4_P50-85_V5-25_F15_EQ": {
+      "full_cagr": 0.13762997279252676,
+      "full_mdd": -0.2299388735946507,
+      "heldout_cagr": 0.17444253693034484,
+      "heldout_mdd": -0.2299388735946506
+    },
+    "SF4_P50-85_V5-25_F15_KD": {
+      "full_cagr": 0.1361973221145143,
+      "full_mdd": -0.23009824273468404,
+      "heldout_cagr": 0.1711066392014906,
+      "heldout_mdd": -0.23009824273468404
+    },
+    "SF4_P50-85_V5-25_F25_EQ": {
+      "full_cagr": 0.14107968725845366,
+      "full_mdd": -0.23929884649834587,
+      "heldout_cagr": 0.17625854453744427,
+      "heldout_mdd": -0.23929884649834576
+    },
+    "SF4_P50-85_V5-25_F25_KD": {
+      "full_cagr": 0.1388072858077556,
+      "full_mdd": -0.23827182011001247,
+      "heldout_cagr": 0.17181886146499248,
+      "heldout_mdd": -0.2382718201100127
+    },
+    "SF4_P50-85_V10-30_F15_EQ": {
+      "full_cagr": 0.13831172092085153,
+      "full_mdd": -0.23070578620289417,
+      "heldout_cagr": 0.17599428961693664,
+      "heldout_mdd": -0.23070578620289417
+    },
+    "SF4_P50-85_V10-30_F15_KD": {
+      "full_cagr": 0.136113109772108,
+      "full_mdd": -0.22876053820311926,
+      "heldout_cagr": 0.17214604046215798,
+      "heldout_mdd": -0.22876053820311926
+    },
+    "SF4_P50-85_V10-30_F25_EQ": {
+      "full_cagr": 0.14018255528503532,
+      "full_mdd": -0.23910972744651526,
+      "heldout_cagr": 0.17528338087690898,
+      "heldout_mdd": -0.23910972744651537
+    },
+    "SF4_P50-85_V10-30_F25_KD": {
+      "full_cagr": 0.1385762302940523,
+      "full_mdd": -0.23741367496994792,
+      "heldout_cagr": 0.17184514779867888,
+      "heldout_mdd": -0.23741367496994803
+    },
+    "SF4_P50-85_V0-30_F15_EQ": {
+      "full_cagr": 0.1406975681016951,
+      "full_mdd": -0.23306362688502036,
+      "heldout_cagr": 0.17784574736020753,
+      "heldout_mdd": -0.23306362688502014
+    },
+    "SF4_P50-85_V0-30_F15_KD": {
+      "full_cagr": 0.1379469473025594,
+      "full_mdd": -0.23142076639504694,
+      "heldout_cagr": 0.17287306645096545,
+      "heldout_mdd": -0.23142076639504705
+    },
+    "SF4_P50-85_V0-30_F25_EQ": {
+      "full_cagr": 0.1422236821854974,
+      "full_mdd": -0.2399073625587913,
+      "heldout_cagr": 0.17802352999934534,
+      "heldout_mdd": -0.2399073625587912
+    },
+    "SF4_P50-85_V0-30_F25_KD": {
+      "full_cagr": 0.14043381195064697,
+      "full_mdd": -0.23750108351967092,
+      "heldout_cagr": 0.17399161680343878,
+      "heldout_mdd": -0.23750108351967103
+    },
+    "SF4_P55-90_V0-20_F15_EQ": {
+      "full_cagr": 0.13975669868435192,
+      "full_mdd": -0.23280401312415566,
+      "heldout_cagr": 0.17611828656714112,
+      "heldout_mdd": -0.23280401312415588
+    },
+    "SF4_P55-90_V0-20_F15_KD": {
+      "full_cagr": 0.13726906734535138,
+      "full_mdd": -0.2324303610440932,
+      "heldout_cagr": 0.1716512696232999,
+      "heldout_mdd": -0.2324303610440931
+    },
+    "SF4_P55-90_V0-20_F25_EQ": {
+      "full_cagr": 0.1416958861161861,
+      "full_mdd": -0.23767181776158885,
+      "heldout_cagr": 0.17707633283709678,
+      "heldout_mdd": -0.23767181776158885
+    },
+    "SF4_P55-90_V0-20_F25_KD": {
+      "full_cagr": 0.14094880282090316,
+      "full_mdd": -0.23546777465145818,
+      "heldout_cagr": 0.17561176186285876,
+      "heldout_mdd": -0.23546777465145807
+    },
+    "SF4_P55-90_V5-25_F15_EQ": {
+      "full_cagr": 0.13807071108970104,
+      "full_mdd": -0.23076112097848966,
+      "heldout_cagr": 0.17537630515589564,
+      "heldout_mdd": -0.23076112097848966
+    },
+    "SF4_P55-90_V5-25_F15_KD": {
+      "full_cagr": 0.13654048769013394,
+      "full_mdd": -0.23057490665894842,
+      "heldout_cagr": 0.17169070524025587,
+      "heldout_mdd": -0.2305749066589483
+    },
+    "SF4_P55-90_V5-25_F25_EQ": {
+      "full_cagr": 0.14085571601071645,
+      "full_mdd": -0.23986637054907445,
+      "heldout_cagr": 0.17549825012814146,
+      "heldout_mdd": -0.23986637054907445
+    },
+    "SF4_P55-90_V5-25_F25_KD": {
+      "full_cagr": 0.13853703553040408,
+      "full_mdd": -0.2380960596371564,
+      "heldout_cagr": 0.1710499158041674,
+      "heldout_mdd": -0.23809605963715652
+    },
+    "SF4_P55-90_V10-30_F15_EQ": {
+      "full_cagr": 0.13886130365795712,
+      "full_mdd": -0.23184860678143326,
+      "heldout_cagr": 0.1766750696033328,
+      "heldout_mdd": -0.23184860678143326
+    },
+    "SF4_P55-90_V10-30_F15_KD": {
+      "full_cagr": 0.13619687309639228,
+      "full_mdd": -0.22979758395089878,
+      "heldout_cagr": 0.1719576143566366,
+      "heldout_mdd": -0.2297975839508989
+    },
+    "SF4_P55-90_V10-30_F25_EQ": {
+      "full_cagr": 0.13938510735021103,
+      "full_mdd": -0.23856135106895093,
+      "heldout_cagr": 0.17376337236560735,
+      "heldout_mdd": -0.23856135106895116
+    },
+    "SF4_P55-90_V10-30_F25_KD": {
+      "full_cagr": 0.13771493708938287,
+      "full_mdd": -0.23762550674900051,
+      "heldout_cagr": 0.1702517290482468,
+      "heldout_mdd": -0.23762550674900051
+    },
+    "SF4_P55-90_V0-30_F15_EQ": {
+      "full_cagr": 0.1403116600667509,
+      "full_mdd": -0.2329517889510927,
+      "heldout_cagr": 0.1771336423129859,
+      "heldout_mdd": -0.2329517889510927
+    },
+    "SF4_P55-90_V0-30_F15_KD": {
+      "full_cagr": 0.13739412530097694,
+      "full_mdd": -0.2323086892708588,
+      "heldout_cagr": 0.17186286323469124,
+      "heldout_mdd": -0.2323086892708588
+    },
+    "SF4_P55-90_V0-30_F25_EQ": {
+      "full_cagr": 0.14206126586625678,
+      "full_mdd": -0.239783363883892,
+      "heldout_cagr": 0.17731691382001769,
+      "heldout_mdd": -0.2397833638838922
+    },
+    "SF4_P55-90_V0-30_F25_KD": {
+      "full_cagr": 0.1399008895547449,
+      "full_mdd": -0.23775935914603152,
+      "heldout_cagr": 0.1731095701346963,
+      "heldout_mdd": -0.23775935914603152
+    },
+    "SF4_P60-90_V0-20_F15_EQ": {
+      "full_cagr": 0.13891343244271992,
+      "full_mdd": -0.23331148020701464,
+      "heldout_cagr": 0.17492637974573277,
+      "heldout_mdd": -0.23331148020701464
+    },
+    "SF4_P60-90_V0-20_F15_KD": {
+      "full_cagr": 0.13699570854189247,
+      "full_mdd": -0.2325884287681883,
+      "heldout_cagr": 0.1712069330220929,
+      "heldout_mdd": -0.2325884287681882
+    },
+    "SF4_P60-90_V0-20_F25_EQ": {
+      "full_cagr": 0.14146139032104887,
+      "full_mdd": -0.23998008416465755,
+      "heldout_cagr": 0.1757869000605521,
+      "heldout_mdd": -0.23998008416465744
+    },
+    "SF4_P60-90_V0-20_F25_KD": {
+      "full_cagr": 0.14098749642717423,
+      "full_mdd": -0.23690907900489755,
+      "heldout_cagr": 0.1751733659670911,
+      "heldout_mdd": -0.23690907900489755
+    },
+    "SF4_P60-90_V5-25_F15_EQ": {
+      "full_cagr": 0.13825685263562404,
+      "full_mdd": -0.2328865564687035,
+      "heldout_cagr": 0.17546078928871123,
+      "heldout_mdd": -0.2328865564687036
+    },
+    "SF4_P60-90_V5-25_F15_KD": {
+      "full_cagr": 0.13610357037661824,
+      "full_mdd": -0.23145108146278615,
+      "heldout_cagr": 0.17101800970341174,
+      "heldout_mdd": -0.23145108146278615
+    },
+    "SF4_P60-90_V5-25_F25_EQ": {
+      "full_cagr": 0.14120182548358962,
+      "full_mdd": -0.24268504583028816,
+      "heldout_cagr": 0.17541697529103195,
+      "heldout_mdd": -0.24268504583028816
+    },
+    "SF4_P60-90_V5-25_F25_KD": {
+      "full_cagr": 0.13979442228822192,
+      "full_mdd": -0.23896836617742934,
+      "heldout_cagr": 0.17232236073606844,
+      "heldout_mdd": -0.23896836617742934
+    },
+    "SF4_P60-90_V10-30_F15_EQ": {
+      "full_cagr": 0.13894583782121805,
+      "full_mdd": -0.23593650758566298,
+      "heldout_cagr": 0.1762220220442341,
+      "heldout_mdd": -0.23593650758566298
+    },
+    "SF4_P60-90_V10-30_F15_KD": {
+      "full_cagr": 0.1363003661091553,
+      "full_mdd": -0.23426798481082067,
+      "heldout_cagr": 0.17130687733558636,
+      "heldout_mdd": -0.23426798481082056
+    },
+    "SF4_P60-90_V10-30_F25_EQ": {
+      "full_cagr": 0.14052762173132094,
+      "full_mdd": -0.24412183566131274,
+      "heldout_cagr": 0.1740725629733635,
+      "heldout_mdd": -0.24412183566131274
+    },
+    "SF4_P60-90_V10-30_F25_KD": {
+      "full_cagr": 0.1399294718397348,
+      "full_mdd": -0.24125537156655708,
+      "heldout_cagr": 0.17236337296505289,
+      "heldout_mdd": -0.24125537156655708
+    },
+    "SF4_P60-90_V0-30_F15_EQ": {
+      "full_cagr": 0.13948697032430935,
+      "full_mdd": -0.23367094935458543,
+      "heldout_cagr": 0.17593797069656936,
+      "heldout_mdd": -0.23367094935458543
+    },
+    "SF4_P60-90_V0-30_F15_KD": {
+      "full_cagr": 0.13727452878859792,
+      "full_mdd": -0.23256396687328817,
+      "heldout_cagr": 0.17151188528285677,
+      "heldout_mdd": -0.23256396687328829
+    },
+    "SF4_P60-90_V0-30_F25_EQ": {
+      "full_cagr": 0.14342644973372698,
+      "full_mdd": -0.2434390694594828,
+      "heldout_cagr": 0.17868992247513704,
+      "heldout_mdd": -0.2434390694594828
+    },
+    "SF4_P60-90_V0-30_F25_KD": {
+      "full_cagr": 0.14182798761758875,
+      "full_mdd": -0.2394645616872212,
+      "heldout_cagr": 0.1754193492448095,
+      "heldout_mdd": -0.23946456168722108
+    }
+  },
+  "ranked_vs_live_pub_kd": [
+    {
+      "id": "SF4_CTRL_PUB_ONLY",
+      "heldout_score": -0.13895067572644582,
+      "mdd_improve_pp": 0.07225219374267233,
+      "cagr_giveback_pp": -0.4224057389382363,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 1.1882064589958996,
+      "tip_pub_names": 4,
+      "tip_priv_names": 0,
+      "mean_weights": {
+        "FinPub": 0.7960573601130221,
+        "FinPriv": 0.0,
+        "Telecom": 0.12154739477672574,
+        "0050": 0.08239524511025212
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.0
+        ],
+        "prior_priv_frac": 0.0,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 5993,
+      "is_control": true,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V10-30_F15_KD",
+      "heldout_score": -1.2851827410668037,
+      "mdd_improve_pp": -1.1557837426681927,
+      "cagr_giveback_pp": -0.25879799679722204,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.8788209113989716,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6697413586285548,
+        "FinPriv": 0.1329153968466195,
+        "Telecom": 0.11734063933291378,
+        "0050": 0.0800026051919119
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 11240,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V5-25_F15_KD",
+      "heldout_score": -1.3669831311899139,
+      "mdd_improve_pp": -1.2895541958246715,
+      "cagr_giveback_pp": -0.15485787073048485,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.6387683159298847,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.676634192313706,
+        "FinPriv": 0.12166414278070807,
+        "Telecom": 0.11961146052503924,
+        "0050": 0.08209020438054682
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 12278,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V10-30_F15_KD",
+      "heldout_score": -1.3794660105686973,
+      "mdd_improve_pp": -1.2594883174461557,
+      "cagr_giveback_pp": -0.23995538624508317,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.917569909651996,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6733201654403251,
+        "FinPriv": 0.13256023385669805,
+        "Telecom": 0.1153532243758055,
+        "0050": 0.07876637632717137
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 10970,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V5-25_F15_KD",
+      "heldout_score": -1.4438528255546035,
+      "mdd_improve_pp": -1.337220588251098,
+      "cagr_giveback_pp": -0.21326447460701115,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.719837984159257,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6790156237259032,
+        "FinPriv": 0.12105273513325708,
+        "Telecom": 0.11867372078932467,
+        "0050": 0.08125792035151512
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 12072,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V5-25_F15_KD",
+      "heldout_score": -1.497835529096181,
+      "mdd_improve_pp": -1.4248380686348816,
+      "cagr_giveback_pp": -0.14599492092259858,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.200032193038982,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6850145474124897,
+        "FinPriv": 0.12001806072644144,
+        "Telecom": 0.11529897805400274,
+        "0050": 0.07966841380706614
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 11571,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V5-25_F15_EQ",
+      "heldout_score": -1.5178411036292805,
+      "mdd_improve_pp": -1.2736172818213265,
+      "cagr_giveback_pp": -0.488447643615908,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.347680381863615,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.676634192313706,
+        "FinPriv": 0.12166414278070807,
+        "Telecom": 0.11961146052503924,
+        "0050": 0.08209020438054682
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 12487,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V0-30_F15_KD",
+      "heldout_score": -1.5875568596999567,
+      "mdd_improve_pp": -1.421806561860972,
+      "cagr_giveback_pp": -0.3315005956779693,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.196121218707503,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6793589796747507,
+        "FinPriv": 0.11749502813955146,
+        "Telecom": 0.12051077538985241,
+        "0050": 0.08263521679584553
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 12609,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V0-20_F15_KD",
+      "heldout_score": -1.5983252355527444,
+      "mdd_improve_pp": -1.4650969253662938,
+      "cagr_giveback_pp": -0.2664566203729013,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.329828546229773,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6798920233436352,
+        "FinPriv": 0.11680034962726815,
+        "Telecom": 0.12058019936369485,
+        "0050": 0.08272742766540175
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 12463,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V0-20_F15_KD",
+      "heldout_score": -1.621016425570443,
+      "mdd_improve_pp": -1.5385727991750864,
+      "cagr_giveback_pp": -0.16488725279071303,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.119753783576451,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6870095371469755,
+        "FinPriv": 0.1145412789069541,
+        "Telecom": 0.11750550032961773,
+        "0050": 0.0809436836164527
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 11801,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V0-30_F15_KD",
+      "heldout_score": -1.6258389864674205,
+      "mdd_improve_pp": -1.5105988494421463,
+      "cagr_giveback_pp": -0.2304802740505485,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.6317689665277366,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6812891818122655,
+        "FinPriv": 0.1167381947839365,
+        "Telecom": 0.12000473264770344,
+        "0050": 0.08196789075609458
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 12430,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V0-20_F15_KD",
+      "heldout_score": -1.6274264832212837,
+      "mdd_improve_pp": -1.5227660267655763,
+      "cagr_giveback_pp": -0.20932091291141486,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.656691647348308,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6817874376239733,
+        "FinPriv": 0.11603235659145601,
+        "Telecom": 0.12004320943284903,
+        "0050": 0.08213699635172167
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 12262,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V0-30_F15_KD",
+      "heldout_score": -1.6338178491186461,
+      "mdd_improve_pp": -1.5361266096850956,
+      "cagr_giveback_pp": -0.19538247886710103,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.99346667741216,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6865385972402117,
+        "FinPriv": 0.11523790247108125,
+        "Telecom": 0.11745914375274272,
+        "0050": 0.08076435653596432
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 12028,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V5-25_F15_EQ",
+      "heldout_score": -1.6467542532907276,
+      "mdd_improve_pp": -1.3558420202052335,
+      "cagr_giveback_pp": -0.5818244661709882,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.28192001256331,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6790156237259032,
+        "FinPriv": 0.12105273513325708,
+        "Telecom": 0.11867372078932467,
+        "0050": 0.08125792035151512
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 12304,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V10-30_F15_EQ",
+      "heldout_score": -1.672119998783228,
+      "mdd_improve_pp": -1.350308542645684,
+      "cagr_giveback_pp": -0.643622912275088,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.351910987256811,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6697413586285548,
+        "FinPriv": 0.1329153968466195,
+        "Telecom": 0.11734063933291378,
+        "0050": 0.0800026051919119
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 11427,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V10-30_F15_KD",
+      "heldout_score": -1.7939692455083533,
+      "mdd_improve_pp": -1.7065284034383232,
+      "cagr_giveback_pp": -0.17488168414006022,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.1946909705574456,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6815692588112273,
+        "FinPriv": 0.1328960117644032,
+        "Telecom": 0.10838926321585632,
+        "0050": 0.0771454662085131
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 10233,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V10-30_F15_EQ",
+      "heldout_score": -1.820441055956945,
+      "mdd_improve_pp": -1.4645906004995934,
+      "cagr_giveback_pp": -0.7117009109147032,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.416446312561693,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6733201654403251,
+        "FinPriv": 0.13256023385669805,
+        "Telecom": 0.1153532243758055,
+        "0050": 0.07876637632717137
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 11196,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V5-25_F15_EQ",
+      "heldout_score": -1.8635220089529003,
+      "mdd_improve_pp": -1.5683855692266269,
+      "cagr_giveback_pp": -0.5902728794525469,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.4668208439603267,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6850145474124897,
+        "FinPriv": 0.12001806072644144,
+        "Telecom": 0.11529897805400274,
+        "0050": 0.07966841380706614
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 11844,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V0-20_F15_EQ",
+      "heldout_score": -1.8792939056350821,
+      "mdd_improve_pp": -1.6108779430577314,
+      "cagr_giveback_pp": -0.5368319251547016,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.7011144859710012,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6870095371469755,
+        "FinPriv": 0.1145412789069541,
+        "Telecom": 0.11750550032961773,
+        "0050": 0.0809436836164527
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 12406,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V0-20_F15_EQ",
+      "heldout_score": -1.8881425384196238,
+      "mdd_improve_pp": -1.5601312347718554,
+      "cagr_giveback_pp": -0.6560226072955366,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.0377818042280227,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6817874376239733,
+        "FinPriv": 0.11603235659145601,
+        "Telecom": 0.12004320943284903,
+        "0050": 0.08213699635172167
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 12672,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V0-30_F15_EQ",
+      "heldout_score": -1.9536879084055436,
+      "mdd_improve_pp": -1.5749088174655368,
+      "cagr_giveback_pp": -0.7575581818800137,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 1.9012636482961254,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6812891818122655,
+        "FinPriv": 0.1167381947839365,
+        "Telecom": 0.12000473264770344,
+        "0050": 0.08196789075609458
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 12830,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V0-30_F15_EQ",
+      "heldout_score": -1.9658203679339903,
+      "mdd_improve_pp": -1.6468248578148104,
+      "cagr_giveback_pp": -0.6379910202383599,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.440411970524181,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6865385972402117,
+        "FinPriv": 0.11523790247108125,
+        "Telecom": 0.11745914375274272,
+        "0050": 0.08076435653596432
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 12557,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V0-20_F15_EQ",
+      "heldout_score": -1.9891347959204664,
+      "mdd_improve_pp": -1.6021578346249732,
+      "cagr_giveback_pp": -0.7739539225909864,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 1.80732472919799,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6798920233436352,
+        "FinPriv": 0.11680034962726815,
+        "Telecom": 0.12058019936369485,
+        "0050": 0.08272742766540175
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 12982,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V0-30_F15_EQ",
+      "heldout_score": -2.000476954159369,
+      "mdd_improve_pp": -1.5860926108582807,
+      "cagr_giveback_pp": -0.8287686866021771,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 1.725893746259044,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6793589796747507,
+        "FinPriv": 0.11749502813955146,
+        "Telecom": 0.12051077538985241,
+        "0050": 0.08263521679584553
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 13094,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V10-30_F25_KD",
+      "heldout_score": -2.0769640249593713,
+      "mdd_improve_pp": -2.0422805972563185,
+      "cagr_giveback_pp": -0.06936685540610554,
+      "tip_ytd": "PASS",
+      "tip_1y": "ALERT",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": 3.9779842689231293,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6099683627627457,
+        "FinPriv": 0.19533641349163217,
+        "Telecom": 0.11521599532177418,
+        "0050": 0.07947922842384798
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 11544,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V0-20_F25_KD",
+      "heldout_score": -2.1291924559357245,
+      "mdd_improve_pp": -1.8265073875020743,
+      "cagr_giveback_pp": -0.6053701368673003,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.395656164238247,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6267064692907613,
+        "FinPriv": 0.16959268829581492,
+        "Telecom": 0.11966002661031089,
+        "0050": 0.08404081580311287
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 10384,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V10-30_F25_KD",
+      "heldout_score": -2.135451784575726,
+      "mdd_improve_pp": -2.02109741935107,
+      "cagr_giveback_pp": -0.22870873044931184,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.64032347865213,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6028378977167524,
+        "FinPriv": 0.19691260493292032,
+        "Telecom": 0.11889610204504254,
+        "0050": 0.08135339530528476
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 11876,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V0-20_F25_KD",
+      "heldout_score": -2.160455500435665,
+      "mdd_improve_pp": -1.834495261989566,
+      "cagr_giveback_pp": -0.6519204768921982,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.209731694724981,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6204477570888155,
+        "FinPriv": 0.171919483264794,
+        "Telecom": 0.12238544254123856,
+        "0050": 0.08524731710515192
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 10685,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V5-25_F25_KD",
+      "heldout_score": -2.163928651571001,
+      "mdd_improve_pp": -2.089335886071919,
+      "cagr_giveback_pp": -0.14918553099816378,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.6494679552865894,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6134094796864399,
+        "FinPriv": 0.1881680497306518,
+        "Telecom": 0.11716397168450891,
+        "0050": 0.08125849889839946
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 11147,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V10-30_F15_EQ",
+      "heldout_score": -2.206578758424982,
+      "mdd_improve_pp": -1.873380680922565,
+      "cagr_giveback_pp": -0.6663961550048336,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.9415055334253593,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6815692588112273,
+        "FinPriv": 0.1328960117644032,
+        "Telecom": 0.10838926321585632,
+        "0050": 0.0771454662085131
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.15,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 10466,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V5-25_F25_KD",
+      "heldout_score": -2.219951981897872,
+      "mdd_improve_pp": -2.106911933357536,
+      "cagr_giveback_pp": -0.226080097080672,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.49070082461288,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6068437437355907,
+        "FinPriv": 0.1904130581783973,
+        "Telecom": 0.1200970071793855,
+        "0050": 0.0826461909066265
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 11515,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V0-30_F25_KD",
+      "heldout_score": -2.2332413189849465,
+      "mdd_improve_pp": -2.0556658369594194,
+      "cagr_giveback_pp": -0.3551509640510542,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.7238625949289506,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6104157572961683,
+        "FinPriv": 0.19192250353703275,
+        "Telecom": 0.11684980758900011,
+        "0050": 0.0808119315777989
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 11892,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V0-20_F25_KD",
+      "heldout_score": -2.251403096491289,
+      "mdd_improve_pp": -1.970637822846022,
+      "cagr_giveback_pp": -0.5615305472905341,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.3955058077918876,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6400424015281775,
+        "FinPriv": 0.16509443706334334,
+        "Telecom": 0.11372389985085733,
+        "0050": 0.08113926155762183
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 9589,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V0-30_F25_KD",
+      "heldout_score": -2.251516089786021,
+      "mdd_improve_pp": -2.02983827432337,
+      "cagr_giveback_pp": -0.4433556309253017,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.28164595424415,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.603894747972823,
+        "FinPriv": 0.19441000560108004,
+        "Telecom": 0.1196618301566872,
+        "0050": 0.08203341626940977
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 12237,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V0-20_F25_EQ",
+      "heldout_score": -2.304850554938387,
+      "mdd_improve_pp": -1.9519811639218898,
+      "cagr_giveback_pp": -0.7057387820329941,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 1.9447326474034465,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6204477570888155,
+        "FinPriv": 0.171919483264794,
+        "Telecom": 0.12238544254123856,
+        "0050": 0.08524731710515192
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 10923,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V5-25_F25_KD",
+      "heldout_score": -2.3147815521933346,
+      "mdd_improve_pp": -2.1765665400992007,
+      "cagr_giveback_pp": -0.2764300241882678,
+      "tip_ytd": "ALERT",
+      "tip_1y": "ALERT",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": 4.3747325593667785,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6286087336408548,
+        "FinPriv": 0.18261661138031632,
+        "Telecom": 0.11100798217185669,
+        "0050": 0.07776667280697216
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 10410,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V10-30_F25_EQ",
+      "heldout_score": -2.346130622822462,
+      "mdd_improve_pp": -2.1358650292513826,
+      "cagr_giveback_pp": -0.4205311871421591,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.9794967126299263,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6099683627627457,
+        "FinPriv": 0.19533641349163217,
+        "Telecom": 0.11521599532177418,
+        "0050": 0.07947922842384798
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 11846,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V0-20_F25_EQ",
+      "heldout_score": -2.422825315660704,
+      "mdd_improve_pp": -2.0469116985151525,
+      "cagr_giveback_pp": -0.7518272342911025,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.336448536054081,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6267064692907613,
+        "FinPriv": 0.16959268829581492,
+        "Telecom": 0.11966002661031089,
+        "0050": 0.08404081580311287
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 10589,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V10-30_F25_EQ",
+      "heldout_score": -2.4769686861439655,
+      "mdd_improve_pp": -2.1907026670078045,
+      "cagr_giveback_pp": -0.572532038272322,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.093361695759511,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6028378977167524,
+        "FinPriv": 0.19691260493292032,
+        "Telecom": 0.11889610204504254,
+        "0050": 0.08135339530528476
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 12313,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V0-30_F25_KD",
+      "heldout_score": -2.5192505286095623,
+      "mdd_improve_pp": -2.226186091078375,
+      "cagr_giveback_pp": -0.586128875062375,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 4.295541398886649,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6258637775517786,
+        "FinPriv": 0.18608862719187835,
+        "Telecom": 0.11069778923074867,
+        "0050": 0.07734980602559449
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 10967,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V5-25_F25_EQ",
+      "heldout_score": -2.544638774353769,
+      "mdd_improve_pp": -2.2096145721908433,
+      "cagr_giveback_pp": -0.6700484043258514,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.9845895134804956,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.6068437437355907,
+        "FinPriv": 0.1904130581783973,
+        "Telecom": 0.1200970071793855,
+        "0050": 0.0826461909066265
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 11957,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V10-30_F25_KD",
+      "heldout_score": -2.545532702555331,
+      "mdd_improve_pp": -2.4052670790119746,
+      "cagr_giveback_pp": -0.28053124708671273,
+      "tip_ytd": "ALERT",
+      "tip_1y": "ALERT",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": 4.443893123175902,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6259546218404823,
+        "FinPriv": 0.19064689239614102,
+        "Telecom": 0.10721156245083756,
+        "0050": 0.07618692331253908
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_PRE_EXDIV_KD"
+      },
+      "n_fills": 10430,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V5-25_F25_EQ",
+      "heldout_score": -2.563376458961497,
+      "mdd_improve_pp": -2.266366977263712,
+      "cagr_giveback_pp": -0.5940189633955706,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.583990922968039,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6134094796864399,
+        "FinPriv": 0.1881680497306518,
+        "Telecom": 0.11716397168450891,
+        "0050": 0.08125849889839946
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 11440,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V0-20_F25_EQ",
+      "heldout_score": -2.589180317140327,
+      "mdd_improve_pp": -2.2777383388220107,
+      "cagr_giveback_pp": -0.6228839566366329,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.375428746582243,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6400424015281775,
+        "FinPriv": 0.16509443706334334,
+        "Telecom": 0.11372389985085733,
+        "0050": 0.08113926155762183
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.2
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 9903,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P55-90_V0-30_F25_EQ",
+      "heldout_score": -2.6460089770370843,
+      "mdd_improve_pp": -2.258066310745488,
+      "cagr_giveback_pp": -0.7758853325831927,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 3.562382571640832,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6104157572961683,
+        "FinPriv": 0.19192250353703275,
+        "Telecom": 0.11684980758900011,
+        "0050": 0.0808119315777989
+      },
+      "clips": {
+        "fin_pub": [
+          0.55,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 12379,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P50-85_V0-30_F25_EQ",
+      "heldout_score": -2.6937396534933655,
+      "mdd_improve_pp": -2.2704661782353863,
+      "cagr_giveback_pp": -0.8465469505159584,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 2.768147672488741,
+      "tip_pub_names": 4,
+      "tip_priv_names": 4,
+      "mean_weights": {
+        "FinPub": 0.603894747972823,
+        "FinPriv": 0.19441000560108004,
+        "Telecom": 0.1196618301566872,
+        "0050": 0.08203341626940977
+      },
+      "clips": {
+        "fin_pub": [
+          0.5,
+          0.85
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 12719,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V5-25_F25_EQ",
+      "heldout_score": -2.8411802452273927,
+      "mdd_improve_pp": -2.548234505385083,
+      "cagr_giveback_pp": -0.5858914796846193,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 4.675076793029587,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6286087336408548,
+        "FinPriv": 0.18261661138031632,
+        "Telecom": 0.11100798217185669,
+        "0050": 0.07776667280697216
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.05,
+          0.25
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 10851,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V10-30_F25_EQ",
+      "heldout_score": -2.917638612446427,
+      "mdd_improve_pp": -2.6919134884875406,
+      "cagr_giveback_pp": -0.4514502479177729,
+      "tip_ytd": "ALERT",
+      "tip_1y": "ALERT",
+      "tip_clean": false,
+      "sealed_score_REPORT_ONLY": 4.395336493794332,
+      "tip_pub_names": 4,
+      "tip_priv_names": 6,
+      "mean_weights": {
+        "FinPub": 0.6259546218404823,
+        "FinPriv": 0.19064689239614102,
+        "Telecom": 0.10721156245083756,
+        "0050": 0.07618692331253908
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.1,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 10718,
+      "is_control": false,
+      "coexist": false
+    },
+    {
+      "id": "SF4_P60-90_V0-30_F25_EQ",
+      "heldout_score": -3.0802299673521105,
+      "mdd_improve_pp": -2.6236368683045463,
+      "cagr_giveback_pp": -0.9131861980951284,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_clean": true,
+      "sealed_score_REPORT_ONLY": 4.1301169758944045,
+      "tip_pub_names": 4,
+      "tip_priv_names": 5,
+      "mean_weights": {
+        "FinPub": 0.6258637775517786,
+        "FinPriv": 0.18608862719187835,
+        "Telecom": 0.11069778923074867,
+        "0050": 0.07734980602559449
+      },
+      "clips": {
+        "fin_pub": [
+          0.6,
+          0.9
+        ],
+        "fin_priv": [
+          0.0,
+          0.3
+        ],
+        "prior_priv_frac": 0.25,
+        "priv_policy": "FIN_EQUAL"
+      },
+      "n_fills": 11456,
+      "is_control": false,
+      "coexist": false
+    }
+  ],
+  "coexist_ids": [],
+  "best_non_control": "SF4_P50-85_V10-30_F15_KD"
+}

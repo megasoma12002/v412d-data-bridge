@@ -123,6 +123,10 @@ def simulate_core(
     fin_dual_priv_codes: list[str] | tuple[str, ...] | None = None,
     fin_dual_pub_policy: str = FIN_PRE_EXDIV_KD,
     fin_dual_priv_policy: str = FIN_EQUAL,
+    fin_pub_codes: list[str] | tuple[str, ...] | None = None,
+    fin_priv_codes: list[str] | tuple[str, ...] | None = None,
+    fin_pub_alloc: str | None = None,
+    fin_priv_alloc: str | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
@@ -135,7 +139,8 @@ def simulate_core(
     cost_multiple: scale BUY_FEE/SELL_FEE/SLIP/TAX_* for this run only (no module
     monkeypatch). e45_sleeve_names: if set, scale only those sleeves by exposure.
     sleeve_weight_schedule: optional daily Soft-Frozen sleeve targets with columns
-    Financial/Telecom/0050 and optional DEF (paper M2 relocate / true-DEF v1).
+    Financial/Telecom/0050 and optional DEF (paper M2 relocate / true-DEF v1),
+    or FinPub/FinPriv/Telecom/0050 for Soft-Frozen 4-sleeve paper.
     When present for a date, it overrides e45_exposure / legacy crisis scale.
     def_code: optional synthetic/research DEF instrument code present in ``market``;
     required when schedule carries a DEF column > 0.
@@ -144,6 +149,8 @@ def simulate_core(
     EQUAL in λ·EQUAL+(1−λ)·challenger (required in [0,1]).
     For FIN_DUAL_PUB_PRIV, fin_mix_lambda is 金融公 share of Financial dollars;
     fin_dual_* codes/policies nest within-group alloc.
+    For FinPub/FinPriv schedule: fin_pub_codes / fin_priv_codes required;
+    fin_pub_alloc defaults to financial_alloc; fin_priv_alloc defaults to FIN_EQUAL.
     Live e21 unchanged until dedicated cutover ACCEPT.
     """
     if financial_alloc not in FIN_ALLOC_POLICIES:
@@ -163,6 +170,14 @@ def simulate_core(
             raise ValueError(f"tel_mix_lambda required for {telecom_alloc}")
         if not (0.0 <= float(tel_mix_lambda) <= 1.0):
             raise ValueError("tel_mix_lambda must be in [0,1]")
+    pub_codes = list(fin_pub_codes) if fin_pub_codes is not None else None
+    priv_codes = list(fin_priv_codes) if fin_priv_codes is not None else None
+    pub_alloc = str(fin_pub_alloc or financial_alloc)
+    priv_alloc = str(fin_priv_alloc or FIN_EQUAL)
+    if pub_alloc not in FIN_ALLOC_POLICIES:
+        raise ValueError(f"fin_pub_alloc must be one of {FIN_ALLOC_POLICIES}")
+    if priv_alloc not in FIN_ALLOC_POLICIES:
+        raise ValueError(f"fin_priv_alloc must be one of {FIN_ALLOC_POLICIES}")
     if e22_version is None:
         if apply_stock_div is False:
             e22_version = e22div.E22_V2
@@ -311,48 +326,93 @@ def simulate_core(
 
         # 4) Target weights (E16) × optional named E45 exposure (or legacy Crisis proxy)
         tw = target.loc[dt]
-        sleeve_w = {
-            "Financial": float(tw["Financial"]),
-            "Telecom": float(tw["Telecom"]),
-            "0050": float(tw["0050"]),
-        }
+        four_sleeve = "FinPub" in getattr(tw, "index", [])
+        if four_sleeve:
+            if pub_codes is None or priv_codes is None:
+                raise ValueError("FinPub target requires fin_pub_codes and fin_priv_codes")
+            sleeve_w = {
+                "FinPub": float(tw["FinPub"]),
+                "FinPriv": float(tw["FinPriv"]),
+                "Telecom": float(tw["Telecom"]),
+                "0050": float(tw["0050"]),
+            }
+        else:
+            sleeve_w = {
+                "Financial": float(tw["Financial"]),
+                "Telecom": float(tw["Telecom"]),
+                "0050": float(tw["0050"]),
+            }
         equity_scale = 1.0
         if sleeve_weight_schedule is not None and dt in sleeve_weight_schedule.index:
             row = sleeve_weight_schedule.loc[dt]
-            sleeve_w = {
-                "Financial": float(row["Financial"]),
-                "Telecom": float(row["Telecom"]),
-                "0050": float(row["0050"]),
-            }
-            if "DEF" in row.index:
-                sleeve_w["DEF"] = float(row["DEF"])
-            elif def_c is not None:
-                sleeve_w["DEF"] = 0.0
+            if "FinPub" in row.index and "FinPriv" in row.index:
+                if pub_codes is None or priv_codes is None:
+                    raise ValueError("FinPub/FinPriv schedule requires fin_pub_codes and fin_priv_codes")
+                four_sleeve = True
+                sleeve_w = {
+                    "FinPub": float(row["FinPub"]),
+                    "FinPriv": float(row["FinPriv"]),
+                    "Telecom": float(row["Telecom"]),
+                    "0050": float(row["0050"]),
+                }
+            else:
+                four_sleeve = False
+                sleeve_w = {
+                    "Financial": float(row["Financial"]),
+                    "Telecom": float(row["Telecom"]),
+                    "0050": float(row["0050"]),
+                }
+                if "DEF" in row.index:
+                    sleeve_w["DEF"] = float(row["DEF"])
+                elif def_c is not None:
+                    sleeve_w["DEF"] = 0.0
             equity_scale = float(sum(sleeve_w.values()))
             if sleeve_w.get("DEF", 0.0) > 0 and def_c is None:
                 raise ValueError("schedule has DEF>0 but def_code was not provided")
         elif e45_exposure is not None and dt in e45_exposure.index:
+            if four_sleeve:
+                raise ValueError("e45_exposure not supported with FinPub/FinPriv target")
             equity_scale = float(e45_exposure.loc[dt])
             sleeve_w = e45.apply_exposure_to_sleeve_weights(
                 sleeve_w, equity_scale, sleeve_names=e45_sleeve_names
             )
         elif e45_legacy_crisis_scale is not None and rg == "Crisis":
+            if four_sleeve:
+                raise ValueError("e45_legacy_crisis_scale not supported with FinPub/FinPriv target")
             equity_scale = float(e45_legacy_crisis_scale)
             sleeve_w = e45.apply_exposure_to_sleeve_weights(
                 sleeve_w, equity_scale, sleeve_names=e45_sleeve_names
             )
 
-        sleeve_vals = {
-            "Financial": sum(vals[c] for c in FIN),
-            "Telecom": sum(vals[c] for c in TEL),
-            "0050": vals["0050"],
-        }
-        if def_c is not None:
-            sleeve_vals["DEF"] = float(vals.get(def_c, 0.0))
-            sleeve_w.setdefault("DEF", 0.0)
+        if four_sleeve:
+            sleeve_vals = {
+                "FinPub": sum(vals[c] for c in pub_codes),
+                "FinPriv": sum(vals[c] for c in priv_codes),
+                "Telecom": sum(vals[c] for c in TEL),
+                "0050": vals["0050"],
+            }
+            sleeve_names = ["FinPub", "FinPriv", "Telecom", "0050"]
+            sleeve_codes = [
+                ("FinPub", pub_codes),
+                ("FinPriv", priv_codes),
+                ("Telecom", TEL),
+                ("0050", ["0050"]),
+            ]
+        else:
+            sleeve_vals = {
+                "Financial": sum(vals[c] for c in FIN),
+                "Telecom": sum(vals[c] for c in TEL),
+                "0050": vals["0050"],
+            }
+            if def_c is not None:
+                sleeve_vals["DEF"] = float(vals.get(def_c, 0.0))
+                sleeve_w.setdefault("DEF", 0.0)
+            sleeve_names = ["Financial", "Telecom", "0050"] + (["DEF"] if def_c is not None else [])
+            sleeve_codes = [("Financial", FIN), ("Telecom", TEL), ("0050", ["0050"])]
+            if def_c is not None:
+                sleeve_codes.append(("DEF", [def_c]))
         pre = {k: (v / nav if nav > 0 else 0.0) for k, v in sleeve_vals.items()}
         gap = {k: float(sleeve_w.get(k, 0.0)) - pre[k] for k in pre}
-        sleeve_names = ["Financial", "Telecom", "0050"] + (["DEF"] if def_c is not None else [])
         trade = np.zeros(len(sleeve_names))
         if max(abs(v) for v in gap.values()) >= 0.015:
             trade = np.array([gap[n] for n in sleeve_names]) * 0.75
@@ -361,9 +421,6 @@ def simulate_core(
 
         # 5) Create next-day orders (signal today → fill tomorrow open)
         sleeve_trade = dict(zip(sleeve_names, trade))
-        sleeve_codes = [("Financial", FIN), ("Telecom", TEL), ("0050", ["0050"])]
-        if def_c is not None:
-            sleeve_codes.append(("DEF", [def_c]))
         fin_scores_today = None
         if fin_name_scores is not None and dt in fin_name_scores.index:
             fin_scores_today = {
@@ -393,6 +450,58 @@ def simulate_core(
                 if c in tel_buy_ok.columns
             }
         for sleeve_name, codes in sleeve_codes:
+            if four_sleeve and sleeve_name in ("FinPub", "FinPriv"):
+                alloc = pub_alloc if sleeve_name == "FinPub" else priv_alloc
+                dollars = float(sleeve_trade[sleeve_name]) * nav
+                if alloc != FIN_EQUAL:
+                    if abs(dollars) >= 1e-9 or alloc in (
+                        "FIN_TOP1",
+                        "FIN_TOP2_EQUAL",
+                        FIN_MIX_EQUAL_RS_EXDIV,
+                        FIN_MIX_EQUAL_PRE_EXDIV_KD,
+                        FIN_DUAL_PUB_PRIV,
+                        FIN_PRE_EXDIV_KD,
+                    ):
+                        for c, side, qty in allocate_sleeve_orders(
+                            dollars,
+                            {x: float(cl[x]) for x in codes},
+                            pos,
+                            policy_id=alloc,
+                            codes=codes,
+                            lot_size=lot_size,
+                            scores=fin_scores_today,
+                            buy_ok=fin_buy_ok_today,
+                            mix_lambda=fin_mix_lambda,
+                            dual_pub_codes=fin_dual_pub_codes,
+                            dual_priv_codes=fin_dual_priv_codes,
+                            dual_pub_policy=fin_dual_pub_policy,
+                            dual_priv_policy=fin_dual_priv_policy,
+                        ):
+                            if qty < 1:
+                                continue
+                            pending.append(
+                                {"signal_date": dt, "code": c, "side": side, "quantity": qty}
+                            )
+                    continue
+                # EQUAL within FinPub/FinPriv
+                if not codes:
+                    continue
+                value = dollars / len(codes)
+                for c in codes:
+                    px = float(cl[c])
+                    qty = lot_qty(value, px, lot_size=lot_size)
+                    if qty < 1:
+                        continue
+                    side = "BUY" if value > 0 else "SELL"
+                    if side == "SELL":
+                        held = int(pos.get(c, 0)) if lot_size == 1 else int(pos.get(c, 0) // lot_size) * lot_size
+                        qty = min(qty, held)
+                    if qty < 1:
+                        continue
+                    pending.append(
+                        {"signal_date": dt, "code": c, "side": side, "quantity": qty}
+                    )
+                continue
             if sleeve_name == "Financial" and financial_alloc != FIN_EQUAL:
                 dollars = float(sleeve_trade[sleeve_name]) * nav
                 if abs(dollars) >= 1e-9 or financial_alloc in (
@@ -485,11 +594,17 @@ def simulate_core(
                 "dividend_credit": day_div,
                 "stock_shares_added": day_stock_shares,
                 "cil_cash_credit": day_cil,
-                "pre_financial": pre["Financial"],
+                "pre_financial": float(pre.get("Financial", pre.get("FinPub", 0.0) + pre.get("FinPriv", 0.0))),
+                "pre_fin_pub": float(pre.get("FinPub", 0.0)),
+                "pre_fin_priv": float(pre.get("FinPriv", 0.0)),
                 "pre_telecom": pre["Telecom"],
                 "pre_0050": pre["0050"],
                 "pre_def": pre.get("DEF", 0.0),
-                "tgt_financial": sleeve_w["Financial"],
+                "tgt_financial": float(
+                    sleeve_w.get("Financial", sleeve_w.get("FinPub", 0.0) + sleeve_w.get("FinPriv", 0.0))
+                ),
+                "tgt_fin_pub": float(sleeve_w.get("FinPub", 0.0)),
+                "tgt_fin_priv": float(sleeve_w.get("FinPriv", 0.0)),
                 "tgt_telecom": sleeve_w["Telecom"],
                 "tgt_0050": sleeve_w["0050"],
                 "tgt_def": float(sleeve_w.get("DEF", 0.0)),

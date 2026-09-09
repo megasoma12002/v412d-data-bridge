@@ -1,0 +1,22 @@
+{
+  "label": "SOFT_FROZEN_4SLEEVE_DECISION_2026-09-09__STAGE_A_STOP__KEEP_3SLEEVE",
+  "date": "2026-09-09",
+  "status": "STOP",
+  "stage": "A",
+  "baseline": "LIVE_PUB_KD",
+  "live_wire": false,
+  "soft_frozen_live_ssot_unchanged": true,
+  "n_challengers": 48,
+  "coexist_ids": [],
+  "best_challenger": {
+    "id": "SF4_P50-85_V10-30_F15_KD",
+    "heldout_score": -1.2854031736691686
+  },
+  "control_sf4_pub_only_heldout_score": -0.139,
+  "binding": [
+    "Keep live Soft-Frozen 3-sleeve FINBAND",
+    "No Class D 4-sleeve flip from Stage A",
+    "No live e21 universe expand",
+    "Paper 4-sleeve machinery retained"
+  ]
+}
