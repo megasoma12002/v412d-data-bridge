@@ -1,6 +1,6 @@
 # FIN_CAP_50 Promote Proposal — Dual Paper Ledgers
 
-Generated: `2026-09-09T12:06:31.225438+00:00`
+Generated: `2026-09-09T12:45:02.774197+00:00`
 Status: **PROPOSAL ONLY** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`).
 
 ## Why this exists

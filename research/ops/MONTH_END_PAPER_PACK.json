@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-09T12:07:22.412969+00:00",
+  "generated_at_utc": "2026-09-09T12:45:52.033555+00:00",
   "label": "OPS_MONTH_END_PAPER_PACK",
   "live_wire": false,
   "soft_frozen_clip": [
@@ -148,5 +148,5 @@
       "returncode": 0
     }
   ],
-  "cutover_note": "Paper/ops cadence only. Soft-Frozen live clip [0.60, 0.90] (FINBAND). Live stack: Soft-Frozen FINBAND + KD_OPT + E45 BLEND_E45_A05 stitch (forward-only). FIN50 remains NOT_READY_SEALED_CAGR; L4 / BLEND_025 cutover still human-PR gated. Paper observe sleeves (E45 FULL/A25/A05/FIN_A10/C35, FIN within-sleeve quartet) remain paper monitors beside live."
+  "cutover_note": "Paper/ops cadence only. Soft-Frozen live clip [0.60, 0.90] (FINBAND). Live stack: Soft-Frozen FINBAND + KD_OPT (E45 A05 stitch rolled back DROP_E45_A05). FIN50 remains NOT_READY_SEALED_CAGR; L4 / BLEND_025 cutover still human-PR gated. Paper observe sleeves (E45 FULL/A25/A05/FIN_A10/C35, FIN within-sleeve quartet) remain paper monitors beside live."
 }

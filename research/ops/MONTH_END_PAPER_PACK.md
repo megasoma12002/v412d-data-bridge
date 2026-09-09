@@ -1,7 +1,7 @@
 # Ops Month-End Paper Pack
 
-Generated: `2026-09-09T12:07:22.412969+00:00`
-Status: **RESEARCH / OPS** — Soft-Frozen **[0.60, 0.90] (FINBAND)** · live also **KD_OPT** + **E45 A05 stitch**; this pack is paper cadence only.
+Generated: `2026-09-09T12:45:52.033555+00:00`
+Status: **RESEARCH / OPS** — Soft-Frozen **[0.60, 0.90] unchanged**; no cutover.
 
 - Refresh ledgers: **True**
 - All steps OK: **True**
@@ -38,10 +38,9 @@ Status: **RESEARCH / OPS** — Soft-Frozen **[0.60, 0.90] (FINBAND)** · live al
 
 ## Hard rules
 
-- Soft-Frozen / E45 live changes require dedicated ACCEPT (already cast 2026-09-09)
-- Dual-paper / held-out PASS ≠ additional cutover license
+- No Soft-Frozen flip
+- Dual-paper / held-out PASS ≠ cutover license
 - Never rewrite `forward/e21` history
-- Live stack attribution: `LIVE_STACK_RERUN.md`
 
 ## Re-run
 

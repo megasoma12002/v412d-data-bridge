@@ -1,6 +1,6 @@
 # BLEND_025 Dual-Paper Observe Sleeve
 
-Generated: `2026-09-09T12:06:33.514888+00:00`
+Generated: `2026-09-09T12:45:05.030251+00:00`
 Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`).
 
 ## Locked challenger

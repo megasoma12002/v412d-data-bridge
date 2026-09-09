@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-09T12:06:32.092527+00:00",
+  "generated_at_utc": "2026-09-09T12:44:50.962965+00:00",
   "label": "LIVE_STACK_RERUN",
-  "status": "PAPER_RERUN",
+  "status": "PAPER_RERUN_POST_DROP_E45_A05",
   "capital": 500000000.0,
   "lot_size": 1000,
   "kd_opt": {
@@ -22,11 +22,12 @@
     0.6,
     0.9
   ],
+  "live_e45_stitch": false,
   "books": {
     "OLD_SF_KD": "Soft-Frozen FIN [0.50,0.95] + KD_OPT",
-    "FINBAND_KD": "Soft-Frozen FIN [0.60,0.90] + KD_OPT",
+    "CURRENT_LIVE": "Soft-Frozen FIN [0.60,0.90] + KD_OPT (current live after DROP_E45_A05)",
     "OLD_SF_KD_A05": "Soft-Frozen FIN [0.50,0.95] + KD_OPT + BLEND_E45_A05",
-    "NEW_LIVE": "Soft-Frozen FIN [0.60,0.90] + KD_OPT + BLEND_E45_A05 (current live)"
+    "RETIRED_FINBAND_A05": "Soft-Frozen FIN [0.60,0.90] + KD_OPT + BLEND_E45_A05 (pre-rollback)"
   },
   "absolute": {
     "OLD_SF_KD": {
@@ -43,7 +44,7 @@
         "max_drawdown": -0.12952390859389928
       }
     },
-    "FINBAND_KD": {
+    "CURRENT_LIVE": {
       "full": {
         "cagr": 0.13917311652011,
         "max_drawdown": -0.21720270077643722
@@ -71,7 +72,7 @@
         "max_drawdown": -0.11330224956083113
       }
     },
-    "NEW_LIVE": {
+    "RETIRED_FINBAND_A05": {
       "full": {
         "cagr": 0.1355994385056889,
         "max_drawdown": -0.22049463933814772
@@ -87,7 +88,7 @@
     }
   },
   "vs_old_sf_kd": {
-    "FINBAND_KD": {
+    "CURRENT_LIVE": {
       "heldout_2019_plus": {
         "mdd_improve_pp": 0.050179155054153046,
         "cagr_giveback_pp": 0.055342494560051136,
@@ -139,7 +140,7 @@
       "tip_clean": false,
       "n_fills": 6086
     },
-    "NEW_LIVE": {
+    "RETIRED_FINBAND_A05": {
       "heldout_2019_plus": {
         "mdd_improve_pp": -0.2790147011168753,
         "cagr_giveback_pp": 0.7995761525417366,
@@ -166,5 +167,5 @@
       "n_fills": 5770
     }
   },
-  "verdict": "NEW_LIVE (FINBAND+KD+A05) vs OLD_SF_KD held-out score=-0.679 tip_clean=False YTD=ALERT 1y=ALERT. Live Soft-Frozen=[0.6, 0.9]."
+  "verdict": "CURRENT_LIVE (FINBAND+KD, E45 OFF after DROP_E45_A05) vs OLD_SF_KD held-out score=+0.023 tip_clean=True YTD=PASS 1y=PASS. RETIRED_FINBAND_A05 held-out=-0.679 tip_clean=False. Live Soft-Frozen=[0.6, 0.9]; LIVE_E45_STITCH=False."
 }
