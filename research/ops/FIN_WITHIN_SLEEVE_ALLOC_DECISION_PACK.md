@@ -52,6 +52,10 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 |---|---|
 | **ACCEPT live FIN within-sleeve cutover** | Wire chosen policy (`MIX_L75` / `KD_OPT` / RS) into `e21` |
 
+Checklist / ballot **drafted 2026-09-09** (NOT AUTHORIZED):  
+`CUTOVER_CHECKLIST_FIN_WITHIN_SLEEVE.md` · `FIN_WITHIN_SLEEVE_CUTOVER_BALLOT_DRAFT.md`  
+(Candidates extended to include **`KD_OPT`** when that observe is on main.)
+
 ## Non-ballots
 
 | Topic | Status |

@@ -1,0 +1,27 @@
+{
+  "generated_at_utc": "2026-09-09T02:50:00+00:00",
+  "label": "FIN_WITHIN_SLEEVE_CUTOVER_CHECKLIST",
+  "status": "DRAFTED_NOT_AUTHORIZED",
+  "live_wire": false,
+  "cutover_authorized": false,
+  "soft_frozen_keep": true,
+  "default_books_keep": "E22_v2s_tw",
+  "candidates": ["MIX_L75", "KD_OPT", "FIN_RS_SOFT_TILT_EXDIV"],
+  "recommended_when_tip_pass": ["KD_OPT", "MIX_L75"],
+  "ballot_draft": "research/ops/FIN_WITHIN_SLEEVE_CUTOVER_BALLOT_DRAFT.md",
+  "checklist": "research/ops/CUTOVER_CHECKLIST_FIN_WITHIN_SLEEVE.md",
+  "accept_phrases": [
+    "ACCEPT live FIN within-sleeve cutover: MIX_L75",
+    "ACCEPT live FIN within-sleeve cutover: KD_OPT",
+    "ACCEPT live FIN within-sleeve cutover: FIN_RS_SOFT_TILT_EXDIV"
+  ],
+  "defer_phrase": "DEFER live FIN within-sleeve cutover",
+  "reject_phrase": "REJECT live FIN within-sleeve cutover",
+  "non_actions": [
+    "No Soft-Frozen flip",
+    "No E45 stitch",
+    "No Telecom within-sleeve flip",
+    "No DEFAULT books flip",
+    "No history rewrite"
+  ]
+}
