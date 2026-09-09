@@ -37,7 +37,7 @@ DIV_PATH = Path("data/dividend_events/e22_dividend_events.csv")
 
 # Live FIN within-sleeve — human ACCEPT 2026-09-09: KD_OPT cutover
 # Soft-Frozen FIN clip — Class D ACCEPT 2026-09-09: FINBAND_F0.60-0.90 → [0.60, 0.90]
-# E45 live stitch — second ACCEPT 2026-09-09: BLEND_E45_A05 (α=0.05 × E3_VOLTARGET_WINNER)
+# E45 live stitch — ROLLBACK 2026-09-09: DROP_E45_A05 (was BLEND_E45_A05; paper drag vs Soft-Frozen+KD)
 LIVE_FIN_WITHIN_SLEEVE = FIN_PRE_EXDIV_KD
 KD_OPT = {
     "id": "KD_APR15_MAY15_Klt30_T15",
@@ -47,10 +47,10 @@ KD_OPT = {
     "pre_days": 15,
     "active_score": 1.5,
 }
-LIVE_E45_STITCH = True
-LIVE_E45_BOOK = "BLEND_E45_A05"
-LIVE_E45_PROFILE = "E3_VOLTARGET_WINNER"
-LIVE_E45_BLEND_ALPHA = 0.05
+LIVE_E45_STITCH = False
+LIVE_E45_BOOK = None
+LIVE_E45_PROFILE = None
+LIVE_E45_BLEND_ALPHA = None
 
 
 def append_immutable(path, row, key):
@@ -513,7 +513,8 @@ def main():
         "soft_frozen_clip_flip": "ACCEPT_2026-09-09_FINBAND_F0.60-0.90",
         "e45_stitch": LIVE_E45_STITCH,
         "e45_book": LIVE_E45_BOOK if LIVE_E45_STITCH else None,
-        "e45_stitch_ballot": "E45_ACCEPT_LIVE_STITCH_BLEND_E45_A05_2026-09-09",
+        "e45_stitch_ballot": None,
+        "e45_stitch_rollback": "ACCEPT_2026-09-09_DROP_E45_A05",
     }
     state_path.write_text(json.dumps(state, indent=2) + "\n")
     # Hash-chain audit: each row commits to the prior row and today's immutable outputs.

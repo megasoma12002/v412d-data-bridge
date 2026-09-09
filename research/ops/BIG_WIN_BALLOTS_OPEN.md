@@ -80,3 +80,8 @@ Notes: `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` · `E45_STITCH_ACCEPTED_BLEND
 
 Paper re-run: NEW_LIVE held-out **−0.68** tip ALERT vs OLD Soft-Frozen+KD (drag = A05).  
 Open: `LIVE_STACK_ROLLBACK_BALLOT_OPEN.md` — recommend **`ACCEPT live-stack rollback: DROP_E45_A05`**.
+
+## Follow-up — rollback EXECUTED (2026-09-09)
+
+Human **`ACCEPT live-stack rollback: DROP_E45_A05`**. Live E45 stitch OFF; FINBAND + KD_OPT KEEP.  
+Note: `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md`.

@@ -1,19 +1,21 @@
 # E45 Live-Stitch Checklist (Stage 4 — PREP ONLY)
 
 Date: 2026-09-05 · refresh 2026-09-09  
-Status: **ACCEPTED — LIVE STITCHED (`BLEND_E45_A05`)**  
-Human ballot: **`E45 ACCEPT live stitch: BLEND_E45_A05`** (2026-09-09「請都做」)  
-Soft-Frozen live Financial clip: **[0.60, 0.90]** (FINBAND flip same day)  
+Status: **ROLLBACK — stitch OFF (`DROP_E45_A05`, 2026-09-09)**  
+Human ballot: **`ACCEPT live-stack rollback: DROP_E45_A05`**  
+Prior stitch ACCEPT: **`E45 ACCEPT live stitch: BLEND_E45_A05`** (2026-09-09「請都做」) — **superseded by rollback**  
+Soft-Frozen live Financial clip: **[0.60, 0.90]** (FINBAND KEEP)  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** — do not cite / invent replacement
 
-Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `HUMAN_DECISION_REGISTER.md` #6c · `E45_STITCH_ACCEPTED_BLEND_A05.md`
+Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `HUMAN_DECISION_REGISTER.md` #6c · `E45_STITCH_ACCEPTED_BLEND_A05.md` · `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md`
 
-## What stitch changed (2026-09-09)
+## What stitch changed (2026-09-09) — then rolled back same day
 
-- Attach E45 **`BLEND_E45_A05`** (`α=0.05 × E3_VOLTARGET_WINNER`) onto Soft-Frozen early-stack live path **forward-only** via `e21_forward_pipeline.py`.  
-- Soft-Frozen FIN band flipped same day to **[0.60, 0.90]** (separate Class D).  
+- Attached then **removed** E45 **`BLEND_E45_A05`** from Soft-Frozen early-stack live path (forward-only) via `e21_forward_pipeline.py`.  
+- Soft-Frozen FIN band remains **[0.60, 0.90]** (Class D KEEP under this rollback).  
 - DEFAULT books stay **`E22_v2s_tw`**.  
+- Reason: paper re-run drag (held-out −0.68 / tip ALERT) attributed to A05.  
 
 ## Gates at ACCEPT
 

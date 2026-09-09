@@ -24,7 +24,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
 | 6a | Odd-lot default → `E22_v2s_tw` | **DONE** (2026-09-05) | #73+#74 merged; live `DEFAULT_BOOKS_VERSION = E22_v2s_tw`; Soft-Frozen KEEP; forward-only |
 | 6b | Formal tax·receivable books | **ACCEPT charter** (2026-09-05) | Stage B sandbox OPEN; DEFAULT stays `E22_v2s_tw`; Soft-Frozen KEEP; promote needs later ballot |
-| 6c | E45 live stitch | **ACCEPT stitch `BLEND_E45_A05`** (2026-09-09) | Second ACCEPT cast via「請都做」; wired forward-only in `e21`; note `E45_STITCH_ACCEPTED_BLEND_A05.md` |
+| 6c | E45 live stitch | **ROLLBACK `DROP_E45_A05`** (2026-09-09) | Was ACCEPTED `BLEND_E45_A05` same day; unwired after paper drag · `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md` |
 
 ## Research portfolio (2026-09-08)
 
@@ -37,7 +37,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | 「大勝」ballots OPEN | **EXECUTED** (2026-09-09) | Clip observe OPEN + Class D FINBAND flip + E45 A05 stitch · `BIG_WIN_BALLOTS_OPEN.md` |
 | Soft-Frozen clip flip | **`FINBAND_F0.60-0.90` LIVE** | `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` |
 | 「大勝」EXECUTED data re-run | **DONE** (2026-09-09) | `LIVE_STACK_RERUN.md` + `MONTH_END_PAPER_PACK.md` (--refresh-ledgers); NEW_LIVE held-out −0.68 tip ALERT vs pre-flip Soft-Frozen+KD |
-| Live-stack rollback | **BALLOT OPEN** (2026-09-09) | A05 drag vs OLD; recommend `DROP_E45_A05` · `LIVE_STACK_ROLLBACK_BALLOT_OPEN.md` |
+| Live-stack rollback | **EXECUTED `DROP_E45_A05`** (2026-09-09) | E45 stitch OFF; FINBAND+KD_OPT KEEP · `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`
@@ -63,7 +63,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Telecom within-sleeve alloc (paper) | `TELECOM_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md` — awaiting **ACCEPT charter**; Soft-Frozen KEEP |
 | Odd-lot default | Human **ACCEPT promote** on `ODD_LOT_PROMOTE_DECISION_PACK.md` + checklist all YES + **par inventory VERIFIED** (`PAR_VALUE_LOOKUP_CHARTER.md`) |
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
-| E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; **second** human ACCEPT still required for any live stitch PR |
+| E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; live stitch **rolled back** `DROP_E45_A05` (2026-09-09); any future live stitch needs a new dedicated ACCEPT |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
