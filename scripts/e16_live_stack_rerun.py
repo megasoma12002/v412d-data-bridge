@@ -2,12 +2,12 @@
 """Re-screen current live stack vs pre-big-win Soft-Frozen+KD_OPT (paper).
 
 Books @ 500M · lot 1000 · Exact T+1 · E22_v2s_tw · FIN KD_OPT:
-  OLD_SF_KD      Soft-Frozen FIN [0.50, 0.95] · no E45
-  FINBAND_KD     Soft-Frozen FIN [0.60, 0.90] · no E45
-  OLD_SF_KD_A05  Soft-Frozen FIN [0.50, 0.95] · BLEND_E45_A05
-  NEW_LIVE       Soft-Frozen FIN [0.60, 0.90] · BLEND_E45_A05  ← current live
+  OLD_SF_KD            Soft-Frozen FIN [0.50, 0.95] · no E45
+  CURRENT_LIVE         Soft-Frozen FIN [0.60, 0.90] · no E45  ← live after DROP_E45_A05
+  OLD_SF_KD_A05        Soft-Frozen FIN [0.50, 0.95] · BLEND_E45_A05
+  RETIRED_FINBAND_A05  Soft-Frozen FIN [0.60, 0.90] · BLEND_E45_A05  (pre-rollback live)
 
-Writes research/ops/LIVE_STACK_RERUN_*.{md,json} + repro/.
+Writes research/ops/LIVE_STACK_RERUN.{md,json} + repro/.
 """
 from __future__ import annotations
 
@@ -50,6 +50,8 @@ KD_OPT = {
     "pre_days": 15,
     "active_score": 1.5,
 }
+COMPARE_LABELS = ("CURRENT_LIVE", "OLD_SF_KD_A05", "RETIRED_FINBAND_A05")
+ABS_LABELS = ("OLD_SF_KD", "CURRENT_LIVE", "OLD_SF_KD_A05", "RETIRED_FINBAND_A05")
 
 
 def tip_gate(base_nav, chal_nav, asof):
@@ -166,9 +168,9 @@ def main() -> int:
 
     books = {
         "OLD_SF_KD": run("OLD_SF_KD", make_targets(0.50, 0.95), None),
-        "FINBAND_KD": run("FINBAND_KD", make_targets(0.60, 0.90), None),
+        "CURRENT_LIVE": run("CURRENT_LIVE", make_targets(0.60, 0.90), None),
         "OLD_SF_KD_A05": run("OLD_SF_KD_A05", make_targets(0.50, 0.95), e45_blend),
-        "NEW_LIVE": run("NEW_LIVE", make_targets(0.60, 0.90), e45_blend),
+        "RETIRED_FINBAND_A05": run("RETIRED_FINBAND_A05", make_targets(0.60, 0.90), e45_blend),
     }
     base = books["OLD_SF_KD"]
     asof = pd.to_datetime(base["nav"]["date"]).max()
@@ -184,7 +186,7 @@ def main() -> int:
         }
 
     vs = {}
-    for label in ("FINBAND_KD", "OLD_SF_KD_A05", "NEW_LIVE"):
+    for label in COMPARE_LABELS:
         book = books[label]
         held = held_score(base["windows"]["heldout_2019_plus"], book["windows"]["heldout_2019_plus"])
         sealed = held_score(base["windows"]["sealed_2023_plus"], book["windows"]["sealed_2023_plus"])
@@ -198,31 +200,34 @@ def main() -> int:
         }
 
     jb = base["nav"][["date", "nav"]].rename(columns={"nav": "nav_old_sf_kd"})
-    for label in ("FINBAND_KD", "OLD_SF_KD_A05", "NEW_LIVE"):
+    for label in COMPARE_LABELS:
         jc = books[label]["nav"][["date", "nav"]].rename(columns={"nav": f"nav_{label.lower()}"})
         jb = jb.merge(jc, on="date", how="inner")
     jb.to_csv(OUT / "outputs" / "nav_compare.csv", index=False)
 
-    new = vs["NEW_LIVE"]
+    cur = vs["CURRENT_LIVE"]
+    retired = vs["RETIRED_FINBAND_A05"]
     verdict = (
-        f"NEW_LIVE (FINBAND+KD+A05) vs OLD_SF_KD held-out score={new['heldout_2019_plus']['score']:+.3f} "
-        f"tip_clean={new['tip_clean']} "
-        f"YTD={new['tip_gates']['ytd']['gate']} 1y={new['tip_gates']['trailing_1y']['gate']}. "
-        f"Live Soft-Frozen={soft.SOFT_FROZEN_FIN_CLIP}."
+        f"CURRENT_LIVE (FINBAND+KD, E45 OFF after DROP_E45_A05) vs OLD_SF_KD "
+        f"held-out score={cur['heldout_2019_plus']['score']:+.3f} tip_clean={cur['tip_clean']} "
+        f"YTD={cur['tip_gates']['ytd']['gate']} 1y={cur['tip_gates']['trailing_1y']['gate']}. "
+        f"RETIRED_FINBAND_A05 held-out={retired['heldout_2019_plus']['score']:+.3f} tip_clean={retired['tip_clean']}. "
+        f"Live Soft-Frozen={soft.SOFT_FROZEN_FIN_CLIP}; LIVE_E45_STITCH=False."
     )
     payload = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "LIVE_STACK_RERUN",
-        "status": "PAPER_RERUN",
+        "status": "PAPER_RERUN_POST_DROP_E45_A05",
         "capital": float(DEFAULT_CAPITAL),
         "lot_size": BOARD_LOT,
         "kd_opt": KD_OPT,
         "live_soft_frozen_clip": list(soft.SOFT_FROZEN_FIN_CLIP),
+        "live_e45_stitch": False,
         "books": {
             "OLD_SF_KD": "Soft-Frozen FIN [0.50,0.95] + KD_OPT",
-            "FINBAND_KD": "Soft-Frozen FIN [0.60,0.90] + KD_OPT",
+            "CURRENT_LIVE": "Soft-Frozen FIN [0.60,0.90] + KD_OPT (current live after DROP_E45_A05)",
             "OLD_SF_KD_A05": "Soft-Frozen FIN [0.50,0.95] + KD_OPT + BLEND_E45_A05",
-            "NEW_LIVE": "Soft-Frozen FIN [0.60,0.90] + KD_OPT + BLEND_E45_A05 (current live)",
+            "RETIRED_FINBAND_A05": "Soft-Frozen FIN [0.60,0.90] + KD_OPT + BLEND_E45_A05 (pre-rollback)",
         },
         "absolute": abs_rows,
         "vs_old_sf_kd": vs,
@@ -234,17 +239,17 @@ def main() -> int:
     )
 
     lines = [
-        "# Live stack paper re-run (post FINBAND + E45 A05)",
+        "# Live stack paper re-run (post DROP_E45_A05)",
         "",
         f"Generated: `{payload['generated_at_utc']}`",
-        f"Capital **{DEFAULT_CAPITAL:,.0f}** · lot **{BOARD_LOT}** · KD_OPT · Soft-Frozen live **{soft.SOFT_FROZEN_FIN_CLIP}**",
+        f"Capital **{DEFAULT_CAPITAL:,.0f}** · lot **{BOARD_LOT}** · KD_OPT · Soft-Frozen live **{soft.SOFT_FROZEN_FIN_CLIP}** · E45 stitch **OFF**",
         "",
         "## Absolute",
         "",
         "| book | full CAGR | full MDD | heldout CAGR | heldout MDD | sealed CAGR | sealed MDD |",
         "|---|---:|---:|---:|---:|---:|---:|",
     ]
-    for label in ("OLD_SF_KD", "FINBAND_KD", "OLD_SF_KD_A05", "NEW_LIVE"):
+    for label in ABS_LABELS:
         a = abs_rows[label]
         lines.append(
             f"| `{label}` | {a['full']['cagr']*100:.2f}% | {a['full']['max_drawdown']*100:.2f}% | "
@@ -258,7 +263,7 @@ def main() -> int:
         "| book | heldout score | MDD↑pp | CAGR gb | YTD | 1y | tip_clean |",
         "|---|---:|---:|---:|---|---|---|",
     ]
-    for label in ("FINBAND_KD", "OLD_SF_KD_A05", "NEW_LIVE"):
+    for label in COMPARE_LABELS:
         r = vs[label]
         h = r["heldout_2019_plus"]
         tip = r["tip_gates"]

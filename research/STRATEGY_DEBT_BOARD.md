@@ -262,3 +262,7 @@ Human **「開 ballot」** after confirming new stack worse. Pack: `LIVE_STACK_R
 ## Live stack rollback EXECUTED (2026-09-09)
 
 Human **`ACCEPT live-stack rollback: DROP_E45_A05`**. Unwired E45 A05 from `e21` forward-only. Soft-Frozen FINBAND + KD_OPT KEEP. Note: `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md`.
+
+## Post-rollback data re-run (2026-09-09)
+
+Human **「請重跑數據」**. `LIVE_STACK_RERUN.md` CURRENT_LIVE (FINBAND+KD) held-out **+0.02** tip PASS vs OLD; RETIRED_FINBAND_A05 still −0.68. Month-end pack `--refresh-ledgers` 27/27 OK.
