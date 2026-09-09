@@ -25,7 +25,24 @@ UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
 )
-UNIVERSE = ["2880", "2886", "2892", "5880", "2412", "3045", "4904", "0050"]
+UNIVERSE = [
+    "2880",
+    "2886",
+    "2892",
+    "5880",
+    "2412",
+    "3045",
+    "4904",
+    "0050",
+    "2884",
+    "2885",
+    "2890",
+    "2891",
+    "2881",
+    "2882",
+    "2801",
+    "2834",
+]
 DIV_PATH = Path("data/dividend_events/e22_dividend_events.csv")
 OUT_DIR = Path("data/dividend_events")
 

@@ -6,7 +6,26 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-UNIVERSE = ["2880", "2886", "2892", "5880", "2412", "3045", "4904", "0050"]
+# Soft-Frozen live + TEL/0050 + FIN research extras (民營金控 / R2 banks).
+# Live e21 membership still Soft-Frozen only; extras feed paper / E22 ledger.
+UNIVERSE = [
+    "2880",
+    "2886",
+    "2892",
+    "5880",
+    "2412",
+    "3045",
+    "4904",
+    "0050",
+    "2884",
+    "2885",
+    "2890",
+    "2891",
+    "2881",
+    "2882",
+    "2801",
+    "2834",
+]
 URL = "https://api.finmindtrade.com/api/v4/data"
 
 
