@@ -6,7 +6,7 @@
   "failover_used": true,
   "source": "yahoo_^TWII",
   "error_primary": "RuntimeError:simulated_finmind_failure",
-  "generated_at_utc": "2026-09-09T12:45:46.027127+00:00",
+  "generated_at_utc": "2026-09-09T12:53:11.232721+00:00",
   "n_rows": 651,
   "out": "repro/data-source-phase-c/taiex_failover_dryrun.csv",
   "soft_frozen_unchanged": true,

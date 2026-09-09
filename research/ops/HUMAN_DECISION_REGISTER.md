@@ -39,6 +39,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | 「大勝」EXECUTED data re-run | **DONE** (2026-09-09) | First re-run under FINBAND+A05; NEW_LIVE −0.68 tip ALERT |
 | Live-stack rollback | **EXECUTED `DROP_E45_A05`** (2026-09-09) | E45 stitch OFF; FINBAND+KD_OPT KEEP · `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md` |
 | Post-rollback data re-run | **DONE** (2026-09-09) | `LIVE_STACK_RERUN.md` CURRENT_LIVE tip PASS held-out +0.02 · month-end pack refresh |
+| Post-rollback improve status | **IMPROVED** (2026-09-09) | vs retired A05: held-out lift **+0.70**, tip ALERT→PASS · `LIVE_STACK_IMPROVE_STATUS.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`

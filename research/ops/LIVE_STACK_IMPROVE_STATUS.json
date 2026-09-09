@@ -1,0 +1,82 @@
+{
+  "label": "LIVE_STACK_IMPROVE_STATUS",
+  "generated_at_utc": "2026-09-09T12:52:23.827736+00:00",
+  "status": "IMPROVED",
+  "improvement_vs_retired_a05": {
+    "vs_baseline": "RETIRED_FINBAND_A05",
+    "heldout_2019_plus": {
+      "mdd_improve_pp": 0.32919385617102837,
+      "cagr_giveback_pp": -0.7442336579816855,
+      "score": -0.04292297281981439
+    },
+    "tip_gates_current_vs_retired": {
+      "ytd": {
+        "giveback_pp": -3.50867221331006,
+        "gate": "PASS",
+        "rel_nav": 1.0134492005179823
+      },
+      "trailing_1y": {
+        "giveback_pp": -3.3814393777873653,
+        "gate": "PASS",
+        "rel_nav": 1.021225415656256
+      }
+    },
+    "tip_restored": true,
+    "heldout_score_lift": 0.7013106851618711,
+    "full_cagr_pp": 0.35736780144211,
+    "full_mdd_improve_pp": 0.32919385617105057
+  },
+  "current_vs_old_sf_kd": {
+    "heldout_2019_plus": {
+      "mdd_improve_pp": 0.050179155054153046,
+      "cagr_giveback_pp": 0.055342494560051136,
+      "score": 0.022507907774127478
+    },
+    "sealed_2023_plus_REPORT_ONLY": {
+      "mdd_improve_pp": 0.14459627197628278,
+      "cagr_giveback_pp": 0.04787874669214265,
+      "score": 0.12065689863021145
+    },
+    "tip_gates": {
+      "ytd": {
+        "giveback_pp": 0.5724702881614085,
+        "gate": "PASS",
+        "rel_nav": 0.9978485349558792
+      },
+      "trailing_1y": {
+        "giveback_pp": 0.5902809061944847,
+        "gate": "PASS",
+        "rel_nav": 0.996386929639757
+      }
+    },
+    "tip_clean": true,
+    "n_fills": 5740
+  },
+  "retired_vs_old_sf_kd": {
+    "heldout_2019_plus": {
+      "mdd_improve_pp": -0.2790147011168753,
+      "cagr_giveback_pp": 0.7995761525417366,
+      "score": -0.6788027773877436
+    },
+    "sealed_2023_plus_REPORT_ONLY": {
+      "mdd_improve_pp": 1.675575775295679,
+      "cagr_giveback_pp": 1.0983781726537023,
+      "score": 1.1263866889688279
+    },
+    "tip_gates": {
+      "ytd": {
+        "giveback_pp": 4.081142501471469,
+        "gate": "ALERT",
+        "rel_nav": 0.9846063665015184
+      },
+      "trailing_1y": {
+        "giveback_pp": 3.97172028398185,
+        "gate": "ALERT",
+        "rel_nav": 0.9756777635615959
+      }
+    },
+    "tip_clean": false,
+    "n_fills": 5770
+  },
+  "verdict": "CURRENT_LIVE (FINBAND+KD, E45 OFF after DROP_E45_A05) vs OLD_SF_KD held-out score=+0.023 tip_clean=True YTD=PASS 1y=PASS. vs RETIRED_FINBAND_A05: held-out lift=+0.701 tip_restored=True status=IMPROVED. Live Soft-Frozen=[0.6, 0.9]; LIVE_E45_STITCH=False."
+}
