@@ -302,3 +302,4 @@ Human **「做成 Soft-Frozen 四條 sleeve（公／民各自 clip），另開 c
 ## 民營 native within-sleeve (2026-09-09)
 
 Human **「民營的策略再研究一下畢竟跟公股的習性不一樣」**. PRIV cash-ex ~Jun–Jul vs 公股 ~Aug. Native KD grid vs `PRIV_EQUAL` → coexist; native winner **`PRIV_KD_MAY_Klt25_T15`** (+0.63). Dual-paper observe OPEN. Pack: `FIN_PRIV_NATIVE_WITHIN_SLEEVE_DECISION_PACK.md`.
+Follow-up wiring complete: dual ledgers + month-end monitor (`FIN_PRIV_NATIVE_MONTH_END_MONITOR.json`) as-of 2026-09-09 alerts=0.

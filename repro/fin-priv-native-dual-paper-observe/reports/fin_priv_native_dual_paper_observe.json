@@ -1,0 +1,122 @@
+{
+  "generated_at_utc": "2026-09-09T15:53:20.665626+00:00",
+  "label": "FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPERATING",
+  "status": "OPERATING_OBSERVE",
+  "live_wire": false,
+  "soft_frozen_unchanged": true,
+  "books": [
+    "PRIV_EQUAL",
+    "PRIV_KD_MAY_Klt25_T15"
+  ],
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "base_id": "PRIV_EQUAL",
+  "challenger_id": "PRIV_KD_MAY_Klt25_T15",
+  "challenger_policy": "FIN_PRE_EXDIV_KD",
+  "native_kd": {
+    "season_start": [
+      5,
+      1
+    ],
+    "season_end": [
+      5,
+      31
+    ],
+    "k_thresh": 25.0,
+    "pre_days": 15
+  },
+  "heldout_vs_base": {
+    "mdd_improve_pp": 0.7314742099901905,
+    "cagr_giveback_pp": -0.21286678310481477,
+    "score": 0.6250408184377831
+  },
+  "sealed_vs_base": {
+    "mdd_improve_pp": 0.14075545096390307,
+    "cagr_giveback_pp": -0.13142466455053903,
+    "score": 0.07504311868863356
+  },
+  "windows": {
+    "PRIV_EQUAL": {
+      "full": {
+        "cagr": 0.16390652281171825,
+        "max_drawdown": -0.27465921159913065,
+        "utility": 0.026576917012152923,
+        "vol": 0.14651658803883802,
+        "n_days": 3359
+      },
+      "oof_2011_2018": {
+        "cagr": 0.11520417959654505,
+        "max_drawdown": -0.2341688632528982,
+        "utility": -0.0018802520299040504,
+        "vol": 0.1306015082593683,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.1494893560369206,
+        "max_drawdown": -0.27465921159913054,
+        "utility": 0.012159750237355327,
+        "vol": 0.1521418233095844,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.27504002144986006,
+        "max_drawdown": -0.14954825689766138,
+        "utility": 0.20026589300102937,
+        "vol": 0.16436261349588602,
+        "n_days": 887
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.20739049335335502,
+        "max_drawdown": -0.27465921159913054,
+        "utility": 0.07006088755378975,
+        "vol": 0.15802538106829023,
+        "n_days": 1864
+      }
+    },
+    "PRIV_KD_MAY_Klt25_T15": {
+      "full": {
+        "cagr": 0.1648530270089732,
+        "max_drawdown": -0.26734446949922874,
+        "utility": 0.031180792259358825,
+        "vol": 0.14479137776626438,
+        "n_days": 3359
+      },
+      "oof_2011_2018": {
+        "cagr": 0.11464413210730906,
+        "max_drawdown": -0.2304231417310395,
+        "utility": -0.0005674387582106921,
+        "vol": 0.12976176590512487,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.15226015757997202,
+        "max_drawdown": -0.26734446949922863,
+        "utility": 0.018587922830357706,
+        "vol": 0.1496108938319445,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.27635426809536545,
+        "max_drawdown": -0.14814070238802235,
+        "utility": 0.20228391690135428,
+        "vol": 0.1622526402717283,
+        "n_days": 887
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.20951916118440317,
+        "max_drawdown": -0.26734446949922863,
+        "utility": 0.07584692643478885,
+        "vol": 0.15570569162339762,
+        "n_days": 1864
+      }
+    }
+  },
+  "fills": {
+    "PRIV_EQUAL": 6889,
+    "PRIV_KD_MAY_Klt25_T15": 6715
+  },
+  "next_human": [
+    "Run month-end monitor on this dual-paper pair",
+    "Keep observe-only; no live wiring without dedicated ACCEPT"
+  ]
+}

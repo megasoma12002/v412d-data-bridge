@@ -37,6 +37,7 @@ vs `LIVE_PUB_KD` (report-only): all still **~−6.5～−7** — within-民營 l
 ## Dual-paper observe
 
 See `FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPEN.md`.
+Operating check: `FIN_PRIV_NATIVE_MONTH_END_MONITOR.json` as-of `2026-09-09` → alerts **0**.
 
 ## Label
 
