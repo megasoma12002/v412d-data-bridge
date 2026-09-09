@@ -68,6 +68,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | FIN within-sleeve live cutover | `CUTOVER_CHECKLIST_FIN_WITHIN_SLEEVE.md` · **ACCEPTED KD_OPT 2026-09-09** · `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` |
 | Telecom within-sleeve alloc (paper) | Async **STOP** · pack ballot **EXECUTED KEEP TEL_EQUAL** · live EQUAL |
 | 民營金控 / ALL12 universe expand | Stage A **STOP** · Soft-Frozen 公股 R1 KEEP · re-open only with tip-clean + held-out>0 |
+| 金融公/金融民 dual-sleeve | Dollar-split Stage A **STOP** · Soft-Frozen 3-sleeve KEEP · 4-sleeve needs new charter |
 | Odd-lot default | Human **ACCEPT promote** on `ODD_LOT_PROMOTE_DECISION_PACK.md` + checklist all YES + **par inventory VERIFIED** (`PAR_VALUE_LOOKUP_CHARTER.md`) |
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
 | E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; live stitch **rolled back** `DROP_E45_A05` (2026-09-09); any future live stitch needs a new dedicated ACCEPT |
