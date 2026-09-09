@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Soft-Frozen E16 BASE sleeve — single source of truth for live + research.
 
-Live Financial clip: **[0.50, 0.95]** (Soft-Frozen). Do not edit these bounds
+Live Financial clip: **[0.60, 0.90]** (FINBAND_F0.60-0.90 ACCEPT 2026-09-09) (Soft-Frozen). Do not edit these bounds
 without an explicit human cutover PR. Challenger clips belong in
 `e16_fin_cap_oof_challenger` only.
 
@@ -19,13 +19,13 @@ TEL = ["2412", "3045", "4904"]
 SLEEVE_COLS = ["Financial", "Telecom", "0050"]
 
 # Soft-Frozen live clip bounds (authoritative).
-SOFT_FROZEN_FIN_LO = 0.50
-SOFT_FROZEN_FIN_HI = 0.95
+SOFT_FROZEN_FIN_LO = 0.60
+SOFT_FROZEN_FIN_HI = 0.90
 SOFT_FROZEN_TEL_LO = 0.03
 SOFT_FROZEN_TEL_HI = 0.35
 SOFT_FROZEN_ETF_LO = 0.00
 SOFT_FROZEN_ETF_HI = 0.35
-# Canonical list form for JSON / monitors (import this — do not re-type 0.50/0.95).
+# Canonical list form for JSON / monitors (import this — do not re-type 0.60/0.90).
 SOFT_FROZEN_FIN_CLIP = [SOFT_FROZEN_FIN_LO, SOFT_FROZEN_FIN_HI]
 
 # Causal blend / rebalance threshold (shared).
@@ -45,8 +45,8 @@ REGIME_PRIORS = {
 def apply_soft_frozen_clips(cand: np.ndarray) -> np.ndarray:
     """Project sleeve weights onto Soft-Frozen box ∩ simplex (sum=1).
 
-    Plain clip-then-divide can push Financial **below** 0.50 (e.g. clip to
-    [0.50, 0.35, 0.35] → renormalize → FIN≈0.417). Iterate a bounded
+    Plain clip-then-divide can push Financial **below** Soft-Frozen lo (e.g. clip to
+    [SOFT_FROZEN_FIN_LO, 0.35, 0.35] → renormalize → FIN≈0.417). Iterate a bounded
     projection so live targets cannot leave the Soft-Frozen envelope.
     """
     lo = np.array(

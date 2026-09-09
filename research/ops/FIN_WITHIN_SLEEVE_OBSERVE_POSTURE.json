@@ -1,20 +1,23 @@
 {
-  "generated_at_utc": "2026-09-09T11:02:00+00:00",
+  "generated_at_utc": "2026-09-09T11:32:37.568938+00:00",
   "label": "FIN_WITHIN_SLEEVE_OBSERVE_POSTURE",
-  "status": "LOCKED_HOLD",
+  "status": "LOCKED_HOLD_EXECUTED_BIG_WIN",
   "operating_observe": true,
   "live_wire": true,
   "live_financial_alloc": "FIN_PRE_EXDIV_KD",
   "live_kd_opt_id": "KD_APR15_MAY15_Klt30_T15",
-  "soft_frozen_keep": true,
-  "soft_frozen_clip": [0.5, 0.95],
+  "soft_frozen_keep": false,
+  "soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
   "books": [
     "FIN_EQUAL",
     "FIN_RS_SOFT_TILT_EXDIV",
     "MIX_L75",
     "KD_OPT"
   ],
-  "human_confirm": "維持 KD_OPT + 月結觀察是正解；想「大勝」就要準備動 clip 或開新機制 ballot，不是繼續在金融 sleeve 微調。",
+  "human_confirm": "\u7dad\u6301 KD_OPT + \u6708\u7d50\u89c0\u5bdf\u662f\u6b63\u89e3\uff1b\u60f3\u300c\u5927\u52dd\u300d\u5c31\u8981\u6e96\u5099\u52d5 clip \u6216\u958b\u65b0\u6a5f\u5236 ballot\uff0c\u4e0d\u662f\u7e7c\u7e8c\u5728\u91d1\u878d sleeve \u5fae\u8abf\u3002",
   "posture": [
     "Maintain live KD_OPT forward-only",
     "Month-end observe EQUAL || RS_EXDIV || MIX_L75 || KD_OPT (tip + held-out)",
@@ -38,5 +41,6 @@
     "cutover": "research/ops/FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md",
     "decision_pack": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md"
   },
-  "label_tag": "FIN_WITHIN_SLEEVE_HOLD_2026-09-09__KD_OPT_LIVE__MONTH_END_OBSERVE__NO_FIN_MICROTUNE__SOFT_FROZEN_KEEP"
+  "label_tag": "FIN_WITHIN_SLEEVE_HOLD_2026-09-09__KD_OPT_LIVE__MONTH_END_OBSERVE__NO_FIN_MICROTUNE__SOFT_FROZEN_KEEP",
+  "e45_stitch_live": "BLEND_E45_A05"
 }

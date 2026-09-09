@@ -2,12 +2,12 @@
 
 Date: 2026-09-08 · live KD_OPT 2026-09-09 · hold posture 2026-09-09  
 Status: **LOCKED** · Stage D **OPERATING OBSERVE** · live **`KD_OPT` HOLD**  
-Soft-Frozen: **KEEP [0.50, 0.95]** · live within-sleeve **`FIN_PRE_EXDIV_KD`** (forward-only)  
-Cutover note: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md`
+Soft-Frozen: **[0.60, 0.90] LIVE** (FINBAND) · live within-sleeve **`FIN_PRE_EXDIV_KD`** · E45 stitch **`BLEND_E45_A05` LIVE**  
+Cutover notes: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` · `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` · `E45_STITCH_ACCEPTED_BLEND_A05.md`
 
-## Binding hold (2026-09-09)
+## Binding hold (updated 2026-09-09 EXECUTED)
 
-Human confirm: **維持 KD_OPT + 月結觀察是正解；想「大勝」就要準備動 clip 或開新機制 ballot，不是繼續在金融 sleeve 微調。**
+Human「請都做」executed clip flip + E45 A05 stitch. Continuing month-end observe on the new live stack.
 
 1. **Maintain live `KD_OPT`** — no further FIN within-sleeve param / season / mix probes unless new human OPEN.  
 2. **Month-end observe** — refresh `FIN_EQUAL` ∥ `FIN_RS_SOFT_TILT_EXDIV` ∥ `MIX_L75` ∥ `KD_OPT`; read tip + held-out.  

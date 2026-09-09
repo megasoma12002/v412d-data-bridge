@@ -2,7 +2,7 @@
 
 Date: 2026-09-09  
 Human: **請把每個都做** (Soft-Frozen clip ballot **and** new-mechanism / E45 stitch ballot)  
-Soft-Frozen live: **KEEP [0.50, 0.95]** · live FIN **KD_OPT KEEP** · stitch **FORBIDDEN** until second ACCEPT
+Status refresh: **EXECUTED 2026-09-09** · Soft-Frozen **[0.60, 0.90]** · E45 **BLEND_E45_A05 LIVE** · KD_OPT KEEP
 
 ## What was delivered
 
@@ -67,3 +67,11 @@ E45 DEFER live stitch
 ## Label
 
 `BIG_WIN_BALLOTS_OPEN_2026-09-09__CLIP_PLUS_E45__SOFT_FROZEN_KEEP__NO_LIVE_WIRE`
+
+## EXECUTED (2026-09-09「請都做」)
+
+1. OPEN FINBAND observe  
+2. ACCEPT Soft-Frozen flip `FINBAND_F0.60-0.90`  
+3. `E45 ACCEPT live stitch: BLEND_E45_A05`  
+
+Notes: `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` · `E45_STITCH_ACCEPTED_BLEND_A05.md`

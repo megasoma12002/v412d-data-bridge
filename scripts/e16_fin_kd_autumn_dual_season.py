@@ -181,7 +181,7 @@ def pack(label, nav, fills, meta, win_b, nav_b, asof):
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "outputs").mkdir(exist_ok=True)
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.5, 0.95]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
 
     autumn = load_autumn_params()
     print(f"autumn params ({autumn['source']}): {autumn['id']}", flush=True)

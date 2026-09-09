@@ -2,7 +2,7 @@
 
 Date: 2026-09-05  
 Authority: `research/STRATEGY_DEBT_BOARD.md` · map: `OPS_STATUS.md`  
-Live Soft-Frozen Financial clip: **[0.50, 0.95]**
+Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; was [0.50, 0.95])
 
 ## Decision rules (frozen)
 
@@ -16,7 +16,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 
 | Pri | Decision | Verdict | Binding effect |
 |---:|---|---|---|
-| 1 | Soft-Frozen live clip **[0.50, 0.95]** | **KEEP** | No auto-flip; any change = dedicated human PR |
+| 1 | Soft-Frozen live clip **[0.60, 0.90]** | **FLIPPED** (ACCEPT 2026-09-09 `FINBAND_F0.60-0.90`) | Was [0.50, 0.95]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
 | 3 | Sealed-CAGR successor path | **BLEND_025 OPERATING OBSERVE** | Sole in-flight successor; observe ≠ promote |
@@ -24,7 +24,7 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
 | 6a | Odd-lot default → `E22_v2s_tw` | **DONE** (2026-09-05) | #73+#74 merged; live `DEFAULT_BOOKS_VERSION = E22_v2s_tw`; Soft-Frozen KEEP; forward-only |
 | 6b | Formal tax·receivable books | **ACCEPT charter** (2026-09-05) | Stage B sandbox OPEN; DEFAULT stays `E22_v2s_tw`; Soft-Frozen KEEP; promote needs later ballot |
-| 6c | E45 live stitch | **ACCEPT charter** + **RETIRE unmatched handoff MDD narrative** + **OPEN dual-paper observe** (2026-09-05) | Stage 1–3 DONE; observe **OPERATING**; **V1–V6 PASS**; Soft-Frozen CRITICAL KEEP; live/stitch still **FORBIDDEN** until **second** stitch ACCEPT; board `E45_STAGE12_STATUS.md`; open `E45_DUAL_PAPER_OBSERVE_OPEN.md` |
+| 6c | E45 live stitch | **ACCEPT stitch `BLEND_E45_A05`** (2026-09-09) | Second ACCEPT cast via「請都做」; wired forward-only in `e21`; note `E45_STITCH_ACCEPTED_BLEND_A05.md` |
 
 ## Research portfolio (2026-09-08)
 
@@ -34,7 +34,9 @@ Live Soft-Frozen Financial clip: **[0.50, 0.95]**
 | FIN within-sleeve live | **`KD_OPT` LIVE** (ACCEPT 2026-09-09) | `FIN_PRE_EXDIV_KD` forward-only; Soft-Frozen KEEP; note `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` |
 | FIN autumn post-ex probe | **STOP** (2026-09-09) | small-search+dual no lift vs KD_OPT · `FIN_KD_AUTUMN_DUAL_SEASON.md` · live KD_OPT untouched |
 | FIN hold posture | **LOCKED** (2026-09-09) | Maintain KD_OPT + month-end observe; no FIN micro-tune; 大勝 → clip or new-mechanism ballot · `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` |
-| 「大勝」ballots OPEN | **OPEN pack** (2026-09-09) | Clip + E45 stitch ballot drafts · Soft-Frozen KEEP · no live wire · `BIG_WIN_BALLOTS_OPEN.md` |
+| 「大勝」ballots OPEN | **EXECUTED** (2026-09-09) | Clip observe OPEN + Class D FINBAND flip + E45 A05 stitch · `BIG_WIN_BALLOTS_OPEN.md` |
+| Soft-Frozen clip flip | **`FINBAND_F0.60-0.90` LIVE** | `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` |
+| E45 stitch | **`BLEND_E45_A05` LIVE** | `E45_STITCH_ACCEPTED_BLEND_A05.md` · forward-only |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`

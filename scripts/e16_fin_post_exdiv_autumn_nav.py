@@ -124,7 +124,7 @@ def run_book(market, dividends, target, regime, *, policy, fin_scores, fin_buy_o
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "outputs").mkdir(exist_ok=True)
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.5, 0.95]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
 
     print("loading ...", flush=True)
     market = load_market()

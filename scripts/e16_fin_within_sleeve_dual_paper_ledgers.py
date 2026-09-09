@@ -99,7 +99,7 @@ def main() -> None:
     (OUT / "reports").mkdir(parents=True, exist_ok=True)
     OPS.mkdir(parents=True, exist_ok=True)
 
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.5, 0.95]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
 
     print("loading market + dividends ...", flush=True)
     market = load_market()

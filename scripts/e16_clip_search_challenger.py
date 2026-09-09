@@ -249,7 +249,7 @@ def main() -> int:
     _prices, _sleeve, _live_tgt, regime, score = soft.build_soft_frozen_targets(market)
 
     # Soft-Frozen live module sanity (must remain unchanged).
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.5, 0.95]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
     assert soft.SOFT_FROZEN_TEL_LO == 0.03
     assert soft.SOFT_FROZEN_ETF_LO == 0.0
 
