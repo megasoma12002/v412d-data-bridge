@@ -1,0 +1,84 @@
+{
+  "generated_at_utc": "2026-09-09T13:38:38.195989+00:00",
+  "label": "TELECOM_WITHIN_SLEEVE_ASYNC_STAGE_D",
+  "status": "STOP_NO_POSITIVE_HELDOUT_SCORE",
+  "charter": "research/ops/TELECOM_WITHIN_SLEEVE_ASYNC_CHARTER.md",
+  "live_wire": false,
+  "soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
+  "financial_held_at": "FIN_PRE_EXDIV_KD / KD_OPT",
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "mix_lambda": 0.75,
+  "exdiv_skip_buy_day_counts": {
+    "2412": 15,
+    "3045": 15,
+    "4904": 15
+  },
+  "base_id": "TEL_EQUAL",
+  "ranked": [
+    {
+      "id": "TEL_MIX_EQUAL_RS_EXDIV",
+      "heldout_score": -0.04485114034619153,
+      "mdd_improve_pp": 0.06629050810414983,
+      "cagr_giveback_pp": 0.22228329690068271,
+      "tip_clean": true,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_tel_names": 2,
+      "tip_positions": {
+        "2412": 1148000.0,
+        "3045": 152000.0,
+        "4904": 0.0
+      }
+    },
+    {
+      "id": "TEL_EXDIV_SKIP_BUY",
+      "heldout_score": -0.4145443567952989,
+      "mdd_improve_pp": -0.2018963122637163,
+      "cagr_giveback_pp": 0.4252960890631652,
+      "tip_clean": true,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_tel_names": 2,
+      "tip_positions": {
+        "2412": 1035000.0,
+        "3045": 218000.0,
+        "4904": 0.0
+      }
+    },
+    {
+      "id": "TEL_RS_SOFT_TILT_EXDIV",
+      "heldout_score": -0.4855203895047011,
+      "mdd_improve_pp": -0.25766878460944387,
+      "cagr_giveback_pp": 0.4557032097905145,
+      "tip_clean": true,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_tel_names": 2,
+      "tip_positions": {
+        "2412": 878000.0,
+        "3045": 0.0,
+        "4904": 450000.0
+      }
+    },
+    {
+      "id": "TEL_RS_SOFT_TILT",
+      "heldout_score": -0.5010899947573644,
+      "mdd_improve_pp": -0.2821451512164397,
+      "cagr_giveback_pp": 0.4378896870818494,
+      "tip_clean": true,
+      "tip_ytd": "PASS",
+      "tip_1y": "PASS",
+      "tip_tel_names": 2,
+      "tip_positions": {
+        "2412": 871000.0,
+        "3045": 0.0,
+        "4904": 462000.0
+      }
+    }
+  ],
+  "tip_clean_positive": []
+}

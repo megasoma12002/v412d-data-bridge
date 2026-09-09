@@ -1,0 +1,13 @@
+{
+  "label": "TELECOM_WITHIN_SLEEVE_ASYNC_DECISION_PACK",
+  "date": "2026-09-09",
+  "status": "STOP",
+  "live_telecom": "TEL_EQUAL",
+  "live_wire": false,
+  "stage_d": "STOP_NO_POSITIVE_HELDOUT_SCORE",
+  "kd_grid": "STOP_ZERO_COEXIST",
+  "best_stage_d": {"id": "TEL_MIX_EQUAL_RS_EXDIV", "heldout_score": -0.045, "tip_clean": true},
+  "best_kd": {"id": "TEL_KD_MAY15_AUG15_Klt25_T10", "heldout_score": -0.376, "tip_clean": true},
+  "recommendation": "KEEP live TEL_EQUAL",
+  "optional_separate": "OPEN telecom pack cutover ballot: TEL_DIVERSIFY_PACK"
+}
