@@ -1,15 +1,16 @@
 {
-  "generated_at_utc": "2026-09-08T11:04:51.544983+00:00",
+  "generated_at_utc": "2026-09-09T01:09:30.569860+00:00",
   "label": "FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPERATING",
   "status": "OPERATING_OBSERVE",
   "operating_observe": true,
   "live_wire": false,
   "soft_frozen_default_unchanged": true,
   "cutover_authorized": false,
-  "ballot": "dual-paper \u89c0\u5bdf FIN_RS_SOFT_TILT_EXDIV \u4e26\u6392 FIN_EQUAL\uff1b\u52a0\u9032 MIX_L75 (\u03bb=0.75 EQUAL\u00d7RS_EXDIV) \u7b2c\u4e09\u672c",
-  "human_rationale": "\u5404\u6a94\u5404\u505a\u5404\u7684 \u2014 ex-div dates + RS timing differ; MIX_L75 tip-clean coexist candidate from \u03bb-grid",
+  "ballot": "dual-paper \u89c0\u5bdf FIN_RS_SOFT_TILT_EXDIV \u4e26\u6392 FIN_EQUAL\uff1b\u52a0\u9032 MIX_L75 (\u03bb=0.75 EQUAL\u00d7RS_EXDIV) \u7b2c\u4e09\u672c\uff1b\u52a0\u9032 KD_OPT (KD_APR15_MAY15_Klt30_T15) \u7b2c\u56db\u672c",
+  "human_rationale": "\u5404\u6a94\u5404\u505a\u5404\u7684 \u2014 ex-div dates + RS timing differ; MIX_L75 tip-clean coexist candidate from \u03bb-grid; KD_OPT paper optimal (tip PASS + max held-out) from PRE_EXDIV_KD optimize",
   "stage_c": "STAGE_C_CANDIDATES_LOCKED",
   "mix_probe": "COEXIST_CANDIDATE_FOUND",
+  "kd_probe": "OPTIMAL_SELECTED_OBSERVE",
   "base_id": "FIN_EQUAL",
   "locked_challenger": "FIN_RS_SOFT_TILT_EXDIV",
   "mix_challenger": {
@@ -18,10 +19,30 @@
     "fin_mix_lambda": 0.75,
     "definition": "\u03bb\u00b7FIN_EQUAL + (1\u2212\u03bb)\u00b7FIN_RS_SOFT_TILT_EXDIV with \u03bb=0.75"
   },
+  "kd_challenger": {
+    "id": "KD_OPT",
+    "financial_alloc": "FIN_PRE_EXDIV_KD",
+    "optimal_id": "KD_APR15_MAY15_Klt30_T15",
+    "params": {
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "active_score": 1.5
+    },
+    "definition": "FIN_PRE_EXDIV_KD season (4, 15)\u2013(5, 15) first Yahoo K9 < 30.0 soft-tilt; skip buy cash-ex T\u221215\u2026T0 (+ stock ex)"
+  },
   "books": [
     "FIN_EQUAL",
     "FIN_RS_SOFT_TILT_EXDIV",
-    "MIX_L75"
+    "MIX_L75",
+    "KD_OPT"
   ],
   "execution_context": {
     "capital": 500000000.0,
@@ -32,30 +53,41 @@
   "exact_t1": {
     "base": true,
     "chal_rs": true,
-    "chal_mix": true
+    "chal_mix": true,
+    "chal_kd": true
   },
   "heldout_vs_base": {
     "FIN_RS_SOFT_TILT_EXDIV": {
       "mdd_improve_pp": 1.1116588036636177,
-      "cagr_giveback_pp": 1.1436922478520017,
-      "score": 0.5398126797376168
+      "cagr_giveback_pp": 1.1630172428419128,
+      "score": 0.5301501822426613
     },
     "MIX_L75": {
       "mdd_improve_pp": 0.30259323641053104,
-      "cagr_giveback_pp": 0.34623771993473884,
-      "score": 0.12947437644316162
+      "cagr_giveback_pp": 0.35116300722883853,
+      "score": 0.12701173279611178
+    },
+    "KD_OPT": {
+      "mdd_improve_pp": 0.8066279142484367,
+      "cagr_giveback_pp": 0.3186621887207419,
+      "score": 0.6472968198880658
     }
   },
   "sealed_vs_base": {
     "FIN_RS_SOFT_TILT_EXDIV": {
       "mdd_improve_pp": 2.722142747879508,
-      "cagr_giveback_pp": 1.6011368119133618,
-      "score": 1.921574341922827
+      "cagr_giveback_pp": 1.6452259928403157,
+      "score": 1.89952975145935
     },
     "MIX_L75": {
       "mdd_improve_pp": 0.7668936128127024,
-      "cagr_giveback_pp": 0.5537598650254161,
-      "score": 0.49001368029999437
+      "cagr_giveback_pp": 0.5652499184702009,
+      "score": 0.48426865357760196
+    },
+    "KD_OPT": {
+      "mdd_improve_pp": 1.1789090714417805,
+      "cagr_giveback_pp": 0.46757526403025107,
+      "score": 0.9451214394266549
     }
   },
   "windows": {
@@ -66,19 +98,19 @@
       "financial_alloc": "FIN_EQUAL",
       "fin_mix_lambda": null,
       "tip_fin_positions": {
-        "2880": 46888250.0,
-        "2886": 4752096.0,
+        "2880": 47282250.0,
+        "2886": 4803096.0,
         "2892": 28243.0,
         "5880": 3853.0
       },
       "tip_fin_names_with_board_lot": 4,
       "windows": {
         "full": {
-          "cagr": 0.1386380201628883,
+          "cagr": 0.13982714852774358,
           "max_drawdown": -0.22577077146946323,
-          "utility": 0.025752634428156673,
-          "vol": 0.13311757669657698,
-          "n_days": 3352
+          "utility": 0.02694176279301197,
+          "vol": 0.13315268471393576,
+          "n_days": 3353
         },
         "oof_2011_2018": {
           "cagr": 0.08878876935776892,
@@ -95,18 +127,18 @@
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.25198269270137574,
+          "cagr": 0.2568348461513408,
           "max_drawdown": -0.1413129993083171,
-          "utility": 0.1813261930472172,
-          "vol": 0.16593629239426477,
-          "n_days": 880
+          "utility": 0.18617834649718223,
+          "vol": 0.16600047059106654,
+          "n_days": 881
         },
         "heldout_2019_plus": {
-          "cagr": 0.18354255225903504,
+          "cagr": 0.18574989200019432,
           "max_drawdown": -0.22577077146946323,
-          "utility": 0.07065716652430343,
-          "vol": 0.1507811831987624,
-          "n_days": 1857
+          "utility": 0.0728645062654627,
+          "vol": 0.15082612300435094,
+          "n_days": 1858
         }
       }
     },
@@ -117,19 +149,19 @@
       "financial_alloc": "FIN_RS_SOFT_TILT_EXDIV",
       "fin_mix_lambda": null,
       "tip_fin_positions": {
-        "2880": 34099487.0,
-        "2886": 9898427.0,
-        "2892": 4035692.0,
+        "2880": 34418487.0,
+        "2886": 10047427.0,
+        "2892": 4283692.0,
         "5880": 348702.0
       },
       "tip_fin_names_with_board_lot": 4,
       "windows": {
         "full": {
-          "cagr": 0.13208444951183074,
+          "cagr": 0.133173483670886,
           "max_drawdown": -0.21465418343282705,
-          "utility": 0.024757357795417212,
-          "vol": 0.130012520799216,
-          "n_days": 3352
+          "utility": 0.02584639195447247,
+          "vol": 0.13004081826773428,
+          "n_days": 3353
         },
         "oof_2011_2018": {
           "cagr": 0.08785155602102646,
@@ -146,18 +178,18 @@
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.23597132458224213,
+          "cagr": 0.24038258622293762,
           "max_drawdown": -0.11409157182952201,
-          "utility": 0.17892553866748112,
-          "vol": 0.15534211390858255,
-          "n_days": 880
+          "utility": 0.18333680030817662,
+          "vol": 0.15539733235216358,
+          "n_days": 881
         },
         "heldout_2019_plus": {
-          "cagr": 0.17210562978051502,
+          "cagr": 0.1741197195717752,
           "max_drawdown": -0.21465418343282705,
-          "utility": 0.0647785380641015,
-          "vol": 0.14380934763759273,
-          "n_days": 1857
+          "utility": 0.06679262785536166,
+          "vol": 0.1438466882397193,
+          "n_days": 1858
         }
       }
     },
@@ -168,19 +200,19 @@
       "financial_alloc": "FIN_MIX_EQUAL_RS_EXDIV",
       "fin_mix_lambda": 0.75,
       "tip_fin_positions": {
-        "2880": 43537889.0,
-        "2886": 6618503.0,
-        "2892": 536848.0,
+        "2880": 43868889.0,
+        "2886": 6872503.0,
+        "2892": 757848.0,
         "5880": 62.0
       },
       "tip_fin_names_with_board_lot": 3,
       "windows": {
         "full": {
-          "cagr": 0.13670815587592622,
+          "cagr": 0.13787203143289273,
           "max_drawdown": -0.22274483910535814,
-          "utility": 0.02533573632324715,
-          "vol": 0.13186397951716056,
-          "n_days": 3352
+          "utility": 0.026499611880213658,
+          "vol": 0.13189763168923221,
+          "n_days": 3353
         },
         "oof_2011_2018": {
           "cagr": 0.08836842785563692,
@@ -197,29 +229,81 @@
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.24644509405112158,
+          "cagr": 0.25118234696663877,
           "max_drawdown": -0.13364406318019006,
-          "utility": 0.17962306246102655,
-          "vol": 0.1620850234634752,
-          "n_days": 880
+          "utility": 0.18436031537654374,
+          "vol": 0.1621489395214381,
+          "n_days": 881
         },
         "heldout_2019_plus": {
-          "cagr": 0.18008017505968765,
+          "cagr": 0.18223826192790593,
           "max_drawdown": -0.22274483910535792,
-          "utility": 0.0687077555070087,
-          "vol": 0.14824846157653518,
-          "n_days": 1857
+          "utility": 0.07086584237522697,
+          "vol": 0.1482921805592627,
+          "n_days": 1858
+        }
+      }
+    },
+    "KD_OPT": {
+      "exact_t1_ok": true,
+      "lot_size": 1000,
+      "capital": 500000000.0,
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "fin_mix_lambda": null,
+      "tip_fin_positions": {
+        "2880": 43333476.0,
+        "2886": 6569500.0,
+        "2892": 2606009.0,
+        "5880": 622053.0
+      },
+      "tip_fin_names_with_board_lot": 4,
+      "windows": {
+        "full": {
+          "cagr": 0.13944393899174168,
+          "max_drawdown": -0.21770449232697875,
+          "utility": 0.030591692828252304,
+          "vol": 0.13006628164406123,
+          "n_days": 3353
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09153732718942154,
+          "max_drawdown": -0.17126120794900923,
+          "utility": 0.00590672321491692,
+          "vol": 0.1043745482585398,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12117884069987017,
+          "max_drawdown": -0.21770449232697886,
+          "utility": 0.012326594536380742,
+          "vol": 0.13371576241860814,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.25215909351103827,
+          "max_drawdown": -0.12952390859389928,
+          "utility": 0.18739713921408863,
+          "vol": 0.16120284296046677,
+          "n_days": 881
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1825632701129869,
+          "max_drawdown": -0.21770449232697886,
+          "utility": 0.07371102394949747,
+          "vol": 0.14737372661999865,
+          "n_days": 1858
         }
       }
     }
   },
   "next_human": [
     "Month-end cadence via ops_month_end_paper_pack.py --refresh-ledgers",
-    "Live FIN within-sleeve cutover still requires dedicated ACCEPT ballot"
+    "Live FIN within-sleeve cutover still requires dedicated ACCEPT ballot",
+    "Optional later: \u03bb\u00b7EQUAL+(1\u2212\u03bb)\u00b7KD_OPT mix (not required now)"
   ],
   "non_actions": [
     "Paper-only; Soft-Frozen KEEP; live e21 FIN equal-split untouched",
-    "Do not wire FIN_RS_SOFT_TILT_EXDIV or MIX_L75 into e21 without cutover ACCEPT",
+    "Do not wire FIN_RS_SOFT_TILT_EXDIV, MIX_L75, or KD_OPT into e21 without cutover ACCEPT",
     "Stage B hard policies remain STOP"
   ]
 }
