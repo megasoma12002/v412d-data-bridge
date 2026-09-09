@@ -32,12 +32,15 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | **ACCEPT live cutover** | `ACCEPT` → **`KD_OPT`** | Wire `FIN_PRE_EXDIV_KD` into `e21` | **ACCEPTED 2026-09-09** |
 | **OPEN autumn post-ex probe** | `開秋冬除息後低點 paper probe` | Paper Oct20–Dec10 K9 | **OPEN 2026-09-09** |
 | **Autumn small-search + dual-season** | 參數小搜 + KD 雙季 mix | Paper only · stop if no lift | **STOP 2026-09-09** |
+| **HOLD KD_OPT + month-end** | 維持 KD_OPT + 月結；大勝→clip/新機制 | No FIN micro-tune | **LOCKED 2026-09-09** |
 
-## Accepted operating posture (2026-09-09)
+## Accepted operating posture (2026-09-09 hold)
 
-1. **Maintain OPERATING** paper books beside live — month-end refresh EQUAL ∥ RS ∥ MIX_L75 ∥ KD_OPT.  
-2. **Live within-sleeve** = **`KD_OPT`** (`FIN_PRE_EXDIV_KD`) forward-only; Soft-Frozen **KEEP**.  
-3. **Do not** — Soft-Frozen flip; E45 stitch; Telecom within-sleeve flip; history rewrite.  
+1. **Live** = **`KD_OPT`** forward-only; Soft-Frozen **KEEP**.  
+2. **Month-end** refresh EQUAL ∥ RS ∥ MIX_L75 ∥ KD_OPT (tip + held-out).  
+3. **Do not** micro-tune FIN within-sleeve (autumn/dual/mix exhausted).  
+4. **「大勝」** → dedicated Soft-Frozen clip ballot **or** new-mechanism ballot — not another KD variant.  
+5. **Do not** — Soft-Frozen flip without ACCEPT; E45 stitch without second ACCEPT; Telecom flip; history rewrite.  
 
 ## Stage results (paper)
 

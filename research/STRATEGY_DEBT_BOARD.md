@@ -239,3 +239,7 @@ Human **`ACCEPT live capital 500M`**. `DEFAULT_CAPITAL=500M` + board-lot 1000 wi
 
 Human **`ACCEPT`** → `KD_OPT` (`FIN_PRE_EXDIV_KD` / `KD_APR15_MAY15_Klt30_T15`) wired into `e21_forward_pipeline` **forward-only**. Soft-Frozen KEEP · DEFAULT KEEP · Telecom EQUAL · no E45 stitch · no history rewrite. Note: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md`.
 
+## FIN KD_OPT hold posture (2026-09-09)
+
+Human confirm: **維持 KD_OPT + 月結觀察；大勝 → clip 或新機制 ballot；不再金融 sleeve 微調**. Live `KD_OPT` HOLD · Soft-Frozen KEEP · autumn/dual STOP. Note: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`.
+

@@ -1,37 +1,42 @@
 {
-  "generated_at_utc": "2026-09-09T01:10:00+00:00",
+  "generated_at_utc": "2026-09-09T11:02:00+00:00",
   "label": "FIN_WITHIN_SLEEVE_OBSERVE_POSTURE",
-  "status": "LOCKED",
+  "status": "LOCKED_HOLD",
   "operating_observe": true,
   "live_wire": true,
+  "live_financial_alloc": "FIN_PRE_EXDIV_KD",
+  "live_kd_opt_id": "KD_APR15_MAY15_Klt30_T15",
   "soft_frozen_keep": true,
+  "soft_frozen_clip": [0.5, 0.95],
   "books": [
     "FIN_EQUAL",
     "FIN_RS_SOFT_TILT_EXDIV",
     "MIX_L75",
     "KD_OPT"
   ],
-  "kd_optimal_id": "KD_APR15_MAY15_Klt30_T15",
+  "human_confirm": "維持 KD_OPT + 月結觀察是正解；想「大勝」就要準備動 clip 或開新機制 ballot，不是繼續在金融 sleeve 微調。",
   "posture": [
-    "Maintain OPERATING month-end refresh EQUAL || RS_EXDIV || MIX_L75 || KD_OPT",
-    "No live wire; Soft-Frozen KEEP; cutover needs dedicated ACCEPT",
-    "After observe window: prefer MIX_L75 or KD_OPT if tip-clean+held-out holds; else RS if max MDD and tip PAUSE OK",
-    "Do not reopen Stage B TOP1/TOP2; no stitch/e21 on this line"
+    "Maintain live KD_OPT forward-only",
+    "Month-end observe EQUAL || RS_EXDIV || MIX_L75 || KD_OPT (tip + held-out)",
+    "Soft-Frozen KEEP [0.50, 0.95]",
+    "No further FIN within-sleeve micro-tuning this cycle",
+    "Large upside paths: Soft-Frozen clip ballot OR new-mechanism ballot (e.g. E45 second stitch ACCEPT)"
   ],
-  "selection_after_window": {
-    "prefer_mix_or_kd_when": "tip YTD+1y PASS and held-out score > 0",
-    "consider_rs_when": "need max MDD lift and accept tip PAUSE",
-    "default_live": "FIN_EQUAL until cutover ACCEPT"
-  },
   "non_actions": [
-    "No Soft-Frozen flip",
-    "No live e21 within-sleeve wire from month-end alone",
+    "No Soft-Frozen flip without dedicated ACCEPT",
+    "No FIN within-sleeve micro-tune / autumn reopen from this posture",
     "No Stage B hard reopen",
-    "No E45 stitch on this FIN within-sleeve line"
+    "No E45 stitch without second human ACCEPT",
+    "No history rewrite"
   ],
-  "decision_pack": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md",
-  "observe_open": "research/ops/FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md",
-  "live_financial_alloc": "FIN_PRE_EXDIV_KD",
-  "live_kd_opt_id": "KD_APR15_MAY15_Klt30_T15",
-  "cutover": "ACCEPTED_2026-09-09_KD_OPT"
+  "big_win_ballots": [
+    "Soft-Frozen clip change",
+    "New mechanism (E45 stitch / other) with required ACCEPT"
+  ],
+  "artifacts": {
+    "posture_md": "research/ops/FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md",
+    "cutover": "research/ops/FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md",
+    "decision_pack": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md"
+  },
+  "label_tag": "FIN_WITHIN_SLEEVE_HOLD_2026-09-09__KD_OPT_LIVE__MONTH_END_OBSERVE__NO_FIN_MICROTUNE__SOFT_FROZEN_KEEP"
 }
