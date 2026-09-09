@@ -1,0 +1,27 @@
+{
+  "label": "PRIVATE_FIN_HOLDINGS_DECISION_2026-09-09__STOP__KEEP_PUB_R1",
+  "date": "2026-09-09",
+  "status": "STOP",
+  "stage": "A",
+  "baseline": "LIVE_PUB_KD",
+  "live_wire": false,
+  "soft_frozen_membership_keep": ["2880", "2886", "2892", "5880"],
+  "coexist_ids": [],
+  "best_challenger": {
+    "id": "LIVE_PUB_EQ",
+    "heldout_score": -0.7825685214593148
+  },
+  "binding": [
+    "Keep Soft-Frozen FIN = 公股 R1",
+    "No live universe expansion",
+    "No Stage B dual-paper from this screen",
+    "Live KD_OPT / FINBAND / TEL_EQUAL unchanged"
+  ],
+  "artifacts": [
+    "research/ops/PRIVATE_FIN_HOLDINGS_CHARTER.md",
+    "research/ops/PRIVATE_FIN_HOLDINGS_RESCREEN.md",
+    "research/ops/PRIVATE_FIN_HOLDINGS_DECISION_PACK.md",
+    "scripts/e16_private_fin_holdings_rescreen.py",
+    "repro/private-fin-holdings-20260909/"
+  ]
+}

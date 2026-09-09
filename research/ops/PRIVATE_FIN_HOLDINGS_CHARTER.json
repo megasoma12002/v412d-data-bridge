@@ -1,0 +1,7 @@
+{
+  "label": "PRIVATE_FIN_HOLDINGS_CHARTER",
+  "status": "STAGE_A_STOP",
+  "date": "2026-09-09",
+  "rescreen_status": "STOP_NO_POSITIVE_HELDOUT_VS_LIVE_PUB_KD",
+  "decision_pack": "research/ops/PRIVATE_FIN_HOLDINGS_DECISION_PACK.md"
+}
