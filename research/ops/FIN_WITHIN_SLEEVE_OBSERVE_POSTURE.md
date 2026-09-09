@@ -1,8 +1,8 @@
 # FIN Within-Sleeve Observe Posture — LOCKED
 
 Date: 2026-09-08 · KD_OPT observe added 2026-09-09  
-Status: **LOCKED** · Stage D **OPERATING OBSERVE**  
-Soft-Frozen: **KEEP** · live wire **FORBIDDEN** · cutover needs dedicated **ACCEPT**
+Status: **LOCKED** · Stage D **OPERATING OBSERVE** + live **`KD_OPT` ACCEPTED 2026-09-09**  
+Soft-Frozen: **KEEP** · live within-sleeve **`FIN_PRE_EXDIV_KD`** (forward-only) · see `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md`
 
 ## Posture (4 books)
 

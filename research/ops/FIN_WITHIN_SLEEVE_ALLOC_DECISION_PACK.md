@@ -6,12 +6,13 @@ Soft-Frozen: **KEEP** · capital **500M** (research exec) · board-lot **1000**
 Charter: `FIN_WITHIN_SLEEVE_ALLOC_CHARTER.md`  
 Stage B: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_B.md`  
 Stage C: `FIN_WITHIN_SLEEVE_ALLOC_STAGE_C.md`  
-Dual-paper: `FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md` · live wire **false**  
+Dual-paper: `FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPEN.md` · live **`KD_OPT` ACCEPTED**  
 Mix: `FIN_EQUAL_RS_EXDIV_MIX.md`  
 Posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md`  
+Cutover: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` · checklist **ACCEPTED**  
 Portfolio: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (**KEEP** FIN quartet · archive other research lines)  
 Pre-exdiv KD probe: `FIN_PRE_EXDIV_KD_PROBE.md` (**PAPER_PROBE** · Yahoo K9/D9)  
-KD NAV / optimize: `FIN_PRE_EXDIV_KD_NAV.md` · `FIN_PRE_EXDIV_KD_OPTIMIZE.md` (**optimal `KD_APR15_MAY15_Klt30_T15`** → observe **`KD_OPT`**)  
+KD NAV / optimize: `FIN_PRE_EXDIV_KD_NAV.md` · `FIN_PRE_EXDIV_KD_OPTIMIZE.md` (**optimal `KD_APR15_MAY15_Klt30_T15`** → observe **`KD_OPT`** → **live**)  
 Objective scan: `FIN_OBJECTIVE_REGULARITY.md`
 EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 
@@ -27,14 +28,13 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | **OPEN pre-exdiv KD probe** | Yahoo K9/D9 · May–Jun K&lt;25 · pre-ex T−10…T−1 | Paper probe only | **OPEN 2026-09-09** |
 | **ADD KD_OPT observe** | `請照順序` → 第 4 本 OPERATING | `KD_APR15_MAY15_Klt30_T15` ledger | **OPERATING 2026-09-09** |
 | **OPEN EQUAL×KD mix probe** | `開 paper probe（EQUAL×KD λ-grid）` | Paper λ-grid only | **OPEN 2026-09-09** |
+| **ACCEPT live cutover** | `ACCEPT` → **`KD_OPT`** | Wire `FIN_PRE_EXDIV_KD` into `e21` | **ACCEPTED 2026-09-09** |
 
 ## Accepted operating posture (2026-09-09)
 
-1. **Maintain OPERATING** — month-end refresh via `ops_month_end_paper_pack.py` for `FIN_EQUAL` ∥ `FIN_RS_SOFT_TILT_EXDIV` ∥ `MIX_L75` ∥ **`KD_OPT`**; compare tip and held-out.
-2. **No live wire** — Soft-Frozen **KEEP**; cutover requires a dedicated **ACCEPT** ballot.
-3. **Choose after observe window** — tip-clean + held-out holds → prefer **`MIX_L75`** or **`KD_OPT`**; if max MDD lift is required and tip PAUSE is tolerable → consider pure **RS_EXDIV**.
-4. **Do not** — reopen Stage B hard TOP1/TOP2; stitch / live `e21` wire on this line.
-5. **Optional later** — λ·EQUAL+(1−λ)·KD_OPT mix (not required now).
+1. **Maintain OPERATING** paper books beside live — month-end refresh EQUAL ∥ RS ∥ MIX_L75 ∥ KD_OPT.  
+2. **Live within-sleeve** = **`KD_OPT`** (`FIN_PRE_EXDIV_KD`) forward-only; Soft-Frozen **KEEP**.  
+3. **Do not** — Soft-Frozen flip; E45 stitch; Telecom within-sleeve flip; history rewrite.  
 
 ## Stage results (paper)
 
@@ -45,24 +45,21 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | D dual-paper | `FIN_EQUAL` ∥ RS ∥ **`MIX_L75`** ∥ **`KD_OPT`** @ 500M | **OPERATING OBSERVE** |
 | Mix λ-grid | **`MIX_L75`** held **+0.129** · tip YTD/1y **PASS** | **COEXIST_CANDIDATE_FOUND** |
 | KD optimize | **`KD_OPT`** held **~+0.65** · tip YTD/1y **PASS** | **OPTIMAL_SELECTED_OBSERVE** |
+| Live cutover | **`KD_OPT`** → `e21` | **ACCEPTED 2026-09-09** |
 
 ## Still required later
 
 | Ballot | Effect |
 |---|---|
-| **ACCEPT live FIN within-sleeve cutover** | Wire chosen policy (`MIX_L75` / `KD_OPT` / RS) into `e21` |
-
-Checklist / ballot **drafted 2026-09-09** (NOT AUTHORIZED):  
-`CUTOVER_CHECKLIST_FIN_WITHIN_SLEEVE.md` · `FIN_WITHIN_SLEEVE_CUTOVER_BALLOT_DRAFT.md`  
-(Candidates extended to include **`KD_OPT`** when that observe is on main.)
+| *(none for FIN within-sleeve)* | Live `KD_OPT` already wired; further policy change needs new ACCEPT |
 
 ## Non-ballots
 
 | Topic | Status |
 |---|---|
 | Soft-Frozen clips | **KEEP** |
-| Live FIN wire | **NOT** this ballot — observe ≠ cutover |
+| Live FIN wire | **`KD_OPT` ACCEPTED 2026-09-09** (forward-only) |
 | Stage B hard policies | Remain **STOP** |
-| Mix / RS / KD live wire | **FORBIDDEN** until dedicated ACCEPT |
+| Mix / RS live wire | **NOT** selected this cycle |
 | E45 stitch on this line | **FORBIDDEN** |
-| EQUAL×KD_OPT mix | Optional later — not required now |
+| EQUAL×KD_OPT mix | Paper only — not live |
