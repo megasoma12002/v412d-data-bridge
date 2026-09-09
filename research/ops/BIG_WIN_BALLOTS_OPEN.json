@@ -15,5 +15,8 @@
     0.6,
     0.9
   ],
-  "e45_stitch_live": "BLEND_E45_A05"
+  "e45_stitch_live": false,
+  "followup_rollback_ballot": "LIVE_STACK_ROLLBACK_BALLOT_OPEN",
+  "followup_recommendation": "ACCEPT live-stack rollback: DROP_E45_A05",
+  "followup_executed": "DROP_E45_A05"
 }

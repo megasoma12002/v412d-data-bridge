@@ -1,0 +1,18 @@
+{
+  "label": "LIVE_STACK_ROLLBACK_BALLOT_OPEN",
+  "status": "EXECUTED",
+  "date": "2026-09-09",
+  "executed_reply": "ACCEPT live-stack rollback: DROP_E45_A05",
+  "evidence": "research/ops/LIVE_STACK_RERUN.md",
+  "repro": "repro/live-stack-rerun-20260909/",
+  "live_after": {
+    "soft_frozen_fin": [0.6, 0.9],
+    "fin_within_sleeve": "KD_OPT",
+    "e45_stitch": false,
+    "capital": 500000000,
+    "lot": 1000,
+    "default_books": "E22_v2s_tw"
+  },
+  "cutover_note": "research/ops/E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md",
+  "recommendation_was": "ACCEPT live-stack rollback: DROP_E45_A05"
+}

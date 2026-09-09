@@ -2,18 +2,18 @@
 
 Date: 2026-09-08 · live KD_OPT 2026-09-09 · hold posture 2026-09-09  
 Status: **LOCKED** · Stage D **OPERATING OBSERVE** · live **`KD_OPT` HOLD**  
-Soft-Frozen: **[0.60, 0.90] LIVE** (FINBAND) · live within-sleeve **`FIN_PRE_EXDIV_KD`** · E45 stitch **`BLEND_E45_A05` LIVE**  
-Cutover notes: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` · `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` · `E45_STITCH_ACCEPTED_BLEND_A05.md`
+Soft-Frozen: **[0.60, 0.90] LIVE** (FINBAND) · live within-sleeve **`FIN_PRE_EXDIV_KD`** · E45 stitch **OFF** (`DROP_E45_A05`)  
+Cutover notes: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` · `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` · `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md`
 
-## Binding hold (updated 2026-09-09 EXECUTED)
+## Binding hold (updated 2026-09-09 rollback)
 
-Human「請都做」executed clip flip + E45 A05 stitch. Continuing month-end observe on the new live stack.
+Human **`ACCEPT live-stack rollback: DROP_E45_A05`**. Live = Soft-Frozen FINBAND + KD_OPT (no E45 stitch). Continuing month-end observe.
 
 1. **Maintain live `KD_OPT`** — no further FIN within-sleeve param / season / mix probes unless new human OPEN.  
 2. **Month-end observe** — refresh `FIN_EQUAL` ∥ `FIN_RS_SOFT_TILT_EXDIV` ∥ `MIX_L75` ∥ `KD_OPT`; read tip + held-out.  
-3. **Soft-Frozen KEEP** — clip flip needs dedicated ballot (path to larger P&L move).  
+3. **Soft-Frozen FINBAND KEEP** — further clip change needs dedicated ballot.  
 4. **No FIN sleeve micro-tuning** — autumn / dual-season / EQUAL×KD already STOP or paper-exhausted.  
-5. **「大勝」paths (separate ballots only)** — Soft-Frozen clip change **or** new mechanism (e.g. E45 stitch second ACCEPT); not another KD variant.
+5. **E45 live stitch** — OFF; any re-stitch needs a new dedicated ACCEPT (not this posture).
 
 ## Posture (4 paper books + live)
 
@@ -22,7 +22,7 @@ Human「請都做」executed clip flip + E45 A05 stitch. Continuing month-end ob
 | Live Financial within-sleeve | **`KD_OPT`** / `FIN_PRE_EXDIV_KD` / `KD_APR15_MAY15_Klt30_T15` |
 | Live Telecom / 0050 | EQUAL |
 | Paper observe | EQUAL ∥ RS_EXDIV ∥ MIX_L75 ∥ KD_OPT @ 500M |
-| Soft-Frozen | **[0.50, 0.95] KEEP** |
+| Soft-Frozen | **[0.60, 0.90] LIVE** (FINBAND) · E45 stitch **OFF** |
 
 ## Operating paths
 
@@ -45,7 +45,7 @@ Human「請都做」executed clip flip + E45 A05 stitch. Continuing month-end ob
 - No Soft-Frozen flip without dedicated ACCEPT  
 - No further FIN within-sleeve micro-tune / autumn reopen from this posture  
 - No Stage B hard reopen  
-- No E45 stitch without **second** human ACCEPT  
+- No E45 stitch without a **new** dedicated human ACCEPT (prior A05 rolled back)  
 - No history rewrite  
 
 ## 「大勝」ballot gate

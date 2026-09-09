@@ -24,4 +24,6 @@ Capital **500,000,000** · lot **1000** · KD_OPT · Soft-Frozen live **[0.6, 0.
 
 NEW_LIVE (FINBAND+KD+A05) vs OLD_SF_KD held-out score=-0.679 tip_clean=False YTD=ALERT 1y=ALERT. Live Soft-Frozen=[0.6, 0.9].
 
+**Follow-up (2026-09-09):** human `ACCEPT live-stack rollback: DROP_E45_A05` — live now ≈ **FINBAND_KD** (E45 stitch OFF). See `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md`.
+
 Repro: `repro/live-stack-rerun-20260909/`

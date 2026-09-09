@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-09-09T11:32:37.568938+00:00",
+  "generated_at_utc": "2026-09-09T12:30:00+00:00",
   "label": "FIN_WITHIN_SLEEVE_OBSERVE_POSTURE",
-  "status": "LOCKED_HOLD_EXECUTED_BIG_WIN",
+  "status": "LOCKED_HOLD_DROP_E45_A05",
   "operating_observe": true,
   "live_wire": true,
   "live_financial_alloc": "FIN_PRE_EXDIV_KD",
@@ -17,19 +17,19 @@
     "MIX_L75",
     "KD_OPT"
   ],
-  "human_confirm": "\u7dad\u6301 KD_OPT + \u6708\u7d50\u89c0\u5bdf\u662f\u6b63\u89e3\uff1b\u60f3\u300c\u5927\u52dd\u300d\u5c31\u8981\u6e96\u5099\u52d5 clip \u6216\u958b\u65b0\u6a5f\u5236 ballot\uff0c\u4e0d\u662f\u7e7c\u7e8c\u5728\u91d1\u878d sleeve \u5fae\u8abf\u3002",
+  "human_confirm": "ACCEPT live-stack rollback: DROP_E45_A05",
   "posture": [
     "Maintain live KD_OPT forward-only",
     "Month-end observe EQUAL || RS_EXDIV || MIX_L75 || KD_OPT (tip + held-out)",
-    "Soft-Frozen KEEP [0.50, 0.95]",
-    "No further FIN within-sleeve micro-tuning this cycle",
-    "Large upside paths: Soft-Frozen clip ballot OR new-mechanism ballot (e.g. E45 second stitch ACCEPT)"
+    "Soft-Frozen FINBAND [0.60, 0.90] KEEP",
+    "E45 stitch OFF (DROP_E45_A05)",
+    "No further FIN within-sleeve micro-tuning this cycle"
   ],
   "non_actions": [
     "No Soft-Frozen flip without dedicated ACCEPT",
     "No FIN within-sleeve micro-tune / autumn reopen from this posture",
     "No Stage B hard reopen",
-    "No E45 stitch without second human ACCEPT",
+    "No E45 stitch without a new dedicated human ACCEPT",
     "No history rewrite"
   ],
   "big_win_ballots": [
@@ -39,8 +39,9 @@
   "artifacts": {
     "posture_md": "research/ops/FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md",
     "cutover": "research/ops/FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md",
+    "rollback": "research/ops/E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md",
     "decision_pack": "research/ops/FIN_WITHIN_SLEEVE_ALLOC_DECISION_PACK.md"
   },
-  "label_tag": "FIN_WITHIN_SLEEVE_HOLD_2026-09-09__KD_OPT_LIVE__MONTH_END_OBSERVE__NO_FIN_MICROTUNE__SOFT_FROZEN_KEEP",
-  "e45_stitch_live": "BLEND_E45_A05"
+  "label_tag": "FIN_WITHIN_SLEEVE_HOLD_2026-09-09__KD_OPT_LIVE__FINBAND__E45_OFF",
+  "e45_stitch_live": false
 }

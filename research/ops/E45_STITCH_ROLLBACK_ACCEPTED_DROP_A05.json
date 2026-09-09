@@ -1,0 +1,12 @@
+{
+  "label": "E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05",
+  "status": "ACCEPTED",
+  "date": "2026-09-09",
+  "human_ballot": "ACCEPT live-stack rollback: DROP_E45_A05",
+  "live_e45_stitch": false,
+  "soft_frozen_fin": [0.6, 0.9],
+  "fin_within_sleeve": "KD_OPT",
+  "forward_only": true,
+  "evidence": "research/ops/LIVE_STACK_RERUN.md",
+  "note": "research/ops/E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md"
+}

@@ -2,7 +2,7 @@
 
 Date: 2026-09-09  
 Human ballot: **`E45 ACCEPT live stitch: BLEND_E45_A05`** (via「請都做」)  
-Status: **ACCEPTED · LIVE WIRED (forward-only)**  
+Status: **ACCEPTED · LIVE WIRED (forward-only)** — **superseded 2026-09-09 by `DROP_E45_A05` rollback** (`E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md`)  
 Checklist: `E45_STITCH_CHECKLIST.md` (gate 6 sustained-clean still thin — human overrode with explicit ACCEPT)
 
 ## What wired
