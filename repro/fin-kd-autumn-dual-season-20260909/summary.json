@@ -1,0 +1,133 @@
+{
+  "generated_at_utc": "2026-09-09T10:33:47.440004+00:00",
+  "label": "FIN_KD_AUTUMN_DUAL_SEASON",
+  "status": "STOP",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "live_kd_opt_unchanged": true,
+  "autumn_params": {
+    "id": "AUT_OCT20_DEC10_Klt20_H40",
+    "season_start": [
+      10,
+      20
+    ],
+    "season_end": [
+      12,
+      10
+    ],
+    "k_thresh": 20.0,
+    "hold_days": 40,
+    "active_score": 1.5,
+    "source": "optimize_best"
+  },
+  "kd_opt": {
+    "id": "KD_APR15_MAY15_Klt30_T15",
+    "season_start": [
+      4,
+      15
+    ],
+    "season_end": [
+      5,
+      15
+    ],
+    "k_thresh": 30.0,
+    "pre_days": 15,
+    "active_score": 1.5
+  },
+  "ranked": [
+    {
+      "id": "KD_OPT",
+      "n_fills": 6011,
+      "exact_t1_ok": true,
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.8066279142484367,
+          "cagr_giveback_pp": 0.3186621887207419,
+          "score": 0.6472968198880658
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 1.1789090714417805,
+          "cagr_giveback_pp": 0.46757526403025107,
+          "score": 0.9451214394266549
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.2988977782536715,
+          "gate": "PASS",
+          "rel_nav": 0.9951514332365174
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.5872881136167694,
+          "gate": "PASS",
+          "rel_nav": 0.9903806926548473
+        }
+      },
+      "tip_clean": true
+    },
+    {
+      "id": "DUAL_KD_AUTUMN",
+      "n_fills": 6000,
+      "exact_t1_ok": true,
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.8167118461472667,
+          "cagr_giveback_pp": 0.3908182613052258,
+          "score": 0.6213027154946538
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 1.2467970494225322,
+          "cagr_giveback_pp": 0.5224743322496117,
+          "score": 0.9855598832977264
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.542641564729097,
+          "gate": "PASS",
+          "rel_nav": 0.9942401415149036
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.933017669278514,
+          "gate": "PASS",
+          "rel_nav": 0.9882849329201017
+        }
+      },
+      "tip_clean": true
+    },
+    {
+      "id": "AUTUMN_BEST",
+      "n_fills": 6020,
+      "exact_t1_ok": true,
+      "scores": {
+        "heldout_2019_plus": {
+          "mdd_improve_pp": 0.6779234248658117,
+          "cagr_giveback_pp": 0.5004159016479326,
+          "score": 0.4277154740418454
+        },
+        "sealed_2023_plus_REPORT_ONLY": {
+          "mdd_improve_pp": 1.5382027051129787,
+          "cagr_giveback_pp": 0.7853680705153021,
+          "score": 1.1455186698553277
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.4064129210471075,
+          "gate": "PASS",
+          "rel_nav": 0.9910070557340009
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.66471395258161,
+          "gate": "PASS",
+          "rel_nav": 0.9838488322730115
+        }
+      },
+      "tip_clean": true
+    }
+  ],
+  "dual_vs_kd_opt_heldout_delta": -0.025994104393411988,
+  "lifts_vs_kd_opt": false,
+  "verdict": "DUAL_KD_AUTUMN held-out=+0.621 tip_clean=True \u00b7 vs KD_OPT \u0394=-0.026 (KD_OPT=+0.647). No tip/held-out lift \u2192 STOP autumn dual-season. Autumn=`AUT_OCT20_DEC10_Klt20_H40`. Soft-Frozen KEEP \u00b7 live KD_OPT untouched.",
+  "stop_rule": "No tip/held-out lift vs KD_OPT \u2192 STOP"
+}

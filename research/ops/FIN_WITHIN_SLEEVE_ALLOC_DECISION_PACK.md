@@ -31,6 +31,7 @@ EQUAL×KD mix probe: `FIN_EQUAL_KD_OPT_MIX.md` (**paper only** · coexist grid)
 | **OPEN EQUAL×KD mix probe** | `開 paper probe（EQUAL×KD λ-grid）` | Paper λ-grid only | **OPEN 2026-09-09** |
 | **ACCEPT live cutover** | `ACCEPT` → **`KD_OPT`** | Wire `FIN_PRE_EXDIV_KD` into `e21` | **ACCEPTED 2026-09-09** |
 | **OPEN autumn post-ex probe** | `開秋冬除息後低點 paper probe` | Paper Oct20–Dec10 K9 | **OPEN 2026-09-09** |
+| **Autumn small-search + dual-season** | 參數小搜 + KD 雙季 mix | Paper only · stop if no lift | **STOP 2026-09-09** |
 
 ## Accepted operating posture (2026-09-09)
 
