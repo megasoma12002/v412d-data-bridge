@@ -1,0 +1,30 @@
+{
+  "label": "INDICATOR_BUY_SELL_CHARTER_2026-09-10__PAPER_ONLY__R1_SCREEN_OPEN__LIVE_KD_OPT_KEEP",
+  "status": "OPEN_PAPER_ONLY",
+  "opened_at": "2026-09-10",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "live_kd_opt_keep": true,
+  "e45_stitch": false,
+  "scope": {
+    "capital": 500000000,
+    "lot": 1000,
+    "sleeve": "Soft-Frozen fixed",
+    "telecom": "TEL_EQUAL",
+    "challenger_layer": "FIN_within_sleeve_indicators"
+  },
+  "anchors": ["FIN_EQUAL", "LIVE_KD_OPT", "FIN_RS_SOFT_TILT_EXDIV"],
+  "round": 1,
+  "artifacts": {
+    "charter": "research/ops/INDICATOR_BUY_SELL_CHARTER.md",
+    "zh": "research/ops/INDICATOR_BUY_SELL_CHARTER.zh-TW.md",
+    "screen_script": "scripts/e16_indicator_buy_sell_screen.py",
+    "screen_results": "research/ops/INDICATOR_BUY_SELL_SCREEN_R1.md"
+  },
+  "non_actions": [
+    "No Soft-Frozen flip",
+    "No live KD_OPT retune from this charter alone",
+    "No E45 stitch",
+    "No auto cutover"
+  ]
+}
