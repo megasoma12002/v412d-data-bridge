@@ -1,6 +1,6 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-09T12:52:49.788881+00:00`
+Generated: `2026-09-10T10:15:01.226143+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED** to E22_v2s_tw (forward-only).
 
 ## Code wire
@@ -12,7 +12,7 @@ Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED
 
 ## Live ledger evidence (`forward/e21`)
 
-- asof: **2026-09-08**
+- asof: **2026-09-09**
 - `e22_books_version` in portfolio_state: **True**
 - `e22_manifest` in portfolio_state: **True**
 - `e22_version` col in nav.csv: **True**
@@ -21,8 +21,8 @@ Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED
 
 ## Ex → pay lag (ledger completeness already green; this is timing fidelity)
 
-- Cash median / p90 days: **27.0** / **36.0** (n=144)
-- Stock median / p90 days: **40.0** / **50.0** (n=52)
+- Cash median / p90 days: **28.0** / **36.0** (n=273)
+- Stock median / p90 days: **36.0** / **48.8** (n=143)
 
 ## Receivable stub (universe, report-only)
 
