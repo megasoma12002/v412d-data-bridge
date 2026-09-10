@@ -90,6 +90,11 @@ Human clarified: research **buy-low** and **sell-high** **separately** (not mixe
 
 See `INDICATOR_BUY_SELL_SCREEN_R2_SPLIT_CHARTER.md` · results `INDICATOR_BUY_SELL_SCREEN_R2_SPLIT.md`.
 
+## Round-3 (DONE) — market TA catalog + combinations
+
+Finite market-standard catalog; singles + full buy×sell cross + OR/majority.  
+Results: `INDICATOR_COMBO_CATALOG_SCREEN_R3.md` · verdict **`COEXIST_NO_LIFT_VS_LIVE`** (0 beat live).
+
 ## Label
 
-`INDICATOR_BUY_SELL_CHARTER_2026-09-10__PAPER_ONLY__R1_DONE__R2_SPLIT_OPEN__LIVE_KD_OPT_KEEP`
+`INDICATOR_BUY_SELL_CHARTER_2026-09-10__PAPER_ONLY__R1_R2_R3_DONE__LIVE_KD_OPT_KEEP`
