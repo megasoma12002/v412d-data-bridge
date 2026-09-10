@@ -30,7 +30,7 @@ Soft-Frozen E22 DQ KPI remains **`kpi_ok=true`** (announce blank is reported, no
 | MoneyDJ zcc | Thin / login-ish | Weak | No | No | |
 | PChome MegaTime | Stub | No | No | No | |
 | Wearn share | Weak | No | No | No | |
-| YuantaETFs 0050 配息 | SPA; table not reliably scrapeable here | Expected | Expected | Unknown | Official issuer; needs human/browser JS |
+| YuantaETFs 0050 配息 | SPA DOM 難抓；**API OK** via `api.yuantafunds.com` `FundDividend/History` (`FundId=1066`) | Yes (`SHARE_DATE`) | Yes (`PAY_DATE`) | **No field** | See `E22_YUANTA_ETF_DIVIDEND_FETCH_2026-09-10.md` |
 | TWSE open ETF-div JSON tried | 404 / HTML | — | — | — | Endpoints stale |
 
 ## Spot checks
@@ -41,8 +41,8 @@ Soft-Frozen E22 DQ KPI remains **`kpi_ok=true`** (announce blank is reported, no
 
 ## Residual (not inventable from this sweep)
 
-- **`0050` `announcement_date` × 27** — no accessible site exposes ETF announce dates in a scrapeable table; FinMind blank; MOPS company query N/A.  
-  Next options (human/ops): Yuanta ETF 配息行事曆 manual export, or TWSE ETF issuer notices — **not** Yahoo/Wantgoo/Goodinfo.
+- **`0050` `announcement_date` × 27** — FinMind blank; MOPS company query N/A; **Yuanta official API also has no announce field** (ex/pay/amount verified 27/27).  
+  Next options (human/ops): Yuanta press / TWSE ETF issuer notices — **not** Yahoo/Wantgoo/Goodinfo, and **not** inventing from `BASE_DATE_GEN`.
 
 ## Non-actions
 
