@@ -1,0 +1,134 @@
+{
+  "generated_at_utc": "2026-09-10T13:20:05.471309+00:00",
+  "label": "SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPERATING",
+  "status": "OPERATING_OBSERVE",
+  "live_wire": false,
+  "soft_frozen_unchanged": true,
+  "human_open": "OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80",
+  "books": [
+    "LIVE_KD_OPT",
+    "SOFT_BOTH__BELOW_MA120__RSI6_GT80"
+  ],
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "base_id": "LIVE_KD_OPT",
+  "challenger_id": "SOFT_BOTH__BELOW_MA120__RSI6_GT80",
+  "challenger_policy": "FIN_PRE_EXDIV_KD",
+  "soft_assist": {
+    "buy_low_id": "BELOW_MA120",
+    "sell_high_id": "RSI6_GT80",
+    "boost": 1.0,
+    "live_kd": {
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "k_thresh": 30.0,
+      "pre_days": 15,
+      "active_score": 1.5
+    }
+  },
+  "heldout_vs_base": {
+    "mdd_improve_pp": 0.0787053514347269,
+    "cagr_giveback_pp": -0.019362856897719993,
+    "score": 0.0690239229858669
+  },
+  "sealed_vs_base": {
+    "mdd_improve_pp": 0.3314240000340307,
+    "cagr_giveback_pp": 0.0947677493835064,
+    "score": 0.2840401253422775
+  },
+  "windows": {
+    "LIVE_KD_OPT": {
+      "full": {
+        "cagr": 0.13849076454881026,
+        "max_drawdown": -0.21720270077643722,
+        "utility": 0.029889414160591654,
+        "vol": 0.12976583158914978,
+        "n_days": 3355
+      },
+      "oof_2011_2018": {
+        "cagr": 0.09163479924572715,
+        "max_drawdown": -0.17279501681544296,
+        "utility": 0.00523729083800567,
+        "vol": 0.10459376420805865,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12057445744466633,
+        "max_drawdown": -0.21720270077643733,
+        "utility": 0.011973107056447663,
+        "vol": 0.13318878047115384,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.24856495256732214,
+        "max_drawdown": -0.12807794587413646,
+        "utility": 0.1845259796302539,
+        "vol": 0.1604569331257503,
+        "n_days": 883
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.18068587296337357,
+        "max_drawdown": -0.21720270077643733,
+        "utility": 0.07208452257515491,
+        "vol": 0.14674971188802133,
+        "n_days": 1860
+      }
+    },
+    "SOFT_BOTH__BELOW_MA120__RSI6_GT80": {
+      "full": {
+        "cagr": 0.1382848998761952,
+        "max_drawdown": -0.21641564726209006,
+        "utility": 0.03007707624515016,
+        "vol": 0.12893784605604505,
+        "n_days": 3355
+      },
+      "oof_2011_2018": {
+        "cagr": 0.0909909908154023,
+        "max_drawdown": -0.1691211977429392,
+        "utility": 0.0064303919439326895,
+        "vol": 0.10290137450985233,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.1216562231493683,
+        "max_drawdown": -0.21641564726209006,
+        "utility": 0.013448399518323273,
+        "vol": 0.13331243873339083,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.24761727507348708,
+        "max_drawdown": -0.12476370587379615,
+        "utility": 0.185235422136589,
+        "vol": 0.15965075019104782,
+        "n_days": 883
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.18087950153235077,
+        "max_drawdown": -0.21641564726209006,
+        "utility": 0.07267167790130574,
+        "vol": 0.146390689774871,
+        "n_days": 1860
+      }
+    }
+  },
+  "fills": {
+    "LIVE_KD_OPT": 5751,
+    "SOFT_BOTH__BELOW_MA120__RSI6_GT80": 5785
+  },
+  "default_status": "KEEP_OBSERVE",
+  "ballot": "research/ops/SOFT_ASSIST_PROMOTE_BALLOT_EXECUTED_OPEN_OBSERVE.md",
+  "observe_open": "research/ops/SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md",
+  "posture": "research/ops/SOFT_ASSIST_OBSERVE_POSTURE.md",
+  "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_SOFT_ASSIST.md",
+  "next_human": [
+    "Month-end monitor on LIVE_KD_OPT \u2225 soft champion",
+    "Default KEEP OBSERVE; live cutover needs dedicated ACCEPT"
+  ]
+}

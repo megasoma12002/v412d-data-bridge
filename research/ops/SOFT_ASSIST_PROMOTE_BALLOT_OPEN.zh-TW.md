@@ -1,3 +1,8 @@
+狀態：**EXECUTED** → `SOFT_ASSIST_PROMOTE_BALLOT_EXECUTED_OPEN_OBSERVE.md`
+人類已回：`OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80`
+
+---
+
 # Soft-Assist 推進 — Ballot OPEN（繁中）
 
 日期：2026-09-10  

@@ -1,6 +1,6 @@
 {
   "label": "SOFT_ASSIST_PROMOTE_BALLOT_OPEN_2026-09-10__AWAIT_HUMAN__LIVE_KD_KEEP",
-  "status": "OPEN",
+  "status": "EXECUTED_OPEN_OBSERVE",
   "date": "2026-09-10",
   "evidence": "research/ops/KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md",
   "champion_id": "SOFT_BOTH__BELOW_MA120__RSI6_GT80",
@@ -33,5 +33,7 @@
     "KD season/K/pre-ex retune",
     "Telecom within-sleeve",
     "E45 stitch"
-  ]
+  ],
+  "executed_human": "OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80",
+  "executed_note": "research/ops/SOFT_ASSIST_PROMOTE_BALLOT_EXECUTED_OPEN_OBSERVE.md"
 }
