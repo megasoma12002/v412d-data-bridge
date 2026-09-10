@@ -1,0 +1,37 @@
+{
+  "label": "SOFT_ASSIST_PROMOTE_BALLOT_OPEN_2026-09-10__AWAIT_HUMAN__LIVE_KD_KEEP",
+  "status": "OPEN",
+  "date": "2026-09-10",
+  "evidence": "research/ops/KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md",
+  "champion_id": "SOFT_BOTH__BELOW_MA120__RSI6_GT80",
+  "champion": {
+    "base": "KD_APR15_MAY15_Klt30_T15",
+    "buy_soft": "kd_scores + 1.0 * BELOW_MA120",
+    "sell_soft": "fin_sell_scores soft-tilt on RSI6_GT80",
+    "heldout": 0.6310983596953701,
+    "live_heldout": 0.5406368575799236,
+    "vs_live_delta": 0.0904615021154464,
+    "tip_ytd": "PASS",
+    "tip_1y": "PASS"
+  },
+  "reply_options": [
+    "OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80",
+    "KEEP live KD_OPT (no Soft-assist)",
+    "ACCEPT live Soft-assist cutover: SOFT_BOTH__BELOW_MA120__RSI6_GT80",
+    "DEFER Soft-assist promote",
+    "REJECT Soft-assist promote"
+  ],
+  "recommended": "OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80",
+  "live_wire_default": false,
+  "soft_frozen": "KEEP",
+  "live_fin": "KD_OPT_KEEP_UNTIL_ACCEPT",
+  "live_tel": "TEL_EQUAL_KEEP",
+  "e45_stitch": "OFF",
+  "out_of_ballot": [
+    "Soft-Frozen clip flip",
+    "Sleeve-layer tilt",
+    "KD season/K/pre-ex retune",
+    "Telecom within-sleeve",
+    "E45 stitch"
+  ]
+}
