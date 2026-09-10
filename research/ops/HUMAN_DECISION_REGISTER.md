@@ -87,7 +87,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
 | E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; live stitch **rolled back** `DROP_E45_A05` (2026-09-09); any future live stitch needs a new dedicated ACCEPT |
 | Indicator buy/sell (FIN) | R1–R3 + **KD hard assist** **DONE** (`ASSIST_NO_LIFT`) · soft/KD-retune/sleeve screen **PAPER DONE** with tip-clean lift — live KEEP until dedicated ACCEPT · `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md` |
-| Soft-assist / sleeve tilt promote | Tip-clean paper lift **documented**; open ballot only on explicit human ask — no auto-wire · Soft-Frozen KEEP · FIN posture micro-tune still locked |
+| Soft-assist / sleeve tilt promote | Soft-assist ballot **OPEN** · `SOFT_ASSIST_PROMOTE_BALLOT_OPEN.md` — await A/B/C/D/E; sleeve tilt still needs separate ask · Soft-Frozen KEEP · no auto-wire |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
