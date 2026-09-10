@@ -49,6 +49,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | 民營 native observe posture | **LOCKED KEEP OBSERVE** (2026-09-09) | Fixed month-end cadence + tip/structural watch + status ballot DRAFT · no live wire · `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md` |
 | E22 payment-date restore | **DONE** (2026-09-10) | Soft-Frozen cash/stock pay blank **0%** restored post-#166; private residual 1/129 Yahoo-empty · `E22_PAYMENT_DATE_RESTORE_2026-09-10.md` · Soft-Frozen KEEP |
 | E22 2891 cash-pay fill | **DONE** (2026-09-10) | Last private blank → `2010-08-23` via CNYES `#3283475` · private pay blank 0% · Soft-Frozen KEEP · `E22_2891_CASH_PAYMENT_FILL_2010-08-23.md` |
+| E22 stock-web source sweep | **DONE** (2026-09-10) | Pay dates complete; residual `0050` announce×27 · `E22_STOCK_WEB_SOURCE_SWEEP_2026-09-10.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
