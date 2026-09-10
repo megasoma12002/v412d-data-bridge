@@ -315,3 +315,7 @@ Human **「先把 Soft-Frozen（再民營）payment-date 還原／Yahoo backfill
 ## E22 2891 cash payment fill (2026-09-10)
 
 Human **「請想辦法補齊資料」**. Last private cash-pay blank (`2891` / `98年` / ex `2010-07-29` / 0.64) filled as **`2010-08-23`** from CNYES announcement https://news.cnyes.com/news/id/3283475 (not Yahoo/Wantgoo/MOPS empty fields). Soft-Frozen KPI still 0% blank; private cash/stock pay blank now **0%**. Note: `E22_2891_CASH_PAYMENT_FILL_2010-08-23.md`.
+
+## E22 stock-web source sweep (2026-09-10)
+
+Human **「網路上有很多跟股票有關的資訊網站都找看看」**. Swept Yahoo/FinMind/MOPS/CNYES/Wantgoo/Goodinfo/HiStock/MoneyDJ/Yuanta/TWSE. Cash+stock payment blanks already **0%**; remaining ledger gap = **`0050` announcement_date ×27** (no scrapeable announce column on accessible sites; FinMind empty; MOPS ETF N/A). Note: `E22_STOCK_WEB_SOURCE_SWEEP_2026-09-10.md`.
