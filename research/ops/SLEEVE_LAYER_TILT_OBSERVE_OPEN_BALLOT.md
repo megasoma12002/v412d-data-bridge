@@ -1,6 +1,20 @@
 # Sleeve-Layer Tilt — Observe OPEN Ballot
 
 Date: 2026-09-10  
+Status: **EXECUTED** → see `SLEEVE_LAYER_TILT_OBSERVE_BALLOT_EXECUTED_OPEN_OBSERVE.md`  
+Human reply recorded:
+
+```
+OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01
+```
+
+Superseded as the active decision note by the EXECUTED file. Original options retained below for audit.
+
+---
+
+# Sleeve-Layer Tilt — Observe OPEN Ballot (archive)
+
+Date: 2026-09-10  
 Status: **OPEN** — awaiting human reply  
 Evidence: `SLEEVE_LAYER_TILT_SCREEN.md` (#191) · Stage A **`BEATS_LIVE`**  
 Soft-Frozen **clips KEEP** · live **`KD_OPT` KEEP** · live **`TEL_EQUAL` KEEP** · E45 stitch **OFF** · Soft-assist observe **UNCHANGED** (separate track)

@@ -1,0 +1,8 @@
+{
+  "label": "CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT_2026-09-10__BLOCKED",
+  "status": "BLOCKED_NOT_AUTHORIZED",
+  "date": "2026-09-10",
+  "champion_id": "SLEEVE_BELOW_MA60_a01",
+  "accept_string": "ACCEPT live Sleeve-tilt cutover: SLEEVE_BELOW_MA60_a01",
+  "live_wire": false
+}

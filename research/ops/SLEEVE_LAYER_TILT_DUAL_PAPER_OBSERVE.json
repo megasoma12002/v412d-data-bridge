@@ -1,0 +1,121 @@
+{
+  "generated_at_utc": "2026-09-10T16:45:33.256291+00:00",
+  "label": "SLEEVE_TILT_DUAL_PAPER_OBSERVE_OPERATING",
+  "status": "OPERATING_OBSERVE",
+  "live_wire": false,
+  "soft_frozen_clips_unchanged": true,
+  "soft_assist_observe": "UNCHANGED",
+  "human_open": "OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01",
+  "books": [
+    "LIVE_STACK",
+    "SLEEVE_BELOW_MA60_a01"
+  ],
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "base_id": "LIVE_STACK",
+  "challenger_id": "SLEEVE_BELOW_MA60_a01",
+  "challenger_policy": {
+    "signal": "BELOW_MA60",
+    "alpha": 0.1,
+    "within_sleeve": "KD_OPT + TEL_EQUAL"
+  },
+  "heldout_vs_base": {
+    "mdd_improve_pp": 0.0624505979783585,
+    "cagr_giveback_pp": -0.025375821461581793,
+    "score": 0.049762687247567605
+  },
+  "sealed_vs_base": {
+    "mdd_improve_pp": -0.15437237900278733,
+    "cagr_giveback_pp": -0.07667458727487197,
+    "score": -0.19270967264022332
+  },
+  "windows": {
+    "LIVE_STACK": {
+      "full": {
+        "cagr": 0.13849076454881026,
+        "max_drawdown": -0.21720270077643722,
+        "utility": 0.029889414160591654,
+        "vol": 0.12976583158914978,
+        "n_days": 3355
+      },
+      "oof_2011_2018": {
+        "cagr": 0.09163479924572715,
+        "max_drawdown": -0.17279501681544296,
+        "utility": 0.00523729083800567,
+        "vol": 0.10459376420805865,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12057445744466633,
+        "max_drawdown": -0.21720270077643733,
+        "utility": 0.011973107056447663,
+        "vol": 0.13318878047115384,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.24856495256732214,
+        "max_drawdown": -0.12807794587413646,
+        "utility": 0.1845259796302539,
+        "vol": 0.1604569331257503,
+        "n_days": 883
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.18068587296337357,
+        "max_drawdown": -0.21720270077643733,
+        "utility": 0.07208452257515491,
+        "vol": 0.14674971188802133,
+        "n_days": 1860
+      }
+    },
+    "SLEEVE_BELOW_MA60_a01": {
+      "full": {
+        "cagr": 0.13885156040611046,
+        "max_drawdown": -0.21657819479665374,
+        "utility": 0.03056246300778359,
+        "vol": 0.1298503073809336,
+        "n_days": 3355
+      },
+      "oof_2011_2018": {
+        "cagr": 0.0920756977955115,
+        "max_drawdown": -0.17227153404665174,
+        "utility": 0.005939930772185631,
+        "vol": 0.10443446488690707,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12041535214785459,
+        "max_drawdown": -0.21657819479665374,
+        "utility": 0.01212625474952772,
+        "vol": 0.13310017761504173,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.24933169844007086,
+        "max_drawdown": -0.12962166966416433,
+        "utility": 0.1845208636079887,
+        "vol": 0.1609804569637313,
+        "n_days": 883
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.1809396311779894,
+        "max_drawdown": -0.21657819479665374,
+        "utility": 0.07265053377966252,
+        "vol": 0.1469797716797545,
+        "n_days": 1860
+      }
+    }
+  },
+  "fills": {
+    "LIVE_STACK": 5751,
+    "SLEEVE_BELOW_MA60_a01": 5726
+  },
+  "default_status": "KEEP_OBSERVE",
+  "ballot": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_BALLOT_EXECUTED_OPEN_OBSERVE.md",
+  "observe_open": "research/ops/SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md",
+  "posture": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md",
+  "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md",
+  "next_human": [
+    "Month-end monitor on LIVE_STACK \u2225 SLEEVE_BELOW_MA60_a01",
+    "Default KEEP OBSERVE; live cutover needs dedicated ACCEPT"
+  ]
+}

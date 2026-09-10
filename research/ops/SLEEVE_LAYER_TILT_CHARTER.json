@@ -1,6 +1,6 @@
 {
   "label": "SLEEVE_LAYER_TILT_CHARTER_2026-09-10__PAPER_DONE_BEATS_LIVE__CHAMP_BELOW_MA60_a01__NO_LIVE_WIRE",
-  "status": "PAPER_DONE_BEATS_LIVE",
+  "status": "EXECUTED_OPEN_OBSERVE",
   "date": "2026-09-10",
   "stage_a_verdict": "BEATS_LIVE",
   "champion": "SLEEVE_BELOW_MA60_a01",
@@ -14,7 +14,7 @@
     "SLEEVE_RSI14_LT30_a02"
   ],
   "live_wire": false,
-  "observe_ballot": "OPEN_AWAIT_HUMAN",
+  "observe_ballot": "EXECUTED_OPEN_OBSERVE",
   "observe_ballot_path": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md",
   "soft_frozen_clips": "KEEP",
   "live_fin": "KD_OPT_KEEP",
@@ -23,5 +23,8 @@
   "soft_assist_observe": "UNCHANGED",
   "script": "scripts/e16_sleeve_layer_tilt_screen.py",
   "results": "research/ops/SLEEVE_LAYER_TILT_SCREEN.md",
-  "repro": "repro/sleeve-layer-tilt/"
+  "repro": "repro/sleeve-layer-tilt/",
+  "observe_status": "OPERATING",
+  "cutover": "BLOCKED",
+  "human_open": "OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01"
 }
