@@ -1,9 +1,10 @@
 # Dry-Powder Drawdown Sleeve — Research Charter (paper)
 
 Date: 2026-09-10  
-Status: **OPEN / PAPER ONLY**  
+Status: **PAPER DONE / STOP** (Stage A `NO_LIFT` — 0 tip-clean challengers · 0 coexist · live KEEP)  
 Human: **「乾粉 10% + 組合／大盤回撤門檻進場 + 固定出場」vs 現況 live，看 tip／heldout／sealed，而不是「等 MDD」**  
-Soft-Frozen **KEEP** · live **KD_OPT KEEP** · **TEL_EQUAL KEEP** · E45 stitch **OFF** · Soft-assist observe **unchanged**
+Soft-Frozen **KEEP** · live **KD_OPT KEEP** · **TEL_EQUAL KEEP** · E45 stitch **OFF** · Soft-assist observe **unchanged**  
+Screen: `DRY_POWDER_DRAWDOWN_SCREEN.md` · script `scripts/e16_dry_powder_drawdown_screen.py`
 
 ## Question
 
@@ -80,14 +81,21 @@ No overlapping redeploy until powder is flat again (one powder lot at a time).
 | Beat-live | coexist **and** held-out score > live self-score (Δ>0) |
 | Sealed | report-only for Stage A (do not require sealed beat to OPEN observe) |
 
-## Artifacts (to create in Stage A)
+## Artifacts (Stage A)
 
 | Role | Path |
 |---|---|
 | Charter | `research/ops/DRY_POWDER_DRAWDOWN_CHARTER.md` (this file) |
-| Screen script | `scripts/e16_dry_powder_drawdown_screen.py` (**not yet**) |
-| Results | `research/ops/DRY_POWDER_DRAWDOWN_SCREEN.md` (+ `.json`) |
+| Screen script | `scripts/e16_dry_powder_drawdown_screen.py` |
+| Results | `research/ops/DRY_POWDER_DRAWDOWN_SCREEN.md` (+ `.json` · `.zh-TW.md`) |
 | Repro | `repro/dry-powder-drawdown/` |
+
+## Stage A outcome (2026-09-10)
+
+- Grid: 3 gates × D∈{10%,12%,15%} × 4 exits = **36** challengers + `LIVE_STACK` (**37** books).
+- Verdict: **`NO_LIFT`** — **0** tip-clean challengers · **0** coexist · **0** beat-live.
+- Cash drag dominates: held-out scores all **&lt; 0** (best ≈ −0.57); most books tip **PAUSE_REVIEW**.
+- Next: **STOP / archive** unless human expands grid (e.g. D=8%, HOLD_20/60, `PORT_AND_TAIEX`). **No live wire.**
 
 ## Non-actions
 
@@ -109,6 +117,8 @@ No overlapping redeploy until powder is flat again (one powder lot at a time).
 If Stage A shows tip-clean beat-live or strong coexist → draft **OPEN observe** ballot (dual-paper `LIVE_STACK` ∥ champion).  
 Else → **STOP** / archive; keep live unchanged.
 
+**Applied:** Stage A → **STOP / archive**; live unchanged.
+
 ## Label
 
-`DRY_POWDER_DRAWDOWN_CHARTER_2026-09-10__PAPER_ONLY__NO_WAIT_MDD__LIVE_KEEP`
+`DRY_POWDER_DRAWDOWN_CHARTER_2026-09-10__PAPER_DONE_STOP__NO_LIFT__LIVE_KEEP`
