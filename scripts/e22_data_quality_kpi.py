@@ -66,6 +66,7 @@ def main() -> int:
             "n_stock_rows": int(len(stock_p)),
             "codes": sorted(private_fin),
             "cash_payment_date_blank_rate": _blank_rate(cash_p["cash_payment_date"]) if len(cash_p) else None,
+            "stock_payment_date_blank_rate": _blank_rate(stock_p["stock_payment_date"]) if len(stock_p) else None,
             "stock_ex_date_blank_rate": _blank_rate(stock_p["stock_ex_date"]) if len(stock_p) else None,
         },
     }
