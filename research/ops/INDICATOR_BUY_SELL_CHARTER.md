@@ -84,6 +84,12 @@ Also report vs `LIVE_KD_OPT` (must beat live on held-out **and** tip-clean to be
 | Round-1 results | `research/ops/INDICATOR_BUY_SELL_SCREEN_R1.md` (+ `.json`) |
 | Repro | `repro/indicator-buy-sell-screen-r1/` |
 
+## Round-2 (OPEN) — buy / sell split
+
+Human clarified: research **buy-low** and **sell-high** **separately** (not mixed soft-tilt).
+
+See `INDICATOR_BUY_SELL_SCREEN_R2_SPLIT_CHARTER.md` · results `INDICATOR_BUY_SELL_SCREEN_R2_SPLIT.md`.
+
 ## Label
 
-`INDICATOR_BUY_SELL_CHARTER_2026-09-10__PAPER_ONLY__R1_SCREEN_OPEN__LIVE_KD_OPT_KEEP`
+`INDICATOR_BUY_SELL_CHARTER_2026-09-10__PAPER_ONLY__R1_DONE__R2_SPLIT_OPEN__LIVE_KD_OPT_KEEP`

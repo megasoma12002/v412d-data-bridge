@@ -117,6 +117,8 @@ def simulate_core(
     tel_name_scores: pd.DataFrame | None = None,
     fin_buy_ok: pd.DataFrame | None = None,
     tel_buy_ok: pd.DataFrame | None = None,
+    fin_sell_ok: pd.DataFrame | None = None,
+    fin_sell_scores: pd.DataFrame | None = None,
     fin_mix_lambda: float | None = None,
     tel_mix_lambda: float | None = None,
     fin_dual_pub_codes: list[str] | tuple[str, ...] | None = None,
@@ -435,6 +437,20 @@ def simulate_core(
                 for c in FIN
                 if c in fin_buy_ok.columns
             }
+        fin_sell_ok_today = None
+        if fin_sell_ok is not None and dt in fin_sell_ok.index:
+            fin_sell_ok_today = {
+                c: bool(fin_sell_ok.loc[dt, c])
+                for c in FIN
+                if c in fin_sell_ok.columns
+            }
+        fin_sell_scores_today = None
+        if fin_sell_scores is not None and dt in fin_sell_scores.index:
+            fin_sell_scores_today = {
+                c: float(fin_sell_scores.loc[dt, c])
+                for c in FIN
+                if c in fin_sell_scores.columns and pd.notna(fin_sell_scores.loc[dt, c])
+            }
         tel_scores_today = None
         if tel_name_scores is not None and dt in tel_name_scores.index:
             tel_scores_today = {
@@ -471,6 +487,8 @@ def simulate_core(
                             lot_size=lot_size,
                             scores=fin_scores_today,
                             buy_ok=fin_buy_ok_today,
+                            sell_ok=fin_sell_ok_today,
+                            sell_scores=fin_sell_scores_today,
                             mix_lambda=fin_mix_lambda,
                             dual_pub_codes=fin_dual_pub_codes,
                             dual_priv_codes=fin_dual_priv_codes,
@@ -520,6 +538,8 @@ def simulate_core(
                         lot_size=lot_size,
                         scores=fin_scores_today,
                         buy_ok=fin_buy_ok_today,
+                        sell_ok=fin_sell_ok_today,
+                        sell_scores=fin_sell_scores_today,
                         mix_lambda=fin_mix_lambda,
                         dual_pub_codes=fin_dual_pub_codes,
                         dual_priv_codes=fin_dual_priv_codes,
