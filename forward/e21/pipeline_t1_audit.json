@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-09",
+  "date": "2026-09-10",
   "exact_t1_ok": true,
   "same_bar_fills": 0,
-  "fills_checked": 8,
+  "fills_checked": 0,
   "pending_filter": "signal_date < fill_date",
   "soft_frozen_financial_clip": [
     0.6,
