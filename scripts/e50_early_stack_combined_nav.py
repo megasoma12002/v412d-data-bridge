@@ -77,8 +77,8 @@ def build_tel_name_scores(market: pd.DataFrame):
 def e16_features(m: pd.DataFrame):
     """Causal Soft-Frozen E16 targets — delegates to `e16_soft_frozen_base`.
 
-    Live clip [0.50, 0.95] lives in one module. Challenger clips use
-    `e16_fin_cap_oof_challenger.e16_features_fin_cap` only.
+    Live clip from `e16_soft_frozen_base.SOFT_FROZEN_FIN_CLIP` (currently [0.60, 0.90]).
+    Challenger clips use `e16_fin_cap_oof_challenger.e16_features_fin_cap` only.
     """
     p, sleeve, target, reg, _score = soft_frozen.build_soft_frozen_targets(m)
     return p, sleeve, target, reg

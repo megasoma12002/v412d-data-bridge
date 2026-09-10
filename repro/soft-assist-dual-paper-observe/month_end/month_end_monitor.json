@@ -1,10 +1,11 @@
 {
-  "generated_at_utc": "2026-09-10T13:20:05.797347+00:00",
+  "generated_at_utc": "2026-09-10T13:52:10.562326+00:00",
   "asof": "2026-09-10",
   "label": "SOFT_ASSIST_MONTH_END_MONITOR",
   "status": "OPERATING_OBSERVE",
   "base_id": "LIVE_KD_OPT",
   "challenger_id": "SOFT_BOTH__BELOW_MA120__RSI6_GT80",
+  "nav_source": "dual_paper_nav_compare",
   "live_wire": false,
   "soft_frozen_unchanged": true,
   "alerts": [],

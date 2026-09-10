@@ -2,12 +2,17 @@
 """Shared Soft-assist score helpers (paper observe + research).
 
 Champion: SOFT_BOTH__BELOW_MA120__RSI6_GT80 on LIVE_KD_OPT base.
+
+``LIVE_KD`` must stay byte-equal to ``e21_forward_pipeline.KD_OPT`` season /
+k_thresh / pre_days / active_score (live SSOT). Do not drift this copy without
+updating live — prefer importing from live when wiring a shared module later.
 """
 from __future__ import annotations
 
 import pandas as pd
 
 SOFT_BOOST = 1.0
+# Mirror of live KD_OPT (e21_forward_pipeline.KD_OPT) — paper observe only.
 LIVE_KD = {
     "season_start": (4, 15),
     "season_end": (5, 15),

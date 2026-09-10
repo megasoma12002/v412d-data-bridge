@@ -27,6 +27,7 @@ CHAL_NAV = (
     ROOT
     / "repro/soft-assist-dual-paper-observe/outputs/soft_both_below_ma120_rsi6_gt80_daily_nav.csv"
 )
+COMPARE_NAV = ROOT / "repro/soft-assist-dual-paper-observe/outputs/dual_paper_nav_compare.csv"
 OPS = ROOT / "research/ops"
 
 BASE_ID = "LIVE_KD_OPT"
@@ -42,6 +43,35 @@ def _load(path: Path) -> pd.DataFrame:
     d = pd.read_csv(path)
     d["date"] = pd.to_datetime(d["date"])
     return d.sort_values("date").reset_index(drop=True)
+
+
+def _load_books() -> tuple[pd.DataFrame, pd.DataFrame, str]:
+    """Load base/chal NAV. Prefer daily_nav; fall back to committed compare CSV.
+
+    ``*_daily_nav.csv`` is gitignored under ``repro/``; fresh clones only have
+    ``dual_paper_nav_compare.csv`` until ledgers are refreshed.
+    """
+    if BASE_NAV.exists() and CHAL_NAV.exists():
+        return _load(BASE_NAV), _load(CHAL_NAV), "daily_nav"
+    if COMPARE_NAV.exists():
+        d = pd.read_csv(COMPARE_NAV)
+        d["date"] = pd.to_datetime(d["date"])
+        if not {"nav_base", "nav_chal"}.issubset(d.columns):
+            raise SystemExit(
+                f"{COMPARE_NAV} missing nav_base/nav_chal columns; "
+                "run scripts/e16_soft_assist_dual_paper_ledgers.py"
+            )
+        base = d[["date", "nav_base"]].rename(columns={"nav_base": "nav"})
+        chal = d[["date", "nav_chal"]].rename(columns={"nav_chal": "nav"})
+        return (
+            base.sort_values("date").reset_index(drop=True),
+            chal.sort_values("date").reset_index(drop=True),
+            "dual_paper_nav_compare",
+        )
+    raise SystemExit(
+        "Missing Soft-assist observe NAV. Run scripts/e16_soft_assist_dual_paper_ledgers.py "
+        "(or ensure dual_paper_nav_compare.csv is present)."
+    )
 
 
 def _stats(nav: pd.Series) -> dict:
@@ -140,12 +170,7 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = ap.parse_args()
 
-    if not BASE_NAV.exists() or not CHAL_NAV.exists():
-        raise SystemExit(
-            "Missing observe NAV files. Run scripts/e16_soft_assist_dual_paper_ledgers.py first."
-        )
-    base = _load(BASE_NAV)
-    chal = _load(CHAL_NAV)
+    base, chal, nav_source = _load_books()
     asof = pd.Timestamp(args.asof) if args.asof else min(base["date"].max(), chal["date"].max())
     base = base[base["date"] <= asof]
     chal = chal[chal["date"] <= asof]
@@ -161,6 +186,7 @@ def main() -> int:
         "status": STATUS,
         "base_id": BASE_ID,
         "challenger_id": CHAL_ID,
+        "nav_source": nav_source,
         "live_wire": False,
         "soft_frozen_unchanged": True,
         "alerts": alerts,

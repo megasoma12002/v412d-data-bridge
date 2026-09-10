@@ -86,7 +86,9 @@ jobs:
             --taiex forward/e10s2/e10s2_taiex.csv \
             --out forward/e21/live_market.csv
       - name: Run frozen E16 plus E18 real-open forward ledger
-        run: python scripts/e21_forward_pipeline.py --market forward/e21/live_market.csv --state-dir forward/e21 --capital 3000000
+        # Capital: omit --capital so scripts/portfolio_capital.DEFAULT_CAPITAL (500M) applies.
+        # Hardcoding 3M here is a wipe/recovery landmine after ACCEPT live capital 500M.
+        run: python scripts/e21_forward_pipeline.py --market forward/e21/live_market.csv --state-dir forward/e21
       - name: Fail-closed E21 QC
         run: python scripts/e21_qc.py --state-dir forward/e21
       - name: Commit immutable forward records

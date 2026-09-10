@@ -33,6 +33,7 @@ from soft_assist_helpers import (
 )
 from ta_indicator_catalog import build_low_high_catalog
 from tw_share_lots import BOARD_LOT
+from portfolio_capital import DEFAULT_CAPITAL
 from within_sleeve_alloc import (
     FIN_PRE_EXDIV_KD,
     TEL_EQUAL,
@@ -43,7 +44,7 @@ from within_sleeve_alloc import (
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/soft-assist-dual-paper-observe"
 OPS = ROOT / "research/ops"
-CAPITAL = 500_000_000.0
+CAPITAL = float(DEFAULT_CAPITAL)
 LOT = BOARD_LOT
 BASE_ID = "LIVE_KD_OPT"
 CHAL_ID = CHAMPION_ID
@@ -88,6 +89,16 @@ def main() -> int:
     (OUT / "reports").mkdir(parents=True, exist_ok=True)
     OPS.mkdir(parents=True, exist_ok=True)
     assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
+    # Guard: paper LIVE_KD must match live e21 KD_OPT (no silent observe drift).
+    import e21_forward_pipeline as e21
+
+    for k in ("season_start", "season_end", "k_thresh", "pre_days", "active_score"):
+        if LIVE_KD[k] != e21.KD_OPT[k]:
+            raise SystemExit(f"LIVE_KD[{k}]={LIVE_KD[k]!r} != e21.KD_OPT[{k}]={e21.KD_OPT[k]!r}")
+    if e21.LIVE_E45_STITCH:
+        raise SystemExit("Refuse Soft-assist observe while LIVE_E45_STITCH is True")
+    if "soft_assist" in Path(e21.__file__).read_text(encoding="utf-8"):
+        raise SystemExit("Refuse: e21_forward_pipeline imports/mentions soft_assist (live wire leak)")
 
     print("loading ...", flush=True)
     market = load_market()
