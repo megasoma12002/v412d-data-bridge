@@ -1,0 +1,46 @@
+{
+  "label": "SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT_2026-09-10__AWAIT_HUMAN__LIVE_KEEP",
+  "status": "OPEN_AWAIT_HUMAN",
+  "date": "2026-09-10",
+  "evidence": "research/ops/SLEEVE_LAYER_TILT_SCREEN.md",
+  "evidence_pr": 191,
+  "stage_a_verdict": "BEATS_LIVE",
+  "champion_id": "SLEEVE_BELOW_MA60_a01",
+  "champion": {
+    "mechanism": "soft_frozen_router_score + 0.10 * (sleeve_nav < MA60) then clip/blend",
+    "within_sleeve": "KD_OPT + TEL_EQUAL unchanged",
+    "soft_frozen_clips": "KEEP",
+    "heldout_score_vs_live": 0.049762687247567605,
+    "mdd_improve_pp": 0.062451,
+    "cagr_giveback_pp": -0.025376,
+    "tip_ytd": "PASS",
+    "tip_1y": "PASS"
+  },
+  "also_beat_live": [
+    "SLEEVE_BELOW_MA60_a005",
+    "SLEEVE_RSI14_LT30_a02"
+  ],
+  "reply_options": [
+    "OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01",
+    "KEEP live Soft-Frozen router (no Sleeve-tilt)",
+    "ACCEPT live Sleeve-tilt cutover: SLEEVE_BELOW_MA60_a01",
+    "DEFER Sleeve-tilt observe",
+    "REJECT Sleeve-tilt observe"
+  ],
+  "recommended": "OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01",
+  "live_wire_default": false,
+  "soft_frozen_clips": "KEEP",
+  "live_fin": "KD_OPT_KEEP",
+  "live_tel": "TEL_EQUAL_KEEP",
+  "e45_stitch": "OFF",
+  "soft_assist_observe": "UNCHANGED",
+  "out_of_ballot": [
+    "Soft-Frozen clip bound flip",
+    "Soft-assist live wire",
+    "KD season/K/pre-ex retune",
+    "Telecom within-sleeve",
+    "Soft-assist x sleeve tilt combo",
+    "E45 stitch",
+    "dry-powder reopen"
+  ]
+}

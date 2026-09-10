@@ -14,7 +14,8 @@
     "SLEEVE_RSI14_LT30_a02"
   ],
   "live_wire": false,
-  "observe_ballot": "NOT_OPENED_AWAIT_HUMAN",
+  "observe_ballot": "OPEN_AWAIT_HUMAN",
+  "observe_ballot_path": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md",
   "soft_frozen_clips": "KEEP",
   "live_fin": "KD_OPT_KEEP",
   "live_tel": "TEL_EQUAL_KEEP",
