@@ -1,7 +1,7 @@
 # KD 軟輔助／電信／Sleeve 研究憲章（paper）
 
 日期：2026-09-10  
-狀態：**OPEN／僅 paper**  
+狀態：**PAPER DONE**（已跑屏 · 不上 live）  
 人類：**「理論上還能開、但未測／勝算低 — 軟輔助 · 改 KD 季節／門檻 · 電信／sleeve 層指標」**  
 Soft-Frozen **KEEP** · live **KD_OPT KEEP** · live **TEL_EQUAL KEEP** · FIN posture **禁止 live 微調** · E45 stitch **OFF**
 
