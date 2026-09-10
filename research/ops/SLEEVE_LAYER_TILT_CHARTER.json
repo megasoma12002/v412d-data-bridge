@@ -1,36 +1,26 @@
 {
-  "label": "SLEEVE_LAYER_TILT_CHARTER_2026-09-10__PAPER_ONLY__SEED_BELOW_MA60_a01__LIVE_KEEP",
-  "status": "OPEN_PAPER",
+  "label": "SLEEVE_LAYER_TILT_CHARTER_2026-09-10__PAPER_DONE_BEATS_LIVE__CHAMP_BELOW_MA60_a01__NO_LIVE_WIRE",
+  "status": "PAPER_DONE_BEATS_LIVE",
   "date": "2026-09-10",
-  "human": "draft sleeve-layer tilt research charter (priority 2 after Soft-assist observe month-end)",
+  "stage_a_verdict": "BEATS_LIVE",
+  "champion": "SLEEVE_BELOW_MA60_a01",
+  "n_books": 21,
+  "n_beat_live": 3,
+  "n_coexist": 3,
+  "n_tip_clean_challengers": 20,
+  "beat_live_ids": [
+    "SLEEVE_BELOW_MA60_a01",
+    "SLEEVE_BELOW_MA60_a005",
+    "SLEEVE_RSI14_LT30_a02"
+  ],
   "live_wire": false,
+  "observe_ballot": "NOT_OPENED_AWAIT_HUMAN",
   "soft_frozen_clips": "KEEP",
   "live_fin": "KD_OPT_KEEP",
   "live_tel": "TEL_EQUAL_KEEP",
   "e45_stitch": "OFF",
   "soft_assist_observe": "UNCHANGED",
-  "prior_seed": {
-    "id": "SLEEVE_BELOW_MA60_a01",
-    "source": "research/ops/KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md",
-    "note": "tip-clean beat-live in prior Track C; Stage A must re-score vs LIVE_STACK"
-  },
-  "mechanism": "sleeve_nav_signal_tilt_on_soft_frozen_router_score_then_clip_blend",
-  "stage_a_grid": {
-    "signals": ["BELOW_MA60", "RSI14_LT30", "MOM20_NEG", "BELOW_MA40_optional", "BELOW_MA120_optional"],
-    "alpha": [0.05, 0.10, 0.15, 0.20],
-    "max_challengers": 24,
-    "baseline": "LIVE_STACK"
-  },
-  "metrics": ["full", "heldout_2019_plus", "sealed_2023_plus", "tip_ytd", "tip_trailing_1y"],
-  "forbidden": [
-    "Soft-Frozen clip bound flip",
-    "live KD/TEL change",
-    "Soft-assist live wire or observe pause",
-    "auto Soft-assist x sleeve tilt combo",
-    "E45 stitch",
-    "reopen TEL within-sleeve / dry-powder / hard-indicator from this charter"
-  ],
-  "script_planned": "scripts/e16_sleeve_layer_tilt_screen.py",
-  "results_planned": "research/ops/SLEEVE_LAYER_TILT_SCREEN.md",
-  "repro_planned": "repro/sleeve-layer-tilt/"
+  "script": "scripts/e16_sleeve_layer_tilt_screen.py",
+  "results": "research/ops/SLEEVE_LAYER_TILT_SCREEN.md",
+  "repro": "repro/sleeve-layer-tilt/"
 }
