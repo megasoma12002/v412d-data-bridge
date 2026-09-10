@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-09T12:52:28.636382+00:00",
+  "generated_at_utc": "2026-09-10T10:14:34.992931+00:00",
   "label": "FIN_CAP_50_DUAL_PAPER_PROMOTE_PROPOSAL",
   "live_wire": false,
   "soft_frozen_default_unchanged": true,
@@ -21,12 +21,12 @@
       "same_bar_fills": 0,
       "windows": {
         "full": {
-          "cagr": 0.13973785027618724,
+          "cagr": 0.13853097139460302,
           "max_drawdown": -0.22385675312504238,
-          "utility": 0.027809473713666044,
-          "vol": 0.13226856014259966,
-          "n_days": 3353,
-          "fin_mean": 0.7983087470507857,
+          "utility": 0.026602594832081827,
+          "vol": 0.1323048286903339,
+          "n_days": 3354,
+          "fin_mean": 0.7983274231769438,
           "fin_max": 0.8935405067901961
         },
         "oof_2011_2018": {
@@ -39,12 +39,12 @@
           "fin_max": 0.8875000000000001
         },
         "heldout_2019_plus": {
-          "cagr": 0.1847195576267029,
+          "cagr": 0.18243196280459584,
           "max_drawdown": -0.22385675312504238,
-          "utility": 0.0727911810641817,
-          "vol": 0.14968323786661158,
-          "n_days": 1858,
-          "fin_mean": 0.7943444631272017,
+          "utility": 0.07050358624207465,
+          "vol": 0.14973432539202652,
+          "n_days": 1859,
+          "fin_mean": 0.7943828226725755,
           "fin_max": 0.8935405067901961
         }
       }
@@ -54,11 +54,11 @@
       "same_bar_fills": 0,
       "windows": {
         "full": {
-          "cagr": 0.1285387041512729,
+          "cagr": 0.1281224959541183,
           "max_drawdown": -0.1957521477524421,
-          "utility": 0.03066263027505184,
-          "vol": 0.11263696441937195,
-          "n_days": 3353,
+          "utility": 0.03024642207789724,
+          "vol": 0.1126282502779037,
+          "n_days": 3354,
           "fin_mean": 0.5,
           "fin_max": 0.5000000000000001
         },
@@ -72,11 +72,11 @@
           "fin_max": 0.5000000000000001
         },
         "heldout_2019_plus": {
-          "cagr": 0.1688388050075118,
+          "cagr": 0.16803893949727056,
           "max_drawdown": -0.1957521477524421,
-          "utility": 0.07096273113129076,
-          "vol": 0.12441386397538771,
-          "n_days": 1858,
+          "utility": 0.07016286562104951,
+          "vol": 0.12439436666575841,
+          "n_days": 1859,
           "fin_mean": 0.5,
           "fin_max": 0.5000000000000001
         }
@@ -85,7 +85,7 @@
   },
   "heldout_delta_vs_base": {
     "mdd_improve_pp": 2.810460537260029,
-    "cagr_giveback_pp": 1.5880752619191085,
+    "cagr_giveback_pp": 1.4393023307325281,
     "research_heldout_pass_reference": true,
     "note": "Matches prior PASS_HELDOUT_FIN_CAP research; this run refreshes dual paper books"
   },

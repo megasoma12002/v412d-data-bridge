@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-09T12:52:49.788881+00:00",
+  "generated_at_utc": "2026-09-10T10:15:01.226143+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -17,7 +17,7 @@
   },
   "live_ledger": {
     "live_dir": "/workspace/forward/e21",
-    "asof": "2026-09-08",
+    "asof": "2026-09-09",
     "portfolio_has_e22_books_version": true,
     "portfolio_has_e22_manifest": true,
     "nav_has_e22_version_col": true,
@@ -29,24 +29,24 @@
   },
   "ex_to_pay_lag": {
     "cash": {
-      "n": 144,
-      "median_days": 27.0,
+      "n": 273,
+      "median_days": 28.0,
       "p90_days": 36.0,
-      "mean_days": 27.930555555555557,
-      "min_days": 15.0,
+      "mean_days": 28.516483516483518,
+      "min_days": 12.0,
       "max_days": 56.0
     },
     "stock": {
-      "n": 52,
-      "median_days": 40.0,
-      "p90_days": 50.0,
-      "mean_days": 40.44230769230769,
+      "n": 143,
+      "median_days": 36.0,
+      "p90_days": 48.8,
+      "mean_days": 37.76923076923077,
       "min_days": 15.0,
       "max_days": 62.0
     }
   },
   "receivable_stub": {
-    "asof": "2026-09-08",
+    "asof": "2026-09-09",
     "n_cash_events_in_receivable_window": 1,
     "codes": [
       "5880"

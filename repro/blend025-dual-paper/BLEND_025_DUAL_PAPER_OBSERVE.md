@@ -1,6 +1,6 @@
 # BLEND_025 Dual-Paper Observe Sleeve
 
-Generated: `2026-09-09T12:52:30.911240+00:00`
+Generated: `2026-09-10T10:14:37.433696+00:00`
 Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`).
 
 ## Locked challenger
@@ -12,19 +12,19 @@ Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Finan
 
 | Book | Window | CAGR | MDD | Fin mean | Fin max | Exact T+1 |
 |---|---|---:|---:|---:|---:|---|
-| BASE_E16 | full | 13.97% | -22.39% | 79.8% | 89.4% | True |
+| BASE_E16 | full | 13.85% | -22.39% | 79.8% | 89.4% | True |
 | BASE_E16 | oof_2011_2018 | 8.98% | -17.57% | 80.3% | 88.8% | True |
 | BASE_E16 | validation_2019_2022 | 12.25% | -22.39% | 79.7% | 89.4% | True |
-| BASE_E16 | sealed_2023_plus | 25.54% | -13.95% | 79.1% | 87.9% | True |
-| BASE_E16 | heldout_2019_plus | 18.47% | -22.39% | 79.4% | 89.4% | True |
-| BLEND_025 | full | 13.94% | -21.68% | 72.4% | 79.5% | True |
+| BASE_E16 | sealed_2023_plus | 25.02% | -13.95% | 79.1% | 87.9% | True |
+| BASE_E16 | heldout_2019_plus | 18.24% | -22.39% | 79.4% | 89.4% | True |
+| BLEND_025 | full | 13.84% | -21.68% | 72.4% | 79.5% | True |
 | BLEND_025 | oof_2011_2018 | 8.93% | -16.04% | 72.7% | 79.1% | True |
 | BLEND_025 | validation_2019_2022 | 12.57% | -21.68% | 72.3% | 79.5% | True |
-| BLEND_025 | sealed_2023_plus | 25.13% | -11.94% | 71.8% | 78.4% | True |
-| BLEND_025 | heldout_2019_plus | 18.46% | -21.68% | 72.1% | 79.5% | True |
+| BLEND_025 | sealed_2023_plus | 24.67% | -11.94% | 71.8% | 78.4% | True |
+| BLEND_025 | heldout_2019_plus | 18.26% | -21.68% | 72.1% | 79.5% | True |
 
-Held-out vs BASE: MDD improve **0.71 pp**; CAGR giveback **0.01 pp**.
-Sealed vs BASE: MDD improve **2.01 pp**; CAGR giveback **0.41 pp**.
+Held-out vs BASE: MDD improve **0.71 pp**; CAGR giveback **-0.02 pp**.
+Sealed vs BASE: MDD improve **2.01 pp**; CAGR giveback **0.35 pp**.
 
 ## Ops checklist
 

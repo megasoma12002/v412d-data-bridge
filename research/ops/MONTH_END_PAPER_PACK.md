@@ -1,6 +1,6 @@
 # Ops Month-End Paper Pack
 
-Generated: `2026-09-09T12:53:17.236798+00:00`
+Generated: `2026-09-10T10:15:28.546180+00:00`
 Status: **RESEARCH / OPS** — Soft-Frozen **[0.60, 0.90] unchanged**; no cutover.
 
 - Refresh ledgers: **True**
@@ -17,6 +17,7 @@ Status: **RESEARCH / OPS** — Soft-Frozen **[0.60, 0.90] unchanged**; no cutove
 | `e45_sleeve_local_dual_paper_ledgers` | True | 0 |
 | `e45_m2_bil_fx_dual_paper_ledgers` | True | 0 |
 | `fin_within_sleeve_dual_paper_ledgers` | True | 0 |
+| `fin_priv_native_dual_paper_ledgers` | True | 0 |
 | `l4_month_end` | True | 0 |
 | `fincap50_month_end` | True | 0 |
 | `blend025_month_end` | True | 0 |
@@ -26,6 +27,7 @@ Status: **RESEARCH / OPS** — Soft-Frozen **[0.60, 0.90] unchanged**; no cutove
 | `e45_sleeve_local_month_end` | True | 0 |
 | `e45_m2_bil_fx_month_end` | True | 0 |
 | `fin_within_sleeve_month_end` | True | 0 |
+| `fin_priv_native_month_end` | True | 0 |
 | `track_a_s9a1` | True | 0 |
 | `live_paper_recon` | True | 0 |
 | `e22_data_quality_kpi` | True | 0 |

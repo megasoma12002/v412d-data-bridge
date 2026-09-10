@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-09T12:53:17.236798+00:00",
+  "generated_at_utc": "2026-09-10T10:15:28.546180+00:00",
   "label": "OPS_MONTH_END_PAPER_PACK",
   "live_wire": false,
   "soft_frozen_clip": [
@@ -8,7 +8,7 @@
   ],
   "soft_frozen_unchanged": true,
   "refresh_ledgers": true,
-  "continue_on_error": false,
+  "continue_on_error": true,
   "partial_pack": false,
   "all_ok": true,
   "steps": [
@@ -58,6 +58,11 @@
       "returncode": 0
     },
     {
+      "name": "fin_priv_native_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
       "name": "l4_month_end",
       "ok": true,
       "returncode": 0
@@ -99,6 +104,11 @@
     },
     {
       "name": "fin_within_sleeve_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "fin_priv_native_month_end",
       "ok": true,
       "returncode": 0
     },

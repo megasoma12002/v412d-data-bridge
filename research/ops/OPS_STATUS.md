@@ -39,7 +39,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Month-end pack | `ops-month-end-paper-pack` / `scripts/ops_month_end_paper_pack.py` |
 | Live↔paper recon | Inside pack + `scripts/e21_live_vs_paper_recon.py` |
 
-Latest pack: `research/ops/MONTH_END_PAPER_PACK.md` (2026-09-07 post-C35 cadence: `OPS_CADENCE_2026-09-07_C35_OBSERVE.md`)  
+Latest pack: `research/ops/MONTH_END_PAPER_PACK.md` (2026-09-10 primary observe: `OPS_CADENCE_2026-09-10_PRIMARY_OBSERVE.md`)  
 Alerts: `research/ops/OPS_ALERTS.md`  
 E22 KPI: `research/ops/E22_DATA_QUALITY_KPI.md`  
 Gap #6 fidelity: `research/ops/E22_GAP6_FIDELITY_KPI.md`  

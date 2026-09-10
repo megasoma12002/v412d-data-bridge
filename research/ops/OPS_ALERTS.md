@@ -1,6 +1,6 @@
 # Ops Alerts
 
-Generated: `2026-09-09T12:53:17.194492+00:00`
+Generated: `2026-09-10T10:15:28.500638+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.60, 0.90] unchanged**. No auto cutover.
 
@@ -32,7 +32,7 @@ Soft-Frozen **[0.60, 0.90] unchanged**. No auto cutover.
 | INFO | `e45_blend025_month_end` | `MONITOR_ALERT` | ALERT: BLEND_E45_A25 trailing_1y CAGR giveback > 3.0 pp (paper) |
 | INFO | `e45_blend025_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=2.8645% > 2% on overlap |
-| INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=12 (<60) — not decision-grade for cutover |
+| INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=13 (<60) — not decision-grade for cutover |
 | INFO | `data_source_phase_c_probes` | `PHASE_C_C1_FIN12_HISTORY_SHADOW_NOTE` | DRIFT on 1 ticker(s); does not count toward PASS |
 | INFO | `data_source_phase_c_probes` | `PHASE_C_C3_TAIEX_OPTIONAL_FAILOVER_NOTE` | Helper is opt-in only; e21 still uses FinMind TaiwanStockPrice(TAIEX). |
 
