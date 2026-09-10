@@ -59,7 +59,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Soft-assist dual-paper observe | **OPERATING** (2026-09-10) | `LIVE_KD_OPT` ∥ champion soft both · month-end wired · cutover **BLOCKED** · `SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` |
 | Full-repo code review (post Soft-assist) | **DONE** (2026-09-10) | CI 3M capital + Soft-assist NAV fallback + MIX sell_scores fixed · live healthy · `PROJECT_CODE_REVIEW_2026-09-10.md` |
 | Dry-powder drawdown sleeve charter | **OPEN / PAPER** (2026-09-10) | 10% powder + observable PORT/TAIEX DD entry + fixed exit vs live · **not** wait-for-MDD · `DRY_POWDER_DRAWDOWN_CHARTER.md` |
-| Sleeve-layer tilt charter | **OPEN / PAPER** (2026-09-10) | Seed `SLEEVE_BELOW_MA60_a01` · Soft-Frozen score tilt (clips KEEP) · separate from Soft-assist · Stage A not started · `SLEEVE_LAYER_TILT_CHARTER.md` |
+| Sleeve-layer tilt charter | **PAPER DONE / BEATS_LIVE** (2026-09-10) | Stage A 21 books · champion **`SLEEVE_BELOW_MA60_a01`** tip-clean beat-live · observe ballot **not opened** · no live wire · `SLEEVE_LAYER_TILT_SCREEN.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`

@@ -1,10 +1,10 @@
 # Sleeve-Layer Tilt — Research Charter (paper)
 
 Date: 2026-09-10  
-Status: **OPEN / PAPER ONLY**  
-Human: **「直接起草 sleeve-layer tilt 的 research charter」**（建議順序②；Soft-assist observe 繼續跑月結）  
-Prior paper seed: **`SLEEVE_BELOW_MA60_a01`** tip-clean beat-live in `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md`  
-Soft-Frozen **clips KEEP** · live **KD_OPT KEEP** · **TEL_EQUAL KEEP** · E45 stitch **OFF** · Soft-assist observe **UNCHANGED** (separate track)
+Status: **PAPER DONE / BEATS_LIVE** (Stage A — champion seed **`SLEEVE_BELOW_MA60_a01`** tip-clean beat-live; **no live wire**)  
+Human: **「Merge 後跑 Stage A」**（憲章 #190；Soft-assist observe 繼續）  
+Prior paper seed confirmed: **`SLEEVE_BELOW_MA60_a01`** · Screen: `SLEEVE_LAYER_TILT_SCREEN.md`  
+Soft-Frozen **clips KEEP** · live **KD_OPT KEEP** · **TEL_EQUAL KEEP** · E45 stitch **OFF** · Soft-assist observe **UNCHANGED**
 
 ## Question
 
@@ -79,21 +79,31 @@ Prior Track C numbers are **hypothesis only** — Stage A must re-score vs curre
 | Beat-live | coexist **and** held-out score Δ > 0 vs live self |
 | Sealed | report-only for Stage A (do not require sealed beat to OPEN observe) |
 
+## Artifacts (Stage A)
+
+| Role | Path |
+|---|---|
+| Charter | `research/ops/SLEEVE_LAYER_TILT_CHARTER.md` (this file) |
+| Screen script | `scripts/e16_sleeve_layer_tilt_screen.py` |
+| Results | `research/ops/SLEEVE_LAYER_TILT_SCREEN.md` (+ `.json` · `.zh-TW.md`) |
+| Repro | `repro/sleeve-layer-tilt/` |
+
+## Stage A outcome (2026-09-10)
+
+- Grid: 5 signals × 4 α = **20** challengers + `LIVE_STACK` (**21** books).
+- Verdict: **`BEATS_LIVE`** — **3** tip-clean beat-live: `SLEEVE_BELOW_MA60_a01` · `SLEEVE_BELOW_MA60_a005` · `SLEEVE_RSI14_LT30_a02`.
+- Champion / seed: **`SLEEVE_BELOW_MA60_a01`** (α=0.10) — held-out score ≈ **+0.050** vs live · tip PASS/PASS · sealed reported.
+- Lift is **small** (MDD help ~6 bp held-out); treat as coexist-quality for observe, not auto-wire.
+- Next: draft **OPEN observe** ballot (`LIVE_STACK` ∥ `SLEEVE_BELOW_MA60_a01`) on human ask. Soft-assist observe stays independent (no auto-combo).
+
 ## Success → next step
 
 If Stage A tip-clean beat-live or strong coexist → draft **OPEN observe** ballot (dual-paper `LIVE_STACK` ∥ champion sleeve tilt).  
 Else → **STOP / archive**; keep Soft-Frozen router live unchanged.
 
+**Applied:** Stage A → **`BEATS_LIVE`** · champion `SLEEVE_BELOW_MA60_a01` · **observe ballot not opened** until human asks · **no live wire**.
+
 **Observe cutover** (later) would still need a dedicated ACCEPT — Stage A green ≠ live wire.
-
-## Artifacts (to create in Stage A)
-
-| Role | Path |
-|---|---|
-| Charter | `research/ops/SLEEVE_LAYER_TILT_CHARTER.md` (this file) |
-| Screen script | `scripts/e16_sleeve_layer_tilt_screen.py` (**not yet**) |
-| Results | `research/ops/SLEEVE_LAYER_TILT_SCREEN.md` (+ `.json`) |
-| Repro | `repro/sleeve-layer-tilt/` |
 
 ## Non-actions
 
@@ -112,4 +122,5 @@ Else → **STOP / archive**; keep Soft-Frozen router live unchanged.
 
 ## Label
 
-`SLEEVE_LAYER_TILT_CHARTER_2026-09-10__PAPER_ONLY__SEED_BELOW_MA60_a01__LIVE_KEEP`
+`SLEEVE_LAYER_TILT_CHARTER_2026-09-10__PAPER_DONE_BEATS_LIVE__CHAMP_BELOW_MA60_a01__NO_LIVE_WIRE`
+
