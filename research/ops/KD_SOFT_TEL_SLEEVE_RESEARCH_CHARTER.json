@@ -1,0 +1,20 @@
+{
+  "label": "KD_SOFT_TEL_SLEEVE_RESEARCH_2026-09-10__PAPER_ONLY__LIVE_KEEP",
+  "status": "PAPER_DONE",
+  "date": "2026-09-10",
+  "tracks": ["soft_assist", "kd_retune", "tel_sleeve"],
+  "live_wire": false,
+  "soft_frozen": "KEEP",
+  "live_fin": "KD_OPT_KEEP",
+  "live_tel": "TEL_EQUAL_KEEP",
+  "fin_posture_micro_tune": "LOCKED_PAPER_ONLY",
+  "e45_stitch": "OFF",
+  "script": "scripts/e16_kd_soft_tel_sleeve_research.py",
+  "results": "research/ops/KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md",
+  "non_actions": [
+    "No Soft-Frozen flip",
+    "No live KD_OPT change without ACCEPT",
+    "No live TEL_EQUAL flip",
+    "No E45 stitch"
+  ]
+}
