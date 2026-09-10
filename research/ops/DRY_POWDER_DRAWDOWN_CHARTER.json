@@ -1,0 +1,29 @@
+{
+  "label": "DRY_POWDER_DRAWDOWN_CHARTER_2026-09-10__PAPER_ONLY__NO_WAIT_MDD__LIVE_KEEP",
+  "status": "OPEN_PAPER",
+  "date": "2026-09-10",
+  "human": "dry powder 10% + portfolio/TAIEX drawdown entry + fixed exit vs live; tip/heldout/sealed; not wait-for-MDD",
+  "live_wire": false,
+  "soft_frozen": "KEEP",
+  "live_fin": "KD_OPT_KEEP",
+  "live_tel": "TEL_EQUAL_KEEP",
+  "e45_stitch": "OFF",
+  "soft_assist_observe": "UNCHANGED",
+  "powder_weight": 0.10,
+  "drawdown_grid_pct": [8, 10, 12, 15],
+  "entry_gates": ["PORT_DD", "TAIEX_DD", "PORT_OR_TAIEX", "PORT_AND_TAIEX"],
+  "exits": ["HOLD_N", "RECOVER_HALF", "RECOVER_FULL", "TIME_OR_HALF"],
+  "hold_n_days": [20, 40, 60],
+  "deploy_default": "DEPLOY_FIN_EQUAL",
+  "metrics": ["full", "heldout_2019_plus", "sealed_2023_plus", "tip_ytd", "tip_trailing_1y"],
+  "forbidden": [
+    "wait_for_historical_max_drawdown",
+    "Soft-Frozen flip",
+    "live KD/TEL change",
+    "E45 stitch",
+    "Soft-assist live wire"
+  ],
+  "script_planned": "scripts/e16_dry_powder_drawdown_screen.py",
+  "results_planned": "research/ops/DRY_POWDER_DRAWDOWN_SCREEN.md",
+  "repro_planned": "repro/dry-powder-drawdown/"
+}
