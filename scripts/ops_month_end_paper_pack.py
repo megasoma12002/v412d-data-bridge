@@ -166,7 +166,8 @@ def main() -> int:
             f"Paper/ops cadence only. Soft-Frozen live clip {CLIP_TXT} (FINBAND). "
             "Live stack: Soft-Frozen FINBAND + KD_OPT (E45 A05 stitch rolled back DROP_E45_A05). "
             "FIN50 remains NOT_READY_SEALED_CAGR; L4 / BLEND_025 cutover still human-PR gated. "
-            "Paper observe sleeves (E45 FULL/A25/A05/FIN_A10/C35, FIN within-sleeve quartet) remain paper monitors beside live."
+            "Paper observe sleeves (E45 FULL/A25/A05/FIN_A10/C35, FIN within-sleeve quartet, "
+            "Soft-assist SOFT_BOTH) remain paper monitors beside live."
         ),
     }
 

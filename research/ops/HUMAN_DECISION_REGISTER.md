@@ -57,6 +57,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Soft assist + KD retune + TEL/sleeve | **PAPER DONE** (2026-09-10) | Soft weights + KD grid + TEL/sleeve; **422 books**; overall **`BEATS_LIVE`** (paper) — soft both / sleeve MA60 tip-clean lift; **TEL within-sleeve no lift**; live KD/TEL/Soft-Frozen **KEEP** until ACCEPT · `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md` |
 | Soft-assist promote ballot | **EXECUTED OPEN OBSERVE** (2026-09-10) | Human `OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80` · dual-paper OPERATING · live KD KEEP · `SOFT_ASSIST_PROMOTE_BALLOT_EXECUTED_OPEN_OBSERVE.md` |
 | Soft-assist dual-paper observe | **OPERATING** (2026-09-10) | `LIVE_KD_OPT` ∥ champion soft both · month-end wired · cutover **BLOCKED** · `SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` |
+| Full-repo code review (post Soft-assist) | **DONE** (2026-09-10) | CI 3M capital + Soft-assist NAV fallback + MIX sell_scores fixed · live healthy · `PROJECT_CODE_REVIEW_2026-09-10.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`

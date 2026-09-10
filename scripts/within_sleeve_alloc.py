@@ -304,11 +304,14 @@ def allocate_mix_equal_rs_exdiv(
     lot_size: int = BOARD_LOT,
     scores: dict[str, float] | None = None,
     buy_ok: dict[str, bool] | None = None,
+    sell_ok: dict[str, bool] | None = None,
+    sell_scores: dict[str, float] | None = None,
     mix_lambda: float = 0.5,
 ) -> list[tuple[str, str, int]]:
     """Blend notionals: λ·EQUAL + (1−λ)·RS_SOFT_TILT_EXDIV, then board-lot.
 
     λ=1 → pure equal-split; λ=0 → pure RS+exdiv skip-buy.
+    Optional ``sell_ok`` / ``sell_scores`` apply on the sell leg (paper soft-assist).
     """
     names = list(codes)
     if not names or abs(sleeve_dollars) < 1e-9:
@@ -323,8 +326,17 @@ def allocate_mix_equal_rs_exdiv(
     score_map = _score_map(names, scores)
     if sleeve_dollars < 0:
         holders = [c for c in names if held_board_qty(pos, c, lot_size) > 0] or names
-        rs_each = float(sleeve_dollars) / float(len(holders))
-        rs = {c: (rs_each if c in holders else 0.0) for c in names}
+        if sell_ok is not None:
+            holders = [c for c in holders if bool(sell_ok.get(c, False))]
+            if not holders:
+                return []
+        if sell_scores is not None and holders:
+            sell_map = _score_map(holders, sell_scores)
+            w = soft_tilt_weights(holders, sell_map)
+            rs = {c: (float(sleeve_dollars) * w[c] if c in holders else 0.0) for c in names}
+        else:
+            rs_each = float(sleeve_dollars) / float(len(holders))
+            rs = {c: (rs_each if c in holders else 0.0) for c in names}
     else:
         eligible = _buy_eligible(names, buy_ok)
         rs = {c: 0.0 for c in names}
@@ -360,6 +372,8 @@ def allocate_dual_pub_priv(
     lot_size: int = BOARD_LOT,
     scores: dict[str, float] | None = None,
     buy_ok: dict[str, bool] | None = None,
+    sell_ok: dict[str, bool] | None = None,
+    sell_scores: dict[str, float] | None = None,
     pub_policy: str = FIN_PRE_EXDIV_KD,
     priv_policy: str = FIN_EQUAL,
 ) -> list[tuple[str, str, int]]:
@@ -389,6 +403,8 @@ def allocate_dual_pub_priv(
                 lot_size=lot_size,
                 scores=scores,
                 buy_ok=buy_ok,
+                sell_ok=sell_ok,
+                sell_scores=sell_scores,
             )
         )
     if priv and abs(d_priv) >= 1e-9:
@@ -402,6 +418,8 @@ def allocate_dual_pub_priv(
                 lot_size=lot_size,
                 scores=scores,
                 buy_ok=buy_ok,
+                sell_ok=sell_ok,
+                sell_scores=sell_scores,
             )
         )
     return _coalesce_orders(out)
@@ -463,6 +481,8 @@ def allocate_sleeve_orders(
             lot_size=lot_size,
             scores=scores,
             buy_ok=buy_ok,
+            sell_ok=sell_ok,
+            sell_scores=sell_scores,
             pub_policy=dual_pub_policy,
             priv_policy=dual_priv_policy,
         )
@@ -476,6 +496,8 @@ def allocate_sleeve_orders(
             lot_size=lot_size,
             scores=scores,
             buy_ok=buy_ok,
+            sell_ok=sell_ok,
+            sell_scores=sell_scores,
             mix_lambda=lam,
         )
     if kind == POLICY_EQUAL:

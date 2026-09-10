@@ -80,16 +80,44 @@ class HygieneArtifactPatterns(unittest.TestCase):
             self.assertIn(path, text)
 
 
-if __name__ == "__main__":
-    unittest.main()
-
-
 class PipelineQcOwnership(unittest.TestCase):
     def test_pipeline_does_not_write_qc_status(self):
         src = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
         self.assertNotIn('qc_status.json").write_text', src)
         self.assertIn("pipeline_t1_audit.json", src)
         self.assertIn("confirm_e22_version_override", src)
+
+
+class LiveCapitalWorkflowGuard(unittest.TestCase):
+    def test_forward_workflow_does_not_hardcode_obsolete_3m(self):
+        yml = (ROOT / ".github/workflows/v412f-forward-paper.yml").read_text(encoding="utf-8")
+        self.assertIn("e21_forward_pipeline.py", yml)
+        self.assertNotRegex(yml, r"e21_forward_pipeline\.py[^\n]*--capital\s+3000000")
+        self.assertNotRegex(yml, r"--capital\s+3_?000_?000")
+
+
+class SoftAssistObserveGuards(unittest.TestCase):
+    def test_live_pipeline_has_no_soft_assist_wire(self):
+        src = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
+        for needle in ("soft_assist", "SOFT_BOTH", "BELOW_MA120", "fin_sell_scores"):
+            self.assertNotIn(needle, src)
+        self.assertIn("LIVE_E45_STITCH = False", src)
+        self.assertIn("FIN_PRE_EXDIV_KD", src)
+
+    def test_soft_assist_helpers_match_live_kd_opt(self):
+        import sys
+
+        sys.path.insert(0, str(SCRIPTS))
+        from soft_assist_helpers import LIVE_KD
+        import e21_forward_pipeline as e21
+
+        for k in ("season_start", "season_end", "k_thresh", "pre_days", "active_score"):
+            self.assertEqual(LIVE_KD[k], e21.KD_OPT[k], msg=k)
+
+    def test_month_end_monitor_can_use_compare_csv(self):
+        src = (SCRIPTS / "e16_soft_assist_month_end_monitor.py").read_text(encoding="utf-8")
+        self.assertIn("dual_paper_nav_compare", src)
+        self.assertIn("nav_source", src)
 
 
 class FrozenClaimLabel(unittest.TestCase):
@@ -104,3 +132,6 @@ class FrozenClaimLabel(unittest.TestCase):
                 r"as \*\*NOT_VERIFIED\*\*|（\*\*NOT_VERIFIED\*\*）",
             )
 
+
+if __name__ == "__main__":
+    unittest.main()
