@@ -1,0 +1,437 @@
+{
+  "generated_at_utc": "2026-09-10T11:34:53.378042+00:00",
+  "label": "INDICATOR_BUY_SELL_SCREEN_R2_SPLIT",
+  "charter": "research/ops/INDICATOR_BUY_SELL_SCREEN_R2_SPLIT_CHARTER.md",
+  "status": "PAPER_SCREEN_DONE",
+  "live_wire": false,
+  "soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
+  "asof": "2026-09-09",
+  "design": {
+    "BUY_LOW": "buy only when low signal (AND ex-day skip); sells equal",
+    "SELL_HIGH": "sell only when high signal; empty high pool → skip sell; buys equal except ex-day"
+  },
+  "n_books": 10,
+  "n_coexist": 1,
+  "n_beat_live": 0,
+  "coexist_ids": [
+    "LIVE_KD_OPT"
+  ],
+  "beat_live_ids": [],
+  "best_buy_low": "BUY_LOW_BELOW_MA60",
+  "best_sell_high": "SELL_HIGH_RSI14_GT70",
+  "ranking": [
+    "LIVE_KD_OPT",
+    "FIN_EQUAL",
+    "SELL_HIGH_RSI14_GT70",
+    "BUY_LOW_BELOW_MA60",
+    "SELL_HIGH_K9_GT70",
+    "SELL_HIGH_BB_UPPER",
+    "SELL_HIGH_ABOVE_MA20",
+    "BUY_LOW_BB_LOWER",
+    "BUY_LOW_K9_LT30",
+    "BUY_LOW_RSI14_LT30"
+  ],
+  "books": [
+    {
+      "id": "LIVE_KD_OPT",
+      "track": "anchor",
+      "heldout": {
+        "mdd_improve_pp": 0.6664522064959488,
+        "cagr_giveback_pp": 0.2516306978320504,
+        "score": 0.5406368575799236
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 0.5627199775966263,
+          "gate": "PASS",
+          "rel_nav": 0.9978232423704164
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.0859693698443529,
+          "gate": "PASS",
+          "rel_nav": 0.9932184455036025
+        }
+      },
+      "tip_clean": true,
+      "coexist": true,
+      "vs_live_heldout_score_delta": 0.0,
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 0.0,
+          "gate": "PASS",
+          "rel_nav": 1.0
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.0,
+          "gate": "PASS",
+          "rel_nav": 1.0
+        }
+      },
+      "n_fills": null,
+      "full_cagr": 0.138044127365347,
+      "full_mdd": -0.21720270077643722
+    },
+    {
+      "id": "FIN_EQUAL",
+      "track": "anchor",
+      "heldout": {
+        "mdd_improve_pp": 0.0,
+        "cagr_giveback_pp": 0.0,
+        "score": 0.0
+      },
+      "tip_gates": {
+        "ytd": {
+          "gate": "PASS",
+          "giveback_pp": 0.0,
+          "rel_nav": 1.0
+        },
+        "trailing_1y": {
+          "gate": "PASS",
+          "giveback_pp": 0.0,
+          "rel_nav": 1.0
+        }
+      },
+      "tip_clean": true,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -0.5406368575799236,
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": -0.5627199775966263,
+          "gate": "PASS",
+          "rel_nav": 1.0021815062399353
+        },
+        "trailing_1y": {
+          "giveback_pp": -1.0859693698443529,
+          "gate": "PASS",
+          "rel_nav": 1.006827857987433
+        }
+      },
+      "n_fills": null,
+      "full_cagr": 0.13850709158384023,
+      "full_mdd": -0.22386722284139682
+    },
+    {
+      "id": "SELL_HIGH_RSI14_GT70",
+      "track": "SELL_HIGH",
+      "heldout": {
+        "mdd_improve_pp": -0.8689359067189706,
+        "cagr_giveback_pp": -0.17836790059839736,
+        "score": -0.9581198570181693
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.3331387300048023,
+          "gate": "PASS",
+          "rel_nav": 0.9909580766582234
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.2048404123158782,
+          "gate": "PASS",
+          "rel_nav": 0.9862292185562729
+        }
+      },
+      "tip_clean": true,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -1.498756714598093,
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 1.770418752408176,
+          "gate": "PASS",
+          "rel_nav": 0.9931198578859677
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.1188710424715254,
+          "gate": "PASS",
+          "rel_nav": 0.9929630516036321
+        }
+      },
+      "n_fills": 3602,
+      "full_cagr": 0.1417222809024763,
+      "full_mdd": -0.23255658190858652
+    },
+    {
+      "id": "BUY_LOW_BELOW_MA60",
+      "track": "BUY_LOW",
+      "heldout": {
+        "mdd_improve_pp": -1.24456975589331,
+        "cagr_giveback_pp": 0.9721560757466108,
+        "score": -1.7306477937666154
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 4.210836903951853,
+          "gate": "ALERT",
+          "rel_nav": 0.9836489133045603
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.768286246298014,
+          "gate": "ALERT",
+          "rel_nav": 0.9764590842670915
+        }
+      },
+      "tip_clean": false,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -2.271284651346539,
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 3.648116926355227,
+          "gate": "ALERT",
+          "rel_nav": 0.9857947495468399
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.682316876453661,
+          "gate": "PASS",
+          "rel_nav": 0.9831262082250061
+        }
+      },
+      "n_fills": 5879,
+      "full_cagr": 0.134930838219665,
+      "full_mdd": -0.23631292040032992
+    },
+    {
+      "id": "SELL_HIGH_K9_GT70",
+      "track": "SELL_HIGH",
+      "heldout": {
+        "mdd_improve_pp": -1.7003675080308422,
+        "cagr_giveback_pp": -0.3006291270556627,
+        "score": -1.8506820715586736
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": -2.602826318161622,
+          "gate": "PASS",
+          "rel_nav": 1.0100355963467917
+        },
+        "trailing_1y": {
+          "giveback_pp": -2.2916154615351125,
+          "gate": "PASS",
+          "rel_nav": 1.0143035868014543
+        }
+      },
+      "tip_clean": true,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -2.3913189291385972,
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": -3.165546295758248,
+          "gate": "PASS",
+          "rel_nav": 1.012238995302779
+        },
+        "trailing_1y": {
+          "giveback_pp": -3.3775848313794654,
+          "gate": "PASS",
+          "rel_nav": 1.0212291076482785
+        }
+      },
+      "n_fills": 4935,
+      "full_cagr": 0.14296859618843105,
+      "full_mdd": -0.24087089792170524
+    },
+    {
+      "id": "SELL_HIGH_BB_UPPER",
+      "track": "SELL_HIGH",
+      "heldout": {
+        "mdd_improve_pp": -1.9399154200301028,
+        "cagr_giveback_pp": -0.39396535405602506,
+        "score": -2.1368980970581153
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": -3.4025118111740804,
+          "gate": "PASS",
+          "rel_nav": 1.0131081680550524
+        },
+        "trailing_1y": {
+          "giveback_pp": -2.6190266462945866,
+          "gate": "PASS",
+          "rel_nav": 1.0163464362095735
+        }
+      },
+      "tip_clean": true,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -2.677534954638039,
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": -3.9652317887707067,
+          "gate": "PASS",
+          "rel_nav": 1.015318269845394
+        },
+        "trailing_1y": {
+          "giveback_pp": -3.7049960161389395,
+          "gate": "PASS",
+          "rel_nav": 1.023285905342046
+        }
+      },
+      "n_fills": 4178,
+      "full_cagr": 0.14194183515632575,
+      "full_mdd": -0.24326637704169785
+    },
+    {
+      "id": "SELL_HIGH_ABOVE_MA20",
+      "track": "SELL_HIGH",
+      "heldout": {
+        "mdd_improve_pp": -2.3751463988338384,
+        "cagr_giveback_pp": -0.23174539396799698,
+        "score": -2.491019095817837
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": -2.8957910290232647,
+          "gate": "PASS",
+          "rel_nav": 1.0111618141365049
+        },
+        "trailing_1y": {
+          "giveback_pp": -3.0320976454994764,
+          "gate": "PASS",
+          "rel_nav": 1.0189234841755765
+        }
+      },
+      "tip_clean": true,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -3.0316559533977605,
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": -3.458511006619891,
+          "gate": "PASS",
+          "rel_nav": 1.013367669943628
+        },
+        "trailing_1y": {
+          "giveback_pp": -4.118067015343829,
+          "gate": "PASS",
+          "rel_nav": 1.0258805490255878
+        }
+      },
+      "n_fills": 5201,
+      "full_cagr": 0.1414911445184086,
+      "full_mdd": -0.2476186868297351
+    },
+    {
+      "id": "BUY_LOW_BB_LOWER",
+      "track": "BUY_LOW",
+      "heldout": {
+        "mdd_improve_pp": 1.1543117407732062,
+        "cagr_giveback_pp": 5.2451134990513015,
+        "score": -1.4682450087524446
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 33.253980716192075,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.8665584706372239
+        },
+        "trailing_1y": {
+          "giveback_pp": 27.285149553329703,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.8289312221381635
+        }
+      },
+      "tip_clean": false,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -2.008881866332368,
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 32.69126073859545,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.8684488733481879
+        },
+        "trailing_1y": {
+          "giveback_pp": 26.19918018348535,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.8345910468042721
+        }
+      },
+      "n_fills": 6935,
+      "full_cagr": 0.11296527771602283,
+      "full_mdd": -0.21232410543366464
+    },
+    {
+      "id": "BUY_LOW_K9_LT30",
+      "track": "BUY_LOW",
+      "heldout": {
+        "mdd_improve_pp": -1.670856894083106,
+        "cagr_giveback_pp": 3.5265020122120294,
+        "score": -3.4341079001891206
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 19.752245811996172,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.9219842322218333
+        },
+        "trailing_1y": {
+          "giveback_pp": 18.43339990522519,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.8845909731076057
+        }
+      },
+      "tip_clean": false,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -3.9747447577690442,
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 19.189525834399547,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.9239955465775472
+        },
+        "trailing_1y": {
+          "giveback_pp": 17.347430535380838,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.8906308346489495
+        }
+      },
+      "n_fills": 6288,
+      "full_cagr": 0.12672164326757418,
+      "full_mdd": -0.24057579178222788
+    },
+    {
+      "id": "BUY_LOW_RSI14_LT30",
+      "track": "BUY_LOW",
+      "heldout": {
+        "mdd_improve_pp": -1.460988578988942,
+        "cagr_giveback_pp": 4.544311458212991,
+        "score": -3.7331443080954374
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 20.532144419160403,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.9188319163565493
+        },
+        "trailing_1y": {
+          "giveback_pp": 19.435855118910062,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.8782957542328826
+        }
+      },
+      "tip_clean": false,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -4.273781165675361,
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 19.969424441563778,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.9208363539155329
+        },
+        "trailing_1y": {
+          "giveback_pp": 18.34988574906571,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.88429263291375
+        }
+      },
+      "n_fills": 7691,
+      "full_cagr": 0.1195144993451478,
+      "full_mdd": -0.23847710863128613
+    }
+  ],
+  "verdict": "COEXIST_NO_LIFT_VS_LIVE",
+  "non_actions": [
+    "No Soft-Frozen flip",
+    "No live KD_OPT change",
+    "No E45 stitch",
+    "No auto cutover",
+    "No A+B combine until Round-3 human OPEN"
+  ]
+}

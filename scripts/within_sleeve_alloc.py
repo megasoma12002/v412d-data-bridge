@@ -417,6 +417,8 @@ def allocate_sleeve_orders(
     lot_size: int = BOARD_LOT,
     scores: dict[str, float] | None = None,
     buy_ok: dict[str, bool] | None = None,
+    sell_ok: dict[str, bool] | None = None,
+    sell_scores: dict[str, float] | None = None,
     mix_lambda: float | None = None,
     dual_pub_codes: list[str] | tuple[str, ...] | None = None,
     dual_priv_codes: list[str] | tuple[str, ...] | None = None,
@@ -433,6 +435,8 @@ def allocate_sleeve_orders(
       - RS_SOFT_TILT_EXDIV: soft-tilt buys among buy_ok only
       - PRE_EXDIV_KD: Yahoo K9 season tilt + pre-ex T-10..ex skip-buy (same mechanics)
       - POST_EXDIV_KD: Yahoo K9 autumn post-ex season tilt + ex-day skip-buy
+      - Optional ``sell_ok`` / ``sell_scores`` (paper): gate or soft-tilt sells on
+        high-exit signals; empty sell_ok pool → skip sell (hold through)
     Mix:
       - MIX_EQUAL_RS_EXDIV: λ·EQUAL + (1−λ)·RS_SOFT_TILT_EXDIV notionals
       - MIX_EQUAL_PRE_EXDIV_KD: λ·EQUAL + (1−λ)·PRE_EXDIV_KD notionals
@@ -491,6 +495,16 @@ def allocate_sleeve_orders(
             return []
         if sleeve_dollars < 0:
             holders = [c for c in names if held_board_qty(pos, c, lot_size) > 0]
+            if sell_ok is not None:
+                holders = [c for c in holders if bool(sell_ok.get(c, False))]
+                if not holders:
+                    return []  # refuse sell when no high-exit name
+            if sell_scores is not None and holders:
+                sell_map = _score_map(holders, sell_scores)
+                w = soft_tilt_weights(holders, sell_map)
+                return allocate_weighted_notional(
+                    holders, sleeve_dollars, closes, pos, w, lot_size=lot_size
+                )
             return allocate_equal_notional(
                 holders or names, sleeve_dollars, closes, pos, lot_size=lot_size
             )

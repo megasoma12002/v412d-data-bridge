@@ -51,6 +51,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | E22 2891 cash-pay fill | **DONE** (2026-09-10) | Last private blank → `2010-08-23` via CNYES `#3283475` · private pay blank 0% · Soft-Frozen KEEP · `E22_2891_CASH_PAYMENT_FILL_2010-08-23.md` |
 | E22 stock-web source sweep | **DONE** (2026-09-10) | Pay dates complete; residual `0050` announce×27 · `E22_STOCK_WEB_SOURCE_SWEEP_2026-09-10.md` |
 | Indicator buy/sell charter + R1 screen | **OPEN / PAPER DONE** (2026-09-10) | Verdict **`COEXIST_NO_LIFT_VS_LIVE`** — BB/RSI/VOL coexist but **0 beat live KD_OPT** · keep live · `INDICATOR_BUY_SELL_CHARTER.md` · `INDICATOR_BUY_SELL_SCREEN_R1.md` |
+| Indicator buy/sell R2 split (buy-low vs sell-high) | **PAPER DONE** (2026-09-10) | Separate tracks; coexist only live KD_OPT; **0 beat live** · best BUY=`BELOW_MA60` · best SELL=`RSI14_GT70` · `INDICATOR_BUY_SELL_SCREEN_R2_SPLIT.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
@@ -81,7 +82,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Odd-lot default | Human **ACCEPT promote** on `ODD_LOT_PROMOTE_DECISION_PACK.md` + checklist all YES + **par inventory VERIFIED** (`PAR_VALUE_LOOKUP_CHARTER.md`) |
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
 | E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; live stitch **rolled back** `DROP_E45_A05` (2026-09-09); any future live stitch needs a new dedicated ACCEPT |
-| Indicator buy/sell (FIN) | R1 **DONE** — no lift vs live KD_OPT; Round-2 needs human OPEN · `INDICATOR_BUY_SELL_SCREEN_R1.md` |
+| Indicator buy/sell (FIN) | R1+R2 **DONE** — no lift vs live KD_OPT (incl. buy-low/sell-high split); Round-3 combine needs human OPEN · `INDICATOR_BUY_SELL_SCREEN_R2_SPLIT.md` |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
