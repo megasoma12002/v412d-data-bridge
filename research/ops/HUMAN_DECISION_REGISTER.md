@@ -53,6 +53,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Indicator buy/sell charter + R1 screen | **OPEN / PAPER DONE** (2026-09-10) | Verdict **`COEXIST_NO_LIFT_VS_LIVE`** — BB/RSI/VOL coexist but **0 beat live KD_OPT** · keep live · `INDICATOR_BUY_SELL_CHARTER.md` · `INDICATOR_BUY_SELL_SCREEN_R1.md` |
 | Indicator buy/sell R2 split (buy-low vs sell-high) | **PAPER DONE** (2026-09-10) | Separate tracks; coexist only live KD_OPT; **0 beat live** · best BUY=`BELOW_MA60` · best SELL=`RSI14_GT70` · `INDICATOR_BUY_SELL_SCREEN_R2_SPLIT.md` |
 | Indicator combo catalog R3 (market TA × cross) | **PAPER DONE** (2026-09-10) | Finite catalog 16 low × 15 high + aggregates; **278 books**; coexist only live KD_OPT; **0 beat live** · `INDICATOR_COMBO_CATALOG_SCREEN_R3.md` |
+| KD_OPT + indicator assist | **PAPER DONE** (2026-09-10) | Keep KD base; AND-low buy / high sell assists; **272 books**; verdict **`ASSIST_NO_LIFT`** · `KD_OPT_INDICATOR_ASSIST_SCREEN.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
