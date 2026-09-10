@@ -50,6 +50,10 @@ STEPS_MONITOR = [
         "fin_priv_native_month_end",
         ["python3", "scripts/e16_fin_priv_native_month_end_monitor.py"],
     ),
+    (
+        "soft_assist_month_end",
+        ["python3", "scripts/e16_soft_assist_month_end_monitor.py"],
+    ),
     ("track_a_s9a1", ["python3", "scripts/e50a_dual_track_s9a1_monitor.py"]),
     ("live_paper_recon", ["python3", "scripts/e21_live_vs_paper_recon.py"]),
     ("e22_data_quality_kpi", ["python3", "scripts/e22_data_quality_kpi.py"]),
@@ -80,6 +84,10 @@ STEPS_REFRESH = [
     (
         "fin_priv_native_dual_paper_ledgers",
         ["python3", "scripts/e16_fin_priv_native_dual_paper_ledgers.py"],
+    ),
+    (
+        "soft_assist_dual_paper_ledgers",
+        ["python3", "scripts/e16_soft_assist_dual_paper_ledgers.py"],
     ),
 ]
 

@@ -55,7 +55,8 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Indicator combo catalog R3 (market TA × cross) | **PAPER DONE** (2026-09-10) | Finite catalog 16 low × 15 high + aggregates; **278 books**; coexist only live KD_OPT; **0 beat live** · `INDICATOR_COMBO_CATALOG_SCREEN_R3.md` |
 | KD_OPT + indicator assist | **PAPER DONE** (2026-09-10) | Keep KD base; AND-low buy / high sell assists; **272 books**; verdict **`ASSIST_NO_LIFT`** · `KD_OPT_INDICATOR_ASSIST_SCREEN.md` |
 | Soft assist + KD retune + TEL/sleeve | **PAPER DONE** (2026-09-10) | Soft weights + KD grid + TEL/sleeve; **422 books**; overall **`BEATS_LIVE`** (paper) — soft both / sleeve MA60 tip-clean lift; **TEL within-sleeve no lift**; live KD/TEL/Soft-Frozen **KEEP** until ACCEPT · `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md` |
-| Soft-assist promote ballot | **OPEN** (2026-09-10) | Champion `SOFT_BOTH__BELOW_MA120__RSI6_GT80` · recommended **OPEN observe** first · live KEEP until ACCEPT · `SOFT_ASSIST_PROMOTE_BALLOT_OPEN.md` |
+| Soft-assist promote ballot | **EXECUTED OPEN OBSERVE** (2026-09-10) | Human `OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80` · dual-paper OPERATING · live KD KEEP · `SOFT_ASSIST_PROMOTE_BALLOT_EXECUTED_OPEN_OBSERVE.md` |
+| Soft-assist dual-paper observe | **OPERATING** (2026-09-10) | `LIVE_KD_OPT` ∥ champion soft both · month-end wired · cutover **BLOCKED** · `SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
@@ -87,7 +88,11 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
 | E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; live stitch **rolled back** `DROP_E45_A05` (2026-09-09); any future live stitch needs a new dedicated ACCEPT |
 | Indicator buy/sell (FIN) | R1–R3 + **KD hard assist** **DONE** (`ASSIST_NO_LIFT`) · soft/KD-retune/sleeve screen **PAPER DONE** with tip-clean lift — live KEEP until dedicated ACCEPT · `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md` |
+<<<<<<< HEAD
 | Soft-assist / sleeve tilt promote | Soft-assist ballot **OPEN** · `SOFT_ASSIST_PROMOTE_BALLOT_OPEN.md` — await A/B/C/D/E; sleeve tilt still needs separate ask · Soft-Frozen KEEP · no auto-wire |
+=======
+| Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE EXECUTED** · live KD KEEP · cutover BLOCKED until ACCEPT · `SOFT_ASSIST_OBSERVE_POSTURE.md` · sleeve tilt still needs separate ask |
+>>>>>>> e0243c5 (ops: OPEN Soft-assist dual-paper observe (EXECUTED ballot))
 
 ## Non-decisions (ops wait — no strategy vote needed)
 

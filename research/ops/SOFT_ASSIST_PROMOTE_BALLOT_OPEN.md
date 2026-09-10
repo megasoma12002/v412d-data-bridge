@@ -1,6 +1,20 @@
 # Soft-Assist Promote — Ballot OPEN
 
 Date: 2026-09-10  
+Status: **EXECUTED** → see `SOFT_ASSIST_PROMOTE_BALLOT_EXECUTED_OPEN_OBSERVE.md`  
+Human reply recorded:
+
+```
+OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80
+```
+
+Superseded as the active decision note by the EXECUTED file. Original options retained below for audit.
+
+---
+
+# Soft-Assist Promote — Ballot OPEN (archive)
+
+Date: 2026-09-10  
 Status: **OPEN** — awaiting human reply  
 Evidence: `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md` (#182)  
 Soft-Frozen **KEEP** · live **`KD_OPT` KEEP** until ACCEPT · live **`TEL_EQUAL` KEEP** · E45 stitch **OFF**
