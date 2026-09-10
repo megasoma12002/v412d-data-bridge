@@ -1,0 +1,687 @@
+{
+  "generated_at_utc": "2026-09-10T11:09:52.119869+00:00",
+  "label": "INDICATOR_BUY_SELL_SCREEN_R1",
+  "charter": "research/ops/INDICATOR_BUY_SELL_CHARTER.md",
+  "status": "PAPER_SCREEN_DONE",
+  "live_wire": false,
+  "soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
+  "asof": "2026-09-09",
+  "capital": 500000000.0,
+  "lot": 1000,
+  "live_kd_opt": {
+    "id": "KD_APR15_MAY15_Klt30_T15",
+    "season_start": [
+      4,
+      15
+    ],
+    "season_end": [
+      5,
+      15
+    ],
+    "k_thresh": 30.0,
+    "pre_days": 15,
+    "active_score": 1.5
+  },
+  "season_lock": {
+    "name": "APR15_MAY15",
+    "start": [
+      4,
+      15
+    ],
+    "end": [
+      5,
+      15
+    ]
+  },
+  "n_books": 11,
+  "n_coexist": 4,
+  "n_beat_live": 0,
+  "ranking": [
+    "LIVE_KD_OPT",
+    "BB_LOWER_SEASON",
+    "RSI14_OS_ALWAYS",
+    "VOL_UP_ALWAYS",
+    "MACD_HIST_SEASON",
+    "RSI14_OS_SEASON",
+    "MA_GOLD_SEASON",
+    "MA_GOLD_ALWAYS",
+    "MACD_HIST_ALWAYS",
+    "FIN_EQUAL",
+    "FIN_RS_SOFT_TILT_EXDIV"
+  ],
+  "coexist_ids": [
+    "LIVE_KD_OPT",
+    "BB_LOWER_SEASON",
+    "RSI14_OS_ALWAYS",
+    "VOL_UP_ALWAYS"
+  ],
+  "beat_live_ids": [],
+  "books": [
+    {
+      "id": "LIVE_KD_OPT",
+      "family": "anchor",
+      "heldout": {
+        "mdd_improve_pp": 0.6664522064959488,
+        "cagr_giveback_pp": 0.2516306978320504,
+        "score": 0.5406368575799236
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.1616332365690596,
+        "cagr_giveback_pp": 0.34700163204750556,
+        "score": 0.9881324205453068
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 0.5627199775966263,
+          "gate": "PASS",
+          "rel_nav": 0.9978232423704164
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.0859693698443529,
+          "gate": "PASS",
+          "rel_nav": 0.9932184455036025
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 0.5627199775966263,
+          "gate": "PASS",
+          "rel_nav": 0.9978232423704164
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.0859693698443529,
+          "gate": "PASS",
+          "rel_nav": 0.9932184455036025
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 0.0,
+          "gate": "PASS",
+          "rel_nav": 1.0
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.0,
+          "gate": "PASS",
+          "rel_nav": 1.0
+        }
+      },
+      "tip_clean": true,
+      "coexist": true,
+      "vs_live_heldout_score_delta": 0.0,
+      "n_fills": 5745,
+      "full_cagr": 0.138044127365347,
+      "full_mdd": -0.21720270077643722
+    },
+    {
+      "id": "BB_LOWER_SEASON",
+      "family": "season",
+      "heldout": {
+        "mdd_improve_pp": 0.7462113118050229,
+        "cagr_giveback_pp": 0.45766563024802753,
+        "score": 0.5173784966810091
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.7864135208810694,
+        "cagr_giveback_pp": 0.667266294756863,
+        "score": 1.452780373502638
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 1.7332294624335498,
+          "gate": "PASS",
+          "rel_nav": 0.9932872001961599
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.4508994899725467,
+          "gate": "PASS",
+          "rel_nav": 0.9846918640177836
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.7332294624335498,
+          "gate": "PASS",
+          "rel_nav": 0.9932872001961599
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.4508994899725467,
+          "gate": "PASS",
+          "rel_nav": 0.9846918640177836
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 1.1705094848369235,
+          "gate": "PASS",
+          "rel_nav": 0.9954540624214357
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.3649301201281938,
+          "gate": "PASS",
+          "rel_nav": 0.9914152002266777
+        }
+      },
+      "tip_clean": true,
+      "coexist": true,
+      "vs_live_heldout_score_delta": -0.023258360898914532,
+      "n_fills": 5755,
+      "full_cagr": 0.13711697766356634,
+      "full_mdd": -0.21640510972334648
+    },
+    {
+      "id": "RSI14_OS_ALWAYS",
+      "family": "always",
+      "heldout": {
+        "mdd_improve_pp": 0.5588747154733453,
+        "cagr_giveback_pp": 0.3926259460292236,
+        "score": 0.3625617424587335
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.5134311963050262,
+        "cagr_giveback_pp": 0.63497607660703,
+        "score": 1.1959431580015112
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 1.2767539036564468,
+          "gate": "PASS",
+          "rel_nav": 0.9950574865457076
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.8699281328009354,
+          "gate": "PASS",
+          "rel_nav": 0.9883215440339174
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 1.2767539036564468,
+          "gate": "PASS",
+          "rel_nav": 0.9950574865457076
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.8699281328009354,
+          "gate": "PASS",
+          "rel_nav": 0.9883215440339174
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 0.7140339260598205,
+          "gate": "PASS",
+          "rel_nav": 0.9972282106617014
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.7839587629565825,
+          "gate": "PASS",
+          "rel_nav": 0.9950696631825013
+        }
+      },
+      "tip_clean": true,
+      "coexist": true,
+      "vs_live_heldout_score_delta": -0.17807511512119012,
+      "n_fills": 5756,
+      "full_cagr": 0.1368212645168414,
+      "full_mdd": -0.21827847568666348
+    },
+    {
+      "id": "VOL_UP_ALWAYS",
+      "family": "always",
+      "heldout": {
+        "mdd_improve_pp": 0.259282994259058,
+        "cagr_giveback_pp": 0.26223989277367465,
+        "score": 0.12816304787222066
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 0.8155724029151878,
+        "cagr_giveback_pp": 0.5148695835060835,
+        "score": 0.5581376111621461
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 0.6677376071690722,
+          "gate": "PASS",
+          "rel_nav": 0.9974167228040464
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.0372048286800384,
+          "gate": "PASS",
+          "rel_nav": 0.9935230107215881
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 0.6677376071690722,
+          "gate": "PASS",
+          "rel_nav": 0.9974167228040464
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.0372048286800384,
+          "gate": "PASS",
+          "rel_nav": 0.9935230107215881
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 0.10501762957244587,
+          "gate": "PASS",
+          "rel_nav": 0.9995925936086593
+        },
+        "trailing_1y": {
+          "giveback_pp": -0.0487645411643145,
+          "gate": "PASS",
+          "rel_nav": 1.0003066447460418
+        }
+      },
+      "tip_clean": true,
+      "coexist": true,
+      "vs_live_heldout_score_delta": -0.412473809707703,
+      "n_fills": 5800,
+      "full_cagr": 0.13791584923096534,
+      "full_mdd": -0.22127439289880613
+    },
+    {
+      "id": "MACD_HIST_SEASON",
+      "family": "season",
+      "heldout": {
+        "mdd_improve_pp": 0.9298609248967415,
+        "cagr_giveback_pp": 0.5787259349957274,
+        "score": 0.6404979573988778
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.2237492837862693,
+        "cagr_giveback_pp": 0.8520598396708712,
+        "score": 1.7977193639508338
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 2.863052785467346,
+          "gate": "PASS",
+          "rel_nav": 0.9888982607462004
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.432924751679667,
+          "gate": "ALERT",
+          "rel_nav": 0.9785551672543255
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.863052785467346,
+          "gate": "PASS",
+          "rel_nav": 0.9888982607462004
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.432924751679667,
+          "gate": "ALERT",
+          "rel_nav": 0.9785551672543255
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 2.3003328078707197,
+          "gate": "PASS",
+          "rel_nav": 0.9910555484726794
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.346955381835314,
+          "gate": "PASS",
+          "rel_nav": 0.9852366029692067
+        }
+      },
+      "tip_clean": false,
+      "coexist": false,
+      "vs_live_heldout_score_delta": 0.09986109981895419,
+      "n_fills": 5745,
+      "full_cagr": 0.13600419684507514,
+      "full_mdd": -0.2145686135924295
+    },
+    {
+      "id": "RSI14_OS_SEASON",
+      "family": "season",
+      "heldout": {
+        "mdd_improve_pp": 0.77145599959344,
+        "cagr_giveback_pp": 0.5338469930780798,
+        "score": 0.5045325030544001
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 1.9849877924038362,
+        "cagr_giveback_pp": 0.8032668213967309,
+        "score": 1.5833543817054707
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 2.481187222798953,
+          "gate": "PASS",
+          "rel_nav": 0.9903828324318267
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.084415513131278,
+          "gate": "ALERT",
+          "rel_nav": 0.9807332094163772
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.481187222798953,
+          "gate": "PASS",
+          "rel_nav": 0.9903828324318267
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.084415513131278,
+          "gate": "ALERT",
+          "rel_nav": 0.9807332094163772
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 1.9184672452023266,
+          "gate": "PASS",
+          "rel_nav": 0.9925433587607015
+        },
+        "trailing_1y": {
+          "giveback_pp": 1.998446143286925,
+          "gate": "PASS",
+          "rel_nav": 0.9874295164938316
+        }
+      },
+      "tip_clean": false,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -0.03610435452552352,
+      "n_fills": 5748,
+      "full_cagr": 0.13664809949768886,
+      "full_mdd": -0.21615266284546242
+    },
+    {
+      "id": "MA_GOLD_SEASON",
+      "family": "season",
+      "heldout": {
+        "mdd_improve_pp": 0.7170984487168686,
+        "cagr_giveback_pp": 0.567493214890491,
+        "score": 0.4333518412716231
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.0725754519819395,
+        "cagr_giveback_pp": 0.9541610139015333,
+        "score": 1.5954949450311728
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 2.747729242955499,
+          "gate": "PASS",
+          "rel_nav": 0.9893467279249224
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.4443018408329973,
+          "gate": "ALERT",
+          "rel_nav": 0.9784840613092683
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.747729242955499,
+          "gate": "PASS",
+          "rel_nav": 0.9893467279249224
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.4443018408329973,
+          "gate": "ALERT",
+          "rel_nav": 0.9784840613092683
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 2.1850092653588726,
+          "gate": "PASS",
+          "rel_nav": 0.9915049939853503
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.3583324709886444,
+          "gate": "PASS",
+          "rel_nav": 0.9851650115228547
+        }
+      },
+      "tip_clean": false,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -0.10728501630830056,
+      "n_fills": 5741,
+      "full_cagr": 0.136311744528135,
+      "full_mdd": -0.21669623835422824
+    },
+    {
+      "id": "MA_GOLD_ALWAYS",
+      "family": "always",
+      "heldout": {
+        "mdd_improve_pp": 0.7575409649261178,
+        "cagr_giveback_pp": 0.6715823113858876,
+        "score": 0.42174980923317396
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.1961307407974417,
+        "cagr_giveback_pp": 1.1044878188388951,
+        "score": 1.6438868313779942
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 3.172453712012313,
+          "gate": "ALERT",
+          "rel_nav": 0.9876945309393126
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.809491968465628,
+          "gate": "ALERT",
+          "rel_nav": 0.976201525295874
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 3.172453712012313,
+          "gate": "ALERT",
+          "rel_nav": 0.9876945309393126
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.809491968465628,
+          "gate": "ALERT",
+          "rel_nav": 0.976201525295874
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 2.609733734415687,
+          "gate": "PASS",
+          "rel_nav": 0.9898491927217067
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.723522598621275,
+          "gate": "PASS",
+          "rel_nav": 0.9828668906777096
+        }
+      },
+      "tip_clean": false,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -0.11888704834674968,
+      "n_fills": 5759,
+      "full_cagr": 0.13473040603783026,
+      "full_mdd": -0.21629181319213564
+    },
+    {
+      "id": "MACD_HIST_ALWAYS",
+      "family": "always",
+      "heldout": {
+        "mdd_improve_pp": 0.6572989549897712,
+        "cagr_giveback_pp": 0.558297465102986,
+        "score": 0.3781502224382782
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.023723739583283,
+        "cagr_giveback_pp": 0.9133334498983237,
+        "score": 1.5670570146341212
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 2.547907035930863,
+          "gate": "PASS",
+          "rel_nav": 0.9901235331739154
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.1369327228483845,
+          "gate": "ALERT",
+          "rel_nav": 0.980405012179323
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 2.547907035930863,
+          "gate": "PASS",
+          "rel_nav": 0.9901235331739154
+        },
+        "trailing_1y": {
+          "giveback_pp": 3.1369327228483845,
+          "gate": "ALERT",
+          "rel_nav": 0.980405012179323
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 1.9851870583342368,
+          "gate": "PASS",
+          "rel_nav": 0.9922834938398412
+        },
+        "trailing_1y": {
+          "giveback_pp": 2.0509633530040317,
+          "gate": "PASS",
+          "rel_nav": 0.9870990783726509
+        }
+      },
+      "tip_clean": false,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -0.1624866351416454,
+      "n_fills": 5758,
+      "full_cagr": 0.1360163310851732,
+      "full_mdd": -0.2172942332914991
+    },
+    {
+      "id": "FIN_EQUAL",
+      "family": "anchor",
+      "heldout": {
+        "mdd_improve_pp": 0.0,
+        "cagr_giveback_pp": 0.0,
+        "score": 0.0
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 0.0,
+        "cagr_giveback_pp": 0.0,
+        "score": 0.0
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 0.0,
+          "gate": "PASS",
+          "rel_nav": 1.0
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.0,
+          "gate": "PASS",
+          "rel_nav": 1.0
+        }
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 0.0,
+          "gate": "PASS",
+          "rel_nav": 1.0
+        },
+        "trailing_1y": {
+          "giveback_pp": 0.0,
+          "gate": "PASS",
+          "rel_nav": 1.0
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": -0.5627199775966263,
+          "gate": "PASS",
+          "rel_nav": 1.0021815062399353
+        },
+        "trailing_1y": {
+          "giveback_pp": -1.0859693698443529,
+          "gate": "PASS",
+          "rel_nav": 1.006827857987433
+        }
+      },
+      "tip_clean": true,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -0.5406368575799236,
+      "n_fills": null,
+      "full_cagr": 0.13850709158384023,
+      "full_mdd": -0.22386722284139682
+    },
+    {
+      "id": "FIN_RS_SOFT_TILT_EXDIV",
+      "family": "anchor",
+      "heldout": {
+        "mdd_improve_pp": 0.8926195082533894,
+        "cagr_giveback_pp": 0.9789885162456935,
+        "score": 0.4031252501305427
+      },
+      "sealed_REPORT_ONLY": {
+        "mdd_improve_pp": 2.5939580096014048,
+        "cagr_giveback_pp": 1.385814366849769,
+        "score": 1.9010508261765202
+      },
+      "tip_gates_vs_equal": {
+        "ytd": {
+          "giveback_pp": 4.499767125683873,
+          "gate": "ALERT",
+          "rel_nav": 0.9825216317872796
+        },
+        "trailing_1y": {
+          "giveback_pp": 5.310030921156184,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.9668201914481583
+        }
+      },
+      "tip_gates": {
+        "ytd": {
+          "giveback_pp": 4.499767125683873,
+          "gate": "ALERT",
+          "rel_nav": 0.9825216317872796
+        },
+        "trailing_1y": {
+          "giveback_pp": 5.310030921156184,
+          "gate": "PAUSE_REVIEW",
+          "rel_nav": 0.9668201914481583
+        }
+      },
+      "tip_gates_vs_live": {
+        "ytd": {
+          "giveback_pp": 3.937047148087247,
+          "gate": "ALERT",
+          "rel_nav": 0.984665008857895
+        },
+        "trailing_1y": {
+          "giveback_pp": 4.224061551311831,
+          "gate": "ALERT",
+          "rel_nav": 0.9734215024147491
+        }
+      },
+      "tip_clean": false,
+      "coexist": false,
+      "vs_live_heldout_score_delta": -0.13751160744938096,
+      "n_fills": 5718,
+      "full_cagr": 0.1327881813962173,
+      "full_mdd": -0.21494102775886292
+    }
+  ],
+  "verdict": "COEXIST_NO_LIFT_VS_LIVE",
+  "non_actions": [
+    "No Soft-Frozen flip",
+    "No live KD_OPT change",
+    "No E45 stitch",
+    "No auto cutover"
+  ]
+}
