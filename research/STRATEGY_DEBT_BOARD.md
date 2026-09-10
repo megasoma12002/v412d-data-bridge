@@ -307,3 +307,7 @@ Follow-up wiring complete: dual ledgers + month-end monitor (`FIN_PRIV_NATIVE_MO
 ## 民營 native observe runbook + status ballot (2026-09-09)
 
 Human **「請全做」**. Locked fixed month-end cadence (ledgers+monitor), tip YTD/1y + structural watch, observe-status ballot DRAFT (KEEP OBSERVE / STRICTER PAPER / STOP — **no live**), posture + blocked cutover stub. Artifacts: `FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md` · `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md` · `FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md` · `CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md`.
+
+## E22 payment-date restore (2026-09-10)
+
+Human **「先把 Soft-Frozen（再民營）payment-date 還原／Yahoo backfill，並校正 KPI」**. Soft-Frozen cash/stock pay blanks restored to **0%** (from `#166` regression); private stock pay **0**, cash pay residual **1/129** (Yahoo-empty). Soft-Frozen KPI **`kpi_ok=true`**. Note: `research/ops/E22_PAYMENT_DATE_RESTORE_2026-09-10.md`.

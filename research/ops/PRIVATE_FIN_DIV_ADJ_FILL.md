@@ -9,7 +9,7 @@ Label: `E22_PRIVATE_FIN_DIV_ADJ_FILL_2026-09-09`
 | Gap | Fill |
 |---|---|
 | E22 dividend events for 民營 + R2 (`2884/2885/2890/2891/2881/2882/2801/2834`) | Merged into `data/dividend_events/e22_dividend_events.csv` via FinMind `TaiwanStockDividend` |
-| Payment dates | Yahoo TW backfill (`e22_backfill_div_payment_dates_yahoo.py`) — private cash blank pay ~**0.8%**; stock ex/pay **0** blank |
+| Payment dates | Soft-Frozen restored from `69bb0f4` + Yahoo re-backfill (2026-09-10) — Soft-Frozen cash/stock pay **0** blank; private cash blank pay **1/129 (~0.8%)** (`2891`/`98年` Yahoo-empty); stock pay **0** blank · note `E22_PAYMENT_DATE_RESTORE_2026-09-10.md` |
 | `adj_close` | `data/market/private_fin_adjusted.csv` — FinMind DividendResult / capital-reduction / split factors × TW12 OHLCV |
 | Par value | TWSE openapi → `par_value_by_code.csv` (all eight **VERIFIED** 10.0) |
 

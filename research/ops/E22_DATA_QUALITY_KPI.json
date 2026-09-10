@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-09T14:25:39.662363+00:00",
+  "generated_at_utc": "2026-09-10T02:57:18.217963+00:00",
   "label": "E22_DATA_QUALITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -29,6 +29,7 @@
       "2891"
     ],
     "cash_payment_date_blank_rate": 0.007751937984496124,
+    "stock_payment_date_blank_rate": 0.0,
     "stock_ex_date_blank_rate": 0.0
   },
   "gap_report": {
