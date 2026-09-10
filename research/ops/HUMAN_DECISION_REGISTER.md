@@ -59,6 +59,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Soft-assist dual-paper observe | **OPERATING** (2026-09-10) | `LIVE_KD_OPT` ∥ champion soft both · month-end wired · cutover **BLOCKED** · `SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` |
 | Full-repo code review (post Soft-assist) | **DONE** (2026-09-10) | CI 3M capital + Soft-assist NAV fallback + MIX sell_scores fixed · live healthy · `PROJECT_CODE_REVIEW_2026-09-10.md` |
 | Dry-powder drawdown sleeve charter | **OPEN / PAPER** (2026-09-10) | 10% powder + observable PORT/TAIEX DD entry + fixed exit vs live · **not** wait-for-MDD · `DRY_POWDER_DRAWDOWN_CHARTER.md` |
+| Sleeve-layer tilt charter | **OPEN / PAPER** (2026-09-10) | Seed `SLEEVE_BELOW_MA60_a01` · Soft-Frozen score tilt (clips KEEP) · separate from Soft-assist · Stage A not started · `SLEEVE_LAYER_TILT_CHARTER.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
@@ -90,8 +91,9 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
 | E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; live stitch **rolled back** `DROP_E45_A05` (2026-09-09); any future live stitch needs a new dedicated ACCEPT |
 | Indicator buy/sell (FIN) | R1–R3 + **KD hard assist** **DONE** (`ASSIST_NO_LIFT`) · soft/KD-retune/sleeve screen **PAPER DONE** with tip-clean lift — live KEEP until dedicated ACCEPT · `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md` |
-| Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE EXECUTED** · live KD KEEP · cutover BLOCKED until ACCEPT · `SOFT_ASSIST_OBSERVE_POSTURE.md` · sleeve tilt still needs separate ask |
+| Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE EXECUTED** · live KD KEEP · cutover BLOCKED until ACCEPT · `SOFT_ASSIST_OBSERVE_POSTURE.md` · sleeve tilt **charter OPEN** (separate) · `SLEEVE_LAYER_TILT_CHARTER.md` |
 | Dry-powder drawdown sleeve | Charter **OPEN** · Stage A screen not started · `DRY_POWDER_DRAWDOWN_CHARTER.md` — no live wire; not wait-for-MDD |
+| Sleeve-layer tilt | Charter **OPEN** · Stage A not started · seed `SLEEVE_BELOW_MA60_a01` · Soft-Frozen clips KEEP · no live wire · `SLEEVE_LAYER_TILT_CHARTER.md` |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
