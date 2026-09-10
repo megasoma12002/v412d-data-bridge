@@ -96,12 +96,14 @@ Prior Track C numbers are **hypothesis only** — Stage A must re-score vs curre
 - Lift is **small** (MDD help ~6 bp held-out); treat as coexist-quality for observe, not auto-wire.
 - Next: draft **OPEN observe** ballot (`LIVE_STACK` ∥ `SLEEVE_BELOW_MA60_a01`) on human ask. Soft-assist observe stays independent (no auto-combo).
 
+**Ballot opened:** `SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md` (**OPEN** — awaiting human).
+
 ## Success → next step
 
 If Stage A tip-clean beat-live or strong coexist → draft **OPEN observe** ballot (dual-paper `LIVE_STACK` ∥ champion sleeve tilt).  
 Else → **STOP / archive**; keep Soft-Frozen router live unchanged.
 
-**Applied:** Stage A → **`BEATS_LIVE`** · champion `SLEEVE_BELOW_MA60_a01` · **observe ballot not opened** until human asks · **no live wire**.
+**Applied:** Stage A → **`BEATS_LIVE`** · champion `SLEEVE_BELOW_MA60_a01` · observe ballot **OPEN** (`SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md`) · **no live wire**.
 
 **Observe cutover** (later) would still need a dedicated ACCEPT — Stage A green ≠ live wire.
 
