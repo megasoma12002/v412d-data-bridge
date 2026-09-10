@@ -311,3 +311,7 @@ Human **「請全做」**. Locked fixed month-end cadence (ledgers+monitor), tip
 ## E22 payment-date restore (2026-09-10)
 
 Human **「先把 Soft-Frozen（再民營）payment-date 還原／Yahoo backfill，並校正 KPI」**. Soft-Frozen cash/stock pay blanks restored to **0%** (from `#166` regression); private stock pay **0**, cash pay residual **1/129** (Yahoo-empty). Soft-Frozen KPI **`kpi_ok=true`**. Note: `research/ops/E22_PAYMENT_DATE_RESTORE_2026-09-10.md`.
+
+## E22 2891 cash payment fill (2026-09-10)
+
+Human **「請想辦法補齊資料」**. Last private cash-pay blank (`2891` / `98年` / ex `2010-07-29` / 0.64) filled as **`2010-08-23`** from CNYES announcement https://news.cnyes.com/news/id/3283475 (not Yahoo/Wantgoo/MOPS empty fields). Soft-Frozen KPI still 0% blank; private cash/stock pay blank now **0%**. Note: `E22_2891_CASH_PAYMENT_FILL_2010-08-23.md`.

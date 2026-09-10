@@ -19,11 +19,11 @@ Human: Soft-Frozen first, then private — restore from prior complete state / Y
 | Scope | Cash pay blank | Stock pay blank |
 |---|---:|---:|
 | Soft-Frozen (KPI gate) | **0 / 144 (0%)** | **0 / 52 (0%)** |
-| Private FIN (research) | **1 / 129 (~0.78%)** | **0 / 91 (0%)** |
+| Private FIN (research) | **0 / 129 (0%)** after 2891 fill | **0 / 91 (0%)** |
 
 ### Residual (documented, not invented)
 
-- `2891` fiscal `98年` cash ex `2010-07-29` amount `0.64` — Yahoo TW page itself has empty 「現金股利發放日」 for that row (stock pay on same Yahoo row is present). Left blank; not a Soft-Frozen gate.
+- `2891` fiscal `98年` cash ex `2010-07-29` amount `0.64` — **RESOLVED 2010-08-23** via CNYES announcement `#3283475` (see `E22_2891_CASH_PAYMENT_FILL_2010-08-23.md`).
 
 ## Non-actions
 
