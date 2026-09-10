@@ -2,7 +2,7 @@
 """FIN_CAP_50 dual paper ledgers (PROMOTE PROPOSAL SUPPORT — not live).
 
 Builds side-by-side Exact T+1 paper books:
-  BASE_E16:      Financial clip [0.50, 0.95]  (current Soft-Frozen live)
+  BASE_E16:      Soft-Frozen live Financial clip (SSOT ``e16_soft_frozen_base``)
   FIN_CAP_50:    Financial clip [0.35, 0.50]  (held-out PASS research)
 
 Does NOT edit e21_forward_pipeline live clips.
@@ -35,7 +35,10 @@ MARKET_PATH = ROOT / "forward/e21/live_market.csv"
 DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 
 FIN_CAP_50 = {"fin_lo": 0.35, "fin_hi": 0.50}
-WINDOWS = {k: WINDOWS_STANDARD[k] for k in ("full", "oof_2011_2018", "heldout_2019_plus")}
+WINDOWS = {
+    k: WINDOWS_STANDARD[k]
+    for k in ("full", "oof_2011_2018", "heldout_2019_plus", "sealed_2023_plus")
+}
 
 
 def load_market() -> pd.DataFrame:
@@ -189,7 +192,8 @@ def main() -> None:
         "# FIN_CAP_50 Promote Proposal — Dual Paper Ledgers",
         "",
         f"Generated: `{proposal['generated_at_utc']}`",
-        "Status: **PROPOSAL ONLY** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`).",
+        f"Status: **PROPOSAL ONLY** — Soft-Frozen live default **unchanged** "
+        f"(`Financial∈[{soft_frozen.SOFT_FROZEN_FIN_LO:.2f},{soft_frozen.SOFT_FROZEN_FIN_HI:.2f}]`).",
         "",
         "## Why this exists",
         "",
