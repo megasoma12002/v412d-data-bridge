@@ -60,7 +60,8 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Soft KD/BB sensitivity (soft OR + champ+) | **PAPER ARCHIVE / BEATS_CHAMPION** (2026-09-11) | Soft add-score only · **no hard AND** · beat-champ **1**=`SOFT_CHAMP_PLUS_K9_LT30_a10` · follow-on Soft-assist observe OPEN **#195** · `SOFT_KD_BB_SENSITIVITY_SCREEN.md` · `SOFT_KD_BB_SENSITIVITY_CHARTER.md` |
 | Full-repo code review (post Soft-assist) | **DONE** (2026-09-10) | CI 3M capital + Soft-assist NAV fallback + MIX sell_scores fixed · live healthy · `PROJECT_CODE_REVIEW_2026-09-10.md` |
 | Dry-powder drawdown sleeve charter | **OPEN / PAPER** (2026-09-10) | 10% powder + observable PORT/TAIEX DD entry + fixed exit vs live · **not** wait-for-MDD · `DRY_POWDER_DRAWDOWN_CHARTER.md` |
-| Sleeve-layer tilt charter | **PAPER DONE / BEATS_LIVE** (2026-09-10) | Stage A 21 books · champion **`SLEEVE_BELOW_MA60_a01`** tip-clean beat-live · observe ballot **OPEN await human** · no live wire · `SLEEVE_LAYER_TILT_SCREEN.md` · `SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md` |
+| Sleeve-layer tilt charter | **EXECUTED OPEN OBSERVE** (2026-09-10) | Human `OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01` · dual-paper OPERATING · cutover **BLOCKED** · Soft-assist unchanged · `SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md` |
+| Sleeve-layer tilt dual-paper observe | **OPERATING** (2026-09-10) | `LIVE_STACK` ∥ `SLEEVE_BELOW_MA60_a01` · month-end wired · no live wire · `SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
@@ -92,15 +93,16 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
 | E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; live stitch **rolled back** `DROP_E45_A05` (2026-09-09); any future live stitch needs a new dedicated ACCEPT |
 | Indicator buy/sell (FIN) | R1–R3 + **KD hard assist** **DONE** (`ASSIST_NO_LIFT`) · soft/KD-retune/sleeve **PAPER DONE** · soft KD/BB sensitivity **`BEATS_CHAMPION`** (K9@1.0 on Soft-assist) — **no hard-AND reopen** · live KEEP · `SOFT_KD_BB_SENSITIVITY_SCREEN.md` |
-| Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE EXECUTED** · live KD KEEP · cutover BLOCKED · soft KD/BB sens Stage A **`BEATS_CHAMPION`** (observe swap **not** auto) · sleeve tilt Stage A **`BEATS_LIVE`** · observe ballot OPEN await human · `SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md` |
+| Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE EXECUTED** (K9+ follow-on **#195**) · sleeve tilt **OPEN OBSERVE EXECUTED** (`SLEEVE_BELOW_MA60_a01`, **#193**) · both cutovers **BLOCKED** · no auto-combo · `SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md` |
 | Dry-powder drawdown sleeve | Charter **OPEN** · Stage A screen not started · `DRY_POWDER_DRAWDOWN_CHARTER.md` — no live wire; not wait-for-MDD |
-| Sleeve-layer tilt | Stage A **`BEATS_LIVE`** · champion `SLEEVE_BELOW_MA60_a01` · **observe ballot OPEN** · Soft-Frozen clips KEEP · no live wire · `SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md` |
+| Sleeve-layer tilt | **OPEN OBSERVE EXECUTED** · dual-paper OPERATING · Soft-Frozen clips KEEP · cutover BLOCKED until ACCEPT · `SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md` |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
 - Next weekday forward → run `POST_FORWARD_E22_VERIFY_RUNBOOK.md`; persist live `e22_*` evidence; re-run Gap6 KPI  
 - Grow live history toward ≥~60 sessions  
-- Calendar month-end pack re-run (L4 / FIN50 / BLEND_025 / E45 dual-paper trailing)
+- Calendar month-end pack re-run (L4 / FIN50 / BLEND_025 / E45 dual-paper trailing + **Soft-assist K9+** + **Sleeve-tilt**) — default **KEEP OBSERVE**; cutover only via dedicated ACCEPT  
+- Soft-assist×sleeve-tilt combo **not** authorized while both observe independently
 
 ## Claim policy
 
