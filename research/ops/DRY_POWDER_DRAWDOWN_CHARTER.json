@@ -1,7 +1,12 @@
 {
-  "label": "DRY_POWDER_DRAWDOWN_CHARTER_2026-09-10__PAPER_ONLY__NO_WAIT_MDD__LIVE_KEEP",
-  "status": "OPEN_PAPER",
+  "label": "DRY_POWDER_DRAWDOWN_CHARTER_2026-09-10__PAPER_DONE_STOP__NO_LIFT__LIVE_KEEP",
+  "status": "PAPER_DONE_STOP",
   "date": "2026-09-10",
+  "stage_a_verdict": "NO_LIFT",
+  "n_books": 37,
+  "n_beat_live": 0,
+  "n_coexist": 0,
+  "n_tip_clean_challengers": 0,
   "human": "dry powder 10% + portfolio/TAIEX drawdown entry + fixed exit vs live; tip/heldout/sealed; not wait-for-MDD",
   "live_wire": false,
   "soft_frozen": "KEEP",
@@ -10,11 +15,16 @@
   "e45_stitch": "OFF",
   "soft_assist_observe": "UNCHANGED",
   "powder_weight": 0.10,
-  "drawdown_grid_pct": [8, 10, 12, 15],
-  "entry_gates": ["PORT_DD", "TAIEX_DD", "PORT_OR_TAIEX", "PORT_AND_TAIEX"],
-  "exits": ["HOLD_N", "RECOVER_HALF", "RECOVER_FULL", "TIME_OR_HALF"],
-  "hold_n_days": [20, 40, 60],
-  "deploy_default": "DEPLOY_FIN_EQUAL",
+  "stage_a_grid": {
+    "gates": ["PORT_DD", "TAIEX_DD", "PORT_OR_TAIEX"],
+    "d_thresh": [0.10, 0.12, 0.15],
+    "exits": ["HOLD_40", "RECOVER_HALF", "RECOVER_FULL", "TIME_OR_HALF"]
+  },
+  "drawdown_grid_pct_charter": [8, 10, 12, 15],
+  "entry_gates_charter": ["PORT_DD", "TAIEX_DD", "PORT_OR_TAIEX", "PORT_AND_TAIEX"],
+  "exits_charter": ["HOLD_N", "RECOVER_HALF", "RECOVER_FULL", "TIME_OR_HALF"],
+  "hold_n_days_charter": [20, 40, 60],
+  "deploy_default": "DEPLOY_TO_FIN_THEN_SOFT_FROZEN_CLIP",
   "metrics": ["full", "heldout_2019_plus", "sealed_2023_plus", "tip_ytd", "tip_trailing_1y"],
   "forbidden": [
     "wait_for_historical_max_drawdown",
@@ -23,7 +33,7 @@
     "E45 stitch",
     "Soft-assist live wire"
   ],
-  "script_planned": "scripts/e16_dry_powder_drawdown_screen.py",
-  "results_planned": "research/ops/DRY_POWDER_DRAWDOWN_SCREEN.md",
-  "repro_planned": "repro/dry-powder-drawdown/"
+  "script": "scripts/e16_dry_powder_drawdown_screen.py",
+  "results": "research/ops/DRY_POWDER_DRAWDOWN_SCREEN.md",
+  "repro": "repro/dry-powder-drawdown/"
 }
