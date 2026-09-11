@@ -1,9 +1,10 @@
 # ETF Ex-Calendar — Stage A Research Charter (paper only)
 
 Date: 2026-09-11  
-Status: **OPEN / PAPER PENDING** (Stage A screen not run · **no live wire**)  
-Human: **開一張很窄的 ETF ex-calendar Stage A charter（只測 paper、不上 live）**  
-Soft-Frozen **KEEP** · live **`KD_OPT` KEEP** · **`TEL_EQUAL` KEEP** · E45 stitch **OFF** · Soft-assist observe **UNCHANGED** · Sleeve-tilt observe **UNCHANGED**
+Status: **PAPER DONE / STOP ARCHIVE** (Stage A verdict **`NEAR_NO_BEAT`** · **no live wire**)  
+Human: **開一張很窄的 ETF ex-calendar Stage A charter（只測 paper、不上 live）** → screen executed  
+Soft-Frozen **KEEP** · live **`KD_OPT` KEEP** · **`TEL_EQUAL` KEEP** · E45 stitch **OFF** · Soft-assist observe **UNCHANGED** · Sleeve-tilt observe **UNCHANGED**  
+Screen: `ETF_EX_CALENDAR_SCREEN.md` · script `scripts/e16_etf_ex_calendar_screen.py`
 
 ## Question
 
@@ -96,9 +97,9 @@ Same Exact T+1 / cost assumptions as other e16 paper screens; board-lot **1000**
 | Charter | `research/ops/ETF_EX_CALENDAR_STAGE_A_CHARTER.md` (this file) |
 | Charter (zh) | `research/ops/ETF_EX_CALENDAR_STAGE_A_CHARTER.zh-TW.md` |
 | Charter (json) | `research/ops/ETF_EX_CALENDAR_STAGE_A_CHARTER.json` |
-| Screen script (next) | `scripts/e16_etf_ex_calendar_screen.py` |
-| Results (next) | `research/ops/ETF_EX_CALENDAR_SCREEN.md` (+ `.json` · `.zh-TW.md`) |
-| Repro (next) | `repro/etf-ex-calendar/` |
+| Screen script | `scripts/e16_etf_ex_calendar_screen.py` |
+| Results | `research/ops/ETF_EX_CALENDAR_SCREEN.md` (+ `.json` · `.zh-TW.md`) |
+| Repro | `repro/etf-ex-calendar/` |
 | Calendar inputs | `data/dividend_events/e22_dividend_events.csv` (code `50`) · `research/ops/yuanta_etf_div_0050.json` |
 
 ## Non-actions
@@ -117,14 +118,23 @@ Same Exact T+1 / cost assumptions as other e16 paper screens; board-lot **1000**
 - Dividend-capture tax / odd-lot mechanics beyond existing `E22_v2s_tw`  
 - Stage B observe dual-paper until Stage A + human ballot  
 
+## Stage A outcome (2026-09-11)
+
+- Books: **13** (2 baselines + 10 grid + 1 HOLD_THRU stress).
+- Verdict: **`NEAR_NO_BEAT`** — tip-clean vs live **5** (all `CAL_OVER_BH` ≡ `BUY_HOLD_0050`) · beat-live **0** · coexist **0** · beat-BH **0**.
+- `CAL_LONG_*` often improve held-out MDD vs live via cash drag, but tip YTD/1y **PAUSE_REVIEW** (return giveback) → no coexist.
+- Decision: **STOP / archive**. Live Soft-Frozen / KD / TEL / E45 and Soft-assist / sleeve observes **unchanged**. **No live wire.**
+
 ## Success → next step
 
 | Outcome | Next |
 |---|---|
 | `BEATS_LIVE` or strong coexist | Draft **OPEN observe** ballot (`LIVE_STACK` ∥ champion) — human only |
 | `BEATS_BH_ONLY` | Archive as calendar curiosity; **no** live/observe path unless human expands charter |
-| `NO_LIFT` / fail tip | **STOP** / archive; live + observes unchanged |
+| `NO_LIFT` / `NEAR_NO_BEAT` / fail tip | **STOP** / archive; live + observes unchanged |
+
+**Applied:** Stage A → **STOP / archive** (`NEAR_NO_BEAT`); live unchanged.
 
 ## Label
 
-`ETF_EX_CALENDAR_STAGE_A_CHARTER_2026-09-11__OPEN_PAPER_PENDING__NO_LIVE`
+`ETF_EX_CALENDAR_STAGE_A_CHARTER_2026-09-11__PAPER_DONE_STOP__NEAR_NO_BEAT__NO_LIVE`
