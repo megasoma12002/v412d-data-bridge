@@ -28,7 +28,8 @@ Soft-Frozen **clips KEEP** · live **`KD_OPT` / `TEL_EQUAL` HOLD** · Soft-assis
 
 ## Promote gate
 
-Tip stays clean + held-out lift holds → dedicated cutover ACCEPT (checklist `CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md`, currently **BLOCKED**).
+Month-end paper gates: `MONTH_END_PROMOTE_GATE_CHECKLIST.md` (Sleeve-tilt column).  
+Tip stays clean + held-out lift holds → at most `READY_FOR_DEDICATED_ACCEPT_BALLOT` → then dedicated cutover ACCEPT (`CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md`, currently **BLOCKED**). **No live wire from the month-end page.**
 
 ## Label
 
