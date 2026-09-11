@@ -1,8 +1,9 @@
 # Cutover Checklist — Soft-Assist (BLOCKED)
 
-Date: 2026-09-10  
+Date: 2026-09-11  
 Status: **BLOCKED / NOT AUTHORIZED**  
-Observe: `SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` · posture `SOFT_ASSIST_OBSERVE_POSTURE.md`
+Observe: `SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` · posture `SOFT_ASSIST_OBSERVE_POSTURE.md`  
+Challenger: `SOFT_CHAMP_PLUS_K9_LT30_a10`
 
 Live Soft-assist cutover is **forbidden** until:
 
@@ -11,7 +12,7 @@ Live Soft-assist cutover is **forbidden** until:
 3. Human replies exactly:
 
 ```
-ACCEPT live Soft-assist cutover: SOFT_BOTH__BELOW_MA120__RSI6_GT80
+ACCEPT live Soft-assist cutover: SOFT_CHAMP_PLUS_K9_LT30_a10
 ```
 
 4. A dedicated cutover PR wires Soft-assist into live Financial within-sleeve (forward-only).
@@ -23,4 +24,4 @@ ACCEPT live Soft-assist cutover: SOFT_BOTH__BELOW_MA120__RSI6_GT80
 
 ## Label
 
-`CUTOVER_CHECKLIST_SOFT_ASSIST_2026-09-10__BLOCKED`
+`CUTOVER_CHECKLIST_SOFT_ASSIST_2026-09-11__BLOCKED__K9_PLUS`

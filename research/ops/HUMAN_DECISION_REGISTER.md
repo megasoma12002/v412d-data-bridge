@@ -55,11 +55,13 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Indicator combo catalog R3 (market TA × cross) | **PAPER DONE** (2026-09-10) | Finite catalog 16 low × 15 high + aggregates; **278 books**; coexist only live KD_OPT; **0 beat live** · `INDICATOR_COMBO_CATALOG_SCREEN_R3.md` |
 | KD_OPT + indicator assist | **PAPER DONE** (2026-09-10) | Keep KD base; AND-low buy / high sell assists; **272 books**; verdict **`ASSIST_NO_LIFT`** · `KD_OPT_INDICATOR_ASSIST_SCREEN.md` |
 | Soft assist + KD retune + TEL/sleeve | **PAPER DONE** (2026-09-10) | Soft weights + KD grid + TEL/sleeve; **422 books**; overall **`BEATS_LIVE`** (paper) — soft both / sleeve MA60 tip-clean lift; **TEL within-sleeve no lift**; live KD/TEL/Soft-Frozen **KEEP** until ACCEPT · `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md` |
-| Soft-assist promote ballot | **EXECUTED OPEN OBSERVE** (2026-09-10) | Human `OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80` · dual-paper OPERATING · live KD KEEP · `SOFT_ASSIST_PROMOTE_BALLOT_EXECUTED_OPEN_OBSERVE.md` |
-| Soft-assist dual-paper observe | **OPERATING** (2026-09-10) | `LIVE_KD_OPT` ∥ champion soft both · month-end wired · cutover **BLOCKED** · `SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` |
+| Soft-assist promote ballot | **EXECUTED OPEN OBSERVE** (2026-09-10) | Human `OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80` · later superseded by K9+ OPEN · `SOFT_ASSIST_PROMOTE_BALLOT_EXECUTED_OPEN_OBSERVE.md` |
+| Soft-assist K9 observe ballot | **EXECUTED OPEN OBSERVE** (2026-09-11) | Human sequence「照順序全做」→ `OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10` · live KD KEEP · `SOFT_ASSIST_K9_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| Soft-assist dual-paper observe | **OPERATING** (2026-09-11) | `LIVE_KD_OPT` ∥ `SOFT_CHAMP_PLUS_K9_LT30_a10` · month-end wired · cutover **BLOCKED** · KEEP OBSERVE · `SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` |
+| Soft KD/BB sensitivity (soft OR + champ+) | **PAPER DONE / BEATS_CHAMPION** (2026-09-11) | Soft add-score only · **no hard AND** · beat-champ **1**=`SOFT_CHAMP_PLUS_K9_LT30_a10` · observe OPEN executed on that ID · `SOFT_KD_BB_SENSITIVITY_SCREEN.md` |
 | Full-repo code review (post Soft-assist) | **DONE** (2026-09-10) | CI 3M capital + Soft-assist NAV fallback + MIX sell_scores fixed · live healthy · `PROJECT_CODE_REVIEW_2026-09-10.md` |
 | Dry-powder drawdown sleeve charter | **OPEN / PAPER** (2026-09-10) | 10% powder + observable PORT/TAIEX DD entry + fixed exit vs live · **not** wait-for-MDD · `DRY_POWDER_DRAWDOWN_CHARTER.md` |
-| Sleeve-layer tilt charter | **PAPER DONE / BEATS_LIVE** (2026-09-10) | Stage A 21 books · champion **`SLEEVE_BELOW_MA60_a01`** tip-clean beat-live · observe ballot **OPEN await human** · no live wire · `SLEEVE_LAYER_TILT_SCREEN.md` · `SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md` |
+| Sleeve-layer tilt charter | **OPEN OBSERVE AUTHORIZED** (2026-09-11) | Human「照順序全做」→ `OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01` · execute PR **#193** · Soft-Frozen clips KEEP · no live wire · `SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
@@ -90,8 +92,8 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Odd-lot default | Human **ACCEPT promote** on `ODD_LOT_PROMOTE_DECISION_PACK.md` + checklist all YES + **par inventory VERIFIED** (`PAR_VALUE_LOOKUP_CHARTER.md`) |
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
 | E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; live stitch **rolled back** `DROP_E45_A05` (2026-09-09); any future live stitch needs a new dedicated ACCEPT |
-| Indicator buy/sell (FIN) | R1–R3 + **KD hard assist** **DONE** (`ASSIST_NO_LIFT`) · soft/KD-retune/sleeve screen **PAPER DONE** with tip-clean lift — live KEEP until dedicated ACCEPT · `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md` |
-| Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE EXECUTED** · live KD KEEP · cutover BLOCKED · sleeve tilt Stage A **`BEATS_LIVE`** · **observe ballot OPEN** await human · `SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md` |
+| Indicator buy/sell (FIN) | R1–R3 + **KD hard assist** **DONE** (`ASSIST_NO_LIFT`) · soft KD/BB sensitivity **`BEATS_CHAMPION`** · Soft-assist observe retargeted to `SOFT_CHAMP_PLUS_K9_LT30_a10` · **no hard-AND reopen** · live KEEP · `SOFT_KD_BB_SENSITIVITY_SCREEN.md` |
+| Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE** on `SOFT_CHAMP_PLUS_K9_LT30_a10` · live KD KEEP · cutover BLOCKED · sleeve tilt OPEN observe execute **#193** · Soft-assist×sleeve combo **not** authorized · `SOFT_ASSIST_K9_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Dry-powder drawdown sleeve | Charter **OPEN** · Stage A screen not started · `DRY_POWDER_DRAWDOWN_CHARTER.md` — no live wire; not wait-for-MDD |
 | Sleeve-layer tilt | Stage A **`BEATS_LIVE`** · champion `SLEEVE_BELOW_MA60_a01` · **observe ballot OPEN** · Soft-Frozen clips KEEP · no live wire · `SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md` |
 
