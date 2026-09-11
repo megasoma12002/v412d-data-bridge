@@ -1,9 +1,12 @@
 {
-  "label": "MONTH_END_PROMOTE_GATE_CHECKLIST_2026-09-11__SOFT_ASSIST_K9__SLEEVE_MA60__NO_LIVE",
+  "label": "MONTH_END_PROMOTE_GATE_CHECKLIST_2026-09-11__SOFT_ASSIST_K9__SLEEVE_MA60__OVERLAP_COL__NO_LIVE",
   "status": "DRAFTED_NOT_AUTHORIZED",
   "date": "2026-09-11",
   "live_wire": false,
-  "scope": ["SOFT_ASSIST_K9", "SLEEVE_TILT_MA60"],
+  "scope": [
+    "SOFT_ASSIST_K9",
+    "SLEEVE_TILT_MA60"
+  ],
   "default_verdict": "KEEP_OBSERVE",
   "tracks": {
     "soft_assist": {
@@ -21,8 +24,22 @@
       "live_cutover_status": "BLOCKED"
     }
   },
-  "gates": ["A_exact_t1_operating", "B_tip_no_pause", "C_tip_no_alert", "D_heldout_score_gt0", "E_alerts_none", "F_challenger_id_stable", "G_live_stack_unchanged", "H_no_auto_combo", "I_cutover_still_blocked"],
-  "verdicts": ["KEEP_OBSERVE", "WATCH", "READY_FOR_DEDICATED_ACCEPT_BALLOT"],
+  "gates": [
+    "A_exact_t1_operating",
+    "B_tip_no_pause",
+    "C_tip_no_alert",
+    "D_heldout_score_gt0",
+    "E_alerts_none",
+    "F_challenger_id_stable",
+    "G_live_stack_unchanged",
+    "H_no_auto_combo",
+    "I_cutover_still_blocked"
+  ],
+  "verdicts": [
+    "KEEP_OBSERVE",
+    "WATCH",
+    "READY_FOR_DEDICATED_ACCEPT_BALLOT"
+  ],
   "forbidden": [
     "live Soft-assist wire",
     "live Sleeve-tilt wire",
@@ -35,5 +52,29 @@
   "seed_note": {
     "soft_assist": "tip clean; heldout score ~+0.086; alerts=0 → KEEP_OBSERVE/WATCH",
     "sleeve_tilt": "YTD/1y/sealed MDD ALERTs → KEEP_OBSERVE"
-  }
+  },
+  "overlap_report": {
+    "script": "scripts/e16_soft_sleeve_observe_overlap.py",
+    "artifact": "research/ops/SOFT_SLEEVE_OBSERVE_OVERLAP.md",
+    "combo_authorized": false,
+    "seed_asof": "2026-09-10",
+    "seed_heldout": {
+      "corr_excess": -0.025,
+      "same_sign_frac": 0.55,
+      "both_neg_frac": 0.265,
+      "joint_dd_day_frac": 0.331,
+      "high_overlap_report": false,
+      "high_joint_dd_report": false
+    }
+  },
+  "month_log_columns": [
+    "asof",
+    "soft_A_I",
+    "soft_verdict",
+    "sleeve_A_I",
+    "sleeve_verdict",
+    "heldout_corr_same_sign_bothneg_jointDD",
+    "combo",
+    "operator"
+  ]
 }

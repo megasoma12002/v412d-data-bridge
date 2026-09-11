@@ -14,10 +14,11 @@ Inspired by paper→live promotion hygiene (parity / tip / kill-switch / checkli
 
 ## How to use (each calendar month-end)
 
-1. Run `python3 scripts/ops_month_end_paper_pack.py` (includes both monitors).  
+1. Run `python3 scripts/ops_month_end_paper_pack.py` (includes both monitors **and** Soft↔Sleeve overlap).  
 2. Fill **Pass?** for Soft-assist and Sleeve-tilt **separately** from that month’s JSON/MD.  
-3. Record overall row verdict: `KEEP_OBSERVE` · `WATCH` · `READY_FOR_DEDICATED_ACCEPT_BALLOT`.  
-4. **Never** auto-wire live. **Never** auto-combine Soft-assist × Sleeve-tilt.
+3. Copy held-out overlap row from `SOFT_SLEEVE_OBSERVE_OVERLAP.md` into the month log.  
+4. Record overall row verdict: `KEEP_OBSERVE` · `WATCH` · `READY_FOR_DEDICATED_ACCEPT_BALLOT`.  
+5. **Never** auto-wire live. **Never** auto-combine Soft-assist × Sleeve-tilt (overlap is report-only).
 
 ## Gates (all required per track)
 
@@ -36,12 +37,29 @@ Inspired by paper→live promotion hygiene (parity / tip / kill-switch / checkli
 **Track ready for ballot only if A–I all YES for that column.**  
 Ready ≠ ACCEPT. ACCEPT still requires the exact human string on the live cutover checklist.
 
+## Soft ↔ Sleeve overlap (report-only · never unlocks combo)
+
+Source: `SOFT_SLEEVE_OBSERVE_OVERLAP.md` · script `scripts/e16_soft_sleeve_observe_overlap.py`
+
+| Metric | Meaning |
+|---|---|
+| Corr(excess) | Corr of Soft excess vs Sleeve excess (chal−base daily) |
+| Same-sign | Days both excess same sign |
+| Both− | Days both underperform their base |
+| Joint DD days | Among days either rel-NAV DD ≤ −10bp, share both ≤ −10bp |
+| Soft↓→Sleeve ex | Mean Sleeve excess on Soft underperform days |
+| Sleeve↓→Soft ex | Mean Soft excess on Sleeve underperform days |
+
+**Reading:** high corr / same-sign / joint DD → keep observes **independent** (anti-combo evidence). Low corr does **not** authorize combo either — combo still needs a separate charter.
+
+Seed (asof 2026-09-10, heldout): corr **−0.025** · same-sign **55%** · both− **26.5%** · joint DD days **33%** · Soft↓→Sleeve ≈ **0** · flags high_overlap=`False` high_joint_dd=`False`.
+
 ## Month log (fill each pack)
 
-| Month asof | Soft A–I | Soft verdict | Sleeve A–I | Sleeve verdict | Combo? | Operator |
-|---|---|---|---|---|---|---|
-| 2026-09-10 | (seed) tip clean · held≈+0.086 · alerts=0 | `KEEP_OBSERVE` / WATCH held | tip ALERTs on YTD/1y/sealed MDD | `KEEP_OBSERVE` | no | seed |
-| YYYY-MM-DD | | | | | no | |
+| Month asof | Soft A–I | Soft verdict | Sleeve A–I | Sleeve verdict | Heldout corr / same-sign / both− / jointDD | Combo? | Operator |
+|---|---|---|---|---|---|---|---|
+| 2026-09-10 | tip clean · held≈+0.086 · alerts=0 | `KEEP_OBSERVE` | YTD/1y/sealed MDD ALERTs | `KEEP_OBSERVE` | −0.025 / 55% / 26.5% / 33% | no | seed |
+| YYYY-MM-DD | | | | | | no | |
 
 ## Verdict meanings
 
@@ -55,6 +73,7 @@ Ready ≠ ACCEPT. ACCEPT still requires the exact human string on the live cutov
 
 - Live Soft-assist / Sleeve-tilt / Soft-Frozen / KD / TEL / E45 wire  
 - Soft-assist × Sleeve-tilt auto-combo or joint ACCEPT  
+- Overlap report does not authorize combo (high or low)  
 - Using paper CAGR/MDD claim badges as live badges  
 - Treating a single clean month as sustained promote  
 
@@ -65,9 +84,10 @@ python3 scripts/ops_month_end_paper_pack.py
 # review:
 #   research/ops/SOFT_ASSIST_MONTH_END_MONITOR.md
 #   research/ops/SLEEVE_LAYER_TILT_MONTH_END_MONITOR.md
+#   research/ops/SOFT_SLEEVE_OBSERVE_OVERLAP.md
 # then fill this checklist for the asof month
 ```
 
 ## Label
 
-`MONTH_END_PROMOTE_GATE_CHECKLIST_2026-09-11__SOFT_ASSIST_K9__SLEEVE_MA60__NO_LIVE`
+`MONTH_END_PROMOTE_GATE_CHECKLIST_2026-09-11__SOFT_ASSIST_K9__SLEEVE_MA60__OVERLAP_COL__NO_LIVE`

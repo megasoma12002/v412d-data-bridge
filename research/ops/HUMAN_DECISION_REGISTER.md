@@ -104,7 +104,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 - Grow live history toward ≥~60 sessions  
 - Calendar month-end pack re-run (L4 / FIN50 / BLEND_025 / E45 dual-paper trailing + **Soft-assist K9+** + **Sleeve-tilt**) — default **KEEP OBSERVE**; cutover only via dedicated ACCEPT  
 - Soft-assist×sleeve-tilt combo **not** authorized while both observe independently  
-- Fill `MONTH_END_PROMOTE_GATE_CHECKLIST.md` after each Soft-assist / Sleeve-tilt pack (paper gates only · **no live wire**)
+- Fill `MONTH_END_PROMOTE_GATE_CHECKLIST.md` after each Soft-assist / Sleeve-tilt pack (paper gates only · include Soft↔Sleeve overlap from `SOFT_SLEEVE_OBSERVE_OVERLAP.md` · **no live wire** · **no auto-combo**)
 
 ## Claim policy
 
