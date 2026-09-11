@@ -28,7 +28,12 @@ Soft-Frozen **clips KEEP** · live **`KD_OPT` / `TEL_EQUAL` HOLD** · Soft-assis
 
 ## Promote gate
 
-Tip stays clean + held-out lift holds → dedicated cutover ACCEPT (checklist `CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md`, currently **BLOCKED**).
+Month-end paper gates: `MONTH_END_PROMOTE_GATE_CHECKLIST.md` (Sleeve-tilt column).  
+Tip stays clean + held-out lift holds → at most `READY_FOR_DEDICATED_ACCEPT_BALLOT` → then dedicated cutover ACCEPT (`CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md`, currently **BLOCKED**). **No live wire from the month-end page.**
+
+## External borrow (reference only)
+
+Practitioner map for tilt diversification hurdle + no auto-combo: `EXTERNAL_BORROW_NOTES.md` (Notes **1**, **3–5**; zh `EXTERNAL_BORROW_NOTES.zh-TW.md`). Does not authorize live wire or Soft×Sleeve combo.
 
 ## Label
 
