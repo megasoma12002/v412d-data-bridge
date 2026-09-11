@@ -1,0 +1,23 @@
+# Sleeve-tilt month-end monitor (asof 2026-09-10)
+
+Status: `OPERATING_OBSERVE` · paper only · base `LIVE_STACK` vs `SLEEVE_BELOW_MA60_a01`
+
+| Window | MDD dpp | Giveback pp | Score | Rel NAV |
+|---|---:|---:|---:|---:|
+| mtd | -0.010172052518175878 | -5.016463332192256 | -2.518403718614304 | 1.0002 |
+| ytd | -0.15437237900278733 | -0.1966679560865936 | -0.25270635704608413 | 1.0008 |
+| trailing_1y | -0.15437237900277623 | -0.11935023114528764 | -0.21404749457542005 | 1.0008 |
+| heldout_2019_plus | 0.062450597978380706 | -0.025375821461581793 | 0.04976268724758981 | 1.0016 |
+| sealed_2023_plus | -0.15437237900278733 | -0.07667458727487197 | -0.19270967264022332 | 1.0022 |
+| full | 0.0624505979783585 | -0.036079585730020014 | 0.044410805113348495 | 1.0042 |
+
+## Alerts
+
+- ALERT: SLEEVE_BELOW_MA60_a01 ytd MDD worse than LIVE_STACK
+- ALERT: SLEEVE_BELOW_MA60_a01 trailing_1y MDD worse than LIVE_STACK
+- ALERT: SLEEVE_BELOW_MA60_a01 sealed_2023_plus MDD worse than LIVE_STACK
+
+## Non-actions
+
+- No live Sleeve-tilt wire / Soft-Frozen clip flip / Soft-assist combo
+

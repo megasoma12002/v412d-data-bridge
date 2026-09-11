@@ -54,6 +54,10 @@ STEPS_MONITOR = [
         "soft_assist_month_end",
         ["python3", "scripts/e16_soft_assist_month_end_monitor.py"],
     ),
+    (
+        "sleeve_tilt_month_end",
+        ["python3", "scripts/e16_sleeve_tilt_month_end_monitor.py"],
+    ),
     ("track_a_s9a1", ["python3", "scripts/e50a_dual_track_s9a1_monitor.py"]),
     ("live_paper_recon", ["python3", "scripts/e21_live_vs_paper_recon.py"]),
     ("e22_data_quality_kpi", ["python3", "scripts/e22_data_quality_kpi.py"]),
@@ -88,6 +92,10 @@ STEPS_REFRESH = [
     (
         "soft_assist_dual_paper_ledgers",
         ["python3", "scripts/e16_soft_assist_dual_paper_ledgers.py"],
+    ),
+    (
+        "sleeve_tilt_dual_paper_ledgers",
+        ["python3", "scripts/e16_sleeve_tilt_dual_paper_ledgers.py"],
     ),
 ]
 
