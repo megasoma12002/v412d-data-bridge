@@ -95,7 +95,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Indicator buy/sell (FIN) | R1–R3 + **KD hard assist** **DONE** (`ASSIST_NO_LIFT`) · soft KD/BB sensitivity **`BEATS_CHAMPION`** · Soft-assist observe retargeted to `SOFT_CHAMP_PLUS_K9_LT30_a10` · **no hard-AND reopen** · live KEEP · `SOFT_KD_BB_SENSITIVITY_SCREEN.md` |
 | Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE** on `SOFT_CHAMP_PLUS_K9_LT30_a10` · live KD KEEP · cutover BLOCKED · sleeve tilt OPEN observe execute **#193** · Soft-assist×sleeve combo **not** authorized · `SOFT_ASSIST_K9_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Dry-powder drawdown sleeve | Charter **OPEN** · Stage A screen not started · `DRY_POWDER_DRAWDOWN_CHARTER.md` — no live wire; not wait-for-MDD |
-| Sleeve-layer tilt | Stage A **`BEATS_LIVE`** · champion `SLEEVE_BELOW_MA60_a01` · **observe ballot OPEN** · Soft-Frozen clips KEEP · no live wire · `SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md` |
+| Sleeve-layer tilt | Stage A **`BEATS_LIVE`** · champion `SLEEVE_BELOW_MA60_a01` · human OPEN authorized · execute PR **#193** · Soft-Frozen clips KEEP · no live wire · `SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT.md` |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
