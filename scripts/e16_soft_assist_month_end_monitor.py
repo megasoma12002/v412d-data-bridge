@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Soft-assist dual-paper month-end monitor — OPERATING OBSERVE.
 
-Compares LIVE_KD_OPT vs SOFT_BOTH__BELOW_MA120__RSI6_GT80.
+Compares LIVE_KD_OPT vs SOFT_CHAMP_PLUS_K9_LT30_a10.
 Paper-only; no Soft-Frozen flip; no live wire.
 """
 from __future__ import annotations
@@ -18,20 +18,20 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from research_metric_helpers import mdd_delta_pp
-from soft_assist_helpers import CHAMPION_ID
+from soft_assist_helpers import OBSERVE_CHAL_ID
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "repro/soft-assist-dual-paper-observe/month_end"
 BASE_NAV = ROOT / "repro/soft-assist-dual-paper-observe/outputs/live_kd_opt_daily_nav.csv"
 CHAL_NAV = (
     ROOT
-    / "repro/soft-assist-dual-paper-observe/outputs/soft_both_below_ma120_rsi6_gt80_daily_nav.csv"
+    / "repro/soft-assist-dual-paper-observe/outputs/soft_champ_plus_k9_lt30_a10_daily_nav.csv"
 )
 COMPARE_NAV = ROOT / "repro/soft-assist-dual-paper-observe/outputs/dual_paper_nav_compare.csv"
 OPS = ROOT / "research/ops"
 
 BASE_ID = "LIVE_KD_OPT"
-CHAL_ID = CHAMPION_ID
+CHAL_ID = OBSERVE_CHAL_ID
 STATUS = "OPERATING_OBSERVE"
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0

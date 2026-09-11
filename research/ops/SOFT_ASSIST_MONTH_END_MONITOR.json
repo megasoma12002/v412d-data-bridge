@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-09-10T13:53:21.118037+00:00",
+  "generated_at_utc": "2026-09-11T01:10:25.669241+00:00",
   "asof": "2026-09-10",
   "label": "SOFT_ASSIST_MONTH_END_MONITOR",
   "status": "OPERATING_OBSERVE",
   "base_id": "LIVE_KD_OPT",
-  "challenger_id": "SOFT_BOTH__BELOW_MA120__RSI6_GT80",
+  "challenger_id": "SOFT_CHAMP_PLUS_K9_LT30_a10",
   "nav_source": "daily_nav",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -17,12 +17,12 @@
       "n_days": 8,
       "base_cagr": 5.2342988858766795,
       "base_mdd": -0.012596068388510462,
-      "chal_cagr": 5.147230491620084,
-      "chal_mdd": -0.01241531252433592,
-      "mdd_improve_pp": 0.018075586417454215,
-      "cagr_giveback_pp": 8.706839425659574,
-      "score": -4.335344126412332,
-      "rel_nav_end": 0.9996093965595931
+      "chal_cagr": 5.212931545476409,
+      "chal_mdd": -0.012488715692478114,
+      "mdd_improve_pp": 0.010735269603234787,
+      "cagr_giveback_pp": 2.136734040027033,
+      "score": -1.0576317504102817,
+      "rel_nav_end": 0.9999046358918023
     },
     {
       "window": "ytd",
@@ -31,12 +31,12 @@
       "n_days": 166,
       "base_cagr": 0.6872036760494618,
       "base_mdd": -0.12807794587413646,
-      "chal_cagr": 0.6852708714600186,
-      "chal_mdd": -0.12476370587379626,
-      "mdd_improve_pp": 0.3314240000340196,
-      "cagr_giveback_pp": 0.19328045894431156,
-      "score": 0.23478377056186384,
-      "rel_nav_end": 0.9992497780707685
+      "chal_cagr": 0.6875646585201696,
+      "chal_mdd": -0.1257977743710541,
+      "mdd_improve_pp": 0.2280171503082351,
+      "cagr_giveback_pp": -0.036098247070781575,
+      "score": 0.20996802677284432,
+      "rel_nav_end": 1.0001400831713745
     },
     {
       "window": "trailing_1y",
@@ -45,12 +45,12 @@
       "n_days": 242,
       "base_cagr": 0.5165250071187601,
       "base_mdd": -0.12807794587413635,
-      "chal_cagr": 0.515088510472443,
-      "chal_mdd": -0.12476370587379626,
-      "mdd_improve_pp": 0.3314240000340085,
-      "cagr_giveback_pp": 0.14364966463171758,
-      "score": 0.2595991677181497,
-      "rel_nav_end": 0.9990940994498283
+      "chal_cagr": 0.5174260893769753,
+      "chal_mdd": -0.125797774371054,
+      "mdd_improve_pp": 0.2280171503082351,
+      "cagr_giveback_pp": -0.0901082258215169,
+      "score": 0.18296303739747666,
+      "rel_nav_end": 1.000568232060464
     },
     {
       "window": "heldout_2019_plus",
@@ -59,12 +59,12 @@
       "n_days": 1860,
       "base_cagr": 0.18068587296337357,
       "base_mdd": -0.21720270077643733,
-      "chal_cagr": 0.180879501532351,
-      "chal_mdd": -0.21641564726209006,
-      "mdd_improve_pp": 0.0787053514347269,
-      "cagr_giveback_pp": -0.019362856897742198,
-      "score": 0.0690239229858558,
-      "rel_nav_end": 1.0012104337342456
+      "chal_cagr": 0.18106637324289432,
+      "chal_mdd": -0.21615379208416674,
+      "mdd_improve_pp": 0.10489086922705892,
+      "cagr_giveback_pp": -0.03805002795207457,
+      "score": 0.08586585525102164,
+      "rel_nav_end": 1.0023798290036163
     },
     {
       "window": "sealed_2023_plus",
@@ -73,12 +73,12 @@
       "n_days": 883,
       "base_cagr": 0.24856495256732214,
       "base_mdd": -0.12807794587413646,
-      "chal_cagr": 0.24761727507348708,
-      "chal_mdd": -0.12476370587379615,
-      "mdd_improve_pp": 0.3314240000340307,
-      "cagr_giveback_pp": 0.0947677493835064,
-      "score": 0.2840401253422775,
-      "rel_nav_end": 0.9973459726874735
+      "chal_cagr": 0.24838495441204045,
+      "chal_mdd": -0.125797774371054,
+      "mdd_improve_pp": 0.2280171503082462,
+      "cagr_giveback_pp": 0.017999815528169094,
+      "score": 0.21901724254416166,
+      "rel_nav_end": 0.9994955168152331
     },
     {
       "window": "full",
@@ -87,12 +87,12 @@
       "n_days": 3355,
       "base_cagr": 0.13849076454881026,
       "base_mdd": -0.21720270077643722,
-      "chal_cagr": 0.1382848998761952,
-      "chal_mdd": -0.21641564726209006,
-      "mdd_improve_pp": 0.0787053514347158,
-      "cagr_giveback_pp": 0.02058646726150748,
-      "score": 0.06841211780396206,
-      "rel_nav_end": 0.9975960160853868
+      "chal_cagr": 0.13838361195870053,
+      "chal_mdd": -0.21615379208416674,
+      "mdd_improve_pp": 0.10489086922704782,
+      "cagr_giveback_pp": 0.01071525901097381,
+      "score": 0.09953323972156092,
+      "rel_nav_end": 0.9987480582588487
     }
   ],
   "gates": {
