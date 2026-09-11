@@ -1,0 +1,18 @@
+{
+  "label": "SLEEVE_LAYER_TILT_OBSERVE_OPEN_BALLOT_2026-09-10__AWAIT_HUMAN__LIVE_KEEP",
+  "status": "EXECUTED_OPEN_OBSERVE",
+  "date": "2026-09-10",
+  "evidence": "research/ops/SLEEVE_LAYER_TILT_SCREEN.md",
+  "evidence_pr": 191,
+  "stage_a_verdict": "BEATS_LIVE",
+  "champion_id": "SLEEVE_BELOW_MA60_a01",
+  "recommended": "OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01",
+  "executed_human": "OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01",
+  "executed_note": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_BALLOT_EXECUTED_OPEN_OBSERVE.md",
+  "live_wire_default": false,
+  "soft_frozen_clips": "KEEP",
+  "live_fin": "KD_OPT_KEEP",
+  "live_tel": "TEL_EQUAL_KEEP",
+  "e45_stitch": "OFF",
+  "soft_assist_observe": "UNCHANGED"
+}

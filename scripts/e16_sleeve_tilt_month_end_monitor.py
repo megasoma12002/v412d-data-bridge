@@ -1,37 +1,33 @@
 #!/usr/bin/env python3
-"""Soft-assist dual-paper month-end monitor — OPERATING OBSERVE.
+"""Sleeve-tilt dual-paper month-end monitor — OPERATING OBSERVE.
 
-Compares LIVE_KD_OPT vs SOFT_CHAMP_PLUS_K9_LT30_a10.
-Paper-only; no Soft-Frozen flip; no live wire.
+Compares LIVE_STACK vs SLEEVE_BELOW_MA60_a01.
+Paper-only; Soft-Frozen clips KEEP; no live wire; Soft-assist observe unchanged.
 """
 from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
-
-import sys
 
 import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from research_metric_helpers import mdd_delta_pp
-from soft_assist_helpers import OBSERVE_CHAL_ID
+from sleeve_tilt_helpers import BASE_ID, CHAMPION_ID
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUT = ROOT / "repro/soft-assist-dual-paper-observe/month_end"
-BASE_NAV = ROOT / "repro/soft-assist-dual-paper-observe/outputs/live_kd_opt_daily_nav.csv"
+DEFAULT_OUT = ROOT / "repro/sleeve-tilt-dual-paper-observe/month_end"
+BASE_NAV = ROOT / "repro/sleeve-tilt-dual-paper-observe/outputs/live_stack_daily_nav.csv"
 CHAL_NAV = (
-    ROOT
-    / "repro/soft-assist-dual-paper-observe/outputs/soft_champ_plus_k9_lt30_a10_daily_nav.csv"
+    ROOT / "repro/sleeve-tilt-dual-paper-observe/outputs/sleeve_below_ma60_a01_daily_nav.csv"
 )
-COMPARE_NAV = ROOT / "repro/soft-assist-dual-paper-observe/outputs/dual_paper_nav_compare.csv"
+COMPARE_NAV = ROOT / "repro/sleeve-tilt-dual-paper-observe/outputs/dual_paper_nav_compare.csv"
 OPS = ROOT / "research/ops"
 
-BASE_ID = "LIVE_KD_OPT"
-CHAL_ID = OBSERVE_CHAL_ID
 STATUS = "OPERATING_OBSERVE"
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
@@ -46,11 +42,6 @@ def _load(path: Path) -> pd.DataFrame:
 
 
 def _load_books() -> tuple[pd.DataFrame, pd.DataFrame, str]:
-    """Load base/chal NAV. Prefer daily_nav; fall back to committed compare CSV.
-
-    ``*_daily_nav.csv`` is gitignored under ``repro/``; fresh clones only have
-    ``dual_paper_nav_compare.csv`` until ledgers are refreshed.
-    """
     if BASE_NAV.exists() and CHAL_NAV.exists():
         return _load(BASE_NAV), _load(CHAL_NAV), "daily_nav"
     if COMPARE_NAV.exists():
@@ -58,8 +49,8 @@ def _load_books() -> tuple[pd.DataFrame, pd.DataFrame, str]:
         d["date"] = pd.to_datetime(d["date"])
         if not {"nav_base", "nav_chal"}.issubset(d.columns):
             raise SystemExit(
-                f"{COMPARE_NAV} missing nav_base/nav_chal columns; "
-                "run scripts/e16_soft_assist_dual_paper_ledgers.py"
+                f"{COMPARE_NAV} missing nav_base/nav_chal; "
+                "run scripts/e16_sleeve_tilt_dual_paper_ledgers.py"
             )
         base = d[["date", "nav_base"]].rename(columns={"nav_base": "nav"})
         chal = d[["date", "nav_chal"]].rename(columns={"nav_chal": "nav"})
@@ -69,8 +60,7 @@ def _load_books() -> tuple[pd.DataFrame, pd.DataFrame, str]:
             "dual_paper_nav_compare",
         )
     raise SystemExit(
-        "Missing Soft-assist observe NAV. Run scripts/e16_soft_assist_dual_paper_ledgers.py "
-        "(or ensure dual_paper_nav_compare.csv is present)."
+        "Missing Sleeve-tilt observe NAV. Run scripts/e16_sleeve_tilt_dual_paper_ledgers.py"
     )
 
 
@@ -141,25 +131,25 @@ def _alerts(rows: list[dict]) -> list[str]:
         if not r:
             continue
         if r["mdd_improve_pp"] is not None and r["mdd_improve_pp"] < 0:
-            out.append(f"ALERT: {CHAL_ID} {wname} MDD worse than {BASE_ID}")
+            out.append(f"ALERT: {CHAMPION_ID} {wname} MDD worse than {BASE_ID}")
         gb = r["cagr_giveback_pp"]
         if gb is None:
             continue
         if gb > TRAIL_ALERT_PP:
-            out.append(f"ALERT: {CHAL_ID} {wname} CAGR giveback > {TRAIL_ALERT_PP:.1f} pp")
+            out.append(f"ALERT: {CHAMPION_ID} {wname} CAGR giveback > {TRAIL_ALERT_PP:.1f} pp")
         if gb > TRAIL_PAUSE_PP:
-            out.append(f"PAUSE_REVIEW: {CHAL_ID} {wname} giveback > {TRAIL_PAUSE_PP:.0f} pp")
+            out.append(f"PAUSE_REVIEW: {CHAMPION_ID} {wname} giveback > {TRAIL_PAUSE_PP:.0f} pp")
     for wname in ("heldout_2019_plus", "sealed_2023_plus"):
         r = next((x for x in rows if x["window"] == wname), None)
         if not r:
             continue
         if r["mdd_improve_pp"] is not None and r["mdd_improve_pp"] < 0:
-            out.append(f"ALERT: {CHAL_ID} {wname} MDD worse than {BASE_ID}")
+            out.append(f"ALERT: {CHAMPION_ID} {wname} MDD worse than {BASE_ID}")
         gb = r["cagr_giveback_pp"]
         tgt = DESIGN_GIVEBACK_PP[wname]
         if gb is not None and gb > tgt + STRUCTURAL_BUFFER_PP:
             out.append(
-                f"ALERT: {CHAL_ID} {wname} giveback {gb:.2f} > design {tgt:.2f}+{STRUCTURAL_BUFFER_PP:.0f}"
+                f"ALERT: {CHAMPION_ID} {wname} giveback {gb:.2f} > design {tgt:.2f}+{STRUCTURAL_BUFFER_PP:.0f}"
             )
     return out
 
@@ -182,13 +172,14 @@ def main() -> int:
     payload = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "asof": str(asof.date()),
-        "label": "SOFT_ASSIST_MONTH_END_MONITOR",
+        "label": "SLEEVE_LAYER_TILT_MONTH_END_MONITOR",
         "status": STATUS,
         "base_id": BASE_ID,
-        "challenger_id": CHAL_ID,
+        "challenger_id": CHAMPION_ID,
         "nav_source": nav_source,
         "live_wire": False,
-        "soft_frozen_unchanged": True,
+        "soft_frozen_clips_unchanged": True,
+        "soft_assist_observe": "UNCHANGED",
         "alerts": alerts,
         "windows": rows,
         "gates": {
@@ -199,20 +190,21 @@ def main() -> int:
         },
         "non_actions": [
             "paper observe only",
-            "no Soft-Frozen flip",
-            "no live Soft-assist wire",
+            "no Soft-Frozen clip flip",
+            "no live Sleeve-tilt wire",
+            "Soft-assist observe unchanged",
         ],
     }
     (args.out / "month_end_monitor.json").write_text(
         json.dumps(payload, indent=2, default=str) + "\n", encoding="utf-8"
     )
-    OPS.joinpath("SOFT_ASSIST_MONTH_END_MONITOR.json").write_text(
+    OPS.joinpath("SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json").write_text(
         json.dumps(payload, indent=2, default=str) + "\n", encoding="utf-8"
     )
     lines = [
-        f"# Soft-assist month-end monitor (asof {asof.date()})",
+        f"# Sleeve-tilt month-end monitor (asof {asof.date()})",
         "",
-        f"Status: `{STATUS}` · paper only · base `{BASE_ID}` vs `{CHAL_ID}`",
+        f"Status: `{STATUS}` · paper only · base `{BASE_ID}` vs `{CHAMPION_ID}`",
         "",
         "| Window | MDD dpp | Giveback pp | Score | Rel NAV |",
         "|---|---:|---:|---:|---:|",
@@ -226,10 +218,16 @@ def main() -> int:
         lines.extend(f"- {a}" for a in alerts)
     else:
         lines.append("- none")
-    lines += ["", "## Non-actions", "", "- No live Soft-assist wire / Soft-Frozen flip", ""]
+    lines += [
+        "",
+        "## Non-actions",
+        "",
+        "- No live Sleeve-tilt wire / Soft-Frozen clip flip / Soft-assist combo",
+        "",
+    ]
     md = "\n".join(lines) + "\n"
     (args.out / "month_end_monitor.md").write_text(md, encoding="utf-8")
-    OPS.joinpath("SOFT_ASSIST_MONTH_END_MONITOR.md").write_text(md, encoding="utf-8")
+    OPS.joinpath("SLEEVE_LAYER_TILT_MONTH_END_MONITOR.md").write_text(md, encoding="utf-8")
     print(json.dumps({"asof": str(asof.date()), "alerts": alerts, "n_windows": len(rows)}, indent=2))
     return 0
 
