@@ -1,0 +1,29 @@
+{
+  "label": "EXTERNAL_STRATEGY_BORROW_STAGEA_CHARTER_2026-09-12__BEATS_LIVE_NO_OBSERVE_LIFT",
+  "status": "PAPER_DONE",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "observe_swap": false,
+  "scrape_login_walls": false,
+  "parent_lock": "RESEARCH_POSTURE_LOCK_RULEPATH_FIRST_DL_NEW_MECH",
+  "script": "scripts/e16_external_strategy_borrow_stagea_screen.py",
+  "observe_id": "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+  "sleeve_observe_id": "SLEEVE_RSI14_LT30_a0225",
+  "borrow_motifs": [
+    "rsi14_gt70_exit",
+    "trend_aligned_rsi_sell",
+    "bb_upper_exhaustion",
+    "mfi14_gt80_overbought"
+  ],
+  "books": [
+    "LIVE_KD_OPT",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10",
+    "EXT_RSI14_GT70_SELL_a05",
+    "EXT_RSI14_GT70_SELL_a10",
+    "EXT_BB_UPPER_SELL_a05",
+    "EXT_MFI14_GT80_SELL_a05",
+    "EXT_RSI14_GT70_SELL_a05__TREND_MA60"
+  ],
+  "verdict": "BEATS_LIVE_NO_OBSERVE_LIFT"
+}
