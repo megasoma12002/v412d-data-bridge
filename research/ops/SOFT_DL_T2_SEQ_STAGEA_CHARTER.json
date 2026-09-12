@@ -1,0 +1,33 @@
+{
+  "label": "SOFT_DL_T2_SEQ_STAGEA_CHARTER_2026-09-12__RULE_PROMOTE_ONLY_NO_T2_LIFT",
+  "status": "PAPER_DONE",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "script": "scripts/e16_soft_dl_t2_seq_stagea_screen.py",
+  "parent": "SOFT_DL_4TRACK_STAGEA",
+  "track": "T2_features_seq",
+  "torch_required": false,
+  "features": "causal_logret_seq_L10_L20",
+  "models": [
+    "flat_mlp_h8",
+    "flat_linear",
+    "numpy_1d_cnn"
+  ],
+  "books": [
+    "LIVE_KD_OPT",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "DL_T2_SEQ10_FLAT_h8_a05",
+    "DL_T2_SEQ20_FLAT_h8_a05",
+    "DL_T2_SEQ10_LIN_a05",
+    "DL_T2_SEQ10_CNN_a05",
+    "DL_T2_SEQ10_FLAT_h8_a025",
+    "DL_T2_SEQ10_FLAT_h8_a05__SELL_a05"
+  ],
+  "prior_parked": [
+    "SOFT_DL_MLP_STAGEA",
+    "SOFT_DL_DEEPER_STAGEA",
+    "SOFT_DL_4TRACK_T2_CHARTER_ONLY"
+  ],
+  "verdict": "RULE_PROMOTE_ONLY_NO_T2_LIFT"
+}
