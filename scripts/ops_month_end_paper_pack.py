@@ -58,6 +58,10 @@ STEPS_MONITOR = [
         "sleeve_tilt_month_end",
         ["python3", "scripts/e16_sleeve_tilt_month_end_monitor.py"],
     ),
+    (
+        "soft_sleeve_observe_overlap",
+        ["python3", "scripts/e16_soft_sleeve_observe_overlap.py"],
+    ),
     ("track_a_s9a1", ["python3", "scripts/e50a_dual_track_s9a1_monitor.py"]),
     ("live_paper_recon", ["python3", "scripts/e21_live_vs_paper_recon.py"]),
     ("e22_data_quality_kpi", ["python3", "scripts/e22_data_quality_kpi.py"]),
@@ -175,7 +179,8 @@ def main() -> int:
             "Live stack: Soft-Frozen FINBAND + KD_OPT (E45 A05 stitch rolled back DROP_E45_A05). "
             "FIN50 remains NOT_READY_SEALED_CAGR; L4 / BLEND_025 cutover still human-PR gated. "
             "Paper observe sleeves (E45 FULL/A25/A05/FIN_A10/C35, FIN within-sleeve quartet, "
-            "Soft-assist SOFT_BOTH) remain paper monitors beside live."
+            "Soft-assist SOFT_CHAMP_PLUS_K9_LT30_a10, Sleeve-tilt SLEEVE_BELOW_MA60_a01) "
+            "remain paper monitors beside live — no auto-combo, no live wire."
         ),
     }
 

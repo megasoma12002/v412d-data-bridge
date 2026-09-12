@@ -114,24 +114,46 @@ class DivApplyResult:
 
 
 def load_dividend_events(
-    path: Path | str = DIV_PATH_DEFAULT, *, require_exists: bool = False
+    path: Path | str = DIV_PATH_DEFAULT,
+    *,
+    require_exists: bool = False,
+    fail_closed_amounts: bool | None = None,
 ) -> list[DivEvent]:
+    """Load dividend events.
+
+    When ``require_exists`` is True (live path), missing file raises.
+    When ``fail_closed_amounts`` is True (defaults to ``require_exists``),
+    non-empty unparseable cash/stock amount cells raise instead of silently
+    becoming 0.0 and disappearing.
+    """
     path = Path(path)
+    if fail_closed_amounts is None:
+        fail_closed_amounts = require_exists
     if not path.exists():
         if require_exists:
             raise FileNotFoundError(f"dividend events file missing: {path}")
         return []
     out: list[DivEvent] = []
     with path.open(newline="", encoding="utf-8") as handle:
-        for row in csv.DictReader(handle):
+        for row_i, row in enumerate(csv.DictReader(handle), start=2):
             code = str(row.get("code") or "").strip()
+            raw_cash = row.get("cash_dividend")
+            raw_stock = row.get("stock_dividend")
             try:
-                cash = float(row.get("cash_dividend") or 0)
+                cash = float(raw_cash or 0)
             except ValueError:
+                if fail_closed_amounts and str(raw_cash or "").strip():
+                    raise ValueError(
+                        f"unparseable cash_dividend at line {row_i} code={code!r}: {raw_cash!r}"
+                    ) from None
                 cash = 0.0
             try:
-                stock = float(row.get("stock_dividend") or 0)
+                stock = float(raw_stock or 0)
             except ValueError:
+                if fail_closed_amounts and str(raw_stock or "").strip():
+                    raise ValueError(
+                        f"unparseable stock_dividend at line {row_i} code={code!r}: {raw_stock!r}"
+                    ) from None
                 stock = 0.0
             cash_ex = str(row.get("cash_ex_date") or "").strip()[:10]
             stock_ex = str(row.get("stock_ex_date") or "").strip()[:10]

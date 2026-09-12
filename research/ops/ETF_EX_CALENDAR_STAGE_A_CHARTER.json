@@ -1,0 +1,82 @@
+{
+  "label": "ETF_EX_CALENDAR_STAGE_A_CHARTER_2026-09-11__PAPER_DONE_STOP__NEAR_NO_BEAT__NO_LIVE",
+  "status": "PAPER_DONE_STOP",
+  "date": "2026-09-11",
+  "stage": "A",
+  "live_wire": false,
+  "human": "open narrow ETF ex-calendar Stage A charter; paper only; no live",
+  "question": "Does rules-based 0050 ex-calendar timing tip-clean beat BUY_HOLD_0050 and/or coexist with LIVE_STACK after costs?",
+  "universe_stage_a": [
+    "0050"
+  ],
+  "e22_code": "50",
+  "soft_frozen": "KEEP",
+  "live_fin": "KD_OPT_KEEP",
+  "live_tel": "TEL_EQUAL_KEEP",
+  "e45_stitch": "OFF",
+  "soft_assist_observe": "UNCHANGED",
+  "sleeve_tilt_observe": "UNCHANGED",
+  "baselines": [
+    "BUY_HOLD_0050",
+    "LIVE_STACK"
+  ],
+  "calendar_sources": {
+    "MONTH_PROXY": {
+      "role": "primary",
+      "post_2016_months": [
+        1,
+        7
+      ],
+      "pre_2016_months": [
+        10
+      ],
+      "window_trading_days": [
+        10,
+        15
+      ]
+    },
+    "EXACT_EX": {
+      "role": "sensitivity",
+      "hold": "[T-N, T-1]",
+      "N": [
+        10,
+        20,
+        40
+      ],
+      "note": "announcement_date blank on all E22 0050 rows; do not invent announce"
+    }
+  },
+  "book_families": [
+    "CAL_LONG_0050",
+    "CAL_OVER_BH"
+  ],
+  "max_books_approx": 14,
+  "forbidden": [
+    "live Soft-Frozen/KD/TEL/E45 change",
+    "Soft-assist or sleeve-tilt retarget/auto-combo",
+    "invent announcement_date",
+    "multi-ETF Stage A",
+    "Soft-Frozen 0050 overlay Stage A"
+  ],
+  "verdict_labels": [
+    "NO_LIFT",
+    "COEXIST_NO_LIFT",
+    "BEATS_BH_ONLY",
+    "BEATS_LIVE",
+    "NEAR_NO_BEAT"
+  ],
+  "inputs": [
+    "data/dividend_events/e22_dividend_events.csv",
+    "research/ops/yuanta_etf_div_0050.json"
+  ],
+  "stage_a_verdict": "NEAR_NO_BEAT",
+  "decision": "STOP_ARCHIVE",
+  "n_books": 13,
+  "n_beat_live": 0,
+  "n_coexist": 0,
+  "n_beat_bh": 0,
+  "n_tip_clean_vs_live": 5,
+  "results": "research/ops/ETF_EX_CALENDAR_SCREEN.md",
+  "script": "scripts/e16_etf_ex_calendar_screen.py",
+  "repro": "repro/etf-ex-calendar/"
+}

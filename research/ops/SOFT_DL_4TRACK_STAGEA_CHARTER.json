@@ -1,0 +1,28 @@
+{
+  "label": "SOFT_DL_4TRACK_STAGEA_CHARTER_2026-09-12__RULE_PROMOTE_ONLY_NO_DL_LIFT",
+  "status": "PAPER_DONE",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "script": "scripts/e16_soft_dl_4track_stagea_screen.py",
+  "tracks": {
+    "T1_objective": "RUN",
+    "T2_features_seq": "CHARTER_ONLY_NO_TORCH",
+    "T3_role_sell": "RUN",
+    "T4_rep_gate": "RUN"
+  },
+  "books": [
+    "LIVE_KD_OPT",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "DL_T1_REG_h8_a05",
+    "DL_T1_RANK_h8_a05",
+    "DL_T3_SELL_REG_a05",
+    "DL_T3_SELL_REG_a025",
+    "DL_T4_REP_GATE_a05"
+  ],
+  "prior_parked": [
+    "SOFT_DL_MLP_STAGEA",
+    "SOFT_DL_DEEPER_STAGEA"
+  ],
+  "verdict": "RULE_PROMOTE_ONLY_NO_DL_LIFT"
+}

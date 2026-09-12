@@ -140,6 +140,11 @@ def main():
     ap.add_argument("--capital", type=float, default=CAPITAL)
     ap.add_argument("--dividends", default=str(DIV_PATH))
     ap.add_argument(
+        "--no-div-amount-repair",
+        action="store_true",
+        help="Do not auto-refetch/patch dirty dividend amount cells (still fail-closed).",
+    )
+    ap.add_argument(
         "--e22-version",
         default=E22_BOOKS_VERSION,
         choices=[e22div.E22_V2, e22div.E22_V2S, e22div.E22_V2S_CIL, e22div.E22_V2S_TW],
@@ -232,6 +237,16 @@ def main():
         if state_path.exists()
         else {"cash": a.capital, "positions": {}, "last_date": None}
     )
+    # Fail-closed: never rewind behind last_date (would rewrite portfolio_state while
+    # immutable fills/orders skip via append_immutable — silent book corruption).
+    prior_last = state.get("last_date")
+    if prior_last:
+        prior_ts = pd.Timestamp(prior_last).normalize()
+        if latest < prior_ts:
+            raise SystemExit(
+                f"Refusing session {latest.date()} behind portfolio last_date={prior_last}. "
+                "Replay/rebuild requires an explicit wipe path; --asof cannot silently rewind."
+            )
     pos, cash, vals, nav = holdings(state, prices)
     # Fill prior pending orders at today's open (raw open).
     op = day.open.astype(float).to_dict()
@@ -249,15 +264,22 @@ def main():
         pending["_side_rank"] = pending["side"].map({"SELL": 0, "BUY": 1}).fillna(2)
         pending = pending.sort_values(["signal_date", "_side_rank", "code"])
         for _, o in pending.iterrows():
-            q = int(o.quantity)
+            orig_q = int(o.quantity)
+            q = orig_q
             side = o.side
             fp = op[o.code] * (1 + SLIP if side == "BUY" else 1 - SLIP)
             gross = q * fp
             fee = gross * (BUY_FEE if side == "BUY" else SELL_FEE + (TAX_ETF if o.code == "0050" else TAX_STOCK))
             signed = q if side == "BUY" else -q
             if side == "BUY" and gross + fee > cash:
-                # Partial fill only in whole 張.
-                q = board_lots(int(cash / (fp * (1 + BUY_FEE))))
+                # Cash-short BUY: do NOT partial-fill under fill_id==order_id.
+                # A partial would burn the order_id and drop the residual forever.
+                # Leave the full order pending until a session can fund the whole lot size
+                # (SELL-before-BUY already frees cash on the same bar when possible).
+                afford = board_lots(int(cash / (fp * (1 + BUY_FEE))))
+                if afford < orig_q:
+                    continue
+                q = afford
                 gross = q * fp
                 fee = gross * BUY_FEE
                 signed = q
@@ -320,7 +342,18 @@ def main():
         )
 
     # E22 formal books on today's ex-date (forward-only; idempotent via applied keys).
-    div_events = e22div.load_dividend_events(a.dividends, require_exists=True)
+    # Live: fail-closed amounts; if dirty cells exist, repair once via refetch then reload.
+    # Escape: --no-div-amount-repair (still fail-closed). Soft-Frozen / books unchanged.
+    if getattr(a, "no_div_amount_repair", False):
+        div_events = e22div.load_dividend_events(
+            a.dividends, require_exists=True, fail_closed_amounts=True
+        )
+    else:
+        from e22_dividend_amount_repair import load_dividend_events_with_repair
+
+        div_events = load_dividend_events_with_repair(
+            a.dividends, require_exists=True, network=True
+        )
     skip = set(state.get("e22_applied_keys") or [])
     div_path = sdir / "dividends_applied.csv"
     if div_path.exists():

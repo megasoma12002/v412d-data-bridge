@@ -1,0 +1,10 @@
+{
+  "path": "/workspace/data/dividend_events/e22_dividend_events.csv",
+  "scanned_at_utc": "2026-09-12T00:40:19.376106+00:00",
+  "dry_run": true,
+  "wrote_csv": false,
+  "bad_before": [],
+  "repaired": [],
+  "unresolved": [],
+  "fetch_errors": []
+}

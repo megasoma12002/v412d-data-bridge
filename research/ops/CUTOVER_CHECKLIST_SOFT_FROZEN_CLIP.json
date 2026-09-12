@@ -1,6 +1,12 @@
 {
   "label": "CUTOVER_CHECKLIST_SOFT_FROZEN_CLIP",
-  "status": "DRAFTED_NOT_AUTHORIZED",
-  "authorized": false,
-  "generated_at_utc": "2026-09-09T11:20:00.459359+00:00"
+  "status": "ACCEPTED_LIVE_WIRED",
+  "authorized": true,
+  "live_fin_clip": [0.60, 0.90],
+  "accept_id": "FINBAND_F0.60-0.90",
+  "acceptance_note": "research/ops/SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md",
+  "ssot": "scripts/e16_soft_frozen_base.py",
+  "forward_only": true,
+  "updated_at_utc": "2026-09-12T00:00:00+00:00",
+  "note": "Checklist status aligned with live ACCEPT; was stale DRAFTED_NOT_AUTHORIZED after FINBAND wire."
 }

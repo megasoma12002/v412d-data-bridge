@@ -33,6 +33,8 @@ FIN_JSON = ROOT / "research/gaps/FIN_CAP_50_MONTH_END_MONITOR.json"
 BLEND_JSON = ROOT / "research/gaps/BLEND_025_MONTH_END_MONITOR.json"
 E45_JSON = ROOT / "research/gaps/E45_MONTH_END_MONITOR.json"
 E45_BLEND025_JSON = ROOT / "research/gaps/E45_BLEND025_MONTH_END_MONITOR.json"
+SOFT_ASSIST_JSON = ROOT / "research/ops/SOFT_ASSIST_MONTH_END_MONITOR.json"
+SLEEVE_TILT_JSON = ROOT / "research/ops/SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json"
 RECON_JSON = ROOT / "research/ops/LIVE_PAPER_RECON.json"
 GAP6_JSON = ROOT / "research/ops/E22_GAP6_FIDELITY_KPI.json"
 E22_KPI_JSON = ROOT / "research/ops/E22_DATA_QUALITY_KPI.json"
@@ -125,6 +127,9 @@ def main() -> int:
         ("blend025_month_end", BLEND_JSON),
         ("e45_month_end", E45_JSON),
         ("e45_blend025_month_end", E45_BLEND025_JSON),
+        # Operating paper observes — PAUSE_REVIEW must surface in OPS_ALERTS.
+        ("soft_assist_month_end", SOFT_ASSIST_JSON),
+        ("sleeve_tilt_month_end", SLEEVE_TILT_JSON),
     ):
         doc = _load(path)
         if doc is None:

@@ -1,0 +1,53 @@
+{
+  "label": "SOFT_SLEEVE_ACADEMIC_LITERATURE_NOTES_2026-09-12__REFERENCE_ONLY",
+  "status": "REFERENCE_ONLY",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "complements": "research/ops/EXTERNAL_BORROW_NOTES.md",
+  "clusters": [
+    {
+      "id": "A_soft_assist",
+      "papers": [
+        "Israelov_Katz_To_Trade_or_Not_to_Trade_AQR",
+        "Asness_Ilmanen_Maloney_Market_Timing_Sin_a_Little_AQR"
+      ]
+    },
+    {
+      "id": "B_sleeve_tilt_diversification",
+      "papers": [
+        "AQR_Tactical_Tilts_Foregone_Diversification",
+        "de_Longis_Ellis_JPM_2022_TAA_macro_regime",
+        "Polk_Haghbin_de_Longis_2020_factor_cyclicality"
+      ]
+    },
+    {
+      "id": "C_amplitude_shrinkage",
+      "papers": [
+        "Northern_Trust_Dynamic_Factor_Timing",
+        "Didisheim_Ke_Kelly_Malamud_Virtue_of_Complexity_NBER_w30217",
+        "Cotturo_Liu_Proner_Multi_Factor_Timing_DL_SSRN_2024"
+      ]
+    },
+    {
+      "id": "D_mdd_hygiene",
+      "papers": [
+        "Choi_2021_MDD_Recovery_Momentum_JRFM",
+        "Hsieh_2023_Drawdown_Control_Restart_arXiv",
+        "Drenovak_etal_2022_Mean_Max_Drawdown_FRL"
+      ]
+    },
+    {
+      "id": "E_optional_future",
+      "papers": [
+        "PGIM_NLP_recession_sentiment_overlay"
+      ]
+    }
+  ],
+  "stage_a_alignment": "SOFT_SLEEVE_BORROW_PROMOTE_SCREEN.md",
+  "non_actions": [
+    "No live Soft-assist / Sleeve-tilt / Soft-Frozen / KD / TEL / E45 wire",
+    "No Soft×Sleeve auto-combo",
+    "No claim badges from external paper numbers",
+    "No reopen STOP Stage A without tip-clean + held-out evidence"
+  ]
+}

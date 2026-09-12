@@ -120,6 +120,33 @@ class SoftAssistObserveGuards(unittest.TestCase):
         self.assertIn("nav_source", src)
 
 
+class SleeveTiltObserveGuards(unittest.TestCase):
+    def test_live_pipeline_has_no_sleeve_tilt_wire(self):
+        src = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
+        for needle in (
+            "sleeve_tilt",
+            "SLEEVE_BELOW_MA60",
+            "BELOW_MA60",
+            "build_champion_target",
+        ):
+            self.assertNotIn(needle, src)
+
+    def test_soft_assist_guard_also_bans_ma60_tilt_marker(self):
+        # Soft-assist static ban previously covered MA120 only; MA60 is sleeve-tilt.
+        src = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
+        self.assertNotIn("BELOW_MA60", src)
+
+    def test_ops_alert_scan_includes_observe_monitors(self):
+        src = (SCRIPTS / "ops_alert_scan.py").read_text(encoding="utf-8")
+        self.assertIn("SOFT_ASSIST_MONTH_END_MONITOR.json", src)
+        self.assertIn("SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json", src)
+
+    def test_forward_pipeline_refuses_asof_rewind(self):
+        src = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
+        self.assertIn("cannot silently rewind", src)
+        self.assertIn("afford < orig_q", src)
+
+
 class FrozenClaimLabel(unittest.TestCase):
     def test_frozen_docs_use_retired_label(self):
         for name in ("FROZEN_GOVERNANCE.md", "FROZEN_STRATEGY_SPEC.md"):

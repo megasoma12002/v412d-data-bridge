@@ -57,12 +57,20 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Soft assist + KD retune + TEL/sleeve | **PAPER DONE** (2026-09-10) | Soft weights + KD grid + TEL/sleeve; **422 books**; overall **`BEATS_LIVE`** (paper) — soft both / sleeve MA60 tip-clean lift; **TEL within-sleeve no lift**; live KD/TEL/Soft-Frozen **KEEP** until ACCEPT · `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md` |
 | Soft-assist promote ballot | **EXECUTED OPEN OBSERVE** (2026-09-10) | Human `OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80` · later superseded by K9+ OPEN · `SOFT_ASSIST_PROMOTE_BALLOT_EXECUTED_OPEN_OBSERVE.md` |
 | Soft-assist K9 observe ballot | **EXECUTED OPEN OBSERVE** (2026-09-11) | Human sequence「照順序全做」→ `OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10` · live KD KEEP · `SOFT_ASSIST_K9_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| Soft-assist DL T2 seq Stage A | **PAPER DONE / RULE_PROMOTE_ONLY_NO_T2_LIFT** (2026-09-12) | numpy causal logret seq L10/L20 · flat linear/h8 + 1D-CNN · no torch in screen · DL promote>observe **0** · rule SELL_a05 still_best_vs_dl **True** · no live / no fuse / Soft∥Sleeve OPEN unchanged · `SOFT_DL_T2_SEQ_STAGEA_SCREEN.md` |
 | Soft-assist dual-paper observe | **OPERATING** (2026-09-11) | `LIVE_KD_OPT` ∥ `SOFT_CHAMP_PLUS_K9_LT30_a10` · month-end wired · cutover **BLOCKED** · KEEP OBSERVE · `SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` |
+| Soft-assist DL 4-track Stage A | **PAPER DONE / RULE_PROMOTE_ONLY_NO_DL_LIFT** (2026-09-12) | T1 reg/rank + T3 sell-role + T4 rep→gate · T2 charter-only (no torch) · DL promote>observe **0** · rule SELL_a05 still_best_vs_dl **True** · no live / no fuse / Soft∥Sleeve OPEN unchanged · `SOFT_DL_4TRACK_STAGEA_SCREEN.md` |
 | Soft KD/BB sensitivity (soft OR + champ+) | **PAPER ARCHIVE / BEATS_CHAMPION** (2026-09-11) | Soft add-score only · **no hard AND** · beat-champ **1**=`SOFT_CHAMP_PLUS_K9_LT30_a10` · follow-on Soft-assist observe OPEN **#195** · `SOFT_KD_BB_SENSITIVITY_SCREEN.md` · `SOFT_KD_BB_SENSITIVITY_CHARTER.md` |
+| Soft∥Sleeve borrow-promote Stage A | **PAPER DONE / HAS_PROMOTE_SHAPED_CANDIDATE** (2026-09-12) | Soft amplitude + Sleeve tip-MDD hygiene · Soft promote `…K9_a10__SELL_a05` / `…_a15` · Sleeve promote `SLEEVE_RSI14_LT30_a02` · **no observe swap / no fuse / no live wire** · `SOFT_SLEEVE_BORROW_PROMOTE_SCREEN.md` · `SOFT_SLEEVE_BORROW_PROMOTE_CHARTER.md` |
+| Soft∥Sleeve academic literature notes | **REFERENCE** (2026-09-12) | 2020–2024 papers mapped to Soft-assist∥Sleeve-tilt · no live / no fuse · `SOFT_SLEEVE_ACADEMIC_LITERATURE_NOTES.md` |
 | Full-repo code review (post Soft-assist) | **DONE** (2026-09-10) | CI 3M capital + Soft-assist NAV fallback + MIX sell_scores fixed · live healthy · `PROJECT_CODE_REVIEW_2026-09-10.md` |
+| Full-repo code review (2026-09-12) | **DONE** (2026-09-12) | Soft-Frozen checklist align + e21 asof/partial-fill + Soft/Sleeve alert scan + CI observe dirs + div fail-closed · live KEEP · `PROJECT_CODE_REVIEW_2026-09-12.md` |
+| E22 dividend amount repair (parse-fail → refetch) | **OPERATING** (2026-09-12) | Live load repairs dirty amount cells once (FinMind/Yahoo/Yuanta) then fail-closed · no Soft-Frozen flip · `E22_DIVIDEND_AMOUNT_REPAIR_OPERATING.md` |
 | Dry-powder drawdown sleeve | **STOP** (2026-09-10) | Stage A 37 books · verdict **`NO_LIFT`** · 0 tip-clean / 0 coexist · cash drag · live Soft-Frozen/KD/TEL **KEEP** · `DRY_POWDER_DRAWDOWN_SCREEN.md` |
 | Sleeve-layer tilt charter | **EXECUTED OPEN OBSERVE** (2026-09-10) | Human `OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01` · dual-paper OPERATING · cutover **BLOCKED** · Soft-assist independent · `SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md` |
 | Sleeve-layer tilt dual-paper observe | **OPERATING** (2026-09-10) | `LIVE_STACK` ∥ `SLEEVE_BELOW_MA60_a01` · month-end wired · no live wire · `SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md` |
+| ETF ex-calendar Stage A (0050 paper) | **STOP** (2026-09-11) | Stage A 13 books · verdict **`NEAR_NO_BEAT`** · 0 beat-live / 0 coexist / 0 beat-BH · tip-clean vs live 5 (=BH overlay) · live Soft-Frozen/KD/TEL **KEEP** · `ETF_EX_CALENDAR_SCREEN.md` |
+| External borrow notes (Soft∥Sleeve∥month-end) | **REFERENCE** (2026-09-11) | Five practitioner notes mapped to Soft-assist / Sleeve-tilt observe + Gates A–I · **no live · no combo** · `EXTERNAL_BORROW_NOTES.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
@@ -94,16 +102,20 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Tax / receivable books | Human **ACCEPT charter** then sandbox evidence + later promote PR |
 | E45 stitch | Charter **ACCEPT** ✓ + retired MDD narrative **RETIRED** ✓ + dual-paper observe **OPEN** ✓ — V1–V6 PASS; live stitch **rolled back** `DROP_E45_A05` (2026-09-09); any future live stitch needs a new dedicated ACCEPT |
 | Indicator buy/sell (FIN) | R1–R3 + **KD hard assist** **DONE** (`ASSIST_NO_LIFT`) · soft KD/BB sensitivity **`BEATS_CHAMPION`** · Soft-assist observe on `SOFT_CHAMP_PLUS_K9_LT30_a10` · **no hard-AND reopen** · live KEEP · `SOFT_KD_BB_SENSITIVITY_SCREEN.md` |
-| Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE** on `SOFT_CHAMP_PLUS_K9_LT30_a10` (**#195**) · sleeve tilt **OPEN OBSERVE EXECUTED** (`SLEEVE_BELOW_MA60_a01`, **#193**) · both cutovers **BLOCKED** · no auto-combo · awaiting next month-end · `SOFT_ASSIST_K9_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE** on `SOFT_CHAMP_PLUS_K9_LT30_a10` (**#195**) · sleeve tilt **OPEN OBSERVE EXECUTED** (`SLEEVE_BELOW_MA60_a01`, **#193**) · both cutovers **BLOCKED** · no auto-combo · month-end paper gates `MONTH_END_PROMOTE_GATE_CHECKLIST.md` · external borrow map `EXTERNAL_BORROW_NOTES.md` · borrow Stage A paper promote-shaped neighbors (`SOFT_SLEEVE_BORROW_PROMOTE_SCREEN.md`) — **observe KEEP** until dedicated ballot · `SOFT_ASSIST_K9_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Dry-powder drawdown sleeve | Stage A **STOP** (`NO_LIFT`) · live KEEP · re-open only with human-expanded grid · `DRY_POWDER_DRAWDOWN_SCREEN.md` |
 | Sleeve-layer tilt | **OPEN OBSERVE EXECUTED** · dual-paper OPERATING · Soft-Frozen clips KEEP · cutover BLOCKED until ACCEPT · `SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md` |
+| ETF ex-calendar (0050) | Stage A **STOP** (`NEAR_NO_BEAT`) · live KEEP · re-open only with human-expanded grid · `ETF_EX_CALENDAR_SCREEN.md` |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
 - Next weekday forward → run `POST_FORWARD_E22_VERIFY_RUNBOOK.md`; persist live `e22_*` evidence; re-run Gap6 KPI  
 - Grow live history toward ≥~60 sessions  
 - Calendar month-end pack re-run (L4 / FIN50 / BLEND_025 / E45 dual-paper trailing + **Soft-assist K9+** + **Sleeve-tilt**) — default **KEEP OBSERVE**; cutover only via dedicated ACCEPT  
-- Soft-assist×sleeve-tilt combo **not** authorized while both observe independently
+- Soft-assist×sleeve-tilt combo **not** authorized while both observe independently  
+- Soft-Frozen cutover checklist is **ACCEPTED / LIVE WIRED** for FINBAND — do not re-read as DRAFTED (`CUTOVER_CHECKLIST_SOFT_FROZEN_CLIP.md`)
+- Fill `MONTH_END_PROMOTE_GATE_CHECKLIST.md` after each Soft-assist / Sleeve-tilt pack (paper gates only · include Soft↔Sleeve overlap from `SOFT_SLEEVE_OBSERVE_OVERLAP.md` · **no live wire** · **no auto-combo**)
+- Practitioner borrow map (reference only): `EXTERNAL_BORROW_NOTES.md` / `EXTERNAL_BORROW_NOTES.zh-TW.md` — does not open live or combo
 
 ## Claim policy
 

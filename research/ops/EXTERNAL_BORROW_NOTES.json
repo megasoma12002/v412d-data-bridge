@@ -1,0 +1,80 @@
+{
+  "label": "EXTERNAL_BORROW_NOTES_2026-09-11__SOFT_SLEEVE_MONTH_END__NO_LIVE__NO_COMBO",
+  "date": "2026-09-11",
+  "status": "REFERENCE_ONLY",
+  "no_live_wire": true,
+  "no_auto_combo": true,
+  "maps_to": {
+    "soft_assist_posture": "research/ops/SOFT_ASSIST_OBSERVE_POSTURE.md",
+    "soft_assist_challenger": "SOFT_CHAMP_PLUS_K9_LT30_a10",
+    "sleeve_tilt_posture": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md",
+    "sleeve_tilt_challenger": "SLEEVE_BELOW_MA60_a01",
+    "month_end_gates": "research/ops/MONTH_END_PROMOTE_GATE_CHECKLIST.md",
+    "overlap_report": "research/ops/SOFT_SLEEVE_OBSERVE_OVERLAP.md",
+    "cutover_soft": "research/ops/CUTOVER_CHECKLIST_SOFT_ASSIST.md",
+    "cutover_sleeve": "research/ops/CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md"
+  },
+  "notes": [
+    {
+      "id": 1,
+      "title": "paper_to_next_stage_is_ops",
+      "sources": [
+        "https://nexusfi.com/a/automation/algo-trading-live-deployment",
+        "https://quantmemo.com/concepts/the-go-live-checklist",
+        "https://github.com/cyangIIT/quant-live-readiness-kit",
+        "https://oyamori.com/learning/retail-algo-trader-checklist/"
+      ],
+      "local_gates": ["A", "B", "C", "D", "E", "F", "I"],
+      "borrow": "Paper proves plumbing and held-out hygiene; not live claim from paper PnL"
+    },
+    {
+      "id": 2,
+      "title": "soft_signal_inform_do_not_fight",
+      "sources": [
+        "https://www.aqr.com/Insights/Research/Journal-Article/To-Trade-or-Not-to-Trade-Informed-Trading-With-Short-Term-Signals-for-LongTerm-Investors"
+      ],
+      "local_gates": ["Soft-assist observe", "cutover BLOCKED"],
+      "borrow": "Soft overlay on slower book; live KD_OPT HOLD until dedicated ACCEPT"
+    },
+    {
+      "id": 3,
+      "title": "tactical_tilt_diversification_hurdle",
+      "sources": [
+        "https://www.aqr.com/Insights/Research/White-Papers/Tactical-Tilts-and-Foregone-Diversification",
+        "https://www.aqr.com/-/media/AQR/Documents/Insights/Alternative-Thinking/Alternative-Thinking-Challenges-of-Incorporating-Tactical-Views.pdf"
+      ],
+      "local_gates": ["H", "Sleeve-tilt observe"],
+      "borrow": "Tilt must beat forgone diversification; low corr raises fusion cost"
+    },
+    {
+      "id": 4,
+      "title": "play_well_not_auto_combine",
+      "sources": [
+        "https://allocatesmartly.com/strategies-that-play-well-with-others/",
+        "https://allocatesmartly.com/member-analysis-the-effect-of-combining-strategies-on-timing-luck/",
+        "https://allocatesmartly.com/taming-excessive-timing-luck-in-taa-by-tranching-strategies/"
+      ],
+      "local_gates": ["H", "SOFT_SLEEVE_OBSERVE_OVERLAP"],
+      "borrow": "Low corr keeps independent observe; never unlocks Soft×Sleeve combo"
+    },
+    {
+      "id": 5,
+      "title": "architect_hat_before_fuse",
+      "sources": [
+        "https://robotwealth.com/edge-alchemy/"
+      ],
+      "local_gates": ["A-I", "READY_FOR_DEDICATED_ACCEPT_BALLOT", "dedicated ACCEPT"],
+      "borrow": "Dual actuators stay separate until Architect charter + human ACCEPT"
+    }
+  ],
+  "skip": [
+    "PTT allocation folklore",
+    "parameter screenshots without held-out",
+    "auto corr-drop / risk-parity wire into Soft or Sleeve observe",
+    "paper PnL as live wire authority"
+  ],
+  "docs": {
+    "en": "research/ops/EXTERNAL_BORROW_NOTES.md",
+    "zh_TW": "research/ops/EXTERNAL_BORROW_NOTES.zh-TW.md"
+  }
+}
