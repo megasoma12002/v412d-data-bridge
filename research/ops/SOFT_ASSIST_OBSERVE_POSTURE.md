@@ -3,11 +3,11 @@
 Date: 2026-09-11  
 Status: **LOCKED** · **OPERATING OBSERVE** · default **KEEP OBSERVE**  
 Soft-Frozen **KEEP** · live **`KD_OPT` HOLD** (no Soft-assist wire) · E45 **OFF**  
-Challenger: **`SOFT_CHAMP_PLUS_K9_LT30_a10`** (supersedes `SOFT_BOTH__BELOW_MA120__RSI6_GT80`)
+Challenger: **`SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05`** (supersedes `SOFT_CHAMP_PLUS_K9_LT30_a10`)
 
 ## Binding
 
-1. Maintain dual-paper `LIVE_KD_OPT` ∥ `SOFT_CHAMP_PLUS_K9_LT30_a10`.  
+1. Maintain dual-paper `LIVE_KD_OPT` ∥ `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05`.  
 2. Month-end monitor via pack (`soft_assist_month_end`).  
 3. **No live Soft-assist** without dedicated cutover ACCEPT for **this** challenger ID.  
 4. Soft-Frozen / TEL / KD season-K params unchanged from this posture.  

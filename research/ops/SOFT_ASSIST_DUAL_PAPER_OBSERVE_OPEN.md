@@ -2,16 +2,18 @@
 
 Date: 2026-09-11  
 Status: **OPERATING OBSERVE** (paper only)  
-Human: **`OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10`**  
+Human: **`OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05`**  
 Prior challenger (superseded 2026-09-11): `SOFT_BOTH__BELOW_MA120__RSI6_GT80`  
 Soft-Frozen live **KEEP** · live wire **false** · live within-sleeve stays plain **`KD_OPT`**
+
+Prior Soft-assist observe `SOFT_CHAMP_PLUS_K9_LT30_a10` superseded 2026-09-12 (rule-path OPEN).
 
 ## Books
 
 | Book | Within-sleeve |
 |---|---|
 | `LIVE_KD_OPT` | `FIN_PRE_EXDIV_KD` · Apr15–May15 · K&lt;30 · T−15 |
-| `SOFT_CHAMP_PLUS_K9_LT30_a10` | Same KD base + buy soft `BELOW_MA120@1` + `K9_LT30@1` + sell soft `RSI6_GT80` |
+| `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | Same KD base + buy soft `BELOW_MA120@1` + `K9_LT30@1` + sell soft `RSI6_GT80@0.5` |
 
 Telecom / Soft-Frozen sleeve weights unchanged (TEL_EQUAL · FINBAND). Sleeve-tilt observe is a **separate** dual-paper track (no auto-combo).
 

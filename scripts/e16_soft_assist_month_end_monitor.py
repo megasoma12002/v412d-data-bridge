@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Soft-assist dual-paper month-end monitor — OPERATING OBSERVE.
 
-Compares LIVE_KD_OPT vs SOFT_CHAMP_PLUS_K9_LT30_a10.
+Compares LIVE_KD_OPT vs SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05.
 Paper-only; no Soft-Frozen flip; no live wire.
 """
 from __future__ import annotations
@@ -25,7 +25,7 @@ DEFAULT_OUT = ROOT / "repro/soft-assist-dual-paper-observe/month_end"
 BASE_NAV = ROOT / "repro/soft-assist-dual-paper-observe/outputs/live_kd_opt_daily_nav.csv"
 CHAL_NAV = (
     ROOT
-    / "repro/soft-assist-dual-paper-observe/outputs/soft_champ_plus_k9_lt30_a10_daily_nav.csv"
+    / "repro/soft-assist-dual-paper-observe/outputs/soft_champ_plus_k9_lt30_a10_sell_a05_daily_nav.csv"
 )
 COMPARE_NAV = ROOT / "repro/soft-assist-dual-paper-observe/outputs/dual_paper_nav_compare.csv"
 OPS = ROOT / "research/ops"

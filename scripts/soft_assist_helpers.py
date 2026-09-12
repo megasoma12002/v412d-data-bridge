@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Shared Soft-assist score helpers (paper observe + research).
 
-Stage A Soft-assist champion / prior observe: ``SOFT_BOTH__BELOW_MA120__RSI6_GT80``
-OPERATING observe challenger (2026-09-11): ``SOFT_CHAMP_PLUS_K9_LT30_a10``
-  = buy soft ``BELOW_MA120@1`` + ``K9_LT30@1`` + sell soft ``RSI6_GT80``
-  (Soft KD/BB sensitivity Stage A beat-champion; additive soft only — no hard AND).
+Stage A Soft-assist champion: ``SOFT_BOTH__BELOW_MA120__RSI6_GT80``
+Prior operating observe (2026-09-11): ``SOFT_CHAMP_PLUS_K9_LT30_a10``
+OPERATING observe challenger (2026-09-12 rule-path OPEN):
+  ``SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05``
+  = buy soft ``BELOW_MA120@1`` + ``K9_LT30@1`` + sell soft ``RSI6_GT80@0.5``
+  (Soft KD/BB sensitivity Stage A beat-champion buy; sell amp from SELL_a05 ballot;
+   additive soft only — no hard AND).
 
 ``LIVE_KD`` must stay byte-equal to ``e21_forward_pipeline.KD_OPT`` season /
 k_thresh / pre_days / active_score (live SSOT). Do not drift this copy without
@@ -15,6 +18,7 @@ from __future__ import annotations
 import pandas as pd
 
 SOFT_BOOST = 1.0
+SELL_SOFT_BOOST = 0.5  # operating SELL_a05 amplitude
 # Mirror of live KD_OPT (e21_forward_pipeline.KD_OPT) — paper observe only.
 LIVE_KD = {
     "season_start": (4, 15),
@@ -24,8 +28,9 @@ LIVE_KD = {
     "active_score": 1.5,
 }
 CHAMPION_ID = "SOFT_BOTH__BELOW_MA120__RSI6_GT80"
-PRIOR_OBSERVE_ID = CHAMPION_ID
-OBSERVE_CHAL_ID = "SOFT_CHAMP_PLUS_K9_LT30_a10"
+PRIOR_OBSERVE_ID = "SOFT_CHAMP_PLUS_K9_LT30_a10"
+OBSERVE_CHAL_ID = "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05"
+HUMAN_OPEN = "OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05"
 BUY_LOW_ID = "BELOW_MA120"
 BUY_SOFT_EXTRA = (("K9_LT30", 1.0),)
 SELL_HIGH_ID = "RSI6_GT80"
@@ -51,5 +56,10 @@ def build_observe_buy_scores(kd_scores: pd.DataFrame, lows: dict) -> pd.DataFram
 
 
 def build_champion_buy_scores(kd_scores: pd.DataFrame, lows: dict) -> pd.DataFrame:
-    """Prior Soft-assist champion buy soft only (``BELOW_MA120``)."""
+    """Soft-assist Stage A champion buy soft only (``BELOW_MA120``)."""
     return soft_boost_scores(kd_scores, lows[BUY_LOW_ID], SOFT_BOOST)
+
+
+def build_observe_sell_panel(highs: dict) -> pd.DataFrame:
+    """OPERATING observe sell soft (``RSI6_GT80`` @ SELL_a05)."""
+    return soft_sell_panel(highs[SELL_HIGH_ID], boost=SELL_SOFT_BOOST)

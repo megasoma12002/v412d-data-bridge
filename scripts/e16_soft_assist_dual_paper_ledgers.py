@@ -3,10 +3,10 @@
 
 Books (500M / board-lot 1000):
   BASE  LIVE_KD_OPT
-  CHAL  SOFT_CHAMP_PLUS_K9_LT30_a10
+  CHAL  SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05
 
-Human OPEN (2026-09-11): OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10
-Prior observe SOFT_BOTH__BELOW_MA120__RSI6_GT80 superseded (paper archive).
+Human OPEN (2026-09-12 rule-path): OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05
+Prior observe SOFT_CHAMP_PLUS_K9_LT30_a10 superseded (paper archive).
 Soft-Frozen KEEP · live wire false · TEL_EQUAL KEEP · sleeve-tilt observe independent
 """
 from __future__ import annotations
@@ -26,10 +26,12 @@ from research_metric_helpers import cagr_delta_pp, mdd_delta_pp
 from soft_assist_helpers import (
     BUY_LOW_ID,
     BUY_SOFT_EXTRA,
+    HUMAN_OPEN,
     LIVE_KD,
     OBSERVE_CHAL_ID,
     PRIOR_OBSERVE_ID,
     SELL_HIGH_ID,
+    SELL_SOFT_BOOST,
     SOFT_BOOST,
     build_observe_buy_scores,
     soft_sell_panel,
@@ -52,8 +54,7 @@ LOT = BOARD_LOT
 BASE_ID = "LIVE_KD_OPT"
 CHAL_ID = OBSERVE_CHAL_ID
 STATUS = "OPERATING_OBSERVE"
-HUMAN_OPEN = "OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10"
-CHAL_NAV_NAME = "soft_champ_plus_k9_lt30_a10_daily_nav.csv"
+CHAL_NAV_NAME = "soft_champ_plus_k9_lt30_a10_sell_a05_daily_nav.csv"
 
 
 def held_score(base_stats: dict, chal_stats: dict) -> dict:
@@ -126,7 +127,7 @@ def main() -> int:
     )
     lows, highs = build_low_high_catalog(market, cal, list(FIN))
     soft_scores = build_observe_buy_scores(kd_scores, lows)
-    soft_sell = soft_sell_panel(highs[SELL_HIGH_ID], boost=SOFT_BOOST)
+    soft_sell = soft_sell_panel(highs[SELL_HIGH_ID], boost=SELL_SOFT_BOOST)
 
     print(f"{BASE_ID} ...", flush=True)
     base = run_kd(market, target, regime, dividends, scores=kd_scores, buy_ok=kd_ok)
@@ -183,7 +184,8 @@ def main() -> int:
             "buy_soft_extra": [{"id": a, "boost": b} for a, b in BUY_SOFT_EXTRA],
             "buy_soft_desc": buy_soft_desc,
             "sell_high_id": SELL_HIGH_ID,
-            "boost": SOFT_BOOST,
+            "buy_boost": SOFT_BOOST,
+            "sell_boost": SELL_SOFT_BOOST,
             "live_kd": {
                 "season_start": list(LIVE_KD["season_start"]),
                 "season_end": list(LIVE_KD["season_end"]),
@@ -197,13 +199,14 @@ def main() -> int:
         "windows": {BASE_ID: win_base, CHAL_ID: win_chal},
         "fills": {BASE_ID: base["n_fills"], CHAL_ID: chal["n_fills"]},
         "default_status": "KEEP_OBSERVE",
-        "ballot": "research/ops/SOFT_ASSIST_K9_OBSERVE_BALLOT_EXECUTED_OPEN.md",
+        "ballot": "research/ops/SOFT_SELL_A05_OBSERVE_BALLOT_EXECUTED_OPEN.md",
         "observe_open": "research/ops/SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md",
         "posture": "research/ops/SOFT_ASSIST_OBSERVE_POSTURE.md",
         "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_SOFT_ASSIST.md",
         "next_human": [
-            "Month-end monitor on LIVE_KD_OPT ∥ SOFT_CHAMP_PLUS_K9_LT30_a10",
+            "Month-end monitor on LIVE_KD_OPT ∥ SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
             "Default KEEP OBSERVE; live cutover needs dedicated ACCEPT for this ID",
+            "No Soft×Sleeve fuse; Sleeve-tilt observe independent",
         ],
     }
     (OUT / "reports" / "soft_assist_dual_paper_observe.json").write_text(
@@ -221,7 +224,7 @@ Prior challenger (superseded): `{PRIOR_OBSERVE_ID}`
 Default: **KEEP OBSERVE** · posture `SOFT_ASSIST_OBSERVE_POSTURE.md`
 
 Books: `{BASE_ID}` ∥ `{CHAL_ID}`  
-Buy soft: `{buy_soft_desc}` · sell soft: `{SELL_HIGH_ID}`  
+Buy soft: `{buy_soft_desc}` · sell soft: `{SELL_HIGH_ID}@{SELL_SOFT_BOOST:g}`  
 Execution: capital **{CAPITAL:,.0f}** · lot **{LOT}**
 
 Held-out vs `{BASE_ID}`:
