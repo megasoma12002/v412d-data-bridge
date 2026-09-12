@@ -1,0 +1,17 @@
+{
+  "label": "SOFT_DL_MLP_STAGEA_CHARTER_2026-09-12__BEATS_LIVE_NO_OBSERVE_LIFT",
+  "status": "PAPER_SCREEN_DONE",
+  "verdict": "BEATS_LIVE_NO_OBSERVE_LIFT",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "screen": "research/ops/SOFT_DL_MLP_STAGEA_SCREEN.md",
+  "script": "scripts/e16_soft_dl_mlp_stagea_screen.py",
+  "dl_promote_shaped_ids": [],
+  "reading": "Tiny MLP/linear Soft buy boosts tip-clean on CAGR gate but fail tip MDD hygiene and do not beat Soft-assist observe held score.",
+  "non_actions": [
+    "No live Soft-assist wire",
+    "No Soft-assist observe swap",
+    "No Soft×Sleeve fuse",
+    "No hard-AND reopen"
+  ]
+}
