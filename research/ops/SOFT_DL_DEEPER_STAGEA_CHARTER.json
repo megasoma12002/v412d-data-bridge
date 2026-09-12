@@ -1,0 +1,17 @@
+{
+  "label": "SOFT_DL_DEEPER_STAGEA_CHARTER_2026-09-12__PAPER_OPEN",
+  "status": "PAPER_OPEN",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "framework": "numpy_only",
+  "script": "scripts/e16_soft_dl_deeper_stagea_screen.py",
+  "prior": "SOFT_DL_MLP_STAGEA_SCREEN",
+  "books": [
+    "LIVE_KD_OPT",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10",
+    "DL_SOFT_MLP_h8_a05",
+    "DL_SOFT_MLP_h16_a05",
+    "DL_SOFT_MLP_d16_8_a05",
+    "DL_SOFT_MLP_d16_8_a025"
+  ]
+}
