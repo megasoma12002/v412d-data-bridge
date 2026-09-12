@@ -31,7 +31,8 @@ Challenger: **`SOFT_CHAMP_PLUS_K9_LT30_a10`** (supersedes `SOFT_BOTH__BELOW_MA12
 
 ## Promote gate
 
-Tip stays clean + held-out lift holds → dedicated cutover ACCEPT (checklist `CUTOVER_CHECKLIST_SOFT_ASSIST.md`, currently **BLOCKED**).
+Month-end paper gates: `MONTH_END_PROMOTE_GATE_CHECKLIST.md` (Soft-assist column).  
+Tip stays clean + held-out lift holds → at most `READY_FOR_DEDICATED_ACCEPT_BALLOT` → then dedicated cutover ACCEPT (`CUTOVER_CHECKLIST_SOFT_ASSIST.md`, currently **BLOCKED**). **No live wire from the month-end page.**
 
 ## Label
 
