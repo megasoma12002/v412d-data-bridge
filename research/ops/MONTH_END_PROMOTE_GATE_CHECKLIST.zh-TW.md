@@ -1,14 +1,16 @@
 # 月結 Promote Gate Checklist — Soft-assist ∥ Sleeve-tilt（只服務 observe）
 
-日期：2026-09-11  
-狀態：**已起草 · 未授權 · 不上 live**  
+日期：2026-09-12（pack asof **2026-09-11**）  
+狀態：**操作中 checklist · 不上 live** · 本月列 **KEEP_OBSERVE** / **KEEP_OBSERVE**  
 範圍：只服務兩條 operating observe；**不**開 live cutover。  
 每月預設：**KEEP OBSERVE**。某軌 A–I 全 YES → 最多標 `READY_FOR_DEDICATED_ACCEPT_BALLOT`（仍要人類專用 ACCEPT 字串）。
 
 | 軌 | Challenger | Base |
 |---|---|---|
-| Soft-assist | `SOFT_CHAMP_PLUS_K9_LT30_a10` | `LIVE_KD_OPT` |
-| Sleeve-tilt | `SLEEVE_BELOW_MA60_a01` | `LIVE_STACK` |
+| Soft-assist | `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | `LIVE_KD_OPT` |
+| Sleeve-tilt | `SLEEVE_RSI14_LT30_a0225` | `LIVE_STACK` |
+
+本月（asof 2026-09-11）：兩軌 alerts=none · Soft held≈+0.101 · Sleeve held≈+0.099 · overlap heldout corr≈+0.112 · **high_joint_dd=True** → Gate H 維持不 combo。詳見英文月結表。
 
 ## 閘門（每軌分開填）
 

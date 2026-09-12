@@ -1,6 +1,6 @@
-# BLEND_025 Month-End Paper Monitor — asof 2026-09-09
+# BLEND_025 Month-End Paper Monitor — asof 2026-09-11
 
-Generated: `2026-09-10T10:14:57.969034+00:00`
+Generated: `2026-09-12T13:42:10.801663+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **BLEND_025** (α=0.25·FIN50 + 0.75·BASE)
 
@@ -10,12 +10,12 @@ Locked: **BLEND_025** (α=0.25·FIN50 + 0.75·BASE)
 
 | Window | BASE CAGR | BASE MDD | BLEND_025 CAGR | BLEND_025 MDD | MDD Δpp | CAGR giveback pp | Rel NAV | Decision? |
 |---|---:|---:|---:|---:|---:|---:|---:|:---:|
-| mtd | 567.68%* | -1.35% | 504.42%* | -1.20% | +0.15 | +63.26 | 0.9976 | no |
-| ytd | 68.30% | -13.95% | 66.50% | -11.94% | +2.01 | +1.79 | 0.9930 | yes |
-| trailing_1y | 53.13% | -13.95% | 53.37% | -11.94% | +2.01 | -0.24 | 1.0015 | yes |
-| sealed_2023_plus | 25.02% | -13.95% | 24.67% | -11.94% | +2.01 | +0.35 | 0.9902 | yes |
-| heldout_2019_plus | 18.24% | -22.39% | 18.26% | -21.68% | +0.71 | -0.02 | 1.0011 | yes |
-| full | 13.85% | -22.39% | 13.84% | -21.68% | +0.71 | +0.02 | 0.9980 | yes |
+| mtd | 868.54%* | -1.35% | 698.31%* | -1.20% | +0.15 | +170.24 | 0.9939 | no |
+| ytd | 74.21% | -13.95% | 71.39% | -11.94% | +2.01 | +2.82 | 0.9893 | yes |
+| trailing_1y | 56.39% | -13.95% | 55.81% | -11.94% | +2.01 | +0.58 | 0.9964 | yes |
+| sealed_2023_plus | 25.92% | -13.95% | 25.43% | -11.94% | +2.01 | +0.49 | 0.9865 | yes |
+| heldout_2019_plus | 18.65% | -22.39% | 18.61% | -21.68% | +0.71 | +0.04 | 0.9973 | yes |
+| full | 14.07% | -22.39% | 14.02% | -21.68% | +0.71 | +0.05 | 0.9942 | yes |
 
 \* `mtd` CAGR annualized from a short sample — **non-decision / display-only**.
 

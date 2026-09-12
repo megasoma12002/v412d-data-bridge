@@ -1,14 +1,14 @@
 # Month-End Promote Gate Checklist — Soft-assist ∥ Sleeve-tilt (paper only)
 
-Date: 2026-09-11  
-Status: **DRAFTED · NOT AUTHORIZED · NO LIVE WIRE**  
+Date: 2026-09-12 (pack asof **2026-09-11**)  
+Status: **OPERATING CHECKLIST · NO LIVE WIRE** · latest row **KEEP_OBSERVE** / **KEEP_OBSERVE**  
 Scope: **only** the two operating observes below. Does **not** open live cutover.  
 Default after each pack: **KEEP OBSERVE** unless every gate for that track is YES **and** human issues a dedicated ACCEPT string.
 
 | Track | Challenger | Base | Monitor | Live cutover checklist |
 |---|---|---|---|---|
-| Soft-assist | `SOFT_CHAMP_PLUS_K9_LT30_a10` | `LIVE_KD_OPT` | `SOFT_ASSIST_MONTH_END_MONITOR.md` | `CUTOVER_CHECKLIST_SOFT_ASSIST.md` (**BLOCKED**) |
-| Sleeve-tilt | `SLEEVE_BELOW_MA60_a01` | `LIVE_STACK` | `SLEEVE_LAYER_TILT_MONTH_END_MONITOR.md` | `CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md` (**BLOCKED**) |
+| Soft-assist | `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | `LIVE_KD_OPT` | `SOFT_ASSIST_MONTH_END_MONITOR.md` | `CUTOVER_CHECKLIST_SOFT_ASSIST.md` (**BLOCKED**) |
+| Sleeve-tilt | `SLEEVE_RSI14_LT30_a0225` | `LIVE_STACK` | `SLEEVE_LAYER_TILT_MONTH_END_MONITOR.md` | `CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md` (**BLOCKED**) |
 
 Inspired by paper→live promotion hygiene (parity / tip / kill-switch / checklist sign-off) — adapted here as **observe-month gates**, not deployment.
 
@@ -29,7 +29,7 @@ Inspired by paper→live promotion hygiene (parity / tip / kill-switch / checkli
 | C | Tip YTD **and** trailing 1y: no `ALERT` (3pp giveback band) — or document WAIVE | | |
 | D | Held-out score vs base **> 0** (same formula as screen) | | |
 | E | Month-end monitor **alerts = none** (or only documented non-blocking notes) | | |
-| F | Challenger ID unchanged since last OPEN (`K9+` / `MA60_a01`) | | |
+| F | Challenger ID unchanged since last OPEN (`…__SELL_a05` / `RSI14_a0225`) | | |
 | G | Soft-Frozen / live KD / TEL / E45 **unchanged** by this pack | | |
 | H | Soft-assist × Sleeve-tilt **combo not proposed** this month | | |
 | I | Live cutover checklist still **BLOCKED** until dedicated human ACCEPT | | |
@@ -59,7 +59,7 @@ Seed (asof 2026-09-10, heldout): corr **−0.025** · same-sign **55%** · both�
 | Month asof | Soft A–I | Soft verdict | Sleeve A–I | Sleeve verdict | Heldout corr / same-sign / both− / jointDD | Combo? | Operator |
 |---|---|---|---|---|---|---|---|
 | 2026-09-10 | tip clean · held≈+0.086 · alerts=0 | `KEEP_OBSERVE` | YTD/1y/sealed MDD ALERTs | `KEEP_OBSERVE` | −0.025 / 55% / 26.5% / 33% | no | seed |
-| YYYY-MM-DD | | | | | | no | |
+| 2026-09-11 | A–I YES · tip YTD/1y clean · held≈+0.101 · alerts=0 · ID=`…__SELL_a05` | `KEEP_OBSERVE` | A–I YES · tip alerts=0 · held≈+0.099 · YTD tip score≈−0.007 (no ALERT) · ID=`RSI14_a0225` | `KEEP_OBSERVE` | +0.112 / 48.1% / 25.1% / 46.9% · high_joint_dd=`True` | no (Gate H; joint-DD argues against fuse) | 2026-09-12 pack |
 
 ## Verdict meanings
 
@@ -90,4 +90,4 @@ python3 scripts/ops_month_end_paper_pack.py
 
 ## Label
 
-`MONTH_END_PROMOTE_GATE_CHECKLIST_2026-09-11__SOFT_ASSIST_K9__SLEEVE_MA60__OVERLAP_COL__NO_LIVE`
+`MONTH_END_PROMOTE_GATE_CHECKLIST_2026-09-12__SOFT_SELL_A05__SLEEVE_RSI14__KEEP_OBSERVE__NO_LIVE`

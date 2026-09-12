@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-09-10",
-  "generated_at_utc": "2026-09-10T10:15:22.816721+00:00",
+  "as_of": "2026-09-12",
+  "generated_at_utc": "2026-09-12T13:42:36.345585+00:00",
   "label": "DATA_SOURCE_PHASE_C_PROBES",
   "overall_status": "PASS",
   "live_wire": false,
@@ -14,57 +14,57 @@
       "tickers": {
         "2880": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 0.00023127627977282707,
-          "corr": 0.9705469253494096
+          "n": 3590,
+          "mean_abs_return_diff": 0.0002311474445703216,
+          "corr": 0.9705879588666999
         },
         "2886": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 0.00012314985476805727,
-          "corr": 0.9930750060087467
+          "n": 3590,
+          "mean_abs_return_diff": 0.00012308126481418567,
+          "corr": 0.9930934805531382
         },
         "2892": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 0.00024184212054377755,
-          "corr": 0.9604443164695687
+          "n": 3590,
+          "mean_abs_return_diff": 0.0002417074063944727,
+          "corr": 0.9605022285974102
         },
         "5880": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 0.00024799620052740393,
-          "corr": 0.9534591605375518
+          "n": 3590,
+          "mean_abs_return_diff": 0.0002478580449901294,
+          "corr": 0.9534828396547191
         },
         "2412": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 5.556339832889887e-05,
-          "corr": 0.9953283716991542
+          "n": 3590,
+          "mean_abs_return_diff": 5.553244378943987e-05,
+          "corr": 0.9953296273639629
         },
         "3045": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 7.716309414976414e-05,
-          "corr": 0.9971738426814536
+          "n": 3590,
+          "mean_abs_return_diff": 7.712010635358042e-05,
+          "corr": 0.9971744834431584
         },
         "4904": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 6.50363058259851e-05,
-          "corr": 0.9971808552561003
+          "n": 3590,
+          "mean_abs_return_diff": 6.500007390073386e-05,
+          "corr": 0.9971814824831061
         },
         "0050": {
           "status": "DRIFT",
-          "n": 3588,
-          "mean_abs_return_diff": 0.0004565160917086799,
-          "corr": 0.468226075625269
+          "n": 3590,
+          "mean_abs_return_diff": 0.00045626176521286894,
+          "corr": 0.46823874852995984
         }
       },
       "n_ok": 7,
       "n_drift": 1,
-      "mean_abs_return_diff": 0.00018731791820317424,
-      "mean_corr": 0.9169293192034067,
+      "mean_abs_return_diff": 0.00018721356875321655,
+      "mean_corr": 0.9169488561865193,
       "thresholds": {
         "mean_abs_return_diff_max": 0.008,
         "corr_min": 0.95
@@ -84,56 +84,56 @@
       "tickers": {
         "2880": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 9.204870360844426e-05,
-          "corr": 0.9945736628545102
+          "n": 3590,
+          "mean_abs_return_diff": 9.200051657671465e-05,
+          "corr": 0.9945821389108009
         },
         "2886": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 9.896299455013821e-05,
-          "corr": 0.9943396348391965
+          "n": 3590,
+          "mean_abs_return_diff": 9.890586355693205e-05,
+          "corr": 0.9943561027592157
         },
         "2892": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 0.00011307703834840529,
-          "corr": 0.9881598013566687
+          "n": 3590,
+          "mean_abs_return_diff": 0.00011301867198875039,
+          "corr": 0.9881798532222429
         },
         "5880": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 9.569379611170199e-05,
-          "corr": 0.9903668994871937
+          "n": 3590,
+          "mean_abs_return_diff": 9.563940797090742e-05,
+          "corr": 0.9903723284303987
         },
         "2412": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 7.085373532849886e-05,
-          "corr": 0.9854387146429849
+          "n": 3590,
+          "mean_abs_return_diff": 7.081060690587256e-05,
+          "corr": 0.9854430555657389
         },
         "3045": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 7.823964695147107e-05,
-          "corr": 0.9968143606233454
+          "n": 3590,
+          "mean_abs_return_diff": 7.81981548159987e-05,
+          "corr": 0.9968151048961273
         },
         "4904": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 7.816765916685383e-05,
-          "corr": 0.9950326416201822
+          "n": 3590,
+          "mean_abs_return_diff": 7.811798258473211e-05,
+          "corr": 0.9950338220880028
         },
         "0050": {
           "status": "OK",
-          "n": 3588,
-          "mean_abs_return_diff": 0.00027791271056023365,
-          "corr": 0.6838415840440113
+          "n": 3590,
+          "mean_abs_return_diff": 0.0002777594423374232,
+          "corr": 0.6838513547260835
         }
       },
       "n_ok": 8,
       "n_info_drift": 0,
-      "mean_abs_return_diff": 0.0001131195355782184,
+      "mean_abs_return_diff": 0.00011305633084216639,
       "drift_warn_threshold": 0.015,
       "detail_csv": "repro/data-source-phase-c/c2_adj_returns.csv",
       "note": "",
@@ -157,15 +157,15 @@
           "failover_used": false,
           "source": "finmind_TAIEX",
           "error_primary": null,
-          "generated_at_utc": "2026-09-10T10:15:21.564402+00:00",
-          "n_rows": 652,
+          "generated_at_utc": "2026-09-12T13:42:35.182508+00:00",
+          "n_rows": 653,
           "out": "repro/data-source-phase-c/taiex_primary_dryrun.csv",
           "soft_frozen_unchanged": true,
           "e21_default_unchanged": true,
           "note": "Opt-in tool only; e21 forward does not auto-call this without human wiring PR"
         },
         "stderr_tail": "",
-        "n_rows": 652
+        "n_rows": 653
       },
       "failover_on_finmind_fail": {
         "returncode": 0,
@@ -177,15 +177,15 @@
           "failover_used": true,
           "source": "yahoo_^TWII",
           "error_primary": "RuntimeError:simulated_finmind_failure",
-          "generated_at_utc": "2026-09-10T10:15:22.161668+00:00",
-          "n_rows": 652,
+          "generated_at_utc": "2026-09-12T13:42:35.724928+00:00",
+          "n_rows": 653,
           "out": "repro/data-source-phase-c/taiex_failover_dryrun.csv",
           "soft_frozen_unchanged": true,
           "e21_default_unchanged": true,
           "note": "Opt-in tool only; e21 forward does not auto-call this without human wiring PR"
         },
         "stderr_tail": "",
-        "n_rows": 652
+        "n_rows": 653
       },
       "force_yahoo": {
         "returncode": 0,
@@ -197,15 +197,15 @@
           "failover_used": false,
           "source": "yahoo_^TWII",
           "error_primary": null,
-          "generated_at_utc": "2026-09-10T10:15:22.738303+00:00",
-          "n_rows": 652,
+          "generated_at_utc": "2026-09-12T13:42:36.283110+00:00",
+          "n_rows": 653,
           "out": "repro/data-source-phase-c/taiex_force_yahoo_dryrun.csv",
           "soft_frozen_unchanged": true,
           "e21_default_unchanged": true,
           "note": "Opt-in tool only; e21 forward does not auto-call this without human wiring PR"
         },
         "stderr_tail": "",
-        "n_rows": 652
+        "n_rows": 653
       },
       "gate": {
         "status": "PASS",

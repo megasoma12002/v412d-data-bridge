@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-10T10:14:46.690229+00:00",
+  "generated_at_utc": "2026-09-12T13:41:53.762696+00:00",
   "label": "E45_SLEEVE_LOCAL_DUAL_PAPER_OBSERVE_SLEEVE",
   "status": "OPERATING_OBSERVE",
   "live_wire": false,
@@ -26,11 +26,11 @@
       "e45_sleeve_names": null,
       "windows": {
         "full": {
-          "cagr": 0.13850709158384023,
+          "cagr": 0.14072009651362993,
           "max_drawdown": -0.22386722284139682,
-          "utility": 0.026573480163141816,
-          "vol": 0.13233789328089068,
-          "n_days": 3354
+          "utility": 0.028786485092931524,
+          "vol": 0.13242343542355403,
+          "n_days": 3356
         },
         "oof_2011_2018": {
           "cagr": 0.0898444817418027,
@@ -47,34 +47,34 @@
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.2503023958208852,
+          "cagr": 0.25929443008444,
           "max_drawdown": -0.13969427823982705,
-          "utility": 0.18045525670097168,
-          "vol": 0.16479340712002702,
-          "n_days": 882
+          "utility": 0.18944729096452645,
+          "vol": 0.16497044736694316,
+          "n_days": 884
         },
         "heldout_2019_plus": {
-          "cagr": 0.1823895344212667,
+          "cagr": 0.18649011567030072,
           "max_drawdown": -0.22386722284139682,
-          "utility": 0.0704559230005683,
-          "vol": 0.14978590908910358,
-          "n_days": 1859
+          "utility": 0.0745565042496023,
+          "vol": 0.14990077539716767,
+          "n_days": 1861
         }
       }
     },
     "SLEEVE_FIN_ONLY_A10": {
       "exact_t1_ok": true,
-      "mean_e45_exposure": 0.9906769917505662,
+      "mean_e45_exposure": 0.9906754194603344,
       "e45_sleeve_names": [
         "Financial"
       ],
       "windows": {
         "full": {
-          "cagr": 0.13271635703692253,
+          "cagr": 0.1348042479195577,
           "max_drawdown": -0.21690249134108264,
-          "utility": 0.02426511136638121,
-          "vol": 0.12651242792167103,
-          "n_days": 3354
+          "utility": 0.026353002249016377,
+          "vol": 0.1266157669010654,
+          "n_days": 3356
         },
         "oof_2011_2018": {
           "cagr": 0.0911713175224762,
@@ -91,31 +91,31 @@
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.23363302946873765,
+          "cagr": 0.24205504022975388,
           "max_drawdown": -0.10622219837661773,
-          "utility": 0.1805219302804288,
-          "vol": 0.15279042196626968,
-          "n_days": 882
+          "utility": 0.18894394104144502,
+          "vol": 0.1530447278943936,
+          "n_days": 884
         },
         "heldout_2019_plus": {
-          "cagr": 0.17023105785988535,
+          "cagr": 0.17408359520239314,
           "max_drawdown": -0.21690249134108275,
-          "utility": 0.061779812189343974,
-          "vol": 0.14188449749668064,
-          "n_days": 1859
+          "utility": 0.06563234953185176,
+          "vol": 0.14203179546100297,
+          "n_days": 1861
         }
       }
     }
   },
   "heldout_delta_vs_base": {
     "mdd_improve_pp": 0.696473150031407,
-    "cagr_giveback_pp": 1.215847656138136,
-    "score": 0.088549321962339
+    "cagr_giveback_pp": 1.2406520467907578,
+    "score": 0.07614712663602807
   },
   "sealed_delta_vs_base": {
     "mdd_improve_pp": 3.3472079863209325,
-    "cagr_giveback_pp": 1.6669366352147552,
-    "score": 2.513739668713555
+    "cagr_giveback_pp": 1.7239389854686094,
+    "score": 2.485238493586628
   },
   "ops_checklist": [
     "Keep Soft-Frozen live default = BASE until a separate stitch / cutover PR",

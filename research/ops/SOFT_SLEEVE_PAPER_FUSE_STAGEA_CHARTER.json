@@ -1,0 +1,45 @@
+{
+  "label": "SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER_2026-09-12__PAPER_OPEN__SCREEN_NOT_RUN",
+  "status": "PAPER_CHARTER_OPEN",
+  "screen_run": false,
+  "date": "2026-09-12",
+  "live_wire": false,
+  "auto_fuse_ops_path": false,
+  "soft_observe_id": "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+  "sleeve_observe_id": "SLEEVE_RSI14_LT30_a0225",
+  "base_id": "LIVE_STACK",
+  "mechanism": "joint_actuator_portfolio_construction",
+  "books": [
+    "LIVE_STACK",
+    "SOFT_ONLY_ON_STACK",
+    "SLEEVE_ONLY",
+    "FUSE_ADDITIVE",
+    "FUSE_SOFT_GATE_SLEEVE",
+    "FUSE_SLEEVE_GATE_SOFT",
+    "NAV_BLEND_50",
+    "FUSE_HALF_ALPHA"
+  ],
+  "success_verdicts": [
+    "FUSE_PROMOTE_SHAPED_BEATS_BOTH",
+    "FUSE_BEATS_ONE_NOT_BOTH",
+    "BEATS_LIVE_NO_INDEPENDENT_LIFT",
+    "NO_LIFT"
+  ],
+  "non_actions": [
+    "No ops-path SoftxSleeve auto-fuse",
+    "No Soft or Sleeve observe swap",
+    "No live Soft/Sleeve/Soft-Frozen/KD/TEL/E45 wire",
+    "No joint ACCEPT",
+    "No Soft-buy MLP deepen"
+  ],
+  "preconditions": [
+    "Human go to run screen",
+    "Dual observes OPERATING",
+    "Latest month-end KEEP_OBSERVE logged"
+  ],
+  "related": [
+    "research/ops/MONTH_END_PROMOTE_GATE_CHECKLIST.md",
+    "research/ops/RESEARCH_POSTURE_LOCK_RULEPATH_FIRST_DL_NEW_MECH.md",
+    "research/ops/EXTERNAL_BORROW_NOTES.md"
+  ]
+}

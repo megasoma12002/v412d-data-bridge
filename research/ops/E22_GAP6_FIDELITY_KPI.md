@@ -1,6 +1,6 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-10T10:15:01.226143+00:00`
+Generated: `2026-09-12T13:42:14.721557+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED** to E22_v2s_tw (forward-only).
 
 ## Code wire
@@ -12,7 +12,7 @@ Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED
 
 ## Live ledger evidence (`forward/e21`)
 
-- asof: **2026-09-09**
+- asof: **2026-09-11**
 - `e22_books_version` in portfolio_state: **True**
 - `e22_manifest` in portfolio_state: **True**
 - `e22_version` col in nav.csv: **True**
@@ -26,8 +26,8 @@ Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED
 
 ## Receivable stub (universe, report-only)
 
-- Open cash events with ex≤asof < pay: **1**
-- Codes: `5880`
+- Open cash events with ex≤asof < pay: **0**
+- Codes: `none`
 - Formal books credit cash on cash_ex_date (no receivable asset). This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.
 
 ## Dividend tax sensitivity (report-only; formal = TAX0)
