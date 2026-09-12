@@ -4,7 +4,7 @@ Date: 2026-09-09
 Status: **ACCEPTED — LIVE WIRED (forward-only)**  
 Human ballot: **`ACCEPT`** → interpreted as **`ACCEPT live FIN within-sleeve cutover: KD_OPT`**  
 Acceptance note: `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md`  
-Soft-Frozen live Financial clip: **[0.50, 0.95] KEEP**  
+Soft-Frozen live Financial clip: **[0.60, 0.90] KEEP** (FINBAND ACCEPT 2026-09-09)  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Live capital: **500M**  
 Board-lot: **1000 KEEP**  

@@ -1,11 +1,12 @@
 # Cutover checklist — FIN_CAP_50
 
-Status: **PREP ONLY** — Soft-Frozen **[0.50, 0.95] stays**.  
+Status: **PREP ONLY — NOT AUTHORIZED**  
+Soft-Frozen live Financial clip: **[0.60, 0.90] KEEP** (FINBAND).  
 Authoritative go-live today: **`NOT_READY_SEALED_CAGR`**.
 
 ## What cutover would change
 
-- Static live Financial clip **[0.50, 0.95] → [0.35, 0.50]** (named FIN_CAP_50).
+- Static live Financial clip **[0.60, 0.90] → [0.35, 0.50]** (named FIN_CAP_50).
 - Different from L4 (L4 is path-dependent logic, not this static swap).
 
 ## Gates (all required)
@@ -15,7 +16,7 @@ Authoritative go-live today: **`NOT_READY_SEALED_CAGR`**.
 | 1 | Exact T+1 (Gate A) | PASS on verify artifact | YES |
 | 2 | Held-out 2019+ (Gate B) | PASS (MDD improve; CAGR gb ≤3 pp) | YES |
 | 3 | Sealed 2023+ (Gate C) | **FAIL** — CAGR giveback ~4.33 pp | **NO** |
-| 4 | Soft-Frozen unchanged until PR (Gate D) | [0.50, 0.95] | YES |
+| 4 | Soft-Frozen unchanged until PR (Gate D) | [0.60, 0.90] KEEP | YES |
 | 5 | Month-end Gate E (no YTD/1y PAUSE) | YTD/1y **PAUSE_REVIEW** | **NO** |
 | 6 | Re-run go-live verify → not `NOT_READY_SEALED_CAGR` | Still NOT_READY | **NO** |
 | 7 | Explicit human cutover PR | Not opened | **NO** |

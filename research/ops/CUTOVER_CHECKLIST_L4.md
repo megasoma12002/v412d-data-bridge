@@ -1,7 +1,8 @@
 # Cutover checklist — L4_DD_PATH_08_50
 
-Status: **PREP ONLY** — Soft-Frozen **[0.50, 0.95] stays** until a human PR lands.  
-This file is not authorization to cut over.
+Status: **PREP ONLY — NOT AUTHORIZED**  
+Soft-Frozen live Financial clip: **[0.60, 0.90] KEEP** (FINBAND).  
+This file is not authorization to cut over L4.
 
 ## What cutover would change
 

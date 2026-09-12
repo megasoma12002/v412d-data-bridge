@@ -60,6 +60,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Soft-assist dual-paper observe | **OPERATING** (2026-09-11) | `LIVE_KD_OPT` ∥ `SOFT_CHAMP_PLUS_K9_LT30_a10` · month-end wired · cutover **BLOCKED** · KEEP OBSERVE · `SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` |
 | Soft KD/BB sensitivity (soft OR + champ+) | **PAPER ARCHIVE / BEATS_CHAMPION** (2026-09-11) | Soft add-score only · **no hard AND** · beat-champ **1**=`SOFT_CHAMP_PLUS_K9_LT30_a10` · follow-on Soft-assist observe OPEN **#195** · `SOFT_KD_BB_SENSITIVITY_SCREEN.md` · `SOFT_KD_BB_SENSITIVITY_CHARTER.md` |
 | Full-repo code review (post Soft-assist) | **DONE** (2026-09-10) | CI 3M capital + Soft-assist NAV fallback + MIX sell_scores fixed · live healthy · `PROJECT_CODE_REVIEW_2026-09-10.md` |
+| Full-repo code review (2026-09-12) | **DONE** (2026-09-12) | Soft-Frozen checklist align + e21 asof/partial-fill + Soft/Sleeve alert scan + CI observe dirs + div fail-closed · live KEEP · `PROJECT_CODE_REVIEW_2026-09-12.md` |
 | Dry-powder drawdown sleeve | **STOP** (2026-09-10) | Stage A 37 books · verdict **`NO_LIFT`** · 0 tip-clean / 0 coexist · cash drag · live Soft-Frozen/KD/TEL **KEEP** · `DRY_POWDER_DRAWDOWN_SCREEN.md` |
 | Sleeve-layer tilt charter | **EXECUTED OPEN OBSERVE** (2026-09-10) | Human `OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01` · dual-paper OPERATING · cutover **BLOCKED** · Soft-assist independent · `SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md` |
 | Sleeve-layer tilt dual-paper observe | **OPERATING** (2026-09-10) | `LIVE_STACK` ∥ `SLEEVE_BELOW_MA60_a01` · month-end wired · no live wire · `SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md` |
@@ -103,7 +104,8 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 - Next weekday forward → run `POST_FORWARD_E22_VERIFY_RUNBOOK.md`; persist live `e22_*` evidence; re-run Gap6 KPI  
 - Grow live history toward ≥~60 sessions  
 - Calendar month-end pack re-run (L4 / FIN50 / BLEND_025 / E45 dual-paper trailing + **Soft-assist K9+** + **Sleeve-tilt**) — default **KEEP OBSERVE**; cutover only via dedicated ACCEPT  
-- Soft-assist×sleeve-tilt combo **not** authorized while both observe independently
+- Soft-assist×sleeve-tilt combo **not** authorized while both observe independently  
+- Soft-Frozen cutover checklist is **ACCEPTED / LIVE WIRED** for FINBAND — do not re-read as DRAFTED (`CUTOVER_CHECKLIST_SOFT_FROZEN_CLIP.md`)
 
 ## Claim policy
 

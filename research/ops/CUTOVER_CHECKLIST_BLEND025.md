@@ -1,7 +1,7 @@
 # Cutover checklist — BLEND_025
 
 Status: **PREP ONLY — NOT AUTHORIZED**  
-Soft-Frozen live Financial clip stays **[0.50, 0.95]**.  
+Soft-Frozen live Financial clip: **[0.60, 0.90] KEEP** (FINBAND).  
 Parent decisions: `research/ops/HUMAN_DECISION_REGISTER.md` (#3 observe, #5 live NOT READY).  
 Observe sleeve: `BLEND_025_DUAL_PAPER_OBSERVE.md` · runbook: `BLEND_025_MONTH_END_RUNBOOK.md`
 
@@ -11,7 +11,7 @@ It does **not** authorize promote or live-wire.
 ## What cutover would change (future human PR only)
 
 - Replace Soft-Frozen static Financial path with **BLEND_025** weights:  
-  `α=0.25·FIN_CAP_50[0.35,0.50] + 0.75·Soft-Frozen[0.50,0.95]` (renormalized).  
+  `α=0.25·FIN_CAP_50[0.35,0.50] + 0.75·Soft-Frozen[0.60,0.90]` (renormalized to live FINBAND).  
 - Not a FIN50-only static swap; not L4 DD-path logic.
 
 ## Gates (all required)
@@ -23,7 +23,7 @@ It does **not** authorize promote or live-wire.
 | 3 | Dual-paper **OPERATING OBSERVE** on main | #65 | YES |
 | 4 | ≥1 clean month-end: no YTD/1y `PAUSE_REVIEW` | First monitor clean asof 2026-09-04; **need sustained** | **WATCH** |
 | 5 | Sealed CAGR giveback vs BASE within charter | Screen / sealed diag | WATCH on each pack |
-| 6 | Soft-Frozen unchanged until cutover PR | [0.50, 0.95] KEEP | YES |
+| 6 | Soft-Frozen unchanged until cutover PR | [0.60, 0.90] KEEP | YES |
 | 7 | Dedicated cutover checklist all YES + human PR | This file prep; PR not opened | **NO** |
 | 8 | Must not bundle FIN50-only static, L4 DD-path, E45/E50 | — | Policy |
 
