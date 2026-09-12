@@ -1,0 +1,21 @@
+# FUSE_ADDITIVE month-end monitor (asof 2026-09-11)
+
+Status: `OPERATING_OBSERVE` · paper only · base `LIVE_STACK` vs `FUSE_ADDITIVE`
+
+| Window | MDD dpp | Giveback pp | Score | Rel NAV |
+|---|---:|---:|---:|---:|
+| mtd | 0.023194023392303365 | 8.924120604483754 | -4.438866278849574 | 0.9997 |
+| ytd | 0.4018826467483194 | 0.3163121695039628 | 0.24372656199633802 | 0.9988 |
+| trailing_1y | 0.4018826467483194 | 0.27209334613869096 | 0.26583597367897394 | 0.9983 |
+| heldout_2019_plus | 0.1803862021172109 | 0.03199044146540153 | 0.16439098138451014 | 0.9980 |
+| sealed_2023_plus | 0.4018826467483083 | 0.08736662973132248 | 0.3581993318826471 | 0.9976 |
+| full | 0.1803862021171998 | 0.04262741607725662 | 0.1590724940785715 | 0.9950 |
+
+## Alerts
+
+- none
+
+## Non-actions
+
+- No live FUSE_ADDITIVE wire / Soft-Frozen clip flip / Soft∥Sleeve auto-fuse
+

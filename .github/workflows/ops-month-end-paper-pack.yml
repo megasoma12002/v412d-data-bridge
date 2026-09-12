@@ -105,6 +105,7 @@ jobs:
             repro/e50a-dual-track/track_a_s9a1_monitor/ \
             repro/soft-assist-dual-paper-observe/ \
             repro/sleeve-tilt-dual-paper-observe/ \
+            repro/fuse-additive-dual-paper-observe/ \
             repro/fin-within-sleeve-dual-paper-observe/ \
             || true
           if git diff --cached --quiet; then

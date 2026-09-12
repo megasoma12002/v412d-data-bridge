@@ -1,0 +1,126 @@
+{
+  "generated_at_utc": "2026-09-12T14:27:38.093218+00:00",
+  "label": "FUSE_ADDITIVE_DUAL_PAPER_OBSERVE_OPERATING",
+  "status": "OPERATING_OBSERVE",
+  "live_wire": false,
+  "soft_frozen_clips_unchanged": true,
+  "soft_assist_observe": "KEEP_INDEPENDENT",
+  "sleeve_tilt_observe": "KEEP_INDEPENDENT",
+  "ops_auto_fuse": false,
+  "human_open": "OPEN Soft\u00d7Sleeve fuse observe: FUSE_ADDITIVE",
+  "books": [
+    "LIVE_STACK",
+    "FUSE_ADDITIVE"
+  ],
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "base_id": "LIVE_STACK",
+  "challenger_id": "FUSE_ADDITIVE",
+  "challenger_policy": {
+    "soft_observe_softs": "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "sleeve_observe_tilt": "SLEEVE_RSI14_LT30_a0225",
+    "sleeve_alpha": 0.225,
+    "construction": "Soft observe buy+sell softs + Sleeve RSI14 tilt on LIVE_STACK"
+  },
+  "heldout_vs_base": {
+    "mdd_improve_pp": 0.1803862021172109,
+    "cagr_giveback_pp": 0.03199044146540153,
+    "score": 0.16439098138451014
+  },
+  "sealed_vs_base": {
+    "mdd_improve_pp": 0.4018826467482972,
+    "cagr_giveback_pp": 0.08736662973134468,
+    "score": 0.35819933188262487
+  },
+  "windows": {
+    "LIVE_STACK": {
+      "full": {
+        "cagr": 0.14023801686669346,
+        "max_drawdown": -0.21720270077643722,
+        "utility": 0.03163666647847485,
+        "vol": 0.12986930439622543,
+        "n_days": 3356
+      },
+      "oof_2011_2018": {
+        "cagr": 0.09163479924572715,
+        "max_drawdown": -0.17279501681544296,
+        "utility": 0.00523729083800567,
+        "vol": 0.10459376420805865,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12057445744466633,
+        "max_drawdown": -0.21720270077643733,
+        "utility": 0.011973107056447663,
+        "vol": 0.13318878047115384,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.2557299834147724,
+        "max_drawdown": -0.12807794587413646,
+        "utility": 0.19169101047770415,
+        "vol": 0.16072931131301207,
+        "n_days": 884
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.18393316061137321,
+        "max_drawdown": -0.21720270077643733,
+        "utility": 0.07533181022315455,
+        "vol": 0.146903206960093,
+        "n_days": 1861
+      }
+    },
+    "FUSE_ADDITIVE": {
+      "full": {
+        "cagr": 0.1398117427059209,
+        "max_drawdown": -0.21539883875526522,
+        "utility": 0.032112323328288284,
+        "vol": 0.12887732194662238,
+        "n_days": 3356
+      },
+      "oof_2011_2018": {
+        "cagr": 0.09110675464628804,
+        "max_drawdown": -0.16908563890734596,
+        "utility": 0.006563935192615056,
+        "vol": 0.10291277806640874,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.12068667974644276,
+        "max_drawdown": -0.21539883875526522,
+        "utility": 0.01298726036881015,
+        "vol": 0.13314518760073293,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.25485631711745893,
+        "max_drawdown": -0.12405911940665348,
+        "utility": 0.1928267574141322,
+        "vol": 0.15956188355753578,
+        "n_days": 884
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.1836132561967192,
+        "max_drawdown": -0.21539883875526522,
+        "utility": 0.07591383681908659,
+        "vol": 0.14627691991921907,
+        "n_days": 1861
+      }
+    }
+  },
+  "fills": {
+    "LIVE_STACK": 5751,
+    "FUSE_ADDITIVE": 5817
+  },
+  "default_status": "KEEP_OBSERVE",
+  "ballot": "research/ops/FUSE_ADDITIVE_OBSERVE_BALLOT_EXECUTED_OPEN.md",
+  "observe_open": "research/ops/FUSE_ADDITIVE_DUAL_PAPER_OBSERVE_OPEN.md",
+  "posture": "research/ops/FUSE_ADDITIVE_OBSERVE_POSTURE.md",
+  "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_FUSE_ADDITIVE.md",
+  "evidence": "research/ops/SOFT_SLEEVE_PAPER_FUSE_STAGEA_SCREEN.md",
+  "next_human": [
+    "Month-end monitor on LIVE_STACK \u2225 FUSE_ADDITIVE",
+    "Default KEEP OBSERVE; live cutover needs dedicated ACCEPT for FUSE_ADDITIVE",
+    "Soft-assist and Sleeve-tilt observes remain independent KEEP"
+  ]
+}

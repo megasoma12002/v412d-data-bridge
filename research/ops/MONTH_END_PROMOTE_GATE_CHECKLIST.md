@@ -91,3 +91,11 @@ python3 scripts/ops_month_end_paper_pack.py
 ## Label
 
 `MONTH_END_PROMOTE_GATE_CHECKLIST_2026-09-12__SOFT_SELL_A05__SLEEVE_RSI14__KEEP_OBSERVE__NO_LIVE`
+
+## FUSE_ADDITIVE (third paper observe · independent)
+
+| Track | Challenger | Base | Monitor | Cutover |
+|---|---|---|---|---|
+| FUSE_ADDITIVE | `FUSE_ADDITIVE` | `LIVE_STACK` | `FUSE_ADDITIVE_MONTH_END_MONITOR.md` | `CUTOVER_CHECKLIST_FUSE_ADDITIVE.md` (**BLOCKED**) |
+
+Paper-only. Does **not** authorize Soft∥Sleeve ops auto-fuse or live wire. Soft-assist and Sleeve-tilt observes remain independent KEEP.
