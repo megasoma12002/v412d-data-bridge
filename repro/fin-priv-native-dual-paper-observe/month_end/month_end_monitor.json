@@ -1,10 +1,11 @@
 {
-  "generated_at_utc": "2026-09-10T10:15:00.286088+00:00",
+  "generated_at_utc": "2026-09-12T00:11:24.882695+00:00",
   "asof": "2026-09-09",
   "label": "FIN_PRIV_NATIVE_MONTH_END_MONITOR",
   "status": "OPERATING_OBSERVE",
   "base_id": "PRIV_EQUAL",
   "challenger_id": "PRIV_KD_MAY_Klt25_T15",
+  "nav_source": "dual_paper_nav_compare",
   "live_wire": false,
   "soft_frozen_unchanged": true,
   "alerts": [],

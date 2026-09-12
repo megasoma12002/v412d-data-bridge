@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from dual_paper_nav_io import load_multi_nav
 from e45_paper_harness import WINDOWS_STANDARD
 from research_metric_helpers import mdd_delta_pp
 
@@ -29,6 +30,7 @@ CHAL_RS_NAV = (
 )
 CHAL_MIX_NAV = ROOT / "repro/fin-within-sleeve-dual-paper-observe/outputs/fin_mix_l75_daily_nav.csv"
 CHAL_KD_NAV = ROOT / "repro/fin-within-sleeve-dual-paper-observe/outputs/fin_kd_opt_daily_nav.csv"
+COMPARE_NAV = ROOT / "repro/fin-within-sleeve-dual-paper-observe/outputs/dual_paper_nav_compare.csv"
 OPS = ROOT / "research/ops"
 
 BASE_ID = "FIN_EQUAL"
@@ -191,16 +193,24 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = ap.parse_args()
 
-    missing = [p for p in [BASE_NAV] + [c["path"] for c in CHALLENGERS] if not p.exists()]
-    if missing:
-        raise SystemExit(
-            "Missing dual-paper NAVs "
-            f"({', '.join(str(p) for p in missing)}). "
-            "Run scripts/e16_fin_within_sleeve_dual_paper_ledgers.py first."
-        )
-
-    base = _load(BASE_NAV)
-    chal_dfs = {c["id"]: _load(c["path"]) for c in CHALLENGERS}
+    books, nav_source = load_multi_nav(
+        {
+            "base": BASE_NAV,
+            CHAL_RS_ID: CHAL_RS_NAV,
+            CHAL_MIX_ID: CHAL_MIX_NAV,
+            CHAL_KD_ID: CHAL_KD_NAV,
+        },
+        COMPARE_NAV,
+        {
+            "base": "nav_base",
+            CHAL_RS_ID: "nav_fin_rs_soft_tilt_exdiv",
+            CHAL_MIX_ID: "nav_fin_mix_l75",
+            CHAL_KD_ID: "nav_fin_kd_opt",
+        },
+        refresh_hint="scripts/e16_fin_within_sleeve_dual_paper_ledgers.py",
+    )
+    base = books["base"]
+    chal_dfs = {c["id"]: books[c["id"]] for c in CHALLENGERS}
     asof = pd.Timestamp(args.asof) if args.asof else min(
         [base["date"].max()] + [d["date"].max() for d in chal_dfs.values()]
     )
@@ -239,6 +249,7 @@ def main() -> None:
         "asof": str(asof.date()),
         "status": STATUS,
         "operating_observe": True,
+        "nav_source": nav_source,
         "base_id": BASE_ID,
         "challengers": [c["id"] for c in CHALLENGERS],
         "locked_id": CHAL_RS_ID,

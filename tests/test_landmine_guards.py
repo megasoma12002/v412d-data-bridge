@@ -108,16 +108,81 @@ class SoftAssistObserveGuards(unittest.TestCase):
         import sys
 
         sys.path.insert(0, str(SCRIPTS))
-        from soft_assist_helpers import LIVE_KD
+        from soft_assist_helpers import LIVE_KD, OBSERVE_CHAL_ID
         import e21_forward_pipeline as e21
 
         for k in ("season_start", "season_end", "k_thresh", "pre_days", "active_score"):
             self.assertEqual(LIVE_KD[k], e21.KD_OPT[k], msg=k)
+        self.assertEqual(OBSERVE_CHAL_ID, "SOFT_CHAMP_PLUS_K9_LT30_a10")
 
     def test_month_end_monitor_can_use_compare_csv(self):
         src = (SCRIPTS / "e16_soft_assist_month_end_monitor.py").read_text(encoding="utf-8")
         self.assertIn("dual_paper_nav_compare", src)
         self.assertIn("nav_source", src)
+        self.assertIn("load_pair_nav", src)
+
+
+class DualPaperNavIoGuards(unittest.TestCase):
+    def test_load_pair_falls_back_to_compare(self):
+        import sys
+        import tempfile
+
+        sys.path.insert(0, str(SCRIPTS))
+        from dual_paper_nav_io import load_pair_nav
+
+        with tempfile.TemporaryDirectory() as td:
+            td = Path(td)
+            compare = td / "dual_paper_nav_compare.csv"
+            compare.write_text(
+                "date,nav_base,nav_chal,rel_chal_vs_base\n"
+                "2020-01-02,1.0,1.01,1.01\n"
+                "2020-01-03,1.02,1.03,1.0098\n",
+                encoding="utf-8",
+            )
+            base, chal, src = load_pair_nav(
+                td / "missing_base.csv",
+                td / "missing_chal.csv",
+                compare,
+                chal_col="nav_chal",
+            )
+            self.assertEqual(src, "dual_paper_nav_compare")
+            self.assertEqual(len(base), 2)
+            self.assertEqual(float(chal["nav"].iloc[0]), 1.01)
+
+    def test_ops_alert_scan_covers_operating_observe_monitors(self):
+        text = (SCRIPTS / "ops_alert_scan.py").read_text(encoding="utf-8")
+        for needle in (
+            "SOFT_ASSIST_MONTH_END_MONITOR.json",
+            "SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json",
+            "FIN_WITHIN_SLEEVE_MONTH_END_MONITOR.json",
+            "FIN_PRIV_NATIVE_MONTH_END_MONITOR.json",
+            "E45_BLEND005_MONTH_END_MONITOR.json",
+            "E45_SLEEVE_LOCAL_MONTH_END_MONITOR.json",
+            "E45_M2_BIL_FX_MONTH_END_MONITOR.json",
+        ):
+            self.assertIn(needle, text)
+
+    def test_pack_cutover_note_uses_k9_challenger_id(self):
+        text = (SCRIPTS / "ops_month_end_paper_pack.py").read_text(encoding="utf-8")
+        self.assertIn("SOFT_CHAMP_PLUS_K9_LT30_a10", text)
+        self.assertNotIn("Soft-assist SOFT_BOTH)", text)
+
+    def test_pack_monitors_have_compare_fallback(self):
+        for name in (
+            "e45_blend005_month_end_monitor.py",
+            "e45_sleeve_local_month_end_monitor.py",
+            "e45_m2_bil_fx_month_end_monitor.py",
+            "e16_fin_within_sleeve_month_end_monitor.py",
+            "e16_fin_priv_native_month_end_monitor.py",
+            "e16_soft_assist_month_end_monitor.py",
+            "e16_sleeve_tilt_month_end_monitor.py",
+        ):
+            text = (SCRIPTS / name).read_text(encoding="utf-8")
+            self.assertIn("dual_paper_nav_compare", text, msg=name)
+            self.assertTrue(
+                "load_pair_nav" in text or "load_multi_nav" in text,
+                msg=name,
+            )
 
 
 class FrozenClaimLabel(unittest.TestCase):

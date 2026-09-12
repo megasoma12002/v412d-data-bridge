@@ -17,6 +17,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from dual_paper_nav_io import load_pair_nav
 from e45_paper_harness import WINDOWS_STANDARD
 from research_metric_helpers import mdd_delta_pp
 
@@ -24,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/month_end"
 BASE_NAV = ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/outputs/base_e16_e18_e22_v2s_daily_nav.csv"
 CHAL_NAV = ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/outputs/m2_reloc_bil_fx_c35_daily_nav.csv"
+COMPARE_NAV = ROOT / "repro/e45-m2-bil-fx-dual-paper-observe/outputs/dual_paper_nav_compare.csv"
 OPS = ROOT / "research/ops"
 
 LOCKED_ID = "M2_RELOC_BIL_FX_C35"
@@ -70,13 +72,13 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = ap.parse_args()
 
-    if not BASE_NAV.exists() or not CHAL_NAV.exists():
-        raise SystemExit(
-            "Missing dual-paper NAVs. Run scripts/e45_m2_bil_fx_dual_paper_ledgers.py first."
-        )
-
-    base = _load(BASE_NAV)
-    chal = _load(CHAL_NAV)
+    base, chal, nav_source = load_pair_nav(
+        BASE_NAV,
+        CHAL_NAV,
+        COMPARE_NAV,
+        chal_col="nav_m2_reloc_bil_fx_c35",
+        refresh_hint="scripts/e45_m2_bil_fx_dual_paper_ledgers.py",
+    )
     asof = pd.Timestamp(args.asof) if args.asof else min(base["date"].max(), chal["date"].max())
     base = base[base["date"] <= asof]
     chal = chal[chal["date"] <= asof]
@@ -162,8 +164,10 @@ def main() -> None:
     payload = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "asof": str(asof.date()),
+        "label": "E45_M2_BIL_FX_MONTH_END_MONITOR",
         "status": STATUS,
-        "operating_observe": False,
+        "operating_observe": True,
+        "nav_source": nav_source,
         "locked_id": LOCKED_ID,
         "def_honesty": "BIL × USDTWD mid — FX risk; mid optimistic; not TWD cash",
         "soft_frozen_unchanged": True,
@@ -183,6 +187,10 @@ def main() -> None:
         ],
     }
     (args.out / "month_end_monitor.json").write_text(
+        json.dumps(payload, indent=2, default=str) + "\n", encoding="utf-8"
+    )
+    OPS.mkdir(parents=True, exist_ok=True)
+    (OPS / "E45_M2_BIL_FX_MONTH_END_MONITOR.json").write_text(
         json.dumps(payload, indent=2, default=str) + "\n", encoding="utf-8"
     )
 
@@ -217,7 +225,6 @@ def main() -> None:
     ]
     md = "\n".join(lines) + "\n"
     (args.out / "month_end_monitor.md").write_text(md, encoding="utf-8")
-    OPS.mkdir(parents=True, exist_ok=True)
     (OPS / "E45_M2_BIL_FX_MONTH_END_MONITOR_OPERATING.md").write_text(md, encoding="utf-8")
     print(json.dumps({"asof": str(asof.date()), "status": STATUS, "n_alerts": len(alerts)}, indent=2))
 

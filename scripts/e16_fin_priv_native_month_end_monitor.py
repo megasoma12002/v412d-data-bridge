@@ -8,17 +8,22 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from dual_paper_nav_io import load_pair_nav
 from research_metric_helpers import mdd_delta_pp
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "repro/fin-priv-native-dual-paper-observe/month_end"
 BASE_NAV = ROOT / "repro/fin-priv-native-dual-paper-observe/outputs/priv_equal_daily_nav.csv"
 CHAL_NAV = ROOT / "repro/fin-priv-native-dual-paper-observe/outputs/priv_kd_may_klt25_t15_daily_nav.csv"
+COMPARE_NAV = ROOT / "repro/fin-priv-native-dual-paper-observe/outputs/dual_paper_nav_compare.csv"
 OPS = ROOT / "research/ops"
 
 BASE_ID = "PRIV_EQUAL"
@@ -126,10 +131,13 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = ap.parse_args()
 
-    if not BASE_NAV.exists() or not CHAL_NAV.exists():
-        raise SystemExit("Missing observe NAV files. Run scripts/e16_fin_priv_native_dual_paper_ledgers.py first.")
-    base = _load(BASE_NAV)
-    chal = _load(CHAL_NAV)
+    base, chal, nav_source = load_pair_nav(
+        BASE_NAV,
+        CHAL_NAV,
+        COMPARE_NAV,
+        chal_col="nav_chal",
+        refresh_hint="scripts/e16_fin_priv_native_dual_paper_ledgers.py",
+    )
     asof = pd.Timestamp(args.asof) if args.asof else min(base["date"].max(), chal["date"].max())
     base = base[base["date"] <= asof]
     chal = chal[chal["date"] <= asof]
@@ -145,6 +153,7 @@ def main() -> None:
         "status": STATUS,
         "base_id": BASE_ID,
         "challenger_id": CHAL_ID,
+        "nav_source": nav_source,
         "live_wire": False,
         "soft_frozen_unchanged": True,
         "alerts": alerts,

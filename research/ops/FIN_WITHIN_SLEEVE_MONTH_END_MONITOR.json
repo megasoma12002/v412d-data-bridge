@@ -1,8 +1,9 @@
 {
-  "generated_at_utc": "2026-09-10T10:14:59.963338+00:00",
+  "generated_at_utc": "2026-09-12T00:11:24.583867+00:00",
   "asof": "2026-09-09",
   "status": "OPERATING_OBSERVE",
   "operating_observe": true,
+  "nav_source": "dual_paper_nav_compare",
   "base_id": "FIN_EQUAL",
   "challengers": [
     "FIN_RS_SOFT_TILT_EXDIV",

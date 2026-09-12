@@ -61,9 +61,6 @@ def _pct(x: float | None) -> str:
     return f"{x:.2%}"
 
 
-    return abs(default if x is None else x)
-
-
 def _window(df: pd.DataFrame, start, end) -> pd.DataFrame:
     m = (df["date"] >= start) & (df["date"] <= end)
     return df.loc[m].reset_index(drop=True)

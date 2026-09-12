@@ -1,12 +1,12 @@
 # Ops Alerts
 
-Generated: `2026-09-10T10:15:28.500638+00:00`
+Generated: `2026-09-12T00:11:35.945007+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.60, 0.90] unchanged**. No auto cutover.
 
 - CRITICAL: 0
-- HIGH (PAUSE_REVIEW etc.): 7
-- INFO: 18
+- HIGH (PAUSE_REVIEW etc.): 11
+- INFO: 31
 
 | Severity | Source | Code | Message |
 |---|---|---|---|
@@ -17,6 +17,10 @@ Soft-Frozen **[0.60, 0.90] unchanged**. No auto cutover.
 | HIGH | `e45_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk |
 | HIGH | `e45_blend025_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk |
 | HIGH | `e45_blend025_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk |
+| HIGH | `e45_sleeve_local_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk |
+| HIGH | `e45_sleeve_local_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk |
+| HIGH | `e45_m2_bil_fx_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk |
+| HIGH | `fin_within_sleeve_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: FIN_RS_SOFT_TILT_EXDIV trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no live wire |
 | INFO | `live_qc` | `QC_PASS` | live QC PASS; Exact T+1 ok |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops) |
@@ -31,6 +35,19 @@ Soft-Frozen **[0.60, 0.90] unchanged**. No auto cutover.
 | INFO | `e45_blend025_month_end` | `MONITOR_ALERT` | ALERT: BLEND_E45_A25 ytd CAGR giveback > 3.0 pp (paper) |
 | INFO | `e45_blend025_month_end` | `MONITOR_ALERT` | ALERT: BLEND_E45_A25 trailing_1y CAGR giveback > 3.0 pp (paper) |
 | INFO | `e45_blend025_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `e45_blend005_month_end` | `MONITOR_ALERT` | ALERT: BLEND_E45_A05 ytd CAGR giveback > 3.0 pp (paper) |
+| INFO | `e45_blend005_month_end` | `MONITOR_ALERT` | ALERT: BLEND_E45_A05 trailing_1y CAGR giveback > 3.0 pp (paper) |
+| INFO | `e45_blend005_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `e45_sleeve_local_month_end` | `MONITOR_ALERT` | ALERT: SLEEVE_FIN_ONLY_A10 ytd CAGR giveback > 3.0 pp (paper) |
+| INFO | `e45_sleeve_local_month_end` | `MONITOR_ALERT` | ALERT: SLEEVE_FIN_ONLY_A10 trailing_1y CAGR giveback > 3.0 pp (paper) |
+| INFO | `e45_sleeve_local_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `e45_m2_bil_fx_month_end` | `MONITOR_ALERT` | ALERT: M2_RELOC_BIL_FX_C35 ytd CAGR giveback > 3.0 pp (paper) |
+| INFO | `e45_m2_bil_fx_month_end` | `MONITOR_ALERT` | ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper) |
+| INFO | `fin_within_sleeve_month_end` | `MONITOR_ALERT` | ALERT: FIN_RS_SOFT_TILT_EXDIV ytd CAGR giveback > 3.0 pp (paper) |
+| INFO | `fin_within_sleeve_month_end` | `MONITOR_ALERT` | ALERT: FIN_RS_SOFT_TILT_EXDIV trailing_1y CAGR giveback > 3.0 pp (paper) |
+| INFO | `sleeve_tilt_month_end` | `MONITOR_ALERT` | ALERT: SLEEVE_BELOW_MA60_a01 ytd MDD worse than LIVE_STACK |
+| INFO | `sleeve_tilt_month_end` | `MONITOR_ALERT` | ALERT: SLEEVE_BELOW_MA60_a01 trailing_1y MDD worse than LIVE_STACK |
+| INFO | `sleeve_tilt_month_end` | `MONITOR_ALERT` | ALERT: SLEEVE_BELOW_MA60_a01 sealed_2023_plus MDD worse than LIVE_STACK |
 | INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=2.8645% > 2% on overlap |
 | INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=13 (<60) — not decision-grade for cutover |
 | INFO | `data_source_phase_c_probes` | `PHASE_C_C1_FIN12_HISTORY_SHADOW_NOTE` | DRIFT on 1 ticker(s); does not count toward PASS |

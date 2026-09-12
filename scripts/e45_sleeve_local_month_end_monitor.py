@@ -22,6 +22,7 @@ import pandas as pd
 
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from dual_paper_nav_io import load_pair_nav
 from research_metric_helpers import abs_mdd, mdd_delta_pp
 from e45_paper_harness import WINDOWS_STANDARD
 
@@ -29,6 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "repro/e45-sleeve-local-dual-paper-observe/month_end"
 BASE_NAV = ROOT / "repro/e45-sleeve-local-dual-paper-observe/outputs/base_e16_e18_e22_v2s_daily_nav.csv"
 CHAL_NAV = ROOT / "repro/e45-sleeve-local-dual-paper-observe/outputs/sleeve_fin_only_a10_daily_nav.csv"
+COMPARE_NAV = ROOT / "repro/e45-sleeve-local-dual-paper-observe/outputs/dual_paper_nav_compare.csv"
 RESEARCH = ROOT / "research/gaps"
 
 LOCKED_ID = "SLEEVE_FIN_ONLY_A10"
@@ -85,13 +87,13 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = ap.parse_args()
 
-    if not BASE_NAV.exists() or not CHAL_NAV.exists():
-        raise SystemExit(
-            "Missing dual-paper NAVs. Run scripts/e45_sleeve_local_dual_paper_ledgers.py first."
-        )
-
-    base = _load(BASE_NAV)
-    chal = _load(CHAL_NAV)
+    base, chal, nav_source = load_pair_nav(
+        BASE_NAV,
+        CHAL_NAV,
+        COMPARE_NAV,
+        chal_col="nav_sleeve_fin_only_a10",
+        refresh_hint="scripts/e45_sleeve_local_dual_paper_ledgers.py",
+    )
     asof = pd.Timestamp(args.asof) if args.asof else min(base["date"].max(), chal["date"].max())
     base = base[base["date"] <= asof]
     chal = chal[chal["date"] <= asof]
@@ -184,6 +186,7 @@ def main() -> None:
     summary = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "asof": str(asof.date()),
+        "nav_source": nav_source,
         "live_wire": False,
         "soft_frozen_default_unchanged": True,
         "locked_id": LOCKED_ID,

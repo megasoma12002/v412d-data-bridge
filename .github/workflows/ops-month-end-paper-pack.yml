@@ -98,10 +98,25 @@ jobs:
             research/gaps/L4_DD_PATH_MONTH_END_MONITOR.json \
             research/gaps/FIN_CAP_50_MONTH_END_MONITOR.md \
             research/gaps/FIN_CAP_50_MONTH_END_MONITOR.json \
+            research/gaps/BLEND_025_MONTH_END_MONITOR.md \
+            research/gaps/BLEND_025_MONTH_END_MONITOR.json \
+            research/gaps/E45_MONTH_END_MONITOR.md \
+            research/gaps/E45_MONTH_END_MONITOR.json \
+            research/gaps/E45_BLEND025_MONTH_END_MONITOR.md \
+            research/gaps/E45_BLEND025_MONTH_END_MONITOR.json \
+            research/gaps/E45_BLEND005_MONTH_END_MONITOR.md \
+            research/gaps/E45_BLEND005_MONTH_END_MONITOR.json \
+            research/gaps/E45_SLEEVE_LOCAL_MONTH_END_MONITOR.md \
+            research/gaps/E45_SLEEVE_LOCAL_MONTH_END_MONITOR.json \
             research/e50a/TRACK_A_S9A1_MONITOR_STATUS.md \
             research/e50a/TRACK_A_S9A1_MONITOR_STATUS.json \
             repro/l4-dd-path-dual-paper/month_end/ \
             repro/fincap50-dual-paper/month_end/ \
+            repro/soft-assist-dual-paper-observe/month_end/ \
+            repro/sleeve-tilt-dual-paper-observe/month_end/ \
+            repro/fin-within-sleeve-dual-paper-observe/month_end/ \
+            repro/fin-priv-native-dual-paper-observe/month_end/ \
+            repro/e45-m2-bil-fx-dual-paper-observe/month_end/ \
             repro/e50a-dual-track/track_a_s9a1_monitor/ \
             || true
           if git diff --cached --quiet; then

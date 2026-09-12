@@ -16,6 +16,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from dual_paper_nav_io import load_pair_nav
 from research_metric_helpers import mdd_delta_pp
 from sleeve_tilt_helpers import BASE_ID, CHAMPION_ID
 
@@ -33,35 +34,6 @@ TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
 DESIGN_GIVEBACK_PP = {"heldout_2019_plus": 0.5, "sealed_2023_plus": 0.8}
 STRUCTURAL_BUFFER_PP = 2.0
-
-
-def _load(path: Path) -> pd.DataFrame:
-    d = pd.read_csv(path)
-    d["date"] = pd.to_datetime(d["date"])
-    return d.sort_values("date").reset_index(drop=True)
-
-
-def _load_books() -> tuple[pd.DataFrame, pd.DataFrame, str]:
-    if BASE_NAV.exists() and CHAL_NAV.exists():
-        return _load(BASE_NAV), _load(CHAL_NAV), "daily_nav"
-    if COMPARE_NAV.exists():
-        d = pd.read_csv(COMPARE_NAV)
-        d["date"] = pd.to_datetime(d["date"])
-        if not {"nav_base", "nav_chal"}.issubset(d.columns):
-            raise SystemExit(
-                f"{COMPARE_NAV} missing nav_base/nav_chal; "
-                "run scripts/e16_sleeve_tilt_dual_paper_ledgers.py"
-            )
-        base = d[["date", "nav_base"]].rename(columns={"nav_base": "nav"})
-        chal = d[["date", "nav_chal"]].rename(columns={"nav_chal": "nav"})
-        return (
-            base.sort_values("date").reset_index(drop=True),
-            chal.sort_values("date").reset_index(drop=True),
-            "dual_paper_nav_compare",
-        )
-    raise SystemExit(
-        "Missing Sleeve-tilt observe NAV. Run scripts/e16_sleeve_tilt_dual_paper_ledgers.py"
-    )
 
 
 def _stats(nav: pd.Series) -> dict:
@@ -160,7 +132,13 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
     args = ap.parse_args()
 
-    base, chal, nav_source = _load_books()
+    base, chal, nav_source = load_pair_nav(
+        BASE_NAV,
+        CHAL_NAV,
+        COMPARE_NAV,
+        chal_col="nav_chal",
+        refresh_hint="scripts/e16_sleeve_tilt_dual_paper_ledgers.py",
+    )
     asof = pd.Timestamp(args.asof) if args.asof else min(base["date"].max(), chal["date"].max())
     base = base[base["date"] <= asof]
     chal = chal[chal["date"] <= asof]

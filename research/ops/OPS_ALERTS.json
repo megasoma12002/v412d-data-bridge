@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-10T10:15:28.500638+00:00",
+  "generated_at_utc": "2026-09-12T00:11:35.945007+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -9,8 +9,8 @@
   ],
   "overall": "HIGH",
   "n_critical": 0,
-  "n_high": 7,
-  "n_info": 18,
+  "n_high": 11,
+  "n_info": 31,
   "alerts": [
     {
       "severity": "HIGH",
@@ -53,6 +53,30 @@
       "source": "e45_blend025_month_end",
       "code": "PAUSE_REVIEW",
       "message": "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+    },
+    {
+      "severity": "HIGH",
+      "source": "e45_sleeve_local_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+    },
+    {
+      "severity": "HIGH",
+      "source": "e45_sleeve_local_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+    },
+    {
+      "severity": "HIGH",
+      "source": "e45_m2_bil_fx_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_within_sleeve_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: FIN_RS_SOFT_TILT_EXDIV trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no live wire"
     },
     {
       "severity": "INFO",
@@ -137,6 +161,84 @@
       "source": "e45_blend025_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_blend005_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: BLEND_E45_A05 ytd CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_blend005_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: BLEND_E45_A05 trailing_1y CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_blend005_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_sleeve_local_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: SLEEVE_FIN_ONLY_A10 ytd CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_sleeve_local_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: SLEEVE_FIN_ONLY_A10 trailing_1y CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_sleeve_local_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_m2_bil_fx_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: M2_RELOC_BIL_FX_C35 ytd CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "e45_m2_bil_fx_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_within_sleeve_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: FIN_RS_SOFT_TILT_EXDIV ytd CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_within_sleeve_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: FIN_RS_SOFT_TILT_EXDIV trailing_1y CAGR giveback > 3.0 pp (paper)"
+    },
+    {
+      "severity": "INFO",
+      "source": "sleeve_tilt_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: SLEEVE_BELOW_MA60_a01 ytd MDD worse than LIVE_STACK"
+    },
+    {
+      "severity": "INFO",
+      "source": "sleeve_tilt_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: SLEEVE_BELOW_MA60_a01 trailing_1y MDD worse than LIVE_STACK"
+    },
+    {
+      "severity": "INFO",
+      "source": "sleeve_tilt_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: SLEEVE_BELOW_MA60_a01 sealed_2023_plus MDD worse than LIVE_STACK"
     },
     {
       "severity": "INFO",
