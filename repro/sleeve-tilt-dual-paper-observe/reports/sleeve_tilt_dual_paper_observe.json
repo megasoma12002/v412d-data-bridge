@@ -1,42 +1,43 @@
 {
-  "generated_at_utc": "2026-09-10T16:45:33.256291+00:00",
+  "generated_at_utc": "2026-09-12T11:16:10.724564+00:00",
   "label": "SLEEVE_TILT_DUAL_PAPER_OBSERVE_OPERATING",
   "status": "OPERATING_OBSERVE",
   "live_wire": false,
   "soft_frozen_clips_unchanged": true,
-  "soft_assist_observe": "UNCHANGED",
-  "human_open": "OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01",
+  "soft_assist_observe": "INDEPENDENT_NO_FUSE",
+  "human_open": "OPEN Sleeve-tilt observe: SLEEVE_RSI14_LT30_a0225",
+  "prior_observe_id": "SLEEVE_BELOW_MA60_a01",
   "books": [
     "LIVE_STACK",
-    "SLEEVE_BELOW_MA60_a01"
+    "SLEEVE_RSI14_LT30_a0225"
   ],
   "capital": 500000000.0,
   "lot_size": 1000,
   "base_id": "LIVE_STACK",
-  "challenger_id": "SLEEVE_BELOW_MA60_a01",
+  "challenger_id": "SLEEVE_RSI14_LT30_a0225",
   "challenger_policy": {
-    "signal": "BELOW_MA60",
-    "alpha": 0.1,
+    "signal": "RSI14_LT30",
+    "alpha": 0.225,
     "within_sleeve": "KD_OPT + TEL_EQUAL"
   },
   "heldout_vs_base": {
-    "mdd_improve_pp": 0.0624505979783585,
-    "cagr_giveback_pp": -0.025375821461581793,
-    "score": 0.049762687247567605
+    "mdd_improve_pp": 0.10431108645896359,
+    "cagr_giveback_pp": 0.011170605362398334,
+    "score": 0.09872578377776442
   },
   "sealed_vs_base": {
-    "mdd_improve_pp": -0.15437237900278733,
-    "cagr_giveback_pp": -0.07667458727487197,
-    "score": -0.19270967264022332
+    "mdd_improve_pp": 0.03523233762379174,
+    "cagr_giveback_pp": 0.005434792058167659,
+    "score": 0.03251494159470791
   },
   "windows": {
     "LIVE_STACK": {
       "full": {
-        "cagr": 0.13849076454881026,
+        "cagr": 0.14023801686669346,
         "max_drawdown": -0.21720270077643722,
-        "utility": 0.029889414160591654,
-        "vol": 0.12976583158914978,
-        "n_days": 3355
+        "utility": 0.03163666647847485,
+        "vol": 0.12986930439622543,
+        "n_days": 3356
       },
       "oof_2011_2018": {
         "cagr": 0.09163479924572715,
@@ -53,69 +54,69 @@
         "n_days": 977
       },
       "sealed_2023_plus": {
-        "cagr": 0.24856495256732214,
+        "cagr": 0.2557299834147724,
         "max_drawdown": -0.12807794587413646,
-        "utility": 0.1845259796302539,
-        "vol": 0.1604569331257503,
-        "n_days": 883
+        "utility": 0.19169101047770415,
+        "vol": 0.16072931131301207,
+        "n_days": 884
       },
       "heldout_2019_plus": {
-        "cagr": 0.18068587296337357,
+        "cagr": 0.18393316061137321,
         "max_drawdown": -0.21720270077643733,
-        "utility": 0.07208452257515491,
-        "vol": 0.14674971188802133,
-        "n_days": 1860
+        "utility": 0.07533181022315455,
+        "vol": 0.146903206960093,
+        "n_days": 1861
       }
     },
-    "SLEEVE_BELOW_MA60_a01": {
+    "SLEEVE_RSI14_LT30_a0225": {
       "full": {
-        "cagr": 0.13885156040611046,
-        "max_drawdown": -0.21657819479665374,
-        "utility": 0.03056246300778359,
-        "vol": 0.1298503073809336,
-        "n_days": 3355
+        "cagr": 0.1402564570424354,
+        "max_drawdown": -0.2161595899118477,
+        "utility": 0.03217666208651154,
+        "vol": 0.12980226951236595,
+        "n_days": 3356
       },
       "oof_2011_2018": {
-        "cagr": 0.0920756977955115,
-        "max_drawdown": -0.17227153404665174,
-        "utility": 0.005939930772185631,
-        "vol": 0.10443446488690707,
+        "cagr": 0.09180361596687558,
+        "max_drawdown": -0.17238067766517307,
+        "utility": 0.005613277134289052,
+        "vol": 0.1045571753925679,
         "n_days": 1495
       },
       "validation_2019_2022": {
-        "cagr": 0.12041535214785459,
-        "max_drawdown": -0.21657819479665374,
-        "utility": 0.01212625474952772,
-        "vol": 0.13310017761504173,
+        "cagr": 0.12041292989418029,
+        "max_drawdown": -0.2161595899118477,
+        "utility": 0.01233313493825644,
+        "vol": 0.13311555690462437,
         "n_days": 977
       },
       "sealed_2023_plus": {
-        "cagr": 0.24933169844007086,
-        "max_drawdown": -0.12962166966416433,
-        "utility": 0.1845208636079887,
-        "vol": 0.1609804569637313,
-        "n_days": 883
+        "cagr": 0.2556756354941907,
+        "max_drawdown": -0.12772562249789854,
+        "utility": 0.19181282424524143,
+        "vol": 0.1606307510267444,
+        "n_days": 884
       },
       "heldout_2019_plus": {
-        "cagr": 0.1809396311779894,
-        "max_drawdown": -0.21657819479665374,
-        "utility": 0.07265053377966252,
-        "vol": 0.1469797716797545,
-        "n_days": 1860
+        "cagr": 0.18382145455774923,
+        "max_drawdown": -0.2161595899118477,
+        "utility": 0.07574165960182538,
+        "vol": 0.14681738825809587,
+        "n_days": 1861
       }
     }
   },
   "fills": {
     "LIVE_STACK": 5751,
-    "SLEEVE_BELOW_MA60_a01": 5726
+    "SLEEVE_RSI14_LT30_a0225": 5759
   },
   "default_status": "KEEP_OBSERVE",
-  "ballot": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_BALLOT_EXECUTED_OPEN_OBSERVE.md",
+  "ballot": "research/ops/SLEEVE_RSI14_A0225_OBSERVE_BALLOT_EXECUTED_OPEN.md",
   "observe_open": "research/ops/SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md",
   "posture": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md",
   "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md",
   "next_human": [
-    "Month-end monitor on LIVE_STACK \u2225 SLEEVE_BELOW_MA60_a01",
+    "Month-end monitor on LIVE_STACK \u2225 SLEEVE_RSI14_LT30_a0225",
     "Default KEEP OBSERVE; live cutover needs dedicated ACCEPT"
   ]
 }

@@ -1,0 +1,32 @@
+{
+  "label": "SOFT_DL_T2_TORCH_STAGEA_CHARTER_2026-09-12__RULE_PROMOTE_ONLY_NO_T2_TORCH_LIFT",
+  "status": "PAPER_DONE",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "script": "scripts/e16_soft_dl_t2_torch_stagea_screen.py",
+  "parent": "SOFT_DL_T2_SEQ_STAGEA",
+  "track": "T2_torch_tcn_lstm",
+  "torch_required": true,
+  "torch_device": "cpu",
+  "features": "causal_logret_seq_L10_L20",
+  "models": [
+    "torch_tcn_ch8_k3",
+    "torch_lstm_h8"
+  ],
+  "books": [
+    "LIVE_KD_OPT",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "DL_T2_TORCH_TCN10_a05",
+    "DL_T2_TORCH_LSTM10_a05",
+    "DL_T2_TORCH_TCN20_a05",
+    "DL_T2_TORCH_TCN10_a025",
+    "DL_T2_TORCH_LSTM10_a05__SELL_a05"
+  ],
+  "prior_parked": [
+    "SOFT_DL_MLP_STAGEA",
+    "SOFT_DL_DEEPER_STAGEA",
+    "SOFT_DL_T2_SEQ_STAGEA"
+  ],
+  "verdict": "RULE_PROMOTE_ONLY_NO_T2_TORCH_LIFT"
+}

@@ -2,8 +2,8 @@
 """Soft-assist vs Sleeve-tilt observe overlap (paper only).
 
 Compares excess daily returns of each challenger vs its own base:
-  Soft-assist: SOFT_CHAMP_PLUS_K9_LT30_a10 vs LIVE_KD_OPT
-  Sleeve-tilt: SLEEVE_BELOW_MA60_a01 vs LIVE_STACK
+  Soft-assist: SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05 vs LIVE_KD_OPT
+  Sleeve-tilt: SLEEVE_RSI14_LT30_a0225 vs LIVE_STACK
 
 Reports correlation / same-sign overlap / joint drawdown contribution.
 Does NOT authorize Soft-assist × Sleeve-tilt combo or any live wire.
@@ -24,8 +24,8 @@ SLEEVE_COMPARE = (
 )
 OUT_DIR = ROOT / "repro/soft-sleeve-observe-overlap"
 OPS = ROOT / "research/ops"
-SOFT_ID = "SOFT_CHAMP_PLUS_K9_LT30_a10"
-SLEEVE_ID = "SLEEVE_BELOW_MA60_a01"
+SOFT_ID = "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05"
+SLEEVE_ID = "SLEEVE_RSI14_LT30_a0225"
 
 
 def _load_compare(path: Path, tag: str) -> pd.DataFrame:

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Sleeve-tilt dual-paper month-end monitor — OPERATING OBSERVE.
 
-Compares LIVE_STACK vs SLEEVE_BELOW_MA60_a01.
+Compares LIVE_STACK vs SLEEVE_RSI14_LT30_a0225.
 Paper-only; Soft-Frozen clips KEEP; no live wire; Soft-assist observe unchanged.
 """
 from __future__ import annotations
@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "repro/sleeve-tilt-dual-paper-observe/month_end"
 BASE_NAV = ROOT / "repro/sleeve-tilt-dual-paper-observe/outputs/live_stack_daily_nav.csv"
 CHAL_NAV = (
-    ROOT / "repro/sleeve-tilt-dual-paper-observe/outputs/sleeve_below_ma60_a01_daily_nav.csv"
+    ROOT / "repro/sleeve-tilt-dual-paper-observe/outputs/sleeve_rsi14_lt30_a0225_daily_nav.csv"
 )
 COMPARE_NAV = ROOT / "repro/sleeve-tilt-dual-paper-observe/outputs/dual_paper_nav_compare.csv"
 OPS = ROOT / "research/ops"
