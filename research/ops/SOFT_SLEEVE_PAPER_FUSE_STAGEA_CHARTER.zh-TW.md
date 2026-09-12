@@ -1,7 +1,7 @@
 # Soft × Sleeve 紙上合體 Stage A — 研究憲章（僅紙上）
 
 日期：2026-09-12  
-狀態：**PAPER STAGE A CHARTER OPEN** · 篩選**未跑**（等你明確說開始）  
+狀態：**PAPER STAGE A DONE** · 判決 **`FUSE_PROMOTE_SHAPED_BEATS_BOTH`**  
 雙 observe **KEEP**（獨立）：Soft `…__SELL_a05` ∥ Sleeve `RSI14_a0225`  
 月結 Gate **H**：操作路徑**禁止自動融合**。
 
@@ -19,6 +19,6 @@
 
 ## 標籤
 
-`SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER_2026-09-12__PAPER_OPEN__SCREEN_NOT_RUN`
+`SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER_2026-09-12__FUSE_PROMOTE_SHAPED_BEATS_BOTH`
 
 全文：`SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER.md`
