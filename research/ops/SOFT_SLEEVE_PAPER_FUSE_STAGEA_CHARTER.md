@@ -78,3 +78,7 @@ Even `FUSE_PROMOTE_SHAPED_BEATS_BOTH` does **not** open ops fuse, observe swap, 
 ## Label
 
 `SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER_2026-09-12__FUSE_PROMOTE_SHAPED_BEATS_BOTH`
+
+## Follow-on (2026-09-12)
+
+Dedicated paper-observe ballot **EXECUTED OPEN** for `FUSE_ADDITIVE` (no live): `FUSE_ADDITIVE_OBSERVE_BALLOT_EXECUTED_OPEN.md`. Soft∥Sleeve ops auto-fuse remains **FORBIDDEN**; Soft/Sleeve independent observes **KEEP**.

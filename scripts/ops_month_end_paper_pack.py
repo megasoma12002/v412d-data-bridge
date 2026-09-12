@@ -59,6 +59,10 @@ STEPS_MONITOR = [
         ["python3", "scripts/e16_sleeve_tilt_month_end_monitor.py"],
     ),
     (
+        "fuse_additive_month_end",
+        ["python3", "scripts/e16_fuse_additive_month_end_monitor.py"],
+    ),
+    (
         "soft_sleeve_observe_overlap",
         ["python3", "scripts/e16_soft_sleeve_observe_overlap.py"],
     ),
@@ -100,6 +104,10 @@ STEPS_REFRESH = [
     (
         "sleeve_tilt_dual_paper_ledgers",
         ["python3", "scripts/e16_sleeve_tilt_dual_paper_ledgers.py"],
+    ),
+    (
+        "fuse_additive_dual_paper_ledgers",
+        ["python3", "scripts/e16_fuse_additive_dual_paper_ledgers.py"],
     ),
 ]
 
@@ -179,7 +187,7 @@ def main() -> int:
             "Live stack: Soft-Frozen FINBAND + KD_OPT (E45 A05 stitch rolled back DROP_E45_A05). "
             "FIN50 remains NOT_READY_SEALED_CAGR; L4 / BLEND_025 cutover still human-PR gated. "
             "Paper observe sleeves (E45 FULL/A25/A05/FIN_A10/C35, FIN within-sleeve quartet, "
-            "Soft-assist SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05, Sleeve-tilt SLEEVE_RSI14_LT30_a0225) "
+            "Soft-assist SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05, Sleeve-tilt SLEEVE_RSI14_LT30_a0225, FUSE_ADDITIVE) "
             "remain paper monitors beside live — no auto-combo, no live wire."
         ),
     }
