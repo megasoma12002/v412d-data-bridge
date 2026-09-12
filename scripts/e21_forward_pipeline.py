@@ -140,6 +140,11 @@ def main():
     ap.add_argument("--capital", type=float, default=CAPITAL)
     ap.add_argument("--dividends", default=str(DIV_PATH))
     ap.add_argument(
+        "--no-div-amount-repair",
+        action="store_true",
+        help="Do not auto-refetch/patch dirty dividend amount cells (still fail-closed).",
+    )
+    ap.add_argument(
         "--e22-version",
         default=E22_BOOKS_VERSION,
         choices=[e22div.E22_V2, e22div.E22_V2S, e22div.E22_V2S_CIL, e22div.E22_V2S_TW],
@@ -337,7 +342,18 @@ def main():
         )
 
     # E22 formal books on today's ex-date (forward-only; idempotent via applied keys).
-    div_events = e22div.load_dividend_events(a.dividends, require_exists=True)
+    # Live: fail-closed amounts; if dirty cells exist, repair once via refetch then reload.
+    # Escape: --no-div-amount-repair (still fail-closed). Soft-Frozen / books unchanged.
+    if getattr(a, "no_div_amount_repair", False):
+        div_events = e22div.load_dividend_events(
+            a.dividends, require_exists=True, fail_closed_amounts=True
+        )
+    else:
+        from e22_dividend_amount_repair import load_dividend_events_with_repair
+
+        div_events = load_dividend_events_with_repair(
+            a.dividends, require_exists=True, network=True
+        )
     skip = set(state.get("e22_applied_keys") or [])
     div_path = sdir / "dividends_applied.csv"
     if div_path.exists():
