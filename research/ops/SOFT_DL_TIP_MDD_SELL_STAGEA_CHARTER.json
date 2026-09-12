@@ -1,0 +1,31 @@
+{
+  "label": "SOFT_DL_TIP_MDD_SELL_STAGEA_CHARTER_2026-09-12__BEATS_LIVE_NO_OBSERVE_LIFT",
+  "status": "PAPER_DONE",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "observe_swap": false,
+  "parent_lock": "RESEARCH_POSTURE_LOCK_RULEPATH_FIRST_DL_NEW_MECH",
+  "script": "scripts/e16_soft_dl_tip_mdd_sell_stagea_screen.py",
+  "new_axes": [
+    "label_tip_path_mdd_giveback",
+    "role_soft_sell"
+  ],
+  "not_reopened": [
+    "soft_buy_mlp_deepen",
+    "t2_soft_buy_boost",
+    "t3_fwd_lt0_only"
+  ],
+  "observe_id": "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+  "sleeve_observe_id": "SLEEVE_RSI14_LT30_a0225",
+  "books": [
+    "LIVE_KD_OPT",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10",
+    "DL_T3_SELL_DOWN_a05",
+    "DL_TIPMDD_SELL_CLF_a05",
+    "DL_TIPMDD_SELL_REG_a05",
+    "DL_TIPMDD_SELL_CLF_a025",
+    "DL_TIPMDD_SELL_CLF_a05__RSI_GATE"
+  ],
+  "verdict": "BEATS_LIVE_NO_OBSERVE_LIFT"
+}
