@@ -1,0 +1,27 @@
+{
+  "label": "RESEARCH_POSTURE_LOCK_2026-09-12__RULEPATH_FIRST__DL_NEW_MECH_ONLY",
+  "status": "LOCKED",
+  "date": "2026-09-12",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "priority_observe": {
+    "soft_assist": "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "sleeve_tilt": "SLEEVE_RSI14_LT30_a0225"
+  },
+  "dl": {
+    "same_mlp_soft_buy_deepen": "PARKED",
+    "t2_soft_buy_boost_families": "DONE_NO_LIFT_DO_NOT_REOPEN_AS_NEXT_STEP",
+    "reopen_requires": [
+      "new_mechanism",
+      "new_label_or_objective",
+      "new_role"
+    ],
+    "example_directions": [
+      "tip_mdd",
+      "giveback",
+      "sell_side",
+      "gate_or_scale"
+    ]
+  },
+  "human_quote_zh": "新機制／新標籤／新角色（例如明確學 tip-MDD／giveback、或賣邊／閘門），而不是同款 Soft-buy 再加深。規則路徑（已 OPEN 的 SELL_a05 ∥ RSI14）仍是現階段優先觀察對象"
+}
