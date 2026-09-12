@@ -2,11 +2,12 @@
 """Sleeve-tilt dual-paper ledgers — OPERATING OBSERVE (paper only).
 
 Books (500M / board-lot 1000):
-  BASE  LIVE_STACK          Soft-Frozen + KD_OPT + TEL_EQUAL
-  CHAL  SLEEVE_BELOW_MA60_a01  same within-sleeve + Soft-Frozen router MA60 tilt
+  BASE  LIVE_STACK              Soft-Frozen + KD_OPT + TEL_EQUAL
+  CHAL  SLEEVE_RSI14_LT30_a0225 same within-sleeve + Soft-Frozen router RSI14 tilt
 
-Human OPEN: OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01
-Soft-Frozen clips KEEP · live wire false · Soft-assist observe UNCHANGED
+Human OPEN (2026-09-12 rule-path): OPEN Sleeve-tilt observe: SLEEVE_RSI14_LT30_a0225
+Prior seed SLEEVE_BELOW_MA60_a01 superseded (paper archive).
+Soft-Frozen clips KEEP · live wire false · Soft-assist observe independent (no fuse)
 """
 from __future__ import annotations
 
@@ -29,6 +30,7 @@ from sleeve_tilt_helpers import (
     CHAMPION_ID,
     HUMAN_OPEN,
     LIVE_KD,
+    PRIOR_OBSERVE_ID,
     SIGNAL_SHORT,
     build_champion_target,
 )
@@ -122,7 +124,7 @@ def main() -> int:
     print(f"{CHAMPION_ID} ...", flush=True)
     chal = run_book(market, target_chal, regime, dividends, scores=kd_scores, buy_ok=kd_ok)
     chal["nav"].to_csv(
-        OUT / "outputs" / "sleeve_below_ma60_a01_daily_nav.csv", index=False
+        OUT / "outputs" / "sleeve_rsi14_lt30_a0225_daily_nav.csv", index=False
     )
 
     joined = (
@@ -148,8 +150,9 @@ def main() -> int:
         "status": STATUS,
         "live_wire": False,
         "soft_frozen_clips_unchanged": True,
-        "soft_assist_observe": "UNCHANGED",
+        "soft_assist_observe": "INDEPENDENT_NO_FUSE",
         "human_open": HUMAN_OPEN,
+        "prior_observe_id": PRIOR_OBSERVE_ID,
         "books": [BASE_ID, CHAMPION_ID],
         "capital": CAPITAL,
         "lot_size": LOT,
@@ -165,12 +168,12 @@ def main() -> int:
         "windows": {BASE_ID: win_base, CHAMPION_ID: win_chal},
         "fills": {BASE_ID: base["n_fills"], CHAMPION_ID: chal["n_fills"]},
         "default_status": "KEEP_OBSERVE",
-        "ballot": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_BALLOT_EXECUTED_OPEN_OBSERVE.md",
+        "ballot": "research/ops/SLEEVE_RSI14_A0225_OBSERVE_BALLOT_EXECUTED_OPEN.md",
         "observe_open": "research/ops/SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md",
         "posture": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md",
         "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md",
         "next_human": [
-            "Month-end monitor on LIVE_STACK ∥ SLEEVE_BELOW_MA60_a01",
+            "Month-end monitor on LIVE_STACK ∥ SLEEVE_RSI14_LT30_a0225",
             "Default KEEP OBSERVE; live cutover needs dedicated ACCEPT",
         ],
     }

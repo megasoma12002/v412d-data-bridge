@@ -6,7 +6,7 @@ Soft-Frozen **clips KEEP** · live **`KD_OPT` / `TEL_EQUAL` HOLD** · Soft-assis
 
 ## Binding
 
-1. Maintain dual-paper `LIVE_STACK` ∥ `SLEEVE_BELOW_MA60_a01`.  
+1. Maintain dual-paper `LIVE_STACK` ∥ `SLEEVE_RSI14_LT30_a0225`.  
 2. Month-end monitor via pack (`sleeve_tilt_month_end`).  
 3. **No live Sleeve-tilt** without dedicated cutover ACCEPT.  
 4. Soft-Frozen clips / KD / TEL / Soft-assist observe unchanged from this posture.

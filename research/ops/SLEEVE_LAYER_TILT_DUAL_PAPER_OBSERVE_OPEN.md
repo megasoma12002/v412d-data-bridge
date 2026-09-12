@@ -2,15 +2,17 @@
 
 Date: 2026-09-10  
 Status: **OPERATING OBSERVE** (paper only)  
-Human: **`OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01`**  
+Human: **`OPEN Sleeve-tilt observe: SLEEVE_RSI14_LT30_a0225`**  
 Soft-Frozen clips live **KEEP** · live wire **false** · Soft-assist observe **UNCHANGED**
+
+Prior seed `SLEEVE_BELOW_MA60_a01` superseded 2026-09-12 (rule-path OPEN).
 
 ## Books
 
 | Book | Soft-Frozen / within-sleeve |
 |---|---|
 | `LIVE_STACK` | Soft-Frozen FINBAND + `KD_OPT` + `TEL_EQUAL` |
-| `SLEEVE_BELOW_MA60_a01` | Same within-sleeve + Soft-Frozen router `score + 0.10 · 1{sleeve NAV < MA60}` → clip/blend |
+| `SLEEVE_RSI14_LT30_a0225` | Same within-sleeve + Soft-Frozen router `score + 0.225 · 1{sleeve RSI14 < 30}` → clip/blend |
 
 ## Why these two
 
