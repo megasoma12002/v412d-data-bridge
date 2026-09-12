@@ -1,0 +1,29 @@
+{
+  "label": "SOFT_SLEEVE_BORROW_PROMOTE_CHARTER_2026-09-12__HAS_PROMOTE_SHAPED_CANDIDATE",
+  "status": "PAPER_SCREEN_DONE",
+  "overall_verdict": "HAS_PROMOTE_SHAPED_CANDIDATE",
+  "soft_verdict": "PROMOTE_SHAPED_BEATS_OBSERVE",
+  "sleeve_verdict": "MDD_CLEAR_BEATS_LIVE",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "asof": "2026-09-11",
+  "screen": "research/ops/SOFT_SLEEVE_BORROW_PROMOTE_SCREEN.md",
+  "script": "scripts/e16_soft_sleeve_borrow_promote_screen.py",
+  "soft_observe_keep": "SOFT_CHAMP_PLUS_K9_LT30_a10",
+  "sleeve_observe_keep": "SLEEVE_BELOW_MA60_a01",
+  "soft_promote_shaped_ids": [
+    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "SOFT_CHAMP_PLUS_K9_LT30_a15"
+  ],
+  "sleeve_promote_shaped_ids": [
+    "SLEEVE_RSI14_LT30_a02"
+  ],
+  "promote_shaped_def": "tip_ytd_1y_PASS && tip_mdd_ytd_1y_not_worse && heldout_score>0",
+  "non_actions": [
+    "No Soft-assist observe swap from screen alone",
+    "No Sleeve-tilt observe swap from screen alone",
+    "No Soft×Sleeve auto-combo",
+    "No live Soft-assist / Sleeve-tilt / Soft-Frozen / KD / TEL / E45 wire",
+    "No hard-AND reopen"
+  ]
+}
