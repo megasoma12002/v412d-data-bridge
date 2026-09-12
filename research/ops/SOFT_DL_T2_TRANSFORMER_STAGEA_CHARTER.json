@@ -1,0 +1,33 @@
+{
+  "label": "SOFT_DL_T2_TRANSFORMER_STAGEA_CHARTER_2026-09-12__PAPER_OPEN",
+  "status": "PAPER_OPEN",
+  "live_wire": false,
+  "soft_x_sleeve_fuse": false,
+  "script": "scripts/e16_soft_dl_t2_transformer_stagea_screen.py",
+  "parent": [
+    "SOFT_DL_T2_TORCH_STAGEA",
+    "SOFT_DL_T2_SEQ_STAGEA"
+  ],
+  "track": "T2_torch_tiny_causal_transformer",
+  "torch_required": true,
+  "torch_device": "cpu",
+  "features": "causal_logret_seq_L10_L20",
+  "models": [
+    "tiny_causal_transformer_d8_h2_l1"
+  ],
+  "books": [
+    "LIVE_KD_OPT",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10",
+    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "DL_T2_TORCH_XFMR10_a05",
+    "DL_T2_TORCH_XFMR20_a05",
+    "DL_T2_TORCH_XFMR10_a025",
+    "DL_T2_TORCH_XFMR10_a05__SELL_a05"
+  ],
+  "prior_parked": [
+    "SOFT_DL_MLP_STAGEA",
+    "SOFT_DL_DEEPER_STAGEA",
+    "SOFT_DL_T2_SEQ_STAGEA",
+    "SOFT_DL_T2_TORCH_STAGEA"
+  ]
+}
