@@ -1,7 +1,7 @@
 # Soft × Sleeve Paper Fuse — Stage A Research Charter (paper only)
 
 Date: 2026-09-12  
-Status: **PAPER STAGE A CHARTER OPEN** · screen **NOT RUN** until explicit human go  
+Status: **PAPER STAGE A DONE** · verdict **`FUSE_PROMOTE_SHAPED_BEATS_BOTH`**  
 Parent lock: `RESEARCH_POSTURE_LOCK_RULEPATH_FIRST_DL_NEW_MECH`  
 Operating observes **KEEP** (independent): Soft `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` ∥ Sleeve `SLEEVE_RSI14_LT30_a0225`  
 Month-end Gate **H** + External Borrow Notes **4–5**: auto-fuse remains **FORBIDDEN** on the operating path.
@@ -77,4 +77,4 @@ Even `FUSE_PROMOTE_SHAPED_BEATS_BOTH` does **not** open ops fuse, observe swap, 
 
 ## Label
 
-`SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER_2026-09-12__PAPER_OPEN__SCREEN_NOT_RUN`
+`SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER_2026-09-12__FUSE_PROMOTE_SHAPED_BEATS_BOTH`

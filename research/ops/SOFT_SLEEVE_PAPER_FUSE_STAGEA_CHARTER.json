@@ -1,7 +1,7 @@
 {
-  "label": "SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER_2026-09-12__PAPER_OPEN__SCREEN_NOT_RUN",
-  "status": "PAPER_CHARTER_OPEN",
-  "screen_run": false,
+  "label": "SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER_2026-09-12__FUSE_PROMOTE_SHAPED_BEATS_BOTH",
+  "status": "PAPER_SCREEN_DONE",
+  "screen_run": true,
   "date": "2026-09-12",
   "live_wire": false,
   "auto_fuse_ops_path": false,
@@ -41,5 +41,6 @@
     "research/ops/MONTH_END_PROMOTE_GATE_CHECKLIST.md",
     "research/ops/RESEARCH_POSTURE_LOCK_RULEPATH_FIRST_DL_NEW_MECH.md",
     "research/ops/EXTERNAL_BORROW_NOTES.md"
-  ]
+  ],
+  "verdict": "FUSE_PROMOTE_SHAPED_BEATS_BOTH"
 }
