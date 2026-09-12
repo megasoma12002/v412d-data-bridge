@@ -65,6 +65,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Dry-powder drawdown sleeve | **STOP** (2026-09-10) | Stage A 37 books · verdict **`NO_LIFT`** · 0 tip-clean / 0 coexist · cash drag · live Soft-Frozen/KD/TEL **KEEP** · `DRY_POWDER_DRAWDOWN_SCREEN.md` |
 | Sleeve-layer tilt charter | **EXECUTED OPEN OBSERVE** (2026-09-10) | Human `OPEN Sleeve-tilt observe: SLEEVE_BELOW_MA60_a01` · dual-paper OPERATING · cutover **BLOCKED** · Soft-assist independent · `SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md` |
 | Sleeve-layer tilt dual-paper observe | **OPERATING** (2026-09-10) | `LIVE_STACK` ∥ `SLEEVE_BELOW_MA60_a01` · month-end wired · no live wire · `SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md` |
+| ETF ex-calendar Stage A (0050 paper) | **STOP** (2026-09-11) | Stage A 13 books · verdict **`NEAR_NO_BEAT`** · 0 beat-live / 0 coexist / 0 beat-BH · tip-clean vs live 5 (=BH overlay) · live Soft-Frozen/KD/TEL **KEEP** · `ETF_EX_CALENDAR_SCREEN.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
@@ -99,6 +100,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_
 | Soft-assist / sleeve tilt promote | Soft-assist **OPEN OBSERVE** on `SOFT_CHAMP_PLUS_K9_LT30_a10` (**#195**) · sleeve tilt **OPEN OBSERVE EXECUTED** (`SLEEVE_BELOW_MA60_a01`, **#193**) · both cutovers **BLOCKED** · no auto-combo · awaiting next month-end · `SOFT_ASSIST_K9_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Dry-powder drawdown sleeve | Stage A **STOP** (`NO_LIFT`) · live KEEP · re-open only with human-expanded grid · `DRY_POWDER_DRAWDOWN_SCREEN.md` |
 | Sleeve-layer tilt | **OPEN OBSERVE EXECUTED** · dual-paper OPERATING · Soft-Frozen clips KEEP · cutover BLOCKED until ACCEPT · `SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md` |
+| ETF ex-calendar (0050) | Stage A **STOP** (`NEAR_NO_BEAT`) · live KEEP · re-open only with human-expanded grid · `ETF_EX_CALENDAR_SCREEN.md` |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
