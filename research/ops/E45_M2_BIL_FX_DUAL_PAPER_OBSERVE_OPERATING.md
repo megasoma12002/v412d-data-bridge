@@ -12,14 +12,14 @@
 ## Held-out vs BASE
 
 - MDD improve pp: 2.5296553863856097
-- CAGR giveback pp: 2.055310081167483
-- Score: 1.5020003458018683
+- CAGR giveback pp: 2.07278508224098
+- Score: 1.4932628452651198
 
 ## Sealed vs BASE
 
 - MDD improve pp: 1.1999153776515725
-- CAGR giveback pp: 2.9838121441228216
-- Score: -0.29199069440983827
+- CAGR giveback pp: 3.026408310199935
+- Score: -0.313288777448395
 
 ## Reproduce
 

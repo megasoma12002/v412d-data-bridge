@@ -1,26 +1,26 @@
 # Soft-assist vs Sleeve-tilt Observe Overlap (paper only)
 
-Generated: `2026-09-11T16:44:29.574059+00:00` · asof **2026-09-10**
-Soft `SOFT_CHAMP_PLUS_K9_LT30_a10` ∥ Sleeve `SLEEVE_BELOW_MA60_a01` · **no combo · no live wire**
+Generated: `2026-09-12T13:42:13.814092+00:00` · asof **2026-09-11**
+Soft `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` ∥ Sleeve `SLEEVE_RSI14_LT30_a0225` · **no combo · no live wire**
 
 ## Held-out (2019+) snapshot
 
-- Corr(excess): **-0.025**
-- Same-sign frac: **55.0%**
-- Both-underperform frac: **26.5%**
-- Joint DD day frac: **33.1%**
+- Corr(excess): **0.112**
+- Same-sign frac: **48.1%**
+- Both-underperform frac: **25.1%**
+- Joint DD day frac: **46.9%**
 - Mean joint DD depth: **0.1%**
-- Report flags: high_overlap=`False` · high_joint_dd=`False`
+- Report flags: high_overlap=`False` · high_joint_dd=`True`
 
 ## Windows
 
 | Window | N | Corr | Same-sign | Both− | Joint DD days | Mean joint DD | Soft rel MDD | Sleeve rel MDD |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| `full` | 3354 | -0.010 | 50.5% | 24.2% | 22.1% | 0.1% | -1.2% | -0.2% |
-| `heldout_2019_plus` | 1860 | -0.025 | 55.0% | 26.5% | 33.1% | 0.1% | -0.4% | -0.2% |
-| `sealed_2023_plus` | 883 | -0.091 | 60.1% | 28.9% | 18.6% | 0.1% | -0.4% | -0.2% |
-| `ytd` | 166 | -0.841 | 33.7% | 13.9% | 27.2% | 0.1% | -0.3% | -0.2% |
-| `trailing_1y` | 242 | -0.715 | 43.0% | 19.8% | 27.2% | 0.1% | -0.3% | -0.2% |
+| `full` | 3355 | 0.064 | 51.4% | 26.1% | 31.4% | 0.2% | -1.2% | -0.3% |
+| `heldout_2019_plus` | 1861 | 0.112 | 48.1% | 25.1% | 46.9% | 0.1% | -0.4% | -0.3% |
+| `sealed_2023_plus` | 884 | 0.267 | 50.2% | 26.1% | 63.0% | 0.1% | -0.4% | -0.2% |
+| `ytd` | 167 | 0.907 | 81.4% | 44.3% | 0.0% | 0.0% | -0.4% | -0.0% |
+| `trailing_1y` | 242 | 0.833 | 69.0% | 38.0% | 0.0% | 0.0% | -0.4% | -0.1% |
 
 ## Reading
 

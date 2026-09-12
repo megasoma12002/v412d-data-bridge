@@ -1,6 +1,6 @@
 # E22 Data-Quality KPI
 
-Generated: `2026-09-10T10:15:00.920540+00:00`
+Generated: `2026-09-12T13:42:14.444723+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen unchanged; E22_v2s remains formal books.
 
 - Events: **150** (cash rows 144, stock rows 52)

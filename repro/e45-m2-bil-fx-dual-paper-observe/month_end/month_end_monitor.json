@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-09-10T10:14:59.598829+00:00",
-  "asof": "2026-09-09",
+  "generated_at_utc": "2026-09-12T13:42:12.317695+00:00",
+  "asof": "2026-09-11",
   "status": "OPERATING_OBSERVE",
   "operating_observe": false,
   "locked_id": "M2_RELOC_BIL_FX_C35",
@@ -10,86 +10,87 @@
   "alerts": [
     "ALERT: M2_RELOC_BIL_FX_C35 ytd CAGR giveback > 3.0 pp (paper)",
     "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk",
-    "ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper)"
+    "ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper)",
+    "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no stitch talk"
   ],
   "windows": [
     {
       "window": "mtd",
       "start": "2026-09-01",
-      "end": "2026-09-09",
-      "n_days": 7,
-      "base_cagr": 5.682133978626353,
+      "end": "2026-09-11",
+      "n_days": 9,
+      "base_cagr": 8.69284643365904,
       "base_mdd": -0.013498348489398238,
-      "m2_reloc_bil_fx_c35_cagr": 5.363076229187882,
+      "m2_reloc_bil_fx_c35_cagr": 8.112752489218687,
       "m2_reloc_bil_fx_c35_mdd": -0.012188823733033871,
       "mdd_improve_pp": 0.13095247563643664,
-      "cagr_giveback_pp": 31.90577494384703,
-      "rel_nav_end": 0.9988357865524086
+      "cagr_giveback_pp": 58.00939444403532,
+      "rel_nav_end": 0.998042764636877
     },
     {
       "window": "ytd",
       "start": "2026-01-01",
-      "end": "2026-09-09",
-      "n_days": 165,
-      "base_cagr": 0.6833691218010849,
+      "end": "2026-09-11",
+      "n_days": 167,
+      "base_cagr": 0.7425205801455577,
       "base_mdd": -0.13969427823982672,
-      "m2_reloc_bil_fx_c35_cagr": 0.6035782645710741,
+      "m2_reloc_bil_fx_c35_cagr": 0.6588959930696991,
       "m2_reloc_bil_fx_c35_mdd": -0.12769512446331122,
       "mdd_improve_pp": 1.1999153776515503,
-      "cagr_giveback_pp": 7.979085723001078,
-      "rel_nav_end": 0.9688918112929836
+      "cagr_giveback_pp": 8.362458707585851,
+      "rel_nav_end": 0.9681225632839725
     },
     {
       "window": "trailing_1y",
-      "start": "2025-09-09",
-      "end": "2026-09-09",
+      "start": "2025-09-11",
+      "end": "2026-09-11",
       "n_days": 242,
-      "base_cagr": 0.5316946179183777,
+      "base_cagr": 0.5643493839644675,
       "base_mdd": -0.13969427823982683,
-      "m2_reloc_bil_fx_c35_cagr": 0.482499372566205,
+      "m2_reloc_bil_fx_c35_cagr": 0.5140394413540323,
       "m2_reloc_bil_fx_c35_mdd": -0.12769512446331122,
       "mdd_improve_pp": 1.1999153776515614,
-      "cagr_giveback_pp": 4.919524535217268,
-      "rel_nav_end": 0.9692620264357095
+      "cagr_giveback_pp": 5.03099426104352,
+      "rel_nav_end": 0.9692216904855073
     },
     {
       "window": "sealed_2023_plus",
       "start": "2023-01-01",
-      "end": "2026-09-09",
-      "n_days": 882,
-      "base_cagr": 0.2503023958208852,
+      "end": "2026-09-11",
+      "n_days": 884,
+      "base_cagr": 0.25929443008444,
       "base_mdd": -0.13969427823982683,
-      "m2_reloc_bil_fx_c35_cagr": 0.220464274379657,
+      "m2_reloc_bil_fx_c35_cagr": 0.22903034698244062,
       "m2_reloc_bil_fx_c35_mdd": -0.12769512446331122,
       "mdd_improve_pp": 1.1999153776515614,
-      "cagr_giveback_pp": 2.9838121441228216,
-      "rel_nav_end": 0.9190235796939381
+      "cagr_giveback_pp": 3.026408310199935,
+      "rel_nav_end": 0.9182939243798218
     },
     {
       "window": "heldout_2019_plus",
       "start": "2019-01-01",
-      "end": "2026-09-09",
-      "n_days": 1859,
-      "base_cagr": 0.1823895344212667,
+      "end": "2026-09-11",
+      "n_days": 1861,
+      "base_cagr": 0.18649011567030072,
       "base_mdd": -0.22386722284139682,
-      "m2_reloc_bil_fx_c35_cagr": 0.16183643360959188,
+      "m2_reloc_bil_fx_c35_cagr": 0.16576226484789092,
       "m2_reloc_bil_fx_c35_mdd": -0.19857066897754072,
       "mdd_improve_pp": 2.5296553863856097,
-      "cagr_giveback_pp": 2.055310081167483,
-      "rel_nav_end": 0.8787192995394346
+      "cagr_giveback_pp": 2.07278508224098,
+      "rel_nav_end": 0.8780216436569392
     },
     {
       "window": "full",
       "start": "2012-12-04",
-      "end": "2026-09-09",
-      "n_days": 3354,
-      "base_cagr": 0.13850709158384023,
+      "end": "2026-09-11",
+      "n_days": 3356,
+      "base_cagr": 0.14072009651362993,
       "base_mdd": -0.22386722284139682,
-      "m2_reloc_bil_fx_c35_cagr": 0.12319130430535918,
+      "m2_reloc_bil_fx_c35_cagr": 0.12531648826843433,
       "m2_reloc_bil_fx_c35_mdd": -0.19857066897754083,
       "mdd_improve_pp": 2.5296553863855986,
-      "cagr_giveback_pp": 1.5315787278481041,
-      "rel_nav_end": 0.8350964184308771
+      "cagr_giveback_pp": 1.54036082451956,
+      "rel_nav_end": 0.8344333967707468
     }
   ],
   "gates": {

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-10T10:15:28.546180+00:00",
+  "generated_at_utc": "2026-09-12T13:42:41.989263+00:00",
   "label": "OPS_MONTH_END_PAPER_PACK",
   "live_wire": false,
   "soft_frozen_clip": [
@@ -63,6 +63,16 @@
       "returncode": 0
     },
     {
+      "name": "soft_assist_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "sleeve_tilt_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
       "name": "l4_month_end",
       "ok": true,
       "returncode": 0
@@ -113,6 +123,21 @@
       "returncode": 0
     },
     {
+      "name": "soft_assist_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "sleeve_tilt_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "soft_sleeve_observe_overlap",
+      "ok": true,
+      "returncode": 0
+    },
+    {
       "name": "track_a_s9a1",
       "ok": true,
       "returncode": 0
@@ -158,5 +183,15 @@
       "returncode": 0
     }
   ],
-  "cutover_note": "Paper/ops cadence only. Soft-Frozen live clip [0.60, 0.90] (FINBAND). Live stack: Soft-Frozen FINBAND + KD_OPT (E45 A05 stitch rolled back DROP_E45_A05). FIN50 remains NOT_READY_SEALED_CAGR; L4 / BLEND_025 cutover still human-PR gated. Paper observe sleeves (E45 FULL/A25/A05/FIN_A10/C35, FIN within-sleeve quartet) remain paper monitors beside live."
+  "cutover_note": "Paper/ops cadence only. Soft-Frozen live clip [0.6, 0.9] (FINBAND). Live stack: Soft-Frozen FINBAND + KD_OPT (E45 A05 stitch rolled back). Paper observe Soft-assist SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05, Sleeve-tilt SLEEVE_RSI14_LT30_a0225 remain paper monitors beside live \u2014 no auto-combo, no live wire. Month-end Soft/Sleeve verdict KEEP_OBSERVE (asof 2026-09-11).",
+  "observe_ids": {
+    "soft_assist": "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "sleeve_tilt": "SLEEVE_RSI14_LT30_a0225"
+  },
+  "soft_sleeve_month_verdict": {
+    "asof": "2026-09-11",
+    "soft": "KEEP_OBSERVE",
+    "sleeve": "KEEP_OBSERVE",
+    "combo": false
+  }
 }

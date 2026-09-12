@@ -1,6 +1,6 @@
 # L4_DD_PATH_08_50 Promote Proposal — Dual Paper Ledgers
 
-Generated: `2026-09-10T10:14:32.528933+00:00`
+Generated: `2026-09-12T13:41:40.052694+00:00`
 Status: **PROPOSAL ONLY** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`).
 
 ## Why this exists
@@ -19,19 +19,19 @@ without flipping live clips.
 
 | Book | Window | CAGR | MDD | Fin mean | Fin max | DD-path on | Exact T+1 |
 |---|---|---:|---:|---:|---:|---:|---|
-| BASE_E16 | full | 13.85% | -22.39% | 79.8% | 89.4% | — | True |
+| BASE_E16 | full | 14.07% | -22.39% | 79.8% | 89.4% | — | True |
 | BASE_E16 | oof_2011_2018 | 8.98% | -17.57% | 80.3% | 88.8% | — | True |
 | BASE_E16 | validation_2019_2022 | 12.25% | -22.39% | 79.7% | 89.4% | — | True |
-| BASE_E16 | sealed_2023_plus | 25.02% | -13.95% | 79.1% | 87.9% | — | True |
-| BASE_E16 | heldout_2019_plus | 18.24% | -22.39% | 79.4% | 89.4% | — | True |
-| L4_DD_PATH_08_50 | full | 13.17% | -20.76% | 74.2% | 89.4% | 26.3% | True |
+| BASE_E16 | sealed_2023_plus | 25.92% | -13.95% | 79.1% | 87.9% | — | True |
+| BASE_E16 | heldout_2019_plus | 18.65% | -22.39% | 79.4% | 89.4% | — | True |
+| L4_DD_PATH_08_50 | full | 13.38% | -20.76% | 74.2% | 89.4% | 26.3% | True |
 | L4_DD_PATH_08_50 | oof_2011_2018 | 9.63% | -15.12% | 74.6% | 88.8% | 25.0% | True |
 | L4_DD_PATH_08_50 | validation_2019_2022 | 11.12% | -20.76% | 73.8% | 89.4% | 31.1% | True |
-| L4_DD_PATH_08_50 | sealed_2023_plus | 22.40% | -12.85% | 73.8% | 87.9% | 23.6% | True |
-| L4_DD_PATH_08_50 | heldout_2019_plus | 16.43% | -20.76% | 73.8% | 89.4% | 27.5% | True |
+| L4_DD_PATH_08_50 | sealed_2023_plus | 23.27% | -12.85% | 73.8% | 87.9% | 23.5% | True |
+| L4_DD_PATH_08_50 | heldout_2019_plus | 16.83% | -20.76% | 73.8% | 89.4% | 27.5% | True |
 
 Validation vs BASE: MDD improve **1.63 pp**; CAGR giveback **1.14 pp**.
-Sealed vs BASE: MDD improve **1.10 pp**; CAGR giveback **2.61 pp**.
+Sealed vs BASE: MDD improve **1.10 pp**; CAGR giveback **2.65 pp**.
 
 ## Cutover checklist (future human PR only)
 

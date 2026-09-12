@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-10T10:15:28.500638+00:00",
+  "generated_at_utc": "2026-09-12T13:42:41.949443+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -148,7 +148,7 @@
       "severity": "INFO",
       "source": "live_paper_recon",
       "code": "THIN_LIVE_HISTORY",
-      "message": "overlap_n=13 (<60) \u2014 not decision-grade for cutover"
+      "message": "overlap_n=15 (<60) \u2014 not decision-grade for cutover"
     },
     {
       "severity": "INFO",

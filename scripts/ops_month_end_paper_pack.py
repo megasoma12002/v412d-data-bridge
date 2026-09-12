@@ -179,7 +179,7 @@ def main() -> int:
             "Live stack: Soft-Frozen FINBAND + KD_OPT (E45 A05 stitch rolled back DROP_E45_A05). "
             "FIN50 remains NOT_READY_SEALED_CAGR; L4 / BLEND_025 cutover still human-PR gated. "
             "Paper observe sleeves (E45 FULL/A25/A05/FIN_A10/C35, FIN within-sleeve quartet, "
-            "Soft-assist SOFT_CHAMP_PLUS_K9_LT30_a10, Sleeve-tilt SLEEVE_BELOW_MA60_a01) "
+            "Soft-assist SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05, Sleeve-tilt SLEEVE_RSI14_LT30_a0225) "
             "remain paper monitors beside live — no auto-combo, no live wire."
         ),
     }

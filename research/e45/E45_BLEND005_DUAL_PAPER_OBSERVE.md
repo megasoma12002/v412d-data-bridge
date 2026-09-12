@@ -1,6 +1,6 @@
 # E45 Blend-α=0.05 Dual-Paper Observe Sleeve
 
-Generated: `2026-09-10T10:14:44.375000+00:00`
+Generated: `2026-09-12T13:41:51.516028+00:00`
 Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`); live stitch **FORBIDDEN**.
 
 ## Locked paper books
@@ -14,19 +14,19 @@ Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Finan
 
 | Book | Window | CAGR | MDD | n_days | Exact T+1 |
 |---|---|---:|---:|---:|---|
-| BASE_E16_E18_E22_v2s | full | 13.85% | -22.39% | 3354 | True |
+| BASE_E16_E18_E22_v2s | full | 14.07% | -22.39% | 3356 | True |
 | BASE_E16_E18_E22_v2s | oof_2011_2018 | 8.98% | -17.57% | 1495 | True |
 | BASE_E16_E18_E22_v2s | validation_2019_2022 | 12.24% | -22.39% | 977 | True |
-| BASE_E16_E18_E22_v2s | sealed_2023_plus | 25.03% | -13.97% | 882 | True |
-| BASE_E16_E18_E22_v2s | heldout_2019_plus | 18.24% | -22.39% | 1859 | True |
-| BLEND_E45_A05 | full | 13.45% | -21.75% | 3354 | True |
+| BASE_E16_E18_E22_v2s | sealed_2023_plus | 25.93% | -13.97% | 884 | True |
+| BASE_E16_E18_E22_v2s | heldout_2019_plus | 18.65% | -22.39% | 1861 | True |
+| BLEND_E45_A05 | full | 13.67% | -21.75% | 3356 | True |
 | BLEND_E45_A05 | oof_2011_2018 | 9.08% | -17.49% | 1495 | True |
 | BLEND_E45_A05 | validation_2019_2022 | 11.72% | -21.75% | 977 | True |
-| BLEND_E45_A05 | sealed_2023_plus | 23.79% | -11.22% | 882 | True |
-| BLEND_E45_A05 | heldout_2019_plus | 17.39% | -21.75% | 1859 | True |
+| BLEND_E45_A05 | sealed_2023_plus | 24.64% | -11.22% | 884 | True |
+| BLEND_E45_A05 | heldout_2019_plus | 17.78% | -21.75% | 1861 | True |
 
-Held-out vs BASE: MDD improve **0.64 pp**; CAGR giveback **0.85 pp**.
-Sealed vs BASE: MDD improve **2.75 pp**; CAGR giveback **1.25 pp**.
+Held-out vs BASE: MDD improve **0.64 pp**; CAGR giveback **0.87 pp**.
+Sealed vs BASE: MDD improve **2.75 pp**; CAGR giveback **1.29 pp**.
 
 ## Ops checklist
 

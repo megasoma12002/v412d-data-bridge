@@ -1,6 +1,6 @@
 # DATA_SOURCE_PHASE_C_PROBES
 
-- as_of: `2026-09-10`
+- as_of: `2026-09-12`
 - overall: **PASS**
 - Soft-Frozen **KEEP**; no e21 rewrite; TAIEX Yahoo failover **opt-in only**
 

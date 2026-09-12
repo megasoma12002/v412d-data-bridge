@@ -1,23 +1,24 @@
 {
-  "label": "MONTH_END_PROMOTE_GATE_CHECKLIST_2026-09-11__SOFT_ASSIST_K9__SLEEVE_MA60__OVERLAP_COL__NO_LIVE",
-  "status": "DRAFTED_NOT_AUTHORIZED",
-  "date": "2026-09-11",
+  "label": "MONTH_END_PROMOTE_GATE_CHECKLIST_2026-09-12__SOFT_SELL_A05__SLEEVE_RSI14__KEEP_OBSERVE__NO_LIVE",
+  "status": "OPERATING_CHECKLIST",
+  "date": "2026-09-12",
+  "latest_pack_asof": "2026-09-11",
   "live_wire": false,
   "scope": [
-    "SOFT_ASSIST_K9",
-    "SLEEVE_TILT_MA60"
+    "SOFT_ASSIST_SELL_A05",
+    "SLEEVE_TILT_RSI14_A0225"
   ],
   "default_verdict": "KEEP_OBSERVE",
   "tracks": {
     "soft_assist": {
-      "challenger": "SOFT_CHAMP_PLUS_K9_LT30_a10",
+      "challenger": "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
       "base": "LIVE_KD_OPT",
       "monitor": "research/ops/SOFT_ASSIST_MONTH_END_MONITOR.md",
       "live_cutover_checklist": "research/ops/CUTOVER_CHECKLIST_SOFT_ASSIST.md",
       "live_cutover_status": "BLOCKED"
     },
     "sleeve_tilt": {
-      "challenger": "SLEEVE_BELOW_MA60_a01",
+      "challenger": "SLEEVE_RSI14_LT30_a0225",
       "base": "LIVE_STACK",
       "monitor": "research/ops/SLEEVE_LAYER_TILT_MONTH_END_MONITOR.md",
       "live_cutover_checklist": "research/ops/CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md",
@@ -48,33 +49,30 @@
     "paper CAGR/MDD as live claim badges"
   ],
   "operator": "python3 scripts/ops_month_end_paper_pack.py",
-  "seed_asof": "2026-09-10",
-  "seed_note": {
-    "soft_assist": "tip clean; heldout score ~+0.086; alerts=0 → KEEP_OBSERVE/WATCH",
-    "sleeve_tilt": "YTD/1y/sealed MDD ALERTs → KEEP_OBSERVE"
+  "latest_month_log": {
+    "asof": "2026-09-11",
+    "pack_generated_at_utc": "2026-09-12T13:42:41.989263+00:00",
+    "soft_A_I": "YES",
+    "soft_verdict": "KEEP_OBSERVE",
+    "soft_heldout_score": 0.10099208553496775,
+    "soft_alerts": [],
+    "sleeve_A_I": "YES",
+    "sleeve_verdict": "KEEP_OBSERVE",
+    "sleeve_heldout_score": 0.09872578377776442,
+    "sleeve_alerts": [],
+    "heldout_corr_excess": 0.112,
+    "heldout_same_sign_frac": 0.481,
+    "heldout_both_neg_frac": 0.251,
+    "heldout_joint_dd_day_frac": 0.469,
+    "high_joint_dd_report": true,
+    "combo": false,
+    "combo_note": "Gate H held; high_joint_dd argues against fuse, not for it",
+    "operator": "2026-09-12 pack"
   },
   "overlap_report": {
     "script": "scripts/e16_soft_sleeve_observe_overlap.py",
     "artifact": "research/ops/SOFT_SLEEVE_OBSERVE_OVERLAP.md",
-    "combo_authorized": false,
-    "seed_asof": "2026-09-10",
-    "seed_heldout": {
-      "corr_excess": -0.025,
-      "same_sign_frac": 0.55,
-      "both_neg_frac": 0.265,
-      "joint_dd_day_frac": 0.331,
-      "high_overlap_report": false,
-      "high_joint_dd_report": false
-    }
+    "combo_authorized": false
   },
-  "month_log_columns": [
-    "asof",
-    "soft_A_I",
-    "soft_verdict",
-    "sleeve_A_I",
-    "sleeve_verdict",
-    "heldout_corr_same_sign_bothneg_jointDD",
-    "combo",
-    "operator"
-  ]
+  "related_charter": "research/ops/SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER.md"
 }
