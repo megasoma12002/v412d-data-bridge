@@ -1,7 +1,7 @@
 # Soft-Assist DL T2 Tiny Causal Transformer Stage A — Research Charter (paper only)
 
 Date: 2026-09-12  
-Status: **PAPER STAGE A OPEN**  
+Status: **PAPER STAGE A DONE** · verdict **`RULE_PROMOTE_ONLY_NO_T2_XFMR_LIFT`**  
 Parent: `SOFT_DL_T2_TORCH_STAGEA` / `SOFT_DL_T2_SEQ_STAGEA` (TCN/LSTM + numpy toeholds = **no lift**)  
 Human lock: Soft `SELL_a05` ∥ Sleeve `RSI14_a0225` independent OPEN; same-MLP binary Soft-buy deepen **parked**; DL only via **new** charter.
 
@@ -53,4 +53,4 @@ Success vs Soft observe = promote-shaped **and** held > Soft observe.
 
 ## Label
 
-`SOFT_DL_T2_TRANSFORMER_STAGEA_CHARTER_2026-09-12__PAPER_OPEN`
+`SOFT_DL_T2_TRANSFORMER_STAGEA_CHARTER_2026-09-12__RULE_PROMOTE_ONLY_NO_T2_XFMR_LIFT`

@@ -1,7 +1,7 @@
 # Soft-Assist DL T2 極小 Causal Transformer Stage A — 研究憲章（僅 paper）
 
 日期：2026-09-12  
-狀態：**PAPER STAGE A OPEN**  
+狀態：**PAPER STAGE A DONE** · 判決 **`RULE_PROMOTE_ONLY_NO_T2_XFMR_LIFT`**  
 母憲章：`SOFT_DL_T2_TORCH_STAGEA`／`SOFT_DL_T2_SEQ_STAGEA`（TCN／LSTM + numpy 均 **no lift**）
 
 腳本：`scripts/e16_soft_dl_t2_transformer_stagea_screen.py`
@@ -18,4 +18,4 @@
 
 ## Label
 
-`SOFT_DL_T2_TRANSFORMER_STAGEA_CHARTER_2026-09-12__PAPER_OPEN`
+`SOFT_DL_T2_TRANSFORMER_STAGEA_CHARTER_2026-09-12__RULE_PROMOTE_ONLY_NO_T2_XFMR_LIFT`

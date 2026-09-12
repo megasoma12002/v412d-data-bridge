@@ -1,6 +1,6 @@
 {
-  "label": "SOFT_DL_T2_TRANSFORMER_STAGEA_CHARTER_2026-09-12__PAPER_OPEN",
-  "status": "PAPER_OPEN",
+  "label": "SOFT_DL_T2_TRANSFORMER_STAGEA_CHARTER_2026-09-12__RULE_PROMOTE_ONLY_NO_T2_XFMR_LIFT",
+  "status": "PAPER_DONE",
   "live_wire": false,
   "soft_x_sleeve_fuse": false,
   "script": "scripts/e16_soft_dl_t2_transformer_stagea_screen.py",
@@ -29,5 +29,6 @@
     "SOFT_DL_DEEPER_STAGEA",
     "SOFT_DL_T2_SEQ_STAGEA",
     "SOFT_DL_T2_TORCH_STAGEA"
-  ]
+  ],
+  "verdict": "RULE_PROMOTE_ONLY_NO_T2_XFMR_LIFT"
 }
