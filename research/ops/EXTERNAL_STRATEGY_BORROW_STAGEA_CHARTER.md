@@ -1,7 +1,7 @@
 # External Strategy Borrow Soft-Sell Stage A — Research Charter (paper only)
 
 Date: 2026-09-12  
-Status: **PAPER STAGE A OPEN**  
+Status: **PAPER STAGE A DONE** · verdict **`BEATS_LIVE_NO_OBSERVE_LIFT`**  
 Parent lock: `RESEARCH_POSTURE_LOCK_RULEPATH_FIRST_DL_NEW_MECH` · Soft observe **KEEP** `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` · Sleeve observe **KEEP** `SLEEVE_RSI14_LT30_a0225`
 
 Script: `scripts/e16_external_strategy_borrow_stagea_screen.py`  
@@ -52,4 +52,4 @@ Success vs Soft observe = promote-shaped **and** held > Soft observe.
 
 ## Label
 
-`EXTERNAL_STRATEGY_BORROW_STAGEA_CHARTER_2026-09-12__PAPER_OPEN`
+`EXTERNAL_STRATEGY_BORROW_STAGEA_CHARTER_2026-09-12__BEATS_LIVE_NO_OBSERVE_LIFT`

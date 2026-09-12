@@ -1,7 +1,7 @@
 # 外部策略借鏡 Soft 賣邊 Stage A — 研究憲章（僅 paper）
 
 日期：2026-09-12  
-狀態：**PAPER STAGE A OPEN**  
+狀態：**PAPER STAGE A DONE** · 判決 **`BEATS_LIVE_NO_OBSERVE_LIFT`**  
 母鎖定：規則路徑 Soft `SELL_a05` ∥ Sleeve `RSI14` 優先觀察；不接 live；不融合
 
 腳本：`scripts/e16_external_strategy_borrow_stagea_screen.py`
@@ -16,4 +16,4 @@
 
 ## Label
 
-`EXTERNAL_STRATEGY_BORROW_STAGEA_CHARTER_2026-09-12__PAPER_OPEN`
+`EXTERNAL_STRATEGY_BORROW_STAGEA_CHARTER_2026-09-12__BEATS_LIVE_NO_OBSERVE_LIFT`

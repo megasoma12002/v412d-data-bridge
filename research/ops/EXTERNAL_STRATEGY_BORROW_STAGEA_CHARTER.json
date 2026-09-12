@@ -1,6 +1,6 @@
 {
-  "label": "EXTERNAL_STRATEGY_BORROW_STAGEA_CHARTER_2026-09-12__PAPER_OPEN",
-  "status": "PAPER_OPEN",
+  "label": "EXTERNAL_STRATEGY_BORROW_STAGEA_CHARTER_2026-09-12__BEATS_LIVE_NO_OBSERVE_LIFT",
+  "status": "PAPER_DONE",
   "live_wire": false,
   "soft_x_sleeve_fuse": false,
   "observe_swap": false,
@@ -24,5 +24,6 @@
     "EXT_BB_UPPER_SELL_a05",
     "EXT_MFI14_GT80_SELL_a05",
     "EXT_RSI14_GT70_SELL_a05__TREND_MA60"
-  ]
+  ],
+  "verdict": "BEATS_LIVE_NO_OBSERVE_LIFT"
 }
