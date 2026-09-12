@@ -24,3 +24,7 @@ Machine stub: `research/e45/E45_NEW_MECHANISM_CHARTER.json`
 ## Next authorized action
 
 Open **M1 paper pack only** (freeze state vector → Exact T+1 screen → §2 scoreboard). Do not start M2 until M1 pack exists (pass or autopsy).
+
+## Related (2026-09-12)
+
+Defend-window → handoff paper charter (trigger/exit/handoff; **no stitch reopen**): `E45_DEFEND_HANDOFF_PAPER_CHARTER.md`.
