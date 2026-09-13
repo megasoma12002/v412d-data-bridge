@@ -1,0 +1,37 @@
+{
+  "label": "RESEARCH_ARCHIVE_BATCH_2026-09-13__HUMAN_SEAL__NO_STITCH_NO_LIVE",
+  "date": "2026-09-13",
+  "status": "ARCHIVED",
+  "human_ballot": "請封存",
+  "live_wire": false,
+  "e45_stitch": "FORBIDDEN",
+  "soft_frozen": "KEEP",
+  "archive_tracks": [
+    "BLEND_E45_A05_LIVE_STITCH_REOPEN",
+    "E45_SAME_KNOB_DENSIFY",
+    "E45_LEGACY_PRIMARY_OBSERVE_AGENDA",
+    "TELECOM_WITHIN_SLEEVE_NE_EQUAL",
+    "PRIVATE_UNIVERSE_EXPAND",
+    "FIN_PUB_PRIV_DUAL_SLEEVE",
+    "SOFT_FROZEN_4SLEEVE",
+    "INDICATOR_HARD_AND_ASSIST_R1_R3",
+    "SOFT_DL_FAMILY_T2_TIPMDD_4TRACK",
+    "EXTERNAL_SOFT_SELL_BORROW",
+    "DRY_POWDER_DRAWDOWN_SLEEVE",
+    "ETF_EX_CALENDAR_0050",
+    "FIN50_STATIC_CUTOVER_AGENDA",
+    "L4_LIVE_CUTOVER_AGENDA"
+  ],
+  "keep_operating_observe": [
+    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+    "SLEEVE_RSI14_LT30_a0225",
+    "FUSE_ADDITIVE",
+    "BLEND_025",
+    "FIN_PRIV_NATIVE_DUAL_PAPER"
+  ],
+  "keep_research_next": [
+    "E45_DEFEND_HANDOFF_DH_dd06_vz1p0_PAPER_OBSERVE_NOT_OPEN"
+  ],
+  "artifact_md": "research/ops/RESEARCH_ARCHIVE_BATCH_2026-09-13.md",
+  "portfolio_ssot": "research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md"
+}
