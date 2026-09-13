@@ -1,0 +1,16 @@
+{
+  "schema_version": "live_dh_fuse_cutover_ballot_v1",
+  "label": "LIVE_DH_FUSE_CUTOVER_ACCEPTED_2026-09-13__DH_dd06_FUSE_ADDITIVE__FORWARD_ONLY__E45_STITCH_FORBIDDEN",
+  "date": "2026-09-13",
+  "human_ballot": "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE",
+  "status": "ACCEPTED_LIVE_WIRED_FORWARD_ONLY",
+  "live_flags": {
+    "LIVE_FUSE_ADDITIVE": true,
+    "LIVE_DH_EXPOSURE": true,
+    "LIVE_DH_ID": "DH_dd06_vz1p0",
+    "LIVE_E45_STITCH": false
+  },
+  "keeps": ["SOFT_FROZEN_FIN_0.60_0.90", "KD_OPT", "TEL_EQUAL", "DROP_E45_A05"],
+  "rollback": "LIVE_FUSE_ADDITIVE=False; LIVE_DH_EXPOSURE=False",
+  "evidence": "research/ops/DH_OBSERVE_COMBO_NAV_TRIAL.md"
+}

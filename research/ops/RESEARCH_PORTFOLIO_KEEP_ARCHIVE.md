@@ -9,13 +9,13 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN
 
 | Track | Focus | Cadence / gate |
 |---|---|---|
-| **Live stack** | Soft-Frozen FIN **[0.60, 0.90]** + **`KD_OPT`** + **`TEL_EQUAL`** | Live wire · E45 OFF |
-| **Soft-assist observe** | `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | Dual-paper month-end · cutover **BLOCKED** |
+| **Live stack** | Soft-Frozen FIN **[0.60, 0.90]** + **`KD_OPT`** + **`TEL_EQUAL`** + **`FUSE_ADDITIVE`** + **`DH_dd06`** | Live wire · E45 A05 stitch **FORBIDDEN** |
+| **Soft-assist observe** | `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | Dual-paper month-end · cutover **AUTHORIZED (DH+FUSE live)** |
 | **Sleeve-tilt observe** | `SLEEVE_RSI14_LT30_a0225` | Dual-paper month-end · independent of Soft · cutover **BLOCKED** |
-| **FUSE_ADDITIVE observe** | Soft×Sleeve paper joint actuator | Dual-paper · ops auto-fuse **FORBIDDEN** · cutover **BLOCKED** |
+| **FUSE_ADDITIVE** | Soft×Sleeve joint actuator | **LIVE WIRED 2026-09-13** (with DH) · paper shadow may continue |
 | **BLEND_025 observe (FINCAP)** | 0.25·FIN50 + 0.75·BASE sealed-CAGR path | OPERATING OBSERVE · live **NOT READY** · **≠** E45_BLEND025 |
 | **FIN 民營 native (paper)** | `PRIV_EQUAL` ∥ `PRIV_KD_MAY_Klt25_T15` | Month-end dual-paper · **KEEP OBSERVE** · **no live wire** |
-| **E45 defend→handoff (research)** | Stage A `DH_dd06_vz1p0` · `HANDOFF_PROMOTE_SHAPED` | **Paper observe OPERATING** · cutover **BLOCKED** · stitch **FORBIDDEN** |
+| **E45 defend→handoff DH_dd06** | Stage A `DH_dd06_vz1p0` · `HANDOFF_PROMOTE_SHAPED` | **LIVE WIRED 2026-09-13** (with FUSE) · stitch **FORBIDDEN** · paper shadow may continue |
 | **Month-end gates** | tip ALERT/PAUSE · held-out · pack hygiene | Soft∥Sleeve∥FUSE∥FINCAP BLEND∥priv∥DH packs |
 
 ## ARCHIVE (evidence retained · no new expansion)

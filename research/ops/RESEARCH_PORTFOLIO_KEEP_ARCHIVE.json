@@ -1,6 +1,6 @@
 {
   "generated_at_utc": "2026-09-13T04:30:00+00:00",
-  "label": "RESEARCH_PORTFOLIO_KEEP_ARCHIVE_LOCKED_2026-09-13__HUMAN_SEAL__SOFT_SLEEVE_FUSE_FINCAP_BLEND_PRIV_DH__KELLY_E45BLEND025_ARCHIVED",
+  "label": "RESEARCH_PORTFOLIO_KEEP_ARCHIVE_2026-09-13__LIVE_DH_dd06_FUSE_ADDITIVE",
   "status": "LOCKED",
   "ballot": "請封存 — KEEP Soft/Sleeve/FUSE/BLEND_025/priv/DH observe; ARCHIVE A05 stitch reopen, E45 densify, DL, indicator hard, TEL challengers, structure fails, dry-powder, ETF calendar, **Kelly exposure** · ARCHIVE E45_BLEND025 observe (tip PAUSE); KEEP FINCAP BLEND_025",
   "batch_artifact": "research/ops/RESEARCH_ARCHIVE_BATCH_2026-09-13.md",
@@ -73,5 +73,18 @@
     "kelly_archive_batch": "research/ops/RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md",
     "e45_blend025_archive_batch": "research/ops/RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md"
   },
-  "live_capital": 500000000
+  "live_capital": 500000000,
+  "live_stack": {
+    "soft_frozen_fin_clip": [
+      0.6,
+      0.9
+    ],
+    "kd_opt": true,
+    "tel_equal": true,
+    "fuse_additive": true,
+    "dh_dd06": true,
+    "e45_a05_stitch": false,
+    "cutover_ballot": "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE",
+    "asof": "2026-09-13"
+  }
 }

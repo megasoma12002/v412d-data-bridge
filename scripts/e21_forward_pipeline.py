@@ -51,6 +51,12 @@ LIVE_E45_STITCH = False
 LIVE_E45_BOOK = None
 LIVE_E45_PROFILE = None
 LIVE_E45_BLEND_ALPHA = None
+# Live DH_dd06 + FUSE_ADDITIVE — human ACCEPT 2026-09-13 (MENU3 paper twin).
+# Does NOT reopen LIVE_E45_STITCH / DROP_E45_A05.
+LIVE_FUSE_ADDITIVE = True
+LIVE_DH_EXPOSURE = True
+LIVE_DH_ID = "DH_dd06_vz1p0"
+LIVE_CUTOVER_BALLOT = "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE"
 
 
 def append_immutable(path, row, key):
@@ -203,10 +209,44 @@ def main():
     if missing:
         raise RuntimeError(f"latest snapshot incomplete {latest.date()}: {missing}")
     px, sleeve, target, e20, diag = features(m)
+    # FUSE_ADDITIVE live: Sleeve RSI champion targets replace Soft-Frozen sleeve weights.
+    fuse_meta = {"enabled": bool(LIVE_FUSE_ADDITIVE)}
+    if LIVE_FUSE_ADDITIVE:
+        import live_dh_fuse_cutover as live_cut
+
+        target = live_cut.fuse_target_for_market(m)
+        fuse_meta = {
+            "enabled": True,
+            "recipe": live_cut.LIVE_RECIPE_ID,
+            "human_accept": live_cut.HUMAN_ACCEPT,
+        }
     tw = target.iloc[-1]
     e20w = e20.iloc[-1]
+    tw_pre_dh = {
+        "Financial": float(tw.Financial),
+        "Telecom": float(tw.Telecom),
+        "0050": float(tw["0050"]),
+    }
+    # DH_dd06 live exposure from FUSE offense NAV (paper-faithful MENU3). Not E45 stitch.
+    dh_exposure_today = 1.0
+    dh_meta = {"enabled": False}
+    if LIVE_DH_EXPOSURE:
+        import live_dh_fuse_cutover as live_cut
+        import e45_crisis_core as e45
+
+        div_for_dh = (
+            pd.read_csv(a.dividends, dtype={"code": str})
+            if Path(a.dividends).exists()
+            else pd.DataFrame()
+        )
+        dh_exposure_today, dh_meta = live_cut.dh_exposure_today(m, div_for_dh, latest)
+        dh_meta = {**dh_meta, "enabled": True}
+        tw = pd.Series(
+            e45.apply_exposure_to_sleeve_weights(dict(tw_pre_dh), float(dh_exposure_today))
+        )
     # E45 BLEND_E45_A05 stitch (forward-only): scale Soft-Frozen sleeve targets by
     # exposure = (1-α)·1 + α·E3_VOLTARGET_WINNER (same as paper blend005).
+    # Kept FORBIDDEN (LIVE_E45_STITCH=False); independent of LIVE_DH_EXPOSURE.
     e45_exposure_today = 1.0
     if LIVE_E45_STITCH:
         import e45_crisis_core as e45
@@ -328,6 +368,12 @@ def main():
         "e45_profile": LIVE_E45_PROFILE if LIVE_E45_STITCH else None,
         "e45_blend_alpha": LIVE_E45_BLEND_ALPHA if LIVE_E45_STITCH else None,
         "e45_exposure": float(e45_exposure_today) if LIVE_E45_STITCH else None,
+        "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
+        "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
+        "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
+        "dh_exposure": float(dh_exposure_today) if LIVE_DH_EXPOSURE else None,
+        "e16_financial_pre_dh": float(tw_pre_dh["Financial"]) if LIVE_DH_EXPOSURE else None,
+        "live_cutover_ballot": LIVE_CUTOVER_BALLOT if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE) else None,
         "live_wire": True,
         "owns_qc_status": False,
         "note": (
@@ -439,9 +485,22 @@ def main():
             for c in FIN
             if c in kd_buy_ok.columns
         }
+    fin_sell_scores_today = None
+    # FUSE_ADDITIVE live: Soft observe buy/sell softs on top of KD_OPT panels.
+    if LIVE_FUSE_ADDITIVE:
+        import live_dh_fuse_cutover as live_cut
+
+        soft_scores, soft_ok, soft_sell = live_cut.fuse_soft_panels_for_asof(
+            m, div_df, latest
+        )
+        if soft_scores is not None:
+            fin_scores_today = soft_scores
+        if soft_ok is not None:
+            fin_buy_ok_today = soft_ok
+        fin_sell_scores_today = soft_sell
 
     order_rows = []
-    # Financial: LIVE KD_OPT (FIN_PRE_EXDIV_KD)
+    # Financial: LIVE KD_OPT (+ FUSE softs when LIVE_FUSE_ADDITIVE)
     fin_dollars = float(sleeve_trade["Financial"]) * nav
     if abs(fin_dollars) >= 1e-9:
         for c, side, qty in allocate_sleeve_orders(
@@ -453,6 +512,7 @@ def main():
             lot_size=BOARD_LOT,
             scores=fin_scores_today,
             buy_ok=fin_buy_ok_today,
+            sell_scores=fin_sell_scores_today,
         ):
             if qty < BOARD_LOT or qty % BOARD_LOT != 0:
                 continue
@@ -513,6 +573,14 @@ def main():
         "e45_book": LIVE_E45_BOOK if LIVE_E45_STITCH else None,
         "e45_blend_alpha": LIVE_E45_BLEND_ALPHA if LIVE_E45_STITCH else None,
         "e45_exposure": float(e45_exposure_today) if LIVE_E45_STITCH else None,
+        "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
+        "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
+        "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
+        "dh_exposure": float(dh_exposure_today) if LIVE_DH_EXPOSURE else None,
+        "e16_financial_pre_dh": float(tw_pre_dh["Financial"]) if LIVE_DH_EXPOSURE else None,
+        "e16_telecom_pre_dh": float(tw_pre_dh["Telecom"]) if LIVE_DH_EXPOSURE else None,
+        "e16_0050_pre_dh": float(tw_pre_dh["0050"]) if LIVE_DH_EXPOSURE else None,
+        "live_cutover_ballot": LIVE_CUTOVER_BALLOT if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE) else None,
     }
     append_immutable(sdir / "signals.csv", signal, "date")
     navrow = {
@@ -548,6 +616,12 @@ def main():
         "e45_book": LIVE_E45_BOOK if LIVE_E45_STITCH else None,
         "e45_stitch_ballot": None,
         "e45_stitch_rollback": "ACCEPT_2026-09-09_DROP_E45_A05",
+        "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
+        "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
+        "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
+        "live_cutover": "ACCEPT_2026-09-13_DH_dd06_FUSE_ADDITIVE",
+        "live_cutover_ballot": LIVE_CUTOVER_BALLOT if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE) else None,
+        "live_cutover_rollback": "Set LIVE_FUSE_ADDITIVE=False and LIVE_DH_EXPOSURE=False",
     }
     state_path.write_text(json.dumps(state, indent=2) + "\n")
     # Hash-chain audit: each row commits to the prior row and today's immutable outputs.

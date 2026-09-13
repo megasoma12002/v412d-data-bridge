@@ -7,7 +7,7 @@ OPERATING fuse observe (2026-09-12 ballot OPEN):
 
 Third paper track beside Soft-assist and Sleeve-tilt observes.
 Does **not** auto-fuse the two independent observes into live.
-Live Soft-Frozen / KD / TEL / Soft / Sleeve wires remain unchanged.
+LIVE WIRED 2026-09-13 with DH_dd06 (see live_dh_fuse_cutover.py). Soft∥Sleeve auto-fuse still N/A — this is dedicated FUSE ACCEPT.
 """
 from __future__ import annotations
 
@@ -26,5 +26,8 @@ from sleeve_tilt_helpers import (
 BASE_ID = "LIVE_STACK"
 FUSE_ID = "FUSE_ADDITIVE"
 HUMAN_OPEN = "OPEN Soft×Sleeve fuse observe: FUSE_ADDITIVE"
-STATUS = "OPERATING_OBSERVE"
+STATUS = "LIVE_WIRED"
 EVIDENCE = "research/ops/SOFT_SLEEVE_PAPER_FUSE_STAGEA_SCREEN.md"
+
+LIVE_WIRE = True
+HUMAN_ACCEPT = "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE"

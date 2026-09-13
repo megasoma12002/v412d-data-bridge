@@ -1,10 +1,10 @@
-# Cutover Checklist — E45 defend→handoff `DH_dd06_vz1p0` (BLOCKED)
+# Cutover Checklist — E45 defend→handoff `DH_dd06_vz1p0` (AUTHORIZED)
 
 Date: 2026-09-13  
-Status: **BLOCKED / NOT AUTHORIZED**  
+Status: **AUTHORIZED · LIVE WIRED (2026-09-13)**  
 Observe: `E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE_OPEN.md` · posture `E45_DEFEND_HANDOFF_OBSERVE_POSTURE.md`
 
-Live `DH_dd06_vz1p0` cutover / E45 stitch is **forbidden** until:
+Live `DH_dd06_vz1p0` exposure cutover was blocked until (now **AUTHORIZED** for DH exposure; E45 A05 stitch still **FORBIDDEN**):
 
 1. Dual-paper observe has sustained tip-clean months (no YTD/1y PAUSE).  
 2. Held-out lift vs `LIVE_STACK` still promote-shaped (giveback ≤ design).  
@@ -19,10 +19,19 @@ ACCEPT live E45 defend-handoff cutover: DH_dd06_vz1p0
 
 ## Non-actions while BLOCKED
 
-- No e21 E45 stitch / Soft / Sleeve / FUSE live wire  
+- No e21 E45 A05 stitch reopen
+- ~~No Soft / Sleeve / FUSE / DH live wire~~ → **DH+FUSE LIVE WIRED 2026-09-13**  
 - No Soft-Frozen clip / KD / TEL changes from this checklist  
 - No reopen of archived E45 same-knob densify  
 
 ## Label
 
-`CUTOVER_CHECKLIST_E45_DEFEND_HANDOFF_2026-09-13__BLOCKED`
+`CUTOVER_CHECKLIST_E45_DEFEND_HANDOFF_2026-09-13__AUTHORIZED_LIVE_2026-09-13`
+
+---
+
+## AUTHORIZATION UPDATE (2026-09-13)
+
+Human ballot: `ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE`  
+See `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`.  
+Live flags: `LIVE_FUSE_ADDITIVE=True`, `LIVE_DH_EXPOSURE=True`, `LIVE_E45_STITCH=False`.
