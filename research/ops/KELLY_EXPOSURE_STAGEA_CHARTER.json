@@ -1,0 +1,80 @@
+{
+  "label": "KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__PAPER_OPEN__NO_LIVE",
+  "status": "PAPER_CHARTER_OPEN",
+  "date": "2026-09-13",
+  "stage_a_status": "NOT_STARTED",
+  "human": "Kelly Criterion paper charter: contact=kelly_exposure; edge=rolling mu/sigma2; fraction=1/4|1/2; hard locks",
+  "live_wire": false,
+  "soft_frozen": "KEEP",
+  "live_fin": "KD_OPT_KEEP",
+  "live_tel": "TEL_EQUAL_KEEP",
+  "e45_stitch": "OFF",
+  "observes_unchanged": [
+    "SOFT_ASSIST",
+    "SLEEVE_TILT",
+    "FUSE_ADDITIVE",
+    "BLEND_025",
+    "FIN_PRIV_NATIVE",
+    "E45_DEFEND_HANDOFF_DH_dd06"
+  ],
+  "contact_point": {
+    "actuator": "kelly_exposure",
+    "plumbing_family": "e45_exposure",
+    "applies_after": ["Soft-Frozen", "KD_OPT", "TEL_EQUAL"],
+    "out_of_scope": [
+      "Soft-Frozen_clip_bound_flip",
+      "TEL_EQUAL_replacement",
+      "KD_OPT_replacement",
+      "per_name_Kelly_weights",
+      "dry_powder_cash_sleeve",
+      "leverage_gt_1",
+      "shorts",
+      "fuse_with_DH_Soft_Sleeve_FUSE"
+    ]
+  },
+  "edge": {
+    "formula": "f_star = mu_hat / sigma2_hat",
+    "return_type": "daily_simple",
+    "causal": true,
+    "exact_t_plus_1": true,
+    "primary": "EDGE_LIVE_ROLL",
+    "sensitivity": "EDGE_0050_ROLL",
+    "lookbacks_W": [63, 126, 252],
+    "mu_le_0_or_var_undefined": "f_star_raw_0"
+  },
+  "fraction": {
+    "kappa": [0.25, 0.5],
+    "full_kelly_forbidden": true,
+    "f_lo": 0.5,
+    "f_hi": 1.0,
+    "exposure": "clip(kappa * f_star, f_lo, f_hi)"
+  },
+  "stage_a_grid": {
+    "primary_challengers_max": 6,
+    "sensitivity_max": 6,
+    "total_books_max_approx": 13,
+    "baseline": "LIVE_STACK"
+  },
+  "verdicts": [
+    "KELLY_PROMOTE_SHAPED",
+    "COEXIST_NO_LIFT",
+    "NO_LIFT",
+    "ESTIMATE_UNSTABLE"
+  ],
+  "hard_locks": [
+    "no Soft-Frozen clip flip",
+    "no live wire any layer",
+    "no Soft||Sleeve ops auto-fuse",
+    "no E45 stitch reopen / no undo DROP_E45_A05",
+    "no Stage A fusion with DH/Soft/Sleeve/FUSE",
+    "no full Kelly / no f_hi>1 / no shorts",
+    "no open search beyond finite grid",
+    "Exact T+1 causal only"
+  ],
+  "next_authorized_action": "Implement and run Stage A paper screen only",
+  "script_planned": "scripts/e16_kelly_exposure_stagea_screen.py",
+  "results_planned": "research/ops/KELLY_EXPOSURE_STAGEA_SCREEN.md",
+  "repro_planned": "repro/kelly-exposure-stagea/",
+  "charter_en": "research/ops/KELLY_EXPOSURE_STAGEA_CHARTER.md",
+  "charter_zh": "research/ops/KELLY_EXPOSURE_STAGEA_CHARTER.zh-TW.md"
+}

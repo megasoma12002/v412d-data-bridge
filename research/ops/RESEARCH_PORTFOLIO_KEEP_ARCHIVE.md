@@ -15,7 +15,8 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN
 | **FUSE_ADDITIVE observe** | Soft×Sleeve paper joint actuator | Dual-paper · ops auto-fuse **FORBIDDEN** · cutover **BLOCKED** |
 | **BLEND_025 observe** | Sealed-CAGR successor path | OPERATING OBSERVE · live **NOT READY** |
 | **FIN 民營 native (paper)** | `PRIV_EQUAL` ∥ `PRIV_KD_MAY_Klt25_T15` | Month-end dual-paper · **KEEP OBSERVE** · **no live wire** |
-| **E45 defend→handoff (research)** | Stage A `DH_dd06_vz1p0` · `HANDOFF_PROMOTE_SHAPED` | **Paper only** · observe **NOT OPEN** · stitch **FORBIDDEN** |
+| **E45 defend→handoff (research)** | Stage A `DH_dd06_vz1p0` · `HANDOFF_PROMOTE_SHAPED` | **Paper observe OPERATING** · cutover **BLOCKED** · stitch **FORBIDDEN** |
+| **Kelly exposure (paper)** | Stage A charter · `kelly_exposure` · κ∈{0.25,0.50} | **Charter OPEN** · screen **NOT STARTED** · no live |
 | **Month-end gates** | tip ALERT/PAUSE · held-out · pack hygiene | Soft∥Sleeve∥FUSE∥BLEND∥priv packs |
 
 ## ARCHIVE (evidence retained · no new expansion)
