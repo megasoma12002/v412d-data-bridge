@@ -1,7 +1,12 @@
 # Project Code Review — 2026-09-06
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Scope: entire repo engineering surface (`scripts/`, live `forward/e21` gates, ops monitors), against `CODING_STANDARDS.md` + Soft-Frozen / Exact T+1 governance.  
-Soft-Frozen Financial **[0.50, 0.95] KEEP** · live stitch **FORBIDDEN** · no Soft-Frozen flip.
+Soft-Frozen Financial (at writing) **[0.50, 0.95]** · **live today [0.60, 0.90]** · live stitch **FORBIDDEN** · no Soft-Frozen flip.
 
 ## Verdict
 

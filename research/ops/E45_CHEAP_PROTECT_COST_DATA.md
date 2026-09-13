@@ -3,8 +3,8 @@
 Ballot: `E45 PAPER cheap-protect × cost × data-clean` — **PAPER ONLY**
 
 Primary: `research/e45/E45_CHEAP_PROTECT_COST_DATA.md`
-Repro: `repro/e45-cheap-protect-cost-data/`
-0050 QC: `repro/e45-cheap-protect-cost-data/outputs/0050_quarantine_adj_qc.json`
+Repro: `archive/repro/e45-cheap-protect-cost-data/`
+0050 QC: `archive/repro/e45-cheap-protect-cost-data/outputs/0050_quarantine_adj_qc.json`
 
 ```bash
 python3 scripts/e45_cheap_protect_cost_data_paper.py

@@ -39,7 +39,7 @@ from e45_paper_harness import (
 )
 from e50_early_stack_combined_nav import ALL
 
-OUT = ROOT / "repro/e45-novel-strategy-20260908"
+OUT = ROOT / "archive/repro/e45-novel-strategy-20260908"
 OPS = ROOT / "research/ops"
 E45 = ROOT / "research/e45"
 

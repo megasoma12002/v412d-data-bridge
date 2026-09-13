@@ -1,4 +1,5 @@
 {
+  "ssot_note": "HISTORICAL: Soft-Frozen FIN was [0.50, 0.95] at artifact write time; live today (2026-09-13+) FIN [0.60, 0.90] · KD_OPT · TEL_EQUAL · FUSE_ADDITIVE · DH_dd06 · 500M. See research/ops/OPS_STATUS.md.",
   "generated_utc": "2026-09-06T10:06:18.232947+00:00",
   "title": "OPS_RESEARCH_BATCH_DIRECT_CONTINUE_2026-09-06",
   "governance": {
@@ -6,7 +7,7 @@
     "default": "E22_v2s_tw KEEP",
     "e45_stitch": "FORBIDDEN",
     "high_beta": "DRAFT/NOT OPEN",
-    "retired_mdd_narrative": "RETIRED_HISTORICAL_NARRATIVE \u2014 no invented replacement"
+    "retired_mdd_narrative": "RETIRED_HISTORICAL_NARRATIVE — no invented replacement"
   },
   "items": {
     "1_e45_observe_pause_refresh": {
@@ -261,13 +262,13 @@
     "5_fincap_l4_blend025_month_end": {
       "status": "DONE_DIAGNOSTIC",
       "pack_all_ok": false,
-      "pack_note": "Paper/ops cadence only. Soft-Frozen [0.50, 0.95] unchanged. FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated; BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-\u03b1=0.25 observe is paper-only (parallel sleeve); E45 blend-\u03b1=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY \u03b1=0.10 observe is paper-only (parallel sleeve).",
+      "pack_note": "Paper/ops cadence only. Soft-Frozen [0.50, 0.95] unchanged. FIN50 remains NOT_READY_SEALED_CAGR; L4 cutover stays human-PR gated; BLEND_025 is observe-only (never cutover from this pack); E45 dual-paper observe is paper-only (stitch still forbidden); E45 blend-α=0.25 observe is paper-only (parallel sleeve); E45 blend-α=0.05 observe is paper-only (parallel sleeve); E45 sleeve-local FIN_ONLY α=0.10 observe is paper-only (parallel sleeve).",
       "monitors": {
         "L4": {
           "asof": "2026-09-04",
           "alerts": [
             "ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops)",
-            "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4",
+            "PAUSE_REVIEW: ytd giveback > 5 pp — extend observation; does not revoke PASS_HELDOUT_L4",
             "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)"
           ]
         },

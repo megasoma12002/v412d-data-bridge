@@ -1,8 +1,13 @@
 # E45 Dual-Paper Observe — Design Pack (Stage 3)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-05T18:17:09.546625+00:00`
 Status: **DESIGN LOCKED — OBSERVE NOW OPERATING**
-Live stitch: **FORBIDDEN** · Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT books **`E22_v2s_tw` KEEP**
+Live stitch: **FORBIDDEN** · Soft-Frozen (at writing) **[0.50, 0.95]** · live today **[0.60, 0.90]** · DEFAULT books **`E22_v2s_tw` KEEP**
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 Operating observe: **OPEN** (`E45_DUAL_PAPER_OBSERVE_OPEN.md`) — paper only; stitch still FORBIDDEN
 

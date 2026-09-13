@@ -75,7 +75,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | Item | Action | Status |
 |---|---|---|
 | Track A S9A1 | Paper/monitor via month-end pack | **KEEP** |
-| Live Soft-Frozen clip | **[0.50, 0.95]** | **KEEP** (register #1) |
+| Live Soft-Frozen clip | **[0.60, 0.90]** | **KEEP** (FINBAND; was [0.50, 0.95]) |
 | FIN_CAP_50 paper | Dual-paper + pack | **OPERATING**; **static cutover REJECT for now** (register #2) |
 | L4 dual-paper | Dual-paper + pack | **OPERATING**; cutover **DEFER** until clean month-end (register #4) |
 | BLEND_025 dual-paper | Dual-paper + pack + runbook | **OPERATING OBSERVE** — sole sealed-CAGR successor (register #3); live **NOT READY** (#5) |
@@ -102,9 +102,9 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; reinvent retired E45 MDD narr
 
 | Challenger | Live change type | Blocked by | Soft-Frozen today | Checklist |
 |---|---|---|---|---|
-| FIN_CAP_50 | Static clip → **[0.35, 0.50]** | `NOT_READY_SEALED_CAGR` + YTD/1y PAUSE | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_FIN50.md` |
-| L4_DD_PATH_08_50 | Wire DD-path logic | YTD PAUSE + need clean month-end + human PR | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_L4.md` |
-| BLEND_025 | Soft-Frozen → blend weights | Observe ≠ promote; checklist prep only | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_BLEND025.md` (**NOT AUTHORIZED**) |
+| FIN_CAP_50 | Static clip → **[0.35, 0.50]** | `NOT_READY_SEALED_CAGR` + YTD/1y PAUSE | **[0.60, 0.90]** | `CUTOVER_CHECKLIST_FIN50.md` |
+| L4_DD_PATH_08_50 | Wire DD-path logic | YTD PAUSE + need clean month-end + human PR | **[0.60, 0.90]** | `CUTOVER_CHECKLIST_L4.md` |
+| BLEND_025 | Soft-Frozen → blend weights | Observe ≠ promote; checklist prep only | **[0.60, 0.90]** | `CUTOVER_CHECKLIST_BLEND025.md` (**NOT AUTHORIZED**) |
 | E50-A / E45 | Overlay / crisis | Not live-wired; E45 RETIRED_HISTORICAL_NARRATIVE; charter ACCEPT → Stage 1–2 OPEN | Paper verify / challenger | Live stitch |
 
 ## Snapshot
@@ -115,7 +115,7 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; reinvent retired E45 MDD narr
 | BLEND_025 dual-paper | **OPERATING OBSERVE** / cutover **blocked** |
 | L4 held-out | **`PASS_HELDOUT_L4`** |
 | Track A | **KEEP** |
-| Soft-Frozen clip | **[0.50, 0.95] KEEP** (register #1) |
+| Soft-Frozen clip | **[0.60, 0.90] KEEP** (FINBAND) |
 | Human decisions | `research/ops/HUMAN_DECISION_REGISTER.md` **BINDING** |
 
 ## Pointers
@@ -194,7 +194,7 @@ Human 「提高模擬／實盤資本」 — `DEFAULT_CAPITAL=15M` so TEL floor c
 
 ## Soft-Frozen TEL+0050 floor-10 ACCEPT withdrawn (2026-09-07)
 
-Human 「還是先還原 soft frozen」. Draft PR #119 (TEL/0050 floors → 10%) **closed without merge**. Live Soft-Frozen remains FIN **[0.50, 0.95]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]** (@ 15M + board-lot). stitch FORBIDDEN.
+Human 「還是先還原 soft frozen」. Draft PR #119 (TEL/0050 floors → 10%) **closed without merge**. Live Soft-Frozen remains FIN **[0.50, 0.95]** (historical as-of note date; live today [0.60, 0.90]) · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]** (@ 15M + board-lot). stitch FORBIDDEN.
 
 ## Soft-Frozen clip-search charter (2026-09-07)
 

@@ -1,7 +1,12 @@
 # Data Source Resilience — Phase C Charter
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
-Status: **CHARTER CLOSED — Phase C prep DONE** — Soft-Frozen **[0.50, 0.95] KEEP**  
+Status: **CHARTER CLOSED — Phase C prep DONE** — Soft-Frozen **[0.60, 0.90] KEEP** (was [0.50, 0.95])  
 Parent: `research/ops/DATA_SOURCE_RESILIENCE.md`  
 Authority: `HUMAN_DECISION_REGISTER.md` (no Soft-Frozen flip; no silent ledger overwrite)  
 Artifacts: `DATA_SOURCE_PHASE_C_PROBES.*` · `scripts/taiex_fetch_with_failover.py`

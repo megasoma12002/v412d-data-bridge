@@ -1,12 +1,17 @@
 # FIN Within-Sleeve Dual-Paper Observe — OPEN
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-08 · extended 2026-09-09  
 Human ballot: **`dual-paper 觀察 FIN_RS_SOFT_TILT_EXDIV 並排 FIN_EQUAL`**  
 Follow-on: **`把 MIX_L75 加進 dual-paper observe`** (2026-09-08)  
 Follow-on: **`加進 KD_OPT 第四本 observe`** (2026-09-09 · `KD_APR15_MAY15_Klt30_T15`)  
 Authority: `FIN_WITHIN_SLEEVE_ALLOC_CHARTER.md` Stage D · Stage C `STAGE_C_CANDIDATES_LOCKED` · Mix `COEXIST_CANDIDATE_FOUND` · KD `OPTIMAL_SELECTED_OBSERVE`
 
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**  
 Live FIN equal-split (`e21`): **KEEP / untouched**  
 Live within-sleeve cutover: **still FORBIDDEN** (dedicated ACCEPT required)
 
@@ -26,7 +31,7 @@ Live within-sleeve cutover: **still FORBIDDEN** (dedicated ACCEPT required)
 
 | # | Item | YES/NO |
 |---|---|---|
-| 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** |
+| 1 | Soft-Frozen live clip at writing was [0.50, 0.95]; live today [0.60, 0.90] | **YES** |
 | 2 | Stage C locked top = `FIN_RS_SOFT_TILT_EXDIV` | **YES** |
 | 3 | Mix coexist candidate = `MIX_L75` | **YES** (`FIN_EQUAL_RS_EXDIV_MIX.md`) |
 | 4 | KD paper optimal = `KD_APR15_MAY15_Klt30_T15` | **YES** (`FIN_PRE_EXDIV_KD_OPTIMIZE.md`) |

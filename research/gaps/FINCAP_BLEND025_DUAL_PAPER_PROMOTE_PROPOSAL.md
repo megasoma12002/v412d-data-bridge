@@ -1,5 +1,10 @@
 # FINCAP L4-BLEND-025 — Dual-Paper Promote Proposal (NOT LIVE)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Status: **OPERATING OBSERVE** — dual-paper sleeve open (paper only)  
 Screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
@@ -28,7 +33,7 @@ Observe artifacts: `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md` · `BLEND_025
 
 ## What this does NOT authorize
 
-- Soft-Frozen clip flip (stays **[0.50, 0.95]**)
+- Soft-Frozen clip flip (at writing **[0.50, 0.95]**; live today **[0.60, 0.90]**)
 - Live cutover / live-wire
 - Retune of FIN_CAP_50 lock `[0.35, 0.50]`
 - Closing FIN50 dual-paper (still OPERATING / `NOT_READY_SEALED_CAGR`)

@@ -1,7 +1,12 @@
 # Project Code Review — Landmines from E45 five-research batch (2026-09-06)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Scope: whole-repo engineering hygiene after the five-item paper batch.  
-Soft-Frozen Financial **[0.50, 0.95] KEEP** · DEFAULT KEEP · live stitch **FORBIDDEN** · retired MDD narrative **RETIRED**.
+Soft-Frozen Financial (at writing) **[0.50, 0.95]** · **live today [0.60, 0.90]** · DEFAULT KEEP · live stitch **FORBIDDEN** · retired MDD narrative **RETIRED**.
 
 ## Verdict
 

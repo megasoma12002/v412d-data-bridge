@@ -1,13 +1,14 @@
 {
+  "ssot_note": "HISTORICAL: Soft-Frozen FIN was [0.50, 0.95] at artifact write time; live today (2026-09-13+) FIN [0.60, 0.90] · KD_OPT · TEL_EQUAL · FUSE_ADDITIVE · DH_dd06 · 500M. See research/ops/OPS_STATUS.md.",
   "generated_at_utc": "2026-09-06T05:13:29.643124+00:00",
   "status": "PAPER_ONLY",
   "ballot": "E45 PAPER crisis-triggered alpha",
   "profile": "E3_VOLTARGET_WINNER",
   "definition": {
-    "CONST": "exposure=(1-\u03b1)\u00b71 + \u03b1\u00b7E45",
-    "GATE": "if E45_exp>=gate \u2192 1.0 else (1-\u03b1)\u00b71 + \u03b1\u00b7E45",
-    "E1BIN": "if E1 binary crisis \u2192 (1-\u03b1)\u00b71 + \u03b1\u00b7E45 else 1.0",
-    "note": "E3 exposure is <1 on ~98% of days, so gate\u22601.0; gates 0.90/0.85/0.80 target deeper-cut states only."
+    "CONST": "exposure=(1-α)·1 + α·E45",
+    "GATE": "if E45_exp>=gate → 1.0 else (1-α)·1 + α·E45",
+    "E1BIN": "if E1 binary crisis → (1-α)·1 + α·E45 else 1.0",
+    "note": "E3 exposure is <1 on ~98% of days, so gate≠1.0; gates 0.90/0.85/0.80 target deeper-cut states only."
   },
   "gate_day_fraction_full_sample": {
     "0.9": 0.2533999444907022,

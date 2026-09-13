@@ -1,11 +1,16 @@
 # E45 Live-Stitch Charter
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Status: **ACCEPT charter** (2026-09-05) — Stage 1–2 research OPEN; Soft-Frozen CRITICAL KEEP; live stitch FORBIDDEN  
 Decision pack: `E45_LIVE_STITCH_DECISION_PACK.md`  
 Stage board: `E45_STAGE12_STATUS.md`  
 Live stitch today: **FORBIDDEN**  
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**  
 E45 class today: **CHALLENGER**; the retired handoff MDD narrative claim **`RETIRED_HISTORICAL_NARRATIVE`** (path A, 2026-09-05)
 
 Authority: `HUMAN_DECISION_REGISTER.md` #6 · `research/e45/E45_MDD_1316_VERIFICATION.md` · `FROZEN_GOVERNANCE.md` · `STRATEGY_UPDATE_STANDARD_PROCESS.md`

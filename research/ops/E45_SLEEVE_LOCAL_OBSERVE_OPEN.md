@@ -1,12 +1,17 @@
 # E45 Sleeve-Local Observe — OPEN Ballot (**ACCEPTED / OPERATING**)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-06  
 Human ballot: **`E45 ACCEPT OPEN sleeve-local observe`**  
 Status: **OPERATING OBSERVE** (paper only)  
 Prior draft: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.md`  
 Authority: Register #6c follow-on · `E45_SLEEVE_LOCAL.md` · `E45_SLEEVE_LOCAL_DEEP_DIVE.md` · `E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md`
 
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN**  
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**  
@@ -35,7 +40,7 @@ Sleeve-local deep-dive held-out preferred **`FIN_ONLY @ α=0.10`** (score ~0.285
 
 | # | Item | YES/NO |
 |---|---|---|
-| 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** |
+| 1 | Soft-Frozen live clip at writing was [0.50, 0.95]; live today [0.60, 0.90] | **YES** |
 | 2 | Live DEFAULT books remain `E22_v2s_tw` | **YES** |
 | 3 | Parent sleeve-local paper + deep-dive present | **YES** |
 | 4 | retired MDD narrative still RETIRED | **YES** |

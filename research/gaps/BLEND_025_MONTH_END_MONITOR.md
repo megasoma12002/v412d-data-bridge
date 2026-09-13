@@ -1,5 +1,10 @@
 # BLEND_025 Month-End Paper Monitor — asof 2026-09-11
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-12T13:42:10.801663+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **BLEND_025** (α=0.25·FIN50 + 0.75·BASE)
@@ -27,7 +32,7 @@ Locked: **BLEND_025** (α=0.25·FIN50 + 0.75·BASE)
 
 - `cutover_blocked`: **True** (always on observe sleeve)
 - `cutover_authorized`: **False**
-- Soft-Frozen live clip stays **[0.50, 0.95]** — this monitor never flips it.
+- Soft-Frozen live clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**) — this monitor never flips it.
 
 ## Ops note
 

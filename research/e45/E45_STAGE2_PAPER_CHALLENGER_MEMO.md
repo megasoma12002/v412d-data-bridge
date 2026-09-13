@@ -1,9 +1,14 @@
 # E45 Stage-2 Paper Challenger Memo (Exact T+1)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Status: **PAPER / RESEARCH ONLY** — not a promote; live stitch **FORBIDDEN**  
 Charter: **ACCEPT** → Stage 1–2 OPEN (`research/ops/E45_STAGE12_STATUS.md`)  
-Soft-Frozen clip: **[0.50, 0.95] KEEP**  
+Soft-Frozen clip (at writing): **[0.50, 0.95]** · live today **[0.60, 0.90]**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**
 
 Source refresh: `scripts/e45_verify_mdd_1316.py` →  

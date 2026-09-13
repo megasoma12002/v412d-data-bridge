@@ -1,8 +1,13 @@
 # E45 Paper P1–P7 — Integrated Analysis
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-06  
 Scope: cross-cut of paper roadmap priorities **#1–#7** (research only)  
-Soft-Frozen FIN **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN**  
+Soft-Frozen FIN (at writing) **[0.50, 0.95]** · **live today [0.60, 0.90]** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN**  
 Retired MDD narrative: **RETIRED_HISTORICAL_NARRATIVE** (do not invent a replacement)
 
 Sources:  

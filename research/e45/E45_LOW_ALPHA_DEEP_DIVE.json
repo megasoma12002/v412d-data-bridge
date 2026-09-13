@@ -1,4 +1,5 @@
 {
+  "ssot_note": "HISTORICAL: Soft-Frozen FIN was [0.50, 0.95] at artifact write time; live today (2026-09-13+) FIN [0.60, 0.90] · KD_OPT · TEL_EQUAL · FUSE_ADDITIVE · DH_dd06 · 500M. See research/ops/OPS_STATUS.md.",
   "generated_at_utc": "2026-09-06T01:33:57.134631+00:00",
   "status": "PAPER_ONLY",
   "ballot": "E45 PAPER low-alpha deep-dive",
@@ -13,7 +14,7 @@
     0.15,
     0.25
   ],
-  "definition": "exposure_\u03b1 = (1\u2212\u03b1)\u00b71 + \u03b1\u00b7E45_exposure",
+  "definition": "exposure_α = (1−α)·1 + α·E45_exposure",
   "soft_frozen": "KEEP [0.50, 0.95]",
   "default_books": "E22_v2s_tw KEEP",
   "live_stitch": "FORBIDDEN",

@@ -1,5 +1,10 @@
 # L4 MDD Path/FINCAP — Held-out
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-05T03:39:55.597752+00:00`
 Status: **RESEARCH_ONLY** — no live-wire, Soft-Frozen unchanged.
 
@@ -19,7 +24,7 @@ Status: **RESEARCH_ONLY** — no live-wire, Soft-Frozen unchanged.
 - Held-out PASS — still **no auto live-wire**.
 - Dual-paper observation opened: `research/gaps/L4_DD_PATH_PROMOTE_PROPOSAL.md`
   + month-end runbook `research/gaps/L4_DD_PATH_MONTH_END_RUNBOOK.md`.
-- Soft-Frozen stays **[0.50, 0.95]** until human PR.
+- Soft-Frozen at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**) until human PR.
 
 Artifacts:
 - `/workspace/repro/mdd-loss-engine/l4_heldout/reports/l4_heldout_summary.json`

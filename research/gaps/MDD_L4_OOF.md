@@ -1,5 +1,10 @@
 # L4 MDD Path/FINCAP — OOF Screen
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-05T03:31:57.964732+00:00`
 Status: **RESEARCH_ONLY** — no live-wire, no Soft-Frozen edit, no held-out selection.
 Parents: L1/L2/L3 STOPPED — cut retune forbidden.
@@ -32,7 +37,7 @@ BASE OOF: CAGR=8.8470% MDD=-17.4129% exact_t1=True mean_fin_w=80.3%
 
 - Proceed to **adversarial-lite** on locked `L4_DD_PATH_08_50` (util=2.60; MDD +2.25pp; late-bull gb -0.72pp).
 - Do **not** open held-out until adv-lite PASS.
-- Do **not** live-wire. Soft-Frozen stays **[0.50, 0.95]**.
+- Do **not** live-wire. Soft-Frozen at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**).
 
 Artifacts:
 - `/workspace/repro/mdd-loss-engine/l4_oof/reports/l4_oof_summary.json`

@@ -12,11 +12,15 @@ pre-FINBAND / pre-500M / pre-DH+FUSE live. Code SSOT was already correct after P
 3. Cleaned portfolio KEEP binding lines post-cutover.
 4. `.gitignore` for local `repro/live-stack-5m-trade-count/` scratch.
 
+## Batch B / C (same hygiene PR, 2026-09-13)
+
+- **B:** `REPO_HYGIENE_SSOT_BATCH_B_2026-09-13.md` — historical clip banners + binding SSOT fix.
+- **C:** `REPO_HYGIENE_REPRO_BATCH_C_2026-09-13.md` — untrack ARCHIVE densify fills/nav; `archive/repro/` pilot moves.
+
 ## Explicitly not done (needs separate ballot / careful PR)
 
-- Mass-rewrite ~150 historical notes that still mention clip `[0.50, 0.95]` as narrative history.
-- Delete or LFS-migrate large archived `repro/` nav/fill trees (~0.6GB).
-- Move ARCHIVE tracks into a physical `archive/` tree.
+- Git LFS / history rewrite to reclaim old repro blobs.
+- Move kelly / large m1–m3 relocate trees.
 - Touch `LIVE_*` flags in `e21_forward_pipeline.py`.
 
 ## SSOT pointers

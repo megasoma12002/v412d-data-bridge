@@ -1,4 +1,5 @@
 {
+  "ssot_note": "HISTORICAL: Soft-Frozen FIN was [0.50, 0.95] at artifact write time; live today (2026-09-13+) FIN [0.60, 0.90] · KD_OPT · TEL_EQUAL · FUSE_ADDITIVE · DH_dd06 · 500M. See research/ops/OPS_STATUS.md.",
   "generated_at_utc": "2026-09-12T13:41:44.767492+00:00",
   "label": "BLEND_025_DUAL_PAPER_OBSERVE_SLEEVE",
   "status": "OPERATING_OBSERVE",
@@ -8,7 +9,7 @@
   "locked_id": "BLEND_025",
   "definition": {
     "alpha": 0.25,
-    "formula": "\u03b1\u00b7FIN_CAP_50([0.35,0.50]) + (1-\u03b1)\u00b7Soft-Frozen BASE([0.50,0.95]), renormalized",
+    "formula": "α·FIN_CAP_50([0.35,0.50]) + (1-α)·Soft-Frozen BASE([0.50,0.95]), renormalized",
     "fin_cap_50_lock": {
       "fin_lo": 0.35,
       "fin_hi": 0.5
@@ -148,13 +149,13 @@
     "Run BLEND_025 dual paper ledgers in parallel with month-end monitor",
     "Re-check charter trailing gates (ytd / trailing_1y) each month-end",
     "Do not silent-edit Soft-Frozen; do not rewrite forward/e21 history",
-    "Observe sleeve \u2260 cutover license; FIN50/L4 cutover stays FROZEN"
+    "Observe sleeve ≠ cutover license; FIN50/L4 cutover stays FROZEN"
   ],
   "non_goals": [
     "Auto live-wire from this observe sleeve",
     "Retune FIN_CAP_50 lock [0.35,0.50]",
     "Retune Soft-Frozen [0.50,0.95]",
     "Close or replace FIN50 / L4 dual-paper sleeves",
-    "Claim CAGR\u226520% / MDD\u226415% as live results"
+    "Claim CAGR≥20% / MDD≤15% as live results"
   ]
 }

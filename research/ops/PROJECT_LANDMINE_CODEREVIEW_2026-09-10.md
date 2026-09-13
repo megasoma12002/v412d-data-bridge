@@ -1,5 +1,10 @@
 # Project Landmine Code Review — 2026-09-10 (post Soft-assist #185)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Scope: LIVE + shared simulation paths after Soft-assist OPEN observe (#185) and recent indicator / KD research.  
 Companions: `PROJECT_CODE_REVIEW_2026-09-07.md` · `LIVE_PATH_CODEREVIEW_2026-09-07.md` · `PROJECT_LANDMINE_CODEREVIEW_2026-09-06.md`.
 

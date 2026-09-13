@@ -1,6 +1,11 @@
 # E45 Blend-α=0.25 Month-End Runbook
 
-Status: **OPERATING OBSERVE / PAPER OPS** — Soft-Frozen **[0.50, 0.95] KEEP**.  
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
+Status: **OPERATING OBSERVE / PAPER OPS** — Soft-Frozen **[0.60, 0.90] KEEP** (was [0.50, 0.95]).  
 Sleeve: BASE vs **BLEND_E45_A25** (`0.75·1 + 0.25·E3_VOLTARGET_WINNER`).  
 Parent: `E45_BLEND_ALPHA_PAPER_SCREEN.md` · open `E45_BLEND025_OBSERVE_OPEN.md`  
 Parallel: full-E45 observe remains operating separately.

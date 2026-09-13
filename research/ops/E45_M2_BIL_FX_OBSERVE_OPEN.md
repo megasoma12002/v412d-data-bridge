@@ -1,5 +1,10 @@
 # E45 M2 BIL_FX Observe — OPEN (**ACCEPTED / OPERATING** · lock **C35**)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-07  
 Human authorization: **「請優化」** → **ACCEPT OPEN C35** retarget  
 Prior C50 OPEN: 2026-09-06 via 「請全做」 (`E45_M2_BIL_FX_OBSERVE_OPEN` history)  
@@ -8,7 +13,7 @@ Prior HOLD: `research/ops/E45_M2_C35_OBSERVE_RETARGET_HOLD.md` (**SUPERSEDED**)
 Evidence: `research/e45/E45_M2_C35_RETARGET_BALLOT.md` · optimize `E45_M2_BIL_FX_OPTIMIZE.md`
 
 Status: **OPERATING OBSERVE** (paper only)  
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**  
 Live DEFAULT: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN**  
 Retired MDD: **`RETIRED_HISTORICAL_NARRATIVE`**  

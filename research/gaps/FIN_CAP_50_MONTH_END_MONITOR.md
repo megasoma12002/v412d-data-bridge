@@ -1,5 +1,10 @@
 # FIN_CAP_50 Month-End Paper Monitor — asof 2026-09-11
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-12T13:42:10.497557+00:00`
 Status: **PAPER ONLY** — Soft-Frozen live default unchanged.
 
@@ -24,7 +29,7 @@ Alert windows (match go-live Gate E): `heldout_2019_plus`, `ytd`, `trailing_1y`.
 
 - `cutover_blocked`: **True**
 - Authoritative go-live: **`NOT_READY_SEALED_CAGR`** (see `FIN_CAP_50_GO_LIVE_VERIFY.md`)
-- Soft-Frozen live clip stays **[0.50, 0.95]** — this monitor never flips it.
+- Soft-Frozen live clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**) — this monitor never flips it.
 
 ## Ops note
 

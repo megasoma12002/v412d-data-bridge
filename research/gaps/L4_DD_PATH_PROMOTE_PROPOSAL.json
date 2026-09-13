@@ -1,4 +1,5 @@
 {
+  "ssot_note": "HISTORICAL: Soft-Frozen FIN was [0.50, 0.95] at artifact write time; live today (2026-09-13+) FIN [0.60, 0.90] · KD_OPT · TEL_EQUAL · FUSE_ADDITIVE · DH_dd06 · 500M. See research/ops/OPS_STATUS.md.",
   "generated_at_utc": "2026-09-12T13:41:40.052694+00:00",
   "label": "L4_DD_PATH_DUAL_PAPER_PROMOTE_PROPOSAL",
   "locked_id": "L4_DD_PATH_08_50",
@@ -139,16 +140,16 @@
   },
   "cutover_checklist": [
     "Keep Soft-Frozen default = BASE_E16 until human-approved cutover PR",
-    "Run dual paper ledgers in parallel for \u22651 month-end review",
+    "Run dual paper ledgers in parallel for ≥1 month-end review",
     "Cutover would wire path-dependent DD-path logic (not a static clip swap)",
     "Preserve BASE_E16 paper ledger indefinitely for regression",
     "Do not silent-edit Soft-Frozen; do not rewrite forward/e21 history",
-    "FIN_CAP_50 static promote remains separately NOT_READY_SEALED_CAGR \u2014 do not conflate"
+    "FIN_CAP_50 static promote remains separately NOT_READY_SEALED_CAGR — do not conflate"
   ],
   "non_goals": [
     "Auto live-wire from this proposal",
     "Soft-Frozen flip",
-    "L4 lock retune / reopen L1\u2013L3 / FIN50 static promote",
-    "Claim CAGR\u226520% / MDD\u226415% as live results"
+    "L4 lock retune / reopen L1–L3 / FIN50 static promote",
+    "Claim CAGR≥20% / MDD≤15% as live results"
   ]
 }

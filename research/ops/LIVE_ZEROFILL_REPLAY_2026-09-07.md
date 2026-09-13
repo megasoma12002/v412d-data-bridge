@@ -1,7 +1,7 @@
 # Live Zero-Fill History Replay — 2026-09-07
 
 Human authority: **「請清掉後重跑正確數據」**  
-Soft-Frozen: **[0.50, 0.95] KEEP** · stitch **FORBIDDEN**
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]** · stitch **FORBIDDEN**
 
 ## Why
 

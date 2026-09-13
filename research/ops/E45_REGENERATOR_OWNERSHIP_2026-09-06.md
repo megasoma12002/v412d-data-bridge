@@ -11,7 +11,7 @@ Three research regenerators share crisis / densify *themes* but own different qu
 |---|---|---|---|
 | Five-research batch | `scripts/e45_five_research_batch.py` | `repro/e45-five-research-batch/` | Multi-item batch (crisis-year MDD improve, FIN densify screen, cost/turnover, pause diag) |
 | COVID non-2020 / FIN densify | `scripts/e45_covid_non2020_fina10_thicken.py` | `repro/e45-covid-non2020-fina10/` | COVID-framed stress years + FIN_ONLY alpha thicken vs BASE |
-| Next research batch | `scripts/e45_next_research_batch.py` | `repro/e45-next-research-batch/` | Alt levers, COVID-ex KPI, observe pause refresh hooks, Phase-C follow-ups |
+| Next research batch | `scripts/e45_next_research_batch.py` | `archive/repro/e45-next-research-batch/` | Alt levers, COVID-ex KPI, observe pause refresh hooks, Phase-C follow-ups |
 
 Shared building blocks stay in harness modules (`e45_paper_harness`, Soft-Frozen base, `WINDOWS_STANDARD`). Do **not** fork window keys or delta key names inside these runners.
 

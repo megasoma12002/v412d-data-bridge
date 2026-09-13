@@ -1,4 +1,5 @@
 {
+  "ssot_note": "HISTORICAL: Soft-Frozen FIN was [0.50, 0.95] at artifact write time; live today (2026-09-13+) FIN [0.60, 0.90] · KD_OPT · TEL_EQUAL · FUSE_ADDITIVE · DH_dd06 · 500M. See research/ops/OPS_STATUS.md.",
   "generated_at_utc": "2026-09-09T11:17:49.056920+00:00",
   "label": "SOFT_FROZEN_CLIP_500M_RESCREEN",
   "status": "PAPER_RESCREEN",
@@ -228,5 +229,5 @@
     }
   ],
   "recommended_observe_id": "CLIP_SEARCH_F0.50-0.95_T0.10-0.35_E0.00-0.35",
-  "verdict": "Best @500M+KD_OPT `CLIP_SEARCH_F0.50-0.95_T0.10-0.35_E0.00-0.35` held-out=-0.020 tip_clean=False. Soft-Frozen KEEP \u00b7 Class D flip needs ACCEPT."
+  "verdict": "Best @500M+KD_OPT `CLIP_SEARCH_F0.50-0.95_T0.10-0.35_E0.00-0.35` held-out=-0.020 tip_clean=False. Soft-Frozen KEEP · Class D flip needs ACCEPT."
 }

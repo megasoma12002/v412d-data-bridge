@@ -1,9 +1,14 @@
 # LIVE Path Code Review — 2026-09-07
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Scope: **LIVE path only** (`forward/e21` + write/QC scripts below).  
 Reviewed: `scripts/e21_forward_pipeline.py`, `e21_qc.py`, `e16_soft_frozen_base.py`, `e22_dividend_accounting.py`, `e21_live_vs_paper_recon.py`, and `forward/e21/` schema expectations.
 
-Soft-Frozen Financial **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN** · no Soft-Frozen / stitch ballot invented.
+Soft-Frozen Financial (at writing) **[0.50, 0.95]** · **live today [0.60, 0.90]** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN** · no Soft-Frozen / stitch ballot invented.
 
 Label: `LIVE_PATH_CODEREVIEW_2026-09-07__P0_ZERO_FILL__T1_NAT_GAP__SF_HEALTHY`
 

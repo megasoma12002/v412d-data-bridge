@@ -1,4 +1,5 @@
 {
+  "ssot_note": "HISTORICAL: Soft-Frozen FIN was [0.50, 0.95] at artifact write time; live today (2026-09-13+) FIN [0.60, 0.90] · KD_OPT · TEL_EQUAL · FUSE_ADDITIVE · DH_dd06 · 500M. See research/ops/OPS_STATUS.md.",
   "generated_at_utc": "2026-09-05T01:56:06.872620+00:00",
   "heldout_label": "STOP_L2_HELDOUT_MIXED",
   "research_decision": "STOP_L2_HELDOUT_MIXED_KEEP_BASE",
@@ -45,6 +46,6 @@
   "promotion": {
     "replaces_live": false,
     "dual_paper_ledgers_allowed": false,
-    "note": "Even on PASS, live Soft-Frozen clip stays [0.50,0.95] until explicit cutover PR"
+    "note": "Even on PASS, live Soft-Frozen Financial clip live today [0.60, 0.90] (was [0.50, 0.95]) until explicit cutover PR"
   }
 }

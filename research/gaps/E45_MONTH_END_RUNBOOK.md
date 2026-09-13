@@ -1,6 +1,11 @@
 # E45 Month-End Dual-Paper Runbook
 
-Status: **OPERATING OBSERVE / PAPER OPS** — Soft-Frozen live Financial clip stays **[0.50, 0.95]**.  
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
+Status: **OPERATING OBSERVE / PAPER OPS** — Soft-Frozen live Financial clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**).  
 Sleeve: Exact T+1 BASE Soft-Frozen early-stack vs **CHAL_E45_E3** (`E3_VOLTARGET_WINNER`).  
 Parent: `E45_LIVE_STITCH_CHARTER.md` · `E45_DUAL_PAPER_OBSERVE_DESIGN.md` · `E45_DUAL_PAPER_OBSERVE_OPEN.md`  
 Observe artifacts: `E45_DUAL_PAPER_OBSERVE.md` · `E45_MONTH_END_MONITOR.md`
@@ -41,7 +46,7 @@ Design-known structural CAGR giveback (2026-09-05 design pack): heldout ≈ **5.
 This observe sleeve **never** authorizes live stitch. Stitch would require:
 
 1. Separate second human ACCEPT + stitch checklist PR
-2. Soft-Frozen clip stays **[0.50, 0.95]** until that PR
+2. Soft-Frozen clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**) until that PR
 3. No rewrite of `forward/e21` history
 
 `stitch_blocked=true` / `cutover_blocked=true` are permanent for E45 month-end JSON.
