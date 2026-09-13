@@ -23,7 +23,7 @@
     ],
     "research_next_paper_only": [
       "E45_DEFEND_HANDOFF_DH_dd06_vz1p0_OBSERVE_OPERATING",
-      "KELLY_EXPOSURE_STAGEA_CHARTER_OPEN"
+      "KELLY_EXPOSURE_STAGEA_DONE_COEXIST_NO_LIFT"
     ],
     "ops": [
       "month_end_gates",
@@ -66,7 +66,9 @@
   "artifacts": {
     "batch": "research/ops/RESEARCH_ARCHIVE_BATCH_2026-09-13.md",
     "register": "research/ops/HUMAN_DECISION_REGISTER.md",
-    "e45_defend": "research/ops/E45_DEFEND_HANDOFF_STAGEA_SCREEN.md"
+    "e45_defend": "research/ops/E45_DEFEND_HANDOFF_STAGEA_SCREEN.md",
+    "kelly_charter": "research/ops/KELLY_EXPOSURE_STAGEA_CHARTER.md",
+    "kelly_screen": "research/ops/KELLY_EXPOSURE_STAGEA_SCREEN.md"
   },
   "live_capital": 500000000
 }

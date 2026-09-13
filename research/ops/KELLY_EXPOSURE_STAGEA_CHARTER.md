@@ -1,11 +1,11 @@
 # Kelly Criterion Exposure Overlay — Stage A Charter (paper)
 
 Date: 2026-09-13  
-Status: **PAPER CHARTER OPEN** · Stage A screen **NOT STARTED**  
+Status: **PAPER DONE** · Stage A **`COEXIST_NO_LIFT`** · live KEEP · observe **NOT OPEN**
 Soft-Frozen **KEEP** · live **`KD_OPT` KEEP** · **`TEL_EQUAL` KEEP** · E45 stitch **OFF** (`DROP_E45_A05`)  
 Soft-assist / Sleeve-tilt / FUSE_ADDITIVE / BLEND_025 / priv / **DH_dd06** observes **UNCHANGED**
 
-Ballot label: `KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__PAPER_OPEN__NO_LIVE`
+Ballot label: `KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__PAPER_DONE__COEXIST_NO_LIFT__NO_LIVE`
 
 ## Why
 
@@ -123,11 +123,19 @@ Even `KELLY_PROMOTE_SHAPED` → **paper observe ballot only**; **never** live wi
 | Results (next) | `research/ops/KELLY_EXPOSURE_STAGEA_SCREEN.md` (+ `.json`) |
 | Repro (next) | `repro/kelly-exposure-stagea/` |
 
+
+## Stage A result (2026-09-13)
+
+- Artifact: `KELLY_EXPOSURE_STAGEA_SCREEN.md` · repro `repro/kelly-exposure-stagea/`
+- Verdict: **`COEXIST_NO_LIFT`** · best primary `KELLY_LIVE_W252_k50` (W=252, κ=0.50)
+- Only 1 tip-clean primary; held-out score **−2.21** (≤0) — no promote-shaped
+- Most books `ESTIMATE_UNSTABLE` (exposure sits at clip bounds ≥80% of days)
+- **Next:** KEEP research note · **no paper observe** · **no live wire** unless human amends charter
+
 ## Next authorized action
 
-Implement + run **Stage A paper screen only** per this freeze.  
-Do **not** open observe, cutover, or live wire until Stage A verdict + dedicated human ballot.
+Stage A done (`COEXIST_NO_LIFT`). **STOP observe open.** Archive-or-amend only with human ballot. Live unchanged.
 
 ## Label
 
-`KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__PAPER_OPEN__NO_LIVE`
+`KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__PAPER_DONE__COEXIST_NO_LIFT__NO_LIVE`

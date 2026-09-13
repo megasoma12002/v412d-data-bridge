@@ -1,7 +1,7 @@
 # Kelly 曝險 Overlay — Stage A 憲章（paper）
 
 日期：2026-09-13  
-狀態：**PAPER CHARTER OPEN** · Stage A 螢幕 **尚未開工**  
+狀態：**PAPER DONE** · Stage A **`COEXIST_NO_LIFT`** · live KEEP · observe **未開**
 Soft-Frozen **KEEP** · live **`KD_OPT`／`TEL_EQUAL` KEEP** · E45 stitch **OFF**  
 Soft／Sleeve／FUSE／BLEND_025／priv／**DH_dd06** observe **不動**
 
@@ -65,3 +65,11 @@ Lookback \(W ∈ \{63,126,252\}\)；\(\hat\mu\le 0\) 或變異數無效 → raw 
 未出裁決 + 專用人類 ballot 前，不開 observe／cutover／live。
 
 英文全文：`KELLY_EXPOSURE_STAGEA_CHARTER.md`
+
+## Stage A 結果（2026-09-13）
+
+- 裁決：**`COEXIST_NO_LIFT`** · best `KELLY_LIVE_W252_k50`
+- tip-clean 主挑戰僅 1；held-out score **−2.21** → 不開 observe
+- 多數書 `ESTIMATE_UNSTABLE`（曝險常貼 clip 邊界）
+- **不上 live**；除非人類修憲，否則 STOP
+
