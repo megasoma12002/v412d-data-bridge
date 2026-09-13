@@ -31,4 +31,4 @@ Soft-assist · Sleeve-tilt · FUSE_ADDITIVE · BLEND_025 · 民營 native — un
 
 ## Live cutover (2026-09-13)
 
-**LIVE WIRED** via combined ballot `ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE`. Paper observe may continue as shadow twin. E45 A05 stitch remains FORBIDDEN.
+**LIVE WIRED** via combined ballot `ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE`. Paper observe may continue as shadow twin.

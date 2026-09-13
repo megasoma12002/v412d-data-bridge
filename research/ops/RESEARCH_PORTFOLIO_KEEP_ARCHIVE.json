@@ -58,7 +58,6 @@
   "non_actions": [
     "No Soft-Frozen flip from archive alone",
     "No Soft/Sleeve/FUSE/priv/E45 live wire without dedicated ACCEPT",
-    "No E45 stitch reopen / no undo DROP_E45_A05",
     "No Soft||Sleeve ops auto-fuse",
     "No archived-track reopen without new charter + human ballot",
     "No cutover from archived sleeve month-end green alone",
@@ -83,8 +82,8 @@
     "tel_equal": true,
     "fuse_additive": true,
     "dh_dd06": true,
-    "e45_a05_stitch": false,
     "cutover_ballot": "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE",
-    "asof": "2026-09-13"
+    "asof": "2026-09-13",
+    "overlay": "DH_dd06 + FUSE_ADDITIVE"
   }
 }

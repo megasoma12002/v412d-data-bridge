@@ -7,7 +7,7 @@ Status: **ACCEPTED · LIVE WIRED (forward-only)**
 Satisfies (combined) the blocked cutover checklists:
 
 - `CUTOVER_CHECKLIST_FUSE_ADDITIVE.md` → AUTHORIZED  
-- `CUTOVER_CHECKLIST_E45_DEFEND_HANDOFF.md` → AUTHORIZED for **DH exposure only** (not E45 A05 stitch)
+- `CUTOVER_CHECKLIST_E45_DEFEND_HANDOFF.md` → AUTHORIZED for **DH_dd06 exposure**
 
 ## Live recipe (MENU3 paper twin)
 
@@ -18,7 +18,6 @@ Satisfies (combined) the blocked cutover checklists:
 | TEL within-sleeve | **`TEL_EQUAL` KEEP** |
 | Sleeve targets | **`FUSE_ADDITIVE`** = Soft softs + Sleeve RSI14 α=0.225 |
 | Risk overlay | **`DH_dd06_vz1p0`** (dd=6%, vz=1.0, shrink=0.50) |
-| E45 A05 stitch | **FORBIDDEN** (`LIVE_E45_STITCH=False`, `DROP_E45_A05` stands) |
 | Soft∥Sleeve ops auto-fuse | **N/A** — this is dedicated FUSE ACCEPT, not silent merge of independent observes |
 
 ## Implementation
@@ -38,15 +37,14 @@ LIVE_FUSE_ADDITIVE = False
 LIVE_DH_EXPOSURE = False
 ```
 
-Restores Soft-Frozen + KD_OPT + TEL_EQUAL live stack (E45 stitch remains off).
+Restores Soft-Frozen + KD_OPT + TEL_EQUAL live stack (pre-FUSE/DH).
 
 ## Non-actions
 
 - Soft-Frozen clip flip  
-- Reopen `LIVE_E45_STITCH` / undo `DROP_E45_A05`  
 - Soft∥Sleeve independent-observe auto-merge without FUSE recipe  
 - Capital / board-lot / E22 books change  
 
 ## Label
 
-`LIVE_DH_FUSE_CUTOVER_ACCEPTED_2026-09-13__DH_dd06_FUSE_ADDITIVE__FORWARD_ONLY__E45_STITCH_FORBIDDEN`
+`LIVE_DH_FUSE_CUTOVER_ACCEPTED_2026-09-13__DH_dd06_FUSE_ADDITIVE__FORWARD_ONLY`

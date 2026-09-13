@@ -4,7 +4,7 @@ Date: 2026-09-13
 Status: **AUTHORIZED · LIVE WIRED (2026-09-13)**  
 Observe: `E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE_OPEN.md` · posture `E45_DEFEND_HANDOFF_OBSERVE_POSTURE.md`
 
-Live `DH_dd06_vz1p0` exposure cutover was blocked until (now **AUTHORIZED** for DH exposure; E45 A05 stitch still **FORBIDDEN**):
+Live `DH_dd06_vz1p0` exposure cutover was blocked until (now **AUTHORIZED**):
 
 1. Dual-paper observe has sustained tip-clean months (no YTD/1y PAUSE).  
 2. Held-out lift vs `LIVE_STACK` still promote-shaped (giveback ≤ design).  
@@ -15,11 +15,10 @@ Live `DH_dd06_vz1p0` exposure cutover was blocked until (now **AUTHORIZED** for 
 ACCEPT live E45 defend-handoff cutover: DH_dd06_vz1p0
 ```
 
-5. A dedicated cutover PR wires the recipe **and** separately addresses stitch policy (this checklist does **not** undo `DROP_E45_A05` by itself).
+5. A dedicated cutover PR wires `DH_dd06_vz1p0` into live (forward-only).
 
 ## Non-actions while BLOCKED
 
-- No e21 E45 A05 stitch reopen
 - ~~No Soft / Sleeve / FUSE / DH live wire~~ → **DH+FUSE LIVE WIRED 2026-09-13**  
 - No Soft-Frozen clip / KD / TEL changes from this checklist  
 - No reopen of archived E45 same-knob densify  

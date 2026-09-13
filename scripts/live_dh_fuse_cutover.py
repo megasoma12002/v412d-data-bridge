@@ -8,7 +8,6 @@ Live stack becomes MENU3 paper twin:
   Soft observe softs + Sleeve RSI14 tilt α=0.225 + DH_dd06 exposure
   on Soft-Frozen clip + KD_OPT + TEL_EQUAL.
 
-Does **not** reopen LIVE_E45_STITCH / DROP_E45_A05.
 """
 from __future__ import annotations
 
