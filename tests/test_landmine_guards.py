@@ -97,12 +97,21 @@ class LiveCapitalWorkflowGuard(unittest.TestCase):
 
 
 class SoftAssistObserveGuards(unittest.TestCase):
-    def test_live_pipeline_has_no_soft_assist_wire(self):
+    def test_live_pipeline_soft_wire_only_via_authorized_fuse(self):
+        """Standalone Soft-assist live wire stays banned; FUSE_ADDITIVE ACCEPT allows softs."""
         src = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
-        for needle in ("soft_assist", "SOFT_BOTH", "BELOW_MA120", "fin_sell_scores"):
+        # Independent Soft-assist observe markers must not be hard-wired into live.
+        for needle in ("soft_assist", "SOFT_BOTH", "BELOW_MA120"):
             self.assertNotIn(needle, src)
         self.assertIn("LIVE_E45_STITCH = False", src)
         self.assertIn("FIN_PRE_EXDIV_KD", src)
+        # 2026-09-13 ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE (MENU3).
+        self.assertIn("LIVE_FUSE_ADDITIVE = True", src)
+        self.assertIn("LIVE_DH_EXPOSURE = True", src)
+        self.assertIn("live_dh_fuse_cutover", src)
+        # FUSE soft sell panel is allowed only behind the FUSE flag / cutover helper.
+        self.assertIn("fin_sell_scores", src)
+        self.assertIn("LIVE_FUSE_ADDITIVE", src)
 
     def test_soft_assist_helpers_match_live_kd_opt(self):
         import sys
@@ -121,7 +130,8 @@ class SoftAssistObserveGuards(unittest.TestCase):
 
 
 class SleeveTiltObserveGuards(unittest.TestCase):
-    def test_live_pipeline_has_no_sleeve_tilt_wire(self):
+    def test_live_pipeline_sleeve_tilt_only_via_authorized_fuse(self):
+        """Standalone Sleeve-tilt live wire stays banned; FUSE routes via cutover helper."""
         src = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
         for needle in (
             "sleeve_tilt",
@@ -130,6 +140,10 @@ class SleeveTiltObserveGuards(unittest.TestCase):
             "build_champion_target",
         ):
             self.assertNotIn(needle, src)
+        self.assertIn("LIVE_FUSE_ADDITIVE = True", src)
+        self.assertIn("live_dh_fuse_cutover", src)
+        helper = (SCRIPTS / "live_dh_fuse_cutover.py").read_text(encoding="utf-8")
+        self.assertIn("build_champion_target", helper)
 
     def test_soft_assist_guard_also_bans_ma60_tilt_marker(self):
         # Soft-assist static ban previously covered MA120 only; MA60 is sleeve-tilt.
