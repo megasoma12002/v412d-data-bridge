@@ -1,8 +1,8 @@
 {
   "generated_at_utc": "2026-09-13T04:30:00+00:00",
-  "label": "RESEARCH_PORTFOLIO_KEEP_ARCHIVE",
+  "label": "RESEARCH_PORTFOLIO_KEEP_ARCHIVE_LOCKED_2026-09-13__KELLY_ARCHIVED",
   "status": "LOCKED",
-  "ballot": "請封存 — keep Soft/Sleeve/FUSE/BLEND_025/priv observe + E45 defend research; archive A05 stitch reopen, E45 densify, DL, indicator hard, TEL challengers, structure fails, dry-powder, ETF calendar",
+  "ballot": "請封存 — KEEP Soft/Sleeve/FUSE/BLEND_025/priv/DH observe; ARCHIVE A05 stitch reopen, E45 densify, DL, indicator hard, TEL challengers, structure fails, dry-powder, ETF calendar, **Kelly exposure**",
   "batch_artifact": "research/ops/RESEARCH_ARCHIVE_BATCH_2026-09-13.md",
   "live_wire": false,
   "soft_frozen_keep": true,
@@ -22,7 +22,7 @@
       "FIN_PRIV_NATIVE_DUAL_PAPER"
     ],
     "research_next_paper_only": [
-      "E45_DEFEND_HANDOFF_DH_dd06_vz1p0"
+      "E45_DEFEND_HANDOFF_DH_dd06_vz1p0_OBSERVE_OPERATING"
     ],
     "ops": [
       "month_end_gates",
@@ -50,7 +50,8 @@
     "E45_SOFT_A_C35_FAMILY_EXHAUSTED",
     "E45_FULL_A25_SLEEVE_LOCAL_SECONDARY",
     "E45_DRAFT_BALLOTS_NOT_OPEN",
-    "TEL_ETF_FLOOR_10_WITHDRAWN"
+    "TEL_ETF_FLOOR_10_WITHDRAWN",
+    "KELLY_EXPOSURE_STAGEA_COEXIST_NO_LIFT"
   ],
   "archive_means": "retain evidence; no new research expansion; not primary agenda; slim month-end pack needs separate ballot",
   "non_actions": [
@@ -65,7 +66,10 @@
   "artifacts": {
     "batch": "research/ops/RESEARCH_ARCHIVE_BATCH_2026-09-13.md",
     "register": "research/ops/HUMAN_DECISION_REGISTER.md",
-    "e45_defend": "research/ops/E45_DEFEND_HANDOFF_STAGEA_SCREEN.md"
+    "e45_defend": "research/ops/E45_DEFEND_HANDOFF_STAGEA_SCREEN.md",
+    "kelly_charter": "research/ops/KELLY_EXPOSURE_STAGEA_CHARTER.md",
+    "kelly_screen": "research/ops/KELLY_EXPOSURE_STAGEA_SCREEN.md",
+    "kelly_archive_batch": "research/ops/RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md"
   },
   "live_capital": 500000000
 }

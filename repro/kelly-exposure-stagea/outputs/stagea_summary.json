@@ -1,0 +1,1000 @@
+{
+  "schema_version": "kelly_exposure_stagea_screen_v1",
+  "screen_id": "KELLY_EXPOSURE_STAGEA_SCREEN",
+  "charter_id": "KELLY_EXPOSURE_STAGEA_CHARTER",
+  "generated_at_utc": "2026-09-13T07:17:45Z",
+  "status": "DONE",
+  "mode": "PAPER_ONLY",
+  "live_wire": false,
+  "observe_open": false,
+  "gates": {
+    "exact_t1_ok": true,
+    "apply_e22": true,
+    "apply_stock_div": true,
+    "financial_alloc": "FIN_PRE_EXDIV_KD",
+    "telecom_alloc": "TEL_EQUAL",
+    "soft_frozen_fin_clip": [
+      0.6,
+      0.9
+    ],
+    "board_lot": 1000,
+    "initial_capital": 500000000.0,
+    "actuator": "kelly_exposure via e45_exposure",
+    "f_lo": 0.5,
+    "f_hi": 1.0,
+    "kappa_grid": [
+      0.25,
+      0.5
+    ],
+    "W_grid": [
+      63,
+      126,
+      252
+    ],
+    "full_kelly_forbidden": true,
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "heldout_window": "heldout_2019_plus"
+  },
+  "base_windows": {
+    "full": {
+      "cagr": 0.140238,
+      "max_drawdown": -0.217203,
+      "n_days": 3356
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.183933,
+      "max_drawdown": -0.217203,
+      "n_days": 1861
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.25573,
+      "max_drawdown": -0.128078,
+      "n_days": 884
+    }
+  },
+  "grid": {
+    "primary_edge": "EDGE_LIVE_ROLL",
+    "sensitivity_edge": "EDGE_0050_ROLL",
+    "W": [
+      63,
+      126,
+      252
+    ],
+    "kappa": [
+      0.25,
+      0.5
+    ],
+    "n_primary": 6,
+    "n_sensitivity": 6
+  },
+  "primary_rows": [
+    {
+      "variant_id": "KELLY_LIVE_W63_k25",
+      "edge_id": "EDGE_LIVE_ROLL",
+      "W": 63,
+      "kappa": 0.25,
+      "promote_eligible": true,
+      "exact_t1_ok": true,
+      "n_fills": 8392,
+      "mean_e45_exposure": 0.8406071778799674,
+      "exposure_diag": {
+        "mean_e": 0.840607,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.29261,
+        "frac_at_hi": 0.657628,
+        "frac_at_bound": 0.950238,
+        "mean_raw_before_clip": 3.537144,
+        "mean_f_star": 14.148577,
+        "frac_f_star_pos": 0.755959
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.101688,
+          "max_drawdown": -0.147736,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.133013,
+          "max_drawdown": -0.147736,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.168053,
+          "max_drawdown": -0.11591,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": 6.9467,
+        "cagr_giveback_pp": 5.092,
+        "score": 4.4007,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.133013,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.147736
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 1.2168,
+        "cagr_giveback_pp": 8.7677,
+        "score": -3.16705,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.168053,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.11591
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 19.2054,
+          "mdd_improve_pp": 1.2168,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 13.3785,
+          "mdd_improve_pp": 1.2168,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    },
+    {
+      "variant_id": "KELLY_LIVE_W63_k50",
+      "edge_id": "EDGE_LIVE_ROLL",
+      "W": 63,
+      "kappa": 0.5,
+      "promote_eligible": true,
+      "exact_t1_ok": true,
+      "n_fills": 8132,
+      "mean_e45_exposure": 0.8598029634565003,
+      "exposure_diag": {
+        "mean_e": 0.859803,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.268772,
+        "frac_at_hi": 0.70739,
+        "frac_at_bound": 0.976162,
+        "mean_raw_before_clip": 7.074289,
+        "mean_f_star": 14.148577,
+        "frac_f_star_pos": 0.755959
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.103418,
+          "max_drawdown": -0.147753,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.135962,
+          "max_drawdown": -0.147753,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.179272,
+          "max_drawdown": -0.120759,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": 6.945,
+        "cagr_giveback_pp": 4.7971,
+        "score": 4.54645,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.135962,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.147753
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 0.7319,
+        "cagr_giveback_pp": 7.6458,
+        "score": -3.091,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.179272,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.120759
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 19.6403,
+          "mdd_improve_pp": 0.7319,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 13.7018,
+          "mdd_improve_pp": 0.7319,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    },
+    {
+      "variant_id": "KELLY_LIVE_W126_k25",
+      "edge_id": "EDGE_LIVE_ROLL",
+      "W": 126,
+      "kappa": 0.25,
+      "promote_eligible": true,
+      "exact_t1_ok": true,
+      "n_fills": 8055,
+      "mean_e45_exposure": 0.8671017855343557,
+      "exposure_diag": {
+        "mean_e": 0.867102,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.230036,
+        "frac_at_hi": 0.695769,
+        "frac_at_bound": 0.925805,
+        "mean_raw_before_clip": 2.787579,
+        "mean_f_star": 11.150315,
+        "frac_f_star_pos": 0.815256
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.100243,
+          "max_drawdown": -0.186132,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.126177,
+          "max_drawdown": -0.186132,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.159916,
+          "max_drawdown": -0.109022,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": 3.1071,
+        "cagr_giveback_pp": 5.7756,
+        "score": 0.2193,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.126177,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.186132
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 1.9056,
+        "cagr_giveback_pp": 9.5814,
+        "score": -2.8851,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.159916,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.109022
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 7.2369,
+          "mdd_improve_pp": 2.7795,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 6.6597,
+          "mdd_improve_pp": 2.7795,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    },
+    {
+      "variant_id": "KELLY_LIVE_W126_k50",
+      "edge_id": "EDGE_LIVE_ROLL",
+      "W": 126,
+      "kappa": 0.5,
+      "promote_eligible": true,
+      "exact_t1_ok": true,
+      "n_fills": 7148,
+      "mean_e45_exposure": 0.8916964924214696,
+      "exposure_diag": {
+        "mean_e": 0.891696,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.203218,
+        "frac_at_hi": 0.769964,
+        "frac_at_bound": 0.973182,
+        "mean_raw_before_clip": 5.575157,
+        "mean_f_star": 11.150315,
+        "frac_f_star_pos": 0.815256
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.109221,
+          "max_drawdown": -0.189456,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.135957,
+          "max_drawdown": -0.189456,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.176058,
+          "max_drawdown": -0.096055,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": 2.7747,
+        "cagr_giveback_pp": 4.7976,
+        "score": 0.3759,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.135957,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.189456
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 3.2023,
+        "cagr_giveback_pp": 7.9672,
+        "score": -0.7813,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.176058,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.096055
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 7.7314,
+          "mdd_improve_pp": 3.2023,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 7.2881,
+          "mdd_improve_pp": 3.2023,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    },
+    {
+      "variant_id": "KELLY_LIVE_W252_k25",
+      "edge_id": "EDGE_LIVE_ROLL",
+      "W": 252,
+      "kappa": 0.25,
+      "promote_eligible": true,
+      "exact_t1_ok": true,
+      "n_fills": 7111,
+      "mean_e45_exposure": 0.85864649339116,
+      "exposure_diag": {
+        "mean_e": 0.858646,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.232718,
+        "frac_at_hi": 0.684446,
+        "frac_at_bound": 0.917163,
+        "mean_raw_before_clip": 2.278699,
+        "mean_f_star": 9.114794,
+        "frac_f_star_pos": 0.825983
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.109381,
+          "max_drawdown": -0.21531,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.135472,
+          "max_drawdown": -0.21531,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.206162,
+          "max_drawdown": -0.107729,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": 0.1893,
+        "cagr_giveback_pp": 4.8461,
+        "score": -2.23375,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.135472,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.21531
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 2.0349,
+        "cagr_giveback_pp": 4.9568,
+        "score": -0.4435,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.206162,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.107729
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 5.2461,
+          "mdd_improve_pp": 2.0349,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 4.7334,
+          "mdd_improve_pp": 2.0349,
+          "gate": "ALERT"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    },
+    {
+      "variant_id": "KELLY_LIVE_W252_k50",
+      "edge_id": "EDGE_LIVE_ROLL",
+      "W": 252,
+      "kappa": 0.5,
+      "promote_eligible": true,
+      "exact_t1_ok": true,
+      "n_fills": 6743,
+      "mean_e45_exposure": 0.8933902436510787,
+      "exposure_diag": {
+        "mean_e": 0.89339,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.197557,
+        "frac_at_hi": 0.767282,
+        "frac_at_bound": 0.964839,
+        "mean_raw_before_clip": 4.557397,
+        "mean_f_star": 9.114794,
+        "frac_f_star_pos": 0.825983
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.116728,
+          "max_drawdown": -0.224668,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.154705,
+          "max_drawdown": -0.224668,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.22359,
+          "max_drawdown": -0.132548,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": -0.7465,
+        "cagr_giveback_pp": 2.9228,
+        "score": -2.2079,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.154705,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.224668
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": -0.447,
+        "cagr_giveback_pp": 3.214,
+        "score": -2.054,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.22359,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.132548
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": -0.7143,
+          "mdd_improve_pp": -0.447,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": -0.849,
+          "mdd_improve_pp": -0.447,
+          "gate": "PASS"
+        }
+      },
+      "tip_clean": true,
+      "row_class": "COEXIST_NO_LIFT"
+    }
+  ],
+  "sensitivity_rows": [
+    {
+      "variant_id": "KELLY_0050_W63_k25",
+      "edge_id": "EDGE_0050_ROLL",
+      "W": 63,
+      "kappa": 0.25,
+      "promote_eligible": false,
+      "exact_t1_ok": true,
+      "n_fills": 8294,
+      "mean_e45_exposure": 0.8156711379284934,
+      "exposure_diag": {
+        "mean_e": 0.815671,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.328963,
+        "frac_at_hi": 0.59118,
+        "frac_at_bound": 0.920143,
+        "mean_raw_before_clip": 2.783608,
+        "mean_f_star": 11.134432,
+        "frac_f_star_pos": 0.737187
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.106152,
+          "max_drawdown": -0.129856,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.146749,
+          "max_drawdown": -0.129856,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.197612,
+          "max_drawdown": -0.115873,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": 8.7347,
+        "cagr_giveback_pp": 3.7184,
+        "score": 6.8755,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.146749,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.129856
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 1.2205,
+        "cagr_giveback_pp": 5.8118,
+        "score": -1.6854,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.197612,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.115873
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 11.7553,
+          "mdd_improve_pp": 1.2204,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 8.1705,
+          "mdd_improve_pp": 1.2204,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    },
+    {
+      "variant_id": "KELLY_0050_W63_k50",
+      "edge_id": "EDGE_0050_ROLL",
+      "W": 63,
+      "kappa": 0.5,
+      "promote_eligible": false,
+      "exact_t1_ok": true,
+      "n_fills": 7859,
+      "mean_e45_exposure": 0.8432626354045598,
+      "exposure_diag": {
+        "mean_e": 0.843263,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.296782,
+        "frac_at_hi": 0.671037,
+        "frac_at_bound": 0.967819,
+        "mean_raw_before_clip": 5.567216,
+        "mean_f_star": 11.134432,
+        "frac_f_star_pos": 0.737187
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.111966,
+          "max_drawdown": -0.154306,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.15854,
+          "max_drawdown": -0.130439,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.216928,
+          "max_drawdown": -0.116162,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": 8.6764,
+        "cagr_giveback_pp": 2.5393,
+        "score": 7.40675,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.15854,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.130439
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 1.1916,
+        "cagr_giveback_pp": 3.8802,
+        "score": -0.7485,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.216928,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.116162
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 9.8189,
+          "mdd_improve_pp": 1.1916,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 6.9634,
+          "mdd_improve_pp": 1.1916,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    },
+    {
+      "variant_id": "KELLY_0050_W126_k25",
+      "edge_id": "EDGE_0050_ROLL",
+      "W": 126,
+      "kappa": 0.25,
+      "promote_eligible": false,
+      "exact_t1_ok": true,
+      "n_fills": 7700,
+      "mean_e45_exposure": 0.8257063809108848,
+      "exposure_diag": {
+        "mean_e": 0.825706,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.308105,
+        "frac_at_hi": 0.605483,
+        "frac_at_bound": 0.913588,
+        "mean_raw_before_clip": 2.147307,
+        "mean_f_star": 8.589228,
+        "frac_f_star_pos": 0.77205
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.097464,
+          "max_drawdown": -0.184458,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.124989,
+          "max_drawdown": -0.184458,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.181641,
+          "max_drawdown": -0.077955,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": 3.2745,
+        "cagr_giveback_pp": 5.8944,
+        "score": 0.3273,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.124989,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.184458
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 5.0123,
+        "cagr_giveback_pp": 7.4089,
+        "score": 1.30785,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.181641,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.077955
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 12.0274,
+          "mdd_improve_pp": 5.0123,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 11.5863,
+          "mdd_improve_pp": 5.0123,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    },
+    {
+      "variant_id": "KELLY_0050_W126_k50",
+      "edge_id": "EDGE_0050_ROLL",
+      "W": 126,
+      "kappa": 0.5,
+      "promote_eligible": false,
+      "exact_t1_ok": true,
+      "n_fills": 7041,
+      "mean_e45_exposure": 0.8580428255283712,
+      "exposure_diag": {
+        "mean_e": 0.858043,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.264601,
+        "frac_at_hi": 0.691895,
+        "frac_at_bound": 0.956496,
+        "mean_raw_before_clip": 4.294614,
+        "mean_f_star": 8.589228,
+        "frac_f_star_pos": 0.77205
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.111441,
+          "max_drawdown": -0.194288,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.138451,
+          "max_drawdown": -0.194288,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.212798,
+          "max_drawdown": -0.101554,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": 2.2915,
+        "cagr_giveback_pp": 4.5482,
+        "score": 0.0174,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.138451,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.194288
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 2.6524,
+        "cagr_giveback_pp": 4.2932,
+        "score": 0.5058,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.212798,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.101554
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 5.5414,
+          "mdd_improve_pp": 2.6524,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 5.465,
+          "mdd_improve_pp": 2.6524,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    },
+    {
+      "variant_id": "KELLY_0050_W252_k25",
+      "edge_id": "EDGE_0050_ROLL",
+      "W": 252,
+      "kappa": 0.25,
+      "promote_eligible": false,
+      "exact_t1_ok": true,
+      "n_fills": 6482,
+      "mean_e45_exposure": 0.8159976767374226,
+      "exposure_diag": {
+        "mean_e": 0.815998,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.325983,
+        "frac_at_hi": 0.601013,
+        "frac_at_bound": 0.926996,
+        "mean_raw_before_clip": 1.652576,
+        "mean_f_star": 6.610305,
+        "frac_f_star_pos": 0.754172
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.109171,
+          "max_drawdown": -0.214558,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.138082,
+          "max_drawdown": -0.214558,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.202114,
+          "max_drawdown": -0.09999,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": 0.2645,
+        "cagr_giveback_pp": 4.5851,
+        "score": -2.02805,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.138082,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.214558
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 2.8088,
+        "cagr_giveback_pp": 5.3616,
+        "score": 0.128,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.202114,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.09999
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 6.8067,
+          "mdd_improve_pp": 2.8088,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 6.4449,
+          "mdd_improve_pp": 2.8088,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    },
+    {
+      "variant_id": "KELLY_0050_W252_k50",
+      "edge_id": "EDGE_0050_ROLL",
+      "W": 252,
+      "kappa": 0.5,
+      "promote_eligible": false,
+      "exact_t1_ok": true,
+      "n_fills": 6624,
+      "mean_e45_exposure": 0.8500774205878524,
+      "exposure_diag": {
+        "mean_e": 0.850077,
+        "p50_e": 1.0,
+        "p10_e": 0.5,
+        "frac_at_lo": 0.275924,
+        "frac_at_hi": 0.674017,
+        "frac_at_bound": 0.94994,
+        "mean_raw_before_clip": 3.305153,
+        "mean_f_star": 6.610305,
+        "frac_f_star_pos": 0.754172
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.116371,
+          "max_drawdown": -0.217498,
+          "n_days": 3356
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.152426,
+          "max_drawdown": -0.217498,
+          "n_days": 1861
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.216622,
+          "max_drawdown": -0.100462,
+          "n_days": 884
+        }
+      },
+      "heldout_delta": {
+        "mdd_improve_pp": -0.0295,
+        "cagr_giveback_pp": 3.1507,
+        "score": -1.60485,
+        "base_cagr": 0.183933,
+        "chal_cagr": 0.152426,
+        "base_mdd": -0.217203,
+        "chal_mdd": -0.217498
+      },
+      "sealed_delta": {
+        "mdd_improve_pp": 2.7616,
+        "cagr_giveback_pp": 3.9108,
+        "score": 0.8062,
+        "base_cagr": 0.25573,
+        "chal_cagr": 0.216622,
+        "base_mdd": -0.128078,
+        "chal_mdd": -0.100462
+      },
+      "tip": {
+        "ytd": {
+          "cagr_giveback_pp": 6.0039,
+          "mdd_improve_pp": 2.7616,
+          "gate": "PAUSE_REVIEW"
+        },
+        "trailing_1y": {
+          "cagr_giveback_pp": 6.0133,
+          "mdd_improve_pp": 2.7616,
+          "gate": "PAUSE_REVIEW"
+        }
+      },
+      "tip_clean": false,
+      "row_class": "ESTIMATE_UNSTABLE"
+    }
+  ],
+  "verdict": "COEXIST_NO_LIFT",
+  "best_variant_id": "KELLY_LIVE_W252_k50",
+  "verdict_detail": {
+    "held_score": -2.2079,
+    "n_coexist": 1
+  },
+  "best_row": {
+    "variant_id": "KELLY_LIVE_W252_k50",
+    "edge_id": "EDGE_LIVE_ROLL",
+    "W": 252,
+    "kappa": 0.5,
+    "promote_eligible": true,
+    "exact_t1_ok": true,
+    "n_fills": 6743,
+    "mean_e45_exposure": 0.8933902436510787,
+    "exposure_diag": {
+      "mean_e": 0.89339,
+      "p50_e": 1.0,
+      "p10_e": 0.5,
+      "frac_at_lo": 0.197557,
+      "frac_at_hi": 0.767282,
+      "frac_at_bound": 0.964839,
+      "mean_raw_before_clip": 4.557397,
+      "mean_f_star": 9.114794,
+      "frac_f_star_pos": 0.825983
+    },
+    "windows": {
+      "full": {
+        "cagr": 0.116728,
+        "max_drawdown": -0.224668,
+        "n_days": 3356
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.154705,
+        "max_drawdown": -0.224668,
+        "n_days": 1861
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.22359,
+        "max_drawdown": -0.132548,
+        "n_days": 884
+      }
+    },
+    "heldout_delta": {
+      "mdd_improve_pp": -0.7465,
+      "cagr_giveback_pp": 2.9228,
+      "score": -2.2079,
+      "base_cagr": 0.183933,
+      "chal_cagr": 0.154705,
+      "base_mdd": -0.217203,
+      "chal_mdd": -0.224668
+    },
+    "sealed_delta": {
+      "mdd_improve_pp": -0.447,
+      "cagr_giveback_pp": 3.214,
+      "score": -2.054,
+      "base_cagr": 0.25573,
+      "chal_cagr": 0.22359,
+      "base_mdd": -0.128078,
+      "chal_mdd": -0.132548
+    },
+    "tip": {
+      "ytd": {
+        "cagr_giveback_pp": -0.7143,
+        "mdd_improve_pp": -0.447,
+        "gate": "PASS"
+      },
+      "trailing_1y": {
+        "cagr_giveback_pp": -0.849,
+        "mdd_improve_pp": -0.447,
+        "gate": "PASS"
+      }
+    },
+    "tip_clean": true,
+    "row_class": "COEXIST_NO_LIFT"
+  },
+  "non_actions": [
+    "No Soft-Frozen clip flip",
+    "No live KD_OPT / TEL_EQUAL / Soft / Sleeve / FUSE / BLEND / priv / E45 / DH wire",
+    "No Soft||Sleeve ops auto-fuse",
+    "No E45 stitch reopen / no undo DROP_E45_A05",
+    "No Stage A fusion with DH/Soft/Sleeve/FUSE",
+    "No full Kelly / no f_hi>1 / no shorts",
+    "Even KELLY_PROMOTE_SHAPED -> paper observe ballot only; never live from this screen"
+  ]
+}
