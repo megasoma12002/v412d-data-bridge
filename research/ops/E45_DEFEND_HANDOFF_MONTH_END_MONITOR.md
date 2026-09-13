@@ -1,0 +1,21 @@
+# E45_DEFEND_HANDOFF month-end monitor (asof 2026-09-11)
+
+Status: `OPERATING_OBSERVE` · paper only · base `LIVE_STACK` vs `DH_dd06_vz1p0`
+
+| Window | MDD dpp | Giveback pp | Score | Rel NAV |
+|---|---:|---:|---:|---:|
+| mtd | 0.024055139053236196 | -18.87791186047849 | -9.41490079118601 | 1.0006 |
+| ytd | 0.030993872741769124 | 2.8132028281482313 | -1.3756075413323465 | 0.9893 |
+| trailing_1y | 0.030993872741780226 | 1.6386587733372426 | -0.7883355139268411 | 0.9899 |
+| heldout_2019_plus | 4.341586551660348 | 1.151140228726355 | 3.7660164372971705 | 0.9304 |
+| sealed_2023_plus | 0.030993872741780226 | 1.1408125158949955 | -0.5394123852057175 | 0.9685 |
+| full | 4.341586551660326 | 0.634499183072279 | 4.024336960124186 | 0.9284 |
+
+## Alerts
+
+- none
+
+## Non-actions
+
+- No live E45_DEFEND_HANDOFF wire / Soft-Frozen clip flip / Soft∥Sleeve auto-fuse
+

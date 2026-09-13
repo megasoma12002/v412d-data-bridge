@@ -1,0 +1,111 @@
+{
+  "schema_version": "e45_defend_handoff_dual_paper_observe_v1",
+  "label": "E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE_OPERATING",
+  "generated_at_utc": "2026-09-13T04:37:32Z",
+  "status": "OPERATING_OBSERVE",
+  "human_open": "OPEN E45 defend-handoff observe: DH_dd06_vz1p0",
+  "live_wire": false,
+  "stitch_authorized": false,
+  "stitch_reopen": false,
+  "base_id": "LIVE_STACK",
+  "challenger_id": "DH_dd06_vz1p0",
+  "stage_a_verdict": "HANDOFF_PROMOTE_SHAPED",
+  "recipe": {
+    "dd_threshold": 0.06,
+    "vol_z_threshold": 1.0,
+    "shrink": 0.5,
+    "frac_days_defense": 0.027414,
+    "financial_alloc": "FIN_PRE_EXDIV_KD",
+    "telecom_alloc": "TEL_EQUAL",
+    "capital": 500000000.0,
+    "lot_size": 1000
+  },
+  "soft_frozen_fin_clip": [
+    0.6,
+    0.9
+  ],
+  "base_windows": {
+    "full": {
+      "cagr": 0.140238,
+      "max_drawdown": -0.217203,
+      "n_days": 3356
+    },
+    "oof_2011_2018": {
+      "cagr": 0.091635,
+      "max_drawdown": -0.172795,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.120574,
+      "max_drawdown": -0.217203,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.25573,
+      "max_drawdown": -0.128078,
+      "n_days": 884
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.183933,
+      "max_drawdown": -0.217203,
+      "n_days": 1861
+    }
+  },
+  "chal_windows": {
+    "full": {
+      "cagr": 0.133893,
+      "max_drawdown": -0.173787,
+      "n_days": 3356
+    },
+    "oof_2011_2018": {
+      "cagr": 0.091158,
+      "max_drawdown": -0.169991,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.109467,
+      "max_drawdown": -0.173787,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.244322,
+      "max_drawdown": -0.127768,
+      "n_days": 884
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.172422,
+      "max_drawdown": -0.173787,
+      "n_days": 1861
+    }
+  },
+  "heldout_delta": {
+    "mdd_improve_pp": 4.3416000000000015,
+    "cagr_giveback_pp": 1.1511000000000022,
+    "score": 3.7660500000000003
+  },
+  "sealed_delta": {
+    "mdd_improve_pp": 0.03100000000000047,
+    "cagr_giveback_pp": 1.1408,
+    "score": -0.5393999999999995
+  },
+  "tip": {
+    "ytd": {
+      "mdd_improve_pp": 0.031,
+      "cagr_giveback_pp": 2.8132,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "mdd_improve_pp": 0.031,
+      "cagr_giveback_pp": 1.6387,
+      "gate": "PASS"
+    }
+  },
+  "n_fills_base": 5751,
+  "n_fills_chal": 6431,
+  "non_actions": [
+    "No Soft-Frozen / Soft / Sleeve / FUSE / E45 live wire",
+    "No E45 stitch reopen / no undo DROP_E45_A05",
+    "Soft∥Sleeve independent observes KEEP",
+    "Cutover BLOCKED until dedicated ACCEPT"
+  ]
+}

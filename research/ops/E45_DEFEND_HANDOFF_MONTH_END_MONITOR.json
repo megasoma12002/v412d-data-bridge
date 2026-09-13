@@ -1,0 +1,118 @@
+{
+  "generated_at_utc": "2026-09-13T04:38:08.709768+00:00",
+  "asof": "2026-09-11",
+  "label": "E45_DEFEND_HANDOFF_MONTH_END_MONITOR",
+  "status": "OPERATING_OBSERVE",
+  "base_id": "LIVE_STACK",
+  "challenger_id": "DH_dd06_vz1p0",
+  "nav_source": "daily_nav",
+  "live_wire": false,
+  "soft_frozen_clips_unchanged": true,
+  "e45_stitch": "FORBIDDEN",
+  "independent_observes": "Soft/Sleeve/FUSE KEEP",
+  "stitch_authorized": false,
+  "alerts": [],
+  "windows": [
+    {
+      "window": "mtd",
+      "start": "2026-09-01",
+      "end": "2026-09-11",
+      "n_days": 9,
+      "base_cagr": 8.58928292056423,
+      "base_mdd": -0.012596068388510462,
+      "chal_cagr": 8.778062039169015,
+      "chal_mdd": -0.0123555169979781,
+      "mdd_improve_pp": 0.024055139053236196,
+      "cagr_giveback_pp": -18.87791186047849,
+      "score": -9.41490079118601,
+      "rel_nav_end": 1.0006190866811762
+    },
+    {
+      "window": "ytd",
+      "start": "2026-01-01",
+      "end": "2026-09-11",
+      "n_days": 167,
+      "base_cagr": 0.7361965452623878,
+      "base_mdd": -0.12807794587413646,
+      "chal_cagr": 0.7080645169809054,
+      "chal_mdd": -0.12776800714671877,
+      "mdd_improve_pp": 0.030993872741769124,
+      "cagr_giveback_pp": 2.8132028281482313,
+      "score": -1.3756075413323465,
+      "rel_nav_end": 0.989296703392259
+    },
+    {
+      "window": "trailing_1y",
+      "start": "2025-09-11",
+      "end": "2026-09-11",
+      "n_days": 242,
+      "base_cagr": 0.5531271153005128,
+      "base_mdd": -0.12807794587413657,
+      "chal_cagr": 0.5367405275671404,
+      "chal_mdd": -0.12776800714671877,
+      "mdd_improve_pp": 0.030993872741780226,
+      "cagr_giveback_pp": 1.6386587733372426,
+      "score": -0.7883355139268411,
+      "rel_nav_end": 0.9899075085231943
+    },
+    {
+      "window": "heldout_2019_plus",
+      "start": "2019-01-01",
+      "end": "2026-09-11",
+      "n_days": 1861,
+      "base_cagr": 0.18393316061137321,
+      "base_mdd": -0.21720270077643733,
+      "chal_cagr": 0.17242175832410966,
+      "chal_mdd": -0.17378683525983385,
+      "mdd_improve_pp": 4.341586551660348,
+      "cagr_giveback_pp": 1.151140228726355,
+      "score": 3.7660164372971705,
+      "rel_nav_end": 0.9304226901042095
+    },
+    {
+      "window": "sealed_2023_plus",
+      "start": "2023-01-01",
+      "end": "2026-09-11",
+      "n_days": 884,
+      "base_cagr": 0.2557299834147724,
+      "base_mdd": -0.12807794587413646,
+      "chal_cagr": 0.24432185825582242,
+      "chal_mdd": -0.12776800714671865,
+      "mdd_improve_pp": 0.030993872741780226,
+      "cagr_giveback_pp": 1.1408125158949955,
+      "score": -0.5394123852057175,
+      "rel_nav_end": 0.9685273804490888
+    },
+    {
+      "window": "full",
+      "start": "2012-12-04",
+      "end": "2026-09-11",
+      "n_days": 3356,
+      "base_cagr": 0.14023801686669346,
+      "base_mdd": -0.21720270077643722,
+      "chal_cagr": 0.13389302503597067,
+      "chal_mdd": -0.17378683525983396,
+      "mdd_improve_pp": 4.341586551660326,
+      "cagr_giveback_pp": 0.634499183072279,
+      "score": 4.024336960124186,
+      "rel_nav_end": 0.9284010953623647
+    }
+  ],
+  "gates": {
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "design_giveback_pp": {
+      "heldout_2019_plus": 2.0,
+      "sealed_2023_plus": 2.0
+    },
+    "structural_buffer_pp": 2.0
+  },
+  "non_actions": [
+    "paper observe only",
+    "no Soft-Frozen clip flip",
+    "no live Sleeve-tilt wire",
+    "E45 stitch FORBIDDEN",
+    "Soft/Sleeve/FUSE observes KEEP",
+    "no undo DROP_E45_A05"
+  ]
+}
