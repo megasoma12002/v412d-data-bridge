@@ -86,7 +86,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | ETF ex-calendar Stage A (0050 paper) | **STOP** (2026-09-11) | Stage A 13 books · verdict **`NEAR_NO_BEAT`** · 0 beat-live / 0 coexist / 0 beat-BH · tip-clean vs live 5 (=BH overlay) · live Soft-Frozen/KD/TEL **KEEP** · `ETF_EX_CALENDAR_SCREEN.md` |
 | External borrow notes (Soft∥Sleeve∥month-end) | **REFERENCE** (2026-09-11) | Five practitioner notes mapped to Soft-assist / Sleeve-tilt observe + Gates A–I · **no live · no combo** · `EXTERNAL_BORROW_NOTES.md` |
 | Research archive batch (human 請封存) | **ARCHIVED** (2026-09-13) | Seal A05 stitch reopen · E45 densify · DL · indicator hard · TEL challengers · structure fails · dry-powder · ETF calendar · FIN50/L4 agenda · KEEP Soft/Sleeve/FUSE/BLEND_025/priv observe · E45 defend paper-only next · `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` |
-| Kelly exposure Stage A charter + screen | **PAPER DONE / COEXIST_NO_LIFT** (2026-09-13) | Contact=`kelly_exposure` · best `KELLY_LIVE_W252_k50` · tip-clean 1 but held score&lt;0 · most books ESTIMATE_UNSTABLE · **no observe / no live** · `KELLY_EXPOSURE_STAGEA_SCREEN.md` |
+| Kelly exposure Stage A charter + screen | **ARCHIVED** (2026-09-13 · human 請封存) | Stage A **`COEXIST_NO_LIFT`** · best `KELLY_LIVE_W252_k50` · **no observe / no live** · batch `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` · `KELLY_EXPOSURE_STAGEA_SCREEN.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
@@ -123,7 +123,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 | Dry-powder drawdown sleeve | Stage A **STOP** (`NO_LIFT`) · live KEEP · re-open only with human-expanded grid · `DRY_POWDER_DRAWDOWN_SCREEN.md` |
 | Sleeve-layer tilt | **OPEN OBSERVE EXECUTED** · dual-paper OPERATING · Soft-Frozen clips KEEP · cutover BLOCKED until ACCEPT · `SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md` |
 | ETF ex-calendar (0050) | Stage A **STOP** (`NEAR_NO_BEAT`) · live KEEP · re-open only with human-expanded grid · `ETF_EX_CALENDAR_SCREEN.md` |
-| Kelly exposure overlay | Stage A **DONE / COEXIST_NO_LIFT** · no observe · re-open only with amended charter (W/κ/f_lo) + human ballot · `KELLY_EXPOSURE_STAGEA_SCREEN.md` |
+| Kelly exposure overlay | **ARCHIVED** · re-open only with **new charter + human ballot** · `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 

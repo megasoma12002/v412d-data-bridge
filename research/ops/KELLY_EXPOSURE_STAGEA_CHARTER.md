@@ -1,11 +1,11 @@
 # Kelly Criterion Exposure Overlay — Stage A Charter (paper)
 
 Date: 2026-09-13  
-Status: **PAPER DONE** · Stage A **`COEXIST_NO_LIFT`** · live KEEP · observe **NOT OPEN**
+Status: **ARCHIVED (human: 請封存)** · Stage A **`COEXIST_NO_LIFT`** · live KEEP · observe **NOT OPEN**
 Soft-Frozen **KEEP** · live **`KD_OPT` KEEP** · **`TEL_EQUAL` KEEP** · E45 stitch **OFF** (`DROP_E45_A05`)  
 Soft-assist / Sleeve-tilt / FUSE_ADDITIVE / BLEND_025 / priv / **DH_dd06** observes **UNCHANGED**
 
-Ballot label: `KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__PAPER_DONE__COEXIST_NO_LIFT__NO_LIVE`
+Ballot label: `KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__ARCHIVED__COEXIST_NO_LIFT__NO_LIVE`
 
 ## Why
 
@@ -134,8 +134,14 @@ Even `KELLY_PROMOTE_SHAPED` → **paper observe ballot only**; **never** live wi
 
 ## Next authorized action
 
-Stage A done (`COEXIST_NO_LIFT`). **STOP observe open.** Archive-or-amend only with human ballot. Live unchanged.
+**ARCHIVED.** No observe · no live · no amend from this charter. Live unchanged.
 
 ## Label
 
 `KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__PAPER_DONE__COEXIST_NO_LIFT__NO_LIVE`
+## Archive seal (2026-09-13)
+
+Human: **請封存** · batch `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md`  
+No observe · no live · reopen only with **new charter + human ballot**.
+
+Label: `KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__ARCHIVED__COEXIST_NO_LIFT__NO_LIVE`

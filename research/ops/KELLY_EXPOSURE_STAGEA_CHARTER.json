@@ -1,8 +1,8 @@
 {
-  "label": "KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__PAPER_DONE__COEXIST_NO_LIFT__NO_LIVE",
-  "status": "PAPER_DONE",
+  "label": "KELLY_EXPOSURE_STAGEA_CHARTER_2026-09-13__ARCHIVED__COEXIST_NO_LIFT__NO_LIVE",
+  "status": "ARCHIVED",
   "date": "2026-09-13",
-  "stage_a_status": "DONE",
+  "stage_a_status": "DONE_ARCHIVED",
   "human": "Kelly Criterion paper charter: contact=kelly_exposure; edge=rolling mu/sigma2; fraction=1/4|1/2; hard locks",
   "live_wire": false,
   "soft_frozen": "KEEP",
@@ -82,7 +82,7 @@
     "no open search beyond finite grid",
     "Exact T+1 causal only"
   ],
-  "next_authorized_action": "STOP observe open; archive or amend charter only with human ballot",
+  "next_authorized_action": "NONE — archived; reopen only with new charter + human ballot",
   "script_planned": "scripts/e16_kelly_exposure_stagea_screen.py",
   "results_planned": "research/ops/KELLY_EXPOSURE_STAGEA_SCREEN.md",
   "repro_planned": "repro/kelly-exposure-stagea/",
@@ -91,5 +91,7 @@
   "stage_a_verdict": "COEXIST_NO_LIFT",
   "best_variant_id": "KELLY_LIVE_W252_k50",
   "screen": "research/ops/KELLY_EXPOSURE_STAGEA_SCREEN.md",
-  "repro": "repro/kelly-exposure-stagea/"
+  "repro": "repro/kelly-exposure-stagea/",
+  "archive_batch": "research/ops/RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md",
+  "observe_open": false
 }

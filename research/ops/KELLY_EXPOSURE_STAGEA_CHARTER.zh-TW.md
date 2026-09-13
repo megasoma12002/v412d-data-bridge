@@ -1,7 +1,7 @@
 # Kelly 曝險 Overlay — Stage A 憲章（paper）
 
 日期：2026-09-13  
-狀態：**PAPER DONE** · Stage A **`COEXIST_NO_LIFT`** · live KEEP · observe **未開**
+狀態：**ARCHIVED（人類：請封存）** · Stage A **`COEXIST_NO_LIFT`** · live KEEP · observe **未開**
 Soft-Frozen **KEEP** · live **`KD_OPT`／`TEL_EQUAL` KEEP** · E45 stitch **OFF**  
 Soft／Sleeve／FUSE／BLEND_025／priv／**DH_dd06** observe **不動**
 
@@ -73,3 +73,8 @@ Lookback \(W ∈ \{63,126,252\}\)；\(\hat\mu\le 0\) 或變異數無效 → raw 
 - 多數書 `ESTIMATE_UNSTABLE`（曝險常貼 clip 邊界）
 - **不上 live**；除非人類修憲，否則 STOP
 
+
+## 封存（2026-09-13）
+
+人類：**請封存** · 批件 `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md`  
+不上 observe／live；重開需新憲章 + 人類 ballot。

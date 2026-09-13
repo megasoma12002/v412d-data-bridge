@@ -73,3 +73,8 @@ Repro: `repro/kelly-exposure-stagea/`
 ## Next authorized action
 
 - KEEP research note; no observe unless human expands charter.
+
+## Archive seal (2026-09-13)
+
+Human **請封存**. Batch: `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md`.  
+No observe · no live · reopen only with new charter + human ballot.

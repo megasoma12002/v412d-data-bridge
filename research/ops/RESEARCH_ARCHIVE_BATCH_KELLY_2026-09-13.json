@@ -1,0 +1,30 @@
+{
+  "label": "RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13__HUMAN_SEAL__COEXIST_NO_LIFT__NO_OBSERVE_NO_LIVE",
+  "date": "2026-09-13",
+  "status": "ARCHIVED",
+  "human_ballot": "請封存",
+  "verdict": "COEXIST_NO_LIFT",
+  "best_variant_id": "KELLY_LIVE_W252_k50",
+  "live_wire": false,
+  "observe_open": false,
+  "archive": [
+    "KELLY_EXPOSURE_STAGEA",
+    "KELLY_CHARTER_AMEND_WITHOUT_NEW_BALLOT"
+  ],
+  "keep_unchanged": [
+    "LIVE_STACK",
+    "SOFT_ASSIST_OBSERVE",
+    "SLEEVE_TILT_OBSERVE",
+    "FUSE_ADDITIVE_OBSERVE",
+    "BLEND_025_OBSERVE",
+    "FIN_PRIV_NATIVE_OBSERVE",
+    "E45_DEFEND_HANDOFF_DH_dd06_OBSERVE"
+  ],
+  "artifacts": {
+    "charter": "research/ops/KELLY_EXPOSURE_STAGEA_CHARTER.md",
+    "screen": "research/ops/KELLY_EXPOSURE_STAGEA_SCREEN.md",
+    "script": "scripts/e16_kelly_exposure_stagea_screen.py",
+    "repro": "repro/kelly-exposure-stagea/",
+    "portfolio": "research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md"
+  }
+}
