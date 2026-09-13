@@ -1,58 +1,28 @@
 {
-  "generated_at_utc": "2026-09-09T10:34:10.753360+00:00",
+  "generated_at_utc": "2026-09-13T04:30:00+00:00",
   "label": "RESEARCH_PORTFOLIO_KEEP_ARCHIVE",
   "status": "LOCKED",
-  "ballot": "FIN 四本 observe（MIX_L75 + KD_OPT）+ E45 少數 sleeve（A05 / C35）+ 月結閘門。其餘可以封存",
+  "ballot": "請封存 — keep Soft/Sleeve/FUSE/BLEND_025/priv observe + E45 defend research; archive A05 stitch reopen, E45 densify, DL, indicator hard, TEL challengers, structure fails, dry-powder, ETF calendar",
+  "batch_artifact": "research/ops/RESEARCH_ARCHIVE_BATCH_2026-09-13.md",
   "live_wire": false,
   "soft_frozen_keep": true,
   "default_books_keep": "E22_v2s_tw",
   "stitch_forbidden": true,
   "keep": {
-    "fin_within_sleeve": [
-      "FIN_EQUAL",
-      "FIN_RS_SOFT_TILT_EXDIV",
-      "MIX_L75",
-      "KD_OPT"
+    "live_stack": [
+      "SOFT_FROZEN_FIN_0.60_0.90",
+      "KD_OPT",
+      "TEL_EQUAL"
     ],
-    "fin_focus": [
-      "MIX_L75",
-      "KD_OPT"
+    "operating_observe": [
+      "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
+      "SLEEVE_RSI14_LT30_a0225",
+      "FUSE_ADDITIVE",
+      "BLEND_025",
+      "FIN_PRIV_NATIVE_DUAL_PAPER"
     ],
-    "fin_pre_exdiv_kd_probe": {
-      "kd": "Yahoo K9/D9",
-      "optimal_id": "KD_APR15_MAY15_Klt30_T15",
-      "observe_label": "KD_OPT",
-      "season": "Apr15-May15",
-      "k_thresh": 30.0,
-      "pre_days": 15,
-      "artifact": "research/ops/FIN_PRE_EXDIV_KD_OPTIMIZE.md",
-      "status": "OPTIMAL_SELECTED_OBSERVE",
-      "live_wire": true
-    },
-    "fin_post_exdiv_autumn_probe": {
-      "kd": "Yahoo K9/D9",
-      "best_id": "AUT_OCT20_DEC10_Klt20_H40",
-      "heldout_score": 0.428,
-      "dual_heldout": 0.621,
-      "vs_kd_opt_delta": -0.026,
-      "artifact": "research/ops/FIN_POST_EXDIV_AUTUMN_OPTIMIZE.md",
-      "dual_artifact": "research/ops/FIN_KD_AUTUMN_DUAL_SEASON.md",
-      "status": "STOP",
-      "live_wire": false,
-      "live_kd_opt_unchanged": true
-    },
-    "fin_priv_native_observe": {
-      "books": ["PRIV_EQUAL", "PRIV_KD_MAY_Klt25_T15"],
-      "status": "OPERATING_OBSERVE_KEEP",
-      "live_wire": false,
-      "posture": "research/ops/FIN_PRIV_NATIVE_OBSERVE_POSTURE.md",
-      "runbook": "research/ops/FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md",
-      "status_ballot": "research/ops/FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md",
-      "cutover": "research/ops/CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md"
-    },
-    "e45_primary": [
-      "BLEND_E45_A05",
-      "M2_RELOC_BIL_FX_C35"
+    "research_next_paper_only": [
+      "E45_DEFEND_HANDOFF_DH_dd06_vz1p0"
     ],
     "ops": [
       "month_end_gates",
@@ -60,32 +30,42 @@
     ]
   },
   "archive": [
+    "BLEND_E45_A05_LIVE_STITCH_REOPEN",
+    "E45_SAME_KNOB_DENSIFY",
+    "E45_LEGACY_PRIMARY_OBSERVE_AGENDA",
     "FIN_STAGE_B_HARD_TOP1_TOP2_MIN_LOT",
-    "TELECOM_WITHIN_SLEEVE",
+    "TELECOM_WITHIN_SLEEVE_NE_EQUAL",
     "SOFT_FROZEN_CLIP_SEARCH_NO_LIVE_FLIP",
+    "SOFT_FROZEN_4SLEEVE",
+    "FIN_PUB_PRIV_DUAL_SLEEVE",
+    "PRIVATE_UNIVERSE_EXPAND",
+    "INDICATOR_HARD_AND_ASSIST_R1_R3",
+    "SOFT_DL_FAMILY_T2_TIPMDD_4TRACK",
+    "EXTERNAL_SOFT_SELL_BORROW",
+    "DRY_POWDER_DRAWDOWN_SLEEVE",
+    "ETF_EX_CALENDAR_0050",
+    "FIN50_STATIC_CUTOVER_AGENDA",
+    "L4_LIVE_CUTOVER_AGENDA",
+    "FIN_AUTUMN_POST_EX_NO_LIFT_STOP",
     "E45_SOFT_A_C35_FAMILY_EXHAUSTED",
     "E45_FULL_A25_SLEEVE_LOCAL_SECONDARY",
     "E45_DRAFT_BALLOTS_NOT_OPEN",
-    "FIN50_STATIC_REJECT_L4_DEFER",
-    "TEL_ETF_FLOOR_10_WITHDRAWN",
-    "FIN_AUTUMN_POST_EX_NO_LIFT_STOP"
+    "TEL_ETF_FLOOR_10_WITHDRAWN"
   ],
   "archive_means": "retain evidence; no new research expansion; not primary agenda; slim month-end pack needs separate ballot",
   "non_actions": [
     "No Soft-Frozen flip from archive alone",
-    "No FIN within-sleeve or E45 stitch without dedicated ACCEPT",
-    "No live-wire 民營 native from paper green alone",
-    "No Stage B hard reopen",
-    "No invent MDD narrative replacement",
-    "No cutover from archived sleeve month-end green alone"
+    "No Soft/Sleeve/FUSE/priv/E45 live wire without dedicated ACCEPT",
+    "No E45 stitch reopen / no undo DROP_E45_A05",
+    "No Soft||Sleeve ops auto-fuse",
+    "No archived-track reopen without new charter + human ballot",
+    "No cutover from archived sleeve month-end green alone",
+    "Defend-handoff paper observe only via separate ballot"
   ],
   "artifacts": {
-    "posture_fin": "research/ops/FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md",
-    "posture_fin_priv": "research/ops/FIN_PRIV_NATIVE_OBSERVE_POSTURE.md",
-    "e45_sleeves": "research/ops/E45_OBSERVE_SLEEVES_STATUS.md",
-    "register": "research/ops/HUMAN_DECISION_REGISTER.md"
+    "batch": "research/ops/RESEARCH_ARCHIVE_BATCH_2026-09-13.md",
+    "register": "research/ops/HUMAN_DECISION_REGISTER.md",
+    "e45_defend": "research/ops/E45_DEFEND_HANDOFF_STAGEA_SCREEN.md"
   },
-  "live_capital": 500000000,
-  "live_capital_ballot": "ACCEPT live capital 500M",
-  "live_capital_note": "research/ops/CAPITAL_500M_2026-09-09.md"
+  "live_capital": 500000000
 }

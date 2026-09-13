@@ -83,9 +83,10 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Sleeve-layer tilt dual-paper observe | **OPERATING** (2026-09-12) | `LIVE_STACK` ∥ `SLEEVE_RSI14_LT30_a0225` · month-end wired · no live wire · rule-path OPEN · `SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md` |
 | ETF ex-calendar Stage A (0050 paper) | **STOP** (2026-09-11) | Stage A 13 books · verdict **`NEAR_NO_BEAT`** · 0 beat-live / 0 coexist / 0 beat-BH · tip-clean vs live 5 (=BH overlay) · live Soft-Frozen/KD/TEL **KEEP** · `ETF_EX_CALENDAR_SCREEN.md` |
 | External borrow notes (Soft∥Sleeve∥month-end) | **REFERENCE** (2026-09-11) | Five practitioner notes mapped to Soft-assist / Sleeve-tilt observe + Gates A–I · **no live · no combo** · `EXTERNAL_BORROW_NOTES.md` |
+| Research archive batch (human 請封存) | **ARCHIVED** (2026-09-13) | Seal A05 stitch reopen · E45 densify · DL · indicator hard · TEL challengers · structure fails · dry-powder · ETF calendar · FIN50/L4 agenda · KEEP Soft/Sleeve/FUSE/BLEND_025/priv observe · E45 defend paper-only next · `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
-Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
+Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
 
 ### Register #6 sequential ballots
 
