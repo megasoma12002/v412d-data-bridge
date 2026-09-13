@@ -1,8 +1,9 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-05 (strategy closure prep)  
+Date: 2026-09-13 (SSOT hygiene after DH+FUSE live cutover)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
-Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
+Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
+Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  
 Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
@@ -11,14 +12,18 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
 | Item | Value |
 |---|---|
-| Stack | **E16 + Exact T+1 E18 + E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05) |
+| Stack | **E16 + Exact T+1 E18 + E22_v2s_tw** |
 | Path | `forward/e21/` |
-| Clip | Financial **[0.50, 0.95]** via `scripts/e16_soft_frozen_base.py` |
+| Capital / lot | **500M** · board-lot **1000** |
+| Clip | Financial **[0.60, 0.90]** via `scripts/e16_soft_frozen_base.py` |
+| Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** |
+| Overlay | **`FUSE_ADDITIVE`** + **`DH_dd06`** (`LIVE_FUSE_ADDITIVE` / `LIVE_DH_EXPOSURE`) |
+| Legacy A05 stitch | **Off** (`LIVE_E45_STITCH=False`) |
 | Daily job | `.github/workflows/v412f-forward-paper.yml` (weekdays) |
 | QC smoke | `.github/workflows/e21-live-qc-smoke.yml` |
 | QC | `scripts/e21_qc.py` → `forward/e21/qc_status.json` |
 
-**Not live:** E45, E50-A overlay, FIN_CAP_50, L4_DD_PATH, BLEND_025, Track A/B, E6/E9/E10 shadows.
+**Not live (paper / archive):** independent Soft-assist · Sleeve-tilt · FINCAP BLEND_025 · FIN 民營 native · FIN_CAP_50 · L4 · E50-A · legacy E45 A05 blend stitch · Track A/B · E6/E9/E10 shadows.
 
 ## Paper sleeves (observe only)
 
@@ -51,7 +56,7 @@ Odd-lot promote decision pack (**ACCEPT promote**): `research/ops/ODD_LOT_PROMOT
 Par-value lookup charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`  
 Par-value inventory: `research/ops/PAR_VALUE_INVENTORY.md` · `data/corporate_actions/par_value_by_code.csv`  
 Tax/receivable formal books (**Item 2 ACCEPT charter — Stage B OPEN**): `research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · decision pack `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
-E45 live-stitch (**Item 3 ACCEPT charter + RETIRE unmatched handoff MDD narrative + OPEN dual-paper observe**): Soft-Frozen CRITICAL KEEP; Stage board `E45_STAGE12_STATUS.md`; **V1–V6 PASS**; dual-paper observe **OPERATING** (`E45_DUAL_PAPER_OBSERVE_OPEN.md`); primary comparable MDD = lineage E1.1 **−15.81%**; first month-end shows YTD/1y PAUSE_REVIEW (expected crisis giveback); stitch checklist **DRAFTED / NOT AUTHORIZED**; **live stitch still forbidden** until second stitch ACCEPT
+E45 live-stitch (**Item 3 ACCEPT charter + RETIRE unmatched handoff MDD narrative + OPEN dual-paper observe**): Soft-Frozen CRITICAL KEEP; Stage board `E45_STAGE12_STATUS.md`; **V1–V6 PASS**; dual-paper observe **OPERATING** (`E45_DUAL_PAPER_OBSERVE_OPEN.md`); primary comparable MDD = lineage E1.1 **−15.81%**; first month-end shows YTD/1y PAUSE_REVIEW (expected crisis giveback); stitch checklist **DRAFTED / NOT AUTHORIZED**; legacy A05 blend stitch unused (`LIVE_E45_STITCH=False`); live risk overlay is **DH_dd06** (ACCEPT 2026-09-13 with FUSE)
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  

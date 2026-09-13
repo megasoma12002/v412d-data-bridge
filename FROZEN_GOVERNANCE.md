@@ -245,8 +245,8 @@ Retuning E45 thresholds, vote rules, exposure schedules, or handoff cuts is an E
 #### Official class vs live cutover (read carefully)
 
 - **SOFT_FROZEN / SOFT_FROZEN_CRITICAL** names the *official strategy-version class* (E16 / E18 / E22 / E45). Class membership alone does **not** mean a module is live-wired into the forward book.
-- **Current live cutover default** (ops / debt board): **E16 + E18 + E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05), with live E16 Financial clip **[0.50, 0.95]**. No overlay. No silent Soft-Frozen flip.
-- **E45** remains SOFT_FROZEN_CRITICAL as the official crisis-protection *version*, but it is **not** auto-live-wired. Any live attach requires a separate challenger PASS **and** an explicit human cutover PR. Unverified handoff numbers (including the retired MDD narrative) must not be treated as PASS evidence.
+- **Current live cutover default** (ops / debt board, 2026-09-13): **E16 + E18 + E22_v2s_tw**, Soft-Frozen FIN clip **[0.60, 0.90]**, within-sleeve **KD_OPT** + **TEL_EQUAL**, overlays **FUSE_ADDITIVE** + **DH_dd06**, capital **500M**. No silent Soft-Frozen flip.
+- **E45** remains SOFT_FROZEN_CRITICAL as the official crisis-protection *class*. Live risk overlay is **DH_dd06** (not legacy A05 blend stitch; `LIVE_E45_STITCH=False`). Unverified handoff numbers (including the retired MDD narrative) must not be treated as PASS evidence.
 - Research challengers (FIN_CAP_50, MDD L1–L4, E50-A overlays) stay EXPERIMENTAL / paper until that human cutover path completes.
 
 ---

@@ -1,5 +1,9 @@
 # Strategy Debt Board
 
+> **Live SSOT (2026-09-13):** Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · books **`E22_v2s_tw`** · path `forward/e21/`.  
+> Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · ballot: `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`.  
+> Rows below dated **2026-09-05…09** are **historical ledger** (clip once [0.50, 0.95] / capital once 3M) — do not treat as current live.
+
 <!-- debt-sweep 2026-09-06 -->
 ## Debt-sweep snapshot (2026-09-06)
 
@@ -23,9 +27,9 @@ Residual Medium/Low after eng cleanup (#93): review-doc historical mentions of b
 ---
 
 
-Date: 2026-09-05 (strategy closure prep — claim policy + BLEND checklist)  
-Live rule: **E16 + E18 + E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05). No overlay. No history rewrite.  
-Live E16 Financial clip: **[0.50, 0.95]** (unchanged).  
+Date: 2026-09-05 (**historical** strategy closure prep — claim policy + BLEND checklist)  
+Historical live rule then: **E16 + E18 + E22_v2s_tw** · clip **[0.50, 0.95]** · no overlay.  
+**Current live:** see banner at top of this file (2026-09-13 DH+FUSE).  
 Human decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 
@@ -34,7 +38,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | Term | Meaning |
 |---|---|
 | **SOFT_FROZEN** (class) | Official strategy-version class for E16/E18/E22/E45 — **not** “is live” |
-| **Live Soft-Frozen clip** | Live E16 Financial band **[0.50, 0.95]** |
+| **Live Soft-Frozen clip** | Live E16 Financial band **[0.60, 0.90]** (was [0.50, 0.95] until FINBAND ACCEPT) |
 | **Dual-paper** | Parallel Exact T+1 paper books — observation only |
 | **Cutover** | Human PR that changes live books / live clip / live path logic |
 

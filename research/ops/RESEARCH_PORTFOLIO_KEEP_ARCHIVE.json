@@ -82,8 +82,10 @@
     "tel_equal": true,
     "fuse_additive": true,
     "dh_dd06": true,
-    "cutover_ballot": "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE",
-    "asof": "2026-09-13",
-    "overlay": "DH_dd06 + FUSE_ADDITIVE"
-  }
+    "capital": 500000000,
+    "books": "E22_v2s_tw",
+    "path": "forward/e21",
+    "live_e45_stitch": false
+  },
+  "asof": "2026-09-13"
 }

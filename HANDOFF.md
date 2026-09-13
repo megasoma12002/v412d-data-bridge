@@ -13,20 +13,26 @@ Cursor 必須依序讀：
 
 ## 0.1 Live cutover default（強制）
 
-**現行 live：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v2s_tw** + **整股一張=1000** + **起始資本 3M**（2026-09-08 restore）。  
-**Live Soft-Frozen clips：** FIN **[0.50, 0.95]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]**。  
-術語：`TW_SHARE_LOT_DEFINITIONS.md` · 資本還原：`CAPITAL_3M_RESTORE_2026-09-08.md` · 電信內部分配研究：`TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER.md`。  
-**禁止：** overlay live-wire、未授權改寫歷史、E45 stitch 未經第二次 ACCEPT。
+**現行 live（2026-09-13）：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v2s_tw** + **整股一張=1000** + **起始資本 500M**。  
+**Live Soft-Frozen clips：** FIN **[0.60, 0.90]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]**。  
+**Within-sleeve：** FIN **`KD_OPT`** · TEL **`TEL_EQUAL`**。  
+**Live overlay：** **`FUSE_ADDITIVE`** + **`DH_dd06`**（ACCEPT `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`）。  
+**Legacy A05 blend stitch：** unused（`LIVE_E45_STITCH=False`）。  
+術語：`TW_SHARE_LOT_DEFINITIONS.md` · 資本：`scripts/portfolio_capital.py` · 組合：`research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`。  
+**禁止：** 未授權改寫歷史、獨立 Soft／Sleeve observe 靜默 ops auto-fuse、未 ballot 重開 ARCHIVE 線。
 
 | Module | Official class | Live? |
 |---|---|---|
-| E16 / E18 / E22_v2s_tw | SOFT_FROZEN | **Yes (core cutover)** |
+| E16 / E18 / E22_v2s_tw | SOFT_FROZEN | **Yes (core)** |
+| FIN within-sleeve `KD_OPT` | live ACCEPT 2026-09-09 | **Yes** |
+| TEL within-sleeve `TEL_EQUAL` | live KEEP | **Yes** |
+| `FUSE_ADDITIVE` + `DH_dd06` | live ACCEPT 2026-09-13 | **Yes** |
+| Soft-assist / Sleeve-tilt **independent** observes | paper | **No**（獨立 cutover 仍 BLOCKED；FUSE 為專用配方） |
 | E50-A | EXPERIMENTAL / RESEARCH_ONLY | **No** |
-| E45 | SOFT_FROZEN_CRITICAL | **No**（the retired handoff MDD narrative **RETIRE**；dual-paper observe **OPERATING**（含 blend-α=0.25 平行 sleeve）；stitch checklist **DRAFTED / NOT AUTHORIZED**；V1–V6 PASS；live stitch 仍需 **第二次** human ACCEPT） |
-| FIN_CAP_50 | paper dual-ledger | **No** — go-live **`NOT_READY_SEALED_CAGR`** |
-| L4_DD_PATH_08_50 | paper dual-ledger | **No** — held-out PASS；cutover FROZEN |
+| E45 legacy A05 blend stitch | SOFT_FROZEN_CRITICAL class | **No**（`LIVE_E45_STITCH=False`） |
+| FIN_CAP_50 / L4_DD_PATH / FINCAP BLEND_025 | paper dual-ledger | **No** |
 
-細節與 cutover 矩陣：`research/STRATEGY_DEBT_BOARD.md`。
+細節：`research/ops/OPS_STATUS.md` · `research/STRATEGY_DEBT_BOARD.md`。
 
 ## 1. 專案定位
 這不是新專案。
