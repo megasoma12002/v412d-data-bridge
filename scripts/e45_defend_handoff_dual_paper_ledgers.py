@@ -127,8 +127,9 @@ def main() -> int:
             raise SystemExit(f"LIVE_KD[{k}] drift vs e21.KD_OPT")
     if e21.LIVE_E45_STITCH:
         raise SystemExit("Refuse DH observe while LIVE_E45_STITCH is True (no stitch)")
-    if STITCH_AUTHORIZED or LIVE_WIRE:
-        raise SystemExit("Refuse: stitch/live flags must stay false")
+    if STITCH_AUTHORIZED:
+        raise SystemExit("Refuse: stitch flag must stay false")
+    # LIVE_WIRE may be True after DH+FUSE live cutover; paper observe remains a shadow twin.
 
     print("loading ...", flush=True)
     market = load_market()

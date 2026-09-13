@@ -100,16 +100,28 @@ def main() -> None:
     checks["nav_unique_date"] = not nav.date.duplicated().any()
     checks["orders_unique_id"] = not orders.order_id.duplicated().any()
     fin = sig["e16_financial"].astype(float)
-    checks["weights_sum_one"] = bool(
-        ((sig[["e16_financial", "e16_telecom", "e16_0050"]].sum(1) - 1).abs() < 1e-8).all()
-    )
+    sleeve_sum = sig[["e16_financial", "e16_telecom", "e16_0050"]].sum(1)
     # Soft-Frozen Financial envelope — import bounds, never hardcode.
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from e16_soft_frozen_base import FIN, TEL, SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
 
-    checks["soft_frozen_fin_clip"] = bool(
-        ((fin >= SOFT_FROZEN_FIN_LO - 1e-9) & (fin <= SOFT_FROZEN_FIN_HI + 1e-9)).all()
-    )
+    # DH live cutover may scale sleeve weights by dh_exposure (<1 → residual cash).
+    # Prefer pre-DH Financial for Soft-Frozen clip when recorded.
+    if "dh_exposure" in sig.columns and sig["dh_exposure"].notna().any():
+        dh = sig["dh_exposure"].astype(float).fillna(1.0)
+        checks["weights_sum_one"] = bool(((sleeve_sum - dh).abs() < 1e-6).all())
+        if "e16_financial_pre_dh" in sig.columns and sig["e16_financial_pre_dh"].notna().any():
+            fin_clip = sig["e16_financial_pre_dh"].astype(float)
+        else:
+            fin_clip = fin / dh.replace(0.0, pd.NA)
+        checks["soft_frozen_fin_clip"] = bool(
+            fin_clip.dropna().between(SOFT_FROZEN_FIN_LO - 1e-9, SOFT_FROZEN_FIN_HI + 1e-9).all()
+        )
+    else:
+        checks["weights_sum_one"] = bool(((sleeve_sum - 1).abs() < 1e-8).all())
+        checks["soft_frozen_fin_clip"] = bool(
+            ((fin >= SOFT_FROZEN_FIN_LO - 1e-9) & (fin <= SOFT_FROZEN_FIN_HI + 1e-9)).all()
+        )
     checks["nav_positive"] = bool((nav.nav_e16_e18 > 0).all())
     checks["no_negative_cash"] = bool((nav.cash >= -1).all())
     checks["date_monotonic"] = bool(

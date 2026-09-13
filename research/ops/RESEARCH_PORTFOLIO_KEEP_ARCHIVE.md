@@ -3,19 +3,19 @@
 Date: 2026-09-13 (batch seal) · prior lock 2026-09-09  
 Status: **LOCKED** · human ballot **`請封存`** (2026-09-13)  
 Authority: `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · Kelly `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` · E45_BLEND025 `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md` · register `HUMAN_DECISION_REGISTER.md`  
-Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · live capital **500M**
+Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live capital **500M** · live overlay **DH_dd06 + FUSE_ADDITIVE**
 
 ## KEEP (active agenda)
 
 | Track | Focus | Cadence / gate |
 |---|---|---|
-| **Live stack** | Soft-Frozen FIN **[0.60, 0.90]** + **`KD_OPT`** + **`TEL_EQUAL`** | Live wire · E45 OFF |
-| **Soft-assist observe** | `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | Dual-paper month-end · cutover **BLOCKED** |
+| **Live stack** | Soft-Frozen FIN **[0.60, 0.90]** + **`KD_OPT`** + **`TEL_EQUAL`** + **`FUSE_ADDITIVE`** + **`DH_dd06`** | Live wire |
+| **Soft-assist observe** | `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | Dual-paper month-end · cutover **AUTHORIZED (DH+FUSE live)** |
 | **Sleeve-tilt observe** | `SLEEVE_RSI14_LT30_a0225` | Dual-paper month-end · independent of Soft · cutover **BLOCKED** |
-| **FUSE_ADDITIVE observe** | Soft×Sleeve paper joint actuator | Dual-paper · ops auto-fuse **FORBIDDEN** · cutover **BLOCKED** |
+| **FUSE_ADDITIVE** | Soft×Sleeve joint actuator | **LIVE WIRED 2026-09-13** (with DH) · paper shadow may continue |
 | **BLEND_025 observe (FINCAP)** | 0.25·FIN50 + 0.75·BASE sealed-CAGR path | OPERATING OBSERVE · live **NOT READY** · **≠** E45_BLEND025 |
 | **FIN 民營 native (paper)** | `PRIV_EQUAL` ∥ `PRIV_KD_MAY_Klt25_T15` | Month-end dual-paper · **KEEP OBSERVE** · **no live wire** |
-| **E45 defend→handoff (research)** | Stage A `DH_dd06_vz1p0` · `HANDOFF_PROMOTE_SHAPED` | **Paper observe OPERATING** · cutover **BLOCKED** · stitch **FORBIDDEN** |
+| **E45 defend→handoff DH_dd06** | Stage A `DH_dd06_vz1p0` · `HANDOFF_PROMOTE_SHAPED` | **LIVE WIRED 2026-09-13** (with FUSE) · paper shadow may continue |
 | **Month-end gates** | tip ALERT/PAUSE · held-out · pack hygiene | Soft∥Sleeve∥FUSE∥FINCAP BLEND∥priv∥DH packs |
 
 ## ARCHIVE (evidence retained · no new expansion)
@@ -48,7 +48,7 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN
 
 1. Do **not** flip Soft-Frozen clips from archived evidence alone.  
 2. Do **not** live-wire Soft / Sleeve / FUSE / 民營 / E45 without dedicated ACCEPT.  
-3. Do **not** reopen E45 stitch or undo `DROP_E45_A05`.  
+3. Live risk overlay is **DH_dd06** (not legacy A05 blend stitch).  
 4. Do **not** ops Soft∥Sleeve auto-fuse.  
 5. Do **not** reopen archived tracks without **new charter + human ballot**.  
 6. Do **not** treat month-end green on archived sleeves as cutover license.  

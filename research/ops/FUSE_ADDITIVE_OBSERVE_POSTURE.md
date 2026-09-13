@@ -36,3 +36,7 @@ Month-end paper gates: tip clean + held-out lift holds → at most `READY_FOR_DE
 ## Label
 
 `FUSE_ADDITIVE_OBSERVE_POSTURE_2026-09-12__KEEP_OBSERVE__NO_LIVE`
+
+## Live cutover (2026-09-13)
+
+**LIVE WIRED** via combined ballot `ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE`. Paper observe may continue as shadow twin.
