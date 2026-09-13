@@ -2,7 +2,7 @@
 
 Date: 2026-09-13 (batch seal) · prior lock 2026-09-09  
 Status: **LOCKED** · human ballot **`請封存`** (2026-09-13)  
-Authority: `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · Kelly seal `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` · register `HUMAN_DECISION_REGISTER.md`  
+Authority: `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · Kelly `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` · E45_BLEND025 `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md` · register `HUMAN_DECISION_REGISTER.md`  
 Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN** · live capital **500M**
 
 ## KEEP (active agenda)
@@ -13,18 +13,19 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN
 | **Soft-assist observe** | `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | Dual-paper month-end · cutover **BLOCKED** |
 | **Sleeve-tilt observe** | `SLEEVE_RSI14_LT30_a0225` | Dual-paper month-end · independent of Soft · cutover **BLOCKED** |
 | **FUSE_ADDITIVE observe** | Soft×Sleeve paper joint actuator | Dual-paper · ops auto-fuse **FORBIDDEN** · cutover **BLOCKED** |
-| **BLEND_025 observe** | Sealed-CAGR successor path | OPERATING OBSERVE · live **NOT READY** |
+| **BLEND_025 observe (FINCAP)** | 0.25·FIN50 + 0.75·BASE sealed-CAGR path | OPERATING OBSERVE · live **NOT READY** · **≠** E45_BLEND025 |
 | **FIN 民營 native (paper)** | `PRIV_EQUAL` ∥ `PRIV_KD_MAY_Klt25_T15` | Month-end dual-paper · **KEEP OBSERVE** · **no live wire** |
 | **E45 defend→handoff (research)** | Stage A `DH_dd06_vz1p0` · `HANDOFF_PROMOTE_SHAPED` | **Paper observe OPERATING** · cutover **BLOCKED** · stitch **FORBIDDEN** |
-| **Month-end gates** | tip ALERT/PAUSE · held-out · pack hygiene | Soft∥Sleeve∥FUSE∥BLEND∥priv packs |
+| **Month-end gates** | tip ALERT/PAUSE · held-out · pack hygiene | Soft∥Sleeve∥FUSE∥FINCAP BLEND∥priv∥DH packs |
 
 ## ARCHIVE (evidence retained · no new expansion)
 
 封存 = 不刪檔、不重開研究線、不當主決策；既有 ledger 可暫續跑（延續性），**slim pack 另 ballot**。  
-主批 SSOT：`RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · Kelly 批：`RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md`。
+主批 SSOT：`RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · Kelly：`RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` · E45_BLEND025：`RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md`。
 
 | Track | Why archive |
 |---|---|
+| **E45_BLEND025 observe** (`BLEND_E45_A25`) | Tip YTD/1y ~11 pp **PAUSE** · human 封存 2026-09-13 · `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md` |
 | **BLEND_E45_A05 live stitch reopen** | `DROP_E45_A05` · tip drag · no re-stitch |
 | **E45 same-knob densify** (mild-α / crisis-gate / max_cut / Soft_A / C35 expand) | Exhausted · stitch forbidden |
 | **E45 legacy primary agenda** (`BLEND_E45_A05` / `C35` as decision drivers) | Residual ledger only · not primary |
@@ -53,7 +54,8 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · E45 stitch **FORBIDDEN
 6. Do **not** treat month-end green on archived sleeves as cutover license.  
 7. Defend-handoff → **paper observe ballot only** (separate); never live from Stage A alone.
 8. Do **not** reopen Kelly exposure without **new charter + human ballot**.
+9. Do **not** reopen E45_BLEND025 observe without **new charter + human ballot**.
 
 ## Label
 
-`RESEARCH_PORTFOLIO_KEEP_ARCHIVE_LOCKED_2026-09-13__HUMAN_SEAL__SOFT_SLEEVE_FUSE_BLEND_PRIV__E45_DEFEND__KELLY_ARCHIVED`
+`RESEARCH_PORTFOLIO_KEEP_ARCHIVE_LOCKED_2026-09-13__HUMAN_SEAL__SOFT_SLEEVE_FUSE_FINCAP_BLEND_PRIV_DH__KELLY_E45BLEND025_ARCHIVED`

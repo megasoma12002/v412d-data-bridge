@@ -1,7 +1,7 @@
 # E45 Blend-α=0.25 Month-End Paper Monitor — asof 2026-09-11
 
 Generated: `2026-09-12T13:42:11.402720+00:00`
-Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
+Status: **ARCHIVED (2026-09-13)** — was OPERATING OBSERVE / PAPER ONLY — Soft-Frozen live default unchanged.
 Locked: **BLEND_E45_A25** (α=0.25 × E45 `E3_VOLTARGET_WINNER` on early-stack)
 
 > **Dynamic alert windows:** `ytd`, `trailing_1y` (ALERT 3pp / PAUSE 5pp).  
@@ -37,7 +37,11 @@ Locked: **BLEND_E45_A25** (α=0.25 × E45 `E3_VOLTARGET_WINNER` on early-stack)
 
 ## Ops note
 
-- Refresh NAVs: `python3 scripts/e45_blend025_dual_paper_ledgers.py`
-- Re-run monitor: `python3 scripts/e45_blend025_month_end_monitor.py`
-- Or month-end pack: `python3 scripts/ops_month_end_paper_pack.py`
-- Live stitch still requires a **second dedicated human ACCEPT** after checklist.
+- **ARCHIVED 2026-09-13** — month-end pack / alert scan **skip** this sleeve.
+- Scripts retained for evidence only: `e45_blend025_dual_paper_ledgers.py` / `e45_blend025_month_end_monitor.py`
+- Live stitch still requires a **second dedicated human ACCEPT** after checklist (and new charter to reopen observe).
+
+
+## Archive seal (2026-09-13)
+
+Human **封存 E45_BLEND025 observe**. Batch: `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md`. Not in month-end operating queue.

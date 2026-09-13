@@ -32,7 +32,9 @@ L4_JSON = ROOT / "research/gaps/L4_DD_PATH_MONTH_END_MONITOR.json"
 FIN_JSON = ROOT / "research/gaps/FIN_CAP_50_MONTH_END_MONITOR.json"
 BLEND_JSON = ROOT / "research/gaps/BLEND_025_MONTH_END_MONITOR.json"
 E45_JSON = ROOT / "research/gaps/E45_MONTH_END_MONITOR.json"
+# E45_BLEND025 observe ARCHIVED 2026-09-13 — retained path for evidence only (not scanned).
 E45_BLEND025_JSON = ROOT / "research/gaps/E45_BLEND025_MONTH_END_MONITOR.json"
+E45_BLEND025_ALERT_SCAN = False
 SOFT_ASSIST_JSON = ROOT / "research/ops/SOFT_ASSIST_MONTH_END_MONITOR.json"
 SLEEVE_TILT_JSON = ROOT / "research/ops/SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json"
 FUSE_ADDITIVE_JSON = ROOT / "research/ops/FUSE_ADDITIVE_MONTH_END_MONITOR.json"
@@ -123,18 +125,20 @@ def main() -> int:
                 }
             )
 
-    for label, path in (
+    monitor_sources = [
         ("l4_month_end", L4_JSON),
         ("fincap50_month_end", FIN_JSON),
-        ("blend025_month_end", BLEND_JSON),
+        ("blend025_month_end", BLEND_JSON),  # FINCAP BLEND_025 KEEP
         ("e45_month_end", E45_JSON),
-        ("e45_blend025_month_end", E45_BLEND025_JSON),
         # Operating paper observes — PAUSE_REVIEW must surface in OPS_ALERTS.
         ("soft_assist_month_end", SOFT_ASSIST_JSON),
         ("sleeve_tilt_month_end", SLEEVE_TILT_JSON),
         ("fuse_additive_month_end", FUSE_ADDITIVE_JSON),
         ("e45_defend_handoff_month_end", E45_DEFEND_HANDOFF_JSON),
-    ):
+    ]
+    if E45_BLEND025_ALERT_SCAN:
+        monitor_sources.insert(4, ("e45_blend025_month_end", E45_BLEND025_JSON))
+    for label, path in monitor_sources:
         doc = _load(path)
         if doc is None:
             alerts.append(

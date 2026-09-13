@@ -1,6 +1,8 @@
 # E45 Blend-α=0.25 Dual-Paper Observe — OPEN Ballot
 
 Date: 2026-09-06  
+Status: **ARCHIVED (human: 封存 E45_BLEND025 observe · 2026-09-13)** · was OPERATING · stitch still **FORBIDDEN**
+Archive batch: `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md`
 Human ballot: **`E45 OPEN blend-α=0.25 observe`** (proceed next step after paper screen)  
 Authority: Register #6c follow-on · `E45_BLEND_ALPHA_PAPER_SCREEN.md` · `E45_STAGE12_STATUS.md`
 
@@ -8,7 +10,7 @@ Soft-Frozen: **[0.50, 0.95] KEEP**
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN**  
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**  
-Parent full-E45 observe: remains **OPERATING** in parallel (`E45_DUAL_PAPER_OBSERVE_OPEN.md`)
+Parent full-E45 observe: residual / not primary (`E45_DUAL_PAPER_OBSERVE_OPEN.md`)
 
 ## Ballot
 
@@ -58,4 +60,10 @@ Paper blend-alpha screen held-out heuristic preferred **α=0.25**:
 
 ## Label
 
-`E45_BLEND025_OBSERVE_OPEN_2026-09-06__OPERATING__STITCH_FORBIDDEN`
+`E45_BLEND025_OBSERVE_OPEN_2026-09-06__ARCHIVED_2026-09-13__STITCH_FORBIDDEN`
+
+## Archive seal (2026-09-13)
+
+Human: **封存 E45_BLEND025 observe**.  
+Tip YTD/1y giveback ~11 pp **PAUSE_REVIEW** → removed from operating month-end / alert queue.  
+FINCAP `BLEND_025` observe **KEEP**. Reopen only with **new charter + human ballot**.

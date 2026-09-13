@@ -1,12 +1,12 @@
 {
   "generated_at_utc": "2026-09-12T13:41:49.269473+00:00",
   "label": "E45_BLEND025_DUAL_PAPER_OBSERVE_SLEEVE",
-  "status": "OPERATING_OBSERVE",
+  "status": "ARCHIVED",
   "live_wire": false,
   "soft_frozen_default_unchanged": true,
   "stitch_authorized": false,
   "cutover_authorized": false,
-  "ballot": "E45 OPEN blend-\u03b1=0.25 observe",
+  "ballot": "E45 OPEN blend-α=0.25 observe",
   "base_id": "BASE_E16_E18_E22_v2s",
   "locked_challenger": "BLEND_E45_A25",
   "blend_alpha": 0.25,
@@ -128,9 +128,9 @@
   "ops_checklist": [
     "Keep Soft-Frozen live default = BASE until a separate stitch / cutover PR",
     "Run BASE + BLEND_E45_A25 paper ledgers in parallel with month-end monitor",
-    "Re-check YTD / trailing_1y PAUSE gates each month-end (observe \u2260 promote)",
+    "Re-check YTD / trailing_1y PAUSE gates each month-end (observe ≠ promote)",
     "Do not silent-edit Soft-Frozen; do not rewrite forward/e21 history",
-    "Observe sleeve \u2260 stitch license; second human stitch ACCEPT still required",
+    "Observe sleeve ≠ stitch license; second human stitch ACCEPT still required",
     "Never cite the retired handoff MDD narrative; use dated lineage / challenger MDDs only"
   ],
   "non_goals": [
@@ -139,5 +139,8 @@
     "DEFAULT books flip away from E22_v2s_tw",
     "Invent replacement for retired MDD narrative",
     "Bundle FIN50 / L4 / BLEND / odd-lot / tax DEFAULT promote"
-  ]
+  ],
+  "archived_at": "2026-09-13",
+  "archive_batch": "research/ops/RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md",
+  "ops_month_end_scheduled": false
 }
