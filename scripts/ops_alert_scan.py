@@ -36,6 +36,7 @@ E45_BLEND025_JSON = ROOT / "research/gaps/E45_BLEND025_MONTH_END_MONITOR.json"
 SOFT_ASSIST_JSON = ROOT / "research/ops/SOFT_ASSIST_MONTH_END_MONITOR.json"
 SLEEVE_TILT_JSON = ROOT / "research/ops/SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json"
 FUSE_ADDITIVE_JSON = ROOT / "research/ops/FUSE_ADDITIVE_MONTH_END_MONITOR.json"
+E45_DEFEND_HANDOFF_JSON = ROOT / "research/ops/E45_DEFEND_HANDOFF_MONTH_END_MONITOR.json"
 RECON_JSON = ROOT / "research/ops/LIVE_PAPER_RECON.json"
 GAP6_JSON = ROOT / "research/ops/E22_GAP6_FIDELITY_KPI.json"
 E22_KPI_JSON = ROOT / "research/ops/E22_DATA_QUALITY_KPI.json"
@@ -132,6 +133,7 @@ def main() -> int:
         ("soft_assist_month_end", SOFT_ASSIST_JSON),
         ("sleeve_tilt_month_end", SLEEVE_TILT_JSON),
         ("fuse_additive_month_end", FUSE_ADDITIVE_JSON),
+        ("e45_defend_handoff_month_end", E45_DEFEND_HANDOFF_JSON),
     ):
         doc = _load(path)
         if doc is None:
