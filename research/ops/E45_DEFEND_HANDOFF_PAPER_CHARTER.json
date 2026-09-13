@@ -2,20 +2,27 @@
   "label": "E45_DEFEND_HANDOFF_PAPER_CHARTER_2026-09-12__PAPER_OPEN__NO_STITCH",
   "date": "2026-09-12",
   "status": "PAPER_CHARTER_OPEN",
-  "stage_a_screen": "NOT_RUN",
+  "stage_a_screen": "DONE",
+  "stage_a_verdict": "HANDOFF_PROMOTE_SHAPED",
+  "stage_a_best_variant_id": "DH_dd06_vz1p0",
+  "stage_a_artifact": "research/ops/E45_DEFEND_HANDOFF_STAGEA_SCREEN.md",
+  "stage_a_held_mdd_improve_pp": 4.3416,
+  "stage_a_held_cagr_giveback_pp": 1.1511,
   "live_wire": false,
   "e45_stitch": "FORBIDDEN_DO_NOT_REOPEN",
   "drop_e45_a05": "KEEP",
   "soft_frozen": "KEEP",
+  "observe_open": false,
   "offense_book_default": "LIVE_STACK",
   "defense_book": "E45_DEFEND_WIN",
   "charter_md": "research/ops/E45_DEFEND_HANDOFF_PAPER_CHARTER.md",
   "charter_zh": "research/ops/E45_DEFEND_HANDOFF_PAPER_CHARTER.zh-TW.md",
-  "next_action": "Human go → Stage A paper screen only; no observe OPEN; no stitch ballot",
+  "next_action": "Architect review Stage A → optional paper observe ballot only; no stitch; no live wire",
   "non_actions": [
     "no E45 live stitch reopen",
     "no Soft-Frozen / KD / TEL / Soft / Sleeve / FUSE live wire",
     "no retired MDD narrative replacement",
-    "no E45 same-knob densify as mechanism"
+    "no E45 same-knob densify as mechanism",
+    "no observe OPEN from Stage A alone"
   ]
 }

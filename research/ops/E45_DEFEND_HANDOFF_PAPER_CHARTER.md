@@ -1,9 +1,9 @@
 # E45 Defend-Window → Handoff Paper Charter (one page)
 
 Date: 2026-09-12  
-Status: **PAPER CHARTER OPEN** · Stage A screen **NOT RUN**  
+Status: **PAPER CHARTER OPEN** · Stage A screen **DONE** → verdict **`HANDOFF_PROMOTE_SHAPED`** (`DH_dd06_vz1p0`)  
 Soft-Frozen **KEEP** · live stack **KEEP** · E45 live stitch **FORBIDDEN** (do **not** reopen)  
-DEFAULT / Soft-assist / Sleeve-tilt / FUSE_ADDITIVE observes **unchanged**
+DEFAULT / Soft-assist / Sleeve-tilt / FUSE_ADDITIVE observes **unchanged** · **no** observe OPEN from Stage A alone
 
 Ballot label: `E45_DEFEND_HANDOFF_PAPER_CHARTER_2026-09-12__PAPER_OPEN__NO_STITCH`
 
@@ -70,13 +70,19 @@ Even `HANDOFF_PROMOTE_SHAPED` → **paper observe ballot only**; **never** live 
 - No same-knob E45 densify (mild α / crisis-gate / mild max_cut) as the mechanism  
 - No ops Soft∥Sleeve auto-fuse  
 
-## Artifacts (on go)
+## Artifacts
 
-- Screen script (to implement): `scripts/e45_defend_handoff_stagea_screen.py`  
+- Screen script: `scripts/e45_defend_handoff_stagea_screen.py`  
 - Reports: `research/ops/E45_DEFEND_HANDOFF_STAGEA_SCREEN.md` · `repro/e45-defend-handoff-stagea/`  
 - ZH: `E45_DEFEND_HANDOFF_PAPER_CHARTER.zh-TW.md`
 
+## Stage A result (2026-09-13)
+
+- Artifact: `E45_DEFEND_HANDOFF_STAGEA_SCREEN.md` · repro `repro/e45-defend-handoff-stagea/`
+- Verdict: **`HANDOFF_PROMOTE_SHAPED`** · best `DH_dd06_vz1p0` (dd=6%, vol_z=1.0)
+- Held-out: MDD improve **+4.34 pp** · CAGR giveback **1.15 pp** (≤2.0) · tip YTD/1y MDD not worse
+- **Still not authorized:** observe OPEN, cutover, or stitch ballot — needs separate human ballot
+
 ## Next authorized action
 
-Human says go → run **Stage A paper screen only** → stop for Architect review.  
-**Not** authorized: observe OPEN, cutover, or stitch ballot.
+Architect review of Stage A → optional **paper observe ballot only** (never live stitch from this charter).
