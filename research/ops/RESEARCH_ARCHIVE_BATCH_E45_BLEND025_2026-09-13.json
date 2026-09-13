@@ -1,0 +1,23 @@
+{
+  "label": "RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13__HUMAN_SEAL__PAUSE_TIP__NO_STITCH",
+  "date": "2026-09-13",
+  "status": "ARCHIVED",
+  "human_ballot": "封存 E45_BLEND025 observe",
+  "locked_id": "BLEND_E45_A25",
+  "reason": "tip YTD/1y CAGR giveback ~11pp PAUSE_REVIEW",
+  "live_wire": false,
+  "stitch_forbidden": true,
+  "fincap_blend025_keep": true,
+  "ops_month_end_skip": [
+    "e45_blend025_dual_paper_ledgers",
+    "e45_blend025_month_end"
+  ],
+  "ops_alert_scan_skip": [
+    "e45_blend025_month_end"
+  ],
+  "artifacts": {
+    "open_ballot": "research/ops/E45_BLEND025_OBSERVE_OPEN.md",
+    "monitor": "research/gaps/E45_BLEND025_MONTH_END_MONITOR.md",
+    "portfolio": "research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md"
+  }
+}

@@ -1,7 +1,7 @@
 # E45 Blend-α=0.25 Dual-Paper Observe Sleeve
 
 Generated: `2026-09-12T13:41:49.269473+00:00`
-Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`); live stitch **FORBIDDEN**.
+Status: **ARCHIVED (2026-09-13)** — was OPERATING OBSERVE — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`); live stitch **FORBIDDEN**.
 
 ## Locked paper books
 
@@ -31,11 +31,12 @@ Sealed vs BASE: MDD improve **4.62 pp**; CAGR giveback **4.35 pp**.
 ## Ops checklist
 
 1. Keep Soft-Frozen live default = BASE until a separate stitch / cutover PR
-2. Run BASE + BLEND_E45_A25 paper ledgers in parallel with month-end monitor
-3. Re-check YTD / trailing_1y PAUSE gates each month-end (observe ≠ promote)
+2. ~~Run BASE + BLEND_E45_A25 paper ledgers in parallel with month-end monitor~~ **ARCHIVED 2026-09-13** — not scheduled
+3. ~~Re-check YTD / trailing_1y PAUSE gates each month-end~~ **ARCHIVED** — evidence retained only
 4. Do not silent-edit Soft-Frozen; do not rewrite forward/e21 history
 5. Observe sleeve ≠ stitch license; second human stitch ACCEPT still required
 6. Never cite the retired handoff MDD narrative; use dated lineage / challenger MDDs only
+7. Reopen only via **new charter + human ballot** (do not confuse with FINCAP BLEND_025)
 
 ## Explicit non-goals
 
@@ -52,3 +53,8 @@ Sealed vs BASE: MDD improve **4.62 pp**; CAGR giveback **4.35 pp**.
 Artifacts:
 - `/workspace/repro/e45-blend025-dual-paper-observe/reports/e45_blend025_dual_paper_observe.json`
 - `/workspace/repro/e45-blend025-dual-paper-observe/outputs/dual_paper_nav_compare.csv`
+
+
+## Archive seal (2026-09-13)
+
+Human **封存 E45_BLEND025 observe**. Batch: `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md`. Not in month-end operating queue.

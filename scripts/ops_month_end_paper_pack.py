@@ -7,8 +7,8 @@ Runs (by default, fast path):
   3) Track A S9A1 archive monitor
   4) Live ↔ Soft-Frozen paper BASE recon
 
-Optional --refresh-ledgers also rebuilds L4/FIN50/BLEND_025/E45 dual-paper ledgers
-(slow; Exact T+1 full history).
+Optional --refresh-ledgers also rebuilds L4/FIN50/FINCAP BLEND_025/E45 dual-paper ledgers
+(slow; Exact T+1 full history). E45_BLEND025 observe archived 2026-09-13 — not scheduled.
 
 Never edits Soft-Frozen clip.
 Never live-wires challengers.
@@ -38,7 +38,8 @@ STEPS_MONITOR = [
     ("fincap50_month_end", ["python3", "scripts/e16_fincap50_month_end_monitor.py"]),
     ("blend025_month_end", ["python3", "scripts/e16_blend025_month_end_monitor.py"]),
     ("e45_month_end", ["python3", "scripts/e45_month_end_monitor.py"]),
-    ("e45_blend025_month_end", ["python3", "scripts/e45_blend025_month_end_monitor.py"]),
+    # E45_BLEND025 observe ARCHIVED 2026-09-13 — skip month-end schedule
+    # ("e45_blend025_month_end", ["python3", "scripts/e45_blend025_month_end_monitor.py"]),
     ("e45_blend005_month_end", ["python3", "scripts/e45_blend005_month_end_monitor.py"]),
     ("e45_sleeve_local_month_end", ["python3", "scripts/e45_sleeve_local_month_end_monitor.py"]),
     ("e45_m2_bil_fx_month_end", ["python3", "scripts/e45_m2_bil_fx_month_end_monitor.py"]),
@@ -89,7 +90,8 @@ STEPS_REFRESH = [
     ("fincap50_dual_paper_ledgers", ["python3", "scripts/e16_fincap50_dual_paper_ledgers.py"]),
     ("blend025_dual_paper_ledgers", ["python3", "scripts/e16_blend025_dual_paper_ledgers.py"]),
     ("e45_dual_paper_ledgers", ["python3", "scripts/e45_dual_paper_ledgers.py"]),
-    ("e45_blend025_dual_paper_ledgers", ["python3", "scripts/e45_blend025_dual_paper_ledgers.py"]),
+    # E45_BLEND025 observe ARCHIVED 2026-09-13 — skip ledger refresh schedule
+    # ("e45_blend025_dual_paper_ledgers", ["python3", "scripts/e45_blend025_dual_paper_ledgers.py"]),
     ("e45_blend005_dual_paper_ledgers", ["python3", "scripts/e45_blend005_dual_paper_ledgers.py"]),
     ("e45_sleeve_local_dual_paper_ledgers", ["python3", "scripts/e45_sleeve_local_dual_paper_ledgers.py"]),
     ("e45_m2_bil_fx_dual_paper_ledgers", ["python3", "scripts/e45_m2_bil_fx_dual_paper_ledgers.py"]),

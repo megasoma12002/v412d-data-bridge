@@ -19,7 +19,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | 1 | Soft-Frozen live clip **[0.60, 0.90]** | **FLIPPED** (ACCEPT 2026-09-09 `FINBAND_F0.60-0.90`) | Was [0.50, 0.95]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
-| 3 | Sealed-CAGR successor path | **BLEND_025 OPERATING OBSERVE** | Sole in-flight successor; observe ≠ promote |
+| 3 | Sealed-CAGR successor path | **FINCAP BLEND_025 OPERATING OBSERVE** | FINCAP sleeve KEEP; observe ≠ promote · **E45_BLEND025 archived 2026-09-13** |
 | 4 | L4_DD_PATH live cutover | **DEFER** | No PR until checklist all-green (≥1 clean month-end, no YTD/1y PAUSE) |
 | 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
 | 6a | Odd-lot default → `E22_v2s_tw` | **DONE** (2026-09-05) | #73+#74 merged; live `DEFAULT_BOOKS_VERSION = E22_v2s_tw`; Soft-Frozen KEEP; forward-only |
@@ -87,6 +87,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | External borrow notes (Soft∥Sleeve∥month-end) | **REFERENCE** (2026-09-11) | Five practitioner notes mapped to Soft-assist / Sleeve-tilt observe + Gates A–I · **no live · no combo** · `EXTERNAL_BORROW_NOTES.md` |
 | Research archive batch (human 請封存) | **ARCHIVED** (2026-09-13) | Seal A05 stitch reopen · E45 densify · DL · indicator hard · TEL challengers · structure fails · dry-powder · ETF calendar · FIN50/L4 agenda · KEEP Soft/Sleeve/FUSE/BLEND_025/priv observe · E45 defend paper-only next · `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` |
 | Kelly exposure Stage A charter + screen | **ARCHIVED** (2026-09-13 · human 請封存) | Stage A **`COEXIST_NO_LIFT`** · best `KELLY_LIVE_W252_k50` · **no observe / no live** · batch `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` · `KELLY_EXPOSURE_STAGEA_SCREEN.md` |
+| E45_BLEND025 observe archive | **ARCHIVED** (2026-09-13 · human 封存 E45_BLEND025 observe) | `BLEND_E45_A25` tip YTD/1y ~11 pp PAUSE · removed from month-end/alert queue · FINCAP BLEND_025 **KEEP** · stitch still forbidden · `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md` |
 | Remainder | **ARCHIVE** | Evidence retained; no new expansion; not primary agenda |
 
 Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · FIN posture: `FIN_WITHIN_SLEEVE_OBSERVE_POSTURE.md` · 民營 posture: `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md`
@@ -97,7 +98,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 |---|---|---|
 | Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **DONE** — #73+#74 merged; DEFAULT=`E22_v2s_tw` |
 | Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` | **ACCEPT charter** — Stage B OPEN; no DEFAULT flip |
-| E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `E45_MDD_1316_NARRATIVE_RETIREMENT.md` · `E45_DUAL_PAPER_OBSERVE_OPEN.md` · `E45_STITCH_CHECKLIST.md` · `E45_BLEND025_OBSERVE_OPEN.md` | **ACCEPT charter** + **RETIRE unmatched handoff MDD narrative** + **OPEN observe** + **OPEN blend-α=0.25 observe**; stitch checklist **DRAFTED / NOT AUTHORIZED**; stitch still forbidden until second ACCEPT |
+| E45 live stitch | `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `E45_MDD_1316_NARRATIVE_RETIREMENT.md` · `E45_DUAL_PAPER_OBSERVE_OPEN.md` · `E45_STITCH_CHECKLIST.md` · `E45_BLEND025_OBSERVE_OPEN.md` (**ARCHIVED 2026-09-13**) | **ACCEPT charter** + **RETIRE unmatched handoff MDD narrative** + parent observe residual + blend-α=0.25 observe **ARCHIVED** (tip PAUSE); stitch checklist **DRAFTED / NOT AUTHORIZED**; stitch still forbidden until second ACCEPT |
 
 ## Re-open triggers (only then re-agenda)
 
@@ -105,7 +106,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 |---|---|
 | L4 cutover | ≥1 clean month-end (no YTD/1y `PAUSE_REVIEW`) + `CUTOVER_CHECKLIST_L4` all YES |
 | FIN50 static cutover | Go-live verify **not** `NOT_READY_SEALED_CAGR` **and** Gate E clean — else stay rejected |
-| BLEND_025 promote | Sustained clean trailing on observe **and** cutover checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md` — **drafted 2026-09-05**, still NOT AUTHORIZED) |
+| BLEND_025 promote (FINCAP) | Sustained clean trailing on **FINCAP** BLEND_025 observe **and** cutover checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md` — **drafted 2026-09-05**, still NOT AUTHORIZED) · **≠** archived E45_BLEND025 |
 | Soft-Frozen flip | Explicit human cutover PR only (never pack/monitor green alone) |
 | Soft-Frozen clip **search** (paper) | `SOFT_FROZEN_CLIP_SEARCH_DECISION_PACK.md` — **ACCEPT charter** ✓ Stage B done; Soft-Frozen KEEP; Class D flip still separate |
 | FIN within-sleeve live cutover | `CUTOVER_CHECKLIST_FIN_WITHIN_SLEEVE.md` · **ACCEPTED KD_OPT 2026-09-09** · `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` |
@@ -123,13 +124,14 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 | Dry-powder drawdown sleeve | Stage A **STOP** (`NO_LIFT`) · live KEEP · re-open only with human-expanded grid · `DRY_POWDER_DRAWDOWN_SCREEN.md` |
 | Sleeve-layer tilt | **OPEN OBSERVE EXECUTED** · dual-paper OPERATING · Soft-Frozen clips KEEP · cutover BLOCKED until ACCEPT · `SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md` |
 | ETF ex-calendar (0050) | Stage A **STOP** (`NEAR_NO_BEAT`) · live KEEP · re-open only with human-expanded grid · `ETF_EX_CALENDAR_SCREEN.md` |
+| E45_BLEND025 observe | **ARCHIVED** · reopen only with **new charter + human ballot** · `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md` |
 | Kelly exposure overlay | **ARCHIVED** · re-open only with **new charter + human ballot** · `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` |
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
 - Next weekday forward → run `POST_FORWARD_E22_VERIFY_RUNBOOK.md`; persist live `e22_*` evidence; re-run Gap6 KPI  
 - Grow live history toward ≥~60 sessions  
-- Calendar month-end pack re-run (L4 / FIN50 / BLEND_025 / E45 dual-paper trailing + **Soft-assist K9+** + **Sleeve-tilt**) — default **KEEP OBSERVE**; cutover only via dedicated ACCEPT  
+- Calendar month-end pack re-run (L4 / FIN50 / FINCAP BLEND_025 / Soft / Sleeve / FUSE / priv / DH; **E45_BLEND025 skipped**) — default **KEEP OBSERVE**; cutover only via dedicated ACCEPT  
 - Soft-assist×sleeve-tilt combo **not** authorized while both observe independently  
 - Soft-Frozen cutover checklist is **ACCEPTED / LIVE WIRED** for FINBAND — do not re-read as DRAFTED (`CUTOVER_CHECKLIST_SOFT_FROZEN_CLIP.md`)
 - Fill `MONTH_END_PROMOTE_GATE_CHECKLIST.md` after each Soft-assist / Sleeve-tilt pack (paper gates only · include Soft↔Sleeve overlap from `SOFT_SLEEVE_OBSERVE_OVERLAP.md` · **no live wire** · **no auto-combo**)
