@@ -17,6 +17,10 @@ pre-FINBAND / pre-500M / pre-DH+FUSE live. Code SSOT was already correct after P
 - **B:** `REPO_HYGIENE_SSOT_BATCH_B_2026-09-13.md` — historical clip banners + binding SSOT fix.
 - **C:** `REPO_HYGIENE_REPRO_BATCH_C_2026-09-13.md` — untrack ARCHIVE densify fills/nav; `archive/repro/` pilot moves.
 
+## Follow-up (2026-09-14)
+
+- **MD dedupe / POINTER:** `REPO_HYGIENE_MD_DEDUPE_POINTER_2026-09-14.md` (identical copies only; no historical number rewrite).
+
 ## Explicitly not done (needs separate ballot / careful PR)
 
 - Git LFS / history rewrite to reclaim old repro blobs.
