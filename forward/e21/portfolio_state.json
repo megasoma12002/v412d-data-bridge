@@ -10,8 +10,8 @@
     "4904": 102000.0,
     "0050": 362000.0
   },
-  "last_date": "2026-09-11",
-  "last_nav": 550396672.172183,
+  "last_date": "2026-09-14",
+  "last_nav": 557445522.172183,
   "e22_books_version": "E22_v2s_tw",
   "e22_applied_keys": [],
   "e22_manifest": {
@@ -41,5 +41,11 @@
   "e45_stitch": false,
   "e45_book": null,
   "e45_stitch_ballot": null,
-  "e45_stitch_rollback": "ACCEPT_2026-09-09_DROP_E45_A05"
+  "e45_stitch_rollback": "ACCEPT_2026-09-09_DROP_E45_A05",
+  "fuse_additive": true,
+  "dh_exposure_live": true,
+  "dh_id": "DH_dd06_vz1p0",
+  "live_cutover": "ACCEPT_2026-09-13_DH_dd06_FUSE_ADDITIVE",
+  "live_cutover_ballot": "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE",
+  "live_cutover_rollback": "Set LIVE_FUSE_ADDITIVE=False and LIVE_DH_EXPOSURE=False"
 }

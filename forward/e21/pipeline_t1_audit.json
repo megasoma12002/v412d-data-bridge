@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-11",
+  "date": "2026-09-14",
   "exact_t1_ok": true,
   "same_bar_fills": 0,
   "fills_checked": 0,
@@ -15,6 +15,12 @@
   "e45_profile": null,
   "e45_blend_alpha": null,
   "e45_exposure": null,
+  "fuse_additive": true,
+  "dh_exposure_live": true,
+  "dh_id": "DH_dd06_vz1p0",
+  "dh_exposure": 1.0,
+  "e16_financial_pre_dh": 0.8742411434848937,
+  "live_cutover_ballot": "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE",
   "live_wire": true,
   "owns_qc_status": false,
   "note": "Pipeline Exact T+1 audit only. qc_status.json is owned by e21_qc.py; this file is pipeline_t1_audit.json."
