@@ -41,10 +41,11 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 |---|---|
 | Daily live | `v412f-forward-paper` |
 | Live QC smoke | `e21-live-qc-smoke` |
-| Month-end pack | `ops-month-end-paper-pack` / `scripts/ops_month_end_paper_pack.py` |
+| Month-end pack | `ops-month-end-paper-pack` / `scripts/ops_month_end_paper_pack.py` · freshness: `MONTH_END_PACK_FRESHNESS.md` |
 | Live↔paper recon | Inside pack + `scripts/e21_live_vs_paper_recon.py` |
 
 Latest pack: `research/ops/MONTH_END_PAPER_PACK.md` (2026-09-10 primary observe: `OPS_CADENCE_2026-09-10_PRIMARY_OBSERVE.md`)  
+Data freshness: `research/ops/MONTH_END_DATA_FRESHNESS.md` · guidance `MONTH_END_PACK_FRESHNESS.md`  
 Alerts: `research/ops/OPS_ALERTS.md`  
 E22 KPI: `research/ops/E22_DATA_QUALITY_KPI.md`  
 Gap #6 fidelity: `research/ops/E22_GAP6_FIDELITY_KPI.md`  
@@ -99,6 +100,8 @@ Legacy forward config: `research/ops/FORWARD_LEGACY_NOTE.md`
 ```bash
 python3 scripts/e21_qc.py --state-dir forward/e21
 python3 scripts/ops_month_end_paper_pack.py
+python3 scripts/ops_month_end_paper_pack.py --refresh-ledgers --fail-on-stale  # formal month-end
+python3 scripts/ops_month_end_data_freshness.py  # tip/age only
 python3 scripts/ops_alert_scan.py --report-only
 python3 scripts/e22_data_quality_kpi.py
 python3 scripts/e22_gap6_fidelity_kpi.py
