@@ -5,6 +5,13 @@ Formal price split:
   - E16 signals: adj_close
   - Books / fills / NAV: raw open/close + E22_v2s_tw (畸零股面額 CIL)
   - Order sizing: 一張 = 1000 股 (整股); no 零股 (1–999) continuous-book orders
+
+Architecture (2026-09-14 modularize):
+  - live_config.LiveConfig — live flags / books / capital SSOT
+  - live_strategy_targets — Soft-Frozen + FUSE/DH/E45 overlays
+  - live_execution — pending fills at open (Exact T+1)
+  - live_ledger — immutable CSV append + holdings
+CLI entry and day orchestration stay here.
 """
 import argparse, hashlib, json, sys
 from datetime import datetime, timezone
@@ -17,122 +24,32 @@ import e22_dividend_accounting as e22div
 import e16_soft_frozen_base as soft_frozen
 from e16_soft_frozen_base import FIN, TEL
 from tw_share_lots import BOARD_LOT, board_lots
-from portfolio_capital import DEFAULT_CAPITAL
 from within_sleeve_alloc import (
-    FIN_PRE_EXDIV_KD,
     allocate_sleeve_orders,
     build_kd_season_tilt_scores,
     build_pre_exdiv_window_buy_ok,
 )
+from live_config import (
+    LIVE,
+    LIVE_CUTOVER_BALLOT,
+    LIVE_DH_EXPOSURE,
+    LIVE_DH_ID,
+    LIVE_E45_BLEND_ALPHA,
+    LIVE_E45_BOOK,
+    LIVE_E45_PROFILE,
+    LIVE_E45_STITCH,
+    LIVE_FIN_WITHIN_SLEEVE,
+    LIVE_FUSE_ADDITIVE,
+    KD_OPT,
+    E22_BOOKS_VERSION,
+    DIV_PATH,
+)
+from live_ledger import ALL, append_immutable, holdings
+from live_strategy_targets import features, resolve_session_targets
+from live_execution import fill_pending_at_open
 
-ALL = FIN + TEL + ["0050"]
-CAPITAL = DEFAULT_CAPITAL
-BUY_FEE = 0.001425 * 0.6
-SELL_FEE = 0.001425 * 0.6
-TAX_STOCK = 0.003
-TAX_ETF = 0.001
-SLIP = 0.0005
-E22_BOOKS_VERSION = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw (畸零股面額 CIL; promoted 2026-09-05)
-DIV_PATH = Path("data/dividend_events/e22_dividend_events.csv")
-
-# Live FIN within-sleeve — human ACCEPT 2026-09-09: KD_OPT cutover
-# Soft-Frozen FIN clip — Class D ACCEPT 2026-09-09: FINBAND_F0.60-0.90 → [0.60, 0.90]
-# E45 live stitch — ROLLBACK 2026-09-09: DROP_E45_A05 (was BLEND_E45_A05; paper drag vs Soft-Frozen+KD)
-LIVE_FIN_WITHIN_SLEEVE = FIN_PRE_EXDIV_KD
-KD_OPT = {
-    "id": "KD_APR15_MAY15_Klt30_T15",
-    "season_start": (4, 15),
-    "season_end": (5, 15),
-    "k_thresh": 30.0,
-    "pre_days": 15,
-    "active_score": 1.5,
-}
-LIVE_E45_STITCH = False
-LIVE_E45_BOOK = None
-LIVE_E45_PROFILE = None
-LIVE_E45_BLEND_ALPHA = None
-# Live DH_dd06 + FUSE_ADDITIVE — human ACCEPT 2026-09-13 (MENU3 paper twin).
-LIVE_FUSE_ADDITIVE = True
-LIVE_DH_EXPOSURE = True
-LIVE_DH_ID = "DH_dd06_vz1p0"
-LIVE_CUTOVER_BALLOT = "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE"
-
-
-def append_immutable(path, row, key):
-    p = Path(path)
-    p.parent.mkdir(parents=True, exist_ok=True)
-    new = pd.DataFrame([row])
-    if p.exists():
-        old = pd.read_csv(p, dtype={"code": str})
-        hit = old[old[key].astype(str) == str(row[key])]
-        if len(hit):
-            # Idempotent rerun: preserve original record; never rewrite history.
-            return False
-        new = pd.concat([old, new], ignore_index=True)
-    new.to_csv(p, index=False)
-    return True
-
-
-def features(m):
-    """Live Soft-Frozen E16 targets (Financial clip from e16_soft_frozen_base SSOT).
-
-    Clip/prior/blend: single source `e16_soft_frozen_base` (shared with research).
-    Challenger clips: `e16_fin_cap_oof_challenger.e16_features_fin_cap` only.
-    """
-    p, sleeve, target, reg, score = soft_frozen.build_soft_frozen_targets(m)
-    tc = p["TAIEX"]
-    vol = tc.pct_change().rolling(20).std() * np.sqrt(252)
-    # E19 alert-only.
-    defensive = (sleeve.Financial + sleeve["0050"]) / 2
-    corr = sleeve.Telecom.rolling(20).corr(defensive)
-    te = (1 + sleeve.Telecom).rolling(20).apply(np.prod, raw=True) - 1
-    me = (1 + defensive).rolling(20).apply(np.prod, raw=True) - 1
-    tv = sleeve.Telecom.rolling(20).std()
-    mv = defensive.rolling(20).std()
-    pts = (
-        (corr > 0.55).astype(int)
-        + (te - me < -0.02).astype(int)
-        + (tv > mv * 1.15).astype(int)
-        + (te < -0.04).astype(int)
-    )
-    alert = pts >= 2
-    # E20 shadow: all three confirmations for 3 days, +3 days under E19 alert.
-    price_ok = tc > tc.rolling(20).mean()
-    vol_ok = vol < vol.shift(10)
-    rel = (1 + sleeve.Financial).cumprod() / (1 + sleeve["0050"]).cumprod()
-    rs_ok = rel / rel.shift(20) - 1 >= 0
-    conf = price_ok.astype(int) + vol_ok.astype(int) + rs_ok.astype(int)
-    streak = []
-    n = 0
-    for v in (conf >= 3).fillna(False):
-        n = n + 1 if v else 0
-        streak.append(n)
-    e20 = target.copy()
-    latest = len(e20) - 1
-    req = 6 if alert.iloc[latest] else 3
-    if reg.iloc[latest] == "Crisis" and streak[latest] < req:
-        release = max(0, e20.iloc[latest, 0] - 0.75)
-        e20.iloc[latest, 0] -= release
-        e20.iloc[latest, 1] += release
-    diag = {
-        "regime": reg.iloc[-1],
-        "score_financial": score.iloc[-1, 0],
-        "score_telecom": score.iloc[-1, 1],
-        "score_0050": score.iloc[-1, 2],
-        "e19_points": int(pts.iloc[-1]),
-        "e19_alert": bool(alert.iloc[-1]),
-        "e20_confirmations": int(conf.iloc[-1]),
-        "e20_streak": int(streak[-1]),
-    }
-    return p, sleeve, target, e20, diag
-
-
-def holdings(state, prices):
-    pos = {c: float(state.get("positions", {}).get(c, 0)) for c in ALL}
-    cash = float(state.get("cash", CAPITAL))
-    vals = {c: pos[c] * prices[c] for c in ALL}
-    nav = cash + sum(vals.values())
-    return pos, cash, vals, nav
+# Mutable session capital (CLI may override); default from LiveConfig.
+CAPITAL = float(LIVE.capital)
 
 
 def main():
@@ -208,67 +125,10 @@ def main():
     if missing:
         raise RuntimeError(f"latest snapshot incomplete {latest.date()}: {missing}")
     px, sleeve, target, e20, diag = features(m)
-    # FUSE_ADDITIVE live: Sleeve RSI champion targets replace Soft-Frozen sleeve weights.
-    fuse_meta = {"enabled": bool(LIVE_FUSE_ADDITIVE)}
-    if LIVE_FUSE_ADDITIVE:
-        import live_dh_fuse_cutover as live_cut
-
-        target = live_cut.fuse_target_for_market(m)
-        fuse_meta = {
-            "enabled": True,
-            "recipe": live_cut.LIVE_RECIPE_ID,
-            "human_accept": live_cut.HUMAN_ACCEPT,
-        }
-    tw = target.iloc[-1]
+    tw, _e20w, tw_pre_dh, dh_exposure_today, e45_exposure_today, _fuse_meta, _dh_meta = (
+        resolve_session_targets(m, target, latest, a.dividends, LIVE)
+    )
     e20w = e20.iloc[-1]
-    tw_pre_dh = {
-        "Financial": float(tw.Financial),
-        "Telecom": float(tw.Telecom),
-        "0050": float(tw["0050"]),
-    }
-    # DH_dd06 live exposure from FUSE offense NAV (paper-faithful MENU3). Not E45 stitch.
-    dh_exposure_today = 1.0
-    dh_meta = {"enabled": False}
-    if LIVE_DH_EXPOSURE:
-        import live_dh_fuse_cutover as live_cut
-        import e45_crisis_core as e45
-
-        div_for_dh = (
-            pd.read_csv(a.dividends, dtype={"code": str})
-            if Path(a.dividends).exists()
-            else pd.DataFrame()
-        )
-        dh_exposure_today, dh_meta = live_cut.dh_exposure_today(m, div_for_dh, latest)
-        dh_meta = {**dh_meta, "enabled": True}
-        tw = pd.Series(
-            e45.apply_exposure_to_sleeve_weights(dict(tw_pre_dh), float(dh_exposure_today))
-        )
-    # E45 BLEND_E45_A05 stitch (forward-only): scale Soft-Frozen sleeve targets by
-    # exposure = (1-α)·1 + α·E3_VOLTARGET_WINNER (same as paper blend005).
-    # Kept FORBIDDEN (LIVE_E45_STITCH=False); independent of LIVE_DH_EXPOSURE.
-    e45_exposure_today = 1.0
-    if LIVE_E45_STITCH:
-        import e45_crisis_core as e45
-
-        close_eq = (
-            m[m["code"].isin(ALL)]
-            .pivot(index="date", columns="code", values="close")
-            .sort_index()
-            .ffill()
-        )
-        e45_full = e45.compute_exposure(close_eq, LIVE_E45_PROFILE)["exposure"]
-        if latest in e45_full.index and pd.notna(e45_full.loc[latest]):
-            e45_full_today = float(e45_full.loc[latest])
-        else:
-            e45_full_today = float(e45_full.dropna().iloc[-1]) if e45_full.dropna().size else 1.0
-        e45_exposure_today = float(
-            np.clip((1.0 - LIVE_E45_BLEND_ALPHA) * 1.0 + LIVE_E45_BLEND_ALPHA * e45_full_today, 0.0, 1.0)
-        )
-        tw_scaled = e45.apply_exposure_to_sleeve_weights(
-            {"Financial": float(tw.Financial), "Telecom": float(tw.Telecom), "0050": float(tw["0050"])},
-            e45_exposure_today,
-        )
-        tw = pd.Series(tw_scaled)
     prices = day.close.astype(float).to_dict()
     state_path = sdir / "portfolio_state.json"
     state = (
@@ -286,73 +146,12 @@ def main():
                 f"Refusing session {latest.date()} behind portfolio last_date={prior_last}. "
                 "Replay/rebuild requires an explicit wipe path; --asof cannot silently rewind."
             )
-    pos, cash, vals, nav = holdings(state, prices)
-    # Fill prior pending orders at today's open (raw open).
+    pos, cash, vals, nav = holdings(state, prices, capital=a.capital)
     op = day.open.astype(float).to_dict()
     orders_path = sdir / "orders.csv"
-    fills = []
-    if orders_path.exists():
-        orders = pd.read_csv(orders_path, dtype={"code": str})
-        filled = set()
-        if (sdir / "fills.csv").exists():
-            filled = set(pd.read_csv(sdir / "fills.csv", dtype={"code": str}).fill_id.astype(str))
-        pending = orders[
-            (~orders.order_id.astype(str).isin(filled)) & (pd.to_datetime(orders.signal_date) < latest)
-        ].copy()
-        # SELL before BUY so rebalance cash is freed before buys (avoids qty=0 BUY fills).
-        pending["_side_rank"] = pending["side"].map({"SELL": 0, "BUY": 1}).fillna(2)
-        pending = pending.sort_values(["signal_date", "_side_rank", "code"])
-        for _, o in pending.iterrows():
-            orig_q = int(o.quantity)
-            q = orig_q
-            side = o.side
-            fp = op[o.code] * (1 + SLIP if side == "BUY" else 1 - SLIP)
-            gross = q * fp
-            fee = gross * (BUY_FEE if side == "BUY" else SELL_FEE + (TAX_ETF if o.code == "0050" else TAX_STOCK))
-            signed = q if side == "BUY" else -q
-            if side == "BUY" and gross + fee > cash:
-                # Cash-short BUY: do NOT partial-fill under fill_id==order_id.
-                # A partial would burn the order_id and drop the residual forever.
-                # Leave the full order pending until a session can fund the whole lot size
-                # (SELL-before-BUY already frees cash on the same bar when possible).
-                afford = board_lots(int(cash / (fp * (1 + BUY_FEE))))
-                if afford < orig_q:
-                    continue
-                q = afford
-                gross = q * fp
-                fee = gross * BUY_FEE
-                signed = q
-            # Never persist qty<=0 fills (would burn order_id and block retries).
-            # Also reject non-board-lot fills (should not occur if orders are lot-sized).
-            if q < BOARD_LOT or q % BOARD_LOT != 0:
-                continue
-            pos[o.code] = pos.get(o.code, 0) + signed
-            cash += -gross - fee if side == "BUY" else gross - fee
-            fills.append(
-                {
-                    "fill_id": o.order_id,
-                    "signal_date": o.signal_date,
-                    "fill_date": latest.date().isoformat(),
-                    "code": o.code,
-                    "side": side,
-                    "quantity": q,
-                    "fill_price": fp,
-                    "gross": gross,
-                    "fees_tax": fee,
-                    "slippage_bp": SLIP * 10000,
-                }
-            )
-    for f in fills:
-        append_immutable(sdir / "fills.csv", f, "fill_id")
-
-    # Exact T+1 audit: fill_date must be strictly after signal_date (calendar day).
-    same_bar_fills = 0
-    for f in fills:
-        sig = pd.to_datetime(f["signal_date"]).normalize()
-        fill_dt = pd.to_datetime(f["fill_date"]).normalize()
-        if fill_dt <= sig:
-            same_bar_fills += 1
-    exact_t1_ok = same_bar_fills == 0
+    pos, cash, fills, same_bar_fills, exact_t1_ok = fill_pending_at_open(
+        state_dir=sdir, latest=latest, open_prices=op, pos=pos, cash=cash
+    )
     audit = {
         "date": latest.date().isoformat(),
         "exact_t1_ok": exact_t1_ok,
@@ -431,7 +230,7 @@ def main():
         append_immutable(div_path, row, "key")
         skip.add(d["key"])
 
-    pos, cash, vals, nav = holdings({"positions": pos, "cash": cash}, prices)
+    pos, cash, vals, nav = holdings({"positions": pos, "cash": cash}, prices, capital=a.capital)
     sleeve_vals = {
         "Financial": sum(vals[c] for c in FIN),
         "Telecom": sum(vals[c] for c in TEL),
@@ -527,8 +326,8 @@ def main():
                 }
             )
     # Telecom + 0050: keep equal-split within sleeve
-    for sleeve, codes in [("Telecom", TEL), ("0050", ["0050"])]:
-        value = sleeve_trade[sleeve] * nav / len(codes)
+    for sleeve_name, codes in [("Telecom", TEL), ("0050", ["0050"])]:
+        value = sleeve_trade[sleeve_name] * nav / len(codes)
         for c in codes:
             # Taiwan 整股：1 張 = 1000 股
             qty = board_lots(abs(value) / prices[c])
@@ -624,10 +423,10 @@ def main():
     }
     state_path.write_text(json.dumps(state, indent=2) + "\n")
     # Hash-chain audit: each row commits to the prior row and today's immutable outputs.
-    audit = sdir / "audit_chain.jsonl"
+    audit_chain = sdir / "audit_chain.jsonl"
     prev = "GENESIS"
-    if audit.exists():
-        lines = audit.read_text().splitlines()
+    if audit_chain.exists():
+        lines = audit_chain.read_text().splitlines()
         prev = json.loads(lines[-1])["hash"] if lines else prev
         if any(json.loads(x)["date"] == latest.date().isoformat() for x in lines):
             prev = None
@@ -646,7 +445,7 @@ def main():
             default=str,
         )
         h = hashlib.sha256(payload.encode()).hexdigest()
-        with audit.open("a") as f:
+        with audit_chain.open("a") as f:
             f.write(json.dumps({"date": latest.date().isoformat(), "previous_hash": prev, "hash": h}) + "\n")
     # Human-friendly Excel dashboard.
     with pd.ExcelWriter(sdir / "E21_forward_dashboard.xlsx", engine="openpyxl") as xw:

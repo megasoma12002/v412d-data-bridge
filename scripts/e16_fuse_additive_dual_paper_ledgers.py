@@ -91,13 +91,9 @@ def main() -> int:
     OPS.mkdir(parents=True, exist_ok=True)
     assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
 
-    import e21_forward_pipeline as e21
+    from live_kd_guard import assert_live_kd_aligned
 
-    for k in ("season_start", "season_end", "k_thresh", "pre_days", "active_score"):
-        if LIVE_KD[k] != e21.KD_OPT[k]:
-            raise SystemExit(f"LIVE_KD[{k}] drift vs e21.KD_OPT")
-    if e21.LIVE_E45_STITCH:
-        raise SystemExit("Refuse FUSE_ADDITIVE observe while LIVE_E45_STITCH is True")
+    assert_live_kd_aligned(LIVE_KD)
 
     print("loading ...", flush=True)
     market = load_market()

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-13T04:38:08.709768+00:00",
+  "generated_at_utc": "2026-09-14T14:19:39.801771+00:00",
   "asof": "2026-09-11",
   "label": "E45_DEFEND_HANDOFF_MONTH_END_MONITOR",
   "status": "OPERATING_OBSERVE",
@@ -8,9 +8,6 @@
   "nav_source": "daily_nav",
   "live_wire": false,
   "soft_frozen_clips_unchanged": true,
-  "e45_stitch": "FORBIDDEN",
-  "independent_observes": "Soft/Sleeve/FUSE KEEP",
-  "stitch_authorized": false,
   "alerts": [],
   "windows": [
     {
@@ -110,9 +107,7 @@
   "non_actions": [
     "paper observe only",
     "no Soft-Frozen clip flip",
-    "no live Sleeve-tilt wire",
-    "E45 stitch FORBIDDEN",
-    "Soft/Sleeve/FUSE observes KEEP",
-    "no undo DROP_E45_A05"
+    "no E45 stitch",
+    "no live wire from this monitor"
   ]
 }

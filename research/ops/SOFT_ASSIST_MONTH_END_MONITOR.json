@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-12T13:42:13.234225+00:00",
+  "generated_at_utc": "2026-09-14T14:19:30.499545+00:00",
   "asof": "2026-09-11",
   "label": "SOFT_ASSIST_MONTH_END_MONITOR",
   "status": "OPERATING_OBSERVE",
@@ -7,7 +7,7 @@
   "challenger_id": "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
   "nav_source": "daily_nav",
   "live_wire": false,
-  "soft_frozen_unchanged": true,
+  "soft_frozen_clips_unchanged": true,
   "alerts": [],
   "windows": [
     {
@@ -106,7 +106,7 @@
   },
   "non_actions": [
     "paper observe only",
-    "no Soft-Frozen flip",
-    "no live Soft-assist wire"
+    "no Soft-Frozen clip flip",
+    "no Soft-assist live wire"
   ]
 }

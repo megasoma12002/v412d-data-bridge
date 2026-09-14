@@ -1,4 +1,4 @@
-# FUSE_ADDITIVE month-end monitor (asof 2026-09-11)
+# FUSE_ADDITIVE_MONTH_END_MONITOR month-end monitor (asof 2026-09-11)
 
 Status: `OPERATING_OBSERVE` · paper only · base `LIVE_STACK` vs `FUSE_ADDITIVE`
 
@@ -16,6 +16,13 @@ Status: `OPERATING_OBSERVE` · paper only · base `LIVE_STACK` vs `FUSE_ADDITIVE
 - none
 
 ## Non-actions
+
+- paper observe only
+- no Soft-Frozen clip flip
+- no live Sleeve-tilt wire
+- Soft-assist observe KEEP independent
+- Sleeve-tilt observe KEEP independent
+- ops auto-fuse still FORBIDDEN
 
 - No live FUSE_ADDITIVE wire / Soft-Frozen clip flip / Soft∥Sleeve auto-fuse
 

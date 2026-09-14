@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-12T13:42:13.527133+00:00",
+  "generated_at_utc": "2026-09-14T14:19:39.380881+00:00",
   "asof": "2026-09-11",
   "label": "SLEEVE_LAYER_TILT_MONTH_END_MONITOR",
   "status": "OPERATING_OBSERVE",
@@ -8,7 +8,6 @@
   "nav_source": "daily_nav",
   "live_wire": false,
   "soft_frozen_clips_unchanged": true,
-  "soft_assist_observe": "UNCHANGED",
   "alerts": [],
   "windows": [
     {
@@ -109,6 +108,7 @@
     "paper observe only",
     "no Soft-Frozen clip flip",
     "no live Sleeve-tilt wire",
-    "Soft-assist observe unchanged"
-  ]
+    "Soft-assist observe KEEP independent"
+  ],
+  "soft_assist_observe": "KEEP_INDEPENDENT"
 }

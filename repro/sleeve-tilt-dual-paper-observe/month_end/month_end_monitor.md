@@ -1,4 +1,4 @@
-# Sleeve-tilt month-end monitor (asof 2026-09-11)
+# SLEEVE_LAYER_TILT_MONTH_END_MONITOR month-end monitor (asof 2026-09-11)
 
 Status: `OPERATING_OBSERVE` · paper only · base `LIVE_STACK` vs `SLEEVE_RSI14_LT30_a0225`
 
@@ -17,5 +17,10 @@ Status: `OPERATING_OBSERVE` · paper only · base `LIVE_STACK` vs `SLEEVE_RSI14_
 
 ## Non-actions
 
-- No live Sleeve-tilt wire / Soft-Frozen clip flip / Soft-assist combo
+- paper observe only
+- no Soft-Frozen clip flip
+- no live Sleeve-tilt wire
+- Soft-assist observe KEEP independent
+
+- No live Sleeve-tilt wire / Soft-Frozen clip flip
 

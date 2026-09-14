@@ -1,4 +1,4 @@
-# Soft-assist month-end monitor (asof 2026-09-11)
+# SOFT_ASSIST_MONTH_END_MONITOR month-end monitor (asof 2026-09-11)
 
 Status: `OPERATING_OBSERVE` · paper only · base `LIVE_KD_OPT` vs `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05`
 
@@ -17,5 +17,9 @@ Status: `OPERATING_OBSERVE` · paper only · base `LIVE_KD_OPT` vs `SOFT_CHAMP_P
 
 ## Non-actions
 
-- No live Soft-assist wire / Soft-Frozen flip
+- paper observe only
+- no Soft-Frozen clip flip
+- no Soft-assist live wire
+
+- No Soft-assist live wire / Soft-Frozen clip flip
 
