@@ -1,0 +1,500 @@
+{
+  "date": "2026-09-14",
+  "policy": "canonical prefer research/e45; identical copies → POINTER; no historical number rewrites; keep distinct ops stubs",
+  "replaced": [
+    {
+      "path": "repro/e45-alpha-cost-turnover/reports/E45_ALPHA_COST_TURNOVER.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_ALPHA_COST_TURNOVER.md"
+    },
+    {
+      "path": "research/ops/E45_BLEND_ALPHA_GRID_FINE.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_BLEND_ALPHA_GRID_FINE.md"
+    },
+    {
+      "path": "repro/e45-blend-alpha-grid-fine/E45_BLEND_ALPHA_GRID_FINE.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_BLEND_ALPHA_GRID_FINE.md"
+    },
+    {
+      "path": "research/ops/E45_BLEND_ALPHA_PAPER_SCREEN.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_BLEND_ALPHA_PAPER_SCREEN.md"
+    },
+    {
+      "path": "repro/e45-blend-alpha-screen/E45_BLEND_ALPHA_PAPER_SCREEN.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_BLEND_ALPHA_PAPER_SCREEN.md"
+    },
+    {
+      "path": "research/ops/E45_C35_REGIME_GATE_RESEARCH.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_C35_REGIME_GATE_RESEARCH.md"
+    },
+    {
+      "path": "research/ops/E45_C35_SOFT_GATE_RESEARCH.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_C35_SOFT_GATE_RESEARCH.md"
+    },
+    {
+      "path": "research/ops/E45_COVID_EX_HELDOUT_KPI.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_COVID_EX_HELDOUT_KPI.md"
+    },
+    {
+      "path": "archive/repro/e45-next-research-batch/reports/E45_COVID_EX_HELDOUT_KPI.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_COVID_EX_HELDOUT_KPI.md"
+    },
+    {
+      "path": "research/ops/E45_COVID_NON2020_FINA10_INTEGRATED.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_COVID_NON2020_FINA10_INTEGRATED.md"
+    },
+    {
+      "path": "repro/e45-covid-non2020-fina10/reports/E45_COVID_NON2020_FINA10_INTEGRATED.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_COVID_NON2020_FINA10_INTEGRATED.md"
+    },
+    {
+      "path": "research/ops/E45_COVID_NON2020_MULTI_EVENT.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_COVID_NON2020_MULTI_EVENT.md"
+    },
+    {
+      "path": "repro/e45-covid-non2020-fina10/reports/E45_COVID_NON2020_MULTI_EVENT.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_COVID_NON2020_MULTI_EVENT.md"
+    },
+    {
+      "path": "research/ops/E45_CRISIS_TRIGGERED_ALPHA.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_CRISIS_TRIGGERED_ALPHA.md"
+    },
+    {
+      "path": "repro/e45-crisis-year-attribution/reports/E45_CRISIS_YEAR_ATTRIBUTION.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_CRISIS_YEAR_ATTRIBUTION.md"
+    },
+    {
+      "path": "repro/e45-dual-sleeve-monitor-dashboard/reports/E45_DUAL_SLEEVE_MONITOR_DASHBOARD.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_DUAL_SLEEVE_MONITOR_DASHBOARD.md"
+    },
+    {
+      "path": "research/ops/E45_FINA10_THICKEN.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_FINA10_THICKEN.md"
+    },
+    {
+      "path": "repro/e45-covid-non2020-fina10/reports/E45_FINA10_THICKEN.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_FINA10_THICKEN.md"
+    },
+    {
+      "path": "research/ops/E45_FINA10_VS_ALLA05_COMPARE.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_FINA10_VS_ALLA05_COMPARE.md"
+    },
+    {
+      "path": "repro/e45-five-research-batch/reports/E45_FINA10_VS_ALLA05_COMPARE.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_FINA10_VS_ALLA05_COMPARE.md"
+    },
+    {
+      "path": "research/ops/E45_FIVE_RESEARCH_BATCH_INTEGRATED.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_FIVE_RESEARCH_BATCH_INTEGRATED.md"
+    },
+    {
+      "path": "research/ops/E45_FOUR_PATH_RECOVER_RESEARCH.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_FOUR_PATH_RECOVER_RESEARCH.md"
+    },
+    {
+      "path": "research/ops/E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.md"
+    },
+    {
+      "path": "research/ops/E45_HIGH_BETA_SLEEVE_LOCAL_PAPER.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_HIGH_BETA_SLEEVE_LOCAL_PAPER.md"
+    },
+    {
+      "path": "repro/e45-five-research-batch/reports/E45_HIGH_BETA_SLEEVE_LOCAL_PAPER.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_HIGH_BETA_SLEEVE_LOCAL_PAPER.md"
+    },
+    {
+      "path": "repro/e45-m2-bil-fx-improve/reports/E45_M2_BIL_FX_IMPROVE.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_M2_BIL_FX_IMPROVE.md"
+    },
+    {
+      "path": "repro/e45-m2-c35-retarget-ballot/reports/E45_M2_C35_RETARGET_BALLOT.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_M2_C35_RETARGET_BALLOT.md"
+    },
+    {
+      "path": "repro/e45-m2-twd-tradable-cash/reports/E45_M2_TWD_TRADABLE_CASH.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_M2_TWD_TRADABLE_CASH.md"
+    },
+    {
+      "path": "research/ops/E45_M3_BIL_FX_V1.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_M3_BIL_FX_V1.md"
+    },
+    {
+      "path": "repro/e45-m3-bil-fx-v1-20260908/reports/E45_M3_BIL_FX_V1.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_M3_BIL_FX_V1.md"
+    },
+    {
+      "path": "research/ops/E45_MAXCUT_MILD_PROFILE.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_MAXCUT_MILD_PROFILE.md"
+    },
+    {
+      "path": "research/ops/E45_MULTI_EVENT_THRESHOLD_CHARTER.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_MULTI_EVENT_THRESHOLD_CHARTER.md"
+    },
+    {
+      "path": "repro/e45-five-research-batch/reports/E45_MULTI_EVENT_THRESHOLD_CHARTER.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_MULTI_EVENT_THRESHOLD_CHARTER.md"
+    },
+    {
+      "path": "research/ops/E45_NEXT_RESEARCH_BATCH_INTEGRATED.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_NEXT_RESEARCH_BATCH_INTEGRATED.md"
+    },
+    {
+      "path": "archive/repro/e45-next-research-batch/reports/E45_NEXT_RESEARCH_BATCH_INTEGRATED.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_NEXT_RESEARCH_BATCH_INTEGRATED.md"
+    },
+    {
+      "path": "research/ops/E45_NON2020_CRISIS_ATTRIBUTION.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_NON2020_CRISIS_ATTRIBUTION.md"
+    },
+    {
+      "path": "repro/e45-five-research-batch/reports/E45_NON2020_CRISIS_ATTRIBUTION.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_NON2020_CRISIS_ATTRIBUTION.md"
+    },
+    {
+      "path": "research/ops/E45_NONCOVID_MULTIEVENT_ALT_LEVERS.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_NONCOVID_MULTIEVENT_ALT_LEVERS.md"
+    },
+    {
+      "path": "archive/repro/e45-next-research-batch/reports/E45_NONCOVID_MULTIEVENT_ALT_LEVERS.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_NONCOVID_MULTIEVENT_ALT_LEVERS.md"
+    },
+    {
+      "path": "research/ops/E45_NOVEL_STRATEGY_SCREEN.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_NOVEL_STRATEGY_SCREEN.md"
+    },
+    {
+      "path": "research/ops/E45_OBSERVE_PAUSE_DIAGNOSTICS.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_OBSERVE_PAUSE_DIAGNOSTICS.md"
+    },
+    {
+      "path": "research/ops/E45_OBSERVE_PAUSE_REFRESH.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_OBSERVE_PAUSE_REFRESH.md"
+    },
+    {
+      "path": "repro/e45-observe-pause-refresh/reports/E45_OBSERVE_PAUSE_REFRESH.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_OBSERVE_PAUSE_REFRESH.md"
+    },
+    {
+      "path": "research/ops/E45_OBSERVE_PAUSE_TIMESERIES.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_OBSERVE_PAUSE_TIMESERIES.md"
+    },
+    {
+      "path": "repro/e45-five-research-batch/reports/E45_OBSERVE_PAUSE_TIMESERIES.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_OBSERVE_PAUSE_TIMESERIES.md"
+    },
+    {
+      "path": "research/ops/E45_REMAINING_IMPROVE_RESEARCH_BATCH.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_REMAINING_IMPROVE_RESEARCH_BATCH.md"
+    },
+    {
+      "path": "research/ops/E45_SIDEWAYS_CONDITIONAL_RESEARCH.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_SIDEWAYS_CONDITIONAL_RESEARCH.md"
+    },
+    {
+      "path": "repro/e45-sleeve-local/reports/E45_SLEEVE_LOCAL.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_SLEEVE_LOCAL.md"
+    },
+    {
+      "path": "archive/repro/e45-sleeve-local-deep-dive/reports/E45_SLEEVE_LOCAL_DEEP_DIVE.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_SLEEVE_LOCAL_DEEP_DIVE.md"
+    },
+    {
+      "path": "repro/e45-sleeve-local-dual-paper-observe/E45_SLEEVE_LOCAL_DUAL_PAPER_OBSERVE.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_SLEEVE_LOCAL_DUAL_PAPER_OBSERVE.md"
+    },
+    {
+      "path": "research/ops/E45_SOFTA_C35_MIX_RESEARCH.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/E45_SOFTA_C35_MIX_RESEARCH.md"
+    },
+    {
+      "path": "repro/fincap50-dual-paper/FIN_CAP_50_PROMOTE_PROPOSAL.md",
+      "action": "pointer_identical",
+      "canonical": "research/gaps/FIN_CAP_50_PROMOTE_PROPOSAL.md"
+    },
+    {
+      "path": "repro/mdd-loss-engine/l1_sealed_attribution/MDD_L1_SEALED_ATTRIBUTION.md",
+      "action": "pointer_identical",
+      "canonical": "research/gaps/MDD_L1_SEALED_ATTRIBUTION.md"
+    },
+    {
+      "path": "repro/mdd-loss-engine/l2_adv_lite/MDD_L2_ADV_LITE.md",
+      "action": "pointer_identical",
+      "canonical": "research/gaps/MDD_L2_ADV_LITE.md"
+    },
+    {
+      "path": "repro/mdd-loss-engine/l2_heldout/MDD_L2_HELDOUT.md",
+      "action": "pointer_identical",
+      "canonical": "research/gaps/MDD_L2_HELDOUT.md"
+    },
+    {
+      "path": "repro/mdd-loss-engine/l2_oof/MDD_L2_OOF.md",
+      "action": "pointer_identical",
+      "canonical": "research/gaps/MDD_L2_OOF.md"
+    },
+    {
+      "path": "research/ops/NEXT_RESEARCH_BATCH_INTEGRATED_2026-09-06.md",
+      "action": "pointer_identical",
+      "canonical": "research/e45/NEXT_RESEARCH_BATCH_INTEGRATED_2026-09-06.md"
+    }
+  ],
+  "skipped_sample": [
+    {
+      "path": "repro/blend025-dual-paper/BLEND_025_DUAL_PAPER_OBSERVE.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md",
+      "size": 2164,
+      "csize": 2526
+    },
+    {
+      "path": "research/ops/E45_ALPHA_COST_TURNOVER.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "repro/e45-blend005-dual-paper-observe/E45_BLEND005_DUAL_PAPER_OBSERVE.md",
+      "reason": "kept_distinct",
+      "canon": "research/e45/E45_BLEND005_DUAL_PAPER_OBSERVE.md",
+      "size": 2510,
+      "csize": 2872
+    },
+    {
+      "path": "repro/e45-blend025-dual-paper-observe/E45_BLEND025_DUAL_PAPER_OBSERVE.md",
+      "reason": "kept_distinct",
+      "canon": "research/e45/E45_BLEND025_DUAL_PAPER_OBSERVE.md",
+      "size": 2509,
+      "csize": 3223
+    },
+    {
+      "path": "research/ops/E45_CHEAP_PROTECT_COST_DATA.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "repro/e45-crisis-triggered-alpha/reports/E45_CRISIS_TRIGGERED_ALPHA.md",
+      "reason": "kept_distinct",
+      "canon": "research/e45/E45_CRISIS_TRIGGERED_ALPHA.md",
+      "size": 7626,
+      "csize": 7972
+    },
+    {
+      "path": "research/ops/E45_CRISIS_YEAR_ATTRIBUTION.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "repro/e45-dual-paper-observe/E45_DUAL_PAPER_OBSERVE.md",
+      "reason": "kept_distinct",
+      "canon": "research/e45/E45_DUAL_PAPER_OBSERVE.md",
+      "size": 2434,
+      "csize": 2796
+    },
+    {
+      "path": "research/ops/E45_DUAL_SLEEVE_MONITOR_DASHBOARD.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "repro/e45-five-research-batch/reports/E45_FIVE_RESEARCH_BATCH_INTEGRATED.md",
+      "reason": "kept_distinct",
+      "canon": "research/e45/E45_FIVE_RESEARCH_BATCH_INTEGRATED.md",
+      "size": 1713,
+      "csize": 1719
+    },
+    {
+      "path": "research/ops/E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.zh-TW.md",
+      "reason": "kept_distinct",
+      "canon": "research/e45/E45_HIGH_BETA_OBSERVE_OPEN_BALLOT_DRAFT.zh-TW.md",
+      "size": 1073,
+      "csize": 932
+    },
+    {
+      "path": "research/ops/E45_LOW_ALPHA_DEEP_DIVE.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "repro/e45-low-alpha-deep-dive/reports/E45_LOW_ALPHA_DEEP_DIVE.md",
+      "reason": "kept_distinct",
+      "canon": "research/e45/E45_LOW_ALPHA_DEEP_DIVE.md",
+      "size": 4600,
+      "csize": 4946
+    },
+    {
+      "path": "research/ops/E45_M1_STATE_SIGNAL.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "repro/e45-m2-bil-fx-optimize/reports/E45_M2_BIL_FX_OPTIMIZE.md",
+      "reason": "kept_distinct",
+      "canon": "research/e45/E45_M2_BIL_FX_OPTIMIZE.md",
+      "size": 2786,
+      "csize": 3133
+    },
+    {
+      "path": "research/ops/E45_M2_DEF_SLEEVE_RELOCATE.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "research/ops/E45_M2_TRUE_DEF_DATA_INGEST.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "research/ops/E45_M2_TRUE_DEF_RELOCATE.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "research/ops/E45_M3_THREE_STATE_RISK.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "repro/e45-maxcut-mild-profile/reports/E45_MAXCUT_MILD_PROFILE.md",
+      "reason": "kept_distinct",
+      "canon": "research/e45/E45_MAXCUT_MILD_PROFILE.md",
+      "size": 5346,
+      "csize": 5692
+    },
+    {
+      "path": "research/ops/E45_NEW_MECHANISM_CHARTER.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "archive/repro/e45-next-research-batch/reports/E45_OBSERVE_PAUSE_DIAGNOSTICS.md",
+      "reason": "kept_distinct",
+      "canon": "research/e45/E45_OBSERVE_PAUSE_DIAGNOSTICS.md",
+      "size": 1988,
+      "csize": 1599
+    },
+    {
+      "path": "research/ops/E45_SLEEVE_LOCAL.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "research/ops/E45_SLEEVE_LOCAL_DEEP_DIVE.md",
+      "reason": "already_ops_stub"
+    },
+    {
+      "path": "repro/fincap50-sealed-cagr-charter-screen/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md",
+      "size": 1225,
+      "csize": 1556
+    },
+    {
+      "path": "repro/fincap-sealed-cagr-improve/FINCAP_SEALED_CAGR_IMPROVE_DIAGNOSTIC.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/FINCAP_SEALED_CAGR_IMPROVE_DIAGNOSTIC.md",
+      "size": 2464,
+      "csize": 2846
+    },
+    {
+      "path": "repro/fincap50-go-live-verify/FIN_CAP_50_GO_LIVE_VERIFY.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/FIN_CAP_50_GO_LIVE_VERIFY.md",
+      "size": 1593,
+      "csize": 1944
+    },
+    {
+      "path": "repro/l4-dd-path-dual-paper/L4_DD_PATH_PROMOTE_PROPOSAL.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/L4_DD_PATH_PROMOTE_PROPOSAL.md",
+      "size": 2636,
+      "csize": 2998
+    },
+    {
+      "path": "repro/mdd-loss-engine/l3_sealed_cagr_attribution/MDD_L2_SEALED_CAGR_ATTRIBUTION.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/MDD_L2_SEALED_CAGR_ATTRIBUTION.md",
+      "size": 1718,
+      "csize": 2069
+    },
+    {
+      "path": "repro/mdd-loss-engine/l3_adv_lite/MDD_L3_ADV_LITE.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/MDD_L3_ADV_LITE.md",
+      "size": 1104,
+      "csize": 1455
+    },
+    {
+      "path": "repro/mdd-loss-engine/l3_heldout/MDD_L3_HELDOUT.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/MDD_L3_HELDOUT.md",
+      "size": 789,
+      "csize": 1136
+    },
+    {
+      "path": "repro/mdd-loss-engine/l3_oof/MDD_L3_OOF.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/MDD_L3_OOF.md",
+      "size": 2003,
+      "csize": 2354
+    },
+    {
+      "path": "repro/mdd-loss-engine/l4_adv_lite/MDD_L4_ADV_LITE.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/MDD_L4_ADV_LITE.md",
+      "size": 1115,
+      "csize": 1466
+    },
+    {
+      "path": "repro/mdd-loss-engine/l4_heldout/MDD_L4_HELDOUT.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/MDD_L4_HELDOUT.md",
+      "size": 902,
+      "csize": 1375
+    },
+    {
+      "path": "repro/mdd-loss-engine/l4_oof/MDD_L4_OOF.md",
+      "reason": "kept_distinct",
+      "canon": "research/gaps/MDD_L4_OOF.md",
+      "size": 2249,
+      "csize": 2600
+    }
+  ],
+  "skipped_total": 35
+}
