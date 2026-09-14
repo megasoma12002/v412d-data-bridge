@@ -1,5 +1,10 @@
 # MDD L3 Sealed-CAGR Charter
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Status: **CHARTER FROZEN for screening** — RESEARCH_ONLY; no live-wire; no Soft-Frozen rewrite.  
 Parents:
@@ -22,7 +27,7 @@ Anchors (Exact T+1 NAV):
 1. Mechanism is **concentration**, not timing: no COMBO / no gross scale; Financial hard clip `[0.35, 0.50]`.  
 2. Sealed mean Financial weight **78.9% → 50.0%** (residual → Telecom / 0050).  
 3. Giveback by year: 2023 **−3.86** (L2 better); 2024 **+4.86**; 2025 **+5.18**; 2026 **+16.73**.  
-4. Soft-Frozen live clip stays **[0.50, 0.95]**; FIN_CAP_50 dual-paper month-end continues as ops only.
+4. Soft-Frozen live clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**); FIN_CAP_50 dual-paper month-end continues as ops only.
 
 L1 vs L2 failure modes are **different** — L3 must not restack L1 COMBO×0.50 or reopen L2_FINCAP_ONLY as a live cut.
 
@@ -77,7 +82,7 @@ Dual paper ledgers on any later promote: **BASE** + **L3**. Live stays BASE unti
 
 ## Parallel track (not L3)
 
-FIN_CAP_50 dual-paper month-end monitor (#44 lineage) continues — Soft-Frozen clip stays [0.50, 0.95] until a separate human cutover PR.
+FIN_CAP_50 dual-paper month-end monitor (#44 lineage) continues — Soft-Frozen clip at writing was [0.50, 0.95] (live today [0.60, 0.90]); further flips until a separate human cutover PR.
 
 ## Next implementation (separate PR)
 

@@ -1,7 +1,12 @@
 # FIN_CAP_50 Sealed-CAGR Charter Screen
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-12T13:42:41.666165+00:00`
-Status: **RESEARCH_ONLY** — Soft-Frozen **[0.50, 0.95] KEEP**; no cutover.
+Status: **RESEARCH_ONLY** — Soft-Frozen **[0.60, 0.90] KEEP** (was [0.50, 0.95]); no cutover.
 
 ## Decision: **PAPER_PROMOTE_PROPOSAL_ONLY**
 

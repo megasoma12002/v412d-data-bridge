@@ -1,8 +1,7 @@
 # Strategy Update — Standard Operating Process
-
 Date: 2026-09-05  
 Status: **BINDING process map** (docs only — does not flip Soft-Frozen)  
-Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP** until a dedicated human cutover PR  
+Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP** (FINBAND) — further flips need dedicated human cutover PR  
 
 Authority chain (highest first):
 

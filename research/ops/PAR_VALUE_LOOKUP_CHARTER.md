@@ -1,7 +1,12 @@
 # Par-Value Lookup Charter — Odd-Lot CIL Dependency
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
-Status: **CHARTER ACTIVE** — Soft-Frozen **[0.50, 0.95] KEEP**  
+Status: **CHARTER ACTIVE** — Soft-Frozen **[0.60, 0.90] KEEP** (was [0.50, 0.95])  
 Promote-gate: Soft-Frozen FIN + telecom equities **VERIFIED** via TWSE (2026-09-04)  
 Expansion: watchlist / `--add-codes` reserved for future equities (not promote blockers)
 

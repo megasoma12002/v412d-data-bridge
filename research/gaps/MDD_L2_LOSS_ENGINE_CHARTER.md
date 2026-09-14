@@ -1,5 +1,10 @@
 # MDD L2 Loss-Engine Charter
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Status: **CHARTER FROZEN for screening** — RESEARCH_ONLY; no live-wire; no Soft-Frozen rewrite.  
 Parent: L1 stopped (`STOP_L1_HELDOUT_MIXED`) — attribution `research/gaps/MDD_L1_SEALED_ATTRIBUTION.md`
@@ -72,7 +77,7 @@ Dual paper ledgers on any later promote: **BASE** + **L2**. Live stays BASE unti
 
 ## Parallel track (not L2)
 
-FIN_CAP_50 dual-paper promote proposal (#43) continues as **ops month-end monitor** — Soft-Frozen clip stays [0.50, 0.95] until a separate human cutover PR.
+FIN_CAP_50 dual-paper promote proposal (#43) continues as **ops month-end monitor** — Soft-Frozen clip at writing was [0.50, 0.95] (live today [0.60, 0.90]); further flips until a separate human cutover PR.
 
 ## Next implementation (separate PR)
 

@@ -1,6 +1,11 @@
 # BLEND_025 Month-End Dual-Paper Runbook
 
-Status: **OPERATING OBSERVE / PAPER OPS** — Soft-Frozen live Financial clip stays **[0.50, 0.95]**.  
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
+Status: **OPERATING OBSERVE / PAPER OPS** — Soft-Frozen live Financial clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**).  
 Sleeve: Exact T+1 BASE Soft-Frozen vs **BLEND_025** (α=0.25·FIN50 + 0.75·BASE).  
 Parent: `FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md` · screen · `FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
 Observe artifacts: `BLEND_025_DUAL_PAPER_OBSERVE.md` · `BLEND_025_MONTH_END_MONITOR.md`
@@ -38,7 +43,7 @@ Alert windows: **`heldout_2019_plus`**, **`sealed_2023_plus`**, **`ytd`**, **`tr
 This observe sleeve **never** authorizes live cutover. Cutover would require:
 
 1. Separate human checklist + PR (FIN50 path / new charter — not this runbook)
-2. Soft-Frozen clip stays **[0.50, 0.95]** until that PR
+2. Soft-Frozen clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**) until that PR
 3. No rewrite of `forward/e21` history
 
 `cutover_blocked=true` is permanent for BLEND_025 month-end JSON.

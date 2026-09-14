@@ -1,4 +1,5 @@
 {
+  "ssot_note": "HISTORICAL: Soft-Frozen FIN was [0.50, 0.95] at artifact write time; live today (2026-09-13+) FIN [0.60, 0.90] · KD_OPT · TEL_EQUAL · FUSE_ADDITIVE · DH_dd06 · 500M. See research/ops/OPS_STATUS.md.",
   "generated_at_utc": "2026-09-12T13:42:10.497557+00:00",
   "asof": "2026-09-11",
   "live_wire": false,
@@ -74,10 +75,10 @@
   ],
   "alerts": [
     "ALERT: FIN_CAP_50 ytd CAGR giveback > 3.0 pp (paper)",
-    "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)",
+    "PAUSE_REVIEW: ytd giveback > 5 pp — do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)",
     "ALERT: FIN_CAP_50 trailing_1y CAGR giveback > 3.0 pp (paper)",
-    "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)"
+    "PAUSE_REVIEW: trailing_1y giveback > 5 pp — do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)"
   ],
   "cutover_blocked": true,
-  "note": "Paper monitor only. Soft-Frozen Financial clip remains [0.50,0.95]. Cutover stays frozen while go-live is NOT_READY_SEALED_CAGR or any PAUSE_REVIEW alert fires."
+  "note": "Paper monitor only. Soft-Frozen Financial clip at writing was [0.50, 0.95]; live today [0.60, 0.90]. Cutover stays frozen while go-live is NOT_READY_SEALED_CAGR or any PAUSE_REVIEW alert fires."
 }

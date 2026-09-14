@@ -1,5 +1,10 @@
 # E45 Successor — Paper-Only New-Mechanism Charter (M1 → M2 → M3)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-06  
 Status: **PAPER CHARTER OPEN** — Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN** · HIGH_BETA observe **DRAFT / NOT OPEN**  
 Parent honesty: `E45_MULTI_EVENT_THRESHOLD_CHARTER.md` · `E45_NONCOVID_MULTIEVENT_ALT_LEVERS.md` · `E45_COVID_EX_HELDOUT_KPI.md`  
@@ -30,7 +35,7 @@ Therefore next work must be a **new mechanism**, not another twist of E45 exposu
 
 | Lock | State |
 |---|---|
-| Soft-Frozen FIN clip `[0.50, 0.95]` | **KEEP** |
+| Soft-Frozen FIN clip (at writing `[0.50, 0.95]`; live today `[0.60, 0.90]`) | **KEEP** |
 | Live DEFAULT `E22_v2s_tw` | **KEEP** |
 | E45 live stitch | **FORBIDDEN** until second human stitch ACCEPT |
 | HIGH_BETA observe | **DRAFT / NOT OPEN** (unchanged by this charter) |

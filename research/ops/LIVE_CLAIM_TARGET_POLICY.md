@@ -1,7 +1,6 @@
 # Live Claim & Target Closure Policy
-
 Date: 2026-09-05  
-Status: **BINDING for claims** — Soft-Frozen **[0.50, 0.95] KEEP**  
+Status: **BINDING for claims** — Soft-Frozen **[0.60, 0.90] KEEP** (was [0.50, 0.95] until FINBAND)  
 Authority: `HUMAN_DECISION_REGISTER.md` · `STRATEGY_DEBT_BOARD.md`
 
 ## Problem this closes
@@ -13,7 +12,7 @@ Research and paper sleeves can print CAGR / MDD numbers. Without a claim policy,
 | Claim | Allowed? | Basis |
 |---|---|---|
 | Live stack = E16 Soft-Frozen + Exact T+1 E18 + E22_v2s_tw | **YES** | Production path `forward/e21/` |
-| Live Financial clip = **[0.50, 0.95]** | **YES** | Soft-Frozen KEEP |
+| Live Financial clip = **[0.60, 0.90]** | **YES** | Soft-Frozen KEEP (FINBAND) |
 | Live meets a named CAGR≥X / MDD≤Y target | **NO** | No challenger cut over; Soft-Frozen has no authorized target badge |
 | FIN50 / L4 / BLEND_025 is live | **NO** | Paper / observe only |
 | Dual-paper PASS / held-out PASS = live promote | **NO** | Explicitly forbidden |

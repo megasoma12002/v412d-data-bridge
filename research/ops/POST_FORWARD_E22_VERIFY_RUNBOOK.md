@@ -1,8 +1,13 @@
 # Post-Forward E22 Evidence Verify Runbook
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Status: **OPS PREP** — run after next **weekday** live forward  
-Soft-Frozen: **[0.50, 0.95] KEEP** — never rewrite `forward/e21` history  
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]** — never rewrite `forward/e21` history  
 Related: `LIVE_E22_FIELD_EVIDENCE.md` · Gap6 KPI · `ops_alert_scan`
 
 ## When to run
@@ -35,7 +40,7 @@ python3 scripts/ops_alert_scan.py --report-only
 | Ledger keys | `e22_books_version` / `e22_manifest` present (names per pipeline) |
 | Dividends artifact | append-only applied file exists / grows only on div days |
 | Gap6 flag | `LIVE_LEDGER_E22_FIELDS_MISSING` absent or cleared |
-| Soft-Frozen | unchanged **[0.50, 0.95]** |
+| Soft-Frozen | unchanged vs note date **[0.50, 0.95]** (live today **[0.60, 0.90]**) |
 
 ## Fail / incomplete
 

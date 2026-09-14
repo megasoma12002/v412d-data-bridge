@@ -1,5 +1,10 @@
 # FIN Concentration — Sealed CAGR Improvement Diagnostics
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-05T03:22:41.675088+00:00`
 As-of: `2026-09-04`
 Status: **RESEARCH_ONLY** — no Soft-Frozen edit; sealed used diagnostically only.
@@ -33,11 +38,11 @@ FIN_CAP_50 / L3 static mild caps clear combined 2019+ or OOF, but **sealed 2023+
 1. Static FIN caps (50/60) improve MDD but leak sealed CAGR in 2024–2026 bull stretch.
 2. Path-conditional caps (Bull-restore / Crisis-only) aim to keep Soft-Frozen finance beta in Bull while cutting only in stress.
 3. Do not retune FIN_CAP_50 / L3_MILD_35_60 locks; screen new path-conditional family under a frozen L4 charter.
-4. Soft-Frozen live stays [0.50, 0.95] until human cutover after sealed-aware PASS.
+4. Soft-Frozen live at writing was [0.50, 0.95] (live today [0.60, 0.90]) until human cutover after sealed-aware PASS.
 
 ## Recommended next research
 
 Freeze **L4 path-conditional FIN charter**: Bull-restore / Crisis-only / true DD-path first.
-Do **not** retune FIN_CAP_50 or L3_MILD_35_60. Soft-Frozen stays [0.50, 0.95].
+Do **not** retune FIN_CAP_50 or L3_MILD_35_60. Soft-Frozen at writing was [0.50, 0.95] (live today [0.60, 0.90]).
 
 See: `research/gaps/MDD_L4_PATH_FINCAP_CHARTER.md`

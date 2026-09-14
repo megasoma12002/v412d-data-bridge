@@ -1,8 +1,13 @@
 # Formal Books Charter — Dividend Tax & Receivable / Pay-Date
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Status: **ACCEPT charter** (2026-09-05) — Stage B sandbox OPEN; DEFAULT unchanged  
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**  
 Formal default today: **`E22_v2s_tw`** with **TAX0** and **cash on ex-date** (no receivable asset)
 Decision pack: `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md`
 

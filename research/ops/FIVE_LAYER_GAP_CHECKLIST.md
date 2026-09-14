@@ -1,7 +1,12 @@
 # Five-Layer Gap Checklist — Operable System
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05 (strategy closure prep)  
-Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
+Live Soft-Frozen Financial clip (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**  
 Authority: `research/STRATEGY_DEBT_BOARD.md` · map: `OPS_STATUS.md` · decisions: `HUMAN_DECISION_REGISTER.md` · claims: `LIVE_CLAIM_TARGET_POLICY.md`
 
 Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scope)

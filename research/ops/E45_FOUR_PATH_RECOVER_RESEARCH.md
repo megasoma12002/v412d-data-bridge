@@ -58,4 +58,4 @@ Baseline gap: ungated held-out `+1.807` · hard `+0.715` · Soft_A `+0.829`
 - Path3 replaces Soft_A? **False**
 - Recommended stack: `['KEEP_or_ACCEPT_Soft_A_for_tip_hygiene', 'DUAL_MONITOR_ungated_for_long_score', 'CONTINUE_new_mechanism_ladder_outside_C35_x_regime', 'ACCEPT_tradeoff_if_tip_binding_and_no_Path3_winner']`
 
-Repro: `repro/e45-four-path-recover-20260908/`
+Repro: `archive/repro/e45-four-path-recover-20260908/`

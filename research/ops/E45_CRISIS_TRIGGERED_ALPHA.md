@@ -1,5 +1,10 @@
 # E45 PAPER Crisis-Triggered Alpha
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-06T05:13:29.643124+00:00`
 Status: **PAPER ONLY** — Soft-Frozen **KEEP**; DEFAULT **`E22_v2s_tw` KEEP**; live stitch **FORBIDDEN**.
 Observe sleeves (full-E45 + blend-α=0.25) **unchanged**.
@@ -111,7 +116,7 @@ Observe sleeves (full-E45 + blend-α=0.25) **unchanged**.
 
 ## Governance
 
-- Soft-Frozen FIN clip **[0.50, 0.95] KEEP**
+- Soft-Frozen FIN (at writing) **[0.50, 0.95]** · **live today [0.60, 0.90]**
 - Live DEFAULT **`E22_v2s_tw` KEEP**
 - Live E45 stitch **FORBIDDEN**
 - Retired MDD narrative: **RETIRED_HISTORICAL_NARRATIVE**

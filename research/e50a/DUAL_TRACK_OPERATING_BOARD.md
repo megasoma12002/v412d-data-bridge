@@ -1,8 +1,7 @@
 # Dual-Track Operating Board — A Monitor + B Stress Engine
-
 Date: 2026-09-05  
 Governance: Option-2 accepted; Stage-8 saturated; **no live overlay**.
-Live Soft-Frozen Financial clip stays **[0.50, 0.95]**; dual-track is paper/monitor only.
+Live Soft-Frozen Financial clip is **[0.60, 0.90]** (was [0.50, 0.95]); dual-track is paper/monitor only.
 
 ## Dual-track design
 
@@ -62,7 +61,7 @@ Track A remains the paper/monitor. Track B S1 residual axis is closed.
 |---|---|---|
 | FIN_CAP_50 | Dual-paper OPERATING; cutover **`NOT_READY_SEALED_CAGR`** | Do not treat promote proposal as license |
 | L4_DD_PATH_08_50 | Held-out **`PASS_HELDOUT_L4`**; dual-paper OPERATING | Cutover = DD-path wire, **not** Soft-Frozen flip |
-| Soft-Frozen live clip | **[0.50, 0.95] KEEP** | No auto flip |
+| Soft-Frozen live clip | **[0.60, 0.90] KEEP** | No auto flip |
 
 Next alpha work needs a **new charter** (not S1 residual re-grid). Core-path cutovers stay human-PR only.
 

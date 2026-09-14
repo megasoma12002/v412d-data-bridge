@@ -1,7 +1,12 @@
 # Next Research Batch — Integrated (2026-09-06)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-06T06:54:33.425680+00:00`  
-Status: **PAPER / SANDBOX / OPS DIAG** — Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN**  
+Status: **PAPER / SANDBOX / OPS DIAG** — Soft-Frozen **[0.60, 0.90] KEEP** (was [0.50, 0.95]) · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN**  
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** (do not invent a replacement)
 
 ## Scope (all requested)

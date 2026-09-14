@@ -1,5 +1,9 @@
 # Strategy Debt Board
 
+> **Live SSOT (2026-09-13):** Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · books **`E22_v2s_tw`** · path `forward/e21/`.  
+> Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · ballot: `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`.  
+> Rows below dated **2026-09-05…09** are **historical ledger** (clip once [0.50, 0.95] / capital once 3M) — do not treat as current live.
+
 <!-- debt-sweep 2026-09-06 -->
 ## Debt-sweep snapshot (2026-09-06)
 
@@ -23,9 +27,9 @@ Residual Medium/Low after eng cleanup (#93): review-doc historical mentions of b
 ---
 
 
-Date: 2026-09-05 (strategy closure prep — claim policy + BLEND checklist)  
-Live rule: **E16 + E18 + E22_v2s_tw** (odd-lot TW practice; promoted 2026-09-05). No overlay. No history rewrite.  
-Live E16 Financial clip: **[0.50, 0.95]** (unchanged).  
+Date: 2026-09-05 (**historical** strategy closure prep — claim policy + BLEND checklist)  
+Historical live rule then: **E16 + E18 + E22_v2s_tw** · clip **[0.50, 0.95]** · no overlay.  
+**Current live:** see banner at top of this file (2026-09-13 DH+FUSE).  
 Human decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 
@@ -34,7 +38,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | Term | Meaning |
 |---|---|
 | **SOFT_FROZEN** (class) | Official strategy-version class for E16/E18/E22/E45 — **not** “is live” |
-| **Live Soft-Frozen clip** | Live E16 Financial band **[0.50, 0.95]** |
+| **Live Soft-Frozen clip** | Live E16 Financial band **[0.60, 0.90]** (was [0.50, 0.95] until FINBAND ACCEPT) |
 | **Dual-paper** | Parallel Exact T+1 paper books — observation only |
 | **Cutover** | Human PR that changes live books / live clip / live path logic |
 
@@ -71,7 +75,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | Item | Action | Status |
 |---|---|---|
 | Track A S9A1 | Paper/monitor via month-end pack | **KEEP** |
-| Live Soft-Frozen clip | **[0.50, 0.95]** | **KEEP** (register #1) |
+| Live Soft-Frozen clip | **[0.60, 0.90]** | **KEEP** (FINBAND; was [0.50, 0.95]) |
 | FIN_CAP_50 paper | Dual-paper + pack | **OPERATING**; **static cutover REJECT for now** (register #2) |
 | L4 dual-paper | Dual-paper + pack | **OPERATING**; cutover **DEFER** until clean month-end (register #4) |
 | BLEND_025 dual-paper | Dual-paper + pack + runbook | **OPERATING OBSERVE** — sole sealed-CAGR successor (register #3); live **NOT READY** (#5) |
@@ -98,9 +102,9 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; reinvent retired E45 MDD narr
 
 | Challenger | Live change type | Blocked by | Soft-Frozen today | Checklist |
 |---|---|---|---|---|
-| FIN_CAP_50 | Static clip → **[0.35, 0.50]** | `NOT_READY_SEALED_CAGR` + YTD/1y PAUSE | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_FIN50.md` |
-| L4_DD_PATH_08_50 | Wire DD-path logic | YTD PAUSE + need clean month-end + human PR | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_L4.md` |
-| BLEND_025 | Soft-Frozen → blend weights | Observe ≠ promote; checklist prep only | **[0.50, 0.95]** | `CUTOVER_CHECKLIST_BLEND025.md` (**NOT AUTHORIZED**) |
+| FIN_CAP_50 | Static clip → **[0.35, 0.50]** | `NOT_READY_SEALED_CAGR` + YTD/1y PAUSE | **[0.60, 0.90]** | `CUTOVER_CHECKLIST_FIN50.md` |
+| L4_DD_PATH_08_50 | Wire DD-path logic | YTD PAUSE + need clean month-end + human PR | **[0.60, 0.90]** | `CUTOVER_CHECKLIST_L4.md` |
+| BLEND_025 | Soft-Frozen → blend weights | Observe ≠ promote; checklist prep only | **[0.60, 0.90]** | `CUTOVER_CHECKLIST_BLEND025.md` (**NOT AUTHORIZED**) |
 | E50-A / E45 | Overlay / crisis | Not live-wired; E45 RETIRED_HISTORICAL_NARRATIVE; charter ACCEPT → Stage 1–2 OPEN | Paper verify / challenger | Live stitch |
 
 ## Snapshot
@@ -111,7 +115,7 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; reinvent retired E45 MDD narr
 | BLEND_025 dual-paper | **OPERATING OBSERVE** / cutover **blocked** |
 | L4 held-out | **`PASS_HELDOUT_L4`** |
 | Track A | **KEEP** |
-| Soft-Frozen clip | **[0.50, 0.95] KEEP** (register #1) |
+| Soft-Frozen clip | **[0.60, 0.90] KEEP** (FINBAND) |
 | Human decisions | `research/ops/HUMAN_DECISION_REGISTER.md` **BINDING** |
 
 ## Pointers
@@ -190,7 +194,7 @@ Human 「提高模擬／實盤資本」 — `DEFAULT_CAPITAL=15M` so TEL floor c
 
 ## Soft-Frozen TEL+0050 floor-10 ACCEPT withdrawn (2026-09-07)
 
-Human 「還是先還原 soft frozen」. Draft PR #119 (TEL/0050 floors → 10%) **closed without merge**. Live Soft-Frozen remains FIN **[0.50, 0.95]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]** (@ 15M + board-lot). stitch FORBIDDEN.
+Human 「還是先還原 soft frozen」. Draft PR #119 (TEL/0050 floors → 10%) **closed without merge**. Live Soft-Frozen remains FIN **[0.50, 0.95]** (historical as-of note date; live today [0.60, 0.90]) · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]** (@ 15M + board-lot). stitch FORBIDDEN.
 
 ## Soft-Frozen clip-search charter (2026-09-07)
 

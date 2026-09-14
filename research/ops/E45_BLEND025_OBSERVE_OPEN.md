@@ -1,12 +1,17 @@
 # E45 Blend-α=0.25 Dual-Paper Observe — OPEN Ballot
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-06  
 Status: **ARCHIVED (human: 封存 E45_BLEND025 observe · 2026-09-13)** · was OPERATING · stitch still **FORBIDDEN**
 Archive batch: `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md`
 Human ballot: **`E45 OPEN blend-α=0.25 observe`** (proceed next step after paper screen)  
 Authority: Register #6c follow-on · `E45_BLEND_ALPHA_PAPER_SCREEN.md` · `E45_STAGE12_STATUS.md`
 
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN**  
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**  
@@ -33,7 +38,7 @@ Paper blend-alpha screen held-out heuristic preferred **α=0.25**:
 
 | # | Item | YES/NO |
 |---|---|---|
-| 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** |
+| 1 | Soft-Frozen live clip at writing was [0.50, 0.95]; live today [0.60, 0.90] | **YES** |
 | 2 | Live DEFAULT books remain `E22_v2s_tw` | **YES** |
 | 3 | Parent blend-alpha screen present | **YES** |
 | 4 | retired MDD narrative still RETIRED | **YES** |

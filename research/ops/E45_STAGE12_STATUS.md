@@ -1,9 +1,14 @@
 # E45 Stage 1–3 Status (Post Charter ACCEPT + V1 narrative retirement + observe OPEN)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Ballot: **ACCEPT charter** + **RETIRE unmatched handoff MDD narrative (path A)** + **OPEN dual-paper observe**  
 Live stitch: **still FORBIDDEN** (needs second dedicated stitch ACCEPT)  
-Soft-Frozen Financial clip: **[0.50, 0.95] KEEP**  
+Soft-Frozen Financial clip (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** — do not invent a replacement  
 Dual-paper observe: **OPERATING** (paper month-end; first monitor may show YTD/1y PAUSE_REVIEW — expected for crisis overlay)
@@ -171,7 +176,7 @@ Authority: `HUMAN_DECISION_REGISTER.md` #6c · `E45_MDD_1316_NARRATIVE_RETIREMEN
 - **Sleeve-local deep-dive (PAPER):** `research/e45/E45_SLEEVE_LOCAL_DEEP_DIVE.md` — denser α∈{0.05,0.08,0.10}×cost 1–2×; held-out preferred **FIN_ONLY@α=0.10** (score ~0.285) > ALL@0.05; crisis help still ~84% in 2020; sleeve-local observe is now **OPERATING** (`SLEEVE_FIN_ONLY_A10`); this section no longer blocks that open observe
 - **OPEN blend-α=0.05 observe:** `research/ops/E45_BLEND005_OBSERVE_OPEN.md` — **OPERATING** (paper only); tip PAUSE_REVIEW on YTD/1y; Soft-Frozen KEEP; stitch FORBIDDEN
 - **FULL + A25 observe cadence:** remains **OPERATING** in parallel (unchanged)
-- Soft-Frozen FIN **[0.50, 0.95] KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN**
+- Soft-Frozen FIN (at writing) **[0.50, 0.95]** · **live today [0.60, 0.90]** · DEFAULT **`E22_v2s_tw` KEEP** · live stitch **FORBIDDEN**
 
 ## Sleeve-local observe OPEN — ACCEPTED / OPERATING (2026-09-06)
 

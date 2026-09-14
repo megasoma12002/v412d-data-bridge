@@ -1,6 +1,11 @@
 # L4_DD_PATH_08_50 Month-End Dual-Paper Runbook
 
-Status: **PAPER OPS** — Soft-Frozen live Financial clip stays **[0.50, 0.95]**.  
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
+Status: **PAPER OPS** — Soft-Frozen live Financial clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**).  
 Related: `research/gaps/L4_DD_PATH_PROMOTE_PROPOSAL.md`, `research/gaps/MDD_L4_HELDOUT.md`
 
 ## Cadence

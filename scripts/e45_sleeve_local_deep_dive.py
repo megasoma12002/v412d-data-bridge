@@ -37,7 +37,7 @@ from e45_paper_harness import (
 )
 from e50_early_stack_combined_nav import FIN, TEL
 
-OUT = ROOT / "repro/e45-sleeve-local-deep-dive"
+OUT = ROOT / "archive/repro/e45-sleeve-local-deep-dive"
 RESEARCH = ROOT / "research/e45"
 OPS = ROOT / "research/ops"
 
@@ -404,7 +404,7 @@ def main() -> None:
         "# E45 PAPER Sleeve-Local Deep-Dive — Ops pointer\n\n"
         "Ballot: `E45 PAPER sleeve-local deep-dive` — **PAPER ONLY**\n\n"
         "Primary: `research/e45/E45_SLEEVE_LOCAL_DEEP_DIVE.md`\n"
-        "Repro: `repro/e45-sleeve-local-deep-dive/`\n\n"
+        "Repro: `archive/repro/e45-sleeve-local-deep-dive/`\n\n"
         "```bash\npython3 scripts/e45_sleeve_local_deep_dive.py\n```\n"
     )
     print("DONE", flush=True)

@@ -1,7 +1,7 @@
 # Coding Standards (project engineering)
 
 Date: 2026-09-06  
-Status: **BINDING for new code** — Soft-Frozen Financial clip **[0.50, 0.95] KEEP**  
+Status: **BINDING for new code** — Soft-Frozen Financial clip **[0.60, 0.90] KEEP**  
 Companion: `CURSOR_RULES.md` · `research/ops/LIVE_CLAIM_TARGET_POLICY.md` · `research/ops/ARTIFACT_RETENTION.md` · `research/ops/E45_PAPER_LANDMINE_CODE_REVIEW.md`
 
 Derived from E45 paper landmines and prior code-review rounds (#55 Soft-Frozen single-source / Exact T+1 / None-safe scorers; #56 live QC fail-closed). Engineering standards only — not a Soft-Frozen flip or stitch license.
@@ -20,8 +20,8 @@ Derived from E45 paper landmines and prior code-review rounds (#55 Soft-Frozen s
 
 ## 3. Soft-Frozen is single-source
 
-- Live Financial clip **[0.50, 0.95]** lives in `scripts/e16_soft_frozen_base.py`.
-- JSON / machine fields must import `SOFT_FROZEN_FIN_CLIP` (or `SOFT_FROZEN_FIN_LO/HI`) — do not re-type `[0.50, 0.95]` as data.
+- Live Financial clip **[0.60, 0.90]** lives in `scripts/e16_soft_frozen_base.py`.
+- JSON / machine fields must import `SOFT_FROZEN_FIN_CLIP` (or `SOFT_FROZEN_FIN_LO/HI`) — do not re-type `[0.60, 0.90]` as data.
 - Markdown / log **KEEP** statements may still *mention* the band; that is prose, not a second source.
 - Challenger clips stay in challenger modules only.
 

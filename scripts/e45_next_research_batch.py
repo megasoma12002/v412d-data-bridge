@@ -44,7 +44,7 @@ from e45_paper_harness import (
     window_stats,
 )
 
-OUT = ROOT / "repro/e45-next-research-batch"
+OUT = ROOT / "archive/repro/e45-next-research-batch"
 OPS = ROOT / "research/ops"
 E45_DIR = ROOT / "research/e45"
 

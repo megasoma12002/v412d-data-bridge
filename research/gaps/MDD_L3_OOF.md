@@ -1,5 +1,10 @@
 # L3 MDD Sealed-CAGR — OOF Screen
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-05T02:17:17.123357+00:00`
 Status: **RESEARCH_ONLY** — no live-wire, no Soft-Frozen edit, no held-out selection.
 Parents: L1/L2 STOPPED — cut retune forbidden.
@@ -32,7 +37,7 @@ BASE OOF: CAGR=8.8470% MDD=-17.4129% exact_t1=True mean_fin_w=80.3%
 
 - Proceed to **adversarial-lite** on locked `L3_MILD_35_60`.
 - Do **not** open held-out until adv-lite PASS.
-- Do **not** live-wire. Soft-Frozen stays **[0.50, 0.95]**.
+- Do **not** live-wire. Soft-Frozen at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**).
 
 Artifacts:
 - `/workspace/repro/mdd-loss-engine/l3_oof/reports/l3_oof_summary.json`

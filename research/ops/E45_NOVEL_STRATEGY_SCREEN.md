@@ -25,4 +25,4 @@ Soft_A held-out `+0.829` · Ungated `+1.807`
 - Best tip-clean novel: `SOFT_A_NEST_A05`
 - Operational Soft_A+ungated dual stack unchanged? **True**
 
-Repro: `repro/e45-novel-strategy-20260908/`
+Repro: `archive/repro/e45-novel-strategy-20260908/`

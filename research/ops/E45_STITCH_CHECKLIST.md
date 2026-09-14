@@ -1,5 +1,10 @@
 # E45 Live-Stitch Checklist (Stage 4 — PREP ONLY)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05 · refresh 2026-09-09  
 Status: **ROLLBACK — stitch OFF (`DROP_E45_A05`, 2026-09-09)**  
 Human ballot: **`ACCEPT live-stack rollback: DROP_E45_A05`**  
@@ -31,7 +36,7 @@ Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `HUMAN_DEC
 ## What stitch would change (future human PR only)
 
 - Attach E45 crisis overlay (`E3_VOLTARGET_WINNER` / `CHAL_E45_E3`) onto the Soft-Frozen early-stack live path **forward-only**.  
-- Soft-Frozen Financial clip stays **[0.50, 0.95]** unless a **separate** clip PR.  
+- Soft-Frozen Financial clip stays live SSOT (today **[0.60, 0.90]**; was [0.50, 0.95] at checklist date) unless a **separate** clip PR.  
 - DEFAULT books stay **`E22_v2s_tw`** unless a **separate** books PR.  
 - Comparable MDDs in any claim text: dated lineage (primary E1.1 val **−15.81%**) and/or dated challenger (~**−20.76%**) — **never the retired handoff MDD narrative**.
 
@@ -46,7 +51,7 @@ Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `HUMAN_DEC
 | 5 | ≥1 **clean** month-end on dynamic windows: no YTD / trailing_1y `PAUSE_REVIEW` | FULL E3 still PAUSE (2026-09-07). **`BLEND_E45_A05` tip PASS/PASS** — clean on that book only | **NO for FULL** · **YES candidate for A05** |
 | 6 | Sustained clean trailing (not a single clean print) | Need additional clean month-ends after #5 clears | **NO** |
 | 7 | Exact T+1 unchanged on BASE + CHAL paper books | Shared early-stack fill clock | **YES** (paper) |
-| 8 | Soft-Frozen clip unchanged until stitch PR | [0.50, 0.95] KEEP | **YES** |
+| 8 | Soft-Frozen clip unchanged until stitch PR | at writing [0.50, 0.95]; live today [0.60, 0.90] | **YES** |
 | 9 | DEFAULT books unchanged until separate books PR | `E22_v2s_tw` KEEP | **YES** |
 | 10 | Dedicated stitch checklist all YES + **second** human ACCEPT PR | This file drafted; ballot **not** cast | **NO** |
 | 11 | Must **not** bundle Soft-Frozen flip, FIN50/L4/BLEND cutover, odd-lot/tax DEFAULT, history rewrite | Policy | Policy |

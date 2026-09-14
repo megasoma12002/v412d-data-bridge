@@ -1,10 +1,15 @@
 # E45 Dual-Paper Observe Checklist (Stage 3)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Status: **OPERATING OBSERVE** (opened by human ballot)  
 Authority: `E45_LIVE_STITCH_CHARTER.md` · `E45_STAGE12_STATUS.md` · `E45_DUAL_PAPER_OBSERVE_DESIGN.md` · `E45_DUAL_PAPER_OBSERVE_OPEN.md`
 
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**  
 Live stitch: **FORBIDDEN**  
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**
 
@@ -24,7 +29,7 @@ Record: `research/ops/E45_DUAL_PAPER_OBSERVE_OPEN.md`
 
 | # | Item | YES/NO |
 |---|---|---|
-| 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** |
+| 1 | Soft-Frozen live clip at writing was [0.50, 0.95]; live today [0.60, 0.90] | **YES** |
 | 2 | Live DEFAULT books remain `E22_v2s_tw` | **YES** |
 | 3 | Design metrics present (`repro/e45-dual-paper-observe-design/`) | **YES** |
 | 4 | the retired handoff MDD narrative labeled RETIRED (not verified) | **YES** |

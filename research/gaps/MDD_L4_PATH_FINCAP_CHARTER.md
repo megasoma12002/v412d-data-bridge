@@ -1,7 +1,12 @@
 # MDD L4 Path / Mild-FIN Charter (sealed CAGR retention)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
-Status: **CHARTER FROZEN for screening** — RESEARCH_ONLY; no live-wire; Soft-Frozen stays **[0.50, 0.95]**.  
+Status: **CHARTER FROZEN for screening** — RESEARCH_ONLY; no live-wire; Soft-Frozen at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**).  
 Parents:
 - L1/L2/L3 STOPPED on sealed CAGR giveback  
 - FIN_CAP_50 go-live verify: `NOT_READY_SEALED_CAGR` (#49)  
@@ -79,7 +84,7 @@ FIN_CAP_50 dual-paper month-end continues; cutover stays frozen while sealed/PAU
 
 Util-rank OOF locked **`L4_DD_PATH_08_50`** → adv-lite PASS → **`PASS_HELDOUT_L4`**.
 The family-first hint below is historical charter text only; util-rank was authoritative.
-Dual-paper observation is open; Soft-Frozen clip stays **[0.50, 0.95]**.
+Dual-paper observation is open; Soft-Frozen clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**).
 
 ## Next implementation (separate PR)
 

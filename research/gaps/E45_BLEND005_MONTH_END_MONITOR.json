@@ -1,4 +1,5 @@
 {
+  "ssot_note": "HISTORICAL: Soft-Frozen FIN was [0.50, 0.95] at artifact write time; live today (2026-09-13+) FIN [0.60, 0.90] · KD_OPT · TEL_EQUAL · FUSE_ADDITIVE · DH_dd06 · 500M. See research/ops/OPS_STATUS.md.",
   "generated_at_utc": "2026-09-12T13:42:11.721296+00:00",
   "asof": "2026-09-11",
   "live_wire": false,
@@ -110,5 +111,5 @@
     "heldout_2019_plus": 1.07,
     "sealed_2023_plus": 1.5
   },
-  "note": "Paper observe only. Soft-Frozen Financial clip remains [0.50,0.95]. E45 blend-\u03b1=0.05 dual-paper \u2260 stitch license. mtd CAGR is display-only (not a stitch gate). Structural sealed/heldout giveback is design-known; PAUSE_REVIEW applies to YTD / trailing_1y only."
+  "note": "Paper observe only. Soft-Frozen Financial clip at writing was [0.50, 0.95]; live today [0.60, 0.90]. E45 blend-α=0.05 dual-paper ≠ stitch license. mtd CAGR is display-only (not a stitch gate). Structural sealed/heldout giveback is design-known; PAUSE_REVIEW applies to YTD / trailing_1y only."
 }

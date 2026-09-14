@@ -1,10 +1,15 @@
 # E45 −13.16% Narrative Retirement (V1 path A)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Human ballot: **`E45 RETIRE −13.16% narrative`** (path A)  
 Authority: Register #6c follow-on · `E45_LIVE_STITCH_CHARTER.md` · `E45_MDD_1316_VERIFICATION.md`
 
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**  
 Live stitch: **still FORBIDDEN** until V1–V6 all PASS **and** a **second** dedicated stitch ACCEPT  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**
 

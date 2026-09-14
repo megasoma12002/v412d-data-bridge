@@ -10,7 +10,7 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live capital **500M** 
 | Track | Focus | Cadence / gate |
 |---|---|---|
 | **Live stack** | Soft-Frozen FIN **[0.60, 0.90]** + **`KD_OPT`** + **`TEL_EQUAL`** + **`FUSE_ADDITIVE`** + **`DH_dd06`** | Live wire |
-| **Soft-assist observe** | `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | Dual-paper month-end · cutover **AUTHORIZED (DH+FUSE live)** |
+| **Soft-assist observe** | `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | Dual-paper month-end · **independent** cutover **BLOCKED** (live Soft softs arrive via FUSE) |
 | **Sleeve-tilt observe** | `SLEEVE_RSI14_LT30_a0225` | Dual-paper month-end · independent of Soft · cutover **BLOCKED** |
 | **FUSE_ADDITIVE** | Soft×Sleeve joint actuator | **LIVE WIRED 2026-09-13** (with DH) · paper shadow may continue |
 | **BLEND_025 observe (FINCAP)** | 0.25·FIN50 + 0.75·BASE sealed-CAGR path | OPERATING OBSERVE · live **NOT READY** · **≠** E45_BLEND025 |
@@ -47,12 +47,12 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live capital **500M** 
 ## Binding non-actions
 
 1. Do **not** flip Soft-Frozen clips from archived evidence alone.  
-2. Do **not** live-wire Soft / Sleeve / FUSE / 民營 / E45 without dedicated ACCEPT.  
-3. Live risk overlay is **DH_dd06** (not legacy A05 blend stitch).  
-4. Do **not** ops Soft∥Sleeve auto-fuse.  
+2. Do **not** live-wire Soft-assist / Sleeve-tilt / 民營 **independent** recipes without dedicated ACCEPT (FUSE+DH already ACCEPTED 2026-09-13).  
+3. Live risk overlay is **DH_dd06** (+ FUSE offense).  
+4. Do **not** ops Soft∥Sleeve auto-fuse of **independent** observe IDs.  
 5. Do **not** reopen archived tracks without **new charter + human ballot**.  
 6. Do **not** treat month-end green on archived sleeves as cutover license.  
-7. Defend-handoff → **paper observe ballot only** (separate); never live from Stage A alone.
+7. Defend-handoff DH is **LIVE** via the combined DH+FUSE ACCEPT; do not invent a second DH live path from Stage A alone.
 8. Do **not** reopen Kelly exposure without **new charter + human ballot**.
 9. Do **not** reopen E45_BLEND025 observe without **new charter + human ballot**.
 

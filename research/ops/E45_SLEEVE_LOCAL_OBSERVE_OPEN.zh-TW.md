@@ -1,11 +1,16 @@
 # E45 Sleeve-Local Observe — OPEN 表決（**已 ACCEPT / OPERATING**）
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 日期：2026-09-06  
 人工表決：`E45 ACCEPT OPEN sleeve-local observe`  
 狀態：**OPERATING OBSERVE**（僅紙上）  
 英文正本（治理以英文為準）：`research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md`
 
-Soft-Frozen：**[0.50, 0.95] KEEP**  
+Soft-Frozen（撰寫時）：**[0.50, 0.95]** · **live today [0.60, 0.90]**  
 Live DEFAULT：`E22_v2s_tw` **KEEP**  
 Live stitch：**仍禁止**  
 父級 observe 並行：FULL + A25 + A05

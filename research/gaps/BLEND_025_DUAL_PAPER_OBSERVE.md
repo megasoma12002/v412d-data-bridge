@@ -1,7 +1,12 @@
 # BLEND_025 Dual-Paper Observe Sleeve
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-12T13:41:44.767492+00:00`
-Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`).
+Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged by this note** (at writing `Financial∈[0.50,0.95]`; live today `[0.60,0.90]`).
 
 ## Locked challenger
 

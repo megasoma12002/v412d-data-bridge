@@ -59,4 +59,4 @@ Same-family (C35 × Soft-Frozen regime) cannot restore ungated `+1.81` **and** k
 - Best recover: `M2_C35_SOFT_A` · gap closed `+0.11`
 - Same-family soft gates **do not** close most of the hard-gate score gap.
 
-Repro: `repro/e45-c35-soft-gate-20260908/`
+Repro: `archive/repro/e45-c35-soft-gate-20260908/`

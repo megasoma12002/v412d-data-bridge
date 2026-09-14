@@ -1,5 +1,10 @@
 # E45 PAPER Mild max_cut Profile Screen
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-06T05:13:58.122429+00:00`
 Status: **PAPER ONLY** — Soft-Frozen **KEEP**; DEFAULT **`E22_v2s_tw` KEEP**; live stitch **FORBIDDEN**.
 Observe sleeves (full-E45 + blend-α=0.25) **unchanged**.
@@ -89,7 +94,7 @@ Policy: ALERT >3pp / PAUSE_REVIEW >5pp on YTD / trailing_1y.
 
 ## Governance
 
-- Soft-Frozen FIN clip **[0.50, 0.95] KEEP**
+- Soft-Frozen FIN (at writing) **[0.50, 0.95]** · **live today [0.60, 0.90]**
 - Live DEFAULT **`E22_v2s_tw` KEEP**
 - Live E45 stitch **FORBIDDEN**
 - Frozen `E3_WINNER.max_cut=0.5` **untouched**

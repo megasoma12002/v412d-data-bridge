@@ -1,5 +1,10 @@
 # FIN_CAP_50 Go-Live Research Verification
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-05T17:50:46.605362+00:00`
 As-of: `2026-09-04`
 Status: **RESEARCH_ONLY** — Soft-Frozen live clip **not** changed.
@@ -33,7 +38,7 @@ Research decision: `GO_LIVE_VERIFY_BLOCKED_SEALED_CAGR__KEEP_SOFT_FROZEN`
 
 ## Aftermath
 
-- **Do not cut over live.** Soft-Frozen stays **[0.50, 0.95]**.
+- **Do not cut over live.** Soft-Frozen at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**).
 - Continue dual-paper month-end observation only.
 - If blocked on sealed CAGR: new charter required (do not retune FIN_CAP_50 lock).
 

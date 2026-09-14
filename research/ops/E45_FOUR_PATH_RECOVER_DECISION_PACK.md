@@ -29,4 +29,4 @@ INTEN_Q80 held-out **+0.89** beats Soft_A but tip still PAUSE/ALERT — not elig
 
 Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · no live wire · no invent MDD · no silent observe-lock flip.
 
-Artifacts: `E45_FOUR_PATH_RECOVER_RESEARCH.md` · `scripts/e45_four_path_recover_paper.py` · `repro/e45-four-path-recover-20260908/`
+Artifacts: `E45_FOUR_PATH_RECOVER_RESEARCH.md` · `scripts/e45_four_path_recover_paper.py` · `archive/repro/e45-four-path-recover-20260908/`

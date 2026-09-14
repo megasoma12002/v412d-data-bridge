@@ -1,5 +1,10 @@
 # E22_v3 Stage B — Sealed-Window Dual-Book Compare
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-06T10:04:47.356207+00:00`
 Status: **SANDBOX RESEARCH** — Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · no promote
 
@@ -25,7 +30,7 @@ Status: **SANDBOX RESEARCH** — Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` 
 ## Governance
 
 - Live DEFAULT remains **`E22_v2s_tw`** (untouched).
-- Soft-Frozen FIN clip **[0.50, 0.95] KEEP**.
+- Soft-Frozen FIN (at writing) **[0.50, 0.95]** · **live today [0.60, 0.90]**.
 - Combined `recv_pay_taxW` still **NOT STARTED** (needs each axis alone first).
 - No E45 stitch; no Soft-Frozen / DEFAULT flip; no retired-narrative reinvention.
 

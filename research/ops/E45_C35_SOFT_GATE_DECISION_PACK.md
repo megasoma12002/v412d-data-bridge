@@ -35,7 +35,7 @@ Live stitch still requires separate second ACCEPT after clean trailing on the ch
 
 Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN · no live wire · no invent MDD · no auto observe-lock flip.
 
-Artifacts: `E45_C35_SOFT_GATE_RESEARCH.md` · `repro/e45-c35-soft-gate-20260908/`
+Artifacts: `E45_C35_SOFT_GATE_RESEARCH.md` · `archive/repro/e45-c35-soft-gate-20260908/`
 
 ## Four-path follow-up (2026-09-08)
 

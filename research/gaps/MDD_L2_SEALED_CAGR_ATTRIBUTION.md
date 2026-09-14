@@ -1,5 +1,10 @@
 # L2 Sealed CAGR Attribution (for L3 charter)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-05T02:11:39.639380+00:00`
 Parent lock (frozen): `L2_FINCAP_ONLY` → `STOP_L2_HELDOUT_MIXED_KEEP_BASE`
 Status: **RESEARCH_ONLY** — explains sealed CAGR giveback; does not reopen L2 cuts.
@@ -37,6 +42,6 @@ Note: Equal-weight sleeve Δret is diagnostic only; authoritative metric is Exac
 1. Failure mode ≠ L1: L1 was COMBO timing over-fire; L2 is **static FIN concentration**.
 2. Giveback concentrated in **2024 / 2025 / 2026**; 2023 L2 beat BASE on CAGR.
 3. L3 targets sealed CAGR retention with MDD ≥ +1 pp — without retuning L1 or reopening L2 lock.
-4. Soft-Frozen live clip stays **[0.50, 0.95]**; FIN_CAP_50 dual-paper month-end continues.
+4. Soft-Frozen live clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**); FIN_CAP_50 dual-paper month-end continues.
 
 See charter: `research/gaps/MDD_L3_SEALED_CAGR_CHARTER.md`

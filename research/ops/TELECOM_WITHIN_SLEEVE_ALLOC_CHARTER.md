@@ -1,9 +1,14 @@
 # Telecom Within-Sleeve Allocation Charter — Research Only
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-08  
 Status: **CHARTER ACCEPTED** — Stage B paper implementation authorized  
 Class: **A. Research / EXPERIMENTAL**  
-Soft-Frozen live: **KEEP** (FIN [0.50, 0.95] · TEL [0.03, 0.35] · 0050 [0.00, 0.35])  
+Soft-Frozen live (at writing): **KEEP** (FIN [0.50, 0.95]; live today [0.60, 0.90] · TEL [0.03, 0.35] · 0050 [0.00, 0.35])  
 Execution context: capital **3M** · board-lot **1000** · books **`E22_v2s_tw`**
 
 Authority: `STRATEGY_UPDATE_STANDARD_PROCESS.md` · `CAPITAL_3M_RESTORE_2026-09-08.md` · `TW_SHARE_LOT_DEFINITIONS.md`

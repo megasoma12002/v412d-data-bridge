@@ -1,5 +1,10 @@
 # E45 Blend-α=0.10 FIN_ONLY Month-End Paper Monitor — asof 2026-09-11
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-12T13:42:12.019244+00:00`
 Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
 Locked: **SLEEVE_FIN_ONLY_A10** (α=0.10 FIN_ONLY × E45 `E3_VOLTARGET_WINNER` on early-stack)
@@ -32,7 +37,7 @@ Locked: **SLEEVE_FIN_ONLY_A10** (α=0.10 FIN_ONLY × E45 `E3_VOLTARGET_WINNER` o
 - `stitch_blocked`: **True** (always on observe sleeve)
 - `cutover_blocked`: **True**
 - `stitch_authorized`: **False**
-- Soft-Frozen live clip stays **[0.50, 0.95]** — this monitor never flips it.
+- Soft-Frozen live clip at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**) — this monitor never flips it.
 - Live DEFAULT books stay **`E22_v2s_tw`**.
 
 ## Ops note

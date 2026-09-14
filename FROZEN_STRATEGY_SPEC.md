@@ -87,7 +87,7 @@ Information(T)
 
 交易單位（live + paper）：**一張 = 1000 股**；下單僅整張。**零股 = 1～999 股**不作為 early-stack 新單單位。術語見 `research/ops/TW_SHARE_LOT_DEFINITIONS.md`。
 
-起始資本（live + paper early-stack）：**NT$3,000,000**（`scripts/portfolio_capital.py`；2026-09-08 restore from 15M）。整張下電信三檔均分可能買不滿——見 `TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER.md`。
+起始資本（live + paper early-stack）：**NT$500,000,000**（`scripts/portfolio_capital.py`；live cutover 現行）。歷史 3M restore 見 `CAPITAL_3M_RESTORE_2026-09-08.md`（已非現行）。整張下電信三檔均分可能買不滿——見 `TELECOM_WITHIN_SLEEVE_ALLOC_CHARTER.md`。
 
 狀態：
 **FROZEN EXECUTION BASELINE**（E22_v2s_tw = formal books after 2026-09-05 promote；E22_v2 = preserved cash-only）

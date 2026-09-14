@@ -1,8 +1,13 @@
 # Ops Convergence Charter — Research Only
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
 Label: `OPS_CONVERGENCE_RESEARCH`  
-Live Soft-Frozen Financial clip: **[0.50, 0.95] KEEP** — this charter never flips it.  
+Live Soft-Frozen Financial clip (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]** — this charter never flips it.  
 Live wire / auto-cutover: **FORBIDDEN**.
 
 ## 0. Problem
@@ -135,7 +140,7 @@ Goal of this charter: design and stage that convergence **without** promoting an
 
 A system is **ops-ready** when all hold:
 
-1. Soft-Frozen live clip still **[0.50, 0.95]** and single-sourced  
+1. Soft-Frozen live clip still current per OPS_STATUS (**[0.60, 0.90]**; was [0.50, 0.95] at charter date) and single-sourced  
 2. Weekday live job green **or** FAIL blocks with Exact T+1 visible in `qc_status.json`  
 3. Live↔paper recon runs and explains any NAV/weight drift on overlap dates  
 4. L4 + FIN50 + Track A month-end can be produced by a documented single command/workflow  

@@ -1,7 +1,7 @@
 # Paper dual-ledger re-run — board-lot 1000 (2026-09-07)
 
 Human: **「請重跑回測數據」** after paper default → 一張=1000 (#116).  
-Soft-Frozen: **[0.50, 0.95] KEEP** · stitch **FORBIDDEN** · no `forward/e21` rewrite
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]** · stitch **FORBIDDEN** · no `forward/e21` rewrite
 
 ## Command
 

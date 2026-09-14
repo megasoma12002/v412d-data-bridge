@@ -1,8 +1,13 @@
 # E22 / Gap6 Verify — 2026-09-07 POST-FORWARD
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Human follow-up after Monday schedule landed.  
 Generated: `2026-09-07T14:28:00+00:00` (approx)  
-Soft-Frozen: **[0.50, 0.95] KEEP**
+Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**
 
 ## Forward
 

@@ -1,5 +1,10 @@
 # Coding Standards — Coverage Map
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-06  
 Question: "整個專案都 code review 並套用準則修正嗎？"  
 Short answer: **Previously no (E45 path only). Now yes for actionable `scripts/` violations.**  

@@ -1,7 +1,12 @@
 # FIN_CAP_50 — Sealed-CAGR Improve Charter
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05  
-Status: **CHARTER OPEN for research** — RESEARCH_ONLY; no live-wire; Soft-Frozen stays **[0.50, 0.95]**.  
+Status: **CHARTER OPEN for research** — RESEARCH_ONLY; no live-wire; Soft-Frozen at writing was **[0.50, 0.95]** (live today **[0.60, 0.90]**).  
 Authority: `research/STRATEGY_DEBT_BOARD.md` · five-layer Layer 1 OPEN item
 
 ## Parent artifacts (do not invent)

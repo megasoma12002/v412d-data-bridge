@@ -1,5 +1,10 @@
 # Ops Cadence Run — 2026-09-07 (post-C35 observe)
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Human cue: 「依 month-end cadence 繼續觀察」  
 Generated: `2026-09-07T03:27:51.179198+00:00`
 

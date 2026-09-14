@@ -1,5 +1,10 @@
 # E45 M2 BIL_FX Optimize Paper
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 - Generated: `2026-09-06T17:06:01.073942+00:00`
 - Freeze: `research/e45/E45_M2_BIL_FX_OPTIMIZE_V0_FROZEN.md`
 - Repro: `repro/e45-m2-bil-fx-optimize/`
@@ -61,7 +66,7 @@ Cuts `[0.35, 0.4, 0.45, 0.5, 0.55, 0.6]` @ κ=1; κ `[0.6, 0.8, 1.0]` @ c=0.50.
 
 ## Hard non-actions
 
-- Soft-Frozen FIN clip [0.50, 0.95] KEEP
+- Soft-Frozen FIN clip (at writing) [0.50, 0.95] · live today [0.60, 0.90]
 - Live DEFAULT `E22_v2s_tw` KEEP
 - Live E45 stitch FORBIDDEN
 - No invent MDD replacement

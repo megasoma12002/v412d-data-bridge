@@ -31,4 +31,4 @@ Poles: ungated held `+1.807` tip dirty · Soft_A held `+0.829` tip PASS
 - NAV mix tip-clean & > Soft_A: `[]`
 - Preferred read: **`MIX_INTERPOLATES_POLES__DUAL_MONITOR_STILL_CLEANER_FOR_HONESTY`**
 
-Repro: `repro/e45-softa-c35-mix-20260908/`
+Repro: `archive/repro/e45-softa-c35-mix-20260908/`

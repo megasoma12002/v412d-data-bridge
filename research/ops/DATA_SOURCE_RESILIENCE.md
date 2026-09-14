@@ -1,7 +1,12 @@
 # Data Source Resilience — Inventory & Optimization
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Date: 2026-09-05 (Phase C probes landed)  
-Status: **OPS / ENGINEERING** — Soft-Frozen **[0.50, 0.95] KEEP**; no live-wire  
+Status: **OPS / ENGINEERING** — Soft-Frozen **[0.60, 0.90] KEEP** (was [0.50, 0.95]); no live-wire  
 KPI: `scripts/data_source_resilience_kpi.py` → `DATA_SOURCE_RESILIENCE_KPI.{json,md}`  
 Shadow B: `scripts/data_source_shadow_reconcile.py` → `DATA_SOURCE_SHADOW_RECONCILE.{json,md}`  
 Phase C: `scripts/data_source_phase_c_probes.py` → `DATA_SOURCE_PHASE_C_PROBES.{json,md}`  

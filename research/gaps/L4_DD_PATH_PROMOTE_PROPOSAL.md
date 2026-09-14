@@ -1,7 +1,12 @@
 # L4_DD_PATH_08_50 Promote Proposal — Dual Paper Ledgers
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-12T13:41:40.052694+00:00`
-Status: **PROPOSAL ONLY** — Soft-Frozen live default **unchanged** (`Financial∈[0.50,0.95]`).
+Status: **PROPOSAL ONLY** — Soft-Frozen live default **unchanged by this note** (at writing `Financial∈[0.50,0.95]`; live today `[0.60,0.90]`).
 
 ## Why this exists
 

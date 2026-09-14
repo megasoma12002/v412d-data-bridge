@@ -1,4 +1,5 @@
 {
+  "ssot_note": "HISTORICAL: Soft-Frozen FIN was [0.50, 0.95] at artifact write time; live today (2026-09-13+) FIN [0.60, 0.90] · KD_OPT · TEL_EQUAL · FUSE_ADDITIVE · DH_dd06 · 500M. See research/ops/OPS_STATUS.md.",
   "generated_at_utc": "2026-09-06T17:06:01.073942+00:00",
   "schema_version": "e45_m2_bil_fx_optimize_v0",
   "status": "PAPER_PLUS_OBSERVE_OPEN_AUTHORIZED",

@@ -1,10 +1,15 @@
 # L3 MDD Sealed-CAGR — Held-out
 
+
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
+> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
+> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+
 Generated: `2026-09-05T02:26:45.730428+00:00`
 Locked: `L3_MILD_35_60` (FIN [0.35, 0.60]; no retune)
 Label: `STOP_L3_HELDOUT_MIXED`
 Research decision: `STOP_L3_HELDOUT_MIXED_KEEP_BASE`
-Status: **RESEARCH_ONLY** — no live-wire; Soft-Frozen stays [0.50, 0.95].
+Status: **RESEARCH_ONLY** — no live-wire; Soft-Frozen at writing was [0.50, 0.95] (live today [0.60, 0.90]).
 
 | Window | BASE CAGR | BASE MDD | L3 CAGR | L3 MDD | MDD Δpp | CAGR giveback pp | PASS |
 |---|---:|---:|---:|---:|---:|---:|---|

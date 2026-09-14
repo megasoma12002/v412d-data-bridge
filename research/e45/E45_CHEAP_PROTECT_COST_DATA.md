@@ -126,5 +126,5 @@ Remaining E45 research lever is **cheaper protection** (mild A05 / sleeve-local)
 python3 scripts/e45_cheap_protect_cost_data_paper.py
 ```
 
-Repro: `repro/e45-cheap-protect-cost-data/` · Market: `forward/e21/live_market.csv`
+Repro: `archive/repro/e45-cheap-protect-cost-data/` · Market: `forward/e21/live_market.csv`
 
