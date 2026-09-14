@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-12T14:27:44.679872+00:00",
+  "generated_at_utc": "2026-09-14T14:19:39.005686+00:00",
   "asof": "2026-09-11",
   "label": "FUSE_ADDITIVE_MONTH_END_MONITOR",
   "status": "OPERATING_OBSERVE",
@@ -8,9 +8,6 @@
   "nav_source": "daily_nav",
   "live_wire": false,
   "soft_frozen_clips_unchanged": true,
-  "soft_assist_observe": "KEEP_INDEPENDENT",
-  "sleeve_tilt_observe": "KEEP_INDEPENDENT",
-  "ops_auto_fuse": false,
   "alerts": [],
   "windows": [
     {
@@ -114,5 +111,8 @@
     "Soft-assist observe KEEP independent",
     "Sleeve-tilt observe KEEP independent",
     "ops auto-fuse still FORBIDDEN"
-  ]
+  ],
+  "soft_assist_observe": "KEEP_INDEPENDENT",
+  "sleeve_tilt_observe": "KEEP_INDEPENDENT",
+  "ops_auto_fuse": false
 }

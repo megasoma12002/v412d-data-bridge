@@ -43,6 +43,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Live QC smoke | `e21-live-qc-smoke` |
 | Month-end pack | `ops-month-end-paper-pack` / `scripts/ops_month_end_paper_pack.py` · freshness: `MONTH_END_PACK_FRESHNESS.md` |
 | Live↔paper recon | Inside pack + `scripts/e21_live_vs_paper_recon.py` |
+| Live modularization | `research/ops/ARCH_LIVE_MODULARIZE.md` (`live_config` / strategy / execution / ledger) |
 
 Latest pack: `research/ops/MONTH_END_PAPER_PACK.md` (2026-09-10 primary observe: `OPS_CADENCE_2026-09-10_PRIMARY_OBSERVE.md`)  
 Data freshness: `research/ops/MONTH_END_DATA_FRESHNESS.md` · guidance `MONTH_END_PACK_FRESHNESS.md`  

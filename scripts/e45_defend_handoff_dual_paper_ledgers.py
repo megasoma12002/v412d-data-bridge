@@ -120,13 +120,9 @@ def main() -> int:
     OPS.mkdir(parents=True, exist_ok=True)
     assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
 
-    import e21_forward_pipeline as e21
+    from live_kd_guard import assert_live_kd_aligned
 
-    for k in ("season_start", "season_end", "k_thresh", "pre_days", "active_score"):
-        if LIVE_KD[k] != e21.KD_OPT[k]:
-            raise SystemExit(f"LIVE_KD[{k}] drift vs e21.KD_OPT")
-    if e21.LIVE_E45_STITCH:
-        raise SystemExit("Refuse DH observe while LIVE_E45_STITCH is True (no stitch)")
+    assert_live_kd_aligned(LIVE_KD)
     if STITCH_AUTHORIZED:
         raise SystemExit("Refuse: stitch flag must stay false")
     # LIVE_WIRE may be True after DH+FUSE live cutover; paper observe remains a shadow twin.

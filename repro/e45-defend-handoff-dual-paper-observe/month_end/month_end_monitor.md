@@ -1,4 +1,4 @@
-# E45_DEFEND_HANDOFF month-end monitor (asof 2026-09-11)
+# E45_DEFEND_HANDOFF_MONTH_END_MONITOR month-end monitor (asof 2026-09-11)
 
 Status: `OPERATING_OBSERVE` · paper only · base `LIVE_STACK` vs `DH_dd06_vz1p0`
 
@@ -17,5 +17,10 @@ Status: `OPERATING_OBSERVE` · paper only · base `LIVE_STACK` vs `DH_dd06_vz1p0
 
 ## Non-actions
 
-- No live E45_DEFEND_HANDOFF wire / Soft-Frozen clip flip / Soft∥Sleeve auto-fuse
+- paper observe only
+- no Soft-Frozen clip flip
+- no E45 stitch
+- no live wire from this monitor
+
+- No E45 stitch / Soft-Frozen flip from this monitor
 

@@ -96,13 +96,10 @@ def main() -> int:
     OPS.mkdir(parents=True, exist_ok=True)
     assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
     # Guard: paper LIVE_KD must match live e21 KD_OPT (no silent observe drift).
+    from live_kd_guard import assert_live_kd_aligned
     import e21_forward_pipeline as e21
 
-    for k in ("season_start", "season_end", "k_thresh", "pre_days", "active_score"):
-        if LIVE_KD[k] != e21.KD_OPT[k]:
-            raise SystemExit(f"LIVE_KD[{k}]={LIVE_KD[k]!r} != e21.KD_OPT[{k}]={e21.KD_OPT[k]!r}")
-    if e21.LIVE_E45_STITCH:
-        raise SystemExit("Refuse Soft-assist observe while LIVE_E45_STITCH is True")
+    assert_live_kd_aligned(LIVE_KD)
     if "soft_assist" in Path(e21.__file__).read_text(encoding="utf-8"):
         raise SystemExit("Refuse: e21_forward_pipeline imports/mentions soft_assist (live wire leak)")
 
