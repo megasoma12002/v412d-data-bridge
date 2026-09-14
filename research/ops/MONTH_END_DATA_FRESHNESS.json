@@ -1,0 +1,48 @@
+{
+  "generated_at_utc": "2026-09-14T01:33:04.654947+00:00",
+  "label": "MONTH_END_DATA_FRESHNESS",
+  "live_wire": false,
+  "soft_frozen_unchanged": true,
+  "thresholds": {
+    "market_max_age_cal_days": 7,
+    "e22_max_age_cal_days": 45,
+    "shadow_max_age_cal_days": 45
+  },
+  "live_market": {
+    "path": "forward/e21/live_market.csv",
+    "exists": true,
+    "tip_date": "2026-09-11",
+    "age_cal_days": 3
+  },
+  "e22": {
+    "events_path": "data/dividend_events/e22_dividend_events.csv",
+    "events_exists": true,
+    "events_mtime_utc": "2026-09-10T05:17:01.223615+00:00",
+    "events_age_cal_days": 4,
+    "fetch_status_path": "data/dividend_events/e22_dividend_fetch_status.json",
+    "fetch_status_exists": true,
+    "fetch_status": "PASS",
+    "kpi_ok": true,
+    "fetch_rows": 328,
+    "kpi_flags": []
+  },
+  "data_source_shadow": {
+    "path": "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json",
+    "exists": true,
+    "all_ok": true,
+    "generated_at_utc": "2026-09-12T13:42:28.186880+00:00",
+    "age_cal_days": 2,
+    "n_drift": 0
+  },
+  "warnings": [],
+  "note": "Month-end cadence = paper pack. Data re-fetch (E22 FinMind etc.) stays on-demand; this snapshot only reports tip/age. Soft-Frozen untouched.",
+  "remediation": {
+    "stale_market": "Run weekday forward job / ensure forward/e21/live_market.csv tip is current.",
+    "stale_e22": "On-demand: workflow `v412e22-dividend-events` (pack does not auto-fetch dividends).",
+    "stale_ledgers": "Formal month-end: `python3 scripts/ops_month_end_paper_pack.py --refresh-ledgers`.",
+    "shadow": "Re-run `python3 scripts/data_source_shadow_reconcile.py` (ops only)."
+  },
+  "fresh_ok": true,
+  "hard_warnings": [],
+  "soft_warnings": []
+}

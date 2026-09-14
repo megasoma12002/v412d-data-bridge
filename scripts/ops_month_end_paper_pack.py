@@ -10,6 +10,10 @@ Runs (by default, fast path):
 Optional --refresh-ledgers also rebuilds L4/FIN50/FINCAP BLEND_025/E45 dual-paper ledgers
 (slow; Exact T+1 full history). E45_BLEND025 observe archived 2026-09-13 — not scheduled.
 
+Always emits a data-freshness row (live_market tip / E22 age / shadow reconcile).
+Formal month-end should pass --refresh-ledgers; cron defaults to refresh.
+Does not auto-fetch E22 dividends (on-demand workflow ``v412e22-dividend-events``).
+
 Never edits Soft-Frozen clip.
 Never live-wires challengers.
 Never rewrites forward/e21 history.
@@ -30,6 +34,7 @@ SUMMARY_MD = OUT_DIR / "MONTH_END_PAPER_PACK.md"
 
 sys.path.insert(0, str(ROOT / "scripts"))
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from ops_month_end_data_freshness import collect_freshness, write_artifacts as write_freshness
 
 CLIP_TXT = f"[{SOFT_FROZEN_FIN_CLIP[0]:.2f}, {SOFT_FROZEN_FIN_CLIP[1]:.2f}]"
 
@@ -156,6 +161,11 @@ def main() -> int:
         action="store_true",
         help="Run ops_alert_scan without --report-only so CRITICAL exits non-zero.",
     )
+    ap.add_argument(
+        "--fail-on-stale",
+        action="store_true",
+        help="Exit non-zero when hard data-freshness checks fail (market tip / E22 age).",
+    )
     args = ap.parse_args()
 
     steps = []
@@ -179,6 +189,11 @@ def main() -> int:
             if not args.continue_on_error:
                 break
 
+    # Freshness after KPI/shadow steps so E22 KPI + shadow JSON are available when present.
+    freshness = collect_freshness()
+    write_freshness(freshness)
+    stale_failed = bool(args.fail_on_stale and not freshness.get("fresh_ok"))
+
     payload = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "OPS_MONTH_END_PAPER_PACK",
@@ -187,11 +202,24 @@ def main() -> int:
         "soft_frozen_unchanged": True,
         "refresh_ledgers": bool(args.refresh_ledgers),
         "continue_on_error": bool(args.continue_on_error),
+        "fail_on_stale": bool(args.fail_on_stale),
         "partial_pack": bool(args.continue_on_error and failed),
-        "all_ok": not failed and all(r["ok"] for r in results),
+        "all_ok": (not failed and all(r["ok"] for r in results) and not stale_failed),
         "steps": [
             {"name": r["name"], "ok": r["ok"], "returncode": r["returncode"]} for r in results
         ],
+        "data_freshness": {
+            "fresh_ok": freshness.get("fresh_ok"),
+            "live_market_tip": (freshness.get("live_market") or {}).get("tip_date"),
+            "live_market_age_cal_days": (freshness.get("live_market") or {}).get("age_cal_days"),
+            "e22_events_age_cal_days": (freshness.get("e22") or {}).get("events_age_cal_days"),
+            "e22_fetch_status": (freshness.get("e22") or {}).get("fetch_status"),
+            "e22_kpi_ok": (freshness.get("e22") or {}).get("kpi_ok"),
+            "shadow_all_ok": (freshness.get("data_source_shadow") or {}).get("all_ok"),
+            "hard_warnings": freshness.get("hard_warnings") or [],
+            "soft_warnings": freshness.get("soft_warnings") or [],
+            "artifact": "research/ops/MONTH_END_DATA_FRESHNESS.md",
+        },
         "cutover_note": (
             f"Paper/ops cadence only. Soft-Frozen live clip {CLIP_TXT} (FINBAND). "
             "Live stack: Soft-Frozen FINBAND + KD_OPT (E45 A05 stitch rolled back DROP_E45_A05). "
@@ -206,6 +234,7 @@ def main() -> int:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     SUMMARY_JSON.write_text(json.dumps(payload, indent=2) + "\n")
 
+    df = payload["data_freshness"]
     lines = [
         "# Ops Month-End Paper Pack",
         "",
@@ -214,6 +243,25 @@ def main() -> int:
         "",
         f"- Refresh ledgers: **{payload['refresh_ledgers']}**",
         f"- All steps OK: **{payload['all_ok']}**",
+        f"- Data freshness (hard): **{df['fresh_ok']}**",
+        "",
+        "## Data freshness",
+        "",
+        f"| Signal | Value |",
+        f"|---|---|",
+        f"| Live market tip | `{df['live_market_tip']}` (age {df['live_market_age_cal_days']} cal days) |",
+        f"| E22 events age | {df['e22_events_age_cal_days']} cal days · fetch `{df['e22_fetch_status']}` · kpi_ok `{df['e22_kpi_ok']}` |",
+        f"| Shadow reconcile | all_ok `{df['shadow_all_ok']}` |",
+        "",
+    ]
+    if df["hard_warnings"]:
+        lines.append("Hard warnings: " + "; ".join(f"`{w}`" for w in df["hard_warnings"]))
+        lines.append("")
+    if df["soft_warnings"]:
+        lines.append("Soft warnings: " + "; ".join(f"`{w}`" for w in df["soft_warnings"]))
+        lines.append("")
+    lines += [
+        "Detail: `research/ops/MONTH_END_DATA_FRESHNESS.md` · cadence note: `research/ops/MONTH_END_PACK_FRESHNESS.md`",
         "",
         "| Step | OK | Exit |",
         "|---|---|---:|",
@@ -227,12 +275,17 @@ def main() -> int:
         "- No Soft-Frozen flip",
         "- Dual-paper / held-out PASS ≠ cutover license",
         "- Never rewrite `forward/e21` history",
+        "- Pack ≠ dividend re-fetch (use `v412e22-dividend-events` on-demand)",
         "",
         "## Re-run",
         "",
         "```bash",
+        "# Fast path (monitors only)",
         "python3 scripts/ops_month_end_paper_pack.py",
-        "python3 scripts/ops_month_end_paper_pack.py --refresh-ledgers  # slow",
+        "# Formal month-end (rebuild observe ledgers)",
+        "python3 scripts/ops_month_end_paper_pack.py --refresh-ledgers",
+        "# Formal + fail closed on stale market tip / E22",
+        "python3 scripts/ops_month_end_paper_pack.py --refresh-ledgers --fail-on-stale",
         "```",
         "",
         "Authority: `research/STRATEGY_DEBT_BOARD.md`",

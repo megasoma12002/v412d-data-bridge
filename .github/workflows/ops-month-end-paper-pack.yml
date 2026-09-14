@@ -1,20 +1,25 @@
 name: Ops Month-End Paper Pack
 
-# Cadence pack for L4 / FIN50 / Track A monitors + live↔paper recon.
+# Cadence pack for L4 / FIN50 / Track A monitors + live↔paper recon + data freshness.
 # RESEARCH / OPS only. Never Soft-Frozen flip. Never auto cutover.
+# Does not auto-fetch E22 dividends (use v412e22-dividend-events on-demand).
 
 on:
   workflow_dispatch:
     inputs:
       refresh_ledgers:
-        description: "Also rebuild L4/FIN50 dual-paper ledgers (slow)"
+        description: "Formal month-end: rebuild dual-paper ledgers before monitors (slow; recommended)"
         type: boolean
-        default: false
+        default: true
       continue_on_error:
         description: "Continue remaining steps after a failure"
         type: boolean
         default: false
-  # Optional monthly reminder window (UTC). Prefer workflow_dispatch for first months.
+      fail_on_stale:
+        description: "Fail when hard freshness checks fail (market tip / E22 age / shadow fail)"
+        type: boolean
+        default: true
+  # Monthly reminder (UTC). Cron always refreshes ledgers + fails on stale.
   schedule:
     - cron: "0 9 1 * *"  # 09:00 UTC on the 1st (~17:00 Asia/Taipei)
 
@@ -39,14 +44,24 @@ jobs:
       - run: pip install --disable-pip-version-check numpy pandas
       - name: Run month-end paper pack
         env:
-          REFRESH: ${{ inputs.refresh_ledgers || false }}
-          CONT: ${{ inputs.continue_on_error || false }}
+          EVENT_NAME: ${{ github.event_name }}
+          REFRESH_INPUT: ${{ inputs.refresh_ledgers }}
+          CONT_INPUT: ${{ inputs.continue_on_error }}
+          STALE_INPUT: ${{ inputs.fail_on_stale }}
         run: |
           set -euo pipefail
           args=()
-          if [ "${REFRESH}" = "true" ]; then args+=(--refresh-ledgers); fi
-          if [ "${CONT}" = "true" ]; then args+=(--continue-on-error); fi
-          python3 scripts/ops_month_end_paper_pack.py "${args[@]+"${args[@]}"}"
+          # Cron = formal month-end: always refresh ledgers + fail on stale.
+          # Dispatch: honor inputs (defaults: refresh=true, fail_on_stale=true).
+          if [ "${EVENT_NAME}" = "schedule" ]; then
+            args+=(--refresh-ledgers --fail-on-stale)
+          else
+            if [ "${REFRESH_INPUT}" = "true" ]; then args+=(--refresh-ledgers); fi
+            if [ "${STALE_INPUT}" = "true" ]; then args+=(--fail-on-stale); fi
+          fi
+          if [ "${CONT_INPUT}" = "true" ]; then args+=(--continue-on-error); fi
+          echo "Running: python3 scripts/ops_month_end_paper_pack.py ${args[*]:-}"
+          python3 scripts/ops_month_end_paper_pack.py ${args[@]+"${args[@]}"}
       - name: Upload ops summary artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -55,6 +70,8 @@ jobs:
           path: |
             research/ops/MONTH_END_PAPER_PACK.md
             research/ops/MONTH_END_PAPER_PACK.json
+            research/ops/MONTH_END_DATA_FRESHNESS.md
+            research/ops/MONTH_END_DATA_FRESHNESS.json
             research/ops/LIVE_PAPER_RECON.md
             research/ops/LIVE_PAPER_RECON.json
             research/ops/OPS_ALERTS.md
@@ -69,10 +86,17 @@ jobs:
             research/e50a/TRACK_A_S9A1_MONITOR_STATUS.json
           retention-days: 90
           if-no-files-found: warn
-      - name: Annotate PAUSE / alert summary
+      - name: Annotate freshness + alerts
         if: always()
         run: |
           set -euo pipefail
+          echo "### Data freshness" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f research/ops/MONTH_END_DATA_FRESHNESS.md ]; then
+            cat research/ops/MONTH_END_DATA_FRESHNESS.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "MONTH_END_DATA_FRESHNESS.md missing" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "### Month-end ops alerts" >> "$GITHUB_STEP_SUMMARY"
           if [ -f research/ops/OPS_ALERTS.md ]; then
             cat research/ops/OPS_ALERTS.md >> "$GITHUB_STEP_SUMMARY"
