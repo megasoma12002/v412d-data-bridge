@@ -2,14 +2,12 @@
 from __future__ import annotations
 
 import json
-import sys
 import tempfile
 import unittest
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
 import ops_month_end_data_freshness as fr  # noqa: E402
 
 

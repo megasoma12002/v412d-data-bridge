@@ -5,11 +5,8 @@ import csv
 import tempfile
 import unittest
 from pathlib import Path
-import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
-
 from e22_dividend_accounting import load_dividend_events  # noqa: E402
 from e22_dividend_amount_repair import (  # noqa: E402
     load_dividend_events_with_repair,
