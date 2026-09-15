@@ -48,9 +48,11 @@ class MonthEndRunnerTests(unittest.TestCase):
                 }
             ).to_csv(compare, index=False)
             out = tmp / "month_end"
+            art = tmp / "ops"
             spec = DualPaperMonitorSpec(
                 label="TEST_MONITOR",
                 ops_stem="TEST_MONITOR_ARCH",
+                artifact_dir=art,
                 base_id="BASE",
                 chal_id="CHAL",
                 default_out=out,
@@ -59,17 +61,10 @@ class MonthEndRunnerTests(unittest.TestCase):
                 compare_nav=compare,
                 ledger_hint="n/a",
             )
-            # Write ops under tmp by monkeypatching OPS
-            import ops_dual_paper_month_end as mon
-
-            old = mon.OPS
-            mon.OPS = tmp / "ops"
-            try:
-                summary = run_monitor(spec, asof="2024-01-12")
-            finally:
-                mon.OPS = old
+            summary = run_monitor(spec, asof="2024-01-12")
             self.assertGreaterEqual(summary["n_windows"], 1)
             self.assertTrue((out / "month_end_monitor.json").exists())
+            self.assertTrue((art / "TEST_MONITOR_ARCH.json").exists())
             payload = json.loads((out / "month_end_monitor.json").read_text())
             self.assertEqual(payload["base_id"], "BASE")
             self.assertFalse(payload["live_wire"])

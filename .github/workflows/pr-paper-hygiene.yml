@@ -50,6 +50,6 @@ jobs:
       - name: Project coding hygiene
         run: python3 scripts/check_project_coding_hygiene.py
       - name: Landmine unit guards
-        run: python3 -m unittest tests.test_landmine_guards tests.test_live_modularize tests.test_pyproject_layout -v
+        run: python3 -m unittest tests.test_landmine_guards tests.test_live_modularize tests.test_pyproject_layout tests.test_dual_paper_month_end -v
       - name: Month-end freshness + E22 repair unit tests
         run: python3 -m unittest tests.test_ops_month_end_data_freshness tests.test_e22_dividend_amount_repair -v
