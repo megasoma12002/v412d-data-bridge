@@ -11,7 +11,6 @@ import argparse
 import hashlib
 import json
 import math
-import sys
 from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -19,7 +18,6 @@ from pathlib import Path
 import numpy as np
 import polars as pl
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from research_metric_helpers import utility_score
 import e50a3_train_exact_open as a3
 

@@ -32,7 +32,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install --disable-pip-version-check numpy pandas requests yfinance openpyxl
+      - run: pip install --disable-pip-version-check -e .
       - name: Build canonical historical raw layer
         env:
           GH_TOKEN: ${{ github.token }}
@@ -56,24 +56,14 @@ jobs:
       - name: Update complete telecom and 0050 raw OHLCV
         run: python scripts/fetch_telecom_0050_ohlcv.py
       - name: Generate frozen D and E4 signals
-        env:
-          PYTHONPATH: scripts
         run: python scripts/v412f_forward_paper.py --raw artifact/v412e0_12stocks_history_raw.csv --adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --forward-dir forward --start-date 2026-08-24
       - name: Generate E6 dividend-lifecycle shadow
-        env:
-          PYTHONPATH: scripts
         run: python scripts/v412e6_dividend_lifecycle.py --raw artifact/v412e0_12stocks_history_raw.csv --adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --out forward/e6 --end-date "$(date -u +%F)"
       - name: Generate E9 telecom defensive sleeve shadow
-        env:
-          PYTHONPATH: scripts
         run: python scripts/v412e9_telecom_sleeve.py --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --out forward/e9 --end-date "$(date -u +%F)"
       - name: Generate E10 telecom harvest and financial reentry shadow
-        env:
-          PYTHONPATH: scripts
         run: python scripts/v412e10_telecom_harvest_reentry.py --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --telecom-adjusted forward/e9/e9_telecom_adjusted.csv --out forward/e10
       - name: Generate E10S3 TAIEX and 0050 shadow monitor
-        env:
-          PYTHONPATH: scripts
         run: python scripts/v412e10s2_thousand_point_0050.py --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --telecom-adjusted forward/e9/e9_telecom_adjusted.csv --out forward/e10s2 --end-date "$(date -u +%F)"
       - name: Build E21 canonical market panel
         run: |

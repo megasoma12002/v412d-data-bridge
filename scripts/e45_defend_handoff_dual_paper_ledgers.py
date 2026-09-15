@@ -11,13 +11,10 @@ Soft-Frozen KEEP · live stack KEEP · Soft/Sleeve/FUSE observes KEEP · no stit
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
-
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import e16_soft_frozen_base as soft
 import e45_defend_handoff_stagea_screen as stagea

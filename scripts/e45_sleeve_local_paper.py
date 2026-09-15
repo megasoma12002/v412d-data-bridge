@@ -13,14 +13,12 @@ Does NOT edit Soft-Frozen / DEFAULT / observe / stitch.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, FIN, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45

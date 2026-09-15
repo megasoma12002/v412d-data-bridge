@@ -10,14 +10,12 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e45_paper_harness import WINDOWS_STANDARD
 from research_metric_helpers import mdd_delta_pp
 

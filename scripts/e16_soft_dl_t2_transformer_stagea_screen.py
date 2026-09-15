@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import json
 import math
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -19,7 +18,6 @@ import pandas as pd
 import torch
 import torch.nn as nn
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_dl_t2_seq_stagea_screen as base
 
 ROOT = Path(__file__).resolve().parents[1]

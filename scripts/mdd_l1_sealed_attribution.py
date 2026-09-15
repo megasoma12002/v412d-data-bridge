@@ -9,13 +9,11 @@ No cut retune. No live-wire. Feeds L2 charter.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e50_early_stack_combined_nav import e16_features, nav_stats, simulate_core
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof

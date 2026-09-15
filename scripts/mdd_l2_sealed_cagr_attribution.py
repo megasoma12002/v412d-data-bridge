@@ -7,13 +7,11 @@ Does not retune cuts. Does not live-wire Soft-Frozen.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof
 

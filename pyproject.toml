@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "e21-ops"
+version = "0.412.14"
+description = "E21 live ops / research scripts for v412d-data-bridge (installable; no sys.path hacks)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Proprietary" }
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "requests>=2.31",
+  "yfinance>=0.2.40",
+  "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+# Research screens that need heavier stacks (not required for live/ops CI).
+research = [
+  "polars>=1.0",
+  "pyarrow>=15",
+  "torch>=2.0",
+]
+dev = [
+  "e21-ops[research]",
+]
+
+[project.urls]
+Repository = "https://github.com/megasoma12002/v412d-data-bridge"
+
+[tool.setuptools]
+# Flat ``scripts/*.py`` modules are discovered in setup.py (package_dir + py_modules).
+include-package-data = false
+
+[tool.setuptools.package-dir]
+"" = "scripts"

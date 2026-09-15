@@ -15,14 +15,12 @@ No live-wire. No cut retune after this peek. Held-out not used for selection.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, FIN, TEL, e16_features, nav_stats, simulate_core
 from e16_fin_cap_oof_challenger import e16_features_fin_cap

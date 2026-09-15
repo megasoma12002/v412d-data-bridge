@@ -16,9 +16,6 @@ SCRIPTS = ROOT / "scripts"
 
 class BookIdGuards(unittest.TestCase):
     def test_book_id_for_alpha_canonical(self):
-        import sys
-
-        sys.path.insert(0, str(SCRIPTS))
         from e45_paper_harness import (
             BOOK_BASE,
             BOOK_BLEND_A05,
@@ -116,9 +113,6 @@ class SoftAssistObserveGuards(unittest.TestCase):
         self.assertIn("LIVE_FUSE_ADDITIVE", pipe)
 
     def test_soft_assist_helpers_match_live_kd_opt(self):
-        import sys
-
-        sys.path.insert(0, str(SCRIPTS))
         from soft_assist_helpers import LIVE_KD
         import e21_forward_pipeline as e21
 

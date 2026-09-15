@@ -3,20 +3,16 @@
 from __future__ import annotations
 
 import json
-import sys
 import tempfile
 import unittest
 from pathlib import Path
 
 import pandas as pd
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
-
-import live_config as lc  # noqa: E402
-import live_ledger as ledger  # noqa: E402
-import e21_forward_pipeline as e21  # noqa: E402
-from ops_dual_paper_month_end import DualPaperMonitorSpec, run_monitor  # noqa: E402
+import e21_forward_pipeline as e21
+import live_config as lc
+import live_ledger as ledger
+from ops_dual_paper_month_end import DualPaperMonitorSpec, run_monitor
 
 
 class LiveConfigTests(unittest.TestCase):

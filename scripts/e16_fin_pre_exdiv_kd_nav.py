@@ -11,13 +11,11 @@ Soft-Frozen KEEP · live e21 untouched · capital 500M · lot 1000.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_frozen_base as soft
 from e45_paper_harness import WINDOWS_STANDARD, deltas_vs_base, load_dividends, load_market, window_stats
 from e50_early_stack_combined_nav import FIN, e16_features, simulate_core

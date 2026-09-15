@@ -17,13 +17,11 @@ No live-wire. Held-out not used for selection.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 import e22_dividend_accounting as e22div

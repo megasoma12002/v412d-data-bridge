@@ -12,13 +12,11 @@ Wired in ops_month_end_paper_pack.py. Lock retarget ACCEPT C35 recorded 2026-09-
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e45_crisis_core import build_m2_sleeve_schedule
 from e45_m1_state_signal_paper import build_m1_state
 from e45_m2_true_def_relocate_paper import CODE_BIL_FX, build_def_bars

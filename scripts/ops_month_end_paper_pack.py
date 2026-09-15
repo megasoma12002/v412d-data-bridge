@@ -32,7 +32,6 @@ OUT_DIR = ROOT / "research/ops"
 SUMMARY_JSON = OUT_DIR / "MONTH_END_PAPER_PACK.json"
 SUMMARY_MD = OUT_DIR / "MONTH_END_PAPER_PACK.md"
 
-sys.path.insert(0, str(ROOT / "scripts"))
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from ops_month_end_data_freshness import collect_freshness, write_artifacts as write_freshness
 

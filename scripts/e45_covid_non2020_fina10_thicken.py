@@ -12,14 +12,12 @@ PAPER ONLY. Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e45_paper_harness import (
     BOOK_BASE,
     BOOK_BLEND_A05,

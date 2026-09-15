@@ -13,14 +13,12 @@ Does NOT authorize cutover.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP, SOFT_FROZEN_FIN_LO, SOFT_FROZEN_FIN_HI
 from e45_paper_harness import WINDOWS_STANDARD
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp

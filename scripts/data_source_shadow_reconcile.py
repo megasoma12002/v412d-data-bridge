@@ -16,7 +16,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -33,7 +32,6 @@ DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
 FIN_SLEEVE = ["2880", "2886", "2892", "5880"]
 ALL_STOCKS = FIN_SLEEVE + ["2412", "3045", "4904", "0050"]
 
-sys.path.insert(0, str(ROOT / "scripts"))
 from e22_backfill_payment_dates_yahoo import get as yahoo_get  # noqa: E402
 from e22_backfill_payment_dates_yahoo import parse_yahoo  # noqa: E402
 

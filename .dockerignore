@@ -1,0 +1,18 @@
+# Ignore local / bulky paths when building the ops image.
+.git
+.github
+.venv
+venv
+__pycache__
+*.py[cod]
+repro
+archive
+downloads
+extracted
+artifact
+out_telecom_0050
+.cursor
+*.md
+!README.md
+data
+forward

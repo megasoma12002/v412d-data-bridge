@@ -7,6 +7,7 @@ Covers:
   - fee/sleeve monkeypatches anywhere under scripts/
   - banned claim_status emitters
   - Soft-Frozen clip list literals outside e16_soft_frozen_base.py
+  - ``sys.path.insert/append`` bootstrap (use ``pip install -e .``)
 """
 from __future__ import annotations
 
@@ -17,6 +18,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
+
+SYS_PATH_HACK = re.compile(r"sys\.path\.(?:insert|append)\s*\(")
 
 OR_METRIC = re.compile(
     r"""(\[['\"](?:cagr|max_drawdown|mdd)['\"]\]|\b(?:cagr|mdd)\b)\s*or\s*0"""
@@ -134,6 +137,28 @@ def main() -> int:
             if text.splitlines()[line - 1].lstrip().startswith("#"):
                 continue
             violations.append(f"{rel}:{line}: max_drawdown `or 9` — use abs_mdd()")
+
+        for m in SYS_PATH_HACK.finditer(text):
+            line = text.count("\n", 0, m.start()) + 1
+            if text.splitlines()[line - 1].lstrip().startswith("#"):
+                continue
+            violations.append(
+                f"{rel}:{line}: sys.path insert/append — use `pip install -e .` (pyproject)"
+            )
+
+    # Tests must also avoid path hacks once the package is installable.
+    tests_dir = ROOT / "tests"
+    if tests_dir.is_dir():
+        for path in sorted(tests_dir.glob("*.py")):
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            rel = str(path.relative_to(ROOT))
+            for m in SYS_PATH_HACK.finditer(text):
+                line = text.count("\n", 0, m.start()) + 1
+                if text.splitlines()[line - 1].lstrip().startswith("#"):
+                    continue
+                violations.append(
+                    f"{rel}:{line}: sys.path insert/append — use `pip install -e .` (pyproject)"
+                )
 
     # Retired handoff MDD narrative: numeric spellings only in the MDD_1316 pack / verifier.
     MDD_1316_SPELLING = re.compile(r"(?:−|-|–)?13\.16\s*%|(?<![0-9])-0\.1316(?![0-9])")

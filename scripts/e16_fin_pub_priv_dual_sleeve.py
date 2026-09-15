@@ -10,13 +10,11 @@ Contrast vs PRIVATE_FIN_HOLDINGS Stage A (replace Financial names entirely).
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_frozen_base as soft
 import e50_early_stack_combined_nav as e50
 from e16_private_fin_holdings_rescreen import (

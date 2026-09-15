@@ -11,13 +11,11 @@ Does NOT invent a replacement for retired claimed-MDD narrative.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e45_crisis_core import build_m2_sleeve_schedule
 from e45_m1_state_signal_paper import (
     HELP_PP,
