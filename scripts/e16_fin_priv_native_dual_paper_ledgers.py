@@ -1,23 +1,21 @@
 #!/usr/bin/env python3
-"""民營 native dual-paper ledgers — OPERATING OBSERVE (paper only).
+"""民營 native dual-paper ledgers — thin wrapper (OPERATING OBSERVE).
 
-Books (500M / board-lot 1000):
-  BASE  PRIV_EQUAL
-  CHAL  PRIV_KD_MAY_Klt25_T15  (native winner)
-
-Soft-Frozen sleeve weights are unchanged (from live FINBAND features).
-Financial dollars are routed to PRIV_R3R4 only for this paper observe.
+BASE PRIV_EQUAL ∥ CHAL PRIV_KD_MAY_Klt25_T15 on extended market with PRIV
+universe patch via ``sim_context``. Soft-Frozen sleeve weights unchanged.
 """
 from __future__ import annotations
 
-import json
-from datetime import datetime, timezone
+from contextlib import contextmanager
 from pathlib import Path
+from typing import Iterator
 
 import pandas as pd
 
 import e16_soft_frozen_base as soft
+import e50_early_stack_combined_nav as e50
 from e16_fin_priv_native_optimize import (
+    ACTIVE_SCORE,
     CAPITAL,
     LOT,
     PRIV_R3R4,
@@ -25,12 +23,24 @@ from e16_fin_priv_native_optimize import (
     TEL,
     build_extended_market,
     held_score,
-    kd_book,
-    run_book,
 )
-import e50_early_stack_combined_nav as e50
-from e45_paper_harness import WINDOWS_STANDARD, load_dividends, window_stats
-from within_sleeve_alloc import FIN_EQUAL, FIN_PRE_EXDIV_KD
+from e45_paper_harness import load_dividends
+from ops_dual_paper_ledgers import (
+    DualPaperLedgerSpec,
+    LedgerResult,
+    PreparedBooks,
+    cli_main,
+    live_kd_sim_kwargs,
+    utc_now,
+    write_json_md_pair,
+)
+from within_sleeve_alloc import (
+    FIN_EQUAL,
+    FIN_PRE_EXDIV_KD,
+    TEL_EQUAL,
+    build_kd_season_tilt_scores,
+    build_pre_exdiv_window_buy_ok,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/fin-priv-native-dual-paper-observe"
@@ -49,61 +59,68 @@ NATIVE_KD = {
 }
 
 
-def main() -> None:
-    (OUT / "outputs").mkdir(parents=True, exist_ok=True)
-    (OUT / "reports").mkdir(parents=True, exist_ok=True)
-    OPS.mkdir(parents=True, exist_ok=True)
+@contextmanager
+def priv_universe() -> Iterator[None]:
+    """Temporarily route FIN dollars to PRIV_R3R4 (same as run_book)."""
+    old_fin, old_all = list(e50.FIN), list(e50.ALL)
+    e50.FIN = list(PRIV_R3R4)
+    e50.ALL = list(PRIV_R3R4) + TEL + ["0050"]
+    try:
+        yield
+    finally:
+        e50.FIN = old_fin
+        e50.ALL = old_all
 
+
+def _preflight() -> None:
     assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
     assert soft.FIN == PUB_R1
 
-    print("loading extended market + dividends ...", flush=True)
-    market = build_extended_market()
-    dividends = load_dividends()
+
+def prepare(market: pd.DataFrame, dividends: pd.DataFrame) -> PreparedBooks:
     _p, _s, target, regime = e50.e16_features(market)
-
-    print(f"{BASE_ID} sim @ {CAPITAL:,.0f}/{LOT} ...", flush=True)
-    base = run_book(
+    cal = pd.to_datetime(market["date"]).drop_duplicates().sort_values()
+    codes = list(PRIV_R3R4)
+    scores = build_kd_season_tilt_scores(
         market,
         dividends,
-        target,
-        regime,
-        book_id=BASE_ID,
-        financial_alloc=FIN_EQUAL,
+        codes,
+        k_thresh=float(NATIVE_KD["k_thresh"]),
+        season_start=NATIVE_KD["season_start"],
+        season_end=NATIVE_KD["season_end"],
+        pre_days=int(NATIVE_KD["pre_days"]),
+        active_score=ACTIVE_SCORE,
     )
-    base["nav"].to_csv(OUT / "outputs" / "priv_equal_daily_nav.csv", index=False)
-    base["n_fills"] = int(base["n_fills"])
-
-    print(f"{CHAL_ID} sim @ {CAPITAL:,.0f}/{LOT} ...", flush=True)
-    chal = kd_book(
-        market,
-        dividends,
-        target,
-        regime,
-        season=NATIVE_KD["season"],
-        s0=NATIVE_KD["season_start"],
-        s1=NATIVE_KD["season_end"],
-        k_thresh=NATIVE_KD["k_thresh"],
-        pre_days=NATIVE_KD["pre_days"],
+    buy_ok = build_pre_exdiv_window_buy_ok(
+        cal, dividends, codes, pre_days=int(NATIVE_KD["pre_days"]), also_stock_ex=True
     )
-    chal["nav"].to_csv(OUT / "outputs" / "priv_kd_may_klt25_t15_daily_nav.csv", index=False)
-    chal["n_fills"] = int(chal["n_fills"])
-
-    joined = base["nav"][["date", "nav"]].rename(columns={"nav": "nav_base"}).merge(
-        chal["nav"][["date", "nav"]].rename(columns={"nav": "nav_chal"}),
-        on="date",
-        how="inner",
+    return PreparedBooks(
+        base_target=target,
+        base_regime=regime,
+        chal_target=target,
+        chal_regime=regime,
+        base_kwargs={
+            "financial_alloc": FIN_EQUAL,
+            "telecom_alloc": TEL_EQUAL,
+        },
+        chal_kwargs=live_kd_sim_kwargs(scores=scores, buy_ok=buy_ok),
+        context={"native_kd": dict(NATIVE_KD)},
     )
-    joined["rel_chal_vs_base"] = joined["nav_chal"] / joined["nav_base"]
-    joined.to_csv(OUT / "outputs" / "dual_paper_nav_compare.csv", index=False)
 
-    win_base = {w: window_stats(base["nav"], a, b) for w, (a, b) in WINDOWS_STANDARD.items()}
-    win_chal = {w: window_stats(chal["nav"], a, b) for w, (a, b) in WINDOWS_STANDARD.items()}
+
+def report(result: LedgerResult) -> None:
+    from e45_paper_harness import WINDOWS_STANDARD, window_stats
+
+    win_base = {
+        w: window_stats(result.nav_base, a, b) for w, (a, b) in WINDOWS_STANDARD.items()
+    }
+    win_chal = {
+        w: window_stats(result.nav_chal, a, b) for w, (a, b) in WINDOWS_STANDARD.items()
+    }
     held = held_score(win_base["heldout_2019_plus"], win_chal["heldout_2019_plus"])
     sealed = held_score(win_base["sealed_2023_plus"], win_chal["sealed_2023_plus"])
-
     payload = {
-        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "generated_at_utc": utc_now(),
         "label": "FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPERATING",
         "status": STATUS,
         "live_wire": False,
@@ -127,8 +144,8 @@ def main() -> None:
             CHAL_ID: win_chal,
         },
         "fills": {
-            BASE_ID: base["n_fills"],
-            CHAL_ID: chal["n_fills"],
+            BASE_ID: int(len(result.fills_base)),
+            CHAL_ID: int(len(result.fills_chal)),
         },
         "default_status": "KEEP_OBSERVE",
         "posture": "research/ops/FIN_PRIV_NATIVE_OBSERVE_POSTURE.md",
@@ -140,15 +157,6 @@ def main() -> None:
             "Default KEEP OBSERVE; status ballot is paper-only (no live wire)",
         ],
     }
-    (OUT / "reports" / "fin_priv_native_dual_paper_observe.json").write_text(
-        json.dumps(payload, indent=2, default=str) + "\n",
-        encoding="utf-8",
-    )
-    OPS.joinpath("FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE.json").write_text(
-        json.dumps(payload, indent=2, default=str) + "\n",
-        encoding="utf-8",
-    )
-
     md = f"""# 民營 native dual-paper (OPERATING OBSERVE)
 
 Status: `{STATUS}` · paper only · Soft-Frozen KEEP · live wire false
@@ -178,10 +186,43 @@ Runbook: `FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md` · checklist: `FIN_PRIV_NATIVE_D
 Status ballot (DRAFT): `FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md`
 Repro: `{OUT.relative_to(ROOT)}/`
 """
-    (OUT / "reports" / "FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE.md").write_text(md, encoding="utf-8")
-    OPS.joinpath("FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPERATING.md").write_text(md, encoding="utf-8")
-    print(json.dumps({"status": STATUS, "heldout": held, "sealed": sealed}, indent=2, default=str))
+    write_json_md_pair(
+        out_dir=OUT,
+        report_stem="fin_priv_native_dual_paper_observe",
+        payload=payload,
+        md_lines=md.strip().splitlines(),
+        mirror_dirs=(OPS,),
+        mirror_stem="FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE",
+    )
+    (OUT / "reports" / "FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE.md").write_text(
+        md if md.endswith("\n") else md + "\n", encoding="utf-8"
+    )
+    (OPS / "FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPERATING.md").write_text(
+        md if md.endswith("\n") else md + "\n", encoding="utf-8"
+    )
+
+
+SPEC = DualPaperLedgerSpec(
+    label="FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPERATING",
+    out_dir=OUT,
+    base_id=BASE_ID,
+    chal_id=CHAL_ID,
+    prepare=prepare,
+    base_nav_name="priv_equal_daily_nav.csv",
+    chal_nav_name="priv_kd_may_klt25_t15_daily_nav.csv",
+    write_fills=False,
+    base_targets_name=None,
+    capital=float(CAPITAL),
+    lot_size=int(LOT),
+    soft_frozen_clip=(0.6, 0.9),
+    load_market_fn=build_extended_market,
+    load_dividends_fn=load_dividends,
+    preflight=_preflight,
+    sim_context=priv_universe,
+    report_fn=report,
+    status=STATUS,
+)
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(cli_main(SPEC))
