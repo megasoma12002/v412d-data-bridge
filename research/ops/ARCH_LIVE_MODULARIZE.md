@@ -13,7 +13,7 @@ PR scope: extract seams for Docker / future broker adapter — **no strategy cut
 | `scripts/live_ledger.py` | Immutable CSV append + holdings |
 | `scripts/e21_forward_pipeline.py` | CLI + day orchestration (re-exports flags) |
 | `scripts/ops_dual_paper_month_end.py` | Parameterized dual/multi-paper month-end runner |
-| `scripts/ops_dual_paper_ledgers.py` | Shared dual/multi-paper ledger driver on `simulate_core` |
+| `scripts/ops_dual_paper_ledgers.py` | Shared dual/multi-paper ledger driver on `simulate_core` (`chal_market` / `post_base` / `sim_context`) |
 | `scripts/live_kd_guard.py` | Research ledger KD / E45-stitch fail-closed |
 | `pyproject.toml` + `setup.py` | Installable `e21-ops` (flat `scripts/*.py` as top-level modules) |
 | `Dockerfile` | Ops image (`pip install -e .`; no broker secrets) |
@@ -42,7 +42,9 @@ Shared driver: `scripts/ops_dual_paper_ledgers.py` (`prepare` → `simulate_core
 | Soft-assist / Sleeve-tilt / FUSE_ADDITIVE | `DualPaperLedgerSpec` + `live_kd_sim_kwargs` | Soft-Frozen [0.60,0.90] assert · LIVE_KD guard |
 | FINCAP50 / BLEND_025 / L4 | `DualPaperLedgerSpec` | **explicit `E22_V2S`** (do not silently unify to TW) |
 | FIN within-sleeve (3 challengers) | `MultiPaperLedgerSpec` | EQUAL ∥ RS ∥ MIX_L75 ∥ KD_OPT |
-| M2 BIL_FX / defend-handoff / 民營 native | **specialty (not yet wrapped)** | different market / two-pass / domain helpers |
+| M2 BIL_FX | `DualPaperLedgerSpec` + `PreparedBooks.chal_market` | CHAL on BIL×USDTWD augmented panel |
+| defend-handoff DH_dd06 | `DualPaperLedgerSpec` + `post_base` | two-pass: BASE NAV → exposure → CHAL |
+| 民營 native | `DualPaperLedgerSpec` + `sim_context` | extended market + PRIV FIN/ALL patch |
 
 Pack CLI paths unchanged (`ops_month_end_paper_pack.py --refresh-ledgers`).
 
@@ -55,8 +57,7 @@ Pack CLI paths unchanged (`ops_month_end_paper_pack.py --refresh-ledgers`).
 
 ## Next (optional)
 
-1. Specialty ledger wrappers (M2 BIL_FX · defend-handoff · 民營 native)
-2. Cloud long-run deploy of the Docker ops image (GCP asia-east1 candidate)
-3. Broker port behind `live_execution` fill schema (dry-run first; 元大 SPARK ≠ repo 元大股息抓取)
+1. Cloud long-run deploy of the Docker ops image (GCP asia-east1 candidate)
+2. Broker port behind `live_execution` fill schema (dry-run first; 元大 SPARK ≠ repo 元大股息抓取)
 
-Label: `ARCH_LIVE_MODULARIZE__LEDGER_DRIVER__MONITOR_WRAPPERS__PYPROJECT`
+Label: `ARCH_LIVE_MODULARIZE__LEDGER_DRIVER__SPECIALTY_WRAPPERS`

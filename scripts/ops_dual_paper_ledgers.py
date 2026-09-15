@@ -8,6 +8,7 @@ no live wire. Strategy book construction stays in prepare callbacks / helpers.
 from __future__ import annotations
 
 import json
+from contextlib import AbstractContextManager, nullcontext
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -30,6 +31,10 @@ ROOT = Path(__file__).resolve().parents[1]
 
 PrepareFn = Callable[[pd.DataFrame, pd.DataFrame], "PreparedBooks"]
 ReportFn = Callable[["LedgerResult"], None]
+# After BASE sim: mutate prepared.chal_* / extras (two-pass specialty, e.g. defend-handoff).
+PostBaseFn = Callable[["PostBaseCtx"], None]
+# Optional context around each simulate_core call (e.g. temporary FIN/ALL universe patch).
+SimContextFn = Callable[[], AbstractContextManager[Any]]
 
 
 @dataclass
@@ -46,6 +51,20 @@ class PreparedBooks:
     extras: dict[str, pd.Series | pd.DataFrame] = field(default_factory=dict)
     # Free-form context for report builders (scores, flags, metadata).
     context: dict[str, Any] = field(default_factory=dict)
+    # If set, CHAL runs on this panel (BASE still uses load_market_fn). M2 BIL_FX.
+    chal_market: pd.DataFrame | None = None
+
+
+@dataclass
+class PostBaseCtx:
+    """BASE results available to ``post_base`` before CHAL simulate_core."""
+
+    market: pd.DataFrame
+    dividends: pd.DataFrame
+    prepared: PreparedBooks
+    nav_base: pd.DataFrame
+    fills_base: pd.DataFrame
+    meta_base: dict
 
 
 @dataclass(frozen=True)
@@ -78,6 +97,10 @@ class DualPaperLedgerSpec:
     load_market_fn: Callable[[], pd.DataFrame] = load_market
     load_dividends_fn: Callable[[], pd.DataFrame] = load_dividends
     preflight: Callable[[], None] | None = None
+    # Two-pass: refine chal_kwargs/extras from BASE NAV (defend-handoff).
+    post_base: PostBaseFn | None = None
+    # Wrap each arm's simulate_core (民營 FIN/ALL patch).
+    sim_context: SimContextFn | None = None
     report_fn: ReportFn | None = None
     status: str = "OPERATING_OBSERVE"
 
@@ -178,6 +201,12 @@ def _sim_kwargs(spec: DualPaperLedgerSpec | MultiPaperLedgerSpec, extra: dict[st
     return kw
 
 
+def _sim_cm(spec: DualPaperLedgerSpec) -> AbstractContextManager[Any]:
+    if spec.sim_context is None:
+        return nullcontext()
+    return spec.sim_context()
+
+
 def _assert_soft_frozen(clip: Sequence[float] | None) -> None:
     if clip is None:
         return
@@ -216,21 +245,35 @@ def run_dual_paper_ledgers(spec: DualPaperLedgerSpec) -> LedgerResult:
     prepared = spec.prepare(market, dividends)
 
     print(f"{spec.base_id} ...", flush=True)
-    nav_b, fills_b, meta_b = simulate_core(
-        market,
-        prepared.base_target,
-        prepared.base_regime,
-        dividends,
-        **_sim_kwargs(spec, prepared.base_kwargs),
-    )
+    with _sim_cm(spec):
+        nav_b, fills_b, meta_b = simulate_core(
+            market,
+            prepared.base_target,
+            prepared.base_regime,
+            dividends,
+            **_sim_kwargs(spec, prepared.base_kwargs),
+        )
+    if spec.post_base is not None:
+        spec.post_base(
+            PostBaseCtx(
+                market=market,
+                dividends=dividends,
+                prepared=prepared,
+                nav_base=nav_b,
+                fills_base=fills_b,
+                meta_base=meta_b,
+            )
+        )
+    market_chal = prepared.chal_market if prepared.chal_market is not None else market
     print(f"{spec.chal_id} ...", flush=True)
-    nav_c, fills_c, meta_c = simulate_core(
-        market,
-        prepared.chal_target,
-        prepared.chal_regime,
-        dividends,
-        **_sim_kwargs(spec, prepared.chal_kwargs),
-    )
+    with _sim_cm(spec):
+        nav_c, fills_c, meta_c = simulate_core(
+            market_chal,
+            prepared.chal_target,
+            prepared.chal_regime,
+            dividends,
+            **_sim_kwargs(spec, prepared.chal_kwargs),
+        )
     if spec.assert_exact_t1:
         if not meta_b.get("exact_t1_ok") or not meta_c.get("exact_t1_ok"):
             raise SystemExit(

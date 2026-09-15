@@ -1,17 +1,11 @@
 #!/usr/bin/env python3
-"""E45 defend→handoff dual-paper ledgers — OPERATING OBSERVE (paper only).
+"""E45 defend→handoff dual-paper ledgers — thin wrapper (OPERATING OBSERVE).
 
-Books (500M / board-lot 1000):
-  BASE  LIVE_STACK     Soft-Frozen + KD_OPT + TEL_EQUAL (e45_exposure=None)
-  CHAL  DH_dd06_vz1p0  same + defend-window SHRINK e45_exposure (Stage A winner)
-
-Human OPEN: OPEN E45 defend-handoff observe: DH_dd06_vz1p0
-Soft-Frozen KEEP · live stack KEEP · Soft/Sleeve/FUSE observes KEEP · no stitch
+Two-pass via ``post_base``: BASE live-stack NAV → DH exposure → CHAL.
+Soft-Frozen KEEP · paper shadow twin (live DH may already be wired).
 """
 from __future__ import annotations
 
-import json
-from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -23,15 +17,24 @@ from e45_defend_handoff_helpers import (
     CHAL_ID,
     DD_THRESHOLD,
     HUMAN_OPEN,
-    LIVE_WIRE,
     SHRINK,
     STAGE_A_VERDICT,
     STATUS,
     STITCH_AUTHORIZED,
     VOL_Z_THRESHOLD,
 )
-from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats
+from e45_paper_harness import WINDOWS_STANDARD, window_stats
 from e50_early_stack_combined_nav import FIN, e16_features
+from ops_dual_paper_ledgers import (
+    DualPaperLedgerSpec,
+    LedgerResult,
+    PostBaseCtx,
+    PreparedBooks,
+    cli_main,
+    live_kd_sim_kwargs,
+    preflight_live_kd,
+    write_json_md_pair,
+)
 from portfolio_capital import DEFAULT_CAPITAL
 from research_metric_helpers import cagr_delta_pp, mdd_delta_pp
 from soft_assist_helpers import LIVE_KD
@@ -111,25 +114,16 @@ def tip_windows(base_nav: pd.DataFrame, chal_nav: pd.DataFrame) -> dict:
     return out
 
 
-def main() -> int:
-    (OUT / "outputs").mkdir(parents=True, exist_ok=True)
-    (OUT / "reports").mkdir(parents=True, exist_ok=True)
-    OPS.mkdir(parents=True, exist_ok=True)
+def _preflight() -> None:
     assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
-
-    from live_kd_guard import assert_live_kd_aligned
-
-    assert_live_kd_aligned(LIVE_KD)
+    preflight_live_kd(LIVE_KD)()
     if STITCH_AUTHORIZED:
         raise SystemExit("Refuse: stitch flag must stay false")
-    # LIVE_WIRE may be True after DH+FUSE live cutover; paper observe remains a shadow twin.
 
-    print("loading ...", flush=True)
-    market = load_market()
-    dividends = load_dividends()
+
+def prepare(market: pd.DataFrame, dividends: pd.DataFrame) -> PreparedBooks:
     _p, _s, target, regime = e16_features(market)
     cal = pd.DatetimeIndex(pd.to_datetime(market["date"]).drop_duplicates().sort_values())
-
     kd_scores = build_kd_season_tilt_scores(
         market,
         dividends,
@@ -143,60 +137,48 @@ def main() -> int:
     kd_ok = build_pre_exdiv_window_buy_ok(
         cal, dividends, FIN, pre_days=int(LIVE_KD["pre_days"]), also_stock_ex=True
     )
-
-    print(f"{BASE_ID} ...", flush=True)
-    base = stagea._run_book(
-        market,
-        target,
-        regime,
-        dividends,
-        scores=kd_scores,
-        buy_ok=kd_ok,
-        exposure=None,
+    base_kw = live_kd_sim_kwargs(scores=kd_scores, buy_ok=kd_ok, e45_exposure=None)
+    # CHAL kwargs filled in post_base after BASE NAV → exposure.
+    return PreparedBooks(
+        base_target=target,
+        base_regime=regime,
+        chal_target=target,
+        chal_regime=regime,
+        base_kwargs=base_kw,
+        chal_kwargs=dict(base_kw),
+        context={"kd_scores": kd_scores, "kd_ok": kd_ok},
     )
-    base_nav_s = stagea._nav_series(base["nav"])
-    feat = stagea._risk_features(market, base_nav_s)
+
+
+def post_base(ctx: PostBaseCtx) -> None:
+    base_nav_s = stagea._nav_series(ctx.nav_base)
+    feat = stagea._risk_features(ctx.market, base_nav_s)
     dates = pd.DatetimeIndex(base_nav_s.index)
     exposure = stagea._build_exposure(dates, feat, DD_THRESHOLD, VOL_Z_THRESHOLD)
     frac_def = float((exposure < 0.999).mean())
-
-    print(f"{CHAL_ID} (dd={DD_THRESHOLD}, vz={VOL_Z_THRESHOLD}, shrink={SHRINK}) ...", flush=True)
-    chal = stagea._run_book(
-        market,
-        target,
-        regime,
-        dividends,
-        scores=kd_scores,
-        buy_ok=kd_ok,
-        exposure=exposure,
+    ctx.prepared.chal_kwargs = live_kd_sim_kwargs(
+        scores=ctx.prepared.context["kd_scores"],
+        buy_ok=ctx.prepared.context["kd_ok"],
+        e45_exposure=exposure.astype(float),
     )
+    ctx.prepared.extras["dh_dd06_vz1p0_exposure.csv"] = exposure.rename("e45_exposure")
+    ctx.prepared.context["frac_days_defense"] = frac_def
+    ctx.prepared.context["exposure"] = exposure
 
-    base["nav"].to_csv(OUT / "outputs" / "live_stack_daily_nav.csv", index=False)
-    chal["nav"].to_csv(OUT / "outputs" / "dh_dd06_vz1p0_daily_nav.csv", index=False)
-    exposure.rename("e45_exposure").to_frame().to_csv(
-        OUT / "outputs" / "dh_dd06_vz1p0_exposure.csv"
-    )
-    joined = (
-        base["nav"][["date", "nav"]]
-        .rename(columns={"nav": "nav_base"})
-        .merge(
-            chal["nav"][["date", "nav"]].rename(columns={"nav": "nav_chal"}),
-            on="date",
-            how="inner",
-        )
-    )
-    joined["rel_chal_vs_base"] = joined["nav_chal"] / joined["nav_base"]
-    joined.to_csv(OUT / "outputs" / "dual_paper_nav_compare.csv", index=False)
 
-    win_base = pack_windows(base["nav"])
-    win_chal = pack_windows(chal["nav"])
+def report(result: LedgerResult) -> None:
+    import json
+    from datetime import datetime, timezone
+
+    frac_def = float(result.prepared.context.get("frac_days_defense") or 0.0)
+    win_base = pack_windows(result.nav_base)
+    win_chal = pack_windows(result.nav_chal)
     held = held_score(win_base["heldout_2019_plus"], win_chal["heldout_2019_plus"])
-    tip = tip_windows(base["nav"], chal["nav"])
+    tip = tip_windows(result.nav_base, result.nav_chal)
     sealed = held_score(
         win_base.get("sealed_2023_plus") or {},
         win_chal.get("sealed_2023_plus") or {},
     )
-
     payload = {
         "schema_version": "e45_defend_handoff_dual_paper_observe_v1",
         "label": "E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE_OPERATING",
@@ -225,8 +207,8 @@ def main() -> int:
         "heldout_delta": held,
         "sealed_delta": sealed,
         "tip": tip,
-        "n_fills_base": base["n_fills"],
-        "n_fills_chal": chal["n_fills"],
+        "n_fills_base": int(len(result.fills_base)),
+        "n_fills_chal": int(len(result.fills_chal)),
         "non_actions": [
             "No Soft-Frozen / Soft / Sleeve / FUSE / E45 live wire",
             "No E45 stitch reopen / no undo DROP_E45_A05",
@@ -234,14 +216,8 @@ def main() -> int:
             "Cutover BLOCKED until dedicated ACCEPT",
         ],
     }
-    (OUT / "outputs" / "dual_paper_summary.json").write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
-    (OPS / "E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE.json").write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
 
-    lines = [
+    body_lines = [
         "# E45 defend→handoff dual-paper observe — OPERATING",
         "",
         f"- human_open: `{HUMAN_OPEN}`",
@@ -254,22 +230,40 @@ def main() -> int:
         "## Non-actions",
         "",
     ]
-    lines += [f"- {x}" for x in payload["non_actions"]]
-    lines += ["", f"Repro: `repro/e45-defend-handoff-dual-paper-observe/`", ""]
-    text = "\n".join(lines)
-    (OUT / "reports" / "E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE_OPERATING.md").write_text(
-        text, encoding="utf-8"
-    )
-    (OPS / "E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE_OPERATING.md").write_text(
-        text, encoding="utf-8"
-    )
+    body_lines += [f"- {x}" for x in payload["non_actions"]]
+    body_lines += ["", f"Repro: `repro/e45-defend-handoff-dual-paper-observe/`", ""]
 
-    print(
-        f"done status={STATUS} held_score={held.get('score')} frac_def={frac_def:.3f}",
-        flush=True,
+    write_json_md_pair(
+        out_dir=OUT,
+        report_stem="E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE_OPERATING",
+        payload=payload,
+        md_lines=body_lines,
+        mirror_dirs=(OPS,),
     )
-    return 0
+    text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    (OUT / "outputs" / "dual_paper_summary.json").write_text(text, encoding="utf-8")
+    (OPS / "E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE.json").write_text(text, encoding="utf-8")
+
+
+SPEC = DualPaperLedgerSpec(
+    label="E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE_OPERATING",
+    out_dir=OUT,
+    base_id=BASE_ID,
+    chal_id=CHAL_ID,
+    prepare=prepare,
+    post_base=post_base,
+    base_nav_name="live_stack_daily_nav.csv",
+    chal_nav_name="dh_dd06_vz1p0_daily_nav.csv",
+    write_fills=False,
+    base_targets_name=None,
+    soft_frozen_clip=(0.6, 0.9),
+    preflight=_preflight,
+    report_fn=report,
+    status=STATUS,
+    capital=CAPITAL,
+    lot_size=LOT,
+)
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(cli_main(SPEC))
