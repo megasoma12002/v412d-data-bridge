@@ -45,7 +45,7 @@ from live_config import (
 )
 from live_ledger import ALL, append_immutable, holdings
 from live_strategy_targets import features, resolve_session_targets
-from live_execution import fill_pending_at_open
+from live_execution import fill_pending_at_open, resolve_fill_port
 
 # Mutable session capital (CLI may override); default from LiveConfig.
 CAPITAL = float(LIVE.capital)
@@ -85,6 +85,11 @@ def main():
         default=None,
         help="Process this session date (YYYY-MM-DD) instead of market max (replay/ops).",
     )
+    ap.add_argument(
+        "--fill-port",
+        default=None,
+        help="Fill backend: paper (default) | dry_run. Overrides E21_FILL_PORT / LiveConfig.",
+    )
     a = ap.parse_args()
     if a.e22_version != E22_BOOKS_VERSION and not a.confirm_e22_version_override:
         raise SystemExit(
@@ -94,6 +99,7 @@ def main():
     CAPITAL = a.capital
     sdir = Path(a.state_dir)
     market_path = Path(a.market)
+    fill_port_name = (a.fill_port or LIVE.fill_port or "paper").strip().lower()
     if not a.allow_noncanonical_paths:
         canon_state = Path("forward/e21").resolve()
         canon_market = (Path("forward/e21") / "live_market.csv").resolve()
@@ -101,6 +107,11 @@ def main():
             raise SystemExit(
                 "Refusing non-canonical live paths. Use --market forward/e21/live_market.csv "
                 "and --state-dir forward/e21, or pass --allow-noncanonical-paths for research."
+            )
+        if fill_port_name != "paper":
+            raise SystemExit(
+                f"Refusing fill port {fill_port_name!r} on canonical live path. "
+                "Use --fill-port paper (default), or --allow-noncanonical-paths for dry_run research."
             )
     sdir.mkdir(parents=True, exist_ok=True)
     m = pd.read_csv(market_path, dtype={"code": str})
@@ -148,14 +159,21 @@ def main():
     pos, cash, vals, nav = holdings(state, prices, capital=a.capital)
     op = day.open.astype(float).to_dict()
     orders_path = sdir / "orders.csv"
+    fill_port = resolve_fill_port(fill_port_name)
     pos, cash, fills, same_bar_fills, exact_t1_ok = fill_pending_at_open(
-        state_dir=sdir, latest=latest, open_prices=op, pos=pos, cash=cash
+        state_dir=sdir,
+        latest=latest,
+        open_prices=op,
+        pos=pos,
+        cash=cash,
+        fill_port=fill_port,
     )
     audit = {
         "date": latest.date().isoformat(),
         "exact_t1_ok": exact_t1_ok,
         "same_bar_fills": same_bar_fills,
         "fills_checked": len(fills),
+        "fill_port": fill_port.name,
         "pending_filter": "signal_date < fill_date",
         "soft_frozen_financial_clip": [soft_frozen.SOFT_FROZEN_FIN_LO, soft_frozen.SOFT_FROZEN_FIN_HI],
         "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,

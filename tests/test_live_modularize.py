@@ -22,6 +22,7 @@ class LiveConfigTests(unittest.TestCase):
         self.assertFalse(e21.LIVE_E45_STITCH)
         self.assertEqual(e21.KD_OPT["id"], lc.KD_OPT["id"])
         self.assertEqual(e21.E22_BOOKS_VERSION, lc.E22_BOOKS_VERSION)
+        self.assertEqual(lc.LIVE.fill_port, "paper")
 
     def test_append_immutable(self) -> None:
         with tempfile.TemporaryDirectory() as td:

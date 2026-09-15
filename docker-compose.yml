@@ -1,0 +1,28 @@
+# Ops image helpers — QC / import smoke only (no broker secrets).
+# Live path remains GitHub Actions `v412f-forward-paper` until an explicit cutover.
+#
+#   docker compose build
+#   docker compose run --rm import-smoke
+#   docker compose run --rm qc
+#   bash scripts/ops_docker_qc_smoke.sh
+
+x-ops: &ops
+  build: .
+  image: e21-ops:local
+  working_dir: /workspace
+  volumes:
+    - .:/workspace
+
+services:
+  import-smoke:
+    <<: *ops
+    command:
+      [
+        "python3",
+        "-c",
+        "import live_config; print('e21-ops', live_config.LIVE.capital, live_config.LIVE.fill_port)",
+      ]
+
+  qc:
+    <<: *ops
+    command: ["python3", "scripts/e21_qc.py", "--state-dir", "forward/e21"]

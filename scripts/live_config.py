@@ -57,6 +57,10 @@ class LiveConfig:
     live_dh_id: str = "DH_dd06_vz1p0"
     live_cutover_ballot: str = "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE"
 
+    # Fill backend — default paper Exact T+1. Broker / dry_run via CLI or E21_FILL_PORT.
+    # True broker routing requires a separate human ACCEPT PR (not this default).
+    fill_port: str = "paper"
+
 
 # Module-level singleton used by the live pipeline (edit + ACCEPT PR to cut over).
 LIVE = LiveConfig()
