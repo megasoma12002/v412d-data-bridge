@@ -1,174 +1,38 @@
 #!/usr/bin/env python3
-"""L4_DD_PATH_08_50 month-end dual-paper monitor (ops review — not live).
-
-Compares BASE_E16 vs L4_DD_PATH_08_50 paper NAVs at month-end (or as-of date).
-Does NOT change Soft-Frozen clips. Does NOT place orders.
-
-Inputs (from dual-paper harness):
-  repro/l4-dd-path-dual-paper/outputs/base_e16_daily_nav.csv
-  repro/l4-dd-path-dual-paper/outputs/l4_dd_path_daily_nav.csv
-
-Optional: re-run `scripts/e16_l4_dd_path_dual_paper_ledgers.py` first to refresh.
-"""
+"""L4_DD_PATH_08_50 month-end monitor — thin wrapper (l4 alert policy)."""
 from __future__ import annotations
 
-import argparse
-import json
-from datetime import datetime, timezone
-from pathlib import Path
+from ops_dual_paper_month_end import DualPaperMonitorSpec, GAPS, ROOT, cli_main
 
-import numpy as np
-import pandas as pd
-
-from research_metric_helpers import abs_mdd, mdd_delta_pp
-from e45_paper_harness import WINDOWS_STANDARD
-
-ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUT = ROOT / "repro/l4-dd-path-dual-paper/month_end"
-BASE_NAV = ROOT / "repro/l4-dd-path-dual-paper/outputs/base_e16_daily_nav.csv"
-L4_NAV = ROOT / "repro/l4-dd-path-dual-paper/outputs/l4_dd_path_daily_nav.csv"
-RESEARCH = ROOT / "research/gaps"
-
-LOCKED_ID = "L4_DD_PATH_08_50"
-
-
-def _load(path: Path) -> pd.DataFrame:
-    d = pd.read_csv(path)
-    d["date"] = pd.to_datetime(d["date"])
-    return d.sort_values("date").reset_index(drop=True)
-
-
-def _stats(nav: pd.Series) -> dict:
-    r = nav.pct_change().dropna()
-    if len(nav) < 2:
-        return {"cagr": None, "max_drawdown": None, "vol": None, "n_days": int(len(nav))}
-    years = len(r) / 252.0
-    cagr = (
-        float((nav.iloc[-1] / nav.iloc[0]) ** (1 / years) - 1)
-        if years > 0 and nav.iloc[0] > 0
-        else None
-    )
-    peak = nav.cummax()
-    mdd = float((nav / peak - 1.0).min())
-    vol = float(r.std(ddof=1) * np.sqrt(252)) if len(r) > 2 else None
-    return {"cagr": cagr, "max_drawdown": mdd, "vol": vol, "n_days": int(len(nav))}
-
-
-def _pct(x: float | None) -> str:
-    """Format a ratio; treat only None as missing (0.0 is a valid MDD/CAGR)."""
-    if x is None:
-        return "n/a"
-    return f"{x:.2%}"
-
-
-    return abs(default if x is None else x)
-
-
-def _window(df: pd.DataFrame, start, end) -> pd.DataFrame:
-    m = (df["date"] >= start) & (df["date"] <= end)
-    return df.loc[m].reset_index(drop=True)
-
-
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--asof", default=None, help="YYYY-MM-DD (default: last NAV date)")
-    ap.add_argument("--out", type=Path, default=DEFAULT_OUT)
-    args = ap.parse_args()
-
-    if not BASE_NAV.exists() or not L4_NAV.exists():
-        raise SystemExit(
-            "Missing dual-paper NAVs. Run scripts/e16_l4_dd_path_dual_paper_ledgers.py first."
-        )
-
-    base = _load(BASE_NAV)
-    l4 = _load(L4_NAV)
-    asof = pd.Timestamp(args.asof) if args.asof else min(base["date"].max(), l4["date"].max())
-    base = base[base["date"] <= asof]
-    l4 = l4[l4["date"] <= asof]
-
-    month_start = pd.Timestamp(asof.year, asof.month, 1)
-    windows = {
-        "mtd": (month_start, asof),
-        "ytd": (pd.Timestamp(asof.year, 1, 1), asof),
-        "trailing_1y": (asof - pd.Timedelta(days=365), asof),
-        "validation_2019_2022": (pd.Timestamp("2019-01-01"), pd.Timestamp("2022-12-31")),
-        "sealed_2023_plus": (pd.Timestamp(WINDOWS_STANDARD["sealed_2023_plus"][0]), asof),
-        "heldout_2019_plus": (pd.Timestamp(WINDOWS_STANDARD["heldout_2019_plus"][0]), asof),
-        "full": (base["date"].min(), asof),
-    }
-
-    rows = []
-    for wname, (ws, we) in windows.items():
-        b = _window(base, ws, we)
-        c = _window(l4, ws, we)
-        if len(b) < 2 or len(c) < 2:
-            continue
-        bnav = b["nav"] / float(b["nav"].iloc[0])
-        cnav = c["nav"] / float(c["nav"].iloc[0])
-        sb, sc = _stats(bnav), _stats(cnav)
-        mdd_improve_pp = mdd_delta_pp(sb["max_drawdown"], sc["max_drawdown"])
-        base_cagr = 0.0 if sb["cagr"] is None else sb["cagr"]
-        l4_cagr = 0.0 if sc["cagr"] is None else sc["cagr"]
-        cagr_giveback_pp = (base_cagr - l4_cagr) * 100
-        rows.append(
-            {
-                "window": wname,
-                "start": str(pd.Timestamp(ws).date()),
-                "end": str(pd.Timestamp(we).date()),
-                "base_cagr": sb["cagr"],
-                "base_mdd": sb["max_drawdown"],
-                "l4_cagr": sc["cagr"],
-                "l4_mdd": sc["max_drawdown"],
-                "mdd_improve_pp": mdd_improve_pp,
-                "cagr_giveback_pp": cagr_giveback_pp,
-                "rel_nav_end": float(cnav.iloc[-1] / bnav.iloc[-1]),
-            }
-        )
-
-    sealed = next((r for r in rows if r["window"] == "sealed_2023_plus"), None)
-    val = next((r for r in rows if r["window"] == "validation_2019_2022"), None)
-    ytd = next((r for r in rows if r["window"] == "ytd"), None)
-    trail = next((r for r in rows if r["window"] == "trailing_1y"), None)
-    alerts = []
-    # Gate windows (held-out research contract)
-    for label, held in (("sealed", sealed), ("validation", val)):
-        if not held:
-            continue
-        if held["mdd_improve_pp"] < 0:
-            alerts.append(f"ALERT: {LOCKED_ID} {label} MDD worse than BASE (paper)")
-        if held["cagr_giveback_pp"] > 3.0:
-            alerts.append(f"ALERT: {LOCKED_ID} {label} CAGR giveback > 3.0 pp (paper)")
-        if held["cagr_giveback_pp"] > 5.0:
-            alerts.append(
-                f"PAUSE_REVIEW: {label} giveback > 5 pp — do not advance cutover discussion"
-            )
-    # Ops trailing windows (do not revoke PASS_HELDOUT_L4; still block cutover talk)
-    for label, held in (("ytd", ytd), ("trailing_1y", trail)):
-        if not held:
-            continue
-        if held["cagr_giveback_pp"] > 3.0:
-            alerts.append(
-                f"ALERT: {LOCKED_ID} {label} CAGR giveback > 3.0 pp (paper ops)"
-            )
-        if held["cagr_giveback_pp"] > 5.0:
-            alerts.append(
-                f"PAUSE_REVIEW: {label} giveback > 5 pp — extend observation; "
-                "does not revoke PASS_HELDOUT_L4"
-            )
-
-    args.out.mkdir(parents=True, exist_ok=True)
-    RESEARCH.mkdir(parents=True, exist_ok=True)
-
-    summary = {
-        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "asof": str(asof.date()),
-        "live_wire": False,
-        "soft_frozen_default_unchanged": True,
-        "locked_id": LOCKED_ID,
-        "label": "L4_DD_PATH_MONTH_END_PAPER_MONITOR",
-        "windows": rows,
-        "alerts": alerts,
-        "cutover_blocked": any("PAUSE_REVIEW" in a for a in alerts),
+SPEC = DualPaperMonitorSpec(
+    label="L4_DD_PATH_MONTH_END_PAPER_MONITOR",
+    ops_stem="L4_DD_PATH_MONTH_END_MONITOR",
+    artifact_dir=GAPS,
+    base_id="BASE_E16",
+    chal_id="L4_DD_PATH_08_50",
+    default_out=ROOT / "repro/l4-dd-path-dual-paper/month_end",
+    base_nav=ROOT / "repro/l4-dd-path-dual-paper/outputs/base_e16_daily_nav.csv",
+    chal_nav=ROOT / "repro/l4-dd-path-dual-paper/outputs/l4_dd_path_daily_nav.csv",
+    ledger_hint="scripts/e16_l4_dd_path_dual_paper_ledgers.py",
+    missing_msg="Missing L4 dual-paper NAVs.",
+    alert_policy="l4",
+    design_giveback_pp={},
+    include_score=False,
+    coerce_none_cagr_to_zero=True,
+    write_legacy_summary_names=True,
+    window_keys=(
+        "mtd",
+        "ytd",
+        "trailing_1y",
+        "sealed_2023_plus",
+        "heldout_2019_plus",
+        "full",
+    ),
+    fixed_windows=(("validation_2019_2022", "2019-01-01", "2022-12-31"),),
+    research_gate_windows=("sealed_2023_plus", "validation_2019_2022"),
+    ops_trail_windows=("ytd", "trailing_1y"),
+    extra_payload={
+        "locked_id": "L4_DD_PATH_08_50",
         "non_decision_windows": ["mtd"],
         "decision_alert_windows": [
             "validation_2019_2022",
@@ -176,71 +40,13 @@ def main() -> None:
             "ytd",
             "trailing_1y",
         ],
-        "note": (
-            "Paper monitor only. Soft-Frozen Financial clip remains [0.50,0.95]. "
-            "mtd CAGR is display-only (not a cutover gate)."
-        ),
-    }
-    (args.out / "month_end_summary.json").write_text(json.dumps(summary, indent=2) + "\n")
-    pd.DataFrame(rows).to_csv(args.out / "month_end_windows.csv", index=False)
-
-    lines = [
-        f"# L4_DD_PATH Month-End Paper Monitor — asof {asof.date()}",
-        "",
-        f"Generated: `{summary['generated_at_utc']}`",
-        "Status: **PAPER ONLY** — Soft-Frozen live default unchanged.",
-        f"Locked: **{LOCKED_ID}**",
-        "",
-        "> **Decision windows:** `validation_2019_2022`, `sealed_2023_plus`, `ytd`, `trailing_1y`.  ",
-        "> **`mtd` CAGR is display-only** (annualized MTD is unstable) — **not** a cutover gate.",
-        "",
-        "| Window | BASE CAGR | BASE MDD | L4 CAGR | L4 MDD | MDD Δpp | CAGR giveback pp | Rel NAV | Decision? |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|:---:|",
-    ]
-    for r in rows:
-        decision = "no" if r["window"] == "mtd" else "yes"
-        cagr_note = _pct(r["base_cagr"])
-        l4_cagr_note = _pct(r["l4_cagr"])
-        if r["window"] == "mtd":
-            cagr_note = f"{cagr_note}*"
-            l4_cagr_note = f"{l4_cagr_note}*"
-        lines.append(
-            f"| {r['window']} | {cagr_note} | {_pct(r['base_mdd'])} | "
-            f"{l4_cagr_note} | {_pct(r['l4_mdd'])} | "
-            f"{r['mdd_improve_pp']:+.2f} | {r['cagr_giveback_pp']:+.2f} | {r['rel_nav_end']:.4f} | {decision} |"
-        )
-    lines += [
-        "",
-        "\\* `mtd` CAGR annualized from a short sample — **non-decision / display-only**.",
-        "",
-        "## Alerts",
-        "",
-        "Alert windows: `sealed` / `validation` (research gates) and `ytd` / `trailing_1y` (ops). "
-        "`mtd` is **never** used for alerts or cutover.",
-        "",
-    ]
-    if alerts:
-        for a in alerts:
-            lines.append(f"- {a}")
-    else:
-        lines.append("- None")
-    lines += [
-        "",
-        "## Ops note",
-        "",
-        "- Refresh NAVs: `python3 scripts/e16_l4_dd_path_dual_paper_ledgers.py`",
-        "- Re-run monitor: `python3 scripts/e16_l4_dd_path_month_end_monitor.py`",
-        "- Or month-end pack: `python3 scripts/ops_month_end_paper_pack.py`",
-        "- Cutover still requires a **separate human PR**; this monitor never flips Soft-Frozen.",
-        "",
-    ]
-    md = "\n".join(lines)
-    (args.out / "MONTH_END_MONITOR.md").write_text(md)
-    (RESEARCH / "L4_DD_PATH_MONTH_END_MONITOR.md").write_text(md)
-    (RESEARCH / "L4_DD_PATH_MONTH_END_MONITOR.json").write_text(json.dumps(summary, indent=2) + "\n")
-    print(json.dumps({"asof": summary["asof"], "alerts": alerts, "n_windows": len(rows)}, indent=2))
-    print("EXIT:0")
-
+    },
+    non_actions=(
+        "paper monitor only",
+        "no Soft-Frozen clip flip",
+        "cutover requires separate human PR",
+    ),
+)
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(cli_main(SPEC))
