@@ -1,136 +1,42 @@
 #!/usr/bin/env python3
-"""E45 dual-paper ledgers (OPERATING OBSERVE — not live).
-
-Side-by-side Exact T+1 paper books:
-  BASE_E16_E18_E22_v2s — Soft-Frozen early-stack + formal E22_v2s
-  CHAL_E45_E3          — same stack + E45 E3_VOLTARGET_WINNER overlay
-
-Opened by human ballot: ``E45 OPEN dual-paper observe``.
-Does NOT edit e21 forward live clips, Soft-Frozen default, or authorize stitch.
-"""
+"""E45 dual-paper ledgers — thin wrapper over ops_dual_paper_ledgers (α=1.0 full)."""
 from __future__ import annotations
 
-import json
-from datetime import date, datetime, timezone
 from pathlib import Path
 
 import e16_soft_frozen_base as soft_frozen
-
-import pandas as pd
-
-from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
-from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
-
-from e45_paper_harness import (
-    BOOK_BASE,
-    BOOK_BLEND_A25,
-    BOOK_FULL,
-    CLAIM_STATUS,
-    E45_PROFILE_DEFAULT,
-    MARKET_PATH,
-    DIV_PATH,
-    ROOT,
-    WINDOWS_STANDARD,
-    blend_exposure,
-    book_id_for_alpha,
-    deltas_vs_base,
-    e16_features,
-    e45_full_exposure,
-    load_dividends,
-    load_market,
-    run_early_stack,
-    window_stats,
+from e45_paper_harness import BOOK_BASE, BOOK_FULL, CLAIM_STATUS, E45_PROFILE_DEFAULT, ROOT
+from ops_dual_paper_ledgers import (
+    DualPaperLedgerSpec,
+    LedgerResult,
+    cli_main,
+    prepare_e45_exposure_pair,
+    standard_metric_table,
+    utc_now,
+    write_json_md_pair,
 )
 
-
-ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/e45-dual-paper-observe"
 RESEARCH = ROOT / "research/e45"
-MARKET_PATH = ROOT / "forward/e21/live_market.csv"
-DIV_PATH = ROOT / "data/dividend_events/e22_dividend_events.csv"
+BASE_ID = BOOK_BASE
+CHAL_ID = BOOK_FULL
 
-BASE_ID = "BASE_E16_E18_E22_v2s"
-CHAL_ID = "CHAL_E45_E3"
-WINDOWS = WINDOWS_STANDARD
-def main() -> None:
-    (OUT / "outputs").mkdir(parents=True, exist_ok=True)
-    (OUT / "reports").mkdir(parents=True, exist_ok=True)
-    RESEARCH.mkdir(parents=True, exist_ok=True)
 
-    print("loading market + dividends ...", flush=True)
-    market = load_market()
-    dividends = pd.read_csv(DIV_PATH, dtype={"code": str}) if DIV_PATH.exists() else pd.DataFrame()
-
-    print(f"{BASE_ID} features + sim ...", flush=True)
-    _p, _s, base_target, base_regime = e16_features(market)
-    nav_b, fills_b, meta_b = simulate_core(
+def prepare(market, dividends):
+    return prepare_e45_exposure_pair(
         market,
-        base_target,
-        base_regime,
         dividends,
-        apply_e22=True,
-        apply_stock_div=True,
-        e45_exposure=None,
+        alpha=1.0,
+        exposure_csv_name="chal_e45_e3_exposure.csv",
+        exposure_series_name="e45_e3_exposure",
     )
 
-    print(f"{CHAL_ID} {E45_PROFILE_DEFAULT} + sim ...", flush=True)
-    close_eq = (
-        market[market["code"].isin(ALL)]
-        .pivot(index="date", columns="code", values="close")
-        .sort_index()
-        .ffill()
-    )
-    e45_e3 = e45.compute_exposure(close_eq, E45_PROFILE_DEFAULT)["exposure"]
-    nav_c, fills_c, meta_c = simulate_core(
-        market,
-        base_target,
-        base_regime,
-        dividends,
-        apply_e22=True,
-        apply_stock_div=True,
-        e45_exposure=e45_e3,
-    )
 
-    nav_b.to_csv(OUT / "outputs" / "base_e16_e18_e22_v2s_daily_nav.csv", index=False)
-    nav_c.to_csv(OUT / "outputs" / "chal_e45_e3_daily_nav.csv", index=False)
-    fills_b.to_csv(OUT / "outputs" / "base_e16_e18_e22_v2s_fills.csv", index=False)
-    fills_c.to_csv(OUT / "outputs" / "chal_e45_e3_fills.csv", index=False)
-    base_target.to_csv(OUT / "outputs" / "base_targets.csv")
-    e45_e3.rename("e45_e3_exposure").to_csv(OUT / "outputs" / "chal_e45_e3_exposure.csv")
-
-    jb = nav_b[["date", "nav"]].rename(columns={"nav": "nav_base"})
-    jc = nav_c[["date", "nav"]].rename(columns={"nav": "nav_chal_e45_e3"})
-    joined = jb.merge(jc, on="date", how="inner")
-    joined["rel_chal_vs_base"] = joined["nav_chal_e45_e3"] / joined["nav_base"]
-    joined.to_csv(OUT / "outputs" / "dual_paper_nav_compare.csv", index=False)
-
-    books: dict = {}
-    for name, nav, meta in [
-        (BASE_ID, nav_b, meta_b),
-        (CHAL_ID, nav_c, meta_c),
-    ]:
-        win = {wname: window_stats(nav, ws, we) for wname, (ws, we) in WINDOWS.items()}
-        books[name] = {
-            "exact_t1_ok": bool(meta.get("exact_t1_ok")),
-            "same_bar_fills": int(meta.get("same_bar_fills", -1)),
-            "mean_e45_exposure": meta.get("mean_e45_exposure"),
-            "windows": win,
-        }
-
-    base_h = books[BASE_ID]["windows"]["heldout_2019_plus"]
-    chal_h = books[CHAL_ID]["windows"]["heldout_2019_plus"]
-    base_s = books[BASE_ID]["windows"]["sealed_2023_plus"]
-    chal_s = books[CHAL_ID]["windows"]["sealed_2023_plus"]
-    mdd_improve_pp = mdd_delta_pp(base_h["max_drawdown"], chal_h["max_drawdown"])
-    cagr_giveback_pp = cagr_delta_pp(base_h["cagr"], chal_h["cagr"], missing_as_zero=True)
-    sealed_mdd_improve_pp = mdd_delta_pp(base_s["max_drawdown"], chal_s["max_drawdown"])
-    sealed_cagr_giveback_pp = cagr_delta_pp(
-        base_s["cagr"], chal_s["cagr"], missing_as_zero=True
-    )
-
-    proposal = {
-        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+def report(result: LedgerResult) -> None:
+    held, sealed = result.held, result.sealed or {}
+    payload = {
+        "generated_at_utc": utc_now(),
         "label": "E45_DUAL_PAPER_OBSERVE_SLEEVE",
         "status": "OPERATING_OBSERVE",
         "live_wire": False,
@@ -143,28 +49,17 @@ def main() -> None:
         "e45_profile": E45_PROFILE_DEFAULT,
         "claim_status": CLAIM_STATUS,
         "primary_comparable_mdd": e45.PRIMARY_COMPARABLE_MDD,
-        "current_live_clip": {"financial_lo": soft_frozen.SOFT_FROZEN_FIN_LO, "financial_hi": soft_frozen.SOFT_FROZEN_FIN_HI},
+        "current_live_clip": {
+            "financial_lo": soft_frozen.SOFT_FROZEN_FIN_LO,
+            "financial_hi": soft_frozen.SOFT_FROZEN_FIN_HI,
+        },
         "exact_t1": {
-            "base": books[BASE_ID]["exact_t1_ok"],
-            "chal_e45_e3": books[CHAL_ID]["exact_t1_ok"],
+            "base": result.books[BASE_ID]["exact_t1_ok"],
+            "chal_e45_e3": result.books[CHAL_ID]["exact_t1_ok"],
         },
-        "books": books,
-        "heldout_delta_vs_base": {
-            "mdd_improve_pp": mdd_improve_pp,
-            "cagr_giveback_pp": cagr_giveback_pp,
-        },
-        "sealed_delta_vs_base": {
-            "mdd_improve_pp": sealed_mdd_improve_pp,
-            "cagr_giveback_pp": sealed_cagr_giveback_pp,
-        },
-        "parent_artifacts": [
-            "research/ops/E45_LIVE_STITCH_CHARTER.md",
-            "research/ops/E45_STAGE12_STATUS.md",
-            "research/e45/E45_DUAL_PAPER_OBSERVE_DESIGN.md",
-            "research/ops/E45_DUAL_PAPER_OBSERVE_CHECKLIST.md",
-            "research/ops/E45_MDD_1316_NARRATIVE_RETIREMENT.md",
-            "research/ops/E45_DUAL_PAPER_OBSERVE_OPEN.md",
-        ],
+        "books": result.books,
+        "heldout_delta_vs_base": held,
+        "sealed_delta_vs_base": sealed,
         "ops_checklist": [
             "Keep Soft-Frozen live default = BASE until a separate stitch / cutover PR",
             "Run BASE + CHAL_E45_E3 paper ledgers in parallel with month-end monitor",
@@ -178,90 +73,56 @@ def main() -> None:
             "Soft-Frozen clip flip",
             "DEFAULT books flip away from E22_v2s_tw",
             "Invent replacement for retired MDD narrative",
-            "Bundle FIN50 / L4 / BLEND / odd-lot / tax DEFAULT promote",
         ],
     }
-
-    (OUT / "reports" / "e45_dual_paper_observe.json").write_text(
-        json.dumps(proposal, indent=2) + "\n"
-    )
-    (RESEARCH / "E45_DUAL_PAPER_OBSERVE.json").write_text(json.dumps(proposal, indent=2) + "\n")
-
     lines = [
         "# E45 Dual-Paper Observe Sleeve",
         "",
-        f"Generated: `{proposal['generated_at_utc']}`",
-        "Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged** "
-        "(`Financial∈[0.50,0.95]`); live stitch **FORBIDDEN**.",
+        f"Generated: `{payload['generated_at_utc']}`",
+        "Status: **OPERATING OBSERVE** — Soft-Frozen live default **unchanged**; live stitch **FORBIDDEN**.",
         "",
         "## Locked paper books",
         "",
-        f"- **{BASE_ID}**: Soft-Frozen early-stack Exact T+1 + E22_v2s formal books",
-        f"- **{CHAL_ID}**: same stack + E45 `{E45_PROFILE_DEFAULT}` exposure overlay",
+        f"- **{BASE_ID}**: Soft-Frozen early-stack Exact T+1",
+        f"- **{CHAL_ID}**: same stack + full E45 `{E45_PROFILE_DEFAULT}` exposure",
         f"- Retired MDD narrative: **`{CLAIM_STATUS}`** (do not cite)",
-        f"- Primary comparable MDD: E1.1 val **{e45.PRIMARY_COMPARABLE_MDD:.2%}** (dated lineage)",
         "",
         "## Dual paper metrics",
         "",
-        "| Book | Window | CAGR | MDD | n_days | Exact T+1 |",
-        "|---|---|---:|---:|---:|---|",
-    ]
-    for book, payload in books.items():
-        for wname, st in payload["windows"].items():
-            cagr = st["cagr"]
-            mdd = st["max_drawdown"]
-            lines.append(
-                f"| {book} | {wname} | "
-                f"{(cagr if cagr is not None else float('nan')):.2%} | "
-                f"{(mdd if mdd is not None else float('nan')):.2%} | "
-                f"{st['n_days']} | {payload['exact_t1_ok']} |"
-            )
-    lines += [
+        *standard_metric_table(result.books),
         "",
-        f"Held-out vs BASE: MDD improve **{mdd_improve_pp:.2f} pp**; "
-        f"CAGR giveback **{cagr_giveback_pp:.2f} pp**.",
-        f"Sealed vs BASE: MDD improve **{sealed_mdd_improve_pp:.2f} pp**; "
-        f"CAGR giveback **{sealed_cagr_giveback_pp:.2f} pp**.",
-        "",
-        "## Ops checklist",
-        "",
-    ]
-    for i, item in enumerate(proposal["ops_checklist"], 1):
-        lines.append(f"{i}. {item}")
-    lines += ["", "## Explicit non-goals", ""]
-    for item in proposal["non_goals"]:
-        lines.append(f"- {item}")
-    lines += [
+        f"Held-out vs BASE: MDD improve **{held.get('mdd_improve_pp')} pp**; "
+        f"CAGR giveback **{held.get('cagr_giveback_pp')} pp**.",
+        f"Sealed vs BASE: MDD improve **{sealed.get('mdd_improve_pp')} pp**; "
+        f"CAGR giveback **{sealed.get('cagr_giveback_pp')} pp**.",
         "",
         "## Label",
         "",
         "`E45_DUAL_PAPER_OBSERVE_SLEEVE`",
         "",
-        "Artifacts:",
-        f"- `{OUT / 'reports' / 'e45_dual_paper_observe.json'}`",
-        f"- `{OUT / 'outputs' / 'dual_paper_nav_compare.csv'}`",
-        "",
     ]
-    md = "\n".join(lines)
-    (OUT / "E45_DUAL_PAPER_OBSERVE.md").write_text(md)
-    (RESEARCH / "E45_DUAL_PAPER_OBSERVE.md").write_text(md)
-    print(
-        json.dumps(
-            {
-                "label": proposal["label"],
-                "status": proposal["status"],
-                "live_wire": False,
-                "stitch_authorized": False,
-                "heldout_mdd_improve_pp": mdd_improve_pp,
-                "heldout_cagr_giveback_pp": cagr_giveback_pp,
-                "sealed_mdd_improve_pp": sealed_mdd_improve_pp,
-                "sealed_cagr_giveback_pp": sealed_cagr_giveback_pp,
-            },
-            indent=2,
-        )
+    write_json_md_pair(
+        out_dir=OUT,
+        report_stem="e45_dual_paper_observe",
+        payload=payload,
+        md_lines=lines,
+        mirror_dirs=(RESEARCH,),
+        mirror_stem="E45_DUAL_PAPER_OBSERVE",
     )
-    print("EXIT:0")
 
+
+SPEC = DualPaperLedgerSpec(
+    label="E45_DUAL_PAPER_OBSERVE_SLEEVE",
+    out_dir=OUT,
+    base_id=BASE_ID,
+    chal_id=CHAL_ID,
+    prepare=prepare,
+    base_nav_name="base_e16_e18_e22_v2s_daily_nav.csv",
+    chal_nav_name="chal_e45_e3_daily_nav.csv",
+    compare_chal_col="nav_chal_e45_e3",
+    compare_rel_col="rel_chal_vs_base",
+    report_fn=report,
+)
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(cli_main(SPEC))
