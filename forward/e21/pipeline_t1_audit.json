@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-14",
+  "date": "2026-09-15",
   "exact_t1_ok": true,
   "same_bar_fills": 0,
   "fills_checked": 0,
@@ -19,7 +19,7 @@
   "dh_exposure_live": true,
   "dh_id": "DH_dd06_vz1p0",
   "dh_exposure": 1.0,
-  "e16_financial_pre_dh": 0.8742411434848937,
+  "e16_financial_pre_dh": 0.8806808576136702,
   "live_cutover_ballot": "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE",
   "live_wire": true,
   "owns_qc_status": false,

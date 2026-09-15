@@ -1,4 +1,4 @@
 model,validation_pass,blind_confirmed,final_oos_cagr_delta,final_oos_sharpe_delta,crisis_entries,status
-E10B_static10_telco,False,False,-0.054374608046795725,0.05859766058005178,0,reject_or_watch
-E10C_staged_reentry,True,True,-0.05437460804679484,0.058597660580054,5,qualified_shadow
-E10D_relative_harvest_reentry,True,True,-0.05437460804679595,0.05859766058004823,5,qualified_shadow
+E10B_static10_telco,False,False,-0.04779836908110324,0.07276922115116946,0,reject_or_watch
+E10C_staged_reentry,True,True,-0.0477983690811028,0.07276922115117124,5,qualified_shadow
+E10D_relative_harvest_reentry,True,True,-0.04779836908110369,0.07276922115116635,5,qualified_shadow

@@ -4,16 +4,16 @@
   "candidate_days_by_window": {
     "1d": 15,
     "2d": 30,
-    "3d": 44,
-    "5d": 66
+    "3d": 45,
+    "5d": 67
   },
-  "guarded_shock_days": 82,
+  "guarded_shock_days": 83,
   "independent_events": 25,
   "0050_qc": {
     "status": "PASS",
-    "rows": 4088,
+    "rows": 4089,
     "first_date": "2010-01-04",
-    "latest_date": "2026-09-14",
+    "latest_date": "2026-09-15",
     "duplicates": 0,
     "nulls": 0
   },
