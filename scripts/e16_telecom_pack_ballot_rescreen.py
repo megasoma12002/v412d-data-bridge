@@ -7,13 +7,11 @@ Financial held at FIN_PRE_EXDIV_KD (live).
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_frozen_base as soft
 from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats
 from e50_early_stack_combined_nav import FIN, TEL, e16_features, simulate_core

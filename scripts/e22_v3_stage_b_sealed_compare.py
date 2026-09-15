@@ -12,13 +12,11 @@ Method:
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e22_dividend_accounting as formal
 import e22_v3_sandbox_books as sandbox
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP

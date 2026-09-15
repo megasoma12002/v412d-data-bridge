@@ -20,8 +20,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-import sys
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from research_metric_helpers import abs_mdd, mdd_delta_pp
 from e45_paper_harness import WINDOWS_STANDARD
 

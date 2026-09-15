@@ -8,12 +8,10 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from tw_share_lots import BOARD_LOT
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -102,7 +100,6 @@ def main() -> None:
     fin = sig["e16_financial"].astype(float)
     sleeve_sum = sig[["e16_financial", "e16_telecom", "e16_0050"]].sum(1)
     # Soft-Frozen Financial envelope — import bounds, never hardcode.
-    sys.path.insert(0, str(Path(__file__).resolve().parent))
     from e16_soft_frozen_base import FIN, TEL, SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
 
     # DH live cutover may scale sleeve weights by dh_exposure (<1 → residual cash).

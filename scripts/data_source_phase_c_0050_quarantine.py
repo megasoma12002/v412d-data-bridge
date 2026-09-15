@@ -18,9 +18,7 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-import sys
 
-sys.path.insert(0, str(ROOT / "scripts"))
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 
 REPRO_C = ROOT / "repro/data-source-phase-c"

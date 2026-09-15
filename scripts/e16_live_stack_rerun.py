@@ -12,14 +12,12 @@ Writes research/ops/LIVE_STACK_RERUN.{md,json} + repro/.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_clip_search_challenger as clip
 import e16_soft_frozen_base as soft
 import e45_crisis_core as e45

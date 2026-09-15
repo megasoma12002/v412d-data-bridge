@@ -7,7 +7,6 @@ Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -15,7 +14,6 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from e45_paper_harness import BOOK_BLEND_A05, BOOK_BLEND_A25, BOOK_FULL, CLAIM_STATUS
 

@@ -83,12 +83,13 @@ Derived from E45 paper landmines and prior code-review rounds (#55 Soft-Frozen s
 ## 12. Hygiene check
 
 ```bash
-PYTHONPATH=scripts python3 scripts/check_e45_paper_hygiene.py
-PYTHONPATH=scripts python3 scripts/check_project_coding_hygiene.py
+pip install -e .
+python3 scripts/check_e45_paper_hygiene.py
+python3 scripts/check_project_coding_hygiene.py
 ```
 
 E45 checker: banned claim labels, fee/sleeve monkeypatches, non-canonical book IDs, **dual book/window aliases**.  
-Project checker: also metric `or 0`/`or 9` on CAGR/MDD and Soft-Frozen clip list literals outside the single-source module.
+Project checker: also metric `or 0`/`or 9` on CAGR/MDD, Soft-Frozen clip list literals outside the single-source module, and **`sys.path.insert/append`** (use the installable package).
 
 Coverage map: `research/ops/CODING_STANDARDS_COVERAGE.md`.
 

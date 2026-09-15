@@ -41,7 +41,6 @@ def main() -> int:
         help="Required. Human authorized clearing historical live fills/NAV and replaying.",
     )
     ap.add_argument("--start-date", default="2026-08-24")
-    sys.path.insert(0, str(ROOT / "scripts"))
     from portfolio_capital import DEFAULT_CAPITAL
 
     ap.add_argument("--capital", type=float, default=DEFAULT_CAPITAL)

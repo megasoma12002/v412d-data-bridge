@@ -17,14 +17,12 @@ No live-wire. No Soft-Frozen edit.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 from research_metric_helpers import cagr_delta_pp, abs_mdd, cagr_value
 import e22_dividend_accounting as e22div

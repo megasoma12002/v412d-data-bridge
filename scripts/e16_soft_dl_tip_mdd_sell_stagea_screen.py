@@ -10,14 +10,12 @@ Soft observe KEEP: SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05 · Sleeve KEEP · no fu
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_dl_4track_stagea_screen as base
 import e16_soft_frozen_base as soft
 from soft_assist_helpers import (

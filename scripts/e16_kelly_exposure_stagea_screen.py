@@ -9,7 +9,6 @@ Actuator: kelly_exposure via e45_exposure on paper LIVE_STACK twin
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from itertools import product
 from pathlib import Path
@@ -17,8 +16,6 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
-
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import e16_soft_frozen_base as soft
 from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats

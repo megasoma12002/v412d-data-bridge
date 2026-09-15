@@ -9,13 +9,11 @@ Does NOT edit Soft-Frozen / DEFAULT / authorize stitch / open new observe.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e45_paper_harness import WINDOWS_STANDARD
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core

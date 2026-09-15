@@ -16,13 +16,11 @@ Does NOT edit live clips. Does NOT open cutover automatically.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e22_dividend_accounting as e22div
 from e16_fin_cap_oof_challenger import e16_features_fin_cap

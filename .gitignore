@@ -8,6 +8,10 @@ repro/**/scratch/
 .DS_Store
 .venv/
 venv/
+*.egg-info/
+.eggs/
+dist/
+build/
 
 # ARCHIVE repro bulky dumps (same policy as repro/.gitignore)
 archive/repro/**/outputs/*fills*.csv

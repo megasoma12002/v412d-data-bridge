@@ -11,13 +11,11 @@ Financial dollars are routed to PRIV_R3R4 only for this paper observe.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_frozen_base as soft
 from e16_fin_priv_native_optimize import (
     CAPITAL,

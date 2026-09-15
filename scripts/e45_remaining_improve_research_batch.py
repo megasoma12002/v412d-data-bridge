@@ -24,7 +24,6 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from e45_paper_harness import CLAIM_STATUS, WINDOWS_STANDARD, window_stats
 from research_metric_helpers import cagr_delta_pp, mdd_delta_pp

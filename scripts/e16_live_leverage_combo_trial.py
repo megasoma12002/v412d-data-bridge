@@ -29,7 +29,6 @@ from __future__ import annotations
 import argparse
 import itertools
 import json
-import sys
 from datetime import date
 from pathlib import Path
 
@@ -37,8 +36,6 @@ import numpy as np
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
-
 from e45_paper_harness import WINDOWS_STANDARD, window_stats  # noqa: E402
 from research_metric_helpers import utility_score  # noqa: E402
 

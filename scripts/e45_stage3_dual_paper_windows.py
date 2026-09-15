@@ -8,13 +8,11 @@ rewrite forward/e21 history.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e45_paper_harness import WINDOWS_STANDARD
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from e50_early_stack_combined_nav import ALL, e16_features, simulate_core, nav_stats

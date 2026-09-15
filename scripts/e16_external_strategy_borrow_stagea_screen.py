@@ -9,13 +9,11 @@ Does not scrape login walls · does not swap Soft/Sleeve observe · no fuse.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_dl_4track_stagea_screen as base
 import e16_soft_frozen_base as soft
 from soft_assist_helpers import (

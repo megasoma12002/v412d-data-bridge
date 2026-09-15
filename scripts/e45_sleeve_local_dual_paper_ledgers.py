@@ -12,13 +12,11 @@ Does NOT edit Soft-Frozen / DEFAULT / authorize stitch.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e45_paper_harness import (
     BOOK_BASE,
     CLAIM_STATUS,

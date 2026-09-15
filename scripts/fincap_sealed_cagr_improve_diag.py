@@ -15,14 +15,12 @@ Forbidden: Soft-Frozen flip; retune FIN_CAP_50 / L1 / L2 / L3 locks as live cuts
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e22_dividend_accounting as e22div
 from e16_fin_cap_oof_challenger import e16_features_fin_cap

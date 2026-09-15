@@ -2,10 +2,8 @@
 """FUSE_ADDITIVE dual-paper month-end monitor — thin wrapper over ops_dual_paper_month_end."""
 from __future__ import annotations
 
-import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from fuse_additive_helpers import BASE_ID, FUSE_ID
 from ops_dual_paper_month_end import DualPaperMonitorSpec, ROOT, cli_main
 

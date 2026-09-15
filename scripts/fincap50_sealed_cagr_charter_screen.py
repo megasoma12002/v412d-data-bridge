@@ -11,13 +11,11 @@ Never flips Soft-Frozen. Never cutover. Never retunes FIN_CAP_50 lock.
 from __future__ import annotations
 
 import json
-import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
 from e50_early_stack_combined_nav import e16_features, simulate_core
 import e22_dividend_accounting as e22div

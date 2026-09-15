@@ -19,7 +19,6 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e22_dividend_accounting as e22div
 import e16_soft_frozen_base as soft_frozen
 from e16_soft_frozen_base import FIN, TEL

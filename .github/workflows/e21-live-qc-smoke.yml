@@ -11,9 +11,16 @@ on:
     paths:
       - "scripts/e21_qc.py"
       - "scripts/e21_forward_pipeline.py"
+      - "scripts/live_config.py"
+      - "scripts/live_execution.py"
+      - "scripts/live_ledger.py"
+      - "scripts/live_strategy_targets.py"
       - "scripts/e16_soft_frozen_base.py"
       - "scripts/ops_alert_scan.py"
       - "scripts/e22_gap6_fidelity_kpi.py"
+      - "pyproject.toml"
+      - "setup.py"
+      - "Dockerfile"
       - "forward/e21/**"
       - ".github/workflows/e21-live-qc-smoke.yml"
   push:
@@ -21,9 +28,16 @@ on:
     paths:
       - "scripts/e21_qc.py"
       - "scripts/e21_forward_pipeline.py"
+      - "scripts/live_config.py"
+      - "scripts/live_execution.py"
+      - "scripts/live_ledger.py"
+      - "scripts/live_strategy_targets.py"
       - "scripts/e16_soft_frozen_base.py"
       - "scripts/ops_alert_scan.py"
       - "scripts/e22_gap6_fidelity_kpi.py"
+      - "pyproject.toml"
+      - "setup.py"
+      - "Dockerfile"
       - "forward/e21/**"
       - ".github/workflows/e21-live-qc-smoke.yml"
 
@@ -43,7 +57,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install --disable-pip-version-check pandas
+      - run: pip install --disable-pip-version-check -e .
       - name: Fail-closed E21 QC (canonical forward/e21)
         run: python3 scripts/e21_qc.py --state-dir forward/e21
       - name: Show qc_status.json (Exact T+1 fields)

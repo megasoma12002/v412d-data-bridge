@@ -41,7 +41,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install --disable-pip-version-check numpy pandas
+      - run: pip install --disable-pip-version-check -e .
       - name: Run month-end paper pack
         env:
           EVENT_NAME: ${{ github.event_name }}

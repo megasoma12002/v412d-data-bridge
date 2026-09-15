@@ -8,13 +8,11 @@ from __future__ import annotations
 
 import itertools
 import json
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
 import e16_soft_frozen_base as soft
 import e16_soft_frozen_4sleeve as sf4
 import e50_early_stack_combined_nav as e50
