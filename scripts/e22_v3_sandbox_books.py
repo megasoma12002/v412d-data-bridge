@@ -414,7 +414,7 @@ def smoke_compare() -> dict:
     tax10_net = formal_credit * 0.90
     tax20_net = formal_credit * 0.80
     checks = {
-        "default_untouched": base.DEFAULT_BOOKS_VERSION == base.E22_V2S_TW,
+        "default_untouched": base.DEFAULT_BOOKS_VERSION == base.E22_V2S_TW_EFFEX,
         "recv_ex_cash_zero": abs(rows[E22_V3_RECV_PAY]["cash_after_ex"]) < 1e-9,
         "recv_ex_receivable_eq_formal": abs(
             rows[E22_V3_RECV_PAY]["receivable_after_ex"] - formal_credit

@@ -65,7 +65,8 @@ def simulate_event(
     days = _daterange(start, end)
 
     clocks = {
-        "formal_ex": formal.DEFAULT_BOOKS_VERSION,
+        "formal_raw_ex": formal.E22_V2S_TW,
+        "formal_effex": formal.E22_V2S_TW_EFFEX,
         "recv_pay": sandbox.E22_V3_RECV_PAY,
         "recv_pay_effdelay": sandbox.E22_V3_RECV_PAY_EFFDELAY,
     }
@@ -79,13 +80,19 @@ def simulate_event(
         recv: dict[str, float] = {}
         skip: set[str] = set()
         for day in days:
-            if version == formal.DEFAULT_BOOKS_VERSION:
+            if version in formal.KNOWN_VERSIONS:
                 pos, cash, res = formal.apply_dividends_for_date(
-                    day, pos, cash, [ev], version=version, skip_keys=skip
+                    day,
+                    pos,
+                    cash,
+                    [ev],
+                    version=version,
+                    skip_keys=skip,
+                    session_dates=sessions,
                 )
                 skip |= _detail_keys(res)
                 recv_sum = 0.0
-                recv_credit = float(res.cash_credit)  # formal goes straight to cash
+                recv_credit = 0.0
                 settled = float(res.cash_credit)
                 if settled > 0 and cash_first[label] is None:
                     cash_first[label] = day
@@ -137,7 +144,8 @@ def simulate_event(
         "delay_pay_days": (eff_pay - raw_pay).days,
         "first_receivable_date": recv_first,
         "first_cash_date": cash_first,
-        "soft_frozen_untouched": True,
+        "soft_frozen_default": formal.DEFAULT_BOOKS_VERSION,
+        "d5_accept": True,
         "timelines": timelines,
     }
 
@@ -221,7 +229,7 @@ def main() -> int:
             ],
         )
         w.writeheader()
-        for clock in ("formal_ex", "recv_pay", "recv_pay_effdelay"):
+        for clock in ("formal_raw_ex", "formal_effex", "recv_pay", "recv_pay_effdelay"):
             w.writerow(
                 {
                     "clock": clock,

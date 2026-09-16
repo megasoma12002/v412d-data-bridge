@@ -141,7 +141,7 @@ See `research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md` · `scripts/twse_divide
 
 | # | Item | Soft-Frozen |
 |---|---|---|
-| **6.9a** | Ex trading day postponed when board closed | Observe only — books still match raw `cash_ex_date` |
+| **6.9a** | Ex trading day postponed when board closed | **Live** `E22_v2s_tw_effex` |
 | **6.9b** | Payment delayed by bank/票交所 停班 (often regional) | Observe heuristic / future MOPS overlay |
 | **6.9c** | Stock / CIL pay-date delay | Same class as 6.9b |
 

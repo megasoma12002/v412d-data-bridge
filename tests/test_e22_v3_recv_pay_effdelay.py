@@ -126,17 +126,19 @@ class EffDelaySandboxTests(unittest.TestCase):
         self.assertEqual(recv_s, {})
         self.assertEqual(res_s.details[0]["effective_payment"], "2026-07-13")
 
-    def test_formal_still_credits_raw_ex(self) -> None:
+    def test_formal_legacy_tw_still_credits_raw_ex(self) -> None:
         _, cash, res = formal.apply_dividends_for_date(
             "2026-07-10",
             self.pos0,
             0.0,
             [self.ev],
-            version=formal.DEFAULT_BOOKS_VERSION,
+            version=formal.E22_V2S_TW,
         )
         self.assertAlmostEqual(cash, 2500.0)
         self.assertAlmostEqual(res.cash_credit, 2500.0)
-        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V2S_TW)
+
+    def test_default_is_effex_after_d5_accept(self) -> None:
+        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V2S_TW_EFFEX)
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 # TWSE 除權息入帳延後 — research charter
 
-Status: **RESEARCH / CHARTER** — observe-only · Soft-Frozen / `E22_v2s_tw` / LIVE_* unchanged  
+Status: **LIVE D5 ACCEPT** — Soft-Frozen DEFAULT `E22_v2s_tw_effex` · sandbox / MOPS overlay observe  
 Depends on: session + settlement calendar (#237 / #239) · Gap #6 dividend timing  
 Related: `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md` · `e22_dividend_accounting.py`
 
@@ -17,7 +17,7 @@ Dividend:  停止過戶 / 基準日 → 除權息交易日(ex) → … lag … �
 |---|---|---|
 | Exact T+1 fill | `fills.csv` | Yes — no fill on closed board |
 | Custody trade T+2 | `twse_t2_settlement_estimate` | Yes — `is_settlement` (+ 封關僅交割) |
-| Formal books cash | **`cash_ex_date`** (`E22_v2s_tw`) | **No** — calendar match only |
+| Formal books cash | **`effective_ex_trade`** (`E22_v2s_tw_effex`, D5 ACCEPT) | Yes — snaps closed-board ex |
 | Custody cash spendable | usually **`payment_date`** | Often yes — bank/票交所 停班顺延 |
 | Sandbox pay books | `E22_v3_recv_pay*` | Uses ledger `payment_date` as-is; **no** auto-shift |
 
@@ -60,8 +60,9 @@ Dividend ex→pay is the **fourth clock** already called out in the T+2 charter 
 
 | Layer | Behavior |
 |---|---|
-| `e22_dividend_accounting.apply_dividends_for_date` | Credits cash/stock when **`ex_date == day`**; stores `payment_date` unused for cash |
-| `E22_v2s_tw` live | `cash_timing: cash_ex_date` · `stock_timing: stock_ex_date` |
+| `e22_dividend_accounting.apply_dividends_for_date` | Live DEFAULT **`E22_v2s_tw_effex`**: credit when **effective_ex_trade == day**; legacy `E22_v2s_tw` still raw `ex_date` |
+| `E22_v2s_tw` | Preserved baseline — raw `cash_ex_date` / `stock_ex_date` |
+| `E22_v2s_tw_effex` | **Live Soft-Frozen DEFAULT** (D5 ACCEPT 2026-09-16) |
 | `E22_v3_recv_pay*` sandbox | Receivable on ex; cash on ledger **payment_date** — **no** holiday/typhoon snap |
 | Session / T+2 modules | Do **not** call into dividend apply |
 | Ex→pay KPI | Calendar-day lag report — not session-day |
@@ -70,7 +71,7 @@ Dividend ex→pay is the **fourth clock** already called out in the T+2 charter 
 
 | # | Item | Status |
 |---|---|---|
-| **6.9a** | Ex trading day postponed when board closed | Not in ledger refresh / apply |
+| **6.9a** | Ex trading day postponed when board closed | **Live ✅** via `E22_v2s_tw_effex` |
 | **6.9b** | Payment delayed by bank/票交所 停班 | Overlay ✅ (`mops_payment_amendments.csv`); live MOPS 重大訊息仍靠 ops/fixture parse |
 | **6.9c** | Stock / CIL pay-date delay | Same class as 6.9b; books still credit shares on `stock_ex_date` |
 
@@ -105,10 +106,11 @@ effective_payment(payment_date):
 
 | Option | Behavior | When |
 |---|---|---|
-| **S0 (today)** | Credit on raw ledger `ex_date` | Soft-Frozen keep |
-| **S1 observe** | Emit `dividend_delay_estimate.csv`: raw vs effective ex/pay | Ops pack |
+| **S0 (legacy)** | Credit on raw ledger `ex_date` | `E22_v2s_tw` preserved |
+| **S1 observe** | Emit `dividend_delay_estimate.csv`: raw vs effective ex/pay | Ops pack ✅ |
 | **S2 sandbox** | `E22_v3_recv_pay_effdelay` cash on **effective_payment** (recv on effective ex) | Stage B extension ✅ |
-| **S3** | Refresh `ex_date` from TWSE same-day ex list after typhoon | Event pipeline ACCEPT |
+| **S3** | Refresh `ex_date` from TWSE same-day ex list after typhoon | Event pipeline (optional) |
+| **S0→effex (D5)** | Soft-Frozen DEFAULT = `E22_v2s_tw_effex` | **ACCEPT 2026-09-16 ✅** |
 
 ---
 
@@ -171,7 +173,7 @@ Sandbox version: `E22_v3_recv_pay_effdelay` — receivable on `effective_ex_trad
 | **D2** | CLI estimate over `e22_dividend_events.csv` → repro CSV + summary JSON (cash/stock legs; no books mutate) | Observe ✅ |
 | **D3** | Sandbox `E22_v3_recv_pay_effdelay` + `twse_dividend_delay_sim.py` day-walk | Sandbox ✅ |
 | **D4** | MOPS payment-amendment overlay (`e22_mops_payment_amendments.py` + CSV) wired into estimate / effdelay | Ops ✅ |
-| **D5** | Soft-Frozen books change | **Explicit ACCEPT** — not this PR |
+| **D5** | Soft-Frozen books → `E22_v2s_tw_effex` | **ACCEPT 2026-09-16 ✅** |
 
 Parallel: keep trade T+2 (#239) and session MIS/CAP (#237) as SSOT for board/settlement calendars.
 
