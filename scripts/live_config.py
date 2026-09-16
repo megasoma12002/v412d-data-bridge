@@ -59,8 +59,10 @@ class LiveConfig:
 
     # Fill backend — default paper Exact T+1. Broker / dry_run via CLI or E21_FILL_PORT.
     # FillPort name: paper | dry_run | broker (P4 fixture-ack shadow; Soft-Frozen stays paper).
-    # True broker live write requires E21_BROKER_WRITE_LIVE=1 + separate ACCEPT.
+    # True broker live write requires ALL of:
+    #   broker_live_write_accepted=True (ACCEPT PR), E21_BROKER_WRITE_LIVE=1, and broker_safety gates.
     fill_port: str = "paper"
+    broker_live_write_accepted: bool = False  # Soft-Frozen KEEP until ACCEPT PR
 
 
 # Module-level singleton used by the live pipeline (edit + ACCEPT PR to cut over).
