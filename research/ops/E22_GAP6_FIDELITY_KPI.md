@@ -1,22 +1,23 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-12T13:42:14.721557+00:00`
-Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED** to E22_v2s_tw (forward-only).
+Generated: `2026-09-16T05:19:37.752630+00:00`
+Status: **OPS / RESEARCH** — Soft-Frozen D5 ACCEPT; live DEFAULT **`E22_v2s_tw_effex`** (TW odd-lot + effective ex).
 
 ## Code wire
 
-- Default books: **`E22_v2s_tw`** (expect `E22_v2s_tw`)
+- Default books: **`E22_v2s_tw_effex`** (expect `E22_v2s_tw_effex`)
 - E21 imports/apply: **True** / **True**
 - Formal status wired: **True**
 - Code OK: **True**
 
 ## Live ledger evidence (`forward/e21`)
 
-- asof: **2026-09-11**
+- asof: **2026-09-15**
 - `e22_books_version` in portfolio_state: **True**
 - `e22_manifest` in portfolio_state: **True**
 - `e22_version` col in nav.csv: **True**
 - `dividends_applied.csv`: **False** (n=0)
+- observed books version: **E22_v2s_tw** (ops debt until next forward if still `E22_v2s_tw`)
 - Live evidence OK: **True**
 
 ## Ex → pay lag (ledger completeness already green; this is timing fidelity)
@@ -28,15 +29,16 @@ Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED
 
 - Open cash events with ex≤asof < pay: **0**
 - Codes: `none`
-- Formal books credit cash on cash_ex_date (no receivable asset). This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.
+- Formal books credit cash on effective_ex_trade under E22_v2s_tw_effex (legacy E22_v2s_tw = raw cash_ex_date; no receivable asset). This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.
 
 ## Dividend tax sensitivity (report-only; formal = TAX0)
 
 - No dividends_applied.csv yet — tax sensitivity deferred until live applies cash events.
 
-## Odd-lot (`E22_v2s_tw`)
+## Odd-lot / D5 (`E22_v2s_tw` → `E22_v2s_tw_effex`)
 
-- Status: **PROMOTED** — formal default `E22_v2s_tw`
+- Status: **PROMOTED** — live default `E22_v2s_tw_effex` (legacy TW `E22_v2s_tw`)
+- Ballot: `ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16`
 - Promote checklist: `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`
 
 ## Flags

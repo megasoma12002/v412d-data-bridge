@@ -33,7 +33,18 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --disable-pip-version-check -e .
+      - name: TWSE session preflight (P2)
+        id: session_gate
+        run: |
+          set -euo pipefail
+          mkdir -p forward
+          ASOF="$(TZ=Asia/Taipei date +%F)"
+          PYTHONPATH=scripts python scripts/twse_forward_session_gate.py \
+            --asof "$ASOF" \
+            --out-dir forward \
+            --github-output "$GITHUB_OUTPUT"
       - name: Build canonical historical raw layer
+        if: steps.session_gate.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           SOURCE_REPO: yukishirotsubasa/tw-stock-data-release
@@ -50,22 +61,31 @@ jobs:
           find downloads -name '*.zip' -type f | sort | while read -r z; do unzip -oq "$z" -d extracted; done
           python scripts/v412e0_build_history.py --input-dir extracted --output-dir artifact --start-year 2004
       - name: Supplement recent official TWSE sessions
+        if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/v412f_append_twse_daily.py --raw artifact/v412e0_12stocks_history_raw.csv --lookback-days 14
       - name: Build adjusted evaluation layer
+        if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/v412e0_fetch_adjusted.py
       - name: Update complete telecom and 0050 raw OHLCV
+        if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/fetch_telecom_0050_ohlcv.py
       - name: Generate frozen D and E4 signals
+        if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/v412f_forward_paper.py --raw artifact/v412e0_12stocks_history_raw.csv --adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --forward-dir forward --start-date 2026-08-24
       - name: Generate E6 dividend-lifecycle shadow
+        if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/v412e6_dividend_lifecycle.py --raw artifact/v412e0_12stocks_history_raw.csv --adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --out forward/e6 --end-date "$(date -u +%F)"
       - name: Generate E9 telecom defensive sleeve shadow
+        if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/v412e9_telecom_sleeve.py --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --out forward/e9 --end-date "$(date -u +%F)"
       - name: Generate E10 telecom harvest and financial reentry shadow
+        if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/v412e10_telecom_harvest_reentry.py --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --telecom-adjusted forward/e9/e9_telecom_adjusted.csv --out forward/e10
       - name: Generate E10S3 TAIEX and 0050 shadow monitor
+        if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/v412e10s2_thousand_point_0050.py --financial-adjusted artifact/v412e0_12stocks_corporate_action_adjusted.csv --telecom-adjusted forward/e9/e9_telecom_adjusted.csv --out forward/e10s2 --end-date "$(date -u +%F)"
       - name: Build E21 canonical market panel
+        if: steps.session_gate.outputs.skip != 'true'
         run: |
           python scripts/e21_build_market.py \
             --financial-raw artifact/v412e0_12stocks_history_raw.csv \
@@ -76,10 +96,12 @@ jobs:
             --taiex forward/e10s2/e10s2_taiex.csv \
             --out forward/e21/live_market.csv
       - name: Run frozen E16 plus E18 real-open forward ledger
+        if: steps.session_gate.outputs.skip != 'true'
         # Capital: omit --capital so scripts/portfolio_capital.DEFAULT_CAPITAL (500M) applies.
         # Hardcoding 3M here is a wipe/recovery landmine after ACCEPT live capital 500M.
         run: python scripts/e21_forward_pipeline.py --market forward/e21/live_market.csv --state-dir forward/e21
       - name: Fail-closed E21 QC
+        if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/e21_qc.py --state-dir forward/e21
       - name: Commit immutable forward records
         run: |
@@ -88,7 +110,11 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add forward/
           if git diff --cached --quiet; then exit 0; fi
-          git commit -m "forward: update frozen E16 E18 E21 real-open ledgers"
+          if [ "${{ steps.session_gate.outputs.skip }}" = "true" ]; then
+            git commit -m "forward: session_skip ${{ steps.session_gate.outputs.asof }} ${{ steps.session_gate.outputs.status }}"
+          else
+            git commit -m "forward: update frozen E16 E18 E21 real-open ledgers"
+          fi
           git pull --rebase
           git push
       - uses: actions/upload-artifact@v4
@@ -101,4 +127,4 @@ jobs:
             artifact/v412f_twse_append_qc.json
             out_telecom_0050/qc_summary.json
           retention-days: 90
-          if-no-files-found: error
+          if-no-files-found: ignore

@@ -1,23 +1,26 @@
 {
-  "generated_at_utc": "2026-09-12T13:42:14.721557+00:00",
+  "generated_at_utc": "2026-09-16T05:19:37.752630+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
-  "soft_frozen_unchanged": true,
-  "formal_books": "E22_v2s_tw",
+  "soft_frozen_unchanged": false,
+  "d5_accept": true,
+  "formal_books": "E22_v2s_tw_effex",
   "code_wire": {
-    "default_books_version": "E22_v2s_tw",
+    "default_books_version": "E22_v2s_tw_effex",
     "default_is_e22_v2s": false,
     "e21_imports_e22_module": true,
     "e21_calls_apply_dividends": true,
     "e21_references_books_version": true,
     "formal_status_wired_e21": true,
     "tw_variant_named": "E22_v2s_tw",
-    "tw_is_default": true,
+    "effex_variant_named": "E22_v2s_tw_effex",
+    "tw_is_default": false,
+    "effex_is_default": true,
     "code_ok": true
   },
   "live_ledger": {
     "live_dir": "/workspace/forward/e21",
-    "asof": "2026-09-11",
+    "asof": "2026-09-15",
     "portfolio_has_e22_books_version": true,
     "portfolio_has_e22_manifest": true,
     "nav_has_e22_version_col": true,
@@ -46,10 +49,10 @@
     }
   },
   "receivable_stub": {
-    "asof": "2026-09-11",
+    "asof": "2026-09-15",
     "n_cash_events_in_receivable_window": 0,
     "codes": [],
-    "policy_note": "Formal books credit cash on cash_ex_date (no receivable asset). This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.",
+    "policy_note": "Formal books credit cash on effective_ex_trade under E22_v2s_tw_effex (legacy E22_v2s_tw = raw cash_ex_date; no receivable asset). This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.",
     "severity": "Med for cash/liquidity timing; Low for raw-price total-return mark"
   },
   "div_tax_sensitivity": {
@@ -62,16 +65,18 @@
   },
   "odd_lot": {
     "status": "PROMOTED",
-    "formal_default": "E22_v2s_tw",
+    "formal_default": "E22_v2s_tw_effex",
     "named_tw_variant": "E22_v2s_tw",
+    "effex_variant": "E22_v2s_tw_effex",
     "promote_checklist": "research/ops/ODD_LOT_PROMOTE_CHECKLIST.md",
     "closeout": "research/e22/GAP65_ODD_LOT_CLOSEOUT.md",
-    "human_ballot": "ACCEPT promote 2026-09-05",
+    "human_ballot": "ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16",
     "do_not_set_default_without_human_pr": false
   },
   "gap_refs": {
     "brief": "research/e22/EXECUTION_DETAIL_GAP6_BRIEF.md",
-    "handling": "research/gaps/E50A_AND_EXEC_GAP_HANDLING.md"
+    "handling": "research/gaps/E50A_AND_EXEC_GAP_HANDLING.md",
+    "delay_charter": "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md"
   },
   "flags": [],
   "code_ok": true,

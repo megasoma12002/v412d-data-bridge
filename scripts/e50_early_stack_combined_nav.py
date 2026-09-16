@@ -182,7 +182,7 @@ def simulate_core(
         if apply_stock_div is False:
             e22_version = e22div.E22_V2
         else:
-            e22_version = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw (promoted live default)
+            e22_version = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw_effex (D5 ACCEPT)
     if apply_stock_div is None:
         apply_stock_div = e22_version in e22div.STOCK_SHARE_VERSIONS
     cm = float(cost_multiple)

@@ -34,25 +34,27 @@ Authority for “is today a session?” must be **exchange/official**, not a har
 
 ```text
 data/calendars/twse_sessions_YYYY.csv
-  date,is_session,kind,name,source,notes
+  date,is_session,is_settlement,kind,name,source,notes
 ```
 
 **Build order**
-1. Seed from TWSE `holidaySchedule` → every day of the year (weekend / `CLOSED_HOLIDAY` / planned `SESSION`)
-2. Overlay NCDR CAP Taipei full/AM → `CLOSED_TYPHOON_INTENT`
+1. Seed from TWSE `holidaySchedule` → every day of the year (weekend / `CLOSED_HOLIDAY` / `SETTLEMENT_ONLY` 封關交割日 / planned `SESSION`)
+2. Overlay NCDR CAP Taipei full/AM → `CLOSED_TYPHOON_INTENT` (board **and** settlement off)
 3. Overlay MI_INDEX empty on planned sessions (only **after close** / past days) → `CLOSED_TYPHOON_OR_NODATA`
 4. Optional TAIFEX TX day-session (`futDataDown`) corroboration — same closed/open fact class; **not** morning early-open
 5. Optional `session_overrides.csv`
 
+`is_session` = cash board (Exact T+1 / broker).  
+`is_settlement` = custody T+2 business day — **includes** 封關後「無交易僅交割」, **excludes** 春节放假 and typhoon full close.
+
+`nth_session_after` → trading. `nth_settlement_after` → T+2 estimate.
+
 ```bash
 python3 scripts/twse_session_sources.py --build-year 2026 \
   --mi-facts-from 2026-07-01 \
-  --taifex-facts-from 2026-07-01 \
   --out data/calendars/twse_sessions_2026.csv
-python3 scripts/twse_session_sources.py --asof 2026-07-10   # uses pinned CSV if present
+python3 scripts/twse_session_sources.py --asof 2026-07-10
 ```
-
-`nth_session_after(sessions, fill_date, 2)` uses `is_session=1` rows — shared by Exact T+1 / T+2 estimate.
 
 Weekend that is also on `holidaySchedule` (e.g. 2026-02-28) is labeled **`CLOSED_HOLIDAY`**, not bare `WEEKEND`.
 
@@ -212,9 +214,10 @@ CAP parse rules (offline-tested patterns):
 - ATOM: `https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33` → each `entry/link@href` `.cap`
 - Keep `status=Actual`; ignore Test/Draft
 - `areaDesc` must be city-wide **臺北市** (district-only e.g. 臺北市中正區 → ignore for TWSE)
-- Target date from description: `今天` / `明天` / `M/D`
+- Target date(s) from description: `今天` / `明天` / `M/D` / **`M/D至M/D` ranges** / `今天及明天` (consecutive) → `CapWorkStop.target_dates`
 - Class: 下午停班 → AFTERNOON (market open); 上午/全日/已達停止上班 → close
 
+**Consecutive typhoon days:** session list + `nth_session_after` already skip any streak of `is_session=0`. CAP range parse demotes each day in the streak for intent; MI_INDEX empty still pins past closed days. See T+2 charter §3.2.
 `holidaySchedule` JSON is year-ahead 国定假 only — never lists typhoon.
 
 ### 4.2 TAIFEX futures open — useful overlay, not early-open detector
@@ -278,9 +281,9 @@ Pre-09:05: auction may still be forming → UNKNOWN even on open days is OK. Aft
 |---|---|---|
 | **P0 doc** | This charter | — |
 | **P1** | `twse_session_calendar.is_session_day` + holiday CSV / `holidaySchedule` fetch + unit tests | Block unknown ports |
-| **P2** | Wire GHA forward job skip + `session_skip` artifact | Paper noise↓ |
-| **P3** | MI_INDEX + NCDR CAP + **MIS intraday OPEN** — `twse_session_sources.py` | **Required before live submit** |
-| **P4** | Broker `FillPort` calls P3 preflight fail-closed | ACCEPT cutover PR |
+| **P2** | Wire GHA forward job skip + `session_skip` artifact | Paper noise↓ ✅ (`twse_forward_session_gate` + `v412f-forward-paper`) |
+| **P3** | MI_INDEX + NCDR CAP + **MIS intraday OPEN** — `twse_session_sources.py` | **Required before live submit** ✅ |
+| **P4** | Broker `FillPort` calls P3 preflight fail-closed | Skeleton ✅ (`broker` port); live adapter still ACCEPT |
 
 ## 7. Acceptance tests (when coded)
 

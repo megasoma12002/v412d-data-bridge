@@ -21,6 +21,11 @@ E22_v2s_tw (Taiwan corporate-practice CIL for gap 6.5):
       畸零股 = 0.x 股 → CIL at 面額 (this module)
   - Does NOT model 拼湊整股 window or 劃撥費用充抵 (optional haircuts).
 
+E22_v2s_tw_effex (D5 ACCEPT 2026-09-16):
+  - Same TW CIL as E22_v2s_tw
+  - Cash/stock books fire on ``effective_ex_trade`` (session calendar snap)
+    so typhoon board-close days do not credit on a non-session ex date.
+
 E22_v2 (preserved): cash credit only — SOFT_FROZEN cash-only baseline label.
 
 Do not silently rewrite prior version semantics; call sites must pick a version id.
@@ -30,21 +35,26 @@ from __future__ import annotations
 import csv
 import math
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, Sequence
 
 E22_V2 = "E22_v2"  # cash-only baseline (preserved)
 E22_V2S = "E22_v2s"  # formal books: cash + stock share increase (float ok)
 E22_V2S_CIL = "E22_v2s_cil"  # floor + CIL at raw close (research mark)
 E22_V2S_TW = "E22_v2s_tw"  # floor + CIL at par NT$10, yuan truncate (TW practice)
-DEFAULT_BOOKS_VERSION = E22_V2S_TW  # promoted 2026-09-05: odd-lot TW practice (human ACCEPT)
+E22_V2S_TW_EFFEX = "E22_v2s_tw_effex"  # TW + effective_ex_trade (D5 ACCEPT)
+DEFAULT_BOOKS_VERSION = E22_V2S_TW_EFFEX  # promoted 2026-09-16: typhoon ex snap (human ACCEPT)
 PAR_VALUE_TWD = 10.0
-STOCK_SHARE_VERSIONS = {E22_V2S, E22_V2S_CIL, E22_V2S_TW}
-FLOOR_CIL_VERSIONS = {E22_V2S_CIL, E22_V2S_TW}
-KNOWN_VERSIONS = {E22_V2, E22_V2S, E22_V2S_CIL, E22_V2S_TW}
+STOCK_SHARE_VERSIONS = {E22_V2S, E22_V2S_CIL, E22_V2S_TW, E22_V2S_TW_EFFEX}
+FLOOR_CIL_VERSIONS = {E22_V2S_CIL, E22_V2S_TW, E22_V2S_TW_EFFEX}
+TW_PAR_CIL_VERSIONS = {E22_V2S_TW, E22_V2S_TW_EFFEX}
+EFFEX_VERSIONS = {E22_V2S_TW_EFFEX}
+KNOWN_VERSIONS = {E22_V2, E22_V2S, E22_V2S_CIL, E22_V2S_TW, E22_V2S_TW_EFFEX}
 
 DIV_PATH_DEFAULT = Path("data/dividend_events/e22_dividend_events.csv")
 PAR_TABLE_DEFAULT = Path("data/corporate_actions/par_value_by_code.csv")
+CALENDAR_DIR_DEFAULT = Path("data/calendars")
 
 
 def stock_share_factor(yuan_per_share: float) -> float:
@@ -185,6 +195,51 @@ def events_on_date(events: Iterable[DivEvent], day: str) -> list[DivEvent]:
     return [e for e in events if e.ex_date == day]
 
 
+def load_session_dates_for_calendar_year(
+    day: str,
+    *,
+    calendar_dir: Path | str = CALENDAR_DIR_DEFAULT,
+) -> list[date] | None:
+    """Load pinned ``twse_sessions_YYYY.csv`` for the day year; None if missing."""
+    try:
+        year = int(str(day)[:4])
+    except ValueError:
+        return None
+    path = Path(calendar_dir) / f"twse_sessions_{year}.csv"
+    if not path.exists():
+        return None
+    from twse_session_sources import read_calendar_csv, session_dates
+
+    return list(session_dates(read_calendar_csv(path)))
+
+
+def events_on_apply_day(
+    events: Iterable[DivEvent],
+    day: str,
+    *,
+    session_dates: Sequence[date] | None = None,
+    use_effective_ex: bool = False,
+) -> list[DivEvent]:
+    """Select events whose books day is ``day`` (raw ex or effective_ex_trade)."""
+    day = str(day)[:10]
+    if not use_effective_ex or not session_dates:
+        return events_on_date(events, day)
+    from twse_dividend_delay_estimate import effective_ex_trade
+
+    out: list[DivEvent] = []
+    for ev in events:
+        raw = str(ev.ex_date or "")[:10]
+        if len(raw) != 10:
+            continue
+        try:
+            ex_d = date.fromisoformat(raw)
+        except ValueError:
+            continue
+        if effective_ex_trade(ex_d, session_dates).isoformat() == day:
+            out.append(ev)
+    return out
+
+
 def apply_dividends_for_date(
     day: str,
     positions: dict[str, float],
@@ -195,13 +250,17 @@ def apply_dividends_for_date(
     skip_keys: set[str] | None = None,
     mark_prices: dict[str, float] | None = None,
     par_table: dict[str, float] | None = None,
+    session_dates: Sequence[date] | None = None,
+    calendar_dir: Path | str = CALENDAR_DIR_DEFAULT,
 ) -> tuple[dict[str, float], float, DivApplyResult]:
     """Apply E22 dividends for one calendar/trading date onto books.
 
     Idempotent when ``skip_keys`` contains ``f\"{kind}:{code}:{ex_date}\"``.
 
     ``E22_v2s_cil`` needs ``mark_prices[code]`` = raw close.
-    ``E22_v2s_tw`` uses per-code verified par from ``par_table`` (else provisional 10).
+    ``E22_v2s_tw`` / ``E22_v2s_tw_effex`` use per-code verified par from ``par_table``
+    (else provisional 10). Effex versions match ``effective_ex_trade`` when a
+    session calendar is available.
     """
     version = version or DEFAULT_BOOKS_VERSION
     if version not in KNOWN_VERSIONS:
@@ -214,7 +273,14 @@ def apply_dividends_for_date(
     result = DivApplyResult()
     day = str(day)[:10]
 
-    for ev in events_on_date(events, day):
+    use_eff = version in EFFEX_VERSIONS
+    sessions = session_dates
+    if use_eff and sessions is None:
+        sessions = load_session_dates_for_calendar_year(day, calendar_dir=calendar_dir)
+
+    for ev in events_on_apply_day(
+        events, day, session_dates=sessions, use_effective_ex=use_eff
+    ):
         key = f"{ev.kind}:{ev.code}:{ev.ex_date}"
         if key in skip:
             continue
@@ -226,19 +292,21 @@ def apply_dividends_for_date(
             cash_out += credit
             result.cash_credit += credit
             result.cash_events += 1
-            result.details.append(
-                {
-                    "key": key,
-                    "kind": "cash",
-                    "code": ev.code,
-                    "ex_date": ev.ex_date,
-                    "payment_date": ev.payment_date,
-                    "amount_per_share": ev.amount,
-                    "shares": sh,
-                    "cash_credit": credit,
-                    "version": version,
-                }
-            )
+            detail = {
+                "key": key,
+                "kind": "cash",
+                "code": ev.code,
+                "ex_date": ev.ex_date,
+                "payment_date": ev.payment_date,
+                "amount_per_share": ev.amount,
+                "shares": sh,
+                "cash_credit": credit,
+                "version": version,
+            }
+            if use_eff:
+                detail["effective_ex_trade"] = day
+                detail["cash_timing"] = "effective_ex_trade"
+            result.details.append(detail)
         elif ev.kind == "stock":
             if version == E22_V2:
                 continue
@@ -255,10 +323,12 @@ def apply_dividends_for_date(
                 "shares_before": sh,
                 "version": version,
             }
+            if use_eff:
+                detail["effective_ex_trade"] = day
             if version in FLOOR_CIL_VERSIONS:
                 whole = float(math.floor(gross))
                 frac = gross - whole
-                if version == E22_V2S_TW:
+                if version in TW_PAR_CIL_VERSIONS:
                     px = par_for_code(ev.code, pars)
                     cil = tw_par_cil_cash(frac, px)
                     mark_label = f"par_{px:g}"
@@ -303,7 +373,7 @@ def apply_dividends_for_date(
 def version_manifest(version: str = DEFAULT_BOOKS_VERSION) -> dict:
     version = version or DEFAULT_BOOKS_VERSION
     stock_on = version in STOCK_SHARE_VERSIONS
-    if version == E22_V2S_TW:
+    if version in TW_PAR_CIL_VERSIONS:
         frac_pol = "floor_shares_plus_cil_at_par_10_yuan_truncate"
     elif version == E22_V2S_CIL:
         frac_pol = "floor_shares_plus_cash_in_lieu_at_raw_close"
@@ -311,24 +381,35 @@ def version_manifest(version: str = DEFAULT_BOOKS_VERSION) -> dict:
         frac_pol = "float_keep"
     else:
         frac_pol = "n/a"
+    cash_timing = (
+        "cash_effective_ex_trade" if version in EFFEX_VERSIONS else "cash_ex_date"
+    )
+    stock_timing = (
+        "stock_effective_ex_trade"
+        if version in EFFEX_VERSIONS and stock_on
+        else ("stock_ex_date" if stock_on else "not_applied")
+    )
     return {
         "e22_books_version": version,
         "preserved_baseline": E22_V2,
         "formal_books": E22_V2S,
         "tw_practice_candidate": E22_V2S_TW,
+        "tw_effex_live": E22_V2S_TW_EFFEX,
         "market_cil_research": E22_V2S_CIL,
         "signal_price": "adj_close",
         "books_price": "raw_open_close",
-        "cash_timing": "cash_ex_date",
-        "stock_timing": "stock_ex_date" if stock_on else "not_applied",
+        "cash_timing": cash_timing,
+        "stock_timing": stock_timing,
         "stock_factor": "1 + stock_dividend/10" if stock_on else None,
         "fractional_policy": frac_pol,
-        "par_value_twd": PAR_VALUE_TWD if version == E22_V2S_TW else None,
+        "par_value_twd": PAR_VALUE_TWD if version in TW_PAR_CIL_VERSIONS else None,
         "board_lot_forced": False,
         "forbids_adj_close_nav_with_stock_shares": True,
+        "d5_accept": version in EFFEX_VERSIONS,
         "legal_refs": (
             ["Company_Act_240", "issuer_announcement_par_cash_for_odd_lot"]
-            if version == E22_V2S_TW
+            if version in TW_PAR_CIL_VERSIONS
             else None
         ),
+        "delay_charter": "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md",
     }

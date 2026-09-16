@@ -16,7 +16,7 @@ Research continuation of the V4.12 / E50 program.
 | Role architecture (not live wiring) | `FROZEN_STRATEGY_SPEC.md` |
 | Research rules | `E50_RESEARCH_OPERATING_RULES.md`, `CURSOR_RULES.md` |
 
-**Live today:** E16 + Exact T+1 E18 + **E22_v2s_tw** · Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · board-lot **1000** · path `forward/e21/`. Legacy A05 blend stitch unused (`LIVE_E45_STITCH=False`). SSOT: `research/ops/OPS_STATUS.md` · portfolio `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`.
+**Live today:** E16 + Exact T+1 E18 + **E22_v2s_tw_effex** · Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · board-lot **1000** · path `forward/e21/`. Legacy A05 blend stitch unused (`LIVE_E45_STITCH=False`). SSOT: `research/ops/OPS_STATUS.md` · portfolio `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`.
 
 **Dev setup:** `pip install -e .` (package `e21-ops`; flat `scripts/*.py` imports). Do not add `sys.path` shims.  
 **Docker QC:** `bash scripts/ops_docker_qc_smoke.sh` (bind-mounts repo; image has no broker secrets).

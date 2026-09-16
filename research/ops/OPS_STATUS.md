@@ -12,7 +12,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
 | Item | Value |
 |---|---|
-| Stack | **E16 + Exact T+1 E18 + E22_v2s_tw** |
+| Stack | **E16 + Exact T+1 E18 + E22_v2s_tw_effex** |
 | Path | `forward/e21/` |
 | Capital / lot | **500M** · board-lot **1000** |
 | Clip | Financial **[0.60, 0.90]** via `scripts/e16_soft_frozen_base.py` |
@@ -46,9 +46,10 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Live modularization | `research/ops/ARCH_LIVE_MODULARIZE.md` (`live_config` / strategy / execution / ledger) |
 | Installable package | `pyproject.toml` · `pip install -e .` · ops image `Dockerfile` |
 | Docker QC smoke | `scripts/ops_docker_qc_smoke.sh` · `docker compose` · workflow `docker-ops-qc-smoke` |
-| Fill ports | `live_execution.FillPort` · default `paper` · `dry_run` shadow (no live wire) |
-| TWSE session calendar | `data/calendars/twse_sessions_YYYY.csv` · `twse_session_sources.py` (holidaySchedule + typhoon overlays) |
-| T+2 settlement estimate | charter `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md` (observe-only; ≠ Exact T+1 cash) |
+| TWSE session calendar | `twse_session_sources.py` + P2 `twse_forward_session_gate` in `v412f-forward-paper` (`session_skip.json`) |
+| Fill ports | `paper` · `dry_run` · P4 `broker` preflight fail-closed (no live adapter yet) |
+| T+2 settlement estimate | `scripts/twse_t2_settlement_estimate.py` · charter (observe-only) |
+| 除權息入帳延後 | D0–D5: live DEFAULT `E22_v2s_tw_effex` (effective ex); MOPS overlay; sandbox effdelay; Soft-Frozen ACCEPT 2026-09-16 |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 

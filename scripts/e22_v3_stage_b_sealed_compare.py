@@ -42,7 +42,15 @@ def wealth(cash: float, recv: dict, pos: dict, px: dict) -> float:
     return float(cash) + float(sum(recv.values())) + equity
 
 
-def run_book(version: str, events, days: list[str], px_by_day: dict) -> pd.DataFrame:
+def run_book(
+    version: str,
+    events,
+    days: list[str],
+    px_by_day: dict,
+    *,
+    sessions=None,
+    settlements=None,
+) -> pd.DataFrame:
     pos = {c: HOLD_SHARES for c in FIN}
     cash = 0.0
     recv: dict[str, float] = {}
@@ -60,7 +68,15 @@ def run_book(version: str, events, days: list[str], px_by_day: dict) -> pd.DataF
             settled = 0.0
         else:
             pos, cash, recv, res = sandbox.apply_sandbox_for_date(
-                day, pos, cash, recv, events, version=version, skip_keys=skip
+                day,
+                pos,
+                cash,
+                recv,
+                events,
+                version=version,
+                skip_keys=skip,
+                session_dates=sessions,
+                settlement_dates=settlements,
             )
             skip |= detail_keys(res)
             recv_sum = float(sum(recv.values()))
@@ -129,11 +145,30 @@ def main() -> int:
         )
     ]
 
+    sessions = settlements = None
+    try:
+        from twse_session_sources import (
+            DEFAULT_CALENDAR_DIR,
+            read_calendar_csv,
+            session_dates,
+            settlement_dates,
+        )
+
+        cal_path = DEFAULT_CALENDAR_DIR / "twse_sessions_2026.csv"
+        if cal_path.exists():
+            cal = read_calendar_csv(cal_path)
+            sessions = session_dates(cal)
+            settlements = settlement_dates(cal)
+    except Exception as exc:  # pragma: no cover — calendar optional for pre-2026 sealed
+        print(f"warn: session calendar not loaded ({exc})", flush=True)
+
     versions = [formal.DEFAULT_BOOKS_VERSION] + sorted(sandbox.SANDBOX_VERSIONS)
     frames: dict[str, pd.DataFrame] = {}
     for ver in versions:
         print(f"run {ver} days={len(days)} events={len(events)}", flush=True)
-        df = run_book(ver, events, days, px_by_day)
+        df = run_book(
+            ver, events, days, px_by_day, sessions=sessions, settlements=settlements
+        )
         frames[ver] = df
         df.to_csv(out_o / f"{ver.replace('.', '_')}_daily_wealth.csv", index=False)
 

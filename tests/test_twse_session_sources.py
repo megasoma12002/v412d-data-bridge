@@ -28,6 +28,7 @@ from twse_session_sources import (
     _classify_work_stop,
     _is_taipei,
     _parse_target_date,
+    _parse_target_dates,
 )
 
 SAMPLE_SCHEDULE = {
@@ -35,6 +36,11 @@ SAMPLE_SCHEDULE = {
     "data": [
         ["2026-01-01", "中華民國開國紀念日", "依規定放假1日。"],
         ["2026-01-02", "國曆新年開始交易日", "國曆新年開始交易。"],
+        ["2026-02-11", "農曆春節前最後交易日", "農曆春節前最後交易。"],
+        ["2026-02-12", "市場無交易，僅辦理結算交割作業", ""],
+        ["2026-02-13", "市場無交易，僅辦理結算交割作業", ""],
+        ["2026-02-16", "農曆除夕及春節", "放假。"],
+        ["2026-02-23", "農曆春節後開始交易日", "農曆春節後開始交易。"],
         ["2026-02-27", "和平紀念日", "補假。"],
         ["2026-02-28", "和平紀念日", "依規定放假1日。"],
         ["2026-05-01", "勞動節", "依規定放假1日。"],
@@ -62,6 +68,42 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(_parse_target_date("明天停止上班、停止上課", sent), date(2026, 8, 23))
         self.assertEqual(_parse_target_date("8/23已達停止上班及上課標準", sent), date(2026, 8, 23))
 
+    def test_parse_consecutive_target_dates(self) -> None:
+        sent = datetime(2026, 8, 2, 19, 0, tzinfo=TAIPEI)
+        self.assertEqual(
+            _parse_target_dates("臺北市:今天及明天停止上班、停止上課", sent),
+            [date(2026, 8, 2), date(2026, 8, 3)],
+        )
+        self.assertEqual(
+            _parse_target_dates("8/3至8/5已達停止上班及上課標準", sent),
+            [date(2026, 8, 3), date(2026, 8, 4), date(2026, 8, 5)],
+        )
+
+    def test_cap_range_overlay_closes_each_day(self) -> None:
+        cal = build_annual_calendar(2026, SAMPLE_SCHEDULE)
+        caps = [
+            CapWorkStop(
+                area="臺北市",
+                sent="",
+                effective="",
+                expires="",
+                headline="",
+                description="8/3至8/5停止上班",
+                status="Actual",
+                msg_type="Alert",
+                href="",
+                target_date=date(2026, 8, 3),
+                target_dates=[date(2026, 8, 3), date(2026, 8, 4), date(2026, 8, 5)],
+                class_="FULL_DAY",
+                is_taipei=True,
+            )
+        ]
+        out = apply_overlays(cal, caps=caps)
+        for d in (date(2026, 8, 3), date(2026, 8, 4), date(2026, 8, 5)):
+            rec = lookup_day(out, d)
+            assert rec is not None
+            self.assertFalse(rec.is_session)
+            self.assertEqual(rec.kind, "CLOSED_TYPHOON_INTENT")
 
 class AnnualCalendarTests(unittest.TestCase):
     def test_build_integrates_holidays_and_weekends(self) -> None:
@@ -75,6 +117,16 @@ class AnnualCalendarTests(unittest.TestCase):
         assert jan2 is not None
         self.assertTrue(jan2.is_session)
         self.assertEqual(jan2.kind, "SESSION")
+        # 封關後交割日：無交易但 is_settlement
+        d212 = lookup_day(cal, date(2026, 2, 12))
+        assert d212 is not None
+        self.assertFalse(d212.is_session)
+        self.assertTrue(d212.is_settlement)
+        self.assertEqual(d212.kind, "SETTLEMENT_ONLY")
+        d216 = lookup_day(cal, date(2026, 2, 16))
+        assert d216 is not None
+        self.assertFalse(d216.is_session)
+        self.assertFalse(d216.is_settlement)
         # 2026-02-28 is Saturday + holiday → closed holiday, not bare weekend
         feb28 = lookup_day(cal, date(2026, 2, 28))
         assert feb28 is not None

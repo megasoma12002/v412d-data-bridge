@@ -3,7 +3,7 @@
 
 Formal price split:
   - E16 signals: adj_close
-  - Books / fills / NAV: raw open/close + E22_v2s_tw (畸零股面額 CIL)
+  - Books / fills / NAV: raw open/close + E22_v2s_tw_effex (畸零股面額 CIL + effective ex)
   - Order sizing: 一張 = 1000 股 (整股); no 零股 (1–999) continuous-book orders
 
 Architecture (2026-09-14 modularize):
@@ -68,12 +68,18 @@ def main():
     ap.add_argument(
         "--e22-version",
         default=E22_BOOKS_VERSION,
-        choices=[e22div.E22_V2, e22div.E22_V2S, e22div.E22_V2S_CIL, e22div.E22_V2S_TW],
+        choices=[
+            e22div.E22_V2,
+            e22div.E22_V2S,
+            e22div.E22_V2S_CIL,
+            e22div.E22_V2S_TW,
+            e22div.E22_V2S_TW_EFFEX,
+        ],
     )
     ap.add_argument(
         "--confirm-e22-version-override",
         action="store_true",
-        help="Required when --e22-version differs from live DEFAULT (E22_v2s_tw).",
+        help="Required when --e22-version differs from live DEFAULT (E22_v2s_tw_effex).",
     )
     ap.add_argument(
         "--allow-noncanonical-paths",
