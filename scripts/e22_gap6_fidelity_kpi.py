@@ -2,14 +2,14 @@
 """Gap #6 execution-fidelity KPI — RESEARCH / OPS only.
 
 Complements e22_data_quality_kpi (ledger field blank-rates) with:
-  - Code default assert (E22_v2s_tw after 2026-09-05 promote)
+  - Code default assert (E22_v2s_tw_effex after D5 ACCEPT 2026-09-16)
   - Live forward/e21 evidence that books fields are present
   - Ex→pay lag stats (timing gap magnitude)
   - Open receivable-window stub (universe events, not position-weighted)
   - Dividend-tax haircut sensitivity on live dividends_applied (if any)
-  - Odd-lot promote status (E22_v2s_tw PROMOTED)
+  - Odd-lot promote status (E22_v2s_tw family PROMOTED; live DEFAULT = effex)
 
-Does not edit Soft-Frozen, does not cutover, does not rewrite forward/e21.
+Does not cutover, does not rewrite forward/e21 history.
 """
 from __future__ import annotations
 
@@ -71,9 +71,11 @@ def _code_wire_assert() -> dict:
         "e21_references_books_version": mentions_default,
         "formal_status_wired_e21": wired,
         "tw_variant_named": e22div.E22_V2S_TW,
+        "effex_variant_named": e22div.E22_V2S_TW_EFFEX,
         "tw_is_default": default == e22div.E22_V2S_TW,
+        "effex_is_default": default == e22div.E22_V2S_TW_EFFEX,
         "code_ok": bool(
-            default == e22div.E22_V2S_TW
+            default == e22div.E22_V2S_TW_EFFEX
             and imports_e22
             and mentions_apply
             and (wired is True or wired is None)
@@ -176,7 +178,8 @@ def main() -> int:
         "n_cash_events_in_receivable_window": int(len(open_recv)),
         "codes": sorted({str(c) for c in open_recv["code"].astype(str)}) if len(open_recv) else [],
         "policy_note": (
-            "Formal books credit cash on cash_ex_date (no receivable asset). "
+            "Formal books credit cash on effective_ex_trade under E22_v2s_tw_effex "
+            "(legacy E22_v2s_tw = raw cash_ex_date; no receivable asset). "
             "This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL."
         ),
         "severity": "Med for cash/liquidity timing; Low for raw-price total-return mark",
@@ -186,17 +189,21 @@ def main() -> int:
 
     odd_lot = {
         "status": "PROMOTED",
-        "formal_default": e22div.E22_V2S_TW,
+        "formal_default": e22div.E22_V2S_TW_EFFEX,
         "named_tw_variant": e22div.E22_V2S_TW,
+        "effex_variant": e22div.E22_V2S_TW_EFFEX,
         "promote_checklist": "research/ops/ODD_LOT_PROMOTE_CHECKLIST.md",
         "closeout": "research/e22/GAP65_ODD_LOT_CLOSEOUT.md",
-        "human_ballot": "ACCEPT promote 2026-09-05",
+        "human_ballot": "ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16",
         "do_not_set_default_without_human_pr": False,
     }
 
     flags: list[str] = []
-    if not code.get("tw_is_default"):
-        flags.append(f"DEFAULT_BOOKS_VERSION={code['default_books_version']} (expected E22_v2s_tw)")
+    if not code.get("effex_is_default"):
+        flags.append(
+            f"DEFAULT_BOOKS_VERSION={code['default_books_version']} "
+            f"(expected {e22div.E22_V2S_TW_EFFEX})"
+        )
     if not code["e21_imports_e22_module"] or not code["e21_calls_apply_dividends"]:
         flags.append("e21_forward_pipeline missing E22 apply wiring")
     if code.get("formal_status_wired_e21") is False:
@@ -208,8 +215,9 @@ def main() -> int:
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "E22_GAP6_FIDELITY_KPI",
         "live_wire": False,
-        "soft_frozen_unchanged": True,
-        "formal_books": e22div.E22_V2S_TW,
+        "soft_frozen_unchanged": False,
+        "d5_accept": True,
+        "formal_books": e22div.E22_V2S_TW_EFFEX,
         "code_wire": code,
         "live_ledger": live,
         "ex_to_pay_lag": {"cash": cash_lag, "stock": stock_lag},
@@ -219,9 +227,10 @@ def main() -> int:
         "gap_refs": {
             "brief": "research/e22/EXECUTION_DETAIL_GAP6_BRIEF.md",
             "handling": "research/gaps/E50A_AND_EXEC_GAP_HANDLING.md",
+            "delay_charter": "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md",
         },
         "flags": flags,
-        "code_ok": bool(code["code_ok"] and code.get("tw_is_default")),
+        "code_ok": bool(code["code_ok"] and code.get("effex_is_default")),
         "live_evidence_ok": bool(live["live_ledger_e22_fields_present"]),
         "kpi_ok": None,  # filled below
         # CI smoke gate = code wire only. Full kpi_ok still requires live evidence
@@ -246,11 +255,11 @@ def main() -> int:
         "# E22 Gap #6 Fidelity KPI",
         "",
         f"Generated: `{kpi['generated_at_utc']}`",
-        "Status: **OPS / RESEARCH** — Soft-Frozen unchanged; odd-lot default **PROMOTED** to E22_v2s_tw (forward-only).",
+        "Status: **OPS / RESEARCH** — Soft-Frozen D5 ACCEPT; live DEFAULT **`E22_v2s_tw_effex`** (TW odd-lot + effective ex).",
         "",
         "## Code wire",
         "",
-        f"- Default books: **`{code['default_books_version']}`** (expect `E22_v2s_tw`)",
+        f"- Default books: **`{code['default_books_version']}`** (expect `E22_v2s_tw_effex`)",
         f"- E21 imports/apply: **{code['e21_imports_e22_module']}** / **{code['e21_calls_apply_dividends']}**",
         f"- Formal status wired: **{code.get('formal_status_wired_e21')}**",
         f"- Code OK: **{kpi['code_ok']}**",
@@ -262,6 +271,7 @@ def main() -> int:
         f"- `e22_manifest` in portfolio_state: **{live['portfolio_has_e22_manifest']}**",
         f"- `e22_version` col in nav.csv: **{live['nav_has_e22_version_col']}**",
         f"- `dividends_applied.csv`: **{live['dividends_applied_exists']}** (n={live['dividends_applied_n']})",
+        f"- observed books version: **{live.get('observed_books_version')}** (ops debt until next forward if still `E22_v2s_tw`)",
         f"- Live evidence OK: **{kpi['live_evidence_ok']}**",
     ]
     if live.get("note"):
@@ -291,9 +301,10 @@ def main() -> int:
         lines.append(f"- {tax.get('note')}")
     lines += [
         "",
-        "## Odd-lot (`E22_v2s_tw`)",
+        "## Odd-lot / D5 (`E22_v2s_tw` → `E22_v2s_tw_effex`)",
         "",
-        f"- Status: **{odd_lot['status']}** — formal default `{odd_lot['formal_default']}`",
+        f"- Status: **{odd_lot['status']}** — live default `{odd_lot['formal_default']}` (legacy TW `{odd_lot['named_tw_variant']}`)",
+        f"- Ballot: `{odd_lot['human_ballot']}`",
         f"- Promote checklist: `{odd_lot['promote_checklist']}`",
         "",
         "## Flags",
