@@ -85,6 +85,7 @@ True broker adapter (Shioaji / SPARK / …) maps exchange acks → same fill row
 
 1. Cloud long-run deploy of the Docker ops image (GCP asia-east1 candidate; pick single writer for `forward/e21`)
 2. One broker skeleton behind `FillPort` (dry-run map first; 元大 SPARK ≠ repo 元大股息抓取)
-3. TWSE session calendar (holidays / typhoon) — charter `TWSE_SESSION_CALENDAR_CHARTER.md`; **required before broker live submit**
+3. TWSE session calendar (holidays / typhoon) — `TWSE_SESSION_CALENDAR_CHARTER.md` (#237); **required before broker live submit**
+4. T+2 settlement cash **estimate** (observe-only) — `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md`; depends on session offset
 
 Label: `ARCH_LIVE_MODULARIZE__DOCKER_QC__FILL_PORT`

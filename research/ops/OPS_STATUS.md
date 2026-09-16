@@ -48,6 +48,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Docker QC smoke | `scripts/ops_docker_qc_smoke.sh` · `docker compose` · workflow `docker-ops-qc-smoke` |
 | Fill ports | `live_execution.FillPort` · default `paper` · `dry_run` shadow (no live wire) |
 | TWSE session calendar | `data/calendars/twse_sessions_YYYY.csv` · `twse_session_sources.py` (holidaySchedule + typhoon overlays) |
+| T+2 settlement estimate | charter `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md` (observe-only; ≠ Exact T+1 cash) |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 
