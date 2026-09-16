@@ -48,15 +48,16 @@ Where live already set:
 
 - `gross = quantity * fill_price`
 - `fill_price = open * (1 ± SLIP)` (paper)
-- BUY: `fees_tax = gross * BUY_FEE` (`0.001425 * 0.6`)
-- SELL: `fees_tax = gross * (SELL_FEE + TAX_STOCK|TAX_ETF)`
+- BUY: `fees_tax = max(gross * BUY_FEE, MIN_COMMISSION)` (`BUY_FEE=0.001425*0.6`, `MIN_COMMISSION=20`)
+- SELL: `fees_tax = max(gross * SELL_FEE, MIN_COMMISSION) + gross * (TAX_STOCK|TAX_ETF)`
 
 **v1 deliberately ignores** (document as known gap → later ACCEPT):
 
-- Broker **minimum commission** (often NT$20 / 整股)
 - Day-trade tax preference (0.15%) — live stack is not day-trade SSOT
 - Pre-fund / 全額交割 / 處置股 specials
 - Netting presentation is **by settle_date** (sum fills settling that day), which matches “一天一筆淨額交割款” at investor–broker level
+
+~~Broker **minimum commission** (often NT$20 / 整股)~~ — **ACCEPT closed** via `live_ledger.MIN_COMMISSION` / `fees_tax_for`.
 
 Optional v1.1 column: `settlement_cash_no_slip` using unslipped open — for broker price reconcile only.
 
@@ -197,7 +198,7 @@ P4 fill port: `BrokerPreflightFillPort` maps session-gated **fixture acks** → 
 4. Double-counting: subtracting unsettled from NAV without saying “estimate”.  
 5. Pending `orders.csv` rows (not yet filled) → **no** settlement obligation.  
 6. Slippage in `gross` ≠ exchange print — OK for paper estimate; broker reconcile uses exchange price.  
-7. Min commission / day-trade tax — v1 gap.  
+7. Min commission — **closed** (`MIN_COMMISSION=20`); day-trade tax — v1 gap (not SSOT).  
 8. Changing live cash timing to T+2 inside pipeline — **forbidden** without ACCEPT (would rewrite Exact T+1 economics).
 
 ---
