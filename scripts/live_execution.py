@@ -14,6 +14,20 @@ from typing import Any, Protocol
 
 import pandas as pd
 
+from broker_safety import (
+    DEFAULT_DAILY_LIVE_FILL_BUDGET,
+    already_in_fills_csv,
+    already_submitted,
+    append_submit_log,
+    build_submit_intents,
+    count_live_submits_today,
+    live_write_gate,
+    load_circuit,
+    trip_circuit,
+    validate_ack_against_pending,
+    write_submit_intents,
+)
+from live_config import LIVE
 from live_ledger import (
     BUY_FEE,
     SELL_FEE,
@@ -218,15 +232,16 @@ class DryRunFillPort:
 
 
 class BrokerPreflightFillPort:
-    """P4: session-gated broker submit + optional fixture ack adapter.
+    """P4: session-gated broker submit + fixture ack adapter + pre-API 防呆.
 
     Never invents fills when OPEN without acks. Fixture acks under
     ``state_dir/broker_acks/{asof}.json`` map into the canonical fill schema
     and write **shadow** artifacts under ``broker_preflight/`` only.
 
     Soft-Frozen live ``fills.csv`` / portfolio cash stay untouched unless
-    ``E21_BROKER_WRITE_LIVE=1`` **and** acks are present (separate live-routing
-    ACCEPT; default off).
+    ALL of: ``live_config.broker_live_write_accepted``, ``E21_BROKER_WRITE_LIVE=1``,
+    circuit closed, daily budget, ack↔pending match, and idempotent client_order_id
+    (see ``broker_safety``). No real broker network client is wired here.
     """
 
     name = "broker"
@@ -239,18 +254,22 @@ class BrokerPreflightFillPort:
         use_network: bool = True,
         calendar=None,
         write_live: bool | None = None,
+        config_accepted: bool | None = None,
+        require_ballot_file: bool = False,
+        daily_live_budget: int = DEFAULT_DAILY_LIVE_FILL_BUDGET,
     ) -> None:
         self._probe_fn = probe_fn
         self._use_network = use_network
         self._calendar = calendar
-        if write_live is None:
-            write_live = os.environ.get(self.ENV_WRITE_LIVE, "").strip() in (
-                "1",
-                "true",
-                "TRUE",
-                "yes",
-            )
-        self._write_live = bool(write_live)
+        # Explicit ctor override only; env alone never bypasses LiveConfig ACCEPT.
+        self._write_live_override = write_live
+        self._config_accepted = (
+            bool(LIVE.broker_live_write_accepted)
+            if config_accepted is None
+            else bool(config_accepted)
+        )
+        self._require_ballot_file = bool(require_ballot_file)
+        self._daily_live_budget = int(daily_live_budget)
 
     def _load_acks(self, state_dir: Path, asof: date) -> list[dict[str, Any]]:
         path = Path(state_dir) / "broker_acks" / f"{asof.isoformat()}.json"
@@ -270,59 +289,30 @@ class BrokerPreflightFillPort:
         self,
         acks: list[dict[str, Any]],
         *,
-        latest: pd.Timestamp,
+        asof: date,
         open_prices: dict[str, float],
         pending: pd.DataFrame,
-    ) -> list[dict[str, Any]]:
-        """Map fixture broker acks → canonical fill rows (no portfolio mutate)."""
-        pending_by_id = {
-            str(r.order_id): r for _, r in pending.iterrows()
-        } if not pending.empty else {}
+    ) -> tuple[list[dict[str, Any]], list[str]]:
+        """Map fixture broker acks → canonical fill rows; reject orphans/mismatches."""
+        pending_by_id = (
+            {str(r.order_id): r for _, r in pending.iterrows()} if not pending.empty else {}
+        )
         fills: list[dict[str, Any]] = []
+        rejects: list[str] = []
         for ack in acks:
-            oid = str(ack.get("order_id") or ack.get("fill_id") or "").strip()
-            if not oid:
-                continue
-            order = pending_by_id.get(oid)
-            code = str(ack.get("code") or (order.code if order is not None else "") or "")
-            side = str(ack.get("side") or (order.side if order is not None else "") or "").upper()
-            try:
-                q = int(float(ack.get("quantity") or (order.quantity if order is not None else 0)))
-            except (TypeError, ValueError):
-                continue
-            if q < BOARD_LOT or q % BOARD_LOT != 0:
-                continue
-            if side not in ("BUY", "SELL") or not code:
-                continue
-            if "fill_price" in ack and ack["fill_price"] not in (None, ""):
-                fp = float(ack["fill_price"])
-            else:
-                px = open_prices.get(code)
-                if px is None:
-                    continue
-                fp = px * (1 + SLIP if side == "BUY" else 1 - SLIP)
-            gross = q * fp
-            fee = fees_tax_for(side=side, code=code, gross=gross)
-            sig = (
-                str(ack.get("signal_date") or "")
-                or (str(order.signal_date) if order is not None else "")
+            result = validate_ack_against_pending(
+                ack,
+                pending_by_id,
+                asof=asof,
+                open_prices=open_prices,
+                slip=SLIP,
+                fees_tax_fn=fees_tax_for,
             )
-            fills.append(
-                {
-                    "fill_id": oid,
-                    "signal_date": sig,
-                    "fill_date": latest.date().isoformat(),
-                    "code": code,
-                    "side": side,
-                    "quantity": q,
-                    "fill_price": fp,
-                    "gross": gross,
-                    "fees_tax": fee,
-                    "slippage_bp": SLIP * 10000,
-                    "broker_ack": True,
-                }
-            )
-        return fills
+            if not result.ok or result.fill is None:
+                rejects.append(str(result.reject_reason or "unknown_reject"))
+                continue
+            fills.append(result.fill)
+        return fills, rejects
 
     def fill_pending(
         self,
@@ -347,6 +337,15 @@ class BrokerPreflightFillPort:
         sdir = Path(state_dir)
         block_dir = sdir / "broker_preflight"
         block_dir.mkdir(parents=True, exist_ok=True)
+        gate = live_write_gate(
+            config_accepted=self._config_accepted,
+            state_dir=sdir,
+            require_ballot_file=self._require_ballot_file,
+            env_write_live=(
+                None if self._write_live_override is None else bool(self._write_live_override)
+            ),
+        )
+        circuit = load_circuit(sdir)
         meta: dict[str, Any] = {
             "port": self.name,
             "asof": asof.isoformat(),
@@ -357,6 +356,10 @@ class BrokerPreflightFillPort:
             "live_fills_written": False,
             "soft_frozen_untouched": True,
             "fixture_acks": 0,
+            "live_write_gate_allowed": gate.allowed,
+            "live_write_gate_reasons": list(gate.reasons),
+            "circuit_open": circuit.open,
+            "api_wired": False,
         }
         if not meta["broker_submit_allowed"]:
             meta["blocked"] = True
@@ -366,13 +369,31 @@ class BrokerPreflightFillPort:
             )
             return pos, cash, [], 0, True
 
+        if circuit.open:
+            meta["blocked"] = True
+            meta["reason"] = f"circuit_open:{circuit.last_reason}"
+            (block_dir / f"block_{asof.isoformat()}.json").write_text(
+                json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+            )
+            return pos, cash, [], 0, True
+
         acks = self._load_acks(sdir, asof)
         meta["blocked"] = False
         meta["fixture_acks"] = len(acks)
         pending = _iter_pending(sdir, latest)
-        fills = self._acks_to_fills(
-            acks, latest=latest, open_prices=open_prices, pending=pending
+        pending_rows = pending.to_dict(orient="records") if not pending.empty else []
+        intents = build_submit_intents(pending_rows, asof=asof)
+        intent_path = write_submit_intents(sdir, asof, intents)
+        meta["submit_intents_path"] = str(intent_path.name)
+        meta["n_submit_intents"] = len(intents)
+
+        fills, rejects = self._acks_to_fills(
+            acks, asof=asof, open_prices=open_prices, pending=pending
         )
+        meta["ack_rejects"] = rejects
+        if rejects:
+            for reason in rejects:
+                trip_circuit(sdir, reason)
 
         if not acks:
             meta["note"] = (
@@ -388,7 +409,10 @@ class BrokerPreflightFillPort:
             **meta,
             "n_fills": len(fills),
             "fills": fills,
-            "note": "fixture ack mapped; shadow only unless E21_BROKER_WRITE_LIVE=1",
+            "note": (
+                "fixture ack mapped; shadow only unless live_write_gate "
+                "(ACCEPT + E21_BROKER_WRITE_LIVE) passes"
+            ),
         }
         (block_dir / f"fills_{asof.isoformat()}.json").write_text(
             json.dumps(shadow, indent=2, ensure_ascii=False, default=str) + "\n",
@@ -396,7 +420,11 @@ class BrokerPreflightFillPort:
         )
         (block_dir / f"allow_{asof.isoformat()}.json").write_text(
             json.dumps(
-                {**meta, "n_fills": len(fills), "shadow_path": f"fills_{asof.isoformat()}.json"},
+                {
+                    **meta,
+                    "n_fills": len(fills),
+                    "shadow_path": f"fills_{asof.isoformat()}.json",
+                },
                 indent=2,
                 ensure_ascii=False,
             )
@@ -404,24 +432,52 @@ class BrokerPreflightFillPort:
             encoding="utf-8",
         )
 
-        if not self._write_live:
+        if not gate.allowed:
             same_bar, ok = _exact_t1_stats(fills)
-            # Shadow: return original pos/cash; pipeline must not book these fills.
             return pos, cash, fills, same_bar, ok
 
-        # Live write path (explicit ACCEPT env) — still session-gated + ack-only.
+        # Live write path — ACCEPT + env + ack validation + budget + idempotency.
+        already_today = count_live_submits_today(sdir, asof)
         pos_out = dict(pos)
         cash_out = float(cash)
+        written = 0
+        skipped: list[str] = []
         for f in fills:
+            coid = str(f.get("client_order_id") or f["fill_id"])
+            if already_submitted(sdir, coid) or already_in_fills_csv(sdir, str(f["fill_id"])):
+                skipped.append(f"idempotent_skip:{coid}")
+                continue
+            if already_today + written >= self._daily_live_budget:
+                skipped.append(f"daily_budget:{self._daily_live_budget}")
+                trip_circuit(sdir, "daily_live_fill_budget")
+                break
             q = int(f["quantity"])
             signed = q if f["side"] == "BUY" else -q
             gross = float(f["gross"])
             fee = float(f["fees_tax"])
             pos_out[f["code"]] = pos_out.get(f["code"], 0) + signed
             cash_out += -gross - fee if f["side"] == "BUY" else gross - fee
-            append_immutable(sdir / "fills.csv", f, "fill_id")
-        meta["live_fills_written"] = True
-        meta["soft_frozen_untouched"] = False
+            # Strip non-schema keys before immutable append.
+            row = {k: f[k] for k in FILL_ROW_KEYS if k in f}
+            append_immutable(sdir / "fills.csv", row, "fill_id")
+            append_submit_log(
+                sdir,
+                {
+                    "asof": asof.isoformat(),
+                    "client_order_id": coid,
+                    "fill_id": f["fill_id"],
+                    "live_written": True,
+                    "code": f["code"],
+                    "side": f["side"],
+                    "quantity": q,
+                },
+            )
+            written += 1
+
+        meta["live_fills_written"] = written > 0
+        meta["soft_frozen_untouched"] = written == 0
+        meta["n_live_written"] = written
+        meta["live_skips"] = skipped
         (block_dir / f"allow_{asof.isoformat()}.json").write_text(
             json.dumps({**meta, "n_fills": len(fills)}, indent=2, ensure_ascii=False)
             + "\n",

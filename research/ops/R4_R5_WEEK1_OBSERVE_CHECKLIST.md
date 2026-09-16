@@ -47,7 +47,7 @@ Pick **at most one** ballot (or **neither** / KEEP observe):
 | Ballot | Open if… | Still forbidden without extra ACCEPT |
 |---|---|---|
 | **Receivable formal** (`E22_v3_*` promote path) | Ops needs spendable-cash / pay-date identity; dual-paper ready | Silent flip of Soft-Frozen DEFAULT |
-| **Broker live** (`fill_port=broker` + `E21_BROKER_WRITE_LIVE`) | Stable ack path + preflight OPEN proven | Inventing fills without acks; cutting Soft-Frozen without PR |
+| **Broker live** (`fill_port=broker` + ACCEPT + `E21_BROKER_WRITE_LIVE`) | Stable ack path + preflight OPEN proven + `broker_safety` gates green | Inventing fills without acks; env-only live write; orphan/mismatch acks; cutting Soft-Frozen without ACCEPT PR |
 
 Defer if R4 noise is high, R5 never ran, or no ops owner for the ballot.
 
