@@ -16,8 +16,10 @@ from twse_session_sources import (
     classify_taifex_day_fact,
     holiday_status_for,
     lookup_day,
+    mis_row_open_on,
     nth_session_after,
     parse_taifex_tx_day_session_dates,
+    probe_mis_intraday_open,
     probe_session,
     read_calendar_csv,
     session_dates,
@@ -160,11 +162,51 @@ class AnnualCalendarTests(unittest.TestCase):
             use_network=False,
             holiday_schedule={"data": []},
             caps=[],
+            mis_payloads=[{"rtcode": "0000", "msgArray": []}],
             mi_payload={"stat": "很抱歉，沒有符合條件的資料!", "tables": []},
-            now_taipei=datetime(2026, 9, 16, 9, 0, tzinfo=TAIPEI),
+            now_taipei=datetime(2026, 9, 16, 9, 30, tzinfo=TAIPEI),
         )
         self.assertEqual(p.status, "UNKNOWN")
         self.assertFalse(p.broker_submit_allowed)
+
+    def test_mis_intraday_open_allows_broker(self) -> None:
+        mis = {
+            "rtcode": "0000",
+            "msgArray": [
+                {
+                    "c": "0050",
+                    "d": "20260916",
+                    "o": "106.1500",
+                    "t": "09:30:00",
+                    "v": "100",
+                }
+            ],
+        }
+        p = probe_session(
+            date(2026, 9, 16),
+            use_network=False,
+            holiday_schedule={"data": []},
+            caps=[],
+            mis_payloads=[mis],
+            mi_payload={"stat": "很抱歉，沒有符合條件的資料!", "tables": []},
+            now_taipei=datetime(2026, 9, 16, 9, 30, tzinfo=TAIPEI),
+        )
+        self.assertEqual(p.status, "OPEN")
+        self.assertTrue(p.broker_submit_allowed)
+        self.assertTrue(p.sources["mis_quote"]["open"])
+
+    def test_mis_prior_day_not_open(self) -> None:
+        mis = {
+            "rtcode": "0000",
+            "msgArray": [{"c": "0050", "d": "20260915", "o": "106.0000", "t": "13:30:00"}],
+        }
+        self.assertFalse(mis_row_open_on(date(2026, 9, 16), mis["msgArray"][0]))
+        verdict = probe_mis_intraday_open(
+            date(2026, 9, 16),
+            watchlist=["tse_0050.tw"],
+            payloads=[mis],
+        )
+        self.assertFalse(verdict["open"])
 
 
 class TaifexOverlayTests(unittest.TestCase):

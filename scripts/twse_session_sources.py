@@ -4,14 +4,15 @@
 Integrates:
   1) TWSE ``holidaySchedule`` year calendar (国定假 / 無交易日 / 開始交易標記)
   2) NCDR DGPA CAP typhoon **intent** (臺北市 full/AM)
-  3) MI_INDEX **fact** (post-close)
-  4) Optional TAIFEX TX day-session **historical fact** (``futDataDown``)
-  5) Optional ``session_overrides.csv``
+  3) TWSE MIS delayed quote **intraday OPEN** (pre-MI_INDEX positive signal)
+  4) MI_INDEX **fact** (post-close)
+  5) Optional TAIFEX TX day-session **historical fact** (``futDataDown``)
+  6) Optional ``session_overrides.csv``
 
 TAIFEX OpenAPI ``DailyMarketReportFut`` / ``TimeAndSalesData`` are **latest
 published day only** and lag like MI_INDEX during the cash morning — they do
-**not** give an 08:45 early-open detector. Use CAP for morning typhoon intent;
-use ``futDataDown`` TX ``一般`` presence for backfill corroboration.
+**not** give an 08:45 early-open detector. Use MIS for intraday OPEN, CAP for
+morning typhoon intent; use ``futDataDown`` TX ``一般`` for backfill.
 
 Output SSOT shape: ``data/calendars/twse_sessions_YYYY.csv``
 Soft-Frozen / LIVE_* unchanged. Observe / preflight only.
@@ -23,6 +24,7 @@ import csv
 import io
 import json
 import re
+import time
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -44,6 +46,16 @@ MI_INDEX_URL = (
 )
 NCDR_ATOM_URL = "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
 ATOM_NS = {"a": "http://www.w3.org/2005/Atom"}
+
+# TWSE MIS delayed quote — fills the intraday OPEN gap before MI_INDEX publishes.
+MIS_STOCK_INFO_URL = (
+    "https://mis.twse.com.tw/stock/api/getStockInfo.jsp"
+    "?ex_ch={ex_ch}&json=1&delay=0&_{ts}"
+)
+# Align with forward universe anchors (TAIEX + 0050); 2330 is liquid corroboration.
+MIS_OPEN_WATCHLIST = ("tse_t00.tw", "tse_0050.tw", "tse_2330.tw")
+# Regular board opens 09:00; before ~09:05 empty open is expected on open days.
+MIS_OPEN_READY = (9, 5)
 
 TAIFEX_FUT_DATA_DOWN_URL = "https://www.taifex.com.tw/cht/3/futDataDown"
 TAIFEX_OPENAPI_DAILY_FUT = "https://openapi.taifex.com.tw/v1/DailyMarketReportFut"
@@ -397,6 +409,97 @@ def mi_index_has_session(day: date, payload: dict[str, Any] | None = None) -> bo
     return isinstance(tables, list) and len(tables) > 0
 
 
+def _mis_is_numeric(value: Any) -> bool:
+    s = str(value).strip() if value is not None else ""
+    if s in ("", "-", "--"):
+        return False
+    try:
+        float(s.replace(",", ""))
+        return True
+    except ValueError:
+        return False
+
+
+def fetch_mis_stock_info(ex_ch: str) -> dict[str, Any]:
+    """One TWSE MIS quote row wrapper. Rate-limit externally (~1 req / few seconds)."""
+    url = MIS_STOCK_INFO_URL.format(
+        ex_ch=urllib.parse.quote(ex_ch, safe="|_."),
+        ts=int(datetime.now(tz=TAIPEI).timestamp() * 1000),
+    )
+    req = urllib.request.Request(
+        url,
+        headers={**UA, "Referer": "https://mis.twse.com.tw/", "Accept": "*/*"},
+    )
+    with urllib.request.urlopen(req, timeout=20) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def mis_row_open_on(day: date, row: dict[str, Any] | None) -> bool:
+    """True when MIS row is dated ``day`` and has a numeric open (``o``)."""
+    if not row:
+        return False
+    d_raw = str(row.get("d") or "").strip()
+    want = day.strftime("%Y%m%d")
+    return d_raw == want and _mis_is_numeric(row.get("o"))
+
+
+def probe_mis_intraday_open(
+    day: date,
+    *,
+    watchlist: Sequence[str] = MIS_OPEN_WATCHLIST,
+    payloads: Sequence[dict[str, Any]] | None = None,
+    sleep_s: float = 1.2,
+) -> dict[str, Any]:
+    """Positive same-day OPEN via MIS delayed quotes (pre-MI_INDEX).
+
+    Closed / holiday / typhoon: feed typically keeps prior session ``d`` → not OPEN.
+    Empty ``msgArray`` / rate-limit → inconclusive (UNKNOWN), not CLOSED.
+    """
+    wl = list(watchlist)
+    if payloads is not None:
+        sources = list(payloads)
+        # Pad/trim labels to match payload count
+        while len(wl) < len(sources):
+            wl.append("")
+        wl = wl[: len(sources)]
+    else:
+        sources = []
+        for i, ex in enumerate(wl):
+            if i:
+                time.sleep(sleep_s)
+            try:
+                sources.append(fetch_mis_stock_info(ex))
+            except Exception as exc:  # noqa: BLE001 — probe must stay fail-closed
+                sources.append({"rtcode": "ERR", "rtmessage": str(exc), "msgArray": []})
+
+    rows: list[dict[str, Any]] = []
+    hits = 0
+    for payload, ex in zip(sources, wl):
+        arr = payload.get("msgArray") if isinstance(payload, dict) else None
+        row = (arr or [None])[0] if isinstance(arr, list) else None
+        ok = mis_row_open_on(day, row)
+        if ok:
+            hits += 1
+        rows.append(
+            {
+                "ex_ch": ex or (row or {}).get("ch"),
+                "open_signal": ok,
+                "c": (row or {}).get("c"),
+                "d": (row or {}).get("d"),
+                "o": (row or {}).get("o"),
+                "t": (row or {}).get("t"),
+                "v": (row or {}).get("v"),
+                "rtcode": payload.get("rtcode") if isinstance(payload, dict) else None,
+            }
+        )
+    return {
+        "open": hits > 0,
+        "n_hits": hits,
+        "n_probed": len(rows),
+        "rows": rows,
+    }
+
+
 def _decode_taifex_bytes(raw: bytes) -> str:
     for enc in ("cp950", "big5", "utf-8-sig", "utf-8"):
         try:
@@ -648,6 +751,7 @@ def probe_session(
     calendar: Sequence[DayRecord] | None = None,
     caps: list[CapWorkStop] | None = None,
     mi_payload: dict[str, Any] | None = None,
+    mis_payloads: Sequence[dict[str, Any]] | None = None,
     now_taipei: datetime | None = None,
 ) -> SessionProbe:
     """Verdict for one day — prefers integrated annual calendar when provided."""
@@ -733,6 +837,30 @@ def probe_session(
             )
         if intent["afternoon_only"]:
             notes.append("Taipei AFTERNOON 停班 only — board still opens")
+
+    # Intraday positive OPEN (fills MI_INDEX morning gap)
+    if use_network or mis_payloads is not None:
+        mis = probe_mis_intraday_open(day, payloads=mis_payloads)
+        sources["mis_quote"] = {
+            "open": mis["open"],
+            "n_hits": mis["n_hits"],
+            "rows": mis["rows"],
+        }
+        if mis["open"]:
+            return SessionProbe(
+                asof=day.isoformat(),
+                weekday=day.weekday(),
+                status="OPEN",
+                broker_submit_allowed=True,
+                is_session=True,
+                sources=sources,
+                notes=notes + ["MIS delayed quote d==asof + open price"],
+            )
+        now_tp = now.astimezone(TAIPEI)
+        if now_tp.date() == day and (now_tp.hour, now_tp.minute) < MIS_OPEN_READY:
+            notes.append("MIS before 09:05 — open may still be forming")
+        else:
+            notes.append("MIS no same-day open yet")
 
     if use_network or mi_payload is not None:
         payload = mi_payload if mi_payload is not None else fetch_mi_index(day)
