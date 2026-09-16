@@ -109,19 +109,31 @@ def estimate_event(
     sessions: Sequence[date],
     settlements: Sequence[date],
     mops_pay: date | None = None,
+    mops_amendments: dict[tuple[str, str], str] | None = None,
 ) -> dict[str, Any]:
     cash_ex = str(row.get("cash_ex_date") or "").strip()[:10]
     stock_ex = str(row.get("stock_ex_date") or "").strip()[:10]
     cash_pay = str(row.get("cash_payment_date") or "").strip()[:10]
     stock_pay = str(row.get("stock_payment_date") or "").strip()[:10]
+    code = str(row.get("code") or "")
     # Legacy single-field aliases (tests / ad-hoc rows)
     if not cash_ex and not stock_ex:
         cash_ex = str(row.get("ex_date") or "").strip()[:10]
     if not cash_pay and not stock_pay:
         cash_pay = str(row.get("payment_date") or "").strip()[:10]
 
+    # Per-leg MOPS overlay (cash/stock pay); explicit mops_pay wins for cash.
+    def _mops_for(pay: str, *, cash_leg: bool) -> date | None:
+        if cash_leg and mops_pay is not None:
+            return mops_pay
+        if not mops_amendments or not pay:
+            return None
+        from e22_mops_payment_amendments import lookup_amendment
+
+        return lookup_amendment(mops_amendments, code, pay)
+
     out: dict[str, Any] = {
-        "code": str(row.get("code") or ""),
+        "code": code,
         "raw_cash_ex_date": cash_ex,
         "raw_stock_ex_date": stock_ex,
         "raw_cash_payment_date": cash_pay,
@@ -151,8 +163,11 @@ def estimate_event(
         (cash_pay, "cash_pay", "effective_cash_payment", "delay_cash_pay_days"),
         (stock_pay, "stock_pay", "effective_stock_payment", "delay_stock_pay_days"),
     ):
+        leg_mops = None
+        if kind.endswith("pay"):
+            leg_mops = _mops_for(raw, cash_leg=(kind == "cash_pay"))
         eff, delay, leg_notes = _snap_leg(
-            raw, kind=kind, sessions=sessions, settlements=settlements, mops_pay=mops_pay
+            raw, kind=kind, sessions=sessions, settlements=settlements, mops_pay=leg_mops
         )
         out[eff_key] = eff
         out[delay_key] = delay
@@ -223,6 +238,12 @@ def main() -> int:
     )
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--summary-json", type=Path, default=None)
+    ap.add_argument(
+        "--mops-amendments",
+        type=Path,
+        default=ROOT / "data" / "dividend_events" / "mops_payment_amendments.csv",
+        help="D4 overlay CSV (code,original_payment_date,amended_payment_date)",
+    )
     ap.add_argument("--limit", type=int, default=0, help="Max rows (0=all)")
     a = ap.parse_args()
 
@@ -233,8 +254,14 @@ def main() -> int:
     if a.limit > 0:
         events = events[: a.limit]
 
+    from e22_mops_payment_amendments import load_amendments
+
+    amendments = load_amendments(a.mops_amendments) if a.mops_amendments else {}
     rows = [
-        estimate_event(r, sessions=sessions, settlements=settlements) for r in events
+        estimate_event(
+            r, sessions=sessions, settlements=settlements, mops_amendments=amendments
+        )
+        for r in events
     ]
     delayed = [r for r in rows if _row_has_delay(r)]
     summary: dict[str, Any] = {

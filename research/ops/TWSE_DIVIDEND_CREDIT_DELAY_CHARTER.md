@@ -71,7 +71,7 @@ Dividend ex→pay is the **fourth clock** already called out in the T+2 charter 
 | # | Item | Status |
 |---|---|---|
 | **6.9a** | Ex trading day postponed when board closed | Not in ledger refresh / apply |
-| **6.9b** | Payment delayed by bank/票交所 停班 | Not auto; needs MOPS overlay or heuristic |
+| **6.9b** | Payment delayed by bank/票交所 停班 | Overlay ✅ (`mops_payment_amendments.csv`); live MOPS 重大訊息仍靠 ops/fixture parse |
 | **6.9c** | Stock / CIL pay-date delay | Same class as 6.9b; books still credit shares on `stock_ex_date` |
 
 ---
@@ -170,7 +170,7 @@ Sandbox version: `E22_v3_recv_pay_effdelay` — receivable on `effective_ex_trad
 | **D1** | Pure helpers: `effective_ex_trade` / `effective_payment` + unit tests (typhoon + 封關 + consecutive) | Observe |
 | **D2** | CLI estimate over `e22_dividend_events.csv` → repro CSV + summary JSON (cash/stock legs; no books mutate) | Observe ✅ |
 | **D3** | Sandbox `E22_v3_recv_pay_effdelay` + `twse_dividend_delay_sim.py` day-walk | Sandbox ✅ |
-| **D4** | MOPS payment-amendment fetch overlay | Ops |
+| **D4** | MOPS payment-amendment overlay (`e22_mops_payment_amendments.py` + CSV) wired into estimate / effdelay | Ops ✅ |
 | **D5** | Soft-Frozen books change | **Explicit ACCEPT** — not this PR |
 
 Parallel: keep trade T+2 (#239) and session MIS/CAP (#237) as SSOT for board/settlement calendars.

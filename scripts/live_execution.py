@@ -209,9 +209,88 @@ class DryRunFillPort:
         return pos, cash, fills, same_bar, ok
 
 
+class BrokerPreflightFillPort:
+    """P4 skeleton: fail-closed broker submit gate via ``probe_session``.
+
+    Never writes live ``fills.csv`` unless ``broker_submit_allowed``.
+    Real broker ack mapping still needs ACCEPT; this port only enforces the
+    session preflight contract Soft-Frozen paper path does not use.
+    """
+
+    name = "broker"
+
+    def __init__(
+        self,
+        *,
+        probe_fn=None,
+        use_network: bool = True,
+        calendar=None,
+    ) -> None:
+        self._probe_fn = probe_fn
+        self._use_network = use_network
+        self._calendar = calendar
+
+    def fill_pending(
+        self,
+        *,
+        state_dir: Path,
+        latest: pd.Timestamp,
+        open_prices: dict[str, float],
+        pos: dict[str, float],
+        cash: float,
+    ) -> tuple[dict[str, float], float, list[dict[str, Any]], int, bool]:
+        import json
+
+        from twse_session_sources import probe_session
+
+        asof = latest.date() if hasattr(latest, "date") else pd.Timestamp(latest).date()
+        if self._probe_fn is not None:
+            probe = self._probe_fn(asof)
+        else:
+            probe = probe_session(
+                asof, use_network=self._use_network, calendar=self._calendar
+            )
+        sdir = Path(state_dir)
+        block_dir = sdir / "broker_preflight"
+        block_dir.mkdir(parents=True, exist_ok=True)
+        meta = {
+            "port": self.name,
+            "asof": asof.isoformat(),
+            "status": getattr(probe, "status", "UNKNOWN"),
+            "broker_submit_allowed": bool(getattr(probe, "broker_submit_allowed", False)),
+            "is_session": bool(getattr(probe, "is_session", False)),
+            "notes": list(getattr(probe, "notes", []) or []),
+            "live_fills_written": False,
+            "soft_frozen_untouched": True,
+        }
+        if not meta["broker_submit_allowed"]:
+            meta["blocked"] = True
+            meta["reason"] = f"broker submit blocked: {meta['status']}"
+            (block_dir / f"block_{asof.isoformat()}.json").write_text(
+                json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+            )
+            # Fail-closed: no fills, pos/cash unchanged, exact_t1_ok True (no bad fills).
+            return pos, cash, [], 0, True
+
+        meta["blocked"] = False
+        (block_dir / f"allow_{asof.isoformat()}.json").write_text(
+            json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+        # No live broker adapter yet — refuse to invent fills even when OPEN.
+        meta["note"] = (
+            "session OPEN preflight passed; live broker fill adapter not wired "
+            "(ACCEPT required). No fills.csv write."
+        )
+        (block_dir / f"allow_{asof.isoformat()}.json").write_text(
+            json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+        )
+        return pos, cash, [], 0, True
+
+
 _PORTS: dict[str, type] = {
     PaperOpenFillPort.name: PaperOpenFillPort,
     DryRunFillPort.name: DryRunFillPort,
+    BrokerPreflightFillPort.name: BrokerPreflightFillPort,
 }
 
 

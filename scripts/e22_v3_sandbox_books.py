@@ -91,8 +91,16 @@ def resolve_pay_day(
     *,
     use_effective: bool,
     settlements: Sequence[date] | None,
+    mops_amendments: dict[tuple[str, str], str] | None = None,
 ) -> str:
     raw = str(ev.payment_date or "")[:10]
+    mops_amd: date | None = None
+    if mops_amendments and raw:
+        from e22_mops_payment_amendments import lookup_amendment
+
+        mops_amd = lookup_amendment(mops_amendments, ev.code, raw)
+    if mops_amd is not None:
+        return mops_amd.isoformat()
     if not use_effective or not settlements:
         return raw
     d = _parse_day(raw)
@@ -133,11 +141,13 @@ def apply_sandbox_for_date(
     par_table: dict[str, float] | None = None,
     session_dates: Sequence[date] | None = None,
     settlement_dates: Sequence[date] | None = None,
+    mops_amendments: dict[tuple[str, str], str] | None = None,
 ) -> tuple[dict[str, float], float, dict[str, float], SandboxApplyResult]:
     """Apply one sandbox books day. Never mutates live DEFAULT semantics.
 
     ``E22_v3_recv_pay_effdelay`` accrues / settles on effective ex / payment
     (needs ``session_dates`` / ``settlement_dates``; outside calendar → raw).
+    Optional ``mops_amendments`` overlay wins on payment (D4).
     """
     if version not in SANDBOX_VERSIONS:
         raise ValueError(f"not a Stage-B sandbox version: {version}")
@@ -207,7 +217,10 @@ def apply_sandbox_for_date(
             if ev.kind != "cash":
                 continue
             pay = resolve_pay_day(
-                ev, use_effective=use_eff, settlements=settlement_dates
+                ev,
+                use_effective=use_eff,
+                settlements=settlement_dates,
+                mops_amendments=mops_amendments if use_eff else None,
             )
             if not pay or pay != day:
                 continue

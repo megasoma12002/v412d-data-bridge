@@ -281,9 +281,9 @@ Pre-09:05: auction may still be forming → UNKNOWN even on open days is OK. Aft
 |---|---|---|
 | **P0 doc** | This charter | — |
 | **P1** | `twse_session_calendar.is_session_day` + holiday CSV / `holidaySchedule` fetch + unit tests | Block unknown ports |
-| **P2** | Wire GHA forward job skip + `session_skip` artifact | Paper noise↓ |
-| **P3** | MI_INDEX + NCDR CAP + **MIS intraday OPEN** — `twse_session_sources.py` | **Required before live submit** |
-| **P4** | Broker `FillPort` calls P3 preflight fail-closed | ACCEPT cutover PR |
+| **P2** | Wire GHA forward job skip + `session_skip` artifact | Paper noise↓ ✅ (`twse_forward_session_gate` + `v412f-forward-paper`) |
+| **P3** | MI_INDEX + NCDR CAP + **MIS intraday OPEN** — `twse_session_sources.py` | **Required before live submit** ✅ |
+| **P4** | Broker `FillPort` calls P3 preflight fail-closed | Skeleton ✅ (`broker` port); live adapter still ACCEPT |
 
 ## 7. Acceptance tests (when coded)
 

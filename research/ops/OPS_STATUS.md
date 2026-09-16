@@ -46,10 +46,10 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Live modularization | `research/ops/ARCH_LIVE_MODULARIZE.md` (`live_config` / strategy / execution / ledger) |
 | Installable package | `pyproject.toml` · `pip install -e .` · ops image `Dockerfile` |
 | Docker QC smoke | `scripts/ops_docker_qc_smoke.sh` · `docker compose` · workflow `docker-ops-qc-smoke` |
-| Fill ports | `live_execution.FillPort` · default `paper` · `dry_run` shadow (no live wire) |
-| TWSE session calendar | `data/calendars/twse_sessions_YYYY.csv` · `twse_session_sources.py` (holidaySchedule + typhoon overlays) |
-| T+2 settlement estimate | `scripts/twse_t2_settlement_estimate.py` · charter `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md` (observe-only; skips typhoon via session CSV) |
-| 除權息入帳延後 | charter + D3 sandbox `E22_v3_recv_pay_effdelay` · `twse_dividend_delay_sim.py` (formal vs recv_pay vs effdelay); Soft-Frozen untouched |
+| TWSE session calendar | `twse_session_sources.py` + P2 `twse_forward_session_gate` in `v412f-forward-paper` (`session_skip.json`) |
+| Fill ports | `paper` · `dry_run` · P4 `broker` preflight fail-closed (no live adapter yet) |
+| T+2 settlement estimate | `scripts/twse_t2_settlement_estimate.py` · charter (observe-only) |
+| 除權息入帳延後 | D0–D4: estimate + `recv_pay_effdelay` sim + MOPS overlay CSV; Soft-Frozen / D5 untouched |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 
