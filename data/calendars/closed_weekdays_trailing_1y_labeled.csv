@@ -17,5 +17,5 @@ date,weekday,label,name,holidaySchedule,mi_stat
 2026-04-06,Mon,HOLIDAY,兒童節及民族掃墓節,CLOSED_HOLIDAY,很抱歉，沒有符合條件的資料!
 2026-05-01,Fri,HOLIDAY,勞動節,CLOSED_HOLIDAY,很抱歉，沒有符合條件的資料!
 2026-06-19,Fri,HOLIDAY,端午節,CLOSED_HOLIDAY,很抱歉，沒有符合條件的資料!
-2026-07-10,Fri,TYPHOON_OR_UNPLANNED,,,很抱歉，沒有符合條件的資料!
-2026-09-16,Wed,INCONCLUSIVE_INTRADAY,,,很抱歉，沒有符合條件的資料!
+2026-07-10,Fri,TYPHOON_OR_UNPLANNED,颱風巴威休市(MI_INDEX空+报导),,很抱歉，沒有符合條件的資料!
+2026-09-16,Wed,INCONCLUSIVE_INTRADAY,当日盘中MI未出(勿当休市),,很抱歉，沒有符合條件的資料!
