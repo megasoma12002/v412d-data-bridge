@@ -48,6 +48,14 @@ data/calendars/twse_sessions_YYYY.csv
 `is_settlement` = custody T+2 business day — **includes** 封關後「無交易僅交割」, **excludes** 春节放假 and typhoon full close.
 
 `nth_session_after` → trading. `nth_settlement_after` → T+2 estimate.
+
+```bash
+python3 scripts/twse_session_sources.py --build-year 2026 \
+  --mi-facts-from 2026-07-01 \
+  --out data/calendars/twse_sessions_2026.csv
+python3 scripts/twse_session_sources.py --asof 2026-07-10
+```
+
 Weekend that is also on `holidaySchedule` (e.g. 2026-02-28) is labeled **`CLOSED_HOLIDAY`**, not bare `WEEKEND`.
 
 

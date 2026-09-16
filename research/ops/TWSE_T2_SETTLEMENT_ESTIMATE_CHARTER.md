@@ -66,16 +66,16 @@ Optional v1.1 column: `settlement_cash_no_slip` using unslipped open — for bro
 
 ```text
 settle_date = nth_open_session_after(fill_date, n=2)
+# implemented as nth_settlement_after(settlement_dates(...), fill_date, 2)
 ```
 
 | Input | Source |
 |---|---|
-| Preferred | `data/calendars/twse_sessions_YYYY.csv` + `nth_session_after` in `twse_session_sources.py` (#237) |
-| Interim | Sorted unique **complete** dates from `forward/e21/live_market.csv` (same completeness rule as `e21_forward_pipeline`) |
+| Preferred | `is_settlement=1` rows in `twse_sessions_YYYY.csv` (#237) — **not** trading-only |
+| Interim | Sorted unique **complete** dates from `forward/e21/live_market.csv` (trading days only; misses 封關 settlement-only) |
 
 **Must not:** `fill_date + timedelta(days=2)`.  
-国定假 / 颱風假 / 补班日 all ride on session list.
-
+国定假 / 颱風假 / 补班日 / 封關交割日 規則見 §3.3。
 ### 3.1 Why typhoon breaks calendar +2
 
 TWSE：台北市全日／上午停班 → **集中市場全日休市**，當日**應屆交割款券順延**至次一營業日。
@@ -101,7 +101,25 @@ If a previously computed `settle_date` is later demoted to typhoon closed by CAP
 
 Example: fill Fri → Mon/Tue/Wed all typhoon closed → settle = following Fri (2nd open after fill), not Mon+2 calendar logic.
 
-**Prototype (R1+R3):** `scripts/twse_t2_settlement_estimate.py` reads `fills.csv` + pinned session calendar; observe-only CSV/JSON.---
+### 3.3 過年封關 vs 交割日（兩套日曆）
+
+| Kind | Board (`is_session`) | Custody T+2 (`is_settlement`) | 2026 example |
+|---|---|---|---|
+| 最後交易日 / 開紅盤 | yes | yes | 02-11 封關 · 02-23 開紅盤 |
+| **無交易，僅辦理結算交割** | **no** | **yes** | **02-12 · 02-13** |
+| 春節放假 / 補假 | no | no | 02-16–02-20 |
+| 颱風全日休市 | no | no（應屆交割顺延） | 07-10 |
+
+**Correct T+2 across 封關**
+- Fill **2026-02-10** → settle **2026-02-12**（僅交割日）
+- Fill **2026-02-11** → settle **2026-02-13**（僅交割日，年前完成）
+- Wrong if using trading-only sessions: would push settle to **02-24** after 開紅盤
+
+Exact T+1 / broker submit still use `is_session` only — no fills on 02-12/02-13.
+
+**Prototype (R1+R3):** `scripts/twse_t2_settlement_estimate.py` reads `fills.csv` + pinned session calendar; observe-only CSV/JSON.
+
+---
 
 ## 4. Recommended module seams
 
