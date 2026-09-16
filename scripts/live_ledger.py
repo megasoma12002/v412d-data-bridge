@@ -22,6 +22,55 @@ SELL_FEE = 0.001425 * 0.6
 TAX_STOCK = 0.003
 TAX_ETF = 0.001
 SLIP = 0.0005
+# Broker 整股 floor (NT$). Commission only — sell tax is separate and not floored.
+MIN_COMMISSION = 20.0
+
+
+def commission(gross: float, rate: float, *, min_commission: float = MIN_COMMISSION) -> float:
+    """Broker commission with NT$ floor. ``rate<=0`` → 0 (research 0× cost runs)."""
+    g = float(gross)
+    r = float(rate)
+    if r <= 0 or g <= 0:
+        return 0.0
+    return max(g * r, float(min_commission))
+
+
+def sell_tax(code: str, gross: float) -> float:
+    tax = TAX_ETF if str(code) == "0050" else TAX_STOCK
+    return float(gross) * tax
+
+
+def fees_tax_for(*, side: str, code: str, gross: float) -> float:
+    """Canonical live ``fees_tax``: BUY = commission; SELL = commission + 證交稅."""
+    s = str(side).upper()
+    g = float(gross)
+    if s == "BUY":
+        return commission(g, BUY_FEE)
+    if s == "SELL":
+        return commission(g, SELL_FEE) + sell_tax(code, g)
+    raise ValueError(f"unknown side: {side!r}")
+
+
+def max_affordable_buy_qty(cash: float, fp: float, *, lot: int = 1000) -> int:
+    """Largest board-lot qty affordable including min commission.
+
+    When ``gross * BUY_FEE >= MIN_COMMISSION``, same as ``cash / (fp*(1+BUY_FEE))``.
+    Otherwise cash must cover ``gross + MIN_COMMISSION``.
+    """
+    from tw_share_lots import board_lots
+
+    cash_f = float(cash)
+    fp_f = float(fp)
+    if cash_f <= 0 or fp_f <= 0:
+        return 0
+    # Threshold gross where rate equals floor
+    thr = MIN_COMMISSION / BUY_FEE if BUY_FEE > 0 else 0.0
+    q_rate = board_lots(int(cash_f / (fp_f * (1 + BUY_FEE))))
+    if q_rate > 0 and q_rate * fp_f >= thr:
+        return q_rate
+    if cash_f <= MIN_COMMISSION:
+        return 0
+    return board_lots(int((cash_f - MIN_COMMISSION) / fp_f))
 
 
 def append_immutable(path: Path | str, row: dict[str, Any], key: str) -> bool:

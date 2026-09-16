@@ -58,6 +58,8 @@ from research_metric_helpers import metric_delta, fmt_pct
 FIN = ["2880", "2886", "2892", "5880"]
 TEL = ["2412", "3045", "4904"]
 ALL = FIN + TEL + ["0050"]
+from live_ledger import MIN_COMMISSION, commission as broker_commission
+
 BUY_FEE = 0.001425 * 0.6
 SELL_FEE = 0.001425 * 0.6
 TAX_STOCK = 0.003
@@ -249,14 +251,23 @@ def simulate_core(
             fp = float(op[code]) * (1 + slip if side == "BUY" else 1 - slip)
             gross = q * fp
             tax = tax_etf if code == "0050" or (def_c is not None and code == def_c) else tax_stock
-            fee = gross * (buy_fee if side == "BUY" else sell_fee + tax)
+            if side == "BUY":
+                fee = broker_commission(gross, buy_fee)
+            else:
+                fee = broker_commission(gross, sell_fee) + gross * tax
             if side == "BUY" and gross + fee > cash:
-                afford = int(cash / (fp * (1 + buy_fee)))
+                # Rate path vs min-commission path (same as live_ledger.max_affordable_buy_qty)
+                if buy_fee > 0 and (cash / (fp * (1 + buy_fee))) * fp * buy_fee >= MIN_COMMISSION:
+                    afford = int(cash / (fp * (1 + buy_fee)))
+                elif cash > MIN_COMMISSION:
+                    afford = int((cash - MIN_COMMISSION) / fp)
+                else:
+                    afford = 0
                 if lot_size > 1:
                     afford = (afford // lot_size) * lot_size
                 q = max(0, afford)
                 gross = q * fp
-                fee = gross * buy_fee
+                fee = broker_commission(gross, buy_fee)
             if q < 1:
                 continue
             if side == "BUY":
@@ -268,7 +279,7 @@ def simulate_core(
                 if q < 1:
                     continue
                 gross = q * fp
-                fee = gross * (sell_fee + tax)
+                fee = broker_commission(gross, sell_fee) + gross * tax
                 pos[code] -= q
                 cash += gross - fee
             sig_s = (

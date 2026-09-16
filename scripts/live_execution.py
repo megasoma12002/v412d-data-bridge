@@ -14,7 +14,16 @@ from typing import Any, Protocol
 
 import pandas as pd
 
-from live_ledger import BUY_FEE, SELL_FEE, SLIP, TAX_ETF, TAX_STOCK, append_immutable
+from live_ledger import (
+    BUY_FEE,
+    SELL_FEE,
+    SLIP,
+    TAX_ETF,
+    TAX_STOCK,
+    append_immutable,
+    fees_tax_for,
+    max_affordable_buy_qty,
+)
 from tw_share_lots import BOARD_LOT, board_lots
 
 # Canonical fill row keys (broker ports must map acks into this schema).
@@ -94,17 +103,15 @@ def _paper_fill_rows(
         side = o.side
         fp = open_prices[o.code] * (1 + SLIP if side == "BUY" else 1 - SLIP)
         gross = q * fp
-        fee = gross * (
-            BUY_FEE if side == "BUY" else SELL_FEE + (TAX_ETF if o.code == "0050" else TAX_STOCK)
-        )
+        fee = fees_tax_for(side=side, code=str(o.code), gross=gross)
         signed = q if side == "BUY" else -q
         if side == "BUY" and gross + fee > cash:
-            afford = board_lots(int(cash / (fp * (1 + BUY_FEE))))
+            afford = max_affordable_buy_qty(cash, fp, lot=BOARD_LOT)
             if afford < orig_q:
                 continue
             q = afford
             gross = q * fp
-            fee = gross * BUY_FEE
+            fee = fees_tax_for(side="BUY", code=str(o.code), gross=gross)
             signed = q
         if q < BOARD_LOT or q % BOARD_LOT != 0:
             continue
@@ -295,9 +302,7 @@ class BrokerPreflightFillPort:
                     continue
                 fp = px * (1 + SLIP if side == "BUY" else 1 - SLIP)
             gross = q * fp
-            fee = gross * (
-                BUY_FEE if side == "BUY" else SELL_FEE + (TAX_ETF if code == "0050" else TAX_STOCK)
-            )
+            fee = fees_tax_for(side=side, code=code, gross=gross)
             sig = (
                 str(ack.get("signal_date") or "")
                 or (str(order.signal_date) if order is not None else "")
