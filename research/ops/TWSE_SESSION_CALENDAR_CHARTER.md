@@ -279,7 +279,7 @@ Pre-09:05: auction may still be forming → UNKNOWN even on open days is OK. Aft
 | **P0 doc** | This charter | — |
 | **P1** | `twse_session_calendar.is_session_day` + holiday CSV / `holidaySchedule` fetch + unit tests | Block unknown ports |
 | **P2** | Wire GHA forward job skip + `session_skip` artifact | Paper noise↓ |
-| **P3** | MI_INDEX same-day probe + cutoff / override (+ NCDR CAP Taipei filter) — prototype `twse_session_sources.py` | **Required before live submit** |
+| **P3** | MI_INDEX + NCDR CAP + **MIS intraday OPEN** — `twse_session_sources.py` | **Required before live submit** |
 | **P4** | Broker `FillPort` calls P3 preflight fail-closed | ACCEPT cutover PR |
 
 ## 7. Acceptance tests (when coded)
@@ -289,7 +289,8 @@ Pre-09:05: auction may still be forming → UNKNOWN even on open days is OK. Aft
 - Synthetic “calendar open + empty MI_INDEX after cutoff” → broker blocked
 - Override CLOSED → blocked even if stale bars exist from prior mistaken append
 - Normal session → `OPEN` and paper path unchanged vs baseline
-- CAP Taipei morning 停班 → intent CLOSED; afternoon-only → still OPEN for board
+- Synthetic MIS `d==asof` + open → `OPEN` even when MI_INDEX empty
+- MIS prior-day `d` → not OPEN (stay UNKNOWN until post-close MI)
 
 ## 8. Pointers
 
@@ -302,6 +303,7 @@ Pre-09:05: auction may still be forming → UNKNOWN even on open days is OK. Aft
 - TWSE 年曆 JSON: `holidaySchedule?response=json`
 - 人事總處停班查詢: `https://www.dgpa.gov.tw/typh/daily/nds.html`
 - NCDR 停班 CAP ATOM: `https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33`
+- TWSE MIS delayed quote: `https://mis.twse.com.tw/stock/api/getStockInfo.jsp?ex_ch=tse_0050.tw&json=1&delay=0`
 - TAIFEX OpenAPI (latest day): `https://openapi.taifex.com.tw/v1/DailyMarketReportFut`
 - TAIFEX historical TX day: `POST https://www.taifex.com.tw/cht/3/futDataDown`
 
