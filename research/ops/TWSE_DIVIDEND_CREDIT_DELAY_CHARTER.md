@@ -73,7 +73,7 @@ Dividend ex→pay is the **fourth clock** already called out in the T+2 charter 
 |---|---|---|
 | **6.9a** | Ex trading day postponed when board closed | **Live ✅** via `E22_v2s_tw_effex` |
 | **6.9b** | Payment delayed by bank/票交所 停班 | Overlay ✅ (`mops_payment_amendments.csv`); live MOPS 重大訊息仍靠 ops/fixture parse |
-| **6.9c** | Stock / CIL pay-date delay | Same class as 6.9b; books still credit shares on `stock_ex_date` |
+| **6.9c** | Stock / CIL pay-date delay | Observe ✅ (`effective_stock_payment` + gap69c note); Soft-Frozen still credits shares/CIL on `stock_ex` / effex |
 
 ---
 
@@ -109,7 +109,7 @@ effective_payment(payment_date):
 | **S0 (legacy)** | Credit on raw ledger `ex_date` | `E22_v2s_tw` preserved |
 | **S1 observe** | Emit `dividend_delay_estimate.csv`: raw vs effective ex/pay | Ops pack ✅ |
 | **S2 sandbox** | `E22_v3_recv_pay_effdelay` cash on **effective_payment** (recv on effective ex) | Stage B extension ✅ |
-| **S3** | Refresh `ex_date` from TWSE same-day ex list after typhoon | Event pipeline (optional) |
+| **S3** | Refresh `ex_date` from TWSE same-day ex list (TWT48U/TWT49U → `ex_date_amendments.csv`) | **ACCEPT observe ✅** |
 | **S0→effex (D5)** | Soft-Frozen DEFAULT = `E22_v2s_tw_effex` | **ACCEPT 2026-09-16 ✅** |
 
 ---
@@ -174,6 +174,8 @@ Sandbox version: `E22_v3_recv_pay_effdelay` — receivable on `effective_ex_trad
 | **D3** | Sandbox `E22_v3_recv_pay_effdelay` + `twse_dividend_delay_sim.py` day-walk | Sandbox ✅ |
 | **D4** | MOPS payment-amendment overlay (`e22_mops_payment_amendments.py` + CSV) wired into estimate / effdelay | Ops ✅ |
 | **D5** | Soft-Frozen books → `E22_v2s_tw_effex` | **ACCEPT 2026-09-16 ✅** |
+| **S3** | `twse_same_day_ex_list.py` + `ex_date_amendments.csv` → estimate overlay | **ACCEPT observe ✅** |
+| **6.9c** | Stock payment / CIL timing observe fields (no Soft-Frozen flip) | **ACCEPT observe ✅** |
 
 Parallel: keep trade T+2 (#239) and session MIS/CAP (#237) as SSOT for board/settlement calendars.
 

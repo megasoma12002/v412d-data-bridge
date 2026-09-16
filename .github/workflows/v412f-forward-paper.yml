@@ -100,6 +100,14 @@ jobs:
         # Capital: omit --capital so scripts/portfolio_capital.DEFAULT_CAPITAL (500M) applies.
         # Hardcoding 3M here is a wipe/recovery landmine after ACCEPT live capital 500M.
         run: python scripts/e21_forward_pipeline.py --market forward/e21/live_market.csv --state-dir forward/e21
+      - name: T+2 settlement cash estimate (R4 observe)
+        if: steps.session_gate.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          ASOF="$(TZ=Asia/Taipei date +%F)"
+          PYTHONPATH=scripts python scripts/twse_t2_settlement_estimate.py \
+            --state-dir forward/e21 \
+            --asof "$ASOF"
       - name: Fail-closed E21 QC
         if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/e21_qc.py --state-dir forward/e21

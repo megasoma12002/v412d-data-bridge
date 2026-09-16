@@ -58,7 +58,8 @@ class LiveConfig:
     live_cutover_ballot: str = "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE"
 
     # Fill backend — default paper Exact T+1. Broker / dry_run via CLI or E21_FILL_PORT.
-    # True broker routing requires a separate human ACCEPT PR (not this default).
+    # FillPort name: paper | dry_run | broker (P4 fixture-ack shadow; Soft-Frozen stays paper).
+    # True broker live write requires E21_BROKER_WRITE_LIVE=1 + separate ACCEPT.
     fill_port: str = "paper"
 
 

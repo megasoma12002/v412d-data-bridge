@@ -123,6 +123,21 @@ class OverlayWireTests(unittest.TestCase):
         self.assertEqual(recv2, {})
         self.assertEqual(res2.details[0]["effective_payment"], "2026-07-13")
 
+    def test_parse_stock_dividend_leg(self) -> None:
+        text = "原訂股票股利發放日為115年7月10日，因颱風顺延至7月13日辦理。"
+        rows = parse_amendment_text(text, default_code="2330")
+        self.assertTrue(rows)
+        self.assertEqual(rows[0]["leg"], "stock")
+        self.assertEqual(rows[0]["amended_payment_date"], "2026-07-13")
+
+    def test_stock_leg_lookup(self) -> None:
+        amd = {("2330", "2026-07-10", "stock"): "2026-07-13"}
+        self.assertEqual(
+            lookup_amendment(amd, "2330", "2026-07-10", leg="stock"),
+            date(2026, 7, 13),
+        )
+        self.assertIsNone(lookup_amendment(amd, "2330", "2026-07-10", leg="cash"))
+
     def test_lookup(self) -> None:
         amd = {("2891", "2026-07-10"): "2026-07-13"}
         self.assertEqual(lookup_amendment(amd, "2891", "2026-07-10"), date(2026, 7, 13))
