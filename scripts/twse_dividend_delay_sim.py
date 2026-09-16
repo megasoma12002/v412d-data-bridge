@@ -252,7 +252,8 @@ def main() -> int:
         "effective_payment": result["effective_payment"],
         "first_cash_date": result["first_cash_date"],
         "first_receivable_date": result["first_receivable_date"],
-        "soft_frozen_untouched": True,
+        "soft_frozen_default": result["soft_frozen_default"],
+        "d5_accept": True,
     }
     print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
