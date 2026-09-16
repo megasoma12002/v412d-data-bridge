@@ -107,7 +107,7 @@ effective_payment(payment_date):
 |---|---|---|
 | **S0 (today)** | Credit on raw ledger `ex_date` | Soft-Frozen keep |
 | **S1 observe** | Emit `dividend_delay_estimate.csv`: raw vs effective ex/pay | Ops pack |
-| **S2 sandbox** | `E22_v3_recv_pay` cash on **effective_payment** | Stage B extension |
+| **S2 sandbox** | `E22_v3_recv_pay_effdelay` cash on **effective_payment** (recv on effective ex) | Stage B extension ✅ |
 | **S3** | Refresh `ex_date` from TWSE same-day ex list after typhoon | Event pipeline ACCEPT |
 
 ---
@@ -150,7 +150,15 @@ CLI:
 PYTHONPATH=scripts python3 scripts/twse_dividend_delay_estimate.py
 # → repro/div-delay/dividend_delay_estimate.csv
 # → repro/div-delay/dividend_delay_estimate.summary.json
+
+PYTHONPATH=scripts python3 scripts/twse_dividend_delay_sim.py --code 2891 --ex-date 2026-07-10
+# → repro/div-delay/delay_sim_2891.json  (formal vs recv_pay vs effdelay)
+
+PYTHONPATH=scripts python3 scripts/twse_dividend_delay_sim.py --code 2891 --ex-date 2026-07-10 --synthetic-pay-on-ex
+# demo: payment lands on typhoon day → effective_payment snaps to 07-13
 ```
+
+Sandbox version: `E22_v3_recv_pay_effdelay` — receivable on `effective_ex_trade`, cash settle on `effective_payment`. Soft-Frozen / `E22_v2s_tw` unchanged.
 
 ---
 
@@ -161,7 +169,7 @@ PYTHONPATH=scripts python3 scripts/twse_dividend_delay_estimate.py
 | **D0** | This charter | — |
 | **D1** | Pure helpers: `effective_ex_trade` / `effective_payment` + unit tests (typhoon + 封關 + consecutive) | Observe |
 | **D2** | CLI estimate over `e22_dividend_events.csv` → repro CSV + summary JSON (cash/stock legs; no books mutate) | Observe ✅ |
-| **D3** | Optional wire into `E22_v3_recv_pay` sandbox only | Sandbox ACCEPT |
+| **D3** | Sandbox `E22_v3_recv_pay_effdelay` + `twse_dividend_delay_sim.py` day-walk | Sandbox ✅ |
 | **D4** | MOPS payment-amendment fetch overlay | Ops |
 | **D5** | Soft-Frozen books change | **Explicit ACCEPT** — not this PR |
 
