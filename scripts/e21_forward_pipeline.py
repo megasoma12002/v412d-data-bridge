@@ -44,7 +44,7 @@ from live_config import (
     E22_BOOKS_VERSION,
     DIV_PATH,
 )
-from live_ledger import ALL, append_immutable, holdings
+from live_ledger import ALL, append_immutable, holdings, make_order_id
 from live_strategy_targets import features, resolve_session_targets
 from live_execution import fill_pending_at_open, resolve_fill_port
 from e22_books_apply import apply_books_for_date, books_manifest, is_sandbox_version
@@ -382,7 +382,7 @@ def main():
         ):
             if qty < BOARD_LOT or qty % BOARD_LOT != 0:
                 continue
-            oid = f"{latest.date()}-{c}-{side}"
+            oid = make_order_id(signal_date=latest.date(), code=c, side=side)
             order_rows.append(
                 {
                     "order_id": oid,
@@ -406,7 +406,7 @@ def main():
                 qty = min(qty, board_lots(pos.get(c, 0)))
             if qty < BOARD_LOT:
                 continue
-            oid = f"{latest.date()}-{c}-{side}"
+            oid = make_order_id(signal_date=latest.date(), code=c, side=side)
             order_rows.append(
                 {
                     "order_id": oid,

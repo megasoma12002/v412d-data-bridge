@@ -13,9 +13,14 @@ import pandas as pd
 
 from broker_safety import (
     DEFAULT_CIRCUIT_FAIL_THRESHOLD,
+    ProcessLock,
+    already_broker_deduped,
     already_submitted,
+    broker_dedupe_key,
     build_submit_intents,
     client_order_id_for,
+    confirm_and_reserve_broker_submit,
+    confirm_before_broker_submit,
     live_write_gate,
     load_circuit,
     reset_circuit,
@@ -24,7 +29,7 @@ from broker_safety import (
 )
 from live_config import LIVE
 from live_execution import BrokerPreflightFillPort
-from live_ledger import fees_tax_for
+from live_ledger import fees_tax_for, make_order_id
 from tw_share_lots import BOARD_LOT
 
 
@@ -350,6 +355,140 @@ class BrokerPortSafetyTests(unittest.TestCase):
             self.assertFalse(payload["api_wired"])
             self.assertEqual(payload["n"], 1)
             self.assertEqual(payload["intents"][0]["status"], "INTENT_ONLY")
+            self.assertTrue(payload["intents"][0]["require_confirm_before_submit"])
+            self.assertIn("broker_dedupe_key", payload["intents"][0])
+
+
+class StableOrderIdTests(unittest.TestCase):
+    def test_make_order_id_stable_and_bit_identical(self) -> None:
+        a = make_order_id(signal_date=date(2026, 7, 13), code="0050", side="buy")
+        b = make_order_id(signal_date="2026-07-13", code="0050", side="BUY")
+        self.assertEqual(a, b)
+        self.assertEqual(a, "2026-07-13-0050-BUY")
+
+    def test_regenerating_same_content_same_client_order_id(self) -> None:
+        oid = make_order_id(signal_date=date(2026, 7, 10), code="2330", side="SELL")
+        asof = date(2026, 7, 13)
+        c1 = client_order_id_for(oid, asof=asof)
+        c2 = client_order_id_for(
+            make_order_id(signal_date=date(2026, 7, 10), code="2330", side="SELL"),
+            asof=asof,
+        )
+        self.assertEqual(c1, c2)
+
+
+class ProcessLockAndConfirmTests(unittest.TestCase):
+    def test_process_lock_exclusive_nonblocking(self) -> None:
+        import multiprocessing as mp
+        import time
+
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            ready = mp.Event()
+            release = mp.Event()
+            result: mp.Queue = mp.Queue()
+
+            def holder() -> None:
+                with ProcessLock(sdir, blocking=True):
+                    ready.set()
+                    release.wait(timeout=5)
+
+            def contender() -> None:
+                ready.wait(timeout=5)
+                try:
+                    with ProcessLock(sdir, blocking=False):
+                        result.put("acquired")
+                except BlockingIOError:
+                    result.put("blocked")
+
+            p1 = mp.Process(target=holder)
+            p2 = mp.Process(target=contender)
+            p1.start()
+            p2.start()
+            p2.join(timeout=5)
+            release.set()
+            p1.join(timeout=5)
+            self.assertEqual(result.get(timeout=2), "blocked")
+            self.assertEqual(p2.exitcode, 0)
+            self.assertEqual(p1.exitcode, 0)
+
+    def test_confirm_requires_explicit_flag(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            r = confirm_before_broker_submit(
+                state_dir=sdir,
+                client_order_id="o1@2026-07-13",
+                code="0050",
+                side="BUY",
+                quantity=BOARD_LOT,
+                asof=date(2026, 7, 13),
+                confirmed=False,
+                config_accepted=True,
+                env_write_live=True,
+            )
+            self.assertFalse(r.allowed)
+            self.assertTrue(any("confirmed=False" in x for x in r.reasons))
+
+    def test_confirm_and_reserve_dedupes(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            with ProcessLock(sdir):
+                r1 = confirm_and_reserve_broker_submit(
+                    state_dir=sdir,
+                    client_order_id="o1@2026-07-13",
+                    code="0050",
+                    side="BUY",
+                    quantity=BOARD_LOT,
+                    asof=date(2026, 7, 13),
+                    confirmed=True,
+                    config_accepted=True,
+                    env_write_live=True,
+                )
+                self.assertTrue(r1.allowed)
+                self.assertTrue(already_broker_deduped(sdir, r1.dedupe_key or ""))
+                r2 = confirm_and_reserve_broker_submit(
+                    state_dir=sdir,
+                    client_order_id="o1@2026-07-13",
+                    code="0050",
+                    side="BUY",
+                    quantity=BOARD_LOT,
+                    asof=date(2026, 7, 13),
+                    confirmed=True,
+                    config_accepted=True,
+                    env_write_live=True,
+                )
+                self.assertFalse(r2.allowed)
+                self.assertTrue(any("broker_dedupe_hit" in x for x in r2.reasons))
+
+    def test_dedupe_key_includes_qty(self) -> None:
+        a = broker_dedupe_key(
+            client_order_id="x", code="0050", side="BUY", quantity=1000
+        )
+        b = broker_dedupe_key(
+            client_order_id="x", code="0050", side="BUY", quantity=2000
+        )
+        self.assertNotEqual(a, b)
+
+    def test_live_write_reserves_dedupe(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            _seed_pending(sdir)
+            _write_ack(sdir)
+            port = BrokerPreflightFillPort(
+                probe_fn=_open_probe, write_live=True, config_accepted=True
+            )
+            port.fill_pending(
+                state_dir=sdir,
+                latest=pd.Timestamp("2026-07-13"),
+                open_prices={"0050": 100.0},
+                pos={},
+                cash=1_000_000.0,
+            )
+            coid = client_order_id_for("o1", asof=date(2026, 7, 13))
+            dkey = broker_dedupe_key(
+                client_order_id=coid, code="0050", side="BUY", quantity=BOARD_LOT
+            )
+            self.assertTrue(already_broker_deduped(sdir, dkey))
 
 
 class LandmineBrokerLiveAccept(unittest.TestCase):
