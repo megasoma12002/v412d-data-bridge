@@ -30,7 +30,30 @@ Authority for “is today a session?” must be **exchange/official**, not a har
 
 ## 3. Method (recommended stack)
 
-### 3.1 Two signals (AND for broker submit)
+### 3.0 Integrated annual calendar (SSOT shape)
+
+```text
+data/calendars/twse_sessions_YYYY.csv
+  date,is_session,kind,name,source,notes
+```
+
+**Build order**
+1. Seed from TWSE `holidaySchedule` → every day of the year (weekend / `CLOSED_HOLIDAY` / planned `SESSION`)
+2. Overlay NCDR CAP Taipei full/AM → `CLOSED_TYPHOON_INTENT`
+3. Overlay MI_INDEX empty on planned sessions (only **after close** / past days) → `CLOSED_TYPHOON_OR_NODATA`
+4. Optional `session_overrides.csv`
+
+```bash
+python3 scripts/twse_session_sources.py --build-year 2026 \
+  --mi-facts-from 2026-07-01 \
+  --out data/calendars/twse_sessions_2026.csv
+python3 scripts/twse_session_sources.py --asof 2026-07-10   # uses pinned CSV if present
+```
+
+`nth_session_after(sessions, fill_date, 2)` uses `is_session=1` rows — shared by Exact T+1 / T+2 estimate.
+
+Weekend that is also on `holidaySchedule` (e.g. 2026-02-28) is labeled **`CLOSED_HOLIDAY`**, not bare `WEEKEND`.
+
 
 ```
 is_session_day(asof) =
@@ -222,6 +245,7 @@ CAP parse rules (offline-tested patterns):
 ## 8. Pointers
 
 - TWSE daily probe pattern: `scripts/v412f_append_twse_daily.py`
+- Session / typhoon auto sources: `scripts/twse_session_sources.py`
 - Live session selection: `scripts/e21_forward_pipeline.py` (common complete dates)
 - Fill ports: `scripts/live_execution.py`
 - Daily schedule: `.github/workflows/v412f-forward-paper.yml`

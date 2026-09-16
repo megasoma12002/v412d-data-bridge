@@ -1,28 +1,33 @@
 #!/usr/bin/env python3
-"""Automated TWSE session / typhoon-close signal acquisition (research + ops).
+"""TWSE session calendar — annual holidaySchedule + typhoon overlays.
 
-Sources (no broker secrets):
-  1) TWSE holidaySchedule JSON — planned 国定假 / special non-trade days
-  2) NCDR CAP ATOM (DGPA 停班停課) — typhoon intent; **臺北市** full/AM → TWSE close
-  3) TWSE MI_INDEX JSON — ex-post fact (reliable **after** daily close; empty intraday ≠ closed)
+Integrates:
+  1) TWSE ``holidaySchedule`` year calendar (国定假 / 無交易日 / 開始交易標記)
+  2) NCDR DGPA CAP typhoon **intent** (臺北市 full/AM)
+  3) MI_INDEX **fact** (post-close)
+  4) Optional ``session_overrides.csv``
 
+Output SSOT shape: ``data/calendars/twse_sessions_YYYY.csv``
 Soft-Frozen / LIVE_* unchanged. Observe / preflight only.
 """
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import re
 import urllib.request
 import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field
-from datetime import date, datetime, timedelta, timezone
+from datetime import date, datetime, timedelta
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable, Sequence
 from zoneinfo import ZoneInfo
 
 TAIPEI = ZoneInfo("Asia/Taipei")
 UA = {"User-Agent": "e21-ops-twse-session/1.0"}
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_CALENDAR_DIR = ROOT / "data" / "calendars"
 
 HOLIDAY_URL = "https://www.twse.com.tw/holidaySchedule/holidaySchedule?response=json"
 MI_INDEX_URL = (
@@ -30,11 +35,8 @@ MI_INDEX_URL = (
     "?response=json&date={yyyymmdd}&type=ALLBUT0999"
 )
 NCDR_ATOM_URL = "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
-
 ATOM_NS = {"a": "http://www.w3.org/2005/Atom"}
-CAP_NS = "urn:oasis:names:tc:emergency:cap:1.2"
 
-# holidaySchedule rows that mean no continuous board (name contains)
 _CLOSED_NAME_HINTS = (
     "放假",
     "休市",
@@ -72,8 +74,30 @@ class CapWorkStop:
     msg_type: str
     href: str
     target_date: date | None
-    class_: str  # FULL_DAY | MORNING | AFTERNOON | SCHOOL_ONLY | UNKNOWN
+    class_: str
     is_taipei: bool
+
+
+@dataclass
+class DayRecord:
+    """One row of the integrated annual session calendar."""
+
+    date: date
+    is_session: bool
+    kind: str
+    name: str = ""
+    source: str = "planned"
+    notes: str = ""
+
+    def to_row(self) -> dict[str, str]:
+        return {
+            "date": self.date.isoformat(),
+            "is_session": "1" if self.is_session else "0",
+            "kind": self.kind,
+            "name": self.name,
+            "source": self.source,
+            "notes": self.notes,
+        }
 
 
 @dataclass
@@ -82,6 +106,7 @@ class SessionProbe:
     weekday: int
     status: str
     broker_submit_allowed: bool
+    is_session: bool
     sources: dict[str, Any] = field(default_factory=dict)
     notes: list[str] = field(default_factory=list)
 
@@ -93,30 +118,230 @@ def _http_get(url: str, timeout: float = 60.0) -> bytes:
 
 
 def fetch_holiday_schedule(*, year: int | None = None) -> dict[str, Any]:
-    """TWSE planned open/close calendar (no typhoon rows)."""
     raw = json.loads(_http_get(HOLIDAY_URL).decode("utf-8"))
-    if year is not None and int(raw.get("queryYear") or 0) != int(year):
-        # API returns current published year; filter client-side if needed.
-        pass
+    _ = year  # API publishes one year blob; filter happens in build_annual_calendar
     return raw
 
 
-def holiday_status_for(day: date, schedule: dict[str, Any] | None = None) -> str | None:
-    """Return CLOSED_HOLIDAY / OPEN_MARKER / None (not listed)."""
-    sched = schedule if schedule is not None else fetch_holiday_schedule()
-    for row in sched.get("data") or []:
+def _schedule_index(schedule: dict[str, Any]) -> dict[str, tuple[str, str]]:
+    """date ISO -> (name, note)."""
+    out: dict[str, tuple[str, str]] = {}
+    for row in schedule.get("data") or []:
         if not row or len(row) < 2:
             continue
         d_s, name = str(row[0]), str(row[1])
-        if d_s != day.isoformat():
-            continue
-        if any(h in name for h in _OPEN_NAME_HINTS):
-            return "OPEN_MARKER"
-        if any(h in name for h in _CLOSED_NAME_HINTS) or "市場無交易" in name:
-            return "CLOSED_HOLIDAY"
-        # unnamed special — treat as closed if not explicitly start-trade
+        note = str(row[2]) if len(row) > 2 else ""
+        out[d_s] = (name, note)
+    return out
+
+
+def holiday_status_for(day: date, schedule: dict[str, Any] | None = None) -> str | None:
+    sched = schedule if schedule is not None else fetch_holiday_schedule()
+    idx = _schedule_index(sched)
+    hit = idx.get(day.isoformat())
+    if hit is None:
+        return None
+    name, _note = hit
+    if any(h in name for h in _OPEN_NAME_HINTS):
+        return "OPEN_MARKER"
+    if any(h in name for h in _CLOSED_NAME_HINTS) or "市場無交易" in name:
         return "CLOSED_HOLIDAY"
+    return "CLOSED_HOLIDAY"
+
+
+def build_annual_calendar(
+    year: int,
+    schedule: dict[str, Any] | None = None,
+) -> list[DayRecord]:
+    """Build Mon–Sun year grid from TWSE holidaySchedule (no typhoon yet)."""
+    sched = schedule if schedule is not None else fetch_holiday_schedule()
+    idx = _schedule_index(sched)
+    start = date(year, 1, 1)
+    end = date(year, 12, 31)
+    days: list[DayRecord] = []
+    d = start
+    while d <= end:
+        name, note = idx.get(d.isoformat(), ("", ""))
+        hstat = holiday_status_for(d, sched)
+        if hstat == "CLOSED_HOLIDAY":
+            kind = "CLOSED_HOLIDAY"
+            is_sess = False
+            source = "holidaySchedule"
+            # weekend+holiday still closed for board
+            if d.weekday() >= 5:
+                notes = "weekend+holidaySchedule"
+            else:
+                notes = note
+        elif hstat == "OPEN_MARKER":
+            kind = "SESSION"
+            is_sess = True
+            source = "holidaySchedule"
+            notes = note or name
+        elif d.weekday() >= 5:
+            kind = "WEEKEND"
+            is_sess = False
+            source = "weekend"
+            notes = ""
+        else:
+            kind = "SESSION"
+            is_sess = True
+            source = "weekday_default"
+            notes = ""
+        days.append(
+            DayRecord(
+                date=d,
+                is_session=is_sess,
+                kind=kind,
+                name=name,
+                source=source,
+                notes=notes,
+            )
+        )
+        d += timedelta(days=1)
+    return days
+
+
+def load_overrides(path: Path) -> dict[date, tuple[str, str]]:
+    """CSV: date,status,reason  status in {OPEN,CLOSED,...}."""
+    if not path.exists():
+        return {}
+    out: dict[date, tuple[str, str]] = {}
+    with path.open(encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            d = date.fromisoformat(str(row["date"]))
+            out[d] = (str(row.get("status") or "").upper(), str(row.get("reason") or ""))
+    return out
+
+
+def apply_overlays(
+    calendar: list[DayRecord],
+    *,
+    caps: Sequence[CapWorkStop] | None = None,
+    mi_closed: Iterable[date] | None = None,
+    mi_open: Iterable[date] | None = None,
+    overrides: dict[date, tuple[str, str]] | None = None,
+) -> list[DayRecord]:
+    """Overlay typhoon intent/fact + manual overrides onto the annual plan."""
+    by_date = {r.date: DayRecord(**{**asdict(r), "date": r.date}) for r in calendar}
+    # deepcopy-ish via asdict
+    for r in calendar:
+        by_date[r.date] = DayRecord(
+            date=r.date,
+            is_session=r.is_session,
+            kind=r.kind,
+            name=r.name,
+            source=r.source,
+            notes=r.notes,
+        )
+
+    if caps:
+        for c in caps:
+            if not (c.is_taipei and c.status == "Actual" and c.target_date):
+                continue
+            if c.class_ not in ("FULL_DAY", "MORNING"):
+                continue
+            td = c.target_date
+            if td not in by_date:
+                continue
+            rec = by_date[td]
+            if rec.kind == "CLOSED_HOLIDAY":
+                continue  # annual holiday already closed
+            rec.is_session = False
+            rec.kind = "CLOSED_TYPHOON_INTENT"
+            rec.source = "dgpa_cap+annual"
+            rec.notes = (rec.notes + ";" if rec.notes else "") + c.description[:80]
+
+    for d in mi_closed or ():
+        if d not in by_date:
+            continue
+        rec = by_date[d]
+        if rec.kind in ("CLOSED_HOLIDAY", "WEEKEND"):
+            continue
+        # Only demote planned sessions
+        if rec.is_session or rec.kind.startswith("SESSION") or rec.kind == "CLOSED_TYPHOON_INTENT":
+            if rec.kind != "CLOSED_TYPHOON_INTENT":
+                rec.kind = "CLOSED_TYPHOON_OR_NODATA"
+            rec.is_session = False
+            rec.source = (rec.source + "+mi_index").replace("++", "+")
+            rec.notes = (rec.notes + ";" if rec.notes else "") + "mi_index_empty"
+
+    for d in mi_open or ():
+        if d not in by_date:
+            continue
+        rec = by_date[d]
+        if rec.kind in ("CLOSED_HOLIDAY", "WEEKEND"):
+            continue
+        rec.is_session = True
+        rec.kind = "SESSION"
+        rec.source = (rec.source + "+mi_index_ok").replace("++", "+")
+
+    for d, (status, reason) in (overrides or {}).items():
+        if d not in by_date:
+            continue
+        rec = by_date[d]
+        if status == "CLOSED":
+            rec.is_session = False
+            rec.kind = "CLOSED_OVERRIDE"
+            rec.source = "override"
+            rec.notes = reason
+        elif status == "OPEN":
+            rec.is_session = True
+            rec.kind = "SESSION"
+            rec.source = "override"
+            rec.notes = reason
+
+    return [by_date[k] for k in sorted(by_date)]
+
+
+def session_dates(calendar: Sequence[DayRecord]) -> list[date]:
+    return [r.date for r in calendar if r.is_session]
+
+
+def nth_session_after(sessions: Sequence[date], start: date, n: int) -> date:
+    """Return the n-th open session strictly after ``start`` (n>=1)."""
+    if n < 1:
+        raise ValueError("n must be >= 1")
+    after = [d for d in sessions if d > start]
+    if len(after) < n:
+        raise ValueError(f"not enough sessions after {start}: need {n}, have {len(after)}")
+    return after[n - 1]
+
+
+def write_calendar_csv(calendar: Sequence[DayRecord], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fields = ["date", "is_session", "kind", "name", "source", "notes"]
+    with path.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=fields)
+        w.writeheader()
+        for r in calendar:
+            w.writerow(r.to_row())
+
+
+def read_calendar_csv(path: Path) -> list[DayRecord]:
+    rows: list[DayRecord] = []
+    with path.open(encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            rows.append(
+                DayRecord(
+                    date=date.fromisoformat(row["date"]),
+                    is_session=str(row.get("is_session")) in ("1", "true", "True"),
+                    kind=str(row.get("kind") or ""),
+                    name=str(row.get("name") or ""),
+                    source=str(row.get("source") or ""),
+                    notes=str(row.get("notes") or ""),
+                )
+            )
+    return rows
+
+
+def lookup_day(calendar: Sequence[DayRecord], day: date) -> DayRecord | None:
+    for r in calendar:
+        if r.date == day:
+            return r
     return None
+
+
+# --- CAP / MI_INDEX (same as before, kept for overlays) -------------------------------
 
 
 def fetch_mi_index(day: date) -> dict[str, Any]:
@@ -140,13 +365,11 @@ def _cap_text(root: ET.Element, tag: str) -> str:
 
 
 def _parse_target_date(desc: str, sent: datetime) -> date | None:
-    """Map CAP description date phrases onto a calendar date (Taipei)."""
     sent_d = sent.astimezone(TAIPEI).date()
     if re.search(r"今天|今日", desc):
         return sent_d
     if re.search(r"明天|明日", desc):
         return sent_d + timedelta(days=1)
-    # M/D or MM/DD relative to sent year
     m = re.search(r"(?<!\d)(\d{1,2})/(\d{1,2})(?!\d)", desc)
     if m:
         mm, dd = int(m.group(1)), int(m.group(2))
@@ -158,9 +381,8 @@ def _parse_target_date(desc: str, sent: datetime) -> date | None:
 
 
 def _classify_work_stop(text: str) -> str:
-    """Classify DGPA 停班 wording for TWSE impact."""
-    if re.search(r"未達停止上班.*停止上課|照常上班.*停止上課|停止上課(?!.*停止上班)", text):
-        if "停止上班" not in text or "未達停止上班" in text:
+    if re.search(r"未達停止上班.*停止上課|照常上班.*停止上課", text):
+        if "未達停止上班" in text:
             return "SCHOOL_ONLY"
     if re.search(r"下午.*停止上班|停止上班.*下午|下午已達停止上班", text):
         return "AFTERNOON"
@@ -173,21 +395,16 @@ def _classify_work_stop(text: str) -> str:
 
 def _is_taipei(area: str, desc: str) -> bool:
     blob = f"{area} {desc}"
-    # Whole city only — 區級 alone should not close TWSE; still flag Taipei districts
-    # but TWSE rule is 臺北市全體公教. Prefer exact city.
-    if re.search(r"臺北市(?!.*區)|台北市(?!.*區)", blob):
-        # If only a district is named without city-wide, areaDesc is often "臺北市中正區"
-        if re.search(r"臺北市.+區|台北市.+區", area) and "全體" not in blob:
-            # District-level: still Taipei geography but NOT city-wide — do not auto-close
-            return False
-        return True
     if area.strip() in ("臺北市", "台北市"):
+        return True
+    if re.search(r"臺北市.+區|台北市.+區", area) and "全體" not in blob:
+        return False
+    if re.search(r"臺北市|台北市", blob) and not re.search(r"臺北市.+區|台北市.+區", area):
         return True
     return False
 
 
 def fetch_dgpa_caps(*, atom_url: str = NCDR_ATOM_URL) -> list[CapWorkStop]:
-    """Pull NCDR ATOM AlertType=33 and parse each CAP."""
     raw = _http_get(atom_url)
     feed = ET.fromstring(raw)
     out: list[CapWorkStop] = []
@@ -224,7 +441,6 @@ def fetch_dgpa_caps(*, atom_url: str = NCDR_ATOM_URL) -> list[CapWorkStop]:
 
 
 def taipei_typhoon_intent(asof: date, caps: list[CapWorkStop] | None = None) -> dict[str, Any]:
-    """Early intent: Taipei city-wide full/morning 停班 for ``asof`` → TWSE full close."""
     items = caps if caps is not None else fetch_dgpa_caps()
     hits = [
         c
@@ -255,42 +471,75 @@ def probe_session(
     *,
     use_network: bool = True,
     holiday_schedule: dict[str, Any] | None = None,
+    calendar: Sequence[DayRecord] | None = None,
     caps: list[CapWorkStop] | None = None,
     mi_payload: dict[str, Any] | None = None,
     now_taipei: datetime | None = None,
 ) -> SessionProbe:
-    """Combine holiday + CAP intent + MI_INDEX fact into a session verdict."""
+    """Verdict for one day — prefers integrated annual calendar when provided."""
     day = asof or datetime.now(tz=TAIPEI).date()
     now = now_taipei or datetime.now(tz=TAIPEI)
     notes: list[str] = []
     sources: dict[str, Any] = {}
 
-    if day.weekday() >= 5:
-        return SessionProbe(
-            asof=day.isoformat(),
-            weekday=day.weekday(),
-            status="WEEKEND",
-            broker_submit_allowed=False,
-            sources=sources,
-            notes=["weekend"],
-        )
+    if calendar is not None:
+        rec = lookup_day(calendar, day)
+        if rec is not None:
+            sources["annual_calendar"] = rec.to_row()
+            if not rec.is_session:
+                return SessionProbe(
+                    asof=day.isoformat(),
+                    weekday=day.weekday(),
+                    status=rec.kind,
+                    broker_submit_allowed=False,
+                    is_session=False,
+                    sources=sources,
+                    notes=[f"annual:{rec.source}"],
+                )
+            # planned open — still confirm with live MI/CAP when networking
+            notes.append("annual planned SESSION")
 
-    # --- planned holiday ---
-    if use_network or holiday_schedule is not None:
-        sched = holiday_schedule if holiday_schedule is not None else fetch_holiday_schedule()
-        hstat = holiday_status_for(day, sched)
-        sources["holidaySchedule"] = {"status": hstat}
+    # Build from schedule if no calendar row
+    if calendar is None:
+        sched = holiday_schedule
+        if sched is None and use_network:
+            sched = fetch_holiday_schedule()
+        hstat = holiday_status_for(day, sched) if sched is not None else None
+        if sched is not None:
+            sources["holidaySchedule"] = {"status": hstat}
+
+        if day.weekday() >= 5 and hstat != "OPEN_MARKER":
+            if hstat == "CLOSED_HOLIDAY":
+                return SessionProbe(
+                    asof=day.isoformat(),
+                    weekday=day.weekday(),
+                    status="CLOSED_HOLIDAY",
+                    broker_submit_allowed=False,
+                    is_session=False,
+                    sources=sources,
+                    notes=["weekend+holidaySchedule"],
+                )
+            return SessionProbe(
+                asof=day.isoformat(),
+                weekday=day.weekday(),
+                status="WEEKEND",
+                broker_submit_allowed=False,
+                is_session=False,
+                sources=sources,
+                notes=["weekend"],
+            )
+
         if hstat == "CLOSED_HOLIDAY":
             return SessionProbe(
                 asof=day.isoformat(),
                 weekday=day.weekday(),
                 status="CLOSED_HOLIDAY",
                 broker_submit_allowed=False,
+                is_session=False,
                 sources=sources,
                 notes=["listed on TWSE holidaySchedule as non-trade"],
             )
 
-    # --- typhoon intent (Taipei CAP) ---
     if use_network or caps is not None:
         intent = taipei_typhoon_intent(day, caps)
         sources["dgpa_cap"] = {
@@ -304,16 +553,13 @@ def probe_session(
                 weekday=day.weekday(),
                 status="CLOSED_TYPHOON_INTENT",
                 broker_submit_allowed=False,
+                is_session=False,
                 sources=sources,
-                notes=["Taipei FULL_DAY/MORNING 停班 via NCDR CAP"],
+                notes=notes + ["Taipei FULL_DAY/MORNING 停班 via NCDR CAP"],
             )
         if intent["afternoon_only"]:
             notes.append("Taipei AFTERNOON 停班 only — board still opens")
 
-    # --- MI_INDEX fact (after close; intraday empty is ambiguous) ---
-    # Daily MI_INDEX is typically published after the session; before ~14:00 Taipei
-    # an empty response on an otherwise open day is common → UNKNOWN not CLOSED.
-    mi_ok: bool | None = None
     if use_network or mi_payload is not None:
         payload = mi_payload if mi_payload is not None else fetch_mi_index(day)
         mi_ok = mi_index_has_session(day, payload)
@@ -327,15 +573,17 @@ def probe_session(
                 weekday=day.weekday(),
                 status="OPEN",
                 broker_submit_allowed=True,
+                is_session=True,
                 sources=sources,
                 notes=notes + ["MI_INDEX OK"],
             )
-        if after_close and mi_ok is False:
+        if after_close and not mi_ok:
             return SessionProbe(
                 asof=day.isoformat(),
                 weekday=day.weekday(),
                 status="CLOSED_TYPHOON_OR_NODATA",
                 broker_submit_allowed=False,
+                is_session=False,
                 sources=sources,
                 notes=notes + ["MI_INDEX empty after close heuristic"],
             )
@@ -346,18 +594,108 @@ def probe_session(
         weekday=day.weekday(),
         status="UNKNOWN",
         broker_submit_allowed=False,
+        is_session=False,
         sources=sources,
         notes=notes + ["fail-closed for broker until OPEN confirmed"],
     )
 
 
+def build_year_with_live_overlays(
+    year: int,
+    *,
+    schedule: dict[str, Any] | None = None,
+    fetch_caps: bool = True,
+    mi_fact_dates: Sequence[date] | None = None,
+    overrides_path: Path | None = None,
+) -> list[DayRecord]:
+    """Annual plan + optional live CAP + optional MI closed facts for given dates."""
+    base = build_annual_calendar(year, schedule)
+    caps = fetch_dgpa_caps() if fetch_caps else []
+    mi_closed: list[date] = []
+    mi_open: list[date] = []
+    now_tp = datetime.now(tz=TAIPEI)
+    for d in mi_fact_dates or ():
+        if d.year != year:
+            continue
+        try:
+            ok = mi_index_has_session(d)
+        except Exception:
+            continue
+        if ok:
+            mi_open.append(d)
+            continue
+        rec = lookup_day(base, d)
+        if not (rec and rec.is_session):
+            continue
+        # Intraday: today's empty MI_INDEX is inconclusive — do not pin typhoon on annual CSV.
+        if d == now_tp.date() and now_tp.hour < 14:
+            continue
+        mi_closed.append(d)
+    overrides = load_overrides(overrides_path) if overrides_path else {}
+    return apply_overlays(
+        base, caps=caps, mi_closed=mi_closed, mi_open=mi_open, overrides=overrides
+    )
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--asof", default=None, help="YYYY-MM-DD (default: Taipei today)")
+    ap.add_argument("--asof", default=None, help="YYYY-MM-DD probe one day")
+    ap.add_argument("--build-year", type=int, default=None, help="Build integrated annual CSV")
+    ap.add_argument(
+        "--out",
+        type=Path,
+        default=None,
+        help="CSV path (default data/calendars/twse_sessions_YYYY.csv)",
+    )
+    ap.add_argument(
+        "--mi-facts-from",
+        default=None,
+        help="YYYY-MM-DD: also probe MI_INDEX from this date through today for overlays",
+    )
+    ap.add_argument("--overrides", type=Path, default=None)
     ap.add_argument("--json-out", type=Path, default=None)
+    ap.add_argument("--no-caps", action="store_true")
     a = ap.parse_args()
+
+    if a.build_year:
+        year = int(a.build_year)
+        mi_dates: list[date] = []
+        if a.mi_facts_from:
+            start = date.fromisoformat(a.mi_facts_from)
+            today = datetime.now(tz=TAIPEI).date()
+            d = start
+            while d <= today:
+                mi_dates.append(d)
+                d += timedelta(days=1)
+        cal = build_year_with_live_overlays(
+            year,
+            fetch_caps=not a.no_caps,
+            mi_fact_dates=mi_dates,
+            overrides_path=a.overrides,
+        )
+        out = a.out or (DEFAULT_CALENDAR_DIR / f"twse_sessions_{year}.csv")
+        write_calendar_csv(cal, out)
+        n_sess = sum(1 for r in cal if r.is_session)
+        n_hol = sum(1 for r in cal if r.kind == "CLOSED_HOLIDAY")
+        n_ty = sum(1 for r in cal if "TYPHOON" in r.kind)
+        summary = {
+            "year": year,
+            "out": str(out),
+            "n_days": len(cal),
+            "n_sessions": n_sess,
+            "n_closed_holiday": n_hol,
+            "n_typhoon_overlay": n_ty,
+        }
+        print(json.dumps(summary, ensure_ascii=False, indent=2))
+        return 0
+
     asof = date.fromisoformat(a.asof) if a.asof else None
-    result = probe_session(asof)
+    cal = None
+    year = (asof or datetime.now(tz=TAIPEI).date()).year
+    pinned = DEFAULT_CALENDAR_DIR / f"twse_sessions_{year}.csv"
+    if pinned.exists():
+        cal = read_calendar_csv(pinned)
+    result = probe_session(asof, calendar=cal)
     payload = asdict(result)
     text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     print(text, end="")
