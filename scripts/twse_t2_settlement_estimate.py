@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """TWSE T+2 settlement cash estimate (observe-only).
 
-``settle_date = nth_session_after(sessions, fill_date, 2)`` — skips weekends,
-国定假, and 颱風假 via the shared session calendar (PR #237).
+``settle_date = nth_settlement_after(settlement_days, fill_date, 2)``.
+
+Settlement business days include normal trading sessions **and** 封關後
+「市場無交易，僅辦理結算交割」days — but **not** weekends, 春节放假, or
+typhoon full closes (應屆交割顺延).
 
 Does **not** mutate ``portfolio_state`` / ``nav.csv`` / ``fills.csv`` / Soft-Frozen.
 Exact T+1 paper cash ≠ custody T+2 settled cash.
@@ -21,9 +24,9 @@ from zoneinfo import ZoneInfo
 from twse_session_sources import (
     DEFAULT_CALENDAR_DIR,
     DayRecord,
-    nth_session_after,
+    nth_settlement_after,
     read_calendar_csv,
-    session_dates,
+    settlement_dates,
 )
 
 TAIPEI = ZoneInfo("Asia/Taipei")
@@ -79,7 +82,7 @@ def estimate_fill(row: dict[str, Any], sessions: Sequence[date], *, asof: date) 
     side = str(row["side"])
     gross = float(row["gross"])
     fees = float(row["fees_tax"])
-    settle = nth_session_after(sessions, fill_d, 2)
+    settle = nth_settlement_after(sessions, fill_d, 2)
     return FillSettlement(
         fill_id=str(row.get("fill_id") or ""),
         fill_date=fill_d,
@@ -116,8 +119,9 @@ def load_sessions(
     year: int | None = None,
     calendar: Sequence[DayRecord] | None = None,
 ) -> list[date]:
+    """Load **settlement** business days for T+2 (not trading-only sessions)."""
     if calendar is not None:
-        return session_dates(calendar)
+        return settlement_dates(calendar)
     path = calendar_path
     if path is None:
         y = year or datetime.now(tz=TAIPEI).year
@@ -126,7 +130,7 @@ def load_sessions(
         raise FileNotFoundError(
             f"session calendar missing: {path} (build via twse_session_sources.py --build-year)"
         )
-    return session_dates(read_calendar_csv(path))
+    return settlement_dates(read_calendar_csv(path))
 
 
 def summarize(

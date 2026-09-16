@@ -36,6 +36,11 @@ SAMPLE_SCHEDULE = {
     "data": [
         ["2026-01-01", "中華民國開國紀念日", "依規定放假1日。"],
         ["2026-01-02", "國曆新年開始交易日", "國曆新年開始交易。"],
+        ["2026-02-11", "農曆春節前最後交易日", "農曆春節前最後交易。"],
+        ["2026-02-12", "市場無交易，僅辦理結算交割作業", ""],
+        ["2026-02-13", "市場無交易，僅辦理結算交割作業", ""],
+        ["2026-02-16", "農曆除夕及春節", "放假。"],
+        ["2026-02-23", "農曆春節後開始交易日", "農曆春節後開始交易。"],
         ["2026-02-27", "和平紀念日", "補假。"],
         ["2026-02-28", "和平紀念日", "依規定放假1日。"],
         ["2026-05-01", "勞動節", "依規定放假1日。"],
@@ -112,6 +117,16 @@ class AnnualCalendarTests(unittest.TestCase):
         assert jan2 is not None
         self.assertTrue(jan2.is_session)
         self.assertEqual(jan2.kind, "SESSION")
+        # 封關後交割日：無交易但 is_settlement
+        d212 = lookup_day(cal, date(2026, 2, 12))
+        assert d212 is not None
+        self.assertFalse(d212.is_session)
+        self.assertTrue(d212.is_settlement)
+        self.assertEqual(d212.kind, "SETTLEMENT_ONLY")
+        d216 = lookup_day(cal, date(2026, 2, 16))
+        assert d216 is not None
+        self.assertFalse(d216.is_session)
+        self.assertFalse(d216.is_settlement)
         # 2026-02-28 is Saturday + holiday → closed holiday, not bare weekend
         feb28 = lookup_day(cal, date(2026, 2, 28))
         assert feb28 is not None

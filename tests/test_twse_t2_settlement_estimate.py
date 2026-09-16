@@ -9,7 +9,7 @@ import unittest
 from datetime import date
 from pathlib import Path
 
-from twse_session_sources import DayRecord, session_dates, write_calendar_csv
+from twse_session_sources import DayRecord, session_dates, settlement_dates, write_calendar_csv
 from twse_t2_settlement_estimate import (
     estimate_fill,
     run_estimate,
@@ -126,6 +126,65 @@ class TyphoonSessionOffsetTests(unittest.TestCase):
             asof=date(2026, 7, 30),
         )
         self.assertEqual(est2.settle_date, date(2026, 8, 6))
+
+    def test_cny_fengguan_settlement_only_days_count_for_t2(self) -> None:
+        """封關後「無交易僅交割」仍是 T+2 營業日；春節放假才不算。"""
+        days = [
+            _cal_row(date(2026, 2, 10), True, "SESSION"),
+            _cal_row(date(2026, 2, 11), True, "SESSION"),  # 最後交易日
+            DayRecord(
+                date=date(2026, 2, 12),
+                is_session=False,
+                kind="SETTLEMENT_ONLY",
+                name="市場無交易，僅辦理結算交割作業",
+                is_settlement=True,
+            ),
+            DayRecord(
+                date=date(2026, 2, 13),
+                is_session=False,
+                kind="SETTLEMENT_ONLY",
+                name="市場無交易，僅辦理結算交割作業",
+                is_settlement=True,
+            ),
+            _cal_row(date(2026, 2, 14), False, "WEEKEND"),
+            _cal_row(date(2026, 2, 16), False, "CLOSED_HOLIDAY"),
+            _cal_row(date(2026, 2, 23), True, "SESSION"),
+        ]
+        settle_days = settlement_dates(days)
+        trade_days = session_dates(days)
+        self.assertIn(date(2026, 2, 12), settle_days)
+        self.assertNotIn(date(2026, 2, 12), trade_days)
+        # 2/10 fill → T+2 = 2/12 (settlement-only)
+        est = estimate_fill(
+            {
+                "fill_id": "ny-1",
+                "fill_date": "2026-02-10",
+                "code": "0050",
+                "side": "SELL",
+                "quantity": 1,
+                "gross": 100.0,
+                "fees_tax": 1.0,
+            },
+            settle_days,
+            asof=date(2026, 2, 10),
+        )
+        self.assertEqual(est.settle_date, date(2026, 2, 12))
+        # 2/11 封關 fill → T+2 = 2/13 (not 開紅盤 2/23)
+        est2 = estimate_fill(
+            {
+                "fill_id": "ny-2",
+                "fill_date": "2026-02-11",
+                "code": "0050",
+                "side": "BUY",
+                "quantity": 1,
+                "gross": 100.0,
+                "fees_tax": 1.0,
+            },
+            settle_days,
+            asof=date(2026, 2, 11),
+        )
+        self.assertEqual(est2.settle_date, date(2026, 2, 13))
+        self.assertNotEqual(est2.settle_date, date(2026, 2, 23))
 
     def test_holiday_gap_fri_to_next_week(self) -> None:
         days = [

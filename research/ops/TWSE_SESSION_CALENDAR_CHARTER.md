@@ -34,26 +34,20 @@ Authority for “is today a session?” must be **exchange/official**, not a har
 
 ```text
 data/calendars/twse_sessions_YYYY.csv
-  date,is_session,kind,name,source,notes
+  date,is_session,is_settlement,kind,name,source,notes
 ```
 
 **Build order**
-1. Seed from TWSE `holidaySchedule` → every day of the year (weekend / `CLOSED_HOLIDAY` / planned `SESSION`)
-2. Overlay NCDR CAP Taipei full/AM → `CLOSED_TYPHOON_INTENT`
+1. Seed from TWSE `holidaySchedule` → every day of the year (weekend / `CLOSED_HOLIDAY` / `SETTLEMENT_ONLY` 封關交割日 / planned `SESSION`)
+2. Overlay NCDR CAP Taipei full/AM → `CLOSED_TYPHOON_INTENT` (board **and** settlement off)
 3. Overlay MI_INDEX empty on planned sessions (only **after close** / past days) → `CLOSED_TYPHOON_OR_NODATA`
 4. Optional TAIFEX TX day-session (`futDataDown`) corroboration — same closed/open fact class; **not** morning early-open
 5. Optional `session_overrides.csv`
 
-```bash
-python3 scripts/twse_session_sources.py --build-year 2026 \
-  --mi-facts-from 2026-07-01 \
-  --taifex-facts-from 2026-07-01 \
-  --out data/calendars/twse_sessions_2026.csv
-python3 scripts/twse_session_sources.py --asof 2026-07-10   # uses pinned CSV if present
-```
+`is_session` = cash board (Exact T+1 / broker).  
+`is_settlement` = custody T+2 business day — **includes** 封關後「無交易僅交割」, **excludes** 春节放假 and typhoon full close.
 
-`nth_session_after(sessions, fill_date, 2)` uses `is_session=1` rows — shared by Exact T+1 / T+2 estimate.
-
+`nth_session_after` → trading. `nth_settlement_after` → T+2 estimate.
 Weekend that is also on `holidaySchedule` (e.g. 2026-02-28) is labeled **`CLOSED_HOLIDAY`**, not bare `WEEKEND`.
 
 

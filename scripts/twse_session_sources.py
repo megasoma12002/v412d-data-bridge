@@ -86,6 +86,7 @@ _CLOSED_NAME_HINTS = (
     "教師節",
 )
 _OPEN_NAME_HINTS = ("開始交易", "最後交易日")
+_SETTLEMENT_ONLY_HINTS = ("僅辦理結算交割", "僅辦理結算", "無交易，僅辦理")
 
 
 @dataclass
@@ -108,7 +109,11 @@ class CapWorkStop:
 
 @dataclass
 class DayRecord:
-    """One row of the integrated annual session calendar."""
+    """One row of the integrated annual session calendar.
+
+    ``is_session`` = cash board open (Exact T+1 / broker submit).
+    ``is_settlement`` = custody T+2 business day (includes 封關後「無交易僅交割」).
+    """
 
     date: date
     is_session: bool
@@ -116,16 +121,33 @@ class DayRecord:
     name: str = ""
     source: str = "planned"
     notes: str = ""
+    is_settlement: bool | None = None
+
+    def __post_init__(self) -> None:
+        if self.is_settlement is None:
+            self.is_settlement = _infer_is_settlement(self.is_session, self.kind)
 
     def to_row(self) -> dict[str, str]:
+        settle = self.is_settlement
+        if settle is None:
+            settle = _infer_is_settlement(self.is_session, self.kind)
         return {
             "date": self.date.isoformat(),
             "is_session": "1" if self.is_session else "0",
+            "is_settlement": "1" if settle else "0",
             "kind": self.kind,
             "name": self.name,
             "source": self.source,
             "notes": self.notes,
         }
+
+
+def _infer_is_settlement(is_session: bool, kind: str) -> bool:
+    if kind == "SETTLEMENT_ONLY":
+        return True
+    if kind in ("WEEKEND", "CLOSED_HOLIDAY", "CLOSED_OVERRIDE") or "TYPHOON" in kind:
+        return False
+    return bool(is_session)
 
 
 @dataclass
@@ -172,6 +194,11 @@ def holiday_status_for(day: date, schedule: dict[str, Any] | None = None) -> str
     name, _note = hit
     if any(h in name for h in _OPEN_NAME_HINTS):
         return "OPEN_MARKER"
+    # 封關後「市場無交易，僅辦理結算交割作業」— not a trading session, still a settlement day
+    if any(h in name for h in _SETTLEMENT_ONLY_HINTS) or (
+        "市場無交易" in name and "結算交割" in name
+    ):
+        return "SETTLEMENT_ONLY"
     if any(h in name for h in _CLOSED_NAME_HINTS) or "市場無交易" in name:
         return "CLOSED_HOLIDAY"
     return "CLOSED_HOLIDAY"
@@ -191,9 +218,16 @@ def build_annual_calendar(
     while d <= end:
         name, note = idx.get(d.isoformat(), ("", ""))
         hstat = holiday_status_for(d, sched)
-        if hstat == "CLOSED_HOLIDAY":
+        if hstat == "SETTLEMENT_ONLY":
+            kind = "SETTLEMENT_ONLY"
+            is_sess = False
+            is_settle = True
+            source = "holidaySchedule"
+            notes = note or "no board; settlement/clearing only (封關交割日)"
+        elif hstat == "CLOSED_HOLIDAY":
             kind = "CLOSED_HOLIDAY"
             is_sess = False
+            is_settle = False
             source = "holidaySchedule"
             # weekend+holiday still closed for board
             if d.weekday() >= 5:
@@ -203,16 +237,19 @@ def build_annual_calendar(
         elif hstat == "OPEN_MARKER":
             kind = "SESSION"
             is_sess = True
+            is_settle = True
             source = "holidaySchedule"
             notes = note or name
         elif d.weekday() >= 5:
             kind = "WEEKEND"
             is_sess = False
+            is_settle = False
             source = "weekend"
             notes = ""
         else:
             kind = "SESSION"
             is_sess = True
+            is_settle = True
             source = "weekday_default"
             notes = ""
         days.append(
@@ -223,6 +260,7 @@ def build_annual_calendar(
                 name=name,
                 source=source,
                 notes=notes,
+                is_settlement=is_settle,
             )
         )
         d += timedelta(days=1)
@@ -252,8 +290,7 @@ def apply_overlays(
     overrides: dict[date, tuple[str, str]] | None = None,
 ) -> list[DayRecord]:
     """Overlay typhoon intent/fact + manual overrides onto the annual plan."""
-    by_date = {r.date: DayRecord(**{**asdict(r), "date": r.date}) for r in calendar}
-    # deepcopy-ish via asdict
+    by_date: dict[date, DayRecord] = {}
     for r in calendar:
         by_date[r.date] = DayRecord(
             date=r.date,
@@ -262,7 +299,16 @@ def apply_overlays(
             name=r.name,
             source=r.source,
             notes=r.notes,
+            is_settlement=r.is_settlement,
         )
+
+    def _close_board_and_settle(rec: DayRecord, kind: str, source_tag: str, note: str) -> None:
+        # Typhoon / full close: board AND custody settlement both stop / 顺延
+        rec.is_session = False
+        rec.is_settlement = False
+        rec.kind = kind
+        rec.source = source_tag
+        rec.notes = (rec.notes + ";" if rec.notes else "") + note
 
     if caps:
         for c in caps:
@@ -278,11 +324,10 @@ def apply_overlays(
                     continue
                 rec = by_date[td]
                 if rec.kind == "CLOSED_HOLIDAY":
-                    continue  # annual holiday already closed
-                rec.is_session = False
-                rec.kind = "CLOSED_TYPHOON_INTENT"
-                rec.source = "dgpa_cap+annual"
-                rec.notes = (rec.notes + ";" if rec.notes else "") + c.description[:80]
+                    continue
+                _close_board_and_settle(
+                    rec, "CLOSED_TYPHOON_INTENT", "dgpa_cap+annual", c.description[:80]
+                )
 
     for d in mi_closed or ():
         if d not in by_date:
@@ -290,21 +335,27 @@ def apply_overlays(
         rec = by_date[d]
         if rec.kind in ("CLOSED_HOLIDAY", "WEEKEND"):
             continue
-        # Only demote planned sessions
-        if rec.is_session or rec.kind.startswith("SESSION") or rec.kind == "CLOSED_TYPHOON_INTENT":
-            if rec.kind != "CLOSED_TYPHOON_INTENT":
-                rec.kind = "CLOSED_TYPHOON_OR_NODATA"
-            rec.is_session = False
-            rec.source = (rec.source + "+mi_index").replace("++", "+")
-            rec.notes = (rec.notes + ";" if rec.notes else "") + "mi_index_empty"
+        if rec.is_session or rec.kind.startswith("SESSION") or rec.kind in (
+            "CLOSED_TYPHOON_INTENT",
+            "SETTLEMENT_ONLY",
+        ):
+            kind = (
+                "CLOSED_TYPHOON_INTENT"
+                if rec.kind == "CLOSED_TYPHOON_INTENT"
+                else "CLOSED_TYPHOON_OR_NODATA"
+            )
+            _close_board_and_settle(
+                rec, kind, (rec.source + "+mi_index").replace("++", "+"), "mi_index_empty"
+            )
 
     for d in mi_open or ():
         if d not in by_date:
             continue
         rec = by_date[d]
-        if rec.kind in ("CLOSED_HOLIDAY", "WEEKEND"):
+        if rec.kind in ("CLOSED_HOLIDAY", "WEEKEND", "SETTLEMENT_ONLY"):
             continue
         rec.is_session = True
+        rec.is_settlement = True
         rec.kind = "SESSION"
         rec.source = (rec.source + "+mi_index_ok").replace("++", "+")
 
@@ -314,20 +365,30 @@ def apply_overlays(
         rec = by_date[d]
         if rec.kind in ("CLOSED_HOLIDAY", "WEEKEND"):
             continue
-        if rec.is_session or rec.kind.startswith("SESSION") or rec.kind == "CLOSED_TYPHOON_INTENT":
-            if rec.kind != "CLOSED_TYPHOON_INTENT":
-                rec.kind = "CLOSED_TYPHOON_OR_NODATA"
-            rec.is_session = False
-            rec.source = (rec.source + "+taifex_tx").replace("++", "+")
-            rec.notes = (rec.notes + ";" if rec.notes else "") + "taifex_tx_day_absent"
+        if rec.is_session or rec.kind.startswith("SESSION") or rec.kind in (
+            "CLOSED_TYPHOON_INTENT",
+            "SETTLEMENT_ONLY",
+        ):
+            kind = (
+                "CLOSED_TYPHOON_INTENT"
+                if rec.kind == "CLOSED_TYPHOON_INTENT"
+                else "CLOSED_TYPHOON_OR_NODATA"
+            )
+            _close_board_and_settle(
+                rec,
+                kind,
+                (rec.source + "+taifex_tx").replace("++", "+"),
+                "taifex_tx_day_absent",
+            )
 
     for d in taifex_open or ():
         if d not in by_date:
             continue
         rec = by_date[d]
-        if rec.kind in ("CLOSED_HOLIDAY", "WEEKEND"):
+        if rec.kind in ("CLOSED_HOLIDAY", "WEEKEND", "SETTLEMENT_ONLY"):
             continue
         rec.is_session = True
+        rec.is_settlement = True
         rec.kind = "SESSION"
         rec.source = (rec.source + "+taifex_tx_ok").replace("++", "+")
         rec.notes = (rec.notes + ";" if rec.notes else "") + "taifex_tx_day_present"
@@ -337,13 +398,17 @@ def apply_overlays(
             continue
         rec = by_date[d]
         if status == "CLOSED":
-            rec.is_session = False
-            rec.kind = "CLOSED_OVERRIDE"
-            rec.source = "override"
-            rec.notes = reason
+            _close_board_and_settle(rec, "CLOSED_OVERRIDE", "override", reason)
         elif status == "OPEN":
             rec.is_session = True
+            rec.is_settlement = True
             rec.kind = "SESSION"
+            rec.source = "override"
+            rec.notes = reason
+        elif status == "SETTLEMENT_ONLY":
+            rec.is_session = False
+            rec.is_settlement = True
+            rec.kind = "SETTLEMENT_ONLY"
             rec.source = "override"
             rec.notes = reason
 
@@ -351,7 +416,20 @@ def apply_overlays(
 
 
 def session_dates(calendar: Sequence[DayRecord]) -> list[date]:
+    """Trading board open dates (Exact T+1 / broker)."""
     return [r.date for r in calendar if r.is_session]
+
+
+def settlement_dates(calendar: Sequence[DayRecord]) -> list[date]:
+    """Custody T+2 business days (includes 封關「無交易僅交割」)."""
+    out: list[date] = []
+    for r in calendar:
+        settle = r.is_settlement
+        if settle is None:
+            settle = _infer_is_settlement(r.is_session, r.kind)
+        if settle:
+            out.append(r.date)
+    return out
 
 
 def nth_session_after(sessions: Sequence[date], start: date, n: int) -> date:
@@ -364,9 +442,14 @@ def nth_session_after(sessions: Sequence[date], start: date, n: int) -> date:
     return after[n - 1]
 
 
+def nth_settlement_after(settlements: Sequence[date], start: date, n: int) -> date:
+    """Return the n-th settlement business day strictly after ``start`` (n>=1)."""
+    return nth_session_after(settlements, start, n)
+
+
 def write_calendar_csv(calendar: Sequence[DayRecord], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    fields = ["date", "is_session", "kind", "name", "source", "notes"]
+    fields = ["date", "is_session", "is_settlement", "kind", "name", "source", "notes"]
     with path.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
@@ -378,14 +461,26 @@ def read_calendar_csv(path: Path) -> list[DayRecord]:
     rows: list[DayRecord] = []
     with path.open(encoding="utf-8") as f:
         for row in csv.DictReader(f):
+            is_sess = str(row.get("is_session")) in ("1", "true", "True")
+            kind = str(row.get("kind") or "")
+            name = str(row.get("name") or "")
+            if "is_settlement" in row and str(row.get("is_settlement") or "") != "":
+                is_settle = str(row.get("is_settlement")) in ("1", "true", "True")
+            elif kind == "SETTLEMENT_ONLY" or any(h in name for h in _SETTLEMENT_ONLY_HINTS):
+                is_settle = True
+                if not is_sess and "無交易" in name:
+                    kind = "SETTLEMENT_ONLY"
+            else:
+                is_settle = _infer_is_settlement(is_sess, kind)
             rows.append(
                 DayRecord(
                     date=date.fromisoformat(row["date"]),
-                    is_session=str(row.get("is_session")) in ("1", "true", "True"),
-                    kind=str(row.get("kind") or ""),
-                    name=str(row.get("name") or ""),
+                    is_session=is_sess,
+                    kind=kind,
+                    name=name,
                     source=str(row.get("source") or ""),
                     notes=str(row.get("notes") or ""),
+                    is_settlement=is_settle,
                 )
             )
     return rows
@@ -857,6 +952,17 @@ def probe_session(
                 is_session=False,
                 sources=sources,
                 notes=["weekend"],
+            )
+
+        if hstat == "SETTLEMENT_ONLY":
+            return SessionProbe(
+                asof=day.isoformat(),
+                weekday=day.weekday(),
+                status="SETTLEMENT_ONLY",
+                broker_submit_allowed=False,
+                is_session=False,
+                sources=sources,
+                notes=["holidaySchedule: no board; settlement/clearing only"],
             )
 
         if hstat == "CLOSED_HOLIDAY":
