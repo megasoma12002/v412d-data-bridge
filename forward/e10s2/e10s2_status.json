@@ -5,15 +5,15 @@
     "1d": 15,
     "2d": 30,
     "3d": 45,
-    "5d": 67
+    "5d": 68
   },
-  "guarded_shock_days": 83,
+  "guarded_shock_days": 84,
   "independent_events": 25,
   "0050_qc": {
     "status": "PASS",
-    "rows": 4089,
+    "rows": 4090,
     "first_date": "2010-01-04",
-    "latest_date": "2026-09-15",
+    "latest_date": "2026-09-16",
     "duplicates": 0,
     "nulls": 0
   },

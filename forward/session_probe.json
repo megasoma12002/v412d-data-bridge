@@ -1,0 +1,129 @@
+{
+  "asof": "2026-09-16",
+  "status": "OPEN",
+  "is_session": true,
+  "broker_submit_allowed": true,
+  "skipped": false,
+  "reason": "session open or confirmed",
+  "notes": [
+    "annual planned SESSION",
+    "MIS delayed quote d==asof + open price"
+  ],
+  "sources": {
+    "annual_calendar": {
+      "date": "2026-09-16",
+      "is_session": "1",
+      "is_settlement": "1",
+      "kind": "SESSION",
+      "name": "",
+      "source": "weekday_default",
+      "notes": ""
+    },
+    "dgpa_cap": {
+      "closes_twse": false,
+      "afternoon_only": false,
+      "n_hits": 0
+    },
+    "mis_quote": {
+      "open": true,
+      "n_hits": 3,
+      "rows": [
+        {
+          "ex_ch": "tse_t00.tw",
+          "open_signal": true,
+          "c": "t00",
+          "d": "20260916",
+          "o": "45546.56",
+          "t": "13:33:00",
+          "v": null,
+          "rtcode": "0000"
+        },
+        {
+          "ex_ch": "tse_0050.tw",
+          "open_signal": true,
+          "c": "0050",
+          "d": "20260916",
+          "o": "106.1500",
+          "t": "13:30:00",
+          "v": "69250",
+          "rtcode": "0000"
+        },
+        {
+          "ex_ch": "tse_2330.tw",
+          "open_signal": true,
+          "c": "2330",
+          "d": "20260916",
+          "o": "2375.0000",
+          "t": "13:30:00",
+          "v": "17954",
+          "rtcode": "0000"
+        }
+      ]
+    }
+  },
+  "generated_at": "2026-09-16T17:15:38.490921+08:00",
+  "soft_frozen_untouched": true,
+  "probe": {
+    "asof": "2026-09-16",
+    "weekday": 2,
+    "status": "OPEN",
+    "broker_submit_allowed": true,
+    "is_session": true,
+    "sources": {
+      "annual_calendar": {
+        "date": "2026-09-16",
+        "is_session": "1",
+        "is_settlement": "1",
+        "kind": "SESSION",
+        "name": "",
+        "source": "weekday_default",
+        "notes": ""
+      },
+      "dgpa_cap": {
+        "closes_twse": false,
+        "afternoon_only": false,
+        "n_hits": 0
+      },
+      "mis_quote": {
+        "open": true,
+        "n_hits": 3,
+        "rows": [
+          {
+            "ex_ch": "tse_t00.tw",
+            "open_signal": true,
+            "c": "t00",
+            "d": "20260916",
+            "o": "45546.56",
+            "t": "13:33:00",
+            "v": null,
+            "rtcode": "0000"
+          },
+          {
+            "ex_ch": "tse_0050.tw",
+            "open_signal": true,
+            "c": "0050",
+            "d": "20260916",
+            "o": "106.1500",
+            "t": "13:30:00",
+            "v": "69250",
+            "rtcode": "0000"
+          },
+          {
+            "ex_ch": "tse_2330.tw",
+            "open_signal": true,
+            "c": "2330",
+            "d": "20260916",
+            "o": "2375.0000",
+            "t": "13:30:00",
+            "v": "17954",
+            "rtcode": "0000"
+          }
+        ]
+      }
+    },
+    "notes": [
+      "annual planned SESSION",
+      "MIS delayed quote d==asof + open price"
+    ]
+  }
+}

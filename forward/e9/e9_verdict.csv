@@ -1,6 +1,6 @@
 model,validation_pass,blind_confirmed,final_oos_cagr_delta,final_oos_sharpe_delta,status
-E9A_static_10pct_telco,False,False,-0.047798369081102576,0.07276922115116502,reject_or_watch
-E9B_static_20pct_telco,False,False,-0.09486351575754215,0.13392032660303688,reject_or_watch
-E9C_trend_defensive_10_30,False,False,-0.047798369081102576,0.07276922115117213,reject_or_watch
-E9D_relative_strength_10_30,False,False,-0.09967337831769663,-0.042679484433324255,reject_or_watch
-E9E_stress_defensive_10_35,True,False,-0.04779836908110324,0.07276922115116902,reject_or_watch
+E9A_static_10pct_telco,False,False,-0.05247158076474645,0.06774102787620873,reject_or_watch
+E9B_static_20pct_telco,False,False,-0.103977419024047,0.12244235642092782,reject_or_watch
+E9C_trend_defensive_10_30,False,False,-0.05247158076474667,0.06774102787621583,reject_or_watch
+E9D_relative_strength_10_30,False,False,-0.10491164417446663,-0.04504348466965302,reject_or_watch
+E9E_stress_defensive_10_35,True,False,-0.05247158076474712,0.06774102787621228,reject_or_watch
