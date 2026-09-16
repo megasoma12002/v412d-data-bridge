@@ -153,18 +153,37 @@ SSOT 說明：<https://www.twse.com.tw/zh/clearing/suspended.html> · FAQ <https
 
 ### Recommended automation for this repo
 
-```text
-broker / cron preflight(asof):
-  if weekend -> WEEKEND
-  if asof in holidaySchedule (closed names) -> CLOSED_HOLIDAY
-  if CAP/DGPA says Taipei full-day OR morning 停班 -> CLOSED_TYPHOON (intent)
-  probe MI_INDEX(asof):
-    if OK + bars -> OPEN (overrides false CAP? prefer MI_INDEX as fact after cutoff)
-    if not OK after cutoff -> CLOSED_TYPHOON_OR_NODATA
-  else -> UNKNOWN -> broker BLOCK
+Implemented prototype: `scripts/twse_session_sources.py` (+ `tests/test_twse_session_sources.py`).
+
+```bash
+python3 scripts/twse_session_sources.py --asof YYYY-MM-DD
 ```
 
-**Key:** CAP/DGPA = **early intent** (especially night-before); **MI_INDEX / live_market bars** = **ex-post fact**. Broker submit needs both paths; paper can keep bars-only.
+Algorithm:
+
+```text
+probe_session(asof):
+  if weekend -> WEEKEND (broker BLOCK)
+  if holidaySchedule lists closed name -> CLOSED_HOLIDAY (BLOCK)
+  if NCDR CAP AlertType=33 has 臺北市 city-wide FULL_DAY|MORNING for asof
+       -> CLOSED_TYPHOON_INTENT (BLOCK)   # early / morning-safe
+  if Taipei AFTERNOON only -> note; board still OPEN
+  MI_INDEX(asof):
+    if stat==OK -> OPEN (ALLOW)
+    if empty AND Taipei local hour>=14 (or asof < today) -> CLOSED_TYPHOON_OR_NODATA (BLOCK)
+    if empty AND before 14:00 -> UNKNOWN (BLOCK broker; do NOT treat as typhoon yet)
+```
+
+**Timing (measured 2026-09-16 ~09:06 Taipei):** same-day `MI_INDEX` returned no data while prior weekdays OK — daily report is **post-close**. Night-before / morning typhoon must use **CAP**, not MI_INDEX.
+
+CAP parse rules (offline-tested patterns):
+- ATOM: `https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33` → each `entry/link@href` `.cap`
+- Keep `status=Actual`; ignore Test/Draft
+- `areaDesc` must be city-wide **臺北市** (district-only e.g. 臺北市中正區 → ignore for TWSE)
+- Target date from description: `今天` / `明天` / `M/D`
+- Class: 下午停班 → AFTERNOON (market open); 上午/全日/已達停止上班 → close
+
+`holidaySchedule` JSON is year-ahead 国定假 only — never lists typhoon.
 
 ### Timing notes (ops)
 
@@ -188,7 +207,7 @@ broker / cron preflight(asof):
 | **P0 doc** | This charter | — |
 | **P1** | `twse_session_calendar.is_session_day` + holiday CSV / `holidaySchedule` fetch + unit tests | Block unknown ports |
 | **P2** | Wire GHA forward job skip + `session_skip` artifact | Paper noise↓ |
-| **P3** | MI_INDEX same-day probe + cutoff / override (+ optional NCDR CAP Taipei filter) | **Required before live submit** |
+| **P3** | MI_INDEX same-day probe + cutoff / override (+ NCDR CAP Taipei filter) — prototype `twse_session_sources.py` | **Required before live submit** |
 | **P4** | Broker `FillPort` calls P3 preflight fail-closed | ACCEPT cutover PR |
 
 ## 7. Acceptance tests (when coded)
