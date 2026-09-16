@@ -121,6 +121,57 @@ date,status,reason
 
 Overrides win over A1 calendar; still prefer B/A3 confirmation when possible.
 
+## 4.1 Typhoon / disaster close — how to get the signal
+
+### Rule of authority (TWSE)
+
+休市與**台北市**公教停班綁定（非「任一縣市停班」）：
+
+| 台北市宣布 | 集中市場 |
+|---|---|
+| 全日停止上班 | **全日休市** |
+| 上午停止上班 | **全日休市** |
+| 僅下午停止上班 | **不休市**（收盤後其他交易停止） |
+
+SSOT 說明：<https://www.twse.com.tw/zh/clearing/suspended.html> · FAQ <https://www.twse.com.tw/zh/about/suspended_faq.html>  
+法規：天然災害侵襲處理措施（證交所法規庫）。
+
+全日休市時：**應屆交割款券順延**（與 T+2 session 偏移一致）。
+
+證交所通常另發**新聞稿**（媒體轉述常見）；**沒有**穩定的「颱風休市 JSON API」。年曆 API `holidaySchedule` **只有国定假／春節等**，不含颱風（已核：2026 年曆無颱風列）。
+
+### Data sources (automation ladder)
+
+| Priority | Source | URL / pattern | Latency | Use |
+|---|---|---|---|---|
+| **1. Primary (same-day fact)** | TWSE `MI_INDEX` JSON | `https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=YYYYMMDD&type=ALLBUT0999` | After session would have data | `stat != "OK"` / no tables → treat as **no session** (weekend / holiday / typhoon). Repo already uses this in `v412f_append_twse_daily.py`. Probe 2026-09-12 Sat → `stat: 很抱歉，沒有符合條件的資料!`; weekday OK → `tables` present. |
+| **2. Planned holiday** | TWSE `holidaySchedule` | `https://www.twse.com.tw/holidaySchedule/holidaySchedule?response=json` | Year ahead | 国定假 only — **not** typhoon |
+| **3. Taipei 停班 (intent)** | 人事總處 NDS 頁 | <https://www.dgpa.gov.tw/typh/daily/nds.html> | Eve ~19–22h; or ~04:30 same morning | Human / scrape fragile; look for **臺北市** 全日或上午停班 |
+| **4. Machine-readable 停班** | NCDR CAP ATOM | <https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33> · data.gov.tw dataset 20457 | ~1 min feed | Parse CAP XML; filter **臺北市** + 停止上班（非僅停課）. Spec: NCDR CapDocument_WSC.pdf |
+| **5. Confirming press** | TWSE / CNA / 櫃買 news | ad-hoc | After DGPA | Ops alert only — not SSOT |
+| **6. Override** | `session_overrides.csv` | repo | Manual | When feed lag / ambiguous afternoon-only |
+
+### Recommended automation for this repo
+
+```text
+broker / cron preflight(asof):
+  if weekend -> WEEKEND
+  if asof in holidaySchedule (closed names) -> CLOSED_HOLIDAY
+  if CAP/DGPA says Taipei full-day OR morning 停班 -> CLOSED_TYPHOON (intent)
+  probe MI_INDEX(asof):
+    if OK + bars -> OPEN (overrides false CAP? prefer MI_INDEX as fact after cutoff)
+    if not OK after cutoff -> CLOSED_TYPHOON_OR_NODATA
+  else -> UNKNOWN -> broker BLOCK
+```
+
+**Key:** CAP/DGPA = **early intent** (especially night-before); **MI_INDEX / live_market bars** = **ex-post fact**. Broker submit needs both paths; paper can keep bars-only.
+
+### Timing notes (ops)
+
+- 全日／上午停班：原則前一日 19–22 時發布；當日惡化可至約 04:30。  
+- 下午停班：當日約 10:30 前 — **市場仍開**；不要當成全日休市。  
+- 其他縣市停班 ≠ 台股休市（除非台北市也停）。
+
 ## 5. Non-goals
 
 - Soft-Frozen / LIVE_* edits
@@ -128,15 +179,16 @@ Overrides win over A1 calendar; still prefer B/A3 confirmation when possible.
 - Modeling half-day microstructure in v1
 - Using 元大股息抓取 / Yahoo calendar as TWSE session SSOT
 - Auto-enabling broker submit from this charter alone
+- Treating non-Taipei 停班 as TWSE close
 
 ## 6. Implementation phases (when authorized)
 
 | Phase | Deliverable | Broker gate |
 |---|---|---|
 | **P0 doc** | This charter | — |
-| **P1** | `twse_session_calendar.is_session_day` + holiday CSV for current year + unit tests | Block unknown ports |
+| **P1** | `twse_session_calendar.is_session_day` + holiday CSV / `holidaySchedule` fetch + unit tests | Block unknown ports |
 | **P2** | Wire GHA forward job skip + `session_skip` artifact | Paper noise↓ |
-| **P3** | MI_INDEX same-day probe + cutoff / override | **Required before live submit** |
+| **P3** | MI_INDEX same-day probe + cutoff / override (+ optional NCDR CAP Taipei filter) | **Required before live submit** |
 | **P4** | Broker `FillPort` calls P3 preflight fail-closed | ACCEPT cutover PR |
 
 ## 7. Acceptance tests (when coded)
@@ -146,6 +198,7 @@ Overrides win over A1 calendar; still prefer B/A3 confirmation when possible.
 - Synthetic “calendar open + empty MI_INDEX after cutoff” → broker blocked
 - Override CLOSED → blocked even if stale bars exist from prior mistaken append
 - Normal session → `OPEN` and paper path unchanged vs baseline
+- CAP Taipei morning 停班 → intent CLOSED; afternoon-only → still OPEN for board
 
 ## 8. Pointers
 
@@ -153,5 +206,9 @@ Overrides win over A1 calendar; still prefer B/A3 confirmation when possible.
 - Live session selection: `scripts/e21_forward_pipeline.py` (common complete dates)
 - Fill ports: `scripts/live_execution.py`
 - Daily schedule: `.github/workflows/v412f-forward-paper.yml`
+- TWSE 天然災害休市原則: `https://www.twse.com.tw/zh/clearing/suspended.html`
+- TWSE 年曆 JSON: `holidaySchedule?response=json`
+- 人事總處停班查詢: `https://www.dgpa.gov.tw/typh/daily/nds.html`
+- NCDR 停班 CAP ATOM: `https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33`
 
 Label: `TWSE_SESSION_CALENDAR__HOLIDAY_TYPHOON_CHARTER`
