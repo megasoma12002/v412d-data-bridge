@@ -47,8 +47,11 @@ def holdings(
 ) -> tuple[dict[str, float], float, dict[str, float], float]:
     pos = {c: float(state.get("positions", {}).get(c, 0)) for c in ALL}
     cash = float(state.get("cash", capital))
+    recv_map = state.get("e22_receivables") or {}
+    receivable = float(sum(float(v) for v in recv_map.values()))
     vals = {c: pos[c] * prices[c] for c in ALL}
-    nav = cash + sum(vals.values())
+    # Wealth identity (Stage-B sealed compare): cash + receivable + marked equity
+    nav = cash + receivable + sum(vals.values())
     return pos, cash, vals, nav
 
 

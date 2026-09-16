@@ -137,8 +137,9 @@ class EffDelaySandboxTests(unittest.TestCase):
         self.assertAlmostEqual(cash, 2500.0)
         self.assertAlmostEqual(res.cash_credit, 2500.0)
 
-    def test_default_is_effex_after_d5_accept(self) -> None:
-        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V2S_TW_EFFEX)
+    def test_default_is_recv_effdelay_after_stage_e(self) -> None:
+        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V3_RECV_PAY_EFFDELAY)
+        self.assertEqual(formal.PRESERVED_CASH_ON_EX, formal.E22_V2S_TW_EFFEX)
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
 | Item | Value |
 |---|---|
-| Stack | **E16 + Exact T+1 E18 + E22_v2s_tw_effex** |
+| Stack | **E16 + Exact T+1 E18 + E22_v3_recv_pay_effdelay** |
 | Path | `forward/e21/` |
 | Capital / lot | **500M** · board-lot **1000** |
 | Clip | Financial **[0.60, 0.90]** via `scripts/e16_soft_frozen_base.py` |
@@ -49,7 +49,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | TWSE session calendar | `twse_session_sources.py` + P2 `twse_forward_session_gate` in `v412f-forward-paper` (`session_skip.json`) |
 | Fill ports | `paper` · `dry_run` · P4 `broker` preflight + fixture-ack shadow (`broker_acks/`; Soft-Frozen default untouched) |
 | T+2 settlement estimate | R4 daily artifact via `v412f-forward-paper` · R5 `twse_t2_broker_reconcile.py` (observe) · week-1 checklist `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` |
-| 除權息入帳延後 | D0–D5 live DEFAULT `E22_v2s_tw_effex`; S3 `ex_date_amendments` · MOPS overlay · Gap 6.9c stock-pay observe |
+| 除權息入帳延後 | Stage-E live DEFAULT `E22_v3_recv_pay_effdelay` (receivable + effective pay); preserved `E22_v2s_tw_effex`; MOPS overlay; Gap 6.9c stock-pay observe |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 

@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
-"""E22_v3 sandbox books — tax / receivable Stage B (charter ACCEPT 2026-09-05).
+"""E22_v3 sandbox books — tax / receivable (charter ACCEPT 2026-09-05).
 
-Research / sandbox only. Soft-Frozen KEEP.
-``DEFAULT_BOOKS_VERSION`` stays ``E22_v2s_tw`` — this module never flips it.
+``E22_v3_recv_pay_effdelay`` is live DEFAULT after Stage-E ACCEPT 2026-09-16
+(routed via ``e22_books_apply``). Tax haircut versions remain sandbox-only until
+resident/non-resident withholding note is promote-ready.
 
-Named sandbox versions (charter):
+Named versions:
   E22_v3_recv_pay — receivable on cash ex; cash on payment_date; TAX0; stock = TW odd-lot
   E22_v3_tax10    — ex-date cash × 0.90; stock = TW odd-lot
   E22_v3_tax20    — ex-date cash × 0.80; stock = TW odd-lot
   E22_v3_recv_pay_tax10 — receivable on ex (net of 10%); cash on pay; stock = TW odd-lot
   E22_v3_recv_pay_tax20 — receivable on ex (net of 20%); cash on pay; stock = TW odd-lot
-  E22_v3_recv_pay_effdelay — same as recv_pay but accrual/settle use
-    ``effective_ex_trade`` / ``effective_payment`` (typhoon / 封關 snap)
+  E22_v3_recv_pay_effdelay — **live DEFAULT** — recv_pay + effective ex/payment snaps
 
-Flat sandbox withholding only — resident/non-resident rules are documented separately
-and must be written before any promote ballot. DEFAULT stays E22_v2s_tw.
+Preserved cash-on-ex formal: ``E22_v2s_tw_effex`` (override with confirm flag).
 
 Receivables dict keys: ``f"{code}:{ex_date}"`` (pending gross credits; raw ex identity).
 """
@@ -285,16 +284,19 @@ def apply_sandbox_for_date(
                 }
             )
 
-    # Stock axis: reuse promoted TW odd-lot formal path (cash/CIL only from stock)
+    # Stock axis: reuse promoted TW odd-lot formal path (cash/CIL only from stock).
+    # Effdelay family snaps stock books to effective_ex_trade as well.
+    stock_ver = base.E22_V2S_TW_EFFEX if use_eff else STOCK_BASE_VERSION
     stock_only = [e for e in events_list if e.kind == "stock"]
     pos, cash_out, stock_res = base.apply_dividends_for_date(
         day,
         pos,
         cash_out,
         stock_only,
-        version=STOCK_BASE_VERSION,
+        version=stock_ver,
         skip_keys=skip,
         par_table=par_table,
+        session_dates=session_dates if use_eff else None,
     )
     out.stock_shares_added += float(stock_res.stock_shares_added)
     out.cil_cash_credit += float(stock_res.cil_cash_credit)
@@ -324,10 +326,11 @@ def version_manifest(version: str) -> dict:
         "stock_path": STOCK_BASE_VERSION,
         "combined_recv_tax": version in {E22_V3_RECV_PAY_TAX10, E22_V3_RECV_PAY_TAX20},
         "effdelay": version in EFFDELAY_FAMILY,
-        "promote_ready": False,
+        "promote_ready": version in EFFDELAY_FAMILY,
+        "stage_e_live_default": version == E22_V3_RECV_PAY_EFFDELAY,
         "charter": "research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md",
         "delay_charter": "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md",
-        "ballot": "ACCEPT charter 2026-09-05",
+        "ballot": "ACCEPT Stage-E promote 2026-09-16",
     }
 
 
@@ -359,14 +362,15 @@ def smoke_compare() -> dict:
         sessions = session_dates(cal)
         settlements = settlement_dates(cal)
 
-    # Formal default path
+    # Preserved cash-on-ex formal path (D5), not live DEFAULT after Stage-E
+    formal_ver = base.PRESERVED_CASH_ON_EX
     pos_f, cash_f, res_f = base.apply_dividends_for_date(
-        ev.ex_date, pos0, cash0, [ev], version=base.DEFAULT_BOOKS_VERSION
+        ev.ex_date, pos0, cash0, [ev], version=formal_ver
     )
 
     rows = {
-        "formal_default": {
-            "version": base.DEFAULT_BOOKS_VERSION,
+        "formal_preserved_effex": {
+            "version": formal_ver,
             "cash_after_ex": cash_f,
             "cash_credit": res_f.cash_credit,
             "receivable": 0.0,
@@ -414,7 +418,10 @@ def smoke_compare() -> dict:
     tax10_net = formal_credit * 0.90
     tax20_net = formal_credit * 0.80
     checks = {
-        "default_untouched": base.DEFAULT_BOOKS_VERSION == base.E22_V2S_TW_EFFEX,
+        "default_untouched": base.DEFAULT_BOOKS_VERSION
+        in (base.E22_V3_RECV_PAY_EFFDELAY, base.E22_V2S_TW_EFFEX, base.E22_V2S_TW),
+        "default_is_recv_effdelay": base.DEFAULT_BOOKS_VERSION
+        == base.E22_V3_RECV_PAY_EFFDELAY,
         "recv_ex_cash_zero": abs(rows[E22_V3_RECV_PAY]["cash_after_ex"]) < 1e-9,
         "recv_ex_receivable_eq_formal": abs(
             rows[E22_V3_RECV_PAY]["receivable_after_ex"] - formal_credit

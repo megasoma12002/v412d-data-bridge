@@ -33,7 +33,7 @@ class LiveConfig:
     """Canonical live feature flags + books/capital defaults."""
 
     capital: float = DEFAULT_CAPITAL
-    e22_books_version: str = e22div.DEFAULT_BOOKS_VERSION  # E22_v2s_tw_effex
+    e22_books_version: str = e22div.DEFAULT_BOOKS_VERSION  # E22_v3_recv_pay_effdelay
     dividends_path: Path = field(
         default_factory=lambda: Path("data/dividend_events/e22_dividend_events.csv")
     )

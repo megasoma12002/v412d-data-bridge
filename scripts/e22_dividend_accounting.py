@@ -44,7 +44,11 @@ E22_V2S = "E22_v2s"  # formal books: cash + stock share increase (float ok)
 E22_V2S_CIL = "E22_v2s_cil"  # floor + CIL at raw close (research mark)
 E22_V2S_TW = "E22_v2s_tw"  # floor + CIL at par NT$10, yuan truncate (TW practice)
 E22_V2S_TW_EFFEX = "E22_v2s_tw_effex"  # TW + effective_ex_trade (D5 ACCEPT)
-DEFAULT_BOOKS_VERSION = E22_V2S_TW_EFFEX  # promoted 2026-09-16: typhoon ex snap (human ACCEPT)
+# Stage-E ACCEPT 2026-09-16: receivable on effective ex, cash on effective payment (TAX0).
+# Applied via ``e22_books_apply`` / ``e22_v3_sandbox_books`` (not ``apply_dividends_for_date``).
+E22_V3_RECV_PAY_EFFDELAY = "E22_v3_recv_pay_effdelay"
+DEFAULT_BOOKS_VERSION = E22_V3_RECV_PAY_EFFDELAY
+PRESERVED_CASH_ON_EX = E22_V2S_TW_EFFEX  # prior live DEFAULT (D5)
 PAR_VALUE_TWD = 10.0
 STOCK_SHARE_VERSIONS = {E22_V2S, E22_V2S_CIL, E22_V2S_TW, E22_V2S_TW_EFFEX}
 FLOOR_CIL_VERSIONS = {E22_V2S_CIL, E22_V2S_TW, E22_V2S_TW_EFFEX}
@@ -264,7 +268,10 @@ def apply_dividends_for_date(
     """
     version = version or DEFAULT_BOOKS_VERSION
     if version not in KNOWN_VERSIONS:
-        raise ValueError(f"unknown E22 books version: {version}")
+        raise ValueError(
+            f"unknown E22 formal books version: {version} "
+            f"(sandbox/live DEFAULT router: e22_books_apply.apply_books_for_date)"
+        )
     skip = skip_keys or set()
     marks = mark_prices or {}
     pars = par_table if par_table is not None else load_par_value_table()
@@ -372,6 +379,10 @@ def apply_dividends_for_date(
 
 def version_manifest(version: str = DEFAULT_BOOKS_VERSION) -> dict:
     version = version or DEFAULT_BOOKS_VERSION
+    if version == E22_V3_RECV_PAY_EFFDELAY or str(version).startswith("E22_v3_"):
+        from e22_books_apply import books_manifest
+
+        return books_manifest(version)
     stock_on = version in STOCK_SHARE_VERSIONS
     if version in TW_PAR_CIL_VERSIONS:
         frac_pol = "floor_shares_plus_cil_at_par_10_yuan_truncate"
@@ -395,6 +406,8 @@ def version_manifest(version: str = DEFAULT_BOOKS_VERSION) -> dict:
         "formal_books": E22_V2S,
         "tw_practice_candidate": E22_V2S_TW,
         "tw_effex_live": E22_V2S_TW_EFFEX,
+        "tw_effex_preserved": PRESERVED_CASH_ON_EX,
+        "recv_pay_effdelay_live": E22_V3_RECV_PAY_EFFDELAY,
         "market_cil_research": E22_V2S_CIL,
         "signal_price": "adj_close",
         "books_price": "raw_open_close",
@@ -406,10 +419,12 @@ def version_manifest(version: str = DEFAULT_BOOKS_VERSION) -> dict:
         "board_lot_forced": False,
         "forbids_adj_close_nav_with_stock_shares": True,
         "d5_accept": version in EFFEX_VERSIONS,
+        "stage_e_recv_accept": version == E22_V3_RECV_PAY_EFFDELAY,
         "legal_refs": (
             ["Company_Act_240", "issuer_announcement_par_cash_for_odd_lot"]
             if version in TW_PAR_CIL_VERSIONS
             else None
         ),
         "delay_charter": "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md",
+        "tax_recv_charter": "research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md",
     }
