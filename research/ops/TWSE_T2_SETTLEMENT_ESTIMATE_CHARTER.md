@@ -180,10 +180,12 @@ Explain in report: paper already booked fill-time cash; estimate backs out unset
 | **R1** | Pure functions + unit tests (holiday + **typhoon** gap) | **Prototype landed** · `twse_t2_settlement_estimate.py` |
 | **R2** | CLI: `--state-dir forward/e21 --asof YYYY-MM-DD` → CSV/JSON | **Prototype landed** (writes observe artifact under state-dir / `--out-dir`) |
 | **R3** | Offset via `twse_sessions_YYYY.csv` / `nth_session_after` (#237) | **Prototype landed** (merged session calendar) |
-| **R4** | Optional daily emit from forward workflow | Still observe |
-| **R5** | Broker reconcile pack (estimate vs 交割银行 / API) | Human ACCEPT before any live gate |
+| **R4** | Daily emit from forward workflow (`v412f-forward-paper` step) | **ACCEPT observe ✅** |
+| **R5** | Broker reconcile pack (`twse_t2_broker_reconcile.py` estimate vs custody fixture) | **ACCEPT observe ✅** (no live gate) |
 
 Parallel (from calendar charter): P1–P3 session calendar — **required before R5 / broker live submit**.
+
+P4 fill port: `BrokerPreflightFillPort` maps session-gated **fixture acks** → shadow fills under `broker_preflight/` (Soft-Frozen `fills.csv` untouched unless `E21_BROKER_WRITE_LIVE=1`).
 
 ---
 

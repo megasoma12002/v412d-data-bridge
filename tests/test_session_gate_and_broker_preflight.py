@@ -118,6 +118,68 @@ class BrokerPreflightTests(unittest.TestCase):
             self.assertFalse(allow["blocked"])
             self.assertFalse(allow["live_fills_written"])
 
+    def test_fixture_acks_shadow_only(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            pd.DataFrame(
+                [
+                    {
+                        "order_id": "o1",
+                        "signal_date": "2026-07-10",
+                        "code": "0050",
+                        "side": "BUY",
+                        "quantity": BOARD_LOT,
+                    }
+                ]
+            ).to_csv(sdir / "orders.csv", index=False)
+            ack_dir = sdir / "broker_acks"
+            ack_dir.mkdir(parents=True)
+            (ack_dir / "2026-07-13.json").write_text(
+                json.dumps(
+                    {
+                        "acks": [
+                            {
+                                "order_id": "o1",
+                                "code": "0050",
+                                "side": "BUY",
+                                "quantity": BOARD_LOT,
+                                "fill_price": 100.0,
+                                "signal_date": "2026-07-10",
+                            }
+                        ]
+                    }
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            port = BrokerPreflightFillPort(
+                probe_fn=lambda _d: SimpleNamespace(
+                    status="OPEN",
+                    broker_submit_allowed=True,
+                    is_session=True,
+                    notes=["open"],
+                ),
+                write_live=False,
+            )
+            pos, cash, fills, _, ok = port.fill_pending(
+                state_dir=sdir,
+                latest=pd.Timestamp("2026-07-13"),
+                open_prices={"0050": 100.0},
+                pos={},
+                cash=1_000_000.0,
+            )
+            self.assertEqual(len(fills), 1)
+            self.assertEqual(fills[0]["fill_id"], "o1")
+            self.assertEqual(pos, {})
+            self.assertEqual(cash, 1_000_000.0)
+            self.assertFalse((sdir / "fills.csv").exists())
+            self.assertTrue(ok)
+            shadow = sdir / "broker_preflight" / "fills_2026-07-13.json"
+            self.assertTrue(shadow.exists())
+            payload = json.loads(shadow.read_text(encoding="utf-8"))
+            self.assertEqual(payload["n_fills"], 1)
+            self.assertFalse(payload["live_fills_written"])
+
 
 if __name__ == "__main__":
     unittest.main()
