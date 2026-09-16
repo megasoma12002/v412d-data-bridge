@@ -1,6 +1,6 @@
 # TWSE 除權息入帳延後 — research charter
 
-Status: **LIVE D5 ACCEPT** — Soft-Frozen DEFAULT `E22_v2s_tw_effex` · sandbox / MOPS overlay observe  
+Status: **LIVE Stage-E ACCEPT** — Soft-Frozen DEFAULT `E22_v3_recv_pay_effdelay` · preserved `E22_v2s_tw_effex`  
 Depends on: session + settlement calendar (#237 / #239) · Gap #6 dividend timing  
 Related: `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md` · `e22_dividend_accounting.py`
 
@@ -110,7 +110,8 @@ effective_payment(payment_date):
 | **S1 observe** | Emit `dividend_delay_estimate.csv`: raw vs effective ex/pay | Ops pack ✅ |
 | **S2 sandbox** | `E22_v3_recv_pay_effdelay` cash on **effective_payment** (recv on effective ex) | Stage B extension ✅ |
 | **S3** | Refresh `ex_date` from TWSE same-day ex list (TWT48U/TWT49U → `ex_date_amendments.csv`) | **ACCEPT observe ✅** |
-| **S0→effex (D5)** | Soft-Frozen DEFAULT = `E22_v2s_tw_effex` | **ACCEPT 2026-09-16 ✅** |
+| **S0→effex (D5)** | Soft-Frozen DEFAULT = `E22_v2s_tw_effex` | **ACCEPT 2026-09-16 ✅** (preserved) |
+| **Stage-E recv** | Soft-Frozen DEFAULT = `E22_v3_recv_pay_effdelay` | **ACCEPT 2026-09-16 ✅** |
 
 ---
 

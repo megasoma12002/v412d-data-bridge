@@ -1,23 +1,23 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-16T05:19:37.752630+00:00`
-Status: **OPS / RESEARCH** — Soft-Frozen D5 ACCEPT; live DEFAULT **`E22_v2s_tw_effex`** (TW odd-lot + effective ex).
+Generated: `2026-09-16T14:06:26.796696+00:00`
+Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v3_recv_pay_effdelay`** (receivable + effective pay).
 
 ## Code wire
 
-- Default books: **`E22_v2s_tw_effex`** (expect `E22_v2s_tw_effex`)
+- Default books: **`E22_v3_recv_pay_effdelay`** (expect `E22_v3_recv_pay_effdelay`)
 - E21 imports/apply: **True** / **True**
 - Formal status wired: **True**
 - Code OK: **True**
 
 ## Live ledger evidence (`forward/e21`)
 
-- asof: **2026-09-15**
+- asof: **2026-09-16**
 - `e22_books_version` in portfolio_state: **True**
 - `e22_manifest` in portfolio_state: **True**
 - `e22_version` col in nav.csv: **True**
 - `dividends_applied.csv`: **False** (n=0)
-- observed books version: **E22_v2s_tw** (ops debt until next forward if still `E22_v2s_tw`)
+- observed books version: **E22_v2s_tw_effex** (ops debt until next forward if still `E22_v2s_tw`)
 - Live evidence OK: **True**
 
 ## Ex → pay lag (ledger completeness already green; this is timing fidelity)
@@ -29,7 +29,7 @@ Status: **OPS / RESEARCH** — Soft-Frozen D5 ACCEPT; live DEFAULT **`E22_v2s_tw
 
 - Open cash events with ex≤asof < pay: **0**
 - Codes: `none`
-- Formal books credit cash on effective_ex_trade under E22_v2s_tw_effex (legacy E22_v2s_tw = raw cash_ex_date; no receivable asset). This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.
+- Formal books accrue receivable on effective_ex_trade under E22_v3_recv_pay_effdelay (Stage-E ACCEPT); cash settles on effective_payment. Preserved cash-on-ex path: E22_v2s_tw_effex. This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.
 
 ## Dividend tax sensitivity (report-only; formal = TAX0)
 

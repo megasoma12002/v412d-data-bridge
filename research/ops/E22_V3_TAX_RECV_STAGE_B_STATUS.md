@@ -5,10 +5,10 @@
 > **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
 > See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
 
-Date: 2026-09-06
-Ballot: **ACCEPT charter** (human 2026-09-05) — still binding
-Live DEFAULT: **`E22_v2s_tw`** (untouched)
-Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]**
+Date: 2026-09-16  
+Status: **ACCEPT Stage-E promote** — live DEFAULT `E22_v3_recv_pay_effdelay`; Stage B tax sandboxes remain open  
+Soft-Frozen FIN: **[0.60, 0.90] KEEP**  
+Live DEFAULT books: **`E22_v3_recv_pay_effdelay`** (TAX0; receivable on effective ex; cash on effective pay)
 
 ## Sandbox axes
 

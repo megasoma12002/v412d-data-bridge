@@ -3,7 +3,8 @@
 
 Formal price split:
   - E16 signals: adj_close
-  - Books / fills / NAV: raw open/close + E22_v2s_tw_effex (畸零股面額 CIL + effective ex)
+  - Books / fills / NAV: raw open/close + E22_v3_recv_pay_effdelay
+    (receivable on effective ex; cash on effective payment; TW odd-lot stock)
   - Order sizing: 一張 = 1000 股 (整股); no 零股 (1–999) continuous-book orders
 
 Architecture (2026-09-14 modularize):
@@ -46,6 +47,8 @@ from live_config import (
 from live_ledger import ALL, append_immutable, holdings
 from live_strategy_targets import features, resolve_session_targets
 from live_execution import fill_pending_at_open, resolve_fill_port
+from e22_books_apply import apply_books_for_date, books_manifest, is_sandbox_version
+import e22_v3_sandbox_books as e22sandbox
 
 # Mutable session capital (CLI may override); default from LiveConfig.
 CAPITAL = float(LIVE.capital)
@@ -74,12 +77,18 @@ def main():
             e22div.E22_V2S_CIL,
             e22div.E22_V2S_TW,
             e22div.E22_V2S_TW_EFFEX,
+            e22div.E22_V3_RECV_PAY_EFFDELAY,
+            e22sandbox.E22_V3_RECV_PAY,
+            e22sandbox.E22_V3_TAX10,
+            e22sandbox.E22_V3_TAX20,
+            e22sandbox.E22_V3_RECV_PAY_TAX10,
+            e22sandbox.E22_V3_RECV_PAY_TAX20,
         ],
     )
     ap.add_argument(
         "--confirm-e22-version-override",
         action="store_true",
-        help="Required when --e22-version differs from live DEFAULT (E22_v2s_tw_effex).",
+        help="Required when --e22-version differs from live DEFAULT (E22_v3_recv_pay_effdelay).",
     )
     ap.add_argument(
         "--allow-noncanonical-paths",
@@ -208,9 +217,9 @@ def main():
             f"Exact T+1 violation: {same_bar_fills} same-bar fill(s) on {latest.date()}"
         )
 
-    # E22 formal books on today's ex-date (forward-only; idempotent via applied keys).
-    # Live: fail-closed amounts; if dirty cells exist, repair once via refetch then reload.
-    # Escape: --no-div-amount-repair (still fail-closed). Soft-Frozen / books unchanged.
+    # E22 books on today (forward-only; idempotent via applied keys).
+    # Live DEFAULT: E22_v3_recv_pay_effdelay (Stage-E ACCEPT) — receivable / pay clock.
+    # Escape hatch: --e22-version E22_v2s_tw_effex --confirm-e22-version-override.
     if getattr(a, "no_div_amount_repair", False):
         div_events = e22div.load_dividend_events(
             a.dividends, require_exists=True, fail_closed_amounts=True
@@ -225,7 +234,32 @@ def main():
     div_path = sdir / "dividends_applied.csv"
     if div_path.exists():
         skip |= set(pd.read_csv(div_path)["key"].astype(str))
-    pos, cash, applied = e22div.apply_dividends_for_date(
+    receivables = {
+        str(k): float(v)
+        for k, v in (state.get("e22_receivables") or {}).items()
+    }
+    sessions = None
+    settlements = None
+    mops_amd = None
+    if is_sandbox_version(a.e22_version) or a.e22_version in e22div.EFFEX_VERSIONS:
+        from twse_session_sources import (
+            DEFAULT_CALENDAR_DIR,
+            read_calendar_csv,
+            session_dates,
+            settlement_dates,
+        )
+
+        y = int(str(latest.date())[:4])
+        cal_path = DEFAULT_CALENDAR_DIR / f"twse_sessions_{y}.csv"
+        if cal_path.exists():
+            cal_rows = read_calendar_csv(cal_path)
+            sessions = session_dates(cal_rows)
+            settlements = settlement_dates(cal_rows)
+        if is_sandbox_version(a.e22_version):
+            from e22_mops_payment_amendments import load_amendments
+
+            mops_amd = load_amendments()
+    pos, cash, receivables, applied = apply_books_for_date(
         latest.date().isoformat(),
         pos,
         cash,
@@ -233,6 +267,10 @@ def main():
         version=a.e22_version,
         skip_keys=skip,
         mark_prices=prices,
+        receivables=receivables,
+        session_dates=sessions,
+        settlement_dates=settlements,
+        mops_amendments=mops_amd,
     )
     for d in applied.details:
         row = {
@@ -242,18 +280,25 @@ def main():
             "code": d["code"],
             "ex_date": d.get("ex_date"),
             "payment_date": d.get("payment_date", ""),
-            "amount_per_share": d.get("amount_per_share"),
+            "amount_per_share": d.get("amount_per_share", d.get("gross_credit", "")),
             "cash_credit": d.get("cash_credit", 0.0),
+            "receivable_credit": d.get("receivable_credit", 0.0),
             "shares_added": d.get("shares_added", 0.0),
             "fractional_shares": d.get("fractional_shares", 0.0),
             "cil_cash_credit": d.get("cil_cash_credit", 0.0),
             "mark_price": d.get("mark_price", ""),
+            "effective_ex_trade": d.get("effective_ex_trade", ""),
+            "effective_payment": d.get("effective_payment", ""),
             "version": d.get("version", a.e22_version),
         }
         append_immutable(div_path, row, "key")
         skip.add(d["key"])
 
-    pos, cash, vals, nav = holdings({"positions": pos, "cash": cash}, prices, capital=a.capital)
+    pos, cash, vals, nav = holdings(
+        {"positions": pos, "cash": cash, "e22_receivables": receivables},
+        prices,
+        capital=a.capital,
+    )
     sleeve_vals = {
         "Financial": sum(vals[c] for c in FIN),
         "Telecom": sum(vals[c] for c in TEL),
@@ -417,18 +462,23 @@ def main():
         "exact_t1_ok": exact_t1_ok,
         "same_bar_fills": same_bar_fills,
         "e22_version": a.e22_version,
-        "e22_cash_credit": applied.cash_credit,
-        "e22_stock_shares_added": applied.stock_shares_added,
+        "e22_cash_credit": float(getattr(applied, "cash_credit", 0.0) or 0.0),
+        "e22_receivable_credit": float(getattr(applied, "receivable_credit", 0.0) or 0.0),
+        "e22_receivable_settled": float(getattr(applied, "receivable_settled", 0.0) or 0.0),
+        "e22_stock_shares_added": float(getattr(applied, "stock_shares_added", 0.0) or 0.0),
+        "e22_receivable_balance": float(sum(receivables.values())),
     }
     append_immutable(sdir / "nav.csv", navrow, "date")
     state = {
         "cash": cash,
         "positions": pos,
+        "e22_receivables": receivables,
         "last_date": latest.date().isoformat(),
         "last_nav": nav,
         "e22_books_version": a.e22_version,
         "e22_applied_keys": sorted(skip),
-        "e22_manifest": e22div.version_manifest(a.e22_version),
+        "e22_manifest": books_manifest(a.e22_version),
+        "stage_e_recv_accept": "ACCEPT_2026-09-16_E22_v3_recv_pay_effdelay",
         "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
         "kd_opt_id": KD_OPT["id"],
         "fin_within_sleeve_cutover": "ACCEPT_2026-09-09_KD_OPT",

@@ -1,12 +1,13 @@
 {
-  "generated_at_utc": "2026-09-16T05:19:37.752630+00:00",
+  "generated_at_utc": "2026-09-16T14:06:26.796696+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": false,
   "d5_accept": true,
-  "formal_books": "E22_v2s_tw_effex",
+  "formal_books": "E22_v3_recv_pay_effdelay",
+  "preserved_cash_on_ex": "E22_v2s_tw_effex",
   "code_wire": {
-    "default_books_version": "E22_v2s_tw_effex",
+    "default_books_version": "E22_v3_recv_pay_effdelay",
     "default_is_e22_v2s": false,
     "e21_imports_e22_module": true,
     "e21_calls_apply_dividends": true,
@@ -14,19 +15,21 @@
     "formal_status_wired_e21": true,
     "tw_variant_named": "E22_v2s_tw",
     "effex_variant_named": "E22_v2s_tw_effex",
+    "recv_effdelay_named": "E22_v3_recv_pay_effdelay",
     "tw_is_default": false,
-    "effex_is_default": true,
+    "effex_is_default": false,
+    "recv_effdelay_is_default": true,
     "code_ok": true
   },
   "live_ledger": {
     "live_dir": "/workspace/forward/e21",
-    "asof": "2026-09-15",
+    "asof": "2026-09-16",
     "portfolio_has_e22_books_version": true,
     "portfolio_has_e22_manifest": true,
     "nav_has_e22_version_col": true,
     "dividends_applied_exists": false,
     "dividends_applied_n": 0,
-    "observed_books_version": "E22_v2s_tw",
+    "observed_books_version": "E22_v2s_tw_effex",
     "live_ledger_e22_fields_present": true,
     "note": null
   },
@@ -49,10 +52,10 @@
     }
   },
   "receivable_stub": {
-    "asof": "2026-09-15",
+    "asof": "2026-09-16",
     "n_cash_events_in_receivable_window": 0,
     "codes": [],
-    "policy_note": "Formal books credit cash on effective_ex_trade under E22_v2s_tw_effex (legacy E22_v2s_tw = raw cash_ex_date; no receivable asset). This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.",
+    "policy_note": "Formal books accrue receivable on effective_ex_trade under E22_v3_recv_pay_effdelay (Stage-E ACCEPT); cash settles on effective_payment. Preserved cash-on-ex path: E22_v2s_tw_effex. This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.",
     "severity": "Med for cash/liquidity timing; Low for raw-price total-return mark"
   },
   "div_tax_sensitivity": {
@@ -76,7 +79,8 @@
   "gap_refs": {
     "brief": "research/e22/EXECUTION_DETAIL_GAP6_BRIEF.md",
     "handling": "research/gaps/E50A_AND_EXEC_GAP_HANDLING.md",
-    "delay_charter": "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md"
+    "delay_charter": "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md",
+    "tax_recv_charter": "research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md"
   },
   "flags": [],
   "code_ok": true,

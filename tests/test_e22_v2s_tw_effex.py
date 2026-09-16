@@ -31,9 +31,11 @@ class EffexBooksTests(unittest.TestCase):
         )
         self.pos0 = {"2891": 1000.0}
 
-    def test_default_is_effex(self) -> None:
-        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V2S_TW_EFFEX)
-        m = formal.version_manifest()
+    def test_default_promoted_past_effex(self) -> None:
+        # D5 preserved path; Stage-E DEFAULT is recv_pay_effdelay
+        self.assertEqual(formal.PRESERVED_CASH_ON_EX, formal.E22_V2S_TW_EFFEX)
+        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V3_RECV_PAY_EFFDELAY)
+        m = formal.version_manifest(formal.E22_V2S_TW_EFFEX)
         self.assertEqual(m["cash_timing"], "cash_effective_ex_trade")
         self.assertTrue(m["d5_accept"])
 
@@ -79,7 +81,7 @@ class EffexBooksTests(unittest.TestCase):
             self.pos0,
             0.0,
             [self.ev],
-            version=formal.DEFAULT_BOOKS_VERSION,
+            version=formal.E22_V2S_TW_EFFEX,
         )
         self.assertEqual(cash0, 0.0)
         _, cash1, res1 = formal.apply_dividends_for_date(
@@ -87,7 +89,7 @@ class EffexBooksTests(unittest.TestCase):
             self.pos0,
             0.0,
             [self.ev],
-            version=formal.DEFAULT_BOOKS_VERSION,
+            version=formal.E22_V2S_TW_EFFEX,
         )
         self.assertAlmostEqual(cash1, 2500.0)
         self.assertEqual(res1.details[0]["effective_ex_trade"], "2026-07-13")

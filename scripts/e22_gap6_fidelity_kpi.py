@@ -2,12 +2,12 @@
 """Gap #6 execution-fidelity KPI — RESEARCH / OPS only.
 
 Complements e22_data_quality_kpi (ledger field blank-rates) with:
-  - Code default assert (E22_v2s_tw_effex after D5 ACCEPT 2026-09-16)
+  - Code default assert (E22_v3_recv_pay_effdelay after Stage-E ACCEPT 2026-09-16)
   - Live forward/e21 evidence that books fields are present
   - Ex→pay lag stats (timing gap magnitude)
   - Open receivable-window stub (universe events, not position-weighted)
   - Dividend-tax haircut sensitivity on live dividends_applied (if any)
-  - Odd-lot promote status (E22_v2s_tw family PROMOTED; live DEFAULT = effex)
+  - Odd-lot / D5 / Stage-E promote status
 
 Does not cutover, does not rewrite forward/e21 history.
 """
@@ -56,7 +56,9 @@ def _code_wire_assert() -> dict:
         or (isinstance(n, ast.ImportFrom) and n.module == "e22_dividend_accounting")
         for n in tree.body
     )
-    mentions_apply = "apply_dividends_for_date" in src
+    mentions_apply = (
+        "apply_dividends_for_date" in src or "apply_books_for_date" in src
+    )
     mentions_default = "DEFAULT_BOOKS_VERSION" in src or "E22_BOOKS_VERSION" in src
     formal = {}
     if FORMAL.exists():
@@ -72,10 +74,12 @@ def _code_wire_assert() -> dict:
         "formal_status_wired_e21": wired,
         "tw_variant_named": e22div.E22_V2S_TW,
         "effex_variant_named": e22div.E22_V2S_TW_EFFEX,
+        "recv_effdelay_named": e22div.E22_V3_RECV_PAY_EFFDELAY,
         "tw_is_default": default == e22div.E22_V2S_TW,
         "effex_is_default": default == e22div.E22_V2S_TW_EFFEX,
+        "recv_effdelay_is_default": default == e22div.E22_V3_RECV_PAY_EFFDELAY,
         "code_ok": bool(
-            default == e22div.E22_V2S_TW_EFFEX
+            default == e22div.E22_V3_RECV_PAY_EFFDELAY
             and imports_e22
             and mentions_apply
             and (wired is True or wired is None)
@@ -178,8 +182,9 @@ def main() -> int:
         "n_cash_events_in_receivable_window": int(len(open_recv)),
         "codes": sorted({str(c) for c in open_recv["code"].astype(str)}) if len(open_recv) else [],
         "policy_note": (
-            "Formal books credit cash on effective_ex_trade under E22_v2s_tw_effex "
-            "(legacy E22_v2s_tw = raw cash_ex_date; no receivable asset). "
+            "Formal books accrue receivable on effective_ex_trade under "
+            "E22_v3_recv_pay_effdelay (Stage-E ACCEPT); cash settles on effective_payment. "
+            "Preserved cash-on-ex path: E22_v2s_tw_effex. "
             "This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL."
         ),
         "severity": "Med for cash/liquidity timing; Low for raw-price total-return mark",
@@ -199,10 +204,10 @@ def main() -> int:
     }
 
     flags: list[str] = []
-    if not code.get("effex_is_default"):
+    if not code.get("recv_effdelay_is_default"):
         flags.append(
             f"DEFAULT_BOOKS_VERSION={code['default_books_version']} "
-            f"(expected {e22div.E22_V2S_TW_EFFEX})"
+            f"(expected {e22div.E22_V3_RECV_PAY_EFFDELAY})"
         )
     if not code["e21_imports_e22_module"] or not code["e21_calls_apply_dividends"]:
         flags.append("e21_forward_pipeline missing E22 apply wiring")
@@ -217,7 +222,8 @@ def main() -> int:
         "live_wire": False,
         "soft_frozen_unchanged": False,
         "d5_accept": True,
-        "formal_books": e22div.E22_V2S_TW_EFFEX,
+        "formal_books": e22div.E22_V3_RECV_PAY_EFFDELAY,
+        "preserved_cash_on_ex": e22div.PRESERVED_CASH_ON_EX,
         "code_wire": code,
         "live_ledger": live,
         "ex_to_pay_lag": {"cash": cash_lag, "stock": stock_lag},
@@ -228,9 +234,10 @@ def main() -> int:
             "brief": "research/e22/EXECUTION_DETAIL_GAP6_BRIEF.md",
             "handling": "research/gaps/E50A_AND_EXEC_GAP_HANDLING.md",
             "delay_charter": "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md",
+            "tax_recv_charter": "research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md",
         },
         "flags": flags,
-        "code_ok": bool(code["code_ok"] and code.get("effex_is_default")),
+        "code_ok": bool(code["code_ok"] and code.get("recv_effdelay_is_default")),
         "live_evidence_ok": bool(live["live_ledger_e22_fields_present"]),
         "kpi_ok": None,  # filled below
         # CI smoke gate = code wire only. Full kpi_ok still requires live evidence
@@ -255,11 +262,11 @@ def main() -> int:
         "# E22 Gap #6 Fidelity KPI",
         "",
         f"Generated: `{kpi['generated_at_utc']}`",
-        "Status: **OPS / RESEARCH** — Soft-Frozen D5 ACCEPT; live DEFAULT **`E22_v2s_tw_effex`** (TW odd-lot + effective ex).",
+        "Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v3_recv_pay_effdelay`** (receivable + effective pay).",
         "",
         "## Code wire",
         "",
-        f"- Default books: **`{code['default_books_version']}`** (expect `E22_v2s_tw_effex`)",
+        f"- Default books: **`{code['default_books_version']}`** (expect `E22_v3_recv_pay_effdelay`)",
         f"- E21 imports/apply: **{code['e21_imports_e22_module']}** / **{code['e21_calls_apply_dividends']}**",
         f"- Formal status wired: **{code.get('formal_status_wired_e21')}**",
         f"- Code OK: **{kpi['code_ok']}**",
