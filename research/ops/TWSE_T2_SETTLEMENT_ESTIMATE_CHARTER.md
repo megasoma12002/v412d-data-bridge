@@ -15,8 +15,7 @@ Related: `live_execution` fills · `live_ledger` fees · Exact T+1 ≠ custody T
 
 **TWSE fact (investor side):** 普通股／ETF 款券交割在成交日後**第二個營業日**（T+2）；投資人通常須於 T+2 上午對券商完成交割；同日買賣多為**淨額**一筆交割款。
 
-**Repo fact today:** paper / live pipeline books cash at **Exact T+1 fill** (signal → next session open). `portfolio_state.cash` is **trade-time cash**, not settled bank cash. There is **no** T+2 estimate module yet.
-
+**Repo fact:** paper / live pipeline books cash at **Exact T+1 fill** (signal → next session open). `portfolio_state.cash` is **trade-time cash**, not settled bank cash. Estimate module: `scripts/twse_t2_settlement_estimate.py` (observe-only).
 ---
 
 ## 1. Three clocks (do not merge)
@@ -71,12 +70,25 @@ settle_date = nth_open_session_after(fill_date, n=2)
 
 | Input | Source |
 |---|---|
-| Preferred | `twse_session_calendar` (charter #237): OPEN sessions only |
-| Interim (before calendar P1) | Sorted unique **complete** dates from `forward/e21/live_market.csv` (same completeness rule as `e21_forward_pipeline`) |
+| Preferred | `data/calendars/twse_sessions_YYYY.csv` + `nth_session_after` in `twse_session_sources.py` (#237) |
+| Interim | Sorted unique **complete** dates from `forward/e21/live_market.csv` (same completeness rule as `e21_forward_pipeline`) |
 
 **Must not:** `fill_date + timedelta(days=2)`.  
-国定假 / 颱風假 / 补班日 all ride on session list. Typhoon same-day close: fill that never happens → no settlement row; pending order stays until next fill.
+国定假 / 颱風假 / 补班日 all ride on session list.
 
+### 3.1 Why typhoon breaks calendar +2
+
+TWSE：台北市全日／上午停班 → **集中市場全日休市**，當日**應屆交割款券順延**至次一營業日。
+
+| Example (2026-07 Bawei) | Calendar +2 (wrong) | Session T+2 (correct) |
+|---|---|---|
+| Fill **2026-07-08** (Thu) | 2026-07-10 (**typhoon closed**) | **2026-07-13** (Mon) — skips Fri typhoon + weekend |
+| Fill **2026-07-07** (Wed) | 2026-07-09 | 2026-07-09 (Thu still open) |
+| No fill on 2026-07-10 | — | No settlement row; pending Exact T+1 waits for next open |
+
+If a previously computed `settle_date` is later demoted to typhoon closed by CAP/MI overlay, **re-run** the estimate against the updated session CSV — do not leave obligation on a non-session day.
+
+**Prototype (R1+R3):** `scripts/twse_t2_settlement_estimate.py` reads `fills.csv` + pinned session calendar; observe-only CSV/JSON.
 ---
 
 ## 4. Recommended module seams
@@ -135,9 +147,9 @@ Explain in report: paper already booked fill-time cash; estimate backs out unset
 | Phase | Deliverable | Gate |
 |---|---|---|
 | **R0** | This charter | — |
-| **R1** | Pure functions + unit tests (holiday gap: Fri fill → settle after 国定假) | Interim market-date calendar OK |
-| **R2** | CLI: `--state-dir forward/e21 --asof YYYY-MM-DD` → CSV/JSON under repro or `forward/e21/` | Observe only; no pipeline mutate |
-| **R3** | Switch offset to `twse_session_calendar` when #237 P1 lands | Shared session SSOT |
+| **R1** | Pure functions + unit tests (holiday + **typhoon** gap) | **Prototype landed** · `twse_t2_settlement_estimate.py` |
+| **R2** | CLI: `--state-dir forward/e21 --asof YYYY-MM-DD` → CSV/JSON | **Prototype landed** (writes observe artifact under state-dir / `--out-dir`) |
+| **R3** | Offset via `twse_sessions_YYYY.csv` / `nth_session_after` (#237) | **Prototype landed** (merged session calendar) |
 | **R4** | Optional daily emit from forward workflow | Still observe |
 | **R5** | Broker reconcile pack (estimate vs 交割银行 / API) | Human ACCEPT before any live gate |
 
@@ -181,6 +193,7 @@ python3 scripts/twse_t2_settlement_estimate.py \
 ## 9. Acceptance tests (when coded)
 
 - Fri fill before long weekend → `settle_date` skips non-sessions  
+- **Fill before 2026-07-10 typhoon → settle_date skips Fri closed day (→ Mon)**  
 - BUY/SELL signs and fee reuse match a hand-computed fill row  
 - `asof` with no open unsettled → unsettled_net = 0  
 - Does not write `portfolio_state` / `nav.csv`  
@@ -192,8 +205,8 @@ python3 scripts/twse_t2_settlement_estimate.py \
 
 - Fills / fees: `scripts/live_execution.py`, `scripts/live_ledger.py`  
 - Pipeline day order: `scripts/e21_forward_pipeline.py`  
-- Session calendar: `research/ops/TWSE_SESSION_CALENDAR_CHARTER.md` (#237)  
+- Session calendar: `research/ops/TWSE_SESSION_CALENDAR_CHARTER.md` (#237) · `scripts/twse_session_sources.py`  
+- Estimate CLI: `scripts/twse_t2_settlement_estimate.py`  
 - Dividend receivable (orthogonal): `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md`  
-- TWSE 款券交割時點: twse.com.tw clearing operations (T+2 營業日)
-
+- TWSE 款券交割時點: twse.com.tw clearing operations (T+2 營業日) · 天然災害休市順延: `suspended.html`
 Label: `TWSE_T2_SETTLEMENT_ESTIMATE__RESEARCH_CHARTER`
