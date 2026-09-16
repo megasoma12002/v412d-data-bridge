@@ -102,6 +102,8 @@ class CapWorkStop:
     target_date: date | None
     class_: str
     is_taipei: bool
+    # Consecutive / multi-day stop announcements (range or 今天+明天).
+    target_dates: list[date] = field(default_factory=list)
 
 
 @dataclass
@@ -264,20 +266,23 @@ def apply_overlays(
 
     if caps:
         for c in caps:
-            if not (c.is_taipei and c.status == "Actual" and c.target_date):
+            if not (c.is_taipei and c.status == "Actual"):
                 continue
             if c.class_ not in ("FULL_DAY", "MORNING"):
                 continue
-            td = c.target_date
-            if td not in by_date:
-                continue
-            rec = by_date[td]
-            if rec.kind == "CLOSED_HOLIDAY":
-                continue  # annual holiday already closed
-            rec.is_session = False
-            rec.kind = "CLOSED_TYPHOON_INTENT"
-            rec.source = "dgpa_cap+annual"
-            rec.notes = (rec.notes + ";" if rec.notes else "") + c.description[:80]
+            targets = list(c.target_dates) if c.target_dates else (
+                [c.target_date] if c.target_date else []
+            )
+            for td in targets:
+                if td is None or td not in by_date:
+                    continue
+                rec = by_date[td]
+                if rec.kind == "CLOSED_HOLIDAY":
+                    continue  # annual holiday already closed
+                rec.is_session = False
+                rec.kind = "CLOSED_TYPHOON_INTENT"
+                rec.source = "dgpa_cap+annual"
+                rec.notes = (rec.notes + ";" if rec.notes else "") + c.description[:80]
 
     for d in mi_closed or ():
         if d not in by_date:
@@ -641,20 +646,59 @@ def _cap_text(root: ET.Element, tag: str) -> str:
     return ""
 
 
-def _parse_target_date(desc: str, sent: datetime) -> date | None:
+def _parse_target_dates(desc: str, sent: datetime) -> list[date]:
+    """Parse one or more stop dates from a CAP description.
+
+    Supports 今天/明天, ``M/D至M/D`` ranges (consecutive typhoon days), and
+    multiple ``M/D`` mentions. Caps range expansion at 14 calendar days.
+    """
     sent_d = sent.astimezone(TAIPEI).date()
-    if re.search(r"今天|今日", desc):
-        return sent_d
-    if re.search(r"明天|明日", desc):
-        return sent_d + timedelta(days=1)
-    m = re.search(r"(?<!\d)(\d{1,2})/(\d{1,2})(?!\d)", desc)
-    if m:
-        mm, dd = int(m.group(1)), int(m.group(2))
+    found: list[date] = []
+
+    def _add(d: date) -> None:
+        if d not in found:
+            found.append(d)
+
+    has_today = bool(re.search(r"今天|今日", desc))
+    has_tomorrow = bool(re.search(r"明天|明日", desc))
+    if has_today:
+        _add(sent_d)
+    if has_tomorrow:
+        _add(sent_d + timedelta(days=1))
+
+    # Explicit inclusive ranges: 8/3至8/5, 8/3-8/5, 8/3～8/5
+    for m in re.finditer(
+        r"(?<!\d)(\d{1,2})/(\d{1,2})\s*[-~～至到]\s*(\d{1,2})/(\d{1,2})(?!\d)",
+        desc,
+    ):
         try:
-            return date(sent_d.year, mm, dd)
+            start = date(sent_d.year, int(m.group(1)), int(m.group(2)))
+            end = date(sent_d.year, int(m.group(3)), int(m.group(4)))
         except ValueError:
-            return None
-    return None
+            continue
+        if end < start:
+            start, end = end, start
+        if (end - start).days > 14:
+            continue
+        d = start
+        while d <= end:
+            _add(d)
+            d += timedelta(days=1)
+
+    # Lone M/D tokens (skip if already covered by range pass)
+    for m in re.finditer(r"(?<!\d)(\d{1,2})/(\d{1,2})(?!\d)", desc):
+        try:
+            _add(date(sent_d.year, int(m.group(1)), int(m.group(2))))
+        except ValueError:
+            continue
+
+    return found
+
+
+def _parse_target_date(desc: str, sent: datetime) -> date | None:
+    """Primary target date (first of ``_parse_target_dates``)."""
+    dates = _parse_target_dates(desc, sent)
+    return dates[0] if dates else None
 
 
 def _classify_work_stop(text: str) -> str:
@@ -698,6 +742,7 @@ def fetch_dgpa_caps(*, atom_url: str = NCDR_ATOM_URL) -> list[CapWorkStop]:
             sent_dt = datetime.now(tz=TAIPEI)
         desc = _cap_text(cap_root, "description")
         area = _cap_text(cap_root, "areaDesc")
+        targets = _parse_target_dates(desc, sent_dt)
         out.append(
             CapWorkStop(
                 area=area,
@@ -709,7 +754,8 @@ def fetch_dgpa_caps(*, atom_url: str = NCDR_ATOM_URL) -> list[CapWorkStop]:
                 status=_cap_text(cap_root, "status"),
                 msg_type=_cap_text(cap_root, "msgType"),
                 href=href,
-                target_date=_parse_target_date(desc, sent_dt),
+                target_date=targets[0] if targets else None,
+                target_dates=targets,
                 class_=_classify_work_stop(desc + " " + _cap_text(cap_root, "headline")),
                 is_taipei=_is_taipei(area, desc),
             )
@@ -719,12 +765,18 @@ def fetch_dgpa_caps(*, atom_url: str = NCDR_ATOM_URL) -> list[CapWorkStop]:
 
 def taipei_typhoon_intent(asof: date, caps: list[CapWorkStop] | None = None) -> dict[str, Any]:
     items = caps if caps is not None else fetch_dgpa_caps()
+
+    def _targets(c: CapWorkStop) -> list[date]:
+        if c.target_dates:
+            return list(c.target_dates)
+        return [c.target_date] if c.target_date else []
+
     hits = [
         c
         for c in items
         if c.is_taipei
         and c.status == "Actual"
-        and c.target_date == asof
+        and asof in _targets(c)
         and c.class_ in ("FULL_DAY", "MORNING")
     ]
     afternoon = [
@@ -732,7 +784,7 @@ def taipei_typhoon_intent(asof: date, caps: list[CapWorkStop] | None = None) -> 
         for c in items
         if c.is_taipei
         and c.status == "Actual"
-        and c.target_date == asof
+        and asof in _targets(c)
         and c.class_ == "AFTERNOON"
     ]
     return {

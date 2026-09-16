@@ -212,9 +212,10 @@ CAP parse rules (offline-tested patterns):
 - ATOM: `https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33` → each `entry/link@href` `.cap`
 - Keep `status=Actual`; ignore Test/Draft
 - `areaDesc` must be city-wide **臺北市** (district-only e.g. 臺北市中正區 → ignore for TWSE)
-- Target date from description: `今天` / `明天` / `M/D`
+- Target date(s) from description: `今天` / `明天` / `M/D` / **`M/D至M/D` ranges** / `今天及明天` (consecutive) → `CapWorkStop.target_dates`
 - Class: 下午停班 → AFTERNOON (market open); 上午/全日/已達停止上班 → close
 
+**Consecutive typhoon days:** session list + `nth_session_after` already skip any streak of `is_session=0`. CAP range parse demotes each day in the streak for intent; MI_INDEX empty still pins past closed days. See T+2 charter §3.2.
 `holidaySchedule` JSON is year-ahead 国定假 only — never lists typhoon.
 
 ### 4.2 TAIFEX futures open — useful overlay, not early-open detector

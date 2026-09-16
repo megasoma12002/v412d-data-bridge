@@ -88,8 +88,20 @@ TWSE：台北市全日／上午停班 → **集中市場全日休市**，當日*
 
 If a previously computed `settle_date` is later demoted to typhoon closed by CAP/MI overlay, **re-run** the estimate against the updated session CSV — do not leave obligation on a non-session day.
 
-**Prototype (R1+R3):** `scripts/twse_t2_settlement_estimate.py` reads `fills.csv` + pinned session calendar; observe-only CSV/JSON.
----
+### 3.2 Consecutive typhoon / multi-day closes
+
+`nth_session_after` counts **open sessions only** — any streak of closed weekdays (one typhoon lasting Mon–Wed, or two storms back-to-back) is skipped automatically. No special “max one typhoon day” cap.
+
+| Mechanism | Consecutive behavior |
+|---|---|
+| Session CSV `is_session=0` rows | T+1 / T+2 walk past every closed day until N opens accumulate |
+| CAP overlay | One alert may list a **date range** (`8/3至8/5`) or `今天及明天` → each day demoted (`target_dates`) |
+| Per-day CAP / MI_INDEX empty | Also fine — each day overlaid independently |
+| Recompute | If day-2 of a streak is announced after fill, regenerate estimate |
+
+Example: fill Fri → Mon/Tue/Wed all typhoon closed → settle = following Fri (2nd open after fill), not Mon+2 calendar logic.
+
+**Prototype (R1+R3):** `scripts/twse_t2_settlement_estimate.py` reads `fills.csv` + pinned session calendar; observe-only CSV/JSON.---
 
 ## 4. Recommended module seams
 

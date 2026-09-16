@@ -79,6 +79,54 @@ class TyphoonSessionOffsetTests(unittest.TestCase):
         self.assertEqual(est.settle_date, date(2026, 7, 9))
         self.assertEqual(est.settlement_cash, 1995.0)
 
+    def test_consecutive_typhoon_days_shift_t2_further(self) -> None:
+        """Three weekday typhoon closes in a row — T+2 skips the whole streak."""
+        days = [
+            _cal_row(date(2026, 7, 30), True, "SESSION"),
+            _cal_row(date(2026, 7, 31), True, "SESSION"),
+            _cal_row(date(2026, 8, 1), False, "WEEKEND"),
+            _cal_row(date(2026, 8, 2), False, "WEEKEND"),
+            _cal_row(date(2026, 8, 3), False, "CLOSED_TYPHOON_OR_NODATA"),
+            _cal_row(date(2026, 8, 4), False, "CLOSED_TYPHOON_OR_NODATA"),
+            _cal_row(date(2026, 8, 5), False, "CLOSED_TYPHOON_OR_NODATA"),
+            _cal_row(date(2026, 8, 6), True, "SESSION"),
+            _cal_row(date(2026, 8, 7), True, "SESSION"),
+        ]
+        sess = session_dates(days)
+        # Fill Fri 7/31 → +2 sessions = Mon streak gone → Thu 8/6, Fri 8/7
+        est = estimate_fill(
+            {
+                "fill_id": "c-1",
+                "fill_date": "2026-07-31",
+                "code": "0050",
+                "side": "BUY",
+                "quantity": 1,
+                "gross": 100.0,
+                "fees_tax": 1.0,
+            },
+            sess,
+            asof=date(2026, 7, 31),
+        )
+        self.assertEqual(est.settle_date, date(2026, 8, 7))
+        # Wrong calendar+2 would be Sun 8/2; even "skip one typhoon Mon" would be wrong
+        self.assertNotEqual(est.settle_date, date(2026, 8, 2))
+        self.assertNotEqual(est.settle_date, date(2026, 8, 4))
+        # Fill Thu 7/30 → T+1=7/31, T+2=8/6 (first open after 3-day streak)
+        est2 = estimate_fill(
+            {
+                "fill_id": "c-2",
+                "fill_date": "2026-07-30",
+                "code": "0050",
+                "side": "BUY",
+                "quantity": 1,
+                "gross": 100.0,
+                "fees_tax": 1.0,
+            },
+            sess,
+            asof=date(2026, 7, 30),
+        )
+        self.assertEqual(est2.settle_date, date(2026, 8, 6))
+
     def test_holiday_gap_fri_to_next_week(self) -> None:
         days = [
             _cal_row(date(2026, 1, 2), True, "SESSION"),

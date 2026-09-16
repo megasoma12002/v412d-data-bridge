@@ -28,6 +28,7 @@ from twse_session_sources import (
     _classify_work_stop,
     _is_taipei,
     _parse_target_date,
+    _parse_target_dates,
 )
 
 SAMPLE_SCHEDULE = {
@@ -62,6 +63,42 @@ class ParserTests(unittest.TestCase):
         self.assertEqual(_parse_target_date("明天停止上班、停止上課", sent), date(2026, 8, 23))
         self.assertEqual(_parse_target_date("8/23已達停止上班及上課標準", sent), date(2026, 8, 23))
 
+    def test_parse_consecutive_target_dates(self) -> None:
+        sent = datetime(2026, 8, 2, 19, 0, tzinfo=TAIPEI)
+        self.assertEqual(
+            _parse_target_dates("臺北市:今天及明天停止上班、停止上課", sent),
+            [date(2026, 8, 2), date(2026, 8, 3)],
+        )
+        self.assertEqual(
+            _parse_target_dates("8/3至8/5已達停止上班及上課標準", sent),
+            [date(2026, 8, 3), date(2026, 8, 4), date(2026, 8, 5)],
+        )
+
+    def test_cap_range_overlay_closes_each_day(self) -> None:
+        cal = build_annual_calendar(2026, SAMPLE_SCHEDULE)
+        caps = [
+            CapWorkStop(
+                area="臺北市",
+                sent="",
+                effective="",
+                expires="",
+                headline="",
+                description="8/3至8/5停止上班",
+                status="Actual",
+                msg_type="Alert",
+                href="",
+                target_date=date(2026, 8, 3),
+                target_dates=[date(2026, 8, 3), date(2026, 8, 4), date(2026, 8, 5)],
+                class_="FULL_DAY",
+                is_taipei=True,
+            )
+        ]
+        out = apply_overlays(cal, caps=caps)
+        for d in (date(2026, 8, 3), date(2026, 8, 4), date(2026, 8, 5)):
+            rec = lookup_day(out, d)
+            assert rec is not None
+            self.assertFalse(rec.is_session)
+            self.assertEqual(rec.kind, "CLOSED_TYPHOON_INTENT")
 
 class AnnualCalendarTests(unittest.TestCase):
     def test_build_integrates_holidays_and_weekends(self) -> None:
