@@ -238,5 +238,7 @@ python3 scripts/twse_t2_settlement_estimate.py \
 - Session calendar: `research/ops/TWSE_SESSION_CALENDAR_CHARTER.md` (#237) · `scripts/twse_session_sources.py`  
 - Estimate CLI: `scripts/twse_t2_settlement_estimate.py`  
 - Dividend receivable (orthogonal): `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md`  
-- TWSE 款券交割時點: twse.com.tw clearing operations (T+2 營業日) · 天然災害休市順延: `suspended.html`
+- **除權息入帳延後** (ex vs payment; typhoon/封關): `TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md` · `twse_dividend_delay_estimate.py`  
+- TWSE 款券交割時點: twse.com.tw clearing operations (T+2 營業日) · 天然災害休市顺延: `suspended.html`
+
 Label: `TWSE_T2_SETTLEMENT_ESTIMATE__RESEARCH_CHARTER`
