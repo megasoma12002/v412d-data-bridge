@@ -13,12 +13,15 @@ from twse_session_sources import (
     TAIPEI,
     apply_overlays,
     build_annual_calendar,
+    classify_taifex_day_fact,
     holiday_status_for,
     lookup_day,
     nth_session_after,
+    parse_taifex_tx_day_session_dates,
     probe_session,
     read_calendar_csv,
     session_dates,
+    taifex_openapi_tx_day_date,
     write_calendar_csv,
     _classify_work_stop,
     _is_taipei,
@@ -162,6 +165,70 @@ class AnnualCalendarTests(unittest.TestCase):
         )
         self.assertEqual(p.status, "UNKNOWN")
         self.assertFalse(p.broker_submit_allowed)
+
+
+class TaifexOverlayTests(unittest.TestCase):
+    SAMPLE_CSV = (
+        "交易日期,契約,到期月份(週別),開盤價,最高價,最低價,收盤價,漲跌價,漲跌%,成交量,"
+        "結算價,未沖銷契約數,最後最佳買價,最後最佳賣價,歷史最高價,歷史最低價,"
+        "是否因訊息面暫停交易,交易時段,價差對單式委託成交量\n"
+        "2026/07/09,TX,202607,1,1,1,1,0,0%,1,1,1,1,1,1,1,,一般,\n"
+        "2026/07/09,TX,202607,1,1,1,1,0,0%,1,-,-,1,1,1,1,,盤後,\n"
+        "2026/07/10,MXF,202607,1,1,1,1,0,0%,1,1,1,1,1,1,1,,一般,\n"
+    )
+
+    def test_parse_tx_day_only(self) -> None:
+        days = parse_taifex_tx_day_session_dates(self.SAMPLE_CSV)
+        self.assertEqual(days, {date(2026, 7, 9)})
+
+    def test_classify_history_typhoon_vs_open(self) -> None:
+        hist = {date(2026, 7, 9)}
+        self.assertEqual(
+            classify_taifex_day_fact(date(2026, 7, 9), history_open_days=hist), "OPEN"
+        )
+        self.assertEqual(
+            classify_taifex_day_fact(date(2026, 7, 10), history_open_days=hist), "CLOSED"
+        )
+        self.assertEqual(
+            classify_taifex_day_fact(
+                date(2026, 9, 16),
+                history_open_days=hist,
+                now_taipei=datetime(2026, 9, 16, 9, 50, tzinfo=TAIPEI),
+            ),
+            "UNKNOWN",
+        )
+
+    def test_openapi_latest_date(self) -> None:
+        payload = [
+            {
+                "Date": "20260915",
+                "Contract": "TX",
+                "TradingSession": "一般",
+            },
+            {
+                "Date": "20260915",
+                "Contract": "TX",
+                "TradingSession": "盤後",
+            },
+        ]
+        self.assertEqual(taifex_openapi_tx_day_date(payload), date(2026, 9, 15))
+        self.assertEqual(
+            classify_taifex_day_fact(date(2026, 9, 16), openapi_payload=payload),
+            "UNKNOWN",
+        )
+        self.assertEqual(
+            classify_taifex_day_fact(date(2026, 9, 15), openapi_payload=payload),
+            "OPEN",
+        )
+
+    def test_taifex_overlay_marks_typhoon(self) -> None:
+        cal = build_annual_calendar(2026, SAMPLE_SCHEDULE)
+        out = apply_overlays(cal, taifex_closed=[date(2026, 7, 10)])
+        d710 = lookup_day(out, date(2026, 7, 10))
+        assert d710 is not None
+        self.assertFalse(d710.is_session)
+        self.assertEqual(d710.kind, "CLOSED_TYPHOON_OR_NODATA")
+        self.assertIn("taifex_tx", d710.source)
 
 
 if __name__ == "__main__":

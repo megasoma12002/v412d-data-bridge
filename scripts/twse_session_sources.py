@@ -5,7 +5,13 @@ Integrates:
   1) TWSE ``holidaySchedule`` year calendar (国定假 / 無交易日 / 開始交易標記)
   2) NCDR DGPA CAP typhoon **intent** (臺北市 full/AM)
   3) MI_INDEX **fact** (post-close)
-  4) Optional ``session_overrides.csv``
+  4) Optional TAIFEX TX day-session **historical fact** (``futDataDown``)
+  5) Optional ``session_overrides.csv``
+
+TAIFEX OpenAPI ``DailyMarketReportFut`` / ``TimeAndSalesData`` are **latest
+published day only** and lag like MI_INDEX during the cash morning — they do
+**not** give an 08:45 early-open detector. Use CAP for morning typhoon intent;
+use ``futDataDown`` TX ``一般`` presence for backfill corroboration.
 
 Output SSOT shape: ``data/calendars/twse_sessions_YYYY.csv``
 Soft-Frozen / LIVE_* unchanged. Observe / preflight only.
@@ -14,8 +20,10 @@ from __future__ import annotations
 
 import argparse
 import csv
+import io
 import json
 import re
+import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field
@@ -36,6 +44,12 @@ MI_INDEX_URL = (
 )
 NCDR_ATOM_URL = "https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=33"
 ATOM_NS = {"a": "http://www.w3.org/2005/Atom"}
+
+TAIFEX_FUT_DATA_DOWN_URL = "https://www.taifex.com.tw/cht/3/futDataDown"
+TAIFEX_OPENAPI_DAILY_FUT = "https://openapi.taifex.com.tw/v1/DailyMarketReportFut"
+# Official TX day board close (Taipei); used as intraday report-lag cutoff.
+# Day open is 08:45 — free daily APIs do not publish that early (see charter §4.2).
+TAIFEX_TX_DAY_CLOSE = (13, 45)
 
 _CLOSED_NAME_HINTS = (
     "放假",
@@ -219,6 +233,8 @@ def apply_overlays(
     caps: Sequence[CapWorkStop] | None = None,
     mi_closed: Iterable[date] | None = None,
     mi_open: Iterable[date] | None = None,
+    taifex_closed: Iterable[date] | None = None,
+    taifex_open: Iterable[date] | None = None,
     overrides: dict[date, tuple[str, str]] | None = None,
 ) -> list[DayRecord]:
     """Overlay typhoon intent/fact + manual overrides onto the annual plan."""
@@ -274,6 +290,30 @@ def apply_overlays(
         rec.is_session = True
         rec.kind = "SESSION"
         rec.source = (rec.source + "+mi_index_ok").replace("++", "+")
+
+    for d in taifex_closed or ():
+        if d not in by_date:
+            continue
+        rec = by_date[d]
+        if rec.kind in ("CLOSED_HOLIDAY", "WEEKEND"):
+            continue
+        if rec.is_session or rec.kind.startswith("SESSION") or rec.kind == "CLOSED_TYPHOON_INTENT":
+            if rec.kind != "CLOSED_TYPHOON_INTENT":
+                rec.kind = "CLOSED_TYPHOON_OR_NODATA"
+            rec.is_session = False
+            rec.source = (rec.source + "+taifex_tx").replace("++", "+")
+            rec.notes = (rec.notes + ";" if rec.notes else "") + "taifex_tx_day_absent"
+
+    for d in taifex_open or ():
+        if d not in by_date:
+            continue
+        rec = by_date[d]
+        if rec.kind in ("CLOSED_HOLIDAY", "WEEKEND"):
+            continue
+        rec.is_session = True
+        rec.kind = "SESSION"
+        rec.source = (rec.source + "+taifex_tx_ok").replace("++", "+")
+        rec.notes = (rec.notes + ";" if rec.notes else "") + "taifex_tx_day_present"
 
     for d, (status, reason) in (overrides or {}).items():
         if d not in by_date:
@@ -341,7 +381,7 @@ def lookup_day(calendar: Sequence[DayRecord], day: date) -> DayRecord | None:
     return None
 
 
-# --- CAP / MI_INDEX (same as before, kept for overlays) -------------------------------
+# --- CAP / MI_INDEX / TAIFEX (overlays) -----------------------------------------------
 
 
 def fetch_mi_index(day: date) -> dict[str, Any]:
@@ -355,6 +395,140 @@ def mi_index_has_session(day: date, payload: dict[str, Any] | None = None) -> bo
         return False
     tables = obj.get("tables")
     return isinstance(tables, list) and len(tables) > 0
+
+
+def _decode_taifex_bytes(raw: bytes) -> str:
+    for enc in ("cp950", "big5", "utf-8-sig", "utf-8"):
+        try:
+            return raw.decode(enc)
+        except UnicodeDecodeError:
+            continue
+    return raw.decode("latin1")
+
+
+def fetch_taifex_fut_data_down(
+    start: date,
+    end: date,
+    *,
+    commodity_id: str = "TX",
+) -> str:
+    """POST legacy TAIFEX daily CSV download (≤ ~30 calendar days per call)."""
+    if end < start:
+        raise ValueError("end before start")
+    if (end - start).days > 31:
+        raise ValueError("TAIFEX futDataDown span must be ≤ 31 days; chunk externally")
+    form = {
+        "down_type": "1",
+        "commodity_id": commodity_id,
+        "commodity_id2": "",
+        "queryStartDate": start.strftime("%Y/%m/%d"),
+        "queryEndDate": end.strftime("%Y/%m/%d"),
+    }
+    body = urllib.parse.urlencode(form).encode("utf-8")
+    req = urllib.request.Request(
+        TAIFEX_FUT_DATA_DOWN_URL,
+        data=body,
+        headers={
+            **UA,
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Referer": "https://www.taifex.com.tw/cht/3/futDailyMarketView",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        return _decode_taifex_bytes(resp.read())
+
+
+def parse_taifex_tx_day_session_dates(csv_text: str) -> set[date]:
+    """Dates with TX regular (一般) day-session rows — cash-board proxy for backfill."""
+    out: set[date] = set()
+    reader = csv.reader(io.StringIO(csv_text))
+    try:
+        header = next(reader)
+    except StopIteration:
+        return out
+    try:
+        di = header.index("交易日期")
+        ci = header.index("契約")
+        si = header.index("交易時段")
+    except ValueError:
+        return out
+    for row in reader:
+        if len(row) <= max(di, ci, si):
+            continue
+        if row[ci].strip() != "TX":
+            continue
+        if row[si].strip() != "一般":
+            continue
+        raw_d = row[di].strip().replace("-", "/")
+        try:
+            y, m, d = (int(x) for x in raw_d.split("/"))
+            out.add(date(y, m, d))
+        except ValueError:
+            continue
+    return out
+
+
+def fetch_taifex_tx_day_sessions(start: date, end: date) -> set[date]:
+    """Chunked futDataDown → set of dates with TX 一般 session."""
+    if end < start:
+        return set()
+    out: set[date] = set()
+    cur = start
+    while cur <= end:
+        chunk_end = min(cur + timedelta(days=30), end)
+        text = fetch_taifex_fut_data_down(cur, chunk_end)
+        out |= parse_taifex_tx_day_session_dates(text)
+        cur = chunk_end + timedelta(days=1)
+    return out
+
+
+def fetch_taifex_openapi_daily_fut() -> list[dict[str, Any]]:
+    """Latest published day only — no historical date filter."""
+    return json.loads(_http_get(TAIFEX_OPENAPI_DAILY_FUT).decode("utf-8"))
+
+
+def taifex_openapi_tx_day_date(payload: list[dict[str, Any]] | None = None) -> date | None:
+    rows = payload if payload is not None else fetch_taifex_openapi_daily_fut()
+    dates: set[date] = set()
+    for row in rows:
+        if row.get("Contract") != "TX" or row.get("TradingSession") != "一般":
+            continue
+        raw = str(row.get("Date") or "")
+        if len(raw) == 8 and raw.isdigit():
+            dates.add(date(int(raw[:4]), int(raw[4:6]), int(raw[6:8])))
+    if not dates:
+        return None
+    return max(dates)
+
+
+def classify_taifex_day_fact(
+    day: date,
+    *,
+    history_open_days: set[date] | None = None,
+    openapi_payload: list[dict[str, Any]] | None = None,
+    now_taipei: datetime | None = None,
+) -> str:
+    """Return OPEN / CLOSED / UNKNOWN for TX day board vs cash session day.
+
+    UNKNOWN covers: intraday before reports publish; OpenAPI still on prior day.
+    """
+    now = (now_taipei or datetime.now(tz=TAIPEI)).astimezone(TAIPEI)
+    if history_open_days is not None:
+        # Intraday today: absence in history download is inconclusive (report lag).
+        if day == now.date() and (now.hour, now.minute) < TAIFEX_TX_DAY_CLOSE:
+            if day in history_open_days:
+                return "OPEN"
+            return "UNKNOWN"
+        return "OPEN" if day in history_open_days else "CLOSED"
+
+    published = taifex_openapi_tx_day_date(openapi_payload)
+    if published is None:
+        return "UNKNOWN"
+    if published == day:
+        return "OPEN"
+    # Published day behind asof → inconclusive until report rolls (same class as empty MI).
+    return "UNKNOWN"
 
 
 def _cap_text(root: ET.Element, tag: str) -> str:
@@ -606,9 +780,10 @@ def build_year_with_live_overlays(
     schedule: dict[str, Any] | None = None,
     fetch_caps: bool = True,
     mi_fact_dates: Sequence[date] | None = None,
+    taifex_fact_dates: Sequence[date] | None = None,
     overrides_path: Path | None = None,
 ) -> list[DayRecord]:
-    """Annual plan + optional live CAP + optional MI closed facts for given dates."""
+    """Annual plan + optional live CAP + optional MI/TAIFEX facts for given dates."""
     base = build_annual_calendar(year, schedule)
     caps = fetch_dgpa_caps() if fetch_caps else []
     mi_closed: list[date] = []
@@ -631,9 +806,35 @@ def build_year_with_live_overlays(
         if d == now_tp.date() and now_tp.hour < 14:
             continue
         mi_closed.append(d)
+
+    taifex_closed: list[date] = []
+    taifex_open: list[date] = []
+    fact_dates = [d for d in (taifex_fact_dates or ()) if d.year == year]
+    if fact_dates:
+        start, end = min(fact_dates), max(fact_dates)
+        try:
+            open_days = fetch_taifex_tx_day_sessions(start, end)
+        except Exception:
+            open_days = set()
+        for d in fact_dates:
+            verdict = classify_taifex_day_fact(
+                d, history_open_days=open_days, now_taipei=now_tp
+            )
+            rec = lookup_day(base, d)
+            if verdict == "OPEN":
+                taifex_open.append(d)
+            elif verdict == "CLOSED" and rec and rec.is_session:
+                taifex_closed.append(d)
+
     overrides = load_overrides(overrides_path) if overrides_path else {}
     return apply_overlays(
-        base, caps=caps, mi_closed=mi_closed, mi_open=mi_open, overrides=overrides
+        base,
+        caps=caps,
+        mi_closed=mi_closed,
+        mi_open=mi_open,
+        taifex_closed=taifex_closed,
+        taifex_open=taifex_open,
+        overrides=overrides,
     )
 
 
@@ -652,6 +853,11 @@ def main() -> int:
         default=None,
         help="YYYY-MM-DD: also probe MI_INDEX from this date through today for overlays",
     )
+    ap.add_argument(
+        "--taifex-facts-from",
+        default=None,
+        help="YYYY-MM-DD: overlay TX day-session presence via futDataDown through today",
+    )
     ap.add_argument("--overrides", type=Path, default=None)
     ap.add_argument("--json-out", type=Path, default=None)
     ap.add_argument("--no-caps", action="store_true")
@@ -667,10 +873,19 @@ def main() -> int:
             while d <= today:
                 mi_dates.append(d)
                 d += timedelta(days=1)
+        taifex_dates: list[date] = []
+        if a.taifex_facts_from:
+            start = date.fromisoformat(a.taifex_facts_from)
+            today = datetime.now(tz=TAIPEI).date()
+            d = start
+            while d <= today:
+                taifex_dates.append(d)
+                d += timedelta(days=1)
         cal = build_year_with_live_overlays(
             year,
             fetch_caps=not a.no_caps,
             mi_fact_dates=mi_dates,
+            taifex_fact_dates=taifex_dates,
             overrides_path=a.overrides,
         )
         out = a.out or (DEFAULT_CALENDAR_DIR / f"twse_sessions_{year}.csv")
