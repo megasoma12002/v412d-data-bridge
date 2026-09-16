@@ -6,6 +6,8 @@ Snaps:
   - payment day → next ``is_settlement`` if not a settlement business day
     (optional MOPS amendment overrides)
 
+Emits separate cash / stock legs when both are present on a row.
+
 Does **not** mutate Soft-Frozen books / ``e22_dividend_accounting`` apply path.
 See ``research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md``.
 """
@@ -61,6 +63,46 @@ def effective_payment(
     return nth_settlement_after(settles, pay_day - timedelta(days=1), 1)
 
 
+def _snap_leg(
+    raw: str,
+    *,
+    kind: str,
+    sessions: Sequence[date],
+    settlements: Sequence[date],
+    mops_pay: date | None,
+) -> tuple[str, str, list[str]]:
+    """Return (effective_iso, delay_days_str, notes)."""
+    notes: list[str] = []
+    if not raw:
+        return "", "", notes
+    try:
+        d = date.fromisoformat(raw)
+    except ValueError:
+        notes.append(f"bad_{kind}_date")
+        return "", "", notes
+
+    if kind.endswith("ex"):
+        bounds = sorted(sessions)
+        if bounds and (d < bounds[0] or d > bounds[-1]):
+            notes.append(f"{kind}_outside_calendar")
+            return raw, "0", notes
+        eff = effective_ex_trade(d, sessions)
+        if eff != d:
+            notes.append(f"{kind}_snapped_to_next_session")
+        return eff.isoformat(), str((eff - d).days), notes
+
+    bounds = sorted(settlements)
+    if bounds and (d < bounds[0] or d > bounds[-1]):
+        notes.append(f"{kind}_outside_calendar")
+        return raw, "0", notes
+    eff = effective_payment(d, settlements, mops_amendment=mops_pay)
+    if mops_pay is not None:
+        notes.append(f"{kind}_mops_amendment")
+    elif eff != d:
+        notes.append(f"{kind}_snapped_to_next_settlement")
+    return eff.isoformat(), str((eff - d).days), notes
+
+
 def estimate_event(
     row: dict[str, Any],
     *,
@@ -68,14 +110,33 @@ def estimate_event(
     settlements: Sequence[date],
     mops_pay: date | None = None,
 ) -> dict[str, Any]:
-    raw_ex = str(row.get("cash_ex_date") or row.get("stock_ex_date") or row.get("ex_date") or "").strip()[:10]
-    raw_pay = str(
-        row.get("cash_payment_date") or row.get("stock_payment_date") or row.get("payment_date") or ""
-    ).strip()[:10]
+    cash_ex = str(row.get("cash_ex_date") or "").strip()[:10]
+    stock_ex = str(row.get("stock_ex_date") or "").strip()[:10]
+    cash_pay = str(row.get("cash_payment_date") or "").strip()[:10]
+    stock_pay = str(row.get("stock_payment_date") or "").strip()[:10]
+    # Legacy single-field aliases (tests / ad-hoc rows)
+    if not cash_ex and not stock_ex:
+        cash_ex = str(row.get("ex_date") or "").strip()[:10]
+    if not cash_pay and not stock_pay:
+        cash_pay = str(row.get("payment_date") or "").strip()[:10]
+
     out: dict[str, Any] = {
         "code": str(row.get("code") or ""),
-        "raw_ex_date": raw_ex,
-        "raw_payment_date": raw_pay,
+        "raw_cash_ex_date": cash_ex,
+        "raw_stock_ex_date": stock_ex,
+        "raw_cash_payment_date": cash_pay,
+        "raw_stock_payment_date": stock_pay,
+        "effective_cash_ex_trade": "",
+        "effective_stock_ex_trade": "",
+        "effective_cash_payment": "",
+        "effective_stock_payment": "",
+        "delay_cash_ex_days": "",
+        "delay_stock_ex_days": "",
+        "delay_cash_pay_days": "",
+        "delay_stock_pay_days": "",
+        # Compat aliases (primary cash leg, else stock)
+        "raw_ex_date": cash_ex or stock_ex,
+        "raw_payment_date": cash_pay or stock_pay,
         "effective_ex_trade": "",
         "effective_payment": "",
         "delay_ex_days": "",
@@ -83,42 +144,62 @@ def estimate_event(
         "notes": "",
     }
     notes: list[str] = []
-    if raw_ex:
-        try:
-            ex_d = date.fromisoformat(raw_ex)
-            sess_sorted = sorted(sessions)
-            if sess_sorted and (ex_d < sess_sorted[0] or ex_d > sess_sorted[-1]):
-                out["effective_ex_trade"] = raw_ex
-                out["delay_ex_days"] = "0"
-                notes.append("ex_outside_calendar")
+
+    for raw, kind, eff_key, delay_key in (
+        (cash_ex, "cash_ex", "effective_cash_ex_trade", "delay_cash_ex_days"),
+        (stock_ex, "stock_ex", "effective_stock_ex_trade", "delay_stock_ex_days"),
+        (cash_pay, "cash_pay", "effective_cash_payment", "delay_cash_pay_days"),
+        (stock_pay, "stock_pay", "effective_stock_payment", "delay_stock_pay_days"),
+    ):
+        eff, delay, leg_notes = _snap_leg(
+            raw, kind=kind, sessions=sessions, settlements=settlements, mops_pay=mops_pay
+        )
+        out[eff_key] = eff
+        out[delay_key] = delay
+        notes.extend(leg_notes)
+
+    out["effective_ex_trade"] = out["effective_cash_ex_trade"] or out["effective_stock_ex_trade"]
+    out["effective_payment"] = out["effective_cash_payment"] or out["effective_stock_payment"]
+    out["delay_ex_days"] = out["delay_cash_ex_days"] or out["delay_stock_ex_days"]
+    out["delay_pay_days"] = out["delay_cash_pay_days"] or out["delay_stock_pay_days"]
+    # Compat note tokens expected by early unit tests
+    compat = []
+    for n in notes:
+        if n.endswith("_snapped_to_next_session"):
+            compat.append("ex_snapped_to_next_session")
+        elif n.endswith("_snapped_to_next_settlement"):
+            compat.append("pay_snapped_to_next_settlement")
+        elif n.endswith("_mops_amendment"):
+            compat.append("mops_amendment")
+        elif n.endswith("_outside_calendar"):
+            if "ex" in n:
+                compat.append("ex_outside_calendar")
             else:
-                eff_ex = effective_ex_trade(ex_d, sessions)
-                out["effective_ex_trade"] = eff_ex.isoformat()
-                out["delay_ex_days"] = str((eff_ex - ex_d).days)
-                if eff_ex != ex_d:
-                    notes.append("ex_snapped_to_next_session")
-        except ValueError:
-            notes.append("bad_ex_date")
-    if raw_pay:
-        try:
-            pay_d = date.fromisoformat(raw_pay)
-            settle_sorted = sorted(settlements)
-            if settle_sorted and (pay_d < settle_sorted[0] or pay_d > settle_sorted[-1]):
-                out["effective_payment"] = raw_pay
-                out["delay_pay_days"] = "0"
-                notes.append("pay_outside_calendar")
+                compat.append("pay_outside_calendar")
+        elif n.startswith("bad_"):
+            if "ex" in n:
+                compat.append("bad_ex_date")
             else:
-                eff_pay = effective_payment(pay_d, settlements, mops_amendment=mops_pay)
-                out["effective_payment"] = eff_pay.isoformat()
-                out["delay_pay_days"] = str((eff_pay - pay_d).days)
-                if mops_pay is not None:
-                    notes.append("mops_amendment")
-                elif eff_pay != pay_d:
-                    notes.append("pay_snapped_to_next_settlement")
-        except ValueError:
-            notes.append("bad_payment_date")
-    out["notes"] = ";".join(notes)
+                compat.append("bad_payment_date")
+    # Prefer specific notes; keep compat tokens for grep stability
+    merged = notes + [c for c in compat if c not in notes]
+    out["notes"] = ";".join(dict.fromkeys(merged))
     return out
+
+
+def _row_has_delay(r: dict[str, Any]) -> bool:
+    for k in (
+        "delay_cash_ex_days",
+        "delay_stock_ex_days",
+        "delay_cash_pay_days",
+        "delay_stock_pay_days",
+        "delay_ex_days",
+        "delay_pay_days",
+    ):
+        v = r.get(k)
+        if v not in ("", "0", None):
+            return True
+    return False
 
 
 def load_events(path: Path) -> list[dict[str, Any]]:
@@ -141,6 +222,7 @@ def main() -> int:
         default=DEFAULT_CALENDAR_DIR / "twse_sessions_2026.csv",
     )
     ap.add_argument("--out", type=Path, default=None)
+    ap.add_argument("--summary-json", type=Path, default=None)
     ap.add_argument("--limit", type=int, default=0, help="Max rows (0=all)")
     a = ap.parse_args()
 
@@ -154,12 +236,23 @@ def main() -> int:
     rows = [
         estimate_event(r, sessions=sessions, settlements=settlements) for r in events
     ]
-    delayed = [r for r in rows if r.get("delay_ex_days") not in ("", "0") or r.get("delay_pay_days") not in ("", "0")]
-    summary = {
+    delayed = [r for r in rows if _row_has_delay(r)]
+    summary: dict[str, Any] = {
         "n_events": len(rows),
         "n_with_any_delay": len(delayed),
         "calendar": str(a.calendar),
         "note": "observe-only; Soft-Frozen books untouched",
+        "delayed_sample": [
+            {
+                "code": r["code"],
+                "raw_ex_date": r["raw_ex_date"],
+                "effective_ex_trade": r["effective_ex_trade"],
+                "raw_payment_date": r["raw_payment_date"],
+                "effective_payment": r["effective_payment"],
+                "notes": r["notes"],
+            }
+            for r in delayed[:20]
+        ],
     }
     out_path = a.out
     if out_path is None:
@@ -171,7 +264,13 @@ def main() -> int:
             w = csv.DictWriter(f, fieldnames=fields)
             w.writeheader()
             w.writerows(rows)
-    print(json.dumps({**summary, "out": str(out_path)}, ensure_ascii=False, indent=2))
+    summary["out"] = str(out_path)
+    summary_path = a.summary_json
+    if summary_path is None:
+        summary_path = out_path.with_suffix(".summary.json")
+    summary_path.write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    summary["summary_json"] = str(summary_path)
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 
 

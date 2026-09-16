@@ -119,8 +119,9 @@ effective_payment(payment_date):
 | Event | Effect |
 |---|---|
 | Board | Closed; 應屆交割顺延 |
-| Scheduled ex that day | ~21 names postponed to next session (news / TWSE ops) |
-| Cash payment scheduled 07-10 | Many issuers MOPS: 顺延至 07-13（下一營業日）; 未停班地區可能仍 07-10 |
+| Scheduled ex that day | **23** 上市/上櫃/興櫃檔顺延至 **2026-07-13**（新聞盤點；含 2891 中信金、3034 聯詠等） |
+| Cash payment scheduled 07-10 | 北市停班 → 銀行／票交所停班 → 股務跨行匯撥常顺延至 07-13；**未停班縣市**可能仍原日 |
+| TWSE FAQ Q5 | 原訂**當日**除權息檔：漲跌停／開盤參考價適用次一營業日；休市**之後**原訂檔若公司未改基準日則不顺延 |
 
 Formal `E22_v2s_tw` if holding: would still attempt cash credit on ledger `ex_date` if it equals 07-10 even though no session — **identity mismatch** with market.
 
@@ -133,6 +134,24 @@ Formal `E22_v2s_tw` if holding: would still attempt cash credit on ledger `ex_da
 | 02-16–20 春节 | closed | no | Payment should not be scheduled; if ledger has it → snap heuristic |
 | 02-23 開紅盤 | open | yes | Resume ex trading |
 
+### 4.3 Empirical scan (`e22_dividend_events.csv` × `twse_sessions_2026.csv`)
+
+| Finding | Detail |
+|---|---|
+| In-calendar field snaps | **1** row: `2891` `cash_ex_date` 2026-07-10 → effective **2026-07-13** (`delay_ex_days=3`; payment 08-07 unchanged) |
+| Other 2026 sleeve events | 17 more 2026-dated rows; none land on CLOSED/TYPHOON or weekend inside the pinned calendar |
+| Payment on 封關僅交割 | No ledger row uses 2026-02-12/13 as payment — heuristic would **keep** those days (`is_settlement=1`) |
+| Outside-calendar history | Pre-2026 weekend payments left raw (`*_outside_calendar`) — no false snap to 2026-01-02 |
+| Dual legs | Cash / stock ex+pay estimated separately (same typhoon snap applies to both ex legs) |
+
+CLI:
+
+```bash
+PYTHONPATH=scripts python3 scripts/twse_dividend_delay_estimate.py
+# → repro/div-delay/dividend_delay_estimate.csv
+# → repro/div-delay/dividend_delay_estimate.summary.json
+```
+
 ---
 
 ## 5. Implementation phases
@@ -140,8 +159,8 @@ Formal `E22_v2s_tw` if holding: would still attempt cash credit on ledger `ex_da
 | Phase | Deliverable | Gate |
 |---|---|---|
 | **D0** | This charter | — |
-| **D1** | Pure helpers: `effective_ex_trade` / `effective_payment` + unit tests (typhoon + 封關) | Observe |
-| **D2** | CLI estimate over `e22_dividend_events.csv` → repro CSV (no books mutate) | Observe |
+| **D1** | Pure helpers: `effective_ex_trade` / `effective_payment` + unit tests (typhoon + 封關 + consecutive) | Observe |
+| **D2** | CLI estimate over `e22_dividend_events.csv` → repro CSV + summary JSON (cash/stock legs; no books mutate) | Observe ✅ |
 | **D3** | Optional wire into `E22_v3_recv_pay` sandbox only | Sandbox ACCEPT |
 | **D4** | MOPS payment-amendment fetch overlay | Ops |
 | **D5** | Soft-Frozen books change | **Explicit ACCEPT** — not this PR |
@@ -168,14 +187,14 @@ effective_ex_trade(day, session_dates) -> date
 effective_payment(day, settlement_dates, *, mops_amendment: date|None) -> date
 
 estimate_event(row, sessions, settlements) -> dict
-  # adds effective_ex, effective_payment, delay_ex_days, delay_pay_days, reason
+  # cash_* and stock_* effective/delay fields + compat aliases
 ```
 
 ```bash
-python3 scripts/twse_dividend_delay_estimate.py \
+PYTHONPATH=scripts python3 scripts/twse_dividend_delay_estimate.py \
   --events data/dividend_events/e22_dividend_events.csv \
   --calendar data/calendars/twse_sessions_2026.csv \
-  --out repro/div-delay/estimate.csv
+  --out repro/div-delay/dividend_delay_estimate.csv
 ```
 
 ---

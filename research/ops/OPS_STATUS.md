@@ -49,7 +49,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Fill ports | `live_execution.FillPort` · default `paper` · `dry_run` shadow (no live wire) |
 | TWSE session calendar | `data/calendars/twse_sessions_YYYY.csv` · `twse_session_sources.py` (holidaySchedule + typhoon overlays) |
 | T+2 settlement estimate | `scripts/twse_t2_settlement_estimate.py` · charter `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md` (observe-only; skips typhoon via session CSV) |
-| 除權息入帳延後 | charter `TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md` · `twse_dividend_delay_estimate.py` (observe; Soft-Frozen ex-date books unchanged) |
+| 除權息入帳延後 | charter `TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md` · D2 CLI dual cash/stock legs + summary JSON; empirical: 2891 ex 2026-07-10→07-13; Soft-Frozen untouched |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 

@@ -135,10 +135,25 @@ So: **ex-date cash credit is a research NAV proxy**, not a custody cashflow mode
 
 ---
 
-## 7. Bottom line
+## 7. Gap #6.9 — typhoon / holiday **credit delay** (orthogonal)
+
+See `research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md` · `scripts/twse_dividend_delay_estimate.py`.
+
+| # | Item | Soft-Frozen |
+|---|---|---|
+| **6.9a** | Ex trading day postponed when board closed | Observe only — books still match raw `cash_ex_date` |
+| **6.9b** | Payment delayed by bank/票交所 停班 (often regional) | Observe heuristic / future MOPS overlay |
+| **6.9c** | Stock / CIL pay-date delay | Same class as 6.9b |
+
+This is a **fourth clock** vs Exact T+1 / custody T+2 / formal ex-date cash — do not fold into trade settlement.
+
+---
+
+## 8. Bottom line
 
 Gap #6 is **not** missing payment-date *data* anymore — it is **deliberate execution simplification**:
 
 1. Official economics = **ex-date gross cash only** (E22_v2).
 2. Stock shares, pay-date cash, receivable, dividend tax, board lots, and fractionals are **research/challenger** or **unmodeled**.
 3. Safest next step without breaking Exact T+1 / SOFT_FROZEN: promote/label **E22_v2s stock-aware books** beside preserved v2; keep pay-date and lot/tax work in named sandboxes.
+4. Typhoon/封關 **入帳延後** stays observe-only until explicit ACCEPT (Gap 6.9).

@@ -30,6 +30,17 @@ class EffectiveExTests(unittest.TestCase):
         self.assertEqual(effective_ex_trade(date(2026, 7, 10), sess), date(2026, 7, 13))
         self.assertEqual(effective_ex_trade(date(2026, 7, 9), sess), date(2026, 7, 9))
 
+    def test_consecutive_typhoon_ex_snaps_past_streak(self) -> None:
+        days = [
+            _row(date(2026, 7, 9), True, "SESSION"),
+            _row(date(2026, 7, 10), False, "CLOSED_TYPHOON_OR_NODATA", False),
+            _row(date(2026, 7, 11), False, "WEEKEND", False),
+            _row(date(2026, 7, 13), False, "CLOSED_TYPHOON_OR_NODATA", False),
+            _row(date(2026, 7, 14), True, "SESSION"),
+        ]
+        sess = session_dates(days)
+        self.assertEqual(effective_ex_trade(date(2026, 7, 10), sess), date(2026, 7, 14))
+
 
 class EffectivePayTests(unittest.TestCase):
     def test_payment_on_typhoon_snaps_to_next_settlement(self) -> None:
@@ -50,7 +61,6 @@ class EffectivePayTests(unittest.TestCase):
         ]
         settles = settlement_dates(days)
         self.assertEqual(effective_payment(date(2026, 2, 12), settles), date(2026, 2, 12))
-        # 春节放假 → next settlement (none in this stub after 2/13) — extend
         days.append(_row(date(2026, 2, 23), True, "SESSION"))
         settles = settlement_dates(days)
         self.assertEqual(effective_payment(date(2026, 2, 16), settles), date(2026, 2, 23))
@@ -82,6 +92,31 @@ class EstimateRowTests(unittest.TestCase):
         self.assertEqual(r["effective_payment"], "2026-07-13")
         self.assertIn("ex_snapped", r["notes"])
         self.assertIn("pay_snapped", r["notes"])
+
+    def test_dual_cash_stock_legs(self) -> None:
+        days = [
+            _row(date(2026, 7, 9), True, "SESSION"),
+            _row(date(2026, 7, 10), False, "CLOSED_TYPHOON_OR_NODATA", False),
+            _row(date(2026, 7, 13), True, "SESSION"),
+            _row(date(2026, 8, 7), True, "SESSION"),
+        ]
+        r = estimate_event(
+            {
+                "code": "2801",
+                "cash_ex_date": "2026-07-10",
+                "cash_payment_date": "2026-08-07",
+                "stock_ex_date": "2026-07-10",
+                "stock_payment_date": "2026-08-07",
+            },
+            sessions=session_dates(days),
+            settlements=settlement_dates(days),
+        )
+        self.assertEqual(r["effective_cash_ex_trade"], "2026-07-13")
+        self.assertEqual(r["effective_stock_ex_trade"], "2026-07-13")
+        self.assertEqual(r["effective_cash_payment"], "2026-08-07")
+        self.assertEqual(r["delay_cash_ex_days"], "3")
+        self.assertEqual(r["delay_stock_ex_days"], "3")
+        self.assertEqual(r["delay_cash_pay_days"], "0")
 
 
 if __name__ == "__main__":
