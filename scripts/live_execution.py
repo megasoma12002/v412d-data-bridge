@@ -430,6 +430,14 @@ class BrokerPreflightFillPort:
         intent_path = write_submit_intents(sdir, asof, intents)
         meta["submit_intents_path"] = str(intent_path.name)
         meta["n_submit_intents"] = len(intents)
+        # Offline SPARK StockOrder mapping (no DLL); aids UAT dry-run alignment.
+        from yuanta_spark_adapter import build_intents_from_pending, write_spark_intents
+
+        spark_intents = build_intents_from_pending(pending_rows, asof=asof)
+        spark_path = write_spark_intents(sdir, asof, spark_intents)
+        meta["spark_intents_path"] = str(spark_path.name)
+        meta["n_spark_intents"] = len(spark_intents)
+        meta["spark_api_wired"] = False
 
         fills, rejects = self._acks_to_fills(
             acks, asof=asof, open_prices=open_prices, pending=pending
