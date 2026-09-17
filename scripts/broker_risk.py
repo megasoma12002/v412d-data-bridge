@@ -26,7 +26,7 @@ from enum import Enum
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
-from broker_safety import load_circuit
+from broker_safety import allow_circuit_write
 from tw_share_lots import BOARD_LOT, is_board_lot_qty
 
 ORDER_STATE_FILENAME = "broker_order_states.jsonl"
@@ -390,15 +390,23 @@ class CircuitAccess:
 
 
 def circuit_access(state_dir: Path) -> CircuitAccess:
-    """When circuit is open: block writes, allow reads (queries / shadow)."""
-    c = load_circuit(state_dir)
-    if c.open:
+    """When circuit is open: block writes, allow reads (queries / shadow).
+
+    After cooldown, one half-open probe write is allowed (community SPARK
+    server pattern). Reads stay allowed while open.
+    """
+    ok, c = allow_circuit_write(state_dir)
+    if not ok:
         return CircuitAccess(
             writes_allowed=False,
             reads_allowed=True,
-            reason=f"circuit_open:{c.last_reason}",
+            reason=f"circuit_open:{c.last_reason or c.mode}",
         )
-    return CircuitAccess(writes_allowed=True, reads_allowed=True)
+    return CircuitAccess(
+        writes_allowed=True,
+        reads_allowed=True,
+        reason=("circuit_half_open_probe" if c.mode == "half_open" else ""),
+    )
 
 
 # --- Recovery -------------------------------------------------------------
@@ -414,9 +422,16 @@ NEEDS_RESOLVE = {
 
 
 def run_startup_reconcile(state_dir: Path, *, asof: date | None = None) -> dict[str, Any]:
-    """Scan lifecycle log; mark non-terminal / unknown as unresolved for humans."""
+    """Scan lifecycle log; mark non-terminal / unknown as unresolved for humans.
+
+    Orders whose ``asof`` is strictly before the reconcile day are tagged
+    ``stale=True`` (past trade date) — still unresolved / write-blocking until
+    manual ``resolve_unresolved_order`` (no auto-cancel without broker query).
+    """
+    day = asof or date.today()
     states = load_order_states(state_dir)
     unresolved: list[dict[str, Any]] = []
+    n_stale = 0
     for coid, row in states.items():
         if row.state in TERMINAL_OK:
             continue
@@ -424,23 +439,34 @@ def run_startup_reconcile(state_dir: Path, *, asof: date | None = None) -> dict[
             # PENDING with no submit is fine overnight; only flag if submitted-ish or UNKNOWN
             if row.state == OrderState.PENDING.value:
                 continue
-            unresolved.append(row.to_dict())
-    payload = {
-        "asof": (asof or date.today()).isoformat(),
+            payload = row.to_dict()
+            try:
+                order_day = date.fromisoformat(str(row.asof)[:10])
+            except ValueError:
+                order_day = None
+            if order_day is not None and order_day < day:
+                payload["stale"] = True
+                payload["recovery_reason"] = "past_trade_date"
+                n_stale += 1
+            unresolved.append(payload)
+    out = {
+        "asof": day.isoformat(),
         "n_unresolved": len(unresolved),
+        "n_stale": n_stale,
         "unresolved": unresolved,
         "reconciled_at_utc": _utcnow(),
         "note": "Manual resolve via resolve_unresolved_order() before live writes",
     }
     path = _preflight(state_dir) / UNRESOLVED_FILENAME
-    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    path.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     if unresolved:
         emit_alert(
             state_dir,
             kind="recovery_unresolved",
-            message=f"{len(unresolved)} broker orders need manual resolve",
+            message=f"{len(unresolved)} broker orders need manual resolve"
+            + (f" ({n_stale} stale)" if n_stale else ""),
         )
-    return payload
+    return out
 
 
 def load_unresolved(state_dir: Path) -> dict[str, Any]:

@@ -25,6 +25,7 @@ from broker_safety import (
     count_live_submits_today,
     live_write_gate,
     load_circuit,
+    record_circuit_success,
     trip_circuit,
     validate_ack_against_pending,
     write_submit_intents,
@@ -397,6 +398,7 @@ class BrokerPreflightFillPort:
             ),
         )
         circuit = load_circuit(sdir)
+        access = circuit_access(sdir)
         meta: dict[str, Any] = {
             "port": self.name,
             "asof": asof.isoformat(),
@@ -410,6 +412,9 @@ class BrokerPreflightFillPort:
             "live_write_gate_allowed": gate.allowed,
             "live_write_gate_reasons": list(gate.reasons),
             "circuit_open": circuit.open,
+            "circuit_mode": circuit.mode,
+            "writes_allowed": access.writes_allowed,
+            "reads_allowed": access.reads_allowed,
             "process_lock": True,
             "api_wired": False,
         }
@@ -421,11 +426,9 @@ class BrokerPreflightFillPort:
             )
             return pos, cash, [], 0, True
 
-        if circuit.open:
+        if not access.writes_allowed:
             meta["blocked"] = True
-            meta["reason"] = f"circuit_open:{circuit.last_reason}"
-            meta["writes_allowed"] = False
-            meta["reads_allowed"] = True
+            meta["reason"] = access.reason or f"circuit_open:{circuit.last_reason}"
             (block_dir / f"block_{asof.isoformat()}.json").write_text(
                 json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
             )
@@ -435,6 +438,7 @@ class BrokerPreflightFillPort:
         reconcile = run_startup_reconcile(sdir, asof=asof)
         meta["recovery"] = {
             "n_unresolved": reconcile.get("n_unresolved"),
+            "n_stale": reconcile.get("n_stale"),
             "writes_allowed": circuit_access(sdir).writes_allowed,
         }
 
@@ -602,6 +606,7 @@ class BrokerPreflightFillPort:
                 },
             )
             record_rate_limit_write(sdir, client_order_id=coid)
+            record_circuit_success(sdir)
             try:
                 transition_order(
                     sdir,

@@ -24,7 +24,13 @@ from broker_risk import (
     set_panic,
     transition_order,
 )
-from broker_safety import trip_circuit, DEFAULT_CIRCUIT_FAIL_THRESHOLD
+from broker_safety import (
+    DEFAULT_CIRCUIT_FAIL_THRESHOLD,
+    allow_circuit_write,
+    load_circuit,
+    record_circuit_success,
+    trip_circuit,
+)
 from tw_share_lots import BOARD_LOT
 
 
@@ -177,6 +183,46 @@ class RecoveryAndCircuitTests(unittest.TestCase):
             access = circuit_access(sdir)
             self.assertFalse(access.writes_allowed)
             self.assertTrue(access.reads_allowed)
+
+    def test_half_open_probe_after_cooldown_then_success(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            for i in range(DEFAULT_CIRCUIT_FAIL_THRESHOLD):
+                trip_circuit(sdir, f"x{i}")
+            c = load_circuit(sdir)
+            self.assertEqual(c.mode, "open")
+            # Pretend cooldown already elapsed
+            c.opened_at = "2020-01-01T00:00:00+00:00"
+            from broker_safety import save_circuit
+
+            save_circuit(sdir, c)
+            ok, c2 = allow_circuit_write(sdir)
+            self.assertTrue(ok)
+            self.assertEqual(c2.mode, "half_open")
+            access = circuit_access(sdir)
+            self.assertTrue(access.writes_allowed)
+            record_circuit_success(sdir)
+            c3 = load_circuit(sdir)
+            self.assertEqual(c3.mode, "closed")
+            self.assertFalse(c3.open)
+
+    def test_stale_past_trade_date_tagged(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            transition_order(
+                sdir,
+                client_order_id="o1@old",
+                order_id="o1",
+                code="0050",
+                side="BUY",
+                quantity=BOARD_LOT,
+                asof=date(2026, 7, 10),
+                new_state=OrderState.SUBMITTED,
+            )
+            payload = run_startup_reconcile(sdir, asof=date(2026, 7, 13))
+            self.assertEqual(payload["n_unresolved"], 1)
+            self.assertEqual(payload["n_stale"], 1)
+            self.assertTrue(payload["unresolved"][0].get("stale"))
 
     def test_alerts_logged(self) -> None:
         with tempfile.TemporaryDirectory() as td:
