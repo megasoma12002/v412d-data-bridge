@@ -186,7 +186,7 @@ Explain in report: paper already booked fill-time cash; estimate backs out unset
 
 Parallel (from calendar charter): P1–P3 session calendar — **required before R5 / broker live submit**.
 
-P4 fill port: `BrokerPreflightFillPort` maps session-gated **fixture acks** → shadow fills under `broker_preflight/`. Soft-Frozen `fills.csv` untouched unless **all** of: `live_config.broker_live_write_accepted=True` (ACCEPT PR), `E21_BROKER_WRITE_LIVE=1`, circuit closed, ack↔pending match, idempotent `client_order_id`, and daily live-write budget (`scripts/broker_safety.py`). No real broker network client is wired; OPEN sessions emit `submit_intents_*.json` (`INTENT_ONLY`) only.
+P4 fill port: `BrokerPreflightFillPort` maps session-gated **fixture acks** → shadow fills under `broker_preflight/`. Soft-Frozen `fills.csv` untouched unless **all** of: `live_config.broker_live_write_accepted=True` (ACCEPT PR), `E21_BROKER_WRITE_LIVE=1`, circuit closed, ack↔pending match, idempotent `client_order_id`, daily live-write budget, **exclusive process lock**, and **confirm+reserve broker dedupe** (`scripts/broker_safety.py`). Soft-Frozen `order_id` SSOT: `live_ledger.make_order_id` (`{date}-{code}-{side}`). No real broker network client; OPEN sessions emit `submit_intents_*.json` (`INTENT_ONLY`, `require_confirm_before_submit`) only.
 
 ---
 

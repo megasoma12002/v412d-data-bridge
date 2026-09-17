@@ -73,6 +73,21 @@ def max_affordable_buy_qty(cash: float, fp: float, *, lot: int = 1000) -> int:
     return board_lots(int((cash_f - MIN_COMMISSION) / fp_f))
 
 
+def make_order_id(*, signal_date: Any, code: str, side: str) -> str:
+    """Stable Soft-Frozen ``order_id``: ``{YYYY-MM-DD}-{code}-{BUY|SELL}``.
+
+    Quantity is intentionally NOT in the id — same day/code/side replay is a
+    no-op via ``append_immutable`` (first write wins). Do not change this format
+    without Soft-Frozen KEEP / ACCEPT; historical ``orders.csv`` / ``fills.csv``
+    keys depend on it.
+    """
+    if hasattr(signal_date, "isoformat"):
+        d = str(signal_date.isoformat())[:10]
+    else:
+        d = str(signal_date).strip()[:10]
+    return f"{d}-{str(code).strip()}-{str(side).strip().upper()}"
+
+
 def append_immutable(path: Path | str, row: dict[str, Any], key: str) -> bool:
     """Append one row if ``key`` is new. Never rewrite history. Returns True if written."""
     p = Path(path)

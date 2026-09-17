@@ -13,9 +13,13 @@ Gates:
   4. Idempotent client_order_id / fill_id — no duplicate live submits
   5. Daily live-write budget
   6. Circuit breaker after repeated rejects / reconcile trip
+  7. Process lock (fcntl) around live-write / confirm+reserve
+  8. Stable Soft-Frozen order_id via ``live_ledger.make_order_id``
+  9. Broker dedupe key (includes qty) + pre-submit confirm (no network)
 """
 from __future__ import annotations
 
+import fcntl
 import json
 import os
 from dataclasses import dataclass, field
@@ -31,6 +35,8 @@ DEFAULT_CIRCUIT_FAIL_THRESHOLD = 3
 BALLOT_FILENAME = "broker_live_write_accept.json"
 CIRCUIT_FILENAME = "broker_circuit.json"
 SUBMIT_LOG_FILENAME = "broker_submit_log.jsonl"
+DEDUPE_LOG_FILENAME = "broker_dedupe_log.jsonl"
+LOCK_FILENAME = "broker_live.lock"
 
 
 def env_truthy(name: str) -> bool:
@@ -101,6 +107,201 @@ class AckValidation:
 def client_order_id_for(order_id: str, *, asof: date) -> str:
     """Stable idempotent id for submit/ack (order_id + fill date)."""
     return f"{str(order_id).strip()}@{asof.isoformat()}"
+
+
+def broker_dedupe_key(
+    *,
+    client_order_id: str,
+    code: str,
+    side: str,
+    quantity: int,
+) -> str:
+    """Broker-side dedupe identity (includes qty; stronger than Soft-Frozen order_id)."""
+    return (
+        f"{str(client_order_id).strip()}|"
+        f"{str(code).strip()}|"
+        f"{str(side).strip().upper()}|"
+        f"{int(quantity)}"
+    )
+
+
+class ProcessLock:
+    """Exclusive fcntl lock under ``state_dir/broker_preflight/``.
+
+    Fail-closed: ``blocking=False`` raises ``BlockingIOError`` if another
+    process holds the lock (caller must not proceed with live write).
+    """
+
+    def __init__(
+        self,
+        state_dir: Path,
+        *,
+        name: str = LOCK_FILENAME,
+        blocking: bool = True,
+    ) -> None:
+        self._path = Path(state_dir) / "broker_preflight" / name
+        self._blocking = bool(blocking)
+        self._fh: Any = None
+
+    def __enter__(self) -> "ProcessLock":
+        self._path.parent.mkdir(parents=True, exist_ok=True)
+        self._fh = open(self._path, "a+", encoding="utf-8")
+        flags = fcntl.LOCK_EX if self._blocking else (fcntl.LOCK_EX | fcntl.LOCK_NB)
+        try:
+            fcntl.flock(self._fh.fileno(), flags)
+        except BlockingIOError:
+            self._fh.close()
+            self._fh = None
+            raise
+        self._fh.seek(0)
+        self._fh.truncate()
+        self._fh.write(
+            json.dumps(
+                {
+                    "pid": os.getpid(),
+                    "held_at_utc": datetime.now(tz=timezone.utc).isoformat(),
+                }
+            )
+            + "\n"
+        )
+        self._fh.flush()
+        return self
+
+    def __exit__(self, exc_type, exc, tb) -> None:
+        if self._fh is not None:
+            try:
+                fcntl.flock(self._fh.fileno(), fcntl.LOCK_UN)
+            finally:
+                self._fh.close()
+                self._fh = None
+
+
+def already_broker_deduped(state_dir: Path, dedupe_key: str) -> bool:
+    path = Path(state_dir) / "broker_preflight" / DEDUPE_LOG_FILENAME
+    if not path.exists():
+        return False
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.strip():
+            continue
+        try:
+            row = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if row.get("dedupe_key") == dedupe_key and row.get("reserved"):
+            return True
+    return False
+
+
+def reserve_broker_dedupe(
+    state_dir: Path,
+    *,
+    dedupe_key: str,
+    client_order_id: str,
+    asof: date,
+) -> None:
+    out = Path(state_dir) / "broker_preflight"
+    out.mkdir(parents=True, exist_ok=True)
+    path = out / DEDUPE_LOG_FILENAME
+    with path.open("a", encoding="utf-8") as f:
+        f.write(
+            json.dumps(
+                {
+                    "dedupe_key": dedupe_key,
+                    "client_order_id": client_order_id,
+                    "asof": asof.isoformat(),
+                    "reserved": True,
+                    "reserved_at_utc": datetime.now(tz=timezone.utc).isoformat(),
+                    "api_wired": False,
+                },
+                ensure_ascii=False,
+            )
+            + "\n"
+        )
+
+
+@dataclass
+class SubmitConfirmResult:
+    allowed: bool
+    reasons: list[str] = field(default_factory=list)
+    dedupe_key: str | None = None
+
+
+def confirm_before_broker_submit(
+    *,
+    state_dir: Path,
+    client_order_id: str,
+    code: str,
+    side: str,
+    quantity: int,
+    asof: date,
+    confirmed: bool,
+    config_accepted: bool,
+    env_write_live: bool | None = None,
+    require_ballot_file: bool = False,
+) -> SubmitConfirmResult:
+    """Pre-submit confirm for a future broker API adapter (no network).
+
+    Fail-closed unless: explicit ``confirmed=True``, live_write_gate, circuit
+    closed, and dedupe key not already reserved. Call under ``ProcessLock``.
+    """
+    reasons: list[str] = []
+    dkey = broker_dedupe_key(
+        client_order_id=client_order_id, code=code, side=side, quantity=quantity
+    )
+    if not confirmed:
+        reasons.append("confirmed=False (ops/API adapter must explicitly confirm)")
+    gate = live_write_gate(
+        config_accepted=config_accepted,
+        state_dir=Path(state_dir),
+        require_ballot_file=require_ballot_file,
+        env_write_live=env_write_live,
+    )
+    if not gate.allowed:
+        reasons.extend(gate.reasons)
+    circuit = load_circuit(Path(state_dir))
+    if circuit.open:
+        reasons.append(f"circuit_open:{circuit.last_reason}")
+    if already_broker_deduped(Path(state_dir), dkey):
+        reasons.append(f"broker_dedupe_hit:{dkey}")
+    if already_submitted(Path(state_dir), client_order_id):
+        reasons.append(f"already_submitted:{client_order_id}")
+    return SubmitConfirmResult(allowed=not reasons, reasons=reasons, dedupe_key=dkey)
+
+
+def confirm_and_reserve_broker_submit(
+    *,
+    state_dir: Path,
+    client_order_id: str,
+    code: str,
+    side: str,
+    quantity: int,
+    asof: date,
+    confirmed: bool,
+    config_accepted: bool,
+    env_write_live: bool | None = None,
+    require_ballot_file: bool = False,
+) -> SubmitConfirmResult:
+    """Confirm then reserve dedupe key (must run under ProcessLock)."""
+    result = confirm_before_broker_submit(
+        state_dir=state_dir,
+        client_order_id=client_order_id,
+        code=code,
+        side=side,
+        quantity=quantity,
+        asof=asof,
+        confirmed=confirmed,
+        config_accepted=config_accepted,
+        env_write_live=env_write_live,
+        require_ballot_file=require_ballot_file,
+    )
+    if result.allowed and result.dedupe_key:
+        reserve_broker_dedupe(
+            Path(state_dir),
+            dedupe_key=result.dedupe_key,
+            client_order_id=client_order_id,
+            asof=asof,
+        )
+    return result
 
 
 def _pending_field(order: Any, name: str) -> Any:
@@ -179,9 +380,13 @@ def validate_ack_against_pending(
     fee = float(fees_tax_fn(side=side, code=code, gross=gross))
     sig = str(ack.get("signal_date") or _pending_field(order, "signal_date") or "")
     coid = str(ack.get("client_order_id") or client_order_id_for(oid, asof=asof))
+    dkey = broker_dedupe_key(
+        client_order_id=coid, code=code, side=side, quantity=q
+    )
     fill = {
         "fill_id": oid,
         "client_order_id": coid,
+        "broker_dedupe_key": dkey,
         "signal_date": sig,
         "fill_date": asof.isoformat(),
         "code": code,
@@ -328,9 +533,15 @@ class SubmitIntent:
     side: str
     quantity: int
     asof: str
-    status: str = "INTENT_ONLY"  # never auto-sent without API adapter
+    status: str = "INTENT_ONLY"  # never auto-sent without API adapter + confirm
 
     def to_dict(self) -> dict[str, Any]:
+        dkey = broker_dedupe_key(
+            client_order_id=self.client_order_id,
+            code=self.code,
+            side=self.side,
+            quantity=self.quantity,
+        )
         return {
             "client_order_id": self.client_order_id,
             "order_id": self.order_id,
@@ -338,8 +549,10 @@ class SubmitIntent:
             "side": self.side,
             "quantity": self.quantity,
             "asof": self.asof,
+            "broker_dedupe_key": dkey,
             "status": self.status,
-            "note": "No broker API wired — intent artifact only",
+            "require_confirm_before_submit": True,
+            "note": "No broker API wired — intent artifact only; confirm_and_reserve required",
         }
 
 

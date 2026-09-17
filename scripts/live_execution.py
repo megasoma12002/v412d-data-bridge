@@ -16,10 +16,12 @@ import pandas as pd
 
 from broker_safety import (
     DEFAULT_DAILY_LIVE_FILL_BUDGET,
+    ProcessLock,
     already_in_fills_csv,
     already_submitted,
     append_submit_log,
     build_submit_intents,
+    confirm_and_reserve_broker_submit,
     count_live_submits_today,
     live_write_gate,
     load_circuit,
@@ -240,8 +242,9 @@ class BrokerPreflightFillPort:
 
     Soft-Frozen live ``fills.csv`` / portfolio cash stay untouched unless
     ALL of: ``live_config.broker_live_write_accepted``, ``E21_BROKER_WRITE_LIVE=1``,
-    circuit closed, daily budget, ack↔pending match, and idempotent client_order_id
-    (see ``broker_safety``). No real broker network client is wired here.
+    circuit closed, daily budget, ack↔pending match, idempotent client_order_id,
+    process lock, and confirm+reserve broker dedupe (see ``broker_safety``).
+    No real broker network client is wired here.
     """
 
     name = "broker"
@@ -325,9 +328,49 @@ class BrokerPreflightFillPort:
     ) -> tuple[dict[str, float], float, list[dict[str, Any]], int, bool]:
         import json
 
+        sdir = Path(state_dir)
+        block_dir = sdir / "broker_preflight"
+        block_dir.mkdir(parents=True, exist_ok=True)
+        asof = latest.date() if hasattr(latest, "date") else pd.Timestamp(latest).date()
+        try:
+            with ProcessLock(sdir, blocking=False):
+                return self._fill_pending_locked(
+                    state_dir=sdir,
+                    latest=latest,
+                    asof=asof,
+                    open_prices=open_prices,
+                    pos=pos,
+                    cash=cash,
+                )
+        except BlockingIOError:
+            meta = {
+                "port": self.name,
+                "asof": asof.isoformat(),
+                "blocked": True,
+                "reason": "process_lock_held",
+                "live_fills_written": False,
+                "soft_frozen_untouched": True,
+                "api_wired": False,
+            }
+            (block_dir / f"block_{asof.isoformat()}.json").write_text(
+                json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+            )
+            return pos, cash, [], 0, True
+
+    def _fill_pending_locked(
+        self,
+        *,
+        state_dir: Path,
+        latest: pd.Timestamp,
+        asof: date,
+        open_prices: dict[str, float],
+        pos: dict[str, float],
+        cash: float,
+    ) -> tuple[dict[str, float], float, list[dict[str, Any]], int, bool]:
+        import json
+
         from twse_session_sources import probe_session
 
-        asof = latest.date() if hasattr(latest, "date") else pd.Timestamp(latest).date()
         if self._probe_fn is not None:
             probe = self._probe_fn(asof)
         else:
@@ -359,6 +402,7 @@ class BrokerPreflightFillPort:
             "live_write_gate_allowed": gate.allowed,
             "live_write_gate_reasons": list(gate.reasons),
             "circuit_open": circuit.open,
+            "process_lock": True,
             "api_wired": False,
         }
         if not meta["broker_submit_allowed"]:
@@ -436,7 +480,7 @@ class BrokerPreflightFillPort:
             same_bar, ok = _exact_t1_stats(fills)
             return pos, cash, fills, same_bar, ok
 
-        # Live write path — ACCEPT + env + ack validation + budget + idempotency.
+        # Live write path — ACCEPT + env + confirm/reserve + budget + idempotency.
         already_today = count_live_submits_today(sdir, asof)
         pos_out = dict(pos)
         cash_out = float(cash)
@@ -451,6 +495,27 @@ class BrokerPreflightFillPort:
                 skipped.append(f"daily_budget:{self._daily_live_budget}")
                 trip_circuit(sdir, "daily_live_fill_budget")
                 break
+            # Ack-validated live write counts as confirmed for fixture path;
+            # future API adapters must pass confirmed only after explicit ops/API ACK.
+            confirm = confirm_and_reserve_broker_submit(
+                state_dir=sdir,
+                client_order_id=coid,
+                code=str(f["code"]),
+                side=str(f["side"]),
+                quantity=int(f["quantity"]),
+                asof=asof,
+                confirmed=True,
+                config_accepted=self._config_accepted,
+                env_write_live=(
+                    None
+                    if self._write_live_override is None
+                    else bool(self._write_live_override)
+                ),
+                require_ballot_file=self._require_ballot_file,
+            )
+            if not confirm.allowed:
+                skipped.append(f"confirm_denied:{','.join(confirm.reasons)}")
+                continue
             q = int(f["quantity"])
             signed = q if f["side"] == "BUY" else -q
             gross = float(f["gross"])
@@ -466,6 +531,7 @@ class BrokerPreflightFillPort:
                     "asof": asof.isoformat(),
                     "client_order_id": coid,
                     "fill_id": f["fill_id"],
+                    "broker_dedupe_key": confirm.dedupe_key,
                     "live_written": True,
                     "code": f["code"],
                     "side": f["side"],
