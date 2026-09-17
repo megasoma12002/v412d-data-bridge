@@ -29,6 +29,14 @@ from broker_safety import (
     validate_ack_against_pending,
     write_submit_intents,
 )
+from broker_risk import (
+    OrderState,
+    circuit_access,
+    pre_submit_full_gate,
+    record_rate_limit_write,
+    run_startup_reconcile,
+    transition_order,
+)
 from live_config import LIVE
 from live_ledger import (
     BUY_FEE,
@@ -416,10 +424,19 @@ class BrokerPreflightFillPort:
         if circuit.open:
             meta["blocked"] = True
             meta["reason"] = f"circuit_open:{circuit.last_reason}"
+            meta["writes_allowed"] = False
+            meta["reads_allowed"] = True
             (block_dir / f"block_{asof.isoformat()}.json").write_text(
                 json.dumps(meta, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
             )
             return pos, cash, [], 0, True
+
+        # Startup reconcile: stuck SUBMITTED/UNKNOWN etc. must be manually resolved.
+        reconcile = run_startup_reconcile(sdir, asof=asof)
+        meta["recovery"] = {
+            "n_unresolved": reconcile.get("n_unresolved"),
+            "writes_allowed": circuit_access(sdir).writes_allowed,
+        }
 
         acks = self._load_acks(sdir, asof)
         meta["blocked"] = False
@@ -430,6 +447,21 @@ class BrokerPreflightFillPort:
         intent_path = write_submit_intents(sdir, asof, intents)
         meta["submit_intents_path"] = str(intent_path.name)
         meta["n_submit_intents"] = len(intents)
+        for it in intents:
+            try:
+                transition_order(
+                    sdir,
+                    client_order_id=it.client_order_id,
+                    order_id=it.order_id,
+                    code=it.code,
+                    side=it.side,
+                    quantity=it.quantity,
+                    asof=asof,
+                    new_state=OrderState.PENDING,
+                    note="submit_intent",
+                )
+            except ValueError:
+                pass
 
         fills, rejects = self._acks_to_fills(
             acks, asof=asof, open_prices=open_prices, pending=pending
@@ -438,6 +470,26 @@ class BrokerPreflightFillPort:
         if rejects:
             for reason in rejects:
                 trip_circuit(sdir, reason)
+                # Best-effort: mark unknown reject path when order_id parseable
+                if reason.startswith("ack_not_in_pending:"):
+                    emit_oid = reason.split(":", 1)[-1]
+                    try:
+                        from broker_safety import client_order_id_for
+
+                        transition_order(
+                            sdir,
+                            client_order_id=client_order_id_for(emit_oid, asof=asof),
+                            order_id=emit_oid,
+                            code="",
+                            side="BUY",
+                            quantity=BOARD_LOT,
+                            asof=asof,
+                            new_state=OrderState.UNKNOWN,
+                            note=reason,
+                            force=True,
+                        )
+                    except Exception:  # noqa: BLE001
+                        pass
 
         if not acks:
             meta["note"] = (
@@ -495,6 +547,17 @@ class BrokerPreflightFillPort:
                 skipped.append(f"daily_budget:{self._daily_live_budget}")
                 trip_circuit(sdir, "daily_live_fill_budget")
                 break
+            risk = pre_submit_full_gate(
+                sdir,
+                code=str(f["code"]),
+                side=str(f["side"]),
+                quantity=int(f["quantity"]),
+                price=float(f.get("fill_price") or 0) or None,
+                reference_price=open_prices.get(str(f["code"])),
+            )
+            if not risk.allowed:
+                skipped.append(f"risk_denied:{','.join(risk.reasons)}")
+                continue
             # Ack-validated live write counts as confirmed for fixture path;
             # future API adapters must pass confirmed only after explicit ops/API ACK.
             confirm = confirm_and_reserve_broker_submit(
@@ -538,6 +601,23 @@ class BrokerPreflightFillPort:
                     "quantity": q,
                 },
             )
+            record_rate_limit_write(sdir, client_order_id=coid)
+            try:
+                transition_order(
+                    sdir,
+                    client_order_id=coid,
+                    order_id=str(f["fill_id"]),
+                    code=str(f["code"]),
+                    side=str(f["side"]),
+                    quantity=q,
+                    asof=asof,
+                    new_state=OrderState.FILLED,
+                    filled_qty=q,
+                    note="live_fill_written",
+                    force=True,
+                )
+            except ValueError:
+                pass
             written += 1
 
         meta["live_fills_written"] = written > 0
