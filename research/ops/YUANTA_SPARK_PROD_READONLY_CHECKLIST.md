@@ -1,6 +1,7 @@
 # 元大 SPARK PROD — 只讀驗證清單
 
 Status: **OPS / HOWTO** — 正式環境 API 已開通後的**安全上限**  
+**逐步教學（安裝＋腳本）：** `YUANTA_SPARK_PROD_READONLY_HOWTO.md`  
 Audience: 營業員確認 PROD 開通；尚無 UAT、或 UAT 未就緒  
 Related: `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md` · `broker_safety.py` · `broker_risk.py` · Soft-Frozen KEEP
 
