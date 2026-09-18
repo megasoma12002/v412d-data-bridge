@@ -112,7 +112,8 @@ gcloud compute ssh yuanta-uat-vm --zone=asia-east1-b
 
 開通前用 UAT 常會看到「無法連接至遠端伺服器」——屬預期，不是程式先壞。
 
-正式環境（PROD）一般**不必**固定 IP；但開發請先走 UAT。
+正式環境（PROD）一般**不必**固定 IP；但開發請先走 UAT。  
+若營業員只開了 PROD：見 `YUANTA_SPARK_PROD_READONLY_HOWTO.md`（逐步教學）與 `YUANTA_SPARK_PROD_READONLY_CHECKLIST.md`（只讀上限）。
 
 ---
 
