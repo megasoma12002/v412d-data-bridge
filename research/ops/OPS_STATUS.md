@@ -48,8 +48,9 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Docker QC smoke | `scripts/ops_docker_qc_smoke.sh` · `docker compose` · workflow `docker-ops-qc-smoke` |
 | TWSE session calendar | `twse_session_sources.py` + P2 `twse_forward_session_gate` in `v412f-forward-paper` (`session_skip.json`) |
 | Fill ports | `paper` · `dry_run` · P4 `broker` preflight + fixture-ack shadow (`broker_acks/`; Soft-Frozen default untouched) |
-| Broker live-write 防呆 | `broker_safety` + **`broker_risk`**（狀態機／panic／黑名單／限額／限流／重啟對帳／熔斷讀寫分離＋half-open／stale／告警；另含 process lock／dedupe／confirm）· `BROKER_RISK_RECOVERY.md`；`LIVE.broker_live_write_accepted=False` until ACCEPT |
+| Broker live-write 防呆 | `broker_safety` + **`broker_risk`**（狀態機／panic／黑名單／限額／限流／重啟對帳／熔斷讀寫分離＋half-open cooldown／stale 標記／告警；另含 process lock／dedupe／confirm）· `BROKER_RISK_RECOVERY.md`；`LIVE.broker_live_write_accepted=False` until ACCEPT |
 | 元大 SPARK UAT | 無本機固定 IP 時：最小 GCP 靜態 IP VM 教學 `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`（**不**寫 Soft-Frozen） |
+| 元大 SPARK adapter | 離線骨架 `yuanta_spark_adapter.py`（BasketNo／張數／ack map；`API_WIRED=False`）· `YUANTA_SPARK_ADAPTER_SKELETON.md` |
 | 元大 SPARK PROD | 正式開通後只讀：`YUANTA_SPARK_PROD_READONLY_HOWTO.md`（教學）· `YUANTA_SPARK_PROD_READONLY_CHECKLIST.md`（上限；**不下單**） |
 | Fee model | `0.001425×0.6` + sell 證交稅；**MIN_COMMISSION NT$20** floor (`live_ledger.fees_tax_for`) · day-trade tax not modeled |
 | T+2 settlement estimate | R4 daily artifact via `v412f-forward-paper` · R5 `twse_t2_broker_reconcile.py` (observe) · week-1 checklist `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` |

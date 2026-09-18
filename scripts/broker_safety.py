@@ -13,6 +13,7 @@ Gates:
   4. Idempotent client_order_id / fill_id — no duplicate live submits
   5. Daily live-write budget
   6. Circuit breaker after repeated rejects / reconcile trip
+     (open → cooldown half-open probe → close on success)
   7. Process lock (fcntl) around live-write / confirm+reserve
   8. Stable Soft-Frozen order_id via ``live_ledger.make_order_id``
   9. Broker dedupe key (includes qty) + pre-submit confirm (no network)
@@ -32,8 +33,12 @@ from tw_share_lots import BOARD_LOT
 ENV_WRITE_LIVE = "E21_BROKER_WRITE_LIVE"
 DEFAULT_DAILY_LIVE_FILL_BUDGET = 50
 DEFAULT_CIRCUIT_FAIL_THRESHOLD = 3
+DEFAULT_CIRCUIT_COOLDOWN_SECONDS = 30.0
 BALLOT_FILENAME = "broker_live_write_accept.json"
 CIRCUIT_FILENAME = "broker_circuit.json"
+CIRCUIT_CLOSED = "closed"
+CIRCUIT_OPEN = "open"
+CIRCUIT_HALF_OPEN = "half_open"
 SUBMIT_LOG_FILENAME = "broker_submit_log.jsonl"
 DEDUPE_LOG_FILENAME = "broker_dedupe_log.jsonl"
 LOCK_FILENAME = "broker_live.lock"
@@ -258,9 +263,9 @@ def confirm_before_broker_submit(
     )
     if not gate.allowed:
         reasons.extend(gate.reasons)
-    circuit = load_circuit(Path(state_dir))
-    if circuit.open:
-        reasons.append(f"circuit_open:{circuit.last_reason}")
+    ok_write, circuit = allow_circuit_write(Path(state_dir))
+    if not ok_write:
+        reasons.append(f"circuit_open:{circuit.last_reason or circuit.mode}")
     if already_broker_deduped(Path(state_dir), dkey):
         reasons.append(f"broker_dedupe_hit:{dkey}")
     if already_submitted(Path(state_dir), client_order_id):
@@ -404,19 +409,35 @@ def validate_ack_against_pending(
 @dataclass
 class CircuitState:
     open: bool = False
+    mode: str = CIRCUIT_CLOSED  # closed | open | half_open
     fail_count: int = 0
     last_reason: str = ""
     opened_at: str = ""
+    cooldown_seconds: float = DEFAULT_CIRCUIT_COOLDOWN_SECONDS
+    rejections: int = 0
     trips: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "open": self.open,
+            "mode": self.mode,
             "fail_count": self.fail_count,
             "last_reason": self.last_reason,
             "opened_at": self.opened_at,
+            "cooldown_seconds": self.cooldown_seconds,
+            "rejections": self.rejections,
             "trips": self.trips[-20:],
         }
+
+
+def _parse_opened_at(opened_at: str) -> datetime | None:
+    text = str(opened_at or "").strip()
+    if not text:
+        return None
+    try:
+        return datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        return None
 
 
 def load_circuit(state_dir: Path) -> CircuitState:
@@ -427,11 +448,18 @@ def load_circuit(state_dir: Path) -> CircuitState:
         obj = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return CircuitState()
+    mode = str(obj.get("mode") or "").strip().lower()
+    opened = bool(obj.get("open"))
+    if not mode:
+        mode = CIRCUIT_OPEN if opened else CIRCUIT_CLOSED
     return CircuitState(
-        open=bool(obj.get("open")),
+        open=opened or mode in (CIRCUIT_OPEN, CIRCUIT_HALF_OPEN),
+        mode=mode if mode in (CIRCUIT_CLOSED, CIRCUIT_OPEN, CIRCUIT_HALF_OPEN) else CIRCUIT_CLOSED,
         fail_count=int(obj.get("fail_count") or 0),
         last_reason=str(obj.get("last_reason") or ""),
         opened_at=str(obj.get("opened_at") or ""),
+        cooldown_seconds=float(obj.get("cooldown_seconds") or DEFAULT_CIRCUIT_COOLDOWN_SECONDS),
+        rejections=int(obj.get("rejections") or 0),
         trips=list(obj.get("trips") or []),
     )
 
@@ -450,15 +478,50 @@ def trip_circuit(
     *,
     threshold: int = DEFAULT_CIRCUIT_FAIL_THRESHOLD,
 ) -> CircuitState:
+    """Record a failure; open after consecutive threshold (re-opens from half_open)."""
     c = load_circuit(state_dir)
     c.fail_count += 1
     c.last_reason = reason
     c.trips.append(f"{datetime.now(tz=timezone.utc).isoformat()}:{reason}")
-    if c.fail_count >= threshold:
+    if c.fail_count >= threshold or c.mode == CIRCUIT_HALF_OPEN:
         c.open = True
+        c.mode = CIRCUIT_OPEN
         c.opened_at = datetime.now(tz=timezone.utc).isoformat()
     save_circuit(state_dir, c)
     return c
+
+
+def record_circuit_success(state_dir: Path) -> CircuitState:
+    """Close breaker after a successful write (incl. half-open probe)."""
+    c = load_circuit(state_dir)
+    c.open = False
+    c.mode = CIRCUIT_CLOSED
+    c.fail_count = 0
+    c.last_reason = ""
+    c.opened_at = ""
+    save_circuit(state_dir, c)
+    return c
+
+
+def allow_circuit_write(state_dir: Path) -> tuple[bool, CircuitState]:
+    """Whether a write may proceed; OPEN→HALF_OPEN after cooldown for one probe."""
+    c = load_circuit(state_dir)
+    if c.mode == CIRCUIT_CLOSED and not c.open:
+        return True, c
+    if c.mode == CIRCUIT_HALF_OPEN:
+        return True, c
+    # OPEN (or legacy open=True): wait for cooldown then allow a half-open probe
+    opened = _parse_opened_at(c.opened_at)
+    now = datetime.now(tz=timezone.utc)
+    elapsed = (now - opened).total_seconds() if opened is not None else c.cooldown_seconds
+    if elapsed >= float(c.cooldown_seconds):
+        c.mode = CIRCUIT_HALF_OPEN
+        c.open = True  # still "tripped" until success
+        save_circuit(state_dir, c)
+        return True, c
+    c.rejections += 1
+    save_circuit(state_dir, c)
+    return False, c
 
 
 def reset_circuit(state_dir: Path) -> CircuitState:
