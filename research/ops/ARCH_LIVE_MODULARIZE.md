@@ -84,7 +84,7 @@ True broker adapter (Shioaji / SPARK / …) maps exchange acks → same fill row
 ## Next (optional)
 
 1. Cloud long-run deploy of the Docker ops image (GCP asia-east1 candidate; pick single writer for `forward/e21`)
-2. One broker skeleton behind `FillPort` (dry-run map first; 元大 SPARK ≠ repo 元大股息抓取) — UAT 固定 IP 跳板見 `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`
+2. One broker skeleton behind `FillPort` (dry-run map first; 元大 SPARK ≠ repo 元大股息抓取) — UAT 固定 IP 跳板見 `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`；離線欄位映射見 `YUANTA_SPARK_ADAPTER_SKELETON.md` / `yuanta_spark_adapter.py`
 3. TWSE session calendar (holidays / typhoon) — `TWSE_SESSION_CALENDAR_CHARTER.md` (#237); **required before broker live submit**
 4. T+2 settlement cash **estimate** (observe-only) — `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md`; depends on session offset
 
