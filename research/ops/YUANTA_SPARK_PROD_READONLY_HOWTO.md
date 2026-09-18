@@ -210,18 +210,33 @@ def main():
         return
 
     print("Login OK — read-only window. Add inventory query from official sample NEXT.")
-    print("When done: Ctrl+C then LogOut/Close, or wait for auto close.")
+    print("When done: wait for clean exit (do not Ctrl+C unless stuck).")
     # --- 可選：在這裡呼叫官方範例的「庫存／交割」查詢函式（名稱以你下載的 sample 為準）---
     # 例如官方 YSendOrder.py / 查詢範例裡的庫存 API；不要複製 SendStockOrder。
 
-    time.sleep(5)
-    api.LogOut()
-    api.Close()
+    time.sleep(3)
+    try:
+        api.LogOut()
+    except Exception as exc:
+        print("LogOut note:", exc)
+    time.sleep(1)
+    try:
+        api.Close()
+    except Exception as exc:
+        print("Close note:", exc)
+    # pythonnet/CLR daemon threads may still flush after Close; give them time
+    # so interpreter shutdown does not race on stdout.
+    time.sleep(2)
+    sys.stdout.flush()
+    sys.stderr.flush()
     print("done.")
+    time.sleep(1)
 
 
 if __name__ == "__main__":
     main()
+    # Avoid hard-exit race with CLR callback threads writing to stdout.
+    os._exit(0)
 ```
 
 執行（務必用 Python 3）：
@@ -276,7 +291,7 @@ Login 成功後：
 |---|---|---|
 | `future feature annotations is not defined` | `python` 是 2.x 或 &lt;3.7 | 裝 Python 3.11；`python --version` 確認 |
 | `Can not determine dotnet root` / Failed to create coreclr | 未裝 .NET Runtime | 裝 [.NET 8 Desktop Runtime x64](https://dotnet.microsoft.com/download/dotnet/8.0)；重開殼後 `dotnet --version` |
-| `Error loading YuantaSparkAPI` | DLL 不在目錄／缺相依／x86/x64 混用 | 元件齊全；Python 位元與 win-x64／win-x86 包一致 |
+| `Fatal Python error: _enter_buffered_busy` at exit | pythonnet／CLR 背景執行緒與關機搶 stdout | Login 已成功可忽略；腳本改用 `os._exit(0)` 與 Close 後多等 1–2 秒 |
 | `Open` 後一直 timeout | 網路／防火牆／環境選錯 | 確認 `enumEnvironmentMode.PROD`；問營業員 PROD 是否要白名單 |
 | MsgCode `0000` | 登入失敗 | 帳號格式、密碼、pfx |
 | MsgCode `0102` | 密碼凍結或未啟用 | 找營業員重設／啟用 |
