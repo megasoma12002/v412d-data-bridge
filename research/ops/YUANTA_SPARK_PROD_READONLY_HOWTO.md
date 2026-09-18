@@ -17,7 +17,8 @@ UAT（若之後有）: `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`
 | | 用 `yuanta-uat-vm` 當 PROD 常態機 |
 
 **Login 通過：** `MsgCode` = **`0001`／`00001`（成功）**（`0000` = 失敗）。  
-**查詢通過：** 看到 `[GetStoreSummary]`／`[GetBankBalance]`／`[GetStkTransactionOutlay]`（筆數可為 0）。
+**查詢通過：** 看到 `[GetStoreSummary]`／`[GetBankBalance]`／`[GetStkTransactionOutlay]` 且結尾 `READ-ONLY DONE store=True bank=True outlay=True`（筆數可為 0）。  
+**實機驗證（2026-09-18）：** Windows x64 · PROD Login `0001` · 庫存／餘額／交割只讀查詢 OK · 未下單。
 
 ---
 
