@@ -64,21 +64,26 @@ Linux:    ~/YuantaSparkAPI/
 
 ### 3.2 Windows（PowerShell）
 
-```powershell
-# 確認 Python
-python --version
+先確認是 **Python 3.8+**（不要用 2.7；`annotations` 錯誤＝版本太舊）：
 
-# 虛擬環境（可選但建議）
-cd C:\YuantaSparkAPI
-python -m venv .venv
+```powershell
+python --version
+py -3 --version
+```
+
+若 `python` 顯示 2.x，改用 `py -3`：
+
+```powershell
+cd C:\Users\你的路徑\YuantaSparkAPI_win-x86_Python
+py -3 -m venv .venv
 .\.venv\Scripts\Activate.ps1
+python --version   # 應為 3.8+
 pip install -U pip pythonnet
 
-# 確認元件在同一資料夾
 dir YuantaSparkAPI.dll
 ```
 
-把官方範例 `.py` 也放在**同一個資料夾**（或下一節腳本放這裡）。
+沒裝 Python 3：到 [python.org](https://www.python.org/downloads/) 裝 3.11／3.12，安裝時勾 **Add python.exe to PATH**。
 
 ### 3.3 Linux（Ubuntu 例）
 
@@ -109,13 +114,17 @@ pip install -U pip pythonnet
 
 ```python
 """PROD read-only: Open + Login only. NO orders."""
-from __future__ import annotations
-
 import os
-import pathlib
 import sys
 import time
 from pathlib import Path
+
+if sys.version_info < (3, 8):
+    raise SystemExit(
+        "Need Python 3.8+. Now running: {}. Try: py -3 prod_readonly_login.py".format(
+            sys.version.split()[0]
+        )
+    )
 
 from pythonnet import load
 
@@ -153,20 +162,24 @@ def on_response(intMark, dwIndex, strIndex, objHandle, objValue):
             login_ok["done"] = True
             login_ok["msg_code"] = code
             login_ok["msg"] = content
-            print(f"[Login] MsgCode={code} MsgContent={content} Count={status.Count}")
+            print("[Login] MsgCode={} MsgContent={} Count={}".format(
+                code, content, status.Count
+            ))
             # 0001 / 00001 = 成功；0000 = 失敗（官方定義）
             if code in ("0001", "00001") or int(status.Count) > 0:
                 for row in objValue.LoginList:
                     # 打碼：只印帳號後 4 碼
                     acct = str(row.Account)
-                    print(f"  account=***{acct[-4:]} name={row.Name} seller={row.SellerNo}")
+                    print("  account=***{} name={} seller={}".format(
+                        acct[-4:], row.Name, row.SellerNo
+                    ))
             else:
                 print("  LOGIN FAILED — stop here; do not query/trade")
     except Exception as exc:
         print("on_response error:", exc)
 
 
-def main() -> None:
+def main():
     api = YuantaSparkAPITrader()
     api.SetLogType(enumLogType.COMMON)
     api.OnResponse += on_response
@@ -191,7 +204,7 @@ def main() -> None:
         return
 
     print("Login OK — read-only window. Add inventory query from official sample NEXT.")
-    print("When done: Ctrl+C then LogOut/Close, or uncomment below.")
+    print("When done: Ctrl+C then LogOut/Close, or wait for auto close.")
     # --- 可選：在這裡呼叫官方範例的「庫存／交割」查詢函式（名稱以你下載的 sample 為準）---
     # 例如官方 YSendOrder.py / 查詢範例裡的庫存 API；不要複製 SendStockOrder。
 
@@ -205,14 +218,16 @@ if __name__ == "__main__":
     main()
 ```
 
-執行：
+執行（務必用 Python 3）：
 
 ```powershell
-cd C:\YuantaSparkAPI
-.\.venv\Scripts\Activate.ps1
+cd C:\Users\你的路徑\YuantaSparkAPI_win-x86_Python
+.\.venv\Scripts\Activate.ps1   # 若有建 venv
 $env:YUANTA_ACCOUNT = "S你的帳號"
 $env:YUANTA_PASSWORD = "你的密碼"
-python prod_readonly_login.py
+py -3 prod_readonly_login.py
+# 或（venv 已 activate 且是 3.8+）:
+# python prod_readonly_login.py
 ```
 
 ### 4.2 Linux／Mac — pfx 四參數 Login
@@ -253,6 +268,7 @@ Login 成功後：
 
 | 現象 | 可能原因 | 怎麼辦 |
 |---|---|---|
+| `future feature annotations is not defined` | `python` 是 2.x 或 &lt;3.7 | `py -3 --version`；用 `py -3` 重跑；裝 Python 3.11 |
 | `Error loading YuantaSparkAPI` | DLL 不在目錄／缺相依／沒裝 .NET | 元件齊全；`dir`／`ls` 核對；重裝 .NET 8 |
 | `Open` 後一直 timeout | 網路／防火牆／環境選錯 | 確認 `enumEnvironmentMode.PROD`；問營業員 PROD 是否要白名單 |
 | MsgCode `0000` | 登入失敗 | 帳號格式、密碼、pfx |
