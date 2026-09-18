@@ -64,26 +64,32 @@ Linux:    ~/YuantaSparkAPI/
 
 ### 3.2 Windows（PowerShell）
 
-先確認是 **Python 3.8+**（不要用 2.7；`annotations` 錯誤＝版本太舊）：
+先確認是 **Python 3.8+**（不要用 2.7／3.6；`annotations` 錯誤＝版本太舊）：
 
 ```powershell
 python --version
-py -3 --version
+where.exe python
 ```
 
-若 `python` 顯示 2.x，改用 `py -3`：
+路徑應含 `Python311`（x64 元件配 **64-bit** Python）。
+
+另需安裝 **.NET 8**（pythonnet 的 coreclr；缺了會 `Can not determine dotnet root`）：
+
+1. 開 https://dotnet.microsoft.com/download/dotnet/8.0  
+2. 下載 **.NET Desktop Runtime 8.0**（Windows x64）或 **SDK 8.0**  
+3. 安裝後**重開** PowerShell，確認：
 
 ```powershell
-cd C:\Users\你的路徑\YuantaSparkAPI_win-x86_Python
-py -3 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python --version   # 應為 3.8+
-pip install -U pip pythonnet
-
-dir YuantaSparkAPI.dll
+dotnet --version
 ```
 
-沒裝 Python 3：到 [python.org](https://www.python.org/downloads/) 裝 3.11／3.12，安裝時勾 **Add python.exe to PATH**。
+再建環境並裝套件：
+
+```powershell
+cd C:\Users\你的路徑\YuantaSparkAPI_win-x64_Python
+python -m pip install -U pip pythonnet
+dir YuantaSparkAPI.dll
+```
 
 ### 3.3 Linux（Ubuntu 例）
 
@@ -268,8 +274,9 @@ Login 成功後：
 
 | 現象 | 可能原因 | 怎麼辦 |
 |---|---|---|
-| `future feature annotations is not defined` | `python` 是 2.x 或 &lt;3.7 | `py -3 --version`；用 `py -3` 重跑；裝 Python 3.11 |
-| `Error loading YuantaSparkAPI` | DLL 不在目錄／缺相依／沒裝 .NET | 元件齊全；`dir`／`ls` 核對；重裝 .NET 8 |
+| `future feature annotations is not defined` | `python` 是 2.x 或 &lt;3.7 | 裝 Python 3.11；`python --version` 確認 |
+| `Can not determine dotnet root` / Failed to create coreclr | 未裝 .NET Runtime | 裝 [.NET 8 Desktop Runtime x64](https://dotnet.microsoft.com/download/dotnet/8.0)；重開殼後 `dotnet --version` |
+| `Error loading YuantaSparkAPI` | DLL 不在目錄／缺相依／x86/x64 混用 | 元件齊全；Python 位元與 win-x64／win-x86 包一致 |
 | `Open` 後一直 timeout | 網路／防火牆／環境選錯 | 確認 `enumEnvironmentMode.PROD`；問營業員 PROD 是否要白名單 |
 | MsgCode `0000` | 登入失敗 | 帳號格式、密碼、pfx |
 | MsgCode `0102` | 密碼凍結或未啟用 | 找營業員重設／啟用 |
