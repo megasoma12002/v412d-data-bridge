@@ -2,7 +2,7 @@
 
 Status: **OPS / HOWTO** — 營業員已開 **正式環境** 後，逐步驗證 Login＋查詢  
 Companion checklist: `YUANTA_SPARK_PROD_READONLY_CHECKLIST.md`  
-Official docs: [SPARK 入口](https://www.yuanta.com.tw/file-repository/content/API/page/index.html) · [登入](https://www.yuanta.com.tw/file-repository/content/sparkapi_docs/%E5%9F%BA%E7%A4%8E/%E7%99%BB%E5%85%A5/index.html) · [連線](https://www.yuanta.com.tw/file-repository/content/sparkapi_docs/%E5%9F%BA%E7%A4%8E/%E9%80%A3%E7%B7%9A%E8%88%87%E9%9B%A2%E7%B7%9A/index.html)  
+Official docs: [SPARK 入口](https://www.yuanta.com.tw/file-repository/content/API/page/index.html) · [登入](https://www.yuanta.com.tw/file-repository/content/sparkapi_docs/%E5%9F%BA%E7%A4%8E/%E7%99%BB%E5%85%A5/index.html) · [庫存](https://www.yuanta.com.tw/file-repository/content/sparkapi_docs/%E5%B8%B3%E5%8B%99/%E8%82%A1%E7%A5%A8%E5%BA%AB%E5%AD%98%E7%B6%9C%E5%90%88%E7%B8%BD%E8%A1%A8/index.html) · [銀行餘額](https://www.yuanta.com.tw/file-repository/content/sparkapi_docs/%E5%B8%B3%E5%8B%99/%E9%8A%80%E8%A1%8C%E9%A4%98%E9%A1%8D%E6%9F%A5%E8%A9%A2/index.html) · [交割款](https://www.yuanta.com.tw/file-repository/content/sparkapi_docs/%E5%B8%B3%E5%8B%99/%E4%BA%A4%E5%89%B2%E6%AC%BE%E6%9F%A5%E8%A9%A2/index.html)  
 UAT（若之後有）: `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`
 
 ---
@@ -11,115 +11,46 @@ UAT（若之後有）: `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`
 
 | 做 | 絕對不要 |
 |---|---|
-| `Open(PROD)` → `Login` → 看 `OnResponse` | 呼叫 `SendStockOrder`／改量／改價／刪單 |
-| 庫存／餘額／交割**查詢**（官方範例裡的查詢函式） | 把帳密、`.pfx` 貼進 Chat／commit 進 git |
-| 測完 `LogOut` + `Close` | 開 `E21_BROKER_WRITE_LIVE` 或 `broker_live_write_accepted` |
+| `Open(PROD)` → `Login` → 庫存／餘額／交割**查詢** | 呼叫 `SendStockOrder`／改量／改價／刪單 |
+| 測完 `LogOut` + `Close` | 把帳密、`.pfx` 貼進 Chat／commit 進 git |
+| | 開 `E21_BROKER_WRITE_LIVE` 或 `broker_live_write_accepted` |
 | | 用 `yuanta-uat-vm` 當 PROD 常態機 |
 
-**通過標準：** Login 的 `MsgCode` 為 **`0001`／`00001`（成功）**。  
-注意：元大文件寫 **`0000` = 失敗**、**`0001` = 成功**（與直覺相反）。
+**Login 通過：** `MsgCode` = **`0001`／`00001`（成功）**（`0000` = 失敗）。  
+**查詢通過：** 看到 `[GetStoreSummary]`／`[GetBankBalance]`／`[GetStkTransactionOutlay]`（筆數可為 0）。
 
 ---
 
-## 1. 開始前跟營業員要齊（缺一不可）
+## 1. 開始前跟營業員要齊
 
-打勾再用：
-
-- [ ] 確認開的是 **PROD（正式）**，不是 UAT  
-- [ ] 證券帳號：`S` + 分公司 4 碼 + 帳號 7 碼（例示格式 `S98xxxxxxx`）  
-- [ ] 登入密碼（API／網路下單密碼，以營業員說明為準）  
-- [ ] **元件包**：Python 範例資料夾（內含 `YuantaSparkAPI.dll` 與相依檔）  
-- [ ] **Windows**：通常帳密即可 Login  
-- [ ] **Linux／Mac**：另要 `.pfx` 絕對路徑 + pfx 密碼  
-- [ ] PROD 是否要 IP 白名單（多數不必；若要，勿與 UAT IP 混用）
-
-下載入口：元大 SPARK API 頁（需已申請）。解壓到本機專用目錄，例如：
-
-```text
-Windows:  C:\YuantaSparkAPI\
-Linux:    ~/YuantaSparkAPI/
-```
-
-該目錄**不要**放在本 git repo 裡。
+- [ ] 開的是 **PROD**  
+- [ ] 帳號：`S` + 分公司 4 + 帳號 7  
+- [ ] 登入密碼、**win-x64** 元件包  
+- [ ] Linux／Mac 另要 `.pfx`
 
 ---
 
-## 2. 建議在哪台機器跑
+## 2. 機器
 
-| 環境 | 建議 |
-|---|---|
-| **Windows 筆電（優先）** | 最省事；官方 Python 範例以 Windows 為主 |
-| Linux／Mac | 可；Login 必須帶 pfx 四參數版 |
-| GCP `yuanta-uat-vm` | **不要**當 PROD 教學機（那是 UAT 白名單用途） |
+Windows x64 筆電優先；Python 3.11 **64-bit** + .NET 8 + `win-x64` 元件。
 
 ---
 
-## 3. 安裝（約 10–20 分鐘）
+## 3. 安裝
 
-### 3.1 共同需求
-
-- Python **3.8+**（建議 3.10／3.11）  
-- [.NET 8](https://dotnet.microsoft.com/download)（Desktop／SDK 皆可；Linux 用 install script）  
-- `pip install pythonnet`
-
-### 3.2 Windows（PowerShell）
-
-先確認是 **Python 3.8+**（不要用 2.7／3.6；`annotations` 錯誤＝版本太舊）：
-
-```powershell
-python --version
-where.exe python
-```
-
-路徑應含 `Python311`（x64 元件配 **64-bit** Python）。
-
-另需安裝 **.NET 8**（pythonnet 的 coreclr；缺了會 `Can not determine dotnet root`）：
-
-1. 開 https://dotnet.microsoft.com/download/dotnet/8.0  
-2. 下載 **.NET Desktop Runtime 8.0**（Windows x64）或 **SDK 8.0**  
-3. 安裝後**重開** PowerShell，確認：
-
-```powershell
-dotnet --version
-```
-
-再建環境並裝套件：
-
-```powershell
-cd C:\Users\你的路徑\YuantaSparkAPI_win-x64_Python
-python -m pip install -U pip pythonnet
-dir YuantaSparkAPI.dll
-```
-
-### 3.3 Linux（Ubuntu 例）
-
-```bash
-sudo apt-get update
-sudo apt-get install -y python3 python3-pip python3-venv
-
-wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
-chmod +x dotnet-install.sh
-./dotnet-install.sh --channel 8.0
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$HOME/.dotnet:$HOME/.dotnet/tools
-
-mkdir -p ~/YuantaSparkAPI && cd ~/YuantaSparkAPI
-# 把營業員給的元件解壓到這裡
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -U pip pythonnet
-```
+- Python 3.11 x64（Add to PATH）  
+- [.NET 8 Desktop Runtime x64](https://dotnet.microsoft.com/download/dotnet/8.0)  
+- `python -m pip install -U pip pythonnet`  
+- 確認：`python --version` → 3.11.x；`dotnet --version` → 8.x
 
 ---
 
-## 4. 只讀腳本（請自己存成本機檔，勿 commit）
+## 4. 只讀腳本（存本機，勿 commit）
 
-在元件目錄建立 `prod_readonly_login.py`（帳密用環境變數，不要寫死進檔案）。
-
-### 4.1 Windows — 帳密 Login
+在 **x64 元件目錄**（與 `YuantaSparkAPI.dll` 同層）覆蓋 `prod_readonly_login.py`：
 
 ```python
-"""PROD read-only: Open + Login only. NO orders."""
+"""PROD read-only: Open + Login + inventory/balance/settlement. NO orders."""
 import os
 import sys
 import time
@@ -127,9 +58,7 @@ from pathlib import Path
 
 if sys.version_info < (3, 8):
     raise SystemExit(
-        "Need Python 3.8+. Now running: {}. Try: py -3 prod_readonly_login.py".format(
-            sys.version.split()[0]
-        )
+        "Need Python 3.8+. Now running: {}".format(sys.version.split()[0])
     )
 
 from pythonnet import load
@@ -148,12 +77,24 @@ clr.AddReference("YuantaSparkAPI")
 from YuantaOneAPI import (  # noqa: E402
     YuantaSparkAPITrader,
     enumEnvironmentMode,
+    enumLangType,
     enumLogType,
 )
 
-ACCOUNT = os.environ["YUANTA_ACCOUNT"]       # e.g. S98xxxxxxx
+ACCOUNT = os.environ["YUANTA_ACCOUNT"]
 PASSWORD = os.environ["YUANTA_PASSWORD"]
-login_ok = {"done": False, "msg_code": "", "msg": ""}
+state = {
+    "login_done": False,
+    "msg_code": "",
+    "store_done": False,
+    "bank_done": False,
+    "outlay_done": False,
+}
+
+
+def _mask_acct(acct):
+    s = str(acct or "")
+    return "***" + s[-4:] if len(s) >= 4 else "***"
 
 
 def on_response(intMark, dwIndex, strIndex, objHandle, objValue):
@@ -161,28 +102,89 @@ def on_response(intMark, dwIndex, strIndex, objHandle, objValue):
         if intMark == 0:
             print("[sys]", objValue)
             return
-        if intMark == 1 and strIndex == "Login":
+        if intMark != 1:
+            return
+
+        if strIndex == "Login":
             status = objValue.LoginStatus
             code = str(status.MsgCode)
-            content = str(status.MsgContent)
-            login_ok["done"] = True
-            login_ok["msg_code"] = code
-            login_ok["msg"] = content
+            state["login_done"] = True
+            state["msg_code"] = code
             print("[Login] MsgCode={} MsgContent={} Count={}".format(
-                code, content, status.Count
+                code, status.MsgContent, status.Count
             ))
-            # 0001 / 00001 = 成功；0000 = 失敗（官方定義）
             if code in ("0001", "00001") or int(status.Count) > 0:
                 for row in objValue.LoginList:
-                    # 打碼：只印帳號後 4 碼
-                    acct = str(row.Account)
-                    print("  account=***{} name={} seller={}".format(
-                        acct[-4:], row.Name, row.SellerNo
+                    print("  account={} name={} seller={}".format(
+                        _mask_acct(row.Account), row.Name, row.SellerNo
                     ))
             else:
-                print("  LOGIN FAILED — stop here; do not query/trade")
+                print("  LOGIN FAILED")
+            return
+
+        if strIndex == "GetStoreSummary":
+            stk = objValue.StkStoreList
+            n = int(stk.Count)
+            print("[GetStoreSummary] 現貨筆數={}".format(n))
+            for i in range(n):
+                row = stk[i]
+                print(
+                    "  code={} name={} qty={} trading_qty={} avg={} mkt_amt={}".format(
+                        row.StkCode,
+                        row.StkName,
+                        row.StockQty,
+                        row.TradingQty,
+                        row.Price,
+                        row.MarketAmt,
+                    )
+                )
+            state["store_done"] = True
+            return
+
+        if strIndex == "GetBankBalance":
+            rows = objValue.BankBalanceList
+            n = int(rows.Count)
+            print("[GetBankBalance] 筆數={}".format(n))
+            for i in range(n):
+                row = rows[i]
+                print(
+                    "  account={} bank={} available={} msg={}".format(
+                        _mask_acct(row.Account),
+                        _mask_acct(row.BankAccount),
+                        row.AvailableBalance,
+                        row.Message,
+                    )
+                )
+            state["bank_done"] = True
+            return
+
+        if strIndex == "GetStkTransactionOutlay":
+            rows = objValue.TransactionOutlayList
+            n = int(rows.Count)
+            print("[GetStkTransactionOutlay] 筆數={}".format(n))
+            for i in range(n):
+                row = rows[i]
+                print(
+                    "  account={} day={} amt={}".format(
+                        _mask_acct(row.Account),
+                        row.SettlementDay,
+                        row.SettlementAmt,
+                    )
+                )
+            state["outlay_done"] = True
+            return
+
+        print("[other] strIndex={} dwIndex={}".format(strIndex, dwIndex))
     except Exception as exc:
         print("on_response error:", exc)
+
+
+def _wait(flag, seconds=30):
+    for _ in range(seconds):
+        if state[flag]:
+            return True
+        time.sleep(1)
+    return state[flag]
 
 
 def main():
@@ -196,25 +198,44 @@ def main():
 
     print("Login...")
     api.Login(ACCOUNT, PASSWORD)
-
-    # 等 OnResponse（最多 ~30s）
-    for _ in range(30):
-        if login_ok["done"]:
-            break
-        time.sleep(1)
-
-    if login_ok["msg_code"] not in ("0001", "00001"):
-        print("STOP: login not successful. Do not call order APIs.")
-        api.LogOut()
-        api.Close()
+    if not _wait("login_done") or state["msg_code"] not in ("0001", "00001"):
+        print("STOP: login failed")
+        try:
+            api.LogOut()
+            api.Close()
+        except Exception:
+            pass
         return
 
-    print("Login OK — read-only window. Add inventory query from official sample NEXT.")
-    print("When done: wait for clean exit (do not Ctrl+C unless stuck).")
-    # --- 可選：在這裡呼叫官方範例的「庫存／交割」查詢函式（名稱以你下載的 sample 為準）---
-    # 例如官方 YSendOrder.py / 查詢範例裡的庫存 API；不要複製 SendStockOrder。
+    print("Query GetStoreSummary (read-only)...")
+    try:
+        api.GetStoreSummary(ACCOUNT, enumLangType.UTF8)
+    except TypeError:
+        api.GetStoreSummary(ACCOUNT)
+    _wait("store_done", 20)
 
-    time.sleep(3)
+    print("Query GetBankBalance (read-only)...")
+    try:
+        api.GetBankBalance(ACCOUNT, enumLangType.UTF8)
+    except TypeError:
+        api.GetBankBalance(ACCOUNT)
+    _wait("bank_done", 20)
+
+    print("Query GetStkTransactionOutlay (read-only)...")
+    try:
+        api.GetStkTransactionOutlay(ACCOUNT, enumLangType.UTF8)
+    except TypeError:
+        api.GetStkTransactionOutlay(ACCOUNT)
+    _wait("outlay_done", 20)
+
+    print(
+        "READ-ONLY DONE store={} bank={} outlay={}".format(
+            state["store_done"], state["bank_done"], state["outlay_done"]
+        )
+    )
+    # NO SendStockOrder / amend / cancel.
+
+    time.sleep(2)
     try:
         api.LogOut()
     except Exception as exc:
@@ -224,101 +245,62 @@ def main():
         api.Close()
     except Exception as exc:
         print("Close note:", exc)
-    # pythonnet/CLR daemon threads may still flush after Close; give them time
-    # so interpreter shutdown does not race on stdout.
     time.sleep(2)
     sys.stdout.flush()
-    sys.stderr.flush()
     print("done.")
     time.sleep(1)
 
 
 if __name__ == "__main__":
     main()
-    # Avoid hard-exit race with CLR callback threads writing to stdout.
     os._exit(0)
 ```
 
-執行（務必用 Python 3）：
-
 ```powershell
-cd C:\Users\你的路徑\YuantaSparkAPI_win-x86_Python
-.\.venv\Scripts\Activate.ps1   # 若有建 venv
+cd C:\Users\mg922\Downloads\YuantaSparkAPI_win-x64_Python\YuantaSparkAPI_win-x64_Python
 $env:YUANTA_ACCOUNT = "S你的帳號"
 $env:YUANTA_PASSWORD = "你的密碼"
-py -3 prod_readonly_login.py
-# 或（venv 已 activate 且是 3.8+）:
-# python prod_readonly_login.py
-```
-
-### 4.2 Linux／Mac — pfx 四參數 Login
-
-把上面的 `api.Login(ACCOUNT, PASSWORD)` 改成：
-
-```python
-PFX_PATH = os.environ["YUANTA_PFX_PATH"]   # 絕對路徑
-PFX_PASS = os.environ["YUANTA_PFX_PASS"]
-api.Login(PFX_PATH, PFX_PASS, ACCOUNT, PASSWORD)
-```
-
-```bash
-export YUANTA_ACCOUNT='S你的帳號'
-export YUANTA_PASSWORD='你的密碼'
-export YUANTA_PFX_PATH='/home/你/certs/xxxx.pfx'
-export YUANTA_PFX_PASS='pfx密碼'
-cd ~/YuantaSparkAPI && source .venv/bin/activate
 python prod_readonly_login.py
 ```
 
----
-
-## 5. 庫存／交割只讀查詢（第二步）
-
-Login 成功後：
-
-1. 打開營業員／官網給的 **Python 範例**（常名 `YSendOrder.py` 或查詢專用 sample）  
-2. 找到**庫存、銀行餘額、交割款、損益**相關呼叫（名稱因版本而異）  
-3. **只抄查詢函式**進你的 `prod_readonly_login.py`；**整段刪除／註解**所有 `SendStockOrder`、改單、刪單  
-4. 在 `Login OK` 分支裡呼叫查詢；結果與元大 App／對帳單核對張數與金額（允許延遲）
-
-查詢函式實際名稱以你手上的 SDK 為準；不要猜造 API 名。官方文件目錄：[sparkapi_docs](https://www.yuanta.com.tw/file-repository/content/sparkapi_docs/index.html)。
+Linux／Mac：`Login` 改四參數 `Login(pfx, pfxPass, account, pass)`。
 
 ---
 
-## 6. 常見失敗對照
+## 5. 與 App 核對
 
-| 現象 | 可能原因 | 怎麼辦 |
-|---|---|---|
-| `future feature annotations is not defined` | `python` 是 2.x 或 &lt;3.7 | 裝 Python 3.11；`python --version` 確認 |
-| `Can not determine dotnet root` / Failed to create coreclr | 未裝 .NET Runtime | 裝 [.NET 8 Desktop Runtime x64](https://dotnet.microsoft.com/download/dotnet/8.0)；重開殼後 `dotnet --version` |
-| `Fatal Python error: _enter_buffered_busy` at exit | pythonnet／CLR 背景執行緒與關機搶 stdout | Login 已成功可忽略；腳本改用 `os._exit(0)` 與 Close 後多等 1–2 秒 |
-| `Open` 後一直 timeout | 網路／防火牆／環境選錯 | 確認 `enumEnvironmentMode.PROD`；問營業員 PROD 是否要白名單 |
-| MsgCode `0000` | 登入失敗 | 帳號格式、密碼、pfx |
-| MsgCode `0102` | 密碼凍結或未啟用 | 找營業員重設／啟用 |
-| MsgCode `0112` | 無此權限 | 確認 SPARK／API 權限真的開在 PROD |
-| Linux Login 掛掉 | 沒用四參數 pfx | 改 `Login(pfx, pfxPass, account, pass)` |
+| 輸出 | 對照 |
+|---|---|
+| `GetStoreSummary` 代號／股數 | 元大 App 庫存 |
+| `GetBankBalance` available | 銀行／可出金約略 |
+| `GetStkTransactionOutlay` | 交割款（可為 0 筆） |
 
 ---
 
-## 7. 測完回報（打碼）
+## 6. 常見失敗
 
-可貼給 agent／自己存檔的安全內容：
-
-- OS（Win／Linux）  
-- `Open(PROD)` 是否成功  
-- Login `MsgCode` + `MsgContent`（可原文）  
-- 帳號只留後 4 碼  
-- 有無成功跑庫存查詢（是／否；張數是否與 App 大致一致）  
-
-**不要貼：** 完整帳號、密碼、pfx、未打碼身分證、委託內容。
+| 現象 | 怎麼辦 |
+|---|---|
+| Python 3.6 / `annotations` | 裝 3.11 x64 |
+| `dotnet root` | 裝 .NET 8 Desktop Runtime |
+| `_enter_buffered_busy` | Login／查詢成功可忽略 |
+| `cannot import enumLangType` | 查詢改只傳 `ACCOUNT` |
+| MsgCode `0112` | 找營業員開帳務查詢權限 |
 
 ---
 
-## 8. 通過後下一步（仍不下單）
+## 7. 回報（打碼）
 
-1. 若營業員可補 **UAT** → 改走 `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`  
-2. Repo 側：#246 offline adapter、#247 防呆已備；**接真 DLL 要另開 ACCEPT**  
-3. Soft-Frozen 日批／自動下單 = 更後面的 ACCEPT，與「能 Login」分開
+可貼：`MsgCode`、三段查詢是否 `True`、庫存筆數、是否與 App 大致一致。  
+勿貼：完整帳號、密碼、銀行帳號全文。
+
+---
+
+## 8. 通過後（仍不下單）
+
+1. 可補 UAT → `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`  
+2. Repo：#246 adapter、#247 防呆；**接 DLL 自動下單要另開 ACCEPT**  
+3. Soft-Frozen live write 另案
 
 ---
 
