@@ -51,6 +51,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 <<<<<<< HEAD
 | Broker live-write 防呆 | `broker_safety` — ACCEPT flag + env + ack↔pending + idempotency + daily budget + circuit; `LIVE.broker_live_write_accepted=False` until ACCEPT |
 | 元大 SPARK UAT | 無本機固定 IP 時：最小 GCP 靜態 IP VM 教學 `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`（**不**寫 Soft-Frozen） |
+| 元大 SPARK adapter | 離線骨架 `yuanta_spark_adapter.py`（BasketNo／張數／ack map；`API_WIRED=False`）· `YUANTA_SPARK_ADAPTER_SKELETON.md` |
 =======
 | Broker live-write 防呆 | `broker_safety` — ACCEPT+env · ack↔pending · idempotency · daily budget · circuit · **process lock** · stable `make_order_id` · **broker dedupe + pre-submit confirm**；`LIVE.broker_live_write_accepted=False` until ACCEPT |
 >>>>>>> origin/main

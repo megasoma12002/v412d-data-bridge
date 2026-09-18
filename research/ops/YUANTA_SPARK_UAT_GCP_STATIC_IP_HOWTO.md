@@ -173,6 +173,8 @@ Open(UAT) → Login(...) → 等 OnResponse Login 成功 → 再查庫存／帳�
 
 對接本 repo 防呆（之後才做）：`scripts/broker_safety.py` 的 process lock／confirm／dedupe；`LIVE.broker_live_write_accepted` 維持 `False` 直到 ACCEPT。
 
+離線欄位映射（BasketNo／張／ack→broker_acks）已在 `scripts/yuanta_spark_adapter.py`（見 `YUANTA_SPARK_ADAPTER_SKELETON.md`）；**不含** DLL 連線。
+
 ---
 
 ## 7. 省錢與安全習慣
