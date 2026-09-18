@@ -52,6 +52,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | 元大 SPARK UAT | 無本機固定 IP 時：最小 GCP 靜態 IP VM 教學 `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`（**不**寫 Soft-Frozen） |
 | 元大 SPARK adapter | 離線骨架 `yuanta_spark_adapter.py`（BasketNo／張數／ack map；`API_WIRED=False`）· `YUANTA_SPARK_ADAPTER_SKELETON.md` |
 | 元大 SPARK PROD | 正式開通後只讀：`YUANTA_SPARK_PROD_READONLY_HOWTO.md`（教學）· `YUANTA_SPARK_PROD_READONLY_CHECKLIST.md`（上限；**不下單**） |
+| 元大 SPARK 條件單 | App↔API 對照（營業員建議二擇一）：`YUANTA_SPARK_CONDITIONAL_OCO_NOTES.md`（研究；**未** SendAlgo） |
 | Fee model | `0.001425×0.6` + sell 證交稅；**MIN_COMMISSION NT$20** floor (`live_ledger.fees_tax_for`) · day-trade tax not modeled |
 | T+2 settlement estimate | R4 daily artifact via `v412f-forward-paper` · R5 `twse_t2_broker_reconcile.py` (observe) · week-1 checklist `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` |
 | 除權息入帳延後 | Stage-E live DEFAULT `E22_v3_recv_pay_effdelay` (receivable + effective pay); preserved `E22_v2s_tw_effex`; MOPS overlay; Gap 6.9c stock-pay observe |
