@@ -239,14 +239,14 @@ class RiskConfig:
             if isinstance(obj, dict):
                 cfg.panic = bool(obj.get("panic", cfg.panic))
                 cfg.blacklist = [str(x) for x in (obj.get("blacklist") or [])]
-                cfg.max_qty_shares = int(obj.get("max_qty_shares") or cfg.max_qty_shares)
-                cfg.max_notional = float(obj.get("max_notional") or cfg.max_notional)
-                cfg.max_price_deviation = float(
-                    obj.get("max_price_deviation") or cfg.max_price_deviation
-                )
-                cfg.max_writes_per_minute = int(
-                    obj.get("max_writes_per_minute") or cfg.max_writes_per_minute
-                )
+                if "max_qty_shares" in obj and obj.get("max_qty_shares") is not None:
+                    cfg.max_qty_shares = int(obj.get("max_qty_shares"))
+                if "max_notional" in obj and obj.get("max_notional") is not None:
+                    cfg.max_notional = float(obj.get("max_notional"))
+                if "max_price_deviation" in obj and obj.get("max_price_deviation") is not None:
+                    cfg.max_price_deviation = float(obj.get("max_price_deviation"))
+                if "max_writes_per_minute" in obj and obj.get("max_writes_per_minute") is not None:
+                    cfg.max_writes_per_minute = int(obj.get("max_writes_per_minute"))
         panic_path = _preflight(state_dir) / PANIC_FILENAME
         if panic_path.exists():
             try:
@@ -393,9 +393,10 @@ def circuit_access(state_dir: Path) -> CircuitAccess:
     """When circuit is open: block writes, allow reads (queries / shadow).
 
     After cooldown, one half-open probe write is allowed (community SPARK
-    server pattern). Reads stay allowed while open.
+    server pattern). Reads stay allowed while open. Peek only — does not
+    consume the half-open probe slot.
     """
-    ok, c = allow_circuit_write(state_dir)
+    ok, c = allow_circuit_write(state_dir, consume_probe=False)
     if not ok:
         return CircuitAccess(
             writes_allowed=False,
@@ -470,18 +471,32 @@ def run_startup_reconcile(state_dir: Path, *, asof: date | None = None) -> dict[
 
 
 def load_unresolved(state_dir: Path) -> dict[str, Any]:
+    """Load unresolved snapshot; corrupt/unreadable → fail-closed blocker."""
     path = _preflight(state_dir) / UNRESOLVED_FILENAME
     if not path.exists():
         return {"n_unresolved": 0, "unresolved": []}
     try:
         obj = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
-        return {"n_unresolved": 0, "unresolved": []}
-    return obj if isinstance(obj, dict) else {"n_unresolved": 0, "unresolved": []}
+        return {
+            "n_unresolved": 1,
+            "unresolved": [{"note": "unresolved_corrupt_fail_closed"}],
+            "corrupt": True,
+        }
+    if not isinstance(obj, dict):
+        return {
+            "n_unresolved": 1,
+            "unresolved": [{"note": "unresolved_invalid_fail_closed"}],
+            "corrupt": True,
+        }
+    return obj
 
 
 def has_blocking_unresolved(state_dir: Path) -> bool:
-    return int(load_unresolved(state_dir).get("n_unresolved") or 0) > 0
+    payload = load_unresolved(state_dir)
+    if payload.get("corrupt"):
+        return True
+    return int(payload.get("n_unresolved") or 0) > 0
 
 
 def resolve_unresolved_order(
@@ -573,7 +588,12 @@ def pre_submit_full_gate(
 
 
 def emit_alert(state_dir: Path, *, kind: str, message: str) -> None:
-    """Append local alert log; optionally POST JSON to webhook (best-effort)."""
+    """Append local alert log; optionally POST JSON to webhook (best-effort).
+
+    Webhook URL must be ``https://`` and host must match
+    ``E21_BROKER_ALERT_WEBHOOK_ALLOWLIST`` (comma-separated hostnames).
+    Missing allowlist or non-https URL → skip POST (local log still written).
+    """
     path = _preflight(state_dir) / ALERT_LOG_FILENAME
     row = {
         "kind": kind,
@@ -584,6 +604,21 @@ def emit_alert(state_dir: Path, *, kind: str, message: str) -> None:
         f.write(json.dumps(row, ensure_ascii=False) + "\n")
     url = os.environ.get(ENV_WEBHOOK, "").strip()
     if not url:
+        return
+    if not url.lower().startswith("https://"):
+        return
+    allow = os.environ.get("E21_BROKER_ALERT_WEBHOOK_ALLOWLIST", "").strip()
+    if not allow:
+        # Fail-closed: never POST when allowlist unset (SSRF / misconfig guard).
+        return
+    try:
+        from urllib.parse import urlparse
+
+        host = (urlparse(url).hostname or "").lower()
+    except Exception:
+        return
+    allowed_hosts = {h.strip().lower() for h in allow.split(",") if h.strip()}
+    if not host or host not in allowed_hosts:
         return
     try:
         data = json.dumps({"text": f"[broker:{kind}] {message}", **row}).encode("utf-8")

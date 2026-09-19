@@ -384,10 +384,22 @@ def validate_ack_against_pending(
     gross = q * fp
     fee = float(fees_tax_fn(side=side, code=code, gross=gross))
     sig = str(ack.get("signal_date") or _pending_field(order, "signal_date") or "")
-    coid = str(ack.get("client_order_id") or client_order_id_for(oid, asof=asof))
+    expected_coid = client_order_id_for(oid, asof=asof)
+    if ack.get("client_order_id") not in (None, ""):
+        coid = str(ack.get("client_order_id")).strip()
+        if coid != expected_coid:
+            return AckValidation(
+                ok=False,
+                reject_reason=f"client_order_id_mismatch:{coid}!={expected_coid}",
+            )
+    else:
+        coid = expected_coid
     dkey = broker_dedupe_key(
         client_order_id=coid, code=code, side=side, quantity=q
     )
+    # Explicit ops/API confirm only — fixture or future SPARK adapter must set
+    # ops_confirmed/confirmed; never infer from ack presence alone.
+    ops_confirmed = bool(ack.get("ops_confirmed") or ack.get("confirmed"))
     fill = {
         "fill_id": oid,
         "client_order_id": coid,
@@ -402,6 +414,7 @@ def validate_ack_against_pending(
         "fees_tax": fee,
         "slippage_bp": slip * 10000,
         "broker_ack": True,
+        "ops_confirmed": ops_confirmed,
     }
     return AckValidation(ok=True, fill=fill, client_order_id=coid)
 
@@ -415,7 +428,9 @@ class CircuitState:
     opened_at: str = ""
     cooldown_seconds: float = DEFAULT_CIRCUIT_COOLDOWN_SECONDS
     rejections: int = 0
+    half_open_probe_used: bool = False
     trips: list[str] = field(default_factory=list)
+    load_error: bool = False
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -426,6 +441,7 @@ class CircuitState:
             "opened_at": self.opened_at,
             "cooldown_seconds": self.cooldown_seconds,
             "rejections": self.rejections,
+            "half_open_probe_used": self.half_open_probe_used,
             "trips": self.trips[-20:],
         }
 
@@ -441,25 +457,43 @@ def _parse_opened_at(opened_at: str) -> datetime | None:
 
 
 def load_circuit(state_dir: Path) -> CircuitState:
+    """Load circuit; corrupt/unreadable file → fail-closed OPEN (blocks writes)."""
     path = Path(state_dir) / "broker_preflight" / CIRCUIT_FILENAME
     if not path.exists():
         return CircuitState()
     try:
         obj = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
-        return CircuitState()
+        return CircuitState(
+            open=True,
+            mode=CIRCUIT_OPEN,
+            last_reason="circuit_corrupt_fail_closed",
+            opened_at=datetime.now(tz=timezone.utc).isoformat(),
+            load_error=True,
+        )
+    if not isinstance(obj, dict):
+        return CircuitState(
+            open=True,
+            mode=CIRCUIT_OPEN,
+            last_reason="circuit_invalid_fail_closed",
+            opened_at=datetime.now(tz=timezone.utc).isoformat(),
+            load_error=True,
+        )
     mode = str(obj.get("mode") or "").strip().lower()
     opened = bool(obj.get("open"))
     if not mode:
         mode = CIRCUIT_OPEN if opened else CIRCUIT_CLOSED
+    if mode not in (CIRCUIT_CLOSED, CIRCUIT_OPEN, CIRCUIT_HALF_OPEN):
+        mode = CIRCUIT_OPEN if opened else CIRCUIT_CLOSED
     return CircuitState(
         open=opened or mode in (CIRCUIT_OPEN, CIRCUIT_HALF_OPEN),
-        mode=mode if mode in (CIRCUIT_CLOSED, CIRCUIT_OPEN, CIRCUIT_HALF_OPEN) else CIRCUIT_CLOSED,
+        mode=mode,
         fail_count=int(obj.get("fail_count") or 0),
         last_reason=str(obj.get("last_reason") or ""),
         opened_at=str(obj.get("opened_at") or ""),
         cooldown_seconds=float(obj.get("cooldown_seconds") or DEFAULT_CIRCUIT_COOLDOWN_SECONDS),
         rejections=int(obj.get("rejections") or 0),
+        half_open_probe_used=bool(obj.get("half_open_probe_used")),
         trips=list(obj.get("trips") or []),
     )
 
@@ -480,6 +514,11 @@ def trip_circuit(
 ) -> CircuitState:
     """Record a failure; open after consecutive threshold (re-opens from half_open)."""
     c = load_circuit(state_dir)
+    if c.load_error:
+        # Keep fail-closed corrupt state; still record reason.
+        c.last_reason = f"{c.last_reason};{reason}" if c.last_reason else reason
+        save_circuit(state_dir, c)
+        return c
     c.fail_count += 1
     c.last_reason = reason
     c.trips.append(f"{datetime.now(tz=timezone.utc).isoformat()}:{reason}")
@@ -487,6 +526,7 @@ def trip_circuit(
         c.open = True
         c.mode = CIRCUIT_OPEN
         c.opened_at = datetime.now(tz=timezone.utc).isoformat()
+        c.half_open_probe_used = False
     save_circuit(state_dir, c)
     return c
 
@@ -494,29 +534,60 @@ def trip_circuit(
 def record_circuit_success(state_dir: Path) -> CircuitState:
     """Close breaker after a successful write (incl. half-open probe)."""
     c = load_circuit(state_dir)
+    if c.load_error:
+        return c
     c.open = False
     c.mode = CIRCUIT_CLOSED
     c.fail_count = 0
     c.last_reason = ""
     c.opened_at = ""
+    c.half_open_probe_used = False
     save_circuit(state_dir, c)
     return c
 
 
-def allow_circuit_write(state_dir: Path) -> tuple[bool, CircuitState]:
-    """Whether a write may proceed; OPEN→HALF_OPEN after cooldown for one probe."""
+def allow_circuit_write(
+    state_dir: Path, *, consume_probe: bool = True
+) -> tuple[bool, CircuitState]:
+    """Whether a write may proceed; OPEN→HALF_OPEN after cooldown for one probe.
+
+    Fail-closed: corrupt circuit, or OPEN with missing/unparseable opened_at,
+    blocks writes. Half-open allows exactly one probe until success/trip.
+
+    ``consume_probe=False`` peeks without burning the half-open slot (for
+    ``circuit_access`` / preflight). Confirm/submit paths must use default True.
+    """
     c = load_circuit(state_dir)
+    if c.load_error:
+        return False, c
     if c.mode == CIRCUIT_CLOSED and not c.open:
         return True, c
     if c.mode == CIRCUIT_HALF_OPEN:
+        if c.half_open_probe_used:
+            c.rejections += 1
+            save_circuit(state_dir, c)
+            return False, c
+        if consume_probe:
+            c.half_open_probe_used = True
+            save_circuit(state_dir, c)
         return True, c
     # OPEN (or legacy open=True): wait for cooldown then allow a half-open probe
     opened = _parse_opened_at(c.opened_at)
+    if opened is None:
+        # Missing timestamp while open → do not auto-probe (fail-closed).
+        c.rejections += 1
+        c.last_reason = c.last_reason or "circuit_open_missing_opened_at"
+        save_circuit(state_dir, c)
+        return False, c
     now = datetime.now(tz=timezone.utc)
-    elapsed = (now - opened).total_seconds() if opened is not None else c.cooldown_seconds
+    elapsed = (now - opened).total_seconds()
     if elapsed >= float(c.cooldown_seconds):
         c.mode = CIRCUIT_HALF_OPEN
-        c.open = True  # still "tripped" until success
+        c.open = True
+        if consume_probe:
+            c.half_open_probe_used = True
+        else:
+            c.half_open_probe_used = False
         save_circuit(state_dir, c)
         return True, c
     c.rejections += 1
