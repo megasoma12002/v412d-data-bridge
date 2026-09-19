@@ -65,25 +65,26 @@ def _write_ack(
     side: str = "BUY",
     quantity: int = BOARD_LOT,
     fill_price: float = 100.0,
+    ops_confirmed: bool = True,
+    extra_acks: list[dict] | None = None,
 ) -> None:
     ack_dir = sdir / "broker_acks"
     ack_dir.mkdir(parents=True, exist_ok=True)
+    acks = [
+        {
+            "order_id": order_id,
+            "code": code,
+            "side": side,
+            "quantity": quantity,
+            "fill_price": fill_price,
+            "signal_date": "2026-07-10",
+            "ops_confirmed": ops_confirmed,
+        }
+    ]
+    if extra_acks:
+        acks.extend(extra_acks)
     (ack_dir / f"{asof}.json").write_text(
-        json.dumps(
-            {
-                "acks": [
-                    {
-                        "order_id": order_id,
-                        "code": code,
-                        "side": side,
-                        "quantity": quantity,
-                        "fill_price": fill_price,
-                        "signal_date": "2026-07-10",
-                    }
-                ]
-            }
-        )
-        + "\n",
+        json.dumps({"acks": acks}) + "\n",
         encoding="utf-8",
     )
 
@@ -489,6 +490,105 @@ class ProcessLockAndConfirmTests(unittest.TestCase):
                 client_order_id=coid, code="0050", side="BUY", quantity=BOARD_LOT
             )
             self.assertTrue(already_broker_deduped(sdir, dkey))
+
+
+class BrokerLiveAffordAndConfirmTests(unittest.TestCase):
+    def test_insufficient_cash_skips_live_write(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            _seed_pending(sdir)
+            _write_ack(sdir, fill_price=100.0)
+            port = BrokerPreflightFillPort(
+                probe_fn=_open_probe, write_live=True, config_accepted=True
+            )
+            pos, cash, fills, _, ok = port.fill_pending(
+                state_dir=sdir,
+                latest=pd.Timestamp("2026-07-13"),
+                open_prices={"0050": 100.0},
+                pos={},
+                cash=1_000.0,  # far below 1000*100 + fee
+            )
+            self.assertEqual(len(fills), 1)  # shadow fill present
+            self.assertEqual(pos, {})
+            self.assertEqual(cash, 1_000.0)
+            self.assertFalse((sdir / "fills.csv").exists())
+            allow = json.loads(
+                (sdir / "broker_preflight" / "allow_2026-07-13.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertTrue(
+                any("insufficient_cash" in s for s in allow.get("live_skips", []))
+            )
+            self.assertTrue(ok)
+
+    def test_missing_ops_confirmed_blocks_live_write(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            _seed_pending(sdir)
+            _write_ack(sdir, ops_confirmed=False)
+            port = BrokerPreflightFillPort(
+                probe_fn=_open_probe, write_live=True, config_accepted=True
+            )
+            pos, cash, fills, _, _ = port.fill_pending(
+                state_dir=sdir,
+                latest=pd.Timestamp("2026-07-13"),
+                open_prices={"0050": 100.0},
+                pos={},
+                cash=1_000_000.0,
+            )
+            self.assertEqual(len(fills), 1)
+            self.assertEqual(pos, {})
+            self.assertEqual(cash, 1_000_000.0)
+            self.assertFalse((sdir / "fills.csv").exists())
+            allow = json.loads(
+                (sdir / "broker_preflight" / "allow_2026-07-13.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertTrue(
+                any("confirm_denied" in s for s in allow.get("live_skips", []))
+            )
+
+    def test_orphan_plus_valid_ack_blocks_all_live_writes(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            _seed_pending(sdir, oid="o1")
+            _write_ack(
+                sdir,
+                order_id="o1",
+                extra_acks=[
+                    {
+                        "order_id": "orphan-x",
+                        "code": "0050",
+                        "side": "BUY",
+                        "quantity": BOARD_LOT,
+                        "fill_price": 100.0,
+                        "ops_confirmed": True,
+                    }
+                ],
+            )
+            port = BrokerPreflightFillPort(
+                probe_fn=_open_probe, write_live=True, config_accepted=True
+            )
+            pos, cash, fills, _, _ = port.fill_pending(
+                state_dir=sdir,
+                latest=pd.Timestamp("2026-07-13"),
+                open_prices={"0050": 100.0},
+                pos={},
+                cash=1_000_000.0,
+            )
+            self.assertGreaterEqual(len(fills), 1)
+            self.assertEqual(pos, {})
+            self.assertEqual(cash, 1_000_000.0)
+            self.assertFalse((sdir / "fills.csv").exists())
+            allow = json.loads(
+                (sdir / "broker_preflight" / "allow_2026-07-13.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(allow.get("reason"), "unresolved_orders_present")
+            self.assertFalse(allow.get("live_fills_written"))
 
 
 class LandmineBrokerLiveAccept(unittest.TestCase):

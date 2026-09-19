@@ -33,6 +33,7 @@ from broker_safety import (
 from broker_risk import (
     OrderState,
     circuit_access,
+    has_blocking_unresolved,
     pre_submit_full_gate,
     record_rate_limit_write,
     run_startup_reconcile,
@@ -130,6 +131,10 @@ def _paper_fill_rows(
         gross = q * fp
         fee = fees_tax_for(side=side, code=str(o.code), gross=gross)
         signed = q if side == "BUY" else -q
+        if side == "SELL":
+            held = float(pos.get(o.code, 0) or 0)
+            if held < q:
+                continue
         if side == "BUY" and gross + fee > cash:
             afford = max_affordable_buy_qty(cash, fp, lot=BOARD_LOT)
             if afford < orig_q:
@@ -502,6 +507,12 @@ class BrokerPreflightFillPort:
                         )
                     except Exception:  # noqa: BLE001
                         pass
+            # Same-batch orphans must block other live fills (refresh unresolved).
+            reconcile_after = run_startup_reconcile(sdir, asof=asof)
+            meta["recovery_after_rejects"] = {
+                "n_unresolved": reconcile_after.get("n_unresolved"),
+                "n_stale": reconcile_after.get("n_stale"),
+            }
 
         if not acks:
             meta["note"] = (
@@ -544,7 +555,21 @@ class BrokerPreflightFillPort:
             same_bar, ok = _exact_t1_stats(fills)
             return pos, cash, fills, same_bar, ok
 
-        # Live write path — ACCEPT + env + confirm/reserve + budget + idempotency.
+        # Orphan / UNKNOWN same batch → block entire live-write path (shadow only).
+        if has_blocking_unresolved(sdir):
+            meta["blocked"] = True
+            meta["reason"] = "unresolved_orders_present"
+            meta["live_fills_written"] = False
+            meta["soft_frozen_untouched"] = True
+            (block_dir / f"allow_{asof.isoformat()}.json").write_text(
+                json.dumps({**meta, "n_fills": len(fills)}, indent=2, ensure_ascii=False)
+                + "\n",
+                encoding="utf-8",
+            )
+            same_bar, ok = _exact_t1_stats(fills)
+            return pos, cash, fills, same_bar, ok
+
+        # Live write path — ACCEPT + env + explicit ops_confirmed + budget + cash.
         already_today = count_live_submits_today(sdir, asof)
         pos_out = dict(pos)
         cash_out = float(cash)
@@ -559,27 +584,42 @@ class BrokerPreflightFillPort:
                 skipped.append(f"daily_budget:{self._daily_live_budget}")
                 trip_circuit(sdir, "daily_live_fill_budget")
                 break
+            q = int(f["quantity"])
+            side = str(f["side"])
+            code = str(f["code"])
+            fp = float(f.get("fill_price") or 0)
+            gross = float(f["gross"])
+            fee = float(f["fees_tax"])
+            if side == "SELL":
+                held = float(pos_out.get(code, 0) or 0)
+                if held < q:
+                    skipped.append(f"insufficient_inventory:{coid}:{held}<{q}")
+                    continue
+            if side == "BUY" and gross + fee > cash_out:
+                afford = max_affordable_buy_qty(cash_out, fp, lot=BOARD_LOT)
+                if afford < q:
+                    skipped.append(f"insufficient_cash:{coid}")
+                    continue
             risk = pre_submit_full_gate(
                 sdir,
-                code=str(f["code"]),
-                side=str(f["side"]),
-                quantity=int(f["quantity"]),
-                price=float(f.get("fill_price") or 0) or None,
-                reference_price=open_prices.get(str(f["code"])),
+                code=code,
+                side=side,
+                quantity=q,
+                price=fp or None,
+                reference_price=open_prices.get(code),
             )
             if not risk.allowed:
                 skipped.append(f"risk_denied:{','.join(risk.reasons)}")
                 continue
-            # Ack-validated live write counts as confirmed for fixture path;
-            # future API adapters must pass confirmed only after explicit ops/API ACK.
+            # Require explicit ops_confirmed on ack→fill (never hardcode True).
             confirm = confirm_and_reserve_broker_submit(
                 state_dir=sdir,
                 client_order_id=coid,
-                code=str(f["code"]),
-                side=str(f["side"]),
-                quantity=int(f["quantity"]),
+                code=code,
+                side=side,
+                quantity=q,
                 asof=asof,
-                confirmed=True,
+                confirmed=bool(f.get("ops_confirmed")),
                 config_accepted=self._config_accepted,
                 env_write_live=(
                     None
@@ -591,12 +631,9 @@ class BrokerPreflightFillPort:
             if not confirm.allowed:
                 skipped.append(f"confirm_denied:{','.join(confirm.reasons)}")
                 continue
-            q = int(f["quantity"])
-            signed = q if f["side"] == "BUY" else -q
-            gross = float(f["gross"])
-            fee = float(f["fees_tax"])
-            pos_out[f["code"]] = pos_out.get(f["code"], 0) + signed
-            cash_out += -gross - fee if f["side"] == "BUY" else gross - fee
+            signed = q if side == "BUY" else -q
+            pos_out[code] = pos_out.get(code, 0) + signed
+            cash_out += -gross - fee if side == "BUY" else gross - fee
             # Strip non-schema keys before immutable append.
             row = {k: f[k] for k in FILL_ROW_KEYS if k in f}
             append_immutable(sdir / "fills.csv", row, "fill_id")
@@ -608,8 +645,8 @@ class BrokerPreflightFillPort:
                     "fill_id": f["fill_id"],
                     "broker_dedupe_key": confirm.dedupe_key,
                     "live_written": True,
-                    "code": f["code"],
-                    "side": f["side"],
+                    "code": code,
+                    "side": side,
                     "quantity": q,
                 },
             )
@@ -620,8 +657,8 @@ class BrokerPreflightFillPort:
                     sdir,
                     client_order_id=coid,
                     order_id=str(f["fill_id"]),
-                    code=str(f["code"]),
-                    side=str(f["side"]),
+                    code=code,
+                    side=side,
                     quantity=q,
                     asof=asof,
                     new_state=OrderState.FILLED,
