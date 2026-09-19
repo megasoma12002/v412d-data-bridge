@@ -1,7 +1,7 @@
 # Soft-Frozen 四類 + DH／L4 防禦 × MDD — Research Charter (Stage A)
 
 Date: 2026-09-19  
-Status: **CHARTER ACCEPTED → Stage A RUNNING**  
+Status: **CHARTER ACCEPTED → Stage A STOP** (`STAGE_A_SCORE_POS_GATES_FAIL` — defence improves heldout／tip but sealed MDD still < 0)  
 Human: confirm 公／民各成一類（四 sleeve）· next **「新機制（四類 + DH/L4 防禦）」**（不改 sealed 目標、不重調舊 clip 格）  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live flip = **Class D** later only  
 Prior STOP: `PUB_PRIV_COEXIST_MDD_DECISION_PACK.md`（raw 四類／dual-split · **0 sealed-MDD coexist**）  
