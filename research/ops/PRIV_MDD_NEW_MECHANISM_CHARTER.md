@@ -174,9 +174,10 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_new_mech_n3_stage_a.py
 
 ---
 
-## 8. Alternate reopen (not this charter)
+## 8. Alternate reopen
 
-Human-accepted **sealed-gate change** remains a separate path per freeze note. This charter does **not** propose softening.
+- Human-accepted **sealed-gate change** — **not** chosen this turn.  
+- **V2 new mechanism** (cross-asset / breadth sensors): `PRIV_MDD_SENSOR_MECH_V2_CHARTER.md` — DRAFT until ACCEPT.
 
 ---
 
