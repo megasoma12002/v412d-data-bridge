@@ -123,15 +123,18 @@ Whole-book dry-powder / global relocate already STOP’d elsewhere — **FinPriv
 
 ### N3 — Three-state risk machine (new control)
 
-Only after N2 pack:
+**Stage A ACCEPTED** — human **「ACCEPT N3」** (2026-09-19), after N1+N2 STOP.
 
-| State | FinPriv | Notes |
+| State | FinPriv | Action |
 |---|---|---|
-| `OFFENSE` | on (frozen cell) | default |
-| `COEXIST_DEFEND` | on + N1/N2 actuator | mid stress |
-| `PUB_ONLY` | off | high stress |
+| `OFFENSE` | on | frozen SF4 weights (default) |
+| `COEXIST_DEFEND` | mid stress | N2 relocate → cash **or** 0050 (ETF hi 0.35) |
+| `PUB_ONLY` | high stress | Soft-Frozen pub-only path (N1 off) |
 
-≠ single L4 path-switch; explicit **three-state** handoff with predeclared enter/exit.
+Sensor: FinPriv **sleeve-local DD** level machine (no hysteresis latch).  
+Predeclared (mid, high, mid_sink): `L06/L10` · `L08/L12` · `L06/L08` · `L08/L10` × {0050, CASH where listed}.
+
+≠ single L4 path-switch; explicit **three-state** handoff.
 
 ---
 
