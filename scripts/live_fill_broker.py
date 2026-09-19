@@ -18,11 +18,12 @@ from broker_safety import (
     already_submitted,
     append_submit_log,
     build_submit_intents,
-    confirm_and_reserve_broker_submit,
+    confirm_before_broker_submit,
     count_live_submits_today,
     live_write_gate,
     load_circuit,
     record_circuit_success,
+    reserve_broker_dedupe,
     trip_circuit,
     validate_ack_against_pending,
     write_submit_intents,
@@ -365,8 +366,8 @@ class BrokerPreflightFillPort:
         )
 
         if not gate.allowed:
-            same_bar, ok = _exact_t1_stats(fills)
-            return pos, cash, fills, same_bar, ok
+            # Shadow JSON already written; do not feed fills into live orchestration.
+            return pos, cash, [], 0, True
 
         # Orphan / UNKNOWN same batch → block entire live-write path (shadow only).
         if has_blocking_unresolved(sdir):
@@ -379,15 +380,32 @@ class BrokerPreflightFillPort:
                 + "\n",
                 encoding="utf-8",
             )
-            same_bar, ok = _exact_t1_stats(fills)
-            return pos, cash, fills, same_bar, ok
+            return pos, cash, [], 0, True
+
+        # Exact T+1 must pass before any Soft-Frozen fills.csv mutation.
+        same_bar, ok = _exact_t1_stats(fills)
+        if not ok:
+            meta["blocked"] = True
+            meta["reason"] = "exact_t1_violation"
+            meta["same_bar_fills"] = same_bar
+            meta["live_fills_written"] = False
+            meta["soft_frozen_untouched"] = True
+            (block_dir / f"allow_{asof.isoformat()}.json").write_text(
+                json.dumps({**meta, "n_fills": len(fills)}, indent=2, ensure_ascii=False)
+                + "\n",
+                encoding="utf-8",
+            )
+            return pos, cash, fills, same_bar, False
 
         # Live write path — ACCEPT + env + explicit ops_confirmed + budget + cash.
+        # Order: confirm (no reserve) → write fills.csv → reserve + submit log
+        # so a crash cannot leave dedupe reserved without a fill row.
         already_today = count_live_submits_today(sdir, asof)
         pos_out = dict(pos)
         cash_out = float(cash)
         written = 0
         skipped: list[str] = []
+        lifecycle_notes: list[str] = []
         for f in fills:
             coid = str(f.get("client_order_id") or f["fill_id"])
             if already_submitted(sdir, coid) or already_in_fills_csv(sdir, str(f["fill_id"])):
@@ -425,7 +443,7 @@ class BrokerPreflightFillPort:
                 skipped.append(f"risk_denied:{','.join(risk.reasons)}")
                 continue
             # Require explicit ops_confirmed on ack→fill (never hardcode True).
-            confirm = confirm_and_reserve_broker_submit(
+            confirm = confirm_before_broker_submit(
                 state_dir=sdir,
                 client_order_id=coid,
                 code=code,
@@ -449,7 +467,15 @@ class BrokerPreflightFillPort:
             cash_out += -gross - fee if side == "BUY" else gross - fee
             # Strip non-schema keys before immutable append.
             row = {k: f[k] for k in FILL_ROW_KEYS if k in f}
+            # Write fill BEFORE reserve so crash cannot stick on dedupe_hit without fill.
             append_immutable(sdir / "fills.csv", row, "fill_id")
+            if confirm.dedupe_key:
+                reserve_broker_dedupe(
+                    sdir,
+                    dedupe_key=confirm.dedupe_key,
+                    client_order_id=coid,
+                    asof=asof,
+                )
             append_submit_log(
                 sdir,
                 {
@@ -479,20 +505,21 @@ class BrokerPreflightFillPort:
                     note="live_fill_written",
                     force=True,
                 )
-            except ValueError:
-                pass
+            except ValueError as e:
+                lifecycle_notes.append(f"transition_filled:{coid}:{e}")
             written += 1
 
         meta["live_fills_written"] = written > 0
         meta["soft_frozen_untouched"] = written == 0
         meta["n_live_written"] = written
         meta["live_skips"] = skipped
+        if lifecycle_notes:
+            meta["lifecycle_notes"] = lifecycle_notes
         (block_dir / f"allow_{asof.isoformat()}.json").write_text(
             json.dumps({**meta, "n_fills": len(fills)}, indent=2, ensure_ascii=False)
             + "\n",
             encoding="utf-8",
         )
-        same_bar, ok = _exact_t1_stats(fills)
         return pos_out, cash_out, fills, same_bar, ok
 
 

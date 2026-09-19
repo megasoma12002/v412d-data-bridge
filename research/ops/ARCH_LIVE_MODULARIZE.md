@@ -73,10 +73,14 @@ Pack CLI paths unchanged (`ops_month_end_paper_pack.py --refresh-ledgers`).
 
 ## Explicit non-goals
 
-- Soft-Frozen clip / LIVE_FUSE / LIVE_DH values
+- Soft-Frozen clip / LIVE_FUSE / LIVE_DH values (KEEP)
 - Broker API credentials / live order routing / `API_WIRED=True`
-- Merging paper `simulate_core` with live session (shared sort helper only)
-- Silent unify of `E22_V2S` vs `E22_v2s_tw`
+- Re-enabling E45 A05 live stitch (DROPPED)
+- Silent unify of research `E22_V2S` callers vs live DEFAULT
+
+## Fill policy align (ACCEPT 2026-09-19)
+
+Paper `simulate_core` and live `_paper_fill_rows` both **skip** underfunded BUY when `afford < orig_q` (paper requeues pending). Ballot: `ACCEPT_PAPER_LIVE_FILL_SKIP_ALIGN.md`.
 
 ## Docker ops QC (B1)
 
@@ -100,12 +104,12 @@ CI: `.github/workflows/docker-ops-qc-smoke.yml`. **Who writes `forward/e21`:** s
 ```bash
 # default / live canonical path — paper only
 python3 scripts/e21_forward_pipeline.py
-# research dry-run (non-canonical state copy)
+# research dry-run (non-canonical state copy — Soft-Frozen forward/e21 refuses non-paper)
 E21_FILL_PORT=dry_run python3 scripts/e21_forward_pipeline.py \
   --allow-noncanonical-paths --state-dir /tmp/e21-dry --market ...
 ```
 
-True broker adapter (元大 SPARK) maps exchange acks → same fill row schema; credentials never in image/git. See `YUANTA_SPARK_ADAPTER_SKELETON.md`.
+True broker adapter (元大 SPARK) maps exchange acks → same fill row schema; credentials never in image/git. Soft-Frozen `forward/e21` always requires `paper` even with `--allow-noncanonical-paths`. See `YUANTA_SPARK_ADAPTER_SKELETON.md`.
 
 ## SPARK adapter boundary
 

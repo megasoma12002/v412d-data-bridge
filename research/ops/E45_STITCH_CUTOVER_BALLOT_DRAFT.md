@@ -1,9 +1,17 @@
+# E45 Live Stitch — Cutover Ballot Draft — **ARCHIVED / DROPPED**
+
+> **Not an open ballot.** A05 stitch was ACCEPTed then **rolled back** the same day  
+> (`DROP_E45_A05`). See `E45_A05_STITCH_DROPPED.md`. Do not execute reply strings below.
+
+# (Historical draft retained for audit)
+
 # E45 Live Stitch — Cutover Ballot Draft (second ACCEPT)
 
-Date: 2026-09-09  
-Status: **OPEN / PREP** — stitch still **FORBIDDEN** until gates + this ACCEPT  
-Checklist: `E45_STITCH_CHECKLIST.md` (**DRAFTED — NOT AUTHORIZED**)  
-Soft-Frozen: **KEEP [0.50, 0.95]** · DEFAULT **`E22_v2s_tw` KEEP** · live FIN within-sleeve **KD_OPT KEEP**
+Date: 2026-09-09 · archived 2026-09-19  
+Status: **ARCHIVED** — superseded by `ACCEPT live-stack rollback: DROP_E45_A05`  
+Checklist: `E45_STITCH_CHECKLIST.md` (**DROPPED**)  
+Soft-Frozen: **KEEP [0.60, 0.90]** today · live overlay **DH_dd06+FUSE**
+
 
 ## Purpose
 

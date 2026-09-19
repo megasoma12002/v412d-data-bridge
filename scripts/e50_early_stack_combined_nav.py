@@ -258,18 +258,14 @@ def simulate_core(
             else:
                 fee = broker_commission(gross, sell_fee) + gross * tax
             if side == "BUY" and gross + fee > cash:
-                # Rate path vs min-commission path (same as live_ledger.max_affordable_buy_qty)
-                if buy_fee > 0 and (cash / (fp * (1 + buy_fee))) * fp * buy_fee >= MIN_COMMISSION:
-                    afford = int(cash / (fp * (1 + buy_fee)))
-                elif cash > MIN_COMMISSION:
-                    afford = int((cash - MIN_COMMISSION) / fp)
-                else:
-                    afford = 0
-                if lot_size > 1:
-                    afford = (afford // lot_size) * lot_size
-                q = max(0, afford)
-                gross = q * fp
-                fee = broker_commission(gross, buy_fee)
+                # ACCEPT_2026-09-19_PAPER_LIVE_FILL_SKIP_ALIGN — match live_fill_core:
+                # underfunded BUY skips entirely (do not partial-fill); requeue pending.
+                from live_ledger import max_affordable_buy_qty
+
+                afford = max_affordable_buy_qty(cash, fp)
+                if afford < q:
+                    still.append(o)
+                    continue
             if q < 1:
                 continue
             if side == "BUY":
@@ -703,7 +699,8 @@ def verify_e45_claim(repo: Path) -> dict:
         "verified_lineage_mdd": dict(e45_mod.VERIFIED_LINEAGE_MDD),
         "e45_module_paths": [str(p.relative_to(repo)) for p in (repo / "scripts").glob("e45*")],
         "conclusion": (
-            "Named module scripts/e45_crisis_core.py exists; live stitch remains DEFERRED. "
+            "Named module scripts/e45_crisis_core.py exists; A05 live stitch is DROPPED "
+            "(ACCEPT_2026-09-09_DROP_E45_A05). Live overlay is DH_dd06+FUSE. "
             "Handoff MDD narrative is RETIRED_HISTORICAL_NARRATIVE — see E45_MDD_1316 retirement/verification pack. "
             "Use dated lineage / PRIMARY_COMPARABLE_MDD only; do not invent a replacement. "
             "Formal live stack remains Soft-Frozen E16 + Exact T+1 E18 + E22_v2s_tw; E45 not live-wired."

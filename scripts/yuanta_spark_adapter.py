@@ -112,9 +112,24 @@ def append_basket_map(
     order_id: str,
     asof: date,
 ) -> None:
+    """Append BasketNo map row; skip if identical mapping already present."""
     out = Path(state_dir) / "broker_preflight"
     out.mkdir(parents=True, exist_ok=True)
     path = out / BASKET_MAP_FILENAME
+    if path.exists():
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            try:
+                row = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if (
+                row.get("basket_no") == basket_no
+                and row.get("client_order_id") == client_order_id
+                and row.get("order_id") == order_id
+            ):
+                return
     with path.open("a", encoding="utf-8") as f:
         f.write(
             json.dumps(

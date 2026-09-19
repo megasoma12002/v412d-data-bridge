@@ -42,8 +42,15 @@ _PORTS: dict[str, type] = {
 
 
 def resolve_fill_port(name: str | None = None) -> FillPort:
-    """Resolve fill port from explicit name, else ``E21_FILL_PORT``, else paper."""
-    raw = (name or os.environ.get(ENV_FILL_PORT) or DEFAULT_FILL_PORT).strip().lower()
+    """Resolve fill port: explicit name → ``E21_FILL_PORT`` → ``LIVE.fill_port`` → paper."""
+    from live_config import LIVE
+
+    raw = (
+        name
+        or os.environ.get(ENV_FILL_PORT)
+        or LIVE.fill_port
+        or DEFAULT_FILL_PORT
+    ).strip().lower()
     if raw not in _PORTS:
         known = ", ".join(sorted(_PORTS))
         raise SystemExit(f"Unknown fill port {raw!r}; known: {known}")

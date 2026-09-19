@@ -106,8 +106,12 @@ class SoftAssistObserveGuards(unittest.TestCase):
             self.assertNotIn(needle, cfg)
             self.assertNotIn(needle, targets)
             self.assertNotIn(needle, orders)
-        self.assertIn("live_e45_stitch: bool = False", cfg)
         self.assertIn("FIN_PRE_EXDIV_KD", cfg)
+        # E45 A05 stitch DROPPED — no flip field on LiveConfig; no stitch branch in targets.
+        self.assertNotIn("live_e45_stitch:", cfg)
+        self.assertIn("E45_A05_STITCH_DROPPED = True", cfg)
+        self.assertIn("LIVE_E45_STITCH = False", cfg)
+        self.assertNotIn("if cfg.live_e45_stitch", targets)
         # 2026-09-13 ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE (MENU3).
         self.assertIn("live_fuse_additive: bool = True", cfg)
         self.assertIn("live_dh_exposure: bool = True", cfg)
@@ -167,11 +171,14 @@ class SleeveTiltObserveGuards(unittest.TestCase):
         self.assertIn("SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json", src)
 
     def test_forward_pipeline_refuses_asof_rewind(self):
-        # Session rewind gate lives in live_session_io; fill skip in live_fill_core.
+        # Session rewind gate lives in live_session_io; fill skip in live_fill_core + e50.
         session_src = (SCRIPTS / "live_session_io.py").read_text(encoding="utf-8")
         core_src = (SCRIPTS / "live_fill_core.py").read_text(encoding="utf-8")
+        e50_src = (SCRIPTS / "e50_early_stack_combined_nav.py").read_text(encoding="utf-8")
         self.assertIn("cannot silently rewind", session_src)
         self.assertIn("afford < orig_q", core_src)
+        self.assertIn("ACCEPT_2026-09-19_PAPER_LIVE_FILL_SKIP_ALIGN", e50_src)
+        self.assertIn("still.append(o)", e50_src)
 
 
 class FrozenClaimLabel(unittest.TestCase):

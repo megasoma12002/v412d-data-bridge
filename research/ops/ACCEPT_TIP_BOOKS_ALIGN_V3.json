@@ -1,0 +1,15 @@
+{
+  "label": "ACCEPT_2026-09-19_TIP_BOOKS_ALIGN_V3",
+  "accepted": true,
+  "accepted_at_utc": "2026-09-19T05:00:00+00:00",
+  "ballot": "ACCEPT tip books align: forward tip may advance to E22_v3_recv_pay_effdelay (Stage-E DEFAULT); no history rewrite",
+  "code_default": "E22_v3_recv_pay_effdelay",
+  "history_rewrite": false,
+  "soft_frozen_unchanged": true,
+  "e45_stitch": "DROPPED",
+  "broker_live_write_accepted": false,
+  "refs": [
+    "research/ops/E22_V3_RECV_PAY_EFFDELAY_PROMOTE_CHECKLIST.md",
+    "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md"
+  ]
+}

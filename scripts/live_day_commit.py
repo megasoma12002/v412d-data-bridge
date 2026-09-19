@@ -12,15 +12,14 @@ import pandas as pd
 
 from e22_books_apply import books_manifest
 from live_config import (
+    E45_STITCH_ROLLBACK,
     KD_OPT,
     LIVE_CUTOVER_BALLOT,
     LIVE_DH_EXPOSURE,
     LIVE_DH_ID,
-    LIVE_E45_BLEND_ALPHA,
-    LIVE_E45_BOOK,
-    LIVE_E45_STITCH,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
+    TIP_BOOKS_ALIGN_BALLOT,
 )
 from live_ledger import append_immutable, atomic_write_json
 
@@ -79,16 +78,17 @@ def commit_day_books(
                 + "\n"
             )
 
-    with pd.ExcelWriter(sdir / "E21_forward_dashboard.xlsx", engine="openpyxl") as xw:
-        for name, file in [
-            ("Signals", "signals.csv"),
-            ("NAV", "nav.csv"),
-            ("Orders", "orders.csv"),
-            ("Fills", "fills.csv"),
-            ("Dividends", "dividends_applied.csv"),
-        ]:
-            p = sdir / file
-            if p.exists():
+    sheet_sources = [
+        ("Signals", "signals.csv"),
+        ("NAV", "nav.csv"),
+        ("Orders", "orders.csv"),
+        ("Fills", "fills.csv"),
+        ("Dividends", "dividends_applied.csv"),
+    ]
+    present = [(name, sdir / file) for name, file in sheet_sources if (sdir / file).exists()]
+    if present:
+        with pd.ExcelWriter(sdir / "E21_forward_dashboard.xlsx", engine="openpyxl") as xw:
+            for name, p in present:
                 pd.read_csv(p).to_excel(xw, sheet_name=name, index=False)
 
 
@@ -116,10 +116,11 @@ def build_portfolio_state_payload(
         "kd_opt_id": KD_OPT["id"],
         "fin_within_sleeve_cutover": "ACCEPT_2026-09-09_KD_OPT",
         "soft_frozen_clip_flip": "ACCEPT_2026-09-09_FINBAND_F0.60-0.90",
-        "e45_stitch": LIVE_E45_STITCH,
-        "e45_book": LIVE_E45_BOOK if LIVE_E45_STITCH else None,
+        "e45_stitch": False,
+        "e45_book": None,
         "e45_stitch_ballot": None,
-        "e45_stitch_rollback": "ACCEPT_2026-09-09_DROP_E45_A05",
+        "e45_stitch_rollback": E45_STITCH_ROLLBACK,
+        "tip_books_align_ballot": TIP_BOOKS_ALIGN_BALLOT,
         "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
         "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
         "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,

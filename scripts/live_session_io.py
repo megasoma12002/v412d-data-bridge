@@ -38,9 +38,24 @@ def assert_canonical_live_paths(
     fill_port_name: str,
     allow_noncanonical: bool,
 ) -> None:
+    """Gate Soft-Frozen paths and fill ports independently.
+
+    Soft-Frozen canonical ``forward/e21`` **always** requires ``paper`` —
+    ``--allow-noncanonical-paths`` does **not** unlock broker/dry_run there.
+    Non-paper ports need a research state copy (non-canonical paths).
+    """
+    state_r = Path(state_dir).resolve()
+    market_r = Path(market_path).resolve()
+    # Independent of allow_noncanonical: never run non-paper on Soft-Frozen tree.
+    if state_r == CANON_STATE and fill_port_name != "paper":
+        raise SystemExit(
+            f"Refusing fill port {fill_port_name!r} on Soft-Frozen canonical state "
+            f"{CANON_STATE}. Copy state elsewhere and pass --allow-noncanonical-paths "
+            "for dry_run/broker research."
+        )
     if allow_noncanonical:
         return
-    if state_dir != CANON_STATE or market_path != CANON_MARKET:
+    if state_r != CANON_STATE or market_r != CANON_MARKET:
         raise SystemExit(
             "Refusing non-canonical live paths. Use --market forward/e21/live_market.csv "
             "and --state-dir forward/e21, or pass --allow-noncanonical-paths for research."
@@ -48,7 +63,7 @@ def assert_canonical_live_paths(
     if fill_port_name != "paper":
         raise SystemExit(
             f"Refusing fill port {fill_port_name!r} on canonical live path. "
-            "Use --fill-port paper (default), or --allow-noncanonical-paths for dry_run research."
+            "Use --fill-port paper (default), or copy state + --allow-noncanonical-paths."
         )
 
 

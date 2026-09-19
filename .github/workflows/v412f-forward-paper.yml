@@ -43,7 +43,7 @@ jobs:
           set -euo pipefail
           mkdir -p forward
           ASOF="$(TZ=Asia/Taipei date +%F)"
-          PYTHONPATH=scripts python scripts/twse_forward_session_gate.py \
+          python scripts/twse_forward_session_gate.py \
             --asof "$ASOF" \
             --out-dir forward \
             --github-output "$GITHUB_OUTPUT"
@@ -109,7 +109,7 @@ jobs:
         run: |
           set -euo pipefail
           ASOF="$(TZ=Asia/Taipei date +%F)"
-          PYTHONPATH=scripts python scripts/twse_t2_settlement_estimate.py \
+          python scripts/twse_t2_settlement_estimate.py \
             --state-dir forward/e21 \
             --asof "$ASOF"
       - name: Fail-closed E21 QC
