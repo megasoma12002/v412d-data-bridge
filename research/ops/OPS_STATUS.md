@@ -103,6 +103,10 @@ E45 blend-alpha paper screen: `research/e45/E45_BLEND_ALPHA_PAPER_SCREEN.md`
 E45 A05 stitch checklist (**DROPPED / RETIRED**): `research/ops/E45_STITCH_CHECKLIST.md` · `E45_A05_STITCH_DROPPED.md`  
 E45 dual-paper observe: `research/e45/E45_DUAL_PAPER_OBSERVE.md` / open `E45_DUAL_PAPER_OBSERVE_OPEN.md`  
 E45 month-end: `research/gaps/E45_MONTH_END_MONITOR.md`  
+L4 dual-paper promote proposal: `research/gaps/L4_DD_PATH_PROMOTE_PROPOSAL.md`  
+L4 month-end: `research/gaps/L4_DD_PATH_MONTH_END_MONITOR.md`  
+L4 month-end runbook: `research/gaps/L4_DD_PATH_MONTH_END_RUNBOOK.md`  
+L4 cutover checklist (prep / NOT AUTHORIZED): `research/ops/CUTOVER_CHECKLIST_L4.md` · hygiene sync `L4_HYGIENE_CHECKLIST_SYNC_2026-09-19.md`  
 BLEND_025 dual-paper observe: `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md`  
 BLEND_025 month-end: `research/gaps/BLEND_025_MONTH_END_MONITOR.md`  
 BLEND_025 month-end runbook: `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md`  
