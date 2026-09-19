@@ -1,10 +1,10 @@
 # 民股／四類 × MDD — New Mechanism V3 Charter（M1 連續強度縮放 FinPriv）
 
 Date: 2026-09-19  
-Status: **DRAFT / PAPER CHARTER OPEN** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged** · Stage A **not** started until human ACCEPT  
+Status: **CHARTER ACCEPTED → Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged**  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Parents STOP: N1–N3 · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md` · V2 S1–S2 · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
-Human: **「全新 charter」**（不改 sealed 門檻）
+Human: **「ACCEPT V3 Stage-A」** (2026-09-19)
 
 **Passing ≠ Soft-Frozen flip ≠ live e21 rewrite ≠ merge `#257`.**
 

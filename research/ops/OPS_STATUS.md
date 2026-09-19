@@ -6,7 +6,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**
 **Cutover `#257`: FROZEN — do not merge** (`LIVE_CUTOVER_BUNDLE_257_FROZEN.md`) · 民股／四類等新機制或 human 改 sealed 門檻  
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
-新機制 V3 DRAFT（不改 sealed）：`PRIV_MDD_M1_SCALE_V3_CHARTER.md`（M1 `s_t` 連續縮放 FinPriv；Stage A 待 ACCEPT）  
+新機制 V3：**ACCEPT Stage-A** · `PRIV_MDD_M1_SCALE_V3_CHARTER.md`（M1 `s_t` 連續縮放 FinPriv）  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  
