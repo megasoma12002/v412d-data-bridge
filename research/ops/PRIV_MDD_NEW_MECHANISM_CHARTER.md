@@ -176,8 +176,9 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_new_mech_n3_stage_a.py
 
 ## 8. Alternate reopen
 
-- Human-accepted **sealed-gate change** — **not** chosen this turn.  
-- **V2 new mechanism** (cross-asset / breadth sensors): `PRIV_MDD_SENSOR_MECH_V2_CHARTER.md` — DRAFT until ACCEPT.
+- Human-accepted **sealed-gate change** — optional, not this charter.  
+- **V2** sensors: STOP · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
+- **V3** proportional M1 scale: DRAFT · `PRIV_MDD_M1_SCALE_V3_CHARTER.md`
 
 ---
 

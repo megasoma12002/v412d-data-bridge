@@ -105,16 +105,9 @@ score_mdd = MDD↑_heldout + 0.5 × MDD↑_sealed − 0.25 × max(0, CAGR_giveba
 
 ---
 
-## 6. Stage A ladder
+## 7. After S2 STOP
 
-### S1 — DONE / STOP
-`PYTHONPATH=scripts python3 scripts/e16_priv_mdd_sensor_s1_stage_a.py` · `PRIV_MDD_SENSOR_S1_DECISION_PACK.md`
-
-### S2 — ACCEPTED (this ballot)
-```bash
-PYTHONPATH=scripts python3 scripts/e16_priv_mdd_sensor_s2_stage_a.py
-```
-→ `PRIV_MDD_SENSOR_S2_STAGE_A.{md,json}` + decision pack.
+V2 ladder **exhausted**. Next paper path (sealed unchanged): **V3** · `PRIV_MDD_M1_SCALE_V3_CHARTER.md`.
 
 ---
 
