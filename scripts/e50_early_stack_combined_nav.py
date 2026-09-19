@@ -58,6 +58,7 @@ from research_metric_helpers import metric_delta, fmt_pct
 FIN = ["2880", "2886", "2892", "5880"]
 TEL = ["2412", "3045", "4904"]
 ALL = FIN + TEL + ["0050"]
+from live_fill_core import sort_rows_sell_before_buy
 from live_ledger import MIN_COMMISSION, commission as broker_commission
 
 BUY_FEE = 0.001425 * 0.6
@@ -238,10 +239,11 @@ def simulate_core(
         cl = closes.loc[dt]
 
         # 1) Fill pending orders at today's open (E18 Exact T+1).
-        # SELL before BUY so cash from sells funds same-bar buys (align live).
-        due = [o for o in pending if pd.Timestamp(o["signal_date"]) < dt]
+        # SELL before BUY so cash from sells funds same-bar buys (shared helper).
+        due = sort_rows_sell_before_buy(
+            [o for o in pending if pd.Timestamp(o["signal_date"]) < dt]
+        )
         still = [o for o in pending if pd.Timestamp(o["signal_date"]) >= dt]
-        due.sort(key=lambda o: (0 if o["side"] == "SELL" else 1, str(o["code"])))
         for o in due:
             side = o["side"]
             code = o["code"]

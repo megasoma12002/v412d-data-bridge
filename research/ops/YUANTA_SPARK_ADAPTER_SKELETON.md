@@ -3,7 +3,18 @@
 Status: **OPS / RESEARCH** — mapping only; **no DLL / no network**  
 Code: `scripts/yuanta_spark_adapter.py` · tests: `tests/test_yuanta_spark_adapter.py`  
 UAT jump VM: `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`  
-Gates: `scripts/broker_safety.py` · Soft-Frozen KEEP until ACCEPT
+Gates: `scripts/broker_safety.py` · Soft-Frozen KEEP until ACCEPT  
+Live seam: `BrokerPreflightFillPort._write_spark_offline_intents` in `live_fill_broker.py`
+
+## Module boundary
+
+| Module | Responsibility | Must not |
+|---|---|---|
+| `yuanta_spark_adapter` | shares↔張 · B/S · BasketNo · StockOrder intent shape · OnResponse→ack map | import pythonnet / YuantaSparkAPI · flip live write |
+| `live_fill_broker` | session gate · fixture acks · Soft-Frozen write gates · call offline intent writer | own SPARK field math |
+| `broker_safety` / `broker_risk` | confirm+reserve · circuit · dedupe · ballot | know SPARK DLL types |
+
+`send_stock_order_live()` always raises `SparkNotWiredError` while `API_WIRED=False`.
 
 ## What this is
 
@@ -30,8 +41,6 @@ Artifacts under `broker_preflight/`:
 - Does **not** call `Open` / `Login` / `SendStockOrder`
 - Does **not** flip `LIVE.broker_live_write_accepted`
 - Does **not** write Soft-Frozen `fills.csv` by itself
-
-`send_stock_order_live()` raises `SparkNotWiredError` until a future ACCEPT sets `API_WIRED` and implements the client.
 
 ## Next ACCEPT steps (human)
 

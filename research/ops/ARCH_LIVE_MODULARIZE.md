@@ -1,7 +1,7 @@
-# Live architecture modularization (2026-09-14)
+# Live architecture modularization (2026-09-19)
 
 Status: **OPS / ENGINEERING** — Soft-Frozen **KEEP** · live flags unchanged  
-PR scope: extract seams for Docker / future broker adapter — **no strategy cutover**
+PR scope: extract seams for Docker / future broker adapter — **no strategy cutover · no ACCEPT / API_WIRED**
 
 ## Modules
 
@@ -9,15 +9,37 @@ PR scope: extract seams for Docker / future broker adapter — **no strategy cut
 |---|---|
 | `scripts/live_config.py` | `LiveConfig` / `LIVE_*` / `KD_OPT` / books / capital SSOT |
 | `scripts/live_strategy_targets.py` | Soft-Frozen features + FUSE/DH/E45 overlays |
-| `scripts/live_execution.py` | Pending fills at open (Exact T+1) — `FillPort` / paper / dry_run |
-| `scripts/live_ledger.py` | Immutable CSV append + holdings |
-| `scripts/e21_forward_pipeline.py` | CLI + day orchestration (re-exports flags; `--fill-port`) |
+| `scripts/live_execution.py` | **Facade** — `resolve_fill_port` / `fill_pending_at_open` (stable imports) |
+| `scripts/live_fill_core.py` | Paper / dry_run ports · `sort_*_sell_before_buy` · `afford < orig_q` skip |
+| `scripts/live_fill_broker.py` | `BrokerPreflightFillPort` (offline acks + SPARK intent seam) |
+| `scripts/live_session_io.py` | Canonical path gates · market/state load · asof rewind refuse |
+| `scripts/live_e22_day.py` | One-day E22 books apply helper |
+| `scripts/live_rebalance_orders.py` | Sleeve gap → Soft-Frozen order rows (SELL-before-BUY) |
+| `scripts/live_day_commit.py` | Deferred fills/divs + atomic `portfolio_state` + Excel audit |
+| `scripts/live_ledger.py` | Immutable CSV append + holdings + commission helpers |
+| `scripts/e21_forward_pipeline.py` | CLI + day orchestration only (thin) |
+| `scripts/e50_early_stack_combined_nav.py` | Research sim — shared `sort_rows_sell_before_buy` |
+| `scripts/yuanta_spark_adapter.py` | Offline SPARK field map (`API_WIRED=False`) |
 | `scripts/ops_dual_paper_month_end.py` | Parameterized dual/multi-paper month-end runner |
-| `scripts/ops_dual_paper_ledgers.py` | Shared dual/multi-paper ledger driver on `simulate_core` (`chal_market` / `post_base` / `sim_context`) |
+| `scripts/ops_dual_paper_ledgers.py` | Shared dual/multi-paper ledger driver on `simulate_core` |
 | `scripts/live_kd_guard.py` | Research ledger KD / E45-stitch fail-closed |
 | `pyproject.toml` + `setup.py` | Installable `e21-ops` (flat `scripts/*.py` as top-level modules) |
 | `Dockerfile` + `docker-compose.yml` | Ops image (`pip install .`; no broker secrets) |
 | `scripts/ops_docker_qc_smoke.sh` | Build image + `e21_qc` bind-mount smoke |
+
+## Day orchestration (call graph)
+
+```
+e21_forward_pipeline.main
+  ├─ live_session_io          (paths / market / preflight)
+  ├─ live_strategy_targets    (features / session targets)
+  ├─ live_execution           → live_fill_core | live_fill_broker
+  ├─ live_e22_day             (dividends / receivables)
+  ├─ live_rebalance_orders    (orders.csv rows)
+  └─ live_day_commit          (fills + state + audit Excel)
+```
+
+Stable call sites keep `from live_execution import …`. Soft-Frozen KEEP.
 
 ## Install (no `sys.path` hacks)
 
@@ -52,8 +74,8 @@ Pack CLI paths unchanged (`ops_month_end_paper_pack.py --refresh-ledgers`).
 ## Explicit non-goals
 
 - Soft-Frozen clip / LIVE_FUSE / LIVE_DH values
-- Broker API credentials / live order routing
-- Merging paper `simulate_core` with live session
+- Broker API credentials / live order routing / `API_WIRED=True`
+- Merging paper `simulate_core` with live session (shared sort helper only)
 - Silent unify of `E22_V2S` vs `E22_v2s_tw`
 
 ## Docker ops QC (B1)
@@ -67,9 +89,13 @@ bash scripts/ops_docker_qc_smoke.sh
 
 CI: `.github/workflows/docker-ops-qc-smoke.yml`. **Who writes `forward/e21`:** still GHA `v412f-forward-paper` (not the container) until an explicit deploy cutover.
 
-## Fill ports (C1/C2)
+## Fill ports
 
-`scripts/live_execution.py`: `FillPort` protocol · `PaperOpenFillPort` (default) · `DryRunFillPort` (shadow under `broker_dryrun/`, no live `fills.csv`).
+| Port | Module | Behavior |
+|---|---|---|
+| `paper` (default) | `live_fill_core.PaperOpenFillPort` | Exact T+1; deferred `fills.csv` until day-commit |
+| `dry_run` | `live_fill_core.DryRunFillPort` | Shadow under `broker_dryrun/`; no live fills |
+| `broker` | `live_fill_broker.BrokerPreflightFillPort` | Session gate + fixture acks; SPARK intents via adapter |
 
 ```bash
 # default / live canonical path — paper only
@@ -79,13 +105,23 @@ E21_FILL_PORT=dry_run python3 scripts/e21_forward_pipeline.py \
   --allow-noncanonical-paths --state-dir /tmp/e21-dry --market ...
 ```
 
-True broker adapter (Shioaji / SPARK / …) maps exchange acks → same fill row schema; credentials never in image/git.
+True broker adapter (元大 SPARK) maps exchange acks → same fill row schema; credentials never in image/git. See `YUANTA_SPARK_ADAPTER_SKELETON.md`.
+
+## SPARK adapter boundary
+
+| Layer | Owns |
+|---|---|
+| `yuanta_spark_adapter` | Field map · BasketNo · INTENT_ONLY artifacts · `assert_not_wired` |
+| `live_fill_broker` | Session / ballot / circuit / ack→fill · calls adapter offline seam only |
+| `broker_safety` / `broker_risk` | Submit reserve · dedupe · live write gates |
+
+`API_WIRED` stays `False` until a separate ACCEPT.
 
 ## Next (optional)
 
 1. Cloud long-run deploy of the Docker ops image (GCP asia-east1 candidate; pick single writer for `forward/e21`)
-2. One broker skeleton behind `FillPort` (dry-run map first; 元大 SPARK ≠ repo 元大股息抓取) — UAT 固定 IP 跳板見 `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`；離線欄位映射見 `YUANTA_SPARK_ADAPTER_SKELETON.md` / `yuanta_spark_adapter.py`
-3. TWSE session calendar (holidays / typhoon) — `TWSE_SESSION_CALENDAR_CHARTER.md` (#237); **required before broker live submit**
-4. T+2 settlement cash **estimate** (observe-only) — `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md`; depends on session offset
+2. Wire pythonnet client behind `confirm_and_reserve_broker_submit` (UAT first) — see `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`
+3. TWSE session calendar (holidays / typhoon) — `TWSE_SESSION_CALENDAR_CHARTER.md`; **required before broker live submit**
+4. T+2 settlement cash **estimate** (observe-only) — `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md`
 
-Label: `ARCH_LIVE_MODULARIZE__DOCKER_QC__FILL_PORT`
+Label: `ARCH_LIVE_MODULARIZE__FILL_CORE__DAY_COMMIT`

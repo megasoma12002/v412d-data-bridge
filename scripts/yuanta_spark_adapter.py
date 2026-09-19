@@ -5,6 +5,12 @@ Maps Soft-Frozen pending / ``broker_safety`` submit intents ↔ SPARK
 ``StockOrder`` field shapes and ``SendStockOrder`` OnResponse rows into the
 existing ``broker_acks`` / fill schema.
 
+Module boundary:
+  - **This file** — pure field map + INTENT_ONLY artifacts + ``assert_not_wired``
+  - ``live_fill_broker.BrokerPreflightFillPort`` — session/ballot/ack→fill;
+    calls ``build_intents_from_pending`` / ``write_spark_intents`` only
+  - ``broker_safety`` / ``broker_risk`` — submit reserve, circuit, live write gates
+
 Hard rules:
   - ``API_WIRED = False`` until a separate ACCEPT wires pythonnet + DLL
   - Never import ``YuantaSparkAPI`` / ``pythonnet`` here
