@@ -18,13 +18,16 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 |---:|---|---|---|
 | 1 | Soft-Frozen live clip **[0.60, 0.90]** | **FLIPPED** (ACCEPT 2026-09-09 `FINBAND_F0.60-0.90`) | Was [0.50, 0.95]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
-| 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
-| 3 | Sealed-CAGR successor path | **FINCAP BLEND_025 OPERATING OBSERVE** | FINCAP sleeve KEEP; observe ≠ promote · **E45_BLEND025 archived 2026-09-13** |
-| 4 | L4_DD_PATH live cutover | **DEFER** | No PR until checklist all-green (≥1 clean month-end, no YTD/1y PAUSE) |
-| 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
-| 6a | Odd-lot default → `E22_v2s_tw` | **DONE** (2026-09-05) | #73+#74 merged; live `DEFAULT_BOOKS_VERSION = E22_v2s_tw`; Soft-Frozen KEEP; forward-only |
-| 6b | Formal tax·receivable books | **ACCEPT charter** (2026-09-05) | Stage B sandbox OPEN; DEFAULT stays `E22_v2s_tw`; Soft-Frozen KEEP; promote needs later ballot |
+| 2 | FIN_CAP_50 **static** live cutover | **REJECT static alone** (ACCEPT 2026-09-19 as **BLEND component**) | Soft-Frozen BASE clip KEEP [0.60,0.90]; FIN50 inside BLEND/L4 only · `ACCEPT_CUTOVER_BUNDLE_2026-09-19.md` |
+| 3 | Sealed-CAGR successor path | **FINCAP BLEND_025 LIVE** (ACCEPT 2026-09-19) | FUSE → BLEND_025 → L4 → DH · Soft-Frozen BASE KEEP |
+| 4 | L4_DD_PATH live cutover | **ACCEPTED LIVE** (2026-09-19) | `L4_DD_PATH_08_50` · same bundle |
+| 5 | BLEND_025 → live | **ACCEPTED LIVE** (2026-09-19) | Same bundle |
+| 6a | Odd-lot default → `E22_v2s_tw` | **DONE** (2026-09-05) | #73+#74 merged; Soft-Frozen KEEP; forward-only |
+| 6b | Formal tax·receivable books | **ACCEPT Stage-B promote** (2026-09-19) | Live DEFAULT `E22_v3_recv_pay_tax10` · Soft-Frozen KEEP |
 | 6c | E45 live stitch | **ROLLBACK `DROP_E45_A05`** (2026-09-09) | Was ACCEPTED `BLEND_E45_A05` same day; unwired after paper drag · `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md` |
+| 7 | Soft-assist / Sleeve-tilt live | **ACCEPTED via FUSE** (2026-09-19) | No independent Soft/Sleeve wire (would double-apply) |
+| 8 | FIN 民營 native live | **ACCEPTED LIVE** (2026-09-19) | `PRIV_KD_MAY_Klt25_T15` · priv panel ffill from `private_fin_adjusted` |
+| 9 | Broker live-write | **ACCEPTED flag** (2026-09-19) | `broker_live_write_accepted=True`; env+ballot still required to mutate; default fill_port paper |
 
 ## Research portfolio (2026-09-08)
 

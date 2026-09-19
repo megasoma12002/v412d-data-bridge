@@ -12,13 +12,15 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
 | Item | Value |
 |---|---|
-| Stack | **E16 + Exact T+1 E18 + E22_v3_recv_pay_effdelay** |
+| Stack | **E16 + Exact T+1 E18 + E22_v3_recv_pay_tax10** (+ FUSE → BLEND_025 → L4 → DH) |
 | Path | `forward/e21/` |
 | Capital / lot | **500M** · board-lot **1000** |
-| Clip | Financial **[0.60, 0.90]** via `scripts/e16_soft_frozen_base.py` |
-| Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** |
-| Overlay | **`FUSE_ADDITIVE`** + **`DH_dd06`** (`LIVE_FUSE_ADDITIVE` / `LIVE_DH_EXPOSURE`) |
+| Clip | Financial **[0.60, 0.90]** via `scripts/e16_soft_frozen_base.py` (BASE; BLEND/L4 may use FIN_CAP_50) |
+| Within-sleeve | FIN **民營 `PRIV_KD_MAY_Klt25_T15`** · TEL **`TEL_EQUAL`** |
+| Overlay | **`FUSE_ADDITIVE`** + **`BLEND_025`** + **`L4_DD_PATH_08_50`** + **`DH_dd06`** |
 | Legacy A05 stitch | **DROPPED** (`ACCEPT_2026-09-09_DROP_E45_A05`) — see `E45_A05_STITCH_DROPPED.md` |
+| Broker live-write | **`broker_live_write_accepted=True`** (env + ballot file still required to mutate) · default fill_port **paper** |
+| Cutover bundle | `ACCEPT_CUTOVER_BUNDLE_2026-09-19.md` |
 | Daily job | `.github/workflows/v412f-forward-paper.yml` (weekdays) |
 | QC smoke | `.github/workflows/e21-live-qc-smoke.yml` |
 | QC | `scripts/e21_qc.py` → `forward/e21/qc_status.json` |
