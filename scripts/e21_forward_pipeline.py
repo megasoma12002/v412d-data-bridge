@@ -4,32 +4,28 @@
 Formal price split:
   - E16 signals: adj_close
   - Books / fills / NAV: raw open/close + E22_v3_recv_pay_effdelay
-    (receivable on effective ex; cash on effective payment; TW odd-lot stock)
-  - Order sizing: 一張 = 1000 股 (整股); no 零股 (1–999) continuous-book orders
+  - Order sizing: 一張 = 1000 股 (整股)
 
-Architecture (2026-09-14 modularize):
-  - live_config.LiveConfig — live flags / books / capital SSOT
-  - live_strategy_targets — Soft-Frozen + FUSE/DH/E45 overlays
-  - live_execution — pending fills at open (Exact T+1)
-  - live_ledger — immutable CSV append + holdings
-CLI entry and day orchestration stay here.
+Architecture (modularize cleanup):
+  - live_config / live_strategy_targets / live_execution
+  - live_session_io · live_e22_day · live_rebalance_orders · live_day_commit
+CLI + day orchestration only live here.
 """
-import argparse, hashlib, json, os, sys
-from datetime import datetime, timezone
+from __future__ import annotations
+
+import argparse
+import json
+import sys
 from pathlib import Path
-import numpy as np
-import pandas as pd
 
 import e22_dividend_accounting as e22div
 import e16_soft_frozen_base as soft_frozen
+import e22_v3_sandbox_books as e22sandbox
 from e16_soft_frozen_base import FIN, TEL
-from tw_share_lots import BOARD_LOT, board_lots
-from within_sleeve_alloc import (
-    allocate_sleeve_orders,
-    build_kd_season_tilt_scores,
-    build_pre_exdiv_window_buy_ok,
-)
 from live_config import (
+    DIV_PATH,
+    E22_BOOKS_VERSION,
+    KD_OPT,
     LIVE,
     LIVE_CUTOVER_BALLOT,
     LIVE_DH_EXPOSURE,
@@ -40,49 +36,41 @@ from live_config import (
     LIVE_E45_STITCH,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
-    KD_OPT,
-    E22_BOOKS_VERSION,
-    DIV_PATH,
 )
-from live_ledger import (
-    ALL,
-    append_immutable,
-    assert_no_uncommitted_ledger,
-    atomic_write_json,
-    holdings,
-    make_order_id,
+from live_day_commit import (
+    build_portfolio_state_payload,
+    commit_day_books,
+    utc_now_iso,
+)
+from live_e22_day import apply_e22_day, load_div_events_for_live
+from live_execution import fill_pending_at_open, resolve_fill_port
+from live_ledger import ALL, append_immutable, holdings
+from live_rebalance_orders import build_live_order_rows, sleeve_trade_from_gap
+from live_session_io import (
+    CANON_MARKET,
+    CANON_STATE,
+    REPO_ROOT,
+    assert_canonical_live_paths,
+    assert_session_preflight,
+    load_market_session,
+    load_portfolio_state,
+    resolve_fill_port_name,
+    resolve_repo_path,
 )
 from live_strategy_targets import features, resolve_session_targets
-from live_execution import fill_pending_at_open, resolve_fill_port
-from e22_books_apply import apply_books_for_date, books_manifest, is_sandbox_version
-import e22_v3_sandbox_books as e22sandbox
 
-# Mutable session capital (CLI may override); default from LiveConfig.
 CAPITAL = float(LIVE.capital)
-REPO_ROOT = Path(__file__).resolve().parents[1]
-CANON_STATE = (REPO_ROOT / "forward" / "e21").resolve()
-CANON_MARKET = (CANON_STATE / "live_market.csv").resolve()
 
 
-def main():
+def main() -> None:
     global CAPITAL
     ap = argparse.ArgumentParser()
-    # Canonical live tree is forward/e21 (nav/orders/signals). Legacy e21_data/e21_state
-    # defaults created a second un-audited book — refuse unless explicitly overridden.
     ap.add_argument("--market", default="forward/e21/live_market.csv")
     ap.add_argument("--state-dir", default="forward/e21")
     ap.add_argument("--capital", type=float, default=CAPITAL)
     ap.add_argument("--dividends", default=str(DIV_PATH))
-    ap.add_argument(
-        "--no-div-amount-repair",
-        action="store_true",
-        help="Do not auto-refetch/patch dirty dividend amount cells (still fail-closed).",
-    )
-    ap.add_argument(
-        "--apply-div-amount-repair",
-        action="store_true",
-        help="Allow writing repaired amounts into the dividend events CSV (explicit opt-in).",
-    )
+    ap.add_argument("--no-div-amount-repair", action="store_true")
+    ap.add_argument("--apply-div-amount-repair", action="store_true")
     ap.add_argument(
         "--e22-version",
         default=E22_BOOKS_VERSION,
@@ -100,26 +88,10 @@ def main():
             e22sandbox.E22_V3_RECV_PAY_TAX20,
         ],
     )
-    ap.add_argument(
-        "--confirm-e22-version-override",
-        action="store_true",
-        help="Required when --e22-version differs from live DEFAULT (E22_v3_recv_pay_effdelay).",
-    )
-    ap.add_argument(
-        "--allow-noncanonical-paths",
-        action="store_true",
-        help="Permit market/state paths outside forward/e21 (research only).",
-    )
-    ap.add_argument(
-        "--asof",
-        default=None,
-        help="Process this session date (YYYY-MM-DD) instead of market max (replay/ops).",
-    )
-    ap.add_argument(
-        "--fill-port",
-        default=None,
-        help="Fill backend: paper (default) | dry_run. Overrides E21_FILL_PORT / LiveConfig.",
-    )
+    ap.add_argument("--confirm-e22-version-override", action="store_true")
+    ap.add_argument("--allow-noncanonical-paths", action="store_true")
+    ap.add_argument("--asof", default=None)
+    ap.add_argument("--fill-port", default=None)
     a = ap.parse_args()
     if a.e22_version != E22_BOOKS_VERSION and not a.confirm_e22_version_override:
         raise SystemExit(
@@ -127,54 +99,18 @@ def main():
             "pass --confirm-e22-version-override to proceed (research/ops only)."
         )
     CAPITAL = a.capital
-    sdir = Path(a.state_dir)
-    market_path = Path(a.market)
-    if not sdir.is_absolute():
-        sdir = (REPO_ROOT / sdir).resolve()
-    else:
-        sdir = sdir.resolve()
-    if not market_path.is_absolute():
-        market_path = (REPO_ROOT / market_path).resolve()
-    else:
-        market_path = market_path.resolve()
-    fill_port_name = (
-        a.fill_port
-        or os.environ.get("E21_FILL_PORT")
-        or LIVE.fill_port
-        or "paper"
-    ).strip().lower()
-    if not a.allow_noncanonical_paths:
-        if sdir != CANON_STATE or market_path != CANON_MARKET:
-            raise SystemExit(
-                "Refusing non-canonical live paths. Use --market forward/e21/live_market.csv "
-                "and --state-dir forward/e21, or pass --allow-noncanonical-paths for research."
-            )
-        if fill_port_name != "paper":
-            raise SystemExit(
-                f"Refusing fill port {fill_port_name!r} on canonical live path. "
-                "Use --fill-port paper (default), or --allow-noncanonical-paths for dry_run research."
-            )
+    sdir = resolve_repo_path(a.state_dir)
+    market_path = resolve_repo_path(a.market)
+    fill_port_name = resolve_fill_port_name(a.fill_port)
+    assert_canonical_live_paths(
+        state_dir=sdir,
+        market_path=market_path,
+        fill_port_name=fill_port_name,
+        allow_noncanonical=a.allow_noncanonical_paths,
+    )
     sdir.mkdir(parents=True, exist_ok=True)
-    m = pd.read_csv(market_path, dtype={"code": str})
-    m.date = pd.to_datetime(m.date)
-    m = m.sort_values(["date", "code"])
-    required = set(ALL + ["TAIEX"])
-    available = m.groupby("date").code.apply(lambda x: required.issubset(set(x)))
-    common = available[available].index
-    if len(common) == 0:
-        raise RuntimeError("no complete common trading date for all required instruments")
-    if a.asof:
-        asof = pd.Timestamp(a.asof).normalize()
-        if asof not in common:
-            raise SystemExit(f"--asof {a.asof} is not a complete common trading date in market")
-        latest = asof
-    else:
-        latest = common.max()
-    m = m[m.date <= latest]
-    day = m[m.date == latest].set_index("code")
-    missing = [c for c in ALL + ["TAIEX"] if c not in day.index]
-    if missing:
-        raise RuntimeError(f"latest snapshot incomplete {latest.date()}: {missing}")
+
+    m, latest, day = load_market_session(market_path, asof=a.asof)
     px, sleeve, target, e20, diag = features(m)
     tw, _e20w, tw_pre_dh, dh_exposure_today, e45_exposure_today, _fuse_meta, _dh_meta = (
         resolve_session_targets(m, target, latest, a.dividends, LIVE)
@@ -182,26 +118,11 @@ def main():
     e20w = e20.iloc[-1]
     prices = day.close.astype(float).to_dict()
     state_path = sdir / "portfolio_state.json"
-    state = (
-        json.loads(state_path.read_text())
-        if state_path.exists()
-        else {"cash": a.capital, "positions": {}, "last_date": None}
-    )
-    # Fail-closed: crash between fills/div CSV append and state commit.
-    assert_no_uncommitted_ledger(sdir, state.get("last_date"))
-    # Fail-closed: never rewind behind last_date (would rewrite portfolio_state while
-    # immutable fills/orders skip via append_immutable — silent book corruption).
-    prior_last = state.get("last_date")
-    if prior_last:
-        prior_ts = pd.Timestamp(prior_last).normalize()
-        if latest < prior_ts:
-            raise SystemExit(
-                f"Refusing session {latest.date()} behind portfolio last_date={prior_last}. "
-                "Replay/rebuild requires an explicit wipe path; --asof cannot silently rewind."
-            )
+    state = load_portfolio_state(sdir, capital=a.capital)
+    assert_session_preflight(sdir, state, latest)
+
     pos, cash, vals, nav = holdings(state, prices, capital=a.capital)
     op = day.open.astype(float).to_dict()
-    orders_path = sdir / "orders.csv"
     fill_port = resolve_fill_port(fill_port_name)
     pos, cash, fills, same_bar_fills, exact_t1_ok = fill_pending_at_open(
         state_dir=sdir,
@@ -218,7 +139,10 @@ def main():
         "fills_checked": len(fills),
         "fill_port": fill_port.name,
         "pending_filter": "signal_date < fill_date",
-        "soft_frozen_financial_clip": [soft_frozen.SOFT_FROZEN_FIN_LO, soft_frozen.SOFT_FROZEN_FIN_HI],
+        "soft_frozen_financial_clip": [
+            soft_frozen.SOFT_FROZEN_FIN_LO,
+            soft_frozen.SOFT_FROZEN_FIN_HI,
+        ],
         "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
         "kd_opt_id": KD_OPT["id"],
         "e45_stitch": LIVE_E45_STITCH,
@@ -231,7 +155,9 @@ def main():
         "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
         "dh_exposure": float(dh_exposure_today) if LIVE_DH_EXPOSURE else None,
         "e16_financial_pre_dh": float(tw_pre_dh["Financial"]) if LIVE_DH_EXPOSURE else None,
-        "live_cutover_ballot": LIVE_CUTOVER_BALLOT if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE) else None,
+        "live_cutover_ballot": LIVE_CUTOVER_BALLOT
+        if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE)
+        else None,
         "live_wire": True,
         "owns_qc_status": False,
         "note": (
@@ -245,100 +171,30 @@ def main():
             f"Exact T+1 violation: {same_bar_fills} same-bar fill(s) on {latest.date()}"
         )
 
-    # E22 books on today (forward-only; idempotent via applied keys).
-    # Live DEFAULT: E22_v3_recv_pay_effdelay (Stage-E ACCEPT) — receivable / pay clock.
-    # Escape hatch: --e22-version E22_v2s_tw_effex --confirm-e22-version-override.
-    # Dividend amount repair: default is dry-run / fail-closed load; CSV rewrite
-    # requires explicit --apply-div-amount-repair.
-    if getattr(a, "no_div_amount_repair", False):
-        div_events = e22div.load_dividend_events(
-            a.dividends, require_exists=True, fail_closed_amounts=True
-        )
-    elif getattr(a, "apply_div_amount_repair", False):
-        from e22_dividend_amount_repair import load_dividend_events_with_repair
-
-        div_events = load_dividend_events_with_repair(
-            a.dividends, require_exists=True, network=True
-        )
-    else:
-        # Default: detect dirty amounts without mutating production CSV.
-        from e22_dividend_amount_repair import scan_bad_amount_cells
-
-        div_path_check = Path(a.dividends)
-        if div_path_check.exists() and scan_bad_amount_cells(div_path_check):
-            raise SystemExit(
-                f"Dirty dividend amount cells in {div_path_check}; "
-                "re-run with --apply-div-amount-repair to patch CSV, "
-                "or --no-div-amount-repair after manual fix."
-            )
-        div_events = e22div.load_dividend_events(
-            a.dividends, require_exists=True, fail_closed_amounts=True
-        )
+    div_events = load_div_events_for_live(
+        a.dividends,
+        no_repair=bool(a.no_div_amount_repair),
+        apply_repair=bool(a.apply_div_amount_repair),
+    )
     skip = set(state.get("e22_applied_keys") or [])
     div_path = sdir / "dividends_applied.csv"
     if div_path.exists():
+        import pandas as pd
+
         skip |= set(pd.read_csv(div_path)["key"].astype(str))
     receivables = {
-        str(k): float(v)
-        for k, v in (state.get("e22_receivables") or {}).items()
+        str(k): float(v) for k, v in (state.get("e22_receivables") or {}).items()
     }
-    sessions = None
-    settlements = None
-    mops_amd = None
-    if is_sandbox_version(a.e22_version) or a.e22_version in e22div.EFFEX_VERSIONS:
-        from twse_session_sources import (
-            DEFAULT_CALENDAR_DIR,
-            read_calendar_csv,
-            session_dates,
-            settlement_dates,
-        )
-
-        y = int(str(latest.date())[:4])
-        cal_path = DEFAULT_CALENDAR_DIR / f"twse_sessions_{y}.csv"
-        if cal_path.exists():
-            cal_rows = read_calendar_csv(cal_path)
-            sessions = session_dates(cal_rows)
-            settlements = settlement_dates(cal_rows)
-        if is_sandbox_version(a.e22_version):
-            from e22_mops_payment_amendments import load_amendments
-
-            mops_amd = load_amendments()
-    pos, cash, receivables, applied = apply_books_for_date(
-        latest.date().isoformat(),
-        pos,
-        cash,
-        div_events,
-        version=a.e22_version,
-        skip_keys=skip,
-        mark_prices=prices,
+    pos, cash, receivables, applied, pending_div_rows = apply_e22_day(
+        asof_iso=latest.date().isoformat(),
+        pos=pos,
+        cash=cash,
+        div_events=div_events,
+        e22_version=a.e22_version,
+        skip=skip,
+        prices=prices,
         receivables=receivables,
-        session_dates=sessions,
-        settlement_dates=settlements,
-        mops_amendments=mops_amd,
     )
-    pending_div_rows: list[dict] = []
-    for d in applied.details:
-        pending_div_rows.append(
-            {
-                "key": d["key"],
-                "date": latest.date().isoformat(),
-                "kind": d["kind"],
-                "code": d["code"],
-                "ex_date": d.get("ex_date"),
-                "payment_date": d.get("payment_date", ""),
-                "amount_per_share": d.get("amount_per_share", d.get("gross_credit", "")),
-                "cash_credit": d.get("cash_credit", 0.0),
-                "receivable_credit": d.get("receivable_credit", 0.0),
-                "shares_added": d.get("shares_added", 0.0),
-                "fractional_shares": d.get("fractional_shares", 0.0),
-                "cil_cash_credit": d.get("cil_cash_credit", 0.0),
-                "mark_price": d.get("mark_price", ""),
-                "effective_ex_trade": d.get("effective_ex_trade", ""),
-                "effective_payment": d.get("effective_payment", ""),
-                "version": d.get("version", a.e22_version),
-            }
-        )
-        skip.add(d["key"])
 
     pos, cash, vals, nav = holdings(
         {"positions": pos, "cash": cash, "e22_receivables": receivables},
@@ -351,123 +207,21 @@ def main():
         "0050": vals["0050"],
     }
     pre = {k: v / nav for k, v in sleeve_vals.items()}
-    gap = {k: float(tw[k] - pre[k]) for k in pre}
-    l1 = sum(abs(v) for v in gap.values())
-    trade = np.zeros(3)
-    if max(abs(v) for v in gap.values()) >= 0.015:
-        trade = np.array([gap["Financial"], gap["Telecom"], gap["0050"]]) * 0.75
-        if abs(trade).sum() > 0.20:
-            trade *= 0.20 / abs(trade).sum()
-    sleeve_trade = dict(zip(["Financial", "Telecom", "0050"], trade))
-    # KD_OPT panels for Financial within-sleeve (forward-only cutover).
-    div_df = (
-        pd.read_csv(a.dividends, dtype={"code": str})
-        if Path(a.dividends).exists()
-        else pd.DataFrame()
+    sleeve_trade, l1 = sleeve_trade_from_gap(pre, tw)
+    orders_path = sdir / "orders.csv"
+    order_rows = build_live_order_rows(
+        market=m,
+        latest=latest,
+        prices=prices,
+        pos=pos,
+        nav=nav,
+        sleeve_trade=sleeve_trade,
+        dividends_path=a.dividends,
     )
-    cal = pd.to_datetime(m["date"]).drop_duplicates().sort_values()
-    kd_scores = build_kd_season_tilt_scores(
-        m,
-        div_df,
-        FIN,
-        k_thresh=float(KD_OPT["k_thresh"]),
-        season_start=KD_OPT["season_start"],
-        season_end=KD_OPT["season_end"],
-        pre_days=int(KD_OPT["pre_days"]),
-        active_score=float(KD_OPT["active_score"]),
-    )
-    kd_buy_ok = build_pre_exdiv_window_buy_ok(
-        cal,
-        div_df,
-        FIN,
-        pre_days=int(KD_OPT["pre_days"]),
-        also_stock_ex=True,
-    )
-    fin_scores_today = None
-    if latest in kd_scores.index:
-        fin_scores_today = {
-            c: float(kd_scores.loc[latest, c])
-            for c in FIN
-            if c in kd_scores.columns and pd.notna(kd_scores.loc[latest, c])
-        }
-    fin_buy_ok_today = None
-    if latest in kd_buy_ok.index:
-        fin_buy_ok_today = {
-            c: bool(kd_buy_ok.loc[latest, c])
-            for c in FIN
-            if c in kd_buy_ok.columns
-        }
-    fin_sell_scores_today = None
-    # FUSE_ADDITIVE live: Soft observe buy/sell softs on top of KD_OPT panels.
-    if LIVE_FUSE_ADDITIVE:
-        import live_dh_fuse_cutover as live_cut
-
-        soft_scores, soft_ok, soft_sell = live_cut.fuse_soft_panels_for_asof(
-            m, div_df, latest
-        )
-        if soft_scores is not None:
-            fin_scores_today = soft_scores
-        if soft_ok is not None:
-            fin_buy_ok_today = soft_ok
-        fin_sell_scores_today = soft_sell
-
-    order_rows = []
-    # Financial: LIVE KD_OPT (+ FUSE softs when LIVE_FUSE_ADDITIVE)
-    fin_dollars = float(sleeve_trade["Financial"]) * nav
-    if abs(fin_dollars) >= 1e-9:
-        for c, side, qty in allocate_sleeve_orders(
-            fin_dollars,
-            {x: float(prices[x]) for x in FIN},
-            pos,
-            policy_id=LIVE_FIN_WITHIN_SLEEVE,
-            codes=FIN,
-            lot_size=BOARD_LOT,
-            scores=fin_scores_today,
-            buy_ok=fin_buy_ok_today,
-            sell_scores=fin_sell_scores_today,
-        ):
-            if qty < BOARD_LOT or qty % BOARD_LOT != 0:
-                continue
-            oid = make_order_id(signal_date=latest.date(), code=c, side=side)
-            order_rows.append(
-                {
-                    "order_id": oid,
-                    "signal_date": latest.date().isoformat(),
-                    "code": c,
-                    "side": side,
-                    "quantity": int(qty),
-                    "reference_close": prices[c],
-                }
-            )
-    # Telecom + 0050: keep equal-split within sleeve
-    for sleeve_name, codes in [("Telecom", TEL), ("0050", ["0050"])]:
-        value = sleeve_trade[sleeve_name] * nav / len(codes)
-        for c in codes:
-            # Taiwan 整股：1 張 = 1000 股
-            qty = board_lots(abs(value) / prices[c])
-            if qty < BOARD_LOT:
-                continue
-            side = "BUY" if value > 0 else "SELL"
-            if side == "SELL":
-                qty = min(qty, board_lots(pos.get(c, 0)))
-            if qty < BOARD_LOT:
-                continue
-            oid = make_order_id(signal_date=latest.date(), code=c, side=side)
-            order_rows.append(
-                {
-                    "order_id": oid,
-                    "signal_date": latest.date().isoformat(),
-                    "code": c,
-                    "side": side,
-                    "quantity": qty,
-                    "reference_close": prices[c],
-                }
-            )
-    # Persist SELL before BUY so CSV order matches fill preference.
-    order_rows.sort(key=lambda o: (0 if o["side"] == "SELL" else 1, o["code"]))
     for o in order_rows:
         append_immutable(orders_path, o, "order_id")
-    stamp = datetime.now(timezone.utc).isoformat()
+
+    stamp = utc_now_iso()
     signal = {
         "date": latest.date().isoformat(),
         "generated_at_utc": stamp,
@@ -492,7 +246,9 @@ def main():
         "e16_financial_pre_dh": float(tw_pre_dh["Financial"]) if LIVE_DH_EXPOSURE else None,
         "e16_telecom_pre_dh": float(tw_pre_dh["Telecom"]) if LIVE_DH_EXPOSURE else None,
         "e16_0050_pre_dh": float(tw_pre_dh["0050"]) if LIVE_DH_EXPOSURE else None,
-        "live_cutover_ballot": LIVE_CUTOVER_BALLOT if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE) else None,
+        "live_cutover_ballot": LIVE_CUTOVER_BALLOT
+        if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE)
+        else None,
     }
     append_immutable(sdir / "signals.csv", signal, "date")
     navrow = {
@@ -515,76 +271,30 @@ def main():
         "e22_receivable_balance": float(sum(receivables.values())),
     }
     append_immutable(sdir / "nav.csv", navrow, "date")
-    # Day-commit: persist deferred paper fills + dividends, then atomic state.
-    # Shrinks crash window between immutable CSVs and portfolio_state (L3).
-    if fill_port.name == "paper":
-        for f in fills:
-            append_immutable(sdir / "fills.csv", f, "fill_id")
-    for row in pending_div_rows:
-        append_immutable(div_path, row, "key")
-    state = {
-        "cash": cash,
-        "positions": pos,
-        "e22_receivables": receivables,
-        "last_date": latest.date().isoformat(),
-        "last_nav": nav,
-        "e22_books_version": a.e22_version,
-        "e22_applied_keys": sorted(skip),
-        "e22_manifest": books_manifest(a.e22_version),
-        "stage_e_recv_accept": "ACCEPT_2026-09-16_E22_v3_recv_pay_effdelay",
-        "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
-        "kd_opt_id": KD_OPT["id"],
-        "fin_within_sleeve_cutover": "ACCEPT_2026-09-09_KD_OPT",
-        "soft_frozen_clip_flip": "ACCEPT_2026-09-09_FINBAND_F0.60-0.90",
-        "e45_stitch": LIVE_E45_STITCH,
-        "e45_book": LIVE_E45_BOOK if LIVE_E45_STITCH else None,
-        "e45_stitch_ballot": None,
-        "e45_stitch_rollback": "ACCEPT_2026-09-09_DROP_E45_A05",
-        "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
-        "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
-        "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
-        "live_cutover": "ACCEPT_2026-09-13_DH_dd06_FUSE_ADDITIVE",
-        "live_cutover_ballot": LIVE_CUTOVER_BALLOT if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE) else None,
-        "live_cutover_rollback": "Set LIVE_FUSE_ADDITIVE=False and LIVE_DH_EXPOSURE=False",
-    }
-    atomic_write_json(state_path, state)
-    # Hash-chain audit: each row commits to the prior row and today's immutable outputs.
-    audit_chain = sdir / "audit_chain.jsonl"
-    prev = "GENESIS"
-    if audit_chain.exists():
-        lines = audit_chain.read_text().splitlines()
-        prev = json.loads(lines[-1])["hash"] if lines else prev
-        if any(json.loads(x)["date"] == latest.date().isoformat() for x in lines):
-            prev = None
-    if prev:
-        payload = json.dumps(
-            {
-                "date": latest.date().isoformat(),
-                "signal": signal,
-                "nav": navrow,
-                "orders": order_rows,
-                "fills": fills,
-                "dividends": applied.details,
-                "previous_hash": prev,
-            },
-            sort_keys=True,
-            default=str,
-        )
-        h = hashlib.sha256(payload.encode()).hexdigest()
-        with audit_chain.open("a") as f:
-            f.write(json.dumps({"date": latest.date().isoformat(), "previous_hash": prev, "hash": h}) + "\n")
-    # Human-friendly Excel dashboard.
-    with pd.ExcelWriter(sdir / "E21_forward_dashboard.xlsx", engine="openpyxl") as xw:
-        for name, file in [
-            ("Signals", "signals.csv"),
-            ("NAV", "nav.csv"),
-            ("Orders", "orders.csv"),
-            ("Fills", "fills.csv"),
-            ("Dividends", "dividends_applied.csv"),
-        ]:
-            p = sdir / file
-            if p.exists():
-                pd.read_csv(p).to_excel(xw, sheet_name=name, index=False)
+
+    state_payload = build_portfolio_state_payload(
+        cash=cash,
+        pos=pos,
+        receivables=receivables,
+        latest_iso=latest.date().isoformat(),
+        nav=nav,
+        e22_version=a.e22_version,
+        skip=skip,
+    )
+    commit_day_books(
+        state_dir=sdir,
+        fill_port_name=fill_port.name,
+        fills=fills,
+        pending_div_rows=pending_div_rows,
+        div_path=div_path,
+        state_path=state_path,
+        state_payload=state_payload,
+        signal=signal,
+        navrow=navrow,
+        order_rows=order_rows,
+        applied_details=applied.details,
+        asof_iso=latest.date().isoformat(),
+    )
     print(
         json.dumps(
             {

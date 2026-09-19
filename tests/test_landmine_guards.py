@@ -98,19 +98,24 @@ class SoftAssistObserveGuards(unittest.TestCase):
         """Standalone Soft-assist live wire stays banned; FUSE_ADDITIVE ACCEPT allows softs."""
         pipe = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
         cfg = (SCRIPTS / "live_config.py").read_text(encoding="utf-8")
+        targets = (SCRIPTS / "live_strategy_targets.py").read_text(encoding="utf-8")
+        orders = (SCRIPTS / "live_rebalance_orders.py").read_text(encoding="utf-8")
         # Independent Soft-assist observe markers must not be hard-wired into live.
         for needle in ("soft_assist", "SOFT_BOTH", "BELOW_MA120"):
             self.assertNotIn(needle, pipe)
             self.assertNotIn(needle, cfg)
+            self.assertNotIn(needle, targets)
+            self.assertNotIn(needle, orders)
         self.assertIn("live_e45_stitch: bool = False", cfg)
         self.assertIn("FIN_PRE_EXDIV_KD", cfg)
         # 2026-09-13 ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE (MENU3).
         self.assertIn("live_fuse_additive: bool = True", cfg)
         self.assertIn("live_dh_exposure: bool = True", cfg)
-        self.assertIn("live_dh_fuse_cutover", pipe)
-        # FUSE soft sell panel is allowed only behind the FUSE flag / cutover helper.
-        self.assertIn("fin_sell_scores", pipe)
-        self.assertIn("LIVE_FUSE_ADDITIVE", pipe)
+        # FUSE routes via cutover helper (extracted from thin pipeline).
+        self.assertIn("live_dh_fuse_cutover", targets)
+        self.assertIn("live_dh_fuse_cutover", orders)
+        self.assertIn("fin_sell_scores", orders)
+        self.assertIn("LIVE_FUSE_ADDITIVE", orders)
 
     def test_soft_assist_helpers_match_live_kd_opt(self):
         from soft_assist_helpers import LIVE_KD
@@ -132,6 +137,7 @@ class SleeveTiltObserveGuards(unittest.TestCase):
         """Standalone Sleeve-tilt live wire stays banned; FUSE routes via cutover helper."""
         pipe = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
         cfg = (SCRIPTS / "live_config.py").read_text(encoding="utf-8")
+        targets = (SCRIPTS / "live_strategy_targets.py").read_text(encoding="utf-8")
         for needle in (
             "sleeve_tilt",
             "SLEEVE_BELOW_MA60",
@@ -141,14 +147,19 @@ class SleeveTiltObserveGuards(unittest.TestCase):
             self.assertNotIn(needle, pipe)
             self.assertNotIn(needle, cfg)
         self.assertIn("live_fuse_additive: bool = True", cfg)
-        self.assertIn("live_dh_fuse_cutover", pipe)
+        self.assertIn("live_dh_fuse_cutover", targets)
         helper = (SCRIPTS / "live_dh_fuse_cutover.py").read_text(encoding="utf-8")
         self.assertIn("build_champion_target", helper)
 
     def test_soft_assist_guard_also_bans_ma60_tilt_marker(self):
         # Soft-assist static ban previously covered MA120 only; MA60 is sleeve-tilt.
-        src = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
-        self.assertNotIn("BELOW_MA60", src)
+        for name in (
+            "e21_forward_pipeline.py",
+            "live_strategy_targets.py",
+            "live_rebalance_orders.py",
+        ):
+            src = (SCRIPTS / name).read_text(encoding="utf-8")
+            self.assertNotIn("BELOW_MA60", src)
 
     def test_ops_alert_scan_includes_observe_monitors(self):
         src = (SCRIPTS / "ops_alert_scan.py").read_text(encoding="utf-8")
@@ -156,10 +167,11 @@ class SleeveTiltObserveGuards(unittest.TestCase):
         self.assertIn("SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json", src)
 
     def test_forward_pipeline_refuses_asof_rewind(self):
-        pipe = (SCRIPTS / "e21_forward_pipeline.py").read_text(encoding="utf-8")
-        exec_src = (SCRIPTS / "live_execution.py").read_text(encoding="utf-8")
-        self.assertIn("cannot silently rewind", pipe)
-        self.assertIn("afford < orig_q", exec_src)
+        # Session rewind gate lives in live_session_io; fill skip in live_fill_core.
+        session_src = (SCRIPTS / "live_session_io.py").read_text(encoding="utf-8")
+        core_src = (SCRIPTS / "live_fill_core.py").read_text(encoding="utf-8")
+        self.assertIn("cannot silently rewind", session_src)
+        self.assertIn("afford < orig_q", core_src)
 
 
 class FrozenClaimLabel(unittest.TestCase):
