@@ -133,4 +133,4 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_dh_priv_window_v5_stage_a.py
 - DH recipe: `E45_DEFEND_HANDOFF_PAPER_CHARTER.md` · `DH_dd06_vz1p0`  
 - Freeze: `LIVE_CUTOVER_BUNDLE_257_FROZEN.md`  
 
-Label: `PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER_2026-09-19__ACCEPTED`
+Label: `PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER_2026-09-19__STOP`

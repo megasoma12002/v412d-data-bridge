@@ -23,7 +23,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | 0e | 民股 MDD **新機制 V2**（廣度／FinPub–TAIEX／FX／CBC） | **STOP S1–S2** (2026-09-19) | V2 ladder exhausted · Soft-Frozen KEEP · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md` |
 | 0f | 民股 MDD **新機制 V3**（M1 連續縮放 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V3_C50_0050` −0.44 · Soft-Frozen KEEP · `PRIV_MDD_M1_SCALE_V3_DECISION_PACK.md` |
 | 0g | 民股 MDD **新機制 V4**（sealed 事件剖檢→日曆閘） | **STOP** (2026-09-19) | A0 span>120 · A1 未開 · Soft-Frozen KEEP · `PRIV_MDD_SEALED_EPISODE_V4_DECISION_PACK.md` |
-| 0h | 民股 MDD **新機制 V5**（DH 防衛窗 → 只關 FinPriv） | **ACCEPT Stage-A** (2026-09-19) | 不改 sealed · ≠ N1–V4／SF4_DH retune · Soft-Frozen KEEP · `PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER.md` |
+| 0h | 民股 MDD **新機制 V5**（DH 防衛窗 → 只關 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V5_DH_0050_XTIGHT` −0.27 · Soft-Frozen KEEP · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.90]** | **FLIPPED** (ACCEPT 2026-09-09 `FINBAND_F0.60-0.90`) | Was [0.50, 0.95]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
