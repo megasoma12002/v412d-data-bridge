@@ -1,7 +1,7 @@
 # 民股／四類 × MDD — New Mechanism Charter (N1 → N2 → N3)
 
 Date: 2026-09-19  
-Status: **CHARTER ACCEPTED → Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN**  
+Status: **CHARTER ACCEPTED → Stage A STOP** (`STAGE_A_SCORE_POS_GATES_FAIL` — N1 FinPriv regime membership: tip/heldout often OK, **0 sealed-MDD coexist**)  
 Human ACCEPT: **「ACCEPT N1 Stage-A」** (2026-09-19)  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Authority: freeze reopen gate · `LIVE_CUTOVER_BUNDLE_257_FROZEN.md`  
