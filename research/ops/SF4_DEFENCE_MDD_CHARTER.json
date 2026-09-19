@@ -1,0 +1,12 @@
+{
+  "label": "SF4_DEFENCE_MDD_CHARTER",
+  "date": "2026-09-19",
+  "status": "STAGE_A_RUNNING",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "frozen_offense": "SF4_P60-90_V0-15_F10_KD",
+  "mechanisms": ["DH_dd06", "L4_DD_PATH_08", "L4_DD_PATH_10", "L4+DH"],
+  "sealed_gate": "MDD_improve_pp >= 0 (unchanged)",
+  "prior_stop": "PUB_PRIV_COEXIST_MDD_DECISION_PACK.md",
+  "human": "新機制（四類 + DH/L4 防禦）— 不改 sealed 目標、不重調舊格"
+}
