@@ -1,7 +1,8 @@
 # 民股／四類 × MDD — New Mechanism Charter (N1 → N2 → N3)
 
 Date: 2026-09-19  
-Status: **DRAFT / PAPER CHARTER OPEN** — Soft-Frozen **KEEP** · `#257` **FROZEN** · Stage A **not started** until human ACCEPT this charter  
+Status: **CHARTER ACCEPTED → Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN**  
+Human ACCEPT: **「ACCEPT N1 Stage-A」** (2026-09-19)  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Authority: freeze reopen gate · `LIVE_CUTOVER_BUNDLE_257_FROZEN.md`  
 Human binding: 「民股等**新機制**或你改門檻再談」· this charter = **new mechanism** path (sealed gate **unchanged**)
@@ -144,14 +145,14 @@ Only after N2 pack:
 
 ---
 
-## 7. Stage A — authorized when human ACCEPTs this charter
+## 7. Stage A — ACCEPTED (N1 only)
 
 1. Implement `scripts/e16_priv_mdd_new_mech_n1_stage_a.py` (paper).  
 2. Run N1 grid + controls vs `LIVE_PUB_KD`.  
 3. Write `PRIV_MDD_NEW_MECH_N1_STAGE_A.{md,json}` + decision pack.  
 4. Verdict: coexist / STOP / autopsy → only then ballot N2 or sealed-gate human path.
 
-Reproduce (after ACCEPT + script lands):
+Reproduce:
 
 ```bash
 PYTHONPATH=scripts python3 scripts/e16_priv_mdd_new_mech_n1_stage_a.py

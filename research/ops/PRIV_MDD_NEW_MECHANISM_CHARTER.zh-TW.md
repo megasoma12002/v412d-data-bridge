@@ -1,7 +1,7 @@
 # 民股／四類 × MDD 新機制 Charter — 摘要
 
 日期：2026-09-19  
-狀態：**DRAFT**（紙上 charter；Stage A 需你 ACCEPT 後才跑）  
+狀態：**ACCEPT N1 Stage-A**（紙上研究；live 不改）  
 活盤：**公股 Soft-Frozen + FUSE + DH KEEP** · `#257` **FROZEN**
 
 ## 為什麼要新機制
@@ -16,7 +16,7 @@
 
 | 階 | 內容 | 現況 |
 |---|---|---|
-| **N1** | FinPriv **開關**（sleeve 自 DD 或相對公股報酬觸發 → 公股-only） | Stage A 候選（ACCEPT 後跑） |
+| **N1** | FinPriv **開關**（sleeve 自 DD 或相對公股報酬觸發 → 公股-only） | **Stage A 執行中** |
 | **N2** | 壓力下 FinPriv 錢 → cash／0050 | N1 pack 後 |
 | **N3** | 三態：offense／defend／pub-only | N2 pack 後 |
 
