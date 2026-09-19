@@ -71,13 +71,14 @@ def live_write_gate(
     *,
     config_accepted: bool,
     state_dir: Path,
-    require_ballot_file: bool = False,
+    require_ballot_file: bool = True,
     env_write_live: bool | None = None,
 ) -> LiveWriteGateResult:
     """Hard gate for mutating Soft-Frozen fills via broker port.
 
     All of: LiveConfig ACCEPT flag, env ``E21_BROKER_WRITE_LIVE``, and
-    (if ``require_ballot_file``) a ballot JSON with ``accepted: true``.
+    a ballot JSON with ``accepted: true`` (``require_ballot_file`` defaults
+    True — Soft-Frozen live writes must not rely on env+flag alone).
     """
     reasons: list[str] = []
     env_ok = env_truthy(ENV_WRITE_LIVE) if env_write_live is None else bool(env_write_live)
@@ -242,7 +243,7 @@ def confirm_before_broker_submit(
     confirmed: bool,
     config_accepted: bool,
     env_write_live: bool | None = None,
-    require_ballot_file: bool = False,
+    require_ballot_file: bool = True,
 ) -> SubmitConfirmResult:
     """Pre-submit confirm for a future broker API adapter (no network).
 
@@ -284,7 +285,7 @@ def confirm_and_reserve_broker_submit(
     confirmed: bool,
     config_accepted: bool,
     env_write_live: bool | None = None,
-    require_ballot_file: bool = False,
+    require_ballot_file: bool = True,
 ) -> SubmitConfirmResult:
     """Confirm then reserve dedupe key (must run under ProcessLock)."""
     result = confirm_before_broker_submit(

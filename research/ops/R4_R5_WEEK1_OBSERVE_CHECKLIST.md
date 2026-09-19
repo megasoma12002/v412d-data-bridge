@@ -38,7 +38,7 @@ Expect `all_ok: true` within `tol` (default NT$1). Mismatches → investigate fe
 | Typhoon / board postpone | `twse_same_day_ex_list.py` → `data/dividend_events/ex_date_amendments.csv` |
 | Payment 重大訊息 | `e22_mops_payment_amendments.py` → `mops_payment_amendments.csv` |
 
-Do not `--write-ledger` without a separate ACCEPT.
+Do not rewrite Soft-Frozen dividend ledgers without a separate ACCEPT (these CLIs have no ``--write-ledger`` flag).
 
 ## End-of-week decision gate
 

@@ -31,7 +31,7 @@ class FillPortTests(unittest.TestCase):
         with self.assertRaises(SystemExit):
             resolve_fill_port("shioaji")
 
-    def test_paper_writes_live_fills(self) -> None:
+    def test_paper_returns_fills_defers_csv(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             sdir = Path(td)
             sig = "2024-01-02"
@@ -61,7 +61,8 @@ class FillPortTests(unittest.TestCase):
             self.assertTrue(ok)
             self.assertEqual(same_bar, 0)
             self.assertEqual(len(fills), 1)
-            self.assertTrue((sdir / "fills.csv").exists())
+            # Pipeline day-commit owns fills.csv append (with portfolio_state).
+            self.assertFalse((sdir / "fills.csv").exists())
             row = fills[0]
             for k in FILL_ROW_KEYS:
                 self.assertIn(k, row)

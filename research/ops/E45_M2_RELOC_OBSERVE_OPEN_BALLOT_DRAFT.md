@@ -5,11 +5,14 @@ Accepted: 2026-09-06 via human 「請全做」
 Operating doc: `research/ops/E45_M2_BIL_FX_OBSERVE_OPEN.md`  
 Chinese mirror (non-binding): `research/ops/E45_M2_RELOC_OBSERVE_OPEN_BALLOT_DRAFT.zh-TW.md`
 
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this ballot was written.
+> **Live today:** FIN **[0.60, 0.90]** — see `research/ops/OPS_STATUS.md` / `e16_soft_frozen_base`.
+
 > This ballot is **ACCEPTED** for locked book **`M2_RELOC_BIL_FX_C50` only**.  
 > Soft-Frozen / DEFAULT / stitch remain KEEP / KEEP / FORBIDDEN.  
 > C75 is **not** auto-OPEN.
 
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen: **[0.50, 0.95] KEEP** (historical at ballot time; live SSOT is **[0.60, 0.90]**)  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN**  
 Parent sleeves still OPERATING: FULL + A25 + A05 + `SLEEVE_FIN_ONLY_A10`  
@@ -72,7 +75,7 @@ HIGH_BETA: **DRAFT / NOT OPEN** (separate ballot)
 
 | # | Item | Required |
 |---|---|---|
-| 1 | Soft-Frozen live clip remains [0.50, 0.95] | YES |
+| 1 | Soft-Frozen live clip remains [0.50, 0.95] | YES (at ballot time; live SSOT now **[0.60, 0.90]**) |
 | 2 | Live DEFAULT books remain `E22_v2s_tw` | YES |
 | 3 | M2 v1 §2 PASS artifact present for locked BIL_FX book | YES |
 | 4 | Retired MDD narrative still RETIRED | YES |

@@ -44,7 +44,14 @@ from live_config import (
     E22_BOOKS_VERSION,
     DIV_PATH,
 )
-from live_ledger import ALL, append_immutable, holdings, make_order_id
+from live_ledger import (
+    ALL,
+    append_immutable,
+    assert_no_uncommitted_ledger,
+    atomic_write_json,
+    holdings,
+    make_order_id,
+)
 from live_strategy_targets import features, resolve_session_targets
 from live_execution import fill_pending_at_open, resolve_fill_port
 from e22_books_apply import apply_books_for_date, books_manifest, is_sandbox_version
@@ -52,6 +59,9 @@ import e22_v3_sandbox_books as e22sandbox
 
 # Mutable session capital (CLI may override); default from LiveConfig.
 CAPITAL = float(LIVE.capital)
+REPO_ROOT = Path(__file__).resolve().parents[1]
+CANON_STATE = (REPO_ROOT / "forward" / "e21").resolve()
+CANON_MARKET = (CANON_STATE / "live_market.csv").resolve()
 
 
 def main():
@@ -119,6 +129,14 @@ def main():
     CAPITAL = a.capital
     sdir = Path(a.state_dir)
     market_path = Path(a.market)
+    if not sdir.is_absolute():
+        sdir = (REPO_ROOT / sdir).resolve()
+    else:
+        sdir = sdir.resolve()
+    if not market_path.is_absolute():
+        market_path = (REPO_ROOT / market_path).resolve()
+    else:
+        market_path = market_path.resolve()
     fill_port_name = (
         a.fill_port
         or os.environ.get("E21_FILL_PORT")
@@ -126,9 +144,7 @@ def main():
         or "paper"
     ).strip().lower()
     if not a.allow_noncanonical_paths:
-        canon_state = Path("forward/e21").resolve()
-        canon_market = (Path("forward/e21") / "live_market.csv").resolve()
-        if sdir.resolve() != canon_state or market_path.resolve() != canon_market:
+        if sdir != CANON_STATE or market_path != CANON_MARKET:
             raise SystemExit(
                 "Refusing non-canonical live paths. Use --market forward/e21/live_market.csv "
                 "and --state-dir forward/e21, or pass --allow-noncanonical-paths for research."
@@ -171,6 +187,8 @@ def main():
         if state_path.exists()
         else {"cash": a.capital, "positions": {}, "last_date": None}
     )
+    # Fail-closed: crash between fills/div CSV append and state commit.
+    assert_no_uncommitted_ledger(sdir, state.get("last_date"))
     # Fail-closed: never rewind behind last_date (would rewrite portfolio_state while
     # immutable fills/orders skip via append_immutable — silent book corruption).
     prior_last = state.get("last_date")
@@ -298,26 +316,28 @@ def main():
         settlement_dates=settlements,
         mops_amendments=mops_amd,
     )
+    pending_div_rows: list[dict] = []
     for d in applied.details:
-        row = {
-            "key": d["key"],
-            "date": latest.date().isoformat(),
-            "kind": d["kind"],
-            "code": d["code"],
-            "ex_date": d.get("ex_date"),
-            "payment_date": d.get("payment_date", ""),
-            "amount_per_share": d.get("amount_per_share", d.get("gross_credit", "")),
-            "cash_credit": d.get("cash_credit", 0.0),
-            "receivable_credit": d.get("receivable_credit", 0.0),
-            "shares_added": d.get("shares_added", 0.0),
-            "fractional_shares": d.get("fractional_shares", 0.0),
-            "cil_cash_credit": d.get("cil_cash_credit", 0.0),
-            "mark_price": d.get("mark_price", ""),
-            "effective_ex_trade": d.get("effective_ex_trade", ""),
-            "effective_payment": d.get("effective_payment", ""),
-            "version": d.get("version", a.e22_version),
-        }
-        append_immutable(div_path, row, "key")
+        pending_div_rows.append(
+            {
+                "key": d["key"],
+                "date": latest.date().isoformat(),
+                "kind": d["kind"],
+                "code": d["code"],
+                "ex_date": d.get("ex_date"),
+                "payment_date": d.get("payment_date", ""),
+                "amount_per_share": d.get("amount_per_share", d.get("gross_credit", "")),
+                "cash_credit": d.get("cash_credit", 0.0),
+                "receivable_credit": d.get("receivable_credit", 0.0),
+                "shares_added": d.get("shares_added", 0.0),
+                "fractional_shares": d.get("fractional_shares", 0.0),
+                "cil_cash_credit": d.get("cil_cash_credit", 0.0),
+                "mark_price": d.get("mark_price", ""),
+                "effective_ex_trade": d.get("effective_ex_trade", ""),
+                "effective_payment": d.get("effective_payment", ""),
+                "version": d.get("version", a.e22_version),
+            }
+        )
         skip.add(d["key"])
 
     pos, cash, vals, nav = holdings(
@@ -495,6 +515,13 @@ def main():
         "e22_receivable_balance": float(sum(receivables.values())),
     }
     append_immutable(sdir / "nav.csv", navrow, "date")
+    # Day-commit: persist deferred paper fills + dividends, then atomic state.
+    # Shrinks crash window between immutable CSVs and portfolio_state (L3).
+    if fill_port.name == "paper":
+        for f in fills:
+            append_immutable(sdir / "fills.csv", f, "fill_id")
+    for row in pending_div_rows:
+        append_immutable(div_path, row, "key")
     state = {
         "cash": cash,
         "positions": pos,
@@ -520,7 +547,7 @@ def main():
         "live_cutover_ballot": LIVE_CUTOVER_BALLOT if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE) else None,
         "live_cutover_rollback": "Set LIVE_FUSE_ADDITIVE=False and LIVE_DH_EXPOSURE=False",
     }
-    state_path.write_text(json.dumps(state, indent=2) + "\n")
+    atomic_write_json(state_path, state)
     # Hash-chain audit: each row commits to the prior row and today's immutable outputs.
     audit_chain = sdir / "audit_chain.jsonl"
     prev = "GENESIS"

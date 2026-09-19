@@ -89,6 +89,13 @@ def _write_ack(
     )
 
 
+
+
+def _write_accept_ballot(sdir: Path, *, accepted: bool = True) -> None:
+    (sdir / "broker_live_write_accept.json").write_text(
+        json.dumps({"accepted": accepted}) + "\n", encoding="utf-8"
+    )
+
 class LiveWriteGateTests(unittest.TestCase):
     def test_default_live_config_rejects(self) -> None:
         self.assertFalse(LIVE.broker_live_write_accepted)
@@ -111,7 +118,13 @@ class LiveWriteGateTests(unittest.TestCase):
             g3 = live_write_gate(
                 config_accepted=True, state_dir=sdir, env_write_live=True
             )
-            self.assertTrue(g3.allowed)
+            self.assertFalse(g3.allowed)
+            self.assertTrue(any("broker_live_write_accept" in r for r in g3.reasons))
+            _write_accept_ballot(sdir, accepted=True)
+            g4 = live_write_gate(
+                config_accepted=True, state_dir=sdir, env_write_live=True
+            )
+            self.assertTrue(g4.allowed)
 
     def test_ballot_reject_blocks(self) -> None:
         with tempfile.TemporaryDirectory() as td:
@@ -279,6 +292,7 @@ class BrokerPortSafetyTests(unittest.TestCase):
             sdir = Path(td)
             _seed_pending(sdir)
             _write_ack(sdir)
+            _write_accept_ballot(sdir)
             port = BrokerPreflightFillPort(
                 probe_fn=_open_probe,
                 write_live=True,
@@ -320,6 +334,7 @@ class BrokerPortSafetyTests(unittest.TestCase):
                 trip_circuit(sdir, f"x{i}")
             _seed_pending(sdir)
             _write_ack(sdir)
+            _write_accept_ballot(sdir)
             port = BrokerPreflightFillPort(
                 probe_fn=_open_probe, write_live=True, config_accepted=True
             )
@@ -433,6 +448,7 @@ class ProcessLockAndConfirmTests(unittest.TestCase):
     def test_confirm_and_reserve_dedupes(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             sdir = Path(td)
+            _write_accept_ballot(sdir)
             with ProcessLock(sdir):
                 r1 = confirm_and_reserve_broker_submit(
                     state_dir=sdir,
@@ -475,6 +491,7 @@ class ProcessLockAndConfirmTests(unittest.TestCase):
             sdir = Path(td)
             _seed_pending(sdir)
             _write_ack(sdir)
+            _write_accept_ballot(sdir)
             port = BrokerPreflightFillPort(
                 probe_fn=_open_probe, write_live=True, config_accepted=True
             )
@@ -498,6 +515,7 @@ class BrokerLiveAffordAndConfirmTests(unittest.TestCase):
             sdir = Path(td)
             _seed_pending(sdir)
             _write_ack(sdir, fill_price=100.0)
+            _write_accept_ballot(sdir)
             port = BrokerPreflightFillPort(
                 probe_fn=_open_probe, write_live=True, config_accepted=True
             )
@@ -527,6 +545,7 @@ class BrokerLiveAffordAndConfirmTests(unittest.TestCase):
             sdir = Path(td)
             _seed_pending(sdir)
             _write_ack(sdir, ops_confirmed=False)
+            _write_accept_ballot(sdir)
             port = BrokerPreflightFillPort(
                 probe_fn=_open_probe, write_live=True, config_accepted=True
             )
@@ -568,6 +587,7 @@ class BrokerLiveAffordAndConfirmTests(unittest.TestCase):
                     }
                 ],
             )
+            _write_accept_ballot(sdir)
             port = BrokerPreflightFillPort(
                 probe_fn=_open_probe, write_live=True, config_accepted=True
             )

@@ -188,9 +188,8 @@ class PaperOpenFillPort:
             pos=pos,
             cash=cash,
         )
-        sdir = Path(state_dir)
-        for f in fills:
-            append_immutable(sdir / "fills.csv", f, "fill_id")
+        # Defer fills.csv append to pipeline day-commit (with portfolio_state)
+        # to shrink crash window between immutable CSV and state JSON.
         same_bar, ok = _exact_t1_stats(fills)
         return pos, cash, fills, same_bar, ok
 
@@ -256,8 +255,9 @@ class BrokerPreflightFillPort:
 
     Soft-Frozen live ``fills.csv`` / portfolio cash stay untouched unless
     ALL of: ``live_config.broker_live_write_accepted``, ``E21_BROKER_WRITE_LIVE=1``,
-    circuit closed, daily budget, ack↔pending match, idempotent client_order_id,
-    process lock, and confirm+reserve broker dedupe (see ``broker_safety``).
+    ``broker_live_write_accept.json`` with ``accepted: true``, circuit closed,
+    daily budget, ack↔pending match, idempotent client_order_id, process lock,
+    and confirm+reserve broker dedupe (see ``broker_safety``).
     No real broker network client is wired here.
     """
 
@@ -272,7 +272,7 @@ class BrokerPreflightFillPort:
         calendar=None,
         write_live: bool | None = None,
         config_accepted: bool | None = None,
-        require_ballot_file: bool = False,
+        require_ballot_file: bool = True,
         daily_live_budget: int = DEFAULT_DAILY_LIVE_FILL_BUDGET,
     ) -> None:
         self._probe_fn = probe_fn
