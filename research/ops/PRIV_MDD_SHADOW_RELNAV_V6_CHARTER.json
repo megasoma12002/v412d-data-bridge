@@ -1,46 +1,16 @@
 {
-  "label": "PRIV_MDD_SHADOW_RELNAV_V6_CHARTER_2026-09-19__DRAFT",
+  "label": "PRIV_MDD_SHADOW_RELNAV_V6_CHARTER_2026-09-19__ACCEPTED",
   "date": "2026-09-19",
-  "status": "DRAFT_PAPER_CHARTER_OPEN",
-  "stage_a_started": false,
+  "status": "CHARTER_ACCEPTED_STAGE_A",
+  "stage_a_started": true,
+  "human_accept": "ACCEPT V6 Stage-A",
   "soft_frozen": "KEEP",
   "cutover_257": "FROZEN",
   "sealed_gate": "unchanged",
-  "parent_stops": [
-    "N1_N2_N3",
-    "V2_S1_S2",
-    "V3_M1_SCALE",
-    "V4_A0_SPAN",
-    "V5_DH_PRIV_WINDOW",
-    "SF4_DH_WHOLE_BOOK"
-  ],
-  "baseline": "LIVE_PUB_KD",
-  "frozen_offense_ref": "SF4_P60-90_V0-15_F10_KD",
   "sensor": "undamped_shadow_DD_rel_SF4_OFFENSE_vs_LIVE_PUB_KD",
   "delta_depth": 0.05,
   "delta_search": false,
   "actuator": "FinPriv_scale_1_minus_c_u",
-  "default_sink": "TO_0050",
-  "stage_a_books": [
-    "V6_C50_0050",
-    "V6_C75_0050",
-    "V6_C100_0050",
-    "V6_C50_CASH",
-    "V6_C100_CASH",
-    "V6_C100_0050_DB01",
-    "V6_C100_0050_ROLL252",
-    "V6_C100_PUB"
-  ],
-  "stage_a_authorized_when_human_accepts": true,
-  "wont": [
-    "retune_n1_n5",
-    "raise_v4_span_cap",
-    "sealed_peek_delta",
-    "retune_sf4_clips",
-    "soften_sealed",
-    "use_m1_or_finpriv_sleeve_dd_as_sensor",
-    "damped_closed_loop_nav",
-    "merge_257"
-  ],
+  "stage_a_authorized": true,
   "note": "research/ops/PRIV_MDD_SHADOW_RELNAV_V6_CHARTER.md"
 }

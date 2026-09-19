@@ -1,10 +1,10 @@
 # 民股／四類 × MDD — New Mechanism V6 Charter（Shadow 相對 NAV 連續阻尼 FinPriv）
 
 Date: 2026-09-19  
-Status: **DRAFT / PAPER CHARTER OPEN** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged** · Stage A **not** started until human ACCEPT  
+Status: **CHARTER ACCEPTED → Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged**  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Parents STOP: N1–N3 · V2 · V3 · V4 · V5 · + `SF4_DH` · decision packs on `#261`  
-Human: **「全新 charter」**（不改 sealed）
+Human: **「ACCEPT V6 Stage-A」** (2026-09-19)
 
 **Passing ≠ Soft-Frozen flip ≠ live e21 rewrite ≠ merge `#257`.**
 
@@ -116,15 +116,17 @@ Honesty: continuous path coupling may lift sealed by construction on the same re
 
 ---
 
-## 6. Stage A — when human ACCEPTs
+## 6. Stage A — ACCEPTED
 
-1. Implement `scripts/e16_priv_mdd_shadow_relnav_v6_stage_a.py`.  
+1. Run `scripts/e16_priv_mdd_shadow_relnav_v6_stage_a.py`.  
 2. Shadow NAVs from undamped `SF4_OFFENSE` + `LIVE_PUB_KD` only — **never** call M1 / DH enter / FinPriv-sleeve DD.  
 3. Verdict → Stage B · or STOP V6 · Soft-Frozen KEEP.
 
 ```bash
 PYTHONPATH=scripts python3 scripts/e16_priv_mdd_shadow_relnav_v6_stage_a.py
 ```
+
+→ `PRIV_MDD_SHADOW_RELNAV_V6_STAGE_A.{md,json}` · decision pack.
 
 ---
 
@@ -134,4 +136,4 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_shadow_relnav_v6_stage_a.py
 - V4 A0: `PRIV_MDD_SEALED_EPISODE_A0.md`（diagnostic only — do not calendar-gate）  
 - Freeze: `LIVE_CUTOVER_BUNDLE_257_FROZEN.md`  
 
-Label: `PRIV_MDD_SHADOW_RELNAV_V6_CHARTER_2026-09-19__DRAFT`
+Label: `PRIV_MDD_SHADOW_RELNAV_V6_CHARTER_2026-09-19__ACCEPTED`

@@ -9,7 +9,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**
 新機制 V3：**STOP** · `PRIV_MDD_M1_SCALE_V3_DECISION_PACK.md`（N1–N3+V2+V3 STOP）  
 新機制 V4：**STOP**（A0 span>120 · A1 未開）· `PRIV_MDD_SEALED_EPISODE_V4_DECISION_PACK.md`（N1–N3+V2+V3+V4 STOP）  
 新機制 V5：**STOP** · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md`（N1–N3+V2+V3+V4+V5 STOP）  
-新機制 V6 DRAFT（不改 sealed）：`PRIV_MDD_SHADOW_RELNAV_V6_CHARTER.md`（shadow 相對 NAV 連續阻尼 FinPriv；待 ACCEPT）  
+新機制 V6：**ACCEPT Stage-A**（不改 sealed）· shadow 相對 NAV 連續阻尼 FinPriv · `PRIV_MDD_SHADOW_RELNAV_V6_CHARTER.md`  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  
