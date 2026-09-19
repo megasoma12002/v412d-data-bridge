@@ -57,7 +57,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | 元大 SPARK 條件單 | App↔API 對照（營業員建議二擇一）：`YUANTA_SPARK_CONDITIONAL_OCO_NOTES.md`（研究；**未** SendAlgo） |
 | Fee model | `0.001425×0.6` + sell 證交稅；**MIN_COMMISSION NT$20** floor (`live_ledger.fees_tax_for`) · day-trade tax not modeled |
 | T+2 settlement estimate | R4 daily artifact via `v412f-forward-paper` · R5 `twse_t2_broker_reconcile.py` (observe) · week-1 checklist `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` |
-| 除權息入帳延後 | Stage-E live DEFAULT `E22_v3_recv_pay_effdelay` (receivable + effective pay); preserved `E22_v2s_tw_effex`; MOPS overlay; Gap 6.9c stock-pay observe |
+| 除權息入帳延後 | Stage-B live DEFAULT `E22_v3_recv_pay_tax10` (recv + effective pay + flat 10% withhold); TAX0 sibling `E22_v3_recv_pay_effdelay`; preserved `E22_v2s_tw_effex`; MOPS overlay; Gap 6.9c stock-pay observe |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 

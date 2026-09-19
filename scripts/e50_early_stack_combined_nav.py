@@ -134,8 +134,8 @@ def simulate_core(
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
-    Formal books default = live DEFAULT ``E22_v3_recv_pay_effdelay`` via
-    ``e22_books_apply.apply_books_for_date`` (receivable + effective pay; stock TW CIL).
+    Formal books default = live DEFAULT ``E22_v3_recv_pay_tax10`` via
+    ``e22_books_apply.apply_books_for_date`` (recv + effective pay + tax10; stock TW CIL).
     Preserved cash-on-ex: ``E22_v2s_tw_effex``. E22_v2 remains cash-only.
     E16 features use adj_close elsewhere; NAV here always marks with raw close
     and includes open dividend receivables when using recv-family books.

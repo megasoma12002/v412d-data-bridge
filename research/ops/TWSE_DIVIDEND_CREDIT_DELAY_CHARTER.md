@@ -1,6 +1,6 @@
 # TWSE 除權息入帳延後 — research charter
 
-Status: **LIVE Stage-E ACCEPT** — Soft-Frozen DEFAULT `E22_v3_recv_pay_effdelay` · preserved `E22_v2s_tw_effex`  
+Status: **LIVE Stage-B ACCEPT** — Soft-Frozen DEFAULT `E22_v3_recv_pay_tax10` · TAX0 sibling `E22_v3_recv_pay_effdelay` · preserved `E22_v2s_tw_effex`  
 Depends on: session + settlement calendar (#237 / #239) · Gap #6 dividend timing  
 Related: `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md` · `e22_dividend_accounting.py`
 

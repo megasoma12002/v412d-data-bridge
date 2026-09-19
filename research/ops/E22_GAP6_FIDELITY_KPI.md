@@ -1,11 +1,11 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-16T14:06:26.796696+00:00`
-Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v3_recv_pay_effdelay`** (receivable + effective pay).
+Generated: `2026-09-19T10:32:11.349431+00:00`
+Status: **OPS / RESEARCH** — Soft-Frozen Stage-B tax ACCEPT; live DEFAULT **`E22_v3_recv_pay_tax10`** (receivable + flat 10% withhold).
 
 ## Code wire
 
-- Default books: **`E22_v3_recv_pay_effdelay`** (expect `E22_v3_recv_pay_effdelay`)
+- Default books: **`E22_v3_recv_pay_tax10`** (expect `E22_v3_recv_pay_tax10`)
 - E21 imports/apply: **True** / **True**
 - Formal status wired: **True**
 - Code OK: **True**
@@ -29,16 +29,16 @@ Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v
 
 - Open cash events with ex≤asof < pay: **0**
 - Codes: `none`
-- Formal books accrue receivable on effective_ex_trade under E22_v3_recv_pay_effdelay (Stage-E ACCEPT); cash settles on effective_payment. Preserved cash-on-ex path: E22_v2s_tw_effex. This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.
+- Formal books (live DEFAULT E22_v3_recv_pay_tax10, Stage-B) accrue receivable on effective_ex_trade and cash on effective_payment (Stage-E timing family), with flat 10% withhold. TAX0 sibling: E22_v3_recv_pay_effdelay. Preserved cash-on-ex path: E22_v2s_tw_effex. This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.
 
-## Dividend tax sensitivity (report-only; formal = TAX0)
+## Dividend tax sensitivity (report-only; live DEFAULT = tax10)
 
 - No dividends_applied.csv yet — tax sensitivity deferred until live applies cash events.
 
 ## Odd-lot / D5 (`E22_v2s_tw` → `E22_v2s_tw_effex`)
 
-- Status: **PROMOTED** — live default `E22_v2s_tw_effex` (legacy TW `E22_v2s_tw`)
-- Ballot: `ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16`
+- Status: **PROMOTED** — code DEFAULT `E22_v3_recv_pay_tax10` (odd-lot promote path `E22_v2s_tw_effex`; legacy TW `E22_v2s_tw`)
+- Ballot: `ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16; Stage-E recv ACCEPT 2026-09-16; Stage-B tax10 ACCEPT 2026-09-19`
 - Promote checklist: `research/ops/ODD_LOT_PROMOTE_CHECKLIST.md`
 
 ## Flags

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Unified E22 books apply router (formal + Stage-B receivable family).
 
-Live DEFAULT after Stage-E ACCEPT (2026-09-16): ``E22_v3_recv_pay_effdelay``.
+Live DEFAULT after Stage-B tax ACCEPT (2026-09-19): ``E22_v3_recv_pay_tax10``.
+TAX0 sibling ``E22_v3_recv_pay_effdelay`` (Stage-E timing) remains routable.
 Formal ``E22_v2s_tw_effex`` remains available as preserved cash-on-ex books.
 """
 from __future__ import annotations

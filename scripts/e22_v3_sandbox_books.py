@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """E22_v3 sandbox books — tax / receivable (charter ACCEPT 2026-09-05).
 
-``E22_v3_recv_pay_effdelay`` is live DEFAULT after Stage-E ACCEPT 2026-09-16
-(routed via ``e22_books_apply``). Tax haircut versions remain sandbox-only until
-resident/non-resident withholding note is promote-ready.
+``E22_v3_recv_pay_tax10`` is live DEFAULT after Stage-B tax ACCEPT 2026-09-19
+(routed via ``e22_books_apply``). TAX0 ``E22_v3_recv_pay_effdelay`` remains the
+Stage-E timing sibling. Other tax haircut versions stay named/routable sandboxes.
 
 Named versions:
   E22_v3_recv_pay — receivable on cash ex; cash on payment_date; TAX0; stock = TW odd-lot
   E22_v3_tax10    — ex-date cash × 0.90; stock = TW odd-lot
   E22_v3_tax20    — ex-date cash × 0.80; stock = TW odd-lot
-  E22_v3_recv_pay_tax10 — receivable on ex (net of 10%); cash on pay; stock = TW odd-lot
+  E22_v3_recv_pay_tax10 — **live DEFAULT** — recv + effective snaps + flat 10% withhold
   E22_v3_recv_pay_tax20 — receivable on ex (net of 20%); cash on pay; stock = TW odd-lot
-  E22_v3_recv_pay_effdelay — **live DEFAULT** — recv_pay + effective ex/payment snaps
+  E22_v3_recv_pay_effdelay — Stage-E TAX0 sibling — recv_pay + effective ex/payment snaps
 
 Preserved cash-on-ex formal: ``E22_v2s_tw_effex`` (override with confirm flag).
 

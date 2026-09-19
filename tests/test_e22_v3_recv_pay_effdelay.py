@@ -137,8 +137,10 @@ class EffDelaySandboxTests(unittest.TestCase):
         self.assertAlmostEqual(cash, 2500.0)
         self.assertAlmostEqual(res.cash_credit, 2500.0)
 
-    def test_default_is_recv_effdelay_after_stage_e(self) -> None:
-        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V3_RECV_PAY_EFFDELAY)
+    def test_default_is_recv_pay_tax10_after_stage_b(self) -> None:
+        # Stage-B tax ACCEPT supersedes Stage-E TAX0 as live DEFAULT.
+        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V3_RECV_PAY_TAX10)
+        self.assertEqual(formal.E22_V3_RECV_PAY_EFFDELAY, "E22_v3_recv_pay_effdelay")
         self.assertEqual(formal.PRESERVED_CASH_ON_EX, formal.E22_V2S_TW_EFFEX)
 
 

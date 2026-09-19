@@ -11,7 +11,7 @@ Status: **DROPPED — stitch OFF (`DROP_E45_A05`, 2026-09-09)**
 Human ballot: **`ACCEPT live-stack rollback: DROP_E45_A05`**  
 Prior stitch ACCEPT: **`E45 ACCEPT live stitch: BLEND_E45_A05`** (2026-09-09) — **superseded by rollback**  
 Soft-Frozen live Financial clip: **[0.60, 0.90]** (FINBAND KEEP)  
-Live DEFAULT books: **`E22_v3_recv_pay_effdelay`** (Stage-E; tip align ACCEPT 2026-09-19)  
+Live DEFAULT books: **`E22_v3_recv_pay_tax10`** (Stage-B tax ACCEPT 2026-09-19)  
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`** — do not cite / invent replacement
 
 Authority: `E45_A05_STITCH_DROPPED.md` · `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md` · `HUMAN_DECISION_REGISTER.md`

@@ -32,9 +32,10 @@ class EffexBooksTests(unittest.TestCase):
         self.pos0 = {"2891": 1000.0}
 
     def test_default_promoted_past_effex(self) -> None:
-        # D5 preserved path; Stage-E DEFAULT is recv_pay_effdelay
+        # D5 preserved path; Stage-B DEFAULT is recv_pay_tax10 (Stage-E timing sibling remains named).
         self.assertEqual(formal.PRESERVED_CASH_ON_EX, formal.E22_V2S_TW_EFFEX)
-        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V3_RECV_PAY_EFFDELAY)
+        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V3_RECV_PAY_TAX10)
+        self.assertEqual(formal.E22_V3_RECV_PAY_EFFDELAY, "E22_v3_recv_pay_effdelay")
         m = formal.version_manifest(formal.E22_V2S_TW_EFFEX)
         self.assertEqual(m["cash_timing"], "cash_effective_ex_trade")
         self.assertTrue(m["d5_accept"])

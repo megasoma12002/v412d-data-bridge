@@ -1,13 +1,13 @@
 {
-  "generated_at_utc": "2026-09-16T14:06:26.796696+00:00",
+  "generated_at_utc": "2026-09-19T10:32:11.349431+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": false,
   "d5_accept": true,
-  "formal_books": "E22_v3_recv_pay_effdelay",
+  "formal_books": "E22_v3_recv_pay_tax10",
   "preserved_cash_on_ex": "E22_v2s_tw_effex",
   "code_wire": {
-    "default_books_version": "E22_v3_recv_pay_effdelay",
+    "default_books_version": "E22_v3_recv_pay_tax10",
     "default_is_e22_v2s": false,
     "e21_imports_e22_module": true,
     "e21_calls_apply_dividends": true,
@@ -16,9 +16,11 @@
     "tw_variant_named": "E22_v2s_tw",
     "effex_variant_named": "E22_v2s_tw_effex",
     "recv_effdelay_named": "E22_v3_recv_pay_effdelay",
+    "recv_pay_tax10_named": "E22_v3_recv_pay_tax10",
     "tw_is_default": false,
     "effex_is_default": false,
-    "recv_effdelay_is_default": true,
+    "recv_effdelay_is_default": false,
+    "recv_pay_tax10_is_default": true,
     "code_ok": true
   },
   "live_ledger": {
@@ -55,7 +57,7 @@
     "asof": "2026-09-16",
     "n_cash_events_in_receivable_window": 0,
     "codes": [],
-    "policy_note": "Formal books accrue receivable on effective_ex_trade under E22_v3_recv_pay_effdelay (Stage-E ACCEPT); cash settles on effective_payment. Preserved cash-on-ex path: E22_v2s_tw_effex. This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.",
+    "policy_note": "Formal books (live DEFAULT E22_v3_recv_pay_tax10, Stage-B) accrue receivable on effective_ex_trade and cash on effective_payment (Stage-E timing family), with flat 10% withhold. TAX0 sibling: E22_v3_recv_pay_effdelay. Preserved cash-on-ex path: E22_v2s_tw_effex. This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.",
     "severity": "Med for cash/liquidity timing; Low for raw-price total-return mark"
   },
   "div_tax_sensitivity": {
@@ -68,12 +70,13 @@
   },
   "odd_lot": {
     "status": "PROMOTED",
-    "formal_default": "E22_v2s_tw_effex",
+    "formal_default": "E22_v3_recv_pay_tax10",
+    "odd_lot_promote_books": "E22_v2s_tw_effex",
     "named_tw_variant": "E22_v2s_tw",
     "effex_variant": "E22_v2s_tw_effex",
     "promote_checklist": "research/ops/ODD_LOT_PROMOTE_CHECKLIST.md",
     "closeout": "research/e22/GAP65_ODD_LOT_CLOSEOUT.md",
-    "human_ballot": "ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16",
+    "human_ballot": "ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16; Stage-E recv ACCEPT 2026-09-16; Stage-B tax10 ACCEPT 2026-09-19",
     "do_not_set_default_without_human_pr": false
   },
   "gap_refs": {

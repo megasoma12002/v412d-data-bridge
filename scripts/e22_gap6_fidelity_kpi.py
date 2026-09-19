@@ -2,7 +2,7 @@
 """Gap #6 execution-fidelity KPI — RESEARCH / OPS only.
 
 Complements e22_data_quality_kpi (ledger field blank-rates) with:
-  - Code default assert (E22_v3_recv_pay_effdelay after Stage-E ACCEPT 2026-09-16)
+  - Code default assert (E22_v3_recv_pay_tax10 after Stage-B ACCEPT 2026-09-19)
   - Live forward/e21 evidence that books fields are present
   - Ex→pay lag stats (timing gap magnitude)
   - Open receivable-window stub (universe events, not position-weighted)
@@ -79,11 +79,13 @@ def _code_wire_assert() -> dict:
         "tw_variant_named": e22div.E22_V2S_TW,
         "effex_variant_named": e22div.E22_V2S_TW_EFFEX,
         "recv_effdelay_named": e22div.E22_V3_RECV_PAY_EFFDELAY,
+        "recv_pay_tax10_named": e22div.E22_V3_RECV_PAY_TAX10,
         "tw_is_default": default == e22div.E22_V2S_TW,
         "effex_is_default": default == e22div.E22_V2S_TW_EFFEX,
         "recv_effdelay_is_default": default == e22div.E22_V3_RECV_PAY_EFFDELAY,
+        "recv_pay_tax10_is_default": default == e22div.E22_V3_RECV_PAY_TAX10,
         "code_ok": bool(
-            default == e22div.E22_V3_RECV_PAY_EFFDELAY
+            default == e22div.E22_V3_RECV_PAY_TAX10
             and imports_e22
             and mentions_apply
             and (wired is True or wired is None)
@@ -154,7 +156,7 @@ def _tax_sensitivity(div_path: Path) -> dict:
         "haircut_0pct": gross,
         "haircut_10pct": gross * 0.90,
         "haircut_20pct": gross * 0.80,
-        "note": "Report-only; formal books remain TAX0 (pre-tax). Not a Soft-Frozen gate.",
+        "note": "Report-only; live DEFAULT is Stage-B tax10. Haircuts here are sensitivity vs gross credits, not a Soft-Frozen gate.",
     }
 
 
@@ -186,8 +188,9 @@ def main() -> int:
         "n_cash_events_in_receivable_window": int(len(open_recv)),
         "codes": sorted({str(c) for c in open_recv["code"].astype(str)}) if len(open_recv) else [],
         "policy_note": (
-            "Formal books accrue receivable on effective_ex_trade under "
-            "E22_v3_recv_pay_effdelay (Stage-E ACCEPT); cash settles on effective_payment. "
+            "Formal books (live DEFAULT E22_v3_recv_pay_tax10, Stage-B) accrue receivable "
+            "on effective_ex_trade and cash on effective_payment (Stage-E timing family), "
+            "with flat 10% withhold. TAX0 sibling: E22_v3_recv_pay_effdelay. "
             "Preserved cash-on-ex path: E22_v2s_tw_effex. "
             "This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL."
         ),
@@ -198,22 +201,25 @@ def main() -> int:
 
     odd_lot = {
         "status": "PROMOTED",
-        # Odd-lot / D5 promote landed on effex; Stage-E DEFAULT is v3_recv_pay_effdelay.
+        # Odd-lot / D5 on effex; Stage-E TAX0 timing; Stage-B tax10 is live DEFAULT.
         "formal_default": e22div.DEFAULT_BOOKS_VERSION,
         "odd_lot_promote_books": e22div.E22_V2S_TW_EFFEX,
         "named_tw_variant": e22div.E22_V2S_TW,
         "effex_variant": e22div.E22_V2S_TW_EFFEX,
         "promote_checklist": "research/ops/ODD_LOT_PROMOTE_CHECKLIST.md",
         "closeout": "research/e22/GAP65_ODD_LOT_CLOSEOUT.md",
-        "human_ballot": "ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16; Stage-E recv ACCEPT 2026-09-16",
+        "human_ballot": (
+            "ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16; "
+            "Stage-E recv ACCEPT 2026-09-16; Stage-B tax10 ACCEPT 2026-09-19"
+        ),
         "do_not_set_default_without_human_pr": False,
     }
 
     flags: list[str] = []
-    if not code.get("recv_effdelay_is_default"):
+    if not code.get("recv_pay_tax10_is_default"):
         flags.append(
             f"DEFAULT_BOOKS_VERSION={code['default_books_version']} "
-            f"(expected {e22div.E22_V3_RECV_PAY_EFFDELAY})"
+            f"(expected {e22div.E22_V3_RECV_PAY_TAX10})"
         )
     if not code["e21_imports_e22_module"] or not code["e21_calls_apply_dividends"]:
         flags.append("e21_forward_pipeline missing E22 apply wiring")
@@ -228,7 +234,7 @@ def main() -> int:
         "live_wire": False,
         "soft_frozen_unchanged": False,
         "d5_accept": True,
-        "formal_books": e22div.E22_V3_RECV_PAY_EFFDELAY,
+        "formal_books": e22div.E22_V3_RECV_PAY_TAX10,
         "preserved_cash_on_ex": e22div.PRESERVED_CASH_ON_EX,
         "code_wire": code,
         "live_ledger": live,
@@ -243,7 +249,7 @@ def main() -> int:
             "tax_recv_charter": "research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md",
         },
         "flags": flags,
-        "code_ok": bool(code["code_ok"] and code.get("recv_effdelay_is_default")),
+        "code_ok": bool(code["code_ok"] and code.get("recv_pay_tax10_is_default")),
         "live_evidence_ok": bool(live["live_ledger_e22_fields_present"]),
         "kpi_ok": None,  # filled below
         # CI smoke gate = code wire only. Full kpi_ok still requires live evidence
@@ -268,11 +274,11 @@ def main() -> int:
         "# E22 Gap #6 Fidelity KPI",
         "",
         f"Generated: `{kpi['generated_at_utc']}`",
-        "Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v3_recv_pay_effdelay`** (receivable + effective pay).",
+        "Status: **OPS / RESEARCH** — Soft-Frozen Stage-B tax ACCEPT; live DEFAULT **`E22_v3_recv_pay_tax10`** (receivable + flat 10% withhold).",
         "",
         "## Code wire",
         "",
-        f"- Default books: **`{code['default_books_version']}`** (expect `E22_v3_recv_pay_effdelay`)",
+        f"- Default books: **`{code['default_books_version']}`** (expect `E22_v3_recv_pay_tax10`)",
         f"- E21 imports/apply: **{code['e21_imports_e22_module']}** / **{code['e21_calls_apply_dividends']}**",
         f"- Formal status wired: **{code.get('formal_status_wired_e21')}**",
         f"- Code OK: **{kpi['code_ok']}**",
@@ -302,7 +308,7 @@ def main() -> int:
         f"- Codes: `{', '.join(receivable['codes']) or 'none'}`",
         f"- {receivable['policy_note']}",
         "",
-        "## Dividend tax sensitivity (report-only; formal = TAX0)",
+        "## Dividend tax sensitivity (report-only; live DEFAULT = tax10)",
         "",
     ]
     if tax.get("available"):
