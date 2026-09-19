@@ -1,6 +1,6 @@
 # Live vs Paper Soft-Frozen Recon
 
-Generated: `2026-09-19T05:46:18.712777+00:00`
+Generated: `2026-09-19T05:47:29.614749+00:00`
 Status: **RESEARCH / OPS** — Soft-Frozen clip **[0.60, 0.90] unchanged**.
 
 ## Coverage
@@ -28,3 +28,4 @@ Status: **RESEARCH / OPS** — Soft-Frozen clip **[0.60, 0.90] unchanged**.
 - Re-run: `python3 scripts/e21_live_vs_paper_recon.py`
 - Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`
 - Cutover authority remains `research/STRATEGY_DEBT_BOARD.md` — this recon never flips Soft-Frozen.
+- **INDEX_DRIFT non-decision** (ACCEPT Ops residual 全修 2026-09-19): thin overlap ≪ ~60 sessions — ops note only; do not open cutover on thin drift.
