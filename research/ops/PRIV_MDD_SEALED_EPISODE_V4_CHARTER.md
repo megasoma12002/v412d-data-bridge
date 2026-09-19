@@ -1,7 +1,7 @@
 # 民股／四類 × MDD — New Mechanism V4 Charter（Sealed 事件剖檢 → 日曆／事件閘）
 
 Date: 2026-09-19  
-Status: **CHARTER ACCEPTED → Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged**  
+Status: **CHARTER ACCEPTED → Stage A STOP** (`A0_STOP_SPAN_TOO_LONG` — deepest sealed relative-DD spans **>120** sess · A1 not authorized)  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Parents STOP: N1–N3 · V2 S1–S2 · V3 M1-scale · decision packs on `#261`  
 Human: **「ACCEPT V4 Stage-A」** (2026-09-19)
@@ -132,4 +132,4 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_sealed_episode_v4_a1_stage_a.py
 - Prior STOP: N3 · S2 · V3 decision packs  
 - Freeze: `LIVE_CUTOVER_BUNDLE_257_FROZEN.md`  
 
-Label: `PRIV_MDD_SEALED_EPISODE_V4_CHARTER_2026-09-19__ACCEPTED`
+Label: `PRIV_MDD_SEALED_EPISODE_V4_CHARTER_2026-09-19__STOP`

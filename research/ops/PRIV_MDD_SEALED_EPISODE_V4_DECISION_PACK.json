@@ -1,0 +1,42 @@
+{
+  "generated_at_utc": "2026-09-19T14:29:44.129124+00:00",
+  "label": "PRIV_MDD_SEALED_EPISODE_V4_DECISION",
+  "status": "A0_STOP_SPAN_TOO_LONG",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "a1_authorized": false,
+  "a1_run": false,
+  "v4_coexist_ids": [],
+  "frozen_offense": "SF4_P60-90_V0-15_F10_KD",
+  "a0_episodes": [
+    {
+      "rank": 1,
+      "peak_date": "2024-07-12",
+      "trough_date": "2025-04-22",
+      "dd_rel_trough": -0.034174,
+      "n_sessions": 184,
+      "span_too_long": true
+    },
+    {
+      "rank": 2,
+      "peak_date": "2024-07-12",
+      "trough_date": "2025-05-08",
+      "dd_rel_trough": -0.031434,
+      "n_sessions": 195,
+      "span_too_long": true
+    },
+    {
+      "rank": 3,
+      "peak_date": "2024-07-12",
+      "trough_date": "2025-05-09",
+      "dd_rel_trough": -0.030189,
+      "n_sessions": 196,
+      "span_too_long": true
+    }
+  ],
+  "max_span_sessions": 120,
+  "next": "STOP V4 — A0 spans too long for calendar episode gate; Soft-Frozen KEEP; re-open only human sealed-gate or other new charter (≠ retune)",
+  "charter": "research/ops/PRIV_MDD_SEALED_EPISODE_V4_CHARTER.md",
+  "a0": "research/ops/PRIV_MDD_SEALED_EPISODE_A0.md",
+  "stage_a": null
+}
