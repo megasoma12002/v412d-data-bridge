@@ -1,0 +1,97 @@
+{
+  "generated_at_utc": "2026-09-19T14:00:09.897140+00:00",
+  "label": "PRIV_MDD_SENSOR_S1_DECISION",
+  "status": "STOP",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "s1_coexist_ids": [],
+  "best_s1": {
+    "id": "S1_FINZ_15",
+    "mechanism": "S1_FINPUB_TAIEX_Z_TO_0050",
+    "pub_share": null,
+    "fin_pub_clip": [
+      0.6,
+      0.9
+    ],
+    "fin_priv_clip": [
+      0.0,
+      0.15
+    ],
+    "prior_priv_frac": 0.1,
+    "priv_policy": "FIN_PRE_EXDIV_KD",
+    "score_mdd": 1.6958,
+    "heldout_mdd_improve_pp": 2.0515,
+    "sealed_mdd_improve_pp": -0.7116,
+    "heldout_cagr_giveback_pp": -0.4421,
+    "legacy_heldout_score": 1.8305,
+    "tip_ytd": "PASS",
+    "tip_1y": "PASS",
+    "tip_clean": true,
+    "tip_mdd_ok": true,
+    "tip_mdd_ytd_pp": 0.467,
+    "tip_mdd_1y_pp": 0.467,
+    "tip_pub": 4,
+    "tip_priv": 6,
+    "n_fills": 18568,
+    "gates": {
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "heldout_mdd": true,
+      "sealed_mdd": false,
+      "giveback_cap": true,
+      "score_mdd_pos": true
+    },
+    "coexist": false,
+    "s1_family": "FINPUB_TAIEX_Z",
+    "s1_thr": -1.5,
+    "gate_on_share": 0.18748269177513155,
+    "n2_sink": "0050"
+  },
+  "best_overall": {
+    "id": "S1_FINZ_15",
+    "mechanism": "S1_FINPUB_TAIEX_Z_TO_0050",
+    "pub_share": null,
+    "fin_pub_clip": [
+      0.6,
+      0.9
+    ],
+    "fin_priv_clip": [
+      0.0,
+      0.15
+    ],
+    "prior_priv_frac": 0.1,
+    "priv_policy": "FIN_PRE_EXDIV_KD",
+    "score_mdd": 1.6958,
+    "heldout_mdd_improve_pp": 2.0515,
+    "sealed_mdd_improve_pp": -0.7116,
+    "heldout_cagr_giveback_pp": -0.4421,
+    "legacy_heldout_score": 1.8305,
+    "tip_ytd": "PASS",
+    "tip_1y": "PASS",
+    "tip_clean": true,
+    "tip_mdd_ok": true,
+    "tip_mdd_ytd_pp": 0.467,
+    "tip_mdd_1y_pp": 0.467,
+    "tip_pub": 4,
+    "tip_priv": 6,
+    "n_fills": 18568,
+    "gates": {
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "heldout_mdd": true,
+      "sealed_mdd": false,
+      "giveback_cap": true,
+      "score_mdd_pos": true
+    },
+    "coexist": false,
+    "s1_family": "FINPUB_TAIEX_Z",
+    "s1_thr": -1.5,
+    "gate_on_share": 0.18748269177513155,
+    "n2_sink": "0050"
+  },
+  "frozen_offense": "SF4_P60-90_V0-15_F10_KD",
+  "next": "STOP S1 \u2014 ballot S2 USDTWD/CBC or Soft-Frozen KEEP; sealed unchanged",
+  "charter": "research/ops/PRIV_MDD_SENSOR_MECH_V2_CHARTER.md",
+  "stage_a": "research/ops/PRIV_MDD_SENSOR_S1_STAGE_A.md",
+  "verdict": "STOP_NO_SEALED_MDD_COEXIST"
+}

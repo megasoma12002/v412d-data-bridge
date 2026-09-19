@@ -1,7 +1,7 @@
 {
   "label": "PRIV_MDD_SENSOR_MECH_V2_CHARTER_2026-09-19__S1S2_DRAFT",
   "date": "2026-09-19",
-  "status": "CHARTER_ACCEPTED_S1_STAGE_A",
+  "status": "STAGE_A_STOP_S1",
   "stage_a_started": true,
   "soft_frozen": "KEEP",
   "cutover_257": "FROZEN",
@@ -23,5 +23,8 @@
     "merge_257"
   ],
   "note": "research/ops/PRIV_MDD_SENSOR_MECH_V2_CHARTER.md",
-  "human_accept_s1": "ACCEPT S1 Stage-A"
+  "human_accept_s1": "ACCEPT S1 Stage-A",
+  "stage_a_verdict_s1": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "s1_coexist": [],
+  "best_s1": "S1_FINZ_15"
 }

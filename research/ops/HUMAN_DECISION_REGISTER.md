@@ -20,7 +20,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | 0b | 公股＋民營並存 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#258` · `PUB_PRIV_COEXIST_MDD_DECISION_PACK.md` |
 | 0c | 四類 SF4 + DH/L4 防禦 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#259` · `SF4_DEFENCE_MDD_DECISION_PACK.md` |
 | 0d | 民股／四類 × MDD **新機制** (N1→N2→N3) | **STOP N1–N3** (2026-09-19) | Ladder exhausted · 0 sealed coexist · Soft-Frozen KEEP · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md` |
-| 0e | 民股 MDD **新機制 V2**（廣度／FinPub–TAIEX 感測器） | **ACCEPT S1 Stage-A** (2026-09-19) | 不改 sealed · ≠ N1–N3 retune · Soft-Frozen KEEP · `PRIV_MDD_SENSOR_MECH_V2_CHARTER.md` |
+| 0e | 民股 MDD **新機制 V2**（廣度／FinPub–TAIEX 感測器） | **STOP S1** (2026-09-19) | 0 sealed coexist · best `S1_FINZ_15` sealed −0.71 · Soft-Frozen KEEP · `PRIV_MDD_SENSOR_S1_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.90]** | **FLIPPED** (ACCEPT 2026-09-09 `FINBAND_F0.60-0.90`) | Was [0.50, 0.95]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
