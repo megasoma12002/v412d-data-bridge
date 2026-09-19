@@ -1,21 +1,22 @@
 # 民股 MDD 新機制 V2 — 摘要
 
 日期：2026-09-19  
-狀態：**STOP S1**（0 sealed-MDD coexist）  
+狀態：**STOP S1–S2**（V2 感測器階梯耗盡）  
 活盤：公股 Soft-Frozen + FUSE + DH **KEEP** · sealed **不改**
 
-## S1 結果
+## 結果
 
-| 書 | held↑ | sealed↑ | tip |
-|---|---:|---:|---|
-| `S1_FINZ_15`（最佳 score） | +2.05 | −0.71 | Y |
-| `S1_BREADTH_45`（S1 tip-clean 最接近 sealed） | +0.82 | −0.42 | Y |
+| 階 | 結果 | 最佳 sealed（該階） |
+|---|---|---|
+| S1 廣度／FinPub–TAIEX | STOP | −0.42（tip-clean） |
+| S2 USDTWD／CBC | STOP | −0.48（`S2_FX_10`）／最佳 score `S2_CBC_HIKE` −0.59 |
 
-仍不如先前 N2 −0.04／L4 −0.20。
+全程仍不如 N2 −0.04（tip 不過）／L4 −0.20。
 
 ## 下一步（需授權）
 
-- **ACCEPT S2**（USDTWD／CBC 利率感測），或  
-- Soft-Frozen KEEP／其他全新 charter
+- Soft-Frozen **KEEP**（建議預設），或  
+- **改 sealed 門檻**，或  
+- **另一全新 charter**（≠ 重調 N1–N3／V2）
 
-詳見：`PRIV_MDD_SENSOR_S1_DECISION_PACK.md`
+詳見：`PRIV_MDD_SENSOR_S2_DECISION_PACK.md`

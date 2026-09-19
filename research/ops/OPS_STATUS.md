@@ -5,7 +5,7 @@ Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`
 Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
 **Cutover `#257`: FROZEN — do not merge** (`LIVE_CUTOVER_BUNDLE_257_FROZEN.md`) · 民股／四類等新機制或 human 改 sealed 門檻  
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
-新機制 V2：**ACCEPT S2 Stage-A** · USDTWD/CBC · `PRIV_MDD_SENSOR_MECH_V2_CHARTER.md`（S1 STOP）  
+新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`（N1–N3+V2 皆 STOP；再開需改 sealed 或另一全新 charter）  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  

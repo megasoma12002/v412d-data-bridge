@@ -1,7 +1,7 @@
 {
   "label": "PRIV_MDD_SENSOR_MECH_V2_CHARTER_2026-09-19__S1S2_DRAFT",
   "date": "2026-09-19",
-  "status": "CHARTER_ACCEPTED_S2_STAGE_A",
+  "status": "STAGE_A_STOP_S1_S2_V2_LADDER_EXHAUSTED",
   "stage_a_started": true,
   "soft_frozen": "KEEP",
   "cutover_257": "FROZEN",
@@ -27,5 +27,8 @@
   "stage_a_verdict_s1": "STAGE_A_SCORE_POS_GATES_FAIL",
   "s1_coexist": [],
   "best_s1": "S1_FINZ_15",
-  "human_accept_s2": "ACCEPT S2\uff08USDTWD\uff0fCBC\uff09"
+  "human_accept_s2": "ACCEPT S2\uff08USDTWD\uff0fCBC\uff09",
+  "stage_a_verdict_s2": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "s2_coexist": [],
+  "best_s2": "S2_CBC_HIKE"
 }

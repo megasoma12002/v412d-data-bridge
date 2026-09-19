@@ -1,0 +1,96 @@
+{
+  "generated_at_utc": "2026-09-19T14:05:12.261334+00:00",
+  "label": "PRIV_MDD_SENSOR_S2_DECISION",
+  "status": "STOP",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "s2_coexist_ids": [],
+  "best_s2": {
+    "id": "S2_CBC_HIKE",
+    "mechanism": "S2_CBC_HIKE_TO_0050",
+    "pub_share": null,
+    "fin_pub_clip": [
+      0.6,
+      0.9
+    ],
+    "fin_priv_clip": [
+      0.0,
+      0.15
+    ],
+    "prior_priv_frac": 0.1,
+    "priv_policy": "FIN_PRE_EXDIV_KD",
+    "score_mdd": 0.203,
+    "heldout_mdd_improve_pp": 0.4977,
+    "sealed_mdd_improve_pp": -0.5895,
+    "heldout_cagr_giveback_pp": -0.9524,
+    "legacy_heldout_score": 0.0215,
+    "tip_ytd": "PASS",
+    "tip_1y": "PASS",
+    "tip_clean": true,
+    "tip_mdd_ok": true,
+    "tip_mdd_ytd_pp": 0.7167,
+    "tip_mdd_1y_pp": 0.7167,
+    "tip_pub": 4,
+    "tip_priv": 6,
+    "n_fills": 14570,
+    "gates": {
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "heldout_mdd": true,
+      "sealed_mdd": false,
+      "giveback_cap": true,
+      "score_mdd_pos": true
+    },
+    "coexist": false,
+    "s2_family": "CBC_HIKE",
+    "s2_thr": "d63>0",
+    "gate_on_share": 0.10191082802547771,
+    "n2_sink": "0050"
+  },
+  "best_overall": {
+    "id": "SF4_L4_08_REF",
+    "mechanism": "REF_TAIEX_L4_08",
+    "pub_share": null,
+    "fin_pub_clip": [
+      0.6,
+      0.9
+    ],
+    "fin_priv_clip": [
+      0.0,
+      0.15
+    ],
+    "prior_priv_frac": 0.1,
+    "priv_policy": "FIN_PRE_EXDIV_KD",
+    "score_mdd": 0.7139,
+    "heldout_mdd_improve_pp": 0.8162,
+    "sealed_mdd_improve_pp": -0.2045,
+    "heldout_cagr_giveback_pp": -1.2523,
+    "legacy_heldout_score": 0.19,
+    "tip_ytd": "PASS",
+    "tip_1y": "PASS",
+    "tip_clean": true,
+    "tip_mdd_ok": true,
+    "tip_mdd_ytd_pp": 0.3201,
+    "tip_mdd_1y_pp": 0.3201,
+    "tip_pub": 4,
+    "tip_priv": 6,
+    "n_fills": 13775,
+    "gates": {
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "heldout_mdd": true,
+      "sealed_mdd": false,
+      "giveback_cap": true,
+      "score_mdd_pos": true
+    },
+    "coexist": false,
+    "s2_family": "REF_L4",
+    "gate_on_share": 0.2581002492384381
+  },
+  "frozen_offense": "SF4_P60-90_V0-15_F10_KD",
+  "next": "STOP V2 S1+S2 \u2014 Soft-Frozen KEEP; sealed unchanged; sealed-gate or other new charter",
+  "charter": "research/ops/PRIV_MDD_SENSOR_MECH_V2_CHARTER.md",
+  "stage_a": "research/ops/PRIV_MDD_SENSOR_S2_STAGE_A.md",
+  "prior_s1": "research/ops/PRIV_MDD_SENSOR_S1_DECISION_PACK.md",
+  "verdict": "STOP_V2_LADDER_EXHAUSTED"
+}

@@ -1,7 +1,7 @@
 # 民股／四類 × MDD — New Mechanism V2 Charter（跨資產／廣度感測器）
 
 Date: 2026-09-19  
-Status: **CHARTER ACCEPTED → S2 Stage A RUNNING** (S1 STOP; sealed gate **unchanged**)  
+Status: **CHARTER ACCEPTED → S1+S2 Stage A STOP** (`STAGE_A_SCORE_POS_GATES_FAIL` — V2 sensor ladder exhausted under sealed MDD)  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Parent STOP: N1–N3 ladder exhausted · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md` · S1 STOP · `PRIV_MDD_SENSOR_S1_DECISION_PACK.md`  
 Human: **「ACCEPT S2（USDTWD／CBC）」** (2026-09-19)
@@ -70,16 +70,17 @@ Controls: `LIVE_PUB_KD` · `SF4_OFFENSE` · `N2_0050_LOCAL_08_REF` (prior closes
 
 Compact Stage A: 2+2+1 = **5** sensor books × sink **0050** (+ optional 2 cash contrasts at mid cells only if runtime allows — default **0050-only**).
 
-### S2 — Macro proxies (only after S1 pack)
+### S2 — Macro proxies (**ACCEPT** — this ballot)
 
-From repo CSVs (no new download):
+From repo CSVs (no new download). Fire **lag-1** → FinPriv→**0050**.
 
-| Sensor | Source | Fire (predeclared later in S2 charter addendum) |
+| Sensor | Source | Fire (predeclared) |
 |---|---|---|
-| `S2_USDTWD_Z` | `data/def_proxies/USDTWD_finmind.csv` | 60d FX z ≥ {1.0, 1.5} |
-| `S2_CBC_HIKE` | `data/def_proxies/cbc_rediscount_rate_daily.csv` | 63d Δ rediscount > 0 |
+| `S2_USDTWD_Z` | `data/def_proxies/USDTWD_finmind.csv` | 60d log-ret z ≥ {**1.0**, **1.5**} |
+| `S2_CBC_HIKE` | `data/def_proxies/cbc_rediscount_rate_daily.csv` | 63d Δ rediscount **> 0** |
+| `S2_OR_MID` | OR mid | FX z≥1.0 **or** CBC hike |
 
-Do **not** start S2 until S1 decision pack exists.
+S1 pack exists (STOP) — S2 authorized.
 
 ---
 
@@ -104,18 +105,16 @@ score_mdd = MDD↑_heldout + 0.5 × MDD↑_sealed − 0.25 × max(0, CAGR_giveba
 
 ---
 
-## 6. Stage A — ACCEPTED (S1)
+## 6. Stage A ladder
 
-1. Implement `scripts/e16_priv_mdd_sensor_s1_stage_a.py`.  
-2. Run S1 grid vs `LIVE_PUB_KD`.  
-3. Write `PRIV_MDD_SENSOR_S1_STAGE_A.{md,json}` + decision pack.  
-4. Verdict → S2 ballot · or STOP V2 · Soft-Frozen KEEP.
+### S1 — DONE / STOP
+`PYTHONPATH=scripts python3 scripts/e16_priv_mdd_sensor_s1_stage_a.py` · `PRIV_MDD_SENSOR_S1_DECISION_PACK.md`
 
-Reproduce:
-
+### S2 — ACCEPTED (this ballot)
 ```bash
-PYTHONPATH=scripts python3 scripts/e16_priv_mdd_sensor_s1_stage_a.py
+PYTHONPATH=scripts python3 scripts/e16_priv_mdd_sensor_s2_stage_a.py
 ```
+→ `PRIV_MDD_SENSOR_S2_STAGE_A.{md,json}` + decision pack.
 
 ---
 
