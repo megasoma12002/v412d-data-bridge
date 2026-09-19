@@ -1,7 +1,7 @@
 {
   "label": "PRIV_MDD_NEW_MECH_CHARTER_2026-09-19__N1N2N3_DRAFT",
   "date": "2026-09-19",
-  "status": "CHARTER_ACCEPTED_N3_STAGE_A",
+  "status": "STAGE_A_STOP_N1_N2_N3_LADDER_EXHAUSTED",
   "human_accept": "ACCEPT N1 Stage-A",
   "stage_a_started": true,
   "stage_a_verdict": "STAGE_A_SCORE_POS_GATES_FAIL",
@@ -36,5 +36,9 @@
   "n2_coexist": [],
   "best_n2": "N2_CASH_LOCAL_06",
   "closest_sealed_n2": "N2_0050_LOCAL_08",
-  "human_accept_n3": "ACCEPT N3"
+  "human_accept_n3": "ACCEPT N3",
+  "stage_a_verdict_n3": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "n3_coexist": [],
+  "best_n3": "N3_L06_L10_CASH",
+  "best_n3_sealed": "N3_L08_L10_0050"
 }

@@ -4,7 +4,7 @@ Date: 2026-09-19 (Ops residual 全修 ACCEPT + tip books align + E45 A05 residue
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
 **Cutover `#257`: FROZEN — do not merge** (`LIVE_CUTOVER_BUNDLE_257_FROZEN.md`) · 民股／四類等新機制或 human 改 sealed 門檻  
-新機制：**ACCEPT N3 Stage-A** · three-state · `PRIV_MDD_NEW_MECHANISM_CHARTER.md`（N1+N2 STOP）  
+新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`（再開需改 sealed 門檻或全新 charter）  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  
