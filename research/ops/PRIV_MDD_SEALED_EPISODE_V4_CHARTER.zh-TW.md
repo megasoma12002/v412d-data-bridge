@@ -1,7 +1,7 @@
 # 民股 MDD 新機制 V4 — 摘要（不改 sealed）
 
 日期：2026-09-19  
-狀態：**DRAFT**（待 ACCEPT）  
+狀態：**CHARTER ACCEPTED → Stage A**（「ACCEPT V4 Stage-A」）  
 前提：N1–N3 + V2 + V3 **STOP** · Soft-Frozen **KEEP**
 
 ## 差在哪

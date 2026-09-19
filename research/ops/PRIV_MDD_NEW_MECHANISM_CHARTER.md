@@ -178,7 +178,7 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_new_mech_n3_stage_a.py
 
 - Human **sealed-gate change** — optional.  
 - V2/V3: **STOP**.  
-- **V4** sealed-episode → calendar gate: DRAFT · `PRIV_MDD_SEALED_EPISODE_V4_CHARTER.md`
+- **V4** sealed-episode → calendar gate: **ACCEPT Stage-A** · `PRIV_MDD_SEALED_EPISODE_V4_CHARTER.md`
 
 ---
 

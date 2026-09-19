@@ -1,10 +1,10 @@
 # 民股／四類 × MDD — New Mechanism V4 Charter（Sealed 事件剖檢 → 日曆／事件閘）
 
 Date: 2026-09-19  
-Status: **DRAFT / PAPER CHARTER OPEN** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged** · Stage A **not** started until human ACCEPT  
+Status: **CHARTER ACCEPTED → Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged**  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Parents STOP: N1–N3 · V2 S1–S2 · V3 M1-scale · decision packs on `#261`  
-Human: **「再開其他全新 charter」**（不改 sealed）
+Human: **「ACCEPT V4 Stage-A」** (2026-09-19)
 
 **Passing ≠ Soft-Frozen flip ≠ live e21 rewrite ≠ merge `#257`.**
 
@@ -112,16 +112,18 @@ Honesty: A1 may look strong on sealed by construction (gating the same episodes)
 
 ---
 
-## 6. Stage A — when human ACCEPTs
+## 6. Stage A — ACCEPTED
 
-1. Implement `scripts/e16_priv_mdd_sealed_episode_v4_a0.py` → freeze A0 pack.  
-2. If A0 OK: implement `…_v4_a1_stage_a.py` → A1 grid + decision pack.  
+1. Run `scripts/e16_priv_mdd_sealed_episode_v4_a0.py` → freeze A0 pack.  
+2. If A0 OK: run `…_v4_a1_stage_a.py` → A1 grid + decision pack.  
 3. Verdict → Stage B · or STOP V4 · Soft-Frozen KEEP.
 
 ```bash
 PYTHONPATH=scripts python3 scripts/e16_priv_mdd_sealed_episode_v4_a0.py
 PYTHONPATH=scripts python3 scripts/e16_priv_mdd_sealed_episode_v4_a1_stage_a.py
 ```
+
+→ `PRIV_MDD_SEALED_EPISODE_A0.{md,json}` · `PRIV_MDD_SEALED_EPISODE_V4_A1_STAGE_A.{md,json}` · decision pack.
 
 ---
 
@@ -130,4 +132,4 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_sealed_episode_v4_a1_stage_a.py
 - Prior STOP: N3 · S2 · V3 decision packs  
 - Freeze: `LIVE_CUTOVER_BUNDLE_257_FROZEN.md`  
 
-Label: `PRIV_MDD_SEALED_EPISODE_V4_CHARTER_2026-09-19__DRAFT`
+Label: `PRIV_MDD_SEALED_EPISODE_V4_CHARTER_2026-09-19__ACCEPTED`

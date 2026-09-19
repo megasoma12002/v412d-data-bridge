@@ -1,8 +1,9 @@
 {
-  "label": "PRIV_MDD_SEALED_EPISODE_V4_CHARTER_2026-09-19__DRAFT",
+  "label": "PRIV_MDD_SEALED_EPISODE_V4_CHARTER_2026-09-19__ACCEPTED",
   "date": "2026-09-19",
-  "status": "DRAFT_PAPER_CHARTER_OPEN",
-  "stage_a_started": false,
+  "status": "CHARTER_ACCEPTED_STAGE_A",
+  "stage_a_started": true,
+  "human_accept": "ACCEPT V4 Stage-A",
   "soft_frozen": "KEEP",
   "cutover_257": "FROZEN",
   "sealed_gate": "unchanged",
@@ -13,7 +14,7 @@
   "a0_n_episodes": 3,
   "a0_max_span_sessions": 120,
   "a1_sinks": ["TO_0050", "TO_CASH", "TO_PUB_contrast"],
-  "stage_a_authorized_when_human_accepts": "A0_then_A1",
+  "stage_a_authorized": "A0_then_A1",
   "wont": [
     "retune_n1_n3_v2_v3",
     "retune_sf4_clips",
