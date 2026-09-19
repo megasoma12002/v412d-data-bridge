@@ -2,7 +2,7 @@
 
 日期：2026-09-19  
 狀態：**STOP N1–N3**（階梯耗盡；sealed MDD 仍不過）  
-活盤：**公股 Soft-Frozen + FUSE + DH KEEP** · `#257` **FROZEN**
+活盤：**公股 Soft-Frozen + FUSE + DH KEEP** · `#257` **CLOSED**
 
 ## 階梯結果
 
