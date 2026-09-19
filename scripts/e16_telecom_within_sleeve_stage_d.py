@@ -9,6 +9,8 @@ Human: 「電信三檔也做跟金融股一樣拆開的研究」
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -37,7 +39,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/telecom-within-sleeve-async-20260909"
 RESEARCH = ROOT / "research/ops"
 
-CAPITAL = 500_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 LOT = BOARD_LOT
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0

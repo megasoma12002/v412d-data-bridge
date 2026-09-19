@@ -11,6 +11,8 @@ and held-out score together vs pure poles?
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import argparse
 import json
 from datetime import datetime, timezone
@@ -37,7 +39,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/fin-equal-rs-mix-20260908"
 RESEARCH = ROOT / "research/ops"
 
-CHARTER_CAPITAL = 500_000_000.0
+CHARTER_CAPITAL = DEFAULT_CAPITAL
 CHARTER_LOT = BOARD_LOT
 LAMBDAS = (1.0, 0.75, 0.5, 0.25, 0.0)
 TRAIL_ALERT_PP = 3.0

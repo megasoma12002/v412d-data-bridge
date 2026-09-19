@@ -10,6 +10,8 @@ Soft-Frozen KEEP · live e21 untouched · capital 500M · lot 1000.
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -37,7 +39,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/fin-pre-exdiv-kd-nav-20260909"
 RESEARCH = ROOT / "research/ops"
 
-CHARTER_CAPITAL = 500_000_000.0
+CHARTER_CAPITAL = DEFAULT_CAPITAL
 CHARTER_LOT = BOARD_LOT
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0

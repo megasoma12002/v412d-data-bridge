@@ -1,0 +1,51 @@
+{
+  "generated_at_utc": "2026-09-19T11:18:54.615729+00:00",
+  "label": "PUB_PRIV_COEXIST_MDD_DECISION",
+  "status": "STOP_NO_SEALED_MDD_COEXIST",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "coexist_ids": [],
+  "best": {
+    "id": "SF4_CTRL_PUB_ONLY",
+    "mechanism": "SF4_CLIP",
+    "pub_share": null,
+    "fin_pub_clip": [
+      0.6,
+      0.9
+    ],
+    "fin_priv_clip": [
+      0.0,
+      0.0
+    ],
+    "prior_priv_frac": 0.0,
+    "priv_policy": "FIN_EQUAL",
+    "score_mdd": 1.3019,
+    "heldout_mdd_improve_pp": 1.6194,
+    "sealed_mdd_improve_pp": -0.635,
+    "heldout_cagr_giveback_pp": -0.5043,
+    "legacy_heldout_score": 1.3672,
+    "tip_ytd": "PASS",
+    "tip_1y": "PASS",
+    "tip_clean": true,
+    "tip_mdd_ok": true,
+    "tip_mdd_ytd_pp": 1.4104,
+    "tip_mdd_1y_pp": 1.4104,
+    "tip_pub": 4,
+    "tip_priv": 0,
+    "n_fills": 7161,
+    "gates": {
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "heldout_mdd": true,
+      "sealed_mdd": false,
+      "giveback_cap": true,
+      "score_mdd_pos": true
+    },
+    "coexist": false
+  },
+  "next": "STOP \u2014 Soft-Frozen \u516c\u80a1 KEEP; no live \u4e26\u5b58; no priv-replace substitute; new mechanism or human objective change to reopen",
+  "charter": "research/ops/PUB_PRIV_COEXIST_MDD_CHARTER.md",
+  "stage_a": "research/ops/PUB_PRIV_COEXIST_MDD_STAGE_A.md",
+  "stage_a_status": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "headline": "0/24 priv-bearing books pass sealed MDD\u2191\u22650; tip/heldout often OK"
+}

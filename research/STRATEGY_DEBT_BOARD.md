@@ -31,7 +31,6 @@ Docs tip books + DROP stamp aligned; research `LIVE_KD` / capital → live SSOT 
 ## Ops residual 全修 (2026-09-19) — **ACCEPTED**
 
 Ballot: `ACCEPT_OPS_RESIDUAL_FULL_FIX.md`. Dual-paper `--refresh-ledgers` + Gap6 tip-lag stamp + INDEX_DRIFT non-decision. Paper `simulate_core` routes Stage-E DEFAULT via `e22_books_apply`. Tip catch-up still **forward-only** on next weekday (tip may still show `E22_v2s_tw_effex`). Soft-Frozen KEEP · no L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B promote.
-
 ---
 
 

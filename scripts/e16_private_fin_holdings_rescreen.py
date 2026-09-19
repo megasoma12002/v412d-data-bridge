@@ -9,6 +9,8 @@ Data: merge forward/e21/live_market.csv with TWSE-archive 12-stock OHLCV.
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path

@@ -16,6 +16,8 @@ Soft-Frozen KEEP · live KD_OPT untouched.
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -43,7 +45,7 @@ OUT = ROOT / "repro/fin-kd-autumn-dual-season-20260909"
 RESEARCH = ROOT / "research/ops"
 OPT_JSON = RESEARCH / "FIN_POST_EXDIV_AUTUMN_OPTIMIZE.json"
 
-CAPITAL = 500_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 LOT = BOARD_LOT
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
