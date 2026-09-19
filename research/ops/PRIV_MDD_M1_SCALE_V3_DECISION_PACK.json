@@ -1,0 +1,98 @@
+{
+  "generated_at_utc": "2026-09-19T14:12:12.613424+00:00",
+  "label": "PRIV_MDD_M1_SCALE_V3_DECISION",
+  "status": "STOP",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "v3_coexist_ids": [],
+  "best_v3": {
+    "id": "V3_C100_CASH",
+    "mechanism": "V3_M1_SCALE_C100_CASH",
+    "pub_share": null,
+    "fin_pub_clip": [
+      0.6,
+      0.9
+    ],
+    "fin_priv_clip": [
+      0.0,
+      0.15
+    ],
+    "prior_priv_frac": 0.1,
+    "priv_policy": "FIN_PRE_EXDIV_KD",
+    "score_mdd": 1.6124,
+    "heldout_mdd_improve_pp": 1.8187,
+    "sealed_mdd_improve_pp": -0.4128,
+    "heldout_cagr_giveback_pp": -0.188,
+    "legacy_heldout_score": 1.7247,
+    "tip_ytd": "PAUSE_REVIEW",
+    "tip_1y": "ALERT",
+    "tip_clean": false,
+    "tip_mdd_ok": true,
+    "tip_mdd_ytd_pp": 2.1419,
+    "tip_mdd_1y_pp": 2.1419,
+    "tip_pub": 4,
+    "tip_priv": 6,
+    "n_fills": 13279,
+    "gates": {
+      "tip_clean": false,
+      "tip_mdd_ok": true,
+      "heldout_mdd": true,
+      "sealed_mdd": false,
+      "giveback_cap": true,
+      "score_mdd_pos": true
+    },
+    "coexist": false,
+    "v3_family": "M1_SCALE",
+    "v3_c": 1.0,
+    "v3_sink": "CASH",
+    "mean_exposure": 0.68665875729751
+  },
+  "best_overall": {
+    "id": "V3_C100_CASH",
+    "mechanism": "V3_M1_SCALE_C100_CASH",
+    "pub_share": null,
+    "fin_pub_clip": [
+      0.6,
+      0.9
+    ],
+    "fin_priv_clip": [
+      0.0,
+      0.15
+    ],
+    "prior_priv_frac": 0.1,
+    "priv_policy": "FIN_PRE_EXDIV_KD",
+    "score_mdd": 1.6124,
+    "heldout_mdd_improve_pp": 1.8187,
+    "sealed_mdd_improve_pp": -0.4128,
+    "heldout_cagr_giveback_pp": -0.188,
+    "legacy_heldout_score": 1.7247,
+    "tip_ytd": "PAUSE_REVIEW",
+    "tip_1y": "ALERT",
+    "tip_clean": false,
+    "tip_mdd_ok": true,
+    "tip_mdd_ytd_pp": 2.1419,
+    "tip_mdd_1y_pp": 2.1419,
+    "tip_pub": 4,
+    "tip_priv": 6,
+    "n_fills": 13279,
+    "gates": {
+      "tip_clean": false,
+      "tip_mdd_ok": true,
+      "heldout_mdd": true,
+      "sealed_mdd": false,
+      "giveback_cap": true,
+      "score_mdd_pos": true
+    },
+    "coexist": false,
+    "v3_family": "M1_SCALE",
+    "v3_c": 1.0,
+    "v3_sink": "CASH",
+    "mean_exposure": 0.68665875729751
+  },
+  "frozen_offense": "SF4_P60-90_V0-15_F10_KD",
+  "m1_state_vector": "E45_M1_STATE_VECTOR_V0_FROZEN_2026-09-06",
+  "next": "STOP V3 \u2014 Soft-Frozen KEEP; N1\u2013N3+V2+V3 exhausted; sealed-gate or other new charter",
+  "charter": "research/ops/PRIV_MDD_M1_SCALE_V3_CHARTER.md",
+  "stage_a": "research/ops/PRIV_MDD_M1_SCALE_V3_STAGE_A.md",
+  "verdict": "STOP_NO_SEALED_MDD_COEXIST"
+}

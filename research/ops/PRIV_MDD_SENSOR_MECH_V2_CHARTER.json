@@ -1,0 +1,34 @@
+{
+  "label": "PRIV_MDD_SENSOR_MECH_V2_CHARTER_2026-09-19__S1S2_DRAFT",
+  "date": "2026-09-19",
+  "status": "STAGE_A_STOP_S1_S2_V2_LADDER_EXHAUSTED",
+  "stage_a_started": true,
+  "soft_frozen": "KEEP",
+  "cutover_257": "FROZEN",
+  "sealed_gate": "unchanged",
+  "parent_ladder": "N1_N2_N3_STOP",
+  "baseline": "LIVE_PUB_KD",
+  "frozen_offense_ref": "SF4_P60-90_V0-15_F10_KD",
+  "preferred_sink": "FinPriv_to_0050_etf_hi_0.35",
+  "ladder": [
+    "S1_breadth_finpub_taiex",
+    "S2_usdtwd_cbc"
+  ],
+  "stage_a_authorized_when_human_accepts": "S2_running",
+  "wont": [
+    "retune_n1_n2_n3_thresholds",
+    "retune_sf4_clips",
+    "taiex_l4_sole_search",
+    "soften_sealed",
+    "merge_257"
+  ],
+  "note": "research/ops/PRIV_MDD_SENSOR_MECH_V2_CHARTER.md",
+  "human_accept_s1": "ACCEPT S1 Stage-A",
+  "stage_a_verdict_s1": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "s1_coexist": [],
+  "best_s1": "S1_FINZ_15",
+  "human_accept_s2": "ACCEPT S2\uff08USDTWD\uff0fCBC\uff09",
+  "stage_a_verdict_s2": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "s2_coexist": [],
+  "best_s2": "S2_CBC_HIKE"
+}

@@ -1,0 +1,102 @@
+{
+  "generated_at_utc": "2026-09-19T15:07:15.651328+00:00",
+  "label": "PRIV_MDD_SHADOW_RELNAV_V6_DECISION",
+  "status": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "v6_coexist_ids": [],
+  "best_v6": {
+    "id": "V6_C100_CASH",
+    "mechanism": "V6_SHADOW_BASE_CASH_C100",
+    "pub_share": null,
+    "fin_pub_clip": [
+      0.6,
+      0.9
+    ],
+    "fin_priv_clip": [
+      0.0,
+      0.15
+    ],
+    "prior_priv_frac": 0.1,
+    "priv_policy": "FIN_PRE_EXDIV_KD",
+    "score_mdd": 1.5438,
+    "heldout_mdd_improve_pp": 1.7453,
+    "sealed_mdd_improve_pp": -0.4029,
+    "heldout_cagr_giveback_pp": -0.6261,
+    "legacy_heldout_score": 1.4322,
+    "tip_ytd": "ALERT",
+    "tip_1y": "PASS",
+    "tip_clean": false,
+    "tip_mdd_ok": true,
+    "tip_mdd_ytd_pp": 1.9952,
+    "tip_mdd_1y_pp": 1.9952,
+    "tip_pub": 4,
+    "tip_priv": 6,
+    "n_fills": 12358,
+    "gates": {
+      "tip_clean": false,
+      "tip_mdd_ok": true,
+      "heldout_mdd": true,
+      "sealed_mdd": false,
+      "giveback_cap": true,
+      "score_mdd_pos": true
+    },
+    "coexist": false,
+    "v6_family": "SHADOW_RELNAV",
+    "v6_c": 1.0,
+    "v6_sink": "CASH",
+    "v6_variant": "BASE",
+    "mean_exposure": 0.8467315785745696,
+    "mean_u": 0.1532684214254304
+  },
+  "best_overall": {
+    "id": "V6_C100_CASH",
+    "mechanism": "V6_SHADOW_BASE_CASH_C100",
+    "pub_share": null,
+    "fin_pub_clip": [
+      0.6,
+      0.9
+    ],
+    "fin_priv_clip": [
+      0.0,
+      0.15
+    ],
+    "prior_priv_frac": 0.1,
+    "priv_policy": "FIN_PRE_EXDIV_KD",
+    "score_mdd": 1.5438,
+    "heldout_mdd_improve_pp": 1.7453,
+    "sealed_mdd_improve_pp": -0.4029,
+    "heldout_cagr_giveback_pp": -0.6261,
+    "legacy_heldout_score": 1.4322,
+    "tip_ytd": "ALERT",
+    "tip_1y": "PASS",
+    "tip_clean": false,
+    "tip_mdd_ok": true,
+    "tip_mdd_ytd_pp": 1.9952,
+    "tip_mdd_1y_pp": 1.9952,
+    "tip_pub": 4,
+    "tip_priv": 6,
+    "n_fills": 12358,
+    "gates": {
+      "tip_clean": false,
+      "tip_mdd_ok": true,
+      "heldout_mdd": true,
+      "sealed_mdd": false,
+      "giveback_cap": true,
+      "score_mdd_pos": true
+    },
+    "coexist": false,
+    "v6_family": "SHADOW_RELNAV",
+    "v6_c": 1.0,
+    "v6_sink": "CASH",
+    "v6_variant": "BASE",
+    "mean_exposure": 0.8467315785745696,
+    "mean_u": 0.1532684214254304
+  },
+  "frozen_offense": "SF4_P60-90_V0-15_F10_KD",
+  "delta": 0.05,
+  "next": "STOP V6 \u2014 Soft-Frozen KEEP; human sealed-gate or other new charter (\u2260 N1\u2013V6 retune)",
+  "charter": "research/ops/PRIV_MDD_SHADOW_RELNAV_V6_CHARTER.md",
+  "stage_a": "research/ops/PRIV_MDD_SHADOW_RELNAV_V6_STAGE_A.md",
+  "verdict": "STOP_NO_SEALED_MDD_COEXIST"
+}

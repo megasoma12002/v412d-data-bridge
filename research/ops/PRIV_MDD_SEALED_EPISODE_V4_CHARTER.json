@@ -1,0 +1,29 @@
+{
+  "label": "PRIV_MDD_SEALED_EPISODE_V4_CHARTER_2026-09-19__STOP",
+  "date": "2026-09-19",
+  "status": "CHARTER_ACCEPTED_STAGE_A_STOP",
+  "stage_a_status": "A0_STOP_SPAN_TOO_LONG",
+  "stage_a_started": true,
+  "a1_authorized": false,
+  "human_accept": "ACCEPT V4 Stage-A",
+  "soft_frozen": "KEEP",
+  "cutover_257": "FROZEN",
+  "sealed_gate": "unchanged",
+  "parent_stops": ["N1_N2_N3", "V2_S1_S2", "V3_M1_SCALE"],
+  "baseline": "LIVE_PUB_KD",
+  "frozen_offense_ref": "SF4_P60-90_V0-15_F10_KD",
+  "ladder": ["A0_sealed_episode_autopsy", "A1_calendar_finpriv_gate"],
+  "a0_n_episodes": 3,
+  "a0_max_span_sessions": 120,
+  "decision": "research/ops/PRIV_MDD_SEALED_EPISODE_V4_DECISION_PACK.md",
+  "wont": [
+    "retune_n1_n3_v2_v3",
+    "retune_sf4_clips",
+    "soften_sealed",
+    "peek_then_invent_live_sensors",
+    "expand_episodes_after_a0_freeze",
+    "raise_span_cap_after_peek",
+    "merge_257"
+  ],
+  "note": "research/ops/PRIV_MDD_SEALED_EPISODE_V4_CHARTER.md"
+}

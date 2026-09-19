@@ -1,0 +1,17 @@
+{
+  "label": "PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER_2026-09-19__STOP",
+  "date": "2026-09-19",
+  "status": "CHARTER_ACCEPTED_STAGE_A_STOP",
+  "stage_a_status": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "stage_a_started": true,
+  "human_accept": "ACCEPT V5 Stage-A",
+  "soft_frozen": "KEEP",
+  "cutover_257": "FROZEN",
+  "sealed_gate": "unchanged",
+  "v5_coexist_ids": [],
+  "best_v5": "V5_DH_CASH_XDEF",
+  "best_v5_sealed_mdd_pp": -0.4216,
+  "enter_recipe": "DH_dd06_vz1p0",
+  "decision": "research/ops/PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md",
+  "note": "research/ops/PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER.md"
+}

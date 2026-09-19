@@ -1,0 +1,42 @@
+{
+  "label": "PRIV_MDD_M1_SCALE_V3_CHARTER_2026-09-19__DRAFT",
+  "date": "2026-09-19",
+  "status": "STAGE_A_STOP_V3",
+  "stage_a_started": true,
+  "soft_frozen": "KEEP",
+  "cutover_257": "FROZEN",
+  "sealed_gate": "unchanged",
+  "parent_stops": [
+    "N1_N2_N3",
+    "V2_S1_S2"
+  ],
+  "baseline": "LIVE_PUB_KD",
+  "frozen_offense_ref": "SF4_P60-90_V0-15_F10_KD",
+  "sensor": "E45_M1_v0_s_t",
+  "actuator": "proportional_finpriv_scale",
+  "c_grid": [
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "residual_arms": [
+    "TO_0050",
+    "TO_CASH"
+  ],
+  "stage_a_authorized_when_human_accepts": "V3_c_x_sink_grid",
+  "wont": [
+    "retune_n1_n3",
+    "retune_v2_fire_thr",
+    "retune_sf4_clips",
+    "retune_m1_feature_maps_after_peek",
+    "soften_sealed",
+    "merge_257",
+    "e45_stitch"
+  ],
+  "note": "research/ops/PRIV_MDD_M1_SCALE_V3_CHARTER.md",
+  "human_accept": "ACCEPT V3 Stage-A",
+  "stage_a_verdict": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "v3_coexist": [],
+  "best_v3": "V3_C100_CASH"
+}

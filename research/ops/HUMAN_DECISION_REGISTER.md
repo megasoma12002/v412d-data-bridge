@@ -16,9 +16,15 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 
 | Pri | Decision | Verdict | Binding effect |
 |---:|---|---|---|
-| 0 | Live cutover bundle `#257` | **FROZEN** (2026-09-19) | Do **not** merge · keep 公股+FUSE+DH · 民股等新機制或改 sealed 門檻 · 無民股小包**暫不拆** · `LIVE_CUTOVER_BUNDLE_257_FROZEN.md` |
+| 0 | Live cutover bundle `#257` | **CLOSED** (2026-09-19) | Closed not merged · keep 公股+FUSE+DH · reopen only new mechanism or sealed-gate · 無民股小包**暫不拆** · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` |
 | 0b | 公股＋民營並存 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#258` · `PUB_PRIV_COEXIST_MDD_DECISION_PACK.md` |
 | 0c | 四類 SF4 + DH/L4 防禦 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#259` · `SF4_DEFENCE_MDD_DECISION_PACK.md` |
+| 0d | 民股／四類 × MDD **新機制** (N1→N2→N3) | **STOP N1–N3** (2026-09-19) | Ladder exhausted · 0 sealed coexist · Soft-Frozen KEEP · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md` |
+| 0e | 民股 MDD **新機制 V2**（廣度／FinPub–TAIEX／FX／CBC） | **STOP S1–S2** (2026-09-19) | V2 ladder exhausted · Soft-Frozen KEEP · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md` |
+| 0f | 民股 MDD **新機制 V3**（M1 連續縮放 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V3_C50_0050` −0.44 · Soft-Frozen KEEP · `PRIV_MDD_M1_SCALE_V3_DECISION_PACK.md` |
+| 0g | 民股 MDD **新機制 V4**（sealed 事件剖檢→日曆閘） | **STOP** (2026-09-19) | A0 span>120 · A1 未開 · Soft-Frozen KEEP · `PRIV_MDD_SEALED_EPISODE_V4_DECISION_PACK.md` |
+| 0h | 民股 MDD **新機制 V5**（DH 防衛窗 → 只關 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V5_DH_0050_XTIGHT` −0.27 · Soft-Frozen KEEP · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md` |
+| 0i | 民股 MDD **新機制 V6**（shadow 相對 NAV 連續阻尼 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V6_C100_PUB` −0.24 · Soft-Frozen KEEP · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.90]** | **FLIPPED** (ACCEPT 2026-09-09 `FINBAND_F0.60-0.90`) | Was [0.50, 0.95]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
@@ -72,6 +78,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | FUSE_ADDITIVE observe ballot | **EXECUTED OPEN OBSERVE** (2026-09-12) | Human 開 FUSE_ADDITIVE 專用 ballot → `OPEN Soft×Sleeve fuse observe: FUSE_ADDITIVE` · paper only · Soft/Sleeve observes KEEP · no live · `FUSE_ADDITIVE_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Live DH_dd06 + FUSE_ADDITIVE cutover | **EXECUTED ACCEPT / LIVE WIRED** (2026-09-13) | Human `ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE` · MENU3 twin · `LIVE_FUSE_ADDITIVE`+`LIVE_DH_EXPOSURE` · `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | FUSE_ADDITIVE dual-paper observe | **OPERATING** (2026-09-12) | `LIVE_STACK` ∥ `FUSE_ADDITIVE` · held≈+0.164 · month-end wired · cutover **BLOCKED** · Soft∥Sleeve auto-fuse still FORBIDDEN · `FUSE_ADDITIVE_DUAL_PAPER_OBSERVE_OPEN.md` |
+| Soft∥Sleeve ops auto-fuse agenda | **CLOSED** (2026-09-19) | Human `ACCEPT drop auto-fuse agenda` · Gate H **FORBIDDEN KEEP** · ≠ drop live `FUSE_ADDITIVE` · `ACCEPT_DROP_AUTO_FUSE_AGENDA.md` |
 | E45 defend-window → handoff paper charter | **PAPER CHARTER OPEN** (2026-09-12) | Stage A **DONE** → `HANDOFF_PROMOTE_SHAPED` (`DH_dd06_vz1p0`) · stitch **FORBIDDEN** · `E45_DEFEND_HANDOFF_PAPER_CHARTER.md` · `E45_DEFEND_HANDOFF_STAGEA_SCREEN.md` |
 | E45 defend-handoff observe ballot | **EXECUTED OPEN OBSERVE** (2026-09-13) | Human `E45 防衛窗 DH_dd06 開 observe` → `OPEN E45 defend-handoff observe: DH_dd06_vz1p0` · paper only · no stitch · `E45_DEFEND_HANDOFF_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | E45 defend-handoff dual-paper observe | **OPERATING** (2026-09-13) | `LIVE_STACK` ∥ `DH_dd06_vz1p0` · month-end wired · cutover **BLOCKED** · Soft/Sleeve/FUSE KEEP · `E45_DEFEND_HANDOFF_DUAL_PAPER_OBSERVE_OPEN.md` |
@@ -136,6 +143,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - Next weekday forward → tip may advance to `E22_v3_recv_pay_effdelay` (tip-align ACCEPT 2026-09-19; no history rewrite); then `POST_FORWARD_E22_VERIFY_RUNBOOK.md` + Gap6 KPI  
 - Grow live history toward ≥~60 sessions; `INDEX_DRIFT` under thin overlap is **ops note only** (ACCEPT Ops residual 全修 2026-09-19) — never a cutover vote  
 - Calendar month-end pack re-run (L4 / FIN50 / FINCAP BLEND_025 / Soft / Sleeve / FUSE / priv / DH; **E45_BLEND025 skipped**) — default **KEEP OBSERVE**; cutover only via dedicated ACCEPT  
+- Soft-assist×sleeve-tilt **ops auto-fuse agenda CLOSED** 2026-09-19 (`ACCEPT_DROP_AUTO_FUSE_AGENDA.md`) — Gate H **FORBIDDEN KEPT**; live `FUSE_ADDITIVE` KEEP; Soft∥Sleeve observes stay independent  
 - Soft-assist×sleeve-tilt combo **not** authorized while both observe independently  
 - Soft-Frozen cutover checklist is **ACCEPTED / LIVE WIRED** for FINBAND — do not re-read as DRAFTED (`CUTOVER_CHECKLIST_SOFT_FROZEN_CLIP.md`)
 - Fill `MONTH_END_PROMOTE_GATE_CHECKLIST.md` after each Soft-assist / Sleeve-tilt pack (paper gates only · include Soft↔Sleeve overlap from `SOFT_SLEEVE_OBSERVE_OVERLAP.md` · **no live wire** · **no auto-combo**)

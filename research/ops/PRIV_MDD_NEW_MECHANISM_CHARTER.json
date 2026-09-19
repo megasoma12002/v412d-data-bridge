@@ -1,0 +1,44 @@
+{
+  "label": "PRIV_MDD_NEW_MECH_CHARTER_2026-09-19__N1N2N3_DRAFT",
+  "date": "2026-09-19",
+  "status": "STAGE_A_STOP_N1_N2_N3_LADDER_EXHAUSTED",
+  "human_accept": "ACCEPT N1 Stage-A",
+  "stage_a_started": true,
+  "stage_a_verdict": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "n1_coexist": [],
+  "best_n1": "N1_LOCAL_06",
+  "soft_frozen": "KEEP",
+  "cutover_257": "CLOSED_NOT_MERGED",
+  "sealed_gate": "unchanged",
+  "baseline": "LIVE_PUB_KD",
+  "frozen_offense_ref": "SF4_P60-90_V0-15_F10_KD",
+  "ladder": [
+    "N1_regime_membership",
+    "N2_finpriv_relocate",
+    "N3_three_state"
+  ],
+  "stage_a_authorized_when_human_accepts": "N3_running",
+  "wont": [
+    "retune_sf4_clips",
+    "retune_dh_l4_taiex_same_cell",
+    "soften_sealed",
+    "merge_257",
+    "priv_replace_as_coexist",
+    "live_e21_from_stage_a"
+  ],
+  "prior_stops": [
+    "PUB_PRIV_COEXIST_MDD_DECISION_PACK",
+    "SF4_DEFENCE_MDD_DECISION_PACK"
+  ],
+  "note": "research/ops/PRIV_MDD_NEW_MECHANISM_CHARTER.md",
+  "human_accept_n2": "ACCEPT N2（FinPriv→cash/0050）",
+  "stage_a_verdict_n2": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "n2_coexist": [],
+  "best_n2": "N2_CASH_LOCAL_06",
+  "closest_sealed_n2": "N2_0050_LOCAL_08",
+  "human_accept_n3": "ACCEPT N3",
+  "stage_a_verdict_n3": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "n3_coexist": [],
+  "best_n3": "N3_L06_L10_CASH",
+  "best_n3_sealed": "N3_L08_L10_0050"
+}

@@ -18,7 +18,7 @@ Inspired by paper→live promotion hygiene (parity / tip / kill-switch / checkli
 2. Fill **Pass?** for Soft-assist and Sleeve-tilt **separately** from that month’s JSON/MD.  
 3. Copy held-out overlap row from `SOFT_SLEEVE_OBSERVE_OVERLAP.md` into the month log.  
 4. Record overall row verdict: `KEEP_OBSERVE` · `WATCH` · `READY_FOR_DEDICATED_ACCEPT_BALLOT`.  
-5. **Never** auto-wire live. **Never** auto-combine Soft-assist × Sleeve-tilt (overlap is report-only).
+5. **Never** auto-wire live. **Never** auto-combine Soft-assist × Sleeve-tilt (overlap is report-only). Ops auto-fuse agenda is **CLOSED** 2026-09-19 — Gate H stays FORBIDDEN (`ACCEPT_DROP_AUTO_FUSE_AGENDA.md`).
 
 ## Gates (all required per track)
 
@@ -31,7 +31,7 @@ Inspired by paper→live promotion hygiene (parity / tip / kill-switch / checkli
 | E | Month-end monitor **alerts = none** (or only documented non-blocking notes) | | |
 | F | Challenger ID unchanged since last OPEN (`…__SELL_a05` / `RSI14_a0225`) | | |
 | G | Soft-Frozen / live KD / TEL / E45 **unchanged** by this pack | | |
-| H | Soft-assist × Sleeve-tilt **combo not proposed** this month | | |
+| H | Soft-assist × Sleeve-tilt **combo not proposed** this month · ops auto-fuse agenda **CLOSED** (`ACCEPT_DROP_AUTO_FUSE_AGENDA.md`) · Gate H **FORBIDDEN KEPT** | | |
 | I | Live cutover checklist still **BLOCKED** until dedicated human ACCEPT | | |
 
 **Track ready for ballot only if A–I all YES for that column.**  
@@ -98,7 +98,7 @@ python3 scripts/ops_month_end_paper_pack.py
 |---|---|---|---|---|
 | FUSE_ADDITIVE | `FUSE_ADDITIVE` | `LIVE_STACK` | `FUSE_ADDITIVE_MONTH_END_MONITOR.md` | `CUTOVER_CHECKLIST_FUSE_ADDITIVE.md` (**BLOCKED**) |
 
-Paper-only. Does **not** authorize Soft∥Sleeve ops auto-fuse or live wire. Soft-assist and Sleeve-tilt observes remain independent KEEP.
+Paper-only shadow for dedicated fuse book. Does **not** authorize Soft∥Sleeve ops auto-fuse (agenda **CLOSED** 2026-09-19 · Gate H KEPT). Soft-assist and Sleeve-tilt observes remain independent KEEP. Live `FUSE_ADDITIVE` already wired via DH+FUSE ACCEPT — this row is paper monitor, not a second live path.
 
 ## E45 defend→handoff `DH_dd06_vz1p0` (paper observe · independent)
 
