@@ -1,7 +1,7 @@
 {
   "label": "PRIV_MDD_SENSOR_MECH_V2_CHARTER_2026-09-19__S1S2_DRAFT",
   "date": "2026-09-19",
-  "status": "STAGE_A_STOP_S1",
+  "status": "CHARTER_ACCEPTED_S2_STAGE_A",
   "stage_a_started": true,
   "soft_frozen": "KEEP",
   "cutover_257": "FROZEN",
@@ -14,7 +14,7 @@
     "S1_breadth_finpub_taiex",
     "S2_usdtwd_cbc"
   ],
-  "stage_a_authorized_when_human_accepts": "S1_only",
+  "stage_a_authorized_when_human_accepts": "S2_running",
   "wont": [
     "retune_n1_n2_n3_thresholds",
     "retune_sf4_clips",
@@ -26,5 +26,6 @@
   "human_accept_s1": "ACCEPT S1 Stage-A",
   "stage_a_verdict_s1": "STAGE_A_SCORE_POS_GATES_FAIL",
   "s1_coexist": [],
-  "best_s1": "S1_FINZ_15"
+  "best_s1": "S1_FINZ_15",
+  "human_accept_s2": "ACCEPT S2\uff08USDTWD\uff0fCBC\uff09"
 }

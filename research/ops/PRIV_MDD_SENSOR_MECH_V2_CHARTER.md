@@ -1,10 +1,10 @@
 # 民股／四類 × MDD — New Mechanism V2 Charter（跨資產／廣度感測器）
 
 Date: 2026-09-19  
-Status: **CHARTER ACCEPTED → S1 Stage A STOP** (`STAGE_A_SCORE_POS_GATES_FAIL` — breadth/FinPub–TAIEX: tip/heldout often OK, **0 sealed coexist**)  
+Status: **CHARTER ACCEPTED → S2 Stage A RUNNING** (S1 STOP; sealed gate **unchanged**)  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
-Parent STOP: N1–N3 ladder exhausted · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
-Human: **「ACCEPT S1 Stage-A」** (2026-09-19) · prior「不改門檻，開全新機制 charter」
+Parent STOP: N1–N3 ladder exhausted · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md` · S1 STOP · `PRIV_MDD_SENSOR_S1_DECISION_PACK.md`  
+Human: **「ACCEPT S2（USDTWD／CBC）」** (2026-09-19)
 
 **Passing ≠ Soft-Frozen flip ≠ live e21 rewrite ≠ merge `#257`.**  
 **≠ retune N1–N3 FinPriv-local DD / rel-60d / three-state thresholds.**
