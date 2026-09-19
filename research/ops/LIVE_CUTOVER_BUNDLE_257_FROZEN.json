@@ -1,0 +1,23 @@
+{
+  "label": "LIVE_CUTOVER_BUNDLE_257_FROZEN",
+  "date": "2026-09-19",
+  "status": "FROZEN_DO_NOT_MERGE",
+  "pr": 257,
+  "live_keep": {
+    "soft_frozen_fin_clip": [0.6, 0.9],
+    "fin_membership": "PUB_R1",
+    "within_sleeve": "KD_OPT",
+    "telecom": "TEL_EQUAL",
+    "overlay": ["FUSE_ADDITIVE", "DH_dd06"]
+  },
+  "blockers": [
+    "PUB_PRIV_COEXIST_MDD Stage-A STOP (#258)",
+    "SF4_DEFENCE_MDD Stage-A STOP (#259)",
+    "priv-replace is not 並存"
+  ],
+  "reopen_requires": [
+    "new mechanism charter",
+    "or human-accepted sealed MDD gate change"
+  ],
+  "human": "先鎖住現況 live、凍結 #257；民股等新機制或你改門檻再談"
+}

@@ -3,6 +3,7 @@
 Date: 2026-09-19 (tip books align ACCEPT + E45 A05 residue cleanup; SSOT after DH+FUSE)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
+**Cutover `#257`: FROZEN — do not merge** (`LIVE_CUTOVER_BUNDLE_257_FROZEN.md`) · 民股／四類等新機制或 human 改 sealed 門檻  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  

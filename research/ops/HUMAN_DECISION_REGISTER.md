@@ -16,6 +16,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 
 | Pri | Decision | Verdict | Binding effect |
 |---:|---|---|---|
+| 0 | Live cutover bundle `#257` | **FROZEN** (2026-09-19) | Do **not** merge · keep 公股+FUSE+DH · 民股等新機制或改 sealed 門檻 · `LIVE_CUTOVER_BUNDLE_257_FROZEN.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.90]** | **FLIPPED** (ACCEPT 2026-09-09 `FINBAND_F0.60-0.90`) | Was [0.50, 0.95]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_FINBAND.md` |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
