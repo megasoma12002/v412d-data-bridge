@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-12T13:42:41.666165+00:00",
+  "generated_at_utc": "2026-09-19T05:46:51.700704+00:00",
   "label": "FINCAP50_SEALED_CAGR_CHARTER_SCREEN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -23,14 +23,9 @@
     "BLEND_050",
     "CRISIS_ONLY_50"
   ],
-  "promote_eligible": [
-    {
-      "family": "L4-BLEND-LIGHT",
-      "id": "BLEND_025"
-    }
-  ],
-  "decision": "PAPER_PROMOTE_PROPOSAL_ONLY",
-  "charter_exit_hint": "Named challenger may enter dual-paper observe + promote proposal only (not live cutover).",
+  "promote_eligible": [],
+  "decision": "HIST_PASS_TRAIL_FAIL",
+  "charter_exit_hint": "STOP for promote \u2014 hist gates clear for some families but trailing FAIL; keep FIN50 dual-paper; Soft-Frozen KEEP.",
   "operating_dual_paper": {
     "FIN_CAP_50": {
       "available": true,
@@ -39,19 +34,20 @@
       "cutover_blocked": true,
       "authoritative_go_live_status": "NOT_READY_SEALED_CAGR",
       "alerts": [
+        "ALERT: FIN_CAP_50 heldout_2019_plus MDD worse than BASE (paper)",
         "ALERT: FIN_CAP_50 ytd CAGR giveback > 3.0 pp (paper)",
-        "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)",
+        "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no cutover talk",
         "ALERT: FIN_CAP_50 trailing_1y CAGR giveback > 3.0 pp (paper)",
-        "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 do not advance cutover discussion (aligns with FIN_CAP_50_GO_LIVE_VERIFY Gate E)"
+        "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no cutover talk"
       ],
       "windows": {
         "ytd": {
-          "cagr_giveback_pp": 19.26282975454732,
-          "mdd_improve_pp": 6.311572303116941
+          "cagr_giveback_pp": 18.528555905153212,
+          "mdd_improve_pp": 1.2675664643313156
         },
         "trailing_1y": {
-          "cagr_giveback_pp": 9.84582334718247,
-          "mdd_improve_pp": 6.3115723031169635
+          "cagr_giveback_pp": 7.715801476656159,
+          "mdd_improve_pp": 1.2675664643312823
         }
       },
       "trail_pass": false
@@ -63,18 +59,20 @@
       "cutover_blocked": true,
       "authoritative_go_live_status": null,
       "alerts": [
+        "ALERT: L4_DD_PATH_08_50 sealed MDD worse than BASE (paper)",
         "ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops)",
         "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4",
-        "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)"
+        "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)",
+        "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4"
       ],
       "windows": {
         "ytd": {
-          "cagr_giveback_pp": 5.405558257185072,
-          "mdd_improve_pp": 1.102952908466348
+          "cagr_giveback_pp": 9.527221329209157,
+          "mdd_improve_pp": -0.5317537800048067
         },
         "trailing_1y": {
-          "cagr_giveback_pp": 4.350246417741266,
-          "mdd_improve_pp": 1.1029529084663592
+          "cagr_giveback_pp": 5.332785493463743,
+          "mdd_improve_pp": -0.5317537800047956
         }
       },
       "trail_pass": false
@@ -113,30 +111,30 @@
           },
           "trailing": {
             "available": true,
-            "asof": "2026-09-11",
+            "asof": "2026-09-16",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7421185057745721,
-              "base_mdd": -0.13951360270788848,
-              "cand_cagr": 0.6959519353842298,
-              "cand_mdd": -0.13447593369930355,
-              "mdd_improve_pp": 0.5037669008584933,
-              "cagr_giveback_pp": 4.616657039034222,
-              "n_days": 167,
+              "base_cagr": 0.7365066335738841,
+              "base_mdd": -0.09288513970800305,
+              "cand_cagr": 0.607911649367052,
+              "cand_mdd": -0.1019697413814562,
+              "mdd_improve_pp": -0.9084601673453152,
+              "cagr_giveback_pp": 12.859498420683213,
+              "n_days": 170,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.563914506946295,
-              "base_mdd": -0.1395136027078886,
-              "cand_cagr": 0.5339898749348215,
-              "cand_mdd": -0.13447593369930355,
-              "mdd_improve_pp": 0.5037669008585044,
-              "cagr_giveback_pp": 2.992463201147344,
+              "base_cagr": 0.5349689757788192,
+              "base_mdd": -0.09288513970800294,
+              "cand_cagr": 0.4528432955926036,
+              "cand_mdd": -0.10196974138145609,
+              "mdd_improve_pp": -0.9084601673453152,
+              "cagr_giveback_pp": 8.212568018621557,
               "n_days": 242,
               "pass_diag": false
             },
-            "pause_review": false,
+            "pause_review": true,
             "alert": true,
             "trail_pass": false
           }
@@ -176,26 +174,26 @@
           },
           "trailing": {
             "available": true,
-            "asof": "2026-09-11",
+            "asof": "2026-09-16",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7421185057745721,
-              "base_mdd": -0.13951360270788848,
-              "cand_cagr": 0.6590943372047997,
-              "cand_mdd": -0.09343142150295525,
-              "mdd_improve_pp": 4.608218120493324,
-              "cagr_giveback_pp": 8.302416856977235,
-              "n_days": 167,
+              "base_cagr": 0.7365066335738841,
+              "base_mdd": -0.09288513970800305,
+              "cand_cagr": 0.6431925473153497,
+              "cand_mdd": -0.07531775617063963,
+              "mdd_improve_pp": 1.7567383537363424,
+              "cagr_giveback_pp": 9.331408625853443,
+              "n_days": 170,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.563914506946295,
-              "base_mdd": -0.1395136027078886,
-              "cand_cagr": 0.512224368484963,
-              "cand_mdd": -0.09343142150295536,
-              "mdd_improve_pp": 4.608218120493324,
-              "cagr_giveback_pp": 5.169013846133197,
+              "base_cagr": 0.5349689757788192,
+              "base_mdd": -0.09288513970800294,
+              "cand_cagr": 0.49093504222396045,
+              "cand_mdd": -0.07531775617063963,
+              "mdd_improve_pp": 1.7567383537363312,
+              "cagr_giveback_pp": 4.403393355485874,
               "n_days": 242,
               "pass_diag": false
             },
@@ -209,13 +207,13 @@
     },
     {
       "family": "L4-BLEND-LIGHT",
-      "any_charter_pass": true,
+      "any_charter_pass": false,
       "members": [
         {
           "id": "BLEND_025",
           "hist_pass": true,
-          "trail_pass": true,
-          "charter_pass": true,
+          "trail_pass": false,
+          "charter_pass": false,
           "hist": {
             "id": "BLEND_025",
             "family": "static_blend",
@@ -239,32 +237,32 @@
           },
           "trailing": {
             "available": true,
-            "asof": "2026-09-11",
+            "asof": "2026-09-16",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7421185057745721,
-              "base_mdd": -0.13951360270788848,
-              "cand_cagr": 0.713936696610538,
-              "cand_mdd": -0.11940299338693428,
-              "mdd_improve_pp": 2.011060932095421,
-              "cagr_giveback_pp": 2.818180916403401,
-              "n_days": 167,
-              "pass_diag": true
+              "base_cagr": 0.7365066335738841,
+              "base_mdd": -0.09288513970800305,
+              "cand_cagr": 0.6662660052060094,
+              "cand_mdd": -0.08060678738834226,
+              "mdd_improve_pp": 1.227835231966079,
+              "cagr_giveback_pp": 7.02406283678747,
+              "n_days": 170,
+              "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.563914506946295,
-              "base_mdd": -0.1395136027078886,
-              "cand_cagr": 0.558070175510839,
-              "cand_mdd": -0.11940299338693428,
-              "mdd_improve_pp": 2.011060932095432,
-              "cagr_giveback_pp": 0.584433143545593,
+              "base_cagr": 0.5349689757788192,
+              "base_mdd": -0.09288513970800294,
+              "cand_cagr": 0.5014272037281324,
+              "cand_mdd": -0.08060678738834226,
+              "mdd_improve_pp": 1.227835231966068,
+              "cagr_giveback_pp": 3.354177205068676,
               "n_days": 242,
-              "pass_diag": true
+              "pass_diag": false
             },
-            "pause_review": false,
-            "alert": false,
-            "trail_pass": true
+            "pause_review": true,
+            "alert": true,
+            "trail_pass": false
           }
         },
         {
@@ -295,26 +293,26 @@
           },
           "trailing": {
             "available": true,
-            "asof": "2026-09-11",
+            "asof": "2026-09-16",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7421185057745721,
-              "base_mdd": -0.13951360270788848,
-              "cand_cagr": 0.6643717000996436,
-              "cand_mdd": -0.09749798829863254,
-              "mdd_improve_pp": 4.201561440925595,
-              "cagr_giveback_pp": 7.774680567492842,
-              "n_days": 167,
+              "base_cagr": 0.7365066335738841,
+              "base_mdd": -0.09288513970800305,
+              "cand_cagr": 0.6235137129720385,
+              "cand_mdd": -0.08140580496883298,
+              "mdd_improve_pp": 1.1479334739170066,
+              "cagr_giveback_pp": 11.299292060184563,
+              "n_days": 170,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.563914506946295,
-              "base_mdd": -0.1395136027078886,
-              "cand_cagr": 0.5296583897085598,
-              "cand_mdd": -0.09749798829863254,
-              "mdd_improve_pp": 4.201561440925605,
-              "cagr_giveback_pp": 3.425611723773514,
+              "base_cagr": 0.5349689757788192,
+              "base_mdd": -0.09288513970800294,
+              "cand_cagr": 0.4870796638091959,
+              "cand_mdd": -0.0814058049688331,
+              "mdd_improve_pp": 1.1479334739169844,
+              "cagr_giveback_pp": 4.788931196962332,
               "n_days": 242,
               "pass_diag": false
             },
@@ -358,30 +356,30 @@
           },
           "trailing": {
             "available": true,
-            "asof": "2026-09-11",
+            "asof": "2026-09-16",
             "ytd": {
               "window": "ytd",
-              "base_cagr": 0.7421185057745721,
-              "base_mdd": -0.13951360270788848,
-              "cand_cagr": 0.6951873169854366,
-              "cand_mdd": -0.13921856347460038,
-              "mdd_improve_pp": 0.0295039233288108,
-              "cagr_giveback_pp": 4.693118878913549,
-              "n_days": 167,
+              "base_cagr": 0.7365066335738841,
+              "base_mdd": -0.09288513970800305,
+              "cand_cagr": 0.6133718260299139,
+              "cand_mdd": -0.09652591255552934,
+              "mdd_improve_pp": -0.36407728475262857,
+              "cagr_giveback_pp": 12.313480754397021,
+              "n_days": 170,
               "pass_diag": false
             },
             "trailing_1y": {
               "window": "trailing_1y",
-              "base_cagr": 0.563914506946295,
-              "base_mdd": -0.1395136027078886,
-              "cand_cagr": 0.5367450377667047,
-              "cand_mdd": -0.1392185634746005,
-              "mdd_improve_pp": 0.0295039233288108,
-              "cagr_giveback_pp": 2.716946917959029,
+              "base_cagr": 0.5349689757788192,
+              "base_mdd": -0.09288513970800294,
+              "cand_cagr": 0.45535598558215495,
+              "cand_mdd": -0.09652591255552934,
+              "mdd_improve_pp": -0.3640772847526397,
+              "cagr_giveback_pp": 7.9612990196664235,
               "n_days": 242,
               "pass_diag": false
             },
-            "pause_review": false,
+            "pause_review": true,
             "alert": true,
             "trail_pass": false
           }
@@ -394,18 +392,20 @@
         "cutover_blocked": true,
         "authoritative_go_live_status": null,
         "alerts": [
+          "ALERT: L4_DD_PATH_08_50 sealed MDD worse than BASE (paper)",
           "ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops)",
           "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4",
-          "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)"
+          "ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops)",
+          "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4"
         ],
         "windows": {
           "ytd": {
-            "cagr_giveback_pp": 5.405558257185072,
-            "mdd_improve_pp": 1.102952908466348
+            "cagr_giveback_pp": 9.527221329209157,
+            "mdd_improve_pp": -0.5317537800048067
           },
           "trailing_1y": {
-            "cagr_giveback_pp": 4.350246417741266,
-            "mdd_improve_pp": 1.1029529084663592
+            "cagr_giveback_pp": 5.332785493463743,
+            "mdd_improve_pp": -0.5317537800047956
           }
         },
         "trail_pass": false

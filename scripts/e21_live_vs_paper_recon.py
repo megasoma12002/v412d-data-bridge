@@ -177,6 +177,8 @@ def main() -> None:
         "- Re-run: `python3 scripts/e21_live_vs_paper_recon.py`",
         "- Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`",
         "- Cutover authority remains `research/STRATEGY_DEBT_BOARD.md` — this recon never flips Soft-Frozen.",
+        "- **INDEX_DRIFT non-decision** (ACCEPT Ops residual 全修 2026-09-19): thin overlap "
+        "≪ ~60 sessions — ops note only; do not open cutover on thin drift.",
         "",
     ]
     out_md.write_text("\n".join(lines))

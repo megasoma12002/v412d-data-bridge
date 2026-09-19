@@ -1,0 +1,29 @@
+{
+  "label": "ACCEPT_2026-09-19_OPS_RESIDUAL_FULL_FIX",
+  "status": "ACCEPTED",
+  "date": "2026-09-19",
+  "ballot": "ACCEPT Ops residual 全修: dual-paper NAV regenerate + tip-lag Gap6/ops stamp + INDEX_DRIFT non-decision note; no Soft-Frozen cutover; no L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B promote",
+  "in_scope": [
+    "dual_paper_refresh_ledgers",
+    "simulate_core_stage_e_books_router",
+    "priv_native_tw12_private_adj_fallback",
+    "tip_lag_gap6_stamp",
+    "index_drift_non_decision",
+    "register_ops_status_debt_board"
+  ],
+  "out_of_scope": [
+    "L4_cutover",
+    "FIN50_cutover",
+    "BLEND025_cutover",
+    "soft_assist_live",
+    "sleeve_tilt_live",
+    "priv_native_live",
+    "tax_stage_b_promote",
+    "broker_live_write",
+    "api_wired"
+  ],
+  "soft_frozen": "KEEP",
+  "e45_a05_stitch": "DROPPED",
+  "broker_live_write_accepted": false,
+  "note": "research/ops/ACCEPT_OPS_RESIDUAL_FULL_FIX.md"
+}

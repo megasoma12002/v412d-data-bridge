@@ -87,7 +87,8 @@ class DualPaperLedgerSpec:
     chal_targets_name: str | None = None
     capital: float = DEFAULT_CAPITAL
     lot_size: int = BOARD_LOT
-    # None → simulate_core default (E22_v2s_tw). Pass E22_V2S explicitly when required.
+    # None → simulate_core default (live DEFAULT E22_v3_recv_pay_effdelay via books router).
+    # Pass E22_V2S / E22_V2S_TW_EFFEX explicitly when a preserved formal path is required.
     e22_version: str | None = None
     apply_e22: bool = True
     apply_stock_div: bool = True

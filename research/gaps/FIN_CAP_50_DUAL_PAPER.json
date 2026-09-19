@@ -1,0 +1,90 @@
+{
+  "generated_at_utc": "2026-09-19T05:43:00.568681+00:00",
+  "label": "FIN_CAP_50_DUAL_PAPER_LEDGERS",
+  "status": "PROMOTE_PROPOSAL_SUPPORT",
+  "live_wire": false,
+  "soft_frozen_default_unchanged": true,
+  "authoritative_go_live_status": "NOT_READY_SEALED_CAGR",
+  "base_id": "BASE_E16",
+  "challenger_id": "FIN_CAP_50",
+  "books": {
+    "BASE_E16": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 1.0,
+      "e45_sleeve_names": null,
+      "windows": {
+        "full": {
+          "cagr": 0.13232367067537254,
+          "max_drawdown": -0.23225912689829675,
+          "utility": 0.016194107226224164,
+          "vol": 0.12389046161264924,
+          "n_days": 3359
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09209491474630371,
+          "max_drawdown": -0.16788056992166933,
+          "utility": 0.008154629785469047,
+          "vol": 0.1019148618458224,
+          "n_days": 1495
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1683001217399358,
+          "max_drawdown": -0.23225912689829664,
+          "utility": 0.05217055829078748,
+          "vol": 0.13891500788325475,
+          "n_days": 1864
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.2359659344255003,
+          "max_drawdown": -0.09501770781736396,
+          "utility": 0.1884570805168183,
+          "vol": 0.1458742323514335,
+          "n_days": 887
+        }
+      }
+    },
+    "FIN_CAP_50": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 1.0,
+      "e45_sleeve_names": null,
+      "windows": {
+        "full": {
+          "cagr": 0.11490889503136659,
+          "max_drawdown": -0.23573066131763765,
+          "utility": -0.0029564356274522363,
+          "vol": 0.11623826341202746,
+          "n_days": 3359
+        },
+        "oof_2011_2018": {
+          "cagr": 0.07701893840379381,
+          "max_drawdown": -0.1322227839208232,
+          "utility": 0.01090754644338221,
+          "vol": 0.09719275733392706,
+          "n_days": 1495
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1492698889624693,
+          "max_drawdown": -0.23573066131763776,
+          "utility": 0.03140455830365041,
+          "vol": 0.12933140225330111,
+          "n_days": 1864
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.20263893684393008,
+          "max_drawdown": -0.12568942963783436,
+          "utility": 0.1397942220250129,
+          "vol": 0.13253072027675217,
+          "n_days": 887
+        }
+      }
+    }
+  },
+  "heldout_delta_vs_base": {
+    "mdd_improve_pp": -0.3471534419341116,
+    "cagr_giveback_pp": 1.9030232777466516,
+    "score": -1.2986650808074374
+  },
+  "cutover_blocked": true
+}

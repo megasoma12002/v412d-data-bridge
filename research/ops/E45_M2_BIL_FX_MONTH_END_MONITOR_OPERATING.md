@@ -1,26 +1,27 @@
-# E45 M2 BIL_FX month-end monitor (asof 2026-09-11)
+# E45_M2_BIL_FX_MONTH_END_MONITOR month-end monitor (asof 2026-09-16)
 
-**Status:** `OPERATING_OBSERVE` — **OPERATING (paper only)**
-**Locked:** `M2_RELOC_BIL_FX_C35` vs BASE
+Status: `OPERATING_OBSERVE` · paper only · base `BASE_E16_E18_E22_v2s` vs `M2_RELOC_BIL_FX_C35`
 
-| Window | MDD dpp | Giveback pp | Rel NAV |
-|---|---:|---:|---:|
-| mtd | 0.13095247563643664 | 58.00939444403532 | 0.9980 |
-| ytd | 1.1999153776515503 | 8.362458707585851 | 0.9681 |
-| trailing_1y | 1.1999153776515614 | 5.03099426104352 | 0.9692 |
-| sealed_2023_plus | 1.1999153776515614 | 3.026408310199935 | 0.9183 |
-| heldout_2019_plus | 2.5296553863856097 | 2.07278508224098 | 0.8780 |
-| full | 2.5296553863855986 | 1.54036082451956 | 0.8344 |
+| Window | MDD dpp | Giveback pp | Score | Rel NAV |
+|---|---:|---:|---:|---:|
+| mtd | -0.14246024933376455 | -5.40078709866636 | None | 1.0004 |
+| ytd | 0.6579825167345121 | 9.516800024425276 | None | 0.9603 |
+| trailing_1y | 0.6579825167345121 | 3.496546786494603 | None | 0.9766 |
+| heldout_2019_plus | 6.215328045687107 | 1.810099076915872 | None | 0.8897 |
+| sealed_2023_plus | 1.7365794992347583 | 3.1410164962151654 | None | 0.9111 |
+| full | 6.215328045687086 | 1.3024942940583095 | None | 0.8561 |
 
 ## Alerts
 
-- ALERT: M2_RELOC_BIL_FX_C35 ytd CAGR giveback > 3.0 pp (paper)
-- PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
-- ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp (paper)
-- PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
+- ALERT: M2_RELOC_BIL_FX_C35 ytd CAGR giveback > 3.0 pp
+- PAUSE_REVIEW: M2_RELOC_BIL_FX_C35 ytd giveback > 5 pp
+- ALERT: M2_RELOC_BIL_FX_C35 trailing_1y CAGR giveback > 3.0 pp
 
-## Honesty
+## Non-actions
 
-- BIL_FX = USD T-bill × USDTWD mid (FX risk; mid optimistic; not TWD cash)
-- Soft-Frozen KEEP · stitch FORBIDDEN · no live wire
+- OPERATING_OBSERVE — paper only
+- No Soft-Frozen / DEFAULT / stitch
+- No live orders
+
+- Honesty: BIL×USDTWD mid is a paper DEF proxy, not a live tradable book
 

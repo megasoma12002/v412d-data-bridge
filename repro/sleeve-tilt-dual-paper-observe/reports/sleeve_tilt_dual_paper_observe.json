@@ -1,122 +1,32 @@
 {
-  "generated_at_utc": "2026-09-12T13:42:09.878117+00:00",
-  "label": "SLEEVE_TILT_DUAL_PAPER_OBSERVE_OPERATING",
+  "generated_at_utc": "2026-09-19T05:45:41.376768+00:00",
+  "label": "SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPERATING",
   "status": "OPERATING_OBSERVE",
   "live_wire": false,
-  "soft_frozen_clips_unchanged": true,
-  "soft_assist_observe": "INDEPENDENT_NO_FUSE",
+  "soft_frozen_unchanged": true,
   "human_open": "OPEN Sleeve-tilt observe: SLEEVE_RSI14_LT30_a0225",
   "prior_observe_id": "SLEEVE_BELOW_MA60_a01",
   "books": [
     "LIVE_STACK",
     "SLEEVE_RSI14_LT30_a0225"
   ],
-  "capital": 500000000.0,
-  "lot_size": 1000,
   "base_id": "LIVE_STACK",
   "challenger_id": "SLEEVE_RSI14_LT30_a0225",
-  "challenger_policy": {
-    "signal": "RSI14_LT30",
+  "sleeve_tilt": {
     "alpha": 0.225,
-    "within_sleeve": "KD_OPT + TEL_EQUAL"
+    "signal": "RSI14_LT30"
   },
   "heldout_vs_base": {
-    "mdd_improve_pp": 0.10431108645896359,
-    "cagr_giveback_pp": 0.011170605362398334,
-    "score": 0.09872578377776442
+    "mdd_improve_pp": 1.85164608180034,
+    "cagr_giveback_pp": -0.4475090575917662,
+    "score": 1.6278915530044569
   },
   "sealed_vs_base": {
-    "mdd_improve_pp": 0.03523233762379174,
-    "cagr_giveback_pp": 0.005434792058167659,
-    "score": 0.03251494159470791
+    "mdd_improve_pp": 1.5756856434484212,
+    "cagr_giveback_pp": -0.2617837403439571,
+    "score": 1.4447937732764426
   },
-  "windows": {
-    "LIVE_STACK": {
-      "full": {
-        "cagr": 0.14023801686669346,
-        "max_drawdown": -0.21720270077643722,
-        "utility": 0.03163666647847485,
-        "vol": 0.12986930439622543,
-        "n_days": 3356
-      },
-      "oof_2011_2018": {
-        "cagr": 0.09163479924572715,
-        "max_drawdown": -0.17279501681544296,
-        "utility": 0.00523729083800567,
-        "vol": 0.10459376420805865,
-        "n_days": 1495
-      },
-      "validation_2019_2022": {
-        "cagr": 0.12057445744466633,
-        "max_drawdown": -0.21720270077643733,
-        "utility": 0.011973107056447663,
-        "vol": 0.13318878047115384,
-        "n_days": 977
-      },
-      "sealed_2023_plus": {
-        "cagr": 0.2557299834147724,
-        "max_drawdown": -0.12807794587413646,
-        "utility": 0.19169101047770415,
-        "vol": 0.16072931131301207,
-        "n_days": 884
-      },
-      "heldout_2019_plus": {
-        "cagr": 0.18393316061137321,
-        "max_drawdown": -0.21720270077643733,
-        "utility": 0.07533181022315455,
-        "vol": 0.146903206960093,
-        "n_days": 1861
-      }
-    },
-    "SLEEVE_RSI14_LT30_a0225": {
-      "full": {
-        "cagr": 0.1402564570424354,
-        "max_drawdown": -0.2161595899118477,
-        "utility": 0.03217666208651154,
-        "vol": 0.12980226951236595,
-        "n_days": 3356
-      },
-      "oof_2011_2018": {
-        "cagr": 0.09180361596687558,
-        "max_drawdown": -0.17238067766517307,
-        "utility": 0.005613277134289052,
-        "vol": 0.1045571753925679,
-        "n_days": 1495
-      },
-      "validation_2019_2022": {
-        "cagr": 0.12041292989418029,
-        "max_drawdown": -0.2161595899118477,
-        "utility": 0.01233313493825644,
-        "vol": 0.13311555690462437,
-        "n_days": 977
-      },
-      "sealed_2023_plus": {
-        "cagr": 0.2556756354941907,
-        "max_drawdown": -0.12772562249789854,
-        "utility": 0.19181282424524143,
-        "vol": 0.1606307510267444,
-        "n_days": 884
-      },
-      "heldout_2019_plus": {
-        "cagr": 0.18382145455774923,
-        "max_drawdown": -0.2161595899118477,
-        "utility": 0.07574165960182538,
-        "vol": 0.14681738825809587,
-        "n_days": 1861
-      }
-    }
-  },
-  "fills": {
-    "LIVE_STACK": 5751,
-    "SLEEVE_RSI14_LT30_a0225": 5759
-  },
-  "default_status": "KEEP_OBSERVE",
-  "ballot": "research/ops/SLEEVE_RSI14_A0225_OBSERVE_BALLOT_EXECUTED_OPEN.md",
-  "observe_open": "research/ops/SLEEVE_LAYER_TILT_DUAL_PAPER_OBSERVE_OPEN.md",
-  "posture": "research/ops/SLEEVE_LAYER_TILT_OBSERVE_POSTURE.md",
-  "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_SLEEVE_LAYER_TILT.md",
-  "next_human": [
-    "Month-end monitor on LIVE_STACK \u2225 SLEEVE_RSI14_LT30_a0225",
-    "Default KEEP OBSERVE; live cutover needs dedicated ACCEPT"
-  ]
+  "soft_assist_observe": "KEEP_INDEPENDENT",
+  "ops_auto_fuse": false,
+  "cutover_blocked": true
 }

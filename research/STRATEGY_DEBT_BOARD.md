@@ -26,8 +26,11 @@ Residual Medium/Low after eng cleanup (#93): review-doc historical mentions of b
 
 ## Eng / hygiene residue (2026-09-19)
 
-Docs tip books + DROP stamp aligned; research `LIVE_KD` / capital → live SSOT (`live_config.KD_OPT` / `portfolio_capital.DEFAULT_CAPITAL`); Soft-Frozen day path takes `e21_session.lock` (distinct from `broker_live.lock`). Dual-paper observe NAV regenerate remains **ops-deferred** (not this PR) — Soft-Frozen KEEP · no live cutover.
+Docs tip books + DROP stamp aligned; research `LIVE_KD` / capital → live SSOT (`live_config.KD_OPT` / `portfolio_capital.DEFAULT_CAPITAL`); Soft-Frozen day path takes `e21_session.lock` (distinct from `broker_live.lock`).
 
+## Ops residual 全修 (2026-09-19) — **ACCEPTED**
+
+Ballot: `ACCEPT_OPS_RESIDUAL_FULL_FIX.md`. Dual-paper `--refresh-ledgers` + Gap6 tip-lag stamp + INDEX_DRIFT non-decision. Paper `simulate_core` routes Stage-E DEFAULT via `e22_books_apply`. Tip catch-up still **forward-only** on next weekday (tip may still show `E22_v2s_tw_effex`). Soft-Frozen KEEP · no L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B promote.
 ---
 
 

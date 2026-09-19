@@ -133,13 +133,14 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
-- Next weekday forward → run `POST_FORWARD_E22_VERIFY_RUNBOOK.md`; persist live `e22_*` evidence; re-run Gap6 KPI  
-- Grow live history toward ≥~60 sessions  
+- Next weekday forward → tip may advance to `E22_v3_recv_pay_effdelay` (tip-align ACCEPT 2026-09-19; no history rewrite); then `POST_FORWARD_E22_VERIFY_RUNBOOK.md` + Gap6 KPI  
+- Grow live history toward ≥~60 sessions; `INDEX_DRIFT` under thin overlap is **ops note only** (ACCEPT Ops residual 全修 2026-09-19) — never a cutover vote  
 - Calendar month-end pack re-run (L4 / FIN50 / FINCAP BLEND_025 / Soft / Sleeve / FUSE / priv / DH; **E45_BLEND025 skipped**) — default **KEEP OBSERVE**; cutover only via dedicated ACCEPT  
 - Soft-assist×sleeve-tilt combo **not** authorized while both observe independently  
 - Soft-Frozen cutover checklist is **ACCEPTED / LIVE WIRED** for FINBAND — do not re-read as DRAFTED (`CUTOVER_CHECKLIST_SOFT_FROZEN_CLIP.md`)
 - Fill `MONTH_END_PROMOTE_GATE_CHECKLIST.md` after each Soft-assist / Sleeve-tilt pack (paper gates only · include Soft↔Sleeve overlap from `SOFT_SLEEVE_OBSERVE_OVERLAP.md` · **no live wire** · **no auto-combo**)
 - Practitioner borrow map (reference only): `EXTERNAL_BORROW_NOTES.md` / `EXTERNAL_BORROW_NOTES.zh-TW.md` — does not open live or combo
+- Ops residual 全修 **ACCEPTED** 2026-09-19 — dual-paper refresh + tip-lag Gap6 stamp + INDEX_DRIFT non-decision · `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` · does **not** promote L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B
 
 ## Claim policy
 

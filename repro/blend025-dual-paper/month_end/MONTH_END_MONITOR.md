@@ -1,37 +1,26 @@
-# BLEND_025 Month-End Paper Monitor — asof 2026-09-11
+# BLEND_025_MONTH_END_PAPER_MONITOR month-end monitor (asof 2026-09-16)
 
-Generated: `2026-09-12T13:42:10.801663+00:00`
-Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
-Locked: **BLEND_025** (α=0.25·FIN50 + 0.75·BASE)
+Status: `OPERATING_OBSERVE` · paper only · base `BASE_E16` vs `BLEND_025`
 
-> **Alert windows:** `heldout_2019_plus`, `sealed_2023_plus`, `ytd`, `trailing_1y`.  
-> **`mtd` CAGR is display-only** — **not** a cutover gate.  
-> **Cutover:** always blocked on this observe sleeve.
-
-| Window | BASE CAGR | BASE MDD | BLEND_025 CAGR | BLEND_025 MDD | MDD Δpp | CAGR giveback pp | Rel NAV | Decision? |
-|---|---:|---:|---:|---:|---:|---:|---:|:---:|
-| mtd | 868.54%* | -1.35% | 698.31%* | -1.20% | +0.15 | +170.24 | 0.9939 | no |
-| ytd | 74.21% | -13.95% | 71.39% | -11.94% | +2.01 | +2.82 | 0.9893 | yes |
-| trailing_1y | 56.39% | -13.95% | 55.81% | -11.94% | +2.01 | +0.58 | 0.9964 | yes |
-| sealed_2023_plus | 25.92% | -13.95% | 25.43% | -11.94% | +2.01 | +0.49 | 0.9865 | yes |
-| heldout_2019_plus | 18.65% | -22.39% | 18.61% | -21.68% | +0.71 | +0.04 | 0.9973 | yes |
-| full | 14.07% | -22.39% | 14.02% | -21.68% | +0.71 | +0.05 | 0.9942 | yes |
-
-\* `mtd` CAGR annualized from a short sample — **non-decision / display-only**.
+| Window | MDD dpp | Giveback pp | Score | Rel NAV |
+|---|---:|---:|---:|---:|
+| mtd | 0.4941494271970992 | 229.42226621311167 | None | 0.9861 |
+| ytd | 1.227835231966079 | 7.02406283678747 | None | 0.9727 |
+| trailing_1y | 1.227835231966068 | 3.354177205068676 | None | 0.9791 |
+| heldout_2019_plus | 0.8413475746802512 | 0.6175537432576039 | None | 0.9616 |
+| sealed_2023_plus | -0.15838365183380443 | 1.839971496271331 | None | 0.9486 |
+| full | 0.8413475746802623 | 0.4045742241979733 | None | 0.9534 |
 
 ## Alerts
 
-- None (trailing/charter windows clean; cutover still blocked)
+- ALERT: BLEND_025 sealed_2023_plus MDD worse than BASE (paper)
+- ALERT: BLEND_025 ytd CAGR giveback > 3.0 pp (paper)
+- PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no cutover talk
+- ALERT: BLEND_025 trailing_1y CAGR giveback > 3.0 pp (paper)
 
-## Cutover status
+## Non-actions
 
-- `cutover_blocked`: **True** (always on observe sleeve)
-- `cutover_authorized`: **False**
-- Soft-Frozen live clip stays **[0.50, 0.95]** — this monitor never flips it.
+- paper observe only
+- no Soft-Frozen clip flip
+- cutover always blocked on this observe sleeve
 
-## Ops note
-
-- Refresh NAVs: `python3 scripts/e16_blend025_dual_paper_ledgers.py`
-- Re-run monitor: `python3 scripts/e16_blend025_month_end_monitor.py`
-- Or month-end pack: `python3 scripts/ops_month_end_paper_pack.py`
-- Live cutover still requires a **separate human PR** after checklist gates.

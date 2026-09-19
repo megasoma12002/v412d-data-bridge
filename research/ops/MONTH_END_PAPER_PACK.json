@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-12T13:42:41.989263+00:00",
+  "generated_at_utc": "2026-09-19T05:46:51.969125+00:00",
   "label": "OPS_MONTH_END_PAPER_PACK",
   "live_wire": false,
   "soft_frozen_clip": [
@@ -9,6 +9,7 @@
   "soft_frozen_unchanged": true,
   "refresh_ledgers": true,
   "continue_on_error": true,
+  "fail_on_stale": false,
   "partial_pack": false,
   "all_ok": true,
   "steps": [
@@ -29,11 +30,6 @@
     },
     {
       "name": "e45_dual_paper_ledgers",
-      "ok": true,
-      "returncode": 0
-    },
-    {
-      "name": "e45_blend025_dual_paper_ledgers",
       "ok": true,
       "returncode": 0
     },
@@ -73,6 +69,16 @@
       "returncode": 0
     },
     {
+      "name": "fuse_additive_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_defend_handoff_dual_paper_ledgers",
+      "ok": true,
+      "returncode": 0
+    },
+    {
       "name": "l4_month_end",
       "ok": true,
       "returncode": 0
@@ -89,11 +95,6 @@
     },
     {
       "name": "e45_month_end",
-      "ok": true,
-      "returncode": 0
-    },
-    {
-      "name": "e45_blend025_month_end",
       "ok": true,
       "returncode": 0
     },
@@ -129,6 +130,16 @@
     },
     {
       "name": "sleeve_tilt_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "fuse_additive_month_end",
+      "ok": true,
+      "returncode": 0
+    },
+    {
+      "name": "e45_defend_handoff_month_end",
       "ok": true,
       "returncode": 0
     },
@@ -183,15 +194,17 @@
       "returncode": 0
     }
   ],
-  "cutover_note": "Paper/ops cadence only. Soft-Frozen live clip [0.6, 0.9] (FINBAND). Live stack: Soft-Frozen FINBAND + KD_OPT (E45 A05 stitch rolled back). Paper observe Soft-assist SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05, Sleeve-tilt SLEEVE_RSI14_LT30_a0225 remain paper monitors beside live \u2014 no auto-combo, no live wire. Month-end Soft/Sleeve verdict KEEP_OBSERVE (asof 2026-09-11).",
-  "observe_ids": {
-    "soft_assist": "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
-    "sleeve_tilt": "SLEEVE_RSI14_LT30_a0225"
+  "data_freshness": {
+    "fresh_ok": true,
+    "live_market_tip": "2026-09-16",
+    "live_market_age_cal_days": 3,
+    "e22_events_age_cal_days": 5,
+    "e22_fetch_status": "PASS",
+    "e22_kpi_ok": true,
+    "shadow_all_ok": true,
+    "hard_warnings": [],
+    "soft_warnings": [],
+    "artifact": "research/ops/MONTH_END_DATA_FRESHNESS.md"
   },
-  "soft_sleeve_month_verdict": {
-    "asof": "2026-09-11",
-    "soft": "KEEP_OBSERVE",
-    "sleeve": "KEEP_OBSERVE",
-    "combo": false
-  }
+  "cutover_note": "Paper/ops cadence only. Soft-Frozen live clip [0.60, 0.90] (FINBAND). Live stack: Soft-Frozen FINBAND + KD_OPT (E45 A05 stitch rolled back DROP_E45_A05). FIN50 remains NOT_READY_SEALED_CAGR; L4 / BLEND_025 cutover still human-PR gated. Paper observe sleeves (E45 FULL/A25/A05/FIN_A10/C35, FIN within-sleeve quartet, Soft-assist SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05, Sleeve-tilt SLEEVE_RSI14_LT30_a0225, FUSE_ADDITIVE, E45 defend-handoff DH_dd06_vz1p0) remain paper monitors beside live \u2014 no auto-combo, no live wire, no E45 stitch."
 }
