@@ -1,7 +1,7 @@
 {
   "label": "PRIV_MDD_M1_SCALE_V3_CHARTER_2026-09-19__DRAFT",
   "date": "2026-09-19",
-  "status": "CHARTER_ACCEPTED_STAGE_A",
+  "status": "STAGE_A_STOP_V3",
   "stage_a_started": true,
   "soft_frozen": "KEEP",
   "cutover_257": "FROZEN",
@@ -35,5 +35,8 @@
     "e45_stitch"
   ],
   "note": "research/ops/PRIV_MDD_M1_SCALE_V3_CHARTER.md",
-  "human_accept": "ACCEPT V3 Stage-A"
+  "human_accept": "ACCEPT V3 Stage-A",
+  "stage_a_verdict": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "v3_coexist": [],
+  "best_v3": "V3_C100_CASH"
 }

@@ -1,7 +1,7 @@
 # 民股／四類 × MDD — New Mechanism V3 Charter（M1 連續強度縮放 FinPriv）
 
 Date: 2026-09-19  
-Status: **CHARTER ACCEPTED → Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged**  
+Status: **CHARTER ACCEPTED → Stage A STOP** (`STAGE_A_SCORE_POS_GATES_FAIL` — M1 scale: heldout often OK, **0 sealed coexist**)  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Parents STOP: N1–N3 · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md` · V2 S1–S2 · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
 Human: **「ACCEPT V3 Stage-A」** (2026-09-19)
@@ -110,16 +110,13 @@ score_mdd = MDD↑_heldout + 0.5 × MDD↑_sealed − 0.25 × max(0, CAGR_giveba
 
 ---
 
-## 6. Stage A — when human ACCEPTs
-
-1. Implement `scripts/e16_priv_mdd_m1_scale_v3_stage_a.py`.  
-2. Run `c × {0050,CASH}` grid vs `LIVE_PUB_KD`.  
-3. Write `PRIV_MDD_M1_SCALE_V3_STAGE_A.{md,json}` + decision pack.  
-4. Verdict → Stage B · or STOP V3 · Soft-Frozen KEEP.
+## 6. Stage A — ACCEPTED
 
 ```bash
 PYTHONPATH=scripts python3 scripts/e16_priv_mdd_m1_scale_v3_stage_a.py
 ```
+
+→ `PRIV_MDD_M1_SCALE_V3_STAGE_A.{md,json}` + decision pack.
 
 ---
 
