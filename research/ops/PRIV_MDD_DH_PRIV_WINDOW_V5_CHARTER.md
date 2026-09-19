@@ -1,10 +1,10 @@
 # 民股／四類 × MDD — New Mechanism V5 Charter（DH 防衛窗 → 只關 FinPriv）
 
 Date: 2026-09-19  
-Status: **DRAFT / PAPER CHARTER OPEN** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged** · Stage A **not** started until human ACCEPT  
+Status: **CHARTER ACCEPTED → Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged**  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Parents STOP: N1–N3 · V2 S1–S2 · V3 M1-scale · V4 A0-span · + `SF4_DH` whole-book shrink · decision packs on `#261`  
-Human: **「再開其他全新 charter」**（不改 sealed）
+Human: **「ACCEPT V5 Stage-A」** (2026-09-19)
 
 **Passing ≠ Soft-Frozen flip ≠ live e21 rewrite ≠ merge `#257`.**
 
@@ -113,15 +113,17 @@ score_mdd = MDD↑_heldout + 0.5 × MDD↑_sealed − 0.25 × max(0, CAGR_giveba
 
 ---
 
-## 6. Stage A — when human ACCEPTs
+## 6. Stage A — ACCEPTED
 
-1. Implement `scripts/e16_priv_mdd_dh_priv_window_v5_stage_a.py`.  
-2. Reuse DH FSM helpers from `e45_defend_handoff_stagea_screen` / helpers — **FinPriv relocate** instead of exposure shrink.  
+1. Run `scripts/e16_priv_mdd_dh_priv_window_v5_stage_a.py`.  
+2. Reuse DH FSM helpers — **FinPriv relocate** instead of exposure shrink.  
 3. Verdict → Stage B · or STOP V5 · Soft-Frozen KEEP.
 
 ```bash
 PYTHONPATH=scripts python3 scripts/e16_priv_mdd_dh_priv_window_v5_stage_a.py
 ```
+
+→ `PRIV_MDD_DH_PRIV_WINDOW_V5_STAGE_A.{md,json}` · decision pack.
 
 ---
 
@@ -131,4 +133,4 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_dh_priv_window_v5_stage_a.py
 - DH recipe: `E45_DEFEND_HANDOFF_PAPER_CHARTER.md` · `DH_dd06_vz1p0`  
 - Freeze: `LIVE_CUTOVER_BUNDLE_257_FROZEN.md`  
 
-Label: `PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER_2026-09-19__DRAFT`
+Label: `PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER_2026-09-19__ACCEPTED`

@@ -1,8 +1,9 @@
 {
-  "label": "PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER_2026-09-19__DRAFT",
+  "label": "PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER_2026-09-19__ACCEPTED",
   "date": "2026-09-19",
-  "status": "DRAFT_PAPER_CHARTER_OPEN",
-  "stage_a_started": false,
+  "status": "CHARTER_ACCEPTED_STAGE_A",
+  "stage_a_started": true,
+  "human_accept": "ACCEPT V5 Stage-A",
   "soft_frozen": "KEEP",
   "cutover_257": "FROZEN",
   "sealed_gate": "unchanged",
@@ -29,7 +30,7 @@
     "V5_DH_PUB_XDEF",
     "V5_DH_0050_NOT2"
   ],
-  "stage_a_authorized_when_human_accepts": true,
+  "stage_a_authorized": true,
   "wont": [
     "retune_n1_n3_v2_v3_v4",
     "raise_v4_span_cap",
