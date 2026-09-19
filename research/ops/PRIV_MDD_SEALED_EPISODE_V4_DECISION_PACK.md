@@ -28,7 +28,7 @@ Sealed window: `2023-01-03` → `2026-09-16` (n=887). Relative drawdowns are sha
 1. Soft-Frozen stays **3-sleeve 公股**.  
 2. Do **not** Class-D / merge `#257` / soften sealed / expand span cap / invent live sensors from sealed peek.  
 3. Re-open only: human **sealed-gate** · or **other** new charter (≠ N1–N3/V2/V3/V4 retune).  
-   Next DRAFT: `PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER.md`.
+   V5: **STOP** · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md`.
 
 ## Refs
 

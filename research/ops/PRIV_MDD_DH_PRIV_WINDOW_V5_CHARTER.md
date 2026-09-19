@@ -1,7 +1,7 @@
 # 民股／四類 × MDD — New Mechanism V5 Charter（DH 防衛窗 → 只關 FinPriv）
 
 Date: 2026-09-19  
-Status: **CHARTER ACCEPTED → Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged**  
+Status: **CHARTER ACCEPTED → Stage A STOP** (`STAGE_A_SCORE_POS_GATES_FAIL` — DH FinPriv window: tip/heldout often OK, **0 sealed coexist**)  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Parents STOP: N1–N3 · V2 S1–S2 · V3 M1-scale · V4 A0-span · + `SF4_DH` whole-book shrink · decision packs on `#261`  
 Human: **「ACCEPT V5 Stage-A」** (2026-09-19)
