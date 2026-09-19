@@ -1,7 +1,8 @@
 {
   "label": "PUB_PRIV_COEXIST_MDD_CHARTER",
   "date": "2026-09-19",
-  "status": "STAGE_A_RUNNING",
+  "status": "STAGE_A_STOP_NO_SEALED_MDD_COEXIST",
+  "stage_a_status": "STAGE_A_SCORE_POS_GATES_FAIL",
   "live_wire": false,
   "soft_frozen_keep": true,
   "baseline": "LIVE_PUB_KD",

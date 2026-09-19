@@ -1,7 +1,7 @@
 # 公股＋民營並存 × MDD — Research Charter (Stage A)
 
 Date: 2026-09-19  
-Status: **CHARTER ACCEPTED → Stage A RUNNING**  
+Status: **CHARTER ACCEPTED → Stage A STOP** (`STAGE_A_SCORE_POS_GATES_FAIL` — 0 sealed-MDD coexist)  
 Human: **「應該是研究公股民營並存」** · **「開公股民營並存 × MDD Stage-A charter 並開始跑」**  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Live Soft-Frozen: **KEEP** 3-sleeve FINBAND `[0.60, 0.90]` · 公股 R1 · `KD_OPT` · `TEL_EQUAL`  

@@ -14,16 +14,16 @@ import pandas as pd
 
 import e16_soft_frozen_4sleeve as sf4
 import e16_soft_frozen_base as soft
+import e22_dividend_accounting as e22div
 import e50_early_stack_combined_nav as e50
 from e16_private_fin_holdings_rescreen import (
     PRIV_R3R4,
     PUB_R1,
     TEL,
-    build_extended_market,
     held_score,
     tip_gate,
 )
-from e45_paper_harness import WINDOWS_STANDARD, load_dividends, window_stats
+from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats
 from research_metric_helpers import mdd_delta_pp
 from tw_share_lots import BOARD_LOT
 from within_sleeve_alloc import (
@@ -40,6 +40,10 @@ OUT = ROOT / "repro/pub-priv-coexist-mdd-stagea"
 RESEARCH = ROOT / "research/ops"
 CAPITAL = 500_000_000.0
 LOT = BOARD_LOT
+TW12 = Path("/tmp/tw12/artifact/v412d_12stocks_2010_2026.csv")
+PRIVATE_ADJ = ROOT / "data/market/private_fin_adjusted.csv"
+# Paper books pin: main DEFAULT may be sandbox Stage-E; formal apply path needs named formal/v2s.
+E22_PAPER = e22div.E22_V2S_TW_EFFEX
 
 KD_OPT = {
     "season_start": (4, 15),
@@ -60,6 +64,71 @@ PRIOR_PRIV = [0.10, 0.15]
 
 HELDOUT_GB_CAP = 3.0
 TIP_MDD_TOL_PP = -0.5
+
+
+def build_extended_market() -> pd.DataFrame:
+    """Pub Soft-Frozen live panel + priv OHLCV (TW12 if present, else private_fin_adjusted)."""
+    live = load_market()
+    live["code"] = live["code"].astype(str)
+    live["date"] = pd.to_datetime(live["date"])
+    d0, d1 = live["date"].min(), live["date"].max()
+    if TW12.exists():
+        tw = pd.read_csv(TW12, dtype={"code": str})
+        tw["date"] = pd.to_datetime(tw["date"])
+        keep = ["date", "code", "open", "high", "low", "close", "volume"]
+        tw = tw[[c for c in keep if c in tw.columns]].copy()
+        if PRIVATE_ADJ.exists():
+            adj = pd.read_csv(PRIVATE_ADJ, dtype={"code": str})
+            adj["date"] = pd.to_datetime(adj["date"])
+            adj = adj.rename(columns={"adjusted_close": "adj_close"})
+            tw = tw.merge(adj[["date", "code", "adj_close"]], on=["date", "code"], how="left")
+            tw["adj_close"] = tw["adj_close"].fillna(tw["close"])
+        else:
+            tw["adj_close"] = tw["close"]
+        live_codes = set(live["code"])
+        tw_extra = tw[~tw["code"].isin(live_codes)].copy()
+        tw_extra = tw_extra[(tw_extra["date"] >= d0) & (tw_extra["date"] <= d1)]
+        m = pd.concat([live, tw_extra], ignore_index=True)
+        return m.sort_values(["date", "code"]).drop_duplicates(["date", "code"], keep="last")
+
+    # Fallback: synthesize priv OHLCV from private_fin_adjusted (repo SSOT when TW12 absent).
+    if not PRIVATE_ADJ.exists():
+        raise SystemExit(f"missing TW12 ({TW12}) and private adj ({PRIVATE_ADJ})")
+    adj = pd.read_csv(PRIVATE_ADJ, dtype={"code": str})
+    adj["date"] = pd.to_datetime(adj["date"])
+    adj = adj[adj["code"].isin(PRIV_R3R4)].copy()
+    adj = adj[(adj["date"] >= d0) & (adj["date"] <= d1)]
+    ac = adj["adjusted_close"].astype(float)
+    rc = adj["raw_close"].astype(float)
+    factor = (rc / ac.replace(0.0, pd.NA)).fillna(1.0)
+    priv = pd.DataFrame(
+        {
+            "date": adj["date"],
+            "code": adj["code"].astype(str),
+            "open": adj["adjusted_open"].astype(float) * factor,
+            "high": adj["adjusted_high"].astype(float) * factor,
+            "low": adj["adjusted_low"].astype(float) * factor,
+            "close": rc,
+            "volume": adj["volume"].astype(float),
+            "adj_close": ac,
+        }
+    )
+    # Forward-fill priv onto live Soft-Frozen calendar tip if needed.
+    live_dates = pd.DatetimeIndex(sorted(live["date"].unique()))
+    filled = []
+    for code in PRIV_R3R4:
+        sub = priv[priv["code"] == code].sort_values("date").set_index("date")
+        if sub.empty:
+            raise SystemExit(f"no private_fin_adjusted rows for {code}")
+        sub = sub.reindex(live_dates)
+        sub["code"] = code
+        num = [c for c in sub.columns if c != "code"]
+        sub[num] = sub[num].ffill().bfill()
+        filled.append(sub.reset_index().rename(columns={"index": "date"}))
+    priv_panel = pd.concat(filled, ignore_index=True)
+    cols = [c for c in live.columns if c in priv_panel.columns]
+    m = pd.concat([live, priv_panel[cols]], ignore_index=True)
+    return m.sort_values(["date", "code"]).drop_duplicates(["date", "code"], keep="last")
 
 
 def _kd_panels(market, dividends, codes):
@@ -135,6 +204,7 @@ def run_live_pub_kd(market, dividends):
             dividends,
             apply_e22=True,
             apply_stock_div=True,
+            e22_version=E22_PAPER,
             capital=CAPITAL,
             lot_size=LOT,
             financial_alloc=FIN_PRE_EXDIV_KD,
@@ -162,6 +232,7 @@ def run_dual(market, dividends, target, regime, *, book_id: str, pub_share: floa
             dividends,
             apply_e22=True,
             apply_stock_div=True,
+            e22_version=E22_PAPER,
             capital=CAPITAL,
             lot_size=LOT,
             financial_alloc=FIN_DUAL_PUB_PRIV,
@@ -224,6 +295,7 @@ def run_sf4(
             dividends,
             apply_e22=True,
             apply_stock_div=True,
+            e22_version=E22_PAPER,
             capital=CAPITAL,
             lot_size=LOT,
             financial_alloc=FIN_PRE_EXDIV_KD,

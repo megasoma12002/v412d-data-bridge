@@ -44,6 +44,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Telecom pack cutover ballot | **EXECUTED KEEP TEL_EQUAL** (2026-09-09) | Human `KEEP live TEL_EQUAL` · no live wire · `TELECOM_PACK_CUTOVER_KEEP_TEL_EQUAL.md` |
 | 民營金控 paper re-screen | **STOP** (2026-09-09) | Stage A vs `LIVE_PUB_KD` · 0 coexist · Soft-Frozen 公股 R1 KEEP · post div/adj fill still STOP · `PRIVATE_FIN_HOLDINGS_DECISION_PACK.md` |
 | 金融公/金融民 dual-sleeve | **STOP** (2026-09-09) | Dollar-split Stage A tip-clean but held-out&lt;0 · keep 公股 R1 · `FIN_PUB_PRIV_DUAL_SLEEVE_DECISION_PACK.md` |
+| 公股＋民營並存 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · Soft-Frozen 公股 KEEP · `PUB_PRIV_COEXIST_MDD_DECISION_PACK.md` |
 | Soft-Frozen 4-sleeve (公/民 clips) | **STOP** (2026-09-09) | Stage A 48-challenger grid 0 coexist · live 3-sleeve KEEP · `SOFT_FROZEN_4SLEEVE_DECISION_PACK.md` |
 | 民營 native within-sleeve | **OPTIMAL + OBSERVE OPERATING** (2026-09-09) | `PRIV_EQUAL`∥`PRIV_KD_MAY_Klt25_T15` month-end wired (asof 2026-09-09 alerts=0) · `FIN_PRIV_NATIVE_WITHIN_SLEEVE_DECISION_PACK.md` |
 | 民營 native observe posture | **LOCKED KEEP OBSERVE** (2026-09-09) | Fixed month-end cadence + tip/structural watch + status ballot DRAFT · no live wire · `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md` |
