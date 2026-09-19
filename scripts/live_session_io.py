@@ -13,6 +13,17 @@ from live_ledger import ALL, assert_no_uncommitted_ledger
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CANON_STATE = (REPO_ROOT / "forward" / "e21").resolve()
 CANON_MARKET = (CANON_STATE / "live_market.csv").resolve()
+SESSION_LOCK_NAME = "e21_session.lock"
+
+
+def acquire_session_lock(state_dir: Path, *, blocking: bool = False):
+    """Exclusive session lock for Soft-Frozen day writes (fills→state commit).
+
+    Distinct from ``broker_live.lock`` used inside BrokerPreflightFillPort.
+    """
+    from broker_safety import ProcessLock
+
+    return ProcessLock(Path(state_dir), name=SESSION_LOCK_NAME, blocking=blocking)
 
 
 def resolve_repo_path(path: Path | str) -> Path:

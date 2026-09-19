@@ -7,6 +7,8 @@ Baseline: PRIV_EQUAL. Native KD seasons biased to Jun–Jul cash-ex.
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -41,7 +43,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/fin-priv-native-20260909"
 RESEARCH = ROOT / "research/ops"
 
-CAPITAL = 500_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 LOT = BOARD_LOT
 
 # Transplanted 公股 live KD (anchor — expected mismatch for Jun–Jul ex).

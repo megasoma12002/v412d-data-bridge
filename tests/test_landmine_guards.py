@@ -124,7 +124,9 @@ class SoftAssistObserveGuards(unittest.TestCase):
     def test_soft_assist_helpers_match_live_kd_opt(self):
         from soft_assist_helpers import LIVE_KD
         import e21_forward_pipeline as e21
+        from live_config import KD_OPT
 
+        self.assertIs(LIVE_KD, KD_OPT)
         for k in ("season_start", "season_end", "k_thresh", "pre_days", "active_score"):
             self.assertEqual(LIVE_KD[k], e21.KD_OPT[k], msg=k)
 

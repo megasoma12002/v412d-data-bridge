@@ -10,6 +10,8 @@ Tracks
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -20,6 +22,7 @@ import pandas as pd
 import e16_soft_frozen_base as soft
 from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats
 from e50_early_stack_combined_nav import FIN, TEL, e16_features, simulate_core
+from live_config import KD_OPT
 from research_metric_helpers import cagr_delta_pp, mdd_delta_pp
 from ta_indicator_catalog import HIGH_IDS, LOW_IDS, build_low_high_catalog
 from tw_share_lots import BOARD_LOT
@@ -38,19 +41,13 @@ from within_sleeve_alloc import (
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/kd-soft-tel-sleeve-research"
 RESEARCH = ROOT / "research/ops"
-CAPITAL = 500_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 LOT = BOARD_LOT
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
 SOFT_BOOST = 1.0
 
-LIVE_KD = {
-    "season_start": (4, 15),
-    "season_end": (5, 15),
-    "k_thresh": 30.0,
-    "pre_days": 15,
-    "active_score": 1.5,
-}
+LIVE_KD = KD_OPT  # live SSOT — no second copy
 
 SEASONS = [
     ("APR", (4, 1), (4, 30)),
