@@ -177,8 +177,8 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_new_mech_n3_stage_a.py
 ## 8. Alternate reopen
 
 - Human **sealed-gate change** — optional.  
-- V2/V3: **STOP**.  
-- **V4** sealed-episode → calendar gate: **STOP** (A0 span>120) · `PRIV_MDD_SEALED_EPISODE_V4_DECISION_PACK.md`
+- V2/V3/V4: **STOP**.  
+- **V5** DH defend-window → FinPriv-only relocate: DRAFT · `PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER.md`
 
 ---
 

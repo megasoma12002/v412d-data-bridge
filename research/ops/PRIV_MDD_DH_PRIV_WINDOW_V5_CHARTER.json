@@ -1,0 +1,43 @@
+{
+  "label": "PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER_2026-09-19__DRAFT",
+  "date": "2026-09-19",
+  "status": "DRAFT_PAPER_CHARTER_OPEN",
+  "stage_a_started": false,
+  "soft_frozen": "KEEP",
+  "cutover_257": "FROZEN",
+  "sealed_gate": "unchanged",
+  "parent_stops": [
+    "N1_N2_N3",
+    "V2_S1_S2",
+    "V3_M1_SCALE",
+    "V4_A0_SPAN",
+    "SF4_DH_WHOLE_BOOK"
+  ],
+  "baseline": "LIVE_PUB_KD",
+  "frozen_offense_ref": "SF4_P60-90_V0-15_F10_KD",
+  "enter_recipe": "DH_dd06_vz1p0",
+  "enter_features": ["offense_book_mdd63", "fin_vol_z", "etf0050_mdd63"],
+  "actuator": "FinPriv_only_relocate_while_DEFEND",
+  "default_sink": "TO_0050",
+  "exit_default": {"X1_recover": 0.97, "X2_max_sess": 42, "X3_race": true},
+  "stage_a_books": [
+    "V5_DH_0050_XDEF",
+    "V5_DH_CASH_XDEF",
+    "V5_DH_0050_XLONG",
+    "V5_DH_0050_XTIGHT",
+    "V5_DH_0050_XLOOSE",
+    "V5_DH_PUB_XDEF",
+    "V5_DH_0050_NOT2"
+  ],
+  "stage_a_authorized_when_human_accepts": true,
+  "wont": [
+    "retune_n1_n3_v2_v3_v4",
+    "raise_v4_span_cap",
+    "retune_sf4_clips",
+    "soften_sealed",
+    "finpriv_dd_enter_grid",
+    "retune_live_dh_shrink",
+    "merge_257"
+  ],
+  "note": "research/ops/PRIV_MDD_DH_PRIV_WINDOW_V5_CHARTER.md"
+}
