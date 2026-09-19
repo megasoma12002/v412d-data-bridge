@@ -1,8 +1,8 @@
 {
   "label": "PRIV_MDD_SENSOR_MECH_V2_CHARTER_2026-09-19__S1S2_DRAFT",
   "date": "2026-09-19",
-  "status": "DRAFT_PAPER_CHARTER_OPEN",
-  "stage_a_started": false,
+  "status": "CHARTER_ACCEPTED_S1_STAGE_A",
+  "stage_a_started": true,
   "soft_frozen": "KEEP",
   "cutover_257": "FROZEN",
   "sealed_gate": "unchanged",
@@ -10,7 +10,10 @@
   "baseline": "LIVE_PUB_KD",
   "frozen_offense_ref": "SF4_P60-90_V0-15_F10_KD",
   "preferred_sink": "FinPriv_to_0050_etf_hi_0.35",
-  "ladder": ["S1_breadth_finpub_taiex", "S2_usdtwd_cbc"],
+  "ladder": [
+    "S1_breadth_finpub_taiex",
+    "S2_usdtwd_cbc"
+  ],
   "stage_a_authorized_when_human_accepts": "S1_only",
   "wont": [
     "retune_n1_n2_n3_thresholds",
@@ -19,5 +22,6 @@
     "soften_sealed",
     "merge_257"
   ],
-  "note": "research/ops/PRIV_MDD_SENSOR_MECH_V2_CHARTER.md"
+  "note": "research/ops/PRIV_MDD_SENSOR_MECH_V2_CHARTER.md",
+  "human_accept_s1": "ACCEPT S1 Stage-A"
 }

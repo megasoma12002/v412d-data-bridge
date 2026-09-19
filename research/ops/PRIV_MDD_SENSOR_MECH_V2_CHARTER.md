@@ -1,10 +1,10 @@
 # 民股／四類 × MDD — New Mechanism V2 Charter（跨資產／廣度感測器）
 
 Date: 2026-09-19  
-Status: **DRAFT / PAPER CHARTER OPEN** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged** · Stage A **not** started until human ACCEPT  
+Status: **CHARTER ACCEPTED → S1 Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged**  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Parent STOP: N1–N3 ladder exhausted · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
-Human: **「不改門檻，開全新機制 charter」**
+Human: **「ACCEPT S1 Stage-A」** (2026-09-19) · prior「不改門檻，開全新機制 charter」
 
 **Passing ≠ Soft-Frozen flip ≠ live e21 rewrite ≠ merge `#257`.**  
 **≠ retune N1–N3 FinPriv-local DD / rel-60d / three-state thresholds.**
