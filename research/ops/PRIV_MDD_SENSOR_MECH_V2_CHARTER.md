@@ -117,4 +117,4 @@ V2 ladder **exhausted**. Next paper path (sealed unchanged): **V3** · `PRIV_MDD
 - Sensor precedent: `research/e45/E45_NEW_MECHANISM_CHARTER.md` · `E45_M1_STATE_VECTOR_V0_FROZEN.md`  
 - Freeze: `LIVE_CUTOVER_BUNDLE_257_FROZEN.md`  
 
-Label: `PRIV_MDD_SENSOR_MECH_V2_CHARTER_2026-09-19__S1S2_DRAFT`
+Label: `PRIV_MDD_SENSOR_MECH_V2_CHARTER_2026-09-19__S1S2_STOP`
