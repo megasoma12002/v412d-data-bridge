@@ -100,12 +100,12 @@ CI: `.github/workflows/docker-ops-qc-smoke.yml`. **Who writes `forward/e21`:** s
 ```bash
 # default / live canonical path — paper only
 python3 scripts/e21_forward_pipeline.py
-# research dry-run (non-canonical state copy)
+# research dry-run (non-canonical state copy — Soft-Frozen forward/e21 refuses non-paper)
 E21_FILL_PORT=dry_run python3 scripts/e21_forward_pipeline.py \
   --allow-noncanonical-paths --state-dir /tmp/e21-dry --market ...
 ```
 
-True broker adapter (元大 SPARK) maps exchange acks → same fill row schema; credentials never in image/git. See `YUANTA_SPARK_ADAPTER_SKELETON.md`.
+True broker adapter (元大 SPARK) maps exchange acks → same fill row schema; credentials never in image/git. Soft-Frozen `forward/e21` always requires `paper` even with `--allow-noncanonical-paths`. See `YUANTA_SPARK_ADAPTER_SKELETON.md`.
 
 ## SPARK adapter boundary
 

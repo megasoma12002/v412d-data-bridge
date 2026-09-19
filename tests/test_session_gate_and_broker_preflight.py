@@ -168,8 +168,7 @@ class BrokerPreflightTests(unittest.TestCase):
                 pos={},
                 cash=1_000_000.0,
             )
-            self.assertEqual(len(fills), 1)
-            self.assertEqual(fills[0]["fill_id"], "o1")
+            self.assertEqual(len(fills), 0)  # shadow only — not returned to pipeline
             self.assertEqual(pos, {})
             self.assertEqual(cash, 1_000_000.0)
             self.assertFalse((sdir / "fills.csv").exists())
@@ -178,6 +177,7 @@ class BrokerPreflightTests(unittest.TestCase):
             self.assertTrue(shadow.exists())
             payload = json.loads(shadow.read_text(encoding="utf-8"))
             self.assertEqual(payload["n_fills"], 1)
+            self.assertEqual(payload["fills"][0]["fill_id"], "o1")
             self.assertFalse(payload["live_fills_written"])
 
 

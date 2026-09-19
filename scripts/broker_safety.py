@@ -186,13 +186,16 @@ def already_broker_deduped(state_dir: Path, dedupe_key: str) -> bool:
     path = Path(state_dir) / "broker_preflight" / DEDUPE_LOG_FILENAME
     if not path.exists():
         return False
-    for line in path.read_text(encoding="utf-8").splitlines():
+    for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
         if not line.strip():
             continue
         try:
             row = json.loads(line)
-        except json.JSONDecodeError:
-            continue
+        except json.JSONDecodeError as e:
+            raise SystemExit(
+                f"Corrupt broker dedupe log {path}:{line_no}: {e}. "
+                "Repair or quarantine before broker live-write."
+            ) from e
         if row.get("dedupe_key") == dedupe_key and row.get("reserved"):
             return True
     return False
@@ -608,13 +611,16 @@ def count_live_submits_today(state_dir: Path, asof: date) -> int:
         return 0
     n = 0
     day = asof.isoformat()
-    for line in path.read_text(encoding="utf-8").splitlines():
+    for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
         if not line.strip():
             continue
         try:
             row = json.loads(line)
-        except json.JSONDecodeError:
-            continue
+        except json.JSONDecodeError as e:
+            raise SystemExit(
+                f"Corrupt broker submit log {path}:{line_no}: {e}. "
+                "Repair before counting live submits."
+            ) from e
         if str(row.get("asof") or "")[:10] == day and row.get("live_written"):
             n += 1
     return n
@@ -633,13 +639,16 @@ def already_submitted(state_dir: Path, client_order_id: str) -> bool:
     path = Path(state_dir) / "broker_preflight" / SUBMIT_LOG_FILENAME
     if not path.exists():
         return False
-    for line in path.read_text(encoding="utf-8").splitlines():
+    for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
         if not line.strip():
             continue
         try:
             row = json.loads(line)
-        except json.JSONDecodeError:
-            continue
+        except json.JSONDecodeError as e:
+            raise SystemExit(
+                f"Corrupt broker submit log {path}:{line_no}: {e}. "
+                "Repair before idempotency check."
+            ) from e
         if row.get("client_order_id") == client_order_id and row.get("live_written"):
             return True
     return False

@@ -69,6 +69,12 @@ def apply_e22_day(
             cal_rows = read_calendar_csv(cal_path)
             sessions = session_dates(cal_rows)
             settlements = settlement_dates(cal_rows)
+        elif e22_version == e22div.DEFAULT_BOOKS_VERSION or e22_version == e22div.E22_V3_RECV_PAY_EFFDELAY:
+            raise SystemExit(
+                f"TWSE session calendar required for live DEFAULT books {e22_version!r} "
+                f"but missing: {cal_path}. Add calendar or override --e22-version with "
+                "--confirm-e22-version-override for research."
+            )
         if is_sandbox_version(e22_version):
             from e22_mops_payment_amendments import load_amendments
 

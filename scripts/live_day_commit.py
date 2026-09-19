@@ -79,16 +79,17 @@ def commit_day_books(
                 + "\n"
             )
 
-    with pd.ExcelWriter(sdir / "E21_forward_dashboard.xlsx", engine="openpyxl") as xw:
-        for name, file in [
-            ("Signals", "signals.csv"),
-            ("NAV", "nav.csv"),
-            ("Orders", "orders.csv"),
-            ("Fills", "fills.csv"),
-            ("Dividends", "dividends_applied.csv"),
-        ]:
-            p = sdir / file
-            if p.exists():
+    sheet_sources = [
+        ("Signals", "signals.csv"),
+        ("NAV", "nav.csv"),
+        ("Orders", "orders.csv"),
+        ("Fills", "fills.csv"),
+        ("Dividends", "dividends_applied.csv"),
+    ]
+    present = [(name, sdir / file) for name, file in sheet_sources if (sdir / file).exists()]
+    if present:
+        with pd.ExcelWriter(sdir / "E21_forward_dashboard.xlsx", engine="openpyxl") as xw:
+            for name, p in present:
                 pd.read_csv(p).to_excel(xw, sheet_name=name, index=False)
 
 

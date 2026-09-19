@@ -233,10 +233,16 @@ class BrokerPortSafetyTests(unittest.TestCase):
                 pos={},
                 cash=1_000_000.0,
             )
-            self.assertEqual(len(fills), 1)
+            self.assertEqual(len(fills), 0)  # gate denied → no pipeline fills
             self.assertEqual(pos, {})
             self.assertEqual(cash, 1_000_000.0)
             self.assertFalse((sdir / "fills.csv").exists())
+            shadow = json.loads(
+                (sdir / "broker_preflight" / "fills_2026-07-13.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(shadow["n_fills"], 1)
             allow = json.loads(
                 (sdir / "broker_preflight" / "allow_2026-07-13.json").read_text(
                     encoding="utf-8"
@@ -598,10 +604,16 @@ class BrokerLiveAffordAndConfirmTests(unittest.TestCase):
                 pos={},
                 cash=1_000_000.0,
             )
-            self.assertGreaterEqual(len(fills), 1)
+            self.assertEqual(len(fills), 0)  # unresolved block → no pipeline fills
             self.assertEqual(pos, {})
             self.assertEqual(cash, 1_000_000.0)
             self.assertFalse((sdir / "fills.csv").exists())
+            shadow = json.loads(
+                (sdir / "broker_preflight" / "fills_2026-07-13.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertGreaterEqual(shadow["n_fills"], 1)
             allow = json.loads(
                 (sdir / "broker_preflight" / "allow_2026-07-13.json").read_text(
                     encoding="utf-8"

@@ -51,5 +51,7 @@ jobs:
         run: python3 scripts/check_project_coding_hygiene.py
       - name: Landmine unit guards
         run: python3 -m unittest tests.test_landmine_guards tests.test_live_modularize tests.test_pyproject_layout tests.test_dual_paper_month_end tests.test_dual_paper_ledgers -v
+      - name: Fill port + broker safety + live hygiene
+        run: python3 -m unittest tests.test_fill_ports tests.test_broker_safety tests.test_broker_risk tests.test_session_gate_and_broker_preflight tests.test_live_hygiene_p0_p1 tests.test_yuanta_spark_adapter tests.test_review_harden -v
       - name: Month-end freshness + E22 repair unit tests
         run: python3 -m unittest tests.test_ops_month_end_data_freshness tests.test_e22_dividend_amount_repair -v

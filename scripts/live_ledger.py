@@ -89,7 +89,13 @@ def make_order_id(*, signal_date: Any, code: str, side: str) -> str:
 
 
 def append_immutable(path: Path | str, row: dict[str, Any], key: str) -> bool:
-    """Append one row if ``key`` is new. Never rewrite history. Returns True if written."""
+    """Append one row if ``key`` is new. Never rewrite history. Returns True if written.
+
+    CSV rewrite uses temp + ``os.replace`` so a crash mid-write cannot truncate the ledger.
+    """
+    import os
+    import tempfile
+
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
     new = pd.DataFrame([row])
@@ -99,7 +105,21 @@ def append_immutable(path: Path | str, row: dict[str, Any], key: str) -> bool:
         if len(hit):
             return False
         new = pd.concat([old, new], ignore_index=True)
-    new.to_csv(p, index=False)
+    fd, tmp_name = tempfile.mkstemp(
+        prefix=p.name + ".", suffix=".tmp", dir=str(p.parent)
+    )
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8", newline="") as f:
+            new.to_csv(f, index=False)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp_name, p)
+    except Exception:
+        try:
+            os.unlink(tmp_name)
+        except OSError:
+            pass
+        raise
     return True
 
 

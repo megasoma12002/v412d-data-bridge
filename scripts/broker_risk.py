@@ -234,8 +234,15 @@ class RiskConfig:
         if path.exists():
             try:
                 obj = json.loads(path.read_text(encoding="utf-8"))
-            except (OSError, json.JSONDecodeError):
-                obj = {}
+            except (OSError, json.JSONDecodeError) as e:
+                # Fail closed: corrupt risk config → panic (block submits).
+                cfg.panic = True
+                emit_alert(
+                    state_dir,
+                    kind="risk_config_corrupt",
+                    message=f"broker_risk.json unreadable: {e}",
+                )
+                return cfg
             if isinstance(obj, dict):
                 cfg.panic = bool(obj.get("panic", cfg.panic))
                 cfg.blacklist = [str(x) for x in (obj.get("blacklist") or [])]
@@ -247,6 +254,14 @@ class RiskConfig:
                     cfg.max_price_deviation = float(obj.get("max_price_deviation"))
                 if "max_writes_per_minute" in obj and obj.get("max_writes_per_minute") is not None:
                     cfg.max_writes_per_minute = int(obj.get("max_writes_per_minute"))
+            else:
+                cfg.panic = True
+                emit_alert(
+                    state_dir,
+                    kind="risk_config_corrupt",
+                    message="broker_risk.json root is not an object",
+                )
+                return cfg
         panic_path = _preflight(state_dir) / PANIC_FILENAME
         if panic_path.exists():
             try:

@@ -198,12 +198,14 @@ def main() -> int:
 
     odd_lot = {
         "status": "PROMOTED",
-        "formal_default": e22div.E22_V2S_TW_EFFEX,
+        # Odd-lot / D5 promote landed on effex; Stage-E DEFAULT is v3_recv_pay_effdelay.
+        "formal_default": e22div.DEFAULT_BOOKS_VERSION,
+        "odd_lot_promote_books": e22div.E22_V2S_TW_EFFEX,
         "named_tw_variant": e22div.E22_V2S_TW,
         "effex_variant": e22div.E22_V2S_TW_EFFEX,
         "promote_checklist": "research/ops/ODD_LOT_PROMOTE_CHECKLIST.md",
         "closeout": "research/e22/GAP65_ODD_LOT_CLOSEOUT.md",
-        "human_ballot": "ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16",
+        "human_ballot": "ACCEPT promote 2026-09-05; D5 effex ACCEPT 2026-09-16; Stage-E recv ACCEPT 2026-09-16",
         "do_not_set_default_without_human_pr": False,
     }
 
@@ -314,7 +316,8 @@ def main() -> int:
         "",
         "## Odd-lot / D5 (`E22_v2s_tw` → `E22_v2s_tw_effex`)",
         "",
-        f"- Status: **{odd_lot['status']}** — live default `{odd_lot['formal_default']}` (legacy TW `{odd_lot['named_tw_variant']}`)",
+        f"- Status: **{odd_lot['status']}** — code DEFAULT `{odd_lot['formal_default']}` "
+        f"(odd-lot promote path `{odd_lot['odd_lot_promote_books']}`; legacy TW `{odd_lot['named_tw_variant']}`)",
         f"- Ballot: `{odd_lot['human_ballot']}`",
         f"- Promote checklist: `{odd_lot['promote_checklist']}`",
         "",

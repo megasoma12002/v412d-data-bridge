@@ -54,11 +54,17 @@ class FillPort(Protocol):
 
 
 def _exact_t1_stats(fills: list[dict[str, Any]]) -> tuple[int, bool]:
+    """Return (same_bar_count, exact_t1_ok). Missing/NaT dates fail closed."""
     same_bar_fills = 0
     for f in fills:
-        sig = pd.to_datetime(f["signal_date"]).normalize()
-        fill_dt = pd.to_datetime(f["fill_date"]).normalize()
-        if fill_dt <= sig:
+        sig = pd.to_datetime(f.get("signal_date"), errors="coerce")
+        fill_dt = pd.to_datetime(f.get("fill_date"), errors="coerce")
+        if pd.isna(sig) or pd.isna(fill_dt):
+            same_bar_fills += 1
+            continue
+        sig_n = sig.normalize()
+        fill_n = fill_dt.normalize()
+        if fill_n <= sig_n:
             same_bar_fills += 1
     return same_bar_fills, same_bar_fills == 0
 
