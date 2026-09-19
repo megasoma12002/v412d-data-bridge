@@ -50,14 +50,18 @@ def _lag_stats(ex: pd.Series, pay: pd.Series) -> dict:
 
 def _code_wire_assert() -> dict:
     src = E21_PIPE.read_text(encoding="utf-8")
+    e22_day = (ROOT / "scripts/live_e22_day.py").read_text(encoding="utf-8")
     tree = ast.parse(src)
     imports_e22 = any(
         (isinstance(n, ast.Import) and any(a.name == "e22_dividend_accounting" for a in n.names))
         or (isinstance(n, ast.ImportFrom) and n.module == "e22_dividend_accounting")
         for n in tree.body
     )
+    # Thin pipeline may call apply_e22_day; apply_books_for_date lives in live_e22_day.
     mentions_apply = (
-        "apply_dividends_for_date" in src or "apply_books_for_date" in src
+        "apply_dividends_for_date" in src
+        or "apply_books_for_date" in src
+        or ("apply_e22_day" in src and "apply_books_for_date" in e22_day)
     )
     mentions_default = "DEFAULT_BOOKS_VERSION" in src or "E22_BOOKS_VERSION" in src
     formal = {}
