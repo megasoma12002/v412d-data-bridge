@@ -1,6 +1,6 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-19 (Ops residual 全修 ACCEPT + tip books align + E45 A05 residue cleanup; SSOT after DH+FUSE)  
+Date: 2026-09-19 (Ops residual 全修 ACCEPT + tip books align + E45 A05 residue cleanup + drop auto-fuse agenda; SSOT after DH+FUSE)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
 **Cutover `#257`: FROZEN — do not merge** (`LIVE_CUTOVER_BUNDLE_257_FROZEN.md`) · 民股／四類等新機制或 human 改 sealed 門檻  
@@ -10,6 +10,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**
 新機制 V4：**STOP**（A0 span>120 · A1 未開）· `PRIV_MDD_SEALED_EPISODE_V4_DECISION_PACK.md`（N1–N3+V2+V3+V4 STOP）  
 新機制 V5：**STOP** · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md`（N1–N3+V2+V3+V4+V5 STOP）  
 新機制 V6：**STOP** · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md`（N1–N3+V2+V3+V4+V5+V6 STOP）  
+Soft∥Sleeve ops auto-fuse agenda：**CLOSED**（Gate H FORBIDDEN KEEP）· `ACCEPT_DROP_AUTO_FUSE_AGENDA.md`  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  

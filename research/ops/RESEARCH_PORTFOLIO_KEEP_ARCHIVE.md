@@ -49,7 +49,7 @@ Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live capital **500M** 
 1. Do **not** flip Soft-Frozen clips from archived evidence alone.  
 2. Do **not** live-wire Soft-assist / Sleeve-tilt / 民營 **independent** recipes without dedicated ACCEPT (FUSE+DH already ACCEPTED 2026-09-13).  
 3. Live risk overlay is **DH_dd06** (+ FUSE offense).  
-4. Do **not** ops Soft∥Sleeve auto-fuse of **independent** observe IDs.  
+4. Do **not** ops Soft∥Sleeve auto-fuse of **independent** observe IDs · agenda **CLOSED** 2026-09-19 (`ACCEPT_DROP_AUTO_FUSE_AGENDA.md`) · Gate H KEPT.  
 5. Do **not** reopen archived tracks without **new charter + human ballot**.  
 6. Do **not** treat month-end green on archived sleeves as cutover license.  
 7. Defend-handoff DH is **LIVE** via the combined DH+FUSE ACCEPT; do not invent a second DH live path from Stage A alone.

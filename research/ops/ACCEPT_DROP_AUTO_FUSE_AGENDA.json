@@ -1,0 +1,13 @@
+{
+  "label": "ACCEPT_DROP_AUTO_FUSE_AGENDA_2026-09-19__CLOSED_GATE_H_KEPT",
+  "date": "2026-09-19",
+  "human_accept": "ACCEPT drop auto-fuse agenda",
+  "status": "AGENDA_CLOSED",
+  "gate_h": "FORBIDDEN_KEPT",
+  "live_fuse_additive": "KEEP",
+  "live_dh_dd06": "KEEP",
+  "soft_observe": "KEEP_INDEPENDENT",
+  "sleeve_observe": "KEEP_INDEPENDENT",
+  "ops_auto_fuse": "FORBIDDEN_NOT_ON_AGENDA",
+  "note": "research/ops/ACCEPT_DROP_AUTO_FUSE_AGENDA.md"
+}
