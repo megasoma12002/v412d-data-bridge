@@ -11,6 +11,7 @@ import pandas as pd
 from e16_soft_frozen_base import FIN, TEL
 from live_config import (
     KD_OPT,
+    LIVE,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
 )
@@ -21,6 +22,13 @@ from within_sleeve_alloc import (
     build_kd_season_tilt_scores,
     build_pre_exdiv_window_buy_ok,
 )
+
+
+def _active_kd():
+    """公股 KD_OPT or 民營 PRIV_KD when priv live ACCEPT is on."""
+    if LIVE.live_fin_priv_native:
+        return LIVE.priv_kd
+    return KD_OPT
 
 
 def sleeve_trade_from_gap(
@@ -48,6 +56,7 @@ def build_live_order_rows(
     dividends_path: str | Any,
 ) -> list[dict[str, Any]]:
     """Allocate FIN (KD_OPT ± FUSE softs) + TEL/0050 equal-split; SELL-first sort."""
+    kd = _active_kd()
     div_df = (
         pd.read_csv(dividends_path, dtype={"code": str})
         if __import__("pathlib").Path(dividends_path).exists()
@@ -58,17 +67,17 @@ def build_live_order_rows(
         market,
         div_df,
         FIN,
-        k_thresh=float(KD_OPT["k_thresh"]),
-        season_start=KD_OPT["season_start"],
-        season_end=KD_OPT["season_end"],
-        pre_days=int(KD_OPT["pre_days"]),
-        active_score=float(KD_OPT["active_score"]),
+        k_thresh=float(kd["k_thresh"]),
+        season_start=kd["season_start"],
+        season_end=kd["season_end"],
+        pre_days=int(kd["pre_days"]),
+        active_score=float(kd["active_score"]),
     )
     kd_buy_ok = build_pre_exdiv_window_buy_ok(
         cal,
         div_df,
         FIN,
-        pre_days=int(KD_OPT["pre_days"]),
+        pre_days=int(kd["pre_days"]),
         also_stock_ex=True,
     )
     fin_scores_today = None

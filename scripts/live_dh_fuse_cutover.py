@@ -43,25 +43,34 @@ DH_ALIAS = dh.CHAL_ALIAS
 
 
 def _kd_panels(market: pd.DataFrame, dividends: pd.DataFrame):
+    from live_config import LIVE
+
+    fin = list(FIN)
+    kd_src = LIVE_KD
+    if LIVE.live_fin_priv_native:
+        from live_priv_native_cutover import PRIV_FIN
+
+        fin = list(PRIV_FIN)
+        kd_src = LIVE.priv_kd
     cal = pd.DatetimeIndex(pd.to_datetime(market["date"]).drop_duplicates().sort_values())
     kd = build_kd_season_tilt_scores(
         market,
         dividends,
-        FIN,
-        k_thresh=float(LIVE_KD["k_thresh"]),
-        season_start=LIVE_KD["season_start"],
-        season_end=LIVE_KD["season_end"],
-        pre_days=int(LIVE_KD["pre_days"]),
-        active_score=float(LIVE_KD["active_score"]),
+        fin,
+        k_thresh=float(kd_src["k_thresh"]),
+        season_start=kd_src["season_start"],
+        season_end=kd_src["season_end"],
+        pre_days=int(kd_src["pre_days"]),
+        active_score=float(kd_src["active_score"]),
     )
     buy_ok = build_pre_exdiv_window_buy_ok(
         cal,
         dividends,
-        FIN,
-        pre_days=int(LIVE_KD["pre_days"]),
+        fin,
+        pre_days=int(kd_src["pre_days"]),
         also_stock_ex=True,
     )
-    lows, highs = build_low_high_catalog(market, cal, list(FIN))
+    lows, highs = build_low_high_catalog(market, cal, list(fin))
     buy = build_observe_buy_scores(kd, lows)
     sell = build_observe_sell_panel(highs)
     return kd, buy_ok, buy, sell
@@ -116,23 +125,30 @@ def fuse_soft_panels_for_asof(
     market: pd.DataFrame, dividends: pd.DataFrame, asof: pd.Timestamp
 ) -> tuple[dict[str, float] | None, dict[str, bool] | None, dict[str, float] | None]:
     """Today's FIN soft buy scores / KD buy_ok / soft sell scores for live orders."""
+    from live_config import LIVE
+
+    fin = list(FIN)
+    if LIVE.live_fin_priv_native:
+        from live_priv_native_cutover import PRIV_FIN
+
+        fin = list(PRIV_FIN)
     _kd, buy_ok, buy, sell = _kd_panels(market, dividends)
     asof = pd.Timestamp(asof).normalize()
     scores = None
     if asof in buy.index:
         scores = {
             c: float(buy.loc[asof, c])
-            for c in FIN
+            for c in fin
             if c in buy.columns and pd.notna(buy.loc[asof, c])
         }
     ok = None
     if asof in buy_ok.index:
-        ok = {c: bool(buy_ok.loc[asof, c]) for c in FIN if c in buy_ok.columns}
+        ok = {c: bool(buy_ok.loc[asof, c]) for c in fin if c in buy_ok.columns}
     sell_scores = None
     if asof in sell.index:
         sell_scores = {
             c: float(sell.loc[asof, c])
-            for c in FIN
+            for c in fin
             if c in sell.columns and pd.notna(sell.loc[asof, c])
         }
     return scores, ok, sell_scores

@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Live strategy targets — Soft-Frozen + FUSE / DH overlays.
+"""Live strategy targets — Soft-Frozen + FUSE / BLEND / L4 / DH overlays.
 
 E45 A05 live stitch is DROPPED (no re-enable path). Separates target
 construction from ledger/fill execution so a future broker adapter can
 consume the same sleeve weights + within-sleeve panels.
+
+Cutover order (ACCEPT 2026-09-19 bundle):
+  Soft-Frozen → FUSE_ADDITIVE → BLEND_025 → L4_DD_PATH_08_50 → DH_dd06
 """
 from __future__ import annotations
 
@@ -94,7 +97,24 @@ def resolve_session_targets(
             "enabled": True,
             "recipe": live_cut.LIVE_RECIPE_ID,
             "human_accept": live_cut.HUMAN_ACCEPT,
+            "soft_via_fuse": bool(cfg.fuse_carries_soft_observe),
+            "sleeve_via_fuse": bool(cfg.fuse_carries_sleeve_observe),
         }
+
+    blend_meta: dict[str, Any] = {"enabled": False}
+    if cfg.live_blend025:
+        import live_blend_l4_cutover as bl
+
+        target, blend_meta = bl.apply_blend025(target, m)
+        fuse_meta = {**fuse_meta, "blend025": blend_meta}
+
+    l4_meta: dict[str, Any] = {"enabled": False}
+    if cfg.live_l4_dd_path:
+        import live_blend_l4_cutover as bl
+
+        target, l4_meta = bl.apply_l4_dd_path(target, m)
+        fuse_meta = {**fuse_meta, "l4_dd_path": l4_meta}
+
     tw = target.iloc[-1]
     # e20 still from Soft-Frozen path caller; recompute not needed here.
     tw_pre_dh = {

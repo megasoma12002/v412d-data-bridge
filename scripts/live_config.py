@@ -30,6 +30,17 @@ _KD_OPT_MUTABLE: dict[str, Any] = {
 }
 KD_OPT: Mapping[str, Any] = MappingProxyType(_KD_OPT_MUTABLE)
 
+# 民營 native KD — ACCEPT 2026-09-19 priv live cutover.
+_PRIV_KD_MUTABLE: dict[str, Any] = {
+    "id": "PRIV_KD_MAY_Klt25_T15",
+    "season_start": (5, 1),
+    "season_end": (5, 31),
+    "k_thresh": 25.0,
+    "pre_days": 15,
+    "active_score": 1.5,
+}
+PRIV_KD: Mapping[str, Any] = MappingProxyType(_PRIV_KD_MUTABLE)
+
 # E45 A05 live stitch — DROPPED 2026-09-09. No LiveConfig flip knob.
 E45_STITCH_ROLLBACK = "ACCEPT_2026-09-09_DROP_E45_A05"
 E45_A05_STITCH_DROPPED = True
@@ -38,13 +49,18 @@ LIVE_E45_BOOK = None
 LIVE_E45_PROFILE = None
 LIVE_E45_BLEND_ALPHA = None
 
+CUTOVER_BUNDLE_BALLOT = (
+    "ACCEPT_2026-09-19_CUTOVER_BUNDLE_L4_FIN50_BLEND_SOFT_SLEEVE_PRIV_TAX_BROKER"
+)
+
 
 @dataclass(frozen=True)
 class LiveConfig:
     """Canonical live feature flags + books/capital defaults."""
 
     capital: float = DEFAULT_CAPITAL
-    e22_books_version: str = e22div.DEFAULT_BOOKS_VERSION  # E22_v3_recv_pay_effdelay
+    # Stage-B tax ACCEPT 2026-09-19 — recv_pay + flat 10% withhold.
+    e22_books_version: str = e22div.DEFAULT_BOOKS_VERSION
     dividends_path: Path = field(
         default_factory=lambda: Path("data/dividend_events/e22_dividend_events.csv")
     )
@@ -60,16 +76,28 @@ class LiveConfig:
     tip_books_align_ballot: str = "ACCEPT_2026-09-19_TIP_BOOKS_ALIGN_V3"
 
     # Live DH_dd06 + FUSE_ADDITIVE — human ACCEPT 2026-09-13
+    # Soft observe + Sleeve observe ACCEPTED 2026-09-19 as carried by FUSE (no independent wire).
     live_fuse_additive: bool = True
     live_dh_exposure: bool = True
     live_dh_id: str = "DH_dd06_vz1p0"
     live_cutover_ballot: str = "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE"
+    fuse_carries_soft_observe: bool = True
+    fuse_carries_sleeve_observe: bool = True
+
+    # BLEND_025 + L4 + FIN50-as-component — ACCEPT 2026-09-19 cutover bundle.
+    live_blend025: bool = True
+    live_l4_dd_path: bool = True
+    cutover_bundle_ballot: str = CUTOVER_BUNDLE_BALLOT
+
+    # 民營 native — ACCEPT 2026-09-19.
+    live_fin_priv_native: bool = True
+    priv_kd: Mapping[str, Any] = field(default_factory=lambda: MappingProxyType(dict(PRIV_KD)))
 
     # Fill backend — default paper Exact T+1. Broker / dry_run via CLI or E21_FILL_PORT.
     # True broker live write requires ALL of:
     #   broker_live_write_accepted=True (ACCEPT PR), E21_BROKER_WRITE_LIVE=1, and broker_safety gates.
     fill_port: str = "paper"
-    broker_live_write_accepted: bool = False  # Soft-Frozen KEEP until ACCEPT PR
+    broker_live_write_accepted: bool = True  # ACCEPT 2026-09-19 broker live-write
 
 
 # Module-level singleton used by the live pipeline (edit + ACCEPT PR to cut over).
@@ -81,7 +109,11 @@ LIVE_FUSE_ADDITIVE = LIVE.live_fuse_additive
 LIVE_DH_EXPOSURE = LIVE.live_dh_exposure
 LIVE_DH_ID = LIVE.live_dh_id
 LIVE_CUTOVER_BALLOT = LIVE.live_cutover_ballot
+LIVE_BLEND025 = LIVE.live_blend025
+LIVE_L4_DD_PATH = LIVE.live_l4_dd_path
+LIVE_FIN_PRIV_NATIVE = LIVE.live_fin_priv_native
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital
 TIP_BOOKS_ALIGN_BALLOT = LIVE.tip_books_align_ballot
+CUTOVER_BUNDLE_BALLOT_LIVE = LIVE.cutover_bundle_ballot

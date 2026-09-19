@@ -1,8 +1,8 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-19 (tip books align ACCEPT + E45 A05 residue cleanup; SSOT after DH+FUSE)  
+Date: 2026-09-19 (ACCEPT cutover bundle L4/BLEND/priv/tax/broker + Soft/Sleeve via FUSE)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
-Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
+Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP** (BLEND/L4 overlays authorized)  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  

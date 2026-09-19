@@ -3,7 +3,7 @@
 
 Formal price split:
   - E16 signals: adj_close
-  - Books / fills / NAV: raw open/close + E22_v3_recv_pay_effdelay
+  - Books / fills / NAV: raw open/close + E22_v3_recv_pay_tax10 (Stage-B tax ACCEPT)
   - Order sizing: 一張 = 1000 股 (整股)
 
 Architecture (modularize cleanup):
@@ -80,6 +80,7 @@ def main() -> None:
             e22div.E22_V2S_TW,
             e22div.E22_V2S_TW_EFFEX,
             e22div.E22_V3_RECV_PAY_EFFDELAY,
+            e22div.E22_V3_RECV_PAY_TAX10,
             e22sandbox.E22_V3_RECV_PAY,
             e22sandbox.E22_V3_TAX10,
             e22sandbox.E22_V3_TAX20,
@@ -110,6 +111,13 @@ def main() -> None:
     sdir.mkdir(parents=True, exist_ok=True)
 
     m, latest, day = load_market_session(market_path, asof=a.asof)
+    if LIVE.live_fin_priv_native:
+        from live_priv_native_cutover import apply_priv_universe_globals, extend_market_for_priv
+
+        m = extend_market_for_priv(m)
+        apply_priv_universe_globals()
+        # Refresh day slice after panel extend.
+        day = m[m["date"] == latest].set_index("code")
     px, sleeve, target, e20, diag = features(m)
     tw, _e20w, tw_pre_dh, dh_exposure_today, e45_exposure_today, _fuse_meta, _dh_meta = (
         resolve_session_targets(m, target, latest, a.dividends, LIVE)
@@ -143,7 +151,7 @@ def main() -> None:
             soft_frozen.SOFT_FROZEN_FIN_HI,
         ],
         "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
-        "kd_opt_id": KD_OPT["id"],
+        "kd_opt_id": (LIVE.priv_kd["id"] if LIVE.live_fin_priv_native else KD_OPT["id"]),
         "e45_stitch": False,
         "e45_stitch_rollback": E45_STITCH_ROLLBACK,
         "e45_book": None,
@@ -152,6 +160,11 @@ def main() -> None:
         "e45_exposure": None,
         "tip_books_align_ballot": TIP_BOOKS_ALIGN_BALLOT,
         "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
+        "blend025": bool(LIVE.live_blend025),
+        "l4_dd_path": bool(LIVE.live_l4_dd_path),
+        "fin_priv_native": bool(LIVE.live_fin_priv_native),
+        "cutover_bundle_ballot": LIVE.cutover_bundle_ballot,
+        "broker_live_write_accepted": bool(LIVE.broker_live_write_accepted),
         "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
         "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
         "dh_exposure": float(dh_exposure_today) if LIVE_DH_EXPOSURE else None,

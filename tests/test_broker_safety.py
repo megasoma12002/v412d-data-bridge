@@ -97,8 +97,9 @@ def _write_accept_ballot(sdir: Path, *, accepted: bool = True) -> None:
     )
 
 class LiveWriteGateTests(unittest.TestCase):
-    def test_default_live_config_rejects(self) -> None:
-        self.assertFalse(LIVE.broker_live_write_accepted)
+    def test_default_live_config_accepts_flag(self) -> None:
+        # ACCEPT 2026-09-19 broker live-write — flag True; env+ballot still required.
+        self.assertTrue(LIVE.broker_live_write_accepted)
 
     def test_gate_requires_accept_and_env(self) -> None:
         with tempfile.TemporaryDirectory() as td:
@@ -624,9 +625,9 @@ class BrokerLiveAffordAndConfirmTests(unittest.TestCase):
 
 
 class LandmineBrokerLiveAccept(unittest.TestCase):
-    def test_live_config_keeps_broker_live_write_false(self) -> None:
+    def test_live_config_broker_live_write_accepted_true(self) -> None:
         cfg = Path("scripts/live_config.py").read_text(encoding="utf-8")
-        self.assertIn("broker_live_write_accepted: bool = False", cfg)
+        self.assertIn("broker_live_write_accepted: bool = True", cfg)
 
 
 if __name__ == "__main__":

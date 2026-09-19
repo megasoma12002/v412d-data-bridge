@@ -47,7 +47,10 @@ E22_V2S_TW_EFFEX = "E22_v2s_tw_effex"  # TW + effective_ex_trade (D5 ACCEPT)
 # Stage-E ACCEPT 2026-09-16: receivable on effective ex, cash on effective payment (TAX0).
 # Applied via ``e22_books_apply`` / ``e22_v3_sandbox_books`` (not ``apply_dividends_for_date``).
 E22_V3_RECV_PAY_EFFDELAY = "E22_v3_recv_pay_effdelay"
-DEFAULT_BOOKS_VERSION = E22_V3_RECV_PAY_EFFDELAY
+# Stage-B tax ACCEPT 2026-09-19: receivable family + flat 10% withhold.
+E22_V3_RECV_PAY_TAX10 = "E22_v3_recv_pay_tax10"
+DEFAULT_BOOKS_VERSION = E22_V3_RECV_PAY_TAX10
+
 PRESERVED_CASH_ON_EX = E22_V2S_TW_EFFEX  # prior live DEFAULT (D5)
 PAR_VALUE_TWD = 10.0
 STOCK_SHARE_VERSIONS = {E22_V2S, E22_V2S_CIL, E22_V2S_TW, E22_V2S_TW_EFFEX}

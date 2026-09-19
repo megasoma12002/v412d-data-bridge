@@ -1,0 +1,20 @@
+{
+  "label": "ACCEPT_2026-09-19_CUTOVER_BUNDLE_L4_FIN50_BLEND_SOFT_SLEEVE_PRIV_TAX_BROKER",
+  "status": "ACCEPTED",
+  "date": "2026-09-19",
+  "human": "ACCEPT L4 / FIN50 / BLEND / Soft / Sleeve / priv live / tax Stage-B / broker的修正",
+  "ballots": {
+    "soft_assist": "ACCEPT live Soft-assist cutover: SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05 (via FUSE)",
+    "sleeve_tilt": "ACCEPT live Sleeve-tilt cutover: SLEEVE_RSI14_LT30_a0225 (via FUSE)",
+    "fin50": "ACCEPT FIN_CAP_50 as BLEND_025 component (no static clip flip)",
+    "blend025": "ACCEPT live Soft-Frozen cutover: BLEND_025",
+    "l4": "ACCEPT live L4 cutover: L4_DD_PATH_08_50",
+    "priv_native": "ACCEPT live FIN 民營 native cutover: PRIV_KD_MAY_Klt25_T15",
+    "tax_stage_b": "ACCEPT promote E22 books: E22_v3_recv_pay_tax10",
+    "broker": "ACCEPT broker live-write: broker_live_write_accepted=True"
+  },
+  "soft_frozen_fin_clip": [0.6, 0.9],
+  "static_fin50_clip_flip": false,
+  "e45_a05_stitch": "DROPPED",
+  "note": "research/ops/ACCEPT_CUTOVER_BUNDLE_2026-09-19.md"
+}

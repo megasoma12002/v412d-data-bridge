@@ -1,0 +1,7 @@
+{
+  "accepted": true,
+  "ballot": "ACCEPT broker live-write: broker_live_write_accepted=True",
+  "date": "2026-09-19",
+  "label": "ACCEPT_2026-09-19_BROKER_LIVE_WRITE",
+  "note": "Env E21_BROKER_WRITE_LIVE=1 and fill_port=broker still required for mutating Soft-Frozen fills; Soft-Frozen default fill_port remains paper until ops sets port."
+}

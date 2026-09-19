@@ -27,9 +27,14 @@ def _days() -> list[DayRecord]:
 
 
 class StageEDefaultTests(unittest.TestCase):
-    def test_default_is_recv_effdelay(self) -> None:
-        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V3_RECV_PAY_EFFDELAY)
+    def test_default_is_recv_pay_tax10_stage_b(self) -> None:
+        # Stage-B tax ACCEPT 2026-09-19 superseded Stage-E TAX0 DEFAULT.
+        self.assertEqual(formal.DEFAULT_BOOKS_VERSION, formal.E22_V3_RECV_PAY_TAX10)
         self.assertTrue(is_sandbox_version(formal.DEFAULT_BOOKS_VERSION))
+
+    def test_stage_e_effdelay_still_routable(self) -> None:
+        self.assertTrue(is_sandbox_version(E22_V3_RECV_PAY_EFFDELAY))
+        self.assertEqual(E22_V3_RECV_PAY_EFFDELAY, "E22_v3_recv_pay_effdelay")
 
     def test_router_accrues_receivable_on_effective_ex(self) -> None:
         days = _days()
