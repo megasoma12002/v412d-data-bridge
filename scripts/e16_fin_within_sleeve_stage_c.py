@@ -13,6 +13,8 @@ without hard concentration.
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import argparse
 import json
 from datetime import datetime, timezone
@@ -40,7 +42,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/fin-within-sleeve-stagec-20260908"
 RESEARCH = ROOT / "research/ops"
 
-CHARTER_CAPITAL = 500_000_000.0
+CHARTER_CAPITAL = DEFAULT_CAPITAL
 CHARTER_LOT = BOARD_LOT
 STAGE_C_POLICIES = (
     FIN_EQUAL,

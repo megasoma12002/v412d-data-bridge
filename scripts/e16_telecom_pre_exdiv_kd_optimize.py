@@ -6,6 +6,8 @@ Hold Financial at live KD_OPT. Soft-Frozen KEEP. Live wire false.
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -29,7 +31,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/telecom-pre-exdiv-kd-optimize-20260909"
 RESEARCH = ROOT / "research/ops"
 
-CAPITAL = 500_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 LOT = BOARD_LOT
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
