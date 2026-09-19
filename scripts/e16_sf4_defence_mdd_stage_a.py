@@ -128,7 +128,8 @@ def apply_l4_path(offense: pd.DataFrame, defence: pd.DataFrame, market: pd.DataF
     common = offense.index.intersection(defence.index).intersection(dd.index)
     flag = (dd.reindex(common) <= float(dd_thr)).fillna(False)
     out = offense.loc[common, SLEEVE_COLS].astype(float).copy()
-    out.loc[flag, SLEEVE_COLS] = defence.loc[common, SLEEVE_COLS].astype(float).values
+    def_aligned = defence.loc[common, SLEEVE_COLS].astype(float)
+    out.loc[flag.values, SLEEVE_COLS] = def_aligned.loc[flag.values, SLEEVE_COLS].to_numpy()
     s = out.sum(axis=1).replace(0.0, 1.0)
     out = out.div(s, axis=0)
     return out, flag
