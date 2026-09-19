@@ -7,9 +7,12 @@ permissions:
   contents: write
 jobs:
   fetch-qc:
-    # Prevent arbitrary issues from committing data/telecom_0050_complete.
-    # Manual: workflow_dispatch · Issue title prefix RUN_TELECOM_0050
-    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'RUN_TELECOM_0050')
+    # Issue triggers only for repository owner + title prefix (public-repo hardening).
+    # Manual: workflow_dispatch · Owner issue RUN_TELECOM_0050*
+    if: >-
+      github.event_name != 'issues' ||
+      (startsWith(github.event.issue.title, 'RUN_TELECOM_0050') &&
+       github.actor == github.repository_owner)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +23,7 @@ jobs:
       - name: Fetch and QC with diagnostics
         run: python scripts/fetch_telecom_0050_ohlcv.py
       - name: Persist completed data and diagnostics
-        if: always()
+        if: success()
         run: |
           mkdir -p data/telecom_0050_complete
           cp -f out_telecom_0050/* data/telecom_0050_complete/ || true

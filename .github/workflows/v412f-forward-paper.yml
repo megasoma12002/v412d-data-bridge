@@ -20,9 +20,13 @@ permissions:
 
 jobs:
   forward-paper:
-    # Prevent arbitrary issues from mutating forward/ (Cloud Agent / stray opens).
-    # Manual: workflow_dispatch · Scheduled cron · Issue title prefix RUN_E21_FORWARD
-    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'RUN_E21_FORWARD')
+    # Issue triggers only if title prefix matches AND opener is the repository owner
+    # (blocks public-repo strangers from mutating forward/e21 via crafted issues).
+    # Manual: workflow_dispatch · Scheduled cron · Owner issue RUN_E21_FORWARD*
+    if: >-
+      github.event_name != 'issues' ||
+      (startsWith(github.event.issue.title, 'RUN_E21_FORWARD') &&
+       github.actor == github.repository_owner)
     runs-on: ubuntu-latest
     timeout-minutes: 55
     steps:

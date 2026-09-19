@@ -15,7 +15,11 @@ permissions:
 
 jobs:
   build-e50a0:
-    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'E50-A0')
+    # Issue triggers burn FINMIND_TOKEN — restrict to repository owner + title prefix.
+    if: >-
+      github.event_name != 'issues' ||
+      (startsWith(github.event.issue.title, 'E50-A0') &&
+       github.actor == github.repository_owner)
     runs-on: ubuntu-latest
     timeout-minutes: 90
     env:
