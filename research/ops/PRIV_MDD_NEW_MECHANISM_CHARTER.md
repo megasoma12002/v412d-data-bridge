@@ -13,7 +13,7 @@ Human binding: 「民股等**新機制**或你改門檻再談」· this charter 
 
 ## 0. Why this charter exists
 
-Live stays **公股 Soft-Frozen + FUSE_ADDITIVE + DH_dd06**. Cutover `#257` is **FROZEN**.  
+Live stays **公股 Soft-Frozen + FUSE_ADDITIVE + DH_dd06**. Cutover `#257` is **CLOSED** (not merged).  
 Re-open requires a **new mechanism** charter (**≠ retune frozen SF4 cell**) **or** human sealed-gate change. This document is the former.
 
 ### Prior STOP evidence (binding)
@@ -60,7 +60,7 @@ Therefore next actuator must change **when FinPriv is allowed**, **where FinPriv
 |---|---|
 | Soft-Frozen FIN `[0.60, 0.90]` · 公股 R1 · `KD_OPT` · `TEL_EQUAL` | **KEEP** |
 | Overlay live | **FUSE_ADDITIVE + DH_dd06 KEEP** |
-| `#257` | **FROZEN — do not merge** |
+| `#257` | **CLOSED** (not merged) · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` |
 | Sealed / heldout MDD coexist gates | **Unchanged** (same formula as prior MDD charters) |
 | Books DEFAULT on main | `E22_v3_recv_pay_effdelay` (tip may lag) — **do not** promote tax10 from this charter |
 | Broker live-write | **off** |
