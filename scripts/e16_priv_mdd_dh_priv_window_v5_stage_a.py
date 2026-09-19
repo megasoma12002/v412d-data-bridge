@@ -20,8 +20,8 @@ import e16_priv_mdd_new_mech_n2_stage_a as n2
 import e16_pub_priv_coexist_mdd_stage_a as base
 import e16_soft_frozen_base as soft
 import e45_defend_handoff_helpers as dh
-import e50_early_stack_combined_nav as e50
 from e45_paper_harness import load_dividends
+from e50_early_stack_combined_nav import FIN as FIN_PUB_CODES
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/priv-mdd-dh-priv-window-v5-stagea"
@@ -37,7 +37,7 @@ PROXY_MDD_THR = -0.10
 HANDOFF_RACE_DAYS = 21
 SHRINK = float(dh.SHRINK)  # 0.50 for SF4_DH_REF only
 
-FIN_PUB = list(e50.FIN)  # Soft-Frozen 公股 FIN — matches frozen DH recipe
+FIN_PUB = list(FIN_PUB_CODES)  # Soft-Frozen 公股 FIN — matches frozen DH recipe
 
 
 def _close_panel(market: pd.DataFrame, codes: list[str]) -> pd.DataFrame:
@@ -145,69 +145,22 @@ def build_defend_flag(
     return out
 
 
-def exposure_from_flag(flag: pd.Series) -> pd.Series:
-    return flag.map(lambda d: (1.0 - SHRINK) if d else 1.0).astype(float)
+def apply_whole_book_shrink(
+    offense: pd.DataFrame,
+    flag: pd.Series,
+    *,
+    shrink: float = SHRINK,
+) -> tuple[pd.DataFrame, pd.Series]:
+    """SF4_DH_REF contrast: scale all sleeves by (1−shrink) while DEFEND (cash residual).
 
-
-def _sim_sf4_exposure(market, dividends, target, regime, *, book_id: str, meta_extra: dict, exposure: pd.Series):
-    """SF4 sim with whole-book e45_exposure (SF4_DH_REF contrast only)."""
-    old_fin, old_all = list(e50.FIN), list(e50.ALL)
-    fin_codes = list(n1.PUB_R1) + list(n1.PRIV_R3R4)
-    e50.FIN = fin_codes
-    e50.ALL = fin_codes + list(n1.TEL) + ["0050"]
-    try:
-        scores, buy_ok = base._kd_panels(market, dividends, fin_codes)
-        exp = exposure.reindex(pd.DatetimeIndex(target.index)).ffill().bfill().astype(float)
-        nav, fills, meta = e50.simulate_core(
-            market,
-            target,
-            regime,
-            dividends,
-            apply_e22=True,
-            apply_stock_div=True,
-            e22_version=n1.E22_PAPER,
-            capital=n1.CAPITAL,
-            lot_size=n1.LOT,
-            financial_alloc=n1.FIN_PRE_EXDIV_KD,
-            telecom_alloc=n1.TEL_EQUAL,
-            fin_name_scores=scores,
-            fin_buy_ok=buy_ok,
-            fin_pub_codes=n1.PUB_R1,
-            fin_priv_codes=n1.PRIV_R3R4,
-            fin_pub_alloc=n1.FIN_PRE_EXDIV_KD,
-            fin_priv_alloc=meta_extra.get("priv_pol", n1.FIN_PRE_EXDIV_KD),
-            e45_exposure=exp,
-        )
-        assert meta.get("exact_t1_ok"), book_id
-        from e45_paper_harness import WINDOWS_STANDARD, window_stats
-
-        win = {w: window_stats(nav, a, b) for w, (a, b) in WINDOWS_STANDARD.items()}
-        end_pos = meta.get("end_positions") or {}
-        return {
-            "id": book_id,
-            "nav": nav,
-            "windows": win,
-            "n_fills": int(len(fills)),
-            "meta": meta,
-            "mechanism": meta_extra.get("mechanism"),
-            "priv_policy": meta_extra.get("priv_pol"),
-            "fin_pub_clip": meta_extra.get("fin_pub_clip"),
-            "fin_priv_clip": meta_extra.get("fin_priv_clip"),
-            "prior_priv_frac": meta_extra.get("prior_priv_frac"),
-            "gate_on_share": meta_extra.get("gate_on_share"),
-            "v5_family": meta_extra.get("v5_family"),
-            "v5_sink": meta_extra.get("v5_sink"),
-            "v5_exit": meta_extra.get("v5_exit"),
-            "tip_pub": sum(
-                1 for c in n1.PUB_R1 if abs(float(end_pos.get(c, 0.0))) >= n1.LOT - 1e-9
-            ),
-            "tip_priv": sum(
-                1 for c in n1.PRIV_R3R4 if abs(float(end_pos.get(c, 0.0))) >= n1.LOT - 1e-9
-            ),
-        }
-    finally:
-        e50.FIN = old_fin
-        e50.ALL = old_all
+    e45_exposure is unsupported with FinPub/FinPriv 4-sleeve targets — weight-scale instead.
+    """
+    common = offense.index.intersection(flag.index)
+    f = flag.reindex(common).fillna(False).astype(bool)
+    out = offense.loc[common, n1.SLEEVE_COLS].astype(float).copy()
+    if f.any():
+        out.loc[f] = out.loc[f] * (1.0 - float(shrink))
+    return out, f
 
 
 def _run_book(market, dividends, target, regime, *, book_id: str, meta_extra: dict):
@@ -322,21 +275,20 @@ def main() -> int:
     print("SF4_DH_REF ...", flush=True)
     flag_xdef = build_defend_flag(idx, feat, recover_frac=0.97, max_def_sessions=42, require_t2=True)
     flag_xdef = flag_xdef.reindex(off_t.index).fillna(False)
-    exp_dh = exposure_from_flag(flag_xdef)
-    results["SF4_DH_REF"] = _sim_sf4_exposure(
+    dh_t, dh_f = apply_whole_book_shrink(off_t, flag_xdef)
+    results["SF4_DH_REF"] = _run_book(
         market,
         dividends,
-        off_t,
-        off_r,
+        dh_t,
+        off_r.reindex(dh_t.index).ffill().bfill(),
         book_id="SF4_DH_REF",
         meta_extra=_meta(
             "REF_SF4_DH_WHOLE_BOOK",
             v5_family="REF_DH_SHRINK",
             v5_sink="SHRINK",
             v5_exit="XDEF",
-            gate_on_share=float(flag_xdef.mean()) if len(flag_xdef) else None,
+            gate_on_share=float(dh_f.mean()) if len(dh_f) else None,
         ),
-        exposure=exp_dh,
     )
 
     for bid, sink, recover, max_sess, req_t2, exit_lab in V5_SPECS:
