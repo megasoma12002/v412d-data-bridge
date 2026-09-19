@@ -268,26 +268,6 @@ def apply_dividends_for_date(
     """
     version = version or DEFAULT_BOOKS_VERSION
     if version not in KNOWN_VERSIONS:
-        # #region agent log
-        import json as _json_dbg, os as _os_dbg
-        open(_os_dbg.path.expanduser("/opt/cursor/logs/debug.log"), "a").write(
-            _json_dbg.dumps(
-                {
-                    "hypothesisId": "A",
-                    "location": "e22_dividend_accounting.py:apply_dividends_for_date",
-                    "message": "rejecting unknown formal version",
-                    "data": {
-                        "version": version,
-                        "known": sorted(KNOWN_VERSIONS),
-                        "default": DEFAULT_BOOKS_VERSION,
-                        "day": str(day)[:10],
-                    },
-                    "timestamp": __import__("time").time() * 1000,
-                }
-            )
-            + "\n"
-        )
-        # #endregion
         raise ValueError(
             f"unknown E22 formal books version: {version} "
             f"(sandbox/live DEFAULT router: e22_books_apply.apply_books_for_date)"

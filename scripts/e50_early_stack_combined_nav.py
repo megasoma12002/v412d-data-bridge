@@ -190,29 +190,6 @@ def simulate_core(
             e22_version = e22div.E22_V2
         else:
             e22_version = e22div.DEFAULT_BOOKS_VERSION  # E22_v3_recv_pay_effdelay (Stage-E)
-    # #region agent log
-    import json as _json_dbg, os as _os_dbg
-    open(_os_dbg.path.expanduser("/opt/cursor/logs/debug.log"), "a").write(
-        _json_dbg.dumps(
-            {
-                "hypothesisId": "A,B",
-                "location": "e50_early_stack_combined_nav.py:e22_version_resolve",
-                "message": "resolved e22_version for simulate_core",
-                "data": {
-                    "e22_version": e22_version,
-                    "apply_e22": apply_e22,
-                    "in_known_versions": e22_version in e22div.KNOWN_VERSIONS,
-                    "is_sandbox": is_sandbox_version(e22_version),
-                    "is_default": e22_version == e22div.DEFAULT_BOOKS_VERSION,
-                    "default_books": e22div.DEFAULT_BOOKS_VERSION,
-                    "runId": "post-fix",
-                },
-                "timestamp": __import__("time").time() * 1000,
-            }
-        )
-        + "\n"
-    )
-    # #endregion
     if apply_stock_div is None:
         # Sandbox / Stage-E v3 applies stock via TW odd-lot path inside the router.
         apply_stock_div = (
@@ -371,89 +348,17 @@ def simulate_core(
             mark_prices = {c: float(cl[c]) for c in ALL}
             day_iso = dt.date().isoformat()
             sessions, settlements = _sessions_for_day(day_iso)
-            # #region agent log
-            import json as _json_dbg2, os as _os_dbg2
-            open(_os_dbg2.path.expanduser("/opt/cursor/logs/debug.log"), "a").write(
-                _json_dbg2.dumps(
-                    {
-                        "hypothesisId": "A,C,E",
-                        "location": "e50_early_stack_combined_nav.py:pre_e22_apply",
-                        "message": "about to apply E22 books",
-                        "data": {
-                            "day": day_iso,
-                            "e22_version": e22_version,
-                            "call_target": "e22_books_apply.apply_books_for_date",
-                            "in_known": e22_version in e22div.KNOWN_VERSIONS,
-                            "is_sandbox": is_sandbox_version(e22_version),
-                            "n_events": len(events),
-                            "has_sessions": sessions is not None,
-                            "recv_n": len(receivables),
-                            "runId": "post-fix",
-                        },
-                        "timestamp": __import__("time").time() * 1000,
-                    }
-                )
-                + "\n"
+            pos, cash, receivables, applied = apply_books_for_date(
+                day_iso,
+                pos,
+                cash,
+                events,
+                version=e22_version,
+                mark_prices=mark_prices,
+                receivables=receivables,
+                session_dates=sessions,
+                settlement_dates=settlements,
             )
-            # #endregion
-            try:
-                pos, cash, receivables, applied = apply_books_for_date(
-                    day_iso,
-                    pos,
-                    cash,
-                    events,
-                    version=e22_version,
-                    mark_prices=mark_prices,
-                    receivables=receivables,
-                    session_dates=sessions,
-                    settlement_dates=settlements,
-                )
-            except ValueError as _e22_exc:
-                # #region agent log
-                open(_os_dbg2.path.expanduser("/opt/cursor/logs/debug.log"), "a").write(
-                    _json_dbg2.dumps(
-                        {
-                            "hypothesisId": "A",
-                            "location": "e50_early_stack_combined_nav.py:e22_apply_error",
-                            "message": "apply_books_for_date raised",
-                            "data": {
-                                "day": day_iso,
-                                "e22_version": e22_version,
-                                "error": str(_e22_exc)[:200],
-                                "runId": "post-fix",
-                            },
-                            "timestamp": __import__("time").time() * 1000,
-                        }
-                    )
-                    + "\n"
-                )
-                # #endregion
-                raise
-            # #region agent log
-            if not getattr(simulate_core, "_dbg_e22_ok_logged", False):
-                open(_os_dbg2.path.expanduser("/opt/cursor/logs/debug.log"), "a").write(
-                    _json_dbg2.dumps(
-                        {
-                            "hypothesisId": "A",
-                            "location": "e50_early_stack_combined_nav.py:e22_apply_ok",
-                            "message": "apply_books_for_date succeeded",
-                            "data": {
-                                "day": day_iso,
-                                "e22_version": e22_version,
-                                "cash_credit": float(getattr(applied, "cash_credit", 0.0) or 0.0),
-                                "recv_credit": float(
-                                    getattr(applied, "receivable_credit", 0.0) or 0.0
-                                ),
-                                "recv_n_after": len(receivables),
-                                "runId": "post-fix",
-                            },
-                            "timestamp": __import__("time").time() * 1000,
-                        }
-                    )
-                    + "\n"
-                )
-                simulate_core._dbg_e22_ok_logged = True  # type: ignore[attr-defined]
-            # #endregion
             day_div = applied.cash_credit
             day_stock_shares = applied.stock_shares_added
             day_cil = applied.cil_cash_credit
