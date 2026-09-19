@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-12T13:42:14.145537+00:00",
+  "generated_at_utc": "2026-09-19T05:46:18.712777+00:00",
   "label": "LIVE_VS_PAPER_SOFT_FROZEN_RECON",
   "live_wire": false,
   "soft_frozen_clip": [
@@ -12,38 +12,41 @@
     "paper_nav": "/workspace/repro/l4-dd-path-dual-paper/outputs/base_e16_daily_nav.csv"
   },
   "live": {
-    "n": 15,
+    "n": 18,
     "start": "2026-08-24",
-    "end": "2026-09-11",
-    "last_nav": 550396672.172183
+    "end": "2026-09-16",
+    "last_nav": 556847465.5135857
   },
   "paper_base": {
-    "n": 3356,
+    "n": 3359,
     "start": "2012-12-04",
-    "end": "2026-09-11",
-    "last_nav": 2886305146.0471025
+    "end": "2026-09-16",
+    "last_nav": 2619084324.9136333
   },
-  "overlap_n": 15,
+  "overlap_n": 18,
   "overlap_stats": {
     "overlap_start": "2026-08-24",
-    "overlap_end": "2026-09-11",
-    "live_cum_return": 0.10079334434436604,
-    "paper_cum_return": 0.12636003683953922,
-    "cum_return_gap": -0.025566692495173182,
-    "max_abs_indexed_nav_gap": 0.028644599695287543
+    "overlap_end": "2026-09-16",
+    "live_cum_return": 0.11369493102717132,
+    "paper_cum_return": 0.14704488205528587,
+    "cum_return_gap": -0.033349951028114555,
+    "max_abs_indexed_nav_gap": 0.033349951028114555
   },
   "signals": {
-    "signal_rows": 15,
+    "signal_rows": 18,
     "signal_date_min": "2026-08-24",
-    "signal_date_max": "2026-09-11",
+    "signal_date_max": "2026-09-16",
     "weight_cols_present": [
       "e16_financial",
       "e16_telecom",
-      "e16_0050"
+      "e16_0050",
+      "e16_financial_pre_dh",
+      "e16_telecom_pre_dh",
+      "e16_0050_pre_dh"
     ]
   },
   "alerts": [
-    "INDEX_DRIFT: max |live_idx-paper_idx|=2.8645% > 2% on overlap"
+    "INDEX_DRIFT: max |live_idx-paper_idx|=3.3350% > 2% on overlap"
   ],
   "note": "Research/ops recon only. Short live windows are expected. Do not use thin overlap for cutover. Soft-Frozen clip untouched."
 }

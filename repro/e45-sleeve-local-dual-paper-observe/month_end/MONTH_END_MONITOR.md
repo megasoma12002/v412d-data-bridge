@@ -1,43 +1,28 @@
-# E45 Blend-α=0.10 FIN_ONLY Month-End Paper Monitor — asof 2026-09-11
+# E45_SLEEVE_LOCAL_MONTH_END_PAPER_MONITOR month-end monitor (asof 2026-09-16)
 
-Generated: `2026-09-12T13:42:12.019244+00:00`
-Status: **OPERATING OBSERVE / PAPER ONLY** — Soft-Frozen live default unchanged.
-Locked: **SLEEVE_FIN_ONLY_A10** (α=0.10 FIN_ONLY × E45 `E3_VOLTARGET_WINNER` on early-stack)
+Status: `OPERATING_OBSERVE` · paper only · base `BASE_E16_E18_E22_v2s` vs `SLEEVE_FIN_ONLY_A10`
 
-> **Dynamic alert windows:** `ytd`, `trailing_1y` (ALERT 3pp / PAUSE 5pp).  
-> **Structural windows:** `heldout_2019_plus`, `sealed_2023_plus` (ALERT if MDD worsens or giveback > design+2pp; no structural PAUSE).  
-> **`mtd` CAGR is display-only** — **not** a stitch gate.  
-> **Stitch / cutover:** always blocked on this observe sleeve.
-
-| Window | BASE CAGR | BASE MDD | SLEEVE_FIN_ONLY_A10 CAGR | SLEEVE_FIN_ONLY_A10 MDD | MDD Δpp | CAGR giveback pp | Rel NAV | Decision? |
-|---|---:|---:|---:|---:|---:|---:|---:|:---:|
-| mtd | 869.28%* | -1.35% | 782.10%* | -1.07% | +0.28 | +87.19 | 0.9970 | no |
-| ytd | 74.25% | -13.97% | 68.55% | -10.62% | +3.35 | +5.70 | 0.9783 | yes |
-| trailing_1y | 56.43% | -13.97% | 50.47% | -10.62% | +3.35 | +5.97 | 0.9635 | yes |
-| sealed_2023_plus | 25.93% | -13.97% | 24.21% | -10.62% | +3.35 | +1.72 | 0.9528 | yes |
-| heldout_2019_plus | 18.65% | -22.39% | 17.41% | -21.69% | +0.70 | +1.24 | 0.9253 | yes |
-| full | 14.07% | -22.39% | 13.48% | -21.69% | +0.70 | +0.59 | 0.9331 | no |
-
-\* `mtd` CAGR annualized from a short sample — **non-decision / display-only**.
+| Window | MDD dpp | Giveback pp | Score | Rel NAV |
+|---|---:|---:|---:|---:|
+| mtd | -0.09188999932676634 | 72.86941180117256 | -36.52659589991305 | 0.9943 |
+| ytd | -0.030235628080566013 | 11.857224040612536 | -5.9588476483868345 | 0.9505 |
+| trailing_1y | -0.030235628080543808 | 4.818740511224329 | -2.439605883692708 | 0.9677 |
+| heldout_2019_plus | 1.9236674731567316 | 1.3915178770534942 | 1.2279085346299845 | 0.9142 |
+| sealed_2023_plus | 0.06230744262424315 | 3.27089998511505 | -1.5731425499332818 | 0.9076 |
+| full | 1.9236674731567205 | 0.6699753149190135 | 1.5886798156972137 | 0.9234 |
 
 ## Alerts
 
-- ALERT: SLEEVE_FIN_ONLY_A10 ytd CAGR giveback > 3.0 pp (paper)
-- PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
-- ALERT: SLEEVE_FIN_ONLY_A10 trailing_1y CAGR giveback > 3.0 pp (paper)
-- PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no stitch talk
+- ALERT: SLEEVE_FIN_ONLY_A10 ytd MDD worse than BASE_E16_E18_E22_v2s
+- ALERT: SLEEVE_FIN_ONLY_A10 ytd CAGR giveback > 3.0 pp
+- PAUSE_REVIEW: SLEEVE_FIN_ONLY_A10 ytd giveback > 5 pp
+- ALERT: SLEEVE_FIN_ONLY_A10 trailing_1y MDD worse than BASE_E16_E18_E22_v2s
+- ALERT: SLEEVE_FIN_ONLY_A10 trailing_1y CAGR giveback > 3.0 pp
 
-## Stitch / cutover status
+## Non-actions
 
-- `stitch_blocked`: **True** (always on observe sleeve)
-- `cutover_blocked`: **True**
-- `stitch_authorized`: **False**
-- Soft-Frozen live clip stays **[0.50, 0.95]** — this monitor never flips it.
-- Live DEFAULT books stay **`E22_v2s_tw`**.
+- paper observe only
+- no Soft-Frozen clip flip
+- no E45 stitch
+- no live wire from this monitor
 
-## Ops note
-
-- Refresh NAVs: `python3 scripts/e45_sleeve_local_dual_paper_ledgers.py`
-- Re-run monitor: `python3 scripts/e45_sleeve_local_month_end_monitor.py`
-- Or month-end pack: `python3 scripts/ops_month_end_paper_pack.py`
-- Live stitch still requires a **second dedicated human ACCEPT** after checklist.

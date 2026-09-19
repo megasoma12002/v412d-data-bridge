@@ -1,8 +1,8 @@
 # Soft-assist vs Sleeve-tilt Observe Overlap（只測 paper）
 
-產生：`2026-09-12T13:42:13.814092+00:00` · asof **2026-09-11**
-Heldout corr **0.112** · same-sign **48.1%** · joint DD days **46.9%**
-flags: high_overlap=`False` · high_joint_dd=`True`
+產生：`2026-09-19T05:46:18.445904+00:00` · asof **2026-09-16**
+Heldout corr **0.795** · same-sign **65.7%** · joint DD days **97.5%**
+flags: high_overlap=`True` · high_joint_dd=`True`
 
 **不上 live、不授權 combo。** 高 overlap 是反對自動拼裝的證據。
 

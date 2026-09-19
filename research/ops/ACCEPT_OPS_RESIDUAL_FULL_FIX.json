@@ -5,6 +5,8 @@
   "ballot": "ACCEPT Ops residual 全修: dual-paper NAV regenerate + tip-lag Gap6/ops stamp + INDEX_DRIFT non-decision note; no Soft-Frozen cutover; no L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B promote",
   "in_scope": [
     "dual_paper_refresh_ledgers",
+    "simulate_core_stage_e_books_router",
+    "priv_native_tw12_private_adj_fallback",
     "tip_lag_gap6_stamp",
     "index_drift_non_decision",
     "register_ops_status_debt_board"

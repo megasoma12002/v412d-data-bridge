@@ -1,114 +1,126 @@
 {
-  "generated_at_utc": "2026-09-12T13:42:11.721296+00:00",
-  "asof": "2026-09-11",
-  "live_wire": false,
-  "soft_frozen_default_unchanged": true,
-  "locked_id": "BLEND_E45_A05",
+  "generated_at_utc": "2026-09-19T05:46:16.233454+00:00",
+  "asof": "2026-09-16",
   "label": "E45_BLEND005_MONTH_END_PAPER_MONITOR",
   "status": "OPERATING_OBSERVE",
-  "stitch_authorized": false,
+  "base_id": "BASE_E16_E18_E22_v2s",
+  "challenger_id": "BLEND_E45_A05",
+  "locked_id": "BLEND_E45_A05",
+  "nav_source": "daily_nav",
+  "live_wire": false,
+  "soft_frozen_clips_unchanged": true,
+  "soft_frozen_unchanged": true,
   "cutover_authorized": false,
+  "alerts": [
+    "ALERT: BLEND_E45_A05 ytd MDD worse than BASE_E16_E18_E22_v2s",
+    "ALERT: BLEND_E45_A05 trailing_1y MDD worse than BASE_E16_E18_E22_v2s",
+    "ALERT: BLEND_E45_A05 heldout_2019_plus MDD worse than BASE_E16_E18_E22_v2s"
+  ],
   "windows": [
     {
       "window": "mtd",
       "start": "2026-09-01",
-      "end": "2026-09-11",
-      "n_days": 9,
-      "base_cagr": 8.69284643365904,
-      "base_mdd": -0.013498348489398238,
-      "blend_e45_a05_cagr": 7.954318829798407,
-      "blend_e45_a05_mdd": -0.011499578346668704,
-      "mdd_improve_pp": 0.19987701427295335,
-      "cagr_giveback_pp": 73.85276038606338,
-      "rel_nav_end": 0.9974872205619228
+      "end": "2026-09-16",
+      "n_days": 12,
+      "base_cagr": 4.944724548304135,
+      "base_mdd": -0.005073224057777437,
+      "chal_cagr": 6.0695176042338765,
+      "chal_mdd": -0.008054526114437355,
+      "mdd_improve_pp": -0.2981302056659918,
+      "cagr_giveback_pp": -112.47930559297413,
+      "rel_nav_end": 1.0075928414681883,
+      "score": -56.537783002153056
     },
     {
       "window": "ytd",
       "start": "2026-01-01",
-      "end": "2026-09-11",
-      "n_days": 167,
-      "base_cagr": 0.7425205801455577,
-      "base_mdd": -0.13969427823982672,
-      "blend_e45_a05_cagr": 0.6984026306247313,
-      "blend_e45_a05_mdd": -0.1121951364742324,
-      "mdd_improve_pp": 2.7499141765594315,
-      "cagr_giveback_pp": 4.411794952082637,
-      "rel_nav_end": 0.9832490817150826
+      "end": "2026-09-16",
+      "n_days": 170,
+      "base_cagr": 0.6249579540722041,
+      "base_mdd": -0.07085031675275755,
+      "chal_cagr": 0.6862536860201054,
+      "chal_mdd": -0.08631621604581141,
+      "mdd_improve_pp": -1.5465899293053864,
+      "cagr_giveback_pp": -6.129573194790128,
+      "rel_nav_end": 1.0251427279171752,
+      "score": -4.61137652670045
     },
     {
       "window": "trailing_1y",
-      "start": "2025-09-11",
-      "end": "2026-09-11",
+      "start": "2025-09-16",
+      "end": "2026-09-16",
       "n_days": 242,
-      "base_cagr": 0.5643493839644675,
-      "base_mdd": -0.13969427823982683,
-      "blend_e45_a05_cagr": 0.5165312110919542,
-      "blend_e45_a05_mdd": -0.1121951364742324,
-      "mdd_improve_pp": 2.7499141765594426,
-      "cagr_giveback_pp": 4.781817287251333,
-      "rel_nav_end": 0.9707471291629547
-    },
-    {
-      "window": "sealed_2023_plus",
-      "start": "2023-01-01",
-      "end": "2026-09-11",
-      "n_days": 884,
-      "base_cagr": 0.25929443008444,
-      "base_mdd": -0.13969427823982683,
-      "blend_e45_a05_cagr": 0.2464326210568466,
-      "blend_e45_a05_mdd": -0.1121951364742323,
-      "mdd_improve_pp": 2.7499141765594537,
-      "cagr_giveback_pp": 1.2861809027593374,
-      "rel_nav_end": 0.9646674889000403
+      "base_cagr": 0.42694907953178696,
+      "base_mdd": -0.07085031675275766,
+      "chal_cagr": 0.5017808068027998,
+      "chal_mdd": -0.0863162160458113,
+      "mdd_improve_pp": -1.5465899293053642,
+      "cagr_giveback_pp": -7.483172727101284,
+      "rel_nav_end": 1.0500962568713896,
+      "score": -5.288176292856006
     },
     {
       "window": "heldout_2019_plus",
       "start": "2019-01-01",
-      "end": "2026-09-11",
-      "n_days": 1861,
-      "base_cagr": 0.18649011567030072,
-      "base_mdd": -0.22386722284139682,
-      "blend_e45_a05_cagr": 0.17782941473424918,
-      "blend_e45_a05_mdd": -0.2174666518251338,
-      "mdd_improve_pp": 0.6400571016263013,
-      "cagr_giveback_pp": 0.8660700936051535,
-      "rel_nav_end": 0.9473616785918089
+      "end": "2026-09-16",
+      "n_days": 1864,
+      "base_cagr": 0.15431466037852415,
+      "base_mdd": -0.24901506739784063,
+      "chal_cagr": 0.1622838544453189,
+      "chal_mdd": -0.2523831651609282,
+      "mdd_improve_pp": -0.3368097763087552,
+      "cagr_giveback_pp": -0.7969194066794749,
+      "rel_nav_end": 1.05217943487588,
+      "score": -0.7352694796484927
+    },
+    {
+      "window": "sealed_2023_plus",
+      "start": "2023-01-01",
+      "end": "2026-09-16",
+      "n_days": 887,
+      "base_cagr": 0.20200824298757492,
+      "base_mdd": -0.10448421345142611,
+      "chal_cagr": 0.2330500064683545,
+      "chal_mdd": -0.09501399914653419,
+      "mdd_improve_pp": 0.9470214304891922,
+      "cagr_giveback_pp": -3.1041763480779583,
+      "rel_nav_end": 1.0937853932076778,
+      "score": -0.605066743549787
     },
     {
       "window": "full",
       "start": "2012-12-04",
-      "end": "2026-09-11",
-      "n_days": 3356,
-      "base_cagr": 0.14072009651362993,
-      "base_mdd": -0.22386722284139682,
-      "blend_e45_a05_cagr": 0.13665486917302427,
-      "blend_e45_a05_mdd": -0.2174666518251338,
-      "mdd_improve_pp": 0.6400571016263013,
-      "cagr_giveback_pp": 0.40652273406056594,
-      "rel_nav_end": 0.9535813515947813
+      "end": "2026-09-16",
+      "n_days": 3359,
+      "base_cagr": 0.12385841487439175,
+      "base_mdd": -0.24901506739784052,
+      "chal_cagr": 0.12694619410683372,
+      "chal_mdd": -0.25238316516092807,
+      "mdd_improve_pp": -0.3368097763087552,
+      "cagr_giveback_pp": -0.30877792324419673,
+      "rel_nav_end": 1.0372376433856287,
+      "score": -0.49119873793085356
     }
   ],
-  "alerts": [
-    "ALERT: BLEND_E45_A05 ytd CAGR giveback > 3.0 pp (paper)",
-    "ALERT: BLEND_E45_A05 trailing_1y CAGR giveback > 3.0 pp (paper)"
-  ],
-  "cutover_blocked": true,
-  "stitch_blocked": true,
-  "non_decision_windows": [
-    "mtd",
-    "full"
-  ],
-  "dynamic_alert_windows": [
-    "ytd",
-    "trailing_1y"
-  ],
-  "structural_alert_windows": [
-    "heldout_2019_plus",
-    "sealed_2023_plus"
-  ],
-  "design_giveback_pp": {
-    "heldout_2019_plus": 1.07,
-    "sealed_2023_plus": 1.5
+  "gates": {
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "design_giveback_pp": {
+      "heldout_2019_plus": 1.07,
+      "sealed_2023_plus": 1.5
+    },
+    "structural_buffer_pp": 2.0,
+    "alert_policy": "default"
   },
-  "note": "Paper observe only. Soft-Frozen Financial clip remains [0.50,0.95]. E45 blend-\u03b1=0.05 dual-paper \u2260 stitch license. mtd CAGR is display-only (not a stitch gate). Structural sealed/heldout giveback is design-known; PAUSE_REVIEW applies to YTD / trailing_1y only."
+  "non_actions": [
+    "paper observe only",
+    "no Soft-Frozen clip flip",
+    "no E45 stitch",
+    "no live wire from this monitor"
+  ],
+  "stitch_authorized": false,
+  "non_decision_windows": [
+    "mtd"
+  ],
+  "cutover_blocked": true
 }

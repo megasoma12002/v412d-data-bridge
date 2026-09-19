@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-14T01:33:04.654947+00:00",
+  "generated_at_utc": "2026-09-19T05:46:51.968902+00:00",
   "label": "MONTH_END_DATA_FRESHNESS",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -11,14 +11,14 @@
   "live_market": {
     "path": "forward/e21/live_market.csv",
     "exists": true,
-    "tip_date": "2026-09-11",
+    "tip_date": "2026-09-16",
     "age_cal_days": 3
   },
   "e22": {
     "events_path": "data/dividend_events/e22_dividend_events.csv",
     "events_exists": true,
-    "events_mtime_utc": "2026-09-10T05:17:01.223615+00:00",
-    "events_age_cal_days": 4,
+    "events_mtime_utc": "2026-09-14T16:58:39+00:00",
+    "events_age_cal_days": 5,
     "fetch_status_path": "data/dividend_events/e22_dividend_fetch_status.json",
     "fetch_status_exists": true,
     "fetch_status": "PASS",
@@ -30,8 +30,8 @@
     "path": "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json",
     "exists": true,
     "all_ok": true,
-    "generated_at_utc": "2026-09-12T13:42:28.186880+00:00",
-    "age_cal_days": 2,
+    "generated_at_utc": "2026-09-19T05:46:32.052215+00:00",
+    "age_cal_days": 0,
     "n_drift": 0
   },
   "warnings": [],

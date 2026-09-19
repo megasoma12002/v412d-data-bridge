@@ -1,0 +1,108 @@
+{
+  "generated_at_utc": "2026-09-19T05:43:05.274994+00:00",
+  "label": "BLEND_025_DUAL_PAPER_LEDGERS",
+  "status": "OPERATING_OBSERVE",
+  "live_wire": false,
+  "soft_frozen_default_unchanged": true,
+  "locked_id": "BLEND_025",
+  "blend_alpha": 0.25,
+  "books": {
+    "BASE_E16": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 1.0,
+      "e45_sleeve_names": null,
+      "windows": {
+        "full": {
+          "cagr": 0.13232367067537254,
+          "max_drawdown": -0.23225912689829675,
+          "utility": 0.016194107226224164,
+          "vol": 0.12389046161264924,
+          "n_days": 3359
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09209491474630371,
+          "max_drawdown": -0.16788056992166933,
+          "utility": 0.008154629785469047,
+          "vol": 0.1019148618458224,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.10944147121830938,
+          "max_drawdown": -0.23225912689829664,
+          "utility": -0.006688092230838938,
+          "vol": 0.13233996326908756,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.2359659344255003,
+          "max_drawdown": -0.09501770781736396,
+          "utility": 0.1884570805168183,
+          "vol": 0.1458742323514335,
+          "n_days": 887
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1683001217399358,
+          "max_drawdown": -0.23225912689829664,
+          "utility": 0.05217055829078748,
+          "vol": 0.13891500788325475,
+          "n_days": 1864
+        }
+      }
+    },
+    "BLEND_025": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 1.0,
+      "e45_sleeve_names": null,
+      "windows": {
+        "full": {
+          "cagr": 0.1282779284333928,
+          "max_drawdown": -0.22384565115149413,
+          "utility": 0.016355102857645742,
+          "vol": 0.11903347637028809,
+          "n_days": 3359
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09061806966429198,
+          "max_drawdown": -0.16075055876545785,
+          "utility": 0.010242790281563052,
+          "vol": 0.09981268869098815,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.11328675900349694,
+          "max_drawdown": -0.22384565115149413,
+          "utility": 0.001363933427749875,
+          "vol": 0.1273448440424918,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.21756621946278698,
+          "max_drawdown": -0.09660154433570212,
+          "utility": 0.16926544729493592,
+          "vol": 0.1376729472690948,
+          "n_days": 887
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.16212458430735976,
+          "max_drawdown": -0.22384565115149413,
+          "utility": 0.0502017587316127,
+          "vol": 0.1323223592194446,
+          "n_days": 1864
+        }
+      }
+    }
+  },
+  "heldout_delta_vs_base": {
+    "mdd_improve_pp": 0.8413475746802512,
+    "cagr_giveback_pp": 0.6175537432576039,
+    "score": 0.5325707030514493
+  },
+  "sealed_delta_vs_base": {
+    "mdd_improve_pp": -0.15838365183381553,
+    "cagr_giveback_pp": 1.839971496271331,
+    "score": -1.078369399969481
+  },
+  "cutover_blocked": true
+}

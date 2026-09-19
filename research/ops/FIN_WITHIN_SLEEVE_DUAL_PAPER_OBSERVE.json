@@ -1,309 +1,189 @@
 {
-  "generated_at_utc": "2026-09-12T13:42:00.998704+00:00",
-  "label": "FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE_OPERATING",
+  "generated_at_utc": "2026-09-19T05:44:33.855760+00:00",
+  "label": "FIN_WITHIN_SLEEVE_DUAL_PAPER_OBSERVE",
   "status": "OPERATING_OBSERVE",
-  "operating_observe": true,
   "live_wire": false,
-  "soft_frozen_default_unchanged": true,
-  "cutover_authorized": false,
-  "ballot": "dual-paper \u89c0\u5bdf FIN_RS_SOFT_TILT_EXDIV \u4e26\u6392 FIN_EQUAL\uff1b\u52a0\u9032 MIX_L75 (\u03bb=0.75 EQUAL\u00d7RS_EXDIV) \u7b2c\u4e09\u672c\uff1b\u52a0\u9032 KD_OPT (KD_APR15_MAY15_Klt30_T15) \u7b2c\u56db\u672c",
-  "human_rationale": "\u5404\u6a94\u5404\u505a\u5404\u7684 \u2014 ex-div dates + RS timing differ; MIX_L75 tip-clean coexist candidate from \u03bb-grid; KD_OPT paper optimal (tip PASS + max held-out) from PRE_EXDIV_KD optimize",
-  "stage_c": "STAGE_C_CANDIDATES_LOCKED",
-  "mix_probe": "COEXIST_CANDIDATE_FOUND",
-  "kd_probe": "OPTIMAL_SELECTED_OBSERVE",
+  "soft_frozen_unchanged": true,
   "base_id": "FIN_EQUAL",
-  "locked_challenger": "FIN_RS_SOFT_TILT_EXDIV",
-  "mix_challenger": {
-    "id": "MIX_L75",
-    "financial_alloc": "FIN_MIX_EQUAL_RS_EXDIV",
-    "fin_mix_lambda": 0.75,
-    "definition": "\u03bb\u00b7FIN_EQUAL + (1\u2212\u03bb)\u00b7FIN_RS_SOFT_TILT_EXDIV with \u03bb=0.75"
-  },
-  "kd_challenger": {
-    "id": "KD_OPT",
-    "financial_alloc": "FIN_PRE_EXDIV_KD",
-    "optimal_id": "KD_APR15_MAY15_Klt30_T15",
-    "params": {
-      "season_start": [
-        4,
-        15
-      ],
-      "season_end": [
-        5,
-        15
-      ],
-      "k_thresh": 30.0,
-      "pre_days": 15,
-      "active_score": 1.5
-    },
-    "definition": "FIN_PRE_EXDIV_KD season (4, 15)\u2013(5, 15) first Yahoo K9 < 30.0 soft-tilt; skip buy cash-ex T\u221215\u2026T0 (+ stock ex)"
-  },
-  "books": [
-    "FIN_EQUAL",
+  "challengers": [
     "FIN_RS_SOFT_TILT_EXDIV",
     "MIX_L75",
     "KD_OPT"
   ],
-  "execution_context": {
-    "capital": 500000000.0,
-    "board_lot": 1000,
-    "e22_books": "E22_v2s_tw",
-    "telecom_held_at": "TEL_EQUAL"
-  },
-  "exact_t1": {
-    "base": true,
-    "chal_rs": true,
-    "chal_mix": true,
-    "chal_kd": true
-  },
-  "heldout_vs_base": {
-    "FIN_RS_SOFT_TILT_EXDIV": {
-      "mdd_improve_pp": 0.8926195082533894,
-      "cagr_giveback_pp": 0.9929627703258559,
-      "score": 0.3961381230904615
-    },
-    "MIX_L75": {
-      "mdd_improve_pp": 0.22403955244295615,
-      "cagr_giveback_pp": 0.2735289953181397,
-      "score": 0.08727505478388631
-    },
-    "KD_OPT": {
-      "mdd_improve_pp": 0.6664522064959488,
-      "cagr_giveback_pp": 0.25569550589275014,
-      "score": 0.5386044535495738
-    }
-  },
-  "sealed_vs_base": {
-    "FIN_RS_SOFT_TILT_EXDIV": {
-      "mdd_improve_pp": 2.5939580096014048,
-      "cagr_giveback_pp": 1.4185661519003467,
-      "score": 1.8846749336512314
-    },
-    "MIX_L75": {
-      "mdd_improve_pp": 0.6862354707975027,
-      "cagr_giveback_pp": 0.4526735198653542,
-      "score": 0.4598987108648256
-    },
-    "KD_OPT": {
-      "mdd_improve_pp": 1.1616332365690596,
-      "cagr_giveback_pp": 0.3564446669667598,
-      "score": 0.9834109030856797
-    }
-  },
-  "windows": {
+  "kd_optimal_id": "KD_APR15_MAY15_Klt30_T15",
+  "books": {
     "FIN_EQUAL": {
       "exact_t1_ok": true,
-      "lot_size": 1000,
-      "capital": 500000000.0,
-      "financial_alloc": "FIN_EQUAL",
-      "fin_mix_lambda": null,
-      "tip_fin_positions": {
-        "2880": 47523075.0,
-        "2886": 5553518.0,
-        "2892": 4628.0,
-        "5880": 3960.0
-      },
-      "tip_fin_names_with_board_lot": 4,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 1.0,
+      "e45_sleeve_names": null,
       "windows": {
         "full": {
-          "cagr": 0.14072009651362993,
-          "max_drawdown": -0.22386722284139682,
-          "utility": 0.028786485092931524,
-          "vol": 0.13242343542355403,
-          "n_days": 3356
+          "cagr": 0.12385841487439175,
+          "max_drawdown": -0.24901506739784052,
+          "utility": -0.0006491188245285051,
+          "vol": 0.12724182454912394,
+          "n_days": 3359
         },
         "oof_2011_2018": {
-          "cagr": 0.0898444817418027,
-          "max_drawdown": -0.17572883850723164,
-          "utility": 0.0019800624881868845,
-          "vol": 0.10645097605276985,
+          "cagr": 0.09086812455083204,
+          "max_drawdown": -0.16540155183763006,
+          "utility": 0.008167348632017013,
+          "vol": 0.10537402723096469,
           "n_days": 1495
         },
         "validation_2019_2022": {
-          "cagr": 0.12236583253316602,
-          "max_drawdown": -0.22386722284139682,
-          "utility": 0.01043222111246761,
-          "vol": 0.13485530854832958,
+          "cagr": 0.11096530542207184,
+          "max_drawdown": -0.24901506739784063,
+          "utility": -0.013542228276848478,
+          "vol": 0.14053386910608995,
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.25929443008444,
-          "max_drawdown": -0.13969427823982705,
-          "utility": 0.18944729096452645,
-          "vol": 0.16497044736694316,
-          "n_days": 884
+          "cagr": 0.20200824298757492,
+          "max_drawdown": -0.10448421345142611,
+          "utility": 0.14976613626186186,
+          "vol": 0.14409372049046903,
+          "n_days": 887
         },
         "heldout_2019_plus": {
-          "cagr": 0.18649011567030072,
-          "max_drawdown": -0.22386722284139682,
-          "utility": 0.0745565042496023,
-          "vol": 0.14990077539716767,
-          "n_days": 1861
+          "cagr": 0.15431466037852415,
+          "max_drawdown": -0.24901506739784063,
+          "utility": 0.029807126679603835,
+          "vol": 0.1422007710617648,
+          "n_days": 1864
         }
       }
     },
     "FIN_RS_SOFT_TILT_EXDIV": {
       "exact_t1_ok": true,
-      "lot_size": 1000,
-      "capital": 500000000.0,
-      "financial_alloc": "FIN_RS_SOFT_TILT_EXDIV",
-      "fin_mix_lambda": null,
-      "tip_fin_positions": {
-        "2880": 34686113.0,
-        "2886": 10630675.0,
-        "2892": 4405455.0,
-        "5880": 361254.0
-      },
-      "tip_fin_names_with_board_lot": 4,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 1.0,
+      "e45_sleeve_names": null,
       "windows": {
         "full": {
-          "cagr": 0.13493127816323813,
-          "max_drawdown": -0.21494102775886292,
-          "utility": 0.02746076428380667,
-          "vol": 0.12976505981193165,
-          "n_days": 3356
+          "cagr": 0.12086273727798513,
+          "max_drawdown": -0.2434785604923465,
+          "utility": -0.0008765429681881209,
+          "vol": 0.1285826019459421,
+          "n_days": 3359
         },
         "oof_2011_2018": {
-          "cagr": 0.08878748797892211,
-          "max_drawdown": -0.1784547193650199,
-          "utility": -0.00043987170358783523,
-          "vol": 0.10956775119551104,
+          "cagr": 0.08438520587804166,
+          "max_drawdown": -0.16545998574333054,
+          "utility": 0.0016552130063763881,
+          "vol": 0.10822717693051088,
           "n_days": 1495
         },
         "validation_2019_2022": {
-          "cagr": 0.11597318994997674,
-          "max_drawdown": -0.21494102775886292,
-          "utility": 0.008502676070545279,
-          "vol": 0.13228857709861622,
+          "cagr": 0.0937903890456111,
+          "max_drawdown": -0.2434785604923464,
+          "utility": -0.027948891200562098,
+          "vol": 0.1352120469816487,
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.2451087685654365,
-          "max_drawdown": -0.113754698143813,
-          "utility": 0.18823141949353,
-          "vol": 0.15554218570033904,
-          "n_days": 884
+          "cagr": 0.2247507236631583,
+          "max_drawdown": -0.1021092891737797,
+          "utility": 0.17369607907626844,
+          "vol": 0.15023971089781774,
+          "n_days": 887
         },
         "heldout_2019_plus": {
-          "cagr": 0.17656048796704216,
-          "max_drawdown": -0.21494102775886292,
-          "utility": 0.0690899740876107,
-          "vol": 0.14378810322070595,
-          "n_days": 1861
+          "cagr": 0.15506748094303235,
+          "max_drawdown": -0.2434785604923464,
+          "utility": 0.033328200696859156,
+          "vol": 0.14254212590854728,
+          "n_days": 1864
         }
       }
     },
     "MIX_L75": {
       "exact_t1_ok": true,
-      "lot_size": 1000,
-      "capital": 500000000.0,
-      "financial_alloc": "FIN_MIX_EQUAL_RS_EXDIV",
-      "fin_mix_lambda": 0.75,
-      "tip_fin_positions": {
-        "2880": 43883167.0,
-        "2886": 7600439.0,
-        "2892": 683367.0,
-        "5880": 8539.0
-      },
-      "tip_fin_names_with_board_lot": 4,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 1.0,
+      "e45_sleeve_names": null,
       "windows": {
         "full": {
-          "cagr": 0.13910463457807998,
-          "max_drawdown": -0.22162682731696726,
-          "utility": 0.02829122091959635,
-          "vol": 0.13148031871658478,
-          "n_days": 3356
+          "cagr": 0.12539664741140566,
+          "max_drawdown": -0.24989271625516107,
+          "utility": 0.0004502892838251227,
+          "vol": 0.12785783063968187,
+          "n_days": 3359
         },
         "oof_2011_2018": {
-          "cagr": 0.08929965433368658,
-          "max_drawdown": -0.17664644488563908,
-          "utility": 0.0009764318908670466,
-          "vol": 0.10738389855372472,
+          "cagr": 0.09007863664891413,
+          "max_drawdown": -0.16518789645126286,
+          "utility": 0.007484688423282704,
+          "vol": 0.10558438403004412,
           "n_days": 1495
         },
         "validation_2019_2022": {
-          "cagr": 0.12105549324654152,
-          "max_drawdown": -0.22162682731696726,
-          "utility": 0.010242079588057895,
-          "vol": 0.13399606654214194,
+          "cagr": 0.10898295733635899,
+          "max_drawdown": -0.24989271625516107,
+          "utility": -0.01596340079122155,
+          "vol": 0.14087086307621524,
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.25476769488578643,
-          "max_drawdown": -0.13283192353185203,
-          "utility": 0.18835173311986042,
-          "vol": 0.1618676248511257,
-          "n_days": 884
+          "cagr": 0.21194219366232225,
+          "max_drawdown": -0.09444643615825099,
+          "utility": 0.16471897558319676,
+          "vol": 0.14549341805473295,
+          "n_days": 887
         },
         "heldout_2019_plus": {
-          "cagr": 0.18375482571711932,
-          "max_drawdown": -0.22162682731696726,
-          "utility": 0.07294141205863569,
-          "vol": 0.14787658481035637,
-          "n_days": 1861
+          "cagr": 0.15787873246614792,
+          "max_drawdown": -0.24989271625516107,
+          "utility": 0.03293237433856738,
+          "vol": 0.14306070829520234,
+          "n_days": 1864
         }
       }
     },
     "KD_OPT": {
       "exact_t1_ok": true,
-      "lot_size": 1000,
-      "capital": 500000000.0,
-      "financial_alloc": "FIN_PRE_EXDIV_KD",
-      "fin_mix_lambda": null,
-      "tip_fin_positions": {
-        "2880": 43055602.0,
-        "2886": 7385518.0,
-        "2892": 2479410.0,
-        "5880": 631377.0
-      },
-      "tip_fin_names_with_board_lot": 4,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 1.0,
+      "e45_sleeve_names": null,
       "windows": {
         "full": {
-          "cagr": 0.14023801686669346,
-          "max_drawdown": -0.21720270077643722,
-          "utility": 0.03163666647847485,
-          "vol": 0.12986930439622543,
-          "n_days": 3356
+          "cagr": 0.12764775409030005,
+          "max_drawdown": -0.25921338021268114,
+          "utility": -0.0019589360160405245,
+          "vol": 0.1282304652997801,
+          "n_days": 3359
         },
         "oof_2011_2018": {
-          "cagr": 0.09163479924572715,
-          "max_drawdown": -0.17279501681544296,
-          "utility": 0.00523729083800567,
-          "vol": 0.10459376420805865,
+          "cagr": 0.0901755989867028,
+          "max_drawdown": -0.15856936783077558,
+          "utility": 0.01089091507131501,
+          "vol": 0.10314632092713615,
           "n_days": 1495
         },
         "validation_2019_2022": {
-          "cagr": 0.12057445744466633,
-          "max_drawdown": -0.21720270077643733,
-          "utility": 0.011973107056447663,
-          "vol": 0.13318878047115384,
+          "cagr": 0.09716709186614336,
+          "max_drawdown": -0.25921338021268114,
+          "utility": -0.03243959824019721,
+          "vol": 0.13885539140182923,
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.2557299834147724,
-          "max_drawdown": -0.12807794587413646,
-          "utility": 0.19169101047770415,
-          "vol": 0.16072931131301207,
-          "n_days": 884
+          "cagr": 0.23701985197838304,
+          "max_drawdown": -0.11789581640515556,
+          "utility": 0.17807194377580526,
+          "vol": 0.15150939183664036,
+          "n_days": 887
         },
         "heldout_2019_plus": {
-          "cagr": 0.18393316061137321,
-          "max_drawdown": -0.21720270077643733,
-          "utility": 0.07533181022315455,
-          "vol": 0.146903206960093,
-          "n_days": 1861
+          "cagr": 0.16249652257194325,
+          "max_drawdown": -0.25921338021268114,
+          "utility": 0.032889832465602675,
+          "vol": 0.145001098642223,
+          "n_days": 1864
         }
       }
     }
   },
-  "next_human": [
-    "Month-end cadence via ops_month_end_paper_pack.py --refresh-ledgers",
-    "Live FIN within-sleeve cutover still requires dedicated ACCEPT ballot",
-    "Optional later: \u03bb\u00b7EQUAL+(1\u2212\u03bb)\u00b7KD_OPT mix (not required now)"
-  ],
-  "non_actions": [
-    "Paper-only; Soft-Frozen KEEP; live e21 FIN equal-split untouched",
-    "Do not wire FIN_RS_SOFT_TILT_EXDIV, MIX_L75, or KD_OPT into e21 without cutover ACCEPT",
-    "Stage B hard policies remain STOP"
-  ]
+  "cutover_blocked": true
 }

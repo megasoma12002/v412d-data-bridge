@@ -1,16 +1,11 @@
 # FIN_CAP_50 Sealed-CAGR Charter Screen
 
+Generated: `2026-09-19T05:46:51.700704+00:00`
+Status: **RESEARCH_ONLY** — Soft-Frozen **[0.60, 0.90] KEEP**; no cutover.
 
-> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this note was written.
-> **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
-> See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
+## Decision: **HIST_PASS_TRAIL_FAIL**
 
-Generated: `2026-09-12T13:42:41.666165+00:00`
-Status: **RESEARCH_ONLY** — Soft-Frozen **[0.60, 0.90] KEEP** (was [0.50, 0.95]); no cutover.
-
-## Decision: **PAPER_PROMOTE_PROPOSAL_ONLY**
-
-Named challenger may enter dual-paper observe + promote proposal only (not live cutover).
+STOP for promote — hist gates clear for some families but trailing FAIL; keep FIN50 dual-paper; Soft-Frozen KEEP.
 
 ### Hist-pass IDs (OOF / late-bull / sealed)
 
@@ -21,7 +16,7 @@ Named challenger may enter dual-paper observe + promote proposal only (not live 
 
 ### Promote-eligible (hist + trailing)
 
-- `L4-BLEND-LIGHT` / `BLEND_025`
+- None
 
 ### Operating dual-paper trailing
 
@@ -34,7 +29,7 @@ Named challenger may enter dual-paper observe + promote proposal only (not live 
 |---|---|---|---|---|
 | `L4-CRISIS-ONLY` | `CRISIS_ONLY_50` | True | False | False |
 | `L4-FINCAP-70` | `FIN_CAP_70_STATIC` | True | False | False |
-| `L4-BLEND-LIGHT` | `BLEND_025` | True | True | True |
+| `L4-BLEND-LIGHT` | `BLEND_025` | True | False | False |
 | `L4-BLEND-LIGHT` | `BLEND_050` | True | False | False |
 | `L4-DD-PATH` | `DD_BEAR_CRISIS_50` | False | False | False |
 

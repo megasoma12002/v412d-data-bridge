@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-12T13:42:06.707837+00:00",
+  "generated_at_utc": "2026-09-19T05:45:23.652135+00:00",
   "label": "SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPERATING",
   "status": "OPERATING_OBSERVE",
   "live_wire": false,
@@ -14,7 +14,6 @@
   "lot_size": 1000,
   "base_id": "LIVE_KD_OPT",
   "challenger_id": "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
-  "challenger_policy": "FIN_PRE_EXDIV_KD",
   "soft_assist": {
     "buy_low_id": "BELOW_MA120",
     "buy_soft_extra": [
@@ -26,119 +25,22 @@
     "buy_soft_desc": "BELOW_MA120@1+K9_LT30@1",
     "sell_high_id": "RSI6_GT80",
     "buy_boost": 1.0,
-    "sell_boost": 0.5,
-    "live_kd": {
-      "season_start": [
-        4,
-        15
-      ],
-      "season_end": [
-        5,
-        15
-      ],
-      "k_thresh": 30.0,
-      "pre_days": 15,
-      "active_score": 1.5
-    }
+    "sell_boost": 0.5
   },
   "heldout_vs_base": {
-    "mdd_improve_pp": 0.10121715777380302,
-    "cagr_giveback_pp": 0.00045014447767055543,
-    "score": 0.10099208553496775
+    "mdd_improve_pp": 2.013301194025441,
+    "cagr_giveback_pp": -0.21595501352320579,
+    "score": 1.905323687263838
   },
   "sealed_vs_base": {
-    "mdd_improve_pp": 0.33846485153506967,
-    "cagr_giveback_pp": 0.04656330651648943,
-    "score": 0.31518319827682495
-  },
-  "windows": {
-    "LIVE_KD_OPT": {
-      "full": {
-        "cagr": 0.14023801686669346,
-        "max_drawdown": -0.21720270077643722,
-        "utility": 0.03163666647847485,
-        "vol": 0.12986930439622543,
-        "n_days": 3356
-      },
-      "oof_2011_2018": {
-        "cagr": 0.09163479924572715,
-        "max_drawdown": -0.17279501681544296,
-        "utility": 0.00523729083800567,
-        "vol": 0.10459376420805865,
-        "n_days": 1495
-      },
-      "validation_2019_2022": {
-        "cagr": 0.12057445744466633,
-        "max_drawdown": -0.21720270077643733,
-        "utility": 0.011973107056447663,
-        "vol": 0.13318878047115384,
-        "n_days": 977
-      },
-      "sealed_2023_plus": {
-        "cagr": 0.2557299834147724,
-        "max_drawdown": -0.12807794587413646,
-        "utility": 0.19169101047770415,
-        "vol": 0.16072931131301207,
-        "n_days": 884
-      },
-      "heldout_2019_plus": {
-        "cagr": 0.18393316061137321,
-        "max_drawdown": -0.21720270077643733,
-        "utility": 0.07533181022315455,
-        "vol": 0.146903206960093,
-        "n_days": 1861
-      }
-    },
-    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05": {
-      "full": {
-        "cagr": 0.13992624308831103,
-        "max_drawdown": -0.2161905291986993,
-        "utility": 0.03183097848896138,
-        "vol": 0.1290196218723569,
-        "n_days": 3356
-      },
-      "oof_2011_2018": {
-        "cagr": 0.09100302874166633,
-        "max_drawdown": -0.16941796039955914,
-        "utility": 0.006294048541886754,
-        "vol": 0.10296993584315227,
-        "n_days": 1495
-      },
-      "validation_2019_2022": {
-        "cagr": 0.12091976099763468,
-        "max_drawdown": -0.2161905291986993,
-        "utility": 0.012824496398285035,
-        "vol": 0.13321884518168228,
-        "n_days": 977
-      },
-      "sealed_2023_plus": {
-        "cagr": 0.2552643503496075,
-        "max_drawdown": -0.12469329735878576,
-        "utility": 0.1929177016702146,
-        "vol": 0.1598650024527978,
-        "n_days": 884
-      },
-      "heldout_2019_plus": {
-        "cagr": 0.1839286591665965,
-        "max_drawdown": -0.2161905291986993,
-        "utility": 0.07583339456724686,
-        "vol": 0.14646924668281638,
-        "n_days": 1861
-      }
-    }
+    "mdd_improve_pp": 2.2480961098565455,
+    "cagr_giveback_pp": 0.5517826178089713,
+    "score": 1.9722048009520599
   },
   "fills": {
-    "LIVE_KD_OPT": 5751,
-    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05": 5795
+    "LIVE_KD_OPT": 9052,
+    "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05": 8971
   },
   "default_status": "KEEP_OBSERVE",
-  "ballot": "research/ops/SOFT_SELL_A05_OBSERVE_BALLOT_EXECUTED_OPEN.md",
-  "observe_open": "research/ops/SOFT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md",
-  "posture": "research/ops/SOFT_ASSIST_OBSERVE_POSTURE.md",
-  "cutover_blocked": "research/ops/CUTOVER_CHECKLIST_SOFT_ASSIST.md",
-  "next_human": [
-    "Month-end monitor on LIVE_KD_OPT \u2225 SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05",
-    "Default KEEP OBSERVE; live cutover needs dedicated ACCEPT for this ID",
-    "No Soft\u00d7Sleeve fuse; Sleeve-tilt observe independent"
-  ]
+  "cutover_blocked": true
 }

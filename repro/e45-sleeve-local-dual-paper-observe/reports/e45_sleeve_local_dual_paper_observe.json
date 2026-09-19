@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-12T13:41:53.762696+00:00",
+  "generated_at_utc": "2026-09-19T05:43:44.201202+00:00",
   "label": "E45_SLEEVE_LOCAL_DUAL_PAPER_OBSERVE_SLEEVE",
   "status": "OPERATING_OBSERVE",
   "live_wire": false,
@@ -22,115 +22,111 @@
   "books": {
     "BASE_E16_E18_E22_v2s": {
       "exact_t1_ok": true,
+      "same_bar_fills": 0,
       "mean_e45_exposure": 1.0,
       "e45_sleeve_names": null,
       "windows": {
         "full": {
-          "cagr": 0.14072009651362993,
-          "max_drawdown": -0.22386722284139682,
-          "utility": 0.028786485092931524,
-          "vol": 0.13242343542355403,
-          "n_days": 3356
+          "cagr": 0.12385841487439175,
+          "max_drawdown": -0.24901506739784052,
+          "utility": -0.0006491188245285051,
+          "vol": 0.12724182454912394,
+          "n_days": 3359
         },
         "oof_2011_2018": {
-          "cagr": 0.0898444817418027,
-          "max_drawdown": -0.17572883850723164,
-          "utility": 0.0019800624881868845,
-          "vol": 0.10645097605276985,
+          "cagr": 0.09086812455083204,
+          "max_drawdown": -0.16540155183763006,
+          "utility": 0.008167348632017013,
+          "vol": 0.10537402723096469,
           "n_days": 1495
         },
         "validation_2019_2022": {
-          "cagr": 0.12236583253316602,
-          "max_drawdown": -0.22386722284139682,
-          "utility": 0.01043222111246761,
-          "vol": 0.13485530854832958,
+          "cagr": 0.11096530542207184,
+          "max_drawdown": -0.24901506739784063,
+          "utility": -0.013542228276848478,
+          "vol": 0.14053386910608995,
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.25929443008444,
-          "max_drawdown": -0.13969427823982705,
-          "utility": 0.18944729096452645,
-          "vol": 0.16497044736694316,
-          "n_days": 884
+          "cagr": 0.20200824298757492,
+          "max_drawdown": -0.10448421345142611,
+          "utility": 0.14976613626186186,
+          "vol": 0.14409372049046903,
+          "n_days": 887
         },
         "heldout_2019_plus": {
-          "cagr": 0.18649011567030072,
-          "max_drawdown": -0.22386722284139682,
-          "utility": 0.0745565042496023,
-          "vol": 0.14990077539716767,
-          "n_days": 1861
+          "cagr": 0.15431466037852415,
+          "max_drawdown": -0.24901506739784063,
+          "utility": 0.029807126679603835,
+          "vol": 0.1422007710617648,
+          "n_days": 1864
         }
       }
     },
     "SLEEVE_FIN_ONLY_A10": {
       "exact_t1_ok": true,
-      "mean_e45_exposure": 0.9906754194603344,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 0.990673242584302,
       "e45_sleeve_names": [
         "Financial"
       ],
       "windows": {
         "full": {
-          "cagr": 0.1348042479195577,
-          "max_drawdown": -0.21690249134108264,
-          "utility": 0.026353002249016377,
-          "vol": 0.1266157669010654,
-          "n_days": 3356
+          "cagr": 0.11715866172520162,
+          "max_drawdown": -0.22977839266627353,
+          "utility": 0.002269465392064851,
+          "vol": 0.11898246291033128,
+          "n_days": 3359
         },
         "oof_2011_2018": {
-          "cagr": 0.0911713175224762,
-          "max_drawdown": -0.17315090451439707,
-          "utility": 0.0045958652652776655,
-          "vol": 0.10404158721123405,
+          "cagr": 0.09297021936757699,
+          "max_drawdown": -0.16419953319992864,
+          "utility": 0.01087045276761267,
+          "vol": 0.10158177691049544,
           "n_days": 1495
         },
         "validation_2019_2022": {
-          "cagr": 0.11397555728962305,
-          "max_drawdown": -0.21690249134108275,
-          "utility": 0.005524311619081679,
-          "vol": 0.1313038982174284,
+          "cagr": 0.11431713423765566,
+          "max_drawdown": -0.22977839266627353,
+          "utility": -0.0005720620954811073,
+          "vol": 0.1313504139738844,
           "n_days": 977
         },
         "sealed_2023_plus": {
-          "cagr": 0.24205504022975388,
-          "max_drawdown": -0.10622219837661773,
-          "utility": 0.18894394104144502,
-          "vol": 0.1530447278943936,
-          "n_days": 884
+          "cagr": 0.16929924313642442,
+          "max_drawdown": -0.10386113902518379,
+          "utility": 0.11736867362383252,
+          "vol": 0.13088288333625014,
+          "n_days": 887
         },
         "heldout_2019_plus": {
-          "cagr": 0.17408359520239314,
-          "max_drawdown": -0.21690249134108275,
-          "utility": 0.06563234953185176,
-          "vol": 0.14203179546100297,
-          "n_days": 1861
+          "cagr": 0.1403994816079892,
+          "max_drawdown": -0.22977839266627353,
+          "utility": 0.02551028527485244,
+          "vol": 0.13106778209167946,
+          "n_days": 1864
         }
       }
     }
   },
   "heldout_delta_vs_base": {
-    "mdd_improve_pp": 0.696473150031407,
-    "cagr_giveback_pp": 1.2406520467907578,
-    "score": 0.07614712663602807
+    "mdd_improve_pp": 1.9236674731567094,
+    "cagr_giveback_pp": 1.3915178770534942,
+    "score": 1.2279085346299623
   },
   "sealed_delta_vs_base": {
-    "mdd_improve_pp": 3.3472079863209325,
-    "cagr_giveback_pp": 1.7239389854686094,
-    "score": 2.485238493586628
+    "mdd_improve_pp": 0.062307442624232046,
+    "cagr_giveback_pp": 3.27089998511505,
+    "score": -1.573142549933293
   },
   "ops_checklist": [
     "Keep Soft-Frozen live default = BASE until a separate stitch / cutover PR",
-    "Run BASE + SLEEVE_FIN_ONLY_A10 paper ledgers in parallel with month-end monitor",
-    "Re-check YTD / trailing_1y PAUSE gates each month-end (observe \u2260 promote)",
-    "Do not silent-edit Soft-Frozen; do not rewrite forward/e21 history",
-    "Observe sleeve \u2260 stitch license; second human stitch ACCEPT still required",
-    "Never cite the retired handoff MDD narrative; use dated lineage / challenger MDDs only",
+    "Observe sleeve \u2260 stitch license",
     "Leave FULL + A25 + A05 observe sleeves operating in parallel"
   ],
   "non_goals": [
-    "Auto live-wire / four-layer stitch from this observe sleeve",
+    "Auto live-wire / stitch",
     "Soft-Frozen clip flip",
-    "DEFAULT books flip away from E22_v2s_tw",
-    "Invent replacement for retired MDD narrative",
     "Retire FULL / A25 / A05 observe without separate ballot"
   ]
 }
