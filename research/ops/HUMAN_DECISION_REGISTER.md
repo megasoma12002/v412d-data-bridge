@@ -16,7 +16,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 
 | Pri | Decision | Verdict | Binding effect |
 |---:|---|---|---|
-| 0 | Live cutover bundle `#257` | **FROZEN** (2026-09-19) | Do **not** merge · keep 公股+FUSE+DH · 民股等新機制或改 sealed 門檻 · 無民股小包**暫不拆** · `LIVE_CUTOVER_BUNDLE_257_FROZEN.md` |
+| 0 | Live cutover bundle `#257` | **CLOSED** (2026-09-19) | Closed not merged · keep 公股+FUSE+DH · reopen only new mechanism or sealed-gate · 無民股小包**暫不拆** · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` |
 | 0b | 公股＋民營並存 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#258` · `PUB_PRIV_COEXIST_MDD_DECISION_PACK.md` |
 | 0c | 四類 SF4 + DH/L4 防禦 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#259` · `SF4_DEFENCE_MDD_DECISION_PACK.md` |
 | 0d | 民股／四類 × MDD **新機制** (N1→N2→N3) | **STOP N1–N3** (2026-09-19) | Ladder exhausted · 0 sealed coexist · Soft-Frozen KEEP · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md` |

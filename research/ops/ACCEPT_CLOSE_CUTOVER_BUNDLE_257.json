@@ -1,0 +1,19 @@
+{
+  "label": "ACCEPT_CLOSE_CUTOVER_BUNDLE_257_2026-09-19__CLOSED_NOT_MERGED",
+  "date": "2026-09-19",
+  "human_accept": "ACCEPT close #257",
+  "pr": 257,
+  "pr_url": "https://github.com/megasoma12002/v412d-data-bridge/pull/257",
+  "status": "CLOSED_NOT_MERGED",
+  "prior_status": "FROZEN_DO_NOT_MERGE",
+  "live_keep": {
+    "soft_frozen_fin_clip": [0.6, 0.9],
+    "overlay": ["FUSE_ADDITIVE", "DH_dd06"]
+  },
+  "reopen_requires": [
+    "new mechanism charter",
+    "or human-accepted sealed MDD gate change"
+  ],
+  "no_split_min_bundle_yet": true,
+  "note": "research/ops/ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md"
+}

@@ -1,36 +1,33 @@
 {
-  "label": "LIVE_CUTOVER_BUNDLE_257_FROZEN",
+  "label": "LIVE_CUTOVER_BUNDLE_257_CLOSED",
   "date": "2026-09-19",
-  "status": "FROZEN_DO_NOT_MERGE",
+  "status": "CLOSED_NOT_MERGED",
   "pr": 257,
+  "pr_url": "https://github.com/megasoma12002/v412d-data-bridge/pull/257",
+  "human_close": "ACCEPT close #257",
   "live_keep": {
-    "soft_frozen_fin_clip": [
-      0.6,
-      0.9
-    ],
+    "soft_frozen_fin_clip": [0.6, 0.9],
     "fin_membership": "PUB_R1",
     "within_sleeve": "KD_OPT",
     "telecom": "TEL_EQUAL",
-    "overlay": [
-      "FUSE_ADDITIVE",
-      "DH_dd06"
-    ]
+    "overlay": ["FUSE_ADDITIVE", "DH_dd06"]
   },
   "blockers": [
-    "PUB_PRIV_COEXIST_MDD Stage-A STOP (#258)",
-    "SF4_DEFENCE_MDD Stage-A STOP (#259)",
+    "PUB_PRIV_COEXIST_MDD Stage-A STOP",
+    "SF4_DEFENCE_MDD Stage-A STOP",
+    "PRIV_MDD N1-V6 STOP",
     "priv-replace is not 並存"
   ],
   "reopen_requires": [
     "new mechanism charter",
     "or human-accepted sealed MDD gate change"
   ],
-  "human": "先鎖住現況 live、凍結 #257；民股等新機制或你改門檻再談",
   "pr_triage": {
-    "257": "FROZEN_blocked_no_split_yet",
-    "258": "STOP_archive_close_after_260",
-    "259": "STOP_archive_close_after_260",
-    "260": "freeze_SSOT_plus_STOP_packs_merge_to_main"
+    "257": "CLOSED_not_merged",
+    "258": "STOP_archive",
+    "259": "STOP_archive",
+    "260": "freeze_SSOT_merged_or_prior"
   },
-  "no_split_min_bundle_yet": true
+  "no_split_min_bundle_yet": true,
+  "accept": "research/ops/ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md"
 }
