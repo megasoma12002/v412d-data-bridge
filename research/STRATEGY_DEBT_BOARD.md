@@ -1,13 +1,13 @@
 # Strategy Debt Board
 
-> **Live SSOT (2026-09-13):** Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · books **`E22_v2s_tw`** · path `forward/e21/`.  
+> **Live SSOT (2026-09-19):** Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · books DEFAULT **`E22_v3_recv_pay_effdelay`** (tip may lag until next forward; ACCEPT tip align 2026-09-19) · path `forward/e21/`.  
 > Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · ballot: `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`.  
 > Rows below dated **2026-09-05…09** are **historical ledger** (clip once [0.50, 0.95] / capital once 3M) — do not treat as current live.
 
 <!-- debt-sweep 2026-09-06 -->
 ## Debt-sweep snapshot (2026-09-06)
 
-Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN** · retired MDD narrative **`RETIRED_HISTORICAL_NARRATIVE`**
+Soft-Frozen **KEEP** · DEFAULT at sweep was **`E22_v2s_tw`** (historical) · live DEFAULT today **`E22_v3_recv_pay_effdelay`** · A05 stitch **DROPPED** · retired MDD narrative **`RETIRED_HISTORICAL_NARRATIVE`**
 
 | Track | Status |
 |---|---|
@@ -19,10 +19,18 @@ Soft-Frozen **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · stitch **FORBIDDEN** ·
 | MDD_1316 numeric residue cleanup | **THIS PR** — `research/ops/MDD_1316_RESIDUE_CLEANUP_2026-09-06.md` |
 | Sleeve-local observe `SLEEVE_FIN_ONLY_A10` | **OPERATING** |
 | HIGH_BETA observe | **DRAFT / NOT OPEN** |
-| Live stitch | **FORBIDDEN** until second human ACCEPT |
+| Live stitch | **DROPPED** (A05 `DROP_E45_A05`); any future stitch needs a **new** ACCEPT |
 | Research portfolio KEEP/ARCHIVE | **LOCKED 2026-09-08** — `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` (FIN MIX_L75 triad · E45 A05/C35 · month-end gates; rest archived) |
 
 Residual Medium/Low after eng cleanup (#93): review-doc historical mentions of banned labels (intentional keep); regenerator runners stay split — see `research/ops/E45_REGENERATOR_OWNERSHIP_2026-09-06.md`. Numeric retired-MDD spellings cleared outside the MDD_1316 pack (this PR).
+
+## Eng / hygiene residue (2026-09-19)
+
+Docs tip books + DROP stamp aligned; research `LIVE_KD` / capital → live SSOT (`live_config.KD_OPT` / `portfolio_capital.DEFAULT_CAPITAL`); Soft-Frozen day path takes `e21_session.lock` (distinct from `broker_live.lock`).
+
+## Ops residual 全修 (2026-09-19) — **ACCEPTED**
+
+Ballot: `ACCEPT_OPS_RESIDUAL_FULL_FIX.md`. Dual-paper `--refresh-ledgers` + Gap6 tip-lag stamp + INDEX_DRIFT non-decision. Paper `simulate_core` routes Stage-E DEFAULT via `e22_books_apply`. Tip catch-up still **forward-only** on next weekday (tip may still show `E22_v2s_tw_effex`). Soft-Frozen KEEP · no L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B promote.
 
 ---
 

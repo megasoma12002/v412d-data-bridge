@@ -18,6 +18,7 @@ import pandas as pd
 import e16_soft_frozen_base as soft
 import e50_early_stack_combined_nav as e50
 from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats
+from portfolio_capital import DEFAULT_CAPITAL
 from research_metric_helpers import cagr_delta_pp, mdd_delta_pp
 from tw_share_lots import BOARD_LOT
 from within_sleeve_alloc import (
@@ -32,10 +33,13 @@ from within_sleeve_alloc import (
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/private-fin-holdings-20260909"
 RESEARCH = ROOT / "research/ops"
-TW12 = Path("/tmp/tw12/artifact/v412d_12stocks_2010_2026.csv")
+TW12_CANDIDATES = [
+    Path("/tmp/tw12/artifact/v412d_12stocks_2010_2026.csv"),
+    ROOT / "artifact/v412d_12stocks_2010_2026.csv",
+]
 PRIVATE_ADJ = ROOT / "data/market/private_fin_adjusted.csv"
 
-CAPITAL = 500_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 LOT = BOARD_LOT
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0
@@ -100,25 +104,58 @@ def held_score(base_s, chal_s):
     }
 
 
+def _panel_from_private_adj() -> pd.DataFrame:
+    """Synthesize raw OHLCV from ``private_fin_adjusted`` when TW12 is absent.
+
+    Scales adjusted OHLC by ``raw_close / adjusted_close`` so close marks stay
+    on the raw book (same convention as live Soft-Frozen market).
+    """
+    adj = pd.read_csv(PRIVATE_ADJ, dtype={"code": str})
+    adj["date"] = pd.to_datetime(adj["date"])
+    ac = adj["adjusted_close"].astype(float)
+    rc = adj["raw_close"].astype(float)
+    factor = rc / ac.replace(0.0, pd.NA)
+    factor = factor.fillna(1.0)
+    out = pd.DataFrame(
+        {
+            "date": adj["date"],
+            "code": adj["code"].astype(str),
+            "open": adj["adjusted_open"].astype(float) * factor,
+            "high": adj["adjusted_high"].astype(float) * factor,
+            "low": adj["adjusted_low"].astype(float) * factor,
+            "close": rc,
+            "volume": adj["volume"].astype(float),
+            "adj_close": ac,
+        }
+    )
+    return out
+
+
 def build_extended_market() -> pd.DataFrame:
     live = load_market()
     live["code"] = live["code"].astype(str)
     live["date"] = pd.to_datetime(live["date"])
-    if not TW12.exists():
-        raise SystemExit(f"missing TW12 artifact: {TW12}")
-    tw = pd.read_csv(TW12, dtype={"code": str})
-    tw["date"] = pd.to_datetime(tw["date"])
-    keep = ["date", "code", "open", "high", "low", "close", "volume"]
-    tw = tw[[c for c in keep if c in tw.columns]].copy()
-    # Prefer FinMind backward adj panel for private / R2 banks.
-    if PRIVATE_ADJ.exists():
-        adj = pd.read_csv(PRIVATE_ADJ, dtype={"code": str})
-        adj["date"] = pd.to_datetime(adj["date"])
-        adj = adj.rename(columns={"adjusted_close": "adj_close"})
-        tw = tw.merge(adj[["date", "code", "adj_close"]], on=["date", "code"], how="left")
-        tw["adj_close"] = tw["adj_close"].fillna(tw["close"])
+    tw_path = next((p for p in TW12_CANDIDATES if p.exists()), None)
+    if tw_path is not None:
+        tw = pd.read_csv(tw_path, dtype={"code": str})
+        tw["date"] = pd.to_datetime(tw["date"])
+        keep = ["date", "code", "open", "high", "low", "close", "volume"]
+        tw = tw[[c for c in keep if c in tw.columns]].copy()
+        # Prefer FinMind backward adj panel for private / R2 banks.
+        if PRIVATE_ADJ.exists():
+            adj = pd.read_csv(PRIVATE_ADJ, dtype={"code": str})
+            adj["date"] = pd.to_datetime(adj["date"])
+            adj = adj.rename(columns={"adjusted_close": "adj_close"})
+            tw = tw.merge(adj[["date", "code", "adj_close"]], on=["date", "code"], how="left")
+            tw["adj_close"] = tw["adj_close"].fillna(tw["close"])
+        else:
+            tw["adj_close"] = tw["close"]
+    elif PRIVATE_ADJ.exists():
+        tw = _panel_from_private_adj()
     else:
-        tw["adj_close"] = tw["close"]
+        raise SystemExit(
+            f"missing TW12 artifact and {PRIVATE_ADJ}; tried {TW12_CANDIDATES}"
+        )
     # Prefer live rows for Soft-Frozen universe (has true adj_close).
     live_codes = set(live["code"])
     tw_extra = tw[~tw["code"].isin(live_codes)].copy()

@@ -17,7 +17,7 @@ Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v
 - `e22_manifest` in portfolio_state: **True**
 - `e22_version` col in nav.csv: **True**
 - `dividends_applied.csv`: **False** (n=0)
-- observed books version: **E22_v2s_tw_effex** (ops debt until next forward if still `E22_v2s_tw`)
+- observed books version: **E22_v2s_tw_effex** — **tip lag ops debt** until next weekday forward advances tip to live DEFAULT `E22_v3_recv_pay_effdelay` (tip-align ACCEPT 2026-09-19; no history rewrite; tip lag ≠ second DEFAULT)
 - Live evidence OK: **True**
 
 ## Ex → pay lag (ledger completeness already green; this is timing fidelity)
