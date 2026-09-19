@@ -87,7 +87,8 @@ class PaperFillMinCommissionTests(unittest.TestCase):
             self.assertEqual(len(fills), 1)
             self.assertAlmostEqual(fills[0]["fees_tax"], MIN_COMMISSION)
             self.assertAlmostEqual(cash, 1_000_000.0 - fills[0]["gross"] - MIN_COMMISSION)
-            self.assertTrue((sdir / "fills.csv").exists())
+            # Paper port defers fills.csv to pipeline day-commit.
+            self.assertFalse((sdir / "fills.csv").exists())
 
 
 if __name__ == "__main__":

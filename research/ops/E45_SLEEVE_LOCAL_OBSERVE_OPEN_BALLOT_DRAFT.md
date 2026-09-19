@@ -6,11 +6,15 @@ Human ballot (proposed name): **`E45 OPEN sleeve-local observe`**
 Authority (if accepted): Register #6c follow-on · `E45_SLEEVE_LOCAL.md` · `E45_SLEEVE_LOCAL_DEEP_DIVE.md` · `E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md` · `E45_STAGE12_STATUS.md`  
 Chinese translation (non-binding mirror): `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN_BALLOT_DRAFT.zh-TW.md`
 
+> **HISTORICAL / SSOT:** Soft-Frozen FIN was **[0.50, 0.95]** when this draft was written.
+> **Live today:** FIN **[0.60, 0.90]** — see `research/ops/OPS_STATUS.md` / `e16_soft_frozen_base`.
+> Do not treat `[0.50, 0.95]` below as current live.
+
 > **Not authorized.** This file is a **draft ballot only**.  
 > It does **not** OPEN an observe sleeve, does **not** wire month-end, does **not** flip Soft-Frozen / DEFAULT, and does **not** authorize stitch.  
 > Until a human marks **ACCEPT** on this ballot (separate explicit action), sleeve-local remains **PAPER ONLY**.
 
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen: **[0.50, 0.95] KEEP** (historical at draft time; live SSOT is **[0.60, 0.90]**)  
 Live DEFAULT books: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN**  
 Retired MDD narrative: **`RETIRED_HISTORICAL_NARRATIVE`**  
@@ -61,7 +65,7 @@ Opening (only after ACCEPT) would be **observe-only**. Expect YTD/1y **PAUSE_REV
 
 | # | Item | Draft status |
 |---|---|---|
-| 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** (current) |
+| 1 | Soft-Frozen live clip remains [0.50, 0.95] | **YES** (at draft time; live SSOT now **[0.60, 0.90]**) |
 | 2 | Live DEFAULT books remain `E22_v2s_tw` | **YES** (current) |
 | 3 | Parent sleeve-local paper + deep-dive present | **YES** |
 | 4 | retired MDD narrative still RETIRED | **YES** |

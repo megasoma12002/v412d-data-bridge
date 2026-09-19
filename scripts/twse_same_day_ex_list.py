@@ -8,8 +8,8 @@ Fetches:
 Compares TWSE ex dates to ``e22_dividend_events.csv`` ledger legs and emits
 ``ex_date_amendments.csv`` when TWSE ≠ ledger (e.g. typhoon postpone).
 
-Does **not** rewrite Soft-Frozen books or the ledger CSV unless
-``--write-ledger`` is explicitly passed (default: off).
+Does **not** rewrite Soft-Frozen books or the ledger CSV.
+This CLI has no ``--write-ledger`` flag — overlay writes are separate ops.
 """
 from __future__ import annotations
 

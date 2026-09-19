@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """MOPS payment-date amendment overlay (D4 / Gap 6.9b + 6.9c stock observe).
 
-Observe-only. Does **not** rewrite Soft-Frozen books or ``e22_dividend_events.csv``
-unless ``--write-ledger`` is explicitly passed (default: off).
+Observe-only. Does **not** rewrite Soft-Frozen books or ``e22_dividend_events.csv``.
+This CLI has no ``--write-ledger`` flag — overlay CSV updates are separate ops.
 
 Sources:
   1. Ops overlay CSV (manual / typhoon 重大訊息)

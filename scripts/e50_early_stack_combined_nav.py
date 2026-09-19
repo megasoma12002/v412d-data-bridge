@@ -237,12 +237,12 @@ def simulate_core(
         op = opens.loc[dt]
         cl = closes.loc[dt]
 
-        # 1) Fill pending orders at today's open (E18 Exact T+1)
-        still = []
-        for o in pending:
-            if pd.Timestamp(o["signal_date"]) >= dt:
-                still.append(o)
-                continue
+        # 1) Fill pending orders at today's open (E18 Exact T+1).
+        # SELL before BUY so cash from sells funds same-bar buys (align live).
+        due = [o for o in pending if pd.Timestamp(o["signal_date"]) < dt]
+        still = [o for o in pending if pd.Timestamp(o["signal_date"]) >= dt]
+        due.sort(key=lambda o: (0 if o["side"] == "SELL" else 1, str(o["code"])))
+        for o in due:
             side = o["side"]
             code = o["code"]
             q = int(o["quantity"])
