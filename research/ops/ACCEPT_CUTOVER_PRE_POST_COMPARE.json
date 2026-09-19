@@ -1,0 +1,254 @@
+{
+  "generated_at_utc": "2026-09-19T10:44:23.076533+00:00",
+  "label": "ACCEPT_CUTOVER_PRE_POST_COMPARE",
+  "live_wire": false,
+  "soft_frozen_clip": [
+    0.6,
+    0.9
+  ],
+  "capital": 500000000.0,
+  "lot_size": 1000,
+  "pre": {
+    "label": "PRE_MAIN_FUSE_DH_PUB_EFFDELAY",
+    "e22_books_version": "E22_v3_recv_pay_effdelay",
+    "exact_t1_ok": true,
+    "n_fills": 10936,
+    "mean_dh_exposure": 0.993450431676094,
+    "dh_defense_frac": 0.013099136647811848,
+    "end_nav": 2175065600.334254,
+    "asof": "2026-09-16",
+    "stack": "FUSE_ADDITIVE + DH_dd06 + KD_OPT(\u516c\u80a1) + E22_v3_recv_pay_effdelay",
+    "windows": {
+      "full": {
+        "cagr": 0.116648,
+        "max_drawdown": -0.237204,
+        "n_days": 3359
+      },
+      "oof_2011_2018": {
+        "cagr": 0.086225,
+        "max_drawdown": -0.176017,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.08105,
+        "max_drawdown": -0.237204,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.219954,
+        "max_drawdown": -0.110712,
+        "n_days": 887
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.145509,
+        "max_drawdown": -0.237204,
+        "n_days": 1864
+      },
+      "ytd": {
+        "cagr": 0.57232,
+        "max_drawdown": -0.110712,
+        "n_days": 170
+      },
+      "trailing_1y": {
+        "cagr": 0.429238,
+        "max_drawdown": -0.110712,
+        "n_days": 242
+      }
+    }
+  },
+  "post": {
+    "label": "POST_CUTOVER_FUSE_BLEND_L4_DH_PRIV_TAX10",
+    "e22_books_version": "E22_v3_recv_pay_tax10",
+    "exact_t1_ok": true,
+    "n_fills": 16770,
+    "mean_dh_exposure": 0.9739505805299197,
+    "dh_defense_frac": 0.05209883894016076,
+    "end_nav": 2775326218.7853026,
+    "asof": "2026-09-16",
+    "blend025": {
+      "enabled": true,
+      "id": "BLEND_025",
+      "alpha": 0.25,
+      "fin_cap": [
+        0.35,
+        0.5
+      ],
+      "human_accept": "ACCEPT live Soft-Frozen cutover: BLEND_025",
+      "fin50_component_accept": "ACCEPT FIN_CAP_50 as BLEND_025 component"
+    },
+    "l4_dd_path": {
+      "enabled": true,
+      "id": "L4_DD_PATH_08_50",
+      "dd_thr": -0.08,
+      "fin_cap": [
+        0.35,
+        0.5
+      ],
+      "dd_path_cap_on_latest": false,
+      "human_accept": "ACCEPT live L4 cutover: L4_DD_PATH_08_50"
+    },
+    "stack": "FUSE \u2192 BLEND_025 \u2192 L4_DD_PATH_08_50 \u2192 DH + PRIV_KD + E22_v3_recv_pay_tax10",
+    "windows": {
+      "full": {
+        "cagr": 0.137258,
+        "max_drawdown": -0.281319,
+        "n_days": 3359
+      },
+      "oof_2011_2018": {
+        "cagr": 0.090013,
+        "max_drawdown": -0.211974,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.041496,
+        "max_drawdown": -0.281319,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.358057,
+        "max_drawdown": -0.147887,
+        "n_days": 887
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.181943,
+        "max_drawdown": -0.281319,
+        "n_days": 1864
+      },
+      "ytd": {
+        "cagr": 0.839271,
+        "max_drawdown": -0.086263,
+        "n_days": 170
+      },
+      "trailing_1y": {
+        "cagr": 0.746384,
+        "max_drawdown": -0.086263,
+        "n_days": 242
+      }
+    }
+  },
+  "delta_post_minus_pre": {
+    "full": {
+      "pre_cagr": 0.116648,
+      "post_cagr": 0.137258,
+      "cagr_giveback_pp": -2.061,
+      "cagr_improve_pp": 2.061,
+      "pre_mdd": -0.237204,
+      "post_mdd": -0.281319,
+      "mdd_improve_pp": -4.4115,
+      "n_days": 3359
+    },
+    "oof_2011_2018": {
+      "pre_cagr": 0.086225,
+      "post_cagr": 0.090013,
+      "cagr_giveback_pp": -0.3788,
+      "cagr_improve_pp": 0.3788,
+      "pre_mdd": -0.176017,
+      "post_mdd": -0.211974,
+      "mdd_improve_pp": -3.5957,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "pre_cagr": 0.08105,
+      "post_cagr": 0.041496,
+      "cagr_giveback_pp": 3.9554,
+      "cagr_improve_pp": -3.9554,
+      "pre_mdd": -0.237204,
+      "post_mdd": -0.281319,
+      "mdd_improve_pp": -4.4115,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "pre_cagr": 0.219954,
+      "post_cagr": 0.358057,
+      "cagr_giveback_pp": -13.8103,
+      "cagr_improve_pp": 13.8103,
+      "pre_mdd": -0.110712,
+      "post_mdd": -0.147887,
+      "mdd_improve_pp": -3.7175,
+      "n_days": 887
+    },
+    "heldout_2019_plus": {
+      "pre_cagr": 0.145509,
+      "post_cagr": 0.181943,
+      "cagr_giveback_pp": -3.6434,
+      "cagr_improve_pp": 3.6434,
+      "pre_mdd": -0.237204,
+      "post_mdd": -0.281319,
+      "mdd_improve_pp": -4.4115,
+      "n_days": 1864
+    },
+    "ytd": {
+      "pre_cagr": 0.57232,
+      "post_cagr": 0.839271,
+      "cagr_giveback_pp": -26.6951,
+      "cagr_improve_pp": 26.6951,
+      "pre_mdd": -0.110712,
+      "post_mdd": -0.086263,
+      "mdd_improve_pp": 2.4449,
+      "n_days": 170
+    },
+    "trailing_1y": {
+      "pre_cagr": 0.429238,
+      "post_cagr": 0.746384,
+      "cagr_giveback_pp": -31.7146,
+      "cagr_improve_pp": 31.7146,
+      "pre_mdd": -0.110712,
+      "post_mdd": -0.086263,
+      "mdd_improve_pp": 2.4449,
+      "n_days": 242
+    }
+  },
+  "tip_rel_nav_post_vs_pre": 1.275973569881664,
+  "method_note": "Exact T+1 simulate_core; DH exposure from FUSE offense NAV (MENU3); POST extends market via private_fin_adjusted ffill. Not a Soft-Frozen gate; tip lag / priv ffill may differ from forward tip.",
+  "overlay_decomp_pub_only": {
+    "tip_rel_overlay_vs_pre": 0.9909,
+    "end_nav_pre": 2175065600.334254,
+    "end_nav_overlay": 2155174046.656042,
+    "rows": [
+      {
+        "window": "ytd",
+        "pre_cagr": 57.23,
+        "overlay_cagr": 61.0,
+        "overlay_giveback_pp": -3.76,
+        "overlay_mdd_improve_pp": 1.82,
+        "tax10_only_giveback_pp": -2.33
+      },
+      {
+        "window": "trailing_1y",
+        "pre_cagr": 42.92,
+        "overlay_cagr": 47.23,
+        "overlay_giveback_pp": -4.3,
+        "overlay_mdd_improve_pp": 1.82,
+        "tax10_only_giveback_pp": 0.43
+      },
+      {
+        "window": "sealed_2023_plus",
+        "pre_cagr": 22.0,
+        "overlay_cagr": 20.62,
+        "overlay_giveback_pp": 1.38,
+        "overlay_mdd_improve_pp": 1.82,
+        "tax10_only_giveback_pp": 1.62
+      },
+      {
+        "window": "heldout_2019_plus",
+        "pre_cagr": 14.55,
+        "overlay_cagr": 14.77,
+        "overlay_giveback_pp": -0.22,
+        "overlay_mdd_improve_pp": 1.58,
+        "tax10_only_giveback_pp": 0.59
+      },
+      {
+        "window": "full",
+        "pre_cagr": 11.66,
+        "overlay_cagr": 11.59,
+        "overlay_giveback_pp": 0.08,
+        "overlay_mdd_improve_pp": 1.58,
+        "tax10_only_giveback_pp": 0.42
+      }
+    ]
+  },
+  "verdict": {
+    "full_bundle": "CAGR improve; tip +27.6%; MDD better YTD/1y worse sealed/heldout; driven by priv universe",
+    "overlay_books_no_priv": "tip -0.9%; MDD improve ~1.6-1.8pp; sealed giveback ~1.4pp"
+  }
+}
