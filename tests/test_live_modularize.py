@@ -22,6 +22,9 @@ class LiveConfigTests(unittest.TestCase):
         self.assertEqual(e21.LIVE_FUSE_ADDITIVE, lc.LIVE.live_fuse_additive)
         self.assertEqual(e21.LIVE_DH_EXPOSURE, lc.LIVE.live_dh_exposure)
         self.assertFalse(e21.LIVE_E45_STITCH)
+        from live_config import E45_A05_STITCH_DROPPED
+
+        self.assertTrue(E45_A05_STITCH_DROPPED)
         self.assertEqual(e21.KD_OPT["id"], lc.KD_OPT["id"])
         self.assertEqual(e21.E22_BOOKS_VERSION, lc.E22_BOOKS_VERSION)
         self.assertEqual(lc.LIVE.fill_port, "paper")

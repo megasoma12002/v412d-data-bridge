@@ -35,7 +35,7 @@ Derived from E45 paper landmines and prior code-review rounds (#55 Soft-Frozen s
 ## 5. Dual-paper / observe ≠ cutover / stitch
 
 - Observe OPEN and held-out PASS do **not** authorize Soft-Frozen flip, DEFAULT change, or live stitch.
-- E45 live stitch stays **FORBIDDEN** until a dedicated second human stitch ACCEPT + checklist.
+- E45 A05 live stitch is **DROPPED** (`ACCEPT_2026-09-09_DROP_E45_A05`). Do not re-enable via config flip. Any future stitch requires a **new** charter + ACCEPT (not un-dropping A05).
 - Do not rewrite `forward/e21` history to “fix” recon.
 
 ## 6. First-class kwargs — no module monkeypatches

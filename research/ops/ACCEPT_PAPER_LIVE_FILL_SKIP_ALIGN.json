@@ -1,0 +1,12 @@
+{
+  "label": "ACCEPT_2026-09-19_PAPER_LIVE_FILL_SKIP_ALIGN",
+  "accepted": true,
+  "accepted_at_utc": "2026-09-19T05:00:00+00:00",
+  "ballot": "ACCEPT paper/live fill align: simulate_core underfunded BUY skips (afford < orig_q) and requeues — same as live_fill_core; no Soft-Frozen cutover",
+  "live_fill_policy": "skip_when_afford_lt_orig_q",
+  "paper_engine": "e50_early_stack_combined_nav.simulate_core",
+  "soft_frozen_ledger_rewrite": false,
+  "broker_live_write_accepted": false,
+  "api_wired": false,
+  "e45_stitch": "DROPPED"
+}

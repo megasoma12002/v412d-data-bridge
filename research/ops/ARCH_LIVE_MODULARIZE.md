@@ -73,10 +73,14 @@ Pack CLI paths unchanged (`ops_month_end_paper_pack.py --refresh-ledgers`).
 
 ## Explicit non-goals
 
-- Soft-Frozen clip / LIVE_FUSE / LIVE_DH values
+- Soft-Frozen clip / LIVE_FUSE / LIVE_DH values (KEEP)
 - Broker API credentials / live order routing / `API_WIRED=True`
-- Merging paper `simulate_core` with live session (shared sort helper only)
-- Silent unify of `E22_V2S` vs `E22_v2s_tw`
+- Re-enabling E45 A05 live stitch (DROPPED)
+- Silent unify of research `E22_V2S` callers vs live DEFAULT
+
+## Fill policy align (ACCEPT 2026-09-19)
+
+Paper `simulate_core` and live `_paper_fill_rows` both **skip** underfunded BUY when `afford < orig_q` (paper requeues pending). Ballot: `ACCEPT_PAPER_LIVE_FILL_SKIP_ALIGN.md`.
 
 ## Docker ops QC (B1)
 

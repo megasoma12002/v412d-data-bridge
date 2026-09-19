@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Live strategy targets — Soft-Frozen + optional FUSE / DH / E45 overlays.
+"""Live strategy targets — Soft-Frozen + FUSE / DH overlays.
 
-Separates target construction from ledger/fill execution so a future broker
-adapter can consume the same sleeve weights + within-sleeve panels.
+E45 A05 live stitch is DROPPED (no re-enable path). Separates target
+construction from ledger/fill execution so a future broker adapter can
+consume the same sleeve weights + within-sleeve panels.
 """
 from __future__ import annotations
 
@@ -81,6 +82,8 @@ def resolve_session_targets(
 
     Returns:
       tw, e20w, tw_pre_dh, dh_exposure_today, e45_exposure_today, fuse_meta, dh_meta
+
+    ``e45_exposure_today`` is always 1.0 — A05 live stitch is DROPPED (no flip path).
     """
     fuse_meta: dict[str, Any] = {"enabled": bool(cfg.live_fuse_additive)}
     if cfg.live_fuse_additive:
@@ -116,39 +119,7 @@ def resolve_session_targets(
             e45.apply_exposure_to_sleeve_weights(dict(tw_pre_dh), float(dh_exposure_today))
         )
 
+    # A05 stitch DROPPED — exposure placeholder kept for call-site unpack stability.
     e45_exposure_today = 1.0
-    if cfg.live_e45_stitch:
-        import e45_crisis_core as e45
-
-        close_eq = (
-            m[m["code"].isin(ALL)]
-            .pivot(index="date", columns="code", values="close")
-            .sort_index()
-            .ffill()
-        )
-        e45_full = e45.compute_exposure(close_eq, cfg.live_e45_profile)["exposure"]
-        if latest in e45_full.index and pd.notna(e45_full.loc[latest]):
-            e45_full_today = float(e45_full.loc[latest])
-        else:
-            e45_full_today = float(e45_full.dropna().iloc[-1]) if e45_full.dropna().size else 1.0
-        e45_exposure_today = float(
-            np.clip(
-                (1.0 - float(cfg.live_e45_blend_alpha)) * 1.0
-                + float(cfg.live_e45_blend_alpha) * e45_full_today,
-                0.0,
-                1.0,
-            )
-        )
-        tw_scaled = e45.apply_exposure_to_sleeve_weights(
-            {
-                "Financial": float(tw.Financial),
-                "Telecom": float(tw.Telecom),
-                "0050": float(tw["0050"]),
-            },
-            e45_exposure_today,
-        )
-        tw = pd.Series(tw_scaled)
-
-    # Placeholder e20w — caller still uses features() e20.iloc[-1]
     e20w = tw  # unused when caller keeps e20; kept for API symmetry
     return tw, e20w, tw_pre_dh, dh_exposure_today, e45_exposure_today, fuse_meta, dh_meta

@@ -5,7 +5,7 @@ Cutover still requires a human ACCEPT PR that edits these constants.
 Soft-Frozen FIN clip itself lives in ``e16_soft_frozen_base`` (unchanged here).
 
 Imported by ``e21_forward_pipeline`` (re-exported for backward compat) and
-research guards that check ``KD_OPT`` / ``LIVE_E45_STITCH`` drift.
+research guards that check ``KD_OPT`` / E45 A05 DROP stamp.
 """
 from __future__ import annotations
 
@@ -30,6 +30,14 @@ _KD_OPT_MUTABLE: dict[str, Any] = {
 }
 KD_OPT: Mapping[str, Any] = MappingProxyType(_KD_OPT_MUTABLE)
 
+# E45 A05 live stitch — DROPPED 2026-09-09. No LiveConfig flip knob.
+E45_STITCH_ROLLBACK = "ACCEPT_2026-09-09_DROP_E45_A05"
+E45_A05_STITCH_DROPPED = True
+LIVE_E45_STITCH = False  # frozen constant for landmine / research guards
+LIVE_E45_BOOK = None
+LIVE_E45_PROFILE = None
+LIVE_E45_BLEND_ALPHA = None
+
 
 @dataclass(frozen=True)
 class LiveConfig:
@@ -48,11 +56,8 @@ class LiveConfig:
     live_fin_within_sleeve: str = FIN_PRE_EXDIV_KD
     kd_opt: Mapping[str, Any] = field(default_factory=lambda: MappingProxyType(dict(KD_OPT)))
 
-    # E45 live stitch — ROLLBACK 2026-09-09: DROP_E45_A05
-    live_e45_stitch: bool = False
-    live_e45_book: str | None = None
-    live_e45_profile: dict | None = None
-    live_e45_blend_alpha: float | None = None
+    # Tip books align ACCEPT 2026-09-19 — next forward may advance tip to DEFAULT.
+    tip_books_align_ballot: str = "ACCEPT_2026-09-19_TIP_BOOKS_ALIGN_V3"
 
     # Live DH_dd06 + FUSE_ADDITIVE — human ACCEPT 2026-09-13
     live_fuse_additive: bool = True
@@ -61,7 +66,6 @@ class LiveConfig:
     live_cutover_ballot: str = "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE"
 
     # Fill backend — default paper Exact T+1. Broker / dry_run via CLI or E21_FILL_PORT.
-    # FillPort name: paper | dry_run | broker (P4 fixture-ack shadow; Soft-Frozen stays paper).
     # True broker live write requires ALL of:
     #   broker_live_write_accepted=True (ACCEPT PR), E21_BROKER_WRITE_LIVE=1, and broker_safety gates.
     fill_port: str = "paper"
@@ -73,10 +77,6 @@ LIVE = LiveConfig()
 
 # Backward-compat aliases (same names historically on e21_forward_pipeline).
 LIVE_FIN_WITHIN_SLEEVE = LIVE.live_fin_within_sleeve
-LIVE_E45_STITCH = LIVE.live_e45_stitch
-LIVE_E45_BOOK = LIVE.live_e45_book
-LIVE_E45_PROFILE = LIVE.live_e45_profile
-LIVE_E45_BLEND_ALPHA = LIVE.live_e45_blend_alpha
 LIVE_FUSE_ADDITIVE = LIVE.live_fuse_additive
 LIVE_DH_EXPOSURE = LIVE.live_dh_exposure
 LIVE_DH_ID = LIVE.live_dh_id
@@ -84,3 +84,4 @@ LIVE_CUTOVER_BALLOT = LIVE.live_cutover_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital
+TIP_BOOKS_ALIGN_BALLOT = LIVE.tip_books_align_ballot
