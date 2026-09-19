@@ -38,7 +38,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Sleeve | Status | Cutover |
 |---|---|---|
 | FIN_CAP_50 | Dual-paper OPERATING; YTD/1y PAUSE | **REJECT static cutover for now** (`NOT_READY_SEALED_CAGR`) — register #2 |
-| L4_DD_PATH_08_50 | Held-out PASS; YTD PAUSE_REVIEW | **DEFER** cutover — register #4; checklist: `CUTOVER_CHECKLIST_L4.md` |
+| L4_DD_PATH_08_50 | Held-out PASS; YTD **and** trailing_1y PAUSE_REVIEW (asof 2026-09-16) | **DEFER** cutover — register #4; checklist: `CUTOVER_CHECKLIST_L4.md` (hygiene sync `L4_HYGIENE_CHECKLIST_SYNC_2026-09-19.md`) |
 | BLEND_025 | Dual-paper **OPERATING OBSERVE** | Sole sealed-CAGR successor (register #3); live **NOT READY** (#5); checklist prep: `CUTOVER_CHECKLIST_BLEND025.md` |
 | Track A S9A1 | KEEP (paper/monitor) | N/A — pointer: `TRACK_A_RUNBOOK_POINTER.md` |
 | Track B S1 | STOP | Closed |

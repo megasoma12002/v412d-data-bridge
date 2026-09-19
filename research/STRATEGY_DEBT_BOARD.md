@@ -28,6 +28,8 @@ Residual Medium/Low after eng cleanup (#93): review-doc historical mentions of b
 
 Docs tip books + DROP stamp aligned; research `LIVE_KD` / capital → live SSOT (`live_config.KD_OPT` / `portfolio_capital.DEFAULT_CAPITAL`); Soft-Frozen day path takes `e21_session.lock` (distinct from `broker_live.lock`).
 
+**L4 checklist hygiene:** `CUTOVER_CHECKLIST_L4.md` synced to month-end asof **2026-09-16** (YTD+1y dual PAUSE_REVIEW) — `L4_HYGIENE_CHECKLIST_SYNC_2026-09-19.md`. Soft-Frozen KEEP · L4 cutover still **DEFER** (register #4).
+
 ## Ops residual 全修 (2026-09-19) — **ACCEPTED**
 
 Ballot: `ACCEPT_OPS_RESIDUAL_FULL_FIX.md`. Dual-paper `--refresh-ledgers` + Gap6 tip-lag stamp + INDEX_DRIFT non-decision. Paper `simulate_core` routes Stage-E DEFAULT via `e22_books_apply`. Tip catch-up still **forward-only** on next weekday (tip may still show `E22_v2s_tw_effex`). Soft-Frozen KEEP · no L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B promote.
@@ -110,7 +112,7 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; reinvent retired E45 MDD narr
 | Challenger | Live change type | Blocked by | Soft-Frozen today | Checklist |
 |---|---|---|---|---|
 | FIN_CAP_50 | Static clip → **[0.35, 0.50]** | `NOT_READY_SEALED_CAGR` + YTD/1y PAUSE | **[0.60, 0.90]** | `CUTOVER_CHECKLIST_FIN50.md` |
-| L4_DD_PATH_08_50 | Wire DD-path logic | YTD PAUSE + need clean month-end + human PR | **[0.60, 0.90]** | `CUTOVER_CHECKLIST_L4.md` |
+| L4_DD_PATH_08_50 | Wire DD-path logic | YTD **+** 1y dual PAUSE (asof 2026-09-16) + need clean month-end + human PR | **[0.60, 0.90]** | `CUTOVER_CHECKLIST_L4.md` (synced `L4_HYGIENE_CHECKLIST_SYNC_2026-09-19.md`) |
 | BLEND_025 | Soft-Frozen → blend weights | Observe ≠ promote; checklist prep only | **[0.60, 0.90]** | `CUTOVER_CHECKLIST_BLEND025.md` (**NOT AUTHORIZED**) |
 | E50-A / E45 | Overlay / crisis | Not live-wired; E45 RETIRED_HISTORICAL_NARRATIVE; charter ACCEPT → Stage 1–2 OPEN | Paper verify / challenger | Live stitch |
 
