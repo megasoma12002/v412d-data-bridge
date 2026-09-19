@@ -22,6 +22,7 @@ import pandas as pd
 import e16_soft_frozen_base as soft
 from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats
 from e50_early_stack_combined_nav import TEL, e16_features, simulate_core
+from portfolio_capital import DEFAULT_CAPITAL
 from research_metric_helpers import cagr_delta_pp, mdd_delta_pp
 from tw_share_lots import BOARD_LOT
 from within_sleeve_alloc import (
@@ -40,8 +41,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/telecom-sleeve-optimize-20260908"
 RESEARCH = ROOT / "research/ops"
 
-CAPITAL_PRIMARY = 500_000_000.0
-CAPITAL_SENS = 3_000_000.0
+CAPITAL_PRIMARY = DEFAULT_CAPITAL
+CAPITAL_SENS = 3_000_000.0  # intentional 3M sensitivity (not live SSOT)
 LOT = BOARD_LOT
 
 STAGE_C_POLICIES = [

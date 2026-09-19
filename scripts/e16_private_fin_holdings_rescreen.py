@@ -9,6 +9,8 @@ Data: merge forward/e21/live_market.csv with TWSE-archive 12-stock OHLCV.
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -35,7 +37,7 @@ RESEARCH = ROOT / "research/ops"
 TW12 = Path("/tmp/tw12/artifact/v412d_12stocks_2010_2026.csv")
 PRIVATE_ADJ = ROOT / "data/market/private_fin_adjusted.csv"
 
-CAPITAL = 500_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 LOT = BOARD_LOT
 TRAIL_ALERT_PP = 3.0
 TRAIL_PAUSE_PP = 5.0

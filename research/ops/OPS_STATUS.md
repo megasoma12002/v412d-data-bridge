@@ -1,8 +1,9 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-19 (ACCEPT cutover bundle L4/BLEND/priv/tax/broker + Soft/Sleeve via FUSE)  
+Date: 2026-09-19 (tip books align ACCEPT + E45 A05 residue cleanup; SSOT after DH+FUSE)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
-Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP** (BLEND/L4 overlays authorized)  
+Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
+**Cutover `#257`: FROZEN — do not merge** (`LIVE_CUTOVER_BUNDLE_257_FROZEN.md`) · 民股／四類等新機制或 human 改 sealed 門檻  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  
@@ -12,15 +13,13 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
 | Item | Value |
 |---|---|
-| Stack | **E16 + Exact T+1 E18 + E22_v3_recv_pay_tax10** (+ FUSE → BLEND_025 → L4 → DH) |
+| Stack | **E16 + Exact T+1 E18 + E22_v3_recv_pay_effdelay** |
 | Path | `forward/e21/` |
 | Capital / lot | **500M** · board-lot **1000** |
-| Clip | Financial **[0.60, 0.90]** via `scripts/e16_soft_frozen_base.py` (BASE; BLEND/L4 may use FIN_CAP_50) |
-| Within-sleeve | FIN **民營 `PRIV_KD_MAY_Klt25_T15`** · TEL **`TEL_EQUAL`** |
-| Overlay | **`FUSE_ADDITIVE`** + **`BLEND_025`** + **`L4_DD_PATH_08_50`** + **`DH_dd06`** |
+| Clip | Financial **[0.60, 0.90]** via `scripts/e16_soft_frozen_base.py` |
+| Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** |
+| Overlay | **`FUSE_ADDITIVE`** + **`DH_dd06`** (`LIVE_FUSE_ADDITIVE` / `LIVE_DH_EXPOSURE`) |
 | Legacy A05 stitch | **DROPPED** (`ACCEPT_2026-09-09_DROP_E45_A05`) — see `E45_A05_STITCH_DROPPED.md` |
-| Broker live-write | **`broker_live_write_accepted=True`** (env + ballot file still required to mutate) · default fill_port **paper** |
-| Cutover bundle | `ACCEPT_CUTOVER_BUNDLE_2026-09-19.md` |
 | Daily job | `.github/workflows/v412f-forward-paper.yml` (weekdays) |
 | QC smoke | `.github/workflows/e21-live-qc-smoke.yml` |
 | QC | `scripts/e21_qc.py` → `forward/e21/qc_status.json` |
@@ -57,7 +56,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | 元大 SPARK 條件單 | App↔API 對照（營業員建議二擇一）：`YUANTA_SPARK_CONDITIONAL_OCO_NOTES.md`（研究；**未** SendAlgo） |
 | Fee model | `0.001425×0.6` + sell 證交稅；**MIN_COMMISSION NT$20** floor (`live_ledger.fees_tax_for`) · day-trade tax not modeled |
 | T+2 settlement estimate | R4 daily artifact via `v412f-forward-paper` · R5 `twse_t2_broker_reconcile.py` (observe) · week-1 checklist `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` |
-| 除權息入帳延後 | Stage-B live DEFAULT `E22_v3_recv_pay_tax10` (recv + effective pay + flat 10% withhold); TAX0 sibling `E22_v3_recv_pay_effdelay`; preserved `E22_v2s_tw_effex`; MOPS overlay; Gap 6.9c stock-pay observe |
+| 除權息入帳延後 | Stage-E live DEFAULT `E22_v3_recv_pay_effdelay` (receivable + effective pay); preserved `E22_v2s_tw_effex`; MOPS overlay; Gap 6.9c stock-pay observe |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 

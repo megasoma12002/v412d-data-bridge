@@ -12,6 +12,8 @@ Ballot: 金融也研究分開 (ACCEPT charter)
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import argparse
 import json
 from datetime import datetime, timezone
@@ -38,7 +40,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/fin-within-sleeve-20260908"
 RESEARCH = ROOT / "research/ops"
 
-CHARTER_CAPITAL = 500_000_000.0
+CHARTER_CAPITAL = DEFAULT_CAPITAL
 CHARTER_LOT = BOARD_LOT
 POLICIES = list(FIN_ALLOC_POLICIES)
 

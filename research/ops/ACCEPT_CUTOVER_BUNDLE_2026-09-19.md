@@ -1,10 +1,15 @@
 # ACCEPT — Cutover bundle (L4 / FIN50 / BLEND / Soft / Sleeve / priv / tax Stage-B / broker)
 
-Status: **ACCEPTED** (this PR)  
-Date: 2026-09-19  
-Human: 「ACCEPT L4 / FIN50 / BLEND / Soft / Sleeve / priv live / tax Stage-B / broker的修正」
+> **SUPERSEDED / NOT BINDING (2026-09-19)**  
+> Prior ACCEPTED ballots on this PR are **wiped for live SSOT**. Binding status is **`FROZEN — do not merge`** — see `LIVE_CUTOVER_BUNDLE_257_FROZEN.md` · register row 0.  
+> Live remains 公股 R1 + `KD_OPT` + `TEL_EQUAL` + `FUSE_ADDITIVE` + `DH_dd06`. Do **not** treat the ballots below as authorized.
 
-## Ballots (exact)
+Status: **SUPERSEDED by FROZEN** (was ACCEPTED on this PR; merge blocked)  
+Date: 2026-09-19  
+Human (historical): 「ACCEPT L4 / FIN50 / BLEND / Soft / Sleeve / priv live / tax Stage-B / broker的修正」  
+Human (binding): 「先鎖住現況 live、凍結 #257；民股等新機制或你改門檻再談」
+
+## Ballots (historical — not authorized to merge)
 
 | # | Ballot |
 |---|---|
@@ -17,7 +22,7 @@ Human: 「ACCEPT L4 / FIN50 / BLEND / Soft / Sleeve / priv live / tax Stage-B / 
 | Tax | `ACCEPT promote E22 books: E22_v3_recv_pay_tax10` (Stage-B; supersedes resident `promote_ready=false`) |
 | Broker | `ACCEPT broker live-write: broker_live_write_accepted=True` (env `E21_BROKER_WRITE_LIVE=1` + ballot file still required for mutate) |
 
-## Live stack after this ACCEPT (forward-only)
+## Live stack this ACCEPT *would have* installed (not live)
 
 1. Soft-Frozen BASE clip **[0.60, 0.90]** KEEP  
 2. **FUSE_ADDITIVE** (Soft `…__SELL_a05` + Sleeve `RSI14_a0225`) KEEP  
@@ -28,11 +33,10 @@ Human: 「ACCEPT L4 / FIN50 / BLEND / Soft / Sleeve / priv live / tax Stage-B / 
 7. Books DEFAULT **`E22_v3_recv_pay_tax10`**  
 8. `broker_live_write_accepted=True` · default `fill_port` remains `paper` until ops sets broker port + env
 
-## Explicit non-actions
+## Explicit non-actions (binding)
 
-- No `forward/e21` history rewrite  
-- No E45 A05 stitch reopen  
-- No independent Soft/Sleeve wire (would double-apply on FUSE)  
-- No static Soft-Frozen flip to FIN50 **[0.35, 0.50]** alone (BLEND successor)
+- Do **not** merge `#257`  
+- Do **not** treat this file as live authorization  
+- See `LIVE_CUTOVER_BUNDLE_257_FROZEN.md` for reopen gates  
 
-Label: `ACCEPT_2026-09-19_CUTOVER_BUNDLE_L4_FIN50_BLEND_SOFT_SLEEVE_PRIV_TAX_BROKER`
+Label: `ACCEPT_2026-09-19_CUTOVER_BUNDLE_SUPERSEDED_BY_FROZEN`

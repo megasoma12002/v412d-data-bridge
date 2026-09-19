@@ -49,6 +49,7 @@ from live_session_io import (
     CANON_MARKET,
     CANON_STATE,
     REPO_ROOT,
+    acquire_session_lock,
     assert_canonical_live_paths,
     assert_session_preflight,
     load_market_session,
@@ -109,6 +110,21 @@ def main() -> None:
         allow_noncanonical=a.allow_noncanonical_paths,
     )
     sdir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        _session_cm = acquire_session_lock(sdir, blocking=False)
+    except BlockingIOError as e:
+        raise SystemExit(
+            f"Another e21 session holds session lock under {sdir}; "
+            "refusing concurrent Soft-Frozen day write."
+        ) from e
+    with _session_cm:
+        _run_locked_session(a, sdir, market_path, fill_port_name)
+
+
+def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
+    """Fill → E22 → orders → day-commit under session lock."""
+    global CAPITAL
 
     m, latest, day = load_market_session(market_path, asof=a.asof)
     if LIVE.live_fin_priv_native:
@@ -329,7 +345,6 @@ def main() -> None:
             indent=2,
         )
     )
-
 
 if __name__ == "__main__":
     main()

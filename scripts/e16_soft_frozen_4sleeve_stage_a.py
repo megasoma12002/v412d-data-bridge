@@ -6,6 +6,8 @@ Live Soft-Frozen SSOT untouched.
 """
 from __future__ import annotations
 
+from portfolio_capital import DEFAULT_CAPITAL
+
 import itertools
 import json
 from datetime import datetime, timezone
@@ -24,7 +26,7 @@ from within_sleeve_alloc import FIN_EQUAL, FIN_PRE_EXDIV_KD, TEL_EQUAL, build_kd
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/soft-frozen-4sleeve-20260909"
 RESEARCH = ROOT / "research/ops"
-CAPITAL = 500_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 LOT = BOARD_LOT
 
 KD_OPT = {

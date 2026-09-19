@@ -9,24 +9,18 @@ OPERATING observe challenger (2026-09-12 rule-path OPEN):
   (Soft KD/BB sensitivity Stage A beat-champion buy; sell amp from SELL_a05 ballot;
    additive soft only — no hard AND).
 
-``LIVE_KD`` must stay byte-equal to ``e21_forward_pipeline.KD_OPT`` season /
-k_thresh / pre_days / active_score (live SSOT). Do not drift this copy without
-updating live — prefer importing from live when wiring a shared module later.
+``LIVE_KD`` is a view of ``live_config.KD_OPT`` (live SSOT) — no second copy.
 """
 from __future__ import annotations
 
 import pandas as pd
 
+from live_config import KD_OPT
+
 SOFT_BOOST = 1.0
 SELL_SOFT_BOOST = 0.5  # operating SELL_a05 amplitude
-# Mirror of live KD_OPT (e21_forward_pipeline.KD_OPT) — paper observe only.
-LIVE_KD = {
-    "season_start": (4, 15),
-    "season_end": (5, 15),
-    "k_thresh": 30.0,
-    "pre_days": 15,
-    "active_score": 1.5,
-}
+# Live KD season / thresholds — imported SSOT (MappingProxyType).
+LIVE_KD = KD_OPT
 CHAMPION_ID = "SOFT_BOTH__BELOW_MA120__RSI6_GT80"
 PRIOR_OBSERVE_ID = "SOFT_CHAMP_PLUS_K9_LT30_a10"
 OBSERVE_CHAL_ID = "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05"
