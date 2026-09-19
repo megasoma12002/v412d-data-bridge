@@ -5,6 +5,7 @@ Reads optimize pack outputs — does not re-sim. Does NOT OPEN C35.
 Does NOT change operating lock M2_RELOC_BIL_FX_C50.
 """
 from __future__ import annotations
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 
 import json
 from datetime import datetime, timezone
@@ -112,7 +113,7 @@ Evidence: `research/e45/E45_M2_C35_RETARGET_BALLOT.md`
 > Does **NOT** change the operating lock. Remains paper-only until separate human **ACCEPT OPEN C35**.  
 > Current OPERATING observe stays **`M2_RELOC_BIL_FX_C50`**.
 
-Soft-Frozen: **[0.50, 0.95] KEEP**  
+Soft-Frozen: **{SOFT_FROZEN_FIN_CLIP_TXT} KEEP**  
 Live DEFAULT: **`E22_v2s_tw` KEEP**  
 Live stitch: **still FORBIDDEN**  
 Parent sleeves OPERATING: FULL + A25 + A05 + FIN_A10 + **BIL_FX_C50**

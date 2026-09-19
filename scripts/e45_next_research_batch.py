@@ -8,7 +8,7 @@
 3) Observe trailing PAUSE diagnostics on OPERATING dual-paper ledgers.
 
 Governance unchanged:
-  Soft-Frozen [0.50, 0.95] KEEP · DEFAULT E22_v2s_tw KEEP · stitch FORBIDDEN ·
+  Soft-Frozen [0.60, 0.90] KEEP · DEFAULT E22_v2s_tw KEEP · stitch FORBIDDEN ·
   retired MDD narrative RETIRED_HISTORICAL_NARRATIVE · HIGH_BETA stays DRAFT.
 """
 from __future__ import annotations
@@ -21,6 +21,7 @@ import numpy as np
 import pandas as pd
 
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 from e45_paper_harness import (
     BOOK_BASE,
     BOOK_BLEND_A05,

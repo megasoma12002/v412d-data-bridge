@@ -17,6 +17,7 @@ from pathlib import Path
 import pandas as pd
 
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 from e50_early_stack_combined_nav import e16_features, simulate_core
 import e22_dividend_accounting as e22div
 from e16_fin_cap_oof_challenger import e16_features_fin_cap
@@ -288,7 +289,7 @@ def main() -> int:
         "# FIN_CAP_50 Sealed-CAGR Charter Screen",
         "",
         f"Generated: `{payload['generated_at_utc']}`",
-        "Status: **RESEARCH_ONLY** — Soft-Frozen **[0.50, 0.95] KEEP**; no cutover.",
+        "Status: **RESEARCH_ONLY** — Soft-Frozen **" + SOFT_FROZEN_FIN_CLIP_TXT + " KEEP**; no cutover.",
         "",
         f"## Decision: **{decision}**",
         "",

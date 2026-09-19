@@ -15,6 +15,7 @@ import pandas as pd
 
 from e45_paper_harness import WINDOWS_STANDARD
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 from e50_early_stack_combined_nav import ALL, e16_features, simulate_core, nav_stats
 import e45_crisis_core as e45
 
@@ -141,7 +142,7 @@ def main() -> int:
         "",
         f"Generated: `{summary['generated_at_utc']}`",
         "Status: **DESIGN ONLY — NOT OPERATING**",
-        "Live stitch: **FORBIDDEN** · Soft-Frozen **[0.50, 0.95] KEEP** · DEFAULT books **`E22_v2s_tw` KEEP**",
+        "Live stitch: **FORBIDDEN** · Soft-Frozen **" + SOFT_FROZEN_FIN_CLIP_TXT + " KEEP** · DEFAULT books **`E22_v2s_tw` KEEP**",
         f"Retired MDD narrative: **`{e45.CLAIMED_MDD_STATUS}`** (do not invent a replacement)",
         "",
         "## Locked paper books",

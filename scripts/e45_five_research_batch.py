@@ -10,6 +10,7 @@
 PAPER ONLY. Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN.
 """
 from __future__ import annotations
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 
 import json
 from datetime import date, datetime, timezone
@@ -430,7 +431,7 @@ Date: {generated[:10]}
 > **Does NOT** OPEN an observe sleeve, wire month-end, flip Soft-Frozen / DEFAULT, or authorize stitch.
 > Remains **PAPER ONLY** until a separate human **ACCEPT**.
 
-Soft-Frozen: **[0.50, 0.95] KEEP**
+Soft-Frozen: **{SOFT_FROZEN_FIN_CLIP_TXT} KEEP**
 Live DEFAULT books: **KEEP**
 Live stitch: **still FORBIDDEN**
 Parent sleeves still OPERATING: FULL + A25 + A05 + SLEEVE_FIN_ONLY_A10

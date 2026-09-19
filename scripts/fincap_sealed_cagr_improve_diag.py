@@ -13,6 +13,7 @@ Sealed 2023+ / val 2019-2022 are DIAGNOSTIC ONLY (reported, not used to pick).
 Forbidden: Soft-Frozen flip; retune FIN_CAP_50 / L1 / L2 / L3 locks as live cuts.
 """
 from __future__ import annotations
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 
 import json
 from datetime import date, datetime, timezone
@@ -275,7 +276,7 @@ def main() -> None:
         "Static FIN caps (50/60) improve MDD but leak sealed CAGR in 2024–2026 bull stretch.",
         "Path-conditional caps (Bull-restore / Crisis-only) aim to keep Soft-Frozen finance beta in Bull while cutting only in stress.",
         "Do not retune FIN_CAP_50 / L3_MILD_35_60 locks; screen new path-conditional family under a frozen L4 charter.",
-        "Soft-Frozen live stays [0.50, 0.95] until human cutover after sealed-aware PASS.",
+        "Soft-Frozen live stays " + SOFT_FROZEN_FIN_CLIP_TXT + " until human cutover after sealed-aware PASS.",
     ]
 
     summary = {
@@ -365,7 +366,7 @@ def main() -> None:
         "## Recommended next research",
         "",
         "Freeze **L4 path-conditional FIN charter**: Bull-restore / Crisis-only / true DD-path first.",
-        "Do **not** retune FIN_CAP_50 or L3_MILD_35_60. Soft-Frozen stays [0.50, 0.95].",
+        "Do **not** retune FIN_CAP_50 or L3_MILD_35_60. Soft-Frozen stays " + SOFT_FROZEN_FIN_CLIP_TXT + ".",
         "",
         "See: `research/gaps/MDD_L4_PATH_FINCAP_CHARTER.md`",
         "",

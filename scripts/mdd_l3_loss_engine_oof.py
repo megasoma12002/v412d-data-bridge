@@ -2,7 +2,7 @@
 """L3 MDD sealed-CAGR Exact T+1 OOF screen (RESEARCH_ONLY).
 
 Charter: research/gaps/MDD_L3_SEALED_CAGR_CHARTER.md
-Parents frozen-stopped: L1 / L2. Soft-Frozen live clip stays [0.50, 0.95].
+Parents frozen-stopped: L1 / L2. Soft-Frozen live clip stays [0.60, 0.90].
 
 Screen first (this harness): L3-FINCAP-MILD + L3-FINCAP-BLEND.
 Reference only (not lockable): L2_FINCAP_ONLY.
@@ -23,6 +23,7 @@ from pathlib import Path
 import pandas as pd
 
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof
@@ -324,7 +325,7 @@ def main() -> None:
         lines += [
             f"- Proceed to **adversarial-lite** on locked `{locked}`.",
             "- Do **not** open held-out until adv-lite PASS.",
-            "- Do **not** live-wire. Soft-Frozen stays **[0.50, 0.95]**.",
+            "- Do **not** live-wire. Soft-Frozen stays **" + SOFT_FROZEN_FIN_CLIP_TXT + "**.",
         ]
     else:
         lines += [

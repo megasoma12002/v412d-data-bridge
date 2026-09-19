@@ -5,6 +5,7 @@ Recomputes Exact T+1 NAV sealed giveback for frozen L2_FINCAP_ONLY.
 Does not retune cuts. Does not live-wire Soft-Frozen.
 """
 from __future__ import annotations
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 
 import json
 from datetime import date, datetime, timezone
@@ -246,7 +247,7 @@ def main() -> None:
         "1. Failure mode ≠ L1: L1 was COMBO timing over-fire; L2 is **static FIN concentration**.",
         "2. Giveback concentrated in **2024 / 2025 / 2026**; 2023 L2 beat BASE on CAGR.",
         "3. L3 targets sealed CAGR retention with MDD ≥ +1 pp — without retuning L1 or reopening L2 lock.",
-        "4. Soft-Frozen live clip stays **[0.50, 0.95]**; FIN_CAP_50 dual-paper month-end continues.",
+        "4. Soft-Frozen live clip stays **" + SOFT_FROZEN_FIN_CLIP_TXT + "**; FIN_CAP_50 dual-paper month-end continues.",
         "",
         "See charter: `research/gaps/MDD_L3_SEALED_CAGR_CHARTER.md`",
         "",

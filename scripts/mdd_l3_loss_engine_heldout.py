@@ -19,6 +19,7 @@ from pathlib import Path
 import pandas as pd
 
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof
@@ -153,7 +154,7 @@ def main() -> None:
         "promotion": {
             "replaces_live": False,
             "dual_paper_ledgers_allowed": label == "PASS_HELDOUT_L3",
-            "note": "Even on PASS, live Soft-Frozen clip stays [0.50,0.95] until explicit cutover PR",
+            "note": "Even on PASS, live Soft-Frozen clip stays " + SOFT_FROZEN_FIN_CLIP_TXT + " until explicit cutover PR",
         },
     }
 
@@ -167,7 +168,7 @@ def main() -> None:
         f"Locked: `{LOCKED_ID}` (FIN [{LOCKED_FIN_LO:.2f}, {LOCKED_FIN_HI:.2f}]; no retune)",
         f"Label: `{label}`",
         f"Research decision: `{research_decision}`",
-        "Status: **RESEARCH_ONLY** — no live-wire; Soft-Frozen stays [0.50, 0.95].",
+        "Status: **RESEARCH_ONLY** — no live-wire; Soft-Frozen stays " + SOFT_FROZEN_FIN_CLIP_TXT + ".",
         "",
         "| Window | BASE CAGR | BASE MDD | L3 CAGR | L3 MDD | MDD Δpp | CAGR giveback pp | PASS |",
         "|---|---:|---:|---:|---:|---:|---:|---|",

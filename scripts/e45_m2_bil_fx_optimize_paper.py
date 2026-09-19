@@ -6,6 +6,7 @@ Observe OPEN for M2_RELOC_BIL_FX_C50 authorized by human 「請全做」.
 Does NOT flip Soft-Frozen / DEFAULT / stitch. Does NOT invent MDD.
 """
 from __future__ import annotations
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 
 import hashlib
 import json
@@ -562,7 +563,7 @@ def main() -> None:
         },
         "section2_qualification": qual_rows,
         "hard_non_actions": [
-            "Soft-Frozen FIN clip [0.50, 0.95] KEEP",
+            "Soft-Frozen FIN clip " + SOFT_FROZEN_FIN_CLIP_TXT + " KEEP",
             "Live DEFAULT E22_v2s_tw KEEP",
             "Live E45 stitch FORBIDDEN",
             "No invent MDD replacement",
@@ -673,7 +674,7 @@ def main() -> None:
         "",
         "## Hard non-actions",
         "",
-        "- Soft-Frozen FIN clip [0.50, 0.95] KEEP",
+        "- Soft-Frozen FIN clip " + SOFT_FROZEN_FIN_CLIP_TXT + " KEEP",
         "- Live DEFAULT `E22_v2s_tw` KEEP",
         "- Live E45 stitch FORBIDDEN",
         "- No invent MDD replacement",
