@@ -27,7 +27,9 @@ If still unparseable after repair → **still stop** (no silent 0).
 | Role | Path |
 |---|---|
 | Module / CLI | `scripts/e22_dividend_amount_repair.py` |
-| Live wire | `scripts/e21_forward_pipeline.py` (default on) |
+| Live wire | `scripts/e21_forward_pipeline.py` (repair write opt-in) |
+| Default live path | Fail-closed load; dirty amount cells → exit (no CSV write) |
+| Apply repair write | `python3 scripts/e21_forward_pipeline.py --apply-div-amount-repair` |
 | Escape hatch | `python3 scripts/e21_forward_pipeline.py --no-div-amount-repair` |
 | Manual ops | `python3 scripts/e22_dividend_amount_repair.py [--dry-run] [--codes 2880,0050]` |
 

@@ -14,7 +14,7 @@ Architecture (2026-09-14 modularize):
   - live_ledger — immutable CSV append + holdings
 CLI entry and day orchestration stay here.
 """
-import argparse, hashlib, json, sys
+import argparse, hashlib, json, os, sys
 from datetime import datetime, timezone
 from pathlib import Path
 import numpy as np
@@ -69,6 +69,11 @@ def main():
         help="Do not auto-refetch/patch dirty dividend amount cells (still fail-closed).",
     )
     ap.add_argument(
+        "--apply-div-amount-repair",
+        action="store_true",
+        help="Allow writing repaired amounts into the dividend events CSV (explicit opt-in).",
+    )
+    ap.add_argument(
         "--e22-version",
         default=E22_BOOKS_VERSION,
         choices=[
@@ -114,7 +119,12 @@ def main():
     CAPITAL = a.capital
     sdir = Path(a.state_dir)
     market_path = Path(a.market)
-    fill_port_name = (a.fill_port or LIVE.fill_port or "paper").strip().lower()
+    fill_port_name = (
+        a.fill_port
+        or os.environ.get("E21_FILL_PORT")
+        or LIVE.fill_port
+        or "paper"
+    ).strip().lower()
     if not a.allow_noncanonical_paths:
         canon_state = Path("forward/e21").resolve()
         canon_market = (Path("forward/e21") / "live_market.csv").resolve()
@@ -220,15 +230,31 @@ def main():
     # E22 books on today (forward-only; idempotent via applied keys).
     # Live DEFAULT: E22_v3_recv_pay_effdelay (Stage-E ACCEPT) — receivable / pay clock.
     # Escape hatch: --e22-version E22_v2s_tw_effex --confirm-e22-version-override.
+    # Dividend amount repair: default is dry-run / fail-closed load; CSV rewrite
+    # requires explicit --apply-div-amount-repair.
     if getattr(a, "no_div_amount_repair", False):
         div_events = e22div.load_dividend_events(
             a.dividends, require_exists=True, fail_closed_amounts=True
         )
-    else:
+    elif getattr(a, "apply_div_amount_repair", False):
         from e22_dividend_amount_repair import load_dividend_events_with_repair
 
         div_events = load_dividend_events_with_repair(
             a.dividends, require_exists=True, network=True
+        )
+    else:
+        # Default: detect dirty amounts without mutating production CSV.
+        from e22_dividend_amount_repair import scan_bad_amount_cells
+
+        div_path_check = Path(a.dividends)
+        if div_path_check.exists() and scan_bad_amount_cells(div_path_check):
+            raise SystemExit(
+                f"Dirty dividend amount cells in {div_path_check}; "
+                "re-run with --apply-div-amount-repair to patch CSV, "
+                "or --no-div-amount-repair after manual fix."
+            )
+        div_events = e22div.load_dividend_events(
+            a.dividends, require_exists=True, fail_closed_amounts=True
         )
     skip = set(state.get("e22_applied_keys") or [])
     div_path = sdir / "dividends_applied.csv"
