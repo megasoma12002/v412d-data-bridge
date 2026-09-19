@@ -8,7 +8,7 @@
   "n1_coexist": [],
   "best_n1": "N1_LOCAL_06",
   "soft_frozen": "KEEP",
-  "cutover_257": "FROZEN",
+  "cutover_257": "CLOSED_NOT_MERGED",
   "sealed_gate": "unchanged",
   "baseline": "LIVE_PUB_KD",
   "frozen_offense_ref": "SF4_P60-90_V0-15_F10_KD",
@@ -31,7 +31,7 @@
     "SF4_DEFENCE_MDD_DECISION_PACK"
   ],
   "note": "research/ops/PRIV_MDD_NEW_MECHANISM_CHARTER.md",
-  "human_accept_n2": "ACCEPT N2\uff08FinPriv\u2192cash/0050\uff09",
+  "human_accept_n2": "ACCEPT N2（FinPriv→cash/0050）",
   "stage_a_verdict_n2": "STAGE_A_SCORE_POS_GATES_FAIL",
   "n2_coexist": [],
   "best_n2": "N2_CASH_LOCAL_06",
