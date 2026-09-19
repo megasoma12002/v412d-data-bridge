@@ -6,10 +6,11 @@ Decision: ACCEPT clip-search charter (2026-09-07)
 
 - Does NOT edit e16_soft_frozen_base live constants.
 - Execution: Exact T+1 · E22_v2s_tw · lot_size=1000 · capital=5_000_000
-- Stage B default: FIN locked to Soft-Frozen [0.50, 0.95]; search TEL×ETF grid.
+- Stage B default: FIN locked to Soft-Frozen [0.60, 0.90]; search TEL×ETF grid.
 - Selection: held-out 2019+ score; sealed 2023+ report-only after lock.
 """
 from __future__ import annotations
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 
 import argparse
 import itertools

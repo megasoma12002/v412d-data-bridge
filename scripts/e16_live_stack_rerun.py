@@ -10,6 +10,7 @@ Books @ 500M · lot 1000 · Exact T+1 · E22_v2s_tw · FIN KD_OPT:
 Writes research/ops/LIVE_STACK_RERUN.{md,json} + repro/.
 """
 from __future__ import annotations
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 
 import json
 from datetime import datetime, timezone
@@ -251,6 +252,7 @@ def main() -> int:
             "OLD_SF_KD_A05": "Soft-Frozen FIN [0.50,0.95] + KD_OPT + BLEND_E45_A05",
             "RETIRED_FINBAND_A05": "Soft-Frozen FIN [0.60,0.90] + KD_OPT + BLEND_E45_A05 (pre-rollback)",
         },
+        "live_clip_ssot": SOFT_FROZEN_FIN_CLIP_TXT,
         "absolute": abs_rows,
         "vs_old_sf_kd": vs,
         "improvement_vs_retired_a05": improve,

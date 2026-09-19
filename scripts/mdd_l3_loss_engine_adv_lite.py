@@ -22,6 +22,7 @@ import numpy as np
 import pandas as pd
 
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof
@@ -258,7 +259,7 @@ def main() -> None:
         lines += [
             "- Proceed to **one held-out** (val 2019–2022 + sealed 2023→latest).",
             "- Do **not** retune cuts.",
-            "- Do **not** live-wire. Soft-Frozen stays **[0.50, 0.95]**.",
+            "- Do **not** live-wire. Soft-Frozen stays **" + SOFT_FROZEN_FIN_CLIP_TXT + "**.",
         ]
     else:
         lines += [

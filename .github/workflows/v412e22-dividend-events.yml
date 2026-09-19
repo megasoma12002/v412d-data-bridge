@@ -13,7 +13,11 @@ permissions:
 
 jobs:
   fetch:
-    if: github.event_name != 'issues' || startsWith(github.event.issue.title, 'RUN_E22')
+    # Issue triggers only for repository owner + title prefix (public-repo hardening).
+    if: >-
+      github.event_name != 'issues' ||
+      (startsWith(github.event.issue.title, 'RUN_E22') &&
+       github.actor == github.repository_owner)
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

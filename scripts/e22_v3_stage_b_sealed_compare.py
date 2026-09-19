@@ -20,6 +20,7 @@ import pandas as pd
 import e22_dividend_accounting as formal
 import e22_v3_sandbox_books as sandbox
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 from e45_paper_harness import ROOT, WINDOWS_STANDARD, load_market
 from e50_early_stack_combined_nav import FIN
 
@@ -236,7 +237,7 @@ def main() -> int:
         "## Governance",
         "",
         f"- Live DEFAULT remains **`{formal.DEFAULT_BOOKS_VERSION}`** (untouched).",
-        "- Soft-Frozen FIN clip **[0.50, 0.95] KEEP**.",
+        "- Soft-Frozen FIN clip **" + SOFT_FROZEN_FIN_CLIP_TXT + " KEEP**.",
         "- Combined `recv_pay_taxW` still **NOT STARTED** (needs each axis alone first).",
         "- No E45 stitch; no Soft-Frozen / DEFAULT flip; no retired-narrative reinvention.",
         "",
@@ -257,7 +258,7 @@ def main() -> int:
         f"Date: {generated[:10]}",
         "Ballot: **ACCEPT charter** (human 2026-09-05) — still binding",
         f"Live DEFAULT: **`{formal.DEFAULT_BOOKS_VERSION}`** (untouched)",
-        "Soft-Frozen: **[0.50, 0.95] KEEP**",
+        "Soft-Frozen: **" + SOFT_FROZEN_FIN_CLIP_TXT + " KEEP**",
         "",
         "## Sandbox axes",
         "",

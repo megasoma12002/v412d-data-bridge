@@ -11,14 +11,16 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any
+from types import MappingProxyType
+from typing import Any, Mapping
 
 import e22_dividend_accounting as e22div
 from portfolio_capital import DEFAULT_CAPITAL
 from within_sleeve_alloc import FIN_PRE_EXDIV_KD
 
 # Live FIN within-sleeve — human ACCEPT 2026-09-09: KD_OPT cutover
-KD_OPT: dict[str, Any] = {
+# Frozen MappingProxyType: runtime mutation cannot bypass ACCEPT narrative.
+_KD_OPT_MUTABLE: dict[str, Any] = {
     "id": "KD_APR15_MAY15_Klt30_T15",
     "season_start": (4, 15),
     "season_end": (5, 15),
@@ -26,6 +28,7 @@ KD_OPT: dict[str, Any] = {
     "pre_days": 15,
     "active_score": 1.5,
 }
+KD_OPT: Mapping[str, Any] = MappingProxyType(_KD_OPT_MUTABLE)
 
 
 @dataclass(frozen=True)
@@ -43,7 +46,7 @@ class LiveConfig:
     # Soft-Frozen FIN clip — Class D ACCEPT 2026-09-09: FINBAND → [0.60, 0.90]
     # (bounds owned by e16_soft_frozen_base; this only records within-sleeve policy)
     live_fin_within_sleeve: str = FIN_PRE_EXDIV_KD
-    kd_opt: dict[str, Any] = field(default_factory=lambda: dict(KD_OPT))
+    kd_opt: Mapping[str, Any] = field(default_factory=lambda: MappingProxyType(dict(KD_OPT)))
 
     # E45 live stitch — ROLLBACK 2026-09-09: DROP_E45_A05
     live_e45_stitch: bool = False

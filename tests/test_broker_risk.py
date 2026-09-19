@@ -13,6 +13,7 @@ from broker_risk import (
     RiskConfig,
     check_rate_limit,
     circuit_access,
+    has_blocking_unresolved,
     list_alerts,
     load_order_states,
     load_unresolved,
@@ -196,15 +197,51 @@ class RecoveryAndCircuitTests(unittest.TestCase):
             from broker_safety import save_circuit
 
             save_circuit(sdir, c)
-            ok, c2 = allow_circuit_write(sdir)
+            ok, c2 = allow_circuit_write(sdir, consume_probe=False)
             self.assertTrue(ok)
             self.assertEqual(c2.mode, "half_open")
+            self.assertFalse(c2.half_open_probe_used)
             access = circuit_access(sdir)
             self.assertTrue(access.writes_allowed)
+            # First consuming probe succeeds; second fails.
+            ok_probe, c_probe = allow_circuit_write(sdir, consume_probe=True)
+            self.assertTrue(ok_probe)
+            self.assertTrue(c_probe.half_open_probe_used)
+            ok_again, _ = allow_circuit_write(sdir, consume_probe=True)
+            self.assertFalse(ok_again)
             record_circuit_success(sdir)
             c3 = load_circuit(sdir)
             self.assertEqual(c3.mode, "closed")
             self.assertFalse(c3.open)
+
+    def test_corrupt_circuit_fail_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            pre = sdir / "broker_preflight"
+            pre.mkdir(parents=True)
+            (pre / "broker_circuit.json").write_text("{not-json", encoding="utf-8")
+            c = load_circuit(sdir)
+            self.assertTrue(c.open)
+            self.assertTrue(c.load_error)
+            ok, _ = allow_circuit_write(sdir)
+            self.assertFalse(ok)
+
+    def test_corrupt_unresolved_blocks(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            pre = sdir / "broker_preflight"
+            pre.mkdir(parents=True)
+            (pre / "broker_unresolved.json").write_text("{bad", encoding="utf-8")
+            self.assertTrue(has_blocking_unresolved(sdir))
+            payload = load_unresolved(sdir)
+            self.assertTrue(payload.get("corrupt"))
+
+    def test_risk_config_zero_notional_honored(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            RiskConfig(max_notional=0.0).save(sdir)
+            cfg = RiskConfig.load(sdir)
+            self.assertEqual(cfg.max_notional, 0.0)
 
     def test_stale_past_trade_date_tagged(self) -> None:
         with tempfile.TemporaryDirectory() as td:

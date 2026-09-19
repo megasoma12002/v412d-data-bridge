@@ -19,6 +19,7 @@ from pathlib import Path
 import pandas as pd
 
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 import e22_dividend_accounting as e22div
 import mdd_l1_loss_engine_oof as oof
@@ -200,7 +201,7 @@ def main() -> None:
     if decision == "PASS_HELDOUT_L4":
         lines += [
             "- Held-out PASS — still **no auto live-wire**.",
-            "- Dual-paper observation only; Soft-Frozen stays **[0.50, 0.95]** until human PR.",
+            "- Dual-paper observation only; Soft-Frozen stays **" + SOFT_FROZEN_FIN_CLIP_TXT + "** until human PR.",
         ]
     else:
         lines += [

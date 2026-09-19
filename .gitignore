@@ -13,6 +13,21 @@ venv/
 dist/
 build/
 
+# Secrets / credentials (Yuanta SPARK, env, keys) — never commit
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+*.key
+*credential*
+*credentials*
+prod_readonly*.py
+*_readonly_login.py
+YuantaSparkAPI*/
+**/YuantaSparkAPI*/
+
 # ARCHIVE repro bulky dumps (same policy as repro/.gitignore)
 archive/repro/**/outputs/*fills*.csv
 archive/repro/**/outputs/*daily_nav*.csv

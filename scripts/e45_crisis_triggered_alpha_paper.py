@@ -23,6 +23,7 @@ from pathlib import Path
 import pandas as pd
 
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 from research_metric_helpers import mdd_delta_pp, cagr_delta_pp
 from e50_early_stack_combined_nav import ALL, e16_features, nav_stats, simulate_core
 import e45_crisis_core as e45
@@ -518,7 +519,7 @@ def main() -> None:
         "",
         "## Governance",
         "",
-        "- Soft-Frozen FIN clip **[0.50, 0.95] KEEP**",
+        "- Soft-Frozen FIN clip **" + SOFT_FROZEN_FIN_CLIP_TXT + " KEEP**",
         "- Live DEFAULT **`E22_v2s_tw` KEEP**",
         "- Live E45 stitch **FORBIDDEN**",
         "- Retired MDD narrative: **RETIRED_HISTORICAL_NARRATIVE**",

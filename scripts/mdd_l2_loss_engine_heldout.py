@@ -11,6 +11,7 @@ Both pass -> PASS_HELDOUT_L2; else STOP_L2_HELDOUT_*
 No cut retune. No live-wire.
 """
 from __future__ import annotations
+from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP_TXT
 
 import json
 from datetime import date, datetime, timezone
@@ -134,7 +135,7 @@ def main() -> None:
         "promotion": {
             "replaces_live": False,
             "dual_paper_ledgers_allowed": label == "PASS_HELDOUT_L2",
-            "note": "Even on PASS, live Soft-Frozen clip stays [0.50,0.95] until explicit cutover PR",
+            "note": "Even on PASS, live Soft-Frozen clip stays " + SOFT_FROZEN_FIN_CLIP_TXT + " until explicit cutover PR",
         },
     }
 

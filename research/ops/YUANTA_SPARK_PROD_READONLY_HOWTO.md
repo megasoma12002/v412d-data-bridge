@@ -258,7 +258,7 @@ if __name__ == "__main__":
 ```
 
 ```powershell
-cd C:\Users\mg922\Downloads\YuantaSparkAPI_win-x64_Python\YuantaSparkAPI_win-x64_Python
+cd C:\Users\<you>\Downloads\YuantaSparkAPI_win-x64_Python\YuantaSparkAPI_win-x64_Python
 $env:YUANTA_ACCOUNT = "S你的帳號"
 $env:YUANTA_PASSWORD = "你的密碼"
 python prod_readonly_login.py
