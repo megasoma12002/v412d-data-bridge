@@ -162,6 +162,31 @@ def main() -> None:
     t1 = exact_t1_from_fills(fills, fills_required=True)
     checks["exact_t1_ok"] = bool(t1["exact_t1_ok"])
 
+    # Tip nav.e22_version must be present and match portfolio_state books
+    # (DEFAULT cutover is a separate ACCEPT — do not fail-closed on tip≠DEFAULT).
+    if "e22_version" not in nav.columns or nav.empty:
+        checks["nav_tip_e22_version_present"] = False
+        checks["nav_tip_matches_state_books"] = False
+    else:
+        tip_ver = nav.iloc[-1].get("e22_version")
+        tip_ok = (
+            tip_ver is not None
+            and not (isinstance(tip_ver, float) and pd.isna(tip_ver))
+            and str(tip_ver).strip() != ""
+        )
+        checks["nav_tip_e22_version_present"] = bool(tip_ok)
+        state_path = s / "portfolio_state.json"
+        if tip_ok and state_path.exists():
+            try:
+                st = json.loads(state_path.read_text(encoding="utf-8"))
+                checks["nav_tip_matches_state_books"] = str(
+                    st.get("e22_books_version") or ""
+                ).strip() == str(tip_ver).strip()
+            except (OSError, json.JSONDecodeError):
+                checks["nav_tip_matches_state_books"] = False
+        else:
+            checks["nav_tip_matches_state_books"] = False
+
     audit = [
         json.loads(x)
         for x in (s / "audit_chain.jsonl").read_text().splitlines()

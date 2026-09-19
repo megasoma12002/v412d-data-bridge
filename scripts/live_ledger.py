@@ -103,6 +103,76 @@ def append_immutable(path: Path | str, row: dict[str, Any], key: str) -> bool:
     return True
 
 
+def atomic_write_json(path: Path | str, obj: Any) -> None:
+    """Write JSON via temp file + os.replace (crash-safe)."""
+    import json
+    import os
+    import tempfile
+
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    data = json.dumps(obj, indent=2, ensure_ascii=False) + "\n"
+    fd, tmp_name = tempfile.mkstemp(
+        prefix=path.name + ".", suffix=".tmp", dir=str(path.parent)
+    )
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write(data)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp_name, path)
+    except Exception:
+        try:
+            os.unlink(tmp_name)
+        except OSError:
+            pass
+        raise
+
+
+def assert_no_uncommitted_ledger(state_dir: Path | str, last_date: str | None) -> None:
+    """Fail-closed if fills/div CSVs advanced past portfolio_state.last_date.
+
+    Detects crash after immutable append but before state commit (L3).
+    """
+    sdir = Path(state_dir)
+    last = pd.Timestamp(last_date).normalize() if last_date else None
+
+    fills_path = sdir / "fills.csv"
+    if fills_path.exists():
+        fills = pd.read_csv(fills_path, dtype={"code": str})
+        if not fills.empty and "fill_date" in fills.columns:
+            fd = pd.to_datetime(fills["fill_date"], errors="coerce").dt.normalize()
+            if last is None:
+                raise SystemExit(
+                    "Uncommitted fills present but portfolio_state.last_date is missing. "
+                    "Repair state or clear orphan fills before continuing."
+                )
+            if bool((fd > last).any()):
+                bad = fills.loc[fd > last, "fill_id"].astype(str).head(5).tolist()
+                raise SystemExit(
+                    f"Uncommitted fills after last_date={last_date}: {bad}. "
+                    "Crash between fills.csv append and portfolio_state commit — "
+                    "repair state or authorized replay before continuing."
+                )
+
+    div_path = sdir / "dividends_applied.csv"
+    if div_path.exists():
+        divs = pd.read_csv(div_path)
+        if not divs.empty and "date" in divs.columns:
+            dd = pd.to_datetime(divs["date"], errors="coerce").dt.normalize()
+            if last is None:
+                raise SystemExit(
+                    "Uncommitted dividends_applied present but portfolio_state.last_date "
+                    "is missing. Repair before continuing."
+                )
+            if bool((dd > last).any()):
+                bad = divs.loc[dd > last, "key"].astype(str).head(5).tolist()
+                raise SystemExit(
+                    f"Uncommitted dividends after last_date={last_date}: {bad}. "
+                    "Repair state or authorized replay before continuing."
+                )
+
+
 def holdings(
     state: dict[str, Any],
     prices: dict[str, float],

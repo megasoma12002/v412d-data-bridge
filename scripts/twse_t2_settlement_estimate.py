@@ -227,13 +227,39 @@ def main() -> int:
         "--out-dir",
         type=Path,
         default=None,
-        help="Write CSV/JSON here (default: state-dir; observe-only)",
+        help=(
+            "Write CSV/JSON here (observe-only). Default: "
+            "repro/t2_settlement_estimate/ — refuses canonical forward/e21 "
+            "unless --allow-live-tree-out."
+        ),
+    )
+    ap.add_argument(
+        "--allow-live-tree-out",
+        action="store_true",
+        help="Permit writing estimate artifacts under forward/e21.",
     )
     ap.add_argument("--stdout-json", action="store_true")
     a = ap.parse_args()
     asof = date.fromisoformat(a.asof) if a.asof else datetime.now(tz=TAIPEI).date()
     estimates, summary = run_estimate(a.state_dir, asof=asof, calendar_path=a.calendar)
-    out_dir = a.out_dir or a.state_dir
+    default_out = ROOT / "repro" / "t2_settlement_estimate"
+    out_dir = Path(a.out_dir) if a.out_dir is not None else default_out
+    if not out_dir.is_absolute():
+        out_dir = (ROOT / out_dir).resolve()
+    else:
+        out_dir = out_dir.resolve()
+    live_tree = (ROOT / "forward" / "e21").resolve()
+    try:
+        out_dir.relative_to(live_tree)
+        under_live = True
+    except ValueError:
+        under_live = False
+    if under_live and not a.allow_live_tree_out:
+        raise SystemExit(
+            f"Refusing to write T+2 estimate under live tree {live_tree}. "
+            f"Use default {default_out}, pass --out-dir elsewhere, "
+            "or --allow-live-tree-out for an authorized observe drop."
+        )
     csv_path, json_path = write_outputs(estimates, summary, out_dir)
     report = {
         "summary": summary,
