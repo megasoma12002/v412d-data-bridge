@@ -110,12 +110,14 @@ Controls:
 
 ### N2 — FinPriv-scoped **relocate** (new sink)
 
-Only if N1 pack exists (pass **or** sealed autopsy that points to “off is not enough”).
+**Stage A ACCEPTED** — human **「ACCEPT N2（FinPriv→cash/0050）」** (2026-09-19), after N1 STOP.
 
 | Book family | Action under N1-style stress |
 |---|---|
-| `N2_TO_CASH` | FinPriv dollars → cash |
-| `N2_TO_0050` | FinPriv dollars → 0050 sleeve (cap predeclared) |
+| `N2_TO_CASH` | FinPriv dollars → cash (FinPub/TEL unchanged; sum &lt; 1) |
+| `N2_TO_0050` | FinPriv dollars → 0050 up to Soft-Frozen ETF hi **0.35**; overflow → cash |
+
+Triggers (compact, from N1 autopsy — not a retune of N1 grid): `LOCAL_06` · `LOCAL_08` · `REL_05` · `DUAL_L08_R05`.
 
 Whole-book dry-powder / global relocate already STOP’d elsewhere — **FinPriv-scoped** sink is the new role.
 

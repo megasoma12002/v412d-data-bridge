@@ -4,7 +4,7 @@ Date: 2026-09-19 (Ops residual 全修 ACCEPT + tip books align + E45 A05 residue
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
 **Cutover `#257`: FROZEN — do not merge** (`LIVE_CUTOVER_BUNDLE_257_FROZEN.md`) · 民股／四類等新機制或 human 改 sealed 門檻  
-新機制 N1：**STOP** · `PRIV_MDD_NEW_MECH_N1_DECISION_PACK.md`（FinPriv regime gate 0 sealed coexist；可 ballot N2 或改 sealed 門檻）  
+新機制：**ACCEPT N2 Stage-A** · FinPriv→cash/0050 · `PRIV_MDD_NEW_MECHANISM_CHARTER.md`（N1 STOP）  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
 Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  
