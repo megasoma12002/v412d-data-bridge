@@ -177,9 +177,8 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_new_mech_n3_stage_a.py
 ## 8. Alternate reopen
 
 - Human **sealed-gate change** — optional.  
-- V2/V3/V4/V5: **STOP**.  
-- **V6** shadow relative-NAV continuous FinPriv damp: **ACCEPT Stage-A** · `PRIV_MDD_SHADOW_RELNAV_V6_CHARTER.md`  
-- Re-open only: human sealed-gate · or other new charter (≠ N1–V5 retune).
+- V2/V3/V4/V5/V6: **STOP**.  
+- Re-open only: human sealed-gate · or other new charter (≠ N1–V6 retune).
 
 ---
 

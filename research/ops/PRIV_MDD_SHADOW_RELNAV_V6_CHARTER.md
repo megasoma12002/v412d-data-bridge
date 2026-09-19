@@ -1,7 +1,7 @@
 # 民股／四類 × MDD — New Mechanism V6 Charter（Shadow 相對 NAV 連續阻尼 FinPriv）
 
 Date: 2026-09-19  
-Status: **CHARTER ACCEPTED → Stage A RUNNING** — Soft-Frozen **KEEP** · `#257` **FROZEN** · sealed gate **unchanged**  
+Status: **CHARTER ACCEPTED → Stage A STOP** (`STAGE_A_SCORE_POS_GATES_FAIL` — shadow relnav: heldout often OK, **0 sealed coexist**; best tip-clean sealed `V6_C100_PUB` −0.24)  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Parents STOP: N1–N3 · V2 · V3 · V4 · V5 · + `SF4_DH` · decision packs on `#261`  
 Human: **「ACCEPT V6 Stage-A」** (2026-09-19)
@@ -136,4 +136,4 @@ PYTHONPATH=scripts python3 scripts/e16_priv_mdd_shadow_relnav_v6_stage_a.py
 - V4 A0: `PRIV_MDD_SEALED_EPISODE_A0.md`（diagnostic only — do not calendar-gate）  
 - Freeze: `LIVE_CUTOVER_BUNDLE_257_FROZEN.md`  
 
-Label: `PRIV_MDD_SHADOW_RELNAV_V6_CHARTER_2026-09-19__ACCEPTED`
+Label: `PRIV_MDD_SHADOW_RELNAV_V6_CHARTER_2026-09-19__STOP`

@@ -31,7 +31,7 @@ Frozen offense: `SF4_P60-90_V0-15_F10_KD` · enter `DH_dd06_vz1p0` · sealed **u
 1. Soft-Frozen stays **3-sleeve 公股**.  
 2. Do **not** Class-D / merge `#257` / soften sealed / retune DH enter / N1–V4.  
 3. Re-open only: human **sealed-gate** · or **other** new charter (≠ N1–V5 retune).  
-   Next DRAFT: `PRIV_MDD_SHADOW_RELNAV_V6_CHARTER.md`.
+   V6: **STOP** · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md`.
 
 ## Refs
 
