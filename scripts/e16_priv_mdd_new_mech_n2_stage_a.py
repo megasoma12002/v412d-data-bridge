@@ -98,6 +98,24 @@ def _meta(mechanism: str, **extra) -> dict:
     }
 
 
+def _run_book(market, dividends, target, regime, *, book_id: str, meta_extra: dict):
+    row = n1._sim_sf4(
+        market, dividends, target, regime, book_id=book_id, meta_extra=meta_extra
+    )
+    for k in (
+        "n2_family",
+        "n2_sink",
+        "n1_family",
+        "n1_local_thr",
+        "n1_rel_thr",
+        "gate_on_share",
+        "etf_hi_cap",
+    ):
+        if k in meta_extra:
+            row[k] = meta_extra[k]
+    return row
+
+
 def _extend_rank(row: dict, src: dict) -> dict:
     row = dict(row)
     for k in (
@@ -133,7 +151,7 @@ def main() -> int:
     priv_dd, rel_60, _ = n1.sleeve_nav_features(market)
 
     print("SF4_OFFENSE ...", flush=True)
-    results["SF4_OFFENSE"] = n1._sim_sf4(
+    results["SF4_OFFENSE"] = _run_book(
         market,
         dividends,
         off_t,
@@ -146,7 +164,7 @@ def main() -> int:
     print("N1_LOCAL_08_OFF_REF ...", flush=True)
     flag_n1 = make_flag(priv_dd, rel_60, "local", -0.08, None)
     n1_t, n1_f = n1.apply_priv_off_path(off_t, def_t, flag_n1)
-    results["N1_LOCAL_08_OFF_REF"] = n1._sim_sf4(
+    results["N1_LOCAL_08_OFF_REF"] = _run_book(
         market,
         dividends,
         n1_t,
@@ -163,7 +181,7 @@ def main() -> int:
 
     print("SF4_L4_08_REF ...", flush=True)
     l4_t, l4_f = n1.apply_l4_taiex_ref(off_t, def_t, market, n1.L4_REF_THR)
-    results["SF4_L4_08_REF"] = n1._sim_sf4(
+    results["SF4_L4_08_REF"] = _run_book(
         market,
         dividends,
         l4_t,
@@ -182,7 +200,7 @@ def main() -> int:
             bid = f"N2_{sink}_{tag}"
             print(f"{bid} ...", flush=True)
             tgt, f = apply_n2_relocate(off_t, flag, sink=sink)
-            results[bid] = n1._sim_sf4(
+            results[bid] = _run_book(
                 market,
                 dividends,
                 tgt,

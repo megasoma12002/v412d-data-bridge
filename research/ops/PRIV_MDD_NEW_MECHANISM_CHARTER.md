@@ -1,8 +1,8 @@
 # 民股／四類 × MDD — New Mechanism Charter (N1 → N2 → N3)
 
 Date: 2026-09-19  
-Status: **CHARTER ACCEPTED → Stage A STOP** (`STAGE_A_SCORE_POS_GATES_FAIL` — N1 FinPriv regime membership: tip/heldout often OK, **0 sealed-MDD coexist**)  
-Human ACCEPT: **「ACCEPT N1 Stage-A」** (2026-09-19)  
+Status: **CHARTER ACCEPTED → N2 Stage A STOP** (`STAGE_A_SCORE_POS_GATES_FAIL` — FinPriv→cash/0050: tip/heldout often OK, **0 sealed-MDD coexist**; closest sealed `N2_0050_LOCAL_08` −0.04 but tip fail)  
+Human ACCEPT: **「ACCEPT N2（FinPriv→cash/0050）」** (2026-09-19) · prior N1 ACCEPT 2026-09-19  
 Class: **A. Research / EXPERIMENTAL** · Soft-Frozen / live e21 flip = **Class D** later only  
 Authority: freeze reopen gate · `LIVE_CUTOVER_BUNDLE_257_FROZEN.md`  
 Human binding: 「民股等**新機制**或你改門檻再談」· this charter = **new mechanism** path (sealed gate **unchanged**)
@@ -147,17 +147,22 @@ Only after N2 pack:
 
 ---
 
-## 7. Stage A — ACCEPTED (N1 only)
+## 7. Stage A ladder status
 
-1. Implement `scripts/e16_priv_mdd_new_mech_n1_stage_a.py` (paper).  
-2. Run N1 grid + controls vs `LIVE_PUB_KD`.  
-3. Write `PRIV_MDD_NEW_MECH_N1_STAGE_A.{md,json}` + decision pack.  
-4. Verdict: coexist / STOP / autopsy → only then ballot N2 or sealed-gate human path.
+### N1 — DONE / STOP
+Repro: `PYTHONPATH=scripts python3 scripts/e16_priv_mdd_new_mech_n1_stage_a.py`  
+Pack: `PRIV_MDD_NEW_MECH_N1_DECISION_PACK.md`
+
+### N2 — ACCEPTED (this ballot)
+1. Implement `scripts/e16_priv_mdd_new_mech_n2_stage_a.py` (paper).  
+2. Run N2 grid + controls vs `LIVE_PUB_KD`.  
+3. Write `PRIV_MDD_NEW_MECH_N2_STAGE_A.{md,json}` + decision pack.  
+4. Verdict: coexist / STOP / autopsy → only then ballot N3 or sealed-gate human path.
 
 Reproduce:
 
 ```bash
-PYTHONPATH=scripts python3 scripts/e16_priv_mdd_new_mech_n1_stage_a.py
+PYTHONPATH=scripts python3 scripts/e16_priv_mdd_new_mech_n2_stage_a.py
 ```
 
 ---
