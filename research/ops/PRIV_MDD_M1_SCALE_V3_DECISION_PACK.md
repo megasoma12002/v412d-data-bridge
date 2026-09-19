@@ -28,7 +28,8 @@ Frozen offense: `SF4_P60-90_V0-15_F10_KD` · M1 `E45_M1_STATE_VECTOR_V0_FROZEN_2
 
 1. Soft-Frozen stays **3-sleeve 公股**.  
 2. Do **not** Class-D / merge `#257` / soften sealed / retune M1 maps.  
-3. Re-open only: human **sealed-gate** · or **other** new charter (≠ N1–N3/V2/V3 retune).
+3. Re-open only: human **sealed-gate** · or **other** new charter (≠ N1–N3/V2/V3 retune).  
+   Next DRAFT: `PRIV_MDD_SEALED_EPISODE_V4_CHARTER.md`.
 
 ## Refs
 
