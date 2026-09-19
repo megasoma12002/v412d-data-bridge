@@ -25,17 +25,28 @@ Prior ACCEPT ballots on `#257` (L4 / BLEND / priv-replace / tax / broker) are **
 
 Priv-**replace** is not 並存 and is **not** authorized as a substitute while 並存 fails sealed MDD.
 
+## PR triage (2026-09-19)
+
+| PR | Action |
+|---|---|
+| `#257` | **FROZEN / blocked** — leave draft · **do not merge** · **無民股小包暫不拆**（要拆再說） |
+| `#258` | **STOP research archive** — close after freeze SSOT lands (decision packs on `#260`) |
+| `#259` | **STOP research archive** — close after freeze SSOT lands (decision packs on `#260`) |
+| `#260` | Freeze SSOT + archived STOP packs → merge to keep main aligned |
+
 ## Allowed next (only)
 
 1. Keep operating current live (forward / QC / tip books align).  
-2. Merge `#258`/`#259` as **research STOP archives** only (optional; no live wire).  
-3. Re-open cutover only after: **new mechanism** charter (≠ retune frozen SF4 cell) **or** human-accepted **sealed-gate change**.
+2. Merge `#260` for freeze + STOP archive on main; then **close** `#258`/`#259`.  
+3. Re-open cutover only after: **new mechanism** charter (≠ retune frozen SF4 cell) **or** human-accepted **sealed-gate change**.  
+4. Optional later: split `#257` into **無民股** (BLEND/L4/tax only) — **not authorized now**.
 
 ## Explicit non-actions
 
 - Do **not** merge `#257`  
 - Do **not** live-expand 民股 / 四類 Soft-Frozen  
 - Do **not** soften sealed MDD from research peek  
-- Do **not** enable broker live-write from `#257`
+- Do **not** enable broker live-write from `#257`  
+- Do **not** split/merge「無民股小包」until a separate human ask  
 
 Label: `LIVE_CUTOVER_BUNDLE_257_FROZEN_2026-09-19__KEEP_PUB_FUSE_DH`

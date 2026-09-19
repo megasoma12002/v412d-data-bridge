@@ -1,0 +1,52 @@
+{
+  "generated_at_utc": "2026-09-19T11:27:00.495597+00:00",
+  "label": "SF4_DEFENCE_MDD_DECISION",
+  "status": "STOP_NO_SEALED_MDD_COEXIST",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "coexist_ids": [],
+  "best": {
+    "id": "SF4_L4_10_DH",
+    "mechanism": "SF4+L4_10+DH",
+    "pub_share": null,
+    "fin_pub_clip": [
+      0.6,
+      0.9
+    ],
+    "fin_priv_clip": [
+      0.0,
+      0.15
+    ],
+    "prior_priv_frac": 0.1,
+    "priv_policy": "FIN_PRE_EXDIV_KD",
+    "score_mdd": 1.1921,
+    "heldout_mdd_improve_pp": 1.5743,
+    "sealed_mdd_improve_pp": -0.7645,
+    "heldout_cagr_giveback_pp": -0.5826,
+    "legacy_heldout_score": 1.283,
+    "tip_ytd": "PASS",
+    "tip_1y": "PASS",
+    "tip_clean": true,
+    "tip_mdd_ok": true,
+    "tip_mdd_ytd_pp": 1.5446,
+    "tip_mdd_1y_pp": 1.5446,
+    "tip_pub": 4,
+    "tip_priv": 6,
+    "n_fills": 13543,
+    "gates": {
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "heldout_mdd": true,
+      "sealed_mdd": false,
+      "giveback_cap": true,
+      "score_mdd_pos": true
+    },
+    "coexist": false
+  },
+  "frozen_offense": "SF4_P60-90_V0-15_F10_KD",
+  "next": "STOP \u2014 Soft-Frozen \u516c\u80a1 KEEP; no \u56db\u985e Class D; new mechanism or human objective change only",
+  "charter": "research/ops/SF4_DEFENCE_MDD_CHARTER.md",
+  "stage_a": "research/ops/SF4_DEFENCE_MDD_STAGE_A.md",
+  "stage_a_status": "STAGE_A_SCORE_POS_GATES_FAIL",
+  "headline": "DH/L4 on frozen SF4 improves heldout/tip; 0/6 sealed MDD coexist; closest SF4_L4_08 sealed -0.20pp"
+}
