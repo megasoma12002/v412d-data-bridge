@@ -179,9 +179,11 @@ def build_report(state_dir: Path) -> dict:
             "Keep R4 daily observe — View B is liquidity SSOT",
             "When custody export exists → R5 reconcile vs View B (observe-only)",
             "Do not merge A/B/C clocks; do not after-tax DEFAULT this cycle",
+            "NHI 2.11% on single div pay ≥20k is custody haircut research-only — see NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md",
         ],
         "authority": [
             "research/ops/CASHFLOW_THREE_VIEWS.md",
+            "research/ops/NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md",
             "research/ops/TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md",
             "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md",
             "research/ops/ACCEPT_TIP_BOOKS_ALIGN_V3.md",

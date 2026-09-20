@@ -27,10 +27,20 @@
   "never_merge": ["A", "B", "C"],
   "report_script": "scripts/cashflow_three_views_report.py",
   "p0_next": "weekday_tip_catchup_stage_e",
+  "known_unwired_cashflow_haircuts": [
+    {
+      "id": "nhi_div_supplemental_211",
+      "threshold_twd": 20000,
+      "rate": 0.0211,
+      "note": "NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md",
+      "live_wired": false
+    }
+  ],
   "non_actions": [
     "no_merge_r4_into_portfolio_cash",
     "no_after_tax_default_for_cashflow",
     "no_history_rewrite",
-    "no_soft_frozen_flip"
+    "no_soft_frozen_flip",
+    "no_silent_nhi_haircut_on_live"
   ]
 }

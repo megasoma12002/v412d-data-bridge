@@ -75,13 +75,23 @@ settled_cash_estimate ≈ paper_cash − unsettled_net
 - Weekend invent / rewrite `forward/e21` history  
 - Soft-Frozen / alpha / broker live-write promote
 
+## Known cashflow haircut (not wired): NHI 補充保費
+
+Human (2026-09-20): **股利單次達 NT$20,000 → 二代健保補充保費 2.11% 就源扣繳**.  
+
+- **≠** ballot A 所得稅（年終）；這是 **發放日現金** 可能少一截.  
+- Live Stage-E still credits **TAX0 gross** — custody may show net after 2.11% when payment ≥ 20k.  
+- Research helper: `nhi_dividend_supplemental_premium.py` · note `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md`  
+- **No** live wire this cycle (needs dedicated ballot).
+
 ## Related
 
-- Tip Monday: `TIP_CATCHUP_MONDAY_CHECKLIST.md` (Phase 2; open PR #266)  
+- Tip Monday: `TIP_CATCHUP_MONDAY_CHECKLIST.md` (Phase 2; also open PR #266)  
 - R4/R5: `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` · `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md`  
 - Div delay: `TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md`  
 - Realism roadmap: `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md`  
-- Tax posture: `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` (ballot A — tax outside)
+- Tax posture: `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` (ballot A — 所得稅 outside)  
+- NHI: `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md`
 
 ## Label
 

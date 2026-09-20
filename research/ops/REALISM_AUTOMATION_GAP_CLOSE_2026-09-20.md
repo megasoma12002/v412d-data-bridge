@@ -10,7 +10,9 @@ Parent SSOT: `OPS_STATUS.md` · `HUMAN_DECISION_REGISTER.md` · tip-align `ACCEP
 Make the live accounting loop **self-running on open sessions** (forward → R4 → verify → alerts → dividend refresh), with **human ballots only** where money/compliance/DEFAULT flips are involved.  
 「全自動化」here means **unattended observe + evidence**, not auto Soft-Frozen / alpha / SendAlgo.
 
-**Human priority (2026-09-20):** **計算好現金流的數字** — Exact T+1 paper · R4 T+2 settled · Stage-E cash+receivable (TAX0). SSOT `CASHFLOW_THREE_VIEWS.md`. After-tax tax\* DEFAULT is **not** the cashflow path.
+**Human priority (2026-09-20):** **計算好現金流的數字** — Exact T+1 paper · R4 T+2 settled · Stage-E cash+receivable (TAX0). SSOT `CASHFLOW_THREE_VIEWS.md`. After-tax tax\* DEFAULT is **not** the cashflow path.  
+
+**NHI note (same day):** single dividend pay **≥ NT$20,000** → **2.11%** supplemental premium at source — custody vs TAX0 gross gap; **not** live-wired · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md`.
 
 ## What already runs unattended
 

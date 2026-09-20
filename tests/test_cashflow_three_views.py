@@ -128,6 +128,9 @@ class TipSmokeTests(unittest.TestCase):
         self.assertTrue(
             (ROOT / "research" / "ops" / "TIP_CATCHUP_MONDAY_CHECKLIST.md").is_file()
         )
+        self.assertTrue(
+            (ROOT / "research" / "ops" / "NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md").is_file()
+        )
 
 
 if __name__ == "__main__":
