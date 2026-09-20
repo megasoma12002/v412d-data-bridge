@@ -1,0 +1,49 @@
+# Monday tip catch-up checklist (concrete ops)
+
+Status: **OPS** — Soft-Frozen KEEP · no history rewrite  
+When: first **weekday** after tip-align ACCEPT (tip still may show `E22_v2s_tw_effex`)  
+Goal: confirm tip → `E22_v3_recv_pay_effdelay` (= realism **Phase 2**)
+
+## Do nothing this weekend
+
+Do **not** invent a forward session or rewrite `forward/e21` history.
+
+## Monday (after `v412f-forward-paper` green)
+
+1. Open Actions → `V4.12-F E21 Daily Forward Paper` → latest run **success** (not `session_skip` only, unless typhoon/holiday).
+2. Check tip:
+   ```bash
+   python3 - <<'PY'
+   import json
+   from pathlib import Path
+   ps = json.loads(Path("forward/e21/portfolio_state.json").read_text())
+   print("last_date", ps.get("last_date"))
+   print("e22_books_version", ps.get("e22_books_version"))
+   assert ps.get("e22_books_version") == "E22_v3_recv_pay_effdelay"
+   PY
+   ```
+3. Confirm verify pack (auto-written by Phase 1):
+   ```bash
+   python3 - <<'PY'
+   import json
+   from pathlib import Path
+   v = json.loads(Path("research/ops/POST_FORWARD_E22_VERIFY.json").read_text())
+   print("ok", v["ok"], "tip_lag", v["tip_lag"], "failures", v["failures"])
+   assert v["ok"] is True
+   assert v["tip_lag"] is False
+   PY
+   ```
+4. Confirm alert scan no longer needs TIP_LAG as debt:
+   ```bash
+   python3 scripts/ops_alert_scan.py --report-only
+   # TIP_LAG_BOOKS should be absent once tip == DEFAULT
+   ```
+
+## If tip still lags after a green open session
+
+1. File ops note (pipeline not reading `LIVE.e22_books_version`) — **do not** backfill NAV.  
+2. Soft-Frozen KEEP.
+
+## Label
+
+`TIP_CATCHUP_MONDAY_CHECKLIST`

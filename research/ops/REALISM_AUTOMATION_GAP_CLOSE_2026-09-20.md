@@ -75,7 +75,7 @@ Authority: `POST_FORWARD_E22_VERIFY_RUNBOOK.md`.
 1. Encode `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` spot fields as JSON schema checks in `ops_alert_scan.py` (missing estimate / empty unsettled on active week).  
 2. Label every alert: liquidity view **≠** NAV.
 
-### Phase 4 — R5 when fixture exists
+### Phase 4 — R5 when fixture exists — **SCAFFOLD LANDED 2026-09-20** (synthetic CI; real custody still manual)
 
 1. Workflow `r5-broker-reconcile.yml` (manual / path to private custody artifact).  
 2. CLI: `twse_t2_broker_reconcile.py --estimate forward/e21/settlement_cash_estimate.csv --custody … --out-dir forward/e21/broker_reconcile`.  
