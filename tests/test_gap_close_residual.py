@@ -36,9 +36,8 @@ class CalendarWindowYMinus1(unittest.TestCase):
         self.assertTrue(any(d.year == 2026 for d in sessions))
 
     def test_2025_cny_jan27_closed(self) -> None:
-        rows = list(
-            csv.DictReader((CAL_DIR / "twse_sessions_2025.csv").open(encoding="utf-8"))
-        )
+        with (CAL_DIR / "twse_sessions_2025.csv").open(encoding="utf-8") as fh:
+            rows = list(csv.DictReader(fh))
         by = {r["date"]: r for r in rows}
         self.assertEqual(by["2025-01-27"]["is_session"], "0")
         self.assertEqual(by["2025-01-23"]["kind"], "SETTLEMENT_ONLY")
@@ -145,6 +144,15 @@ class CalendarDefaultsDehardcoded(unittest.TestCase):
                 src,
                 msg=f"{name} still hardcodes 2026 calendar default",
             )
+
+    def test_e50_uses_load_calendar_window(self) -> None:
+        src = (SCRIPTS / "e50_early_stack_combined_nav.py").read_text(encoding="utf-8")
+        self.assertIn("load_calendar_window", src)
+        self.assertNotIn(
+            'f"twse_sessions_{year}.csv"',
+            src,
+            msg="e50 still single-year calendar path",
+        )
 
 
 class DocsHygieneResidual(unittest.TestCase):
