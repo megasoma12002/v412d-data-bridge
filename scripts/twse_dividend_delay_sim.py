@@ -22,6 +22,7 @@ import e22_v3_sandbox_books as sandbox
 from twse_dividend_delay_estimate import effective_ex_trade, effective_payment
 from twse_session_sources import (
     DEFAULT_CALENDAR_DIR,
+    load_calendar_window,
     read_calendar_csv,
     session_dates,
     settlement_dates,
@@ -163,7 +164,8 @@ def main() -> int:
     ap.add_argument(
         "--calendar",
         type=Path,
-        default=DEFAULT_CALENDAR_DIR / "twse_sessions_2026.csv",
+        default=None,
+        help="Single TWSE sessions CSV (default: load_calendar_window from ex-date year)",
     )
     ap.add_argument(
         "--out",
@@ -177,9 +179,15 @@ def main() -> int:
     )
     a = ap.parse_args()
 
-    cal = read_calendar_csv(a.calendar)
-    sessions = session_dates(cal)
-    settlements = settlement_dates(cal)
+    if a.calendar is not None:
+        cal = read_calendar_csv(a.calendar)
+        sessions = session_dates(cal)
+        settlements = settlement_dates(cal)
+    else:
+        center = int(str(a.ex_date)[:4])
+        sessions, settlements = load_calendar_window(
+            center, calendar_dir=DEFAULT_CALENDAR_DIR, span=1
+        )
 
     events = [
         e

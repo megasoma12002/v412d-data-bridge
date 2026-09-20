@@ -140,7 +140,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
-- **Full-review harden** (2026-09-20): code-review pack landed — entitlement cum shares · Y±1 calendars · blank pay refuse · ledger orphan detect · NHI settle haircut sandbox · GHA allow flags · Soft-Frozen KEEP · tip history untouched  
+- **Full-review harden** (2026-09-20): code-review pack landed — entitlement cum shares · Y±1 **loader** (`load_calendar_window`) · **2025 CSV pinned** · **2027 wait** for TWSE publish · blank pay refuse · ledger orphan detect · NHI settle haircut sandbox · GHA allow flags · Soft-Frozen KEEP · tip history untouched  
 - **Tax purpose** (human 2026-09-20「稅的目的是要有精準的現金流」): tax/withholding modeling = **cashflow precision** · year-end 所得稅 stays outside (ballot A) · pay-day NHI in sandbox `E22_v3_recv_pay_effdelay_nhi211` · `TAX_FOR_CASHFLOW_PURPOSE.md`  
 - **Cashflow number priority** (human 2026-09-20「主要是要計算好現金流的數字」): keep A/B/C clocks separate — Exact T+1 paper · R4 settled · Stage-E cash+recv (TAX0) · SSOT `CASHFLOW_THREE_VIEWS.md` · report `cashflow_three_views_report.py` · **not** after-tax flat tax10/20 DEFAULT for cashflow  
 - **NHI 補充保費** (human 2026-09-20「股利超過20000會需要繳補充保費」): 單次達 2 萬 → 2.11% 就源扣；**cashflow fidelity** vs Stage-E TAX0 gross · sandbox ready · **not** live · ≠ ballot A 所得稅 · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md`  

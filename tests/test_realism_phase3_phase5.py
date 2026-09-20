@@ -23,6 +23,7 @@ class Phase3R4TipLagAlerts(unittest.TestCase):
         self.assertIn("TIP_LAG_BOOKS", src)
         self.assertIn("liquidity view", src.lower())
         self.assertIn("DIV_APPLIED_MISSING_IN_RECV_WINDOW", src)
+        self.assertIn("DIV_APPLIED_EMPTY_IN_RECV_WINDOW", src)
         self.assertIn("settlement_cash_estimate", src)
 
     def test_scan_emits_tip_lag_and_r4_present_on_repo_tip(self):

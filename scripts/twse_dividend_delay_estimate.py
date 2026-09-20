@@ -22,6 +22,7 @@ from typing import Any, Sequence
 
 from twse_session_sources import (
     DEFAULT_CALENDAR_DIR,
+    load_calendar_window,
     nth_session_after,
     nth_settlement_after,
     read_calendar_csv,
@@ -287,7 +288,17 @@ def main() -> int:
     ap.add_argument(
         "--calendar",
         type=Path,
-        default=DEFAULT_CALENDAR_DIR / "twse_sessions_2026.csv",
+        default=None,
+        help=(
+            "Single TWSE sessions CSV. Default: load_calendar_window(center_year) "
+            "with center from --calendar-year or max event year / asof."
+        ),
+    )
+    ap.add_argument(
+        "--calendar-year",
+        type=int,
+        default=0,
+        help="Center year for load_calendar_window when --calendar unset (0=infer)",
     )
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--summary-json", type=Path, default=None)
@@ -306,12 +317,66 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=0, help="Max rows (0=all)")
     a = ap.parse_args()
 
-    cal = read_calendar_csv(a.calendar)
-    sessions = session_dates(cal)
-    settlements = settlement_dates(cal)
     events = load_events(a.events)
     if a.limit > 0:
         events = events[: a.limit]
+
+    if a.calendar is not None:
+        cal = read_calendar_csv(a.calendar)
+        sessions = session_dates(cal)
+        settlements = settlement_dates(cal)
+    else:
+        years: set[int] = set()
+        for e in events:
+            for key in (
+                "cash_ex_date",
+                "cash_payment_date",
+                "stock_ex_date",
+                "stock_payment_date",
+            ):
+                raw = str(e.get(key) or "")[:10]
+                if len(raw) == 10:
+                    try:
+                        years.add(int(raw[:4]))
+                    except ValueError:
+                        pass
+        if a.calendar_year:
+            years.add(int(a.calendar_year))
+        if not years:
+            years.add(date.today().year)
+        sessions_acc: list[date] = []
+        settlements_acc: list[date] = []
+        loaded = False
+        # Prefer explicit center; else union every event year that has a CSV
+        # (plus Y±1 neighbors via load_calendar_window).
+        centers = (
+            [int(a.calendar_year)]
+            if a.calendar_year
+            else sorted(years, reverse=True)
+        )
+        seen_centers: set[int] = set()
+        for center in centers:
+            if center in seen_centers:
+                continue
+            seen_centers.add(center)
+            try:
+                s, t = load_calendar_window(
+                    center, calendar_dir=DEFAULT_CALENDAR_DIR, span=1
+                )
+            except FileNotFoundError:
+                continue
+            sessions_acc.extend(s)
+            settlements_acc.extend(t)
+            loaded = True
+            if a.calendar_year:
+                break
+        if not loaded:
+            # Tip / asof year last resort
+            sessions_acc, settlements_acc = load_calendar_window(
+                date.today().year, calendar_dir=DEFAULT_CALENDAR_DIR, span=1
+            )
+        sessions = sorted(set(sessions_acc))
+        settlements = sorted(set(settlements_acc))
 
     from e22_mops_payment_amendments import load_amendments
     from twse_same_day_ex_list import load_ex_amendments

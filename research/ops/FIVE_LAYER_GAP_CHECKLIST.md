@@ -51,7 +51,7 @@ Legend: **DONE** · **PARTIAL** · **OPEN** · **DEFERRED** (gated / out of scop
 | Gap #6 fidelity KPI | **DONE** | |
 | Live ledger E22 field evidence | **PARTIAL** | code ready; runbook: `POST_FORWARD_E22_VERIFY_RUNBOOK.md`; wait weekday forward |
 | TW odd-lot variant promote | **DONE** | human ACCEPT promote 2026-09-05; DEFAULT=`E22_v2s_tw` forward-only |
-| Receivable / pay-date books / div tax as formal | **DEFERRED** | charter drafted `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` |
+| Receivable / pay-date books / div tax as formal | **PARTIAL** | Stage-E live **TAX0** (ballot A KEEP); Stage-B after-tax + NHI live still **DEFERRED** · charter `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · observe `E22_TAX0_VS_NHI211_OBSERVE.md` |
 
 ## Layer 4 — Governance / docs
 

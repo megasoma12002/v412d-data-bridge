@@ -134,15 +134,15 @@ Machine index: `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.json`
 
 ---
 
-## Operator “until Phase 1 lands”
+## Operator (Phase 0–1 LANDED — weekday tip catch-up / Phase 2)
 
 ```bash
-# After next weekday forward (tip catch-up):
+# After next weekday forward (Phase 2 tip catch-up):
 python3 scripts/e21_qc.py --state-dir forward/e21
 python3 scripts/e22_gap6_fidelity_kpi.py
 python3 scripts/e22_data_quality_kpi.py
 python3 scripts/ops_alert_scan.py --report-only
-# see POST_FORWARD_E22_VERIFY_RUNBOOK.md
+# see POST_FORWARD_E22_VERIFY_RUNBOOK.md · TIP_CATCHUP_MONDAY_CHECKLIST.md
 ```
 
 ## Label

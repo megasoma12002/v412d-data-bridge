@@ -140,6 +140,9 @@ def _tax_sensitivity(div_path: Path) -> dict:
             "haircut_0pct": None,
             "haircut_10pct": None,
             "haircut_20pct": None,
+            "nhi211_net_cash": None,
+            "nhi211_premium": None,
+            "nhi211_n_above_threshold": None,
             "note": "No dividends_applied.csv yet — tax sensitivity deferred until live applies cash events.",
         }
     d = pd.read_csv(div_path)
@@ -147,14 +150,32 @@ def _tax_sensitivity(div_path: Path) -> dict:
     col = "cash_credit" if "cash_credit" in cash.columns else None
     if col is None:
         return {"available": False, "note": "dividends_applied.csv missing cash_credit column"}
-    gross = float(pd.to_numeric(cash[col], errors="coerce").fillna(0).sum())
+    from nhi_dividend_supplemental_premium import nhi_dividend_premium
+
+    amounts = pd.to_numeric(cash[col], errors="coerce").fillna(0.0)
+    gross = float(amounts.sum())
+    nhi_premium = 0.0
+    nhi_net = 0.0
+    n_above = 0
+    for g in amounts.tolist():
+        r = nhi_dividend_premium(float(g))
+        nhi_premium += float(r.premium_twd)
+        nhi_net += float(r.net_cash_twd)
+        if r.applies:
+            n_above += 1
     return {
         "available": True,
         "gross_cash_credit": gross,
         "haircut_0pct": gross,
         "haircut_10pct": gross * 0.90,
         "haircut_20pct": gross * 0.80,
-        "note": "Report-only; formal books remain TAX0 (pre-tax). Not a Soft-Frozen gate.",
+        "nhi211_net_cash": nhi_net,
+        "nhi211_premium": nhi_premium,
+        "nhi211_n_above_threshold": int(n_above),
+        "note": (
+            "Report-only; formal books remain TAX0 (pre-tax). "
+            "NHI211 columns use nhi_dividend_supplemental_premium threshold rule — not a Soft-Frozen gate."
+        ),
     }
 
 
@@ -312,6 +333,8 @@ def main() -> int:
         lines += [
             f"- Gross cash credits applied: **{tax['gross_cash_credit']:.2f}**",
             f"- After 10% / 20% haircut: **{tax['haircut_10pct']:.2f}** / **{tax['haircut_20pct']:.2f}**",
+            f"- NHI211 net / premium (threshold 2.11%): **{tax.get('nhi211_net_cash'):.2f}** / "
+            f"**{tax.get('nhi211_premium'):.2f}** (n_above={tax.get('nhi211_n_above_threshold')})",
         ]
     else:
         lines.append(f"- {tax.get('note')}")

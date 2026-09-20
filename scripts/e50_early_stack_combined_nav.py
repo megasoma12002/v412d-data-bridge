@@ -244,7 +244,7 @@ def simulate_core(
     _cal_cache: dict[int, tuple[list | None, list | None]] = {}
 
     def _sessions_for_day(day_iso: str):
-        """Load session/settlement calendars for day year when needed; soft-miss OK."""
+        """Load Y±1 session/settlement calendars for day year; soft-miss OK."""
         if not needs_session_cal:
             return None, None
         try:
@@ -253,19 +253,16 @@ def simulate_core(
             return None, None
         if year in _cal_cache:
             return _cal_cache[year]
-        from twse_session_sources import (
-            DEFAULT_CALENDAR_DIR,
-            read_calendar_csv,
-            session_dates,
-            settlement_dates,
-        )
+        from twse_session_sources import DEFAULT_CALENDAR_DIR, load_calendar_window
 
-        cal_path = DEFAULT_CALENDAR_DIR / f"twse_sessions_{year}.csv"
-        if not cal_path.exists():
+        try:
+            sessions, settlements = load_calendar_window(
+                year, calendar_dir=DEFAULT_CALENDAR_DIR, span=1
+            )
+        except FileNotFoundError:
             _cal_cache[year] = (None, None)
             return None, None
-        cal_rows = read_calendar_csv(cal_path)
-        pair = (list(session_dates(cal_rows)), list(settlement_dates(cal_rows)))
+        pair = (list(sessions), list(settlements))
         _cal_cache[year] = pair
         return pair
 
