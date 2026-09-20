@@ -1,12 +1,12 @@
 # Ops Alerts
 
-Generated: `2026-09-20T01:54:06.189096+00:00`
+Generated: `2026-09-20T02:02:50.017178+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.60, 0.90] unchanged**. No auto cutover.
 
 - CRITICAL: 0
 - HIGH (PAUSE_REVIEW etc.): 7
-- INFO: 26
+- INFO: 28
 
 | Severity | Source | Code | Message |
 |---|---|---|---|
@@ -41,13 +41,15 @@ Soft-Frozen **[0.60, 0.90] unchanged**. No auto cutover.
 | INFO | `e45_defend_handoff_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=3.3350% > 2% on overlap |
 | INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=18 (<60) — not decision-grade for cutover |
+| INFO | `e22_gap6_fidelity_kpi` | `TIP_LAG_BOOKS` | tip books 'E22_v2s_tw_effex' lag Stage-E DEFAULT 'E22_v3_recv_pay_effdelay' — authorized until next weekday forward (ACCEPT_TIP_BOOKS_ALIGN_V3); tip lag ≠ second DEFAULT; Soft-Frozen KEEP |
+| INFO | `r4_settlement_estimate` | `R4_ESTIMATE_PRESENT` | R4 settlement_cash_estimate present — settled_cash_estimate=1022.172182977898 is liquidity view NOT portfolio NAV / Soft-Frozen cash |
 | INFO | `data_source_phase_c_probes` | `PHASE_C_C1_FIN12_HISTORY_SHADOW_NOTE` | DRIFT on 1 ticker(s); does not count toward PASS |
 | INFO | `data_source_phase_c_probes` | `PHASE_C_C3_TAIEX_OPTIONAL_FAILOVER_NOTE` | Helper is opt-in only; e21 still uses FinMind TaiwanStockPrice(TAIEX). |
 
 ## Routing
 
 - CRITICAL → fail `e21-live-qc-smoke` / block live confidence
-- HIGH → month-end pack annotates PAUSE; cutover checklists stay blocked
-- INFO → recorded only
+- HIGH → month-end pack annotates PAUSE; R4 missing; cutover checklists stay blocked
+- INFO → tip lag / R4 present (liquidity ≠ NAV) / recorded only
 
 Re-run: `python3 scripts/ops_alert_scan.py`

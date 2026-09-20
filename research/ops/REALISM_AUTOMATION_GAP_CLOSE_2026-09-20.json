@@ -98,7 +98,8 @@
     },
     {
       "phase": 3,
-      "title": "r4_continuous_alerts"
+      "title": "r4_continuous_alerts",
+      "status": "LANDED"
     },
     {
       "phase": 4,
@@ -106,7 +107,8 @@
     },
     {
       "phase": 5,
-      "title": "dividend_cadence_and_applied_kpi"
+      "title": "dividend_cadence_and_applied_kpi",
+      "status": "LANDED"
     },
     {
       "phase": 6,
@@ -130,6 +132,10 @@
   "implementations": {
     "script": "scripts/post_forward_e22_verify.py",
     "primary_workflow": ".github/workflows/v412f-forward-paper.yml",
-    "secondary_workflow": ".github/workflows/post-forward-e22-verify.yml"
-  }
+    "secondary_workflow": ".github/workflows/post-forward-e22-verify.yml",
+    "phase3": "scripts/ops_alert_scan.py (R4 + TIP_LAG_BOOKS)",
+    "phase5": ".github/workflows/v412e22-dividend-events.yml (cron 0 7 * * 1-5)"
+  },
+  "phase_3_5_landed": true,
+  "phase_3_5_landed_utc": "2026-09-20"
 }

@@ -7,8 +7,8 @@ Reads live QC + latest month-end monitor JSONs and emits:
 
 Severity:
   CRITICAL — live QC FAIL / Exact T+1 fail
-  HIGH     — month-end PAUSE_REVIEW (cutover talk blocked; Soft-Frozen unchanged)
-  INFO     — ALERT lines without PAUSE / thin recon overlap
+  HIGH     — month-end PAUSE_REVIEW / R4 estimate missing (cutover talk blocked; Soft-Frozen unchanged)
+  INFO     — ALERT lines without PAUSE / thin recon / tip lag / R4 present (liquidity ≠ NAV)
 
 Exit codes:
   0 — no CRITICAL/HIGH
@@ -16,6 +16,8 @@ Exit codes:
   2 — CRITICAL present
 
 Never flips Soft-Frozen. Never cutover.
+Phase 3: R4 continuous observe + TIP_LAG_BOOKS INFO.
+Phase 5: optional DIV_APPLIED_MISSING_IN_RECV_WINDOW (Stage-E tip only).
 """
 from __future__ import annotations
 
@@ -45,6 +47,16 @@ E22_KPI_JSON = ROOT / "research/ops/E22_DATA_QUALITY_KPI.json"
 RESILIENCE_JSON = ROOT / "research/ops/DATA_SOURCE_RESILIENCE_KPI.json"
 SHADOW_JSON = ROOT / "research/ops/DATA_SOURCE_SHADOW_RECONCILE.json"
 PHASE_C_JSON = ROOT / "research/ops/DATA_SOURCE_PHASE_C_PROBES.json"
+R4_CSV = ROOT / "forward/e21/settlement_cash_estimate.csv"
+R4_JSON = ROOT / "forward/e21/settlement_cash_estimate.json"
+SESSION_SKIP = ROOT / "forward/session_skip.json"
+STAGE_E_DEFAULT = "E22_v3_recv_pay_effdelay"
+R4_SUMMARY_KEYS = (
+    "settling_today_net",
+    "unsettled_net",
+    "paper_cash",
+    "settled_cash_estimate",
+)
 
 # Soft-Frozen clip — single source (never hardcode drift).
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
@@ -253,6 +265,88 @@ def main() -> int:
                     "message": str(flag),
                 }
             )
+        # Phase 3 — tip lag (INFO; never CRITICAL; not a second DEFAULT).
+        live = gap6.get("live_ledger") or {}
+        code = gap6.get("code_wire") or {}
+        observed = live.get("observed_books_version")
+        default = code.get("default_books_version") or STAGE_E_DEFAULT
+        if observed and default and observed != default:
+            alerts.append(
+                {
+                    "severity": "INFO",
+                    "source": "e22_gap6_fidelity_kpi",
+                    "code": "TIP_LAG_BOOKS",
+                    "message": (
+                        f"tip books {observed!r} lag Stage-E DEFAULT {default!r} — "
+                        "authorized until next weekday forward (ACCEPT_TIP_BOOKS_ALIGN_V3); "
+                        "tip lag ≠ second DEFAULT; Soft-Frozen KEEP"
+                    ),
+                }
+            )
+        # Phase 5 optional — apply rows missing while receivable window open (Stage-E tip only).
+        if observed == STAGE_E_DEFAULT:
+            recv = gap6.get("receivable_stub") or {}
+            n_recv = int(recv.get("n_cash_events_in_receivable_window") or 0)
+            if n_recv > 0 and not live.get("dividends_applied_exists"):
+                alerts.append(
+                    {
+                        "severity": "INFO",
+                        "source": "e22_gap6_fidelity_kpi",
+                        "code": "DIV_APPLIED_MISSING_IN_RECV_WINDOW",
+                        "message": (
+                            f"Stage-E tip with {n_recv} cash events in receivable window but "
+                            "dividends_applied.csv absent — report-only; no history backfill"
+                        ),
+                    }
+                )
+
+    # Phase 3 — R4 T+2 settlement estimate continuous observe (liquidity ≠ NAV).
+    session = _load(SESSION_SKIP) or {}
+    is_session = bool(session.get("is_session")) if session else None
+    r4_csv_ok = R4_CSV.is_file() and R4_CSV.stat().st_size > 0
+    r4_json_ok = R4_JSON.is_file() and R4_JSON.stat().st_size > 0
+    if not (r4_csv_ok and r4_json_ok):
+        # On closed board, prior R4 should still exist; missing is HIGH either way.
+        alerts.append(
+            {
+                "severity": "HIGH",
+                "source": "r4_settlement_estimate",
+                "code": "R4_ESTIMATE_MISSING",
+                "message": (
+                    "settlement_cash_estimate.csv/json missing or empty under forward/e21 — "
+                    "liquidity observe only (NOT NAV); Soft-Frozen KEEP"
+                ),
+            }
+        )
+    else:
+        r4 = _load(R4_JSON) or {}
+        summary = r4.get("summary") if isinstance(r4.get("summary"), dict) else r4
+        missing = [k for k in R4_SUMMARY_KEYS if k not in (summary or {})]
+        if missing:
+            alerts.append(
+                {
+                    "severity": "INFO",
+                    "source": "r4_settlement_estimate",
+                    "code": "R4_SUMMARY_SCHEMA",
+                    "message": (
+                        f"R4 summary missing keys {missing} — liquidity view not NAV "
+                        f"(session_is_session={is_session})"
+                    ),
+                }
+            )
+        else:
+            alerts.append(
+                {
+                    "severity": "INFO",
+                    "source": "r4_settlement_estimate",
+                    "code": "R4_ESTIMATE_PRESENT",
+                    "message": (
+                        "R4 settlement_cash_estimate present — "
+                        f"settled_cash_estimate={summary.get('settled_cash_estimate')} "
+                        "is liquidity view NOT portfolio NAV / Soft-Frozen cash"
+                    ),
+                }
+            )
 
     resilience = _load(RESILIENCE_JSON)
     if resilience is None:
@@ -383,7 +477,10 @@ def main() -> int:
         "alerts": alerts,
         "routing_note": (
             "Annotate CI job summary / upload OPS_ALERTS.* as artifact. "
-            "HIGH=PAUSE_REVIEW blocks cutover talk only. CRITICAL fails live QC smoke."
+            "HIGH=PAUSE_REVIEW / R4 missing blocks cutover talk only (not Soft-Frozen flip). "
+            "CRITICAL fails live QC smoke. "
+            "R4 settled_cash_estimate is liquidity view NOT NAV. "
+            "TIP_LAG_BOOKS is INFO until weekday tip catch-up."
         ),
     }
 
@@ -412,8 +509,8 @@ def main() -> int:
         "## Routing",
         "",
         "- CRITICAL → fail `e21-live-qc-smoke` / block live confidence",
-        "- HIGH → month-end pack annotates PAUSE; cutover checklists stay blocked",
-        "- INFO → recorded only",
+        "- HIGH → month-end pack annotates PAUSE; R4 missing; cutover checklists stay blocked",
+        "- INFO → tip lag / R4 present (liquidity ≠ NAV) / recorded only",
         "",
         "Re-run: `python3 scripts/ops_alert_scan.py`",
         "",

@@ -171,6 +171,8 @@ class SleeveTiltObserveGuards(unittest.TestCase):
         src = (SCRIPTS / "ops_alert_scan.py").read_text(encoding="utf-8")
         self.assertIn("SOFT_ASSIST_MONTH_END_MONITOR.json", src)
         self.assertIn("SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json", src)
+        self.assertIn("TIP_LAG_BOOKS", src)
+        self.assertIn("R4_ESTIMATE_MISSING", src)
 
     def test_forward_pipeline_refuses_asof_rewind(self):
         # Session rewind gate lives in live_session_io; fill skip in live_fill_core + e50.

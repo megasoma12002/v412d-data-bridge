@@ -70,7 +70,7 @@ Authority: `POST_FORWARD_E22_VERIFY_RUNBOOK.md`.
 2. Optional alert rule: tip≠DEFAULT for N open sessions after tip-align ACCEPT → HIGH ops (not CRITICAL).  
 3. Still: no history rewrite.
 
-### Phase 3 — R4 continuous observe
+### Phase 3 — R4 continuous observe — **LANDED 2026-09-20**
 
 1. Encode `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` spot fields as JSON schema checks in `ops_alert_scan.py` (missing estimate / empty unsettled on active week).  
 2. Label every alert: liquidity view **≠** NAV.
@@ -81,7 +81,7 @@ Authority: `POST_FORWARD_E22_VERIFY_RUNBOOK.md`.
 2. CLI: `twse_t2_broker_reconcile.py --estimate forward/e21/settlement_cash_estimate.csv --custody … --out-dir forward/e21/broker_reconcile`.  
 3. Observe-only exit; never flip `fill_port` or Soft-Frozen.
 
-### Phase 5 — Dividend data cadence
+### Phase 5 — Dividend data cadence — **LANDED 2026-09-20**
 
 1. Add weekday/weekly cron to `v412e22-dividend-events.yml` (fetch `data/dividend_events/` only).  
 2. When live produces `dividends_applied.csv`: Gap6 tax sensitivity becomes report-only automatically.  

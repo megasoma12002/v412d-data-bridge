@@ -9,6 +9,9 @@ Run **one trading week** of observe-only T+2 estimate (R4). Run R5 only when a c
 
 ## Daily (after `v412f-forward-paper`)
 
+**Phase 3 continuous observe (LANDED):** `ops_alert_scan.py` emits `R4_ESTIMATE_PRESENT` / `R4_ESTIMATE_MISSING` / `TIP_LAG_BOOKS` — `settled_cash_estimate` is **liquidity view NOT NAV**.
+
+
 1. Confirm job green (or `session_skip` on closed board — OK).
 2. Artifact present: `forward/e21/settlement_cash_estimate.csv` + `.json`.
 3. Spot-check summary fields (liquidity view, **not** NAV):
