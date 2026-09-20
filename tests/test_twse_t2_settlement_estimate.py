@@ -6,6 +6,7 @@ import csv
 import json
 import tempfile
 import unittest
+import unittest.mock
 from datetime import date
 from pathlib import Path
 
@@ -252,6 +253,50 @@ class TyphoonSessionOffsetTests(unittest.TestCase):
             self.assertEqual(summary["paper_cash"], 50000.0)
             # asof 07-09 < settle 07-13 → unsettled payable
             self.assertLess(summary["unsettled_net"], 0)
+
+
+class MissingCalendarYearsTests(unittest.TestCase):
+    def test_run_estimate_lists_missing_years(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            td_path = Path(td)
+            state = td_path / "state"
+            state.mkdir()
+            with (state / "fills.csv").open("w", encoding="utf-8", newline="") as f:
+                w = csv.DictWriter(
+                    f,
+                    fieldnames=[
+                        "fill_id",
+                        "fill_date",
+                        "code",
+                        "side",
+                        "quantity",
+                        "gross",
+                        "fees_tax",
+                    ],
+                )
+                w.writeheader()
+                w.writerow(
+                    {
+                        "fill_id": "x",
+                        "fill_date": "2025-07-08",
+                        "code": "0050",
+                        "side": "BUY",
+                        "quantity": "1",
+                        "gross": "100",
+                        "fees_tax": "1",
+                    }
+                )
+            (state / "portfolio_state.json").write_text(
+                json.dumps({"cash": 1.0}), encoding="utf-8"
+            )
+            import twse_t2_settlement_estimate as est
+
+            with unittest.mock.patch.object(est, "DEFAULT_CALENDAR_DIR", td_path):
+                with self.assertRaises(FileNotFoundError) as ctx:
+                    run_estimate(state, asof=date(2026, 7, 9))
+            msg = str(ctx.exception)
+            self.assertIn("2025", msg)
+            self.assertIn("2026", msg)
 
 
 class SummarizeTests(unittest.TestCase):

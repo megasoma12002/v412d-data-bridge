@@ -10,11 +10,13 @@ from zoneinfo import ZoneInfo
 
 from twse_session_sources import (
     CapWorkStop,
+    DayRecord,
     TAIPEI,
     apply_overlays,
     build_annual_calendar,
     classify_taifex_day_fact,
     holiday_status_for,
+    load_calendar_window,
     lookup_day,
     mis_row_open_on,
     nth_session_after,
@@ -323,6 +325,33 @@ class TaifexOverlayTests(unittest.TestCase):
         self.assertFalse(d710.is_session)
         self.assertEqual(d710.kind, "CLOSED_TYPHOON_OR_NODATA")
         self.assertIn("taifex_tx", d710.source)
+
+
+class CalendarWindowTests(unittest.TestCase):
+    def test_center_missing_fail_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            with self.assertRaises(FileNotFoundError) as ctx:
+                load_calendar_window(2099, calendar_dir=td, span=1)
+            self.assertIn("2099", str(ctx.exception))
+
+    def test_loads_center_and_optional_neighbors(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            td_path = Path(td)
+            days = [
+                DayRecord(
+                    date=date(2026, 7, 13),
+                    is_session=True,
+                    kind="SESSION",
+                    name="",
+                    source="t",
+                    notes="",
+                    is_settlement=True,
+                )
+            ]
+            write_calendar_csv(days, td_path / "twse_sessions_2026.csv")
+            sessions, settlements = load_calendar_window(2026, calendar_dir=td_path, span=1)
+            self.assertEqual(sessions, [date(2026, 7, 13)])
+            self.assertEqual(settlements, [date(2026, 7, 13)])
 
 
 if __name__ == "__main__":

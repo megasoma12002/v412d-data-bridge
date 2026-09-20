@@ -56,6 +56,60 @@ class R5Scaffold(unittest.TestCase):
             self.assertTrue(pack["all_ok"])
             self.assertEqual(pack["n_mismatches"], 0)
 
+    def test_refuses_external_custody_without_flag(self):
+        with tempfile.TemporaryDirectory() as td:
+            cust = Path(td) / "external.csv"
+            cust.write_text("fill_id,settle_date,settlement_cash\n", encoding="utf-8")
+            out = Path(td) / "out"
+            rc = subprocess.call(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "twse_t2_broker_reconcile.py"),
+                    "--estimate",
+                    str(EST) if EST.is_file() else str(cust),
+                    "--custody",
+                    str(cust),
+                    "--out-dir",
+                    str(out),
+                    "--asof",
+                    "2026-09-16",
+                ],
+                cwd=str(ROOT),
+                stderr=subprocess.PIPE,
+            )
+            self.assertNotEqual(rc, 0)
+
+    def test_refuses_live_tree_out_without_flag(self):
+        if not EST.is_file():
+            self.skipTest("no R4 estimate in checkout")
+        live_out = ROOT / "forward" / "e21" / "broker_reconcile_test_jail"
+        try:
+            rc = subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "scripts" / "twse_t2_broker_reconcile.py"),
+                    "--estimate",
+                    str(EST),
+                    "--custody",
+                    str(FIX),
+                    "--asof",
+                    "2026-09-16",
+                    "--out-dir",
+                    str(live_out),
+                ],
+                cwd=str(ROOT),
+                capture_output=True,
+                text=True,
+            )
+            self.assertNotEqual(rc.returncode, 0)
+            self.assertIn("Refusing to write R5 reconcile under live tree", rc.stderr + rc.stdout)
+        finally:
+            # Ensure we did not leave artifacts if somehow written
+            if live_out.exists():
+                import shutil
+
+                shutil.rmtree(live_out, ignore_errors=True)
+
 
 if __name__ == "__main__":
     unittest.main()

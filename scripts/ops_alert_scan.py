@@ -10,10 +10,10 @@ Severity:
   HIGH     — month-end PAUSE_REVIEW / R4 estimate missing (cutover talk blocked; Soft-Frozen unchanged)
   INFO     — ALERT lines without PAUSE / thin recon / tip lag / R4 present (liquidity ≠ NAV)
 
-Exit codes:
-  0 — no CRITICAL/HIGH
-  1 — HIGH present (PAUSE_REVIEW)
-  2 — CRITICAL present
+Exit codes (when not ``--report-only``):
+  default ``--fail-on critical`` → exit 2 on CRITICAL; exit 0 when only HIGH
+  ``--fail-on high`` → exit 1 on HIGH (and exit 2 still on CRITICAL)
+  ``--fail-on never`` / ``--report-only`` → always exit 0 after writing
 
 Never flips Soft-Frozen. Never cutover.
 Phase 3: R4 continuous observe + TIP_LAG_BOOKS INFO.

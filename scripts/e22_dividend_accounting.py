@@ -217,6 +217,28 @@ def load_session_dates_for_calendar_year(
     return list(session_dates(read_calendar_csv(path)))
 
 
+def load_session_dates_window(
+    day: str,
+    *,
+    calendar_dir: Path | str = CALENDAR_DIR_DEFAULT,
+    span: int = 1,
+) -> list[date] | None:
+    """Load session dates for center year ± span; None if center year missing."""
+    try:
+        year = int(str(day)[:4])
+    except ValueError:
+        return None
+    try:
+        from twse_session_sources import load_calendar_window
+
+        sessions, _settlements = load_calendar_window(
+            year, calendar_dir=calendar_dir, span=span
+        )
+        return list(sessions)
+    except FileNotFoundError:
+        return None
+
+
 def events_on_apply_day(
     events: Iterable[DivEvent],
     day: str,
@@ -256,6 +278,7 @@ def apply_dividends_for_date(
     par_table: dict[str, float] | None = None,
     session_dates: Sequence[date] | None = None,
     calendar_dir: Path | str = CALENDAR_DIR_DEFAULT,
+    entitlement_positions: dict[str, float] | None = None,
 ) -> tuple[dict[str, float], float, DivApplyResult]:
     """Apply E22 dividends for one calendar/trading date onto books.
 
@@ -265,6 +288,11 @@ def apply_dividends_for_date(
     ``E22_v2s_tw`` / ``E22_v2s_tw_effex`` use per-code verified par from ``par_table``
     (else provisional 10). Effex versions match ``effective_ex_trade`` when a
     session calendar is available.
+
+    ``entitlement_positions`` (optional) is the share map used for cash/stock
+    **credits**. Defaults to ``positions``. Stock FLOOR_CIL / float paths compute
+    ``add`` from entitlement shares, then apply ``pos[code] += add`` so post-fill
+    positions are preserved except for the stock-div delta.
     """
     version = version or DEFAULT_BOOKS_VERSION
     if version not in KNOWN_VERSIONS:
@@ -276,6 +304,11 @@ def apply_dividends_for_date(
     marks = mark_prices or {}
     pars = par_table if par_table is not None else load_par_value_table()
     pos = {k: float(v) for k, v in positions.items()}
+    ent = (
+        {k: float(v) for k, v in entitlement_positions.items()}
+        if entitlement_positions is not None
+        else pos
+    )
     cash_out = float(cash)
     result = DivApplyResult()
     day = str(day)[:10]
@@ -283,7 +316,7 @@ def apply_dividends_for_date(
     use_eff = version in EFFEX_VERSIONS
     sessions = session_dates
     if use_eff and sessions is None:
-        sessions = load_session_dates_for_calendar_year(day, calendar_dir=calendar_dir)
+        sessions = load_session_dates_window(day, calendar_dir=calendar_dir)
 
     for ev in events_on_apply_day(
         events, day, session_dates=sessions, use_effective_ex=use_eff
@@ -291,7 +324,7 @@ def apply_dividends_for_date(
         key = f"{ev.kind}:{ev.code}:{ev.ex_date}"
         if key in skip:
             continue
-        sh = float(pos.get(ev.code, 0.0) or 0.0)
+        sh = float(ent.get(ev.code, 0.0) or 0.0)
         if sh <= 0:
             continue
         if ev.kind == "cash":
@@ -328,6 +361,7 @@ def apply_dividends_for_date(
                 "amount_per_share": ev.amount,
                 "share_factor": factor,
                 "shares_before": sh,
+                "shares_before_books": float(pos.get(ev.code, 0.0) or 0.0),
                 "version": version,
             }
             if use_eff:
@@ -349,7 +383,7 @@ def apply_dividends_for_date(
                     cil = frac * px
                     mark_label = "raw_close"
                 add = whole - sh
-                pos[ev.code] = whole
+                pos[ev.code] = float(pos.get(ev.code, 0.0) or 0.0) + add
                 cash_out += cil
                 result.stock_shares_added += add
                 result.cil_cash_credit += cil
@@ -360,6 +394,7 @@ def apply_dividends_for_date(
                         "shares_gross": gross,
                         "shares_after_floor": whole,
                         "shares_added": add,
+                        "shares_after": pos[ev.code],
                         "fractional_shares": frac,
                         "mark_price": px,
                         "mark_basis": mark_label,
@@ -369,9 +404,9 @@ def apply_dividends_for_date(
                 )
             else:
                 add = gross - sh
-                pos[ev.code] = gross
+                pos[ev.code] = float(pos.get(ev.code, 0.0) or 0.0) + add
                 result.stock_shares_added += add
-                detail.update({"shares_added": add, "shares_after": gross})
+                detail.update({"shares_added": add, "shares_after": pos[ev.code]})
             result.stock_events += 1
             result.details.append(detail)
     return pos, cash_out, result

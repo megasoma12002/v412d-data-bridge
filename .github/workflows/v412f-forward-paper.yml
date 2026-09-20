@@ -98,7 +98,8 @@ jobs:
             --telecom-adjusted forward/e9/e9_telecom_adjusted.csv \
             --etf0050-adjusted forward/e10s2/e10s2_0050_adjusted.csv \
             --taiex forward/e10s2/e10s2_taiex.csv \
-            --out forward/e21/live_market.csv
+            --out forward/e21/live_market.csv \
+            --allow-live-market-overwrite
       - name: Run frozen E16 plus E18 real-open forward ledger
         if: steps.session_gate.outputs.skip != 'true'
         # Capital: omit --capital so scripts/portfolio_capital.DEFAULT_CAPITAL (500M) applies.
@@ -111,7 +112,9 @@ jobs:
           ASOF="$(TZ=Asia/Taipei date +%F)"
           python scripts/twse_t2_settlement_estimate.py \
             --state-dir forward/e21 \
-            --asof "$ASOF"
+            --asof "$ASOF" \
+            --out-dir forward/e21 \
+            --allow-live-tree-out
       - name: Phase 0 — assert R4 settlement artifacts
         if: steps.session_gate.outputs.skip != 'true'
         run: |
@@ -126,6 +129,14 @@ jobs:
           s = d.get("summary") or {}
           for k in ("settling_today_net", "unsettled_net", "paper_cash", "settled_cash_estimate"):
               assert k in s, f"R4 summary missing {k}"
+          state_path = Path("forward/e21/portfolio_state.json")
+          if state_path.is_file():
+              state = json.loads(state_path.read_text())
+              last = str(state.get("last_date") or "")[:10]
+              asof = str(s.get("asof") or "")[:10]
+              assert last and asof and last == asof, (
+                  f"R4 asof {asof!r} != portfolio last_date {last!r}"
+              )
           print("R4 assert OK — liquidity view only (not NAV)")
           PY
       - name: Fail-closed E21 QC

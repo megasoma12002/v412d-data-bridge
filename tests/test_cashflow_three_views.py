@@ -73,6 +73,80 @@ class BuildReportFixtureTests(unittest.TestCase):
             )
             self.assertEqual(report["warnings"], [])
 
+    def test_r4_asof_mismatch_warning_and_cross_check(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            state = Path(td)
+            (state / "portfolio_state.json").write_text(
+                json.dumps(
+                    {
+                        "last_date": "2026-09-16",
+                        "cash": 1000.0,
+                        "e22_books_version": STAGE_E_DEFAULT,
+                        "e22_receivables": {},
+                    }
+                ),
+                encoding="utf-8",
+            )
+            (state / "settlement_cash_estimate.json").write_text(
+                json.dumps(
+                    {
+                        "summary": {
+                            "asof": "2026-09-15",
+                            "paper_cash": 1000.0,
+                            "unsettled_net": 0.0,
+                            "settled_cash_estimate": 1000.0,
+                            "settling_today_net": 0.0,
+                        }
+                    }
+                ),
+                encoding="utf-8",
+            )
+            report = build_report(state)
+            self.assertTrue(report["cross_checks"]["r4_asof_mismatch"])
+            self.assertFalse(report["cross_checks"]["r4_asof_matches_last_date"])
+            self.assertTrue(any("R4_ASOF_MISMATCH" in w for w in report["warnings"]))
+
+    def test_fail_on_r4_asof_mismatch_cli(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            state = Path(td)
+            (state / "portfolio_state.json").write_text(
+                json.dumps(
+                    {
+                        "last_date": "2026-09-16",
+                        "cash": 1000.0,
+                        "e22_books_version": STAGE_E_DEFAULT,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            (state / "settlement_cash_estimate.json").write_text(
+                json.dumps(
+                    {
+                        "summary": {
+                            "asof": "2026-09-10",
+                            "paper_cash": 1000.0,
+                            "unsettled_net": 0.0,
+                            "settled_cash_estimate": 1000.0,
+                            "settling_today_net": 0.0,
+                        }
+                    }
+                ),
+                encoding="utf-8",
+            )
+            rc = subprocess.call(
+                [
+                    sys.executable,
+                    str(SCRIPTS / "cashflow_three_views_report.py"),
+                    "--state-dir",
+                    str(state),
+                    "--fail-on-r4-asof-mismatch",
+                ],
+                cwd=str(ROOT),
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+            self.assertEqual(rc, 1)
+
     def test_tip_lag_warning_on_preserved_books(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             state = Path(td)

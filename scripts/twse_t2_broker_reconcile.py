@@ -189,7 +189,7 @@ def main() -> int:
         "--custody",
         type=Path,
         required=True,
-        help="Broker/custody statement CSV (fixture or export)",
+        help="Broker/custody statement CSV (must be under fixtures/ unless --allow-external-custody)",
     )
     ap.add_argument("--asof", default=None, help="YYYY-MM-DD (default Taipei today)")
     ap.add_argument("--tol", type=float, default=1.0, help="NT$ absolute cash tolerance")
@@ -197,16 +197,60 @@ def main() -> int:
         "--out-dir",
         type=Path,
         default=None,
-        help="Default: estimate parent / broker_reconcile",
+        help="Default: estimate parent / broker_reconcile (refuses forward/e21 unless --allow-live-tree-out)",
+    )
+    ap.add_argument(
+        "--allow-external-custody",
+        action="store_true",
+        help="Permit custody CSV outside repo fixtures/ (authorized real export).",
+    )
+    ap.add_argument(
+        "--allow-live-tree-out",
+        action="store_true",
+        help="Permit writing reconcile pack under forward/e21.",
     )
     a = ap.parse_args()
     asof = date.fromisoformat(a.asof) if a.asof else datetime.now(tz=TAIPEI).date()
+
+    custody_path = Path(a.custody)
+    if not custody_path.is_absolute():
+        custody_path = (ROOT / custody_path).resolve()
+    else:
+        custody_path = custody_path.resolve()
+    fixtures_root = (ROOT / "fixtures").resolve()
+    if not a.allow_external_custody:
+        try:
+            custody_path.relative_to(fixtures_root)
+        except ValueError as exc:
+            raise SystemExit(
+                f"Refusing custody path outside fixtures/: {custody_path}. "
+                "Pass a path under fixtures/ or --allow-external-custody for an "
+                "authorized broker export."
+            ) from exc
+
     estimate_rows = load_csv(a.estimate)
-    custody_rows = load_csv(a.custody)
+    custody_rows = load_csv(custody_path)
     pack = reconcile(estimate_rows, custody_rows, asof=asof, tol=a.tol)
     out_dir = a.out_dir or (a.estimate.parent / "broker_reconcile")
+    out_dir = Path(out_dir)
+    if not out_dir.is_absolute():
+        out_dir = (ROOT / out_dir).resolve()
+    else:
+        out_dir = out_dir.resolve()
+    live_tree = (ROOT / "forward" / "e21").resolve()
+    try:
+        out_dir.relative_to(live_tree)
+        under_live = True
+    except ValueError:
+        under_live = False
+    if under_live and not a.allow_live_tree_out:
+        raise SystemExit(
+            f"Refusing to write R5 reconcile under live tree {live_tree}. "
+            "Use fixtures/ or repro/ out-dir, or --allow-live-tree-out."
+        )
     path = write_pack(pack, out_dir)
     pack["out"] = str(path)
+    pack["custody"] = str(custody_path)
     print(json.dumps(pack, ensure_ascii=False, indent=2))
     return 0 if pack["all_ok"] else 2
 
