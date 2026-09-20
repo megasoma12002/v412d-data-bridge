@@ -1,0 +1,26 @@
+{
+  "label": "E22_V3_WITHHOLDING_RESIDENT_NOTE",
+  "amended_at": "2026-09-20",
+  "soft_frozen_keep": true,
+  "live_default_books": "E22_v3_recv_pay_effdelay",
+  "live_tax": "TAX0",
+  "promote_ready": false,
+  "holder_residency": {
+    "status": "DECIDED",
+    "value": "TW_DOMESTIC_RESIDENT",
+    "zh": "本國居住者（本國人）",
+    "decided_at": "2026-09-20",
+    "source": "human_ops_message"
+  },
+  "open_gates": [
+    "resident_tax_rate_or_method_with_cite",
+    "withhold_timing_ex_vs_pay",
+    "refunds_credits_ledger",
+    "issuer_exceptions",
+    "confirm_ignore_treaties_for_resident_v1"
+  ],
+  "non_actions": [
+    "no_tax_default_flip",
+    "do_not_treat_residency_as_tax10_or_tax20_accept"
+  ]
+}
