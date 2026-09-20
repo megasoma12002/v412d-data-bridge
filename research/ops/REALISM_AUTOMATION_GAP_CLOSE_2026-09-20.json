@@ -107,7 +107,8 @@
     },
     {
       "phase": 4,
-      "title": "r5_fixture_workflow"
+      "title": "r5_fixture_workflow",
+      "status": "SCAFFOLD_LANDED"
     },
     {
       "phase": 5,
@@ -138,7 +139,8 @@
     "primary_workflow": ".github/workflows/v412f-forward-paper.yml",
     "secondary_workflow": ".github/workflows/post-forward-e22-verify.yml",
     "phase3": "scripts/ops_alert_scan.py (R4 + TIP_LAG_BOOKS)",
-    "phase5": ".github/workflows/v412e22-dividend-events.yml (cron 0 7 * * 1-5)"
+    "phase5": ".github/workflows/v412e22-dividend-events.yml (cron 0 7 * * 1-5)",
+    "phase4_scaffold": "fixtures/r5_custody_synthetic.csv + r5-broker-reconcile.yml"
   },
   "phase_3_5_landed": true,
   "phase_3_5_landed_utc": "2026-09-20"

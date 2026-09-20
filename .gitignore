@@ -33,3 +33,7 @@ archive/repro/**/outputs/*fills*.csv
 archive/repro/**/outputs/*daily_nav*.csv
 archive/repro/**/outputs/*_fills.csv
 archive/repro/**/outputs/*_daily_nav.csv
+
+# R5 smoke outputs (regenerate)
+fixtures/r5_reconcile_smoke/
+

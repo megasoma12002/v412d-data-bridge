@@ -1,0 +1,34 @@
+{
+  "label": "E22_V3_WITHHOLDING_RESIDENT_NOTE",
+  "amended_at": "2026-09-20",
+  "soft_frozen_keep": true,
+  "live_default_books": "E22_v3_recv_pay_effdelay",
+  "live_tax": "TAX0",
+  "promote_ready_after_tax_books": false,
+  "after_tax_promote_path": "CLOSED_BALLOT_A_KEEP_TAX0",
+  "holder_residency": {
+    "status": "DECIDED",
+    "value": "TW_DOMESTIC_RESIDENT",
+    "zh": "本國居住者（本國人）",
+    "decided_at": "2026-09-20"
+  },
+  "modeling_principle": {
+    "status": "DECIDED",
+    "value": "TW_DOMESTIC_RESIDENT_STATUTORY_CONVENTION",
+    "zh": "參考本國人慣例計算",
+    "decided_at": "2026-09-20"
+  },
+  "books_method": {
+    "status": "DECIDED",
+    "ballot": "A_KEEP_TAX0",
+    "zh": "日頻 NAV 維持 TAX0；股利個人所得稅在年終申報層",
+    "decided_at": "2026-09-20",
+    "source": "human_ops_message_A"
+  },
+  "rejected_for_this_cycle": ["B_NAMED_DIV28", "C_NAMED_MERGE_CREDIT", "map_to_tax10_or_tax20_default"],
+  "non_actions": [
+    "no_tax_default_flip",
+    "no_soft_frozen_flip",
+    "sandbox_tax10_tax20_remain_research_only"
+  ]
+}

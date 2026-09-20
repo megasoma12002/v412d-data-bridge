@@ -1,0 +1,82 @@
+name: R5 T+2 Broker Reconcile (scaffold)
+
+# Phase 4 scaffold — observe-only. Soft-Frozen KEEP · no broker live-write.
+# Synthetic custody mirror is for CI / wiring only; real custody is manual input.
+
+on:
+  workflow_dispatch:
+    inputs:
+      custody_path:
+        description: "Path to custody CSV (default = synthetic fixture)"
+        required: false
+        default: "fixtures/r5_custody_synthetic.csv"
+      asof:
+        description: "YYYY-MM-DD (blank = tip last_date from portfolio_state)"
+        required: false
+        default: ""
+  pull_request:
+    paths:
+      - "scripts/twse_t2_broker_reconcile.py"
+      - "fixtures/r5_custody_synthetic.csv"
+      - "fixtures/README_R5.md"
+      - ".github/workflows/r5-broker-reconcile.yml"
+      - "tests/test_twse_t2_broker_reconcile.py"
+      - "tests/test_r5_scaffold.py"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: r5-broker-reconcile
+  cancel-in-progress: true
+
+jobs:
+  reconcile-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --disable-pip-version-check -e .
+      - name: R5 reconcile (synthetic or provided custody)
+        env:
+          CUSTODY: ${{ github.event.inputs.custody_path || 'fixtures/r5_custody_synthetic.csv' }}
+          ASOF_IN: ${{ github.event.inputs.asof || '' }}
+        run: |
+          set -euo pipefail
+          test -f forward/e21/settlement_cash_estimate.csv
+          test -f "$CUSTODY"
+          if [ -z "$ASOF_IN" ]; then
+            ASOF_IN="$(python3 -c 'import json;from pathlib import Path;print(json.loads(Path("forward/e21/portfolio_state.json").read_text()).get("last_date") or "")')"
+          fi
+          mkdir -p fixtures/r5_reconcile_smoke
+          set +e
+          python3 scripts/twse_t2_broker_reconcile.py \
+            --estimate forward/e21/settlement_cash_estimate.csv \
+            --custody "$CUSTODY" \
+            --asof "$ASOF_IN" \
+            --out-dir fixtures/r5_reconcile_smoke
+          rc=$?
+          set -e
+          python3 - <<PY
+          import json, os
+          from pathlib import Path
+          p = json.loads(Path("fixtures/r5_reconcile_smoke/t2_broker_reconcile_latest.json").read_text())
+          print(json.dumps({k: p.get(k) for k in ("asof","all_ok","n_matched_ok","n_mismatches","n_estimate","n_custody")}, indent=2))
+          custody = os.environ["CUSTODY"]
+          # Synthetic fixture must pass; real custody is observe-only (rc 2 allowed).
+          if custody.endswith("r5_custody_synthetic.csv"):
+              assert p.get("all_ok") is True, p
+              raise SystemExit(0)
+          raise SystemExit(0 if rc in (0, 2) else rc)
+          PY
+      - name: Upload R5 pack
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r5-broker-reconcile-${{ github.run_number }}
+          path: fixtures/r5_reconcile_smoke/
+          retention-days: 30
+          if-no-files-found: warn
