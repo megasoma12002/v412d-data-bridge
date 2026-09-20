@@ -11,7 +11,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -22,8 +21,8 @@ import e16_soft_frozen_base as soft_frozen
 import e22_dividend_accounting as e22div
 import e45_crisis_core as e45
 from e22_books_apply import apply_books_for_date, books_manifest, is_sandbox_version
-from tw_share_lots import BOARD_LOT
 from portfolio_capital import DEFAULT_CAPITAL
+from tw_share_lots import BOARD_LOT, lot_qty
 from within_sleeve_alloc import (
     FIN_EQUAL,
     FIN_ALLOC_POLICIES,
@@ -55,18 +54,21 @@ TEL_ALLOC_TOP2_EQUAL = TEL_TOP2_EQUAL
 CLAIM_STATUS = e45.CLAIMED_MDD_STATUS
 from research_metric_helpers import metric_delta, fmt_pct
 
-# Mirror E21 SOFT_FROZEN membership / fees (read-only copy of constants; not an edit).
-FIN = ["2880", "2886", "2892", "5880"]
-TEL = ["2412", "3045", "4904"]
-ALL = FIN + TEL + ["0050"]
+# Soft-Frozen membership / fees — SSOT via live_ledger (re-export for research imports).
 from live_fill_core import sort_rows_sell_before_buy
-from live_ledger import MIN_COMMISSION, commission as broker_commission
+from live_ledger import (
+    ALL,
+    BUY_FEE,
+    FIN,
+    MIN_COMMISSION,
+    SELL_FEE,
+    SLIP,
+    TAX_ETF,
+    TAX_STOCK,
+    TEL,
+    fees_tax_for,
+)
 
-BUY_FEE = 0.001425 * 0.6
-SELL_FEE = 0.001425 * 0.6
-TAX_STOCK = 0.003
-TAX_ETF = 0.001
-SLIP = 0.0005
 CAPITAL = DEFAULT_CAPITAL
 WARMUP_DAYS = 252
 
@@ -84,16 +86,6 @@ def e16_features(m: pd.DataFrame):
     """
     p, sleeve, target, reg, _score = soft_frozen.build_soft_frozen_targets(m)
     return p, sleeve, target, reg
-
-
-def lot_qty(value: float, price: float, lot_size: int = BOARD_LOT) -> int:
-    """Share quantity from notional; default TW 整股 (一張=1000). Pass lot_size=1 for 1-share sensitivity."""
-    if price <= 0 or not math.isfinite(price) or lot_size < 1:
-        return 0
-    raw = int(abs(value) / price)
-    if lot_size == 1:
-        return raw
-    return (raw // lot_size) * lot_size
 
 
 def simulate_core(
@@ -241,7 +233,7 @@ def simulate_core(
     stock_div_events = 0
     stock_div_shares_added = 0.0
     crisis_days = 0
-    _cal_cache: dict[int, tuple[list | None, list | None]] = {}
+    etf_codes = frozenset({"0050"} | ({str(def_c)} if def_c is not None else set()))
 
     def _sessions_for_day(day_iso: str):
         """Load Y±1 session/settlement calendars for day year; soft-miss OK."""
@@ -251,20 +243,11 @@ def simulate_core(
             year = int(str(day_iso)[:4])
         except ValueError:
             return None, None
-        if year in _cal_cache:
-            return _cal_cache[year]
-        from twse_session_sources import DEFAULT_CALENDAR_DIR, load_calendar_window
+        from twse_session_sources import DEFAULT_CALENDAR_DIR, cached_load_calendar_window
 
-        try:
-            sessions, settlements = load_calendar_window(
-                year, calendar_dir=DEFAULT_CALENDAR_DIR, span=1
-            )
-        except FileNotFoundError:
-            _cal_cache[year] = (None, None)
-            return None, None
-        pair = (list(sessions), list(settlements))
-        _cal_cache[year] = pair
-        return pair
+        return cached_load_calendar_window(
+            year, calendar_dir=DEFAULT_CALENDAR_DIR, span=1, soft_miss=True
+        )
 
     for i, dt in enumerate(dates):
         if dt < trade_start:
@@ -288,11 +271,16 @@ def simulate_core(
                 q = (q // lot_size) * lot_size
             fp = float(op[code]) * (1 + slip if side == "BUY" else 1 - slip)
             gross = q * fp
-            tax = tax_etf if code == "0050" or (def_c is not None and code == def_c) else tax_stock
-            if side == "BUY":
-                fee = broker_commission(gross, buy_fee)
-            else:
-                fee = broker_commission(gross, sell_fee) + gross * tax
+            fee = fees_tax_for(
+                side=side,
+                code=code,
+                gross=gross,
+                buy_fee=buy_fee,
+                sell_fee=sell_fee,
+                tax_stock=tax_stock,
+                tax_etf=tax_etf,
+                etf_codes=etf_codes,
+            )
             if side == "BUY" and gross + fee > cash:
                 # ACCEPT_2026-09-19_PAPER_LIVE_FILL_SKIP_ALIGN — match live_fill_core:
                 # underfunded BUY skips entirely (do not partial-fill); requeue pending.
@@ -313,7 +301,16 @@ def simulate_core(
                 if q < 1:
                     continue
                 gross = q * fp
-                fee = broker_commission(gross, sell_fee) + gross * tax
+                fee = fees_tax_for(
+                    side=side,
+                    code=code,
+                    gross=gross,
+                    buy_fee=buy_fee,
+                    sell_fee=sell_fee,
+                    tax_stock=tax_stock,
+                    tax_etf=tax_etf,
+                    etf_codes=etf_codes,
+                )
                 pos[code] -= q
                 cash += gross - fee
             sig_s = (

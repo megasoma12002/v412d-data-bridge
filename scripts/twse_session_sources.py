@@ -461,6 +461,43 @@ def load_calendar_window(
     return sorted(set(sessions)), sorted(set(settlements))
 
 
+_CALENDAR_WINDOW_CACHE: dict[tuple[str, int, int], tuple[list[date], list[date]]] = {}
+
+
+def cached_load_calendar_window(
+    center_year: int,
+    *,
+    calendar_dir: Path | str = DEFAULT_CALENDAR_DIR,
+    span: int = 1,
+    soft_miss: bool = False,
+) -> tuple[list[date] | None, list[date] | None]:
+    """Cached ``load_calendar_window`` for multi-day sims (e50 / live helpers).
+
+    When ``soft_miss=True`` and the center-year CSV is absent, return
+    ``(None, None)`` instead of raising (paper research path).
+    """
+    calendar_dir = Path(calendar_dir)
+    key = (str(calendar_dir.resolve()), int(center_year), int(span))
+    if key in _CALENDAR_WINDOW_CACHE:
+        sessions, settlements = _CALENDAR_WINDOW_CACHE[key]
+        return list(sessions), list(settlements)
+    try:
+        sessions, settlements = load_calendar_window(
+            center_year, calendar_dir=calendar_dir, span=span
+        )
+    except FileNotFoundError:
+        if soft_miss:
+            return None, None
+        raise
+    _CALENDAR_WINDOW_CACHE[key] = (list(sessions), list(settlements))
+    return list(sessions), list(settlements)
+
+
+def clear_calendar_window_cache() -> None:
+    """Test / reload helper."""
+    _CALENDAR_WINDOW_CACHE.clear()
+
+
 def nth_session_after(sessions: Sequence[date], start: date, n: int) -> date:
     """Return the n-th open session strictly after ``start`` (n>=1)."""
     if n < 1:
