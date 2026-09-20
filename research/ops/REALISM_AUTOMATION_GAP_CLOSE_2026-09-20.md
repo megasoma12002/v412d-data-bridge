@@ -10,6 +10,12 @@ Parent SSOT: `OPS_STATUS.md` · `HUMAN_DECISION_REGISTER.md` · tip-align `ACCEP
 Make the live accounting loop **self-running on open sessions** (forward → R4 → verify → alerts → dividend refresh), with **human ballots only** where money/compliance/DEFAULT flips are involved.  
 「全自動化」here means **unattended observe + evidence**, not auto Soft-Frozen / alpha / SendAlgo.
 
+**Human priority (2026-09-20):** **計算好現金流的數字** — Exact T+1 paper · R4 T+2 settled · Stage-E cash+receivable (TAX0). SSOT `CASHFLOW_THREE_VIEWS.md`. After-tax tax\* DEFAULT is **not** the cashflow path.  
+
+**Tax purpose (same day):**「稅的目的是要有精準的現金流」· `TAX_FOR_CASHFLOW_PURPOSE.md` — year-end 所得稅 outside (ballot A); pay-day NHI in sandbox `E22_v3_recv_pay_effdelay_nhi211`.  
+
+**NHI note (same day):** single dividend pay **≥ NT$20,000** → **2.11%** supplemental premium at source — custody vs TAX0 gross gap; **not** live-wired · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md`.
+
 ## What already runs unattended
 
 | Cadence | Workflow / surface | Covers |
@@ -64,11 +70,12 @@ Scripts: `twse_t2_settlement_estimate.py`, `e21_qc.py`, `e22_gap6_fidelity_kpi.p
 4. Fail: CRITICAL / Gap6 `code_ok`. Allow: tip≠DEFAULT (INFO) · DQ flags · HIGH PAUSE.  
 Authority: `POST_FORWARD_E22_VERIFY_RUNBOOK.md`.
 
-### Phase 2 — Tip catch-up confirmation
+### Phase 2 — Tip catch-up confirmation (cashflow View C)
 
 1. After first weekday session with tip==`E22_v3_recv_pay_effdelay`: regenerate Gap6; clear tip-lag debt wording.  
-2. Optional alert rule: tip≠DEFAULT for N open sessions after tip-align ACCEPT → HIGH ops (not CRITICAL).  
-3. Still: no history rewrite.
+2. Run `cashflow_three_views_report.py --write` + Monday checklist asserts (`TIP_CATCHUP_MONDAY_CHECKLIST.md`) so View C receivable clock is on tip.  
+3. Optional alert rule: tip≠DEFAULT for N open sessions after tip-align ACCEPT → HIGH ops (not CRITICAL).  
+4. Still: no history rewrite.
 
 ### Phase 3 — R4 continuous observe — **LANDED 2026-09-20**
 

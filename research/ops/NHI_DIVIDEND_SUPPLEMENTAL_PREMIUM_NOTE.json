@@ -1,0 +1,33 @@
+{
+  "label": "NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE",
+  "amended_at": "2026-09-20",
+  "status": "OPS_RESEARCH_NOTE",
+  "soft_frozen_keep": true,
+  "live_wired": false,
+  "promote_ready": false,
+  "human_source": "human_ops_message_dividend_over_20000_nhi",
+  "distinct_from": {
+    "ballot_a_income_tax": "KEEP_TAX0_year_end_outside_nav",
+    "sandbox_tax10_tax20": "flat_research_haircuts_not_nhi"
+  },
+  "rule": {
+    "threshold_twd": 20000,
+    "rate": 0.0211,
+    "base": "full_gross_when_at_or_above_threshold",
+    "base_cap_twd": 10000000,
+    "timing": "withhold_at_pay",
+    "affects_cashflow": true
+  },
+  "live_default_books": "E22_v3_recv_pay_effdelay",
+  "live_tax_posture": "TAX0_gross_no_nhi_haircut",
+  "helper": "scripts/nhi_dividend_supplemental_premium.py",
+  "sandbox_books": "E22_v3_recv_pay_effdelay_nhi211",
+  "tax_purpose": "TAX_FOR_CASHFLOW_PURPOSE.md",
+  "cashflow_ssot": "CASHFLOW_THREE_VIEWS.md",
+  "non_actions": [
+    "no_live_wire",
+    "no_soft_frozen_flip",
+    "no_conflate_with_ballot_a_income_tax",
+    "no_reuse_tax10_as_nhi"
+  ]
+}

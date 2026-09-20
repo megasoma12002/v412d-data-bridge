@@ -170,6 +170,37 @@ def main() -> int:
     if args.fail_on == "critical" and not args.report_only and alert_rc == 2:
         failures.append("ops_alert_critical")
 
+    # Cashflow three views (report-only attach — never fail this gate).
+    cashflow: dict = {}
+    try:
+        from cashflow_three_views_report import (
+            OUT_JSON as CF_JSON,
+            OUT_MD as CF_MD,
+            build_report,
+            render_md,
+        )
+
+        cashflow = build_report(state_dir)
+        OUT_DIR.mkdir(parents=True, exist_ok=True)
+        CF_JSON.write_text(json.dumps(cashflow, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        CF_MD.write_text(render_md(cashflow), encoding="utf-8")
+        steps["cashflow_three_views"] = {
+            "ok": True,
+            "tip_lag": cashflow.get("cross_checks", {}).get("tip_lag"),
+            "r4_identity_ok": cashflow.get("cross_checks", {}).get("r4_identity_ok"),
+            "n_warnings": len(cashflow.get("warnings") or []),
+            "view_a_cash": (cashflow.get("views") or {}).get("A_paper_exact_t1", {}).get("cash"),
+            "view_b_settled": (cashflow.get("views") or {})
+            .get("B_r4_settled_liquidity", {})
+            .get("settled_cash_estimate"),
+            "view_c_cash_plus_recv": (cashflow.get("views") or {})
+            .get("C_stage_e_div_cashflow", {})
+            .get("cash_plus_receivable"),
+        }
+    except Exception as exc:  # noqa: BLE001 — attach best-effort; never fail gate
+        steps["cashflow_three_views"] = {"ok": False, "error": str(exc)}
+        cashflow = {}
+
     notes = []
     if tip_lag:
         notes.append(
@@ -179,6 +210,8 @@ def main() -> int:
         )
     if steps["data_quality"].get("flags"):
         notes.append("DQ_FLAGS_REPORT_ONLY: " + ", ".join(steps["data_quality"]["flags"]))
+    if cashflow.get("warnings"):
+        notes.append("CASHFLOW_WARNINGS: " + "; ".join(cashflow["warnings"][:3]))
 
     ok = len(failures) == 0
     if args.report_only:
@@ -197,15 +230,22 @@ def main() -> int:
         "failures": failures,
         "notes": notes,
         "steps": steps,
+        "cashflow_three_views": {
+            "views": (cashflow.get("views") if cashflow else None),
+            "cross_checks": (cashflow.get("cross_checks") if cashflow else None),
+            "warnings": (cashflow.get("warnings") if cashflow else None),
+        },
         "non_actions": [
             "no Soft-Frozen clip flip",
             "no history rewrite",
             "no tax Stage-B / broker live-write promote",
             "no L4/FIN50/BLEND/Soft/Sleeve alpha cutover",
             "settled_cash_estimate is liquidity view not NAV",
+            "do not merge Exact T+1 / R4 / Stage-E cash clocks",
         ],
         "authority": [
             "research/ops/POST_FORWARD_E22_VERIFY_RUNBOOK.md",
+            "research/ops/CASHFLOW_THREE_VIEWS.md",
             "research/ops/REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md",
             "research/ops/ACCEPT_TIP_BOOKS_ALIGN_V3.md",
         ],
@@ -231,6 +271,13 @@ def main() -> int:
         f"- DQ KPI: kpi_ok={steps['data_quality'].get('kpi_ok')} (report-only)",
         f"- Alerts: overall={steps['ops_alert_scan'].get('overall')} "
         f"crit={steps['ops_alert_scan'].get('n_critical')} high={steps['ops_alert_scan'].get('n_high')}",
+        f"- Cashflow 3-views: `{json.dumps(steps.get('cashflow_three_views'))}`",
+        "",
+        "## Cashflow (A / B / C″)",
+        "",
+        f"- A paper cash: `{(payload.get('cashflow_three_views') or {}).get('views', {}) and (payload['cashflow_three_views']['views'] or {}).get('A_paper_exact_t1', {}).get('cash')}`",
+        f"- B settled: `{steps.get('cashflow_three_views', {}).get('view_b_settled')}`",
+        f"- C″ cash+recv: `{steps.get('cashflow_three_views', {}).get('view_c_cash_plus_recv')}`",
         "",
         "## Notes",
         "",
