@@ -353,6 +353,15 @@ class CalendarWindowTests(unittest.TestCase):
             self.assertEqual(sessions, [date(2026, 7, 13)])
             self.assertEqual(settlements, [date(2026, 7, 13)])
 
+    def test_repo_2026_window_includes_2025_when_pinned(self) -> None:
+        cal_dir = Path(__file__).resolve().parents[1] / "data" / "calendars"
+        if not (cal_dir / "twse_sessions_2025.csv").exists():
+            self.skipTest("twse_sessions_2025.csv not pinned yet")
+        sessions, settlements = load_calendar_window(2026, calendar_dir=cal_dir, span=1)
+        self.assertTrue(any(d.year == 2025 for d in sessions))
+        self.assertIn(date(2025, 1, 23), settlements)
+        self.assertNotIn(date(2025, 1, 23), sessions)
+
 
 if __name__ == "__main__":
     unittest.main()

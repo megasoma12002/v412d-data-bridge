@@ -410,32 +410,45 @@ def version_manifest(version: str) -> dict:
 
 
 def smoke_compare() -> dict:
-    """Tiny dual-book smoke vs DEFAULT on one known cash event (2880 2010)."""
-    from pathlib import Path
-
+    """Tiny dual-book smoke vs DEFAULT on one known cash event with payment_date."""
     from twse_session_sources import (
         DEFAULT_CALENDAR_DIR,
-        read_calendar_csv,
-        session_dates,
-        settlement_dates,
+        load_calendar_window,
     )
 
     events = [
         e
         for e in base.load_dividend_events()
-        if e.code == "2880" and e.kind == "cash" and e.ex_date.startswith("2010-")
+        if e.code == "2880"
+        and e.kind == "cash"
+        and str(e.payment_date or "").strip()
+        and str(e.ex_date or "")[:10] >= "2023-01-01"
     ]
     if not events:
-        return {"ok": False, "reason": "no 2880 2010 cash events"}
+        # Fallback: any 2880 cash with payment_date
+        events = [
+            e
+            for e in base.load_dividend_events()
+            if e.code == "2880" and e.kind == "cash" and str(e.payment_date or "").strip()
+        ]
+    if not events:
+        return {"ok": False, "reason": "no 2880 cash events with payment_date"}
     ev = events[0]
     pos0 = {"2880": 1000.0}
     cash0 = 0.0
-    cal_path = DEFAULT_CALENDAR_DIR / "twse_sessions_2026.csv"
     sessions = settlements = None
-    if Path(cal_path).exists():
-        cal = read_calendar_csv(cal_path)
-        sessions = session_dates(cal)
-        settlements = settlement_dates(cal)
+    try:
+        center = int(str(ev.ex_date)[:4])
+        try:
+            sessions, settlements = load_calendar_window(
+                center, calendar_dir=DEFAULT_CALENDAR_DIR, span=1
+            )
+        except FileNotFoundError:
+            sessions, settlements = load_calendar_window(
+                date.today().year, calendar_dir=DEFAULT_CALENDAR_DIR, span=1
+            )
+    except FileNotFoundError:
+        sessions = settlements = None
 
     # Preserved cash-on-ex formal path (D5), not live DEFAULT after Stage-E
     formal_ver = base.PRESERVED_CASH_ON_EX

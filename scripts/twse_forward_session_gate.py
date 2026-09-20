@@ -22,6 +22,14 @@ from twse_session_sources import (
     read_calendar_csv,
 )
 
+
+def resolve_calendar_path(asof: date, calendar_path: Path | None) -> Path | None:
+    """Prefer explicit path; else asof-year CSV under DEFAULT_CALENDAR_DIR."""
+    if calendar_path is not None:
+        return calendar_path
+    candidate = DEFAULT_CALENDAR_DIR / f"twse_sessions_{asof.year}.csv"
+    return candidate if candidate.exists() else None
+
 TAIPEI = ZoneInfo("Asia/Taipei")
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -90,7 +98,8 @@ def main() -> int:
     ap.add_argument(
         "--calendar",
         type=Path,
-        default=DEFAULT_CALENDAR_DIR / "twse_sessions_2026.csv",
+        default=None,
+        help="TWSE sessions CSV (default: data/calendars/twse_sessions_<asof-year>.csv)",
     )
     ap.add_argument("--no-network", action="store_true")
     ap.add_argument(
@@ -108,7 +117,7 @@ def main() -> int:
         asof=asof,
         out_dir=a.out_dir,
         use_network=not a.no_network,
-        calendar_path=a.calendar,
+        calendar_path=resolve_calendar_path(asof, a.calendar),
     )
     if a.github_output is not None:
         a.github_output.parent.mkdir(parents=True, exist_ok=True)

@@ -12,7 +12,7 @@ Method:
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -148,19 +148,15 @@ def main() -> int:
 
     sessions = settlements = None
     try:
-        from twse_session_sources import (
-            DEFAULT_CALENDAR_DIR,
-            read_calendar_csv,
-            session_dates,
-            settlement_dates,
-        )
+        from twse_session_sources import DEFAULT_CALENDAR_DIR, load_calendar_window
 
-        cal_path = DEFAULT_CALENDAR_DIR / "twse_sessions_2026.csv"
-        if cal_path.exists():
-            cal = read_calendar_csv(cal_path)
-            sessions = session_dates(cal)
-            settlements = settlement_dates(cal)
-    except Exception as exc:  # pragma: no cover — calendar optional for pre-2026 sealed
+        # Sealed window spans 2023+; center on last sealed day year so Y±1
+        # neighbors (incl. pinned 2025 when present) load when available.
+        center = int(str(days[-1])[:4]) if days else date.today().year
+        sessions, settlements = load_calendar_window(
+            center, calendar_dir=DEFAULT_CALENDAR_DIR, span=1
+        )
+    except Exception as exc:  # pragma: no cover — calendar optional for pre-file eras
         print(f"warn: session calendar not loaded ({exc})", flush=True)
 
     versions = [formal.DEFAULT_BOOKS_VERSION] + sorted(sandbox.SANDBOX_VERSIONS)
