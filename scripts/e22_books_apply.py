@@ -33,6 +33,7 @@ def apply_books_for_date(
     settlement_dates: Sequence[date] | None = None,
     mops_amendments: dict | None = None,
     calendar_dir: Path | str = formal.CALENDAR_DIR_DEFAULT,
+    entitlement_positions: dict[str, float] | None = None,
 ) -> tuple[dict[str, float], float, dict[str, float], Any]:
     """Return ``pos, cash, receivables, apply_result``.
 
@@ -55,6 +56,7 @@ def apply_books_for_date(
             session_dates=session_dates,
             settlement_dates=settlement_dates,
             mops_amendments=mops_amendments,
+            entitlement_positions=entitlement_positions,
         )
         return pos, cash_out, recv_out, res
 
@@ -69,6 +71,7 @@ def apply_books_for_date(
         par_table=par_table,
         session_dates=session_dates,
         calendar_dir=calendar_dir,
+        entitlement_positions=entitlement_positions,
     )
     return pos, cash_out, recv_in, res
 

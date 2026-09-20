@@ -150,12 +150,47 @@ def atomic_write_json(path: Path | str, obj: Any) -> None:
 
 
 def assert_no_uncommitted_ledger(state_dir: Path | str, last_date: str | None) -> None:
-    """Fail-closed if fills/div CSVs advanced past portfolio_state.last_date.
+    """Fail-closed if ledger CSVs advanced past portfolio_state.last_date.
 
     Detects crash after immutable append but before state commit (L3).
+    Checks fills, dividends_applied, orders, signals, and nav.
     """
     sdir = Path(state_dir)
     last = pd.Timestamp(last_date).normalize() if last_date else None
+
+    def _date_series(df: pd.DataFrame) -> pd.Series | None:
+        for col in ("fill_date", "signal_date", "date", "asof"):
+            if col in df.columns:
+                return pd.to_datetime(df[col], errors="coerce").dt.normalize()
+        return None
+
+    def _check(path: Path, *, label: str, id_col: str | None = None) -> None:
+        if not path.exists():
+            return
+        if path.name == "fills.csv":
+            df = pd.read_csv(path, dtype={"code": str})
+        else:
+            df = pd.read_csv(path)
+        if df.empty:
+            return
+        series = _date_series(df)
+        if series is None:
+            return
+        if last is None:
+            raise SystemExit(
+                f"Uncommitted {label} present but portfolio_state.last_date is missing. "
+                "Repair state or clear orphan rows before continuing."
+            )
+        if bool((series > last).any()):
+            if id_col and id_col in df.columns:
+                bad = df.loc[series > last, id_col].astype(str).head(5).tolist()
+            else:
+                bad = series.loc[series > last].astype(str).head(5).tolist()
+            raise SystemExit(
+                f"Uncommitted {label} after last_date={last_date}: {bad}. "
+                "Crash between ledger append and portfolio_state commit — "
+                "repair state or authorized replay before continuing."
+            )
 
     fills_path = sdir / "fills.csv"
     if fills_path.exists():
@@ -191,6 +226,10 @@ def assert_no_uncommitted_ledger(state_dir: Path | str, last_date: str | None) -
                     f"Uncommitted dividends after last_date={last_date}: {bad}. "
                     "Repair state or authorized replay before continuing."
                 )
+
+    _check(sdir / "orders.csv", label="orders", id_col="order_id")
+    _check(sdir / "signals.csv", label="signals", id_col="signal_id")
+    _check(sdir / "nav.csv", label="nav")
 
 
 def holdings(

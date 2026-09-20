@@ -50,31 +50,33 @@ def apply_e22_day(
     skip: set[str],
     prices: dict[str, float],
     receivables: dict[str, float],
+    entitlement_positions: dict[str, float] | None = None,
 ) -> tuple[dict[str, float], float, dict[str, float], Any, list[dict]]:
     """Apply books; return pos, cash, receivables, applied, pending_div_rows."""
     sessions = None
     settlements = None
     mops_amd = None
-    if is_sandbox_version(e22_version) or e22_version in e22div.EFFEX_VERSIONS:
-        from twse_session_sources import (
-            DEFAULT_CALENDAR_DIR,
-            read_calendar_csv,
-            session_dates,
-            settlement_dates,
-        )
+    needs_cal = is_sandbox_version(e22_version) or e22_version in e22div.EFFEX_VERSIONS
+    require_cal = e22_version in (
+        e22div.DEFAULT_BOOKS_VERSION,
+        e22div.E22_V3_RECV_PAY_EFFDELAY,
+    )
+    if needs_cal:
+        from twse_session_sources import DEFAULT_CALENDAR_DIR, load_calendar_window
 
         y = int(str(asof_iso)[:4])
-        cal_path = DEFAULT_CALENDAR_DIR / f"twse_sessions_{y}.csv"
-        if cal_path.exists():
-            cal_rows = read_calendar_csv(cal_path)
-            sessions = session_dates(cal_rows)
-            settlements = settlement_dates(cal_rows)
-        elif e22_version == e22div.DEFAULT_BOOKS_VERSION or e22_version == e22div.E22_V3_RECV_PAY_EFFDELAY:
-            raise SystemExit(
-                f"TWSE session calendar required for live DEFAULT books {e22_version!r} "
-                f"but missing: {cal_path}. Add calendar or override --e22-version with "
-                "--confirm-e22-version-override for research."
+        try:
+            sessions, settlements = load_calendar_window(
+                y, calendar_dir=DEFAULT_CALENDAR_DIR, span=1
             )
+        except FileNotFoundError as exc:
+            if require_cal:
+                raise SystemExit(
+                    f"TWSE session calendar required for live DEFAULT books {e22_version!r} "
+                    f"but missing center year {y}: {exc}. Add calendar or override "
+                    "--e22-version with --confirm-e22-version-override for research."
+                ) from exc
+            sessions = settlements = None
         if is_sandbox_version(e22_version):
             from e22_mops_payment_amendments import load_amendments
 
@@ -92,6 +94,7 @@ def apply_e22_day(
         session_dates=sessions,
         settlement_dates=settlements,
         mops_amendments=mops_amd,
+        entitlement_positions=entitlement_positions,
     )
     pending_div_rows: list[dict] = []
     for d in applied.details:

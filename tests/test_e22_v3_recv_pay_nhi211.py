@@ -77,9 +77,10 @@ class Nhi211SandboxTests(unittest.TestCase):
             session_dates=self.sessions,
             settlement_dates=self.settlements,
         )
-        expected_net = 20_000.0 * (1.0 - NHI_SUPPLEMENTAL_RATE)
-        self.assertAlmostEqual(sum(recv.values()), expected_net)
-        self.assertAlmostEqual(res.details[0]["premium_twd"], 20_000.0 * NHI_SUPPLEMENTAL_RATE)
+        # Accrue gross; premium applied on settle.
+        self.assertAlmostEqual(sum(recv.values()), 20_000.0)
+        self.assertAlmostEqual(res.details[0]["gross_credit"], 20_000.0)
+        self.assertAlmostEqual(res.details[0]["premium_twd"], 0.0)
         self.assertFalse(sandbox.version_manifest(sandbox.E22_V3_RECV_PAY_EFFDELAY_NHI211)["promote_ready"])
         self.assertTrue(
             sandbox.version_manifest(sandbox.E22_V3_RECV_PAY_EFFDELAY_NHI211)[
@@ -106,6 +107,7 @@ class Nhi211SandboxTests(unittest.TestCase):
             session_dates=self.sessions,
             settlement_dates=self.settlements,
         )
+        self.assertAlmostEqual(sum(recv1.values()), 20_000.0)
         _, cash2, recv2, res2 = sandbox.apply_sandbox_for_date(
             "2026-08-07",
             pos,
@@ -117,9 +119,14 @@ class Nhi211SandboxTests(unittest.TestCase):
             settlement_dates=self.settlements,
         )
         expected_net = 20_000.0 * (1.0 - NHI_SUPPLEMENTAL_RATE)
+        expected_premium = 20_000.0 * NHI_SUPPLEMENTAL_RATE
         self.assertAlmostEqual(cash2, expected_net)
         self.assertEqual(recv2, {})
-        self.assertAlmostEqual(res2.receivable_settled, expected_net)
+        self.assertAlmostEqual(res2.receivable_settled, 20_000.0)
+        settle = next(d for d in res2.details if d["kind"] == "cash_settle")
+        self.assertAlmostEqual(settle["cash_credit"], expected_net)
+        self.assertAlmostEqual(settle["premium_twd"], expected_premium)
+        self.assertAlmostEqual(settle["gross_credit"], 20_000.0)
 
 
 if __name__ == "__main__":

@@ -177,13 +177,20 @@ def run_estimate(
     if calendar_path is not None:
         sessions = load_sessions(calendar_path=calendar_path)
     else:
+        missing = [
+            y
+            for y in sorted(years)
+            if not (DEFAULT_CALENDAR_DIR / f"twse_sessions_{y}.csv").exists()
+        ]
+        if missing:
+            raise FileNotFoundError(
+                "TWSE session calendar missing for year(s) "
+                f"{missing} under {DEFAULT_CALENDAR_DIR} "
+                "(required for every fill/asof year when --calendar is not set)"
+            )
         for y in sorted(years):
             path = DEFAULT_CALENDAR_DIR / f"twse_sessions_{y}.csv"
-            if path.exists():
-                sessions.extend(load_sessions(calendar_path=path, year=y))
-            elif y == max(years):
-                # Fall back to asof-year path error from load_sessions
-                sessions.extend(load_sessions(year=y))
+            sessions.extend(load_sessions(calendar_path=path, year=y))
     sessions = sorted(set(sessions))
     estimates = [estimate_fill(r, sessions, asof=asof) for r in fills]
     summary = summarize(estimates, asof=asof, paper_cash=load_paper_cash(state_dir))

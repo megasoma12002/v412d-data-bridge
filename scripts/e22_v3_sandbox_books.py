@@ -70,7 +70,11 @@ STOCK_BASE_VERSION = base.E22_V2S_TW
 
 
 def _net_cash_credit(gross: float, version: str) -> tuple[float, float, float, str]:
-    """Return (net_credit, effective_rate, premium_twd, assumption)."""
+    """Return (net_credit, effective_rate, premium_twd, assumption).
+
+    NHI211: premium is applied on **settle** (caller accrues gross receivable).
+    Flat taxW sandboxes: haircut on accrual (receivable/cash stores net).
+    """
     g = float(gross)
     if version in NHI211_FAMILY:
         r = nhi_dividend_premium(g)
@@ -79,7 +83,7 @@ def _net_cash_credit(gross: float, version: str) -> tuple[float, float, float, s
             float(r.net_cash_twd),
             float(eff),
             float(r.premium_twd),
-            "nhi211_threshold_cashflow_precision_on_accrual",
+            "nhi211_threshold_cashflow_precision_on_settle",
         )
     w = float(TAX_HAIRCUT.get(version, 0.0))
     premium = g * w
@@ -174,12 +178,17 @@ def apply_sandbox_for_date(
     session_dates: Sequence[date] | None = None,
     settlement_dates: Sequence[date] | None = None,
     mops_amendments: dict[tuple[str, str], str] | None = None,
+    entitlement_positions: dict[str, float] | None = None,
 ) -> tuple[dict[str, float], float, dict[str, float], SandboxApplyResult]:
     """Apply one sandbox books day. Never mutates live DEFAULT semantics.
 
     ``E22_v3_recv_pay_effdelay`` accrues / settles on effective ex / payment
     (needs ``session_dates`` / ``settlement_dates``; outside calendar → raw).
     Optional ``mops_amendments`` overlay wins on payment (D4).
+
+    ``entitlement_positions`` (optional) is the share map for cash/stock credits;
+    defaults to ``positions``. Stock path applies entitlement-based delta onto
+    current books positions.
     """
     if version not in SANDBOX_VERSIONS:
         raise ValueError(f"not a Stage-B sandbox version: {version}")
@@ -188,6 +197,11 @@ def apply_sandbox_for_date(
     skip = set(skip_keys or ())
     events_list = list(events)
     pos = {k: float(v) for k, v in positions.items()}
+    ent = (
+        {k: float(v) for k, v in entitlement_positions.items()}
+        if entitlement_positions is not None
+        else pos
+    )
     cash_out = float(cash)
     recv = {k: float(v) for k, v in receivables.items()}
     out = SandboxApplyResult(sandbox_version=version)
@@ -208,14 +222,26 @@ def apply_sandbox_for_date(
             )
             if ex_match != day:
                 continue
+            if not str(ev.payment_date or "").strip():
+                raise ValueError(
+                    f"blank payment_date for recv_pay cash event "
+                    f"code={ev.code!r} ex_date={ev.ex_date!r}"
+                )
             key = f"cash:{ev.code}:{ev.ex_date}"
             if key in skip:
                 continue
-            sh = float(pos.get(ev.code, 0.0) or 0.0)
+            sh = float(ent.get(ev.code, 0.0) or 0.0)
             if sh <= 0:
                 continue
             gross = sh * float(ev.amount)
-            credit, eff_rate, premium, assumption = _net_cash_credit(gross, version)
+            if version in NHI211_FAMILY:
+                # Accrue gross; NHI premium applied on settle.
+                credit = gross
+                eff_rate = 0.0
+                premium = 0.0
+                assumption = "nhi211_gross_receivable_premium_on_settle"
+            else:
+                credit, eff_rate, premium, assumption = _net_cash_credit(gross, version)
             pk = _pending_key(ev.code, ev.ex_date)
             recv[pk] = float(recv.get(pk, 0.0) or 0.0) + credit
             out.receivable_credit += credit
@@ -259,24 +285,38 @@ def apply_sandbox_for_date(
             if credit <= 0:
                 continue
             recv[pk] = 0.0
-            cash_out += credit
-            out.cash_credit += credit
-            out.receivable_settled += credit
+            settle_detail: dict = {
+                "key": settle_key,
+                "kind": "cash_settle",
+                "code": ev.code,
+                "ex_date": ev.ex_date,
+                "payment_date": ev.payment_date,
+                "effective_payment": pay,
+                "pending_key": pk,
+                "tax_haircut_rate": w_meta,
+                "version": version,
+            }
+            if version in NHI211_FAMILY:
+                net, eff_rate, premium, assumption = _net_cash_credit(credit, version)
+                cash_out += net
+                out.cash_credit += net
+                out.receivable_settled += credit
+                settle_detail.update(
+                    {
+                        "gross_credit": credit,
+                        "cash_credit": net,
+                        "premium_twd": premium,
+                        "tax_haircut_rate": eff_rate,
+                        "assumption": assumption,
+                    }
+                )
+            else:
+                cash_out += credit
+                out.cash_credit += credit
+                out.receivable_settled += credit
+                settle_detail["cash_credit"] = credit
             out.settle_events += 1
-            out.details.append(
-                {
-                    "key": settle_key,
-                    "kind": "cash_settle",
-                    "code": ev.code,
-                    "ex_date": ev.ex_date,
-                    "payment_date": ev.payment_date,
-                    "effective_payment": pay,
-                    "pending_key": pk,
-                    "cash_credit": credit,
-                    "tax_haircut_rate": w_meta,
-                    "version": version,
-                }
-            )
+            out.details.append(settle_detail)
     else:
         w = float(TAX_HAIRCUT[version])
         out.tax_haircut_rate = w
@@ -286,7 +326,7 @@ def apply_sandbox_for_date(
             key = f"cash:{ev.code}:{ev.ex_date}"
             if key in skip:
                 continue
-            sh = float(pos.get(ev.code, 0.0) or 0.0)
+            sh = float(ent.get(ev.code, 0.0) or 0.0)
             if sh <= 0:
                 continue
             gross = sh * float(ev.amount)
@@ -325,6 +365,7 @@ def apply_sandbox_for_date(
         skip_keys=skip,
         par_table=par_table,
         session_dates=session_dates if use_eff else None,
+        entitlement_positions=ent,
     )
     out.stock_shares_added += float(stock_res.stock_shares_added)
     out.cil_cash_credit += float(stock_res.cil_cash_credit)
@@ -344,6 +385,7 @@ def version_manifest(version: str) -> dict:
         cash_timing = "receivable_on_effective_ex_cash_on_effective_pay"
     elif version not in RECV_PAY_FAMILY:
         cash_timing = "cash_ex_date_net_of_sandbox_withholding"
+    stock_path = base.E22_V2S_TW_EFFEX if version in EFFDELAY_FAMILY else STOCK_BASE_VERSION
     return {
         "sandbox": True,
         "e22_books_version": version,
@@ -354,7 +396,7 @@ def version_manifest(version: str) -> dict:
             0.0211 if version in NHI211_FAMILY else TAX_HAIRCUT.get(version, 0.0)
         ),
         "nhi211_threshold": version in NHI211_FAMILY,
-        "stock_path": STOCK_BASE_VERSION,
+        "stock_path": stock_path,
         "combined_recv_tax": version in {E22_V3_RECV_PAY_TAX10, E22_V3_RECV_PAY_TAX20},
         "effdelay": version in EFFDELAY_FAMILY,
         "promote_ready": False if version in NHI211_FAMILY else (version == E22_V3_RECV_PAY_EFFDELAY),

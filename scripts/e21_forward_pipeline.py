@@ -82,10 +82,6 @@ def main() -> None:
             e22div.E22_V2S_TW_EFFEX,
             e22div.E22_V3_RECV_PAY_EFFDELAY,
             e22sandbox.E22_V3_RECV_PAY,
-            e22sandbox.E22_V3_TAX10,
-            e22sandbox.E22_V3_TAX20,
-            e22sandbox.E22_V3_RECV_PAY_TAX10,
-            e22sandbox.E22_V3_RECV_PAY_TAX20,
         ],
     )
     ap.add_argument("--confirm-e22-version-override", action="store_true")
@@ -139,6 +135,8 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
     pos, cash, vals, nav = holdings(state, prices, capital=a.capital)
     op = day.open.astype(float).to_dict()
     fill_port = resolve_fill_port(fill_port_name)
+    # Entitlement = cum-date / pre-open books; open fills must not inflate div credits.
+    pos_cum = {k: float(v) for k, v in pos.items()}
     pos, cash, fills, same_bar_fills, exact_t1_ok = fill_pending_at_open(
         state_dir=sdir,
         latest=latest,
@@ -211,6 +209,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         skip=skip,
         prices=prices,
         receivables=receivables,
+        entitlement_positions=pos_cum,
     )
 
     pos, cash, vals, nav = holdings(

@@ -159,6 +159,14 @@ def build_report(state_dir: Path) -> dict:
     if not r4.get("present"):
         warnings.append("R4_MISSING: settlement_cash_estimate.json absent — View B unavailable")
 
+    r4_asof = r4.get("asof") if r4.get("present") else None
+    r4_asof_mismatch = False
+    if last_date and r4_asof and str(r4_asof)[:10] != str(last_date)[:10]:
+        r4_asof_mismatch = True
+        warnings.append(
+            f"R4_ASOF_MISMATCH: R4 summary.asof={r4_asof!r} != portfolio last_date={last_date!r}"
+        )
+
     return {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
         "label": "CASHFLOW_THREE_VIEWS_REPORT",
@@ -170,6 +178,9 @@ def build_report(state_dir: Path) -> dict:
         "cross_checks": {
             "paper_cash_minus_r4_paper_cash": paper_vs_r4,
             "r4_identity_ok": r4.get("identity_ok"),
+            "r4_asof": r4_asof,
+            "r4_asof_matches_last_date": (not r4_asof_mismatch) if (last_date and r4_asof) else None,
+            "r4_asof_mismatch": r4_asof_mismatch,
             "tip_lag": tip_lag,
             "stage_e_aligned": (not tip_lag) if books else None,
         },
@@ -249,6 +260,11 @@ def main() -> int:
         action="store_true",
         help="Non-zero exit if R4 paper−unsettled−settled exceeds NT$1",
     )
+    ap.add_argument(
+        "--fail-on-r4-asof-mismatch",
+        action="store_true",
+        help="Non-zero exit if R4 summary.asof != portfolio_state.last_date",
+    )
     args = ap.parse_args()
 
     report = build_report(args.state_dir)
@@ -266,6 +282,8 @@ def main() -> int:
         ok = report["views"]["B_r4_settled_liquidity"].get("identity_ok")
         if ok is False:
             return 1
+    if args.fail_on_r4_asof_mismatch and report["cross_checks"].get("r4_asof_mismatch"):
+        return 1
     return 0
 
 

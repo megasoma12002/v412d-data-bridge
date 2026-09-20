@@ -432,6 +432,35 @@ def settlement_dates(calendar: Sequence[DayRecord]) -> list[date]:
     return out
 
 
+def load_calendar_window(
+    center_year: int,
+    *,
+    calendar_dir: Path | str = DEFAULT_CALENDAR_DIR,
+    span: int = 1,
+) -> tuple[list[date], list[date]]:
+    """Load years ``center_year ± span``; return (session_dates, settlement_dates).
+
+    Concatenates across years, sorted unique. Fail-closed if the center-year
+    calendar file is missing; adjacent years are optional (silently skipped).
+    """
+    calendar_dir = Path(calendar_dir)
+    center_path = calendar_dir / f"twse_sessions_{int(center_year)}.csv"
+    if not center_path.exists():
+        raise FileNotFoundError(
+            f"TWSE session calendar missing for center year {center_year}: {center_path}"
+        )
+    sessions: list[date] = []
+    settlements: list[date] = []
+    for y in range(int(center_year) - int(span), int(center_year) + int(span) + 1):
+        path = calendar_dir / f"twse_sessions_{y}.csv"
+        if not path.exists():
+            continue
+        rows = read_calendar_csv(path)
+        sessions.extend(session_dates(rows))
+        settlements.extend(settlement_dates(rows))
+    return sorted(set(sessions)), sorted(set(settlements))
+
+
 def nth_session_after(sessions: Sequence[date], start: date, n: int) -> date:
     """Return the n-th open session strictly after ``start`` (n>=1)."""
     if n < 1:

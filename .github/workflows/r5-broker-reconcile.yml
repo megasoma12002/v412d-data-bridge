@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       custody_path:
-        description: "Path to custody CSV (default = synthetic fixture)"
+        description: "Path under fixtures/ (default = synthetic). External exports need --allow-external-custody locally."
         required: false
         default: "fixtures/r5_custody_synthetic.csv"
       asof:

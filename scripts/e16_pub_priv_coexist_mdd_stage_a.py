@@ -26,6 +26,7 @@ from e16_private_fin_holdings_rescreen import (
 from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats
 from research_metric_helpers import mdd_delta_pp
 from tw_share_lots import BOARD_LOT
+from portfolio_capital import DEFAULT_CAPITAL
 from within_sleeve_alloc import (
     FIN_DUAL_PUB_PRIV,
     FIN_EQUAL,
@@ -38,7 +39,7 @@ from within_sleeve_alloc import (
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "repro/pub-priv-coexist-mdd-stagea"
 RESEARCH = ROOT / "research/ops"
-CAPITAL = 500_000_000.0
+CAPITAL = DEFAULT_CAPITAL
 LOT = BOARD_LOT
 TW12 = Path("/tmp/tw12/artifact/v412d_12stocks_2010_2026.csv")
 PRIVATE_ADJ = ROOT / "data/market/private_fin_adjusted.csv"

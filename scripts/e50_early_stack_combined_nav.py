@@ -277,6 +277,8 @@ def simulate_core(
 
         # 1) Fill pending orders at today's open (E18 Exact T+1).
         # SELL before BUY so cash from sells funds same-bar buys (shared helper).
+        # Snapshot entitlement before open fills so ex-day credits use cum shares.
+        pos_cum = {k: float(v) for k, v in pos.items()}
         due = sort_rows_sell_before_buy(
             [o for o in pending if pd.Timestamp(o["signal_date"]) < dt]
         )
@@ -358,6 +360,7 @@ def simulate_core(
                 receivables=receivables,
                 session_dates=sessions,
                 settlement_dates=settlements,
+                entitlement_positions=pos_cum,
             )
             day_div = applied.cash_credit
             day_stock_shares = applied.stock_shares_added

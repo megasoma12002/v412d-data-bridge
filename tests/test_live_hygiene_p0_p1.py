@@ -51,11 +51,60 @@ class UncommittedLedgerTests(unittest.TestCase):
             ).to_csv(sdir / "fills.csv", index=False)
             assert_no_uncommitted_ledger(sdir, "2026-09-15")
 
+    def test_orders_after_last_date_fail_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            pd.DataFrame(
+                [
+                    {
+                        "order_id": "ord1",
+                        "signal_date": "2026-09-16",
+                        "code": "0050",
+                        "side": "BUY",
+                        "quantity": BOARD_LOT,
+                    }
+                ]
+            ).to_csv(sdir / "orders.csv", index=False)
+            with self.assertRaises(SystemExit) as ctx:
+                assert_no_uncommitted_ledger(sdir, "2026-09-15")
+            self.assertIn("Uncommitted orders", str(ctx.exception))
+
+    def test_nav_after_last_date_fail_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            sdir = Path(td)
+            pd.DataFrame(
+                [{"date": "2026-09-16", "nav": 1.0, "cash": 1.0}]
+            ).to_csv(sdir / "nav.csv", index=False)
+            with self.assertRaises(SystemExit) as ctx:
+                assert_no_uncommitted_ledger(sdir, "2026-09-15")
+            self.assertIn("Uncommitted nav", str(ctx.exception))
+
     def test_atomic_write_json(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             path = Path(td) / "state.json"
             atomic_write_json(path, {"a": 1})
             self.assertEqual(json.loads(path.read_text(encoding="utf-8"))["a"], 1)
+
+
+class ForwardWorkflowAllowFlags(unittest.TestCase):
+    def test_workflow_has_live_allow_flags(self) -> None:
+        root = Path(__file__).resolve().parents[1]
+        yml = (root / ".github/workflows/v412f-forward-paper.yml").read_text(encoding="utf-8")
+        self.assertIn("--allow-live-market-overwrite", yml)
+        self.assertIn("--allow-live-tree-out", yml)
+        self.assertIn("--out-dir forward/e21", yml)
+        self.assertIn("last_date", yml)
+
+    def test_pipeline_tax_versions_removed_from_choices(self) -> None:
+        import e21_forward_pipeline as pipe
+
+        src = Path(pipe.__file__).read_text(encoding="utf-8")
+        choices = src.split("choices=[", 1)[1].split("]", 1)[0]
+        self.assertNotIn("E22_V3_TAX10", choices)
+        self.assertNotIn("E22_V3_TAX20", choices)
+        self.assertNotIn("RECV_PAY_TAX", choices)
+        self.assertIn("E22_V3_RECV_PAY,", choices)
+        self.assertIn("confirm_e22_version_override", src)
 
 
 class BuildMarketPathGateTests(unittest.TestCase):
