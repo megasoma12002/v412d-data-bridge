@@ -20,6 +20,7 @@ PR scope: extract seams for Docker / future broker adapter — **no strategy cut
 | `scripts/e21_forward_pipeline.py` | CLI + day orchestration only (thin) |
 | `scripts/e50_early_stack_combined_nav.py` | Research sim — shared `sort_rows_sell_before_buy` |
 | `scripts/yuanta_spark_adapter.py` | Offline SPARK field map (`API_WIRED=False`) |
+| `scripts/ops_observe_helpers.py` | Stage-E / R4 / receivable helpers shared by cashflow + alert scan |
 | `scripts/ops_dual_paper_month_end.py` | Parameterized dual/multi-paper month-end runner |
 | `scripts/ops_dual_paper_ledgers.py` | Shared dual/multi-paper ledger driver on `simulate_core` |
 | `scripts/live_kd_guard.py` | Research ledger KD / E45-stitch fail-closed |

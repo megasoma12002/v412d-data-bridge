@@ -21,65 +21,25 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from ops_observe_helpers import (
+    PRESERVED_CASH_ON_EX,
+    R4_IDENTITY_TOL,
+    STAGE_E_DEFAULT,
+    as_float,
+    load_json,
+    r4_summary,
+    receivable_total,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
-STAGE_E_DEFAULT = "E22_v3_recv_pay_effdelay"
-PRESERVED_CASH_ON_EX = "E22_v2s_tw_effex"
 OUT_DIR = ROOT / "research" / "ops"
 OUT_JSON = OUT_DIR / "CASHFLOW_THREE_VIEWS_REPORT.json"
 OUT_MD = OUT_DIR / "CASHFLOW_THREE_VIEWS_REPORT.md"
 
-# R4 identity: settled ≈ paper - unsettled (float tolerance)
-_R4_TOL = 1.0  # NT$1
-
-
-def _f(x: Any) -> float | None:
-    if x is None:
-        return None
-    try:
-        return float(x)
-    except (TypeError, ValueError):
-        return None
-
-
-def _load_json(path: Path) -> dict:
-    if not path.is_file():
-        return {}
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def receivable_total(state: dict) -> float:
-    recv = state.get("e22_receivables") or {}
-    if not isinstance(recv, dict):
-        return 0.0
-    return float(sum(float(v) for v in recv.values()))
-
-
-def r4_summary(state_dir: Path) -> dict:
-    payload = _load_json(state_dir / "settlement_cash_estimate.json")
-    if not payload:
-        return {"present": False}
-    summary = payload.get("summary") if isinstance(payload.get("summary"), dict) else payload
-    paper = _f(summary.get("paper_cash"))
-    unsettled = _f(summary.get("unsettled_net"))
-    settled = _f(summary.get("settled_cash_estimate"))
-    identity_ok = None
-    identity_delta = None
-    if paper is not None and unsettled is not None and settled is not None:
-        identity_delta = paper - unsettled - settled
-        identity_ok = abs(identity_delta) <= _R4_TOL
-    return {
-        "present": True,
-        "asof": summary.get("asof"),
-        "paper_cash": paper,
-        "settled_cash_estimate": settled,
-        "unsettled_net": unsettled,
-        "settling_today_net": _f(summary.get("settling_today_net")),
-        "n_unsettled": summary.get("n_unsettled"),
-        "identity_ok": identity_ok,
-        "identity_delta": identity_delta,
-        "note": summary.get("note")
-        or "settled_cash_estimate ≈ paper_cash - unsettled_net; liquidity ≠ NAV",
-    }
+# Back-compat aliases for local helpers used below.
+_f = as_float
+_load_json = load_json
+_R4_TOL = R4_IDENTITY_TOL
 
 
 def build_report(state_dir: Path) -> dict:

@@ -25,7 +25,8 @@ Run **one trading week** of observe-only T+2 estimate (R4). Run R5 only when a c
 Only if you have a same-day (or settle-date) custody export / fixture:
 
 ```bash
-PYTHONPATH=scripts python3 scripts/twse_t2_broker_reconcile.py \
+# Prefer: pip install -e .
+python3 scripts/twse_t2_broker_reconcile.py \
   --estimate forward/e21/settlement_cash_estimate.csv \
   --custody path/to/custody.csv \
   --asof YYYY-MM-DD \
