@@ -80,7 +80,7 @@ Odd-lot promote (**PROMOTED** 2026-09-05): `research/ops/ODD_LOT_PROMOTE_CHECKLI
 Odd-lot promote decision pack (**ACCEPT promote**): `research/ops/ODD_LOT_PROMOTE_DECISION_PACK.md`  
 Par-value lookup charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`  
 Par-value inventory: `research/ops/PAR_VALUE_INVENTORY.md` · `data/corporate_actions/par_value_by_code.csv`  
-Tax/receivable formal books (**Item 2 ACCEPT charter — Stage B OPEN**): live Stage-E **TAX0**; 本國人 + **慣例二擇一 DECIDED** · next ballot **A KEEP TAX0 / B named div28 / C merge-credit** · `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` · **`promote_ready=false`** · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
+Tax/receivable formal books: Stage-E live **TAX0** · human **BALLOT A KEEP TAX0** (2026-09-20) — after-tax DEFAULT path closed this cycle; sandbox tax10/20 research-only · `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
 Realism automation gap-close (toward 全自動化): Phase **0–1 + 3 + 5 LANDED** — verify · `ops_alert_scan` R4/tip-lag · `v412e22-dividend-events` weekday cron · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md`  
 E45 A05 live-stitch (**DROPPED** 2026-09-09): Soft-Frozen CRITICAL class KEEP as paper; dual-paper observe **OPERATING**; A05 live wire **retired** (`E45_A05_STITCH_DROPPED.md`); live risk overlay is **DH_dd06** + **FUSE** (ACCEPT 2026-09-13). Tip books align ACCEPT 2026-09-19: `ACCEPT_TIP_BOOKS_ALIGN_V3.md`. Paper/live fill skip align: `ACCEPT_PAPER_LIVE_FILL_SKIP_ALIGN.md`. Ops residual 全修 ACCEPT 2026-09-19: `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` (dual-paper refresh + tip-lag stamp + INDEX_DRIFT non-decision; no challenger/broker promote).
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  

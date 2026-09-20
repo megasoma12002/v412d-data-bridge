@@ -4,7 +4,8 @@
   "soft_frozen_keep": true,
   "live_default_books": "E22_v3_recv_pay_effdelay",
   "live_tax": "TAX0",
-  "promote_ready": false,
+  "promote_ready_after_tax_books": false,
+  "after_tax_promote_path": "CLOSED_BALLOT_A_KEEP_TAX0",
   "holder_residency": {
     "status": "DECIDED",
     "value": "TW_DOMESTIC_RESIDENT",
@@ -15,26 +16,19 @@
     "status": "DECIDED",
     "value": "TW_DOMESTIC_RESIDENT_STATUTORY_CONVENTION",
     "zh": "參考本國人慣例計算",
-    "decided_at": "2026-09-20",
-    "means": [
-      "use_resident_dividend_two_track_merge_or_separate_28",
-      "do_not_use_nonresident_withholding_or_sandbox_tax10_tax20_as_resident_law"
-    ],
-    "statutory_summary": {
-      "merge": "consolidate_with_8p5_credit_cap_80k_per_return",
-      "separate": "flat_28_percent_on_household_dividends"
-    }
+    "decided_at": "2026-09-20"
   },
-  "books_method_ballot_open": ["A_KEEP_TAX0", "B_NAMED_DIV28", "C_NAMED_MERGE_CREDIT"],
-  "open_gates": [
-    "pick_books_method_A_B_or_C",
-    "ledger_timing_if_B_or_C",
-    "refunds_credits_if_C",
-    "issuer_exceptions",
-    "confirm_ignore_treaties_for_resident_v1"
-  ],
+  "books_method": {
+    "status": "DECIDED",
+    "ballot": "A_KEEP_TAX0",
+    "zh": "日頻 NAV 維持 TAX0；股利個人所得稅在年終申報層",
+    "decided_at": "2026-09-20",
+    "source": "human_ops_message_A"
+  },
+  "rejected_for_this_cycle": ["B_NAMED_DIV28", "C_NAMED_MERGE_CREDIT", "map_to_tax10_or_tax20_default"],
   "non_actions": [
     "no_tax_default_flip",
-    "do_not_map_domestic_convention_to_tax10_or_tax20"
+    "no_soft_frozen_flip",
+    "sandbox_tax10_tax20_remain_research_only"
   ]
 }

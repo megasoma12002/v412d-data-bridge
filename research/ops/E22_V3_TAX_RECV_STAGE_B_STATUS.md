@@ -18,7 +18,7 @@ Live DEFAULT books: **`E22_v3_recv_pay_effdelay`** (TAX0; receivable on effectiv
 | `E22_v3_tax10` | Ex cash × 0.90; stock=TW | **SANDBOX OPEN** + sealed compare DONE |
 | `E22_v3_tax20` | Ex cash × 0.80; stock=TW | **SANDBOX OPEN** + sealed compare DONE |
 | `E22_v3_recv_pay_tax10` / `tax20` (`taxW`) | Combined recv+flat withhold | **SANDBOX OPEN** + sealed compare DONE |
-| Resident/non-resident tax appendix | Promote gate | **PARTIAL** — 本國人 + **慣例二擇一框架 DECIDED**；books method ballot **A KEEP TAX0 / B div28 / C merge-credit** still OPEN · `promote_ready=false` · `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` |
+| Resident/non-resident tax appendix | Promote gate | **BALLOT A KEEP TAX0** (2026-09-20) — 本國人＋慣例框架下 **不** 推 after-tax DEFAULT；sandbox tax10/20 research-only · `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` |
 
 ## Latest sealed evidence
 
