@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-20T01:54:05.735297+00:00",
+  "generated_at_utc": "2026-09-20T08:56:51.921398+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": false,
@@ -35,20 +35,20 @@
   },
   "ex_to_pay_lag": {
     "cash": {
-      "n": 273,
+      "n": 213,
       "median_days": 28.0,
       "p90_days": 36.0,
-      "mean_days": 28.516483516483518,
+      "mean_days": 28.854460093896712,
       "min_days": 12.0,
-      "max_days": 56.0
+      "max_days": 50.0
     },
     "stock": {
-      "n": 143,
-      "median_days": 36.0,
-      "p90_days": 48.8,
-      "mean_days": 37.76923076923077,
-      "min_days": 15.0,
-      "max_days": 62.0
+      "n": 0,
+      "median_days": null,
+      "p90_days": null,
+      "mean_days": null,
+      "min_days": null,
+      "max_days": null
     }
   },
   "receivable_stub": {
@@ -64,6 +64,9 @@
     "haircut_0pct": null,
     "haircut_10pct": null,
     "haircut_20pct": null,
+    "nhi211_net_cash": null,
+    "nhi211_premium": null,
+    "nhi211_n_above_threshold": null,
     "note": "No dividends_applied.csv yet \u2014 tax sensitivity deferred until live applies cash events."
   },
   "odd_lot": {

@@ -68,6 +68,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | NHI 股利補充保費 | Human: 單次達 **NT$20,000** → **2.11%** 就源扣（≠ 所得稅 ballot A）· sandbox `E22_v3_recv_pay_effdelay_nhi211` · **not** live · purpose `TAX_FOR_CASHFLOW_PURPOSE.md` · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md` |
 | Realism → 全自動化 gap-close | Phase **0–1+3+5 LANDED** · Phase **4 scaffold** (synthetic R5) · Phase 2 = Monday tip · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · Monday list `TIP_CATCHUP_MONDAY_CHECKLIST.md` |
 | Full-review harden (2026-09-20) | Ex entitlement snapshot · Y±1 **loader** (`load_calendar_window`) · **2025 CSV pinned** (`twse_sessions_2025.csv`) · **2027 wait** for TWSE publish · blank-pay fail-closed · uncommitted orders/nav · NHI211 settle-time premium · forward GHA allow flags · R5 path jail · tax CLI stripped · Soft-Frozen **KEEP** |
+| Residual gap-close (2026-09-20) | TAX0 vs NHI211 observe `E22_TAX0_VS_NHI211_OBSERVE.*` (`promote_ready=false`) · Gap6 `nhi211_*` tax sensitivity · `DIV_APPLIED_EMPTY_IN_RECV_WINDOW` · e50 Y±1 calendar align · Soft-Frozen **KEEP** |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 
@@ -83,7 +84,7 @@ Odd-lot promote (**PROMOTED** 2026-09-05): `research/ops/ODD_LOT_PROMOTE_CHECKLI
 Odd-lot promote decision pack (**ACCEPT promote**): `research/ops/ODD_LOT_PROMOTE_DECISION_PACK.md`  
 Par-value lookup charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`  
 Par-value inventory: `research/ops/PAR_VALUE_INVENTORY.md` · `data/corporate_actions/par_value_by_code.csv`  
-Tax/receivable formal books: Stage-E live **TAX0** · human **BALLOT A KEEP TAX0** (2026-09-20) — after-tax DEFAULT path closed this cycle; sandbox tax10/20 research-only · `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
+Tax/receivable formal books: Stage-E live **TAX0** · human **BALLOT A KEEP TAX0** (2026-09-20) — after-tax DEFAULT path closed this cycle; sandbox tax10/20 research-only · NHI211 dual-book observe `E22_TAX0_VS_NHI211_OBSERVE.md` · `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
 Realism automation gap-close (toward 全自動化): Phase **0–1 + 3 + 5 LANDED** — verify · `ops_alert_scan` R4/tip-lag · `v412e22-dividend-events` weekday cron · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md`  
 E45 A05 live-stitch (**DROPPED** 2026-09-09): Soft-Frozen CRITICAL class KEEP as paper; dual-paper observe **OPERATING**; A05 live wire **retired** (`E45_A05_STITCH_DROPPED.md`); live risk overlay is **DH_dd06** + **FUSE** (ACCEPT 2026-09-13). Tip books align ACCEPT 2026-09-19: `ACCEPT_TIP_BOOKS_ALIGN_V3.md`. Paper/live fill skip align: `ACCEPT_PAPER_LIVE_FILL_SKIP_ALIGN.md`. Ops residual 全修 ACCEPT 2026-09-19: `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` (dual-paper refresh + tip-lag stamp + INDEX_DRIFT non-decision; no challenger/broker promote).
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  

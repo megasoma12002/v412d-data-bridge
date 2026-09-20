@@ -18,7 +18,7 @@ Roadmap: `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md`
 ## Phase 5 — Dividend data cadence
 
 `.github/workflows/v412e22-dividend-events.yml`: weekday cron `0 7 * * 1-5` (≈15:00 Taipei), fetch-only `data/dividend_events/`.  
-Optional alert `DIV_APPLIED_MISSING_IN_RECV_WINDOW` when Stage-E tip + receivable window open + no `dividends_applied.csv`.
+Optional alerts when Stage-E tip + receivable window open: `DIV_APPLIED_MISSING_IN_RECV_WINDOW` (no file) · `DIV_APPLIED_EMPTY_IN_RECV_WINDOW` (file exists, n=0).
 
 ## Non-actions
 
