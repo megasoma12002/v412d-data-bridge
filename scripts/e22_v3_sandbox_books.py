@@ -12,10 +12,14 @@ Named versions:
   E22_v3_recv_pay_tax10 — receivable on ex (net of 10%); cash on pay; stock = TW odd-lot
   E22_v3_recv_pay_tax20 — receivable on ex (net of 20%); cash on pay; stock = TW odd-lot
   E22_v3_recv_pay_effdelay — **live DEFAULT** — recv_pay + effective ex/payment snaps
+  E22_v3_recv_pay_effdelay_nhi211 — sandbox: Stage-E timing + NHI 2.11% when single
+    cash-div credit ≥ NT$20k (cashflow-precision research; not live)
 
 Preserved cash-on-ex formal: ``E22_v2s_tw_effex`` (override with confirm flag).
 
-Receivables dict keys: ``f"{code}:{ex_date}"`` (pending gross credits; raw ex identity).
+Receivables dict keys: ``f"{code}:{ex_date}"`` (pending credits; raw ex identity).
+Tax purpose (human 2026-09-20): precise **cashflow**, not year-end 所得稅 beauty —
+see ``TAX_FOR_CASHFLOW_PURPOSE.md``.
 """
 from __future__ import annotations
 
@@ -24,6 +28,7 @@ from datetime import date
 from typing import Iterable, Sequence
 
 import e22_dividend_accounting as base
+from nhi_dividend_supplemental_premium import nhi_dividend_premium
 from twse_dividend_delay_estimate import effective_ex_trade, effective_payment
 
 E22_V3_RECV_PAY = "E22_v3_recv_pay"
@@ -32,6 +37,7 @@ E22_V3_TAX20 = "E22_v3_tax20"
 E22_V3_RECV_PAY_TAX10 = "E22_v3_recv_pay_tax10"
 E22_V3_RECV_PAY_TAX20 = "E22_v3_recv_pay_tax20"
 E22_V3_RECV_PAY_EFFDELAY = "E22_v3_recv_pay_effdelay"
+E22_V3_RECV_PAY_EFFDELAY_NHI211 = "E22_v3_recv_pay_effdelay_nhi211"
 SANDBOX_VERSIONS = frozenset(
     {
         E22_V3_RECV_PAY,
@@ -40,6 +46,7 @@ SANDBOX_VERSIONS = frozenset(
         E22_V3_RECV_PAY_TAX10,
         E22_V3_RECV_PAY_TAX20,
         E22_V3_RECV_PAY_EFFDELAY,
+        E22_V3_RECV_PAY_EFFDELAY_NHI211,
     }
 )
 TAX_HAIRCUT = {
@@ -54,10 +61,36 @@ RECV_PAY_FAMILY = frozenset(
         E22_V3_RECV_PAY_TAX10,
         E22_V3_RECV_PAY_TAX20,
         E22_V3_RECV_PAY_EFFDELAY,
+        E22_V3_RECV_PAY_EFFDELAY_NHI211,
     }
 )
-EFFDELAY_FAMILY = frozenset({E22_V3_RECV_PAY_EFFDELAY})
+EFFDELAY_FAMILY = frozenset({E22_V3_RECV_PAY_EFFDELAY, E22_V3_RECV_PAY_EFFDELAY_NHI211})
+NHI211_FAMILY = frozenset({E22_V3_RECV_PAY_EFFDELAY_NHI211})
 STOCK_BASE_VERSION = base.E22_V2S_TW
+
+
+def _net_cash_credit(gross: float, version: str) -> tuple[float, float, float, str]:
+    """Return (net_credit, effective_rate, premium_twd, assumption)."""
+    g = float(gross)
+    if version in NHI211_FAMILY:
+        r = nhi_dividend_premium(g)
+        eff = (r.premium_twd / g) if g > 0 else 0.0
+        return (
+            float(r.net_cash_twd),
+            float(eff),
+            float(r.premium_twd),
+            "nhi211_threshold_cashflow_precision_on_accrual",
+        )
+    w = float(TAX_HAIRCUT.get(version, 0.0))
+    premium = g * w
+    if w > 0:
+        assumption = (
+            "sandbox_flat_withholding_on_receivable; "
+            "not NHI rule — see TAX_FOR_CASHFLOW_PURPOSE.md"
+        )
+    else:
+        assumption = "tax0_receivable_effdelay" if version in EFFDELAY_FAMILY else "tax0_receivable"
+    return g * (1.0 - w), w, premium, assumption
 
 
 def _parse_day(raw: str) -> date | None:
@@ -161,8 +194,11 @@ def apply_sandbox_for_date(
     use_eff = version in EFFDELAY_FAMILY
 
     if version in RECV_PAY_FAMILY:
-        w = float(TAX_HAIRCUT.get(version, 0.0))
-        out.tax_haircut_rate = w
+        # Flat sandbox taxW rate for metadata; NHI211 uses per-event threshold.
+        w_meta = float(TAX_HAIRCUT.get(version, 0.0))
+        if version in NHI211_FAMILY:
+            w_meta = 0.0211
+        out.tax_haircut_rate = w_meta
         # Ex-date (raw or effective): accrue receivable
         for ev in events_list:
             if ev.kind != "cash":
@@ -179,7 +215,7 @@ def apply_sandbox_for_date(
             if sh <= 0:
                 continue
             gross = sh * float(ev.amount)
-            credit = gross * (1.0 - w)
+            credit, eff_rate, premium, assumption = _net_cash_credit(gross, version)
             pk = _pending_key(ev.code, ev.ex_date)
             recv[pk] = float(recv.get(pk, 0.0) or 0.0) + credit
             out.receivable_credit += credit
@@ -194,19 +230,11 @@ def apply_sandbox_for_date(
                     "payment_date": ev.payment_date,
                     "pending_key": pk,
                     "gross_credit": gross,
-                    "tax_haircut_rate": w,
+                    "tax_haircut_rate": eff_rate,
+                    "premium_twd": premium,
                     "receivable_credit": credit,
                     "cash_credit": 0.0,
-                    "assumption": (
-                        "sandbox_flat_withholding_on_receivable; "
-                        "resident/non-resident rule must be written before promote"
-                        if w > 0
-                        else (
-                            "tax0_receivable_effdelay"
-                            if use_eff
-                            else "tax0_receivable"
-                        )
-                    ),
+                    "assumption": assumption,
                     "version": version,
                 }
             )
@@ -245,7 +273,7 @@ def apply_sandbox_for_date(
                     "effective_payment": pay,
                     "pending_key": pk,
                     "cash_credit": credit,
-                    "tax_haircut_rate": w,
+                    "tax_haircut_rate": w_meta,
                     "version": version,
                 }
             )
@@ -322,14 +350,19 @@ def version_manifest(version: str) -> dict:
         "live_default_untouched": base.DEFAULT_BOOKS_VERSION,
         "soft_frozen_unchanged": True,
         "cash_timing": cash_timing,
-        "tax_haircut": TAX_HAIRCUT.get(version, 0.0),
+        "tax_haircut": (
+            0.0211 if version in NHI211_FAMILY else TAX_HAIRCUT.get(version, 0.0)
+        ),
+        "nhi211_threshold": version in NHI211_FAMILY,
         "stock_path": STOCK_BASE_VERSION,
         "combined_recv_tax": version in {E22_V3_RECV_PAY_TAX10, E22_V3_RECV_PAY_TAX20},
         "effdelay": version in EFFDELAY_FAMILY,
-        "promote_ready": version in EFFDELAY_FAMILY,
+        "promote_ready": False if version in NHI211_FAMILY else (version == E22_V3_RECV_PAY_EFFDELAY),
         "stage_e_live_default": version == E22_V3_RECV_PAY_EFFDELAY,
+        "cashflow_precision_sandbox": version in NHI211_FAMILY,
         "charter": "research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md",
         "delay_charter": "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md",
+        "tax_purpose": "research/ops/TAX_FOR_CASHFLOW_PURPOSE.md",
         "ballot": "ACCEPT Stage-E promote 2026-09-16",
     }
 

@@ -140,8 +140,9 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 
 ## Non-decisions (ops wait — no strategy vote needed)
 
-- **Cashflow number priority** (human 2026-09-20「主要是要計算好現金流的數字」): keep A/B/C clocks separate — Exact T+1 paper · R4 settled · Stage-E cash+recv (TAX0) · SSOT `CASHFLOW_THREE_VIEWS.md` · report `cashflow_three_views_report.py` · **not** after-tax DEFAULT for cashflow  
-- **NHI 補充保費** (human 2026-09-20「股利超過20000會需要繳補充保費」): 單次達 2 萬 → 2.11% 就源扣；**cashflow fidelity gap** vs Stage-E TAX0 gross · **not** wired · ≠ ballot A 所得稅 · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md`  
+- **Tax purpose** (human 2026-09-20「稅的目的是要有精準的現金流」): tax/withholding modeling = **cashflow precision** · year-end 所得稅 stays outside (ballot A) · pay-day NHI in sandbox `E22_v3_recv_pay_effdelay_nhi211` · `TAX_FOR_CASHFLOW_PURPOSE.md`  
+- **Cashflow number priority** (human 2026-09-20「主要是要計算好現金流的數字」): keep A/B/C clocks separate — Exact T+1 paper · R4 settled · Stage-E cash+recv (TAX0) · SSOT `CASHFLOW_THREE_VIEWS.md` · report `cashflow_three_views_report.py` · **not** after-tax flat tax10/20 DEFAULT for cashflow  
+- **NHI 補充保費** (human 2026-09-20「股利超過20000會需要繳補充保費」): 單次達 2 萬 → 2.11% 就源扣；**cashflow fidelity** vs Stage-E TAX0 gross · sandbox ready · **not** live · ≠ ballot A 所得稅 · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md`  
 - Next weekday forward → tip may advance to `E22_v3_recv_pay_effdelay` (tip-align ACCEPT 2026-09-19; no history rewrite); then `POST_FORWARD_E22_VERIFY_RUNBOOK.md` + Gap6 KPI + Monday cashflow asserts `TIP_CATCHUP_MONDAY_CHECKLIST.md`  
 - Grow live history toward ≥~60 sessions; `INDEX_DRIFT` under thin overlap is **ops note only** (ACCEPT Ops residual 全修 2026-09-19) — never a cutover vote  
 - Calendar month-end pack re-run (L4 / FIN50 / FINCAP BLEND_025 / Soft / Sleeve / FUSE / priv / DH; **E45_BLEND025 skipped**) — default **KEEP OBSERVE**; cutover only via dedicated ACCEPT  

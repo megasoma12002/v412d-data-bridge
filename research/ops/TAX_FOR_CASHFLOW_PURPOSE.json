@@ -1,0 +1,21 @@
+{
+  "label": "TAX_FOR_CASHFLOW_PURPOSE",
+  "amended_at": "2026-09-20",
+  "status": "OPS_POLICY",
+  "soft_frozen_keep": true,
+  "human_source": "human_ops_message_tax_purpose_precise_cashflow",
+  "purpose_zh": "稅的目的是要有精準的現金流",
+  "purpose_en": "tax_modeling_exists_for_precise_cashflow",
+  "in_scope": [
+    "stage_e_recv_pay_timing",
+    "r4_t2_settled_liquidity",
+    "nhi_div_supplemental_premium_at_pay"
+  ],
+  "out_of_scope_daily_nav": [
+    "year_end_dividend_income_tax_merge_or_28pct"
+  ],
+  "ballot_a": "KEEP_TAX0_year_end_income_tax_outside_nav",
+  "nhi_sandbox": "E22_v3_recv_pay_effdelay_nhi211",
+  "nhi_promote_ready": false,
+  "live_default": "E22_v3_recv_pay_effdelay"
+}

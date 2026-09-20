@@ -3,6 +3,7 @@
 Date: 2026-09-20  
 Status: **OPS SSOT** — Soft-Frozen **KEEP** · Stage-E DEFAULT `E22_v3_recv_pay_effdelay` (TAX0)  
 Human priority (2026-09-20): **計算好現金流的數字** — not after-tax DEFAULT (ballot A KEEP TAX0)  
+Tax purpose (same day): **稅的目的是要有精準的現金流** · `TAX_FOR_CASHFLOW_PURPOSE.md`  
 Machine report: `scripts/cashflow_three_views_report.py` → `CASHFLOW_THREE_VIEWS_REPORT.*`
 
 ## Why three views
@@ -75,13 +76,14 @@ settled_cash_estimate ≈ paper_cash − unsettled_net
 - Weekend invent / rewrite `forward/e21` history  
 - Soft-Frozen / alpha / broker live-write promote
 
-## Known cashflow haircut (not wired): NHI 補充保費
+## Known cashflow haircut (sandbox): NHI 補充保費
 
 Human (2026-09-20): **股利單次達 NT$20,000 → 二代健保補充保費 2.11% 就源扣繳**.  
 
 - **≠** ballot A 所得稅（年終）；這是 **發放日現金** 可能少一截.  
 - Live Stage-E still credits **TAX0 gross** — custody may show net after 2.11% when payment ≥ 20k.  
 - Research helper: `nhi_dividend_supplemental_premium.py` · note `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md`  
+- Cashflow-precision sandbox (not live): **`E22_v3_recv_pay_effdelay_nhi211`** · purpose `TAX_FOR_CASHFLOW_PURPOSE.md`  
 - **No** live wire this cycle (needs dedicated ballot).
 
 ## Related

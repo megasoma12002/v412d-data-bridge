@@ -21,6 +21,8 @@
   "live_default_books": "E22_v3_recv_pay_effdelay",
   "live_tax_posture": "TAX0_gross_no_nhi_haircut",
   "helper": "scripts/nhi_dividend_supplemental_premium.py",
+  "sandbox_books": "E22_v3_recv_pay_effdelay_nhi211",
+  "tax_purpose": "TAX_FOR_CASHFLOW_PURPOSE.md",
   "cashflow_ssot": "CASHFLOW_THREE_VIEWS.md",
   "non_actions": [
     "no_live_wire",

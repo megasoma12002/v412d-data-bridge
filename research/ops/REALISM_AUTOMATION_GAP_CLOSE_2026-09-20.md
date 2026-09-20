@@ -12,6 +12,8 @@ Make the live accounting loop **self-running on open sessions** (forward → R4 
 
 **Human priority (2026-09-20):** **計算好現金流的數字** — Exact T+1 paper · R4 T+2 settled · Stage-E cash+receivable (TAX0). SSOT `CASHFLOW_THREE_VIEWS.md`. After-tax tax\* DEFAULT is **not** the cashflow path.  
 
+**Tax purpose (same day):**「稅的目的是要有精準的現金流」· `TAX_FOR_CASHFLOW_PURPOSE.md` — year-end 所得稅 outside (ballot A); pay-day NHI in sandbox `E22_v3_recv_pay_effdelay_nhi211`.  
+
 **NHI note (same day):** single dividend pay **≥ NT$20,000** → **2.11%** supplemental premium at source — custody vs TAX0 gross gap; **not** live-wired · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md`.
 
 ## What already runs unattended

@@ -18,7 +18,8 @@ Live DEFAULT books: **`E22_v3_recv_pay_effdelay`** (TAX0; receivable on effectiv
 | `E22_v3_tax10` | Ex cash × 0.90; stock=TW | **SANDBOX OPEN** + sealed compare DONE |
 | `E22_v3_tax20` | Ex cash × 0.80; stock=TW | **SANDBOX OPEN** + sealed compare DONE |
 | `E22_v3_recv_pay_tax10` / `tax20` (`taxW`) | Combined recv+flat withhold | **SANDBOX OPEN** + sealed compare DONE |
-| Resident/non-resident tax appendix | Promote gate | **DRAFTED** — `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` (not promote-ready) |
+| `E22_v3_recv_pay_effdelay_nhi211` | Stage-E timing + NHI 2.11% if single cash-div ≥20k | **SANDBOX OPEN** · cashflow-precision · `promote_ready=false` · `TAX_FOR_CASHFLOW_PURPOSE.md` |
+| Resident/non-resident tax appendix | Promote gate | ballot **A KEEP TAX0** for year-end 所得稅 · NHI separate · `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` |
 
 ## Latest sealed evidence
 

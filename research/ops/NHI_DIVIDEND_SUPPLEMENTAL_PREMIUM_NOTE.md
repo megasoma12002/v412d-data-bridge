@@ -32,9 +32,11 @@ Stock-div portion for NHI is typically valued at **par** in withholder practice;
 | Surface | Posture |
 |---|---|
 | Stage-E DEFAULT `E22_v3_recv_pay_effdelay` | **TAX0 gross** — **no** NHI haircut wired |
+| Sandbox `E22_v3_recv_pay_effdelay_nhi211` | Stage-E timing + threshold 2.11% · **cashflow-precision** · `promote_ready=false` |
 | Sandbox `tax10`/`tax20` | Unrelated flat research haircuts — **do not** reuse as NHI |
 | Promote NHI into live books | **CLOSED** until dedicated human ballot + PR |
 | Cashflow ops | Treat NHI as **known custody vs books delta** on large single pays |
+| Purpose | `TAX_FOR_CASHFLOW_PURPOSE.md` — 稅為精準現金流 |
 
 ## Research helper
 
@@ -50,9 +52,9 @@ PY
 ## Path to wire (future ballot only)
 
 1. Confirm withholder base (cash-only vs cash+stock-par) against a real custody statement / 扣繳憑單.  
-2. Sandbox books version e.g. `E22_v3_recv_pay_nhi211` (receivable gross or net — decide explicitly).  
-3. Gap6 / dual-book compare vs TAX0 Stage-E.  
-4. Dedicated ACCEPT — **not** auto from this note; **not** conflated with ballot A.
+2. Dual-book compare: live TAX0 Stage-E vs sandbox **`E22_v3_recv_pay_effdelay_nhi211`**.  
+3. Gap6 / sealed evidence pack.  
+4. Dedicated ACCEPT — **not** auto from this note; **not** conflated with ballot A 所得稅.
 
 ## Non-actions
 

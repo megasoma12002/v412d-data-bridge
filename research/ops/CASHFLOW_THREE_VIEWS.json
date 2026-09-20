@@ -32,7 +32,9 @@
       "id": "nhi_div_supplemental_211",
       "threshold_twd": 20000,
       "rate": 0.0211,
+      "sandbox_books": "E22_v3_recv_pay_effdelay_nhi211",
       "note": "NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md",
+      "purpose": "TAX_FOR_CASHFLOW_PURPOSE.md",
       "live_wired": false
     }
   ],
