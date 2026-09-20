@@ -66,7 +66,8 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | 除權息入帳延後 | Stage-E live DEFAULT `E22_v3_recv_pay_effdelay` (receivable + effective pay); preserved `E22_v2s_tw_effex`; MOPS overlay; Gap 6.9c stock-pay observe |
 | **現金流三視角** | Human priority **算準現金流** (2026-09-20) · A Exact T+1 `cash` · B R4 `settled_cash_estimate` · C Stage-E `cash+e22_receivables` (TAX0) · `CASHFLOW_THREE_VIEWS.md` · `cashflow_three_views_report.py` · Monday `TIP_CATCHUP_MONDAY_CHECKLIST.md` |
 | NHI 股利補充保費 | Human: 單次達 **NT$20,000** → **2.11%** 就源扣（≠ 所得稅 ballot A）· sandbox `E22_v3_recv_pay_effdelay_nhi211` · **not** live · purpose `TAX_FOR_CASHFLOW_PURPOSE.md` · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md` |
-| Realism → 全自動化 gap-close | Phase **0–1+3+5 LANDED** · Phase **4 scaffold** (synthetic R5) · Phase 2 = Monday tip · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · Monday list `TIP_CATCHUP_MONDAY_CHECKLIST.md` || Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
+| Realism → 全自動化 gap-close | Phase **0–1+3+5 LANDED** · Phase **4 scaffold** (synthetic R5) · Phase 2 = Monday tip · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · Monday list `TIP_CATCHUP_MONDAY_CHECKLIST.md` |
+| Full-review harden (2026-09-20) | Ex entitlement snapshot · multi-year calendars · blank-pay fail-closed · uncommitted orders/nav · NHI211 settle-time premium · forward GHA allow flags · R5 path jail · tax CLI stripped · Soft-Frozen **KEEP** || Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 
 Latest pack: `research/ops/MONTH_END_PAPER_PACK.md` (2026-09-10 primary observe: `OPS_CADENCE_2026-09-10_PRIMARY_OBSERVE.md`)  

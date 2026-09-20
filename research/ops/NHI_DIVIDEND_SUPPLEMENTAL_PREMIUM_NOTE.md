@@ -27,6 +27,15 @@ Example: cash div **19,999** → premium **0**.
 
 Stock-div portion for NHI is typically valued at **par** in withholder practice; cash path is what hits View C bank cash. Employer/自營業主「已列入投保金額」扣除 — **not** modeled here (retail / non-employer path).
 
+## Sandbox timing (cashflow precision)
+
+Sandbox `E22_v3_recv_pay_effdelay_nhi211` (not live):
+
+- Accrue **gross** receivable on effective ex  
+- Apply **2.11%** (threshold) on **settle/pay** when converting receivable → cash  
+
+Matches 就源扣繳 on 發放日 better than accrual-time haircut.
+
 ## Live posture (this cycle)
 
 | Surface | Posture |
