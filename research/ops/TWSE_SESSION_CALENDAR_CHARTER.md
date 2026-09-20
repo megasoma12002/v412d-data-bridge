@@ -58,6 +58,7 @@ python3 scripts/twse_session_sources.py --asof 2026-07-10
 
 Weekend that is also on `holidaySchedule` (e.g. 2026-02-28) is labeled **`CLOSED_HOLIDAY`**, not bare `WEEKEND`.
 
+**Prior-year pin (2025):** `data/calendars/twse_sessions_2025.csv` is pinned for Y−1 `load_calendar_window` neighbors (CNY settlement-only 1/23–1/24 · late-2025 closes from `closed_weekdays_trailing_1y_labeled.csv`). Do **not** invent 2027 until TWSE publishes; do **not** invent weekday forward closes.
 
 ```
 is_session_day(asof) =

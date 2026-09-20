@@ -54,7 +54,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Live modularization | `research/ops/ARCH_LIVE_MODULARIZE.md` (`live_config` / strategy / execution / ledger) |
 | Installable package | `pyproject.toml` · `pip install -e .` · ops image `Dockerfile` |
 | Docker QC smoke | `scripts/ops_docker_qc_smoke.sh` · `docker compose` · workflow `docker-ops-qc-smoke` |
-| TWSE session calendar | `twse_session_sources.py` + P2 `twse_forward_session_gate` in `v412f-forward-paper` (`session_skip.json`) |
+| TWSE session calendar | `twse_session_sources.py` + P2 `twse_forward_session_gate` in `v412f-forward-paper` (`session_skip.json`) · Y±1 **loader** · **2025 CSV pinned** · **2027 wait** for TWSE publish |
 | Fill ports | `paper` · `dry_run` · P4 `broker` preflight + fixture-ack shadow (`broker_acks/`; Soft-Frozen default untouched) |
 | Broker live-write 防呆 | `broker_safety` + **`broker_risk`**（狀態機／panic／黑名單／限額／限流／重啟對帳／熔斷讀寫分離＋half-open cooldown／stale 標記／告警；另含 process lock／dedupe／confirm）· `BROKER_RISK_RECOVERY.md`；`LIVE.broker_live_write_accepted=False` until ACCEPT |
 | 元大 SPARK UAT | 無本機固定 IP 時：最小 GCP 靜態 IP VM 教學 `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`（**不**寫 Soft-Frozen） |
@@ -67,7 +67,8 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | **現金流三視角** | Human priority **算準現金流** (2026-09-20) · A Exact T+1 `cash` · B R4 `settled_cash_estimate` · C Stage-E `cash+e22_receivables` (TAX0) · `CASHFLOW_THREE_VIEWS.md` · `cashflow_three_views_report.py` · Monday `TIP_CATCHUP_MONDAY_CHECKLIST.md` |
 | NHI 股利補充保費 | Human: 單次達 **NT$20,000** → **2.11%** 就源扣（≠ 所得稅 ballot A）· sandbox `E22_v3_recv_pay_effdelay_nhi211` · **not** live · purpose `TAX_FOR_CASHFLOW_PURPOSE.md` · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md` |
 | Realism → 全自動化 gap-close | Phase **0–1+3+5 LANDED** · Phase **4 scaffold** (synthetic R5) · Phase 2 = Monday tip · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · Monday list `TIP_CATCHUP_MONDAY_CHECKLIST.md` |
-| Full-review harden (2026-09-20) | Ex entitlement snapshot · multi-year calendars · blank-pay fail-closed · uncommitted orders/nav · NHI211 settle-time premium · forward GHA allow flags · R5 path jail · tax CLI stripped · Soft-Frozen **KEEP** || Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
+| Full-review harden (2026-09-20) | Ex entitlement snapshot · Y±1 **loader** (`load_calendar_window`) · **2025 CSV pinned** (`twse_sessions_2025.csv`) · **2027 wait** for TWSE publish · blank-pay fail-closed · uncommitted orders/nav · NHI211 settle-time premium · forward GHA allow flags · R5 path jail · tax CLI stripped · Soft-Frozen **KEEP** |
+| Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 
 Latest pack: `research/ops/MONTH_END_PAPER_PACK.md` (2026-09-10 primary observe: `OPS_CADENCE_2026-09-10_PRIMARY_OBSERVE.md`)  

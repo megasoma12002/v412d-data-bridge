@@ -61,7 +61,7 @@ PY
 ## Path to wire (future ballot only)
 
 1. Confirm withholder base (cash-only vs cash+stock-par) against a real custody statement / 扣繳憑單.  
-2. Dual-book compare: live TAX0 Stage-E vs sandbox **`E22_v3_recv_pay_effdelay_nhi211`**.  
+2. Dual-book compare: live TAX0 Stage-E vs sandbox **`E22_v3_recv_pay_effdelay_nhi211`** — observe artifact `E22_TAX0_VS_NHI211_OBSERVE.md` / `.json` (`promote_ready=false`).  
 3. Gap6 / sealed evidence pack.  
 4. Dedicated ACCEPT — **not** auto from this note; **not** conflated with ballot A 所得稅.
 

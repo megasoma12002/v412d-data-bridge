@@ -88,7 +88,7 @@ Human (2026-09-20): **股利單次達 NT$20,000 → 二代健保補充保費 2.1
 
 ## Related
 
-- Tip Monday: `TIP_CATCHUP_MONDAY_CHECKLIST.md` (Phase 2; also open PR #266)  
+- Tip Monday: `TIP_CATCHUP_MONDAY_CHECKLIST.md` (Phase 2 = Monday tip ops wait; PRs #266 / #268 / #269 landed)  
 - R4/R5: `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` · `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md`  
 - Div delay: `TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md`  
 - Realism roadmap: `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md`  

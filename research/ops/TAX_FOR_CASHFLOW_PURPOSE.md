@@ -30,9 +30,13 @@ E22_v3_recv_pay_effdelay_nhi211
 ```
 
 - Same Stage-E clocks as live DEFAULT.  
-- On cash-div accrual: if single gross credit ≥ 20,000 → receivable/net = gross − 2.11%×min(gross, 1e7).  
+- Accrue **gross** receivable on effective ex; apply **2.11%** (threshold) on **settle/pay**.  
 - Below threshold → TAX0 gross (same as live).  
 - `promote_ready=false`.
+
+## Residual (this cycle)
+
+Observe-only dual-book: `E22_TAX0_VS_NHI211_OBSERVE.md` · **no** live NHI promote · Soft-Frozen KEEP.
 
 ## Label
 

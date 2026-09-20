@@ -17,7 +17,8 @@ Exit codes (when not ``--report-only``):
 
 Never flips Soft-Frozen. Never cutover.
 Phase 3: R4 continuous observe + TIP_LAG_BOOKS INFO.
-Phase 5: optional DIV_APPLIED_MISSING_IN_RECV_WINDOW (Stage-E tip only).
+Phase 5: optional DIV_APPLIED_MISSING_IN_RECV_WINDOW /
+DIV_APPLIED_EMPTY_IN_RECV_WINDOW (Stage-E tip only).
 """
 from __future__ import annotations
 
@@ -283,7 +284,7 @@ def main() -> int:
                     ),
                 }
             )
-        # Phase 5 optional — apply rows missing while receivable window open (Stage-E tip only).
+        # Phase 5 optional — apply rows missing / empty while receivable window open (Stage-E tip only).
         if observed == STAGE_E_DEFAULT:
             recv = gap6.get("receivable_stub") or {}
             n_recv = int(recv.get("n_cash_events_in_receivable_window") or 0)
@@ -296,6 +297,23 @@ def main() -> int:
                         "message": (
                             f"Stage-E tip with {n_recv} cash events in receivable window but "
                             "dividends_applied.csv absent — report-only; no history backfill"
+                        ),
+                    }
+                )
+            elif (
+                n_recv > 0
+                and live.get("dividends_applied_exists")
+                and int(live.get("dividends_applied_n") or 0) == 0
+            ):
+                alerts.append(
+                    {
+                        "severity": "INFO",
+                        "source": "e22_gap6_fidelity_kpi",
+                        "code": "DIV_APPLIED_EMPTY_IN_RECV_WINDOW",
+                        "message": (
+                            f"Stage-E tip with {n_recv} cash events in receivable window but "
+                            "dividends_applied.csv exists with n=0 (empty) — report-only; "
+                            "no history backfill"
                         ),
                     }
                 )
