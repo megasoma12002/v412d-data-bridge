@@ -32,7 +32,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | 4 | L4_DD_PATH live cutover | **DEFER** | No PR until checklist all-green (≥1 clean month-end, no YTD/1y PAUSE) |
 | 5 | BLEND_025 → live | **NOT DECISION-READY** | Checklist drafted (`CUTOVER_CHECKLIST_BLEND025.md`) but **NOT AUTHORIZED**; needs sustained trailing + human PR |
 | 6a | Odd-lot default → `E22_v2s_tw` | **DONE** (2026-09-05) | #73+#74 merged; live `DEFAULT_BOOKS_VERSION = E22_v2s_tw`; Soft-Frozen KEEP; forward-only |
-| 6b | Formal tax·receivable books | **ACCEPT charter** (2026-09-05) | Stage B sandbox OPEN; live DEFAULT `E22_v3_recv_pay_effdelay` (Stage-E, **TAX0**); residency **本國人 DECIDED** 2026-09-20 · tax rate/timing still OPEN · `promote_ready=false` · Soft-Frozen KEEP |
+| 6b | Formal tax·receivable books | **ACCEPT charter** (2026-09-05) | Stage-E live **TAX0**; residency **本國人** + modeling **本國人慣例（合併／分開28%）DECIDED** 2026-09-20 · books method ballot A/B/C still OPEN · `promote_ready=false` · Soft-Frozen KEEP |
 | 6c | E45 live stitch | **ROLLBACK `DROP_E45_A05`** (2026-09-09) | Was ACCEPTED `BLEND_E45_A05` same day; unwired after paper drag · `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md` |
 
 ## Research portfolio (2026-09-08)

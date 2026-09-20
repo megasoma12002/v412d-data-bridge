@@ -9,18 +9,32 @@
     "status": "DECIDED",
     "value": "TW_DOMESTIC_RESIDENT",
     "zh": "本國居住者（本國人）",
-    "decided_at": "2026-09-20",
-    "source": "human_ops_message"
+    "decided_at": "2026-09-20"
   },
+  "modeling_principle": {
+    "status": "DECIDED",
+    "value": "TW_DOMESTIC_RESIDENT_STATUTORY_CONVENTION",
+    "zh": "參考本國人慣例計算",
+    "decided_at": "2026-09-20",
+    "means": [
+      "use_resident_dividend_two_track_merge_or_separate_28",
+      "do_not_use_nonresident_withholding_or_sandbox_tax10_tax20_as_resident_law"
+    ],
+    "statutory_summary": {
+      "merge": "consolidate_with_8p5_credit_cap_80k_per_return",
+      "separate": "flat_28_percent_on_household_dividends"
+    }
+  },
+  "books_method_ballot_open": ["A_KEEP_TAX0", "B_NAMED_DIV28", "C_NAMED_MERGE_CREDIT"],
   "open_gates": [
-    "resident_tax_rate_or_method_with_cite",
-    "withhold_timing_ex_vs_pay",
-    "refunds_credits_ledger",
+    "pick_books_method_A_B_or_C",
+    "ledger_timing_if_B_or_C",
+    "refunds_credits_if_C",
     "issuer_exceptions",
     "confirm_ignore_treaties_for_resident_v1"
   ],
   "non_actions": [
     "no_tax_default_flip",
-    "do_not_treat_residency_as_tax10_or_tax20_accept"
+    "do_not_map_domestic_convention_to_tax10_or_tax20"
   ]
 }
