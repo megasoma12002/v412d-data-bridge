@@ -64,6 +64,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Fee model | `0.001425×0.6` + sell 證交稅；**MIN_COMMISSION NT$20** floor (`live_ledger.fees_tax_for`) · day-trade tax not modeled |
 | T+2 settlement estimate | R4 daily artifact via `v412f-forward-paper` · R5 `twse_t2_broker_reconcile.py` (observe) · week-1 checklist `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` |
 | 除權息入帳延後 | Stage-E live DEFAULT `E22_v3_recv_pay_effdelay` (receivable + effective pay); preserved `E22_v2s_tw_effex`; MOPS overlay; Gap 6.9c stock-pay observe |
+| **現金流三視角** | Human priority **算準現金流** (2026-09-20) · A Exact T+1 `cash` · B R4 `settled_cash_estimate` · C Stage-E `cash+e22_receivables` (TAX0) · `CASHFLOW_THREE_VIEWS.md` · `cashflow_three_views_report.py` · Monday `TIP_CATCHUP_MONDAY_CHECKLIST.md` |
 | Realism → 全自動化 gap-close | Phase **0–1 + 3 + 5 LANDED** (verify + R4/tip alerts + div cron) · Phase 2 waits weekday tip · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |

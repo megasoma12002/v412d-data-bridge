@@ -4,12 +4,16 @@
   "status": "RESEARCH_OPS_ROADMAP",
   "soft_frozen": "KEEP",
   "goal": "unattended_observe_and_evidence_toward_full_ops_automation",
+  "human_priority": "cashflow_numbers_under_tax0",
+  "human_priority_zh": "計算好現金流的數字",
+  "cashflow_ssot": "CASHFLOW_THREE_VIEWS.md",
   "not_goal": [
     "soft_frozen_flip",
     "alpha_cutover",
     "auto_tax_default",
     "auto_broker_live_write",
-    "history_rewrite"
+    "history_rewrite",
+    "merge_exact_t1_r4_stage_e_cash_clocks"
   ],
   "already_unattended": [
     "v412f-forward-paper (weekday cron + R4 + e21_qc)",

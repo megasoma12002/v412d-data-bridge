@@ -1,0 +1,36 @@
+{
+  "label": "CASHFLOW_THREE_VIEWS",
+  "amended_at": "2026-09-20",
+  "status": "OPS_SSOT",
+  "soft_frozen_keep": true,
+  "human_priority": "cashflow_numbers_under_tax0",
+  "human_priority_zh": "計算好現金流的數字",
+  "live_default_books": "E22_v3_recv_pay_effdelay",
+  "live_tax": "TAX0",
+  "views": {
+    "A_paper_exact_t1": {
+      "field": "portfolio_state.cash",
+      "clock": "exact_t1_fill_day"
+    },
+    "B_r4_settled_liquidity": {
+      "field": "settlement_cash_estimate.summary.settled_cash_estimate",
+      "clock": "trade_t2_session",
+      "identity": "settled ≈ paper_cash - unsettled_net",
+      "is_nav": false
+    },
+    "C_stage_e_div_cashflow": {
+      "fields": ["cash", "e22_receivables"],
+      "clock": "div_effective_ex_to_effective_pay",
+      "tax": "TAX0_outside_personal"
+    }
+  },
+  "never_merge": ["A", "B", "C"],
+  "report_script": "scripts/cashflow_three_views_report.py",
+  "p0_next": "weekday_tip_catchup_stage_e",
+  "non_actions": [
+    "no_merge_r4_into_portfolio_cash",
+    "no_after_tax_default_for_cashflow",
+    "no_history_rewrite",
+    "no_soft_frozen_flip"
+  ]
+}

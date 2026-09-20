@@ -49,9 +49,14 @@ python3 scripts/e22_data_quality_kpi.py
 # 4) Alert scan (report-only)
 python3 scripts/ops_alert_scan.py --report-only
 
-# Or one-shot:
+# 5) Cashflow three views (A Exact T+1 · B R4 settled · C Stage-E cash+recv)
+python3 scripts/cashflow_three_views_report.py --write
+
+# Or one-shot (also attaches cashflow into POST_FORWARD_E22_VERIFY.*):
 python3 scripts/post_forward_e22_verify.py --require-r4 --fail-on critical
 ```
+
+Cashflow SSOT: `CASHFLOW_THREE_VIEWS.md` · Monday asserts: `TIP_CATCHUP_MONDAY_CHECKLIST.md`
 
 ## Pass criteria (evidence only — not cutover)
 
