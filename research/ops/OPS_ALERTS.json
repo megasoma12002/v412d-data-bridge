@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-20T01:54:06.189096+00:00",
+  "generated_at_utc": "2026-09-20T02:02:50.017178+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -10,7 +10,7 @@
   "overall": "HIGH",
   "n_critical": 0,
   "n_high": 7,
-  "n_info": 26,
+  "n_info": 28,
   "alerts": [
     {
       "severity": "HIGH",
@@ -200,6 +200,18 @@
     },
     {
       "severity": "INFO",
+      "source": "e22_gap6_fidelity_kpi",
+      "code": "TIP_LAG_BOOKS",
+      "message": "tip books 'E22_v2s_tw_effex' lag Stage-E DEFAULT 'E22_v3_recv_pay_effdelay' \u2014 authorized until next weekday forward (ACCEPT_TIP_BOOKS_ALIGN_V3); tip lag \u2260 second DEFAULT; Soft-Frozen KEEP"
+    },
+    {
+      "severity": "INFO",
+      "source": "r4_settlement_estimate",
+      "code": "R4_ESTIMATE_PRESENT",
+      "message": "R4 settlement_cash_estimate present \u2014 settled_cash_estimate=1022.172182977898 is liquidity view NOT portfolio NAV / Soft-Frozen cash"
+    },
+    {
+      "severity": "INFO",
       "source": "data_source_phase_c_probes",
       "code": "PHASE_C_C1_FIN12_HISTORY_SHADOW_NOTE",
       "message": "DRIFT on 1 ticker(s); does not count toward PASS"
@@ -211,5 +223,5 @@
       "message": "Helper is opt-in only; e21 still uses FinMind TaiwanStockPrice(TAIEX)."
     }
   ],
-  "routing_note": "Annotate CI job summary / upload OPS_ALERTS.* as artifact. HIGH=PAUSE_REVIEW blocks cutover talk only. CRITICAL fails live QC smoke."
+  "routing_note": "Annotate CI job summary / upload OPS_ALERTS.* as artifact. HIGH=PAUSE_REVIEW / R4 missing blocks cutover talk only (not Soft-Frozen flip). CRITICAL fails live QC smoke. R4 settled_cash_estimate is liquidity view NOT NAV. TIP_LAG_BOOKS is INFO until weekday tip catch-up."
 }

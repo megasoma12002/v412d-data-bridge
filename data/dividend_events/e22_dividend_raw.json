@@ -5203,6 +5203,30 @@
       "ParticipateDistributionOfTotalShares": 14492322275.0,
       "AnnouncementDate": "2026-07-07",
       "AnnouncementTime": "11:03:34"
+    },
+    {
+      "date": "2026-10-13",
+      "stock_id": "2890",
+      "year": "不適用",
+      "StockEarningsDistribution": 0.0,
+      "StockStatutorySurplus": 0.0,
+      "StockExDividendTradingDate": "2026-10-07",
+      "TotalEmployeeStockDividend": 0.0,
+      "TotalEmployeeStockDividendAmount": 0.0,
+      "RatioOfEmployeeStockDividendOfTotal": 0.0,
+      "RatioOfEmployeeStockDividend": 0.0,
+      "CashEarningsDistribution": 0.0,
+      "CashStatutorySurplus": 0.0,
+      "CashExDividendTradingDate": "",
+      "CashDividendPaymentDate": "",
+      "TotalEmployeeCashDividend": 0.0,
+      "TotalNumberOfCashCapitalIncrease": 640000000.0,
+      "CashIncreaseSubscriptionRate": 3.461290969,
+      "CashIncreaseSubscriptionpRrice": 0.0,
+      "RemunerationOfDirectorsAndSupervisors": 0.0,
+      "ParticipateDistributionOfTotalShares": 14782168721.0,
+      "AnnouncementDate": "2026-09-14",
+      "AnnouncementTime": "16:22:44"
     }
   ],
   "2891": [
