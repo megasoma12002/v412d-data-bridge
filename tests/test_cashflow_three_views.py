@@ -11,9 +11,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
-sys.path.insert(0, str(SCRIPTS))
 
-from cashflow_three_views_report import (  # noqa: E402
+from cashflow_three_views_report import (
     STAGE_E_DEFAULT,
     build_report,
     receivable_total,

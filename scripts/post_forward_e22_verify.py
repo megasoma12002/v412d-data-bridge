@@ -173,8 +173,12 @@ def main() -> int:
     # Cashflow three views (report-only attach — never fail this gate).
     cashflow: dict = {}
     try:
-        sys.path.insert(0, str(ROOT / "scripts"))
-        from cashflow_three_views_report import build_report, render_md, OUT_JSON as CF_JSON, OUT_MD as CF_MD
+        from cashflow_three_views_report import (
+            OUT_JSON as CF_JSON,
+            OUT_MD as CF_MD,
+            build_report,
+            render_md,
+        )
 
         cashflow = build_report(state_dir)
         OUT_DIR.mkdir(parents=True, exist_ok=True)
