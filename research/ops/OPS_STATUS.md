@@ -64,7 +64,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Fee model | `0.001425×0.6` + sell 證交稅；**MIN_COMMISSION NT$20** floor (`live_ledger.fees_tax_for`) · day-trade tax not modeled |
 | T+2 settlement estimate | R4 daily artifact via `v412f-forward-paper` · R5 `twse_t2_broker_reconcile.py` (observe) · week-1 checklist `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` |
 | 除權息入帳延後 | Stage-E live DEFAULT `E22_v3_recv_pay_effdelay` (receivable + effective pay); preserved `E22_v2s_tw_effex`; MOPS overlay; Gap 6.9c stock-pay observe |
-| Realism → 全自動化 gap-close | Research roadmap: `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` (observe-first; tax/broker still ballot-gated) |
+| Realism → 全自動化 gap-close | Phase **0–1 LANDED** (`post_forward_e22_verify` in `v412f-forward-paper` + `post-forward-e22-verify.yml`) · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 
@@ -81,7 +81,7 @@ Odd-lot promote decision pack (**ACCEPT promote**): `research/ops/ODD_LOT_PROMOT
 Par-value lookup charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`  
 Par-value inventory: `research/ops/PAR_VALUE_INVENTORY.md` · `data/corporate_actions/par_value_by_code.csv`  
 Tax/receivable formal books (**Item 2 ACCEPT charter — Stage B OPEN**): `research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · decision pack `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
-Realism automation gap-close (toward 全自動化; observe-first): `research/ops/REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md`  
+Realism automation gap-close (toward 全自動化): Phase **0–1 LANDED** — `scripts/post_forward_e22_verify.py` · workflows `v412f-forward-paper` + `post-forward-e22-verify.yml` · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md`  
 E45 A05 live-stitch (**DROPPED** 2026-09-09): Soft-Frozen CRITICAL class KEEP as paper; dual-paper observe **OPERATING**; A05 live wire **retired** (`E45_A05_STITCH_DROPPED.md`); live risk overlay is **DH_dd06** + **FUSE** (ACCEPT 2026-09-13). Tip books align ACCEPT 2026-09-19: `ACCEPT_TIP_BOOKS_ALIGN_V3.md`. Paper/live fill skip align: `ACCEPT_PAPER_LIVE_FILL_SKIP_ALIGN.md`. Ops residual 全修 ACCEPT 2026-09-19: `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` (dual-paper refresh + tip-lag stamp + INDEX_DRIFT non-decision; no challenger/broker promote).
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  

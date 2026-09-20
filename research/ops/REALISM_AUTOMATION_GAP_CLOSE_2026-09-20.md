@@ -50,22 +50,18 @@ Fail-closed already in code: session skip · Soft-Frozen `e21_session.lock` · c
 
 ## Phased roadmap (implement later; this note does not ship the wires)
 
-### Phase 0 — Observe harden (no ballot)
+### Phase 0 — Observe harden (no ballot) — **LANDED 2026-09-20**
 
-1. In `v412f-forward-paper.yml`, after R4: assert `settlement_cash_estimate.{csv,json}` exist when `skip!=true`.  
+1. In `v412f-forward-paper.yml`, after R4: assert estimate CSV/JSON exist + summary keys when `skip!=true`.  
 2. Optional upload of Gap6/DQ even if tip still lags (INFO, not fail).  
-Scripts: `twse_t2_settlement_estimate.py`, `e21_qc.py`, `e22_gap6_fidelity_kpi.py`.
+Scripts: `twse_t2_settlement_estimate.py`, `e21_qc.py`, `e22_gap6_fidelity_kpi.py`, **`post_forward_e22_verify.py`**.
 
-### Phase 1 — Post-forward verify automation
+### Phase 1 — Post-forward verify automation — **LANDED 2026-09-20**
 
-1. New job or steps after successful non-skip forward (same workflow **or** `workflow_run` → `post-forward-e22-verify.yml`):  
-   - `e21_qc.py`  
-   - `e22_gap6_fidelity_kpi.py`  
-   - `e22_data_quality_kpi.py`  ← missing from daily path today  
-   - `ops_alert_scan.py --report-only` (or `--fail-on critical` only)  
-2. Commit/upload under `research/ops/` + forward artifacts.  
-3. Fail closed on CRITICAL / Gap6 `code_ok=false`.  
-4. Tip≠DEFAULT → **INFO tip-lag** until G1 clears (do not fail the job).  
+1. Chained in `v412f-forward-paper.yml` after QC: `post_forward_e22_verify.py --require-r4 --skip-qc --fail-on critical`.  
+2. Standalone `.github/workflows/post-forward-e22-verify.yml` (`workflow_dispatch` / `workflow_run` after forward success).  
+3. Commits/uploads `POST_FORWARD_E22_VERIFY.*` + Gap6/DQ/`OPS_ALERTS.*`.  
+4. Fail: CRITICAL / Gap6 `code_ok`. Allow: tip≠DEFAULT (INFO) · DQ flags · HIGH PAUSE.  
 Authority: `POST_FORWARD_E22_VERIFY_RUNBOOK.md`.
 
 ### Phase 2 — Tip catch-up confirmation

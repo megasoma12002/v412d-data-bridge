@@ -112,20 +112,63 @@ jobs:
           python scripts/twse_t2_settlement_estimate.py \
             --state-dir forward/e21 \
             --asof "$ASOF"
+      - name: Phase 0 — assert R4 settlement artifacts
+        if: steps.session_gate.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          test -s forward/e21/settlement_cash_estimate.csv
+          test -s forward/e21/settlement_cash_estimate.json
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path("forward/e21/settlement_cash_estimate.json")
+          d = json.loads(p.read_text())
+          s = d.get("summary") or {}
+          for k in ("settling_today_net", "unsettled_net", "paper_cash", "settled_cash_estimate"):
+              assert k in s, f"R4 summary missing {k}"
+          print("R4 assert OK — liquidity view only (not NAV)")
+          PY
       - name: Fail-closed E21 QC
         if: steps.session_gate.outputs.skip != 'true'
         run: python scripts/e21_qc.py --state-dir forward/e21
+      - name: Phase 1 — post-forward E22 verify (Gap6 + DQ + alerts)
+        if: steps.session_gate.outputs.skip != 'true'
+        run: |
+          set -euo pipefail
+          # QC already ran; tip lag / DQ flags / HIGH PAUSE are INFO (do not fail).
+          # Fail-closed only on Gap6 code_ok or CRITICAL alerts.
+          python3 scripts/post_forward_e22_verify.py \
+            --state-dir forward/e21 \
+            --require-r4 \
+            --skip-qc \
+            --fail-on critical
+          echo "### Post-forward E22 verify" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f research/ops/POST_FORWARD_E22_VERIFY.md ]; then
+            cat research/ops/POST_FORWARD_E22_VERIFY.md >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Commit immutable forward records
         run: |
           set -euo pipefail
           git config user.name "v412f-forward-bot"
           git config user.email "actions@users.noreply.github.com"
           git add forward/
+          if [ "${{ steps.session_gate.outputs.skip }}" != "true" ]; then
+            git add \
+              research/ops/POST_FORWARD_E22_VERIFY.md \
+              research/ops/POST_FORWARD_E22_VERIFY.json \
+              research/ops/E22_GAP6_FIDELITY_KPI.md \
+              research/ops/E22_GAP6_FIDELITY_KPI.json \
+              research/ops/E22_DATA_QUALITY_KPI.md \
+              research/ops/E22_DATA_QUALITY_KPI.json \
+              research/ops/OPS_ALERTS.md \
+              research/ops/OPS_ALERTS.json \
+              || true
+          fi
           if git diff --cached --quiet; then exit 0; fi
           if [ "${{ steps.session_gate.outputs.skip }}" = "true" ]; then
             git commit -m "forward: session_skip ${{ steps.session_gate.outputs.asof }} ${{ steps.session_gate.outputs.status }}"
           else
-            git commit -m "forward: update frozen E16 E18 E21 real-open ledgers"
+            git commit -m "forward: update frozen E16 E18 E21 real-open ledgers (+ post-forward verify)"
           fi
           git pull --rebase
           git push
@@ -138,5 +181,13 @@ jobs:
             artifact/v412e0_adjusted_qc.json
             artifact/v412f_twse_append_qc.json
             out_telecom_0050/qc_summary.json
+            research/ops/POST_FORWARD_E22_VERIFY.md
+            research/ops/POST_FORWARD_E22_VERIFY.json
+            research/ops/E22_GAP6_FIDELITY_KPI.md
+            research/ops/E22_GAP6_FIDELITY_KPI.json
+            research/ops/E22_DATA_QUALITY_KPI.md
+            research/ops/E22_DATA_QUALITY_KPI.json
+            research/ops/OPS_ALERTS.md
+            research/ops/OPS_ALERTS.json
           retention-days: 90
           if-no-files-found: ignore

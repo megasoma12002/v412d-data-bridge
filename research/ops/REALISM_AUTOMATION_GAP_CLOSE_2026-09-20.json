@@ -24,24 +24,98 @@
     "tip_align_accept": "ACCEPT_TIP_BOOKS_ALIGN_V3.md"
   },
   "gaps": [
-    {"id": "G1", "name": "tip_catchup_stage_e", "blocker": "calendar_weekend", "phase": 2, "human_ballot": false},
-    {"id": "G2", "name": "post_forward_verify_runbook", "blocker": "ops_manual", "phase": 1, "human_ballot": false},
-    {"id": "G3", "name": "r4_week1_spotcheck", "blocker": "ops_manual", "phase": 0, "human_ballot": false},
-    {"id": "G4", "name": "r5_custody_reconcile", "blocker": "missing_data", "phase": 4, "human_ballot": false},
-    {"id": "G5", "name": "tax_stage_b_promote", "blocker": "human_ballot", "phase": 6, "human_ballot": true},
-    {"id": "G6", "name": "broker_live_write", "blocker": "human_ballot", "phase": 7, "human_ballot": true},
-    {"id": "G7", "name": "dividends_applied_tax_kpi", "blocker": "missing_data", "phase": 5, "human_ballot": false},
-    {"id": "G8", "name": "dividend_events_cron", "blocker": "ops_manual", "phase": 5, "human_ballot": false}
+    {
+      "id": "G1",
+      "name": "tip_catchup_stage_e",
+      "blocker": "calendar_weekend",
+      "phase": 2,
+      "human_ballot": false
+    },
+    {
+      "id": "G2",
+      "name": "post_forward_verify_runbook",
+      "blocker": "ops_manual",
+      "phase": 1,
+      "human_ballot": false
+    },
+    {
+      "id": "G3",
+      "name": "r4_week1_spotcheck",
+      "blocker": "ops_manual",
+      "phase": 0,
+      "human_ballot": false
+    },
+    {
+      "id": "G4",
+      "name": "r5_custody_reconcile",
+      "blocker": "missing_data",
+      "phase": 4,
+      "human_ballot": false
+    },
+    {
+      "id": "G5",
+      "name": "tax_stage_b_promote",
+      "blocker": "human_ballot",
+      "phase": 6,
+      "human_ballot": true
+    },
+    {
+      "id": "G6",
+      "name": "broker_live_write",
+      "blocker": "human_ballot",
+      "phase": 7,
+      "human_ballot": true
+    },
+    {
+      "id": "G7",
+      "name": "dividends_applied_tax_kpi",
+      "blocker": "missing_data",
+      "phase": 5,
+      "human_ballot": false
+    },
+    {
+      "id": "G8",
+      "name": "dividend_events_cron",
+      "blocker": "ops_manual",
+      "phase": 5,
+      "human_ballot": false
+    }
   ],
   "phases": [
-    {"phase": 0, "title": "observe_harden_r4_assert"},
-    {"phase": 1, "title": "post_forward_verify_gha"},
-    {"phase": 2, "title": "tip_catchup_confirm"},
-    {"phase": 3, "title": "r4_continuous_alerts"},
-    {"phase": 4, "title": "r5_fixture_workflow"},
-    {"phase": 5, "title": "dividend_cadence_and_applied_kpi"},
-    {"phase": 6, "title": "tax_sandbox_auto_promote_human"},
-    {"phase": 7, "title": "broker_path_gated"}
+    {
+      "phase": 0,
+      "title": "observe_harden_r4_assert",
+      "status": "LANDED"
+    },
+    {
+      "phase": 1,
+      "title": "post_forward_verify_gha",
+      "status": "LANDED"
+    },
+    {
+      "phase": 2,
+      "title": "tip_catchup_confirm"
+    },
+    {
+      "phase": 3,
+      "title": "r4_continuous_alerts"
+    },
+    {
+      "phase": 4,
+      "title": "r5_fixture_workflow"
+    },
+    {
+      "phase": 5,
+      "title": "dividend_cadence_and_applied_kpi"
+    },
+    {
+      "phase": 6,
+      "title": "tax_sandbox_auto_promote_human"
+    },
+    {
+      "phase": 7,
+      "title": "broker_path_gated"
+    }
   ],
   "authority": [
     "research/ops/OPS_STATUS.md",
@@ -50,5 +124,12 @@
     "research/ops/ACCEPT_TIP_BOOKS_ALIGN_V3.md",
     "research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md",
     "research/ops/E22_V3_WITHHOLDING_RESIDENT_NOTE.md"
-  ]
+  ],
+  "phase_0_1_landed": true,
+  "phase_0_1_landed_utc": "2026-09-20",
+  "implementations": {
+    "script": "scripts/post_forward_e22_verify.py",
+    "primary_workflow": ".github/workflows/v412f-forward-paper.yml",
+    "secondary_workflow": ".github/workflows/post-forward-e22-verify.yml"
+  }
 }

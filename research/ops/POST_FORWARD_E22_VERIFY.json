@@ -1,0 +1,62 @@
+{
+  "generated_at_utc": "2026-09-20T01:54:06.226014+00:00",
+  "label": "POST_FORWARD_E22_VERIFY",
+  "phase": "0_1",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "state_dir": "/workspace/forward/e21",
+  "stage_e_default": "E22_v3_recv_pay_effdelay",
+  "tip_lag": true,
+  "ok": true,
+  "failures": [],
+  "notes": [
+    "TIP_LAG_INFO: observed=E22_v2s_tw_effex default=E22_v3_recv_pay_effdelay \u2014 authorized until next weekday forward catch-up; not a second DEFAULT; does not fail this gate (ACCEPT_TIP_BOOKS_ALIGN_V3)."
+  ],
+  "steps": {
+    "r4_assert": {
+      "csv_exists": true,
+      "json_exists": true,
+      "csv_bytes": 10439,
+      "json_bytes": 31988,
+      "ok": true,
+      "label": "liquidity_view_not_nav"
+    },
+    "e21_qc": {
+      "skipped": true
+    },
+    "gap6": {
+      "rc": 0,
+      "code_ok": true,
+      "live_evidence_ok": true,
+      "kpi_ok": true,
+      "observed_books_version": "E22_v2s_tw_effex",
+      "default_books_version": "E22_v3_recv_pay_effdelay",
+      "tip_lag": true
+    },
+    "data_quality": {
+      "rc": 0,
+      "kpi_ok": true,
+      "flags": [],
+      "fail_closed": false
+    },
+    "ops_alert_scan": {
+      "rc": 0,
+      "overall": "HIGH",
+      "n_critical": 0,
+      "n_high": 7,
+      "n_info": 26
+    }
+  },
+  "non_actions": [
+    "no Soft-Frozen clip flip",
+    "no history rewrite",
+    "no tax Stage-B / broker live-write promote",
+    "no L4/FIN50/BLEND/Soft/Sleeve alpha cutover",
+    "settled_cash_estimate is liquidity view not NAV"
+  ],
+  "authority": [
+    "research/ops/POST_FORWARD_E22_VERIFY_RUNBOOK.md",
+    "research/ops/REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md",
+    "research/ops/ACCEPT_TIP_BOOKS_ALIGN_V3.md"
+  ]
+}
