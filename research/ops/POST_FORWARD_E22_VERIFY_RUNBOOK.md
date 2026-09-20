@@ -5,18 +5,36 @@
 > **Live today (2026-09-13+):** FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · **500M**.
 > See `research/ops/OPS_STATUS.md`. Do not treat `[0.50, 0.95]` below as current live.
 
-Date: 2026-09-05  
-Status: **OPS PREP** — run after next **weekday** live forward  
+Date: 2026-09-05 · **Phase 0–1 wired 2026-09-20**  
+Status: **OPS AUTOMATED (weekday forward)** + manual re-verify workflow  
 Soft-Frozen (at writing): **[0.50, 0.95]** · **live today [0.60, 0.90]** — never rewrite `forward/e21` history  
-Related: `LIVE_E22_FIELD_EVIDENCE.md` · Gap6 KPI · `ops_alert_scan`
+Related: `LIVE_E22_FIELD_EVIDENCE.md` · Gap6 KPI · `ops_alert_scan` · `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md`
 
-## When to run
+## Automation (Phase 0–1)
 
-After the weekday GHA `v412f-forward-paper` (or equivalent) commits a new live session **and** ledger keys are expected to include E22 fields.
+Primary (unattended): `.github/workflows/v412f-forward-paper.yml` after R4 + QC runs:
 
-Today (weekend): **do not** invent evidence; wait for the bot.
+```bash
+python3 scripts/post_forward_e22_verify.py \
+  --state-dir forward/e21 --require-r4 --skip-qc --fail-on critical
+```
 
-## Steps
+Also: `.github/workflows/post-forward-e22-verify.yml` (`workflow_dispatch` / `workflow_run` after forward success).
+
+Fail-closed: R4 missing · QC FAIL · Gap6 `code_ok` false · CRITICAL alerts.  
+**Does not fail:** tip lag (INFO) · DQ flags (report-only) · HIGH PAUSE_REVIEW.
+
+## When to run (manual)
+
+After the weekday GHA `v412f-forward-paper` (or equivalent) commits a new live session **and** ledger keys are expected to include E22 fields — or any time via:
+
+```bash
+python3 scripts/post_forward_e22_verify.py --require-r4 --fail-on critical
+```
+
+Today (weekend): **do not** invent evidence; wait for the bot (session_skip is OK).
+
+## Steps (manual equivalent)
 
 ```bash
 # 1) Live QC
@@ -30,6 +48,9 @@ python3 scripts/e22_data_quality_kpi.py
 
 # 4) Alert scan (report-only)
 python3 scripts/ops_alert_scan.py --report-only
+
+# Or one-shot:
+python3 scripts/post_forward_e22_verify.py --require-r4 --fail-on critical
 ```
 
 ## Pass criteria (evidence only — not cutover)

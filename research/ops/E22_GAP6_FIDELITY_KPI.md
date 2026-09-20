@@ -1,6 +1,6 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-19T05:47:29.372291+00:00`
+Generated: `2026-09-20T01:54:05.735297+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v3_recv_pay_effdelay`** (receivable + effective pay).
 
 ## Code wire

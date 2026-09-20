@@ -1,0 +1,64 @@
+name: Post-Forward E22 Verify (Phase 0–1)
+
+# Observe/evidence only. Soft-Frozen KEEP · no history rewrite · no promote.
+# Primary path is chained inside v412f-forward-paper; this workflow is for
+# manual re-verify / workflow_run after a successful forward commit.
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["V4.12-F E21 Daily Forward Paper"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: post-forward-e22-verify
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    # Skip when the forward workflow itself failed, or when this is a skip-only
+    # session with no new tip (still OK to re-verify tip on dispatch).
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # After workflow_run, check out the forward commit that just landed.
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --disable-pip-version-check -e .
+      - name: Post-forward verify (R4 assert + QC + Gap6 + DQ + alerts)
+        run: |
+          set -euo pipefail
+          python3 scripts/post_forward_e22_verify.py \
+            --state-dir forward/e21 \
+            --require-r4 \
+            --fail-on critical
+          echo "### Post-forward E22 verify" >> "$GITHUB_STEP_SUMMARY"
+          cat research/ops/POST_FORWARD_E22_VERIFY.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload verify pack
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: post-forward-e22-verify-${{ github.run_number }}
+          path: |
+            research/ops/POST_FORWARD_E22_VERIFY.md
+            research/ops/POST_FORWARD_E22_VERIFY.json
+            research/ops/E22_GAP6_FIDELITY_KPI.md
+            research/ops/E22_GAP6_FIDELITY_KPI.json
+            research/ops/E22_DATA_QUALITY_KPI.md
+            research/ops/E22_DATA_QUALITY_KPI.json
+            research/ops/OPS_ALERTS.md
+            research/ops/OPS_ALERTS.json
+            forward/e21/qc_status.json
+            forward/e21/settlement_cash_estimate.json
+          retention-days: 30
+          if-no-files-found: warn
