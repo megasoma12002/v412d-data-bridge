@@ -35,19 +35,46 @@ def commission(gross: float, rate: float, *, min_commission: float = MIN_COMMISS
     return max(g * r, float(min_commission))
 
 
-def sell_tax(code: str, gross: float) -> float:
-    tax = TAX_ETF if str(code) == "0050" else TAX_STOCK
-    return float(gross) * tax
+_DEFAULT_ETF_CODES = frozenset({"0050"})
 
 
-def fees_tax_for(*, side: str, code: str, gross: float) -> float:
-    """Canonical live ``fees_tax``: BUY = commission; SELL = commission + 證交稅."""
+def sell_tax(
+    code: str,
+    gross: float,
+    *,
+    tax_stock: float = TAX_STOCK,
+    tax_etf: float = TAX_ETF,
+    etf_codes: frozenset[str] | set[str] | None = None,
+) -> float:
+    codes = _DEFAULT_ETF_CODES if etf_codes is None else frozenset(str(c) for c in etf_codes)
+    tax = tax_etf if str(code) in codes else tax_stock
+    return float(gross) * float(tax)
+
+
+def fees_tax_for(
+    *,
+    side: str,
+    code: str,
+    gross: float,
+    buy_fee: float = BUY_FEE,
+    sell_fee: float = SELL_FEE,
+    tax_stock: float = TAX_STOCK,
+    tax_etf: float = TAX_ETF,
+    etf_codes: frozenset[str] | set[str] | None = None,
+) -> float:
+    """Canonical live ``fees_tax``: BUY = commission; SELL = commission + 證交稅.
+
+    Optional rate overrides support research ``cost_multiple`` scaling in e50
+    without duplicating the BUY/SELL fee composition.
+    """
     s = str(side).upper()
     g = float(gross)
     if s == "BUY":
-        return commission(g, BUY_FEE)
+        return commission(g, buy_fee)
     if s == "SELL":
-        return commission(g, SELL_FEE) + sell_tax(code, g)
+        return commission(g, sell_fee) + sell_tax(
+            code, g, tax_stock=tax_stock, tax_etf=tax_etf, etf_codes=etf_codes
+        )
     raise ValueError(f"unknown side: {side!r}")
 
 

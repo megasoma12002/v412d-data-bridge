@@ -21,9 +21,24 @@ Do not conflate 零股 (1–999) with 畸零股 (0.x).
 """
 from __future__ import annotations
 
+import math
+
 BOARD_LOT = 1000  # 一張 = 1000 股
 ODD_LOT_MIN = 1
 ODD_LOT_MAX = BOARD_LOT - 1  # 零股 upper bound inclusive
+
+
+def lot_qty(value: float, price: float, lot_size: int = BOARD_LOT) -> int:
+    """Share quantity from notional; default TW 整股 (一張=1000).
+
+    Pass ``lot_size=1`` for 1-share sensitivity research runs.
+    """
+    if price <= 0 or not math.isfinite(price) or lot_size < 1:
+        return 0
+    raw = int(abs(value) / price)
+    if lot_size == 1:
+        return raw
+    return (raw // lot_size) * lot_size
 
 
 def board_lots(shares: float | int) -> int:
@@ -58,6 +73,7 @@ __all__ = [
     "BOARD_LOT",
     "ODD_LOT_MIN",
     "ODD_LOT_MAX",
+    "lot_qty",
     "board_lots",
     "is_board_lot_qty",
     "is_odd_lot_qty",

@@ -10,7 +10,8 @@
 Replace `--custody` with a same-day (or settle-date) broker/custody export:
 
 ```bash
-PYTHONPATH=scripts python3 scripts/twse_t2_broker_reconcile.py \
+# Prefer: pip install -e .   (then no PYTHONPATH hack)
+python3 scripts/twse_t2_broker_reconcile.py \
   --estimate forward/e21/settlement_cash_estimate.csv \
   --custody path/to/real_custody.csv \
   --asof YYYY-MM-DD \

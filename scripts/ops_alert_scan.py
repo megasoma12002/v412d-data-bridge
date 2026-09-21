@@ -51,16 +51,15 @@ PHASE_C_JSON = ROOT / "research/ops/DATA_SOURCE_PHASE_C_PROBES.json"
 R4_CSV = ROOT / "forward/e21/settlement_cash_estimate.csv"
 R4_JSON = ROOT / "forward/e21/settlement_cash_estimate.json"
 SESSION_SKIP = ROOT / "forward/session_skip.json"
-STAGE_E_DEFAULT = "E22_v3_recv_pay_effdelay"
-R4_SUMMARY_KEYS = (
-    "settling_today_net",
-    "unsettled_net",
-    "paper_cash",
-    "settled_cash_estimate",
-)
 
 # Soft-Frozen clip — single source (never hardcode drift).
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
+from ops_observe_helpers import (
+    R4_SUMMARY_KEYS,
+    STAGE_E_DEFAULT,
+    r4_artifacts_present,
+    r4_summary as observe_r4_summary,
+)
 
 
 def _load(path: Path) -> dict | None:
@@ -321,9 +320,8 @@ def main() -> int:
     # Phase 3 — R4 T+2 settlement estimate continuous observe (liquidity ≠ NAV).
     session = _load(SESSION_SKIP) or {}
     is_session = bool(session.get("is_session")) if session else None
-    r4_csv_ok = R4_CSV.is_file() and R4_CSV.stat().st_size > 0
-    r4_json_ok = R4_JSON.is_file() and R4_JSON.stat().st_size > 0
-    if not (r4_csv_ok and r4_json_ok):
+    state_dir = ROOT / "forward/e21"
+    if not r4_artifacts_present(state_dir):
         # On closed board, prior R4 should still exist; missing is HIGH either way.
         alerts.append(
             {
@@ -337,9 +335,8 @@ def main() -> int:
             }
         )
     else:
-        r4 = _load(R4_JSON) or {}
-        summary = r4.get("summary") if isinstance(r4.get("summary"), dict) else r4
-        missing = [k for k in R4_SUMMARY_KEYS if k not in (summary or {})]
+        r4_obs = observe_r4_summary(state_dir)
+        missing = list(r4_obs.get("missing_summary_keys") or [])
         if missing:
             alerts.append(
                 {
@@ -360,7 +357,7 @@ def main() -> int:
                     "code": "R4_ESTIMATE_PRESENT",
                     "message": (
                         "R4 settlement_cash_estimate present — "
-                        f"settled_cash_estimate={summary.get('settled_cash_estimate')} "
+                        f"settled_cash_estimate={r4_obs.get('settled_cash_estimate')} "
                         "is liquidity view NOT portfolio NAV / Soft-Frozen cash"
                     ),
                 }
