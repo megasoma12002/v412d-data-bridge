@@ -164,6 +164,9 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git add forward/
           if [ "${{ steps.session_gate.outputs.skip }}" != "true" ]; then
+            # Explicit post-forward verify pack + cashflow report (written by
+            # post_forward_e22_verify → cashflow_three_views_report).
+            # Run 44 failed: these REPORT files stayed unstaged → pull --rebase blocked.
             git add \
               research/ops/POST_FORWARD_E22_VERIFY.md \
               research/ops/POST_FORWARD_E22_VERIFY.json \
@@ -173,13 +176,21 @@ jobs:
               research/ops/E22_DATA_QUALITY_KPI.json \
               research/ops/OPS_ALERTS.md \
               research/ops/OPS_ALERTS.json \
+              research/ops/CASHFLOW_THREE_VIEWS_REPORT.md \
+              research/ops/CASHFLOW_THREE_VIEWS_REPORT.json \
               || true
+            # Catch-all: any other tracked research/ops dirt from this run.
+            git add -u -- research/ops/ || true
           fi
           if git diff --cached --quiet; then exit 0; fi
           if [ "${{ steps.session_gate.outputs.skip }}" = "true" ]; then
             git commit -m "forward: session_skip ${{ steps.session_gate.outputs.asof }} ${{ steps.session_gate.outputs.status }}"
           else
             git commit -m "forward: update frozen E16 E18 E21 real-open ledgers (+ post-forward verify)"
+          fi
+          # Defense: leftover dirt must not block rebase (Run 42–44 failure mode).
+          if ! git diff-index --quiet HEAD -- || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            git stash push -u -m "v412f-forward-pre-rebase-${{ github.run_id }}"
           fi
           git pull --rebase
           git push
@@ -200,5 +211,7 @@ jobs:
             research/ops/E22_DATA_QUALITY_KPI.json
             research/ops/OPS_ALERTS.md
             research/ops/OPS_ALERTS.json
+            research/ops/CASHFLOW_THREE_VIEWS_REPORT.md
+            research/ops/CASHFLOW_THREE_VIEWS_REPORT.json
           retention-days: 90
           if-no-files-found: ignore
