@@ -74,6 +74,15 @@ class ForwardWorkflowPhase01(unittest.TestCase):
         # Still no obsolete capital hardcode.
         self.assertNotRegex(yml, r"--capital\s+3_?000_?000")
 
+    def test_v412f_commit_stages_cashflow_report_before_rebase(self):
+        """Run 44: unstaged CASHFLOW_THREE_VIEWS_REPORT.* blocked git pull --rebase."""
+        yml = WF.read_text(encoding="utf-8")
+        self.assertIn("CASHFLOW_THREE_VIEWS_REPORT.md", yml)
+        self.assertIn("CASHFLOW_THREE_VIEWS_REPORT.json", yml)
+        self.assertIn("git add -u -- research/ops/", yml)
+        self.assertIn("git stash push -u", yml)
+        self.assertIn("git pull --rebase", yml)
+
     def test_standalone_verify_workflow_exists(self):
         self.assertTrue(WF2.is_file())
         yml = WF2.read_text(encoding="utf-8")
