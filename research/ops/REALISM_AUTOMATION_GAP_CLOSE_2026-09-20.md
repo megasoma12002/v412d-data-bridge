@@ -27,7 +27,7 @@ Make the live accounting loop **self-running on open sessions** (forward → R4 
 
 Fail-closed already in code: session skip · Soft-Frozen `e21_session.lock` · canonical path forced `paper` fill · `broker_live_write_accepted=False` · Yuanta `API_WIRED=False`.
 
-**Tip snapshot (research time):** `forward/e21` asof `2026-09-16`, tip books `E22_v2s_tw_effex` while code DEFAULT = `E22_v3_recv_pay_effdelay` (authorized tip lag until next weekday forward).
+**Tip snapshot (research time):** `forward/e21` asof `2026-09-21`, tip books `E22_v3_recv_pay_effdelay` == code DEFAULT (Phase 2 **CONFIRMED**; tip-lag debt cleared).
 
 ---
 
@@ -35,7 +35,7 @@ Fail-closed already in code: session skip · Soft-Frozen `e21_session.lock` · c
 
 | ID | Gap | Blocker type | Auto-close design | Still needs human |
 |---|---|---|---|---|
-| **G1** | Tip → Stage-E DEFAULT | weekend / calendar | Next green `v412f-forward-paper` already writes `LIVE.e22_books_version` | No (ACCEPT tip-align done) |
+| **G1** | Tip → Stage-E DEFAULT | calendar | Next green `v412f-forward-paper` writes `LIVE.e22_books_version` | **CLOSED 2026-09-21** (Phase 2) |
 | **G2** | Post-forward verify runbook | ops-manual | Chain QC+Gap6+**DQ**+alert scan after non-skip forward; commit/upload artifacts | Policy only (evidence ≠ cutover) |
 | **G3** | R4 week-1 spot-check | ops-manual (emit done) | Assert CSV/JSON schema in forward job; alert missing/empty | Never promote estimate into NAV |
 | **G4** | R5 custody reconcile | missing-data | Fixture drop → `twse_t2_broker_reconcile.py` workflow (observe) | Custody export + later broker ballot |
@@ -70,12 +70,12 @@ Scripts: `twse_t2_settlement_estimate.py`, `e21_qc.py`, `e22_gap6_fidelity_kpi.p
 4. Fail: CRITICAL / Gap6 `code_ok`. Allow: tip≠DEFAULT (INFO) · DQ flags · HIGH PAUSE.  
 Authority: `POST_FORWARD_E22_VERIFY_RUNBOOK.md`.
 
-### Phase 2 — Tip catch-up confirmation (cashflow View C)
+### Phase 2 — Tip catch-up confirmation (cashflow View C) — **LANDED / CONFIRMED 2026-09-21**
 
-1. After first weekday session with tip==`E22_v3_recv_pay_effdelay`: regenerate Gap6; clear tip-lag debt wording.  
-2. Run `cashflow_three_views_report.py --write` + Monday checklist asserts (`TIP_CATCHUP_MONDAY_CHECKLIST.md`) so View C receivable clock is on tip.  
-3. Optional alert rule: tip≠DEFAULT for N open sessions after tip-align ACCEPT → HIGH ops (not CRITICAL).  
-4. Still: no history rewrite.
+1. Tip == `E22_v3_recv_pay_effdelay`: Gap6 tip-lag debt wording cleared; cashflow `next_ops` tip-aware.  
+2. `cashflow_three_views_report.py --write` + Monday checklist asserts green (`TIP_CATCHUP_MONDAY_2026-09-21.md`).  
+3. `TIP_LAG_BOOKS` absent while tip == DEFAULT.  
+4. Still: no history rewrite. Evidence: `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md`.
 
 ### Phase 3 — R4 continuous observe — **LANDED 2026-09-20**
 
@@ -134,13 +134,14 @@ Machine index: `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.json`
 
 ---
 
-## Operator (Phase 0–1 LANDED — weekday tip catch-up / Phase 2)
+## Operator (Phase 0–1 + **Phase 2 CONFIRMED** — ongoing R4 / div observe)
 
 ```bash
-# After next weekday forward (Phase 2 tip catch-up):
+# Daily / after forward:
 python3 scripts/e21_qc.py --state-dir forward/e21
 python3 scripts/e22_gap6_fidelity_kpi.py
 python3 scripts/e22_data_quality_kpi.py
+python3 scripts/cashflow_three_views_report.py --write --fail-on-r4-identity
 python3 scripts/ops_alert_scan.py --report-only
 # see POST_FORWARD_E22_VERIFY_RUNBOOK.md · TIP_CATCHUP_MONDAY_CHECKLIST.md
 ```

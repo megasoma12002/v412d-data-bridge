@@ -1,6 +1,6 @@
 {
   "label": "REALISM_AUTOMATION_GAP_CLOSE_2026-09-20",
-  "generated_at_utc": "2026-09-20T01:40:00+00:00",
+  "generated_at_utc": "2026-09-21T15:20:00+00:00",
   "status": "RESEARCH_OPS_ROADMAP",
   "soft_frozen": "KEEP",
   "goal": "unattended_observe_and_evidence_toward_full_ops_automation",
@@ -21,18 +21,20 @@
     "e21-live-qc-smoke (PR)"
   ],
   "tip_snapshot": {
-    "asof": "2026-09-16",
-    "observed_books": "E22_v2s_tw_effex",
+    "asof": "2026-09-21",
+    "observed_books": "E22_v3_recv_pay_effdelay",
     "code_default": "E22_v3_recv_pay_effdelay",
-    "tip_lag": true,
-    "tip_align_accept": "ACCEPT_TIP_BOOKS_ALIGN_V3.md"
+    "tip_lag": false,
+    "tip_align_accept": "ACCEPT_TIP_BOOKS_ALIGN_V3.md",
+    "phase_2_confirm": "TIP_CATCHUP_MONDAY_2026-09-21.md"
   },
   "gaps": [
     {
       "id": "G1",
       "name": "tip_catchup_stage_e",
-      "blocker": "calendar_weekend",
+      "blocker": "closed",
       "phase": 2,
+      "status": "CLOSED_2026-09-21",
       "human_ballot": false
     },
     {
@@ -98,7 +100,9 @@
     },
     {
       "phase": 2,
-      "title": "tip_catchup_confirm"
+      "title": "tip_catchup_confirm",
+      "status": "LANDED_CONFIRMED",
+      "landed_utc": "2026-09-21"
     },
     {
       "phase": 3,
@@ -130,17 +134,21 @@
     "research/ops/R4_R5_WEEK1_OBSERVE_CHECKLIST.md",
     "research/ops/ACCEPT_TIP_BOOKS_ALIGN_V3.md",
     "research/ops/FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md",
-    "research/ops/E22_V3_WITHHOLDING_RESIDENT_NOTE.md"
+    "research/ops/E22_V3_WITHHOLDING_RESIDENT_NOTE.md",
+    "research/ops/PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md"
   ],
   "phase_0_1_landed": true,
   "phase_0_1_landed_utc": "2026-09-20",
+  "phase_2_landed": true,
+  "phase_2_landed_utc": "2026-09-21",
   "implementations": {
     "script": "scripts/post_forward_e22_verify.py",
     "primary_workflow": ".github/workflows/v412f-forward-paper.yml",
     "secondary_workflow": ".github/workflows/post-forward-e22-verify.yml",
     "phase3": "scripts/ops_alert_scan.py (R4 + TIP_LAG_BOOKS)",
     "phase5": ".github/workflows/v412e22-dividend-events.yml (cron 0 7 * * 1-5)",
-    "phase4_scaffold": "fixtures/r5_custody_synthetic.csv + r5-broker-reconcile.yml"
+    "phase4_scaffold": "fixtures/r5_custody_synthetic.csv + r5-broker-reconcile.yml",
+    "phase2_confirm": "TIP_CATCHUP_MONDAY_2026-09-21.md"
   },
   "phase_3_5_landed": true,
   "phase_3_5_landed_utc": "2026-09-20"

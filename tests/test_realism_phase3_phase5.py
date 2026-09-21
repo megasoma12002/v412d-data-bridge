@@ -40,7 +40,7 @@ class Phase3R4TipLagAlerts(unittest.TestCase):
             codes = {a["code"] for a in payload["alerts"]}
             self.assertIn("R4_ESTIMATE_PRESENT", codes)
             self.assertNotIn("R4_ESTIMATE_MISSING", codes)
-            # Current tip lags Stage-E until weekday forward.
+            # TIP_LAG_BOOKS only when tip ≠ DEFAULT (Phase 2 catch-up clears it).
             gap6 = json.loads((ROOT / "research/ops/E22_GAP6_FIDELITY_KPI.json").read_text())
             obs = (gap6.get("live_ledger") or {}).get("observed_books_version")
             default = (gap6.get("code_wire") or {}).get("default_books_version")
@@ -48,6 +48,8 @@ class Phase3R4TipLagAlerts(unittest.TestCase):
                 self.assertIn("TIP_LAG_BOOKS", codes)
                 tip = next(a for a in payload["alerts"] if a["code"] == "TIP_LAG_BOOKS")
                 self.assertEqual(tip["severity"], "INFO")
+            else:
+                self.assertNotIn("TIP_LAG_BOOKS", codes)
 
 
 class Phase5DividendCron(unittest.TestCase):

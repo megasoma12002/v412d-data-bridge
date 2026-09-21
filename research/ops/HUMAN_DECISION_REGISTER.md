@@ -144,7 +144,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - **Tax purpose** (human 2026-09-20「稅的目的是要有精準的現金流」): tax/withholding modeling = **cashflow precision** · year-end 所得稅 stays outside (ballot A) · pay-day NHI in sandbox `E22_v3_recv_pay_effdelay_nhi211` · `TAX_FOR_CASHFLOW_PURPOSE.md`  
 - **Cashflow number priority** (human 2026-09-20「主要是要計算好現金流的數字」): keep A/B/C clocks separate — Exact T+1 paper · R4 settled · Stage-E cash+recv (TAX0) · SSOT `CASHFLOW_THREE_VIEWS.md` · report `cashflow_three_views_report.py` · **not** after-tax flat tax10/20 DEFAULT for cashflow  
 - **NHI 補充保費** (human 2026-09-20「股利超過20000會需要繳補充保費」): 單次達 2 萬 → 2.11% 就源扣；**cashflow fidelity** vs Stage-E TAX0 gross · sandbox ready · **not** live · ≠ ballot A 所得稅 · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md`  
-- Next weekday forward → tip may advance to `E22_v3_recv_pay_effdelay` (tip-align ACCEPT 2026-09-19; no history rewrite); then `POST_FORWARD_E22_VERIFY_RUNBOOK.md` + Gap6 KPI + Monday cashflow asserts `TIP_CATCHUP_MONDAY_CHECKLIST.md`  
+- Tip Stage-E catch-up **CONFIRMED** 2026-09-21 (`last_date=2026-09-21`, books `E22_v3_recv_pay_effdelay`) — `TIP_CATCHUP_MONDAY_2026-09-21.md` · `POST_FORWARD_E22_VERIFY_RUNBOOK.md` · Gap6 tip-lag debt cleared · cashflow View C clock live  
 - Grow live history toward ≥~60 sessions; `INDEX_DRIFT` under thin overlap is **ops note only** (ACCEPT Ops residual 全修 2026-09-19) — never a cutover vote  
 - Calendar month-end pack re-run (L4 / FIN50 / FINCAP BLEND_025 / Soft / Sleeve / FUSE / priv / DH; **E45_BLEND025 skipped**) — default **KEEP OBSERVE**; cutover only via dedicated ACCEPT  
 - Soft-assist×sleeve-tilt **ops auto-fuse agenda CLOSED** 2026-09-19 (`ACCEPT_DROP_AUTO_FUSE_AGENDA.md`) — Gate H **FORBIDDEN KEPT**; live `FUSE_ADDITIVE` KEEP; Soft∥Sleeve observes stay independent  
@@ -153,7 +153,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - Fill `MONTH_END_PROMOTE_GATE_CHECKLIST.md` after each Soft-assist / Sleeve-tilt pack (paper gates only · include Soft↔Sleeve overlap from `SOFT_SLEEVE_OBSERVE_OVERLAP.md` · **no live wire** · **no auto-combo**)
 - Practitioner borrow map (reference only): `EXTERNAL_BORROW_NOTES.md` / `EXTERNAL_BORROW_NOTES.zh-TW.md` — does not open live or combo
 - Ops residual 全修 **ACCEPTED** 2026-09-19 — dual-paper refresh + tip-lag Gap6 stamp + INDEX_DRIFT non-decision · `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` · does **not** promote L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B  
-- Realism → 全自動化: Phase **0–1+3+5 LANDED** · Phase **4 scaffold** (synthetic R5) · Phase 2 waits Monday tip (`TIP_CATCHUP_MONDAY_CHECKLIST.md`) · Phase 6/7 ballot · `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md`
+- Realism → 全自動化: Phase **0–1+2+3+5 LANDED** · Phase **4 scaffold** (synthetic R5) · Phase 2 tip **CONFIRMED** 2026-09-21 · Phase 6/7 ballot · `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md`
 
 ## Claim policy
 

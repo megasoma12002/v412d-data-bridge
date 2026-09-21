@@ -1,10 +1,11 @@
 # Cashflow three views (現金流三視角)
 
-Date: 2026-09-20  
+Date: 2026-09-21 (amended; SSOT opened 2026-09-20)  
 Status: **OPS SSOT** — Soft-Frozen **KEEP** · Stage-E DEFAULT `E22_v3_recv_pay_effdelay` (TAX0)  
 Human priority (2026-09-20): **計算好現金流的數字** — not after-tax DEFAULT (ballot A KEEP TAX0)  
 Tax purpose (same day): **稅的目的是要有精準的現金流** · `TAX_FOR_CASHFLOW_PURPOSE.md`  
-Machine report: `scripts/cashflow_three_views_report.py` → `CASHFLOW_THREE_VIEWS_REPORT.*`
+Machine report: `scripts/cashflow_three_views_report.py` → `CASHFLOW_THREE_VIEWS_REPORT.*`  
+Phase 2: **CONFIRMED** 2026-09-21 — tip == Stage-E · `TIP_CATCHUP_MONDAY_2026-09-21.md`
 
 ## Why three views
 
@@ -20,12 +21,12 @@ Machine report: `scripts/cashflow_three_views_report.py` → `CASHFLOW_THREE_VIE
 
 ## Current tip snapshot (research)
 
-As of tip `last_date=2026-09-16`:
+As of tip `last_date=2026-09-21`:
 
-- Tip books still **`E22_v2s_tw_effex`** (cash-on-ex) while code DEFAULT = Stage-E → **authorized tip lag**
-- View **A** ≈ **50,416**
-- View **B** ≈ **1,022** (`unsettled_net` ≈ 49,393) — intentional gap vs A
-- View **C** receivable = **0 / absent** until weekday tip catch-up to Stage-E
+- Tip books **`E22_v3_recv_pay_effdelay`** == code DEFAULT → **Stage-E aligned** (`tip_lag=false`)
+- View **A** ≈ **50,415.51**
+- View **B** ≈ **50,415.51** (`unsettled_net` ≈ 0 this asof) — identity_ok; still liquidity ≠ NAV label
+- View **C** receivable = **0** today (no open ex→pay row); clock is **live** on tip
 
 Run:
 
@@ -57,17 +58,17 @@ settled_cash_estimate ≈ paper_cash − unsettled_net
 - Accrue **receivable** on effective ex; convert to **cash** on effective pay (+ MOPS pay amendments).  
 - Wealth identity: `cash + e22_receivables + equity` (`live_ledger.holdings`).  
 - Personal dividend income tax stays **outside** daily books (ballot A).  
-- Tip lag means tip still credits cash on ex → View C incomplete until Phase 2 catch-up.
+- Tip is on Stage-E — View C receivable clock is active (recv may be 0 outside ex→pay windows).
 
 ## Ops path to “算準”
 
 | Priority | Action | Closes |
 |---|---|---|
-| **P0** | Next green weekday forward → tip `E22_v3_recv_pay_effdelay` | View C lands; tip-lag debt clears |
+| ~~**P0**~~ | ~~Next green weekday forward → tip Stage-E~~ | **DONE 2026-09-21** (Phase 2) |
 | **P0** | Daily `cashflow_three_views_report.py` (+ post-forward attach) | Numbers visible & identity-checked |
 | **P1** | R4 week-1 spot: A vs B, unsettled | Liquidity honesty |
 | **P1** | Real custody → R5 vs View B | Custody cash truth (observe) |
-| **P2** | `dividends_applied` after Stage-E tip | Div apply evidence for C |
+| **P1** | `dividends_applied` on Stage-E tip div days | Div apply evidence for C (G7) |
 
 ## Explicit non-actions
 
@@ -88,7 +89,7 @@ Human (2026-09-20): **股利單次達 NT$20,000 → 二代健保補充保費 2.1
 
 ## Related
 
-- Tip Monday: `TIP_CATCHUP_MONDAY_CHECKLIST.md` (Phase 2 = Monday tip ops wait; PRs #266 / #268 / #269 landed)  
+- Tip Monday: `TIP_CATCHUP_MONDAY_CHECKLIST.md` (**CONFIRMED** 2026-09-21) · `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md`  
 - R4/R5: `R4_R5_WEEK1_OBSERVE_CHECKLIST.md` · `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md`  
 - Div delay: `TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md`  
 - Realism roadmap: `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md`  
@@ -97,4 +98,4 @@ Human (2026-09-20): **股利單次達 NT$20,000 → 二代健保補充保費 2.1
 
 ## Label
 
-`CASHFLOW_THREE_VIEWS__2026-09-20`
+`CASHFLOW_THREE_VIEWS__2026-09-21_PHASE2`

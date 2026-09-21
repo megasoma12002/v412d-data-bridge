@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-21T15:15:37.171055+00:00",
+  "generated_at_utc": "2026-09-21T15:23:19.648072+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": false,
@@ -22,7 +22,7 @@
     "code_ok": true
   },
   "live_ledger": {
-    "live_dir": "/home/runner/work/v412d-data-bridge/v412d-data-bridge/forward/e21",
+    "live_dir": "/workspace/forward/e21",
     "asof": "2026-09-21",
     "portfolio_has_e22_books_version": true,
     "portfolio_has_e22_manifest": true,

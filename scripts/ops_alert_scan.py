@@ -495,7 +495,7 @@ def main() -> int:
             "HIGH=PAUSE_REVIEW / R4 missing blocks cutover talk only (not Soft-Frozen flip). "
             "CRITICAL fails live QC smoke. "
             "R4 settled_cash_estimate is liquidity view NOT NAV. "
-            "TIP_LAG_BOOKS is INFO until weekday tip catch-up."
+            "TIP_LAG_BOOKS is INFO only while tip ≠ Stage-E DEFAULT (cleared after Phase 2 catch-up)."
         ),
     }
 
