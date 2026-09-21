@@ -156,6 +156,10 @@ class SleeveTiltObserveGuards(unittest.TestCase):
         self.assertIn("live_dh_fuse_cutover", targets)
         helper = (SCRIPTS / "live_dh_fuse_cutover.py").read_text(encoding="utf-8")
         self.assertIn("build_champion_target", helper)
+        # FUSE offense full-history must pin preserved cash-on-ex — not Stage-E
+        # DEFAULT — or blank historical payment_date rows fail-closed the live day.
+        self.assertIn("PRESERVED_CASH_ON_EX", helper)
+        self.assertIn("e22_version=e22div.PRESERVED_CASH_ON_EX", helper)
 
     def test_soft_assist_guard_also_bans_ma60_tilt_marker(self):
         # Soft-assist static ban previously covered MA120 only; MA60 is sleeve-tilt.
