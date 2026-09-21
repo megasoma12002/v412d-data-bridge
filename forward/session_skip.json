@@ -1,24 +1,66 @@
 {
-  "asof": "2026-09-20",
-  "status": "WEEKEND",
-  "is_session": false,
-  "broker_submit_allowed": false,
-  "skipped": true,
-  "reason": "no trading session (WEEKEND)",
+  "asof": "2026-09-21",
+  "status": "OPEN",
+  "is_session": true,
+  "broker_submit_allowed": true,
+  "skipped": false,
+  "reason": "session open or confirmed",
   "notes": [
-    "annual:weekend"
+    "annual planned SESSION",
+    "MIS delayed quote d==asof + open price"
   ],
   "sources": {
     "annual_calendar": {
-      "date": "2026-09-20",
-      "is_session": "0",
-      "is_settlement": "0",
-      "kind": "WEEKEND",
+      "date": "2026-09-21",
+      "is_session": "1",
+      "is_settlement": "1",
+      "kind": "SESSION",
       "name": "",
-      "source": "weekend",
+      "source": "weekday_default",
       "notes": ""
+    },
+    "dgpa_cap": {
+      "closes_twse": false,
+      "afternoon_only": false,
+      "n_hits": 0
+    },
+    "mis_quote": {
+      "open": true,
+      "n_hits": 3,
+      "rows": [
+        {
+          "ex_ch": "tse_t00.tw",
+          "open_signal": true,
+          "c": "t00",
+          "d": "20260921",
+          "o": "47207.30",
+          "t": "13:33:00",
+          "v": null,
+          "rtcode": "0000"
+        },
+        {
+          "ex_ch": "tse_0050.tw",
+          "open_signal": true,
+          "c": "0050",
+          "d": "20260921",
+          "o": "109.9000",
+          "t": "13:30:00",
+          "v": "113918",
+          "rtcode": "0000"
+        },
+        {
+          "ex_ch": "tse_2330.tw",
+          "open_signal": true,
+          "c": "2330",
+          "d": "20260921",
+          "o": "2445.0000",
+          "t": "13:30:00",
+          "v": "14472",
+          "rtcode": "0000"
+        }
+      ]
     }
   },
-  "generated_at": "2026-09-20T13:43:39.600371+08:00",
+  "generated_at": "2026-09-21T22:17:14.632332+08:00",
   "soft_frozen_untouched": true
 }

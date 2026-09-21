@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-09-20T03:14:07.493841+00:00",
+  "generated_at_utc": "2026-09-21T14:21:01.646678+00:00",
   "label": "CASHFLOW_THREE_VIEWS_REPORT",
   "soft_frozen_keep": true,
   "human_priority": "cashflow_numbers_under_tax0",
-  "state_dir": "/workspace/forward/e21",
-  "last_date": "2026-09-16",
+  "state_dir": "/home/runner/work/v412d-data-bridge/v412d-data-bridge/forward/e21",
+  "last_date": "2026-09-21",
   "views": {
     "A_paper_exact_t1": {
       "label_zh": "紙上 Exact T+1 現金（成交日入帳）",
@@ -17,14 +17,14 @@
     "B_r4_settled_liquidity": {
       "label_zh": "R4 T+2 已交割流動性估計",
       "label_en": "R4 settled_cash_estimate (T+2 liquidity)",
-      "settled_cash_estimate": 1022.172182977898,
-      "unsettled_net": 49393.34140275046,
+      "settled_cash_estimate": 50415.51358572836,
+      "unsettled_net": 0.0,
       "paper_cash": 50415.51358572836,
       "settling_today_net": 0.0,
       "identity_ok": true,
       "identity_delta": 0.0,
       "present": true,
-      "asof": "2026-09-16",
+      "asof": "2026-09-21",
       "source": "forward/e21/settlement_cash_estimate.json → summary",
       "use": "spendable / custody liquidity estimate",
       "not": "NOT Soft-Frozen NAV; never merge into portfolio_state.cash"
@@ -32,9 +32,9 @@
     "C_stage_e_div_cashflow": {
       "label_zh": "Stage-E 股利現金流（TAX0：應收款→發放日現金）",
       "label_en": "Stage-E dividend cash + receivable (TAX0)",
-      "e22_books_version": "E22_v2s_tw_effex",
+      "e22_books_version": "E22_v3_recv_pay_effdelay",
       "stage_e_default": "E22_v3_recv_pay_effdelay",
-      "tip_lag": true,
+      "tip_lag": false,
       "cash": 50415.51358572836,
       "e22_receivables_total": 0.0,
       "e22_receivables_n": 0,
@@ -47,21 +47,23 @@
   "cross_checks": {
     "paper_cash_minus_r4_paper_cash": 0.0,
     "r4_identity_ok": true,
-    "tip_lag": true,
-    "stage_e_aligned": false
+    "r4_asof": "2026-09-21",
+    "r4_asof_matches_last_date": true,
+    "r4_asof_mismatch": false,
+    "tip_lag": false,
+    "stage_e_aligned": true
   },
-  "warnings": [
-    "TIP_LAG: tip books=E22_v2s_tw_effex (preserved cash-on-ex) vs DEFAULT=E22_v3_recv_pay_effdelay; View C receivable clock not on tip yet — weekday forward catch-up required",
-    "TIP still cash-on-ex: e22_receivables empty/absent is expected until Stage-E tip"
-  ],
+  "warnings": [],
   "next_ops": [
     "Weekday tip → E22_v3_recv_pay_effdelay (Phase 2) so View C receivable lands",
     "Keep R4 daily observe — View B is liquidity SSOT",
     "When custody export exists → R5 reconcile vs View B (observe-only)",
-    "Do not merge A/B/C clocks; do not after-tax DEFAULT this cycle"
+    "Do not merge A/B/C clocks; do not after-tax DEFAULT this cycle",
+    "NHI 2.11% on single div pay ≥20k is custody haircut research-only — see NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md"
   ],
   "authority": [
     "research/ops/CASHFLOW_THREE_VIEWS.md",
+    "research/ops/NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md",
     "research/ops/TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md",
     "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md",
     "research/ops/ACCEPT_TIP_BOOKS_ALIGN_V3.md"

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-20T08:56:51.921398+00:00",
+  "generated_at_utc": "2026-09-21T14:21:00.898968+00:00",
   "label": "E22_GAP6_FIDELITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": false,
@@ -22,14 +22,14 @@
     "code_ok": true
   },
   "live_ledger": {
-    "live_dir": "/workspace/forward/e21",
-    "asof": "2026-09-16",
+    "live_dir": "/home/runner/work/v412d-data-bridge/v412d-data-bridge/forward/e21",
+    "asof": "2026-09-21",
     "portfolio_has_e22_books_version": true,
     "portfolio_has_e22_manifest": true,
     "nav_has_e22_version_col": true,
     "dividends_applied_exists": false,
     "dividends_applied_n": 0,
-    "observed_books_version": "E22_v2s_tw_effex",
+    "observed_books_version": "E22_v3_recv_pay_effdelay",
     "live_ledger_e22_fields_present": true,
     "note": null
   },
@@ -52,7 +52,7 @@
     }
   },
   "receivable_stub": {
-    "asof": "2026-09-16",
+    "asof": "2026-09-21",
     "n_cash_events_in_receivable_window": 0,
     "codes": [],
     "policy_note": "Formal books accrue receivable on effective_ex_trade under E22_v3_recv_pay_effdelay (Stage-E ACCEPT); cash settles on effective_payment. Preserved cash-on-ex path: E22_v2s_tw_effex. This count is universe-level timing exposure vs custody pay-date, not position-weighted PnL.",
