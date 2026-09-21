@@ -18,6 +18,7 @@ import pandas as pd
 import e45_defend_handoff_helpers as dh
 import e45_defend_handoff_stagea_screen as stagea
 from e50_early_stack_combined_nav import FIN, e16_features, simulate_core
+import e22_dividend_accounting as e22div
 from fuse_additive_helpers import FUSE_ID, SLEEVE_ALPHA, build_champion_target
 from portfolio_capital import DEFAULT_CAPITAL
 from sleeve_tilt_helpers import CHAMPION_ID as SLEEVE_ID
@@ -70,7 +71,13 @@ def _kd_panels(market: pd.DataFrame, dividends: pd.DataFrame):
 def build_fuse_offense_nav(
     market: pd.DataFrame, dividends: pd.DataFrame
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
-    """Paper-faithful FUSE_ADDITIVE offense book (no DH), Exact T+1."""
+    """Paper-faithful FUSE_ADDITIVE offense book (no DH), Exact T+1.
+
+    Pin E22 books to preserved cash-on-ex ``E22_v2s_tw_effex`` (not live Stage-E
+    DEFAULT). Full-history DH/FUSE exposure must not fail-closed on blank
+    historical ``payment_date`` rows that Stage-E recv_pay requires. Live day
+    books still apply Stage-E via ``live_e22_day``.
+    """
     _prices, sleeve, _target, regime = e16_features(market)
     _kd, buy_ok, buy, sell = _kd_panels(market, dividends)
     target = build_champion_target(market, sleeve, regime)
@@ -80,6 +87,7 @@ def build_fuse_offense_nav(
         regime,
         dividends,
         apply_e22=True,
+        e22_version=e22div.PRESERVED_CASH_ON_EX,
         apply_stock_div=True,
         capital=float(DEFAULT_CAPITAL),
         lot_size=int(BOARD_LOT),
@@ -98,6 +106,7 @@ def build_fuse_offense_nav(
         "sleeve_alpha": float(SLEEVE_ALPHA),
         "n_fills": int(len(fills)),
         "dh_id": DH_ID,
+        "e22_books_version": e22div.PRESERVED_CASH_ON_EX,
     }
 
 
