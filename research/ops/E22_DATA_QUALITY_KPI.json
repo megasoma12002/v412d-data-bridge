@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-21T15:23:19.886843+00:00",
+  "generated_at_utc": "2026-09-21T16:30:23.346399+00:00",
   "label": "E22_DATA_QUALITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -9,9 +9,9 @@
   "n_events": 150,
   "n_cash_rows": 144,
   "n_stock_rows": 52,
-  "cash_payment_date_blank_rate": 0.2013888888888889,
+  "cash_payment_date_blank_rate": 0.0,
   "cash_ex_date_blank_rate": 0.0,
-  "stock_payment_date_blank_rate": 1.0,
+  "stock_payment_date_blank_rate": 0.0,
   "stock_ex_date_blank_rate": 0.0,
   "announcement_date_blank_rate": 0.18,
   "private_fin_research": {
@@ -28,8 +28,8 @@
       "2890",
       "2891"
     ],
-    "cash_payment_date_blank_rate": 0.24031007751937986,
-    "stock_payment_date_blank_rate": 1.0,
+    "cash_payment_date_blank_rate": 0.0,
+    "stock_payment_date_blank_rate": 0.0,
     "stock_ex_date_blank_rate": 0.0
   },
   "gap_report": {
@@ -50,8 +50,6 @@
     "wired_e21": true,
     "unit_ok": true
   },
-  "flags": [
-    "cash_payment_date_blank_rate>2%"
-  ],
-  "kpi_ok": false
+  "flags": [],
+  "kpi_ok": true
 }
