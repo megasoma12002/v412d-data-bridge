@@ -1,6 +1,6 @@
 # Cashflow three-views report
 
-Generated: `2026-09-20T03:14:07.493841+00:00`
+Generated: `2026-09-21T10:39:57.918165+00:00`
 Tip `last_date`: `2026-09-16` · Soft-Frozen **KEEP**
 Human priority: **計算好現金流的數字** (TAX0; tax outside daily NAV)
 
@@ -29,6 +29,7 @@ Human priority: **計算好現金流的數字** (TAX0; tax outside daily NAV)
 - Keep R4 daily observe — View B is liquidity SSOT
 - When custody export exists → R5 reconcile vs View B (observe-only)
 - Do not merge A/B/C clocks; do not after-tax DEFAULT this cycle
+- NHI 2.11% on single div pay ≥20k is custody haircut research-only — see NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md
 
 Re-run: `python3 scripts/cashflow_three_views_report.py --write`
 
