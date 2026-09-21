@@ -305,10 +305,18 @@ def main() -> int:
         f"- `e22_manifest` in portfolio_state: **{live['portfolio_has_e22_manifest']}**",
         f"- `e22_version` col in nav.csv: **{live['nav_has_e22_version_col']}**",
         f"- `dividends_applied.csv`: **{live['dividends_applied_exists']}** (n={live['dividends_applied_n']})",
-        f"- observed books version: **{live.get('observed_books_version')}** — "
-        "**tip lag ops debt** until next weekday forward advances tip to live DEFAULT "
-        "`E22_v3_recv_pay_effdelay` (tip-align ACCEPT 2026-09-19; no history rewrite; "
-        "tip lag ≠ second DEFAULT)",
+        (
+            f"- observed books version: **{live.get('observed_books_version')}** — "
+            "**aligned** to live DEFAULT `E22_v3_recv_pay_effdelay` "
+            "(tip-align ACCEPT 2026-09-19; Phase 2 catch-up confirmed; no history rewrite)"
+            if (live.get("observed_books_version") or "") == e22div.E22_V3_RECV_PAY_EFFDELAY
+            else (
+                f"- observed books version: **{live.get('observed_books_version')}** — "
+                "**tip lag ops debt** until next weekday forward advances tip to live DEFAULT "
+                "`E22_v3_recv_pay_effdelay` (tip-align ACCEPT 2026-09-19; no history rewrite; "
+                "tip lag ≠ second DEFAULT)"
+            )
+        ),
         f"- Live evidence OK: **{kpi['live_evidence_ok']}**",
     ]
     if live.get("note"):

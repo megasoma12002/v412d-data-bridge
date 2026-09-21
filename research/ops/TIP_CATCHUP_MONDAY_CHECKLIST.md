@@ -1,10 +1,11 @@
 # Monday tip catch-up checklist (concrete ops + cashflow asserts)
 
-Status: **OPS** — Soft-Frozen KEEP · no history rewrite  
-When: first **weekday** after tip-align ACCEPT (tip still may show `E22_v2s_tw_effex`)  
+Status: **CONFIRMED 2026-09-21** — Soft-Frozen KEEP · no history rewrite  
+When: first **weekday** after tip-align ACCEPT (tip may have shown `E22_v2s_tw_effex`)  
 Goal: confirm tip → `E22_v3_recv_pay_effdelay` (= realism **Phase 2**) so **View C** (cash + receivable) is live; then print three cashflow views.
 
-Companion SSOT: `CASHFLOW_THREE_VIEWS.md`
+Companion SSOT: `CASHFLOW_THREE_VIEWS.md`  
+Evidence note: `TIP_CATCHUP_MONDAY_2026-09-21.md` · Phase land: `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md`
 
 ## Do nothing this weekend
 
@@ -48,6 +49,10 @@ Do **not** invent a forward session or rewrite `forward/e21` history.
    # TIP_LAG_BOOKS should be absent once tip == DEFAULT
    ```
 
+## 2026-09-21 result
+
+All five steps **PASS** after forward Run #47 (`last_date=2026-09-21`, books Stage-E, `tip_lag=false`, no `TIP_LAG_BOOKS`).
+
 ## Read the numbers
 
 | View | Field | Use |
@@ -63,4 +68,4 @@ Do **not** invent a forward session or rewrite `forward/e21` history.
 
 ## Label
 
-`TIP_CATCHUP_MONDAY_CHECKLIST`
+`TIP_CATCHUP_MONDAY_CHECKLIST__CONFIRMED_2026-09-21`

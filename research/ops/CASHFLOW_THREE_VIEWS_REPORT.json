@@ -1,9 +1,9 @@
 {
-  "generated_at_utc": "2026-09-21T15:15:37.720120+00:00",
+  "generated_at_utc": "2026-09-21T15:23:20.160146+00:00",
   "label": "CASHFLOW_THREE_VIEWS_REPORT",
   "soft_frozen_keep": true,
   "human_priority": "cashflow_numbers_under_tax0",
-  "state_dir": "/home/runner/work/v412d-data-bridge/v412d-data-bridge/forward/e21",
+  "state_dir": "/workspace/forward/e21",
   "last_date": "2026-09-21",
   "views": {
     "A_paper_exact_t1": {
@@ -55,7 +55,8 @@
   },
   "warnings": [],
   "next_ops": [
-    "Weekday tip → E22_v3_recv_pay_effdelay (Phase 2) so View C receivable lands",
+    "Phase 2 tip catch-up CONFIRMED — tip == Stage-E DEFAULT; View C clock live",
+    "On dividend ex→pay days: watch e22_receivables + dividends_applied (Gap6 G7)",
     "Keep R4 daily observe — View B is liquidity SSOT",
     "When custody export exists → R5 reconcile vs View B (observe-only)",
     "Do not merge A/B/C clocks; do not after-tax DEFAULT this cycle",

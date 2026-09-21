@@ -1,6 +1,6 @@
 # Post-forward E22 verify (Phase 0–1)
 
-Generated: `2026-09-21T15:15:37.720439+00:00`
+Generated: `2026-09-21T15:23:20.160412+00:00`
 Status: **PASS** · Soft-Frozen KEEP · observe/evidence only
 
 - tip_lag: **False** (observed `E22_v3_recv_pay_effdelay` vs default `E22_v3_recv_pay_effdelay`)

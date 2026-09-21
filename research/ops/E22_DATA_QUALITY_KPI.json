@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-09-21T15:15:37.424856+00:00",
+  "generated_at_utc": "2026-09-21T15:23:19.886843+00:00",
   "label": "E22_DATA_QUALITY_KPI",
   "live_wire": false,
   "soft_frozen_unchanged": true,
   "formal_books": "E22_v2s",
-  "events_path": "/home/runner/work/v412d-data-bridge/v412d-data-bridge/data/dividend_events/e22_dividend_events.csv",
+  "events_path": "/workspace/data/dividend_events/e22_dividend_events.csv",
   "n_events_all": 329,
   "n_events": 150,
   "n_cash_rows": 144,

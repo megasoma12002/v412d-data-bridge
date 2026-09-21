@@ -145,8 +145,17 @@ def build_report(state_dir: Path) -> dict:
             "stage_e_aligned": (not tip_lag) if books else None,
         },
         "warnings": warnings,
-        "next_ops": [
-            "Weekday tip → E22_v3_recv_pay_effdelay (Phase 2) so View C receivable lands",
+        "next_ops": (
+            [
+                "Weekday tip → E22_v3_recv_pay_effdelay (Phase 2) so View C receivable lands",
+            ]
+            if tip_lag
+            else [
+                "Phase 2 tip catch-up CONFIRMED — tip == Stage-E DEFAULT; View C clock live",
+                "On dividend ex→pay days: watch e22_receivables + dividends_applied (Gap6 G7)",
+            ]
+        )
+        + [
             "Keep R4 daily observe — View B is liquidity SSOT",
             "When custody export exists → R5 reconcile vs View B (observe-only)",
             "Do not merge A/B/C clocks; do not after-tax DEFAULT this cycle",

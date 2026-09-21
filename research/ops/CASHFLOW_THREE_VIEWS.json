@@ -1,12 +1,18 @@
 {
   "label": "CASHFLOW_THREE_VIEWS",
-  "amended_at": "2026-09-20",
+  "amended_at": "2026-09-21",
   "status": "OPS_SSOT",
   "soft_frozen_keep": true,
   "human_priority": "cashflow_numbers_under_tax0",
   "human_priority_zh": "計算好現金流的數字",
   "live_default_books": "E22_v3_recv_pay_effdelay",
   "live_tax": "TAX0",
+  "tip_snapshot": {
+    "asof": "2026-09-21",
+    "observed_books": "E22_v3_recv_pay_effdelay",
+    "tip_lag": false,
+    "phase_2": "CONFIRMED"
+  },
   "views": {
     "A_paper_exact_t1": {
       "field": "portfolio_state.cash",
@@ -26,7 +32,8 @@
   },
   "never_merge": ["A", "B", "C"],
   "report_script": "scripts/cashflow_three_views_report.py",
-  "p0_next": "weekday_tip_catchup_stage_e",
+  "p0_next": "daily_cashflow_report_and_r4_spot",
+  "p0_done": "weekday_tip_catchup_stage_e_2026-09-21",
   "known_unwired_cashflow_haircuts": [
     {
       "id": "nhi_div_supplemental_211",

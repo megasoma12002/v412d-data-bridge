@@ -72,6 +72,12 @@ class BuildReportFixtureTests(unittest.TestCase):
                 report["views"]["C_stage_e_div_cashflow"]["cash_plus_receivable"], 1040.0
             )
             self.assertEqual(report["warnings"], [])
+            self.assertTrue(
+                any("Phase 2 tip catch-up CONFIRMED" in n for n in report["next_ops"])
+            )
+            self.assertFalse(
+                any("Weekday tip →" in n for n in report["next_ops"])
+            )
 
     def test_r4_asof_mismatch_warning_and_cross_check(self) -> None:
         with tempfile.TemporaryDirectory() as td:
@@ -177,6 +183,10 @@ class BuildReportFixtureTests(unittest.TestCase):
             report = build_report(state)
             self.assertTrue(report["views"]["C_stage_e_div_cashflow"]["tip_lag"])
             self.assertTrue(any("TIP_LAG" in w for w in report["warnings"]))
+            self.assertTrue(any("Weekday tip →" in n for n in report["next_ops"]))
+            self.assertFalse(
+                any("Phase 2 tip catch-up CONFIRMED" in n for n in report["next_ops"])
+            )
 
 
 class TipSmokeTests(unittest.TestCase):

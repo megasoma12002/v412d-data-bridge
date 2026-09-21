@@ -1,6 +1,6 @@
 # Cashflow three-views report
 
-Generated: `2026-09-21T15:15:37.720120+00:00`
+Generated: `2026-09-21T15:23:20.160146+00:00`
 Tip `last_date`: `2026-09-21` · Soft-Frozen **KEEP**
 Human priority: **計算好現金流的數字** (TAX0; tax outside daily NAV)
 
@@ -24,7 +24,8 @@ Human priority: **計算好現金流的數字** (TAX0; tax outside daily NAV)
 
 ## Next ops
 
-- Weekday tip → E22_v3_recv_pay_effdelay (Phase 2) so View C receivable lands
+- Phase 2 tip catch-up CONFIRMED — tip == Stage-E DEFAULT; View C clock live
+- On dividend ex→pay days: watch e22_receivables + dividends_applied (Gap6 G7)
 - Keep R4 daily observe — View B is liquidity SSOT
 - When custody export exists → R5 reconcile vs View B (observe-only)
 - Do not merge A/B/C clocks; do not after-tax DEFAULT this cycle

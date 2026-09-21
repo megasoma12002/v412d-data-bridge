@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-21T15:15:37.666115+00:00",
+  "generated_at_utc": "2026-09-21T15:23:20.110993+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -223,5 +223,5 @@
       "message": "Helper is opt-in only; e21 still uses FinMind TaiwanStockPrice(TAIEX)."
     }
   ],
-  "routing_note": "Annotate CI job summary / upload OPS_ALERTS.* as artifact. HIGH=PAUSE_REVIEW / R4 missing blocks cutover talk only (not Soft-Frozen flip). CRITICAL fails live QC smoke. R4 settled_cash_estimate is liquidity view NOT NAV. TIP_LAG_BOOKS is INFO until weekday tip catch-up."
+  "routing_note": "Annotate CI job summary / upload OPS_ALERTS.* as artifact. HIGH=PAUSE_REVIEW / R4 missing blocks cutover talk only (not Soft-Frozen flip). CRITICAL fails live QC smoke. R4 settled_cash_estimate is liquidity view NOT NAV. TIP_LAG_BOOKS is INFO only while tip \u2260 Stage-E DEFAULT (cleared after Phase 2 catch-up)."
 }

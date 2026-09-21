@@ -1,6 +1,6 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-21T15:15:37.171055+00:00`
+Generated: `2026-09-21T15:23:19.648072+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v3_recv_pay_effdelay`** (receivable + effective pay).
 
 ## Code wire
@@ -17,7 +17,7 @@ Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v
 - `e22_manifest` in portfolio_state: **True**
 - `e22_version` col in nav.csv: **True**
 - `dividends_applied.csv`: **False** (n=0)
-- observed books version: **E22_v3_recv_pay_effdelay** — **tip lag ops debt** until next weekday forward advances tip to live DEFAULT `E22_v3_recv_pay_effdelay` (tip-align ACCEPT 2026-09-19; no history rewrite; tip lag ≠ second DEFAULT)
+- observed books version: **E22_v3_recv_pay_effdelay** — **aligned** to live DEFAULT `E22_v3_recv_pay_effdelay` (tip-align ACCEPT 2026-09-19; Phase 2 catch-up confirmed; no history rewrite)
 - Live evidence OK: **True**
 
 ## Ex → pay lag (ledger completeness already green; this is timing fidelity)

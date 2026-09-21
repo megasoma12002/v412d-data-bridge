@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-09-21T15:15:37.720439+00:00",
+  "generated_at_utc": "2026-09-21T15:23:20.160412+00:00",
   "label": "POST_FORWARD_E22_VERIFY",
   "phase": "0_1",
   "live_wire": false,
   "soft_frozen_keep": true,
-  "state_dir": "/home/runner/work/v412d-data-bridge/v412d-data-bridge/forward/e21",
+  "state_dir": "/workspace/forward/e21",
   "stage_e_default": "E22_v3_recv_pay_effdelay",
   "tip_lag": false,
   "ok": true,
