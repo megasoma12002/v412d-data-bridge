@@ -202,5 +202,22 @@ class FrozenClaimLabel(unittest.TestCase):
             )
 
 
+
+class E22PaymentDateCompletenessGuards(unittest.TestCase):
+    def test_soft_frozen_cash_payment_dates_complete(self):
+        """Ledger refresh must not re-drop Soft-Frozen cash payment dates (DQ gate)."""
+        import pandas as pd
+
+        events = ROOT / "data/dividend_events/e22_dividend_events.csv"
+        if not events.is_file():
+            self.skipTest("no dividend events ledger")
+        soft = {"2880", "2886", "2892", "5880", "2412", "3045", "4904", "0050"}
+        df = pd.read_csv(events, dtype=str).fillna("")
+        df["code"] = df["code"].astype(str).str.zfill(4)
+        cash = df[df["code"].isin(soft) & (pd.to_numeric(df["cash_dividend"], errors="coerce").fillna(0) > 0)]
+        blank = cash["cash_payment_date"].astype(str).str.strip() == ""
+        self.assertEqual(int(blank.sum()), 0, msg=cash.loc[blank, ["code", "cash_ex_date"]].to_string())
+
+
 if __name__ == "__main__":
     unittest.main()

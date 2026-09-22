@@ -1,14 +1,430 @@
 {
-  "generated_at": "2026-09-10T02:56:14.316167+00:00",
+  "generated_at": "2026-09-21T16:30:01.113896+00:00",
   "dry_run": false,
-  "cash_updates": 30,
-  "stock_updates": 91,
+  "cash_updates": 59,
+  "stock_updates": 143,
   "cash_events": 273,
   "cash_payment_missing_after": 1,
   "stock_events": 143,
   "stock_ex_missing_after": 0,
   "stock_payment_missing_after": 0,
   "stock_updates_detail": [
+    {
+      "code": "2880",
+      "stock_ex_date": "2010-08-12",
+      "stock_payment_date": "2010-09-15",
+      "match": "EXACT",
+      "yahoo_ex": "2010-08-12",
+      "stock_dividend": 0.549999999
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2011-08-11",
+      "stock_payment_date": "2011-09-16",
+      "match": "EXACT",
+      "yahoo_ex": "2011-08-11",
+      "stock_dividend": 0.6
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2012-08-15",
+      "stock_payment_date": "2012-09-21",
+      "match": "EXACT",
+      "yahoo_ex": "2012-08-15",
+      "stock_dividend": 0.5
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2013-08-15",
+      "stock_payment_date": "2013-09-16",
+      "match": "EXACT",
+      "yahoo_ex": "2013-08-15",
+      "stock_dividend": 0.5
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2014-08-14",
+      "stock_payment_date": "2014-09-30",
+      "match": "EXACT",
+      "yahoo_ex": "2014-08-14",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2015-08-13",
+      "stock_payment_date": "2015-10-14",
+      "match": "EXACT",
+      "yahoo_ex": "2015-08-13",
+      "stock_dividend": 0.62
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2016-08-18",
+      "stock_payment_date": "2016-09-30",
+      "match": "EXACT",
+      "yahoo_ex": "2016-08-18",
+      "stock_dividend": 0.62
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2017-08-17",
+      "stock_payment_date": "2017-09-29",
+      "match": "EXACT",
+      "yahoo_ex": "2017-08-17",
+      "stock_dividend": 0.5
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2018-08-16",
+      "stock_payment_date": "2018-09-28",
+      "match": "EXACT",
+      "yahoo_ex": "2018-08-16",
+      "stock_dividend": 0.45
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2019-08-15",
+      "stock_payment_date": "2019-09-27",
+      "match": "EXACT",
+      "yahoo_ex": "2019-08-15",
+      "stock_dividend": 0.545
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2020-08-13",
+      "stock_payment_date": "2020-09-30",
+      "match": "EXACT",
+      "yahoo_ex": "2020-08-13",
+      "stock_dividend": 0.5603
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2021-09-16",
+      "stock_payment_date": "2021-10-29",
+      "match": "EXACT",
+      "yahoo_ex": "2021-09-16",
+      "stock_dividend": 0.264
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2022-08-11",
+      "stock_payment_date": "2022-09-30",
+      "match": "EXACT",
+      "yahoo_ex": "2022-08-11",
+      "stock_dividend": 0.34
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2024-08-13",
+      "stock_payment_date": "2024-09-30",
+      "match": "EXACT",
+      "yahoo_ex": "2024-08-13",
+      "stock_dividend": 0.1
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2025-08-13",
+      "stock_payment_date": "2025-10-09",
+      "match": "EXACT",
+      "yahoo_ex": "2025-08-13",
+      "stock_dividend": 0.1
+    },
+    {
+      "code": "2880",
+      "stock_ex_date": "2026-08-13",
+      "stock_payment_date": "2026-08-28",
+      "match": "EXACT",
+      "yahoo_ex": "2026-08-13",
+      "stock_dividend": 0.1
+    },
+    {
+      "code": "2886",
+      "stock_ex_date": "2011-08-23",
+      "stock_payment_date": "2011-09-21",
+      "match": "EXACT",
+      "yahoo_ex": "2011-08-23",
+      "stock_dividend": 0.2
+    },
+    {
+      "code": "2886",
+      "stock_ex_date": "2012-08-08",
+      "stock_payment_date": "2012-09-13",
+      "match": "EXACT",
+      "yahoo_ex": "2012-08-08",
+      "stock_dividend": 0.15
+    },
+    {
+      "code": "2886",
+      "stock_ex_date": "2022-08-11",
+      "stock_payment_date": "2022-09-16",
+      "match": "EXACT",
+      "yahoo_ex": "2022-08-11",
+      "stock_dividend": 0.25
+    },
+    {
+      "code": "2886",
+      "stock_ex_date": "2023-08-10",
+      "stock_payment_date": "2023-09-15",
+      "match": "EXACT",
+      "yahoo_ex": "2023-08-10",
+      "stock_dividend": 0.08
+    },
+    {
+      "code": "2886",
+      "stock_ex_date": "2024-08-08",
+      "stock_payment_date": "2024-09-13",
+      "match": "EXACT",
+      "yahoo_ex": "2024-08-08",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2010-08-11",
+      "stock_payment_date": "2010-09-24",
+      "match": "EXACT",
+      "yahoo_ex": "2010-08-11",
+      "stock_dividend": 0.25
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2011-07-29",
+      "stock_payment_date": "2011-09-15",
+      "match": "EXACT",
+      "yahoo_ex": "2011-07-29",
+      "stock_dividend": 0.6
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2012-08-10",
+      "stock_payment_date": "2012-09-21",
+      "match": "EXACT",
+      "yahoo_ex": "2012-08-10",
+      "stock_dividend": 0.6000000000000001
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2013-08-02",
+      "stock_payment_date": "2013-09-05",
+      "match": "EXACT",
+      "yahoo_ex": "2013-08-02",
+      "stock_dividend": 0.65
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2014-08-01",
+      "stock_payment_date": "2014-09-05",
+      "match": "EXACT",
+      "yahoo_ex": "2014-08-01",
+      "stock_dividend": 0.7
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2015-07-31",
+      "stock_payment_date": "2015-09-22",
+      "match": "EXACT",
+      "yahoo_ex": "2015-07-31",
+      "stock_dividend": 0.65
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2016-08-05",
+      "stock_payment_date": "2016-09-10",
+      "match": "EXACT",
+      "yahoo_ex": "2016-08-05",
+      "stock_dividend": 0.45
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2017-08-04",
+      "stock_payment_date": "2017-09-11",
+      "match": "EXACT",
+      "yahoo_ex": "2017-08-04",
+      "stock_dividend": 0.2
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2018-08-10",
+      "stock_payment_date": "2018-09-19",
+      "match": "EXACT",
+      "yahoo_ex": "2018-08-10",
+      "stock_dividend": 0.1
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2019-08-09",
+      "stock_payment_date": "2019-09-18",
+      "match": "NEAR3D",
+      "yahoo_ex": "2019-08-12",
+      "stock_dividend": 0.1
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2020-08-07",
+      "stock_payment_date": "2020-09-16",
+      "match": "EXACT",
+      "yahoo_ex": "2020-08-07",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2021-08-26",
+      "stock_payment_date": "2021-10-04",
+      "match": "EXACT",
+      "yahoo_ex": "2021-08-26",
+      "stock_dividend": 0.1
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2022-08-04",
+      "stock_payment_date": "2022-09-14",
+      "match": "EXACT",
+      "yahoo_ex": "2022-08-04",
+      "stock_dividend": 0.2
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2023-08-11",
+      "stock_payment_date": "2023-09-20",
+      "match": "EXACT",
+      "yahoo_ex": "2023-08-11",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2024-08-08",
+      "stock_payment_date": "2024-09-18",
+      "match": "EXACT",
+      "yahoo_ex": "2024-08-08",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "2892",
+      "stock_ex_date": "2025-08-07",
+      "stock_payment_date": "2025-09-24",
+      "match": "EXACT",
+      "yahoo_ex": "2025-08-07",
+      "stock_dividend": 0.25
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2012-08-02",
+      "stock_payment_date": "2012-09-27",
+      "match": "NEAR1D",
+      "yahoo_ex": "2012-08-03",
+      "stock_dividend": 0.5
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2013-08-14",
+      "stock_payment_date": "2013-10-03",
+      "match": "EXACT",
+      "yahoo_ex": "2013-08-14",
+      "stock_dividend": 0.6000000000000001
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2014-08-19",
+      "stock_payment_date": "2014-10-08",
+      "match": "EXACT",
+      "yahoo_ex": "2014-08-19",
+      "stock_dividend": 0.5
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2015-08-13",
+      "stock_payment_date": "2015-09-25",
+      "match": "EXACT",
+      "yahoo_ex": "2015-08-13",
+      "stock_dividend": 0.5
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2016-08-10",
+      "stock_payment_date": "2016-09-14",
+      "match": "EXACT",
+      "yahoo_ex": "2016-08-10",
+      "stock_dividend": 0.7
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2017-08-16",
+      "stock_payment_date": "2017-09-18",
+      "match": "EXACT",
+      "yahoo_ex": "2017-08-16",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2018-08-21",
+      "stock_payment_date": "2018-09-21",
+      "match": "EXACT",
+      "yahoo_ex": "2018-08-21",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2019-08-14",
+      "stock_payment_date": "2019-09-18",
+      "match": "EXACT",
+      "yahoo_ex": "2019-08-14",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2020-08-12",
+      "stock_payment_date": "2020-09-16",
+      "match": "EXACT",
+      "yahoo_ex": "2020-08-12",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2021-09-08",
+      "stock_payment_date": "2021-10-13",
+      "match": "EXACT",
+      "yahoo_ex": "2021-09-08",
+      "stock_dividend": 0.2
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2022-08-10",
+      "stock_payment_date": "2022-09-13",
+      "match": "EXACT",
+      "yahoo_ex": "2022-08-10",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2023-08-09",
+      "stock_payment_date": "2023-09-12",
+      "match": "EXACT",
+      "yahoo_ex": "2023-08-09",
+      "stock_dividend": 0.5
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2024-08-14",
+      "stock_payment_date": "2024-09-16",
+      "match": "EXACT",
+      "yahoo_ex": "2024-08-14",
+      "stock_dividend": 0.35
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2025-08-13",
+      "stock_payment_date": "2025-10-07",
+      "match": "EXACT",
+      "yahoo_ex": "2025-08-13",
+      "stock_dividend": 0.3
+    },
+    {
+      "code": "5880",
+      "stock_ex_date": "2026-08-11",
+      "stock_payment_date": "2026-09-11",
+      "match": "EXACT",
+      "yahoo_ex": "2026-08-11",
+      "stock_dividend": 0.25
+    },
     {
       "code": "2884",
       "stock_ex_date": "2010-08-19",
@@ -739,6 +1155,209 @@
     }
   ],
   "cash_updates_detail": [
+    {
+      "code": "2880",
+      "cash_ex_date": "2010-08-12",
+      "cash_payment_date": "2010-09-03",
+      "match": "EXACT",
+      "yahoo_ex": "2010-08-12"
+    },
+    {
+      "code": "2880",
+      "cash_ex_date": "2011-08-11",
+      "cash_payment_date": "2011-09-02",
+      "match": "EXACT",
+      "yahoo_ex": "2011-08-11"
+    },
+    {
+      "code": "2880",
+      "cash_ex_date": "2012-08-15",
+      "cash_payment_date": "2012-09-07",
+      "match": "EXACT",
+      "yahoo_ex": "2012-08-15"
+    },
+    {
+      "code": "2880",
+      "cash_ex_date": "2013-08-15",
+      "cash_payment_date": "2013-09-06",
+      "match": "EXACT",
+      "yahoo_ex": "2013-08-15"
+    },
+    {
+      "code": "2886",
+      "cash_ex_date": "2010-08-11",
+      "cash_payment_date": "2010-09-06",
+      "match": "EXACT",
+      "yahoo_ex": "2010-08-11"
+    },
+    {
+      "code": "2886",
+      "cash_ex_date": "2011-08-23",
+      "cash_payment_date": "2011-09-16",
+      "match": "EXACT",
+      "yahoo_ex": "2011-08-23"
+    },
+    {
+      "code": "2886",
+      "cash_ex_date": "2012-08-08",
+      "cash_payment_date": "2012-09-06",
+      "match": "EXACT",
+      "yahoo_ex": "2012-08-08"
+    },
+    {
+      "code": "2886",
+      "cash_ex_date": "2013-08-13",
+      "cash_payment_date": "2013-09-06",
+      "match": "EXACT",
+      "yahoo_ex": "2013-08-13"
+    },
+    {
+      "code": "2892",
+      "cash_ex_date": "2010-08-11",
+      "cash_payment_date": "2010-09-02",
+      "match": "EXACT",
+      "yahoo_ex": "2010-08-11"
+    },
+    {
+      "code": "2892",
+      "cash_ex_date": "2011-07-29",
+      "cash_payment_date": "2011-08-23",
+      "match": "EXACT",
+      "yahoo_ex": "2011-07-29"
+    },
+    {
+      "code": "2892",
+      "cash_ex_date": "2012-08-10",
+      "cash_payment_date": "2012-09-03",
+      "match": "EXACT",
+      "yahoo_ex": "2012-08-10"
+    },
+    {
+      "code": "2892",
+      "cash_ex_date": "2013-08-02",
+      "cash_payment_date": "2013-08-20",
+      "match": "EXACT",
+      "yahoo_ex": "2013-08-02"
+    },
+    {
+      "code": "5880",
+      "cash_ex_date": "2012-08-02",
+      "cash_payment_date": "2012-09-03",
+      "match": "NEAR1D",
+      "yahoo_ex": "2012-08-03"
+    },
+    {
+      "code": "5880",
+      "cash_ex_date": "2013-08-14",
+      "cash_payment_date": "2013-10-09",
+      "match": "EXACT",
+      "yahoo_ex": "2013-08-14"
+    },
+    {
+      "code": "2412",
+      "cash_ex_date": "2010-08-12",
+      "cash_payment_date": "2010-09-10",
+      "match": "EXACT",
+      "yahoo_ex": "2010-08-12"
+    },
+    {
+      "code": "2412",
+      "cash_ex_date": "2011-07-21",
+      "cash_payment_date": "2011-08-17",
+      "match": "EXACT",
+      "yahoo_ex": "2011-07-21"
+    },
+    {
+      "code": "2412",
+      "cash_ex_date": "2012-07-17",
+      "cash_payment_date": "2012-08-22",
+      "match": "EXACT",
+      "yahoo_ex": "2012-07-17"
+    },
+    {
+      "code": "2412",
+      "cash_ex_date": "2013-07-17",
+      "cash_payment_date": "2013-08-23",
+      "match": "EXACT",
+      "yahoo_ex": "2013-07-17"
+    },
+    {
+      "code": "2412",
+      "cash_ex_date": "2014-07-17",
+      "cash_payment_date": "2014-08-27",
+      "match": "EXACT",
+      "yahoo_ex": "2014-07-17"
+    },
+    {
+      "code": "3045",
+      "cash_ex_date": "2010-07-05",
+      "cash_payment_date": "2010-07-23",
+      "match": "EXACT",
+      "yahoo_ex": "2010-07-05"
+    },
+    {
+      "code": "3045",
+      "cash_ex_date": "2011-06-30",
+      "cash_payment_date": "2011-07-21",
+      "match": "EXACT",
+      "yahoo_ex": "2011-06-30"
+    },
+    {
+      "code": "3045",
+      "cash_ex_date": "2012-07-09",
+      "cash_payment_date": "2012-07-27",
+      "match": "EXACT",
+      "yahoo_ex": "2012-07-09"
+    },
+    {
+      "code": "3045",
+      "cash_ex_date": "2013-07-08",
+      "cash_payment_date": "2013-07-26",
+      "match": "EXACT",
+      "yahoo_ex": "2013-07-08"
+    },
+    {
+      "code": "3045",
+      "cash_ex_date": "2014-06-27",
+      "cash_payment_date": "2014-07-18",
+      "match": "EXACT",
+      "yahoo_ex": "2014-06-27"
+    },
+    {
+      "code": "4904",
+      "cash_ex_date": "2010-08-10",
+      "cash_payment_date": "2010-09-10",
+      "match": "EXACT",
+      "yahoo_ex": "2010-08-10"
+    },
+    {
+      "code": "4904",
+      "cash_ex_date": "2011-07-19",
+      "cash_payment_date": "2011-08-23",
+      "match": "EXACT",
+      "yahoo_ex": "2011-07-19"
+    },
+    {
+      "code": "4904",
+      "cash_ex_date": "2012-07-24",
+      "cash_payment_date": "2012-08-22",
+      "match": "EXACT",
+      "yahoo_ex": "2012-07-24"
+    },
+    {
+      "code": "4904",
+      "cash_ex_date": "2013-07-24",
+      "cash_payment_date": "2013-08-15",
+      "match": "EXACT",
+      "yahoo_ex": "2013-07-24"
+    },
+    {
+      "code": "4904",
+      "cash_ex_date": "2014-07-16",
+      "cash_payment_date": "2014-08-08",
+      "match": "EXACT",
+      "yahoo_ex": "2014-07-16"
+    },
     {
       "code": "2884",
       "cash_ex_date": "2010-08-19",
