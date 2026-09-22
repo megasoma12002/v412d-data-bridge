@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-09-21T15:23:20.160146+00:00",
+  "generated_at_utc": "2026-09-22T13:35:17.574778+00:00",
   "label": "CASHFLOW_THREE_VIEWS_REPORT",
   "soft_frozen_keep": true,
   "human_priority": "cashflow_numbers_under_tax0",
-  "state_dir": "/workspace/forward/e21",
-  "last_date": "2026-09-21",
+  "state_dir": "/home/runner/work/v412d-data-bridge/v412d-data-bridge/forward/e21",
+  "last_date": "2026-09-22",
   "views": {
     "A_paper_exact_t1": {
       "label_zh": "紙上 Exact T+1 現金（成交日入帳）",
@@ -24,7 +24,7 @@
       "identity_ok": true,
       "identity_delta": 0.0,
       "present": true,
-      "asof": "2026-09-21",
+      "asof": "2026-09-22",
       "source": "forward/e21/settlement_cash_estimate.json → summary",
       "use": "spendable / custody liquidity estimate",
       "not": "NOT Soft-Frozen NAV; never merge into portfolio_state.cash"
@@ -47,7 +47,7 @@
   "cross_checks": {
     "paper_cash_minus_r4_paper_cash": 0.0,
     "r4_identity_ok": true,
-    "r4_asof": "2026-09-21",
+    "r4_asof": "2026-09-22",
     "r4_asof_matches_last_date": true,
     "r4_asof_mismatch": false,
     "tip_lag": false,
