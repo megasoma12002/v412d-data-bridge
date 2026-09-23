@@ -264,7 +264,8 @@ $env:YUANTA_PASSWORD = "你的密碼"
 python prod_readonly_login.py
 ```
 
-Linux／Mac：`Login` 改四參數 `Login(pfx, pfxPass, account, pass)`。
+Linux／Mac：`Login` 改四參數 `Login(pfx, pfxPass, account, pass)`。  
+**UAT（GCP jump VM）：** 完整腳本見 `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md` §5b（`Open(UAT)` + 四參數 Login；禁止下單）。
 
 ---
 
