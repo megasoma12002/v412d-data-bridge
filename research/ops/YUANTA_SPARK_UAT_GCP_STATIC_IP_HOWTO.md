@@ -472,6 +472,18 @@ gcloud compute addresses delete yuanta-uat-ip --region=asia-east1
 **Q. `gsutil` 汰換信跟這有關嗎？**  
 無關。本教學只用 `gcloud compute`；之後若用 GCS 請直接寫 `gcloud storage`。
 
+**Q. `[開啟連線] 無法取得服務主機設定檔`（MsgCode 空）？**  
+元件／pfx／`Open(UAT)` 多半沒問題；SDK log 會先 DNS 到 `ystest.yuanta.com.tw`（例：`220.130.122.92`），若接著：
+
+```bash
+curl -4 -v --connect-timeout 10 https://ystest.yuanta.com.tw/ -o /dev/null
+# → Connection timed out
+timeout 5 bash -c 'echo >/dev/tcp/220.130.122.92/443' || echo TCP443 FAIL
+```
+
+則是 **元大 UAT 防火牆尚未對你的固定出口 IP 開通（或未含 443／主機設定下載）**。  
+本專案出口 IP：`35.206.200.31`（`yuanta-uat-vm`）。請營業員確認開通後再重跑 `uat_readonly_login.py`。等開通期間可 `gcloud compute instances stop yuanta-uat-vm` 省錢。
+
 ---
 
 Label: `YUANTA_SPARK_UAT__GCP_STATIC_IP_HOWTO`
