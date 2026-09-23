@@ -1,7 +1,7 @@
 # Cashflow three-views report
 
-Generated: `2026-09-22T13:35:17.574778+00:00`
-Tip `last_date`: `2026-09-22` · Soft-Frozen **KEEP**
+Generated: `2026-09-23T13:49:09.981937+00:00`
+Tip `last_date`: `2026-09-23` · Soft-Frozen **KEEP**
 Human priority: **計算好現金流的數字** (TAX0; tax outside daily NAV)
 
 ## Views
