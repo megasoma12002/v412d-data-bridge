@@ -1,12 +1,12 @@
 # Ops Alerts
 
-Generated: `2026-09-22T13:35:17.511300+00:00`
+Generated: `2026-09-23T13:49:09.916086+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.60, 0.90] unchanged**. No auto cutover.
 
 - CRITICAL: 0
 - HIGH (PAUSE_REVIEW etc.): 7
-- INFO: 27
+- INFO: 28
 
 | Severity | Source | Code | Message |
 |---|---|---|---|
@@ -41,6 +41,7 @@ Soft-Frozen **[0.60, 0.90] unchanged**. No auto cutover.
 | INFO | `e45_defend_handoff_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=3.3350% > 2% on overlap |
 | INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=18 (<60) — not decision-grade for cutover |
+| INFO | `e22_data_quality_kpi` | `E22_DQ_FLAGS` | flags=['cash_payment_date_blank_rate>2%'] |
 | INFO | `r4_settlement_estimate` | `R4_ESTIMATE_PRESENT` | R4 settlement_cash_estimate present — settled_cash_estimate=50415.51358572836 is liquidity view NOT portfolio NAV / Soft-Frozen cash |
 | INFO | `data_source_phase_c_probes` | `PHASE_C_C1_FIN12_HISTORY_SHADOW_NOTE` | DRIFT on 1 ticker(s); does not count toward PASS |
 | INFO | `data_source_phase_c_probes` | `PHASE_C_C3_TAIEX_OPTIONAL_FAILOVER_NOTE` | Helper is opt-in only; e21 still uses FinMind TaiwanStockPrice(TAIEX). |

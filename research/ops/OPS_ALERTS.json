@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-22T13:35:17.511300+00:00",
+  "generated_at_utc": "2026-09-23T13:49:09.916086+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -10,7 +10,7 @@
   "overall": "HIGH",
   "n_critical": 0,
   "n_high": 7,
-  "n_info": 27,
+  "n_info": 28,
   "alerts": [
     {
       "severity": "HIGH",
@@ -197,6 +197,12 @@
       "source": "live_paper_recon",
       "code": "THIN_LIVE_HISTORY",
       "message": "overlap_n=18 (<60) \u2014 not decision-grade for cutover"
+    },
+    {
+      "severity": "INFO",
+      "source": "e22_data_quality_kpi",
+      "code": "E22_DQ_FLAGS",
+      "message": "flags=['cash_payment_date_blank_rate>2%']"
     },
     {
       "severity": "INFO",

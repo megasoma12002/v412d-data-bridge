@@ -1,6 +1,6 @@
 # Post-forward E22 verify (Phase 0–1)
 
-Generated: `2026-09-22T13:35:17.575236+00:00`
+Generated: `2026-09-23T13:49:09.982538+00:00`
 Status: **PASS** · Soft-Frozen KEEP · observe/evidence only
 
 - tip_lag: **False** (observed `E22_v3_recv_pay_effdelay` vs default `E22_v3_recv_pay_effdelay`)
@@ -11,7 +11,7 @@ Status: **PASS** · Soft-Frozen KEEP · observe/evidence only
 - R4 assert: `{"csv_exists": true, "json_exists": true, "csv_bytes": 10439, "json_bytes": 31939, "ok": true, "label": "liquidity_view_not_nav"}`
 - e21_qc: `{"skipped": true}`
 - Gap6: code_ok=True rc=0 tip_lag=False
-- DQ KPI: kpi_ok=True (report-only)
+- DQ KPI: kpi_ok=False (report-only)
 - Alerts: overall=HIGH crit=0 high=7
 - Cashflow 3-views: `{"ok": true, "tip_lag": false, "r4_identity_ok": true, "n_warnings": 0, "view_a_cash": 50415.51358572836, "view_b_settled": 50415.51358572836, "view_c_cash_plus_recv": 50415.51358572836}`
 
@@ -23,7 +23,7 @@ Status: **PASS** · Soft-Frozen KEEP · observe/evidence only
 
 ## Notes
 
-- None
+- DQ_FLAGS_REPORT_ONLY: cash_payment_date_blank_rate>2%
 
 ## Non-actions
 
