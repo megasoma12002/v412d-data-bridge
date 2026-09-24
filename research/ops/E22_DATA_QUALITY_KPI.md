@@ -1,18 +1,18 @@
 # E22 Data-Quality KPI
 
-Generated: `2026-09-24T13:43:33.236417+00:00`
+Generated: `2026-09-24T15:56:17.840633+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen unchanged; E22_v2s remains formal books.
 
 - Events: **150** (cash rows 144, stock rows 52)
-- Cash payment-date blank rate: **20.14%**
+- Cash payment-date blank rate: **0.00%**
 - Cash ex-date blank rate: **0.00%**
-- Stock payment-date blank rate: **100.00%**
+- Stock payment-date blank rate: **0.00%**
 - Stock ex-date blank rate: **0.00%**
-- KPI OK: **False**
+- KPI OK: **True**
 
 ## Flags
 
-- cash_payment_date_blank_rate>2%
+- None
 
 ## Note
 
