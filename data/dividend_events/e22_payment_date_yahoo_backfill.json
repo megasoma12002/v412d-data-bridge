@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-04T12:45:10.253388+00:00",
+  "generated_at_utc": "2026-09-23T16:00:46Z",
   "n_updated": 29,
   "n_still_missing_cash_payment_date": 0,
   "updates": [
@@ -239,6 +239,7 @@
   "notes": [
     "GoodInfo/Wantgoo blocked by Cloudflare/403; CMoney page lacks payment-date column.",
     "Filled from Yahoo Taiwan quote dividend pages (現金股利發放日).",
-    "5880 2012-08-02 matched Yahoo ex 2012-08-03 (NEAR ±1d)."
+    "5880 2012-08-02 matched Yahoo ex 2012-08-03 (NEAR ±1d).",
+    "2026-09-23: re-applied after f439d1b ledger refresh via local yahoo_tw_dividend_history.csv (+ CNYES 2891 2010-07-29→2010-08-23); soft_frozen_cash_blank=0."
   ]
 }

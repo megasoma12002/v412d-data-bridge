@@ -141,11 +141,25 @@ pip install -U pip pythonnet
 
 ### SPARK 元件
 
-1. 至元大 SPARK 入口下載 **Python／C# 元件與範例**（需已申請）
-2. 解壓到例如 `~/YuantaSparkAPI/`（含 `YuantaSparkAPI.dll` 與所有 `.so`）
-3. **測試憑證**依文件匯入／放置；路徑與密碼**只放 VM 本機**，勿進 git
+1. 至元大 SPARK 入口下載 **Python Linux x64** zip + **測試憑證 `.pfx`**（本機瀏覽器）
+2. 本機 `scp` 到 VM（勿 commit）：
 
-Linux／Mac 登入常需：
+```bash
+gcloud compute scp ~/Downloads/YuantaSparkAPI*.zip yuanta-uat-vm:~/YuantaSparkAPI/ --zone=asia-east1-b
+gcloud compute scp ~/Downloads/*.pfx yuanta-uat-vm:~/certs/ --zone=asia-east1-b
+```
+
+3. VM 解壓，找到 DLL 同層目錄：
+
+```bash
+cd ~/YuantaSparkAPI && unzip -o YuantaSparkAPI*.zip
+find ~/YuantaSparkAPI -name YuantaSparkAPI.dll
+# 之後所有 python 指令都在「dll 所在目錄」執行
+```
+
+4. **測試憑證**路徑與密碼**只放 VM 本機**，勿進 git
+
+Linux 登入（四參數）：
 
 ```text
 Login(Pfx絕對路徑, Pfx密碼, 帳號, 登入密碼)
@@ -155,21 +169,254 @@ Login(Pfx絕對路徑, Pfx密碼, 帳號, 登入密碼)
 最小連線順序（觀念）：
 
 ```text
-Open(UAT) → Login(...) → 等 OnResponse Login 成功 → 再查庫存／帳務
-（下單 SendStockOrder 等 Login／查詢都穩再說）
+Open(UAT) → Login(pfx, pfxPass, account, pass) → 等 OnResponse Login 成功 → 再查庫存／帳務
+（禁止 SendStockOrder；下單另開 ACCEPT）
 ```
 
 詳細欄位見官方「國內證券下單」：`BasketNo`（自訂 ≤32 英數字）適合之後對我們的 `client_order_id`／dedupe；`OrderQty` 單位是**張**（1 張 = 1000 股）。
+
+### 官方 UAT 測試帳（公開文件）
+
+來源：[測試環境＆正式環境說明](https://www.yuanta.com.tw/file-repository/content/sparkapi_docs/1.前言/2.測試環境%26正式環境說明/index.html)
+
+| 欄位 | 值 |
+|---|---|
+| 環境 | `Open(UAT)` |
+| 帳號 | `S98875005091` |
+| 登入密碼 | `1234` |
+| 憑證密碼 | `yuanta` |
+| 固定出口 IP（本專案） | `35.206.200.31`（`yuanta-uat-vm`） |
+
+---
+
+## 5b. UAT 只讀腳本（存 VM，勿 commit）
+
+骨架對齊 `YUANTA_SPARK_PROD_READONLY_HOWTO.md`；差異只有 **`Open(UAT)`** + Linux **四參數 Login**。  
+在 **`YuantaSparkAPI.dll` 同層** 寫 `uat_readonly_login.py`（可用 `nano`／`cat >`）：
+
+```python
+"""UAT read-only: Open(UAT) + Login(pfx,...) + inventory/balance. NO orders."""
+import os
+import sys
+import time
+from pathlib import Path
+
+if sys.version_info < (3, 8):
+    raise SystemExit(
+        "Need Python 3.8+. Now running: {}".format(sys.version.split()[0])
+    )
+
+from pythonnet import load
+
+load("coreclr")
+import clr  # noqa: E402
+
+HERE = Path(__file__).resolve().parent
+sys.path.append(str(HERE))
+
+clr.AddReference("System.Collections")
+clr.AddReference("YuantaSparkAPI")
+
+from YuantaOneAPI import (  # noqa: E402
+    YuantaSparkAPITrader,
+    enumEnvironmentMode,
+    enumLangType,
+    enumLogType,
+)
+
+# Defaults = official UAT test account (public Yuanta docs). Override via env.
+ACCOUNT = os.environ.get("YUANTA_ACCOUNT", "S98875005091")
+PASSWORD = os.environ.get("YUANTA_PASSWORD", "1234")
+PFX_PATH = os.environ.get(
+    "YUANTA_PFX_PATH",
+    str(Path.home() / "certs" / "REPLACE_ME.pfx"),
+)
+PFX_PASSWORD = os.environ.get("YUANTA_PFX_PASSWORD", "yuanta")
+
+state = {
+    "login_done": False,
+    "msg_code": "",
+    "store_done": False,
+    "bank_done": False,
+}
+
+
+def _mask_acct(acct):
+    s = str(acct or "")
+    return "***" + s[-4:] if len(s) >= 4 else "***"
+
+
+def on_response(intMark, dwIndex, strIndex, objHandle, objValue):
+    try:
+        if intMark == 0:
+            print("[sys]", objValue)
+            return
+        if intMark != 1:
+            return
+
+        if strIndex == "Login":
+            status = objValue.LoginStatus
+            code = str(status.MsgCode)
+            state["login_done"] = True
+            state["msg_code"] = code
+            print("[Login] MsgCode={} MsgContent={} Count={}".format(
+                code, status.MsgContent, status.Count
+            ))
+            if code in ("0001", "00001") or int(status.Count) > 0:
+                for row in objValue.LoginList:
+                    print("  account={} name={} seller={}".format(
+                        _mask_acct(row.Account), row.Name, row.SellerNo
+                    ))
+            else:
+                print("  LOGIN FAILED")
+            return
+
+        if strIndex == "GetStoreSummary":
+            stk = objValue.StkStoreList
+            n = int(stk.Count)
+            print("[GetStoreSummary] 現貨筆數={}".format(n))
+            for i in range(n):
+                row = stk[i]
+                print(
+                    "  code={} name={} qty={} trading_qty={} avg={} mkt_amt={}".format(
+                        row.StkCode,
+                        row.StkName,
+                        row.StockQty,
+                        row.TradingQty,
+                        row.Price,
+                        row.MarketAmt,
+                    )
+                )
+            state["store_done"] = True
+            return
+
+        if strIndex == "GetBankBalance":
+            rows = objValue.BankBalanceList
+            n = int(rows.Count)
+            print("[GetBankBalance] 筆數={}".format(n))
+            for i in range(n):
+                row = rows[i]
+                print(
+                    "  account={} bank={} available={} msg={}".format(
+                        _mask_acct(row.Account),
+                        _mask_acct(row.BankAccount),
+                        row.AvailableBalance,
+                        row.Message,
+                    )
+                )
+            state["bank_done"] = True
+            return
+
+        print("[other] strIndex={} dwIndex={}".format(strIndex, dwIndex))
+    except Exception as exc:
+        print("on_response error:", exc)
+
+
+def _wait(flag, seconds=30):
+    for _ in range(seconds):
+        if state[flag]:
+            return True
+        time.sleep(1)
+    return state[flag]
+
+
+def main():
+    pfx = Path(PFX_PATH)
+    if not pfx.is_file():
+        raise SystemExit("PFX missing: {} (set YUANTA_PFX_PATH)".format(pfx))
+
+    api = YuantaSparkAPITrader()
+    api.SetLogType(enumLogType.COMMON)
+    api.OnResponse += on_response
+
+    print("Open(UAT)...")
+    api.Open(enumEnvironmentMode.UAT)
+    time.sleep(2)
+
+    print("Login(pfx, ...)...")
+    api.Login(str(pfx.resolve()), PFX_PASSWORD, ACCOUNT, PASSWORD)
+    if not _wait("login_done") or state["msg_code"] not in ("0001", "00001"):
+        print("STOP: login failed MsgCode={}".format(state["msg_code"]))
+        try:
+            api.LogOut()
+            api.Close()
+        except Exception:
+            pass
+        return
+
+    print("Query GetStoreSummary (read-only)...")
+    try:
+        api.GetStoreSummary(ACCOUNT, enumLangType.UTF8)
+    except TypeError:
+        api.GetStoreSummary(ACCOUNT)
+    _wait("store_done", 20)
+
+    print("Query GetBankBalance (read-only)...")
+    try:
+        api.GetBankBalance(ACCOUNT, enumLangType.UTF8)
+    except TypeError:
+        api.GetBankBalance(ACCOUNT)
+    _wait("bank_done", 20)
+
+    print(
+        "READ-ONLY DONE store={} bank={}".format(
+            state["store_done"], state["bank_done"]
+        )
+    )
+    # NO SendStockOrder / amend / cancel. NO Soft-Frozen forward/e21 writes.
+
+    time.sleep(2)
+    try:
+        api.LogOut()
+    except Exception as exc:
+        print("LogOut note:", exc)
+    time.sleep(1)
+    try:
+        api.Close()
+    except Exception as exc:
+        print("Close note:", exc)
+    time.sleep(2)
+    sys.stdout.flush()
+    print("done.")
+    time.sleep(1)
+
+
+if __name__ == "__main__":
+    main()
+    os._exit(0)
+```
+
+VM 跑測（手機 SSH 可貼）：
+
+```bash
+source ~/venv-spark/bin/activate
+export YUANTA_PFX_PATH="$HOME/certs/你的憑證.pfx"
+cd "$(dirname "$(find ~/YuantaSparkAPI -name YuantaSparkAPI.dll | head -1)")"
+# 把上面腳本存成同層 uat_readonly_login.py 後：
+python uat_readonly_login.py
+```
+
+**通過：** `MsgCode` = `0001`／`00001`；結尾 `READ-ONLY DONE store=True bank=True`（筆數可為 0）。  
+**回報（打碼）：** MsgCode、兩段查詢是否 True、庫存筆數。勿貼完整帳號／銀行帳號／pfx 路徑以外的秘密。
+
+常見失敗：
+
+| 現象 | 怎麼辦 |
+|---|---|
+| 無法連接至遠端伺服器 | 防火牆／IP：`curl -4 ifconfig.me` 應為 `35.206.200.31` |
+| PFX missing | `ls ~/certs/*.pfx`；設 `YUANTA_PFX_PATH` |
+| MsgCode `0000` | 核對 pfx 密碼 `yuanta`、帳密、元件是否 Linux x64 |
+| `cannot import enumLangType` | 查詢改只傳 `ACCOUNT`（腳本已 try/except） |
 
 ---
 
 ## 6. 建議驗證清單（由淺到深）
 
-1. VM 對外 IP 與給營業員的一致：`curl -4 ifconfig.me`
+1. VM 對外 IP 與給營業員的一致：`curl -4 ifconfig.me` → **`35.206.200.31`**
 2. UAT 防火牆開通後：`Open(UAT)` 不再連線失敗
-3. `Login` → `OnResponse` MsgCode 成功
-4. 庫存／交割款／損益**查詢**（只讀）
-5. （可選）極小額／可取消的測試單 — 仍在 UAT；對齊 `BasketNo`
+3. `Login` → `OnResponse` MsgCode **`0001`／`00001`**
+4. `GetStoreSummary`／`GetBankBalance` **查詢**（只讀；筆數可 0）
+5. （可選、另 ACCEPT）極小額／可取消的測試單 — 仍在 UAT；對齊 `BasketNo`
 6. **不要**在此 VM 寫 repo 的 `forward/e21`；shadow 產物可留在 VM 本地目錄
 
 對接本 repo 防呆（之後才做）：`scripts/broker_safety.py` 的 process lock／confirm／dedupe；`LIVE.broker_live_write_accepted` 維持 `False` 直到 ACCEPT。
@@ -224,6 +471,18 @@ gcloud compute addresses delete yuanta-uat-ip --region=asia-east1
 
 **Q. `gsutil` 汰換信跟這有關嗎？**  
 無關。本教學只用 `gcloud compute`；之後若用 GCS 請直接寫 `gcloud storage`。
+
+**Q. `[開啟連線] 無法取得服務主機設定檔`（MsgCode 空）？**  
+元件／pfx／`Open(UAT)` 多半沒問題；SDK log 會先 DNS 到 `ystest.yuanta.com.tw`（例：`220.130.122.92`），若接著：
+
+```bash
+curl -4 -v --connect-timeout 10 https://ystest.yuanta.com.tw/ -o /dev/null
+# → Connection timed out
+timeout 5 bash -c 'echo >/dev/tcp/220.130.122.92/443' || echo TCP443 FAIL
+```
+
+則是 **元大 UAT 防火牆尚未對你的固定出口 IP 開通（或未含 443／主機設定下載）**。  
+本專案出口 IP：`35.206.200.31`（`yuanta-uat-vm`）。請營業員確認開通後再重跑 `uat_readonly_login.py`。等開通期間可 `gcloud compute instances stop yuanta-uat-vm` 省錢。
 
 ---
 
