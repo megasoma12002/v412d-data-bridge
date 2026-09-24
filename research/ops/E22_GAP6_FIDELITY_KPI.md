@@ -1,6 +1,6 @@
 # E22 Gap #6 Fidelity KPI
 
-Generated: `2026-09-23T13:49:09.237367+00:00`
+Generated: `2026-09-24T13:43:32.893775+00:00`
 Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v3_recv_pay_effdelay`** (receivable + effective pay).
 
 ## Code wire
@@ -12,7 +12,7 @@ Status: **OPS / RESEARCH** — Soft-Frozen Stage-E ACCEPT; live DEFAULT **`E22_v
 
 ## Live ledger evidence (`forward/e21`)
 
-- asof: **2026-09-23**
+- asof: **2026-09-24**
 - `e22_books_version` in portfolio_state: **True**
 - `e22_manifest` in portfolio_state: **True**
 - `e22_version` col in nav.csv: **True**

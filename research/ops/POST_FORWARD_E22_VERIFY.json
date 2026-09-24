@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-23T13:49:09.982538+00:00",
+  "generated_at_utc": "2026-09-24T13:43:33.623568+00:00",
   "label": "POST_FORWARD_E22_VERIFY",
   "phase": "0_1",
   "live_wire": false,
@@ -78,7 +78,7 @@
         "identity_ok": true,
         "identity_delta": 0.0,
         "present": true,
-        "asof": "2026-09-23",
+        "asof": "2026-09-24",
         "source": "forward/e21/settlement_cash_estimate.json \u2192 summary",
         "use": "spendable / custody liquidity estimate",
         "not": "NOT Soft-Frozen NAV; never merge into portfolio_state.cash"
@@ -101,7 +101,7 @@
     "cross_checks": {
       "paper_cash_minus_r4_paper_cash": 0.0,
       "r4_identity_ok": true,
-      "r4_asof": "2026-09-23",
+      "r4_asof": "2026-09-24",
       "r4_asof_matches_last_date": true,
       "r4_asof_mismatch": false,
       "tip_lag": false,
