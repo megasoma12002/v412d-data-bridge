@@ -27,6 +27,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | 0h | 民股 MDD **新機制 V5**（DH 防衛窗 → 只關 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V5_DH_0050_XTIGHT` −0.27 · Soft-Frozen KEEP · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md` |
 | 0i | 民股 MDD **新機制 V6**（shadow 相對 NAV 連續阻尼 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V6_C100_PUB` −0.24 · Soft-Frozen KEEP · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md` |
 | 0k | COOL 成立買 **台50反1**／結束賣 | **STAGE A SOFT** (2026-09-25) | 0 HIT · α=0.25 MDD↑ / CAGR↓ · Soft-Frozen KEEP · `COOL_T50_INV_SATELLITE_DECISION_PACK.md` |
+| 0k2 | COOL 觸發 **極短脈衝** 00632R | **CHARTER OPEN** (2026-09-25) | Entry→hold H∈{1,2,3,5} then sell · Soft-Frozen KEEP · `COOL_T50_INV_PULSE_CHARTER.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.80]** / ETF **[0.00, 0.50]** | **FLIPPED** (ACCEPT 2026-09-25 β densify) | Was FINBAND [0.60,0.90]/ETF[0.00,0.35]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md` · prior FINBAND note KEEP |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
