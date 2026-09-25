@@ -1,7 +1,7 @@
 # COOL 啟動買台50反1／結束賣出 — Paper Charter (Stage A)
 
 Date: 2026-09-25  
-Status: **CHARTER OPEN → Stage A** · Soft-Frozen live **KEEP** · live wire **false**  
+Status: **CHARTER OPEN · Stage A DONE → `COOL_INV_SOFT`** · Soft-Frozen live **KEEP** · live wire **false**  
 Human mechanism (exact):
 
 ```

@@ -1,0 +1,19 @@
+{
+  "label": "COOL_T50_INV_SATELLITE_DECISION",
+  "generated_at_utc": "2026-09-25T14:35:39Z",
+  "status": "COOL_INV_SOFT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "n_coexist": 0,
+  "soft_ids": ["COOL_INV_A25"],
+  "coexist_ids": [],
+  "best_soft": {
+    "id": "COOL_INV_A25",
+    "held_cagr_lift_pp": -0.8,
+    "sealed_mdd_improve_pp": 0.04,
+    "held_mdd_improve_pp": 2.85
+  },
+  "reading": "Small α improves MDD but reduces CAGR — opposite of CAGR-offense hope.",
+  "charter": "research/ops/COOL_T50_INV_SATELLITE_CHARTER.md",
+  "stage_a": "research/ops/COOL_T50_INV_SATELLITE_STAGEA_SCREEN.md"
+}
