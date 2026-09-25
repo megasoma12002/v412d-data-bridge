@@ -12,6 +12,7 @@ Soft-Frozen live: **F[0.60, 0.80] E[0.00, 0.50] LIVE** · COOL live: **KEEP**
 | 2d | Paper observe near-flat | OPEN then **promoted** |
 | 2e | Soft-Frozen clip flip | **LIVE WIRED** · `ACCEPT … F0.60-0.80_E0.00-0.50` |
 | 3 | 公＋民 mix | **SKIP** 0b2 |
-| 4 | 民股／4-sleeve | **DEFER** |
+| 4 | 民股／4-sleeve | **DEFER**（parallel PR Gate V7 SOFT） |
+| 5 | COOL 成立買台50反1／結束賣 | **CHARTER OPEN** · Soft-Frozen KEEP · `COOL_T50_INV_SATELLITE_CHARTER.md` |
 
-Binding: forward-only · no tip history rewrite · broker still PREP-only.
+Binding: forward-only · no tip history rewrite · broker still PREP-only · live universe expand = Class D ACCEPT only.
