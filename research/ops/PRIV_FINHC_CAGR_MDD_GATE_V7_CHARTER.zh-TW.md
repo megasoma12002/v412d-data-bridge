@@ -1,7 +1,7 @@
 # 民股金控 — 最大 CAGR × 最小 MDD（Gate V7）研究 Charter
 
 日期：2026-09-25  
-狀態：**CHARTER OPEN → Stage A 可跑** · Soft-Frozen live **不動** · live wire **false**
+狀態：**CHARTER OPEN · Stage A `PRIV_FINHC_SOFT`** · Soft-Frozen live **不動** · live wire **false**
 
 ## 目標（寫死）
 

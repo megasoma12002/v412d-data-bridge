@@ -1,7 +1,7 @@
 # 民股金控 — max CAGR × min MDD（Gate V7）Paper Charter
 
 Date: 2026-09-25  
-Status: **CHARTER OPEN → Stage A ready** · Soft-Frozen live **KEEP** · live wire **false**  
+Status: **CHARTER OPEN · Stage A DONE → `PRIV_FINHC_SOFT`** · Soft-Frozen live **KEEP** · live wire **false**  
 Human binding (exact intent):
 
 ```
