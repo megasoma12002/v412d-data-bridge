@@ -39,13 +39,27 @@ def commit_day_books(
     applied_details: list,
     asof_iso: str,
 ) -> None:
-    """Persist deferred paper fills + dividends, then atomic state + audit."""
+    """Persist day ledgers then atomic portfolio_state (ACCEPT day-commit atomicity).
+
+    Order (crash window shrink):
+      1) orders / signals / nav (immutable CSV)
+      2) deferred paper fills + dividends_applied
+      3) portfolio_state.json last (atomic_write_json)
+      4) audit_chain + dashboard
+
+    Soft-Frozen KEEP — never rewrite existing rows (append_immutable first-key wins).
+    """
     sdir = Path(state_dir)
+    for o in order_rows:
+        append_immutable(sdir / "orders.csv", o, "order_id")
+    append_immutable(sdir / "signals.csv", signal, "date")
+    append_immutable(sdir / "nav.csv", navrow, "date")
     if fill_port_name == "paper":
         for f in fills:
             append_immutable(sdir / "fills.csv", f, "fill_id")
     for row in pending_div_rows:
         append_immutable(div_path, row, "key")
+    # State last — assert_no_uncommitted_ledger detects orphans if we die above.
     atomic_write_json(state_path, state_payload)
 
     audit_chain = sdir / "audit_chain.jsonl"

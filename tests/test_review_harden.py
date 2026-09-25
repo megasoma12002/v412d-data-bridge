@@ -130,12 +130,15 @@ class DayCommitPaperOnly(unittest.TestCase):
                 state_payload={"cash": 1.0, "positions": {}, "last_date": "2026-07-13"},
                 signal={"date": "2026-07-13"},
                 navrow={"date": "2026-07-13", "nav_e16_e18": 1.0},
-                order_rows=[],
+                order_rows=[{"order_id": "2026-07-13-0050-BUY", "date": "2026-07-13"}],
                 applied_details=[],
                 asof_iso="2026-07-13",
             )
             self.assertFalse((sdir / "fills.csv").exists())
             self.assertTrue(state_path.exists())
+            self.assertTrue((sdir / "orders.csv").exists())
+            self.assertTrue((sdir / "signals.csv").exists())
+            self.assertTrue((sdir / "nav.csv").exists())
 
             commit_day_books(
                 state_dir=sdir,
@@ -154,6 +157,15 @@ class DayCommitPaperOnly(unittest.TestCase):
             self.assertTrue((sdir / "fills.csv").exists())
             df = pd.read_csv(sdir / "fills.csv")
             self.assertEqual(list(df["fill_id"]), ["o1"])
+
+    def test_pipeline_defers_ledger_appends_to_commit(self) -> None:
+        """ACCEPT day-commit atomicity: no early append_immutable in e21 pipeline."""
+        root = Path(__file__).resolve().parents[1]
+        src = (root / "scripts" / "e21_forward_pipeline.py").read_text(encoding="utf-8")
+        self.assertNotIn("append_immutable(sdir / \"signals.csv\"", src)
+        self.assertNotIn("append_immutable(sdir / \"nav.csv\"", src)
+        self.assertNotIn("append_immutable(orders_path", src)
+        self.assertIn("commit_day_books(", src)
 
 
 if __name__ == "__main__":
