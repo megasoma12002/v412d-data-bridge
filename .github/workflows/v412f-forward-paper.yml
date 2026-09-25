@@ -16,6 +16,9 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
+  # Soft-Frozen tip writer: bot can push forward/e21. Blast radius is high —
+  # keep concurrency group, session gate, QC, and owner-only issue triggers.
+  # Do not broaden issue title prefixes; do not grant pull-requests:write here.
   contents: write
 
 jobs:

@@ -1,6 +1,6 @@
 # Strategy Debt Board
 
-> **Live SSOT (2026-09-19):** Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · books DEFAULT **`E22_v3_recv_pay_effdelay`** (tip may lag until next forward; ACCEPT tip align 2026-09-19) · path `forward/e21/`.  
+> **Live SSOT (2026-09-25):** Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · books DEFAULT = tip **`E22_v3_recv_pay_effdelay`** (tip catch-up CONFIRMED 2026-09-21; ACCEPT tip align 2026-09-19 — no history rewrite) · path `forward/e21/`.  
 > Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · ballot: `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`.  
 > Rows below dated **2026-09-05…09** are **historical ledger** (clip once [0.50, 0.95] / capital once 3M) — do not treat as current live.
 

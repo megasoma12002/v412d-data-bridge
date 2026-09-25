@@ -219,5 +219,94 @@ class E22PaymentDateCompletenessGuards(unittest.TestCase):
         self.assertEqual(int(blank.sum()), 0, msg=cash.loc[blank, ["code", "cash_ex_date"]].to_string())
 
 
+class LiveBooksSsotGuards(unittest.TestCase):
+    """Docs/code tip must not resurrect E22_v2s_tw as live DEFAULT."""
+
+    def test_code_default_is_stage_e(self):
+        import e22_dividend_accounting as e22div
+        from live_config import LiveConfig
+
+        self.assertEqual(e22div.DEFAULT_BOOKS_VERSION, "E22_v3_recv_pay_effdelay")
+        self.assertEqual(LiveConfig().e22_books_version, e22div.DEFAULT_BOOKS_VERSION)
+
+    def test_tip_books_match_default_when_present(self):
+        import e22_dividend_accounting as e22div
+        import json
+
+        tip = ROOT / "forward/e21/portfolio_state.json"
+        if not tip.is_file():
+            self.skipTest("no tip portfolio_state")
+        state = json.loads(tip.read_text(encoding="utf-8"))
+        self.assertEqual(state.get("e22_books_version"), e22div.DEFAULT_BOOKS_VERSION)
+
+    def test_handoff_and_readme_do_not_claim_v2s_tw_live_default(self):
+        handoff = (ROOT / "HANDOFF.md").read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("E22_v3_recv_pay_effdelay", handoff)
+        self.assertIn("E22_v3_recv_pay_effdelay", readme)
+        # Ban bare "DEFAULT_BOOKS_VERSION = E22_v2s_tw" as current live claim.
+        self.assertNotRegex(
+            handoff,
+            r"DEFAULT_BOOKS_VERSION\s*=\s*E22_v2s_tw\b",
+        )
+        self.assertNotRegex(
+            readme,
+            r"Tip ledger may still show prior `E22_v2s_tw_effex`",
+        )
+
+
+class CashClockSeparationGuards(unittest.TestCase):
+    """Fail-closed: R4 settled liquidity must never be written into Soft-Frozen cash."""
+
+    FORBIDDEN_SNIPPETS = (
+        'portfolio_state["cash"] = settled',
+        "portfolio_state['cash'] = settled",
+        'state["cash"] = settled_cash',
+        "state['cash'] = settled_cash",
+        "cash = settled_cash_estimate",
+        '["cash"] = summary["settled_cash_estimate"]',
+        "['cash'] = summary['settled_cash_estimate']",
+    )
+
+    WATCH_FILES = (
+        "e21_forward_pipeline.py",
+        "live_ledger.py",
+        "live_session_io.py",
+        "twse_t2_settlement_estimate.py",
+        "cashflow_three_views_report.py",
+        "post_forward_e22_verify.py",
+        "ops_alert_scan.py",
+    )
+
+    def test_no_r4_merge_into_portfolio_cash_in_live_scripts(self):
+        for name in self.WATCH_FILES:
+            text = (SCRIPTS / name).read_text(encoding="utf-8")
+            for snip in self.FORBIDDEN_SNIPPETS:
+                self.assertNotIn(snip, text, msg=f"{name} contains forbidden merge: {snip}")
+
+    def test_cashflow_docs_forbid_merge(self):
+        cf = (SCRIPTS / "cashflow_three_views_report.py").read_text(encoding="utf-8")
+        pf = (SCRIPTS / "post_forward_e22_verify.py").read_text(encoding="utf-8")
+        self.assertIn("never merge into portfolio_state.cash", cf)
+        self.assertIn("do not merge Exact T+1 / R4 / Stage-E cash clocks", pf)
+
+    def test_broker_live_write_still_fail_closed(self):
+        from live_config import LiveConfig
+        from yuanta_spark_adapter import API_WIRED
+
+        self.assertFalse(LiveConfig().broker_live_write_accepted)
+        self.assertFalse(API_WIRED)
+
+
+class FuseTipDualClockGuards(unittest.TestCase):
+    def test_fuse_offense_pins_preserved_cash_on_ex(self):
+        text = (SCRIPTS / "live_dh_fuse_cutover.py").read_text(encoding="utf-8")
+        self.assertIn("PRESERVED_CASH_ON_EX", text)
+        self.assertIn("E22_v2s_tw_effex", text)
+        # Must not silently force Stage-E onto full-history offense rebuild.
+        lowered = text.lower().replace("`", "")
+        self.assertIn("not live stage-e", lowered)
+
+
 if __name__ == "__main__":
     unittest.main()

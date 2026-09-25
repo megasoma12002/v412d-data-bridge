@@ -13,17 +13,19 @@ Cursor 必須依序讀：
 
 ## 0.1 Live cutover default（強制）
 
-**現行 live（2026-09-13）：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v2s_tw** + **整股一張=1000** + **起始資本 500M**。  
+**現行 live（SSOT；以 `research/ops/OPS_STATUS.md` 為準）：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v3_recv_pay_effdelay**（Stage-E DEFAULT）+ **整股一張=1000** + **起始資本 500M**。  
 **Live Soft-Frozen clips：** FIN **[0.60, 0.90]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]**。  
 **Within-sleeve：** FIN **`KD_OPT`** · TEL **`TEL_EQUAL`**。  
 **Live overlay：** **`FUSE_ADDITIVE`** + **`DH_dd06`**（ACCEPT `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`）。  
 **Legacy A05 blend stitch：** unused（`LIVE_E45_STITCH=False`）。  
+**Tip books：** catch-up **CONFIRMED** 2026-09-21（`ACCEPT_TIP_BOOKS_ALIGN_V3.md`）— **no history rewrite**；歷史 `nav.csv` 列 immutable KEEP。  
 術語：`TW_SHARE_LOT_DEFINITIONS.md` · 資本：`scripts/portfolio_capital.py` · 組合：`research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`。  
-**禁止：** 未授權改寫歷史、獨立 Soft／Sleeve observe 靜默 ops auto-fuse、未 ballot 重開 ARCHIVE 線。
+**禁止：** 未授權改寫歷史、獨立 Soft／Sleeve observe 靜默 ops auto-fuse、未 ballot 重開 ARCHIVE 線、merge R4 `settled_cash` → `portfolio_state.cash`。
 
 | Module | Official class | Live? |
 |---|---|---|
-| E16 / E18 / E22_v2s_tw | SOFT_FROZEN | **Yes (core)** |
+| E16 / E18 / E22_v3_recv_pay_effdelay | SOFT_FROZEN + Stage-E DEFAULT | **Yes (core)** |
+| E22_v2s_tw / E22_v2s_tw_effex | preserved / FUSE offense history | **No** as tip DEFAULT |
 | FIN within-sleeve `KD_OPT` | live ACCEPT 2026-09-09 | **Yes** |
 | TEL within-sleeve `TEL_EQUAL` | live KEEP | **Yes** |
 | `FUSE_ADDITIVE` + `DH_dd06` | live ACCEPT 2026-09-13 | **Yes** |
@@ -82,7 +84,7 @@ Crisis（目標）:
 - **Stage-8**：saturated — 不要重跑 TECH2 grids  
 
 歷史：E50-A3-R1 turnover/held-out 診斷已收尾（`MIXED_HELDOUT`），仍 `RESEARCH_ONLY`。  
-執行帳本：`DEFAULT_BOOKS_VERSION = E22_v2s_tw`（已 promote；`E22_v2s` 僅保留為對照）。
+執行帳本：`DEFAULT_BOOKS_VERSION = E22_v3_recv_pay_effdelay`（Stage-E；`E22_v2s_tw` / `E22_v2s_tw_effex` 僅保留為對照／FUSE offense 歷史帳）。
 
 目標：
 先驗證因果 Alpha 是否存在，

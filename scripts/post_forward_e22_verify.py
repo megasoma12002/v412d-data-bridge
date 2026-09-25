@@ -12,7 +12,8 @@ Fail-closed only on:
   - CRITICAL alerts (default --fail-on critical)
 
 Never fails on:
-  - tip books ≠ Stage-E DEFAULT (tip lag INFO — authorized until weekday catch-up)
+  - tip books ≠ Stage-E DEFAULT when tip_lag is an authorized residual
+    (as of 2026-09-21 tip catch-up CONFIRMED — tip_lag should be false)
   - Gap6 exit 2 (live evidence debt)
   - DQ kpi_ok false (report-only completeness)
   - HIGH PAUSE_REVIEW (challenger observe ≠ cutover)

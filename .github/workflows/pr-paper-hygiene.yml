@@ -55,3 +55,15 @@ jobs:
         run: python3 -m unittest tests.test_fill_ports tests.test_broker_safety tests.test_broker_risk tests.test_session_gate_and_broker_preflight tests.test_live_hygiene_p0_p1 tests.test_yuanta_spark_adapter tests.test_review_harden tests.test_paper_live_fill_align -v
       - name: Month-end freshness + E22 repair unit tests
         run: python3 -m unittest tests.test_ops_month_end_data_freshness tests.test_e22_dividend_amount_repair -v
+      - name: E22 Stage-E books + payment preserve + cashflow clocks
+        run: >-
+          python3 -m unittest
+          tests.test_e22_v3_recv_pay_effdelay
+          tests.test_e22_v2s_tw_effex
+          tests.test_e22_stage_e_recv_promote
+          tests.test_e22_entitlement_positions
+          tests.test_e22_dividend_fetch_preserve
+          tests.test_cashflow_three_views
+          tests.test_twse_t2_settlement_estimate
+          tests.test_post_forward_e22_verify
+          -v

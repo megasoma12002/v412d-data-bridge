@@ -17,7 +17,7 @@ Research continuation of the V4.12 / E50 program.
 | Research rules | `E50_RESEARCH_OPERATING_RULES.md`, `CURSOR_RULES.md` |
 
 **Live today:** E16 + Exact T+1 E18 · Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · board-lot **1000** · path `forward/e21/`.  
-**Books DEFAULT (code SSOT):** `E22_v3_recv_pay_effdelay` (`live_config` / `e22_dividend_accounting.DEFAULT_BOOKS_VERSION`). Tip ledger may still show prior `E22_v2s_tw_effex` until the next forward session advances it — do not treat tip lag as a second DEFAULT. Legacy A05 blend stitch unused (`LIVE_E45_STITCH=False`). SSOT: `research/ops/OPS_STATUS.md` · portfolio `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`.
+**Books DEFAULT = tip (aligned):** `E22_v3_recv_pay_effdelay` (`live_config` / `e22_dividend_accounting.DEFAULT_BOOKS_VERSION`; tip catch-up CONFIRMED 2026-09-21 — **no history rewrite**). FUSE offense full-history NAV still uses preserved cash-on-ex (`E22_v2s_tw_effex`) — intentional dual clock, not tip lag. Legacy A05 blend stitch unused (`LIVE_E45_STITCH=False`). SSOT: `research/ops/OPS_STATUS.md` · portfolio `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`.
 
 **Dev setup:** `pip install -e .` (package `e21-ops`; flat `scripts/*.py` imports). Do not add `sys.path` shims.  
 **Docker QC:** `bash scripts/ops_docker_qc_smoke.sh` (bind-mounts repo; image has no broker secrets).
