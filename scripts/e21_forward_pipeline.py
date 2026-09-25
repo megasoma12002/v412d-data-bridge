@@ -43,7 +43,7 @@ from live_day_commit import (
 )
 from live_e22_day import apply_e22_day, load_div_events_for_live
 from live_execution import fill_pending_at_open, resolve_fill_port
-from live_ledger import ALL, append_immutable, holdings
+from live_ledger import holdings
 from live_rebalance_orders import build_live_order_rows, sleeve_trade_from_gap
 from live_session_io import (
     CANON_MARKET,
@@ -224,7 +224,6 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
     }
     pre = {k: v / nav for k, v in sleeve_vals.items()}
     sleeve_trade, l1 = sleeve_trade_from_gap(pre, tw)
-    orders_path = sdir / "orders.csv"
     order_rows = build_live_order_rows(
         market=m,
         latest=latest,
@@ -234,9 +233,6 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         sleeve_trade=sleeve_trade,
         dividends_path=a.dividends,
     )
-    for o in order_rows:
-        append_immutable(orders_path, o, "order_id")
-
     stamp = utc_now_iso()
     signal = {
         "date": latest.date().isoformat(),
@@ -267,7 +263,6 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE)
         else None,
     }
-    append_immutable(sdir / "signals.csv", signal, "date")
     navrow = {
         "date": latest.date().isoformat(),
         "nav_e16_e18": nav,
@@ -287,7 +282,6 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "e22_stock_shares_added": float(getattr(applied, "stock_shares_added", 0.0) or 0.0),
         "e22_receivable_balance": float(sum(receivables.values())),
     }
-    append_immutable(sdir / "nav.csv", navrow, "date")
 
     state_payload = build_portfolio_state_payload(
         cash=cash,
@@ -298,6 +292,8 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         e22_version=a.e22_version,
         skip=skip,
     )
+    # ACCEPT_2026-09-25 day-commit atomicity: orders/signals/nav deferred into
+    # commit_day_books (portfolio_state written last). Do not append earlier.
     commit_day_books(
         state_dir=sdir,
         fill_port_name=fill_port.name,

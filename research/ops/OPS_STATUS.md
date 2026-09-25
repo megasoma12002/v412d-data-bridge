@@ -1,9 +1,10 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-25 (SSOT hygiene: tip books aligned · payment-date preserve · HANDOFF/README DEFAULT drift fixed · PR hygiene covers E22/cashflow)  
+Date: 2026-09-25 (Deferred ops ACCEPT: day-commit atomicity · tip-write gate · broker PREP · Stage-E sandbox research)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
 **Cutover `#257`: CLOSED** (not merged) · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` · live KEEP 公股+FUSE+DH · reopen only new mechanism or sealed-gate  
+**Deferred ops ACCEPT:** `ACCEPT_DEFERRED_OPS_HARDEN_2026-09-25.md` · broker PREP `ACCEPT_PREP_BROKER_LIVE_WRITE_2026-09-25.md` · Stage-E sandbox `ACCEPT_RESEARCH_STAGE_E_FULL_HISTORY_SANDBOX_2026-09-25.md`
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
 新機制 V3：**STOP** · `PRIV_MDD_M1_SCALE_V3_DECISION_PACK.md`（N1–N3+V2+V3 STOP）  
@@ -51,7 +52,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
 | Cadence | How |
 |---|---|
-| Daily live | `v412f-forward-paper` |
+| Daily live | `v412f-forward-paper` · tip-write gate `forward_tip_write_gate.py` (fail-closed if post-forward `ok!=true`) · day-commit `commit_day_books` (state last) |
 | Live QC smoke | `e21-live-qc-smoke` |
 | Month-end pack | `ops-month-end-paper-pack` / `scripts/ops_month_end_paper_pack.py` · freshness: `MONTH_END_PACK_FRESHNESS.md` |
 | Live↔paper recon | Inside pack + `scripts/e21_live_vs_paper_recon.py` |
