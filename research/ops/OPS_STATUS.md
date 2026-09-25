@@ -26,7 +26,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Capital / lot | **500M** · board-lot **1000** |
 | Clip | Financial **[0.60, 0.90]** via `scripts/e16_soft_frozen_base.py` |
 | Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** |
-| Overlay | **`FUSE_ADDITIVE`** + **`DH_dd06`** (`LIVE_FUSE_ADDITIVE` / `LIVE_DH_EXPOSURE`) |
+| Overlay | **`FUSE_ADDITIVE` KEEP** + **`COOL_c8_f50_d21`** (`LIVE_FUSE_ADDITIVE` / `LIVE_COOL_EXPOSURE`; **DH replaced** 2026-09-25) |
 | Legacy A05 stitch | **DROPPED** (`ACCEPT_2026-09-09_DROP_E45_A05`) — see `E45_A05_STITCH_DROPPED.md` |
 | Daily job | `.github/workflows/v412f-forward-paper.yml` (weekdays; **holiday = no tip advance**) |
 | QC smoke | `.github/workflows/e21-live-qc-smoke.yml` |
@@ -72,6 +72,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | **現金流三視角** | Human priority **算準現金流** (2026-09-20) · A Exact T+1 `cash` · B R4 `settled_cash_estimate` · C Stage-E `cash+e22_receivables` (TAX0) · tip **aligned** 2026-09-21 · `CASHFLOW_THREE_VIEWS.md` · `cashflow_three_views_report.py` · Monday **CONFIRMED** `TIP_CATCHUP_MONDAY_2026-09-21.md` |
 | NHI 股利補充保費 | Human: 單次達 **NT$20,000** → **2.11%** 就源扣（≠ 所得稅 ballot A）· sandbox `E22_v3_recv_pay_effdelay_nhi211` · **not** live · purpose `TAX_FOR_CASHFLOW_PURPOSE.md` · `NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md` |
 | Realism → 全自動化 gap-close | Phase **0–1+2+3+5 LANDED** · Phase **4 scaffold** (synthetic R5) · Phase 2 tip **CONFIRMED** 2026-09-21 · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md` |
+| Held-\|MDD\|≤17% paper target | R1 **`MDD17_HIT_CAGR_OK`** · R2 Stage B **`TIPSAFE_STRETCH`** · **`COOL_c8_f50_d21` LIVE WIRED** 2026-09-25 (replace DH, keep FUSE) · Soft-Frozen **KEEP** · `LIVE_COOL_C8_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | Full-review harden (2026-09-20) | Ex entitlement snapshot · Y±1 **loader** (`load_calendar_window`) · **2025 CSV pinned** (`twse_sessions_2025.csv`) · **2027 wait** for TWSE publish · blank-pay fail-closed · uncommitted orders/nav · NHI211 settle-time premium · forward GHA allow flags · R5 path jail · tax CLI stripped · Soft-Frozen **KEEP** |
 | Residual gap-close (2026-09-20) | TAX0 vs NHI211 observe `E22_TAX0_VS_NHI211_OBSERVE.*` (`promote_ready=false`) · Gap6 `nhi211_*` tax sensitivity · `DIV_APPLIED_EMPTY_IN_RECV_WINDOW` · e50 Y±1 calendar align · Soft-Frozen **KEEP** |
 | E22 payment-date completeness | Soft-Frozen + private cash/stock pay blank **0%** after re-backfill 2026-09-21 (`E22_PAYMENT_DATE_REBACKFILL_2026-09-21.md`) · DQ `kpi_ok` · Soft-Frozen **KEEP** |
@@ -92,7 +93,7 @@ Par-value lookup charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`
 Par-value inventory: `research/ops/PAR_VALUE_INVENTORY.md` · `data/corporate_actions/par_value_by_code.csv`  
 Tax/receivable formal books: Stage-E live **TAX0** · human **BALLOT A KEEP TAX0** (2026-09-20) — after-tax DEFAULT path closed this cycle; sandbox tax10/20 research-only · NHI211 dual-book observe `E22_TAX0_VS_NHI211_OBSERVE.md` · `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
 Realism automation gap-close (toward 全自動化): Phase **0–1 + 2 + 3 + 5 LANDED** — tip Stage-E confirm 2026-09-21 · verify · `ops_alert_scan` R4/tip-lag · `v412e22-dividend-events` weekday cron · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md`  
-E45 A05 live-stitch (**DROPPED** 2026-09-09): Soft-Frozen CRITICAL class KEEP as paper; dual-paper observe **OPERATING**; A05 live wire **retired** (`E45_A05_STITCH_DROPPED.md`); live risk overlay is **DH_dd06** + **FUSE** (ACCEPT 2026-09-13). Tip books align ACCEPT 2026-09-19 → tip catch-up **CONFIRMED** 2026-09-21: `ACCEPT_TIP_BOOKS_ALIGN_V3.md` · `TIP_CATCHUP_MONDAY_2026-09-21.md`. Paper/live fill skip align: `ACCEPT_PAPER_LIVE_FILL_SKIP_ALIGN.md`. Ops residual 全修 ACCEPT 2026-09-19: `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` (dual-paper refresh + tip-lag stamp + INDEX_DRIFT non-decision; no challenger/broker promote).
+E45 A05 live-stitch (**DROPPED** 2026-09-09): Soft-Frozen CRITICAL class KEEP as paper; dual-paper observe **OPERATING**; A05 live wire **retired** (`E45_A05_STITCH_DROPPED.md`); live risk overlay was **DH_dd06** + **FUSE** (ACCEPT 2026-09-13) → **COOL_c8 replace DH, keep FUSE** (ACCEPT 2026-09-25). Tip books align ACCEPT 2026-09-19 → tip catch-up **CONFIRMED** 2026-09-21: `ACCEPT_TIP_BOOKS_ALIGN_V3.md` · `TIP_CATCHUP_MONDAY_2026-09-21.md`. Paper/live fill skip align: `ACCEPT_PAPER_LIVE_FILL_SKIP_ALIGN.md`. Ops residual 全修 ACCEPT 2026-09-19: `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` (dual-paper refresh + tip-lag stamp + INDEX_DRIFT non-decision; no challenger/broker promote).
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  

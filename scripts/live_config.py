@@ -59,11 +59,16 @@ class LiveConfig:
     # Tip books align ACCEPT 2026-09-19 — next forward may advance tip to DEFAULT.
     tip_books_align_ballot: str = "ACCEPT_2026-09-19_TIP_BOOKS_ALIGN_V3"
 
-    # Live DH_dd06 + FUSE_ADDITIVE — human ACCEPT 2026-09-13
+    # Live FUSE_ADDITIVE KEEP + COOL_c8 replace DH — human ACCEPT 2026-09-25
+    # Prior: DH_dd06 + FUSE ACCEPT 2026-09-13 (DH retired forward-only by this ballot).
     live_fuse_additive: bool = True
-    live_dh_exposure: bool = True
+    live_dh_exposure: bool = False  # replaced by COOL — do not re-enable without new ballot
     live_dh_id: str = "DH_dd06_vz1p0"
-    live_cutover_ballot: str = "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE"
+    live_cool_exposure: bool = True
+    live_cool_id: str = "COOL_c8_f50_d21"
+    live_cutover_ballot: str = (
+        "ACCEPT Live cutover: COOL_c8_f50_d21 (replace DH, keep FUSE)"
+    )
 
     # Fill backend — default paper Exact T+1. Broker / dry_run via CLI or E21_FILL_PORT.
     # True broker live write requires ALL of:
@@ -80,6 +85,8 @@ LIVE_FIN_WITHIN_SLEEVE = LIVE.live_fin_within_sleeve
 LIVE_FUSE_ADDITIVE = LIVE.live_fuse_additive
 LIVE_DH_EXPOSURE = LIVE.live_dh_exposure
 LIVE_DH_ID = LIVE.live_dh_id
+LIVE_COOL_EXPOSURE = LIVE.live_cool_exposure
+LIVE_COOL_ID = LIVE.live_cool_id
 LIVE_CUTOVER_BALLOT = LIVE.live_cutover_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path

@@ -16,7 +16,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 
 | Pri | Decision | Verdict | Binding effect |
 |---:|---|---|---|
-| 0 | Live cutover bundle `#257` | **CLOSED** (2026-09-19) | Closed not merged · keep 公股+FUSE+DH · reopen only new mechanism or sealed-gate · 無民股小包**暫不拆** · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` |
+| 0 | Live cutover bundle `#257` | **CLOSED** (2026-09-19) | Closed not merged · keep 公股+FUSE · DH later **replaced by COOL_c8** 2026-09-25 · reopen only new mechanism or sealed-gate · 無民股小包**暫不拆** · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` · `LIVE_COOL_C8_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 0b | 公股＋民營並存 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#258` · `PUB_PRIV_COEXIST_MDD_DECISION_PACK.md` |
 | 0c | 四類 SF4 + DH/L4 防禦 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#259` · `SF4_DEFENCE_MDD_DECISION_PACK.md` |
 | 0d | 民股／四類 × MDD **新機制** (N1→N2→N3) | **STOP N1–N3** (2026-09-19) | Ladder exhausted · 0 sealed coexist · Soft-Frozen KEEP · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md` |
@@ -66,6 +66,8 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Soft assist + KD retune + TEL/sleeve | **PAPER DONE** (2026-09-10) | Soft weights + KD grid + TEL/sleeve; **422 books**; overall **`BEATS_LIVE`** (paper) — soft both / sleeve MA60 tip-clean lift; **TEL within-sleeve no lift**; live KD/TEL/Soft-Frozen **KEEP** until ACCEPT · `KD_SOFT_TEL_SLEEVE_RESEARCH_SCREEN.md` |
 | Soft-assist promote ballot | **EXECUTED OPEN OBSERVE** (2026-09-10) | Human `OPEN Soft-assist observe: SOFT_BOTH__BELOW_MA120__RSI6_GT80` · later superseded by K9+ OPEN · `SOFT_ASSIST_PROMOTE_BALLOT_EXECUTED_OPEN_OBSERVE.md` |
 | Soft-assist K9 observe ballot | **EXECUTED OPEN OBSERVE** (2026-09-11) | Human sequence「照順序全做」→ `OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10` · live KD KEEP · `SOFT_ASSIST_K9_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| Tip-safe FAST `COOL_c8_f50_d21` observe | **EXECUTED OPEN OBSERVE** (2026-09-25) | Human `開 COOL_c8_f50_d21 paper observe` · dual-paper OPERATING · later LIVE WIRED · Soft-Frozen KEEP · `COOL_C8_PROXY_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| Live COOL_c8 replace DH keep FUSE | **EXECUTED ACCEPT / LIVE WIRED** (2026-09-25) | Human `ACCEPT Live cutover: COOL_c8_f50_d21（ replace DH、keep FUSE）。` · `LIVE_COOL_EXPOSURE=True` · `LIVE_DH_EXPOSURE=False` · FUSE KEEP · stack FORBIDDEN · `LIVE_COOL_C8_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | Soft-assist SELL_a05 observe ballot | **EXECUTED OPEN OBSERVE** (2026-09-12) | Human `規則路徑OPEN` → `OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` · live KD KEEP · no Soft×Sleeve fuse · `SOFT_SELL_A05_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Soft-assist DL T2 seq Stage A | **PAPER DONE / RULE_PROMOTE_ONLY_NO_T2_LIFT** (2026-09-12) | numpy causal logret seq L10/L20 · flat linear/h8 + 1D-CNN · no torch in screen · DL promote>observe **0** · rule SELL_a05 still_best_vs_dl **True** · no live / no fuse / Soft∥Sleeve OPEN unchanged · `SOFT_DL_T2_SEQ_STAGEA_SCREEN.md` |
 | Soft-assist DL T2 torch Stage A | **PAPER DONE / RULE_PROMOTE_ONLY_NO_T2_TORCH_LIFT** (2026-09-12) | torch CPU TCN/LSTM causal logret L10/L20 · DL promote>observe **0** · rule SELL_a05 still_best_vs_dl **True** · no live / no fuse / Soft∥Sleeve OPEN unchanged · `SOFT_DL_T2_TORCH_STAGEA_SCREEN.md` |
@@ -76,7 +78,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 | Soft×Sleeve paper fuse Stage A screen | **PAPER DONE / FUSE_PROMOTE_SHAPED_BEATS_BOTH** (2026-09-12) | fuse promote-shaped **2** · beats both **1** · Soft-only held **0.101** · Sleeve-only held **0.099** · ops auto-fuse still FORBIDDEN · no live / no observe swap · `SOFT_SLEEVE_PAPER_FUSE_STAGEA_SCREEN.md` |
 | Soft×Sleeve paper fuse Stage A charter | **PAPER DONE / FUSE_PROMOTE_SHAPED_BEATS_BOTH** (2026-09-12) | finite 8-book joint-actuator fuse · `FUSE_ADDITIVE` beats both independents on paper · ops auto-fuse still FORBIDDEN · no live / no observe swap · dedicated FUSE_ADDITIVE paper-observe ballot EXECUTED OPEN · `SOFT_SLEEVE_PAPER_FUSE_STAGEA_CHARTER.md` |
 | FUSE_ADDITIVE observe ballot | **EXECUTED OPEN OBSERVE** (2026-09-12) | Human 開 FUSE_ADDITIVE 專用 ballot → `OPEN Soft×Sleeve fuse observe: FUSE_ADDITIVE` · paper only · Soft/Sleeve observes KEEP · no live · `FUSE_ADDITIVE_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
-| Live DH_dd06 + FUSE_ADDITIVE cutover | **EXECUTED ACCEPT / LIVE WIRED** (2026-09-13) | Human `ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE` · MENU3 twin · `LIVE_FUSE_ADDITIVE`+`LIVE_DH_EXPOSURE` · `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
+| Live DH_dd06 + FUSE_ADDITIVE cutover | **EXECUTED ACCEPT / LIVE WIRED** (2026-09-13) → **DH replaced 2026-09-25** | Human `ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE` · later COOL replace DH keep FUSE · `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` · `LIVE_COOL_C8_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | FUSE_ADDITIVE dual-paper observe | **OPERATING** (2026-09-12) | `LIVE_STACK` ∥ `FUSE_ADDITIVE` · held≈+0.164 · month-end wired · cutover **BLOCKED** · Soft∥Sleeve auto-fuse still FORBIDDEN · `FUSE_ADDITIVE_DUAL_PAPER_OBSERVE_OPEN.md` |
 | Soft∥Sleeve ops auto-fuse agenda | **CLOSED** (2026-09-19) | Human `ACCEPT drop auto-fuse agenda` · Gate H **FORBIDDEN KEEP** · ≠ drop live `FUSE_ADDITIVE` · `ACCEPT_DROP_AUTO_FUSE_AGENDA.md` |
 | E45 defend-window → handoff paper charter | **PAPER CHARTER OPEN** (2026-09-12) | Stage A **DONE** → `HANDOFF_PROMOTE_SHAPED` (`DH_dd06_vz1p0`) · stitch **FORBIDDEN** · `E45_DEFEND_HANDOFF_PAPER_CHARTER.md` · `E45_DEFEND_HANDOFF_STAGEA_SCREEN.md` |
@@ -154,6 +156,8 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - Practitioner borrow map (reference only): `EXTERNAL_BORROW_NOTES.md` / `EXTERNAL_BORROW_NOTES.zh-TW.md` — does not open live or combo
 - Ops residual 全修 **ACCEPTED** 2026-09-19 — dual-paper refresh + tip-lag Gap6 stamp + INDEX_DRIFT non-decision · `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` · does **not** promote L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B
 - Deferred ops harden **ACCEPTED** 2026-09-25 — day-commit atomicity + tip-write gate EXECUTE; broker live-write **PREP only** (flags stay False); Stage-E full-history sandbox RESEARCH only · `ACCEPT_DEFERRED_OPS_HARDEN_2026-09-25.md`
+- R2 MDD band floor **−14.5% ACCEPTED** 2026-09-25 — paper rescore only · Soft-Frozen KEEP · no live wire · `ACCEPT_R2_MDD_BAND_FLOOR_14_5_2026-09-25.md` · Stage A still `BAND_ONLY`
+- R2/Stage-B MDD band floor **−15% ACCEPTED** 2026-09-25 — tip-safe FAST rescore **`TIPSAFE_STRETCH`** (`COOL_c8_f50_d21` · `GATE_g04_f50_d21`) · Soft-Frozen KEEP · `ACCEPT_R2_MDD_BAND_FLOOR_15_2026-09-25.md`
 - Realism → 全自動化: Phase **0–1+2+3+5 LANDED** · Phase **4 scaffold** (synthetic R5) · Phase 2 tip **CONFIRMED** 2026-09-21 · Phase 6/7 ballot · `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md`
 
 ## Claim policy

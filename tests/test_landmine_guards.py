@@ -112,14 +112,19 @@ class SoftAssistObserveGuards(unittest.TestCase):
         self.assertIn("E45_A05_STITCH_DROPPED = True", cfg)
         self.assertIn("LIVE_E45_STITCH = False", cfg)
         self.assertNotIn("if cfg.live_e45_stitch", targets)
-        # 2026-09-13 ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE (MENU3).
+        # 2026-09-25 ACCEPT Live cutover: COOL_c8 (replace DH, keep FUSE).
         self.assertIn("live_fuse_additive: bool = True", cfg)
-        self.assertIn("live_dh_exposure: bool = True", cfg)
-        # FUSE routes via cutover helper (extracted from thin pipeline).
+        self.assertIn("live_dh_exposure: bool = False", cfg)
+        self.assertIn("live_cool_exposure: bool = True", cfg)
+        self.assertIn("COOL_c8_f50_d21", cfg)
+        # FUSE + COOL route via cutover helpers (extracted from thin pipeline).
         self.assertIn("live_dh_fuse_cutover", targets)
+        self.assertIn("live_cool_c8_cutover", targets)
         self.assertIn("live_dh_fuse_cutover", orders)
         self.assertIn("fin_sell_scores", orders)
         self.assertIn("LIVE_FUSE_ADDITIVE", orders)
+        # Stack refuse: DH + COOL both live is forbidden.
+        self.assertIn("LIVE_DH_EXPOSURE and LIVE_COOL_EXPOSURE both True", targets)
 
     def test_soft_assist_helpers_match_live_kd_opt(self):
         from soft_assist_helpers import LIVE_KD

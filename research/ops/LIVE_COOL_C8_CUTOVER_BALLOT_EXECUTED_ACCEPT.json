@@ -1,0 +1,21 @@
+{
+  "schema_version": "live_cool_c8_cutover_ballot_v1",
+  "status": "ACCEPTED_LIVE_WIRED",
+  "date": "2026-09-25",
+  "human_ballot": "ACCEPT Live cutover: COOL_c8_f50_d21（ replace DH、keep FUSE）。",
+  "normalized_ballot": "ACCEPT Live cutover: COOL_c8_f50_d21 (replace DH, keep FUSE)",
+  "live_recipe_id": "LIVE_COOL_c8_f50_d21_FUSE_ADDITIVE",
+  "flags": {
+    "LIVE_FUSE_ADDITIVE": true,
+    "LIVE_DH_EXPOSURE": false,
+    "LIVE_COOL_EXPOSURE": true,
+    "LIVE_COOL_ID": "COOL_c8_f50_d21",
+    "LIVE_E45_STITCH": false,
+    "broker_live_write_accepted": false
+  },
+  "stacking_policy": "REPLACE_DH_KEEP_FUSE",
+  "evidence": "COOL_C8_DH_FUSE_STACK_TRIAL",
+  "soft_frozen_keep": true,
+  "forward_only": true,
+  "label": "LIVE_COOL_C8_CUTOVER_ACCEPTED_2026-09-25__REPLACE_DH_KEEP_FUSE__FORWARD_ONLY"
+}

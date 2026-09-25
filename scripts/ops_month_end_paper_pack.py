@@ -72,6 +72,10 @@ STEPS_MONITOR = [
         ["python3", "scripts/e45_defend_handoff_month_end_monitor.py"],
     ),
     (
+        "cool_c8_proxy_month_end",
+        ["python3", "scripts/cool_c8_proxy_month_end_monitor.py"],
+    ),
+    (
         "soft_sleeve_observe_overlap",
         ["python3", "scripts/e16_soft_sleeve_observe_overlap.py"],
     ),
@@ -122,6 +126,10 @@ STEPS_REFRESH = [
     (
         "e45_defend_handoff_dual_paper_ledgers",
         ["python3", "scripts/e45_defend_handoff_dual_paper_ledgers.py"],
+    ),
+    (
+        "cool_c8_proxy_dual_paper_ledgers",
+        ["python3", "scripts/cool_c8_proxy_dual_paper_ledgers.py"],
     ),
 ]
 

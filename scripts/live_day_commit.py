@@ -14,6 +14,8 @@ from e22_books_apply import books_manifest
 from live_config import (
     E45_STITCH_ROLLBACK,
     KD_OPT,
+    LIVE_COOL_EXPOSURE,
+    LIVE_COOL_ID,
     LIVE_CUTOVER_BALLOT,
     LIVE_DH_EXPOSURE,
     LIVE_DH_ID,
@@ -138,11 +140,16 @@ def build_portfolio_state_payload(
         "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
         "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
         "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
-        "live_cutover": "ACCEPT_2026-09-13_DH_dd06_FUSE_ADDITIVE",
+        "cool_exposure_live": bool(LIVE_COOL_EXPOSURE),
+        "cool_id": LIVE_COOL_ID if LIVE_COOL_EXPOSURE else None,
+        "live_cutover": "ACCEPT_2026-09-25_COOL_c8_REPLACE_DH_KEEP_FUSE",
         "live_cutover_ballot": LIVE_CUTOVER_BALLOT
-        if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE)
+        if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE or LIVE_COOL_EXPOSURE)
         else None,
-        "live_cutover_rollback": "Set LIVE_FUSE_ADDITIVE=False and LIVE_DH_EXPOSURE=False",
+        "live_cutover_rollback": (
+            "Set LIVE_COOL_EXPOSURE=False; optional restore LIVE_DH_EXPOSURE=True "
+            "only with dedicated ACCEPT; LIVE_FUSE_ADDITIVE independent"
+        ),
     }
 
 

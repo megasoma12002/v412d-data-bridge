@@ -1,0 +1,111 @@
+{
+  "schema_version": "cool_c8_proxy_dual_paper_observe_v1",
+  "label": "COOL_C8_PROXY_DUAL_PAPER_OBSERVE_OPERATING",
+  "generated_at_utc": "2026-09-25T07:00:29Z",
+  "status": "OPERATING",
+  "human_open": "OPEN tip-safe FAST observe: COOL_c8_f50_d21",
+  "live_wire": false,
+  "cutover_authorized": false,
+  "base_id": "LIVE_STACK",
+  "challenger_id": "COOL_c8_f50_d21",
+  "stage_b_verdict": "TIPSAFE_STRETCH",
+  "recipe": {
+    "proxy_x": 0.08,
+    "floor": 0.5,
+    "exit_x": 0.06,
+    "max_dwell": 21,
+    "cool": 8,
+    "frac_days_defense": 0.160178,
+    "financial_alloc": "FIN_PRE_EXDIV_KD",
+    "telecom_alloc": "TEL_EQUAL",
+    "capital": 500000000.0,
+    "lot_size": 1000
+  },
+  "soft_frozen_fin_clip": [
+    0.6,
+    0.9
+  ],
+  "base_windows": {
+    "full": {
+      "cagr": 0.12378,
+      "max_drawdown": -0.252734,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.089613,
+      "max_drawdown": -0.157355,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.096021,
+      "max_drawdown": -0.252734,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.222831,
+      "max_drawdown": -0.097137,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.155616,
+      "max_drawdown": -0.252734,
+      "n_days": 1870
+    }
+  },
+  "chal_windows": {
+    "full": {
+      "cagr": 0.120607,
+      "max_drawdown": -0.148566,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.084227,
+      "max_drawdown": -0.137502,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.132749,
+      "max_drawdown": -0.148566,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.175756,
+      "max_drawdown": -0.069367,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.152949,
+      "max_drawdown": -0.148566,
+      "n_days": 1870
+    }
+  },
+  "heldout_delta": {
+    "mdd_improve_pp": 10.4168,
+    "cagr_giveback_pp": 0.26670000000000027,
+    "score": 10.28345
+  },
+  "sealed_delta": {
+    "mdd_improve_pp": 2.777,
+    "cagr_giveback_pp": 4.7075000000000005,
+    "score": 0.4232499999999999
+  },
+  "tip": {
+    "ytd": {
+      "mdd_improve_pp": 2.5977,
+      "cagr_giveback_pp": 2.4639,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "mdd_improve_pp": 2.5977,
+      "cagr_giveback_pp": 2.8382,
+      "gate": "PASS"
+    }
+  },
+  "n_fills_base": 9043,
+  "n_fills_chal": 9276,
+  "non_actions": [
+    "No Soft-Frozen / Soft / Sleeve / FUSE / DH live flip from this observe",
+    "No tip history rewrite",
+    "Cutover BLOCKED until dedicated ACCEPT"
+  ]
+}
