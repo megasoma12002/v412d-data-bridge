@@ -1,11 +1,12 @@
 # 公股＋民營並存 × COOL_c8 — 紙上憲章 Stage A
 
 日期：2026-09-25  
-狀態：**PAPER CHARTER OPEN** · Stage A **執行中**  
+狀態：**CLOSED — NO_COEXIST** · Soft-Frozen tip **KEEP** · 不上 live  
 Live：`COOL_c8` 已上線（換 DH、留 FUSE）· Soft-Frozen tip **KEEP**  
-重開理由：舊 `PUB_PRIV_COEXIST_MDD` **STOP**（sealed MDD 0 並存）時 **還沒有** live COOL。
+重開理由：舊 `PUB_PRIV_COEXIST_MDD` **STOP**（sealed MDD 0 並存）時 **還沒有** live COOL。  
+Stage A：雙書 **0/8** 並存 · held／sealed MDD 相對 `BASE_PUB_KD_COOL` 全差 · CAGR 有升但 MDD 閘不過。
 
-標籤：`PUB_PRIV_COOL_COEXIST_STAGEA_CHARTER_2026-09-25__PAPER_OPEN__NO_LIVE_WIRE`
+標籤：`PUB_PRIV_COOL_COEXIST_STAGEA_CHARTER_2026-09-25__NO_COEXIST__NO_LIVE_WIRE`
 
 ## 問題
 

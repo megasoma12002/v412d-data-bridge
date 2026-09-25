@@ -1,11 +1,12 @@
 # 公股＋民營並存 under COOL_c8 — Paper Charter (Stage A)
 
 Date: 2026-09-25  
-Status: **PAPER CHARTER OPEN** · Stage A **RUNNING**  
+Status: **CLOSED — NO_COEXIST** · Soft-Frozen tip **KEEP** · live wire **false**  
 Parent live: `COOL_c8_f50_d21` LIVE (replace DH, keep FUSE) · Soft-Frozen tip **KEEP**  
-Why reopen: prior `PUB_PRIV_COEXIST_MDD` **STOP** (0 sealed-MDD coexist) was **before** live COOL defense.
+Why reopen: prior `PUB_PRIV_COEXIST_MDD` **STOP** (0 sealed-MDD coexist) was **before** live COOL defense.  
+Stage A result: **0/8** coexist · **0** held-only · every dual book worsens held **and** sealed MDD vs `BASE_PUB_KD_COOL` (CAGR lift present, MDD gates fail).
 
-Label: `PUB_PRIV_COOL_COEXIST_STAGEA_CHARTER_2026-09-25__PAPER_OPEN__NO_LIVE_WIRE`
+Label: `PUB_PRIV_COOL_COEXIST_STAGEA_CHARTER_2026-09-25__NO_COEXIST__NO_LIVE_WIRE`
 
 ## Problem
 
@@ -83,4 +84,4 @@ Even HIT → paper observe ballot only; live universe expand needs dedicated ACC
 
 ## Label
 
-`PUB_PRIV_COOL_COEXIST_STAGEA_CHARTER_2026-09-25__PAPER_OPEN__NO_LIVE_WIRE`
+`PUB_PRIV_COOL_COEXIST_STAGEA_CHARTER_2026-09-25__NO_COEXIST__NO_LIVE_WIRE`

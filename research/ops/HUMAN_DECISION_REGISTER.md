@@ -18,6 +18,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 |---:|---|---|---|
 | 0 | Live cutover bundle `#257` | **CLOSED** (2026-09-19) | Closed not merged · keep 公股+FUSE · DH later **replaced by COOL_c8** 2026-09-25 · reopen only new mechanism or sealed-gate · 無民股小包**暫不拆** · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` · `LIVE_COOL_C8_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 0b | 公股＋民營並存 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#258` · `PUB_PRIV_COEXIST_MDD_DECISION_PACK.md` |
+| 0b2 | 公股＋民營並存 × MDD **under COOL_c8** | **STOP** (2026-09-25) | Reopen after live COOL · Stage A 0/8 coexist · 0 held-only · Soft-Frozen KEEP · `#283` · `PUB_PRIV_COOL_COEXIST_DECISION_PACK.md` |
 | 0c | 四類 SF4 + DH/L4 防禦 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#259` · `SF4_DEFENCE_MDD_DECISION_PACK.md` |
 | 0d | 民股／四類 × MDD **新機制** (N1→N2→N3) | **STOP N1–N3** (2026-09-19) | Ladder exhausted · 0 sealed coexist · Soft-Frozen KEEP · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md` |
 | 0e | 民股 MDD **新機制 V2**（廣度／FinPub–TAIEX／FX／CBC） | **STOP S1–S2** (2026-09-19) | V2 ladder exhausted · Soft-Frozen KEEP · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md` |
