@@ -1,0 +1,1543 @@
+{
+  "generated_at_utc": "2026-09-25T18:27:41Z",
+  "label": "ASYMM_0050_BULL_DENSIFY_UNDER_COOL_STAGEA_SCREEN",
+  "charter": "research/ops/ASYMM_0050_BULL_DENSIFY_UNDER_COOL_STAGEA_CHARTER.md",
+  "status": "CAGR_SOFT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "baseline": "BASE_LIVE_FUSE_COOL",
+  "baseline_windows": {
+    "full": {
+      "cagr": 0.123209,
+      "max_drawdown": -0.146837,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.086107,
+      "max_drawdown": -0.132008,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.131823,
+      "max_drawdown": -0.146837,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.184149,
+      "max_drawdown": -0.064189,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.156382,
+      "max_drawdown": -0.146837,
+      "n_days": 1870
+    }
+  },
+  "n_challengers": 19,
+  "n_hits": 0,
+  "hit_ids": [],
+  "flat_tip_fail_ids": [],
+  "ranked": [
+    {
+      "id": "ASYMM_BSIDE_F0.75_E0.55",
+      "track": "BULL_SIDE_FIN_ROOM",
+      "gate": "REG_BULL_SIDE",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.75,
+          0.03,
+          0.35,
+          0.0,
+          0.55
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7291,
+        "Telecom": 0.158,
+        "0050": 0.1129
+      },
+      "gate_on_frac": 0.7678,
+      "n_fills": 8119,
+      "windows": {
+        "full": {
+          "cagr": 0.12269,
+          "max_drawdown": -0.142688,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084261,
+          "max_drawdown": -0.130937,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.133581,
+          "max_drawdown": -0.142688,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.1835,
+          "max_drawdown": -0.065976,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.157015,
+          "max_drawdown": -0.142688,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.157015,
+      "held_mdd": -0.142688,
+      "held_cagr_lift_pp": 0.0633,
+      "held_mdd_improve_pp": 0.4149,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.1983,
+          "cagr_giveback_pp": -0.4354,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.1983,
+          "cagr_giveback_pp": -0.6744,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BSIDE_F0.75_E0.60",
+      "track": "BULL_SIDE_FIN_ROOM",
+      "gate": "REG_BULL_SIDE",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.75,
+          0.03,
+          0.35,
+          0.0,
+          0.6
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7291,
+        "Telecom": 0.158,
+        "0050": 0.1129
+      },
+      "gate_on_frac": 0.7678,
+      "n_fills": 8119,
+      "windows": {
+        "full": {
+          "cagr": 0.12269,
+          "max_drawdown": -0.142688,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084261,
+          "max_drawdown": -0.130937,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.133581,
+          "max_drawdown": -0.142688,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.1835,
+          "max_drawdown": -0.065976,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.157015,
+          "max_drawdown": -0.142688,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.157015,
+      "held_mdd": -0.142688,
+      "held_cagr_lift_pp": 0.0633,
+      "held_mdd_improve_pp": 0.4149,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.1983,
+          "cagr_giveback_pp": -0.4354,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.1983,
+          "cagr_giveback_pp": -0.6744,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BSIDE_F0.75_E0.65",
+      "track": "BULL_SIDE_FIN_ROOM",
+      "gate": "REG_BULL_SIDE",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.75,
+          0.03,
+          0.35,
+          0.0,
+          0.65
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7291,
+        "Telecom": 0.158,
+        "0050": 0.1129
+      },
+      "gate_on_frac": 0.7678,
+      "n_fills": 8119,
+      "windows": {
+        "full": {
+          "cagr": 0.12269,
+          "max_drawdown": -0.142688,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084261,
+          "max_drawdown": -0.130937,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.133581,
+          "max_drawdown": -0.142688,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.1835,
+          "max_drawdown": -0.065976,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.157015,
+          "max_drawdown": -0.142688,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.157015,
+      "held_mdd": -0.142688,
+      "held_cagr_lift_pp": 0.0633,
+      "held_mdd_improve_pp": 0.4149,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.1983,
+          "cagr_giveback_pp": -0.4354,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.1983,
+          "cagr_giveback_pp": -0.6744,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_DEF_F0.78_E0.55",
+      "track": "BULL_OFF_DEF_REST",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.78,
+          0.03,
+          0.35,
+          0.0,
+          0.55
+        ],
+        "rest_clips": [
+          0.6,
+          0.9,
+          0.03,
+          0.35,
+          0.0,
+          0.35
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7552,
+        "Telecom": 0.1446,
+        "0050": 0.1002
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 8061,
+      "windows": {
+        "full": {
+          "cagr": 0.123374,
+          "max_drawdown": -0.145021,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086192,
+          "max_drawdown": -0.131293,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132102,
+          "max_drawdown": -0.145021,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.184461,
+          "max_drawdown": -0.063225,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156676,
+          "max_drawdown": -0.145021,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156676,
+      "held_mdd": -0.145021,
+      "held_cagr_lift_pp": 0.0294,
+      "held_mdd_improve_pp": 0.1816,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0442,
+          "cagr_giveback_pp": -1.2733,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0442,
+          "cagr_giveback_pp": -1.0208,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_DEF_F0.78_E0.60",
+      "track": "BULL_OFF_DEF_REST",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.78,
+          0.03,
+          0.35,
+          0.0,
+          0.6
+        ],
+        "rest_clips": [
+          0.6,
+          0.9,
+          0.03,
+          0.35,
+          0.0,
+          0.35
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7552,
+        "Telecom": 0.1446,
+        "0050": 0.1002
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 8061,
+      "windows": {
+        "full": {
+          "cagr": 0.123374,
+          "max_drawdown": -0.145021,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086192,
+          "max_drawdown": -0.131293,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132102,
+          "max_drawdown": -0.145021,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.184461,
+          "max_drawdown": -0.063225,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156676,
+          "max_drawdown": -0.145021,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156676,
+      "held_mdd": -0.145021,
+      "held_cagr_lift_pp": 0.0294,
+      "held_mdd_improve_pp": 0.1816,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0442,
+          "cagr_giveback_pp": -1.2733,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0442,
+          "cagr_giveback_pp": -1.0208,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_DEF_F0.75_E0.55",
+      "track": "BULL_OFF_DEF_REST",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.75,
+          0.03,
+          0.35,
+          0.0,
+          0.55
+        ],
+        "rest_clips": [
+          0.6,
+          0.9,
+          0.03,
+          0.35,
+          0.0,
+          0.35
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7355,
+        "Telecom": 0.1545,
+        "0050": 0.11
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 8290,
+      "windows": {
+        "full": {
+          "cagr": 0.122478,
+          "max_drawdown": -0.142979,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084278,
+          "max_drawdown": -0.130937,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132557,
+          "max_drawdown": -0.142979,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.183743,
+          "max_drawdown": -0.068362,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156607,
+          "max_drawdown": -0.142979,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156607,
+      "held_mdd": -0.142979,
+      "held_cagr_lift_pp": 0.0225,
+      "held_mdd_improve_pp": 0.3858,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.1302,
+          "cagr_giveback_pp": -1.2457,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.1302,
+          "cagr_giveback_pp": -1.2282,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_DEF_F0.75_E0.60",
+      "track": "BULL_OFF_DEF_REST",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.75,
+          0.03,
+          0.35,
+          0.0,
+          0.6
+        ],
+        "rest_clips": [
+          0.6,
+          0.9,
+          0.03,
+          0.35,
+          0.0,
+          0.35
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7355,
+        "Telecom": 0.1545,
+        "0050": 0.11
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 8290,
+      "windows": {
+        "full": {
+          "cagr": 0.122478,
+          "max_drawdown": -0.142979,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084278,
+          "max_drawdown": -0.130937,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132557,
+          "max_drawdown": -0.142979,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.183743,
+          "max_drawdown": -0.068362,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156607,
+          "max_drawdown": -0.142979,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156607,
+      "held_mdd": -0.142979,
+      "held_cagr_lift_pp": 0.0225,
+      "held_mdd_improve_pp": 0.3858,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.1302,
+          "cagr_giveback_pp": -1.2457,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.1302,
+          "cagr_giveback_pp": -1.2282,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_F0.75_E0.55",
+      "track": "BULL_FIN_ROOM",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.75,
+          0.03,
+          0.35,
+          0.0,
+          0.55
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7326,
+        "Telecom": 0.1562,
+        "0050": 0.1113
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 8183,
+      "windows": {
+        "full": {
+          "cagr": 0.122255,
+          "max_drawdown": -0.142878,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084283,
+          "max_drawdown": -0.130937,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132848,
+          "max_drawdown": -0.142878,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.182582,
+          "max_drawdown": -0.064933,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156193,
+          "max_drawdown": -0.142878,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156193,
+      "held_mdd": -0.142878,
+      "held_cagr_lift_pp": -0.0189,
+      "held_mdd_improve_pp": 0.3959,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.2011,
+          "cagr_giveback_pp": -0.0041,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.2011,
+          "cagr_giveback_pp": -0.3843,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_F0.75_E0.60",
+      "track": "BULL_FIN_ROOM",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.75,
+          0.03,
+          0.35,
+          0.0,
+          0.6
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7326,
+        "Telecom": 0.1562,
+        "0050": 0.1113
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 8183,
+      "windows": {
+        "full": {
+          "cagr": 0.122255,
+          "max_drawdown": -0.142878,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084283,
+          "max_drawdown": -0.130937,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132848,
+          "max_drawdown": -0.142878,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.182582,
+          "max_drawdown": -0.064933,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156193,
+          "max_drawdown": -0.142878,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156193,
+      "held_mdd": -0.142878,
+      "held_cagr_lift_pp": -0.0189,
+      "held_mdd_improve_pp": 0.3959,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.2011,
+          "cagr_giveback_pp": -0.0041,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.2011,
+          "cagr_giveback_pp": -0.3843,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_F0.75_E0.65",
+      "track": "BULL_FIN_ROOM",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.75,
+          0.03,
+          0.35,
+          0.0,
+          0.65
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7326,
+        "Telecom": 0.1562,
+        "0050": 0.1113
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 8183,
+      "windows": {
+        "full": {
+          "cagr": 0.122255,
+          "max_drawdown": -0.142878,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084283,
+          "max_drawdown": -0.130937,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132848,
+          "max_drawdown": -0.142878,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.182582,
+          "max_drawdown": -0.064933,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156193,
+          "max_drawdown": -0.142878,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156193,
+      "held_mdd": -0.142878,
+      "held_cagr_lift_pp": -0.0189,
+      "held_mdd_improve_pp": 0.3959,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.2011,
+          "cagr_giveback_pp": -0.0041,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.2011,
+          "cagr_giveback_pp": -0.3843,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BSIDE_F0.78_E0.55",
+      "track": "BULL_SIDE_FIN_ROOM",
+      "gate": "REG_BULL_SIDE",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.78,
+          0.03,
+          0.35,
+          0.0,
+          0.55
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7508,
+        "Telecom": 0.147,
+        "0050": 0.1022
+      },
+      "gate_on_frac": 0.7678,
+      "n_fills": 7939,
+      "windows": {
+        "full": {
+          "cagr": 0.1225,
+          "max_drawdown": -0.145232,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086184,
+          "max_drawdown": -0.131293,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131825,
+          "max_drawdown": -0.145232,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.181294,
+          "max_drawdown": -0.064527,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155062,
+          "max_drawdown": -0.145232,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155062,
+      "held_mdd": -0.145232,
+      "held_cagr_lift_pp": -0.132,
+      "held_mdd_improve_pp": 0.1605,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.037,
+          "cagr_giveback_pp": -0.1608,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.037,
+          "cagr_giveback_pp": -0.3035,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BSIDE_F0.78_E0.60",
+      "track": "BULL_SIDE_FIN_ROOM",
+      "gate": "REG_BULL_SIDE",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.78,
+          0.03,
+          0.35,
+          0.0,
+          0.6
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7508,
+        "Telecom": 0.147,
+        "0050": 0.1022
+      },
+      "gate_on_frac": 0.7678,
+      "n_fills": 7939,
+      "windows": {
+        "full": {
+          "cagr": 0.1225,
+          "max_drawdown": -0.145232,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086184,
+          "max_drawdown": -0.131293,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131825,
+          "max_drawdown": -0.145232,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.181294,
+          "max_drawdown": -0.064527,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155062,
+          "max_drawdown": -0.145232,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155062,
+      "held_mdd": -0.145232,
+      "held_cagr_lift_pp": -0.132,
+      "held_mdd_improve_pp": 0.1605,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.037,
+          "cagr_giveback_pp": -0.1608,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.037,
+          "cagr_giveback_pp": -0.3035,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BSIDE_F0.78_E0.65",
+      "track": "BULL_SIDE_FIN_ROOM",
+      "gate": "REG_BULL_SIDE",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.78,
+          0.03,
+          0.35,
+          0.0,
+          0.65
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7508,
+        "Telecom": 0.147,
+        "0050": 0.1022
+      },
+      "gate_on_frac": 0.7678,
+      "n_fills": 7939,
+      "windows": {
+        "full": {
+          "cagr": 0.1225,
+          "max_drawdown": -0.145232,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086184,
+          "max_drawdown": -0.131293,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131825,
+          "max_drawdown": -0.145232,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.181294,
+          "max_drawdown": -0.064527,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155062,
+          "max_drawdown": -0.145232,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155062,
+      "held_mdd": -0.145232,
+      "held_cagr_lift_pp": -0.132,
+      "held_mdd_improve_pp": 0.1605,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.037,
+          "cagr_giveback_pp": -0.1608,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.037,
+          "cagr_giveback_pp": -0.3035,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_F0.78_E0.55",
+      "track": "BULL_FIN_ROOM",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.78,
+          0.03,
+          0.35,
+          0.0,
+          0.55
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7523,
+        "Telecom": 0.1462,
+        "0050": 0.1015
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 7912,
+      "windows": {
+        "full": {
+          "cagr": 0.122482,
+          "max_drawdown": -0.145086,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086185,
+          "max_drawdown": -0.131293,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132112,
+          "max_drawdown": -0.145086,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.180893,
+          "max_drawdown": -0.062482,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155027,
+          "max_drawdown": -0.145086,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155027,
+      "held_mdd": -0.145086,
+      "held_cagr_lift_pp": -0.1355,
+      "held_mdd_improve_pp": 0.1751,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0455,
+          "cagr_giveback_pp": 0.2774,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0455,
+          "cagr_giveback_pp": -0.0112,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_F0.78_E0.60",
+      "track": "BULL_FIN_ROOM",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.78,
+          0.03,
+          0.35,
+          0.0,
+          0.6
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7523,
+        "Telecom": 0.1462,
+        "0050": 0.1015
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 7912,
+      "windows": {
+        "full": {
+          "cagr": 0.122482,
+          "max_drawdown": -0.145086,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086185,
+          "max_drawdown": -0.131293,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132112,
+          "max_drawdown": -0.145086,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.180893,
+          "max_drawdown": -0.062482,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155027,
+          "max_drawdown": -0.145086,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155027,
+      "held_mdd": -0.145086,
+      "held_cagr_lift_pp": -0.1355,
+      "held_mdd_improve_pp": 0.1751,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0455,
+          "cagr_giveback_pp": 0.2774,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0455,
+          "cagr_giveback_pp": -0.0112,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_F0.78_E0.65",
+      "track": "BULL_FIN_ROOM",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.78,
+          0.03,
+          0.35,
+          0.0,
+          0.65
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7523,
+        "Telecom": 0.1462,
+        "0050": 0.1015
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 7912,
+      "windows": {
+        "full": {
+          "cagr": 0.122482,
+          "max_drawdown": -0.145086,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086185,
+          "max_drawdown": -0.131293,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132112,
+          "max_drawdown": -0.145086,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.180893,
+          "max_drawdown": -0.062482,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155027,
+          "max_drawdown": -0.145086,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155027,
+      "held_mdd": -0.145086,
+      "held_cagr_lift_pp": -0.1355,
+      "held_mdd_improve_pp": 0.1751,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0455,
+          "cagr_giveback_pp": 0.2774,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0455,
+          "cagr_giveback_pp": -0.0112,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_E0.55",
+      "track": "BULL_E_HI",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.55
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.763,
+        "Telecom": 0.1406,
+        "0050": 0.0964
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 8288,
+      "windows": {
+        "full": {
+          "cagr": 0.123209,
+          "max_drawdown": -0.146837,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086107,
+          "max_drawdown": -0.132008,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131823,
+          "max_drawdown": -0.146837,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.184149,
+          "max_drawdown": -0.064189,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156382,
+          "max_drawdown": -0.146837,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156382,
+      "held_mdd": -0.146837,
+      "held_cagr_lift_pp": -0.0,
+      "held_mdd_improve_pp": 0.0,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_E0.60",
+      "track": "BULL_E_HI",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.6
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.763,
+        "Telecom": 0.1406,
+        "0050": 0.0964
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 8288,
+      "windows": {
+        "full": {
+          "cagr": 0.123209,
+          "max_drawdown": -0.146837,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086107,
+          "max_drawdown": -0.132008,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131823,
+          "max_drawdown": -0.146837,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.184149,
+          "max_drawdown": -0.064189,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156382,
+          "max_drawdown": -0.146837,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156382,
+      "held_mdd": -0.146837,
+      "held_cagr_lift_pp": -0.0,
+      "held_mdd_improve_pp": 0.0,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    },
+    {
+      "id": "ASYMM_BULL_E0.65",
+      "track": "BULL_E_HI",
+      "gate": "REG_BULL",
+      "meta": {
+        "bull_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.65
+        ],
+        "rest_clips": [
+          0.6,
+          0.8,
+          0.03,
+          0.35,
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.763,
+        "Telecom": 0.1406,
+        "0050": 0.0964
+      },
+      "gate_on_frac": 0.6843,
+      "n_fills": 8288,
+      "windows": {
+        "full": {
+          "cagr": 0.123209,
+          "max_drawdown": -0.146837,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086107,
+          "max_drawdown": -0.132008,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131823,
+          "max_drawdown": -0.146837,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.184149,
+          "max_drawdown": -0.064189,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156382,
+          "max_drawdown": -0.146837,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156382,
+      "held_mdd": -0.146837,
+      "held_cagr_lift_pp": -0.0,
+      "held_mdd_improve_pp": 0.0,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": false,
+      "mdd_flat": true,
+      "flat_cagr": false,
+      "hit": false
+    }
+  ]
+}

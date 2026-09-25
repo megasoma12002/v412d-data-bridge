@@ -1,7 +1,7 @@
 # Asymmetric 0050 Bull densify under COOL — Paper Charter (Stage A)
 
 Date: 2026-09-25  
-Status: **OPEN · Stage A** · Soft-Frozen tip **KEEP** · live wire **false**  
+Status: **CLOSED — CAGR_SOFT** · Soft-Frozen tip **KEEP** · live wire **false**  
 Parent live: Soft-Frozen **F[0.60,0.80] T[0.03,0.35] E[0.00,0.50]** + Soft+Sleeve+**COOL_c8** + FUSE  
 Human (exact):
 
@@ -11,9 +11,9 @@ OPEN charter: 非對稱0050 Bull加碼 / MDD持平 under COOL
 
 Prior: Stage A always-on densify → **`BETA_0050_HIT`** (near-flat MDD −0.06pp) → Class D live flip.  
 Stage B always-on fine grid → **`HELD_FLAT_TIP_FAIL`** (held MDD↑≥0 + CAGR≥+0.20 available; tip MDD fails).  
-This charter is the **next offense lever**: densify **0050 only in Bull (or Bull+Sideways)**; non-offense regimes keep live (or restore prior FINBAND) so MDD can stay flat while tip stays clean.
+This charter densified **0050 only in Bull (or Bull+Sideways)**; Stage A → **`CAGR_SOFT`** (7 tip-clean MDD-flat books; best CAGR↑ **+0.06pp** short of +0.20).
 
-Label: `ASYMM_0050_BULL_DENSIFY_UNDER_COOL_STAGEA_CHARTER_2026-09-25__OPEN__NO_LIVE_WIRE`
+Label: `ASYMM_0050_BULL_DENSIFY_UNDER_COOL_STAGEA_CHARTER_2026-09-25__CAGR_SOFT__NO_LIVE_WIRE`
 
 ## Philosophy
 

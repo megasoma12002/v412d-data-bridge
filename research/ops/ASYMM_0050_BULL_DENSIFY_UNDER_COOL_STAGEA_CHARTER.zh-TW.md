@@ -1,12 +1,12 @@
 # 非對稱 0050 Bull 加碼 × COOL — 紙上憲章 Stage A
 
 日期：2026-09-25  
-狀態：**OPEN · Stage A** · Soft-Frozen tip **KEEP** · 不上 live  
+狀態：**CLOSED — CAGR_SOFT** · Soft-Frozen tip **KEEP** · 不上 live  
 Live：Soft-Frozen **F[0.60,0.80] E[0.00,0.50]** + Soft+Sleeve+**COOL** + FUSE  
 人類授權：`OPEN charter: 非對稱0050 Bull加碼 / MDD持平 under COOL`
 
 先前：always-on densify Stage A HIT → live flip；Stage B **`HELD_FLAT_TIP_FAIL`**。  
-本憲章改為 **只在 Bull（或 Bull+Sideways）加碼 0050**，其餘 regime 維持 live（或還原舊 FINBAND）以求 **MDD 持平**。
+本憲章 **只在 Bull（或 Bull+Sideways）加碼 0050** → Stage A **`CAGR_SOFT`**（7 本 tip-clean／MDD 持平；最佳 CAGR↑ **+0.06pp**，未達 +0.20）。
 
 ## 問題
 
