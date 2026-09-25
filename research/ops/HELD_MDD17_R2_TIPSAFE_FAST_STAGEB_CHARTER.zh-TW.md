@@ -29,4 +29,7 @@ HIT → 只開 paper observe，不下 live。
 
 ## Stage B 結果
 
-裁決 **`TIP_FAIL`**：band 內無人 tip 過關。最接近 tip 安全訊號 **`GATE_g04_f50_d21`**（MDD −14.61% · gb +0.39pp · tip 過關；比 −14.5% 下限深 0.11pp）。
+初判 `TIP_FAIL`。人接 **−15%** 後 rescore **`TIPSAFE_STRETCH`**：
+
+- **`COOL_c8_f50_d21`**：MDD −14.86% · gb **+0.27pp** · tip 過關  
+- **`GATE_g04_f50_d21`**：MDD −14.61% · gb **+0.39pp** · tip 過關
