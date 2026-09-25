@@ -23,7 +23,7 @@ Ask: can a **new finite role** (not same-knob PROXY densify) keep held MDD in **
 
 | Metric | Target |
 |---|---|
-| MDD band | `−0.145 ≤ max_drawdown ≤ −0.13` (**human ACCEPT** floor −14.5%; was −14.0%) |
+| MDD band | `−0.15 ≤ max_drawdown ≤ −0.13` (**human ACCEPT** floor −15%; was −14.5% then −14.0%) |
 | CAGR giveback vs LIVE_STACK | primary ≤ **0.5 pp** · stretch ≤ **0.3 pp** · report if ≤ **1.0 pp** (beats R1 ref) |
 | Tip hygiene (paper end YTD / 1y) | `mdd_improve_pp >= 0` |
 
@@ -91,4 +91,4 @@ Rescore verdict: still **`BAND_ONLY`**.
 | `REF_PROXY_x08_f50` | Tip-clean · MDD −14.34% in new band · gb **+1.11pp** (just over beats-R1 cap 1.0pp) |
 | `STH_*` | Tip-clean · in band · gb **worse** than PROXY ref |
 
-Stretch/primary/beats-R1 **not** cleared under tip hygiene. Next options (human): paper observe on tip-clean `PROXY_x08_f50`, or Stage B tip-safe FAST — still no live wire.
+Stretch/primary/beats-R1 **not** cleared under tip hygiene. Stage B tip-safe FAST: **`TIP_FAIL`** — see `HELD_MDD17_R2_TIPSAFE_FAST_STAGEB_CHARTER.md`.

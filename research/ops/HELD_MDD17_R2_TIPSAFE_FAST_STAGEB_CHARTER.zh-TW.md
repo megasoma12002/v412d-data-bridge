@@ -1,7 +1,7 @@
 # Tip-safe FAST — 紙上憲章（R2 Stage B）
 
 日期：2026-09-25  
-狀態：**PAPER CHARTER OPEN**  
+狀態：**PAPER CHARTER OPEN** · Stage B **DONE** · 人接 MDD 下限 **−15%** → rescore **`TIPSAFE_STRETCH`**  
 父：R2 CAGR→0 · 人接 MDD 下限 −14.5%  
 Soft-Frozen tip：**KEEP** · live **KEEP**
 
@@ -26,3 +26,7 @@ HIT → 只開 paper observe，不下 live。
 ## 產物
 
 `scripts/held_mdd17_r2_tipsafe_fast_stageb_screen.py` · `HELD_MDD17_R2_TIPSAFE_FAST_STAGEB_SCREEN.md`
+
+## Stage B 結果
+
+裁決 **`TIP_FAIL`**：band 內無人 tip 過關。最接近 tip 安全訊號 **`GATE_g04_f50_d21`**（MDD −14.61% · gb +0.39pp · tip 過關；比 −14.5% 下限深 0.11pp）。

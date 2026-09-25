@@ -155,6 +155,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - Ops residual 全修 **ACCEPTED** 2026-09-19 — dual-paper refresh + tip-lag Gap6 stamp + INDEX_DRIFT non-decision · `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` · does **not** promote L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B
 - Deferred ops harden **ACCEPTED** 2026-09-25 — day-commit atomicity + tip-write gate EXECUTE; broker live-write **PREP only** (flags stay False); Stage-E full-history sandbox RESEARCH only · `ACCEPT_DEFERRED_OPS_HARDEN_2026-09-25.md`
 - R2 MDD band floor **−14.5% ACCEPTED** 2026-09-25 — paper rescore only · Soft-Frozen KEEP · no live wire · `ACCEPT_R2_MDD_BAND_FLOOR_14_5_2026-09-25.md` · Stage A still `BAND_ONLY`
+- R2/Stage-B MDD band floor **−15% ACCEPTED** 2026-09-25 — tip-safe FAST rescore **`TIPSAFE_STRETCH`** (`COOL_c8_f50_d21` · `GATE_g04_f50_d21`) · Soft-Frozen KEEP · `ACCEPT_R2_MDD_BAND_FLOOR_15_2026-09-25.md`
 - Realism → 全自動化: Phase **0–1+2+3+5 LANDED** · Phase **4 scaffold** (synthetic R5) · Phase 2 tip **CONFIRMED** 2026-09-21 · Phase 6/7 ballot · `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md`
 
 ## Claim policy
