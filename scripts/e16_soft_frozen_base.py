@@ -27,6 +27,10 @@ SOFT_FROZEN_TEL_LO = 0.03
 SOFT_FROZEN_TEL_HI = 0.35
 SOFT_FROZEN_ETF_LO = 0.00
 SOFT_FROZEN_ETF_HI = 0.50
+# Forward-only grandfather for tip QC: pre-flip rows may sit in prior FIN hi.
+# Tip history is not rewritten; dates < ASOF use PRIOR_FIN_HI, else live FIN_HI.
+SOFT_FROZEN_PRIOR_FIN_HI = 0.90  # FINBAND ACCEPT 2026-09-09
+SOFT_FROZEN_CLIP_FLIP_ASOF = "2026-09-25"  # β densify ACCEPT / first new-clip session
 # Canonical list form for JSON / monitors (import this — do not re-type).
 SOFT_FROZEN_FIN_CLIP = [SOFT_FROZEN_FIN_LO, SOFT_FROZEN_FIN_HI]
 SOFT_FROZEN_TEL_CLIP = [SOFT_FROZEN_TEL_LO, SOFT_FROZEN_TEL_HI]
@@ -38,6 +42,18 @@ SOFT_FROZEN_CLIP_TXT = (
     f"T[{SOFT_FROZEN_TEL_LO:.2f}, {SOFT_FROZEN_TEL_HI:.2f}] "
     f"E[{SOFT_FROZEN_ETF_LO:.2f}, {SOFT_FROZEN_ETF_HI:.2f}]"
 )
+
+
+def soft_frozen_fin_hi_for_dates(dates) -> pd.Series:
+    """Per-row FIN hi for tip QC: prior hi before CLIP_FLIP_ASOF, else live hi."""
+    s = pd.Series(dates)
+    idx = pd.to_datetime(s)
+    asof = pd.Timestamp(SOFT_FROZEN_CLIP_FLIP_ASOF)
+    return pd.Series(
+        np.where(idx < asof, SOFT_FROZEN_PRIOR_FIN_HI, SOFT_FROZEN_FIN_HI),
+        index=s.index,
+        dtype=float,
+    )
 
 # Causal blend / rebalance threshold (shared).
 # Must stay inside Soft-Frozen box ∩ simplex (FIN hi=0.80 after 2026-09-25 flip).

@@ -36,6 +36,7 @@ Soft-Frozen clips (new) + **KD_OPT** + **TEL_EQUAL** + **FUSE_ADDITIVE** + **COO
 ## Non-actions
 
 - No `forward/e21` tip history wipe/rewrite (forward-only)  
+- Tip QC grandfather: dates `< 2026-09-25` may use prior FIN hi **0.90**; on/after ASOF enforce live **0.80** (`SOFT_FROZEN_PRIOR_FIN_HI` / `SOFT_FROZEN_CLIP_FLIP_ASOF`)  
 - No DEFAULT books flip · no broker live-write from this ballot  
 - No Soft/Sleeve/FUSE/COOL retune  
 - No 公+民 universe expand  
