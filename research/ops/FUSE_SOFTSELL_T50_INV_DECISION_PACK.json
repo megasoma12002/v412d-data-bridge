@@ -1,0 +1,12 @@
+{
+  "label": "FUSE_SOFTSELL_T50_INV_DECISION",
+  "generated_at_utc": "2026-09-25T14:46:35Z",
+  "status": "MDD_BLOCK",
+  "live_wire": false,
+  "n_coexist": 0,
+  "coexist_ids": [],
+  "soft_ids": [],
+  "best": "SS_DWELL_A50",
+  "charter": "research/ops/FUSE_SOFTSELL_T50_INV_CHARTER.md",
+  "stage_a": "research/ops/FUSE_SOFTSELL_T50_INV_STAGEA_SCREEN.md"
+}
