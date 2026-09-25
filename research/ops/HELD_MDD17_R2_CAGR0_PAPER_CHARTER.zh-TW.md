@@ -1,7 +1,7 @@
 # Held-MDD −14%～−13% · CAGR giveback → 0 — 紙上憲章（R2）
 
 日期：2026-09-25  
-狀態：**PAPER CHARTER OPEN** · Stage A **DONE**（`BAND_ONLY`）  
+狀態：**PAPER CHARTER OPEN** · Stage A **DONE**（`BAND_ONLY`）· 人接 MDD 下限 **−14.5%** · rescore 仍 `BAND_ONLY`  
 父憲章：R1 `HELD_MDD17_TARGET_PAPER_CHARTER`（`MDD17_HIT_CAGR_OK`）  
 Soft-Frozen tip：**KEEP** · live **KEEP**
 
@@ -38,4 +38,7 @@ HIT → 只開 paper observe，不下 live。
 
 ## Stage A 結果（2026-09-25）
 
-裁決 **`BAND_ONLY`**：嚴格 band 內仍 gb≳1.3pp；近 band 最佳訊號 `FAST_x08_ex06_f50_d21`（MDD −14.45% · gb +0.56pp）。Stretch/primary 未過。
+裁決 **`BAND_ONLY`**。人接 band 下限 −14.5% 後 rescore **仍 `BAND_ONLY`**：
+
+- `FAST_x08_ex06_f50_d21`：MDD −14.45% · gb +0.56pp，但 **tip 窗 MDD 變差**
+- `PROXY_x08_f50`：tip 過關 · MDD −14.34% · gb +1.11pp（略超 beats 1.0pp 帽）

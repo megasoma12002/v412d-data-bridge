@@ -1,7 +1,7 @@
 # Held-MDD band −14%～−13% · CAGR giveback → 0 — Paper Charter (R2)
 
 Date: 2026-09-25  
-Status: **PAPER CHARTER OPEN** · Stage A **DONE** (`BAND_ONLY`)  
+Status: **PAPER CHARTER OPEN** · Stage A **DONE** (`BAND_ONLY`) · Human **ACCEPT** band floor **−14.5%** (2026-09-25) · rescore still `BAND_ONLY`  
 Parent: `HELD_MDD17_TARGET_PAPER_CHARTER` (R1 verdict `MDD17_HIT_CAGR_OK`)  
 Soft-Frozen tip: **KEEP** · live clip / FUSE / DH: **KEEP** (no live wire)
 
@@ -23,7 +23,7 @@ Ask: can a **new finite role** (not same-knob PROXY densify) keep held MDD in **
 
 | Metric | Target |
 |---|---|
-| MDD band | `−0.14 ≤ max_drawdown ≤ −0.13` |
+| MDD band | `−0.145 ≤ max_drawdown ≤ −0.13` (**human ACCEPT** floor −14.5%; was −14.0%) |
 | CAGR giveback vs LIVE_STACK | primary ≤ **0.5 pp** · stretch ≤ **0.3 pp** · report if ≤ **1.0 pp** (beats R1 ref) |
 | Tip hygiene (paper end YTD / 1y) | `mdd_improve_pp >= 0` |
 
@@ -75,10 +75,20 @@ Improving offense alpha (clip / sleeve / FUSE retune) is **out of Stage A** (Sof
 
 ## Stage A result (2026-09-25)
 
-Verdict: **`BAND_ONLY`**.
+Verdict: **`BAND_ONLY`** (initial −14.0% floor).
 
 - Strict band [−14%, −13%] hits: `STH_x08_d04_s70_h40` (gb **+1.29 pp**), `STH_x08_d06_s70_h35` (gb **+1.75 pp**) — do **not** beat R1 ref giveback.
-- Near-band signal (just outside −14%): `FAST_x08_ex06_f50_d21` → MDD **−14.45%** · gb **+0.56 pp** (closest to primary 0.5).
-- `DUAL_CONFIRM` lowers giveback (~0.5–0.9 pp) but MDD stays ~−19%～−25% (**no band**).
+- Near-band signal: `FAST_x08_ex06_f50_d21` → MDD **−14.45%** · gb **+0.56 pp**.
 
-Stretch/primary **not** cleared. Next: Stage B only if human opens (e.g. widen band to include −14.5%, or new offense-side charter) — still no live wire.
+### Human ACCEPT band floor −14.5% (same day) + rescore
+
+Ballot: `ACCEPT_R2_MDD_BAND_FLOOR_14_5_2026-09-25.md`  
+Rescore verdict: still **`BAND_ONLY`**.
+
+| Why not upgrade | Detail |
+|---|---|
+| `FAST_*` | Enters [−14.5%, −13%] with best gb (~+0.56pp) but **tip YTD/1y MDD worse** than LIVE (~−0.99pp) |
+| `REF_PROXY_x08_f50` | Tip-clean · MDD −14.34% in new band · gb **+1.11pp** (just over beats-R1 cap 1.0pp) |
+| `STH_*` | Tip-clean · in band · gb **worse** than PROXY ref |
+
+Stretch/primary/beats-R1 **not** cleared under tip hygiene. Next options (human): paper observe on tip-clean `PROXY_x08_f50`, or Stage B tip-safe FAST — still no live wire.
