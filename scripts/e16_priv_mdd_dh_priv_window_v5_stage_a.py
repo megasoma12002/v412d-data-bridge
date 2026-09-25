@@ -207,7 +207,7 @@ V5_SPECS = [
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "outputs").mkdir(exist_ok=True)
-    assert list(soft.SOFT_FROZEN_FIN_CLIP) == [0.6, 0.9]
+    assert list(soft.SOFT_FROZEN_FIN_CLIP) == [0.6, 0.8]
     assert abs(DD_THR - 0.06) < 1e-12
     assert abs(VOL_Z_THR - 1.0) < 1e-12
 

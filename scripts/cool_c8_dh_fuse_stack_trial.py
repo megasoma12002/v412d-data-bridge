@@ -197,7 +197,7 @@ def main() -> int:
     (OUT / "reports").mkdir(parents=True, exist_ok=True)
     OPS.mkdir(parents=True, exist_ok=True)
 
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.8]
     for k in ("season_start", "season_end", "k_thresh", "pre_days", "active_score"):
         if LIVE_KD[k] != e21.KD_OPT[k]:
             raise SystemExit(f"LIVE_KD[{k}] drift vs e21.KD_OPT")

@@ -108,7 +108,7 @@ def walk_forward_sell_tipmdd(dates, codes, X, path_mdd, *, alpha: float, mode: s
 def main() -> int:
     (OUT / "reports").mkdir(parents=True, exist_ok=True)
     OPS.mkdir(parents=True, exist_ok=True)
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.8]
     import e21_forward_pipeline as e21
 
     for k in ("season_start", "season_end", "k_thresh", "pre_days", "active_score"):

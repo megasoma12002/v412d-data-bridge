@@ -1,0 +1,121 @@
+{
+  "schema_version": "beta_0050_densify_dual_paper_observe_v1",
+  "label": "BETA_0050_DENSIFY_DUAL_PAPER_OBSERVE_OPERATING",
+  "generated_at_utc": "2026-09-25T10:01:46Z",
+  "status": "OPERATING_OBSERVE",
+  "human_open": "OPEN paper observe: BETA_F0.60-0.80_E0.00-0.50 (near-flat MDD ACCEPT)",
+  "near_flat_note": "human ACCEPT near-flat: held MDD\u2191 \u22120.06pp with CAGR +0.57pp tip-OK",
+  "live_wire": false,
+  "cutover_authorized": false,
+  "base_id": "LIVE_FUSE_COOL",
+  "challenger_id": "BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50",
+  "stage_a_verdict": "BETA_0050_HIT",
+  "chal_clips": {
+    "fin": [
+      0.6,
+      0.8
+    ],
+    "tel": [
+      0.03,
+      0.35
+    ],
+    "etf": [
+      0.0,
+      0.5
+    ]
+  },
+  "mean_0050": {
+    "base": 0.0804,
+    "chal": 0.0964
+  },
+  "soft_frozen_fin_clip_live": [
+    0.6,
+    0.9
+  ],
+  "base_windows": {
+    "full": {
+      "cagr": 0.120183,
+      "max_drawdown": -0.146191,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.085896,
+      "max_drawdown": -0.13507,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.135543,
+      "max_drawdown": -0.146191,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.167614,
+      "max_drawdown": -0.069176,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.150664,
+      "max_drawdown": -0.146191,
+      "n_days": 1870
+    }
+  },
+  "chal_windows": {
+    "full": {
+      "cagr": 0.123209,
+      "max_drawdown": -0.146837,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.086107,
+      "max_drawdown": -0.132008,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.131823,
+      "max_drawdown": -0.146837,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.184149,
+      "max_drawdown": -0.064189,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.156382,
+      "max_drawdown": -0.146837,
+      "n_days": 1870
+    }
+  },
+  "heldout_delta": {
+    "mdd_improve_pp": -0.06460000000000077,
+    "cagr_giveback_pp": -0.5718000000000001,
+    "cagr_lift_pp": 0.5718000000000001,
+    "score": -0.3505000000000008
+  },
+  "sealed_delta": {
+    "mdd_improve_pp": 0.49870000000000053,
+    "cagr_giveback_pp": -1.6534999999999993,
+    "cagr_lift_pp": 1.6534999999999993,
+    "score": -0.3280499999999991
+  },
+  "tip": {
+    "ytd": {
+      "mdd_improve_pp": 0.1892,
+      "cagr_giveback_pp": -2.3532,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "mdd_improve_pp": 0.1892,
+      "cagr_giveback_pp": -1.8769,
+      "gate": "PASS"
+    }
+  },
+  "n_fills_base": 9530,
+  "n_fills_chal": 8288,
+  "non_actions": [
+    "Soft-Frozen live clip KEEP \u2014 no Class D flip from observe",
+    "No tip history rewrite",
+    "No \u516c+\u6c11 mix",
+    "Cutover BLOCKED until dedicated ACCEPT"
+  ]
+}

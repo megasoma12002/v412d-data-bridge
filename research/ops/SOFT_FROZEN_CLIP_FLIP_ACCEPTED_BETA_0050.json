@@ -1,0 +1,15 @@
+{
+  "label": "SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050",
+  "generated_at_utc": "2026-09-25T13:46:00Z",
+  "status": "ACCEPTED_LIVE_WIRED_FORWARD_ONLY",
+  "human_ballot": "ACCEPT Soft-Frozen clip flip: F0.60-0.80_T0.03-0.35_E0.00-0.50",
+  "clips_before": {"fin": [0.6, 0.9], "tel": [0.03, 0.35], "etf": [0.0, 0.35]},
+  "clips_after": {"fin": [0.6, 0.8], "tel": [0.03, 0.35], "etf": [0.0, 0.5]},
+  "start_weights_after": [0.8, 0.1, 0.1],
+  "ssot": "scripts/e16_soft_frozen_base.py",
+  "live_wire": true,
+  "tip_history_rewrite": false,
+  "broker_live_write": false,
+  "evidence": "BETA_0050_HIT + near-flat observe ACCEPT",
+  "note": "research/ops/SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md"
+}

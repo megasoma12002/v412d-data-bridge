@@ -1,6 +1,6 @@
 # Strategy Debt Board
 
-> **Live SSOT (2026-09-25):** Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · books DEFAULT = tip **`E22_v3_recv_pay_effdelay`** (tip catch-up CONFIRMED 2026-09-21; ACCEPT tip align 2026-09-19 — no history rewrite) · path `forward/e21/`.  
+> **Live SSOT (2026-09-25):** Soft-Frozen **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **COOL_c8_f50_d21** · capital **500M** · books DEFAULT = tip **`E22_v3_recv_pay_effdelay`** (tip catch-up CONFIRMED 2026-09-21; ACCEPT tip align 2026-09-19 — no history rewrite) · path `forward/e21/`.  
 > Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · ballot: `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`.  
 > Rows below dated **2026-09-05…09** are **historical ledger** (clip once [0.50, 0.95] / capital once 3M) — do not treat as current live.
 
@@ -47,7 +47,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | Term | Meaning |
 |---|---|
 | **SOFT_FROZEN** (class) | Official strategy-version class for E16/E18/E22/E45 — **not** “is live” |
-| **Live Soft-Frozen clip** | Live E16 Financial band **[0.60, 0.90]** (was [0.50, 0.95] until FINBAND ACCEPT) |
+| **Live Soft-Frozen clip** | Live E16 **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** (β densify ACCEPT 2026-09-25; was FINBAND F[0.60,0.90] E[0.00,0.35]) |
 | **Dual-paper** | Parallel Exact T+1 paper books — observation only |
 | **Cutover** | Human PR that changes live books / live clip / live path logic |
 
@@ -84,7 +84,7 @@ Live claims: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`
 | Item | Action | Status |
 |---|---|---|
 | Track A S9A1 | Paper/monitor via month-end pack | **KEEP** |
-| Live Soft-Frozen clip | **[0.60, 0.90]** | **KEEP** (FINBAND; was [0.50, 0.95]) |
+| Live Soft-Frozen clip | **F[0.60, 0.80] E[0.00, 0.50]** | **LIVE** (β densify ACCEPT 2026-09-25; was FINBAND) |
 | FIN_CAP_50 paper | Dual-paper + pack | **OPERATING**; **static cutover REJECT for now** (register #2) |
 | L4 dual-paper | Dual-paper + pack | **OPERATING**; cutover **DEFER** until clean month-end (register #4) |
 | BLEND_025 dual-paper | Dual-paper + pack + runbook | **OPERATING OBSERVE** — sole sealed-CAGR successor (register #3); live **NOT READY** (#5) |
@@ -124,7 +124,7 @@ L1/L2/L3/FIN50 lock retune; Stage-8 TECH2 re-grid; reinvent retired E45 MDD narr
 | BLEND_025 dual-paper | **OPERATING OBSERVE** / cutover **blocked** |
 | L4 held-out | **`PASS_HELDOUT_L4`** |
 | Track A | **KEEP** |
-| Soft-Frozen clip | **[0.60, 0.90] KEEP** (FINBAND) |
+| Soft-Frozen clip | **F[0.60, 0.80] E[0.00, 0.50] LIVE** (β densify) |
 | Human decisions | `research/ops/HUMAN_DECISION_REGISTER.md` **BINDING** |
 
 ## Pointers

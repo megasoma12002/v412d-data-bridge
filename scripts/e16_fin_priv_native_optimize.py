@@ -154,7 +154,7 @@ def kd_book(market, dividends, target, regime, *, season, s0, s1, k_thresh, pre_
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     assert soft.FIN == PUB_R1
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.8]
 
     print("calendar note: PUB cash-ex ~Aug; PRIV cash-ex ~Jun–Jul", flush=True)
     print("building extended market ...", flush=True)

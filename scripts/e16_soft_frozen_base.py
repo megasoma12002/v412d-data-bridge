@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Soft-Frozen E16 BASE sleeve — single source of truth for live + research.
 
-Live Financial clip: **[0.60, 0.90]** (FINBAND_F0.60-0.90 ACCEPT 2026-09-09) (Soft-Frozen). Do not edit these bounds
-without an explicit human cutover PR. Challenger clips belong in
-`e16_fin_cap_oof_challenger` only.
+Live clips (ACCEPT 2026-09-25): FIN **[0.60, 0.80]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
+(`ACCEPT Soft-Frozen clip flip: F0.60-0.80_T0.03-0.35_E0.00-0.50`).
+Prior FINBAND ACCEPT 2026-09-09 was FIN [0.60, 0.90] / ETF [0.00, 0.35].
+Do not edit these bounds without an explicit human cutover PR. Challenger clips
+belong in research challengers only.
 
 Both `e21_forward_pipeline.features` and `e50_early_stack_combined_nav.e16_features`
 must call `build_soft_frozen_targets` so clip/prior/blend cannot drift apart.
@@ -20,18 +22,42 @@ SLEEVE_COLS = ["Financial", "Telecom", "0050"]
 
 # Soft-Frozen live clip bounds (authoritative).
 SOFT_FROZEN_FIN_LO = 0.60
-SOFT_FROZEN_FIN_HI = 0.90
+SOFT_FROZEN_FIN_HI = 0.80
 SOFT_FROZEN_TEL_LO = 0.03
 SOFT_FROZEN_TEL_HI = 0.35
 SOFT_FROZEN_ETF_LO = 0.00
-SOFT_FROZEN_ETF_HI = 0.35
-# Canonical list form for JSON / monitors (import this — do not re-type 0.60/0.90).
+SOFT_FROZEN_ETF_HI = 0.50
+# Forward-only grandfather for tip QC: pre-flip rows may sit in prior FIN hi.
+# Tip history is not rewritten; dates < ASOF use PRIOR_FIN_HI, else live FIN_HI.
+SOFT_FROZEN_PRIOR_FIN_HI = 0.90  # FINBAND ACCEPT 2026-09-09
+SOFT_FROZEN_CLIP_FLIP_ASOF = "2026-09-25"  # β densify ACCEPT / first new-clip session
+# Canonical list form for JSON / monitors (import this — do not re-type).
 SOFT_FROZEN_FIN_CLIP = [SOFT_FROZEN_FIN_LO, SOFT_FROZEN_FIN_HI]
-# Prose / markdown emitters — import this instead of hardcoding "[0.60, 0.90]".
+SOFT_FROZEN_TEL_CLIP = [SOFT_FROZEN_TEL_LO, SOFT_FROZEN_TEL_HI]
+SOFT_FROZEN_ETF_CLIP = [SOFT_FROZEN_ETF_LO, SOFT_FROZEN_ETF_HI]
+# Prose / markdown emitters — import this instead of hardcoding.
 SOFT_FROZEN_FIN_CLIP_TXT = f"[{SOFT_FROZEN_FIN_LO:.2f}, {SOFT_FROZEN_FIN_HI:.2f}]"
+SOFT_FROZEN_CLIP_TXT = (
+    f"F{SOFT_FROZEN_FIN_CLIP_TXT} "
+    f"T[{SOFT_FROZEN_TEL_LO:.2f}, {SOFT_FROZEN_TEL_HI:.2f}] "
+    f"E[{SOFT_FROZEN_ETF_LO:.2f}, {SOFT_FROZEN_ETF_HI:.2f}]"
+)
+
+
+def soft_frozen_fin_hi_for_dates(dates) -> pd.Series:
+    """Per-row FIN hi for tip QC: prior hi before CLIP_FLIP_ASOF, else live hi."""
+    s = pd.Series(dates)
+    idx = pd.to_datetime(s)
+    asof = pd.Timestamp(SOFT_FROZEN_CLIP_FLIP_ASOF)
+    return pd.Series(
+        np.where(idx < asof, SOFT_FROZEN_PRIOR_FIN_HI, SOFT_FROZEN_FIN_HI),
+        index=s.index,
+        dtype=float,
+    )
 
 # Causal blend / rebalance threshold (shared).
-START_WEIGHTS = np.array([0.90, 0.10, 0.00], dtype=float)
+# Must stay inside Soft-Frozen box ∩ simplex (FIN hi=0.80 after 2026-09-25 flip).
+START_WEIGHTS = np.array([0.80, 0.10, 0.10], dtype=float)
 BLEND_OLD = 0.75
 BLEND_NEW = 0.25
 REBALANCE_L1_MIN = 0.02
@@ -147,12 +173,13 @@ def build_soft_frozen_targets(market: pd.DataFrame):
     score = 0.35 * _z(m20) + 0.35 * _z(m60) - 0.20 * _z(sv) + 0.10 * _z(d60)
 
     out = []
-    cur = START_WEIGHTS.copy()
+    cur = apply_soft_frozen_clips(START_WEIGHTS.copy())
     for i, _dt in enumerate(prices.index):
         pri = REGIME_PRIORS[str(regime.iloc[i])]
         cand = np.maximum(pri + 0.10 * np.clip(score.iloc[i].to_numpy(), -2.0, 2.0), 0.0)
         cand = apply_soft_frozen_clips(cand)
         desired = BLEND_OLD * cur + BLEND_NEW * cand
+        desired = apply_soft_frozen_clips(desired)
         if float(np.abs(desired - cur).sum()) >= REBALANCE_L1_MIN:
             cur = desired
         out.append(cur.copy())

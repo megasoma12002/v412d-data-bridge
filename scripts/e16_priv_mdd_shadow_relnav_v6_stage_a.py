@@ -162,7 +162,7 @@ V6_SPECS = [
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "outputs").mkdir(exist_ok=True)
-    assert list(soft.SOFT_FROZEN_FIN_CLIP) == [0.6, 0.9]
+    assert list(soft.SOFT_FROZEN_FIN_CLIP) == [0.6, 0.8]
     assert abs(DELTA - 0.05) < 1e-12
 
     print("building extended market ...", flush=True)

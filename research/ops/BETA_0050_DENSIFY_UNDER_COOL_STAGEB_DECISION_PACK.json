@@ -1,0 +1,29 @@
+{
+  "label": "BETA_0050_DENSIFY_UNDER_COOL_STAGEB_DECISION",
+  "generated_at_utc": "2026-09-25T09:51:50Z",
+  "status": "STAGE_B_HELD_FLAT_TIP_FAIL",
+  "verdict": "HELD_FLAT_TIP_FAIL",
+  "hit_ids": [],
+  "held_flat_tip_fail_ids": [
+    "B2_F0.60-0.82_T0.03-0.35_E0.00-0.40",
+    "B2_F0.60-0.82_T0.03-0.35_E0.00-0.42",
+    "B2_F0.60-0.82_T0.03-0.35_E0.00-0.45",
+    "B2_F0.60-0.82_T0.03-0.35_E0.00-0.48",
+    "B2_F0.60-0.82_T0.03-0.35_E0.00-0.50",
+    "B2_F0.60-0.85_T0.03-0.35_E0.00-0.40",
+    "B2_F0.60-0.85_T0.03-0.35_E0.00-0.42",
+    "B2_F0.60-0.85_T0.03-0.35_E0.00-0.45",
+    "B2_F0.60-0.85_T0.03-0.35_E0.00-0.48",
+    "B2_F0.60-0.85_T0.03-0.35_E0.00-0.50"
+  ],
+  "best": "B2_F0.60-0.82_T0.03-0.35_E0.00-0.40",
+  "objective": "held MDD↑≥0 · CAGR lift≥+0.20pp · tip MDD OK · |MDD|≤15%",
+  "binding": [
+    "Soft-Frozen live clip KEEP until Class D ACCEPT",
+    "Human objective: MDD flat + CAGR improve",
+    "No live wire from Stage B"
+  ],
+  "next": "Held flat exists but tip fails — tip-safe densify or new mechanism",
+  "charter": "research/ops/BETA_0050_DENSIFY_UNDER_COOL_STAGEB_CHARTER.md",
+  "stage_b": "research/ops/BETA_0050_DENSIFY_UNDER_COOL_STAGEB_SCREEN.md"
+}

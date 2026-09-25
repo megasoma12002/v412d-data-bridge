@@ -43,6 +43,7 @@ SLEEVE_TILT_JSON = ROOT / "research/ops/SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json
 FUSE_ADDITIVE_JSON = ROOT / "research/ops/FUSE_ADDITIVE_MONTH_END_MONITOR.json"
 E45_DEFEND_HANDOFF_JSON = ROOT / "research/ops/E45_DEFEND_HANDOFF_MONTH_END_MONITOR.json"
 COOL_C8_PROXY_JSON = ROOT / "research/ops/COOL_C8_PROXY_MONTH_END_MONITOR.json"
+BETA_0050_DENSIFY_JSON = ROOT / "research/ops/BETA_0050_DENSIFY_MONTH_END_MONITOR.json"
 RECON_JSON = ROOT / "research/ops/LIVE_PAPER_RECON.json"
 GAP6_JSON = ROOT / "research/ops/E22_GAP6_FIDELITY_KPI.json"
 E22_KPI_JSON = ROOT / "research/ops/E22_DATA_QUALITY_KPI.json"
@@ -148,6 +149,7 @@ def main() -> int:
         ("fuse_additive_month_end", FUSE_ADDITIVE_JSON),
         ("e45_defend_handoff_month_end", E45_DEFEND_HANDOFF_JSON),
         ("cool_c8_proxy_month_end", COOL_C8_PROXY_JSON),
+        ("beta_0050_densify_month_end", BETA_0050_DENSIFY_JSON),
     ]
     if E45_BLEND025_ALERT_SCAN:
         monitor_sources.insert(4, ("e45_blend025_month_end", E45_BLEND025_JSON))

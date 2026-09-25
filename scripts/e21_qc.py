@@ -100,7 +100,16 @@ def main() -> None:
     fin = sig["e16_financial"].astype(float)
     sleeve_sum = sig[["e16_financial", "e16_telecom", "e16_0050"]].sum(1)
     # Soft-Frozen Financial envelope — import bounds, never hardcode.
-    from e16_soft_frozen_base import FIN, TEL, SOFT_FROZEN_FIN_HI, SOFT_FROZEN_FIN_LO
+    # Forward-only: tip rows before CLIP_FLIP_ASOF may use PRIOR_FIN_HI.
+    from e16_soft_frozen_base import (
+        FIN,
+        TEL,
+        SOFT_FROZEN_FIN_LO,
+        soft_frozen_fin_hi_for_dates,
+    )
+
+    fin_hi = soft_frozen_fin_hi_for_dates(sig["date"])
+    fin_hi.index = sig.index
 
     # Risk overlay (legacy DH or live COOL) may scale sleeve weights (<1 → residual cash).
     # Prefer pre-overlay Financial for Soft-Frozen clip when recorded. Mixed tip
@@ -139,13 +148,14 @@ def main() -> None:
         fin_clip = pre_cool.where(pre_cool.notna(), pre_dh)
         need_scale = fin_clip.isna() & (exp > 0)
         fin_clip = fin_clip.where(~need_scale, fin / exp.replace(0.0, float("nan")))
-        checks["soft_frozen_fin_clip"] = bool(
-            fin_clip.dropna().between(SOFT_FROZEN_FIN_LO - 1e-9, SOFT_FROZEN_FIN_HI + 1e-9).all()
+        ok = fin_clip.isna() | (
+            (fin_clip >= SOFT_FROZEN_FIN_LO - 1e-9) & (fin_clip <= fin_hi + 1e-9)
         )
+        checks["soft_frozen_fin_clip"] = bool(ok.all())
     else:
         checks["weights_sum_one"] = bool(((sleeve_sum - 1).abs() < 1e-8).all())
         checks["soft_frozen_fin_clip"] = bool(
-            ((fin >= SOFT_FROZEN_FIN_LO - 1e-9) & (fin <= SOFT_FROZEN_FIN_HI + 1e-9)).all()
+            ((fin >= SOFT_FROZEN_FIN_LO - 1e-9) & (fin <= fin_hi + 1e-9)).all()
         )
     checks["nav_positive"] = bool((nav.nav_e16_e18 > 0).all())
     checks["no_negative_cash"] = bool((nav.cash >= -1).all())

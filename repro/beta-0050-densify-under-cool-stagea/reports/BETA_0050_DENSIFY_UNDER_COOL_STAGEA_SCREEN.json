@@ -1,0 +1,761 @@
+{
+  "schema_version": "beta_0050_densify_under_cool_stagea_v1",
+  "charter_id": "BETA_0050_DENSIFY_UNDER_COOL_STAGEA_CHARTER",
+  "screen_id": "BETA_0050_DENSIFY_UNDER_COOL_STAGEA_SCREEN",
+  "generated_at_utc": "2026-09-25T09:37:29Z",
+  "verdict": "BETA_0050_HIT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "cool_frozen": true,
+  "base_id": "BASE_FUSE_COOL",
+  "base_windows": {
+    "full": {
+      "cagr": 0.120183,
+      "max_drawdown": -0.146191,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.085896,
+      "max_drawdown": -0.13507,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.135543,
+      "max_drawdown": -0.146191,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.167614,
+      "max_drawdown": -0.069176,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.150664,
+      "max_drawdown": -0.146191,
+      "n_days": 1870
+    }
+  },
+  "n_challengers": 10,
+  "hit_ids": [
+    "BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50"
+  ],
+  "best": "BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50",
+  "prior_offense_soft": "OFFENSE_CAGR_UNDER_COOL (#282) Soft/Sleeve densify SOFT",
+  "rows": [
+    {
+      "id": "BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50",
+      "track": "E_HI_FIN_ROOM",
+      "meta": {
+        "fin": [
+          0.6,
+          0.8
+        ],
+        "tel": [
+          0.03,
+          0.35
+        ],
+        "etf": [
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.763,
+        "Telecom": 0.1406,
+        "0050": 0.0964
+      },
+      "n_fills": 8288,
+      "windows": {
+        "full": {
+          "cagr": 0.123209,
+          "max_drawdown": -0.146837,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086107,
+          "max_drawdown": -0.132008,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131823,
+          "max_drawdown": -0.146837,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.184149,
+          "max_drawdown": -0.064189,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156382,
+          "max_drawdown": -0.146837,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156382,
+      "held_mdd": -0.146837,
+      "held_cagr_lift_pp": 0.5718,
+      "held_mdd_improve_pp": -0.0646,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.1892,
+          "cagr_giveback_pp": -2.3532,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.1892,
+          "cagr_giveback_pp": -1.8769,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": true,
+      "cagr_hit": true,
+      "hit": true
+    },
+    {
+      "id": "BETA_F0.60-0.80_T0.03-0.35_E0.10-0.50",
+      "track": "E_FLOOR",
+      "meta": {
+        "fin": [
+          0.6,
+          0.8
+        ],
+        "tel": [
+          0.03,
+          0.35
+        ],
+        "etf": [
+          0.1,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.749,
+        "Telecom": 0.1226,
+        "0050": 0.1284
+      },
+      "n_fills": 6126,
+      "windows": {
+        "full": {
+          "cagr": 0.124412,
+          "max_drawdown": -0.148786,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.088161,
+          "max_drawdown": -0.136339,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.134539,
+          "max_drawdown": -0.148786,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.181619,
+          "max_drawdown": -0.082518,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156642,
+          "max_drawdown": -0.148786,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156642,
+      "held_mdd": -0.148786,
+      "held_cagr_lift_pp": 0.5978,
+      "held_mdd_improve_pp": -0.2595,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.055,
+          "cagr_giveback_pp": -3.5291,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.055,
+          "cagr_giveback_pp": -2.9833,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": true,
+      "hit": false
+    },
+    {
+      "id": "BETA_F0.60-0.85_T0.03-0.35_E0.10-0.45",
+      "track": "E_FLOOR",
+      "meta": {
+        "fin": [
+          0.6,
+          0.85
+        ],
+        "tel": [
+          0.03,
+          0.35
+        ],
+        "etf": [
+          0.1,
+          0.45
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7664,
+        "Telecom": 0.1138,
+        "0050": 0.1198
+      },
+      "n_fills": 6639,
+      "windows": {
+        "full": {
+          "cagr": 0.123303,
+          "max_drawdown": -0.148882,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087503,
+          "max_drawdown": -0.136496,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.134104,
+          "max_drawdown": -0.148882,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.178589,
+          "max_drawdown": -0.084984,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155052,
+          "max_drawdown": -0.148882,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155052,
+      "held_mdd": -0.148882,
+      "held_cagr_lift_pp": 0.4388,
+      "held_mdd_improve_pp": -0.2691,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.3144,
+          "cagr_giveback_pp": -3.6333,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.3144,
+          "cagr_giveback_pp": -3.109,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": true,
+      "hit": false
+    },
+    {
+      "id": "BETA_F0.60-0.85_T0.03-0.35_E0.00-0.45",
+      "track": "E_HI_FIN_ROOM",
+      "meta": {
+        "fin": [
+          0.6,
+          0.85
+        ],
+        "tel": [
+          0.03,
+          0.35
+        ],
+        "etf": [
+          0.0,
+          0.45
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7858,
+        "Telecom": 0.1284,
+        "0050": 0.0858
+      },
+      "n_fills": 8860,
+      "windows": {
+        "full": {
+          "cagr": 0.121023,
+          "max_drawdown": -0.142534,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084668,
+          "max_drawdown": -0.134636,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.13309,
+          "max_drawdown": -0.142534,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.17618,
+          "max_drawdown": -0.066715,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.153405,
+          "max_drawdown": -0.142534,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.153405,
+      "held_mdd": -0.142534,
+      "held_cagr_lift_pp": 0.2741,
+      "held_mdd_improve_pp": 0.3657,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.1196,
+          "cagr_giveback_pp": -2.2331,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.1196,
+          "cagr_giveback_pp": -1.7578,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": true,
+      "hit": false
+    },
+    {
+      "id": "BETA_F0.60-0.85_T0.03-0.35_E0.00-0.50",
+      "track": "E_HI_FIN_ROOM",
+      "meta": {
+        "fin": [
+          0.6,
+          0.85
+        ],
+        "tel": [
+          0.03,
+          0.35
+        ],
+        "etf": [
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7859,
+        "Telecom": 0.1283,
+        "0050": 0.0858
+      },
+      "n_fills": 8860,
+      "windows": {
+        "full": {
+          "cagr": 0.121023,
+          "max_drawdown": -0.142534,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084668,
+          "max_drawdown": -0.134636,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.13309,
+          "max_drawdown": -0.142534,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.17618,
+          "max_drawdown": -0.066715,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.153405,
+          "max_drawdown": -0.142534,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.153405,
+      "held_mdd": -0.142534,
+      "held_cagr_lift_pp": 0.2741,
+      "held_mdd_improve_pp": 0.3657,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.1196,
+          "cagr_giveback_pp": -2.2331,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.1196,
+          "cagr_giveback_pp": -1.7578,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": true,
+      "hit": false
+    },
+    {
+      "id": "BETA_F0.60-0.85_T0.05-0.35_E0.05-0.45",
+      "track": "E_FLOOR_TEL",
+      "meta": {
+        "fin": [
+          0.6,
+          0.85
+        ],
+        "tel": [
+          0.05,
+          0.35
+        ],
+        "etf": [
+          0.05,
+          0.45
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7742,
+        "Telecom": 0.1304,
+        "0050": 0.0954
+      },
+      "n_fills": 7421,
+      "windows": {
+        "full": {
+          "cagr": 0.121246,
+          "max_drawdown": -0.146271,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.085416,
+          "max_drawdown": -0.136336,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131399,
+          "max_drawdown": -0.146271,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.177747,
+          "max_drawdown": -0.069817,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.153239,
+          "max_drawdown": -0.146271,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.153239,
+      "held_mdd": -0.146271,
+      "held_cagr_lift_pp": 0.2575,
+      "held_mdd_improve_pp": -0.008,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.1292,
+          "cagr_giveback_pp": -3.1417,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.1292,
+          "cagr_giveback_pp": -2.4066,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": true,
+      "hit": false
+    },
+    {
+      "id": "BETA_F0.60-0.90_T0.03-0.35_E0.05-0.40",
+      "track": "E_FLOOR",
+      "meta": {
+        "fin": [
+          0.6,
+          0.9
+        ],
+        "tel": [
+          0.03,
+          0.35
+        ],
+        "etf": [
+          0.05,
+          0.4
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7887,
+        "Telecom": 0.1183,
+        "0050": 0.093
+      },
+      "n_fills": 8424,
+      "windows": {
+        "full": {
+          "cagr": 0.1201,
+          "max_drawdown": -0.147044,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.085276,
+          "max_drawdown": -0.138129,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.133315,
+          "max_drawdown": -0.147044,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.171012,
+          "max_drawdown": -0.071528,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.151078,
+          "max_drawdown": -0.147044,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.151078,
+      "held_mdd": -0.147044,
+      "held_cagr_lift_pp": 0.0414,
+      "held_mdd_improve_pp": -0.0853,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0564,
+          "cagr_giveback_pp": -2.1389,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0564,
+          "cagr_giveback_pp": -1.523,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": false,
+      "hit": false
+    },
+    {
+      "id": "BETA_F0.60-0.90_T0.03-0.35_E0.00-0.40",
+      "track": "E_HI",
+      "meta": {
+        "fin": [
+          0.6,
+          0.9
+        ],
+        "tel": [
+          0.03,
+          0.35
+        ],
+        "etf": [
+          0.0,
+          0.4
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.798,
+        "Telecom": 0.1216,
+        "0050": 0.0804
+      },
+      "n_fills": 9530,
+      "windows": {
+        "full": {
+          "cagr": 0.120183,
+          "max_drawdown": -0.146191,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.085896,
+          "max_drawdown": -0.13507,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.135543,
+          "max_drawdown": -0.146191,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.167614,
+          "max_drawdown": -0.069176,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.150664,
+          "max_drawdown": -0.146191,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.150664,
+      "held_mdd": -0.146191,
+      "held_cagr_lift_pp": -0.0,
+      "held_mdd_improve_pp": 0.0,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": false,
+      "hit": false
+    },
+    {
+      "id": "BETA_F0.60-0.90_T0.03-0.35_E0.00-0.45",
+      "track": "E_HI",
+      "meta": {
+        "fin": [
+          0.6,
+          0.9
+        ],
+        "tel": [
+          0.03,
+          0.35
+        ],
+        "etf": [
+          0.0,
+          0.45
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7979,
+        "Telecom": 0.1216,
+        "0050": 0.0805
+      },
+      "n_fills": 9530,
+      "windows": {
+        "full": {
+          "cagr": 0.120183,
+          "max_drawdown": -0.146191,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.085896,
+          "max_drawdown": -0.13507,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.135543,
+          "max_drawdown": -0.146191,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.167614,
+          "max_drawdown": -0.069176,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.150664,
+          "max_drawdown": -0.146191,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.150664,
+      "held_mdd": -0.146191,
+      "held_cagr_lift_pp": -0.0,
+      "held_mdd_improve_pp": 0.0,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": false,
+      "hit": false
+    },
+    {
+      "id": "BETA_F0.60-0.90_T0.03-0.35_E0.00-0.50",
+      "track": "E_HI",
+      "meta": {
+        "fin": [
+          0.6,
+          0.9
+        ],
+        "tel": [
+          0.03,
+          0.35
+        ],
+        "etf": [
+          0.0,
+          0.5
+        ]
+      },
+      "mean_target": {
+        "Financial": 0.7979,
+        "Telecom": 0.1216,
+        "0050": 0.0806
+      },
+      "n_fills": 9530,
+      "windows": {
+        "full": {
+          "cagr": 0.120183,
+          "max_drawdown": -0.146191,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.085896,
+          "max_drawdown": -0.13507,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.135543,
+          "max_drawdown": -0.146191,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.167614,
+          "max_drawdown": -0.069176,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.150664,
+          "max_drawdown": -0.146191,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.150664,
+      "held_mdd": -0.146191,
+      "held_cagr_lift_pp": -0.0,
+      "held_mdd_improve_pp": 0.0,
+      "in_mdd_band": true,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "tip_ok": false,
+      "cagr_hit": false,
+      "hit": false
+    }
+  ],
+  "non_actions": [
+    "No Soft-Frozen live clip flip from Stage A",
+    "No 公+民 mix / FinPriv expand",
+    "No COOL retune / DH re-enable"
+  ]
+}

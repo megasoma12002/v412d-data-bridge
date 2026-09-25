@@ -2,7 +2,7 @@
 
 Generated: `2026-09-25T05:03:33.154746+00:00`
 Overall: **HIGH**
-Soft-Frozen **[0.60, 0.90] unchanged**. No auto cutover.
+Soft-Frozen **F[0.60, 0.80] / E[0.00, 0.50] unchanged** (β densify live). No auto cutover.
 
 - CRITICAL: 0
 - HIGH (PAUSE_REVIEW etc.): 7

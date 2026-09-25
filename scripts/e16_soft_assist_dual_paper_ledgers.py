@@ -149,7 +149,7 @@ SPEC = DualPaperLedgerSpec(
     chal_nav_name=CHAL_NAV_NAME,
     write_fills=False,
     base_targets_name=None,
-    soft_frozen_clip=(0.6, 0.9),
+    soft_frozen_clip=(0.6, 0.8),
     preflight=preflight_live_kd(LIVE_KD, refuse_soft_assist_leak=True),
     report_fn=report,
 )
