@@ -1,129 +1,45 @@
 {
-  "asof": "2026-09-24",
-  "status": "OPEN",
-  "is_session": true,
-  "broker_submit_allowed": true,
-  "skipped": false,
-  "reason": "session open or confirmed",
+  "asof": "2026-09-25",
+  "status": "CLOSED_HOLIDAY",
+  "is_session": false,
+  "broker_submit_allowed": false,
+  "skipped": true,
+  "reason": "no trading session (CLOSED_HOLIDAY)",
   "notes": [
-    "annual planned SESSION",
-    "MIS delayed quote d==asof + open price"
+    "annual:holidaySchedule"
   ],
   "sources": {
     "annual_calendar": {
-      "date": "2026-09-24",
-      "is_session": "1",
-      "is_settlement": "1",
-      "kind": "SESSION",
-      "name": "",
-      "source": "weekday_default",
-      "notes": ""
-    },
-    "dgpa_cap": {
-      "closes_twse": false,
-      "afternoon_only": false,
-      "n_hits": 0
-    },
-    "mis_quote": {
-      "open": true,
-      "n_hits": 3,
-      "rows": [
-        {
-          "ex_ch": "tse_t00.tw",
-          "open_signal": true,
-          "c": "t00",
-          "d": "20260924",
-          "o": "48075.39",
-          "t": "13:31:00",
-          "v": null,
-          "rtcode": "0000"
-        },
-        {
-          "ex_ch": "tse_0050.tw",
-          "open_signal": true,
-          "c": "0050",
-          "d": "20260924",
-          "o": "112.0000",
-          "t": "13:30:00",
-          "v": "66000",
-          "rtcode": "0000"
-        },
-        {
-          "ex_ch": "tse_2330.tw",
-          "open_signal": true,
-          "c": "2330",
-          "d": "20260924",
-          "o": "2480.0000",
-          "t": "13:30:00",
-          "v": "12990",
-          "rtcode": "0000"
-        }
-      ]
+      "date": "2026-09-25",
+      "is_session": "0",
+      "is_settlement": "0",
+      "kind": "CLOSED_HOLIDAY",
+      "name": "中秋節",
+      "source": "holidaySchedule",
+      "notes": "依規定放假1日。"
     }
   },
-  "generated_at": "2026-09-24T21:39:29.238875+08:00",
+  "generated_at": "2026-09-25T13:07:09.188865+08:00",
   "soft_frozen_untouched": true,
   "probe": {
-    "asof": "2026-09-24",
-    "weekday": 3,
-    "status": "OPEN",
-    "broker_submit_allowed": true,
-    "is_session": true,
+    "asof": "2026-09-25",
+    "weekday": 4,
+    "status": "CLOSED_HOLIDAY",
+    "broker_submit_allowed": false,
+    "is_session": false,
     "sources": {
       "annual_calendar": {
-        "date": "2026-09-24",
-        "is_session": "1",
-        "is_settlement": "1",
-        "kind": "SESSION",
-        "name": "",
-        "source": "weekday_default",
-        "notes": ""
-      },
-      "dgpa_cap": {
-        "closes_twse": false,
-        "afternoon_only": false,
-        "n_hits": 0
-      },
-      "mis_quote": {
-        "open": true,
-        "n_hits": 3,
-        "rows": [
-          {
-            "ex_ch": "tse_t00.tw",
-            "open_signal": true,
-            "c": "t00",
-            "d": "20260924",
-            "o": "48075.39",
-            "t": "13:31:00",
-            "v": null,
-            "rtcode": "0000"
-          },
-          {
-            "ex_ch": "tse_0050.tw",
-            "open_signal": true,
-            "c": "0050",
-            "d": "20260924",
-            "o": "112.0000",
-            "t": "13:30:00",
-            "v": "66000",
-            "rtcode": "0000"
-          },
-          {
-            "ex_ch": "tse_2330.tw",
-            "open_signal": true,
-            "c": "2330",
-            "d": "20260924",
-            "o": "2480.0000",
-            "t": "13:30:00",
-            "v": "12990",
-            "rtcode": "0000"
-          }
-        ]
+        "date": "2026-09-25",
+        "is_session": "0",
+        "is_settlement": "0",
+        "kind": "CLOSED_HOLIDAY",
+        "name": "中秋節",
+        "source": "holidaySchedule",
+        "notes": "依規定放假1日。"
       }
     },
     "notes": [
-      "annual planned SESSION",
-      "MIS delayed quote d==asof + open price"
+      "annual:holidaySchedule"
     ]
   }
 }
