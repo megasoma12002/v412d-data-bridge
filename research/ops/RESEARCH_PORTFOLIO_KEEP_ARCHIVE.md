@@ -3,7 +3,7 @@
 Date: 2026-09-13 (batch seal) · prior lock 2026-09-09  
 Status: **LOCKED** · human ballot **`請封存`** (2026-09-13)  
 Authority: `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · Kelly `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` · E45_BLEND025 `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md` · register `HUMAN_DECISION_REGISTER.md`  
-Soft-Frozen: **KEEP** · DEFAULT **`E22_v2s_tw` KEEP** · live capital **500M** · live overlay **DH_dd06 + FUSE_ADDITIVE**
+Soft-Frozen: **KEEP** · live DEFAULT **`E22_v3_recv_pay_effdelay`** (Stage-E; tip aligned) · preserved cash-on-ex **`E22_v2s_tw_effex`** for FUSE offense history only · live capital **500M** · live overlay **DH_dd06 + FUSE_ADDITIVE**
 
 ## KEEP (active agenda)
 

@@ -1,6 +1,6 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-19 (Ops residual 全修 ACCEPT + tip books align + E45 A05 residue cleanup + drop auto-fuse agenda; SSOT after DH+FUSE)  
+Date: 2026-09-25 (SSOT hygiene: tip books aligned · payment-date preserve · HANDOFF/README DEFAULT drift fixed · PR hygiene covers E22/cashflow)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
 **Cutover `#257`: CLOSED** (not merged) · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` · live KEEP 公股+FUSE+DH · reopen only new mechanism or sealed-gate  
@@ -27,9 +27,13 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** |
 | Overlay | **`FUSE_ADDITIVE`** + **`DH_dd06`** (`LIVE_FUSE_ADDITIVE` / `LIVE_DH_EXPOSURE`) |
 | Legacy A05 stitch | **DROPPED** (`ACCEPT_2026-09-09_DROP_E45_A05`) — see `E45_A05_STITCH_DROPPED.md` |
-| Daily job | `.github/workflows/v412f-forward-paper.yml` (weekdays) |
+| Daily job | `.github/workflows/v412f-forward-paper.yml` (weekdays; **holiday = no tip advance**) |
 | QC smoke | `.github/workflows/e21-live-qc-smoke.yml` |
 | QC | `scripts/e21_qc.py` → `forward/e21/qc_status.json` |
+
+**Books dual clock (intentional — not tip lag):** tip / Stage-E DEFAULT = `E22_v3_recv_pay_effdelay`; FUSE offense full-history rebuild pins preserved cash-on-ex `E22_v2s_tw_effex` (`live_dh_fuse_cutover`). Do not “fix” tip lag by rewriting history.  
+**Cash clocks (never merge):** A Exact T+1 `portfolio_state.cash` · B R4 `settled_cash_estimate` · C cash+`e22_receivables` — see `CASHFLOW_THREE_VIEWS.md`.  
+**FinMind:** hourly quota + payment-date preserve — `FINMIND_API_QUOTA_AND_RETRY.md`.
 
 **Not live (paper / archive):** independent Soft-assist · Sleeve-tilt · FINCAP BLEND_025 · FIN 民營 native · FIN_CAP_50 · L4 · E50-A · legacy E45 A05 blend stitch · Track A/B · E6/E9/E10 shadows.
 

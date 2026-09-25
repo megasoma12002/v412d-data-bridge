@@ -1,17 +1,15 @@
 {
-  "generated_at_utc": "2026-09-24T13:43:33.623568+00:00",
+  "generated_at_utc": "2026-09-25T05:03:33.204909+00:00",
   "label": "POST_FORWARD_E22_VERIFY",
   "phase": "0_1",
   "live_wire": false,
   "soft_frozen_keep": true,
-  "state_dir": "/home/runner/work/v412d-data-bridge/v412d-data-bridge/forward/e21",
+  "state_dir": "/workspace/forward/e21",
   "stage_e_default": "E22_v3_recv_pay_effdelay",
   "tip_lag": false,
   "ok": true,
   "failures": [],
-  "notes": [
-    "DQ_FLAGS_REPORT_ONLY: cash_payment_date_blank_rate>2%"
-  ],
+  "notes": [],
   "steps": {
     "r4_assert": {
       "csv_exists": true,
@@ -34,11 +32,9 @@
       "tip_lag": false
     },
     "data_quality": {
-      "rc": 1,
-      "kpi_ok": false,
-      "flags": [
-        "cash_payment_date_blank_rate>2%"
-      ],
+      "rc": 0,
+      "kpi_ok": true,
+      "flags": [],
       "fail_closed": false
     },
     "ops_alert_scan": {
@@ -46,7 +42,7 @@
       "overall": "HIGH",
       "n_critical": 0,
       "n_high": 7,
-      "n_info": 28
+      "n_info": 27
     },
     "cashflow_three_views": {
       "ok": true,
