@@ -43,7 +43,7 @@ Finite grids freeze in `scripts/held_mdd17_r2_tipsafe_fast_stageb_screen.py`.
 
 | Metric | Target |
 |---|---|
-| held MDD band | `−0.145 ≤ max_drawdown ≤ −0.13` |
+| held MDD band | `−0.15 ≤ max_drawdown ≤ −0.13` (**human ACCEPT** floor −15%; was −14.5%) |
 | held CAGR giveback | preserve class ≤ **0.70 pp** (stretch ≤ **0.56 pp**) |
 | tip YTD + trailing 1y | `mdd_improve_pp >= 0` each |
 
@@ -68,14 +68,20 @@ Even HIT → **paper observe ballot only**; never live wire from Stage B.
 
 ## Stage B result (2026-09-25)
 
-Verdict: **`TIP_FAIL`**.
+Initial (−14.5% floor): **`TIP_FAIL`**.
 
-No recipe jointly clears **ACCEPT band [−14.5%, −13%]** + tip YTD/1y MDD hygiene + held gb ≤ 0.70pp.
+### Human ACCEPT band floor −15% (same day) + rescore
 
-| class | example | held MDD | held gb | tip |
-|---|---|---:|---:|---|
-| in-band, tip **fail** | `ANCHOR_FAST_…_d21` · `COOL_c5_f50_d21` | −14.45% / −14.42% | +0.56 / **−0.07** | fail |
-| tip OK, just outside band | **`GATE_g04_f50_d21`** | **−14.61%** | **+0.39** | pass |
-| tip OK, near | `COOL_c8_f50_d21` | −14.86% | **+0.27** | pass |
+Ballot: `ACCEPT_R2_MDD_BAND_FLOOR_15_2026-09-25.md`  
+Rescore verdict: **`TIPSAFE_STRETCH`**.
 
-Reading: tip-safety and the −14.5% floor still trade off. Closest tip-safe preserve-class signal is **`GATE_g04_f50_d21`** (0.11pp deeper than floor). Soft-Frozen KEEP — no live wire.
+| id | held CAGR | held MDD | held gb | tip |
+|---|---:|---:|---:|---|
+| **`COOL_c8_f50_d21`** | 15.29% | −14.86% | **+0.27 pp** | pass |
+| **`GATE_g04_f50_d21`** | 15.17% | −14.61% | **+0.39 pp** | pass |
+
+Both preserve better than FAST anchor gb (~+0.56) with tip hygiene. Soft-Frozen KEEP.
+
+### Paper observe OPEN (same day)
+
+Human: `開 COOL_c8_f50_d21 paper observe` → **EXECUTED OPEN OBSERVE** · dual-paper **OPERATING** · cutover **BLOCKED** · `COOL_C8_PROXY_OBSERVE_BALLOT_EXECUTED_OPEN.md`.
