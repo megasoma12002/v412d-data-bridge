@@ -1,0 +1,42 @@
+{
+  "label": "PRIV_FINHC_CAGR_MDD_GATE_V7_CHARTER",
+  "date": "2026-09-25",
+  "status": "CHARTER_OPEN_STAGE_A_READY",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_live": {
+    "soft_frozen": "F[0.60,0.80]_T[0.03,0.35]_E[0.00,0.50]",
+    "fin_within": "KD_OPT",
+    "tel_within": "TEL_EQUAL",
+    "fuse": true,
+    "cool": "COOL_c8_f50_d21"
+  },
+  "universe": {
+    "fin_pub": ["2880", "2886", "2892", "5880"],
+    "fin_priv": ["2884", "2885", "2890", "2891", "2881", "2882"],
+    "tel": ["2412", "3045", "4904"],
+    "etf": ["0050"]
+  },
+  "mechanism": "gated_carve_out_v7",
+  "gates": ["REG_BULL", "REG_BULL_SIDE", "MA60_0050", "MA120_0050", "RS60_PRIV_GT_PUB"],
+  "priv_frac": [0.05, 0.1, 0.15],
+  "priv_within": ["EQUAL", "PRIV_KD_MAY"],
+  "objectives": {
+    "maximize_cagr_windows": ["heldout_2019_plus", "sealed_2023_plus"],
+    "minimize_mdd_especially": "sealed_2023_plus",
+    "held_cagr_floor_pp": 0.2,
+    "sealed_mdd_improve_min_pp": 0.0,
+    "held_mdd_improve_min_pp": -0.25
+  },
+  "prior_exhausted": [
+    "PUB_PRIV_COEXIST_MDD",
+    "FIN_PUB_PRIV_DUAL_SLEEVE",
+    "SOFT_FROZEN_4SLEEVE",
+    "PRIV_MDD_NEW_MECH_N1_V6"
+  ],
+  "artifacts": {
+    "charter_en": "research/ops/PRIV_FINHC_CAGR_MDD_GATE_V7_CHARTER.md",
+    "charter_zh": "research/ops/PRIV_FINHC_CAGR_MDD_GATE_V7_CHARTER.zh-TW.md",
+    "stage_a_script": "scripts/priv_finhc_cagr_mdd_gate_v7_stagea.py"
+  }
+}
