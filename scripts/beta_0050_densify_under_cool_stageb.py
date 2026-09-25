@@ -166,7 +166,7 @@ def _target_clips(score, regime, clips):
 def main() -> int:
     for d in (OUT, REP, OPS):
         d.mkdir(parents=True, exist_ok=True)
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.8]
 
     grid = []
     for fhi in FIN_HI:

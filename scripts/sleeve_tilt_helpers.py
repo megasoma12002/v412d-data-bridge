@@ -28,12 +28,13 @@ HUMAN_OPEN = "OPEN Sleeve-tilt observe: SLEEVE_RSI14_LT30_a0225"
 
 def rebuild_targets_from_score(score: pd.DataFrame, regime: pd.Series) -> pd.DataFrame:
     out = []
-    cur = soft.START_WEIGHTS.copy()
+    cur = soft.apply_soft_frozen_clips(soft.START_WEIGHTS.copy())
     for i, _dt in enumerate(score.index):
         pri = soft.REGIME_PRIORS[str(regime.iloc[i])]
         cand = np.maximum(pri + 0.10 * np.clip(score.iloc[i].to_numpy(), -2.0, 2.0), 0.0)
         cand = soft.apply_soft_frozen_clips(cand)
         desired = soft.BLEND_OLD * cur + soft.BLEND_NEW * cand
+        desired = soft.apply_soft_frozen_clips(desired)
         if float(np.abs(desired - cur).sum()) >= soft.REBALANCE_L1_MIN:
             cur = desired
         out.append(cur.copy())

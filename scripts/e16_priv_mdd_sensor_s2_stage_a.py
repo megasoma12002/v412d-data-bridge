@@ -84,7 +84,7 @@ def _extend_rank(row: dict, src: dict) -> dict:
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "outputs").mkdir(exist_ok=True)
-    assert list(soft.SOFT_FROZEN_FIN_CLIP) == [0.6, 0.9]
+    assert list(soft.SOFT_FROZEN_FIN_CLIP) == [0.6, 0.8]
     assert (DEF_DIR / "USDTWD_finmind.csv").exists()
     assert (DEF_DIR / "cbc_rediscount_rate_daily.csv").exists()
 

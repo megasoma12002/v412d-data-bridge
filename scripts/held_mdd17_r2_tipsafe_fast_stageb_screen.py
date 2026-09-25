@@ -221,7 +221,7 @@ def _verdict(rows: list[dict[str, Any]]) -> tuple[str, list[str]]:
 
 
 def main() -> int:
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.8]
     OUT.mkdir(parents=True, exist_ok=True)
     REP.mkdir(parents=True, exist_ok=True)
 

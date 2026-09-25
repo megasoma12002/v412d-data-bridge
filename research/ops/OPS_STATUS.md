@@ -2,7 +2,7 @@
 
 Date: 2026-09-25 (Deferred ops ACCEPT: day-commit atomicity · tip-write gate · broker PREP · Stage-E sandbox research)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
-Live Soft-Frozen Financial clip: **[0.60, 0.90] KEEP**  
+Live Soft-Frozen clips: **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** (β densify ACCEPT 2026-09-25; was FINBAND F[0.60,0.90] E[0.00,0.35])  
 **Cutover `#257`: CLOSED** (not merged) · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` · live KEEP 公股+FUSE+DH · reopen only new mechanism or sealed-gate  
 **Deferred ops ACCEPT:** `ACCEPT_DEFERRED_OPS_HARDEN_2026-09-25.md` · broker PREP `ACCEPT_PREP_BROKER_LIVE_WRITE_2026-09-25.md` · Stage-E sandbox `ACCEPT_RESEARCH_STAGE_E_FULL_HISTORY_SANDBOX_2026-09-25.md`
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
@@ -24,7 +24,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Stack | **E16 + Exact T+1 E18 + E22_v3_recv_pay_effdelay** |
 | Path | `forward/e21/` |
 | Capital / lot | **500M** · board-lot **1000** |
-| Clip | Financial **[0.60, 0.90]** via `scripts/e16_soft_frozen_base.py` |
+| Clip | Financial **[0.60, 0.80]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]** via `scripts/e16_soft_frozen_base.py` |
 | Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** |
 | Overlay | **`FUSE_ADDITIVE` KEEP** + **`COOL_c8_f50_d21`** (`LIVE_FUSE_ADDITIVE` / `LIVE_COOL_EXPOSURE`; **DH replaced** 2026-09-25) |
 | Legacy A05 stitch | **DROPPED** (`ACCEPT_2026-09-09_DROP_E45_A05`) — see `E45_A05_STITCH_DROPPED.md` |

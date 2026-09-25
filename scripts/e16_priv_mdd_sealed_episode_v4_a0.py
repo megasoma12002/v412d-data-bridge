@@ -77,7 +77,7 @@ def find_episodes(w_rel: pd.Series, n: int = N_EPISODES) -> list[dict]:
 
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
-    assert list(soft.SOFT_FROZEN_FIN_CLIP) == [0.6, 0.9]
+    assert list(soft.SOFT_FROZEN_FIN_CLIP) == [0.6, 0.8]
 
     print("building extended market ...", flush=True)
     market = base.build_extended_market()

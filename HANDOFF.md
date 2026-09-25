@@ -14,9 +14,9 @@ Cursor 必須依序讀：
 ## 0.1 Live cutover default（強制）
 
 **現行 live（SSOT；以 `research/ops/OPS_STATUS.md` 為準）：** `forward/e21` = **E16 + Exact T+1 E18 + E22_v3_recv_pay_effdelay**（Stage-E DEFAULT）+ **整股一張=1000** + **起始資本 500M**。  
-**Live Soft-Frozen clips：** FIN **[0.60, 0.90]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.35]**。  
+**Live Soft-Frozen clips：** FIN **[0.60, 0.80]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**（β densify ACCEPT 2026-09-25）。  
 **Within-sleeve：** FIN **`KD_OPT`** · TEL **`TEL_EQUAL`**。  
-**Live overlay：** **`FUSE_ADDITIVE`** + **`DH_dd06`**（ACCEPT `LIVE_DH_FUSE_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`）。  
+**Live overlay：** **`FUSE_ADDITIVE`** + **`COOL_c8_f50_d21`**（DH replaced 2026-09-25）。  
 **Legacy A05 blend stitch：** unused（`LIVE_E45_STITCH=False`）。  
 **Tip books：** catch-up **CONFIRMED** 2026-09-21（`ACCEPT_TIP_BOOKS_ALIGN_V3.md`）— **no history rewrite**；歷史 `nav.csv` 列 immutable KEEP。  
 術語：`TW_SHARE_LOT_DEFINITIONS.md` · 資本：`scripts/portfolio_capital.py` · 組合：`research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`。  

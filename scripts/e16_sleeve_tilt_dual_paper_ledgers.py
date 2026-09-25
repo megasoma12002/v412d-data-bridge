@@ -113,7 +113,7 @@ SPEC = DualPaperLedgerSpec(
     chal_nav_name="sleeve_rsi14_lt30_a0225_daily_nav.csv",
     write_fills=False,
     base_targets_name=None,
-    soft_frozen_clip=(0.6, 0.9),
+    soft_frozen_clip=(0.6, 0.8),
     preflight=preflight_live_kd(LIVE_KD),
     report_fn=report,
 )

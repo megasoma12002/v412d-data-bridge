@@ -167,7 +167,7 @@ SPEC = MultiPaperLedgerSpec(
         ),
     ),
     base_targets_name=None,
-    soft_frozen_clip=(0.6, 0.9),
+    soft_frozen_clip=(0.6, 0.8),
     report_fn=report,
 )
 

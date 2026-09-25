@@ -16,7 +16,7 @@ Research continuation of the V4.12 / E50 program.
 | Role architecture (not live wiring) | `FROZEN_STRATEGY_SPEC.md` |
 | Research rules | `E50_RESEARCH_OPERATING_RULES.md`, `CURSOR_RULES.md` |
 
-**Live today:** E16 + Exact T+1 E18 · Soft-Frozen FIN **[0.60, 0.90]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **DH_dd06** · capital **500M** · board-lot **1000** · path `forward/e21/`.  
+**Live today:** E16 + Exact T+1 E18 · Soft-Frozen **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** · **KD_OPT** · **TEL_EQUAL** · **FUSE_ADDITIVE** · **COOL_c8** · capital **500M** · board-lot **1000** · path `forward/e21/`.  
 **Books DEFAULT = tip (aligned):** `E22_v3_recv_pay_effdelay` (`live_config` / `e22_dividend_accounting.DEFAULT_BOOKS_VERSION`; tip catch-up CONFIRMED 2026-09-21 — **no history rewrite**). FUSE offense full-history NAV still uses preserved cash-on-ex (`E22_v2s_tw_effex`) — intentional dual clock, not tip lag. Legacy A05 blend stitch unused (`LIVE_E45_STITCH=False`). SSOT: `research/ops/OPS_STATUS.md` · portfolio `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`.
 
 **Dev setup:** `pip install -e .` (package `e21-ops`; flat `scripts/*.py` imports). Do not add `sys.path` shims.  

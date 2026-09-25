@@ -150,7 +150,7 @@ def main() -> int:
     OPS.mkdir(parents=True, exist_ok=True)
 
     soft = base.soft
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.8]
     import e21_forward_pipeline as e21
 
     LIVE_KD = base.LIVE_KD

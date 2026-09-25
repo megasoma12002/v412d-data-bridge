@@ -51,8 +51,9 @@ class LiveConfig:
     state_dir: Path = field(default_factory=lambda: Path("forward/e21"))
     market_path: Path = field(default_factory=lambda: Path("forward/e21/live_market.csv"))
 
-    # Soft-Frozen FIN clip — Class D ACCEPT 2026-09-09: FINBAND → [0.60, 0.90]
-    # (bounds owned by e16_soft_frozen_base; this only records within-sleeve policy)
+    # Soft-Frozen clips — Class D ACCEPT 2026-09-25: β densify
+    # F[0.60,0.80] T[0.03,0.35] E[0.00,0.50] (bounds in e16_soft_frozen_base)
+    # Prior FINBAND ACCEPT 2026-09-09: FIN [0.60, 0.90] / ETF [0.00, 0.35]
     live_fin_within_sleeve: str = FIN_PRE_EXDIV_KD
     kd_opt: Mapping[str, Any] = field(default_factory=lambda: MappingProxyType(dict(KD_OPT)))
 

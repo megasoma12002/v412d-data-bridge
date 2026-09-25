@@ -73,7 +73,7 @@ def priv_universe() -> Iterator[None]:
 
 
 def _preflight() -> None:
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.8]
     assert soft.FIN == PUB_R1
 
 
@@ -214,7 +214,7 @@ SPEC = DualPaperLedgerSpec(
     base_targets_name=None,
     capital=float(CAPITAL),
     lot_size=int(LOT),
-    soft_frozen_clip=(0.6, 0.9),
+    soft_frozen_clip=(0.6, 0.8),
     load_market_fn=build_extended_market,
     load_dividends_fn=load_dividends,
     preflight=_preflight,

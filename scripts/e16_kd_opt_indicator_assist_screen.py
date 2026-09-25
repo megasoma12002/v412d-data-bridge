@@ -164,7 +164,7 @@ def rank_key(r: dict) -> tuple:
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "reports").mkdir(exist_ok=True)
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.8]
 
     print("loading ...", flush=True)
     market = load_market()

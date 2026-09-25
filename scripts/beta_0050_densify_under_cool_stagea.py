@@ -214,7 +214,7 @@ def _row(base_w, chal_w, tip, *, rid, track, meta, n_fills, mean_tgt):
 def main() -> int:
     for d in (OUT, REP, OPS):
         d.mkdir(parents=True, exist_ok=True)
-    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.9]
+    assert soft.SOFT_FROZEN_FIN_CLIP == [0.6, 0.8]
     for track, *clips in GRID:
         assert clip.feasible(*clips), (track, clips)
 
