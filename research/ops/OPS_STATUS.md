@@ -27,6 +27,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Clip | Financial **[0.60, 0.90]** via `scripts/e16_soft_frozen_base.py` |
 | Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** |
 | Overlay | **`FUSE_ADDITIVE` KEEP** + **`COOL_c8_f50_d21`** (`LIVE_FUSE_ADDITIVE` / `LIVE_COOL_EXPOSURE`; **DH replaced** 2026-09-25) |
+| Offense CAGR paper | Stage A **`OFFENSE_CAGR_SOFT`** (Soft/Sleeve/FUSE densify under COOL · Soft-Frozen KEEP · no live) · `OFFENSE_CAGR_UNDER_COOL_STAGEA_SCREEN.md` |
 | Legacy A05 stitch | **DROPPED** (`ACCEPT_2026-09-09_DROP_E45_A05`) — see `E45_A05_STITCH_DROPPED.md` |
 | Daily job | `.github/workflows/v412f-forward-paper.yml` (weekdays; **holiday = no tip advance**) |
 | QC smoke | `.github/workflows/e21-live-qc-smoke.yml` |
