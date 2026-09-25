@@ -76,6 +76,10 @@ STEPS_MONITOR = [
         ["python3", "scripts/cool_c8_proxy_month_end_monitor.py"],
     ),
     (
+        "beta_0050_densify_month_end",
+        ["python3", "scripts/beta_0050_densify_month_end_monitor.py"],
+    ),
+    (
         "soft_sleeve_observe_overlap",
         ["python3", "scripts/e16_soft_sleeve_observe_overlap.py"],
     ),
@@ -130,6 +134,10 @@ STEPS_REFRESH = [
     (
         "cool_c8_proxy_dual_paper_ledgers",
         ["python3", "scripts/cool_c8_proxy_dual_paper_ledgers.py"],
+    ),
+    (
+        "beta_0050_densify_dual_paper_ledgers",
+        ["python3", "scripts/beta_0050_densify_dual_paper_ledgers.py"],
     ),
 ]
 
