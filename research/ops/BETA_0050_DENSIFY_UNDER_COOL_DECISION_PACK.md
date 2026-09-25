@@ -33,3 +33,9 @@ Label: `BETA_0050_DENSIFY_UNDER_COOL_DECISION_2026-09-25__BETA_0050_HIT`
 ## Stage B follow-up (MDD flat + CAGR)
 
 Verdict **`HELD_FLAT_TIP_FAIL`**: held MDD↑≥0 + CAGR≥+0.20 exists (best F hi=0.82: +0.49pp / +0.06pp) but **tip MDD fails**. No joint tip-clean MDD-flat CAGR HIT on Stage B grid. Soft-Frozen KEEP.
+
+## Observe (2026-09-25)
+
+Human: **接受近持平** → OPEN paper observe executed.  
+Track: `LIVE_FUSE_COOL` ∥ `BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50` · **OPERATING** · cutover **BLOCKED**.  
+Ballot: `BETA_0050_DENSIFY_OBSERVE_BALLOT_EXECUTED_OPEN.md`

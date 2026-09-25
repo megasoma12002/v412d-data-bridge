@@ -149,6 +149,7 @@ def main() -> int:
         ("fuse_additive_month_end", FUSE_ADDITIVE_JSON),
         ("e45_defend_handoff_month_end", E45_DEFEND_HANDOFF_JSON),
         ("cool_c8_proxy_month_end", COOL_C8_PROXY_JSON),
+        ("beta_0050_densify_month_end", BETA_0050_DENSIFY_JSON),
     ]
     if E45_BLEND025_ALERT_SCAN:
         monitor_sources.insert(4, ("e45_blend025_month_end", E45_BLEND025_JSON))
