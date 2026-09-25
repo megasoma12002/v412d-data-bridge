@@ -1,11 +1,12 @@
 # β / 0050 densify under COOL — Paper Charter (Stage A)
 
 Date: 2026-09-25  
-Status: **PAPER CHARTER OPEN** · Stage A **RUNNING**  
+Status: **CLOSED — BETA_0050_HIT** · Soft-Frozen tip **KEEP** · live wire **false**  
 Parent live: `COOL_c8_f50_d21` + `FUSE_ADDITIVE` KEEP · Soft-Frozen tip **KEEP**  
-Research order (human): (1) live KEEP → (2) offense = **earn 大盤** → (3) skip 公+民 mix → (4) 民股 only with new mechanism
+Research order (human): (1) live KEEP → (2) offense = **earn 大盤** → (3) skip 公+民 mix → (4) 民股 only with new mechanism  
+Stage A hit: **`BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50`** held **+0.57pp** CAGR · MDD **−14.68%** · tip OK (paper observe only)
 
-Label: `BETA_0050_DENSIFY_UNDER_COOL_STAGEA_CHARTER_2026-09-25__PAPER_OPEN__NO_LIVE_WIRE`
+Label: `BETA_0050_DENSIFY_UNDER_COOL_STAGEA_CHARTER_2026-09-25__BETA_0050_HIT__NO_LIVE_WIRE`
 
 ## Philosophy (binding for this charter)
 
@@ -72,4 +73,16 @@ Even HIT → **paper observe ballot only**; Soft-Frozen clip flip = separate Cla
 
 ## Label
 
-`BETA_0050_DENSIFY_UNDER_COOL_STAGEA_CHARTER_2026-09-25__PAPER_OPEN__NO_LIVE_WIRE`
+`BETA_0050_DENSIFY_UNDER_COOL_STAGEA_CHARTER_2026-09-25__BETA_0050_HIT__NO_LIVE_WIRE`
+
+## Stage A result (2026-09-25)
+
+Verdict: **`BETA_0050_HIT`** (1/10).
+
+| id | mean 0050 | held CAGR lift | held MDD | tip |
+|---|---:|---:|---:|:---:|
+| `BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50` | 9.6% | **+0.57pp** | −14.68% | Y |
+
+Reading: raising ETF hi alone with FIN hi still 0.90 ≈ no lift (router still FIN-heavy).  
+**Giving FIN hi room to 0.80** while ETF hi=0.50 clears tip-clean ≥+0.20pp in band.  
+Next: paper observe ballot only — **no** Soft-Frozen live clip flip without Class D ACCEPT.

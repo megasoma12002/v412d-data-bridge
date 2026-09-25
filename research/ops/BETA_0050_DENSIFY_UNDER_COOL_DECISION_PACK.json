@@ -1,0 +1,40 @@
+{
+  "label": "BETA_0050_DENSIFY_UNDER_COOL_DECISION",
+  "generated_at_utc": "2026-09-25T09:37:29Z",
+  "status": "STAGE_A_BETA_0050_HIT",
+  "verdict": "BETA_0050_HIT",
+  "hit_ids": [
+    "BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50"
+  ],
+  "best": "BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50",
+  "binding": [
+    "Soft-Frozen live clip KEEP until Class D ACCEPT",
+    "HIT → paper observe ballot only",
+    "Do not mix 公+民 (0b2 STOP)",
+    "COOL live KEEP",
+    "民股/4-sleeve DEFER"
+  ],
+  "next": "Open dual-paper observe on hit id vs live Soft-Frozen clips (human OPEN ballot)",
+  "charter": "research/ops/BETA_0050_DENSIFY_UNDER_COOL_STAGEA_CHARTER.md",
+  "stage_a": "research/ops/BETA_0050_DENSIFY_UNDER_COOL_STAGEA_SCREEN.md",
+  "order": "research/ops/RESEARCH_ORDER_BETA_DEFENSE.md",
+  "highlight": {
+    "held_cagr_lift_pp": 0.57,
+    "held_mdd": -0.1468,
+    "mean_0050": 0.096,
+    "clips": {
+      "fin": [
+        0.6,
+        0.8
+      ],
+      "tel": [
+        0.03,
+        0.35
+      ],
+      "etf": [
+        0.0,
+        0.5
+      ]
+    }
+  }
+}

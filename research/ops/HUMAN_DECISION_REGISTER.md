@@ -39,6 +39,7 @@ Live Soft-Frozen Financial clip: **[0.60, 0.90]** (FINBAND ACCEPT 2026-09-09; wa
 
 | Decision | Verdict | Binding effect |
 |---|---|---|
+| β／0050 densify under COOL | **HIT paper** (2026-09-25) | `F[0.60,0.80] E[0,0.50]` +0.57pp tip-OK · **observe only** · Soft-Frozen KEEP · `#284` · `BETA_0050_DENSIFY_UNDER_COOL_DECISION_PACK.md` |
 | Active research KEEP | **LOCKED** | FIN quartet (**`MIX_L75`** + **`KD_OPT`**) + E45 **`A05`/`C35`** + month-end gates |
 | FIN within-sleeve live | **`KD_OPT` LIVE** (ACCEPT 2026-09-09) | `FIN_PRE_EXDIV_KD` forward-only; Soft-Frozen KEEP; note `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` |
 | FIN autumn post-ex probe | **STOP** (2026-09-09) | small-search+dual no lift vs KD_OPT · `FIN_KD_AUTUMN_DUAL_SEASON.md` · live KD_OPT untouched |

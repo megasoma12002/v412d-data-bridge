@@ -1,11 +1,12 @@
 # β／0050 densify × COOL — 紙上憲章 Stage A
 
 日期：2026-09-25  
-狀態：**PAPER CHARTER OPEN** · Stage A **執行中**  
+狀態：**CLOSED — BETA_0050_HIT** · Soft-Frozen tip **KEEP** · 不上 live  
 Live：`COOL_c8` + FUSE **KEEP** · Soft-Frozen tip **KEEP**  
-研究順序：(1) live KEEP → (2) 進攻＝**賺大盤** → (3) 不混公+民 → (4) 民股需新機制
+研究順序：(1) live KEEP → (2) 進攻＝**賺大盤** → (3) 不混公+民 → (4) 民股需新機制  
+Stage A 命中：`BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50` held CAGR **+0.57pp** · MDD −14.68% · tip 過 · **只開 paper observe**
 
-標籤：`BETA_0050_DENSIFY_UNDER_COOL_STAGEA_CHARTER_2026-09-25__PAPER_OPEN__NO_LIVE_WIRE`
+標籤：`BETA_0050_DENSIFY_UNDER_COOL_STAGEA_CHARTER_2026-09-25__BETA_0050_HIT__NO_LIVE_WIRE`
 
 ## 理念
 
