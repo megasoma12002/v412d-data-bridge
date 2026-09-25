@@ -1,0 +1,32 @@
+{
+  "label": "WITHIN_SLEEVE_COOL_MICRO_DECISION",
+  "generated_at_utc": "2026-09-25T18:49:36Z",
+  "status": "STAGE_A_NO_FLAT_LIFT",
+  "verdict": "NO_FLAT_LIFT",
+  "live_wire": false,
+  "n_hits": 0,
+  "hit_ids": [],
+  "held_flat_tip_fail_ids": [],
+  "soft_ids": [],
+  "best": "FIN_KD_A15M15_K35_T10",
+  "best_metrics": {
+    "id": "FIN_KD_A15M15_K35_T10",
+    "held_cagr": 0.157742,
+    "held_mdd": -0.151884,
+    "held_cagr_lift_pp": 0.136,
+    "held_mdd_improve_pp": -0.5047,
+    "tip_ok": false,
+    "in_mdd_band": false,
+    "hit": false
+  },
+  "binding": [
+    "Soft-Frozen live clip KEEP until Class D ACCEPT",
+    "Live KD_OPT + TEL_EQUAL KEEP until dedicated ACCEPT",
+    "Do not mix 公+民 (0b2 STOP)",
+    "COOL live KEEP independent of this paper screen"
+  ],
+  "next": "STOP same-grid within-sleeve micro densify; next lever ≠ Soft-Frozen clip / ≠ 公+民",
+  "charter": "research/ops/WITHIN_SLEEVE_COOL_MICRO_STAGEA_CHARTER.md",
+  "stage_a": "research/ops/WITHIN_SLEEVE_COOL_MICRO_STAGEA_SCREEN.md",
+  "order": "research/ops/RESEARCH_ORDER_BETA_DEFENSE.md"
+}

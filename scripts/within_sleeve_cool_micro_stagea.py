@@ -19,7 +19,7 @@ import e22_dividend_accounting as e22div
 import e45_defend_handoff_stagea_screen as stagea
 from cool_c8_proxy_observe_helpers import build_cool_c8_exposure
 from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats
-from e50_early_stack_combined_nav import FIN, e16_features, simulate_core
+from e50_early_stack_combined_nav import FIN, TEL, build_tel_name_scores, e16_features, simulate_core
 from portfolio_capital import DEFAULT_CAPITAL
 from research_metric_helpers import cagr_delta_pp, mdd_delta_pp
 from sleeve_tilt_helpers import ALPHA as LIVE_SLEEVE_ALPHA, sleeve_signal_panel
@@ -38,6 +38,7 @@ from within_sleeve_alloc import (
     TEL_EXDIV_SKIP_BUY,
     TEL_MIN_LOT_PACK,
     TEL_RS_SOFT_TILT,
+    build_exdiv_buy_ok,
     build_kd_season_tilt_scores,
     build_pre_exdiv_window_buy_ok,
 )
@@ -136,6 +137,8 @@ def _sim(
     exposure=None,
     financial_alloc=FIN_PRE_EXDIV_KD,
     telecom_alloc=TEL_EQUAL,
+    tel_scores=None,
+    tel_buy_ok=None,
 ):
     kw: dict[str, Any] = dict(
         apply_e22=True,
@@ -152,6 +155,10 @@ def _sim(
         kw["fin_sell_scores"] = sell
     if exposure is not None:
         kw["e45_exposure"] = exposure.astype(float)
+    if tel_scores is not None:
+        kw["tel_name_scores"] = tel_scores
+    if tel_buy_ok is not None:
+        kw["tel_buy_ok"] = tel_buy_ok
     nav, fills, meta = simulate_core(market, target, regime, dividends, **kw)
     if not bool(meta.get("exact_t1_ok")):
         raise RuntimeError("exact_t1_ok failed")
@@ -215,6 +222,8 @@ def _row(base_w, chal_w, tip, *, rid, track, meta, n_fills):
         "meta": meta,
         "n_fills": n_fills,
         "windows": chal_w,
+        "held_cagr": h.get("cagr"),
+        "held_mdd": mdd,
         "held_cagr_lift_pp": lift,
         "held_mdd_improve_pp": round(float(md), 4),
         "in_mdd_band": bool(in_band),
@@ -335,9 +344,14 @@ def main() -> int:
             )
         )
 
+    tel_rs = build_tel_name_scores(market)
+    tel_exdiv_ok = build_exdiv_buy_ok(cal, dividends, TEL, also_stock_ex=True)
+
     for rid, tel_pol in TEL_GRID:
         i += 1
         print(f"  [{i}/{n_total}] {rid} ...", flush=True)
+        tel_scores = tel_rs if tel_pol == TEL_RS_SOFT_TILT else None
+        tel_buy = tel_exdiv_ok if tel_pol == TEL_EXDIV_SKIP_BUY else None
         off, _ = _sim(
             market,
             tgt_live,
@@ -347,6 +361,8 @@ def main() -> int:
             buy_ok=buy_ok_live,
             sell=sell_live,
             telecom_alloc=tel_pol,
+            tel_scores=tel_scores,
+            tel_buy_ok=tel_buy,
         )
         exp = _cool_from_offense(market, off)
         nav, nf = _sim(
@@ -359,6 +375,8 @@ def main() -> int:
             sell=sell_live,
             exposure=exp,
             telecom_alloc=tel_pol,
+            tel_scores=tel_scores,
+            tel_buy_ok=tel_buy,
         )
         nav.to_csv(OUT / f"nav_{rid}.csv", index=False)
         rows.append(
@@ -451,17 +469,45 @@ def main() -> int:
     (REP / f"{SCREEN_ID}.md").write_text(md)
     (OPS / f"{SCREEN_ID}.md").write_text(md)
 
+    ranked = payload["ranked"]
+    best = ranked[0] if ranked else None
     decision = {
         "label": "WITHIN_SLEEVE_COOL_MICRO_DECISION",
         "generated_at_utc": _utc(),
         "status": verdict,
+        "verdict": verdict,
         "live_wire": False,
         "n_hits": len(hits),
         "hit_ids": [r["id"] for r in hits],
+        "held_flat_tip_fail_ids": [r["id"] for r in flat_tip_fail],
         "soft_ids": [r["id"] for r in soft_cagr],
-        "best": hits[0]["id"] if hits else (soft_cagr[0]["id"] if soft_cagr else None),
+        "best": best["id"] if best else None,
+        "best_metrics": None
+        if best is None
+        else {
+            "id": best["id"],
+            "held_cagr": best.get("held_cagr"),
+            "held_mdd": best.get("held_mdd"),
+            "held_cagr_lift_pp": best.get("held_cagr_lift_pp"),
+            "held_mdd_improve_pp": best.get("held_mdd_improve_pp"),
+            "tip_ok": best.get("tip_ok"),
+            "in_mdd_band": best.get("in_mdd_band"),
+            "hit": best.get("hit"),
+        },
+        "binding": [
+            "Soft-Frozen live clip KEEP until Class D ACCEPT",
+            "Live KD_OPT + TEL_EQUAL KEEP until dedicated ACCEPT",
+            "Do not mix 公+民 (0b2 STOP)",
+            "COOL live KEEP independent of this paper screen",
+        ],
+        "next": (
+            "Open paper observe ballot on hit_ids"
+            if hits
+            else "STOP same-grid within-sleeve micro densify; next lever ≠ Soft-Frozen clip / ≠ 公+民"
+        ),
         "charter": f"research/ops/{CHARTER_ID}.md",
         "stage_a": f"research/ops/{SCREEN_ID}.md",
+        "order": "research/ops/RESEARCH_ORDER_BETA_DEFENSE.md",
     }
     dlines = [
         "# Within-sleeve COOL micro — Decision Pack (Stage A)",
@@ -469,27 +515,59 @@ def main() -> int:
         f"Date: 2026-09-25 · Generated `{decision['generated_at_utc']}`",
         f"Status: **{verdict}** · Soft-Frozen **KEEP** · live wire **false**",
         "",
-        f"HIT: **{len(hits)}** · SOFT CAGR: **{len(soft_cagr)}** / {len(rows)}.",
+        f"HIT: **{len(hits)}** · held-flat tip-fail: **{len(flat_tip_fail)}** · "
+        f"SOFT CAGR: **{len(soft_cagr)}** / {len(rows)}.",
         "",
     ]
     if hits:
         b = hits[0]
         dlines.append(
-            f"Best: `{b['id']}` · CAGR↑ {b['held_cagr_lift_pp']:+.2f} · MDD↑ {b['held_mdd_improve_pp']:+.2f}"
+            f"Best HIT: `{b['id']}` · CAGR↑ {b['held_cagr_lift_pp']:+.2f} · "
+            f"MDD↑ {b['held_mdd_improve_pp']:+.2f}"
         )
-    elif soft_cagr:
-        b = soft_cagr[0]
+    elif best is not None:
         dlines.append(
-            f"Best SOFT: `{b['id']}` · CAGR↑ {b['held_cagr_lift_pp']:+.2f} · MDD↑ {b['held_mdd_improve_pp']:+.2f}"
+            f"Best by CAGR lift: `{best['id']}` · CAGR↑ {best['held_cagr_lift_pp']:+.2f} · "
+            f"MDD↑ {best['held_mdd_improve_pp']:+.2f} · tip={'Y' if best['tip_ok'] else 'N'} · "
+            f"band={'Y' if best['in_mdd_band'] else 'N'}"
         )
+        dlines.append("")
+        dlines.append("No MDD-flat + CAGR≥+0.20 under predeclared micro grid.")
     else:
         dlines.append("No MDD-flat + CAGR≥+0.20 under predeclared micro grid.")
-    dlines += ["", f"Label: `WITHIN_SLEEVE_COOL_MICRO_DECISION_2026-09-25__{verdict}`", ""]
-    (OPS / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.json").write_text(json.dumps(decision, indent=2) + "\n")
-    (OPS / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md").write_text("\n".join(dlines))
-    (REP / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.json").write_text(json.dumps(decision, indent=2) + "\n")
-    (REP / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md").write_text("\n".join(dlines))
-    print(json.dumps({"verdict": verdict, "n_hits": len(hits), "n_soft": len(soft_cagr)}, indent=2))
+    dlines += [
+        "",
+        "## Binding",
+        "",
+    ] + [f"{i}. {b}" for i, b in enumerate(decision["binding"], 1)]
+    dlines += [
+        "",
+        f"Next: {decision['next']}",
+        "",
+        f"Label: `WITHIN_SLEEVE_COOL_MICRO_DECISION_2026-09-25__{verdict}`",
+        "",
+    ]
+    (OPS / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.json").write_text(
+        json.dumps(decision, indent=2) + "\n"
+    )
+    (OPS / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md").write_text("\n".join(dlines) + "\n")
+    (REP / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.json").write_text(
+        json.dumps(decision, indent=2) + "\n"
+    )
+    (REP / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md").write_text("\n".join(dlines) + "\n")
+    (OUT / "stagea_summary.json").write_text(json.dumps(payload, indent=2) + "\n")
+    print(
+        json.dumps(
+            {
+                "verdict": verdict,
+                "n_hits": len(hits),
+                "n_soft": len(soft_cagr),
+                "best": decision["best"],
+                "best_metrics": decision["best_metrics"],
+            },
+            indent=2,
+        )
+    )
     return 0
 
 
