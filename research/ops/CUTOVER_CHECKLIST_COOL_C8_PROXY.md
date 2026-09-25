@@ -1,13 +1,28 @@
 # Cutover Checklist — COOL_c8_f50_d21
 
-Status: **BLOCKED**  
-Soft-Frozen **KEEP** · paper observe only
+Status: **AUTHORIZED · LIVE WIRED (2026-09-25)**  
+Soft-Frozen **KEEP** · forward-only
 
-## Required before any live ACCEPT
+## Required before any live ACCEPT — DONE
 
-- [ ] ≥1 clean month-end pack under `COOL_C8_PROXY_MONTH_END_MONITOR` (no tip PAUSE_REVIEW)
-- [ ] Held-out / sealed deltas stable vs design (gb class ~+0.27pp; MDD in ACCEPT band)
-- [ ] Human dedicated ballot: `ACCEPT Live cutover: COOL_c8_f50_d21` (not this OPEN observe)
-- [ ] Confirm interaction with live DH_dd06+FUSE (stacking policy) — default: **do not stack** without new charter
+- [x] Paper dual-observe OPEN/OPERATING (`COOL_C8_PROXY_*`)
+- [x] Stack vs replace trial: **不疊** preferred (`COOL_C8_DH_FUSE_STACK_TRIAL`)
+- [x] Human dedicated ballot: `ACCEPT Live cutover: COOL_c8_f50_d21（ replace DH、keep FUSE）。`
+- [x] Stacking policy locked: **REPLACE DH · KEEP FUSE** (DH+COOL both True refused)
 
-Until then: observe OPERATING · live_wire=false.
+## Live flags
+
+- `LIVE_FUSE_ADDITIVE=True`
+- `LIVE_DH_EXPOSURE=False` (replaced)
+- `LIVE_COOL_EXPOSURE=True` · id `COOL_c8_f50_d21`
+- Ballot: `LIVE_COOL_C8_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`
+
+## Non-actions
+
+- No Soft-Frozen tip rewrite  
+- No broker live-write until separate ACCEPT  
+- No re-enable DH without dedicated ACCEPT  
+
+## Label
+
+`CUTOVER_CHECKLIST_COOL_C8_PROXY_2026-09-25__AUTHORIZED_LIVE_REPLACE_DH_KEEP_FUSE`

@@ -1,16 +1,24 @@
 # COOL_c8_f50_d21 Observe Posture
 
-Status: **KEEP OBSERVE** (default)  
-Cutover: **BLOCKED** until dedicated ACCEPT for `COOL_c8_f50_d21`  
+Status: **LIVE WIRED** (2026-09-25) · dual-paper observe may CONTINUE as twin  
+Cutover: **AUTHORIZED** — replace DH, keep FUSE  
 Soft-Frozen: **KEEP**
+
+## Live
+
+- `LIVE_COOL_EXPOSURE=True` · id `COOL_c8_f50_d21`
+- `LIVE_FUSE_ADDITIVE=True` KEEP
+- `LIVE_DH_EXPOSURE=False` (replaced forward-only)
+- Stack DH+COOL: **FORBIDDEN**
 
 ## Watch
 
-- Month-end tip YTD / trailing 1y MDD vs `LIVE_STACK` (must not worsen)  
-- Held-out giveback stay near design ~+0.27pp class  
-- Frac days in defense (PROXY circuit)  
+- Tip YTD / trailing 1y MDD vs prior live path  
+- Held-out giveback stay near design  
+- Frac days in PROXY defense  
 
 ## Do not
 
-- Auto-promote to live  
-- Merge with Soft/Sleeve/FUSE/DH without new ballot  
+- Re-enable DH without dedicated ACCEPT  
+- Soft-Frozen / tip history rewrite  
+- Broker live-write without separate ACCEPT  

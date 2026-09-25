@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""COOL_c8_f50_d21 paper-observe helpers (R2 Stage B tip-safe FAST winner).
+"""COOL_c8_f50_d21 helpers — LIVE WIRED 2026-09-25 (replace DH, keep FUSE).
 
-Paper observe only · Soft-Frozen KEEP · no live wire.
 Frozen recipe: PROXY x=8% · floor=0.50 · exit=6% · max_dwell=21 · cool=8.
+See ``live_cool_c8_cutover.py``. Soft-Frozen KEEP · no tip rewrite.
 """
 from __future__ import annotations
 
@@ -10,8 +10,9 @@ import pandas as pd
 
 BASE_ID = "LIVE_STACK"
 CHAL_ID = "COOL_c8_f50_d21"
-STATUS = "OPERATING"
+STATUS = "LIVE_WIRED"
 HUMAN_OPEN = "OPEN tip-safe FAST observe: COOL_c8_f50_d21"
+HUMAN_ACCEPT = "ACCEPT Live cutover: COOL_c8_f50_d21 (replace DH, keep FUSE)"
 SCREEN_ID = "HELD_MDD17_R2_TIPSAFE_FAST_STAGEB_SCREEN"
 CHARTER_ID = "HELD_MDD17_R2_TIPSAFE_FAST_STAGEB_CHARTER"
 STAGE_B_VERDICT = "TIPSAFE_STRETCH"
@@ -23,8 +24,9 @@ EXIT_X = 0.06
 MAX_DWELL = 21
 COOL = 8
 
-LIVE_WIRE = False
-CUTOVER_AUTHORIZED = False
+LIVE_WIRE = True
+CUTOVER_AUTHORIZED = True
+STACKING_POLICY = "REPLACE_DH_KEEP_FUSE"
 
 
 def build_cool_c8_exposure(dates: pd.DatetimeIndex, proxy_mdd63: pd.Series) -> pd.Series:

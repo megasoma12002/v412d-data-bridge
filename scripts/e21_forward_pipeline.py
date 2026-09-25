@@ -28,6 +28,8 @@ from live_config import (
     E45_STITCH_ROLLBACK,
     KD_OPT,
     LIVE,
+    LIVE_COOL_EXPOSURE,
+    LIVE_COOL_ID,
     LIVE_CUTOVER_BALLOT,
     LIVE_DH_EXPOSURE,
     LIVE_DH_ID,
@@ -123,7 +125,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
 
     m, latest, day = load_market_session(market_path, asof=a.asof)
     px, sleeve, target, e20, diag = features(m)
-    tw, _e20w, tw_pre_dh, dh_exposure_today, e45_exposure_today, _fuse_meta, _dh_meta = (
+    tw, _e20w, tw_pre_risk, risk_exposure_today, e45_exposure_today, _fuse_meta, _risk_meta = (
         resolve_session_targets(m, target, latest, a.dividends, LIVE)
     )
     e20w = e20.iloc[-1]
@@ -168,10 +170,18 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
         "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
         "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
-        "dh_exposure": float(dh_exposure_today) if LIVE_DH_EXPOSURE else None,
-        "e16_financial_pre_dh": float(tw_pre_dh["Financial"]) if LIVE_DH_EXPOSURE else None,
+        "dh_exposure": float(risk_exposure_today) if LIVE_DH_EXPOSURE else None,
+        "cool_exposure_live": bool(LIVE_COOL_EXPOSURE),
+        "cool_id": LIVE_COOL_ID if LIVE_COOL_EXPOSURE else None,
+        "cool_exposure": float(risk_exposure_today) if LIVE_COOL_EXPOSURE else None,
+        "e16_financial_pre_dh": float(tw_pre_risk["Financial"])
+        if LIVE_DH_EXPOSURE
+        else None,
+        "e16_financial_pre_cool": float(tw_pre_risk["Financial"])
+        if LIVE_COOL_EXPOSURE
+        else None,
         "live_cutover_ballot": LIVE_CUTOVER_BALLOT
-        if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE)
+        if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE or LIVE_COOL_EXPOSURE)
         else None,
         "live_wire": True,
         "owns_qc_status": False,
@@ -255,12 +265,24 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
         "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
         "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
-        "dh_exposure": float(dh_exposure_today) if LIVE_DH_EXPOSURE else None,
-        "e16_financial_pre_dh": float(tw_pre_dh["Financial"]) if LIVE_DH_EXPOSURE else None,
-        "e16_telecom_pre_dh": float(tw_pre_dh["Telecom"]) if LIVE_DH_EXPOSURE else None,
-        "e16_0050_pre_dh": float(tw_pre_dh["0050"]) if LIVE_DH_EXPOSURE else None,
+        "dh_exposure": float(risk_exposure_today) if LIVE_DH_EXPOSURE else None,
+        "cool_exposure_live": bool(LIVE_COOL_EXPOSURE),
+        "cool_id": LIVE_COOL_ID if LIVE_COOL_EXPOSURE else None,
+        "cool_exposure": float(risk_exposure_today) if LIVE_COOL_EXPOSURE else None,
+        "e16_financial_pre_dh": float(tw_pre_risk["Financial"])
+        if LIVE_DH_EXPOSURE
+        else None,
+        "e16_telecom_pre_dh": float(tw_pre_risk["Telecom"]) if LIVE_DH_EXPOSURE else None,
+        "e16_0050_pre_dh": float(tw_pre_risk["0050"]) if LIVE_DH_EXPOSURE else None,
+        "e16_financial_pre_cool": float(tw_pre_risk["Financial"])
+        if LIVE_COOL_EXPOSURE
+        else None,
+        "e16_telecom_pre_cool": float(tw_pre_risk["Telecom"])
+        if LIVE_COOL_EXPOSURE
+        else None,
+        "e16_0050_pre_cool": float(tw_pre_risk["0050"]) if LIVE_COOL_EXPOSURE else None,
         "live_cutover_ballot": LIVE_CUTOVER_BALLOT
-        if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE)
+        if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE or LIVE_COOL_EXPOSURE)
         else None,
     }
     navrow = {

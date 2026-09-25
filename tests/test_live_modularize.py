@@ -21,6 +21,11 @@ class LiveConfigTests(unittest.TestCase):
     def test_live_flags_match_pipeline_exports(self) -> None:
         self.assertEqual(e21.LIVE_FUSE_ADDITIVE, lc.LIVE.live_fuse_additive)
         self.assertEqual(e21.LIVE_DH_EXPOSURE, lc.LIVE.live_dh_exposure)
+        self.assertEqual(e21.LIVE_COOL_EXPOSURE, lc.LIVE.live_cool_exposure)
+        self.assertTrue(e21.LIVE_FUSE_ADDITIVE)
+        self.assertFalse(e21.LIVE_DH_EXPOSURE)
+        self.assertTrue(e21.LIVE_COOL_EXPOSURE)
+        self.assertEqual(e21.LIVE_COOL_ID, "COOL_c8_f50_d21")
         self.assertFalse(e21.LIVE_E45_STITCH)
         from live_config import E45_A05_STITCH_DROPPED
 
@@ -28,6 +33,29 @@ class LiveConfigTests(unittest.TestCase):
         self.assertEqual(e21.KD_OPT["id"], lc.KD_OPT["id"])
         self.assertEqual(e21.E22_BOOKS_VERSION, lc.E22_BOOKS_VERSION)
         self.assertEqual(lc.LIVE.fill_port, "paper")
+
+    def test_refuse_dh_cool_stack(self) -> None:
+        from dataclasses import replace
+
+        from live_strategy_targets import resolve_session_targets
+
+        bad = replace(lc.LIVE, live_dh_exposure=True, live_cool_exposure=True)
+        with self.assertRaises(SystemExit) as ctx:
+            resolve_session_targets(
+                pd.DataFrame({"date": ["2026-01-02"], "code": ["0050"], "close": [1.0]}),
+                pd.DataFrame(
+                    {
+                        "Financial": [0.7],
+                        "Telecom": [0.15],
+                        "0050": [0.15],
+                    },
+                    index=pd.to_datetime(["2026-01-02"]),
+                ),
+                pd.Timestamp("2026-01-02"),
+                "data/dividend_events/e22_dividend_events.csv",
+                bad,
+            )
+        self.assertIn("both True", str(ctx.exception))
 
     def test_append_immutable(self) -> None:
         with tempfile.TemporaryDirectory() as td:

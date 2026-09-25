@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Live strategy targets — Soft-Frozen + FUSE / DH overlays.
+"""Live strategy targets — Soft-Frozen + FUSE / COOL (or legacy DH) overlays.
 
 E45 A05 live stitch is DROPPED (no re-enable path). Separates target
 construction from ledger/fill execution so a future broker adapter can
 consume the same sleeve weights + within-sleeve panels.
+
+2026-09-25: COOL_c8 replaces DH_dd06 on live (keep FUSE). DH+COOL stack is refused.
 """
 from __future__ import annotations
 
@@ -81,30 +83,66 @@ def resolve_session_targets(
     """Apply live overlays to Soft-Frozen targets for one session date.
 
     Returns:
-      tw, e20w, tw_pre_dh, dh_exposure_today, e45_exposure_today, fuse_meta, dh_meta
+      tw, e20w, tw_pre_risk, risk_exposure_today, e45_exposure_today, fuse_meta, risk_meta
 
     ``e45_exposure_today`` is always 1.0 — A05 live stitch is DROPPED (no flip path).
+    ``risk_exposure_today`` is COOL or legacy DH scale (1.0 when neither live).
     """
+    if bool(cfg.live_dh_exposure) and bool(cfg.live_cool_exposure):
+        raise SystemExit(
+            "Refuse live stack: LIVE_DH_EXPOSURE and LIVE_COOL_EXPOSURE both True "
+            "(stacking FORBIDDEN — replace DH or keep DH, not both)."
+        )
+
     fuse_meta: dict[str, Any] = {"enabled": bool(cfg.live_fuse_additive)}
     if cfg.live_fuse_additive:
+        import live_cool_c8_cutover as cool_cut
         import live_dh_fuse_cutover as live_cut
 
         target = live_cut.fuse_target_for_market(m)
+        recipe = (
+            cool_cut.LIVE_RECIPE_ID
+            if cfg.live_cool_exposure
+            else live_cut.LIVE_RECIPE_ID
+        )
+        accept = (
+            cool_cut.HUMAN_ACCEPT
+            if cfg.live_cool_exposure
+            else live_cut.HUMAN_ACCEPT
+        )
         fuse_meta = {
             "enabled": True,
-            "recipe": live_cut.LIVE_RECIPE_ID,
-            "human_accept": live_cut.HUMAN_ACCEPT,
+            "recipe": recipe,
+            "human_accept": accept,
         }
     tw = target.iloc[-1]
-    # e20 still from Soft-Frozen path caller; recompute not needed here.
-    tw_pre_dh = {
+    tw_pre_risk = {
         "Financial": float(tw.Financial),
         "Telecom": float(tw.Telecom),
         "0050": float(tw["0050"]),
     }
-    dh_exposure_today = 1.0
-    dh_meta: dict[str, Any] = {"enabled": False}
-    if cfg.live_dh_exposure:
+    risk_exposure_today = 1.0
+    risk_meta: dict[str, Any] = {"enabled": False, "overlay": None}
+
+    if cfg.live_cool_exposure:
+        import live_cool_c8_cutover as cool_cut
+        import e45_crisis_core as e45
+
+        div_for_cool = (
+            pd.read_csv(dividends_path, dtype={"code": str})
+            if Path(dividends_path).exists()
+            else pd.DataFrame()
+        )
+        risk_exposure_today, risk_meta = cool_cut.cool_exposure_today(
+            m, div_for_cool, latest
+        )
+        risk_meta = {**risk_meta, "enabled": True, "overlay": "COOL"}
+        tw = pd.Series(
+            e45.apply_exposure_to_sleeve_weights(
+                dict(tw_pre_risk), float(risk_exposure_today)
+            )
+        )
+    elif cfg.live_dh_exposure:
         import live_dh_fuse_cutover as live_cut
         import e45_crisis_core as e45
 
@@ -113,13 +151,17 @@ def resolve_session_targets(
             if Path(dividends_path).exists()
             else pd.DataFrame()
         )
-        dh_exposure_today, dh_meta = live_cut.dh_exposure_today(m, div_for_dh, latest)
-        dh_meta = {**dh_meta, "enabled": True}
+        risk_exposure_today, risk_meta = live_cut.dh_exposure_today(
+            m, div_for_dh, latest
+        )
+        risk_meta = {**risk_meta, "enabled": True, "overlay": "DH"}
         tw = pd.Series(
-            e45.apply_exposure_to_sleeve_weights(dict(tw_pre_dh), float(dh_exposure_today))
+            e45.apply_exposure_to_sleeve_weights(
+                dict(tw_pre_risk), float(risk_exposure_today)
+            )
         )
 
     # A05 stitch DROPPED — exposure placeholder kept for call-site unpack stability.
     e45_exposure_today = 1.0
     e20w = tw  # unused when caller keeps e20; kept for API symmetry
-    return tw, e20w, tw_pre_dh, dh_exposure_today, e45_exposure_today, fuse_meta, dh_meta
+    return tw, e20w, tw_pre_risk, risk_exposure_today, e45_exposure_today, fuse_meta, risk_meta
