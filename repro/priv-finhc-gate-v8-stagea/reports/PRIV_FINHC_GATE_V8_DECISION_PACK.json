@@ -1,0 +1,33 @@
+{
+  "label": "PRIV_FINHC_GATE_V8_DECISION",
+  "generated_at_utc": "2026-09-25T18:52:46Z",
+  "status": "PRIV_FINHC_V8_SOFT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "n_hits": 0,
+  "n_soft": 5,
+  "hit_ids": [],
+  "soft_ids": [
+    "V8_BSIDE_MA120_F05_KDMAY_COOL1",
+    "V8_BULL_MA120_F05_KDMAY",
+    "V8_BSIDE_MA120_F05_EQ_COOL1",
+    "V8_BULL_MA120_F05_EQ_COOL1",
+    "V8_BULL_MA120_F05_EQ"
+  ],
+  "best_hit": null,
+  "best_soft": "V8_BSIDE_MA120_F05_KDMAY_COOL1",
+  "best_soft_metrics": {
+    "held_cagr_lift_pp": -0.0048,
+    "sealed_cagr_lift_pp": 0.3269,
+    "held_mdd_improve_pp": -0.0813,
+    "sealed_mdd_improve_pp": 0.1298,
+    "score": 0.1841,
+    "gate": "BSIDE_MA120_COOL1",
+    "priv_frac": 0.05,
+    "priv_policy": "PRIV_KD_MAY",
+    "cool_full": true
+  },
+  "near_miss_note": "Top score books (e.g. BSIDE\u2227MA120 F08) tip-clean + sealed MDD OK but held MDD\u2191 < \u22120.25; soft pocket is F05 only with CAGR flat/negative vs +0.20 floor.",
+  "charter": "research/ops/PRIV_FINHC_GATE_V8_CHARTER.md",
+  "stage_a": "research/ops/PRIV_FINHC_GATE_V8_STAGEA_SCREEN.md"
+}

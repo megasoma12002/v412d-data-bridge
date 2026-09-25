@@ -12,6 +12,7 @@ Live Soft-Frozen clips: **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** (β densif
 新機制 V5：**STOP** · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md`（N1–N3+V2+V3+V4+V5 STOP）  
 新機制 V6：**STOP** · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md`（N1–N3+V2+V3+V4+V5+V6 STOP）  
 民股金控 Gate V7（max CAGR × min MDD）：**Stage A `PRIV_FINHC_SOFT` → OBSERVE OPEN** `V7_REG_BULL_SIDE_F05_KDMAY` 近持平 · Soft-Frozen 公股 KEEP · `PRIV_FINHC_V7_BULL_SIDE_F05_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
+民股金控 Gate V8（AND-confirm）：**Stage A `PRIV_FINHC_V8_SOFT`** · 0 HIT · 5 soft · best `V8_BSIDE_MA120_F05_KDMAY_COOL1` · Soft-Frozen 公股 KEEP · no V7 retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md`  
 Soft∥Sleeve ops auto-fuse agenda：**CLOSED**（Gate H FORBIDDEN KEEP）· `ACCEPT_DROP_AUTO_FUSE_AGENDA.md`  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  

@@ -1,7 +1,7 @@
 # 民股金控 — Gate V8 AND 確認堆疊（最大 CAGR × 最小 MDD）研究 Charter
 
 日期：2026-09-25  
-狀態：**CHARTER OPEN · Stage A READY** · Soft-Frozen live **不動** · live wire **false**
+狀態：**CHARTER OPEN · Stage A `PRIV_FINHC_V8_SOFT`** · Soft-Frozen live **不動** · live wire **false**
 
 ## 目標（寫死）
 

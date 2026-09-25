@@ -1,7 +1,7 @@
 # 民股金控 — Gate V8 AND-confirm stack (max CAGR × min MDD) Paper Charter
 
 Date: 2026-09-25  
-Status: **CHARTER OPEN · Stage A READY** · Soft-Frozen live **KEEP** · live wire **false**  
+Status: **CHARTER OPEN · Stage A DONE → `PRIV_FINHC_V8_SOFT`** · Soft-Frozen live **KEEP** · live wire **false**  
 Human binding (exact intent):
 
 ```

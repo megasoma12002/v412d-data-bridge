@@ -209,14 +209,17 @@ def main() -> int:
 
     hits = [r for r in rows if r.get("coexist")]
     hits_sorted = sorted(hits, key=lambda r: -float(r["score"]))
-    soft_hits = [
-        r
-        for r in rows
-        if r["gates"]["sealed_mdd"]
-        and r["gates"]["held_mdd"]
-        and r["gates"]["tip_mdd_ok"]
-        and not r["gates"]["held_cagr_floor"]
-    ]
+    soft_hits = sorted(
+        [
+            r
+            for r in rows
+            if r["gates"]["sealed_mdd"]
+            and r["gates"]["held_mdd"]
+            and r["gates"]["tip_mdd_ok"]
+            and not r["gates"]["held_cagr_floor"]
+        ],
+        key=lambda r: -float(r["score"]),
+    )
     if hits:
         verdict = "PRIV_FINHC_V8_HIT"
     elif soft_hits:
@@ -236,9 +239,13 @@ def main() -> int:
         "baseline": BASE_ID,
         "baseline_windows": base_w,
         "n_challengers": len(rows),
+        "n_hits": len(hits),
+        "n_soft": len(soft_hits),
         "n_coexist": len(hits),
         "coexist_ids": [r["id"] for r in hits_sorted],
         "soft_ids": [r["id"] for r in soft_hits],
+        "best_soft": soft_hits[0]["id"] if soft_hits else None,
+        "best_hit": hits_sorted[0]["id"] if hits_sorted else None,
         "ranked": sorted(rows, key=lambda r: -float(r["score"])),
     }
     (REP / f"{SCREEN_ID}.json").write_text(json.dumps(payload, indent=2) + "\n")
@@ -289,9 +296,14 @@ def main() -> int:
         "generated_at_utc": _utc(),
         "status": verdict,
         "live_wire": False,
+        "soft_frozen_keep": True,
+        "n_hits": len(hits),
+        "n_soft": len(soft_hits),
         "n_coexist": len(hits),
         "coexist_ids": [r["id"] for r in hits_sorted],
         "soft_ids": [r["id"] for r in soft_hits],
+        "best_hit": hits_sorted[0]["id"] if hits_sorted else None,
+        "best_soft": soft_hits[0]["id"] if soft_hits else None,
         "best": hits_sorted[0]["id"] if hits_sorted else (soft_hits[0]["id"] if soft_hits else None),
         "charter": f"research/ops/{CHARTER_ID}.md",
         "stage_a": f"research/ops/{SCREEN_ID}.md",

@@ -1,7 +1,11 @@
 {
   "label": "PRIV_FINHC_GATE_V8_CHARTER",
   "date": "2026-09-25",
-  "status": "CHARTER_OPEN_STAGE_A_READY",
+  "status": "CHARTER_OPEN_STAGE_A_SOFT",
+  "stage_a_verdict": "PRIV_FINHC_V8_SOFT",
+  "stage_a_n_hits": 0,
+  "stage_a_n_soft": 5,
+  "stage_a_best_soft": "V8_BSIDE_MA120_F05_KDMAY_COOL1",
   "live_wire": false,
   "soft_frozen_keep": true,
   "parent_live": {

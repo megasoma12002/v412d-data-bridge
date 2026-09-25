@@ -13,5 +13,6 @@ Soft-Frozen live: **F[0.60, 0.80] E[0.00, 0.50] LIVE** · COOL live: **KEEP**
 | 2e | Soft-Frozen clip flip | **LIVE WIRED** · `ACCEPT … F0.60-0.80_E0.00-0.50` |
 | 3 | 公＋民 mix (dollar-split / SF4) | **SKIP** 0b2 STOP |
 | 4 | 民股金控 Gate V7 | Stage A **SOFT** · observe **OPEN** `V7_REG_BULL_SIDE_F05_KDMAY` 近持平 · Soft-Frozen 公股 KEEP |
+| 4b | 民股金控 Gate V8 AND-confirm | Stage A **`PRIV_FINHC_V8_SOFT`** · 0 HIT · 5 soft · best `V8_BSIDE_MA120_F05_KDMAY_COOL1` · Soft-Frozen 公股 KEEP · **no V7 grid retune** |
 
 Binding: forward-only · no tip history rewrite · broker still PREP-only · live universe expand = Class D ACCEPT only.
