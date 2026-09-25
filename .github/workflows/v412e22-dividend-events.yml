@@ -29,6 +29,9 @@ jobs:
        github.actor == github.repository_owner)
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      # Free+token = 600 req/hr (vs 300 without). Shared with E50 FinMind jobs.
+      FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -36,5 +36,23 @@
     "2801": 17,
     "2834": 18
   },
-  "rows": 329
+  "rows": 329,
+  "finmind_token_used": true,
+  "finmind_usage_before": {
+    "user_count": 0,
+    "api_request_limit": 600
+  },
+  "finmind_usage_after": {
+    "user_count": 10,
+    "api_request_limit": 600
+  },
+  "payment_date_preserve": {
+    "preserved_cash_payment_dates": 60,
+    "preserved_stock_payment_dates": 143,
+    "prior_cash_keys": 273,
+    "prior_stock_keys": 143
+  },
+  "retries_default": 5,
+  "pacing_sec": 0.35,
+  "quota_note": "Free+token 600/hr; no-token 300/hr; HTTP 402 = hourly cap. This run ≈ 16 requests."
 }
