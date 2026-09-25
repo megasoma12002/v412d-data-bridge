@@ -1,0 +1,98 @@
+{
+  "generated_at_utc": "2026-09-25T18:25:46Z",
+  "human_open": "OPEN observe: \u6c11\u80a1 V7 Bull+Side F05 \u8fd1\u6301\u5e73",
+  "near_flat_note": "human OPEN near-flat observe: held CAGR\u2191 +0.18pp (short of +0.20 HIT floor) \u00b7 sealed MDD\u2191 +0.14pp \u00b7 tip OK \u00b7 Soft-Frozen \u516c\u80a1 R1 KEEP",
+  "status": "OPERATING_OBSERVE",
+  "live_wire": false,
+  "cutover": "BLOCKED",
+  "base_id": "BASE_LIVE_FUSE_COOL",
+  "chal_id": "V7_REG_BULL_SIDE_F05_KDMAY",
+  "stage_a_verdict": "PRIV_FINHC_SOFT",
+  "gate": "REG_BULL_SIDE",
+  "priv_frac": 0.05,
+  "priv_policy": "PRIV_KD_MAY",
+  "n_fills_base": 8332,
+  "n_fills_chal": 11768,
+  "exact_t1_ok_base": true,
+  "exact_t1_ok_chal": true,
+  "mean_finpriv": 0.030246,
+  "gate_on_frac": 0.768084,
+  "windows_base": {
+    "full": {
+      "cagr": 0.11908,
+      "max_drawdown": -0.146837,
+      "n_days": 3370
+    },
+    "oof_2011_2018": {
+      "cagr": 0.086107,
+      "max_drawdown": -0.132008,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.131823,
+      "max_drawdown": -0.146837,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.167538,
+      "max_drawdown": -0.113335,
+      "n_days": 898
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.148662,
+      "max_drawdown": -0.146837,
+      "n_days": 1875
+    }
+  },
+  "windows_chal": {
+    "full": {
+      "cagr": 0.120171,
+      "max_drawdown": -0.148736,
+      "n_days": 3370
+    },
+    "oof_2011_2018": {
+      "cagr": 0.086149,
+      "max_drawdown": -0.13232,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.131493,
+      "max_drawdown": -0.148736,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.171813,
+      "max_drawdown": -0.111949,
+      "n_days": 898
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.150483,
+      "max_drawdown": -0.148736,
+      "n_days": 1875
+    }
+  },
+  "heldout_2019_plus": {
+    "mdd_improve_pp": -0.18990000000000118,
+    "cagr_giveback_pp": -0.1821000000000017,
+    "cagr_lift_pp": 0.1821000000000017,
+    "score": -0.28095000000000203
+  },
+  "sealed_2023_plus": {
+    "mdd_improve_pp": 0.13859999999999983,
+    "cagr_giveback_pp": -0.4275000000000001,
+    "cagr_lift_pp": 0.4275000000000001,
+    "score": -0.07515000000000022
+  },
+  "tip": {
+    "ytd": {
+      "mdd_improve_pp": 0.1376,
+      "cagr_giveback_pp": -0.3364,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "mdd_improve_pp": 0.1376,
+      "cagr_giveback_pp": -0.5957,
+      "gate": "PASS"
+    }
+  }
+}
