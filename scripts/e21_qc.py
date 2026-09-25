@@ -108,15 +108,16 @@ def main() -> None:
     has_cool = "cool_exposure" in sig.columns and sig["cool_exposure"].notna().any()
     has_dh = "dh_exposure" in sig.columns and sig["dh_exposure"].notna().any()
     if has_cool or has_dh:
+        nan_s = pd.Series(float("nan"), index=sig.index, dtype=float)
         cool = (
             sig["cool_exposure"].astype(float)
             if "cool_exposure" in sig.columns
-            else pd.Series(pd.NA, index=sig.index, dtype=float)
+            else nan_s.copy()
         )
         dh = (
             sig["dh_exposure"].astype(float)
             if "dh_exposure" in sig.columns
-            else pd.Series(pd.NA, index=sig.index, dtype=float)
+            else nan_s.copy()
         )
         # Prefer COOL when both present on a row (should not happen after stack refuse).
         exp = cool.where(cool.notna(), dh).fillna(1.0)
@@ -127,17 +128,17 @@ def main() -> None:
         ):
             pre_cool = sig["e16_financial_pre_cool"].astype(float)
         else:
-            pre_cool = pd.Series(pd.NA, index=sig.index, dtype=float)
+            pre_cool = nan_s.copy()
         if (
             "e16_financial_pre_dh" in sig.columns
             and sig["e16_financial_pre_dh"].notna().any()
         ):
             pre_dh = sig["e16_financial_pre_dh"].astype(float)
         else:
-            pre_dh = pd.Series(pd.NA, index=sig.index, dtype=float)
+            pre_dh = nan_s.copy()
         fin_clip = pre_cool.where(pre_cool.notna(), pre_dh)
         need_scale = fin_clip.isna() & (exp > 0)
-        fin_clip = fin_clip.where(~need_scale, fin / exp.replace(0.0, pd.NA))
+        fin_clip = fin_clip.where(~need_scale, fin / exp.replace(0.0, float("nan")))
         checks["soft_frozen_fin_clip"] = bool(
             fin_clip.dropna().between(SOFT_FROZEN_FIN_LO - 1e-9, SOFT_FROZEN_FIN_HI + 1e-9).all()
         )
