@@ -29,3 +29,7 @@ Open dual-paper observe on `BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50` vs live Soft-
 Live clip flip string (only if later ACCEPT): Class D Soft-Frozen clip change — **not authorized by this pack**.
 
 Label: `BETA_0050_DENSIFY_UNDER_COOL_DECISION_2026-09-25__BETA_0050_HIT`
+
+## Stage B follow-up (MDD flat + CAGR)
+
+Verdict **`HELD_FLAT_TIP_FAIL`**: held MDD↑≥0 + CAGR≥+0.20 exists (best F hi=0.82: +0.49pp / +0.06pp) but **tip MDD fails**. No joint tip-clean MDD-flat CAGR HIT on Stage B grid. Soft-Frozen KEEP.
