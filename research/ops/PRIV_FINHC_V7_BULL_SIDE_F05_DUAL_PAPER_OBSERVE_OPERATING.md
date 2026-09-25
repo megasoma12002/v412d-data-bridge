@@ -2,7 +2,8 @@
 
 - human_open: `OPEN observe: 民股 V7 Bull+Side F05 近持平`
 - near-flat: human OPEN near-flat observe: held CAGR↑ +0.18pp (short of +0.20 HIT floor) · sealed MDD↑ +0.14pp · tip OK · Soft-Frozen 公股 R1 KEEP
-- status: **OPERATING_OBSERVE** · live_wire: false · cutover: **BLOCKED**
+- status: **OPERATING_OBSERVE · NEAR_FLAT_ACCEPT** · live_wire: false · cutover: **BLOCKED**
+- accept: `ACCEPT near-flat: V7_REG_BULL_SIDE_F05_KDMAY (CAGR floor +0.15)` → paper NEAR_FLAT_HIT
 - books: `BASE_LIVE_FUSE_COOL` ∥ `V7_REG_BULL_SIDE_F05_KDMAY`
 - Stage A: `PRIV_FINHC_SOFT`
 - gate `REG_BULL_SIDE` · priv_frac 0.05 · policy `PRIV_KD_MAY`
