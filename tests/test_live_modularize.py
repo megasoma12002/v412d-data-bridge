@@ -27,6 +27,8 @@ class LiveConfigTests(unittest.TestCase):
         self.assertTrue(e21.LIVE_COOL_EXPOSURE)
         self.assertEqual(e21.LIVE_COOL_ID, "COOL_c8_f50_d21")
         self.assertFalse(e21.LIVE_E45_STITCH)
+        self.assertTrue(e21.LIVE_FIN_PRIV_V7_F05)
+        self.assertEqual(e21.LIVE_FIN_PRIV_BALLOT, "ACCEPT Class D: FinPriv V7 F05")
         from live_config import E45_A05_STITCH_DROPPED
 
         self.assertTrue(E45_A05_STITCH_DROPPED)

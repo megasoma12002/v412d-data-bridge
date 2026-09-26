@@ -19,6 +19,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 |---:|---|---|---|
 | 0 | Live cutover bundle `#257` | **CLOSED** (2026-09-19) | Closed not merged · keep 公股+FUSE · DH later **replaced by COOL_c8** 2026-09-25 · reopen only new mechanism or sealed-gate · 無民股小包**暫不拆** · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` · `LIVE_COOL_C8_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 0b | 公股＋民營並存 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#258` · `PUB_PRIV_COEXIST_MDD_DECISION_PACK.md` |
+| 0b2 | 公股＋民營並存 × MDD **under COOL_c8** | **STOP** (2026-09-25) | Reopen after live COOL · Stage A 0/8 coexist · 0 held-only · Soft-Frozen KEEP · `#283` · `PUB_PRIV_COOL_COEXIST_DECISION_PACK.md` |
 | 0c | 四類 SF4 + DH/L4 防禦 × MDD | **STOP** (2026-09-19) | Stage A 0 sealed-MDD coexist · archive `#259` · `SF4_DEFENCE_MDD_DECISION_PACK.md` |
 | 0d | 民股／四類 × MDD **新機制** (N1→N2→N3) | **STOP N1–N3** (2026-09-19) | Ladder exhausted · 0 sealed coexist · Soft-Frozen KEEP · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md` |
 | 0e | 民股 MDD **新機制 V2**（廣度／FinPub–TAIEX／FX／CBC） | **STOP S1–S2** (2026-09-19) | V2 ladder exhausted · Soft-Frozen KEEP · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md` |
@@ -26,6 +27,8 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | 0g | 民股 MDD **新機制 V4**（sealed 事件剖檢→日曆閘） | **STOP** (2026-09-19) | A0 span>120 · A1 未開 · Soft-Frozen KEEP · `PRIV_MDD_SEALED_EPISODE_V4_DECISION_PACK.md` |
 | 0h | 民股 MDD **新機制 V5**（DH 防衛窗 → 只關 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V5_DH_0050_XTIGHT` −0.27 · Soft-Frozen KEEP · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md` |
 | 0i | 民股 MDD **新機制 V6**（shadow 相對 NAV 連續阻尼 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V6_C100_PUB` −0.24 · Soft-Frozen KEEP · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md` |
+| 0j | 民股金控 Gate V7 carve-out（Bull+Side F05 近持平） | **SOFT → OBSERVE → NEAR_FLAT → Class D LIVE** (2026-09-26) | floor +0.15 · `LIVE_FIN_PRIV_V7_F05` · Soft-Frozen 3-sleeve KEEP · `CLASSD_FINPRIV_V7_F05_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
+| 0j | 民股金控 **max CAGR × min MDD** Gate V7 | **STAGE A SOFT** (2026-09-25) | 0 HIT · 2 soft (Bull-gate F05 sealed MDD↑ OK, CAGR short of +0.20) · Soft-Frozen KEEP · `PRIV_FINHC_CAGR_MDD_GATE_V7_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.80]** / ETF **[0.00, 0.50]** | **FLIPPED** (ACCEPT 2026-09-25 β densify) | Was FINBAND [0.60,0.90]/ETF[0.00,0.35]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md` · prior FINBAND note KEEP |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
@@ -72,6 +75,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | Soft-assist K9 observe ballot | **EXECUTED OPEN OBSERVE** (2026-09-11) | Human sequence「照順序全做」→ `OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10` · live KD KEEP · `SOFT_ASSIST_K9_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Tip-safe FAST `COOL_c8_f50_d21` observe | **EXECUTED OPEN OBSERVE** (2026-09-25) | Human `開 COOL_c8_f50_d21 paper observe` · dual-paper OPERATING · later LIVE WIRED · Soft-Frozen KEEP · `COOL_C8_PROXY_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Live COOL_c8 replace DH keep FUSE | **EXECUTED ACCEPT / LIVE WIRED** (2026-09-25) | Human `ACCEPT Live cutover: COOL_c8_f50_d21（ replace DH、keep FUSE）。` · `LIVE_COOL_EXPOSURE=True` · `LIVE_DH_EXPOSURE=False` · FUSE KEEP · stack FORBIDDEN · `LIVE_COOL_C8_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
+| Offense CAGR under COOL Stage A | **PAPER DONE / OFFENSE_CAGR_SOFT** (2026-09-25) | Human selected FUSE/Soft/Sleeve micro · Soft-Frozen KEEP · COOL frozen · no tip-clean ≥+0.20pp · nearest `SELL_a75` +0.17pp · `OFFENSE_CAGR_UNDER_COOL_STAGEA_SCREEN.md` |
 | Soft-assist SELL_a05 observe ballot | **EXECUTED OPEN OBSERVE** (2026-09-12) | Human `規則路徑OPEN` → `OPEN Soft-assist observe: SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` · live KD KEEP · no Soft×Sleeve fuse · `SOFT_SELL_A05_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Soft-assist DL T2 seq Stage A | **PAPER DONE / RULE_PROMOTE_ONLY_NO_T2_LIFT** (2026-09-12) | numpy causal logret seq L10/L20 · flat linear/h8 + 1D-CNN · no torch in screen · DL promote>observe **0** · rule SELL_a05 still_best_vs_dl **True** · no live / no fuse / Soft∥Sleeve OPEN unchanged · `SOFT_DL_T2_SEQ_STAGEA_SCREEN.md` |
 | Soft-assist DL T2 torch Stage A | **PAPER DONE / RULE_PROMOTE_ONLY_NO_T2_TORCH_LIFT** (2026-09-12) | torch CPU TCN/LSTM causal logret L10/L20 · DL promote>observe **0** · rule SELL_a05 still_best_vs_dl **True** · no live / no fuse / Soft∥Sleeve OPEN unchanged · `SOFT_DL_T2_TORCH_STAGEA_SCREEN.md` |
