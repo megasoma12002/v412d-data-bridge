@@ -102,6 +102,7 @@ def simulate_core(
     e45_sleeve_names: tuple[str, ...] | None = None,
     sleeve_weight_schedule: pd.DataFrame | None = None,
     def_code: str | None = None,
+    off_code: str | None = None,
     cost_multiple: float = 1.0,
     capital: float = CAPITAL,
     lot_size: int = BOARD_LOT,
@@ -143,6 +144,8 @@ def simulate_core(
     When present for a date, it overrides e45_exposure / legacy crisis scale.
     def_code: optional synthetic/research DEF instrument code present in ``market``;
     required when schedule carries a DEF column > 0.
+    off_code: optional second research satellite (schedule column OFF); used by
+    dual-handoff Stage A (e.g. DEF=00632R + OFF=00631L). Paper only.
     financial_alloc / telecom_alloc: paper within-sleeve policies (default EQUAL).
     fin_mix_lambda / tel_mix_lambda: when *_alloc is a MIX_EQUAL_* policy, weight on
     EQUAL in λ·EQUAL+(1−λ)·challenger (required in [0,1]).
@@ -206,12 +209,18 @@ def simulate_core(
         raise RuntimeError("insufficient history for E16 warmup")
 
     def_c = str(def_code) if def_code else None
-    if def_c is not None:
-        if def_c in ALL:
-            raise ValueError(f"def_code collides with equity universe: {def_c}")
-        if def_c not in closes.columns or def_c not in opens.columns:
-            raise ValueError(f"def_code {def_c} missing from market open/close")
-    universe = list(ALL) + ([def_c] if def_c else [])
+    off_c = str(off_code) if off_code else None
+    for label, code in (("def_code", def_c), ("off_code", off_c)):
+        if code is None:
+            continue
+        if code in ALL:
+            raise ValueError(f"{label} collides with equity universe: {code}")
+        if code not in closes.columns or code not in opens.columns:
+            raise ValueError(f"{label} {code} missing from market open/close")
+    if def_c is not None and off_c is not None and def_c == off_c:
+        raise ValueError("def_code and off_code must differ")
+    extras = [c for c in (def_c, off_c) if c is not None]
+    universe = list(ALL) + extras
 
     events: list[e22div.DivEvent] = []
     if apply_e22 and dividends is not None and len(dividends):
@@ -233,7 +242,7 @@ def simulate_core(
     stock_div_events = 0
     stock_div_shares_added = 0.0
     crisis_days = 0
-    etf_codes = frozenset({"0050"} | ({str(def_c)} if def_c is not None else set()))
+    etf_codes = frozenset({"0050"} | set(extras))
 
     def _sessions_for_day(day_iso: str):
         """Load Y±1 session/settlement calendars for day year; soft-miss OK."""
@@ -417,9 +426,15 @@ def simulate_core(
                     sleeve_w["DEF"] = float(row["DEF"])
                 elif def_c is not None:
                     sleeve_w["DEF"] = 0.0
+                if "OFF" in row.index:
+                    sleeve_w["OFF"] = float(row["OFF"])
+                elif off_c is not None:
+                    sleeve_w["OFF"] = 0.0
             equity_scale = float(sum(sleeve_w.values()))
             if sleeve_w.get("DEF", 0.0) > 0 and def_c is None:
                 raise ValueError("schedule has DEF>0 but def_code was not provided")
+            if sleeve_w.get("OFF", 0.0) > 0 and off_c is None:
+                raise ValueError("schedule has OFF>0 but off_code was not provided")
         elif e45_exposure is not None and dt in e45_exposure.index:
             if four_sleeve:
                 raise ValueError("e45_exposure not supported with FinPub/FinPriv target")
@@ -458,10 +473,19 @@ def simulate_core(
             if def_c is not None:
                 sleeve_vals["DEF"] = float(vals.get(def_c, 0.0))
                 sleeve_w.setdefault("DEF", 0.0)
-            sleeve_names = ["Financial", "Telecom", "0050"] + (["DEF"] if def_c is not None else [])
+            if off_c is not None:
+                sleeve_vals["OFF"] = float(vals.get(off_c, 0.0))
+                sleeve_w.setdefault("OFF", 0.0)
+            sleeve_names = ["Financial", "Telecom", "0050"]
+            if def_c is not None:
+                sleeve_names.append("DEF")
+            if off_c is not None:
+                sleeve_names.append("OFF")
             sleeve_codes = [("Financial", FIN), ("Telecom", TEL), ("0050", ["0050"])]
             if def_c is not None:
                 sleeve_codes.append(("DEF", [def_c]))
+            if off_c is not None:
+                sleeve_codes.append(("OFF", [off_c]))
         pre = {k: (v / nav if nav > 0 else 0.0) for k, v in sleeve_vals.items()}
         gap = {k: float(sleeve_w.get(k, 0.0)) - pre[k] for k in pre}
         trade = np.zeros(len(sleeve_names))
@@ -670,6 +694,7 @@ def simulate_core(
                 "pre_telecom": pre["Telecom"],
                 "pre_0050": pre["0050"],
                 "pre_def": pre.get("DEF", 0.0),
+                "pre_off": pre.get("OFF", 0.0),
                 "tgt_financial": float(
                     sleeve_w.get("Financial", sleeve_w.get("FinPub", 0.0) + sleeve_w.get("FinPriv", 0.0))
                 ),
@@ -678,6 +703,7 @@ def simulate_core(
                 "tgt_telecom": sleeve_w["Telecom"],
                 "tgt_0050": sleeve_w["0050"],
                 "tgt_def": float(sleeve_w.get("DEF", 0.0)),
+                "tgt_off": float(sleeve_w.get("OFF", 0.0)),
             }
         )
 
@@ -702,6 +728,7 @@ def simulate_core(
         "cost_multiple": float(cm),
         "e45_sleeve_names": list(e45_sleeve_names) if e45_sleeve_names else None,
         "def_code": def_c,
+        "off_code": off_c,
         "end_positions": {k: round(v, 4) for k, v in pos.items()},
         "lot_size": int(lot_size),
         "financial_alloc": str(financial_alloc),
