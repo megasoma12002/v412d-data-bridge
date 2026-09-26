@@ -8,3 +8,5 @@ e50a3r1-audit-20260903/ci_reference/
 **/outputs/*fills*.csv
 **/outputs/*_daily_nav.csv
 **/outputs/*daily_nav*.csv
+**/outputs/*fill_extreme_detail.*
+**/outputs/*fuse_cool_nav.csv
