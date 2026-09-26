@@ -11,6 +11,7 @@ on:
   push:
     paths:
       - scripts/v412e22_fetch_dividend_events.py
+      - scripts/private_fin_adj_tip_refresh.py
       - ".github/workflows/v412e22-dividend-events.yml"
 
 permissions:
@@ -28,10 +29,7 @@ jobs:
       (startsWith(github.event.issue.title, 'RUN_E22') &&
        github.actor == github.repository_owner)
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-    env:
-      # Free+token = 600 req/hr (vs 300 without). Shared with E50 FinMind jobs.
-      FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -39,22 +37,31 @@ jobs:
           python-version: "3.12"
       - run: pip install --disable-pip-version-check -e .
       - name: Fetch E21 dividend and rights events
+        env:
+          # Free+token = 600 req/hr (vs 300 without). Step-scoped secret (S4 residual).
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
         run: python scripts/v412e22_fetch_dividend_events.py
-      - name: Commit event ledger (fetch-only; no Soft-Frozen / forward rewrite)
+      - name: Refresh private FIN adjusted tip (Class D freshness)
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+        run: PYTHONPATH=scripts python3 scripts/private_fin_adj_tip_refresh.py
+      - name: Commit event ledger + priv tip (fetch-only; no Soft-Frozen / forward rewrite)
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/dividend_events
+          git add data/dividend_events data/market/private_fin_adjusted.csv || true
           if git diff --cached --quiet; then
-            echo "No dividend event ledger changes"
+            echo "No dividend / private_fin_adjusted changes"
             exit 0
           fi
-          git commit -m "data: refresh E22 dividend event ledger"
+          git commit -m "data: refresh E22 dividend events + private FIN adj tip"
           git pull --rebase
           git push
       - uses: actions/upload-artifact@v4
         with:
           name: v412e22-dividend-events
-          path: data/dividend_events
+          path: |
+            data/dividend_events
+            data/market/private_fin_adjusted.csv
           retention-days: 90

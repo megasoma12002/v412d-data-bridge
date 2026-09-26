@@ -163,8 +163,9 @@ jobs:
       - name: Commit immutable forward records
         run: |
           set -euo pipefail
-          # ACCEPT_2026-09-25 tip-write harden: refuse push if post-forward failed
-          # (holiday session_skip may skip verify — allow).
+          # ACCEPT_2026-09-25 tip-write harden + 2026-09-26 residual:
+          # refuse push unless post-forward ok AND tip books Stage-E AND
+          # qc_status PASS + exact_t1_ok (defense-in-depth vs standalone gate).
           if [ "${{ steps.session_gate.outputs.skip }}" != "true" ]; then
             python3 scripts/forward_tip_write_gate.py
           fi

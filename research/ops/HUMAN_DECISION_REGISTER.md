@@ -125,7 +125,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 |---|---|---|
 | Odd-lot default → `E22_v2s_tw` | `ODD_LOT_PROMOTE_DECISION_PACK.md` | **DONE** — #73+#74 merged; DEFAULT=`E22_v2s_tw` |
 | Tax / receivable formal books | `FORMAL_TAX_RECEIVABLE_BOOKS_CHARTER.md` · `TAX_RECEIVABLE_CHARTER_DECISION_PACK.md` | **ACCEPT charter** — Stage B OPEN; no DEFAULT flip |
-| E45 live stitch (A05) | `E45_A05_STITCH_DROPPED.md` · `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md` · dual-paper observe still OPEN | **DROPPED** 2026-09-09 — not pending second ACCEPT; live overlay = DH_dd06+FUSE |
+| E45 live stitch (A05) | `E45_A05_STITCH_DROPPED.md` · `E45_STITCH_ROLLBACK_ACCEPTED_DROP_A05.md` · dual-paper observe still OPEN | **DROPPED** 2026-09-09 — not pending second ACCEPT; live overlay = **FUSE + COOL_c8** (DH replaced 2026-09-25) + Class D FinPriv V7 F05 |
 
 ## Re-open triggers (only then re-agenda)
 

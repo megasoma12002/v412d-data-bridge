@@ -15,20 +15,66 @@ class TipWriteGateTests(unittest.TestCase):
     def test_gate_passes_on_current_tip(self):
         from forward_tip_write_gate import main
 
-        self.assertEqual(main(), 0)
+        self.assertEqual(main([]), 0)
 
     def test_gate_fails_when_ok_false(self):
-        from forward_tip_write_gate import main
+        from forward_tip_write_gate import evaluate
 
         with tempfile.TemporaryDirectory() as td:
             td_path = Path(td)
             post = td_path / "POST_FORWARD_E22_VERIFY.json"
             tip = td_path / "portfolio_state.json"
+            qc = td_path / "qc_status.json"
             post.write_text(json.dumps({"ok": False, "failures": ["x"]}) + "\n")
             tip.write_text(json.dumps({"e22_books_version": "E22_v3_recv_pay_effdelay"}) + "\n")
-            with mock.patch("forward_tip_write_gate.POST", post):
-                with mock.patch("forward_tip_write_gate.TIP", tip):
-                    self.assertEqual(main(), 1)
+            qc.write_text(json.dumps({"status": "PASS", "exact_t1_ok": True}) + "\n")
+            ok, failures = evaluate(post_path=post, tip_path=tip, qc_path=qc)
+            self.assertFalse(ok)
+            self.assertTrue(any("ok!=true" in f for f in failures))
+
+    def test_gate_fails_when_qc_missing(self):
+        from forward_tip_write_gate import evaluate
+
+        with tempfile.TemporaryDirectory() as td:
+            td_path = Path(td)
+            post = td_path / "POST_FORWARD_E22_VERIFY.json"
+            tip = td_path / "portfolio_state.json"
+            qc = td_path / "qc_status.json"
+            post.write_text(json.dumps({"ok": True}) + "\n")
+            tip.write_text(json.dumps({"e22_books_version": "E22_v3_recv_pay_effdelay"}) + "\n")
+            ok, failures = evaluate(post_path=post, tip_path=tip, qc_path=qc)
+            self.assertFalse(ok)
+            self.assertTrue(any("qc_status" in f for f in failures))
+
+    def test_gate_fails_when_exact_t1_false(self):
+        from forward_tip_write_gate import evaluate
+
+        with tempfile.TemporaryDirectory() as td:
+            td_path = Path(td)
+            post = td_path / "POST_FORWARD_E22_VERIFY.json"
+            tip = td_path / "portfolio_state.json"
+            qc = td_path / "qc_status.json"
+            post.write_text(json.dumps({"ok": True}) + "\n")
+            tip.write_text(json.dumps({"e22_books_version": "E22_v3_recv_pay_effdelay"}) + "\n")
+            qc.write_text(json.dumps({"status": "PASS", "exact_t1_ok": False}) + "\n")
+            ok, failures = evaluate(post_path=post, tip_path=tip, qc_path=qc)
+            self.assertFalse(ok)
+            self.assertTrue(any("exact_t1_ok" in f for f in failures))
+
+    def test_gate_fails_when_qc_status_fail(self):
+        from forward_tip_write_gate import evaluate
+
+        with tempfile.TemporaryDirectory() as td:
+            td_path = Path(td)
+            post = td_path / "POST_FORWARD_E22_VERIFY.json"
+            tip = td_path / "portfolio_state.json"
+            qc = td_path / "qc_status.json"
+            post.write_text(json.dumps({"ok": True}) + "\n")
+            tip.write_text(json.dumps({"e22_books_version": "E22_v3_recv_pay_effdelay"}) + "\n")
+            qc.write_text(json.dumps({"status": "FAIL", "exact_t1_ok": True}) + "\n")
+            ok, failures = evaluate(post_path=post, tip_path=tip, qc_path=qc)
+            self.assertFalse(ok)
+            self.assertTrue(any("status=" in f for f in failures))
 
 
 class StageESandboxRefuseTests(unittest.TestCase):

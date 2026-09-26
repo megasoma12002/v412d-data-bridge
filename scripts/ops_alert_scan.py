@@ -54,6 +54,9 @@ PHASE_C_JSON = ROOT / "research/ops/DATA_SOURCE_PHASE_C_PROBES.json"
 R4_CSV = ROOT / "forward/e21/settlement_cash_estimate.csv"
 R4_JSON = ROOT / "forward/e21/settlement_cash_estimate.json"
 SESSION_SKIP = ROOT / "forward/session_skip.json"
+TIP_STATE = ROOT / "forward/e21/portfolio_state.json"
+SIGNALS_CSV = ROOT / "forward/e21/signals.csv"
+PRIVATE_FIN_ADJ = ROOT / "data/market/private_fin_adjusted.csv"
 
 # Soft-Frozen clip — single source (never hardcode drift).
 from e16_soft_frozen_base import SOFT_FROZEN_FIN_CLIP
@@ -63,6 +66,118 @@ from ops_observe_helpers import (
     r4_artifacts_present,
     r4_summary as observe_r4_summary,
 )
+
+
+def _class_d_finpriv_alerts() -> list[dict]:
+    """Surface Class D FinPriv stale/missing priv px (fail-closed gate off).
+
+    HIGH when live Class D is on and private_fin_adjusted lags tip asof > 5d,
+    or tip signal stamped fin_priv_skipped_missing_px. Soft-Frozen unchanged.
+    """
+    out: list[dict] = []
+    try:
+        from live_config import LIVE_FIN_PRIV_V7_F05
+    except Exception:
+        return out
+    if not LIVE_FIN_PRIV_V7_F05:
+        return out
+    try:
+        import live_finhc_v7_f05_cutover as finpriv
+        import pandas as pd
+    except Exception as exc:  # noqa: BLE001
+        out.append(
+            {
+                "severity": "HIGH",
+                "source": "fin_priv_v7_f05",
+                "code": "FINPRIV_IMPORT_FAIL",
+                "message": f"Class D live but cutover import failed: {exc}",
+            }
+        )
+        return out
+
+    asof = None
+    tip = _load(TIP_STATE)
+    if tip and tip.get("last_date"):
+        asof = pd.Timestamp(str(tip["last_date"])[:10]).normalize()
+    if asof is None and SIGNALS_CSV.exists():
+        try:
+            sig = pd.read_csv(SIGNALS_CSV, usecols=["date"])
+            if not sig.empty:
+                asof = pd.to_datetime(sig["date"]).max().normalize()
+        except Exception:
+            asof = None
+    if asof is None:
+        out.append(
+            {
+                "severity": "INFO",
+                "source": "fin_priv_v7_f05",
+                "code": "FINPRIV_ASOF_UNKNOWN",
+                "message": "Class D live but tip asof unknown — skip freshness check",
+            }
+        )
+        return out
+
+    fresh, meta = finpriv.priv_prices_fresh_enough(asof)
+    if not fresh:
+        out.append(
+            {
+                "severity": "HIGH",
+                "source": "fin_priv_v7_f05",
+                "code": "FINPRIV_PX_STALE_OR_MISSING",
+                "message": (
+                    f"Class D live · priv panel stale/missing vs tip asof {asof.date()} "
+                    f"reason={meta.get('reason')!r} stale={meta.get('stale_or_missing')!r} "
+                    f"lags={meta.get('lags')!r} — gate fail-closed OFF (Soft-Frozen KEEP)"
+                ),
+            }
+        )
+    else:
+        out.append(
+            {
+                "severity": "INFO",
+                "source": "fin_priv_v7_f05",
+                "code": "FINPRIV_PX_FRESH",
+                "message": f"Class D priv panel fresh vs tip asof {asof.date()} (lag≤5d)",
+            }
+        )
+
+    if SIGNALS_CSV.exists():
+        try:
+            sig = pd.read_csv(SIGNALS_CSV)
+            if "fin_priv_skipped_missing_px" in sig.columns and not sig.empty:
+                tip_row = sig.iloc[-1]
+                skipped = tip_row.get("fin_priv_skipped_missing_px")
+                if skipped is True or str(skipped).lower() in ("true", "1"):
+                    out.append(
+                        {
+                            "severity": "HIGH",
+                            "source": "fin_priv_v7_f05",
+                            "code": "FINPRIV_SKIPPED_MISSING_PX_TIP",
+                            "message": (
+                                f"tip signal {tip_row.get('date')} fin_priv_skipped_missing_px=true "
+                                f"regime={tip_row.get('regime')!r} gate_on={tip_row.get('fin_priv_gate_on')!r}"
+                            ),
+                        }
+                    )
+        except Exception as exc:  # noqa: BLE001
+            out.append(
+                {
+                    "severity": "INFO",
+                    "source": "fin_priv_v7_f05",
+                    "code": "FINPRIV_SIGNAL_SCAN_FAIL",
+                    "message": f"could not scan signals for Class D skip flag: {exc}",
+                }
+            )
+    if not PRIVATE_FIN_ADJ.exists():
+        out.append(
+            {
+                "severity": "HIGH",
+                "source": "fin_priv_v7_f05",
+                "code": "FINPRIV_ADJ_FILE_MISSING",
+                "message": f"missing {PRIVATE_FIN_ADJ} — Class D gate cannot turn on",
+            }
+        )
+    return out
 
 
 def _load(path: Path) -> dict | None:
@@ -138,6 +253,8 @@ def main() -> int:
                     "message": "live QC PASS; Exact T+1 ok",
                 }
             )
+
+    alerts.extend(_class_d_finpriv_alerts())
 
     monitor_sources = [
         ("l4_month_end", L4_JSON),
