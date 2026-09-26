@@ -1,9 +1,10 @@
 # Cutover checklist — BLEND_025
 
 Status: **PREP ONLY — NOT AUTHORIZED**  
-Soft-Frozen live Financial clip: **[0.60, 0.90] KEEP** (FINBAND).  
+Soft-Frozen live clips: **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** · overlay **FUSE_ADDITIVE + COOL_c8** · Class D FinPriv V7 F05 (**KEEP**).  
 Parent decisions: `research/ops/HUMAN_DECISION_REGISTER.md` (#3 observe, #5 live NOT READY).  
-Observe sleeve: `BLEND_025_DUAL_PAPER_OBSERVE.md` · runbook: `BLEND_025_MONTH_END_RUNBOOK.md`
+Observe sleeve: `BLEND_025_DUAL_PAPER_OBSERVE.md` · runbook: `BLEND_025_MONTH_END_RUNBOOK.md`  
+Promote gate review (2026-09-26): `BLEND_025_PROMOTE_GATE_REVIEW_2026-09-26.md` → **BLOCKED**
 
 This file satisfies the register re-open prerequisite **“cutover checklist drafted.”**  
 It does **not** authorize promote or live-wire.
@@ -11,8 +12,9 @@ It does **not** authorize promote or live-wire.
 ## What cutover would change (future human PR only)
 
 - Replace Soft-Frozen static Financial path with **BLEND_025** weights:  
-  `α=0.25·FIN_CAP_50[0.35,0.50] + 0.75·Soft-Frozen[0.60,0.90]` (renormalized to live FINBAND).  
-- Not a FIN50-only static swap; not L4 DD-path logic.
+  `α=0.25·FIN_CAP_50[0.35,0.50] + 0.75·Soft-Frozen` (renormalized to **live** Soft-Frozen clips).  
+- Not a FIN50-only static swap; not L4 DD-path logic.  
+- Must re-twin vs current live (`FUSE_COOL` ± Class D) — do not cut over on stale `BASE_E16`-only evidence.
 
 ## Gates (all required)
 
@@ -20,19 +22,20 @@ It does **not** authorize promote or live-wire.
 |---|---|---|---|
 | 1 | Exact T+1 on dual-paper books | Required on observe ledgers | YES (harness) |
 | 2 | Charter hist gates (OOF / late / sealed) | Screen PASS → paper proposal | YES (research) |
-| 3 | Dual-paper **OPERATING OBSERVE** on main | #65 | YES |
-| 4 | ≥1 clean month-end: no YTD/1y `PAUSE_REVIEW` | First monitor clean asof 2026-09-04; **need sustained** | **WATCH** |
-| 5 | Sealed CAGR giveback vs BASE within charter | Screen / sealed diag | WATCH on each pack |
-| 6 | Soft-Frozen unchanged until cutover PR | [0.60, 0.90] KEEP | YES |
-| 7 | Dedicated cutover checklist all YES + human PR | This file prep; PR not opened | **NO** |
+| 3 | Dual-paper **OPERATING OBSERVE** on main | observe sleeve | YES |
+| 4 | ≥1 clean month-end: no YTD/1y `PAUSE_REVIEW` | asof **2026-09-16** still `PAUSE_REVIEW` ytd | **NO** |
+| 5 | Sealed CAGR giveback vs BASE within charter | sealed MDD ALERT on last print | **NO / WATCH** |
+| 6 | Soft-Frozen unchanged until cutover PR | live KEEP | YES |
+| 7 | Dedicated cutover checklist all YES + human PR | promote review 2026-09-26 BLOCKED | **NO** |
 | 8 | Must not bundle FIN50-only static, L4 DD-path, E45/E50 | — | Policy |
 
 ## Blockers now
 
 1. Register #5: live **NOT DECISION-READY** — observe ≠ promote.  
-2. Need **sustained** clean trailing (not a single clean print).  
-3. No human cutover PR.  
-4. Soft-Frozen KEEP until explicit PR.
+2. Month-end **PAUSE_REVIEW** (ytd giveback > 5 pp) — not sustained clean.  
+3. Live SSOT drift (β densify · COOL · Class D) vs older BLEND twin — rebase before promote.  
+4. No human cutover PR.  
+5. Soft-Frozen KEEP until explicit PR.
 
 ## When gates clear — PR shape (do not pre-merge)
 
@@ -56,4 +59,4 @@ python3 scripts/e16_blend025_month_end_monitor.py
 - L4 cutover remains **DEFER** on its own checklist.  
 - Do not conflate BLEND observe PASS with FIN50 or L4 promote.
 
-Label: `CUTOVER_CHECKLIST_BLEND025__NOT_AUTHORIZED`
+Label: `CUTOVER_CHECKLIST_BLEND025__NOT_AUTHORIZED__REVIEW_2026-09-26_BLOCKED`

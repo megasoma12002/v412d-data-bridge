@@ -7,7 +7,7 @@ Soft-Frozen live: **F[0.60, 0.80] E[0.00, 0.50] LIVE** · COOL live: **KEEP**
 | Step | Work | Status |
 |---:|---|---|
 | 1 | Live KEEP overlays | **DONE** `#281` COOL |
-| 2a | Soft/Sleeve densify | **`OFFENSE_CAGR_SOFT`** `#282` |
+| 2a | Soft/Sleeve densify | **`OFFENSE_CAGR_SOFT`** → near-flat → **LIVE WIRED `SELL_a75`** under COOL · Soft-Frozen KEEP · `LIVE_SELL_A75_UNDER_COOL_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 2b–2c | 0050 densify Stage A/B | HIT near-flat · Stage B tip-fail |
 | 2d | Paper observe near-flat | OPEN then **promoted** |
 | 2e | Soft-Frozen clip flip | **LIVE WIRED** · `ACCEPT … F0.60-0.80_E0.00-0.50` |
@@ -23,4 +23,5 @@ Soft-Frozen live: **F[0.60, 0.80] E[0.00, 0.50] LIVE** · COOL live: **KEEP**
 
 Binding: forward-only · no tip history rewrite · broker still PREP-only · live universe expand = Class D ACCEPT only.
 
-ABCD 2026-09-25: A observe refresh · B near-flat ACCEPT floor +0.15 · C Gate V8 · D within-sleeve COOL micro (parallel PRs).
+ABCD 2026-09-25: A observe refresh · B near-flat ACCEPT floor +0.15 · C Gate V8 · D within-sleeve COOL micro (parallel PRs).  
+2026-09-26: BLEND_025 promote 檢核 **BLOCKED** · `SELL_a75` near-flat → **LIVE WIRED** under COOL (keep FUSE+COOL).

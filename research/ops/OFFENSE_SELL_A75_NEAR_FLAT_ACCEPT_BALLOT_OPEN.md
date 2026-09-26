@@ -1,0 +1,14 @@
+# Offense under COOL — Ballot OPEN → **SUPERSEDED**
+
+Date opened: 2026-09-26  
+Status: **SUPERSEDED by EXECUTED ACCEPT**
+
+Human issued:
+
+```
+ACCEPT near-flat: SELL_a75 under COOL (CAGR floor +0.15)
+```
+
+See: `OFFENSE_SELL_A75_NEAR_FLAT_ACCEPT_BALLOT_EXECUTED.md`
+
+Label: `OFFENSE_SELL_A75_NEAR_FLAT_ACCEPT_BALLOT_2026-09-26__SUPERSEDED_BY_EXECUTED`

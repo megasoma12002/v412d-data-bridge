@@ -23,6 +23,8 @@ from live_config import (
     LIVE_FIN_PRIV_V7_F05,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
+    LIVE_FUSE_SOFT_SELL_BALLOT,
+    LIVE_FUSE_SOFT_SELL_BOOST,
     TIP_BOOKS_ALIGN_BALLOT,
 )
 from live_ledger import append_immutable, atomic_write_json
@@ -140,6 +142,11 @@ def build_portfolio_state_payload(
         "e45_stitch_rollback": E45_STITCH_ROLLBACK,
         "tip_books_align_ballot": TIP_BOOKS_ALIGN_BALLOT,
         "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
+        "fuse_soft_sell_boost": float(LIVE_FUSE_SOFT_SELL_BOOST) if LIVE_FUSE_ADDITIVE else None,
+        "fuse_soft_sell_ballot": LIVE_FUSE_SOFT_SELL_BALLOT if LIVE_FUSE_ADDITIVE else None,
+        "fuse_soft_sell_cutover": (
+            "ACCEPT_2026-09-26_SELL_A75_UNDER_COOL" if LIVE_FUSE_ADDITIVE else None
+        ),
         "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
         "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
         "cool_exposure_live": bool(LIVE_COOL_EXPOSURE),
@@ -150,7 +157,8 @@ def build_portfolio_state_payload(
         else None,
         "live_cutover_rollback": (
             "Set LIVE_COOL_EXPOSURE=False; optional restore LIVE_DH_EXPOSURE=True "
-            "only with dedicated ACCEPT; LIVE_FUSE_ADDITIVE independent"
+            "only with dedicated ACCEPT; LIVE_FUSE_ADDITIVE independent; "
+            "SELL_a75 → set live_fuse_soft_sell_boost=0.5"
         ),
         "fin_priv_v7_f05_live": bool(LIVE_FIN_PRIV_V7_F05),
         "fin_priv_ballot": LIVE_FIN_PRIV_BALLOT if LIVE_FIN_PRIV_V7_F05 else None,

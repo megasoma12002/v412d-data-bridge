@@ -1,0 +1,18 @@
+{
+  "label": "OFFENSE_SELL_A75_NEAR_FLAT_FLOOR015_RESCORE",
+  "date": "2026-09-26",
+  "status": "NEAR_FLAT_HIT",
+  "human_accept": "ACCEPT near-flat: SELL_a75 under COOL (CAGR floor +0.15)",
+  "champion": "SELL_a75",
+  "track": "SOFT_SELL_AMP",
+  "sell_amp": 0.75,
+  "base": "BASE_FUSE_COOL",
+  "floor_cagr_lift_pp": 0.15,
+  "held_cagr_lift_pp": 0.1714,
+  "held_mdd_improve_pp": -0.0406,
+  "in_mdd_band": true,
+  "tip_ok": true,
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "cool_keep": true
+}

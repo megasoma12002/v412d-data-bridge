@@ -54,6 +54,13 @@ def build_champion_buy_scores(kd_scores: pd.DataFrame, lows: dict) -> pd.DataFra
     return soft_boost_scores(kd_scores, lows[BUY_LOW_ID], SOFT_BOOST)
 
 
-def build_observe_sell_panel(highs: dict) -> pd.DataFrame:
-    """OPERATING observe sell soft (``RSI6_GT80`` @ SELL_a05)."""
-    return soft_sell_panel(highs[SELL_HIGH_ID], boost=SELL_SOFT_BOOST)
+def build_observe_sell_panel(
+    highs: dict, *, boost: float | None = None
+) -> pd.DataFrame:
+    """Sell soft panel (``RSI6_GT80``).
+
+    Default boost = ``SELL_SOFT_BOOST`` (0.5 / SELL_a05) for independent Soft observe.
+    Live FUSE path passes ``live_config.LIVE_FUSE_SOFT_SELL_BOOST`` (SELL_a75 = 0.75).
+    """
+    amp = SELL_SOFT_BOOST if boost is None else float(boost)
+    return soft_sell_panel(highs[SELL_HIGH_ID], boost=amp)
