@@ -167,17 +167,25 @@ def main() -> None:
         set(orders.code.astype(str)) - set(TEL + ["0050"])
     )
     # Class D FinPriv ACCEPT: allow PRIV_R3R4 in Financial orders when live flag on.
+    # CONF_RET3 ACCEPT: allow tradable 00631L satellite outside Soft sleeves.
     try:
-        from live_config import LIVE_FIN_PRIV_V7_F05
+        from live_config import LIVE_CONF_RET3_631L, LIVE_FIN_PRIV_V7_F05
     except Exception:
         LIVE_FIN_PRIV_V7_F05 = False
+        LIVE_CONF_RET3_631L = False
+    extra_ok = set(TEL + ["0050"])
+    if LIVE_CONF_RET3_631L:
+        import live_conf_ret3_631l_cutover as conf_ret3
+
+        extra_ok.add(conf_ret3.OFF_CODE)
+    allowed_fin = set(FIN)
     if LIVE_FIN_PRIV_V7_F05:
         import live_finhc_v7_f05_cutover as finpriv
 
-        allowed_fin = set(FIN) | set(finpriv.PRIV_CODES)
-        checks["frozen_financial_universe"] = allowed_fin.issuperset(
-            set(orders.code.astype(str)) - set(TEL + ["0050"])
-        )
+        allowed_fin |= set(finpriv.PRIV_CODES)
+    checks["frozen_financial_universe"] = allowed_fin.issuperset(
+        set(orders.code.astype(str)) - extra_ok
+    )
 
     fills_path = s / "fills.csv"
     checks["fills_file_present"] = fills_path.exists()

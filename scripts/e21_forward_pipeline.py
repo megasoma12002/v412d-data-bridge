@@ -30,6 +30,8 @@ from live_config import (
     LIVE,
     LIVE_COOL_EXPOSURE,
     LIVE_COOL_ID,
+    LIVE_CONF_RET3_631L,
+    LIVE_CONF_RET3_BALLOT,
     LIVE_CUTOVER_BALLOT,
     LIVE_DH_EXPOSURE,
     LIVE_DH_ID,
@@ -127,7 +129,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
 
     m, latest, day = load_market_session(market_path, asof=a.asof)
     px, sleeve, target, e20, diag = features(m)
-    tw, _e20w, tw_pre_risk, risk_exposure_today, e45_exposure_today, _fuse_meta, _risk_meta = (
+    tw, _e20w, tw_pre_risk, risk_exposure_today, e45_exposure_today, _fuse_meta, risk_meta = (
         resolve_session_targets(m, target, latest, a.dividends, LIVE)
     )
     e20w = e20.iloc[-1]
@@ -141,6 +143,14 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
             prices, asof=latest, opens=op
         )
         fin_priv_px_meta["enabled"] = True
+    conf_ret3_px_meta: dict = {"enabled": bool(LIVE_CONF_RET3_631L)}
+    if LIVE_CONF_RET3_631L:
+        import live_conf_ret3_631l_cutover as conf_ret3
+
+        prices, op, conf_ret3_px_meta = conf_ret3.merge_off_session_prices(
+            prices, asof=latest, opens=op
+        )
+        conf_ret3_px_meta["enabled"] = True
     state_path = sdir / "portfolio_state.json"
     state = load_portfolio_state(sdir, capital=a.capital)
     assert_session_preflight(sdir, state, latest)
@@ -196,6 +206,12 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "fin_priv_v7_f05_live": bool(LIVE_FIN_PRIV_V7_F05),
         "fin_priv_ballot": LIVE_FIN_PRIV_BALLOT if LIVE_FIN_PRIV_V7_F05 else None,
         "fin_priv_px_meta": fin_priv_px_meta if LIVE_FIN_PRIV_V7_F05 else None,
+        "conf_ret3_631l_live": bool(LIVE_CONF_RET3_631L),
+        "conf_ret3_ballot": LIVE_CONF_RET3_BALLOT if LIVE_CONF_RET3_631L else None,
+        "conf_ret3_off_weight": float(risk_meta.get("conf_ret3_off_weight") or 0.0)
+        if LIVE_CONF_RET3_631L
+        else None,
+        "conf_ret3_px_meta": conf_ret3_px_meta if LIVE_CONF_RET3_631L else None,
         "live_wire": True,
         "owns_qc_status": False,
         "note": (
@@ -262,6 +278,23 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         dividends_path=a.dividends,
         regime_today=str(diag.get("regime", "")),
     )
+    conf_ret3_order_meta: dict = {"enabled": bool(LIVE_CONF_RET3_631L)}
+    if LIVE_CONF_RET3_631L:
+        import live_conf_ret3_631l_cutover as conf_ret3
+        from live_ledger import make_order_id
+
+        off_w = float(risk_meta.get("conf_ret3_off_weight") or 0.0)
+        sig_d = latest.date() if hasattr(latest, "date") else latest
+        off_orders, conf_ret3_order_meta = conf_ret3.build_off_order_rows(
+            pos=pos,
+            prices=prices,
+            nav=nav,
+            off_w=off_w,
+            signal_date=sig_d,
+            make_order_id=make_order_id,
+        )
+        order_rows.extend(off_orders)
+        conf_ret3_order_meta["enabled"] = True
     stamp = utc_now_iso()
     fin_alloc_signal = LIVE_FIN_WITHIN_SLEEVE
     if LIVE_FIN_PRIV_V7_F05 and fin_priv_meta.get("gate_on"):
@@ -319,6 +352,19 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         )
         if LIVE_FIN_PRIV_V7_F05
         else None,
+        "conf_ret3_631l_live": bool(LIVE_CONF_RET3_631L),
+        "conf_ret3_ballot": LIVE_CONF_RET3_BALLOT if LIVE_CONF_RET3_631L else None,
+        "conf_ret3_off_weight": float(risk_meta.get("conf_ret3_off_weight") or 0.0)
+        if LIVE_CONF_RET3_631L
+        else None,
+        "conf_ret3_pulse_active": bool(
+            float(risk_meta.get("conf_ret3_off_weight") or 0.0) > 0
+        )
+        if LIVE_CONF_RET3_631L
+        else None,
+        "conf_ret3_n_orders": int(conf_ret3_order_meta.get("n_orders") or 0)
+        if LIVE_CONF_RET3_631L
+        else None,
     }
     navrow = {
         "date": latest.date().isoformat(),
@@ -327,6 +373,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "pre_financial": pre["Financial"],
         "pre_telecom": pre["Telecom"],
         "pre_0050": pre["0050"],
+        "pre_00631l": float(vals.get("00631L", 0.0)) / nav if nav else 0.0,
         "target_l1_gap": l1,
         "orders_created": len(order_rows),
         "fills_processed": len(fills),
@@ -338,6 +385,9 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "e22_receivable_settled": float(getattr(applied, "receivable_settled", 0.0) or 0.0),
         "e22_stock_shares_added": float(getattr(applied, "stock_shares_added", 0.0) or 0.0),
         "e22_receivable_balance": float(sum(receivables.values())),
+        "conf_ret3_off_weight": float(risk_meta.get("conf_ret3_off_weight") or 0.0)
+        if LIVE_CONF_RET3_631L
+        else None,
     }
 
     state_payload = build_portfolio_state_payload(

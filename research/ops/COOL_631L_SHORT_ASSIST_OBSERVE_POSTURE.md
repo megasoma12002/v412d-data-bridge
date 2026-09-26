@@ -1,6 +1,6 @@
 # 00631L short-assist observe posture
 
-Status: **KEEP OBSERVE** · cutover **BLOCKED**  
+Status: **PROMOTED LIVE (see LIVE_CONF_RET3 ballot) · prior KEEP OBSERVE** · cutover **BLOCKED**  
 Champion: `CONF_RET3_A10_H5`  
 Human OPEN: `OPEN observe: CONF_RET3_A10_H5`
 

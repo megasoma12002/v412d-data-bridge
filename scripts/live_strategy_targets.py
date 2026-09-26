@@ -161,6 +161,25 @@ def resolve_session_targets(
             )
         )
 
+    # CONF_RET3_A10_H5 × 00631L — scale Soft after COOL/DH (paper twin soft_scale).
+    if bool(getattr(cfg, "live_conf_ret3_631l", False)):
+        import live_conf_ret3_631l_cutover as conf_ret3
+
+        div_for_off = (
+            pd.read_csv(dividends_path, dtype={"code": str})
+            if Path(dividends_path).exists()
+            else pd.DataFrame()
+        )
+        off_w, off_meta = conf_ret3.off_weight_today(m, div_for_off, latest)
+        tw = pd.Series(conf_ret3.apply_off_to_soft_targets(tw, off_w))
+        risk_meta = {
+            **risk_meta,
+            "conf_ret3_631l": True,
+            "conf_ret3_off_weight": float(off_w),
+            "conf_ret3_meta": off_meta,
+            "conf_ret3_ballot": conf_ret3.HUMAN_ACCEPT,
+        }
+
     # A05 stitch DROPPED — exposure placeholder kept for call-site unpack stability.
     e45_exposure_today = 1.0
     e20w = tw  # unused when caller keeps e20; kept for API symmetry

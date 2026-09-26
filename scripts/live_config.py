@@ -85,6 +85,14 @@ class LiveConfig:
         "ACCEPT Live cutover: SELL_a75 under COOL (keep FUSE+COOL)"
     )
 
+    # CONF_RET3_A10_H5 × 00631L short-assist — human ACCEPT 2026-09-26
+    # COOL exit + 0050 RET3>0 · α=0.10 · H=5 · OFF=00631L (forward-only Class D membership).
+    # Soft-Frozen / FUSE / COOL / SELL_a75 / FinPriv V7 KEEP; broker PREP-only.
+    live_conf_ret3_631l: bool = True
+    live_conf_ret3_ballot: str = (
+        "ACCEPT Live cutover: CONF_RET3_A10_H5 (00631L short-assist under COOL)"
+    )
+
     # Fill backend — default paper Exact T+1. Broker / dry_run via CLI or E21_FILL_PORT.
     # True broker live write requires ALL of:
     #   broker_live_write_accepted=True (ACCEPT PR), E21_BROKER_WRITE_LIVE=1, and broker_safety gates.
@@ -107,6 +115,8 @@ LIVE_FIN_PRIV_V7_F05 = LIVE.live_fin_priv_v7_f05
 LIVE_FIN_PRIV_BALLOT = LIVE.live_fin_priv_ballot
 LIVE_FUSE_SOFT_SELL_BOOST = LIVE.live_fuse_soft_sell_boost
 LIVE_FUSE_SOFT_SELL_BALLOT = LIVE.live_fuse_soft_sell_ballot
+LIVE_CONF_RET3_631L = LIVE.live_conf_ret3_631l
+LIVE_CONF_RET3_BALLOT = LIVE.live_conf_ret3_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital

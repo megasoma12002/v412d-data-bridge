@@ -1,0 +1,16 @@
+{
+  "generated_at_utc": "2026-09-26T10:30:00Z",
+  "status": "ACCEPTED_LIVE_WIRED",
+  "human_exact": "CONF_RET3_A10_H5 accept live",
+  "normalized": "ACCEPT Live cutover: CONF_RET3_A10_H5 (00631L short-assist under COOL)",
+  "chal_id": "CONF_RET3_A10_H5",
+  "off_code": "00631L",
+  "alpha": 0.1,
+  "hold_h": 5,
+  "confirm": "RET3",
+  "live_wire": true,
+  "forward_only": true,
+  "soft_frozen_keep": true,
+  "broker_live_write": false,
+  "label": "LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_ACCEPTED_2026-09-26__FORWARD_ONLY"
+}

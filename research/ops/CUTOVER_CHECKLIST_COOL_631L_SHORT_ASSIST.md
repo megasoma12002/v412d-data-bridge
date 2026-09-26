@@ -1,35 +1,32 @@
 # Cutover Checklist — 00631L short-assist CONF_RET3_A10_H5
 
-Status: **BLOCKED — NOT AUTHORIZED**  
-Observe OPEN: `OPEN observe: CONF_RET3_A10_H5`  
-Soft-Frozen · COOL_c8 · FUSE+SELL_a75 **KEEP**
+Status: **AUTHORIZED — LIVE WIRED (forward-only)**  
+Human ACCEPT: `CONF_RET3_A10_H5 accept live`  
+Ballot: `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`  
+Soft-Frozen · COOL_c8 · FUSE+SELL_a75 · FinPriv V7 **KEEP**
 
 ## Progress
 
 - [x] Stage A `SHORT_ASSIST_HIT`
 - [x] Human OPEN observe ballot
 - [x] Dual-paper OPERATING + month-end monitor wired
-- [ ] Sustained clean trailing (ops cadence)
-- [ ] Dedicated Class D ACCEPT for live `00631L` universe membership
-- [ ] Live wire implementation + QC green
+- [x] Dedicated Class D / live membership ACCEPT (`CONF_RET3_A10_H5 accept live`)
+- [x] Live wire implementation (`live_conf_ret3_631l=True`)
+- [ ] Sustained clean trailing (ops cadence post-wire)
 
-## What live cutover would change (future only)
+## Live change (forward-only)
 
-- Add tradable `00631L` to tip universe / sleeve schedule on confirmed COOL exits  
-- Must not rewrite tip history · must not loosen COOL · broker still separate ACCEPT
-
-## Blockers now
-
-1. Observe ≠ promote.  
-2. No Class D live membership ACCEPT.  
-3. Soft-Frozen KEEP until explicit PR.
+- Tradable `00631L` on confirmed COOL exits (RET3 · α=0.10 · H=5)  
+- Soft sleeves scaled by `(1 − OFF)` while pulse active  
+- No tip history rewrite · broker still PREP-only  
 
 ## Non-actions
 
 - Do **not** rewrite tip history  
 - Do **not** broker live-write  
-- Do **not** treat Stage A HIT as Soft-Frozen flip  
+- Do **not** Soft-Frozen clip flip  
+- Do **not** wire dual-handoff `00632R` from this ballot  
 
 ## Label
 
-`CUTOVER_CHECKLIST_COOL_631L_SHORT_ASSIST_2026-09-26__BLOCKED`
+`CUTOVER_CHECKLIST_COOL_631L_SHORT_ASSIST_2026-09-26__AUTHORIZED_LIVE`
