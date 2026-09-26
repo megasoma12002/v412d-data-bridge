@@ -1,0 +1,76 @@
+{
+  "label": "LIVE_FILL_MECH_DEEPDIVE_DECISION_PACK",
+  "generated_at_utc": "2026-09-26T14:32:42Z",
+  "status": "FILL_MECH_DEEPDIVE_DONE",
+  "verdict": "FILL_MECH_DEEPDIVE_DONE",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "book_id": "LIVE_FUSE_ADDITIVE_SELL_a75_COOL_c8",
+  "findings": [
+    {
+      "id": "A_T1_STRUCTURAL",
+      "rank": 1,
+      "claim": "Exact T+1 is the structural fill-cost driver across full history",
+      "evidence": {
+        "mean_t1": 0.761,
+        "mean_n5": 2.6809,
+        "corr_t1_n5": 0.0724,
+        "tip_mean_t1": 1.1543,
+        "tip_mean_n5": 3.7887
+      }
+    },
+    {
+      "id": "B_KD_OFFSEASON",
+      "rank": 2,
+      "claim": "FIN KD off-season fill quality vs in-season",
+      "evidence": {
+        "in_n5": 2.6985,
+        "off_n5": 2.4943,
+        "delta_n5": -0.2042,
+        "delta_t1": -0.057,
+        "in_n": 261,
+        "off_n": 2805
+      }
+    },
+    {
+      "id": "C_CLIP_FIN_HI",
+      "rank": 3,
+      "claim": "FIN CLIP_FIN_HI edge fills vs non-edge",
+      "evidence": {
+        "clip_n5": 1.5681,
+        "not_n5": 2.5344,
+        "delta_n5": -0.9663,
+        "delta_t1": -0.3441,
+        "clip_n": 72,
+        "fin_share_ge_080": 0.0235
+      }
+    },
+    {
+      "id": "D_COOL_DEFEND",
+      "rank": 4,
+      "claim": "COOL defend days: fill distance bump vs NAV MDD benefit",
+      "evidence": {
+        "delta_n5": 0.5829,
+        "delta_t1": 0.1534,
+        "cool_on_n": 1454,
+        "heldout_mdd_improve_pp": 7.5284,
+        "heldout_cagr_giveback_pp": 0.7952,
+        "sealed_mdd_improve_pp": 3.1973
+      }
+    }
+  ],
+  "observe_priority_by_abs_n5_delta": [
+    "C_CLIP",
+    "D_COOL",
+    "B_KD"
+  ],
+  "binding": [
+    "Soft-Frozen live KEEP",
+    "Exact T+1 KEEP",
+    "No tip rewrite",
+    "No live wire \u2014 discussion only after this pack"
+  ],
+  "next": "Human discussion only \u2014 pick ZERO or ONE Stage A from priority ['C_CLIP', 'D_COOL', 'B_KD']; do not batch-retune from this pack",
+  "charter": "research/ops/LIVE_FILL_MECH_DEEPDIVE_CHARTER.md",
+  "screen": "research/ops/LIVE_FILL_MECH_DEEPDIVE_SCREEN.md"
+}

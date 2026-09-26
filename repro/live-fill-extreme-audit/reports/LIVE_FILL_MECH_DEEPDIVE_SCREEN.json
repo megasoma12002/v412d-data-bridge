@@ -1,0 +1,2422 @@
+{
+  "generated_at_utc": "2026-09-26T14:32:42Z",
+  "label": "LIVE_FILL_MECH_DEEPDIVE_SCREEN",
+  "charter": "research/ops/LIVE_FILL_MECH_DEEPDIVE_CHARTER.md",
+  "status": "FILL_MECH_DEEPDIVE_DONE",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "book_id": "LIVE_FUSE_ADDITIVE_SELL_a75_COOL_c8",
+  "kd_season": {
+    "start": [
+      4,
+      15
+    ],
+    "end": [
+      5,
+      15
+    ]
+  },
+  "tip": {
+    "label": "tip",
+    "n_fills": 96,
+    "fill_date_min": "2026-08-25",
+    "fill_date_max": "2026-09-16",
+    "A_t1": {
+      "overall": {
+        "n": 96,
+        "n_buy": 72,
+        "n_sell": 24,
+        "mean_t1": 1.1543,
+        "median_t1": 0.8797,
+        "p90_t1": 2.6114,
+        "mean_n5": 3.7887,
+        "median_n5": 3.115,
+        "p90_n5": 6.9516,
+        "share_n5_le1": 0.0729,
+        "share_n5_le3": 0.4896,
+        "mean_n21": 7.7602,
+        "corr_t1_n5": 0.7099
+      },
+      "sleeve_side": [
+        {
+          "n": 96,
+          "n_buy": 72,
+          "n_sell": 24,
+          "mean_t1": 1.1543,
+          "median_t1": 0.8797,
+          "p90_t1": 2.6114,
+          "mean_n5": 3.7887,
+          "median_n5": 3.115,
+          "p90_n5": 6.9516,
+          "share_n5_le1": 0.0729,
+          "share_n5_le3": 0.4896,
+          "mean_n21": 7.7602,
+          "corr_t1_n5": 0.7099,
+          "sleeve": "ALL",
+          "side": "ALL"
+        },
+        {
+          "n": 72,
+          "n_buy": 72,
+          "n_sell": 0,
+          "mean_t1": 1.398,
+          "median_t1": 1.1768,
+          "p90_t1": 2.942,
+          "mean_n5": 4.0273,
+          "median_n5": 3.2001,
+          "p90_n5": 8.0394,
+          "share_n5_le1": 0.0833,
+          "share_n5_le3": 0.4444,
+          "mean_n21": 8.3185,
+          "corr_t1_n5": 0.7326,
+          "sleeve": "ALL",
+          "side": "BUY"
+        },
+        {
+          "n": 24,
+          "n_buy": 0,
+          "n_sell": 24,
+          "mean_t1": 0.4231,
+          "median_t1": 0.4735,
+          "p90_t1": 0.8774,
+          "mean_n5": 3.073,
+          "median_n5": 2.8291,
+          "p90_n5": 4.6528,
+          "share_n5_le1": 0.0417,
+          "share_n5_le3": 0.625,
+          "mean_n21": 6.0855,
+          "corr_t1_n5": 0.476,
+          "sleeve": "ALL",
+          "side": "SELL"
+        },
+        {
+          "n": 48,
+          "n_buy": 48,
+          "n_sell": 0,
+          "mean_t1": 1.6175,
+          "median_t1": 1.4533,
+          "p90_t1": 3.0823,
+          "mean_n5": 4.6479,
+          "median_n5": 4.1885,
+          "p90_n5": 9.1086,
+          "share_n5_le1": 0.0833,
+          "share_n5_le3": 0.3958,
+          "mean_n21": 9.036,
+          "corr_t1_n5": 0.7512,
+          "sleeve": "FIN",
+          "side": "ALL"
+        },
+        {
+          "n": 48,
+          "n_buy": 48,
+          "n_sell": 0,
+          "mean_t1": 1.6175,
+          "median_t1": 1.4533,
+          "p90_t1": 3.0823,
+          "mean_n5": 4.6479,
+          "median_n5": 4.1885,
+          "p90_n5": 9.1086,
+          "share_n5_le1": 0.0833,
+          "share_n5_le3": 0.3958,
+          "mean_n21": 9.036,
+          "corr_t1_n5": 0.7512,
+          "sleeve": "FIN",
+          "side": "BUY"
+        },
+        {
+          "n": 36,
+          "n_buy": 15,
+          "n_sell": 21,
+          "mean_t1": 0.6366,
+          "median_t1": 0.5099,
+          "p90_t1": 1.4166,
+          "mean_n5": 2.8457,
+          "median_n5": 2.6486,
+          "p90_n5": 4.5716,
+          "share_n5_le1": 0.0278,
+          "share_n5_le3": 0.6389,
+          "mean_n21": 5.704,
+          "corr_t1_n5": 0.5033,
+          "sleeve": "TEL",
+          "side": "ALL"
+        },
+        {
+          "n": 15,
+          "n_buy": 15,
+          "n_sell": 0,
+          "mean_t1": 0.9402,
+          "median_t1": 0.7884,
+          "p90_t1": 1.4278,
+          "mean_n5": 2.5997,
+          "median_n5": 1.813,
+          "p90_n5": 4.5356,
+          "share_n5_le1": 0.0667,
+          "share_n5_le3": 0.6667,
+          "mean_n21": 4.985,
+          "corr_t1_n5": 0.7051,
+          "sleeve": "TEL",
+          "side": "BUY"
+        },
+        {
+          "n": 21,
+          "n_buy": 0,
+          "n_sell": 21,
+          "mean_t1": 0.4197,
+          "median_t1": 0.4735,
+          "p90_t1": 0.9116,
+          "mean_n5": 3.0215,
+          "median_n5": 2.8556,
+          "p90_n5": 4.5454,
+          "share_n5_le1": 0.0,
+          "share_n5_le3": 0.619,
+          "mean_n21": 6.2176,
+          "corr_t1_n5": 0.6032,
+          "sleeve": "TEL",
+          "side": "SELL"
+        },
+        {
+          "n": 12,
+          "n_buy": 9,
+          "n_sell": 3,
+          "mean_t1": 0.8541,
+          "median_t1": 0.8935,
+          "p90_t1": 2.0701,
+          "mean_n5": 3.1807,
+          "median_n5": 3.5429,
+          "p90_n5": 4.5835,
+          "share_n5_le1": 0.1667,
+          "share_n5_le3": 0.4167,
+          "mean_n21": 8.8256,
+          "corr_t1_n5": 0.3636,
+          "sleeve": "0050",
+          "side": "ALL"
+        },
+        {
+          "n": 9,
+          "n_buy": 9,
+          "n_sell": 0,
+          "mean_t1": 0.9899,
+          "median_t1": 1.1837,
+          "p90_t1": 2.278,
+          "mean_n5": 3.0962,
+          "median_n5": 3.9091,
+          "p90_n5": 4.1731,
+          "share_n5_le1": 0.1111,
+          "share_n5_le3": 0.3333,
+          "mean_n21": 10.0471,
+          "corr_t1_n5": 0.544,
+          "sleeve": "0050",
+          "side": "BUY"
+        },
+        {
+          "n": 3,
+          "n_buy": 0,
+          "n_sell": 3,
+          "mean_t1": 0.4468,
+          "median_t1": 0.772,
+          "p90_t1": 0.7925,
+          "mean_n5": 3.4342,
+          "median_n5": 2.8026,
+          "p90_n5": 5.9429,
+          "share_n5_le1": 0.3333,
+          "share_n5_le3": 0.6667,
+          "mean_n21": 5.161,
+          "corr_t1_n5": 0.2021,
+          "sleeve": "0050",
+          "side": "SELL"
+        }
+      ],
+      "windows": {
+        "full": {
+          "n": 96,
+          "n_buy": 72,
+          "n_sell": 24,
+          "mean_t1": 1.1543,
+          "median_t1": 0.8797,
+          "p90_t1": 2.6114,
+          "mean_n5": 3.7887,
+          "median_n5": 3.115,
+          "p90_n5": 6.9516,
+          "share_n5_le1": 0.0729,
+          "share_n5_le3": 0.4896,
+          "mean_n21": 7.7602,
+          "corr_t1_n5": 0.7099
+        },
+        "oof_2011_2018": {
+          "n": 0
+        },
+        "validation_2019_2022": {
+          "n": 0
+        },
+        "sealed_2023_plus": {
+          "n": 96,
+          "n_buy": 72,
+          "n_sell": 24,
+          "mean_t1": 1.1543,
+          "median_t1": 0.8797,
+          "p90_t1": 2.6114,
+          "mean_n5": 3.7887,
+          "median_n5": 3.115,
+          "p90_n5": 6.9516,
+          "share_n5_le1": 0.0729,
+          "share_n5_le3": 0.4896,
+          "mean_n21": 7.7602,
+          "corr_t1_n5": 0.7099
+        },
+        "heldout_2019_plus": {
+          "n": 96,
+          "n_buy": 72,
+          "n_sell": 24,
+          "mean_t1": 1.1543,
+          "median_t1": 0.8797,
+          "p90_t1": 2.6114,
+          "mean_n5": 3.7887,
+          "median_n5": 3.115,
+          "p90_n5": 6.9516,
+          "share_n5_le1": 0.0729,
+          "share_n5_le3": 0.4896,
+          "mean_n21": 7.7602,
+          "corr_t1_n5": 0.7099
+        }
+      },
+      "t1_buckets": {
+        "ALL": [
+          {
+            "bucket": "<=0.5",
+            "n": 27,
+            "share": 0.2812,
+            "mean_n5": 2.3475
+          },
+          {
+            "bucket": "0.5-1",
+            "n": 26,
+            "share": 0.2708,
+            "mean_n5": 2.8464
+          },
+          {
+            "bucket": "1-2",
+            "n": 24,
+            "share": 0.25,
+            "mean_n5": 3.9256
+          },
+          {
+            "bucket": ">2",
+            "n": 19,
+            "share": 0.1979,
+            "mean_n5": 6.9534
+          }
+        ],
+        "BUY": [
+          {
+            "bucket": "<=0.5",
+            "n": 12,
+            "share": 0.1667,
+            "mean_n5": 1.9457
+          },
+          {
+            "bucket": "0.5-1",
+            "n": 19,
+            "share": 0.2639,
+            "mean_n5": 2.6069
+          },
+          {
+            "bucket": "1-2",
+            "n": 22,
+            "share": 0.3056,
+            "mean_n5": 3.8622
+          },
+          {
+            "bucket": ">2",
+            "n": 19,
+            "share": 0.2639,
+            "mean_n5": 6.9534
+          }
+        ],
+        "SELL": [
+          {
+            "bucket": "<=0.5",
+            "n": 15,
+            "share": 0.625,
+            "mean_n5": 2.6689
+          },
+          {
+            "bucket": "0.5-1",
+            "n": 7,
+            "share": 0.2917,
+            "mean_n5": 3.4965
+          },
+          {
+            "bucket": "1-2",
+            "n": 2,
+            "share": 0.0833,
+            "mean_n5": 4.6221
+          },
+          {
+            "bucket": ">2",
+            "n": 0,
+            "share": 0.0,
+            "mean_n5": null
+          }
+        ]
+      }
+    },
+    "B_kd": {
+      "fin_n": 48,
+      "in_season": {
+        "n": 0
+      },
+      "off_season": {
+        "n": 48,
+        "n_buy": 48,
+        "n_sell": 0,
+        "mean_t1": 1.6175,
+        "median_t1": 1.4533,
+        "p90_t1": 3.0823,
+        "mean_n5": 4.6479,
+        "median_n5": 4.1885,
+        "p90_n5": 9.1086,
+        "share_n5_le1": 0.0833,
+        "share_n5_le3": 0.3958,
+        "mean_n21": 9.036,
+        "corr_t1_n5": 0.7512
+      },
+      "delta_off_minus_in_mean_n5": null,
+      "delta_off_minus_in_mean_t1": null,
+      "by_side": {
+        "BUY": {
+          "in_season": {
+            "n": 0
+          },
+          "off_season": {
+            "n": 48,
+            "n_buy": 48,
+            "n_sell": 0,
+            "mean_t1": 1.6175,
+            "median_t1": 1.4533,
+            "p90_t1": 3.0823,
+            "mean_n5": 4.6479,
+            "median_n5": 4.1885,
+            "p90_n5": 9.1086,
+            "share_n5_le1": 0.0833,
+            "share_n5_le3": 0.3958,
+            "mean_n21": 9.036,
+            "corr_t1_n5": 0.7512
+          }
+        },
+        "SELL": {
+          "in_season": {
+            "n": 0
+          },
+          "off_season": {
+            "n": 0
+          }
+        }
+      },
+      "kd_buy_block": {
+        "n": 0
+      },
+      "windows": {
+        "full": {
+          "in_season": {
+            "n": 0
+          },
+          "off_season": {
+            "n": 48,
+            "n_buy": 48,
+            "n_sell": 0,
+            "mean_t1": 1.6175,
+            "median_t1": 1.4533,
+            "p90_t1": 3.0823,
+            "mean_n5": 4.6479,
+            "median_n5": 4.1885,
+            "p90_n5": 9.1086,
+            "share_n5_le1": 0.0833,
+            "share_n5_le3": 0.3958,
+            "mean_n21": 9.036,
+            "corr_t1_n5": 0.7512
+          },
+          "delta_n5": null
+        },
+        "oof_2011_2018": {
+          "in_season": {
+            "n": 0
+          },
+          "off_season": {
+            "n": 0
+          },
+          "delta_n5": null
+        },
+        "validation_2019_2022": {
+          "in_season": {
+            "n": 0
+          },
+          "off_season": {
+            "n": 0
+          },
+          "delta_n5": null
+        },
+        "sealed_2023_plus": {
+          "in_season": {
+            "n": 0
+          },
+          "off_season": {
+            "n": 48,
+            "n_buy": 48,
+            "n_sell": 0,
+            "mean_t1": 1.6175,
+            "median_t1": 1.4533,
+            "p90_t1": 3.0823,
+            "mean_n5": 4.6479,
+            "median_n5": 4.1885,
+            "p90_n5": 9.1086,
+            "share_n5_le1": 0.0833,
+            "share_n5_le3": 0.3958,
+            "mean_n21": 9.036,
+            "corr_t1_n5": 0.7512
+          },
+          "delta_n5": null
+        },
+        "heldout_2019_plus": {
+          "in_season": {
+            "n": 0
+          },
+          "off_season": {
+            "n": 48,
+            "n_buy": 48,
+            "n_sell": 0,
+            "mean_t1": 1.6175,
+            "median_t1": 1.4533,
+            "p90_t1": 3.0823,
+            "mean_n5": 4.6479,
+            "median_n5": 4.1885,
+            "p90_n5": 9.1086,
+            "share_n5_le1": 0.0833,
+            "share_n5_le3": 0.3958,
+            "mean_n21": 9.036,
+            "corr_t1_n5": 0.7512
+          },
+          "delta_n5": null
+        }
+      }
+    },
+    "C_clip": {
+      "fin_n": 48,
+      "clip_fin_hi": {
+        "n": 24,
+        "n_buy": 24,
+        "n_sell": 0,
+        "mean_t1": 2.1319,
+        "median_t1": 1.9937,
+        "p90_t1": 3.5783,
+        "mean_n5": 7.0175,
+        "median_n5": 6.8787,
+        "p90_n5": 10.7454,
+        "share_n5_le1": 0.0,
+        "share_n5_le3": 0.0417,
+        "mean_n21": 13.1153,
+        "corr_t1_n5": 0.7028
+      },
+      "not_clip_fin_hi": {
+        "n": 24,
+        "n_buy": 24,
+        "n_sell": 0,
+        "mean_t1": 1.1032,
+        "median_t1": 0.8797,
+        "p90_t1": 2.3081,
+        "mean_n5": 2.2784,
+        "median_n5": 1.8314,
+        "p90_n5": 4.1736,
+        "share_n5_le1": 0.1667,
+        "share_n5_le3": 0.75,
+        "mean_n21": 4.9568,
+        "corr_t1_n5": 0.667
+      },
+      "delta_clip_minus_not_mean_n5": 4.7391,
+      "delta_clip_minus_not_mean_t1": 1.0287,
+      "fin_weight": {
+        "mean": 0.7867,
+        "median": 0.8026,
+        "share_ge_0_79": 0.5833,
+        "share_ge_0_80": 0.5
+      },
+      "cross_kd": {
+        "clip_and_offseason": {
+          "n": 24,
+          "n_buy": 24,
+          "n_sell": 0,
+          "mean_t1": 2.1319,
+          "median_t1": 1.9937,
+          "p90_t1": 3.5783,
+          "mean_n5": 7.0175,
+          "median_n5": 6.8787,
+          "p90_n5": 10.7454,
+          "share_n5_le1": 0.0,
+          "share_n5_le3": 0.0417,
+          "mean_n21": 13.1153,
+          "corr_t1_n5": 0.7028
+        },
+        "clip_and_inseason": {
+          "n": 0
+        },
+        "notclip_offseason": {
+          "n": 24,
+          "n_buy": 24,
+          "n_sell": 0,
+          "mean_t1": 1.1032,
+          "median_t1": 0.8797,
+          "p90_t1": 2.3081,
+          "mean_n5": 2.2784,
+          "median_n5": 1.8314,
+          "p90_n5": 4.1736,
+          "share_n5_le1": 0.1667,
+          "share_n5_le3": 0.75,
+          "mean_n21": 4.9568,
+          "corr_t1_n5": 0.667
+        },
+        "notclip_inseason": {
+          "n": 0
+        }
+      },
+      "windows": {
+        "full": {
+          "clip_fin_hi": {
+            "n": 24,
+            "n_buy": 24,
+            "n_sell": 0,
+            "mean_t1": 2.1319,
+            "median_t1": 1.9937,
+            "p90_t1": 3.5783,
+            "mean_n5": 7.0175,
+            "median_n5": 6.8787,
+            "p90_n5": 10.7454,
+            "share_n5_le1": 0.0,
+            "share_n5_le3": 0.0417,
+            "mean_n21": 13.1153,
+            "corr_t1_n5": 0.7028
+          },
+          "not_clip_fin_hi": {
+            "n": 24,
+            "n_buy": 24,
+            "n_sell": 0,
+            "mean_t1": 1.1032,
+            "median_t1": 0.8797,
+            "p90_t1": 2.3081,
+            "mean_n5": 2.2784,
+            "median_n5": 1.8314,
+            "p90_n5": 4.1736,
+            "share_n5_le1": 0.1667,
+            "share_n5_le3": 0.75,
+            "mean_n21": 4.9568,
+            "corr_t1_n5": 0.667
+          },
+          "delta_n5": 4.7391
+        },
+        "oof_2011_2018": {
+          "clip_fin_hi": {
+            "n": 0
+          },
+          "not_clip_fin_hi": {
+            "n": 0
+          },
+          "delta_n5": null
+        },
+        "validation_2019_2022": {
+          "clip_fin_hi": {
+            "n": 0
+          },
+          "not_clip_fin_hi": {
+            "n": 0
+          },
+          "delta_n5": null
+        },
+        "sealed_2023_plus": {
+          "clip_fin_hi": {
+            "n": 24,
+            "n_buy": 24,
+            "n_sell": 0,
+            "mean_t1": 2.1319,
+            "median_t1": 1.9937,
+            "p90_t1": 3.5783,
+            "mean_n5": 7.0175,
+            "median_n5": 6.8787,
+            "p90_n5": 10.7454,
+            "share_n5_le1": 0.0,
+            "share_n5_le3": 0.0417,
+            "mean_n21": 13.1153,
+            "corr_t1_n5": 0.7028
+          },
+          "not_clip_fin_hi": {
+            "n": 24,
+            "n_buy": 24,
+            "n_sell": 0,
+            "mean_t1": 1.1032,
+            "median_t1": 0.8797,
+            "p90_t1": 2.3081,
+            "mean_n5": 2.2784,
+            "median_n5": 1.8314,
+            "p90_n5": 4.1736,
+            "share_n5_le1": 0.1667,
+            "share_n5_le3": 0.75,
+            "mean_n21": 4.9568,
+            "corr_t1_n5": 0.667
+          },
+          "delta_n5": 4.7391
+        },
+        "heldout_2019_plus": {
+          "clip_fin_hi": {
+            "n": 24,
+            "n_buy": 24,
+            "n_sell": 0,
+            "mean_t1": 2.1319,
+            "median_t1": 1.9937,
+            "p90_t1": 3.5783,
+            "mean_n5": 7.0175,
+            "median_n5": 6.8787,
+            "p90_n5": 10.7454,
+            "share_n5_le1": 0.0,
+            "share_n5_le3": 0.0417,
+            "mean_n21": 13.1153,
+            "corr_t1_n5": 0.7028
+          },
+          "not_clip_fin_hi": {
+            "n": 24,
+            "n_buy": 24,
+            "n_sell": 0,
+            "mean_t1": 1.1032,
+            "median_t1": 0.8797,
+            "p90_t1": 2.3081,
+            "mean_n5": 2.2784,
+            "median_n5": 1.8314,
+            "p90_n5": 4.1736,
+            "share_n5_le1": 0.1667,
+            "share_n5_le3": 0.75,
+            "mean_n21": 4.9568,
+            "corr_t1_n5": 0.667
+          },
+          "delta_n5": 4.7391
+        }
+      }
+    },
+    "D_cool": {
+      "cool_on": {
+        "n": 0
+      },
+      "cool_off": {
+        "n": 96,
+        "n_buy": 72,
+        "n_sell": 24,
+        "mean_t1": 1.1543,
+        "median_t1": 0.8797,
+        "p90_t1": 2.6114,
+        "mean_n5": 3.7887,
+        "median_n5": 3.115,
+        "p90_n5": 6.9516,
+        "share_n5_le1": 0.0729,
+        "share_n5_le3": 0.4896,
+        "mean_n21": 7.7602,
+        "corr_t1_n5": 0.7099
+      },
+      "delta_on_minus_off_mean_n5": null,
+      "delta_on_minus_off_mean_t1": null,
+      "by_sleeve": {
+        "FIN": {
+          "cool_on": {
+            "n": 0
+          },
+          "cool_off": {
+            "n": 48,
+            "n_buy": 48,
+            "n_sell": 0,
+            "mean_t1": 1.6175,
+            "median_t1": 1.4533,
+            "p90_t1": 3.0823,
+            "mean_n5": 4.6479,
+            "median_n5": 4.1885,
+            "p90_n5": 9.1086,
+            "share_n5_le1": 0.0833,
+            "share_n5_le3": 0.3958,
+            "mean_n21": 9.036,
+            "corr_t1_n5": 0.7512
+          },
+          "delta_n5": null
+        },
+        "TEL": {
+          "cool_on": {
+            "n": 0
+          },
+          "cool_off": {
+            "n": 36,
+            "n_buy": 15,
+            "n_sell": 21,
+            "mean_t1": 0.6366,
+            "median_t1": 0.5099,
+            "p90_t1": 1.4166,
+            "mean_n5": 2.8457,
+            "median_n5": 2.6486,
+            "p90_n5": 4.5716,
+            "share_n5_le1": 0.0278,
+            "share_n5_le3": 0.6389,
+            "mean_n21": 5.704,
+            "corr_t1_n5": 0.5033
+          },
+          "delta_n5": null
+        },
+        "0050": {
+          "cool_on": {
+            "n": 0
+          },
+          "cool_off": {
+            "n": 12,
+            "n_buy": 9,
+            "n_sell": 3,
+            "mean_t1": 0.8541,
+            "median_t1": 0.8935,
+            "p90_t1": 2.0701,
+            "mean_n5": 3.1807,
+            "median_n5": 3.5429,
+            "p90_n5": 4.5835,
+            "share_n5_le1": 0.1667,
+            "share_n5_le3": 0.4167,
+            "mean_n21": 8.8256,
+            "corr_t1_n5": 0.3636
+          },
+          "delta_n5": null
+        }
+      },
+      "by_side": {
+        "BUY": {
+          "cool_on": {
+            "n": 0
+          },
+          "cool_off": {
+            "n": 72,
+            "n_buy": 72,
+            "n_sell": 0,
+            "mean_t1": 1.398,
+            "median_t1": 1.1768,
+            "p90_t1": 2.942,
+            "mean_n5": 4.0273,
+            "median_n5": 3.2001,
+            "p90_n5": 8.0394,
+            "share_n5_le1": 0.0833,
+            "share_n5_le3": 0.4444,
+            "mean_n21": 8.3185,
+            "corr_t1_n5": 0.7326
+          }
+        },
+        "SELL": {
+          "cool_on": {
+            "n": 0
+          },
+          "cool_off": {
+            "n": 24,
+            "n_buy": 0,
+            "n_sell": 24,
+            "mean_t1": 0.4231,
+            "median_t1": 0.4735,
+            "p90_t1": 0.8774,
+            "mean_n5": 3.073,
+            "median_n5": 2.8291,
+            "p90_n5": 4.6528,
+            "share_n5_le1": 0.0417,
+            "share_n5_le3": 0.625,
+            "mean_n21": 6.0855,
+            "corr_t1_n5": 0.476
+          }
+        }
+      },
+      "cross_kd_fin": {
+        "cool_on_kd_off": {
+          "n": 0
+        },
+        "cool_on_kd_in": {
+          "n": 0
+        },
+        "cool_off_kd_off": {
+          "n": 48,
+          "n_buy": 48,
+          "n_sell": 0,
+          "mean_t1": 1.6175,
+          "median_t1": 1.4533,
+          "p90_t1": 3.0823,
+          "mean_n5": 4.6479,
+          "median_n5": 4.1885,
+          "p90_n5": 9.1086,
+          "share_n5_le1": 0.0833,
+          "share_n5_le3": 0.3958,
+          "mean_n21": 9.036,
+          "corr_t1_n5": 0.7512
+        },
+        "cool_off_kd_in": {
+          "n": 0
+        }
+      },
+      "windows": {
+        "full": {
+          "cool_on": {
+            "n": 0
+          },
+          "cool_off": {
+            "n": 96,
+            "n_buy": 72,
+            "n_sell": 24,
+            "mean_t1": 1.1543,
+            "median_t1": 0.8797,
+            "p90_t1": 2.6114,
+            "mean_n5": 3.7887,
+            "median_n5": 3.115,
+            "p90_n5": 6.9516,
+            "share_n5_le1": 0.0729,
+            "share_n5_le3": 0.4896,
+            "mean_n21": 7.7602,
+            "corr_t1_n5": 0.7099
+          },
+          "delta_n5": null
+        },
+        "oof_2011_2018": {
+          "cool_on": {
+            "n": 0
+          },
+          "cool_off": {
+            "n": 0
+          },
+          "delta_n5": null
+        },
+        "validation_2019_2022": {
+          "cool_on": {
+            "n": 0
+          },
+          "cool_off": {
+            "n": 0
+          },
+          "delta_n5": null
+        },
+        "sealed_2023_plus": {
+          "cool_on": {
+            "n": 0
+          },
+          "cool_off": {
+            "n": 96,
+            "n_buy": 72,
+            "n_sell": 24,
+            "mean_t1": 1.1543,
+            "median_t1": 0.8797,
+            "p90_t1": 2.6114,
+            "mean_n5": 3.7887,
+            "median_n5": 3.115,
+            "p90_n5": 6.9516,
+            "share_n5_le1": 0.0729,
+            "share_n5_le3": 0.4896,
+            "mean_n21": 7.7602,
+            "corr_t1_n5": 0.7099
+          },
+          "delta_n5": null
+        },
+        "heldout_2019_plus": {
+          "cool_on": {
+            "n": 0
+          },
+          "cool_off": {
+            "n": 96,
+            "n_buy": 72,
+            "n_sell": 24,
+            "mean_t1": 1.1543,
+            "median_t1": 0.8797,
+            "p90_t1": 2.6114,
+            "mean_n5": 3.7887,
+            "median_n5": 3.115,
+            "p90_n5": 6.9516,
+            "share_n5_le1": 0.0729,
+            "share_n5_le3": 0.4896,
+            "mean_n21": 7.7602,
+            "corr_t1_n5": 0.7099
+          },
+          "delta_n5": null
+        }
+      }
+    }
+  },
+  "backtest": {
+    "label": "backtest_fuse_cool",
+    "n_fills": 6299,
+    "fill_date_min": "2012-12-05",
+    "fill_date_max": "2026-09-07",
+    "A_t1": {
+      "overall": {
+        "n": 6299,
+        "n_buy": 3235,
+        "n_sell": 3064,
+        "mean_t1": 0.761,
+        "median_t1": 0.5725,
+        "p90_t1": 1.7492,
+        "mean_n5": 2.6809,
+        "median_n5": 2.0153,
+        "p90_n5": 4.7006,
+        "share_n5_le1": 0.1937,
+        "share_n5_le3": 0.7168,
+        "mean_n21": 5.4727,
+        "corr_t1_n5": 0.0724
+      },
+      "sleeve_side": [
+        {
+          "n": 6299,
+          "n_buy": 3235,
+          "n_sell": 3064,
+          "mean_t1": 0.761,
+          "median_t1": 0.5725,
+          "p90_t1": 1.7492,
+          "mean_n5": 2.6809,
+          "median_n5": 2.0153,
+          "p90_n5": 4.7006,
+          "share_n5_le1": 0.1937,
+          "share_n5_le3": 0.7168,
+          "mean_n21": 5.4727,
+          "corr_t1_n5": 0.0724,
+          "sleeve": "ALL",
+          "side": "ALL"
+        },
+        {
+          "n": 3235,
+          "n_buy": 3235,
+          "n_sell": 0,
+          "mean_t1": 0.8218,
+          "median_t1": 0.6527,
+          "p90_t1": 1.837,
+          "mean_n5": 2.7813,
+          "median_n5": 2.016,
+          "p90_n5": 4.5039,
+          "share_n5_le1": 0.1947,
+          "share_n5_le3": 0.7215,
+          "mean_n21": 5.9311,
+          "corr_t1_n5": 0.0385,
+          "sleeve": "ALL",
+          "side": "BUY"
+        },
+        {
+          "n": 3064,
+          "n_buy": 0,
+          "n_sell": 3064,
+          "mean_t1": 0.6968,
+          "median_t1": 0.5106,
+          "p90_t1": 1.6585,
+          "mean_n5": 2.5749,
+          "median_n5": 2.0131,
+          "p90_n5": 4.8317,
+          "share_n5_le1": 0.1926,
+          "share_n5_le3": 0.7118,
+          "mean_n21": 4.9886,
+          "corr_t1_n5": 0.3662,
+          "sleeve": "ALL",
+          "side": "SELL"
+        },
+        {
+          "n": 3066,
+          "n_buy": 1663,
+          "n_sell": 1403,
+          "mean_t1": 0.8293,
+          "median_t1": 0.6153,
+          "p90_t1": 1.8335,
+          "mean_n5": 2.5117,
+          "median_n5": 2.0812,
+          "p90_n5": 4.6708,
+          "share_n5_le1": 0.1719,
+          "share_n5_le3": 0.7149,
+          "mean_n21": 5.2099,
+          "corr_t1_n5": 0.4319,
+          "sleeve": "FIN",
+          "side": "ALL"
+        },
+        {
+          "n": 1663,
+          "n_buy": 1663,
+          "n_sell": 0,
+          "mean_t1": 0.8715,
+          "median_t1": 0.6601,
+          "p90_t1": 1.8527,
+          "mean_n5": 2.3805,
+          "median_n5": 2.051,
+          "p90_n5": 4.2441,
+          "share_n5_le1": 0.1876,
+          "share_n5_le3": 0.73,
+          "mean_n21": 5.289,
+          "corr_t1_n5": 0.3349,
+          "sleeve": "FIN",
+          "side": "BUY"
+        },
+        {
+          "n": 1403,
+          "n_buy": 0,
+          "n_sell": 1403,
+          "mean_t1": 0.7794,
+          "median_t1": 0.5788,
+          "p90_t1": 1.7929,
+          "mean_n5": 2.6672,
+          "median_n5": 2.141,
+          "p90_n5": 5.025,
+          "share_n5_le1": 0.1532,
+          "share_n5_le3": 0.6971,
+          "mean_n21": 5.116,
+          "corr_t1_n5": 0.6183,
+          "sleeve": "FIN",
+          "side": "SELL"
+        },
+        {
+          "n": 2425,
+          "n_buy": 1166,
+          "n_sell": 1259,
+          "mean_t1": 0.7102,
+          "median_t1": 0.5215,
+          "p90_t1": 1.5321,
+          "mean_n5": 2.1303,
+          "median_n5": 1.7089,
+          "p90_n5": 4.1789,
+          "share_n5_le1": 0.2647,
+          "share_n5_le3": 0.7872,
+          "mean_n21": 4.2024,
+          "corr_t1_n5": 0.3233,
+          "sleeve": "TEL",
+          "side": "ALL"
+        },
+        {
+          "n": 1166,
+          "n_buy": 1166,
+          "n_sell": 0,
+          "mean_t1": 0.8082,
+          "median_t1": 0.5912,
+          "p90_t1": 1.771,
+          "mean_n5": 2.2105,
+          "median_n5": 1.79,
+          "p90_n5": 4.4237,
+          "share_n5_le1": 0.2521,
+          "share_n5_le3": 0.7779,
+          "mean_n21": 4.3224,
+          "corr_t1_n5": 0.2914,
+          "sleeve": "TEL",
+          "side": "BUY"
+        },
+        {
+          "n": 1259,
+          "n_buy": 0,
+          "n_sell": 1259,
+          "mean_t1": 0.6193,
+          "median_t1": 0.5064,
+          "p90_t1": 1.4007,
+          "mean_n5": 2.056,
+          "median_n5": 1.654,
+          "p90_n5": 4.0084,
+          "share_n5_le1": 0.2764,
+          "share_n5_le3": 0.7959,
+          "mean_n21": 4.0914,
+          "corr_t1_n5": 0.393,
+          "sleeve": "TEL",
+          "side": "SELL"
+        },
+        {
+          "n": 808,
+          "n_buy": 406,
+          "n_sell": 402,
+          "mean_t1": 0.6543,
+          "median_t1": 0.5965,
+          "p90_t1": 2.0196,
+          "mean_n5": 4.9758,
+          "median_n5": 2.9409,
+          "p90_n5": 5.8868,
+          "share_n5_le1": 0.0631,
+          "share_n5_le3": 0.5124,
+          "mean_n21": 10.2822,
+          "corr_t1_n5": 0.0215,
+          "sleeve": "0050",
+          "side": "ALL"
+        },
+        {
+          "n": 406,
+          "n_buy": 406,
+          "n_sell": 0,
+          "mean_t1": 0.6571,
+          "median_t1": 0.6989,
+          "p90_t1": 1.9178,
+          "mean_n5": 6.0627,
+          "median_n5": 2.8466,
+          "p90_n5": 5.4656,
+          "share_n5_le1": 0.0591,
+          "share_n5_le3": 0.5246,
+          "mean_n21": 13.1814,
+          "corr_t1_n5": 0.0137,
+          "sleeve": "0050",
+          "side": "BUY"
+        },
+        {
+          "n": 402,
+          "n_buy": 0,
+          "n_sell": 402,
+          "mean_t1": 0.6515,
+          "median_t1": 0.4647,
+          "p90_t1": 2.1662,
+          "mean_n5": 3.8781,
+          "median_n5": 3.0145,
+          "p90_n5": 6.0737,
+          "share_n5_le1": 0.0672,
+          "share_n5_le3": 0.5,
+          "mean_n21": 7.3541,
+          "corr_t1_n5": 0.1594,
+          "sleeve": "0050",
+          "side": "SELL"
+        }
+      ],
+      "windows": {
+        "full": {
+          "n": 6299,
+          "n_buy": 3235,
+          "n_sell": 3064,
+          "mean_t1": 0.761,
+          "median_t1": 0.5725,
+          "p90_t1": 1.7492,
+          "mean_n5": 2.6809,
+          "median_n5": 2.0153,
+          "p90_n5": 4.7006,
+          "share_n5_le1": 0.1937,
+          "share_n5_le3": 0.7168,
+          "mean_n21": 5.4727,
+          "corr_t1_n5": 0.0724
+        },
+        "oof_2011_2018": {
+          "n": 2651,
+          "n_buy": 1371,
+          "n_sell": 1280,
+          "mean_t1": 0.7003,
+          "median_t1": 0.5502,
+          "p90_t1": 1.5575,
+          "mean_n5": 2.2555,
+          "median_n5": 1.9358,
+          "p90_n5": 4.1617,
+          "share_n5_le1": 0.2078,
+          "share_n5_le3": 0.7541,
+          "mean_n21": 4.4093,
+          "corr_t1_n5": 0.2916
+        },
+        "validation_2019_2022": {
+          "n": 1981,
+          "n_buy": 986,
+          "n_sell": 995,
+          "mean_t1": 0.8172,
+          "median_t1": 0.5249,
+          "p90_t1": 1.8675,
+          "mean_n5": 2.5394,
+          "median_n5": 1.9795,
+          "p90_n5": 4.9068,
+          "share_n5_le1": 0.2055,
+          "share_n5_le3": 0.7178,
+          "mean_n21": 5.6296,
+          "corr_t1_n5": 0.404
+        },
+        "sealed_2023_plus": {
+          "n": 1667,
+          "n_buy": 878,
+          "n_sell": 789,
+          "mean_t1": 0.7907,
+          "median_t1": 0.6784,
+          "p90_t1": 1.9311,
+          "mean_n5": 3.5258,
+          "median_n5": 2.281,
+          "p90_n5": 5.3014,
+          "share_n5_le1": 0.1572,
+          "share_n5_le3": 0.6563,
+          "mean_n21": 6.9773,
+          "corr_t1_n5": 0.0334
+        },
+        "heldout_2019_plus": {
+          "n": 3648,
+          "n_buy": 1864,
+          "n_sell": 1784,
+          "mean_t1": 0.8051,
+          "median_t1": 0.5879,
+          "p90_t1": 1.8957,
+          "mean_n5": 2.9901,
+          "median_n5": 2.0953,
+          "p90_n5": 5.0714,
+          "share_n5_le1": 0.1834,
+          "share_n5_le3": 0.6897,
+          "mean_n21": 6.2455,
+          "corr_t1_n5": 0.0612
+        }
+      },
+      "t1_buckets": {
+        "ALL": [
+          {
+            "bucket": "<=0.5",
+            "n": 2671,
+            "share": 0.424,
+            "mean_n5": 2.0444
+          },
+          {
+            "bucket": "0.5-1",
+            "n": 1904,
+            "share": 0.3023,
+            "mean_n5": 2.2335
+          },
+          {
+            "bucket": "1-2",
+            "n": 1253,
+            "share": 0.1989,
+            "mean_n5": 3.8567
+          },
+          {
+            "bucket": ">2",
+            "n": 471,
+            "share": 0.0748,
+            "mean_n5": 4.9719
+          }
+        ],
+        "BUY": [
+          {
+            "bucket": "<=0.5",
+            "n": 1227,
+            "share": 0.3793,
+            "mean_n5": 2.0599
+          },
+          {
+            "bucket": "0.5-1",
+            "n": 1021,
+            "share": 0.3156,
+            "mean_n5": 2.2105
+          },
+          {
+            "bucket": "1-2",
+            "n": 723,
+            "share": 0.2235,
+            "mean_n5": 4.2437
+          },
+          {
+            "bucket": ">2",
+            "n": 264,
+            "share": 0.0816,
+            "mean_n5": 4.337
+          }
+        ],
+        "SELL": [
+          {
+            "bucket": "<=0.5",
+            "n": 1444,
+            "share": 0.4713,
+            "mean_n5": 2.0312
+          },
+          {
+            "bucket": "0.5-1",
+            "n": 883,
+            "share": 0.2882,
+            "mean_n5": 2.26
+          },
+          {
+            "bucket": "1-2",
+            "n": 530,
+            "share": 0.173,
+            "mean_n5": 3.3286
+          },
+          {
+            "bucket": ">2",
+            "n": 207,
+            "share": 0.0676,
+            "mean_n5": 5.7816
+          }
+        ]
+      }
+    },
+    "B_kd": {
+      "fin_n": 3066,
+      "in_season": {
+        "n": 261,
+        "n_buy": 112,
+        "n_sell": 149,
+        "mean_t1": 0.8815,
+        "median_t1": 0.6806,
+        "p90_t1": 2.1702,
+        "mean_n5": 2.6985,
+        "median_n5": 2.1469,
+        "p90_n5": 5.9681,
+        "share_n5_le1": 0.1839,
+        "share_n5_le3": 0.705,
+        "mean_n21": 5.1553,
+        "corr_t1_n5": 0.4979
+      },
+      "off_season": {
+        "n": 2805,
+        "n_buy": 1551,
+        "n_sell": 1254,
+        "mean_t1": 0.8245,
+        "median_t1": 0.6121,
+        "p90_t1": 1.8166,
+        "mean_n5": 2.4943,
+        "median_n5": 2.071,
+        "p90_n5": 4.5227,
+        "share_n5_le1": 0.1708,
+        "share_n5_le3": 0.7159,
+        "mean_n21": 5.2149,
+        "corr_t1_n5": 0.429
+      },
+      "delta_off_minus_in_mean_n5": -0.2042,
+      "delta_off_minus_in_mean_t1": -0.057,
+      "by_side": {
+        "BUY": {
+          "in_season": {
+            "n": 112,
+            "n_buy": 112,
+            "n_sell": 0,
+            "mean_t1": 0.8876,
+            "median_t1": 0.7392,
+            "p90_t1": 1.922,
+            "mean_n5": 2.6382,
+            "median_n5": 2.06,
+            "p90_n5": 5.2182,
+            "share_n5_le1": 0.1964,
+            "share_n5_le3": 0.7143,
+            "mean_n21": 5.2167,
+            "corr_t1_n5": 0.4333
+          },
+          "off_season": {
+            "n": 1551,
+            "n_buy": 1551,
+            "n_sell": 0,
+            "mean_t1": 0.8703,
+            "median_t1": 0.6527,
+            "p90_t1": 1.8435,
+            "mean_n5": 2.3618,
+            "median_n5": 2.051,
+            "p90_n5": 4.1683,
+            "share_n5_le1": 0.187,
+            "share_n5_le3": 0.7311,
+            "mean_n21": 5.2943,
+            "corr_t1_n5": 0.3363
+          }
+        },
+        "SELL": {
+          "in_season": {
+            "n": 149,
+            "n_buy": 0,
+            "n_sell": 149,
+            "mean_t1": 0.877,
+            "median_t1": 0.6179,
+            "p90_t1": 2.2224,
+            "mean_n5": 2.7438,
+            "median_n5": 2.1702,
+            "p90_n5": 5.9839,
+            "share_n5_le1": 0.1745,
+            "share_n5_le3": 0.698,
+            "mean_n21": 5.1091,
+            "corr_t1_n5": 0.5467
+          },
+          "off_season": {
+            "n": 1254,
+            "n_buy": 0,
+            "n_sell": 1254,
+            "mean_t1": 0.7678,
+            "median_t1": 0.5742,
+            "p90_t1": 1.7594,
+            "mean_n5": 2.6581,
+            "median_n5": 2.1277,
+            "p90_n5": 4.9475,
+            "share_n5_le1": 0.1507,
+            "share_n5_le3": 0.697,
+            "mean_n21": 5.1168,
+            "corr_t1_n5": 0.6274
+          }
+        }
+      },
+      "kd_buy_block": {
+        "n": 0
+      },
+      "windows": {
+        "full": {
+          "in_season": {
+            "n": 261,
+            "n_buy": 112,
+            "n_sell": 149,
+            "mean_t1": 0.8815,
+            "median_t1": 0.6806,
+            "p90_t1": 2.1702,
+            "mean_n5": 2.6985,
+            "median_n5": 2.1469,
+            "p90_n5": 5.9681,
+            "share_n5_le1": 0.1839,
+            "share_n5_le3": 0.705,
+            "mean_n21": 5.1553,
+            "corr_t1_n5": 0.4979
+          },
+          "off_season": {
+            "n": 2805,
+            "n_buy": 1551,
+            "n_sell": 1254,
+            "mean_t1": 0.8245,
+            "median_t1": 0.6121,
+            "p90_t1": 1.8166,
+            "mean_n5": 2.4943,
+            "median_n5": 2.071,
+            "p90_n5": 4.5227,
+            "share_n5_le1": 0.1708,
+            "share_n5_le3": 0.7159,
+            "mean_n21": 5.2149,
+            "corr_t1_n5": 0.429
+          },
+          "delta_n5": -0.2042
+        },
+        "oof_2011_2018": {
+          "in_season": {
+            "n": 124,
+            "n_buy": 28,
+            "n_sell": 96,
+            "mean_t1": 0.5019,
+            "median_t1": 0.3614,
+            "p90_t1": 1.111,
+            "mean_n5": 2.0148,
+            "median_n5": 1.5932,
+            "p90_n5": 3.6161,
+            "share_n5_le1": 0.2419,
+            "share_n5_le3": 0.8387,
+            "mean_n21": 3.7682,
+            "corr_t1_n5": 0.3044
+          },
+          "off_season": {
+            "n": 1175,
+            "n_buy": 678,
+            "n_sell": 497,
+            "mean_t1": 0.7281,
+            "median_t1": 0.6137,
+            "p90_t1": 1.6412,
+            "mean_n5": 2.2321,
+            "median_n5": 1.9377,
+            "p90_n5": 3.9789,
+            "share_n5_le1": 0.194,
+            "share_n5_le3": 0.7668,
+            "mean_n21": 4.5304,
+            "corr_t1_n5": 0.2584
+          },
+          "delta_n5": 0.2173
+        },
+        "validation_2019_2022": {
+          "in_season": {
+            "n": 65,
+            "n_buy": 32,
+            "n_sell": 33,
+            "mean_t1": 1.4788,
+            "median_t1": 0.9929,
+            "p90_t1": 3.3492,
+            "mean_n5": 3.5027,
+            "median_n5": 2.5775,
+            "p90_n5": 7.4063,
+            "share_n5_le1": 0.1385,
+            "share_n5_le3": 0.6,
+            "mean_n21": 6.0799,
+            "corr_t1_n5": 0.5366
+          },
+          "off_season": {
+            "n": 896,
+            "n_buy": 478,
+            "n_sell": 418,
+            "mean_t1": 0.871,
+            "median_t1": 0.5369,
+            "p90_t1": 1.8256,
+            "mean_n5": 2.6006,
+            "median_n5": 2.0613,
+            "p90_n5": 4.76,
+            "share_n5_le1": 0.1618,
+            "share_n5_le3": 0.7054,
+            "mean_n21": 6.1962,
+            "corr_t1_n5": 0.4613
+          },
+          "delta_n5": -0.9021
+        },
+        "sealed_2023_plus": {
+          "in_season": {
+            "n": 72,
+            "n_buy": 52,
+            "n_sell": 20,
+            "mean_t1": 0.9962,
+            "median_t1": 0.9228,
+            "p90_t1": 2.2518,
+            "mean_n5": 3.1498,
+            "median_n5": 2.7631,
+            "p90_n5": 5.2182,
+            "share_n5_le1": 0.125,
+            "share_n5_le3": 0.5694,
+            "mean_n21": 6.7095,
+            "corr_t1_n5": 0.3754
+          },
+          "off_season": {
+            "n": 734,
+            "n_buy": 395,
+            "n_sell": 339,
+            "mean_t1": 0.922,
+            "median_t1": 0.742,
+            "p90_t1": 2.137,
+            "mean_n5": 2.7841,
+            "median_n5": 2.3588,
+            "p90_n5": 5.3561,
+            "share_n5_le1": 0.1444,
+            "share_n5_le3": 0.6471,
+            "mean_n21": 5.1129,
+            "corr_t1_n5": 0.5165
+          },
+          "delta_n5": -0.3657
+        },
+        "heldout_2019_plus": {
+          "in_season": {
+            "n": 137,
+            "n_buy": 84,
+            "n_sell": 53,
+            "mean_t1": 1.2252,
+            "median_t1": 0.9238,
+            "p90_t1": 2.6681,
+            "mean_n5": 3.3172,
+            "median_n5": 2.6803,
+            "p90_n5": 6.7741,
+            "share_n5_le1": 0.1314,
+            "share_n5_le3": 0.5839,
+            "mean_n21": 6.4108,
+            "corr_t1_n5": 0.4827
+          },
+          "off_season": {
+            "n": 1630,
+            "n_buy": 873,
+            "n_sell": 757,
+            "mean_t1": 0.8939,
+            "median_t1": 0.6115,
+            "p90_t1": 2.0358,
+            "mean_n5": 2.6833,
+            "median_n5": 2.1766,
+            "p90_n5": 4.9946,
+            "share_n5_le1": 0.154,
+            "share_n5_le3": 0.6791,
+            "mean_n21": 5.7084,
+            "corr_t1_n5": 0.4846
+          },
+          "delta_n5": -0.6339
+        }
+      }
+    },
+    "C_clip": {
+      "fin_n": 3066,
+      "clip_fin_hi": {
+        "n": 72,
+        "n_buy": 20,
+        "n_sell": 52,
+        "mean_t1": 0.4933,
+        "median_t1": 0.4937,
+        "p90_t1": 1.0689,
+        "mean_n5": 1.5681,
+        "median_n5": 1.2308,
+        "p90_n5": 3.0852,
+        "share_n5_le1": 0.3889,
+        "share_n5_le3": 0.8889,
+        "mean_n21": 3.0618,
+        "corr_t1_n5": 0.467
+      },
+      "not_clip_fin_hi": {
+        "n": 2994,
+        "n_buy": 1643,
+        "n_sell": 1351,
+        "mean_t1": 0.8374,
+        "median_t1": 0.6179,
+        "p90_t1": 1.8434,
+        "mean_n5": 2.5344,
+        "median_n5": 2.1183,
+        "p90_n5": 4.7031,
+        "share_n5_le1": 0.1667,
+        "share_n5_le3": 0.7108,
+        "mean_n21": 5.2615,
+        "corr_t1_n5": 0.4303
+      },
+      "delta_clip_minus_not_mean_n5": -0.9663,
+      "delta_clip_minus_not_mean_t1": -0.3441,
+      "fin_weight": {
+        "mean": 0.7456,
+        "median": 0.7684,
+        "share_ge_0_79": 0.3004,
+        "share_ge_0_80": 0.0235
+      },
+      "cross_kd": {
+        "clip_and_offseason": {
+          "n": 64,
+          "n_buy": 20,
+          "n_sell": 44,
+          "mean_t1": 0.5233,
+          "median_t1": 0.5023,
+          "p90_t1": 1.0598,
+          "mean_n5": 1.5816,
+          "median_n5": 1.1894,
+          "p90_n5": 3.0283,
+          "share_n5_le1": 0.3906,
+          "share_n5_le3": 0.8906,
+          "mean_n21": 3.1735,
+          "corr_t1_n5": 0.4503
+        },
+        "clip_and_inseason": {
+          "n": 8,
+          "n_buy": 0,
+          "n_sell": 8,
+          "mean_t1": 0.2531,
+          "median_t1": 0.05,
+          "p90_t1": 1.0209,
+          "mean_n5": 1.4601,
+          "median_n5": 1.2969,
+          "p90_n5": 2.6881,
+          "share_n5_le1": 0.375,
+          "share_n5_le3": 0.875,
+          "mean_n21": 2.1681,
+          "corr_t1_n5": 0.6691
+        },
+        "notclip_offseason": {
+          "n": 2741,
+          "n_buy": 1531,
+          "n_sell": 1210,
+          "mean_t1": 0.8315,
+          "median_t1": 0.6137,
+          "p90_t1": 1.8321,
+          "mean_n5": 2.5156,
+          "median_n5": 2.1076,
+          "p90_n5": 4.5487,
+          "share_n5_le1": 0.1656,
+          "share_n5_le3": 0.7118,
+          "mean_n21": 5.2626,
+          "corr_t1_n5": 0.4279
+        },
+        "notclip_inseason": {
+          "n": 253,
+          "n_buy": 112,
+          "n_sell": 141,
+          "mean_t1": 0.9014,
+          "median_t1": 0.6852,
+          "p90_t1": 2.1753,
+          "mean_n5": 2.7376,
+          "median_n5": 2.1702,
+          "p90_n5": 6.0312,
+          "share_n5_le1": 0.1779,
+          "share_n5_le3": 0.6996,
+          "mean_n21": 5.2497,
+          "corr_t1_n5": 0.4907
+        }
+      },
+      "windows": {
+        "full": {
+          "clip_fin_hi": {
+            "n": 72,
+            "n_buy": 20,
+            "n_sell": 52,
+            "mean_t1": 0.4933,
+            "median_t1": 0.4937,
+            "p90_t1": 1.0689,
+            "mean_n5": 1.5681,
+            "median_n5": 1.2308,
+            "p90_n5": 3.0852,
+            "share_n5_le1": 0.3889,
+            "share_n5_le3": 0.8889,
+            "mean_n21": 3.0618,
+            "corr_t1_n5": 0.467
+          },
+          "not_clip_fin_hi": {
+            "n": 2994,
+            "n_buy": 1643,
+            "n_sell": 1351,
+            "mean_t1": 0.8374,
+            "median_t1": 0.6179,
+            "p90_t1": 1.8434,
+            "mean_n5": 2.5344,
+            "median_n5": 2.1183,
+            "p90_n5": 4.7031,
+            "share_n5_le1": 0.1667,
+            "share_n5_le3": 0.7108,
+            "mean_n21": 5.2615,
+            "corr_t1_n5": 0.4303
+          },
+          "delta_n5": -0.9663
+        },
+        "oof_2011_2018": {
+          "clip_fin_hi": {
+            "n": 24,
+            "n_buy": 4,
+            "n_sell": 20,
+            "mean_t1": 0.4562,
+            "median_t1": 0.3377,
+            "p90_t1": 1.024,
+            "mean_n5": 1.2213,
+            "median_n5": 0.9824,
+            "p90_n5": 2.357,
+            "share_n5_le1": 0.5,
+            "share_n5_le3": 0.9167,
+            "mean_n21": 2.3036,
+            "corr_t1_n5": 0.6063
+          },
+          "not_clip_fin_hi": {
+            "n": 1275,
+            "n_buy": 702,
+            "n_sell": 573,
+            "mean_t1": 0.7113,
+            "median_t1": 0.6089,
+            "p90_t1": 1.5783,
+            "mean_n5": 2.23,
+            "median_n5": 1.9308,
+            "p90_n5": 3.9939,
+            "share_n5_le1": 0.1929,
+            "share_n5_le3": 0.771,
+            "mean_n21": 4.4982,
+            "corr_t1_n5": 0.2551
+          },
+          "delta_n5": -1.0087
+        },
+        "validation_2019_2022": {
+          "clip_fin_hi": {
+            "n": 48,
+            "n_buy": 16,
+            "n_sell": 32,
+            "mean_t1": 0.5118,
+            "median_t1": 0.4982,
+            "p90_t1": 1.0889,
+            "mean_n5": 1.7416,
+            "median_n5": 1.3426,
+            "p90_n5": 3.8862,
+            "share_n5_le1": 0.3333,
+            "share_n5_le3": 0.875,
+            "mean_n21": 3.4408,
+            "corr_t1_n5": 0.4434
+          },
+          "not_clip_fin_hi": {
+            "n": 913,
+            "n_buy": 494,
+            "n_sell": 419,
+            "mean_t1": 0.9331,
+            "median_t1": 0.5553,
+            "p90_t1": 2.0914,
+            "mean_n5": 2.71,
+            "median_n5": 2.1469,
+            "p90_n5": 5.0198,
+            "share_n5_le1": 0.1512,
+            "share_n5_le3": 0.6889,
+            "mean_n21": 6.3328,
+            "corr_t1_n5": 0.4688
+          },
+          "delta_n5": -0.9684
+        },
+        "sealed_2023_plus": {
+          "clip_fin_hi": {
+            "n": 0
+          },
+          "not_clip_fin_hi": {
+            "n": 806,
+            "n_buy": 447,
+            "n_sell": 359,
+            "mean_t1": 0.9286,
+            "median_t1": 0.7463,
+            "p90_t1": 2.1501,
+            "mean_n5": 2.8168,
+            "median_n5": 2.3972,
+            "p90_n5": 5.3446,
+            "share_n5_le1": 0.1427,
+            "share_n5_le3": 0.6402,
+            "mean_n21": 5.2555,
+            "corr_t1_n5": 0.5064
+          },
+          "delta_n5": null
+        },
+        "heldout_2019_plus": {
+          "clip_fin_hi": {
+            "n": 48,
+            "n_buy": 16,
+            "n_sell": 32,
+            "mean_t1": 0.5118,
+            "median_t1": 0.4982,
+            "p90_t1": 1.0889,
+            "mean_n5": 1.7416,
+            "median_n5": 1.3426,
+            "p90_n5": 3.8862,
+            "share_n5_le1": 0.3333,
+            "share_n5_le3": 0.875,
+            "mean_n21": 3.4408,
+            "corr_t1_n5": 0.4434
+          },
+          "not_clip_fin_hi": {
+            "n": 1719,
+            "n_buy": 941,
+            "n_sell": 778,
+            "mean_t1": 0.931,
+            "median_t1": 0.6539,
+            "p90_t1": 2.1186,
+            "mean_n5": 2.7601,
+            "median_n5": 2.2548,
+            "p90_n5": 5.211,
+            "share_n5_le1": 0.1472,
+            "share_n5_le3": 0.6661,
+            "mean_n21": 5.8277,
+            "corr_t1_n5": 0.4842
+          },
+          "delta_n5": -1.0185
+        }
+      }
+    },
+    "D_cool": {
+      "cool_on": {
+        "n": 1454,
+        "n_buy": 180,
+        "n_sell": 1274,
+        "mean_t1": 0.879,
+        "median_t1": 0.619,
+        "p90_t1": 2.1141,
+        "mean_n5": 3.1293,
+        "median_n5": 2.62,
+        "p90_n5": 5.8272,
+        "share_n5_le1": 0.1149,
+        "share_n5_le3": 0.5812,
+        "mean_n21": 5.967,
+        "corr_t1_n5": 0.5688
+      },
+      "cool_off": {
+        "n": 4845,
+        "n_buy": 3055,
+        "n_sell": 1790,
+        "mean_t1": 0.7256,
+        "median_t1": 0.5568,
+        "p90_t1": 1.6631,
+        "mean_n5": 2.5464,
+        "median_n5": 1.8858,
+        "p90_n5": 4.2633,
+        "share_n5_le1": 0.2173,
+        "share_n5_le3": 0.7575,
+        "mean_n21": 5.3243,
+        "corr_t1_n5": 0.0451
+      },
+      "delta_on_minus_off_mean_n5": 0.5829,
+      "delta_on_minus_off_mean_t1": 0.1534,
+      "by_sleeve": {
+        "FIN": {
+          "cool_on": {
+            "n": 706,
+            "n_buy": 30,
+            "n_sell": 676,
+            "mean_t1": 0.9468,
+            "median_t1": 0.6402,
+            "p90_t1": 2.1971,
+            "mean_n5": 3.3037,
+            "median_n5": 2.7355,
+            "p90_n5": 5.9428,
+            "share_n5_le1": 0.0779,
+            "share_n5_le3": 0.5694,
+            "mean_n21": 6.2117,
+            "corr_t1_n5": 0.6715
+          },
+          "cool_off": {
+            "n": 2360,
+            "n_buy": 1633,
+            "n_sell": 727,
+            "mean_t1": 0.7942,
+            "median_t1": 0.6105,
+            "p90_t1": 1.7352,
+            "mean_n5": 2.2747,
+            "median_n5": 1.896,
+            "p90_n5": 4.1227,
+            "share_n5_le1": 0.2,
+            "share_n5_le3": 0.7585,
+            "mean_n21": 4.9102,
+            "corr_t1_n5": 0.3448
+          },
+          "delta_n5": 1.029
+        },
+        "TEL": {
+          "cool_on": {
+            "n": 561,
+            "n_buy": 138,
+            "n_sell": 423,
+            "mean_t1": 0.8256,
+            "median_t1": 0.561,
+            "p90_t1": 1.7659,
+            "mean_n5": 2.4751,
+            "median_n5": 1.9965,
+            "p90_n5": 4.7731,
+            "share_n5_le1": 0.1943,
+            "share_n5_le3": 0.6881,
+            "mean_n21": 4.5737,
+            "corr_t1_n5": 0.4705
+          },
+          "cool_off": {
+            "n": 1864,
+            "n_buy": 1028,
+            "n_sell": 836,
+            "mean_t1": 0.6754,
+            "median_t1": 0.5175,
+            "p90_t1": 1.4725,
+            "mean_n5": 2.0265,
+            "median_n5": 1.5794,
+            "p90_n5": 3.8758,
+            "share_n5_le1": 0.2859,
+            "share_n5_le3": 0.8171,
+            "mean_n21": 4.0907,
+            "corr_t1_n5": 0.2698
+          },
+          "delta_n5": 0.4486
+        },
+        "0050": {
+          "cool_on": {
+            "n": 187,
+            "n_buy": 12,
+            "n_sell": 175,
+            "mean_t1": 0.7835,
+            "median_t1": 0.5155,
+            "p90_t1": 2.6145,
+            "mean_n5": 4.4332,
+            "median_n5": 3.9369,
+            "p90_n5": 7.7362,
+            "share_n5_le1": 0.016,
+            "share_n5_le3": 0.3048,
+            "mean_n21": 9.2227,
+            "corr_t1_n5": 0.5168
+          },
+          "cool_off": {
+            "n": 621,
+            "n_buy": 394,
+            "n_sell": 227,
+            "mean_t1": 0.6154,
+            "median_t1": 0.6072,
+            "p90_t1": 1.8237,
+            "mean_n5": 5.1392,
+            "median_n5": 2.6874,
+            "p90_n5": 5.3025,
+            "share_n5_le1": 0.0773,
+            "share_n5_le3": 0.5749,
+            "mean_n21": 10.6012,
+            "corr_t1_n5": 0.0151
+          },
+          "delta_n5": -0.706
+        }
+      },
+      "by_side": {
+        "BUY": {
+          "cool_on": {
+            "n": 180,
+            "n_buy": 180,
+            "n_sell": 0,
+            "mean_t1": 0.9625,
+            "median_t1": 0.8786,
+            "p90_t1": 2.3754,
+            "mean_n5": 3.0667,
+            "median_n5": 2.6235,
+            "p90_n5": 5.4555,
+            "share_n5_le1": 0.1333,
+            "share_n5_le3": 0.5722,
+            "mean_n21": 6.0956,
+            "corr_t1_n5": 0.4196
+          },
+          "cool_off": {
+            "n": 3055,
+            "n_buy": 3055,
+            "n_sell": 0,
+            "mean_t1": 0.8135,
+            "median_t1": 0.642,
+            "p90_t1": 1.8142,
+            "mean_n5": 2.7645,
+            "median_n5": 1.9954,
+            "p90_n5": 4.4441,
+            "share_n5_le1": 0.1984,
+            "share_n5_le3": 0.7303,
+            "mean_n21": 5.9214,
+            "corr_t1_n5": 0.0358
+          }
+        },
+        "SELL": {
+          "cool_on": {
+            "n": 1274,
+            "n_buy": 0,
+            "n_sell": 1274,
+            "mean_t1": 0.8672,
+            "median_t1": 0.6028,
+            "p90_t1": 2.087,
+            "mean_n5": 3.1381,
+            "median_n5": 2.62,
+            "p90_n5": 5.8396,
+            "share_n5_le1": 0.1122,
+            "share_n5_le3": 0.5824,
+            "mean_n21": 5.9488,
+            "corr_t1_n5": 0.5894
+          },
+          "cool_off": {
+            "n": 1790,
+            "n_buy": 0,
+            "n_sell": 1790,
+            "mean_t1": 0.5756,
+            "median_t1": 0.4937,
+            "p90_t1": 1.3798,
+            "mean_n5": 2.1741,
+            "median_n5": 1.7138,
+            "p90_n5": 3.8605,
+            "share_n5_le1": 0.2497,
+            "share_n5_le3": 0.8039,
+            "mean_n21": 4.3053,
+            "corr_t1_n5": 0.1747
+          }
+        }
+      },
+      "cross_kd_fin": {
+        "cool_on_kd_off": {
+          "n": 629,
+          "n_buy": 26,
+          "n_sell": 603,
+          "mean_t1": 0.932,
+          "median_t1": 0.6619,
+          "p90_t1": 2.113,
+          "mean_n5": 3.329,
+          "median_n5": 2.7626,
+          "p90_n5": 5.9103,
+          "share_n5_le1": 0.0715,
+          "share_n5_le3": 0.5628,
+          "mean_n21": 6.2246,
+          "corr_t1_n5": 0.6756
+        },
+        "cool_on_kd_in": {
+          "n": 77,
+          "n_buy": 4,
+          "n_sell": 73,
+          "mean_t1": 1.0682,
+          "median_t1": 0.6084,
+          "p90_t1": 2.867,
+          "mean_n5": 3.097,
+          "median_n5": 2.256,
+          "p90_n5": 6.5198,
+          "share_n5_le1": 0.1299,
+          "share_n5_le3": 0.6234,
+          "mean_n21": 6.1062,
+          "corr_t1_n5": 0.6635
+        },
+        "cool_off_kd_off": {
+          "n": 2176,
+          "n_buy": 1525,
+          "n_sell": 651,
+          "mean_t1": 0.7934,
+          "median_t1": 0.6072,
+          "p90_t1": 1.734,
+          "mean_n5": 2.253,
+          "median_n5": 1.8848,
+          "p90_n5": 4.0482,
+          "share_n5_le1": 0.1994,
+          "share_n5_le3": 0.7601,
+          "mean_n21": 4.9231,
+          "corr_t1_n5": 0.3488
+        },
+        "cool_off_kd_in": {
+          "n": 184,
+          "n_buy": 108,
+          "n_sell": 76,
+          "mean_t1": 0.8034,
+          "median_t1": 0.6863,
+          "p90_t1": 1.7666,
+          "mean_n5": 2.5317,
+          "median_n5": 2.1261,
+          "p90_n5": 5.1884,
+          "share_n5_le1": 0.2065,
+          "share_n5_le3": 0.7391,
+          "mean_n21": 4.7574,
+          "corr_t1_n5": 0.3803
+        }
+      },
+      "windows": {
+        "full": {
+          "cool_on": {
+            "n": 1454,
+            "n_buy": 180,
+            "n_sell": 1274,
+            "mean_t1": 0.879,
+            "median_t1": 0.619,
+            "p90_t1": 2.1141,
+            "mean_n5": 3.1293,
+            "median_n5": 2.62,
+            "p90_n5": 5.8272,
+            "share_n5_le1": 0.1149,
+            "share_n5_le3": 0.5812,
+            "mean_n21": 5.967,
+            "corr_t1_n5": 0.5688
+          },
+          "cool_off": {
+            "n": 4845,
+            "n_buy": 3055,
+            "n_sell": 1790,
+            "mean_t1": 0.7256,
+            "median_t1": 0.5568,
+            "p90_t1": 1.6631,
+            "mean_n5": 2.5464,
+            "median_n5": 1.8858,
+            "p90_n5": 4.2633,
+            "share_n5_le1": 0.2173,
+            "share_n5_le3": 0.7575,
+            "mean_n21": 5.3243,
+            "corr_t1_n5": 0.0451
+          },
+          "delta_n5": 0.5829
+        },
+        "oof_2011_2018": {
+          "cool_on": {
+            "n": 406,
+            "n_buy": 39,
+            "n_sell": 367,
+            "mean_t1": 0.7389,
+            "median_t1": 0.626,
+            "p90_t1": 1.6875,
+            "mean_n5": 2.8814,
+            "median_n5": 2.5717,
+            "p90_n5": 5.1551,
+            "share_n5_le1": 0.0985,
+            "share_n5_le3": 0.6059,
+            "mean_n21": 5.4293,
+            "corr_t1_n5": 0.3601
+          },
+          "cool_off": {
+            "n": 2245,
+            "n_buy": 1332,
+            "n_sell": 913,
+            "mean_t1": 0.6933,
+            "median_t1": 0.5404,
+            "p90_t1": 1.55,
+            "mean_n5": 2.1423,
+            "median_n5": 1.8527,
+            "p90_n5": 3.8684,
+            "share_n5_le1": 0.2276,
+            "share_n5_le3": 0.7808,
+            "mean_n21": 4.2248,
+            "corr_t1_n5": 0.2884
+          },
+          "delta_n5": 0.7391
+        },
+        "validation_2019_2022": {
+          "cool_on": {
+            "n": 616,
+            "n_buy": 63,
+            "n_sell": 553,
+            "mean_t1": 0.9688,
+            "median_t1": 0.5293,
+            "p90_t1": 2.444,
+            "mean_n5": 3.4188,
+            "median_n5": 2.7058,
+            "p90_n5": 6.3817,
+            "share_n5_le1": 0.1153,
+            "share_n5_le3": 0.5536,
+            "mean_n21": 6.0979,
+            "corr_t1_n5": 0.662
+          },
+          "cool_off": {
+            "n": 1365,
+            "n_buy": 923,
+            "n_sell": 442,
+            "mean_t1": 0.7488,
+            "median_t1": 0.5242,
+            "p90_t1": 1.6637,
+            "mean_n5": 2.1425,
+            "median_n5": 1.7268,
+            "p90_n5": 4.0768,
+            "share_n5_le1": 0.2462,
+            "share_n5_le3": 0.7919,
+            "mean_n21": 5.4183,
+            "corr_t1_n5": 0.2052
+          },
+          "delta_n5": 1.2763
+        },
+        "sealed_2023_plus": {
+          "cool_on": {
+            "n": 432,
+            "n_buy": 78,
+            "n_sell": 354,
+            "mean_t1": 0.8827,
+            "median_t1": 0.7565,
+            "p90_t1": 2.0436,
+            "mean_n5": 2.9494,
+            "median_n5": 2.5536,
+            "p90_n5": 5.7212,
+            "share_n5_le1": 0.1296,
+            "share_n5_le3": 0.5972,
+            "mean_n21": 6.2856,
+            "corr_t1_n5": 0.449
+          },
+          "cool_off": {
+            "n": 1235,
+            "n_buy": 800,
+            "n_sell": 435,
+            "mean_t1": 0.7585,
+            "median_t1": 0.6619,
+            "p90_t1": 1.8433,
+            "mean_n5": 3.7274,
+            "median_n5": 2.225,
+            "p90_n5": 5.1086,
+            "share_n5_le1": 0.1668,
+            "share_n5_le3": 0.6769,
+            "mean_n21": 7.2192,
+            "corr_t1_n5": 0.0271
+          },
+          "delta_n5": -0.778
+        },
+        "heldout_2019_plus": {
+          "cool_on": {
+            "n": 1048,
+            "n_buy": 141,
+            "n_sell": 907,
+            "mean_t1": 0.9333,
+            "median_t1": 0.6095,
+            "p90_t1": 2.3587,
+            "mean_n5": 3.2253,
+            "median_n5": 2.629,
+            "p90_n5": 6.047,
+            "share_n5_le1": 0.1212,
+            "share_n5_le3": 0.5716,
+            "mean_n21": 6.1753,
+            "corr_t1_n5": 0.5992
+          },
+          "cool_off": {
+            "n": 2600,
+            "n_buy": 1723,
+            "n_sell": 877,
+            "mean_t1": 0.7534,
+            "median_t1": 0.5714,
+            "p90_t1": 1.7458,
+            "mean_n5": 2.8953,
+            "median_n5": 1.9201,
+            "p90_n5": 4.6161,
+            "share_n5_le1": 0.2085,
+            "share_n5_le3": 0.7373,
+            "mean_n21": 6.2738,
+            "corr_t1_n5": 0.0335
+          },
+          "delta_n5": 0.33
+        }
+      }
+    }
+  },
+  "nav_offense_vs_cool": {
+    "full": {
+      "offense": {
+        "cagr": 0.130613,
+        "max_drawdown": -0.225438,
+        "n_days": 3365
+      },
+      "cool_stack": {
+        "cagr": 0.122945,
+        "max_drawdown": -0.150154,
+        "n_days": 3365
+      },
+      "cagr_giveback_pp": 0.7668,
+      "mdd_improve_pp": 7.5284
+    },
+    "oof_2011_2018": {
+      "offense": {
+        "cagr": 0.096235,
+        "max_drawdown": -0.161582,
+        "n_days": 1495
+      },
+      "cool_stack": {
+        "cagr": 0.08862,
+        "max_drawdown": -0.131794,
+        "n_days": 1495
+      },
+      "cagr_giveback_pp": 0.7615,
+      "mdd_improve_pp": 2.9788
+    },
+    "validation_2019_2022": {
+      "offense": {
+        "cagr": 0.124303,
+        "max_drawdown": -0.225438,
+        "n_days": 977
+      },
+      "cool_stack": {
+        "cagr": 0.132036,
+        "max_drawdown": -0.150154,
+        "n_days": 977
+      },
+      "cagr_giveback_pp": -0.7733,
+      "mdd_improve_pp": 7.5284
+    },
+    "sealed_2023_plus": {
+      "offense": {
+        "cagr": 0.203459,
+        "max_drawdown": -0.09663,
+        "n_days": 893
+      },
+      "cool_stack": {
+        "cagr": 0.177853,
+        "max_drawdown": -0.064657,
+        "n_days": 893
+      },
+      "cagr_giveback_pp": 2.5606,
+      "mdd_improve_pp": 3.1973
+    },
+    "heldout_2019_plus": {
+      "offense": {
+        "cagr": 0.161522,
+        "max_drawdown": -0.225438,
+        "n_days": 1870
+      },
+      "cool_stack": {
+        "cagr": 0.15357,
+        "max_drawdown": -0.150154,
+        "n_days": 1870
+      },
+      "cagr_giveback_pp": 0.7952,
+      "mdd_improve_pp": 7.5284
+    }
+  },
+  "fuse_meta_n_fills": 5412,
+  "cool_meta_n_fills": 6299,
+  "findings": [
+    {
+      "id": "A_T1_STRUCTURAL",
+      "rank": 1,
+      "claim": "Exact T+1 is the structural fill-cost driver across full history",
+      "evidence": {
+        "mean_t1": 0.761,
+        "mean_n5": 2.6809,
+        "corr_t1_n5": 0.0724,
+        "tip_mean_t1": 1.1543,
+        "tip_mean_n5": 3.7887
+      }
+    },
+    {
+      "id": "B_KD_OFFSEASON",
+      "rank": 2,
+      "claim": "FIN KD off-season fill quality vs in-season",
+      "evidence": {
+        "in_n5": 2.6985,
+        "off_n5": 2.4943,
+        "delta_n5": -0.2042,
+        "delta_t1": -0.057,
+        "in_n": 261,
+        "off_n": 2805
+      }
+    },
+    {
+      "id": "C_CLIP_FIN_HI",
+      "rank": 3,
+      "claim": "FIN CLIP_FIN_HI edge fills vs non-edge",
+      "evidence": {
+        "clip_n5": 1.5681,
+        "not_n5": 2.5344,
+        "delta_n5": -0.9663,
+        "delta_t1": -0.3441,
+        "clip_n": 72,
+        "fin_share_ge_080": 0.0235
+      }
+    },
+    {
+      "id": "D_COOL_DEFEND",
+      "rank": 4,
+      "claim": "COOL defend days: fill distance bump vs NAV MDD benefit",
+      "evidence": {
+        "delta_n5": 0.5829,
+        "delta_t1": 0.1534,
+        "cool_on_n": 1454,
+        "heldout_mdd_improve_pp": 7.5284,
+        "heldout_cagr_giveback_pp": 0.7952,
+        "sealed_mdd_improve_pp": 3.1973
+      }
+    }
+  ],
+  "observe_priority_by_abs_n5_delta": [
+    "C_CLIP",
+    "D_COOL",
+    "B_KD"
+  ],
+  "binding": [
+    "Soft-Frozen live KEEP",
+    "Exact T+1 KEEP",
+    "No tip rewrite",
+    "No live wire \u2014 discussion only after this pack"
+  ]
+}

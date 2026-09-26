@@ -19,6 +19,7 @@ COOL 結束 × 台50正2（`00631L` 搶反彈）：**Stage A `MDD_BLOCK`** · So
 COOL dual-handoff（防守 `00632R` → 結束 `00631L`）：**Stage A `DUAL_HANDOFF_SOFT`** · 0 HIT · Soft-Frozen KEEP · no live · `COOL_T50_DUAL_HANDOFF_DECISION_PACK.md`  
 TEL within-sleeve 三軌（名目／結構／COOL 聯動）：**Stage A `TEL_WITHIN_SOFT`** → densify near-flat → **LIVE WIRED `T3_COOL_INV_VOL20`** · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`  
 TEL T3 densify／T2 半開／近持平 +0.15：**Stage A `TEL_NEARFLAT_READY`** → human `請上live` → **LIVE WIRED `T3_COOL_INV_VOL20`** · Soft-Frozen KEEP · forward-only · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`  
+Live tip fill 高低點／機制審計：**`FILL_EXTREME_AUDIT_DONE`** · 96 fills · ±5d mean ~3.8% · T+1 結構性 · Soft-Frozen KEEP · no live · `LIVE_FILL_EXTREME_AUDIT_DECISION_PACK.md`  
 Soft∥Sleeve ops auto-fuse agenda：**CLOSED**（Gate H FORBIDDEN KEEP）· `ACCEPT_DROP_AUTO_FUSE_AGENDA.md`  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  

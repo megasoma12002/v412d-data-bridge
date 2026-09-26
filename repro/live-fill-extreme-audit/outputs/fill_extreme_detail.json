@@ -1,0 +1,3938 @@
+[
+  {
+    "fill_id": "2026-08-24-0050-BUY",
+    "signal_date": "2026-08-24",
+    "fill_date": "2026-08-25",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "BUY",
+    "quantity": 32000,
+    "fill_price": 102.95145,
+    "t1_drag_vs_signal_ext_pct": -0.8175,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 0.5385,
+        "low": 102.4,
+        "high": 108.7,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 12.1475,
+        "low": 91.8,
+        "high": 113.75,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-24-2412-BUY",
+    "signal_date": "2026-08-24",
+    "fill_date": "2026-08-25",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 75000,
+    "fill_price": 136.56825,
+    "t1_drag_vs_signal_ext_pct": 0.7884,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.1617,
+        "low": 135.0,
+        "high": 137.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.1617,
+        "low": 135.0,
+        "high": 145.5,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-24-2880-BUY",
+    "signal_date": "2026-08-24",
+    "fill_date": "2026-08-25",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 419000,
+    "fill_price": 39.169575,
+    "t1_drag_vs_signal_ext_pct": 0.05,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.4756,
+        "low": 38.6,
+        "high": 42.2,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.0778,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-24-2886-BUY",
+    "signal_date": "2026-08-24",
+    "fill_date": "2026-08-25",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 351000,
+    "fill_price": 46.873425,
+    "t1_drag_vs_signal_ext_pct": 1.0203,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.6777,
+        "low": 46.1,
+        "high": 49.05,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.279,
+        "low": 44.95,
+        "high": 53.7,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-24-2892-BUY",
+    "signal_date": "2026-08-24",
+    "fill_date": "2026-08-25",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 490000,
+    "fill_price": 33.516749999999995,
+    "t1_drag_vs_signal_ext_pct": 0.8023,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 0.9541,
+        "low": 33.2,
+        "high": 35.9,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.2874,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-24-3045-BUY",
+    "signal_date": "2026-08-24",
+    "fill_date": "2026-08-25",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 89000,
+    "fill_price": 115.0575,
+    "t1_drag_vs_signal_ext_pct": 0.9276,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.5977,
+        "low": 110.0,
+        "high": 116.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.0302,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-24-4904-BUY",
+    "signal_date": "2026-08-24",
+    "fill_date": "2026-08-25",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 100000,
+    "fill_price": 101.55075,
+    "t1_drag_vs_signal_ext_pct": 1.0455,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.7543,
+        "low": 99.8,
+        "high": 102.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.5176,
+        "low": 98.1,
+        "high": 108.5,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-24-5880-BUY",
+    "signal_date": "2026-08-24",
+    "fill_date": "2026-08-25",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 658000,
+    "fill_price": 25.0125,
+    "t1_drag_vs_signal_ext_pct": 0.6539,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 2.0918,
+        "low": 24.5,
+        "high": 25.7,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.8742,
+        "low": 23.85,
+        "high": 27.65,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-25-0050-BUY",
+    "signal_date": "2026-08-25",
+    "fill_date": "2026-08-26",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "BUY",
+    "quantity": 32000,
+    "fill_price": 104.15205,
+    "t1_drag_vs_signal_ext_pct": 1.711,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.711,
+        "low": 102.4,
+        "high": 108.7,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 13.4554,
+        "low": 91.8,
+        "high": 113.75,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-25-2412-BUY",
+    "signal_date": "2026-08-25",
+    "fill_date": "2026-08-26",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 75000,
+    "fill_price": 136.56825,
+    "t1_drag_vs_signal_ext_pct": 0.4178,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.1617,
+        "low": 135.0,
+        "high": 137.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.1617,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-25-2880-BUY",
+    "signal_date": "2026-08-25",
+    "fill_date": "2026-08-26",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 414000,
+    "fill_price": 39.6198,
+    "t1_drag_vs_signal_ext_pct": 1.2,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 2.642,
+        "low": 38.6,
+        "high": 43.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.2626,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-25-2886-BUY",
+    "signal_date": "2026-08-25",
+    "fill_date": "2026-08-26",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 350000,
+    "fill_price": 46.92345,
+    "t1_drag_vs_signal_ext_pct": 0.9106,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.7862,
+        "low": 46.1,
+        "high": 49.1,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.3903,
+        "low": 44.95,
+        "high": 53.7,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-25-2892-BUY",
+    "signal_date": "2026-08-25",
+    "fill_date": "2026-08-26",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 487000,
+    "fill_price": 33.516749999999995,
+    "t1_drag_vs_signal_ext_pct": 0.1996,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 0.9541,
+        "low": 33.2,
+        "high": 36.35,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.2874,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-25-3045-BUY",
+    "signal_date": "2026-08-25",
+    "fill_date": "2026-08-26",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 88000,
+    "fill_price": 115.0575,
+    "t1_drag_vs_signal_ext_pct": 0.4869,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.1906,
+        "low": 111.5,
+        "high": 116.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.0302,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-25-4904-BUY",
+    "signal_date": "2026-08-25",
+    "fill_date": "2026-08-26",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 100000,
+    "fill_price": 102.55125,
+    "t1_drag_vs_signal_ext_pct": 1.0357,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 2.7568,
+        "low": 99.8,
+        "high": 102.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.5375,
+        "low": 98.1,
+        "high": 108.5,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-25-5880-BUY",
+    "signal_date": "2026-08-25",
+    "fill_date": "2026-08-26",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 657000,
+    "fill_price": 25.0125,
+    "t1_drag_vs_signal_ext_pct": 0.2505,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.6586994606191088,
+    "e16_telecom": 0.3074378163576171,
+    "e16_0050": 0.033862723023274,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.6768,
+        "low": 24.6,
+        "high": 26.3,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.8742,
+        "low": 23.85,
+        "high": 27.65,
+        "n_bars": 43
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-26-0050-BUY",
+    "signal_date": "2026-08-26",
+    "fill_date": "2026-08-27",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "BUY",
+    "quantity": 36000,
+    "fill_price": 106.55325,
+    "t1_drag_vs_signal_ext_pct": 2.95,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7102101090133827,
+    "e16_telecom": 0.2530927304298557,
+    "e16_0050": 0.0366971605567614,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.0559,
+        "low": 102.4,
+        "high": 108.7,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 16.0711,
+        "low": 91.8,
+        "high": 113.75,
+        "n_bars": 42
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-26-2412-BUY",
+    "signal_date": "2026-08-26",
+    "fill_date": "2026-08-27",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 53000,
+    "fill_price": 136.56825,
+    "t1_drag_vs_signal_ext_pct": 0.7884,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7102101090133827,
+    "e16_telecom": 0.2530927304298557,
+    "e16_0050": 0.0366971605567614,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.1617,
+        "low": 135.0,
+        "high": 138.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.1617,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 42
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-26-2880-BUY",
+    "signal_date": "2026-08-26",
+    "fill_date": "2026-08-27",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 469000,
+    "fill_price": 39.8199,
+    "t1_drag_vs_signal_ext_pct": 1.452,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7102101090133827,
+    "e16_telecom": 0.2530927304298557,
+    "e16_0050": 0.0366971605567614,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.1604,
+        "low": 38.6,
+        "high": 43.75,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.7892,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 42
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-26-2886-BUY",
+    "signal_date": "2026-08-26",
+    "fill_date": "2026-08-27",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 398000,
+    "fill_price": 46.6233,
+    "t1_drag_vs_signal_ext_pct": 0.5896,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7102101090133827,
+    "e16_telecom": 0.2530927304298557,
+    "e16_0050": 0.0366971605567614,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.1351,
+        "low": 46.1,
+        "high": 50.8,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.7226,
+        "low": 44.95,
+        "high": 53.7,
+        "n_bars": 42
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-26-2892-BUY",
+    "signal_date": "2026-08-26",
+    "fill_date": "2026-08-27",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 556000,
+    "fill_price": 33.516749999999995,
+    "t1_drag_vs_signal_ext_pct": 0.8023,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7102101090133827,
+    "e16_telecom": 0.2530927304298557,
+    "e16_0050": 0.0366971605567614,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 0.9541,
+        "low": 33.2,
+        "high": 37.1,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.2874,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 42
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-26-3045-BUY",
+    "signal_date": "2026-08-26",
+    "fill_date": "2026-08-27",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 62000,
+    "fill_price": 116.058,
+    "t1_drag_vs_signal_ext_pct": 1.3607,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7102101090133827,
+    "e16_telecom": 0.2530927304298557,
+    "e16_0050": 0.0366971605567614,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 2.7062,
+        "low": 113.0,
+        "high": 118.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.9609,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 42
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-26-4904-BUY",
+    "signal_date": "2026-08-26",
+    "fill_date": "2026-08-27",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 71000,
+    "fill_price": 101.0505,
+    "t1_drag_vs_signal_ext_pct": 0.5478,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7102101090133827,
+    "e16_telecom": 0.2530927304298557,
+    "e16_0050": 0.0366971605567614,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.253,
+        "low": 99.8,
+        "high": 103.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.0076,
+        "low": 98.1,
+        "high": 108.5,
+        "n_bars": 42
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-26-5880-BUY",
+    "signal_date": "2026-08-26",
+    "fill_date": "2026-08-27",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 743000,
+    "fill_price": 25.0125,
+    "t1_drag_vs_signal_ext_pct": 0.6539,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7102101090133827,
+    "e16_telecom": 0.2530927304298557,
+    "e16_0050": 0.0366971605567614,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.4706,
+        "low": 24.65,
+        "high": 26.85,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.8742,
+        "low": 23.85,
+        "high": 27.65,
+        "n_bars": 42
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-27-0050-BUY",
+    "signal_date": "2026-08-27",
+    "fill_date": "2026-08-28",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "BUY",
+    "quantity": 42000,
+    "fill_price": 107.15354999999998,
+    "t1_drag_vs_signal_ext_pct": 1.1837,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7478820946012026,
+    "e16_telecom": 0.2127714526797224,
+    "e16_0050": 0.0393464527190748,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.6421,
+        "low": 102.4,
+        "high": 108.7,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 16.4712,
+        "low": 92.0,
+        "high": 113.75,
+        "n_bars": 41
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-27-2412-BUY",
+    "signal_date": "2026-08-27",
+    "fill_date": "2026-08-28",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 28000,
+    "fill_price": 136.06799999999998,
+    "t1_drag_vs_signal_ext_pct": 0.4192,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7478820946012026,
+    "e16_telecom": 0.2127714526797224,
+    "e16_0050": 0.0393464527190748,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 0.7911,
+        "low": 135.0,
+        "high": 138.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 0.7911,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 41
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-27-2880-BUY",
+    "signal_date": "2026-08-27",
+    "fill_date": "2026-08-28",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 530000,
+    "fill_price": 39.369675,
+    "t1_drag_vs_signal_ext_pct": 0.05,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7478820946012026,
+    "e16_telecom": 0.2127714526797224,
+    "e16_0050": 0.0393464527190748,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.994,
+        "low": 38.6,
+        "high": 44.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.6044,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 41
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-27-2886-BUY",
+    "signal_date": "2026-08-27",
+    "fill_date": "2026-08-28",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 452000,
+    "fill_price": 46.92345,
+    "t1_drag_vs_signal_ext_pct": 1.7862,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7478820946012026,
+    "e16_telecom": 0.2127714526797224,
+    "e16_0050": 0.0393464527190748,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.7862,
+        "low": 46.1,
+        "high": 50.9,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.3903,
+        "low": 44.95,
+        "high": 53.7,
+        "n_bars": 41
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-27-2892-BUY",
+    "signal_date": "2026-08-27",
+    "fill_date": "2026-08-28",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 626000,
+    "fill_price": 33.516749999999995,
+    "t1_drag_vs_signal_ext_pct": 0.6509,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7478820946012026,
+    "e16_telecom": 0.2127714526797224,
+    "e16_0050": 0.0393464527190748,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 0.9541,
+        "low": 33.2,
+        "high": 37.3,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.2874,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 41
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-27-3045-BUY",
+    "signal_date": "2026-08-27",
+    "fill_date": "2026-08-28",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 33000,
+    "fill_price": 115.55775,
+    "t1_drag_vs_signal_ext_pct": 0.485,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7478820946012026,
+    "e16_telecom": 0.2127714526797224,
+    "e16_0050": 0.0393464527190748,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.813,
+        "low": 113.5,
+        "high": 118.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.4956,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 41
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-27-4904-BUY",
+    "signal_date": "2026-08-27",
+    "fill_date": "2026-08-28",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 38000,
+    "fill_price": 101.55075,
+    "t1_drag_vs_signal_ext_pct": 1.0455,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7478820946012026,
+    "e16_telecom": 0.2127714526797224,
+    "e16_0050": 0.0393464527190748,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.7543,
+        "low": 99.8,
+        "high": 104.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.5176,
+        "low": 98.1,
+        "high": 107.5,
+        "n_bars": 41
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-27-5880-BUY",
+    "signal_date": "2026-08-27",
+    "fill_date": "2026-08-28",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 834000,
+    "fill_price": 25.11255,
+    "t1_drag_vs_signal_ext_pct": 0.6515,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7478820946012026,
+    "e16_telecom": 0.2127714526797224,
+    "e16_0050": 0.0393464527190748,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.8765,
+        "low": 24.65,
+        "high": 26.85,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 5.2937,
+        "low": 23.85,
+        "high": 27.65,
+        "n_bars": 41
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-28-2412-SELL",
+    "signal_date": "2026-08-28",
+    "fill_date": "2026-08-31",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 13000,
+    "fill_price": 135.93200000000002,
+    "t1_drag_vs_signal_ext_pct": 0.4161,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7700909121334123,
+    "e16_telecom": 0.1712221378720195,
+    "e16_0050": 0.0586869499945679,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 1.8542,
+        "low": 135.0,
+        "high": 138.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 6.8959,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 40
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-28-3045-SELL",
+    "signal_date": "2026-08-28",
+    "fill_date": "2026-08-31",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 15000,
+    "fill_price": 114.9425,
+    "t1_drag_vs_signal_ext_pct": 0.4827,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7700909121334123,
+    "e16_telecom": 0.1712221378720195,
+    "e16_0050": 0.0586869499945679,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.5911,
+        "low": 113.5,
+        "high": 118.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 8.4124,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 40
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-28-4904-SELL",
+    "signal_date": "2026-08-28",
+    "fill_date": "2026-08-31",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 18000,
+    "fill_price": 99.7501,
+    "t1_drag_vs_signal_ext_pct": 1.724,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7700909121334123,
+    "e16_telecom": 0.1712221378720195,
+    "e16_0050": 0.0586869499945679,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 4.5454,
+        "low": 99.8,
+        "high": 104.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 7.2092,
+        "low": 98.1,
+        "high": 107.5,
+        "n_bars": 40
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-28-0050-BUY",
+    "signal_date": "2026-08-28",
+    "fill_date": "2026-08-31",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "BUY",
+    "quantity": 101000,
+    "fill_price": 105.65279999999998,
+    "t1_drag_vs_signal_ext_pct": -0.9814,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7700909121334123,
+    "e16_telecom": 0.1712221378720195,
+    "e16_0050": 0.0586869499945679,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.1766,
+        "low": 102.4,
+        "high": 110.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 5.9176,
+        "low": 99.75,
+        "high": 113.75,
+        "n_bars": 40
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-28-2880-BUY",
+    "signal_date": "2026-08-28",
+    "fill_date": "2026-08-31",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 434000,
+    "fill_price": 40.270125,
+    "t1_drag_vs_signal_ext_pct": 2.3383,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7700909121334123,
+    "e16_telecom": 0.1712221378720195,
+    "e16_0050": 0.0586869499945679,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 2.8611,
+        "low": 39.15,
+        "high": 44.7,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 5.974,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 40
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-28-2886-BUY",
+    "signal_date": "2026-08-28",
+    "fill_date": "2026-08-31",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 363000,
+    "fill_price": 47.92395,
+    "t1_drag_vs_signal_ext_pct": 2.9516,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7700909121334123,
+    "e16_telecom": 0.1712221378720195,
+    "e16_0050": 0.0586869499945679,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.9565,
+        "low": 46.1,
+        "high": 50.9,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.6161,
+        "low": 44.95,
+        "high": 53.7,
+        "n_bars": 40
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-28-2892-BUY",
+    "signal_date": "2026-08-28",
+    "fill_date": "2026-08-31",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 508000,
+    "fill_price": 34.31715,
+    "t1_drag_vs_signal_ext_pct": 2.5924,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7700909121334123,
+    "e16_telecom": 0.1712221378720195,
+    "e16_0050": 0.0586869499945679,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.2095,
+        "low": 33.25,
+        "high": 38.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 5.7539,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 40
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-28-5880-BUY",
+    "signal_date": "2026-08-28",
+    "fill_date": "2026-08-31",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 693000,
+    "fill_price": 25.262625,
+    "t1_drag_vs_signal_ext_pct": 0.8488,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7700909121334123,
+    "e16_telecom": 0.1712221378720195,
+    "e16_0050": 0.0586869499945679,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.6605,
+        "low": 24.85,
+        "high": 26.85,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 5.923,
+        "low": 23.85,
+        "high": 27.65,
+        "n_bars": 40
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-31-2412-SELL",
+    "signal_date": "2026-08-31",
+    "fill_date": "2026-09-01",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 35000,
+    "fill_price": 135.93200000000002,
+    "t1_drag_vs_signal_ext_pct": 0.05,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7950658226458608,
+    "e16_telecom": 0.1360668492773293,
+    "e16_0050": 0.0688673280768098,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.2072,
+        "low": 135.0,
+        "high": 139.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 6.8959,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 39
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-31-3045-SELL",
+    "signal_date": "2026-08-31",
+    "fill_date": "2026-09-01",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 41000,
+    "fill_price": 114.9425,
+    "t1_drag_vs_signal_ext_pct": 0.9116,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7950658226458608,
+    "e16_telecom": 0.1360668492773293,
+    "e16_0050": 0.0688673280768098,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.5911,
+        "low": 113.5,
+        "high": 118.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 8.4124,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 39
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-31-4904-SELL",
+    "signal_date": "2026-08-31",
+    "fill_date": "2026-09-01",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 47000,
+    "fill_price": 100.44975,
+    "t1_drag_vs_signal_ext_pct": 0.5448,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7950658226458608,
+    "e16_telecom": 0.1360668492773293,
+    "e16_0050": 0.0688673280768098,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 3.8758,
+        "low": 99.8,
+        "high": 104.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 6.5584,
+        "low": 98.1,
+        "high": 107.5,
+        "n_bars": 39
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-31-0050-BUY",
+    "signal_date": "2026-08-31",
+    "fill_date": "2026-09-01",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "BUY",
+    "quantity": 66000,
+    "fill_price": 106.55325,
+    "t1_drag_vs_signal_ext_pct": 1.4793,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7950658226458608,
+    "e16_telecom": 0.1360668492773293,
+    "e16_0050": 0.0688673280768098,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.0559,
+        "low": 102.4,
+        "high": 110.75,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.8203,
+        "low": 99.75,
+        "high": 113.75,
+        "n_bars": 39
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-31-2880-BUY",
+    "signal_date": "2026-08-31",
+    "fill_date": "2026-09-01",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 158000,
+    "fill_price": 40.82039999999999,
+    "t1_drag_vs_signal_ext_pct": 1.5433,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7950658226458608,
+    "e16_telecom": 0.1360668492773293,
+    "e16_0050": 0.0688673280768098,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.2667,
+        "low": 39.15,
+        "high": 45.25,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.4221,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 39
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-31-2886-BUY",
+    "signal_date": "2026-08-31",
+    "fill_date": "2026-09-01",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 135000,
+    "fill_price": 48.2241,
+    "t1_drag_vs_signal_ext_pct": 0.9929,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7950658226458608,
+    "e16_telecom": 0.1360668492773293,
+    "e16_0050": 0.0688673280768098,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.6076,
+        "low": 46.1,
+        "high": 50.9,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.2839,
+        "low": 44.95,
+        "high": 52.9,
+        "n_bars": 39
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-31-2892-BUY",
+    "signal_date": "2026-08-31",
+    "fill_date": "2026-09-01",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 185000,
+    "fill_price": 35.067525,
+    "t1_drag_vs_signal_ext_pct": 2.2377,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7950658226458608,
+    "e16_telecom": 0.1360668492773293,
+    "e16_0050": 0.0688673280768098,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 5.4662,
+        "low": 33.25,
+        "high": 38.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 8.0663,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 39
+      }
+    }
+  },
+  {
+    "fill_id": "2026-08-31-5880-BUY",
+    "signal_date": "2026-08-31",
+    "fill_date": "2026-09-01",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 256000,
+    "fill_price": 25.362675,
+    "t1_drag_vs_signal_ext_pct": 1.2482,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.7950658226458608,
+    "e16_telecom": 0.1360668492773293,
+    "e16_0050": 0.0688673280768098,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 2.0631,
+        "low": 24.85,
+        "high": 26.85,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.3425,
+        "low": 23.85,
+        "high": 27.6,
+        "n_bars": 39
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-01-2412-SELL",
+    "signal_date": "2026-09-01",
+    "fill_date": "2026-09-02",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 32000,
+    "fill_price": 136.43175,
+    "t1_drag_vs_signal_ext_pct": 0.05,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8101534576014104,
+    "e16_telecom": 0.109550136957997,
+    "e16_0050": 0.0802964054405925,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.1995,
+        "low": 135.0,
+        "high": 139.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 6.5536,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 38
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-01-3045-SELL",
+    "signal_date": "2026-09-01",
+    "fill_date": "2026-09-02",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 38000,
+    "fill_price": 115.44225,
+    "t1_drag_vs_signal_ext_pct": 0.4808,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8101534576014104,
+    "e16_telecom": 0.109550136957997,
+    "e16_0050": 0.0802964054405925,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 3.3956,
+        "low": 113.5,
+        "high": 119.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 8.0141,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 38
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-01-4904-SELL",
+    "signal_date": "2026-09-01",
+    "fill_date": "2026-09-02",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 44000,
+    "fill_price": 100.44975,
+    "t1_drag_vs_signal_ext_pct": 0.5448,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8101534576014104,
+    "e16_telecom": 0.109550136957997,
+    "e16_0050": 0.0802964054405925,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 3.8758,
+        "low": 99.8,
+        "high": 104.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 6.5584,
+        "low": 98.1,
+        "high": 107.5,
+        "n_bars": 38
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-01-0050-BUY",
+    "signal_date": "2026-09-01",
+    "fill_date": "2026-09-02",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "BUY",
+    "quantity": 54000,
+    "fill_price": 107.55375,
+    "t1_drag_vs_signal_ext_pct": 0.9894,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8101534576014104,
+    "e16_telecom": 0.109550136957997,
+    "e16_0050": 0.0802964054405925,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.9167,
+        "low": 103.5,
+        "high": 110.75,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.8233,
+        "low": 99.75,
+        "high": 113.75,
+        "n_bars": 38
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-01-2880-BUY",
+    "signal_date": "2026-09-01",
+    "fill_date": "2026-09-02",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 73000,
+    "fill_price": 41.970975,
+    "t1_drag_vs_signal_ext_pct": 2.87,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8101534576014104,
+    "e16_telecom": 0.109550136957997,
+    "e16_0050": 0.0802964054405925,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.9324,
+        "low": 39.25,
+        "high": 45.25,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 10.4499,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 38
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-01-2886-BUY",
+    "signal_date": "2026-09-01",
+    "fill_date": "2026-09-02",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 63000,
+    "fill_price": 48.274125,
+    "t1_drag_vs_signal_ext_pct": 0.362,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8101534576014104,
+    "e16_telecom": 0.109550136957997,
+    "e16_0050": 0.0802964054405925,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.7161,
+        "low": 46.1,
+        "high": 50.9,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.3952,
+        "low": 44.95,
+        "high": 52.9,
+        "n_bars": 38
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-01-2892-BUY",
+    "signal_date": "2026-09-01",
+    "fill_date": "2026-09-02",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 85000,
+    "fill_price": 35.567775,
+    "t1_drag_vs_signal_ext_pct": 1.6222,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8101534576014104,
+    "e16_telecom": 0.109550136957997,
+    "e16_0050": 0.0802964054405925,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.9708,
+        "low": 33.25,
+        "high": 38.1,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 9.6079,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 38
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-01-5880-BUY",
+    "signal_date": "2026-09-01",
+    "fill_date": "2026-09-02",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 120000,
+    "fill_price": 25.6128,
+    "t1_drag_vs_signal_ext_pct": 1.2364,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8101534576014104,
+    "e16_telecom": 0.109550136957997,
+    "e16_0050": 0.0802964054405925,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.0696,
+        "low": 24.85,
+        "high": 26.85,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.3912,
+        "low": 23.85,
+        "high": 27.6,
+        "n_bars": 38
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-02-2412-SELL",
+    "signal_date": "2026-09-02",
+    "fill_date": "2026-09-03",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 27000,
+    "fill_price": 137.43125,
+    "t1_drag_vs_signal_ext_pct": 0.05,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8276311681627325,
+    "e16_telecom": 0.0896626027184977,
+    "e16_0050": 0.0827062291187696,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 1.483,
+        "low": 135.0,
+        "high": 139.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 5.869,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 37
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-02-3045-SELL",
+    "signal_date": "2026-09-02",
+    "fill_date": "2026-09-03",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 32000,
+    "fill_price": 115.942,
+    "t1_drag_vs_signal_ext_pct": 0.05,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8276311681627325,
+    "e16_telecom": 0.0896626027184977,
+    "e16_0050": 0.0827062291187696,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 3.3817,
+        "low": 113.5,
+        "high": 120.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 7.6159,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 37
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-02-4904-SELL",
+    "signal_date": "2026-09-02",
+    "fill_date": "2026-09-03",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 36000,
+    "fill_price": 102.44875,
+    "t1_drag_vs_signal_ext_pct": 0.05,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8276311681627325,
+    "e16_telecom": 0.0896626027184977,
+    "e16_0050": 0.0827062291187696,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.4298,
+        "low": 99.8,
+        "high": 105.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 4.6988,
+        "low": 98.1,
+        "high": 107.5,
+        "n_bars": 37
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-02-0050-BUY",
+    "signal_date": "2026-09-02",
+    "fill_date": "2026-09-03",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "BUY",
+    "quantity": 31000,
+    "fill_price": 106.95345,
+    "t1_drag_vs_signal_ext_pct": 0.2845,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8276311681627325,
+    "e16_telecom": 0.0896626027184977,
+    "e16_0050": 0.0827062291187696,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 1.8604,
+        "low": 105.0,
+        "high": 110.75,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.8049,
+        "low": 102.05,
+        "high": 113.75,
+        "n_bars": 37
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-02-2880-BUY",
+    "signal_date": "2026-09-02",
+    "fill_date": "2026-09-03",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 51000,
+    "fill_price": 42.92144999999999,
+    "t1_drag_vs_signal_ext_pct": 3.4252,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8276311681627325,
+    "e16_telecom": 0.0896626027184977,
+    "e16_0050": 0.0827062291187696,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 9.0761,
+        "low": 39.35,
+        "high": 45.6,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 12.9512,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 37
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-02-2886-BUY",
+    "signal_date": "2026-09-02",
+    "fill_date": "2026-09-03",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 45000,
+    "fill_price": 49.0245,
+    "t1_drag_vs_signal_ext_pct": 2.0281,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8276311681627325,
+    "e16_telecom": 0.0896626027184977,
+    "e16_0050": 0.0827062291187696,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.3438,
+        "low": 46.1,
+        "high": 50.9,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 9.0645,
+        "low": 44.95,
+        "high": 52.9,
+        "n_bars": 37
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-02-2892-BUY",
+    "signal_date": "2026-09-02",
+    "fill_date": "2026-09-03",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 61000,
+    "fill_price": 36.268125,
+    "t1_drag_vs_signal_ext_pct": 2.4523,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8276311681627325,
+    "e16_telecom": 0.0896626027184977,
+    "e16_0050": 0.0827062291187696,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 8.9133,
+        "low": 33.3,
+        "high": 38.25,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 11.7662,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 37
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-02-5880-BUY",
+    "signal_date": "2026-09-02",
+    "fill_date": "2026-09-03",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 84000,
+    "fill_price": 26.31315,
+    "t1_drag_vs_signal_ext_pct": 3.1888,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8276311681627325,
+    "e16_telecom": 0.0896626027184977,
+    "e16_0050": 0.0827062291187696,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 5.4635,
+        "low": 24.95,
+        "high": 26.85,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 10.3277,
+        "low": 23.85,
+        "high": 27.6,
+        "n_bars": 37
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-03-0050-SELL",
+    "signal_date": "2026-09-03",
+    "fill_date": "2026-09-04",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "SELL",
+    "quantity": 20000,
+    "fill_price": 107.64615,
+    "t1_drag_vs_signal_ext_pct": -0.2292,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8510772844884973,
+    "e16_telecom": 0.0757884877563883,
+    "e16_0050": 0.0731342277551144,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.8026,
+        "low": 105.0,
+        "high": 110.75,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 5.366,
+        "low": 102.05,
+        "high": 113.75,
+        "n_bars": 36
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-03-2412-SELL",
+    "signal_date": "2026-09-03",
+    "fill_date": "2026-09-04",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 19000,
+    "fill_price": 137.931,
+    "t1_drag_vs_signal_ext_pct": 0.4108,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8510772844884973,
+    "e16_telecom": 0.0757884877563883,
+    "e16_0050": 0.0731342277551144,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 1.8285,
+        "low": 135.0,
+        "high": 140.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 5.5267,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 36
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-03-3045-SELL",
+    "signal_date": "2026-09-03",
+    "fill_date": "2026-09-04",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 23000,
+    "fill_price": 117.44125,
+    "t1_drag_vs_signal_ext_pct": 0.4735,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8510772844884973,
+    "e16_telecom": 0.0757884877563883,
+    "e16_0050": 0.0731342277551144,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.9411,
+        "low": 113.5,
+        "high": 121.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 6.4213,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 36
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-03-4904-SELL",
+    "signal_date": "2026-09-03",
+    "fill_date": "2026-09-04",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 26000,
+    "fill_price": 102.9485,
+    "t1_drag_vs_signal_ext_pct": 0.5329,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8510772844884973,
+    "e16_telecom": 0.0757884877563883,
+    "e16_0050": 0.0731342277551144,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.4185,
+        "low": 99.8,
+        "high": 105.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 4.234,
+        "low": 98.1,
+        "high": 107.5,
+        "n_bars": 36
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-03-2880-BUY",
+    "signal_date": "2026-09-03",
+    "fill_date": "2026-09-04",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 62000,
+    "fill_price": 43.771875,
+    "t1_drag_vs_signal_ext_pct": 2.6304,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8510772844884973,
+    "e16_telecom": 0.0757884877563883,
+    "e16_0050": 0.0731342277551144,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 11.2373,
+        "low": 39.35,
+        "high": 45.9,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 15.1891,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 36
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-03-2886-BUY",
+    "signal_date": "2026-09-03",
+    "fill_date": "2026-09-04",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 53000,
+    "fill_price": 50.8254,
+    "t1_drag_vs_signal_ext_pct": 3.9374,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8510772844884973,
+    "e16_telecom": 0.0757884877563883,
+    "e16_0050": 0.0731342277551144,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 9.1845,
+        "low": 46.55,
+        "high": 51.9,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 13.071,
+        "low": 44.95,
+        "high": 52.9,
+        "n_bars": 36
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-03-2892-BUY",
+    "signal_date": "2026-09-03",
+    "fill_date": "2026-09-04",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 73000,
+    "fill_price": 36.968475,
+    "t1_drag_vs_signal_ext_pct": 2.4057,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8510772844884973,
+    "e16_telecom": 0.0757884877563883,
+    "e16_0050": 0.0731342277551144,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 10.5186,
+        "low": 33.45,
+        "high": 39.05,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 13.9244,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 36
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-03-5880-BUY",
+    "signal_date": "2026-09-03",
+    "fill_date": "2026-09-04",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 91000,
+    "fill_price": 26.71335,
+    "t1_drag_vs_signal_ext_pct": 1.7651,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8510772844884973,
+    "e16_telecom": 0.0757884877563883,
+    "e16_0050": 0.0731342277551144,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.6401,
+        "low": 25.05,
+        "high": 27.2,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 12.0057,
+        "low": 23.85,
+        "high": 27.6,
+        "n_bars": 36
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-04-2412-SELL",
+    "signal_date": "2026-09-04",
+    "fill_date": "2026-09-07",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 16000,
+    "fill_price": 138.43075000000002,
+    "t1_drag_vs_signal_ext_pct": -0.3121,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8584151489712601,
+    "e16_telecom": 0.0643413658172912,
+    "e16_0050": 0.0772434852114485,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.8556,
+        "low": 135.0,
+        "high": 142.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 5.1844,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 35
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-04-3045-SELL",
+    "signal_date": "2026-09-04",
+    "fill_date": "2026-09-07",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 19000,
+    "fill_price": 117.941,
+    "t1_drag_vs_signal_ext_pct": 0.05,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8584151489712601,
+    "e16_telecom": 0.0643413658172912,
+    "e16_0050": 0.0772434852114485,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.9292,
+        "low": 113.5,
+        "high": 121.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 6.0231,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 35
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-04-4904-SELL",
+    "signal_date": "2026-09-04",
+    "fill_date": "2026-09-07",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 21000,
+    "fill_price": 104.44775,
+    "t1_drag_vs_signal_ext_pct": -0.4305,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8584151489712601,
+    "e16_telecom": 0.0643413658172912,
+    "e16_0050": 0.0772434852114485,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 1.4644,
+        "low": 99.8,
+        "high": 106.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 2.8393,
+        "low": 98.1,
+        "high": 107.5,
+        "n_bars": 35
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-04-0050-BUY",
+    "signal_date": "2026-09-04",
+    "fill_date": "2026-09-07",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "BUY",
+    "quantity": 5000,
+    "fill_price": 109.104525,
+    "t1_drag_vs_signal_ext_pct": 2.11,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8584151489712601,
+    "e16_telecom": 0.0643413658172912,
+    "e16_0050": 0.0772434852114485,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 3.9091,
+        "low": 105.0,
+        "high": 110.75,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.9128,
+        "low": 102.05,
+        "high": 113.75,
+        "n_bars": 35
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-04-2880-BUY",
+    "signal_date": "2026-09-04",
+    "fill_date": "2026-09-07",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 35000,
+    "fill_price": 44.72235,
+    "t1_drag_vs_signal_ext_pct": 3.6439,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8584151489712601,
+    "e16_telecom": 0.0643413658172912,
+    "e16_0050": 0.0772434852114485,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 11.2496,
+        "low": 40.2,
+        "high": 46.4,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 17.6904,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 35
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-04-2886-BUY",
+    "signal_date": "2026-09-04",
+    "fill_date": "2026-09-07",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 31000,
+    "fill_price": 50.4252,
+    "t1_drag_vs_signal_ext_pct": 2.0753,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8584151489712601,
+    "e16_telecom": 0.0643413658172912,
+    "e16_0050": 0.0772434852114485,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 5.6025,
+        "low": 47.75,
+        "high": 52.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 12.1806,
+        "low": 44.95,
+        "high": 52.9,
+        "n_bars": 35
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-04-2892-BUY",
+    "signal_date": "2026-09-04",
+    "fill_date": "2026-09-07",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 41000,
+    "fill_price": 38.019,
+    "t1_drag_vs_signal_ext_pct": 4.4478,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8584151489712601,
+    "e16_telecom": 0.0643413658172912,
+    "e16_0050": 0.0772434852114485,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 10.8426,
+        "low": 34.3,
+        "high": 40.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 17.1618,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 35
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-04-5880-BUY",
+    "signal_date": "2026-09-04",
+    "fill_date": "2026-09-07",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 51000,
+    "fill_price": 26.763375,
+    "t1_drag_vs_signal_ext_pct": 1.7619,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8584151489712601,
+    "e16_telecom": 0.0643413658172912,
+    "e16_0050": 0.0772434852114485,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.8398,
+        "low": 25.05,
+        "high": 27.45,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 12.2154,
+        "low": 23.85,
+        "high": 27.6,
+        "n_bars": 35
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-08-0050-SELL",
+    "signal_date": "2026-09-08",
+    "fill_date": "2026-09-09",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "SELL",
+    "quantity": 17000,
+    "fill_price": 109.895025,
+    "t1_drag_vs_signal_ext_pct": 0.772,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8721280402820835,
+    "e16_telecom": 0.0557560243629684,
+    "e16_0050": 0.0721159353549481,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 0.772,
+        "low": 105.85,
+        "high": 110.75,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 3.389,
+        "low": 102.4,
+        "high": 113.75,
+        "n_bars": 33
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-08-2412-SELL",
+    "signal_date": "2026-09-08",
+    "fill_date": "2026-09-09",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 11000,
+    "fill_price": 137.931,
+    "t1_drag_vs_signal_ext_pct": 0.7691,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8721280402820835,
+    "e16_telecom": 0.0557560243629684,
+    "e16_0050": 0.0721159353549481,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 4.2146,
+        "low": 136.0,
+        "high": 144.0,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 5.5267,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 33
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-08-3045-SELL",
+    "signal_date": "2026-09-08",
+    "fill_date": "2026-09-09",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 14000,
+    "fill_price": 117.44125,
+    "t1_drag_vs_signal_ext_pct": 0.4735,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8721280402820835,
+    "e16_telecom": 0.0557560243629684,
+    "e16_0050": 0.0721159353549481,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 5.6697,
+        "low": 114.5,
+        "high": 124.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 6.4213,
+        "low": 107.5,
+        "high": 125.5,
+        "n_bars": 33
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-08-4904-SELL",
+    "signal_date": "2026-09-08",
+    "fill_date": "2026-09-09",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "SELL",
+    "quantity": 15000,
+    "fill_price": 102.44875,
+    "t1_drag_vs_signal_ext_pct": 1.4916,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8721280402820835,
+    "e16_telecom": 0.0557560243629684,
+    "e16_0050": 0.0721159353549481,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 4.6988,
+        "low": 100.5,
+        "high": 107.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 4.6988,
+        "low": 98.1,
+        "high": 107.5,
+        "n_bars": 33
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-08-2880-BUY",
+    "signal_date": "2026-09-08",
+    "fill_date": "2026-09-09",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 38000,
+    "fill_price": 44.872425,
+    "t1_drag_vs_signal_ext_pct": 1.7515,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8721280402820835,
+    "e16_telecom": 0.0557560243629684,
+    "e16_0050": 0.0721159353549481,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 8.1263,
+        "low": 41.5,
+        "high": 47.7,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 18.0853,
+        "low": 38.0,
+        "high": 48.3,
+        "n_bars": 33
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-08-2886-BUY",
+    "signal_date": "2026-09-08",
+    "fill_date": "2026-09-09",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 33000,
+    "fill_price": 50.025,
+    "t1_drag_vs_signal_ext_pct": 0.5528,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8721280402820835,
+    "e16_telecom": 0.0557560243629684,
+    "e16_0050": 0.0721159353549481,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.1103,
+        "low": 48.05,
+        "high": 52.9,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 11.2903,
+        "low": 44.95,
+        "high": 52.9,
+        "n_bars": 33
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-08-2892-BUY",
+    "signal_date": "2026-09-08",
+    "fill_date": "2026-09-09",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 45000,
+    "fill_price": 37.968975,
+    "t1_drag_vs_signal_ext_pct": 3.0366,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8721280402820835,
+    "e16_telecom": 0.0557560243629684,
+    "e16_0050": 0.0721159353549481,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.257,
+        "low": 35.4,
+        "high": 40.4,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 17.0076,
+        "low": 32.45,
+        "high": 40.95,
+        "n_bars": 33
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-08-5880-BUY",
+    "signal_date": "2026-09-08",
+    "fill_date": "2026-09-09",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 56000,
+    "fill_price": 26.71335,
+    "t1_drag_vs_signal_ext_pct": 1.9594,
+    "dh_exposure": null,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8721280402820835,
+    "e16_telecom": 0.0557560243629684,
+    "e16_0050": 0.0721159353549481,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.7582,
+        "low": 25.5,
+        "high": 27.55,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 12.0057,
+        "low": 23.85,
+        "high": 27.6,
+        "n_bars": 33
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-15-0050-SELL",
+    "signal_date": "2026-09-15",
+    "fill_date": "2026-09-16",
+    "code": "0050",
+    "sleeve": "0050",
+    "side": "SELL",
+    "quantity": 63000,
+    "fill_price": 106.096925,
+    "t1_drag_vs_signal_ext_pct": 0.7976,
+    "dh_exposure": 1.0,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8806808576136702,
+    "e16_telecom": 0.0661794982823404,
+    "e16_0050": 0.0531396441039893,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 6.728,
+        "low": 105.85,
+        "high": 113.75,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "below_high_pct",
+        "dist_pct": 6.728,
+        "low": 102.4,
+        "high": 113.75,
+        "n_bars": 28
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-15-2412-BUY",
+    "signal_date": "2026-09-15",
+    "fill_date": "2026-09-16",
+    "code": "2412",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 6000,
+    "fill_price": 143.57174999999998,
+    "t1_drag_vs_signal_ext_pct": 0.7521,
+    "dh_exposure": 1.0,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8806808576136702,
+    "e16_telecom": 0.0661794982823404,
+    "e16_0050": 0.0531396441039893,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.4158,
+        "low": 137.5,
+        "high": 145.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.3494,
+        "low": 135.0,
+        "high": 146.0,
+        "n_bars": 28
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-15-2880-BUY",
+    "signal_date": "2026-09-15",
+    "fill_date": "2026-09-16",
+    "code": "2880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 21000,
+    "fill_price": 46.973475,
+    "t1_drag_vs_signal_ext_pct": 1.4546,
+    "dh_exposure": 1.0,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8806808576136702,
+    "e16_telecom": 0.0661794982823404,
+    "e16_0050": 0.0531396441039893,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.6367,
+        "low": 44.05,
+        "high": 48.3,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 21.6929,
+        "low": 38.6,
+        "high": 48.3,
+        "n_bars": 28
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-15-2886-BUY",
+    "signal_date": "2026-09-15",
+    "fill_date": "2026-09-16",
+    "code": "2886",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 19000,
+    "fill_price": 51.6258,
+    "t1_drag_vs_signal_ext_pct": 0.8316,
+    "dh_exposure": 1.0,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8806808576136702,
+    "e16_telecom": 0.0661794982823404,
+    "e16_0050": 0.0531396441039893,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.5057,
+        "low": 49.4,
+        "high": 52.9,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 11.9866,
+        "low": 46.1,
+        "high": 52.9,
+        "n_bars": 28
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-15-2892-BUY",
+    "signal_date": "2026-09-15",
+    "fill_date": "2026-09-16",
+    "code": "2892",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 26000,
+    "fill_price": 39.71985,
+    "t1_drag_vs_signal_ext_pct": 0.5566,
+    "dh_exposure": 1.0,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8806808576136702,
+    "e16_telecom": 0.0661794982823404,
+    "e16_0050": 0.0531396441039893,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.9175,
+        "low": 37.15,
+        "high": 40.95,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 19.6381,
+        "low": 33.2,
+        "high": 40.95,
+        "n_bars": 28
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-15-3045-BUY",
+    "signal_date": "2026-09-15",
+    "fill_date": "2026-09-16",
+    "code": "3045",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 7000,
+    "fill_price": 124.062,
+    "t1_drag_vs_signal_ext_pct": 2.5306,
+    "dh_exposure": 1.0,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8806808576136702,
+    "e16_telecom": 0.0661794982823404,
+    "e16_0050": 0.0531396441039893,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 6.0359,
+        "low": 117.0,
+        "high": 125.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 12.7836,
+        "low": 110.0,
+        "high": 125.5,
+        "n_bars": 28
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-15-4904-BUY",
+    "signal_date": "2026-09-15",
+    "fill_date": "2026-09-16",
+    "code": "4904",
+    "sleeve": "TEL",
+    "side": "BUY",
+    "quantity": 8000,
+    "fill_price": 107.0535,
+    "t1_drag_vs_signal_ext_pct": 1.4725,
+    "dh_exposure": 1.0,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8806808576136702,
+    "e16_telecom": 0.0661794982823404,
+    "e16_0050": 0.0531396441039893,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 4.4424,
+        "low": 102.5,
+        "high": 107.5,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 7.268,
+        "low": 99.8,
+        "high": 107.5,
+        "n_bars": 28
+      }
+    }
+  },
+  {
+    "fill_id": "2026-09-15-5880-BUY",
+    "signal_date": "2026-09-15",
+    "fill_date": "2026-09-16",
+    "code": "5880",
+    "sleeve": "FIN",
+    "side": "BUY",
+    "quantity": 38000,
+    "fill_price": 27.11355,
+    "t1_drag_vs_signal_ext_pct": 1.17,
+    "dh_exposure": 1.0,
+    "cool_exposure_cf": 1.0,
+    "defense_dh": false,
+    "defense_cool_cf": false,
+    "e16_financial": 0.8806808576136702,
+    "e16_telecom": 0.0661794982823404,
+    "e16_0050": 0.0531396441039893,
+    "mechanisms": [
+      "T1_ALWAYS",
+      "T1_DRAG",
+      "CLIP_FIN_HI",
+      "KD_OFFSEASON"
+    ],
+    "extremes": {
+      "n5": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 2.5087,
+        "low": 26.45,
+        "high": 27.6,
+        "n_bars": 11
+      },
+      "n21": {
+        "ok": true,
+        "kind": "above_low_pct",
+        "dist_pct": 10.6676,
+        "low": 24.5,
+        "high": 27.6,
+        "n_bars": 28
+      }
+    }
+  }
+]
