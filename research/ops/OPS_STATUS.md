@@ -11,7 +11,7 @@ Live Soft-Frozen clips: **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** (β densif
 新機制 V4：**STOP**（A0 span>120 · A1 未開）· `PRIV_MDD_SEALED_EPISODE_V4_DECISION_PACK.md`（N1–N3+V2+V3+V4 STOP）  
 新機制 V5：**STOP** · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md`（N1–N3+V2+V3+V4+V5 STOP）  
 新機制 V6：**STOP** · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md`（N1–N3+V2+V3+V4+V5+V6 STOP）  
-民股金控 Gate V7：Stage A SOFT → OBSERVE OPEN → **NEAR_FLAT_ACCEPT** floor +0.15 · Soft-Frozen 公股 KEEP · Class D BLOCKED · `PRIV_FINHC_V7_F05_NEAR_FLAT_ACCEPT_BALLOT_EXECUTED.md`  
+民股金控 Gate V7：Stage A SOFT → OBSERVE → NEAR_FLAT → **Class D LIVE WIRED** (`ACCEPT Class D: FinPriv V7 F05`) · Soft-Frozen 3-sleeve KEEP · `CLASSD_FINPRIV_V7_F05_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`  
 Soft∥Sleeve ops auto-fuse agenda：**CLOSED**（Gate H FORBIDDEN KEEP）· `ACCEPT_DROP_AUTO_FUSE_AGENDA.md`  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
@@ -26,7 +26,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Path | `forward/e21/` |
 | Capital / lot | **500M** · board-lot **1000** |
 | Clip | Financial **[0.60, 0.80]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]** via `scripts/e16_soft_frozen_base.py` |
-| Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** |
+| Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** · Class D FinPriv V7 F05 carve (`REG_BULL_SIDE` · 5% · `PRIV_KD_MAY`) |
 | Overlay | **`FUSE_ADDITIVE` KEEP** + **`COOL_c8_f50_d21`** (`LIVE_FUSE_ADDITIVE` / `LIVE_COOL_EXPOSURE`; **DH replaced** 2026-09-25) |
 | Legacy A05 stitch | **DROPPED** (`ACCEPT_2026-09-09_DROP_E45_A05`) — see `E45_A05_STITCH_DROPPED.md` |
 | Daily job | `.github/workflows/v412f-forward-paper.yml` (weekdays; **holiday = no tip advance**) |
@@ -37,7 +37,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 **Cash clocks (never merge):** A Exact T+1 `portfolio_state.cash` · B R4 `settled_cash_estimate` · C cash+`e22_receivables` — see `CASHFLOW_THREE_VIEWS.md`.  
 **FinMind:** hourly quota + payment-date preserve — `FINMIND_API_QUOTA_AND_RETRY.md`.
 
-**Not live (paper / archive):** independent Soft-assist · Sleeve-tilt · FINCAP BLEND_025 · FIN 民營 native · FIN_CAP_50 · L4 · E50-A · legacy E45 A05 blend stitch · Track A/B · E6/E9/E10 shadows.
+**Not live (paper / archive):** independent Soft-assist · Sleeve-tilt · FINCAP BLEND_025 · FIN 民營 native (observe shadow; Class D V7 F05 carve is live) · FIN_CAP_50 · L4 · E50-A · legacy E45 A05 blend stitch · Track A/B · E6/E9/E10 shadows.
 
 ## Paper sleeves (observe only)
 

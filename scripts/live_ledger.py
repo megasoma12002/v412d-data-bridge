@@ -16,6 +16,23 @@ from portfolio_capital import DEFAULT_CAPITAL
 
 ALL = FIN + TEL + ["0050"]
 
+
+def live_holdings_universe() -> list[str]:
+    """Codes marked in live NAV/positions.
+
+    Soft-Frozen default: FIN+TEL+0050. Class D FinPriv ACCEPT expands Financial
+    holdings to include PRIV_R3R4 (router features stay 公股).
+    """
+    try:
+        from live_config import LIVE_FIN_PRIV_V7_F05
+    except Exception:
+        return list(ALL)
+    if not LIVE_FIN_PRIV_V7_F05:
+        return list(ALL)
+    import live_finhc_v7_f05_cutover as finpriv
+
+    return finpriv.holdings_universe_class_d()
+
 # Cost model shared by live session (paper Exact T+1). Broker port may override later.
 BUY_FEE = 0.001425 * 0.6
 SELL_FEE = 0.001425 * 0.6
@@ -265,11 +282,28 @@ def holdings(
     *,
     capital: float = DEFAULT_CAPITAL,
 ) -> tuple[dict[str, float], float, dict[str, float], float]:
-    pos = {c: float(state.get("positions", {}).get(c, 0)) for c in ALL}
+    universe = live_holdings_universe()
+    raw_pos = state.get("positions", {}) or {}
+    pos = {c: float(raw_pos.get(c, 0)) for c in universe}
+    # Preserve any unexpected codes already in state (fail-visible in NAV if priced).
+    for c, q in raw_pos.items():
+        cs = str(c)
+        if cs not in pos:
+            pos[cs] = float(q)
     cash = float(state.get("cash", capital))
     recv_map = state.get("e22_receivables") or {}
     receivable = float(sum(float(v) for v in recv_map.values()))
-    vals = {c: pos[c] * prices[c] for c in ALL}
+    vals: dict[str, float] = {}
+    for c, q in pos.items():
+        if abs(q) < 1e-12:
+            vals[c] = 0.0
+            continue
+        if c not in prices:
+            raise KeyError(
+                f"holdings missing price for positioned code {c!r}; "
+                "Class D FinPriv requires private_fin_adjusted merge"
+            )
+        vals[c] = q * float(prices[c])
     # Wealth identity (Stage-B sealed compare): cash + receivable + marked equity
     nav = cash + receivable + sum(vals.values())
     return pos, cash, vals, nav

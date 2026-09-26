@@ -125,6 +125,12 @@ class SoftAssistObserveGuards(unittest.TestCase):
         self.assertIn("LIVE_FUSE_ADDITIVE", orders)
         # Stack refuse: DH + COOL both live is forbidden.
         self.assertIn("LIVE_DH_EXPOSURE and LIVE_COOL_EXPOSURE both True", targets)
+        # Class D FinPriv V7 F05 live carve (Soft-Frozen 3-sleeve KEEP).
+        self.assertIn("live_fin_priv_v7_f05: bool = True", cfg)
+        self.assertIn("ACCEPT Class D: FinPriv V7 F05", cfg)
+        self.assertIn("live_finhc_v7_f05_cutover", orders)
+        self.assertIn("FIN_DUAL_PUB_PRIV", orders)
+        self.assertIn("LIVE_FIN_PRIV_V7_F05", orders)
 
     def test_soft_assist_helpers_match_live_kd_opt(self):
         from soft_assist_helpers import LIVE_KD

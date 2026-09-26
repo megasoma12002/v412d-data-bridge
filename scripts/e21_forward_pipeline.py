@@ -34,6 +34,8 @@ from live_config import (
     LIVE_DH_EXPOSURE,
     LIVE_DH_ID,
     LIVE_E45_STITCH,
+    LIVE_FIN_PRIV_BALLOT,
+    LIVE_FIN_PRIV_V7_F05,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
     TIP_BOOKS_ALIGN_BALLOT,
@@ -130,12 +132,20 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
     )
     e20w = e20.iloc[-1]
     prices = day.close.astype(float).to_dict()
+    op = day.open.astype(float).to_dict()
+    fin_priv_px_meta: dict = {"enabled": bool(LIVE_FIN_PRIV_V7_F05)}
+    if LIVE_FIN_PRIV_V7_F05:
+        import live_finhc_v7_f05_cutover as finpriv
+
+        prices, op, fin_priv_px_meta = finpriv.merge_priv_session_prices(
+            prices, asof=latest, opens=op
+        )
+        fin_priv_px_meta["enabled"] = True
     state_path = sdir / "portfolio_state.json"
     state = load_portfolio_state(sdir, capital=a.capital)
     assert_session_preflight(sdir, state, latest)
 
     pos, cash, vals, nav = holdings(state, prices, capital=a.capital)
-    op = day.open.astype(float).to_dict()
     fill_port = resolve_fill_port(fill_port_name)
     # Entitlement = cum-date / pre-open books; open fills must not inflate div credits.
     pos_cum = {k: float(v) for k, v in pos.items()}
@@ -183,6 +193,9 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "live_cutover_ballot": LIVE_CUTOVER_BALLOT
         if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE or LIVE_COOL_EXPOSURE)
         else None,
+        "fin_priv_v7_f05_live": bool(LIVE_FIN_PRIV_V7_F05),
+        "fin_priv_ballot": LIVE_FIN_PRIV_BALLOT if LIVE_FIN_PRIV_V7_F05 else None,
+        "fin_priv_px_meta": fin_priv_px_meta if LIVE_FIN_PRIV_V7_F05 else None,
         "live_wire": True,
         "owns_qc_status": False,
         "note": (
@@ -227,14 +240,19 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         prices,
         capital=a.capital,
     )
+    fin_codes_for_sleeve = list(FIN)
+    if LIVE_FIN_PRIV_V7_F05:
+        import live_finhc_v7_f05_cutover as finpriv
+
+        fin_codes_for_sleeve = list(FIN) + list(finpriv.PRIV_CODES)
     sleeve_vals = {
-        "Financial": sum(vals[c] for c in FIN),
-        "Telecom": sum(vals[c] for c in TEL),
-        "0050": vals["0050"],
+        "Financial": sum(vals.get(c, 0.0) for c in fin_codes_for_sleeve),
+        "Telecom": sum(vals.get(c, 0.0) for c in TEL),
+        "0050": vals.get("0050", 0.0),
     }
     pre = {k: v / nav for k, v in sleeve_vals.items()}
     sleeve_trade, l1 = sleeve_trade_from_gap(pre, tw)
-    order_rows = build_live_order_rows(
+    order_rows, fin_priv_meta = build_live_order_rows(
         market=m,
         latest=latest,
         prices=prices,
@@ -242,8 +260,14 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         nav=nav,
         sleeve_trade=sleeve_trade,
         dividends_path=a.dividends,
+        regime_today=str(diag.get("regime", "")),
     )
     stamp = utc_now_iso()
+    fin_alloc_signal = LIVE_FIN_WITHIN_SLEEVE
+    if LIVE_FIN_PRIV_V7_F05 and fin_priv_meta.get("gate_on"):
+        from within_sleeve_alloc import FIN_DUAL_PUB_PRIV
+
+        fin_alloc_signal = FIN_DUAL_PUB_PRIV
     signal = {
         "date": latest.date().isoformat(),
         "generated_at_utc": stamp,
@@ -255,7 +279,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "e20_financial": e20w.Financial,
         "e20_telecom": e20w.Telecom,
         "e20_0050": e20w["0050"],
-        "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
+        "financial_alloc": fin_alloc_signal,
         "kd_opt_id": KD_OPT["id"],
         "e45_stitch": False,
         "e45_stitch_rollback": E45_STITCH_ROLLBACK,
@@ -283,6 +307,17 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "e16_0050_pre_cool": float(tw_pre_risk["0050"]) if LIVE_COOL_EXPOSURE else None,
         "live_cutover_ballot": LIVE_CUTOVER_BALLOT
         if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE or LIVE_COOL_EXPOSURE)
+        else None,
+        "fin_priv_v7_f05_live": bool(LIVE_FIN_PRIV_V7_F05),
+        "fin_priv_ballot": LIVE_FIN_PRIV_BALLOT if LIVE_FIN_PRIV_V7_F05 else None,
+        "fin_priv_gate_on": bool(fin_priv_meta.get("gate_on"))
+        if LIVE_FIN_PRIV_V7_F05
+        else None,
+        "fin_priv_frac": fin_priv_meta.get("priv_frac") if LIVE_FIN_PRIV_V7_F05 else None,
+        "fin_priv_skipped_missing_px": bool(
+            fin_priv_meta.get("fin_priv_skipped_missing_px")
+        )
+        if LIVE_FIN_PRIV_V7_F05
         else None,
     }
     navrow = {
