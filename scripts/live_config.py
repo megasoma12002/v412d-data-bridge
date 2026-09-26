@@ -77,6 +77,14 @@ class LiveConfig:
     live_fin_priv_v7_f05: bool = True
     live_fin_priv_ballot: str = "ACCEPT Class D: FinPriv V7 F05"
 
+    # FUSE Soft sell amp under COOL — human ACCEPT 2026-09-26 live cutover
+    # Prior near-flat paper: SELL_a75 floor +0.15; live raises sell boost 0.50→0.75.
+    # Coexists with COOL_c8 + FUSE_ADDITIVE (does not replace defense).
+    live_fuse_soft_sell_boost: float = 0.75  # SELL_a75
+    live_fuse_soft_sell_ballot: str = (
+        "ACCEPT Live cutover: SELL_a75 under COOL (keep FUSE+COOL)"
+    )
+
     # Fill backend — default paper Exact T+1. Broker / dry_run via CLI or E21_FILL_PORT.
     # True broker live write requires ALL of:
     #   broker_live_write_accepted=True (ACCEPT PR), E21_BROKER_WRITE_LIVE=1, and broker_safety gates.
@@ -97,6 +105,8 @@ LIVE_COOL_ID = LIVE.live_cool_id
 LIVE_CUTOVER_BALLOT = LIVE.live_cutover_ballot
 LIVE_FIN_PRIV_V7_F05 = LIVE.live_fin_priv_v7_f05
 LIVE_FIN_PRIV_BALLOT = LIVE.live_fin_priv_ballot
+LIVE_FUSE_SOFT_SELL_BOOST = LIVE.live_fuse_soft_sell_boost
+LIVE_FUSE_SOFT_SELL_BALLOT = LIVE.live_fuse_soft_sell_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital

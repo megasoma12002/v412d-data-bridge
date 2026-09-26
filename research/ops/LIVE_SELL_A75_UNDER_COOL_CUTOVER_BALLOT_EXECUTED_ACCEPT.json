@@ -1,0 +1,14 @@
+{
+  "label": "LIVE_SELL_A75_UNDER_COOL_CUTOVER_ACCEPTED",
+  "date": "2026-09-26",
+  "status": "ACCEPTED_LIVE_WIRED_FORWARD_ONLY",
+  "human_intent": "Accept上live",
+  "normalized_accept": "ACCEPT Live cutover: SELL_a75 under COOL (keep FUSE+COOL)",
+  "prior_near_flat": "ACCEPT near-flat: SELL_a75 under COOL (CAGR floor +0.15)",
+  "live_fuse_soft_sell_boost": 0.75,
+  "coexists_with_cool": true,
+  "coexists_with_fuse": true,
+  "soft_frozen_keep": true,
+  "tip_history_rewrite": false,
+  "broker_live_write": false
+}

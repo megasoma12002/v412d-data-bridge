@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""Live DH_dd06 + FUSE_ADDITIVE cutover actuators (forward-only).
+"""Live FUSE_ADDITIVE cutover actuators (forward-only) + Soft sell amp.
 
-Human ballot (2026-09-13):
-  ``ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE``
+Human ballots:
+  2026-09-13 ``ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE`` (DH later replaced by COOL)
+  2026-09-26 ``ACCEPT Live cutover: SELL_a75 under COOL (keep FUSE+COOL)``
 
-Live stack becomes MENU3 paper twin:
-  Soft observe softs + Sleeve RSI14 tilt α=0.225 + DH_dd06 exposure
-  on Soft-Frozen clip + KD_OPT + TEL_EQUAL.
+Live offense twin:
+  Soft buy softs + Soft sell amp (live ``SELL_a75`` / boost 0.75) + Sleeve RSI14 α=0.225
+  on Soft-Frozen clip + KD_OPT + TEL_EQUAL — then COOL_c8 exposure (defense).
 
+Independent Soft-assist paper observe remains ``SELL_a05`` (boost 0.5).
 """
 from __future__ import annotations
 
@@ -15,16 +17,17 @@ from typing import Any
 
 import pandas as pd
 
+import e22_dividend_accounting as e22div
 import e45_defend_handoff_helpers as dh
 import e45_defend_handoff_stagea_screen as stagea
 from e50_early_stack_combined_nav import FIN, e16_features, simulate_core
-import e22_dividend_accounting as e22div
 from fuse_additive_helpers import FUSE_ID, SLEEVE_ALPHA, build_champion_target
+from live_config import LIVE_FUSE_SOFT_SELL_BALLOT, LIVE_FUSE_SOFT_SELL_BOOST
 from portfolio_capital import DEFAULT_CAPITAL
 from sleeve_tilt_helpers import CHAMPION_ID as SLEEVE_ID
 from soft_assist_helpers import (
     LIVE_KD,
-    OBSERVE_CHAL_ID as SOFT_ID,
+    OBSERVE_CHAL_ID as SOFT_ID_A05,
     build_observe_buy_scores,
     build_observe_sell_panel,
 )
@@ -37,8 +40,14 @@ from within_sleeve_alloc import (
     build_pre_exdiv_window_buy_ok,
 )
 
+# Live FUSE Soft sell amp (SELL_a75) — coexists with COOL; independent Soft observe stays a05.
+SOFT_ID = "SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a75"
+SOFT_ID_PRIOR = SOFT_ID_A05
+SELL_BOOST_LIVE = float(LIVE_FUSE_SOFT_SELL_BOOST)
+HUMAN_ACCEPT_SELL_A75 = LIVE_FUSE_SOFT_SELL_BALLOT
+
 HUMAN_ACCEPT = "ACCEPT Live cutover: DH_dd06 + FUSE_ADDITIVE"
-LIVE_RECIPE_ID = "LIVE_DH_dd06_FUSE_ADDITIVE"
+LIVE_RECIPE_ID = "LIVE_FUSE_ADDITIVE_SELL_a75_COOL"
 DH_ID = dh.CHAL_ID
 DH_ALIAS = dh.CHAL_ALIAS
 
@@ -64,7 +73,7 @@ def _kd_panels(market: pd.DataFrame, dividends: pd.DataFrame):
     )
     lows, highs = build_low_high_catalog(market, cal, list(FIN))
     buy = build_observe_buy_scores(kd, lows)
-    sell = build_observe_sell_panel(highs)
+    sell = build_observe_sell_panel(highs, boost=SELL_BOOST_LIVE)
     return kd, buy_ok, buy, sell
 
 
@@ -102,6 +111,8 @@ def build_fuse_offense_nav(
     return nav, {
         "fuse_id": FUSE_ID,
         "soft_id": SOFT_ID,
+        "soft_id_prior_observe": SOFT_ID_PRIOR,
+        "soft_sell_boost": float(SELL_BOOST_LIVE),
         "sleeve_id": SLEEVE_ID,
         "sleeve_alpha": float(SLEEVE_ALPHA),
         "n_fills": int(len(fills)),

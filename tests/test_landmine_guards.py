@@ -131,6 +131,10 @@ class SoftAssistObserveGuards(unittest.TestCase):
         self.assertIn("live_finhc_v7_f05_cutover", orders)
         self.assertIn("FIN_DUAL_PUB_PRIV", orders)
         self.assertIn("LIVE_FIN_PRIV_V7_F05", orders)
+        # SELL_a75 under COOL live cutover (coexists with FUSE+COOL).
+        self.assertIn("live_fuse_soft_sell_boost: float = 0.75", cfg)
+        self.assertIn("SELL_a75 under COOL", cfg)
+        self.assertIn("LIVE_FUSE_SOFT_SELL_BOOST", (SCRIPTS / "live_dh_fuse_cutover.py").read_text(encoding="utf-8"))
 
     def test_soft_assist_helpers_match_live_kd_opt(self):
         from soft_assist_helpers import LIVE_KD

@@ -28,7 +28,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Path | `forward/e21/` |
 | Capital / lot | **500M** · board-lot **1000** |
 | Clip | Financial **[0.60, 0.80]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]** via `scripts/e16_soft_frozen_base.py` |
-| Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** · Class D FinPriv V7 F05 carve (`REG_BULL_SIDE` · 5% · `PRIV_KD_MAY`) |
+| Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** · Class D FinPriv V7 F05 carve (`REG_BULL_SIDE` · 5% · `PRIV_KD_MAY`) · FUSE Soft sell **`SELL_a75`** |
 | Overlay | **`FUSE_ADDITIVE` KEEP** + **`COOL_c8_f50_d21`** (`LIVE_FUSE_ADDITIVE` / `LIVE_COOL_EXPOSURE`; **DH replaced** 2026-09-25) |
 | Offense CAGR paper | Stage A **`OFFENSE_CAGR_SOFT`** (Soft/Sleeve/FUSE densify under COOL · Soft-Frozen KEEP · no live) · `OFFENSE_CAGR_UNDER_COOL_STAGEA_SCREEN.md` |
 | Legacy A05 stitch | **DROPPED** (`ACCEPT_2026-09-09_DROP_E45_A05`) — see `E45_A05_STITCH_DROPPED.md` |
@@ -49,7 +49,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | FIN_CAP_50 | Dual-paper OPERATING; YTD/1y PAUSE | **REJECT static cutover for now** (`NOT_READY_SEALED_CAGR`) — register #2 |
 | L4_DD_PATH_08_50 | Held-out PASS; YTD **and** trailing_1y PAUSE_REVIEW (asof 2026-09-16) | **DEFER** cutover — register #4; checklist: `CUTOVER_CHECKLIST_L4.md` (hygiene sync `L4_HYGIENE_CHECKLIST_SYNC_2026-09-19.md`) |
 | BLEND_025 | Dual-paper **OPERATING OBSERVE** | Sole sealed-CAGR successor (register #3); live **NOT READY** (#5); promote review **2026-09-26 BLOCKED** (`BLEND_025_PROMOTE_GATE_REVIEW_2026-09-26.md`); checklist: `CUTOVER_CHECKLIST_BLEND025.md` |
-| Offense SOFT near-flat (`SELL_a75`) | **NEAR_FLAT_ACCEPT · OBSERVE OPERATING** | Human ACCEPT floor +0.15 · live Soft amp cutover **BLOCKED** · Soft-Frozen/COOL KEEP · `OFFENSE_SELL_A75_NEAR_FLAT_ACCEPT_BALLOT_EXECUTED.md` |
+| Offense SOFT near-flat (`SELL_a75`) | **LIVE WIRED** under COOL | sell boost 0.75 · coexists FUSE+COOL · Soft-Frozen KEEP · `LIVE_SELL_A75_UNDER_COOL_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | Track A S9A1 | KEEP (paper/monitor) | N/A — pointer: `TRACK_A_RUNBOOK_POINTER.md` |
 | Track B S1 | STOP | Closed |
 
