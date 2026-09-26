@@ -1,6 +1,6 @@
 # Live fill extreme + mechanism audit — Screen
 
-Generated: `2026-09-26T14:15:29Z`
+Generated: `2026-09-26T15:15:00Z`
 Status: **`FILL_EXTREME_AUDIT_DONE`** · Soft-Frozen KEEP · **no live wire** · no tip rewrite
 
 Fills: **96** (BUY 72 / SELL 24) · `2026-08-25` → `2026-09-16` · codes `['0050', '2412', '2880', '2886', '2892', '3045', '4904', '5880']`
