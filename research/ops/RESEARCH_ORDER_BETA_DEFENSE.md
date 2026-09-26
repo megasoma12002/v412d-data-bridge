@@ -22,10 +22,12 @@ Soft-Frozen live: **F[0.60, 0.80] E[0.00, 0.50] LIVE** · COOL live: **KEEP**
 | 5d | 大盤下行 → 00632R | **Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `MKTDOWN_T50_INV_DECISION_PACK.md` |
 | 5e | COOL 結束 → `00631L` 搶反彈 | **Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `COOL_T50_LEV_REBOUND_DECISION_PACK.md` |
 | 5f | `00631L` 短線輔助 T1–T4 | **Stage A `SHORT_ASSIST_HIT` → OBSERVE OPEN `CONF_RET3_A10_H5`** · Soft-Frozen KEEP · no live · `COOL_631L_SHORT_ASSIST_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| 5g | dual-handoff 防守反1→結束正2 | **Stage A `DUAL_HANDOFF_SOFT`** · 0 HIT · Soft-Frozen KEEP · no live · `COOL_T50_DUAL_HANDOFF_DECISION_PACK.md` |
 
 Binding: forward-only · no tip history rewrite · broker still PREP-only · live universe expand = Class D ACCEPT only.
 
 ABCD 2026-09-25: A observe refresh · B near-flat ACCEPT floor +0.15 · C Gate V8 · D within-sleeve COOL micro (parallel PRs).  
 2026-09-26: BLEND_025 promote 檢核 **BLOCKED** · `SELL_a75` near-flat → **LIVE WIRED** under COOL (keep FUSE+COOL).  
 2026-09-26: `00631L` rebound **MDD_BLOCK** · short-assist T1–T4 **SHORT_ASSIST_HIT** (CONFIRM; near-flat OUT).  
-2026-09-26: Human `OPEN observe: CONF_RET3_A10_H5` → dual-paper **OPERATING** · cutover **BLOCKED**.
+2026-09-26: Human `OPEN observe: CONF_RET3_A10_H5` → dual-paper **OPERATING** · cutover **BLOCKED**.  
+2026-09-26: Human `開 dual-handoff Stage A` → **`DUAL_HANDOFF_SOFT`** (INV ahead of LEV does not inherit HIT).

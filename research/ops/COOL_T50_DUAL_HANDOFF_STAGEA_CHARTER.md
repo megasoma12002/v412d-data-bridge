@@ -1,7 +1,7 @@
 # COOL dual-handoff — 防守反1 → 結束正2 — Paper Charter (Stage A)
 
 Date: 2026-09-26  
-Status: **CHARTER OPEN · Stage A RUNNING** · Soft-Frozen live **KEEP** · live wire **false**  
+Status: **CHARTER OPEN · Stage A DONE → `DUAL_HANDOFF_SOFT`** · Soft-Frozen live **KEEP** · live wire **false**  
 Human: **開 dual-handoff Stage A**
 
 Parents (binding priors — do not rewrite):
