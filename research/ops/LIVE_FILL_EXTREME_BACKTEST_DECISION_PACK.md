@@ -1,9 +1,9 @@
 # Backtest fill extreme + mechanism audit — Decision Pack
 
-Date: 2026-09-26 · Generated `2026-09-26T14:23:45Z`
+Date: 2026-09-26 · Generated `2026-09-26T15:06:25Z`
 Status: **FILL_EXTREME_BACKTEST_DONE** · Soft-Frozen **KEEP** · live wire **false** · `LIVE_FUSE_ADDITIVE_SELL_a75_COOL_c8`
 
-Paper twin fills **6299** · ±5d mean distance to extreme **2.6809%** · T+1 drag mean **0.761%** · COOL defend day-frac **16.02%**.
+Paper twin fills **6299** · ±5d mean distance to extreme **2.44%** · T+1 drag mean **0.789%** · COOL defend day-frac **16.02%**.
 
 Primary structural driver remains **Exact T+1**. COOL on-book defense days are now visible across full history (unlike the short tip window which had full exposure).
 

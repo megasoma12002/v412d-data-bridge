@@ -1,6 +1,6 @@
 # Live fill extreme + mechanism audit — Decision Pack
 
-Date: 2026-09-26 · Generated `2026-09-26T14:15:29Z`
+Date: 2026-09-26 · Generated `2026-09-26T15:06:09Z`
 Status: **FILL_EXTREME_AUDIT_DONE** · Soft-Frozen **KEEP** · live wire **false**
 
 Tip fills **96** · ±5d mean distance to extreme **3.7887%** · T+1 drag mean **1.1543%**.
