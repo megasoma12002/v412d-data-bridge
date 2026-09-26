@@ -14,6 +14,7 @@ Soft-Frozen live: **F[0.60, 0.80] E[0.00, 0.50] LIVE** · COOL live: **KEEP**
 | 2f | Asymm 0050 Bull densify / MDD flat | Stage A **`CAGR_SOFT`** · Soft-Frozen KEEP · `ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.md` |
 | 2g | Within-sleeve FinPub/TEL micro under COOL | **`NO_FLAT_LIFT`** · Soft-Frozen/KD/TEL KEEP · `WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md` |
 | 2h | TEL within-sleeve 三軌（T1/T2/T3） | Stage A **`TEL_WITHIN_SOFT`** · Soft-Frozen/TEL_EQUAL KEEP · no live · `TEL_WITHIN_SLEEVE_DECISION_PACK.md` |
+| 2i | TEL T3 densify／T2 半開／近持平 +0.15 | Stage A **`TEL_NEARFLAT_READY`** · parent `D3_A100_C100_B00` only · Soft-Frozen/TEL KEEP · READY≠ACCEPT · `TEL_T3_DENSIFY_DECISION_PACK.md` |
 | 3 | 公＋民 mix (dollar-split / SF4) | **SKIP** 0b2 STOP |
 | 4 | 民股金控 Gate V7 | **Class D LIVE WIRED** · `ACCEPT Class D: FinPriv V7 F05` · Soft-Frozen 3-sleeve KEEP · checklist AUTHORIZED |
 | 4b | 民股金控 Gate V8 AND-confirm | Stage A **`PRIV_FINHC_V8_SOFT`** · Soft-Frozen KEEP · no V7 grid retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md` |
