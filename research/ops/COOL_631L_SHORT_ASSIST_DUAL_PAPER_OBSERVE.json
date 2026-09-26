@@ -1,0 +1,97 @@
+{
+  "generated_at_utc": "2026-09-26T08:30:41Z",
+  "schema_version": "cool_631l_short_assist_dual_paper_observe_v1",
+  "status": "OPERATING_OBSERVE",
+  "live_wire": false,
+  "cutover": "BLOCKED",
+  "human_open": "OPEN observe: CONF_RET3_A10_H5",
+  "stage_a_verdict": "SHORT_ASSIST_HIT",
+  "base_id": "BASE_LIVE_FUSE_COOL",
+  "chal_id": "CONF_RET3_A10_H5",
+  "off_code": "00631L",
+  "alpha": 0.1,
+  "hold_h": 5,
+  "confirm": "RET3",
+  "sell_amp": 0.75,
+  "listed_from": "2014-10-31",
+  "n_fills_base": 8324,
+  "n_fills_chal": 8658,
+  "schedule_meta": {
+    "track": "CONFIRM",
+    "confirm": "RET3",
+    "stop": null,
+    "n_entries": 23,
+    "pulse_frac": 0.031794,
+    "mean_off": 0.003179
+  },
+  "windows_base": {
+    "full": {
+      "cagr": 0.122924,
+      "max_drawdown": -0.146855,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.086175,
+      "max_drawdown": -0.132385,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.13164,
+      "max_drawdown": -0.146855,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.183165,
+      "max_drawdown": -0.063907,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.155817,
+      "max_drawdown": -0.146855,
+      "n_days": 1870
+    }
+  },
+  "windows_chal": {
+    "full": {
+      "cagr": 0.126114,
+      "max_drawdown": -0.149064,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.086724,
+      "max_drawdown": -0.131712,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.136345,
+      "max_drawdown": -0.149064,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.189247,
+      "max_drawdown": -0.063669,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.161186,
+      "max_drawdown": -0.149064,
+      "n_days": 1870
+    }
+  },
+  "tip": {
+    "ytd": {
+      "mdd_improve_pp": 0.1852,
+      "cagr_giveback_pp": -1.0624,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "mdd_improve_pp": 0.1852,
+      "cagr_giveback_pp": -0.9512,
+      "gate": "PASS"
+    }
+  },
+  "held_cagr_lift_pp": 0.5369,
+  "held_mdd_improve_pp": -0.2209,
+  "sealed_mdd_improve_pp": 0.0238,
+  "soft_frozen_keep": true
+}

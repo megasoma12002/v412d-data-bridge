@@ -1,16 +1,16 @@
 {
-  "generated_at_utc": "2026-09-25T05:03:33.154746+00:00",
+  "generated_at_utc": "2026-09-26T08:30:46.301568+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
   "soft_frozen_clip": [
     0.6,
-    0.9
+    0.8
   ],
   "overall": "HIGH",
   "n_critical": 0,
   "n_high": 7,
-  "n_info": 27,
+  "n_info": 35,
   "alerts": [
     {
       "severity": "HIGH",
@@ -59,6 +59,12 @@
       "source": "live_qc",
       "code": "QC_PASS",
       "message": "live QC PASS; Exact T+1 ok"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_priv_v7_f05",
+      "code": "FINPRIV_PX_FRESH",
+      "message": "Class D priv panel fresh vs tip asof 2026-09-24 (lag\u22645d)"
     },
     {
       "severity": "INFO",
@@ -183,6 +189,48 @@
     {
       "severity": "INFO",
       "source": "e45_defend_handoff_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "cool_c8_proxy_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "beta_0050_densify_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50 heldout_2019_plus MDD worse than LIVE_FUSE_COOL"
+    },
+    {
+      "severity": "INFO",
+      "source": "beta_0050_densify_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "priv_finhc_v7_bull_side_f05_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: V7_REG_BULL_SIDE_F05_KDMAY heldout_2019_plus MDD worse than BASE_LIVE_FUSE_COOL"
+    },
+    {
+      "severity": "INFO",
+      "source": "priv_finhc_v7_bull_side_f05_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "cool_631l_short_assist_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: CONF_RET3_A10_H5 heldout_2019_plus MDD worse than BASE_LIVE_FUSE_COOL"
+    },
+    {
+      "severity": "INFO",
+      "source": "cool_631l_short_assist_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },

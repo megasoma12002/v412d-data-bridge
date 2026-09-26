@@ -1,0 +1,45 @@
+{
+  "label": "COOL_T50_LEV_SHORT_ASSIST_DECISION_PACK",
+  "generated_at_utc": "2026-09-26T08:20:06Z",
+  "status": "SHORT_ASSIST_HIT",
+  "live_wire": false,
+  "n_coexist": 2,
+  "coexist_ids": [
+    "CONF_RET3_A10_H5",
+    "CONF_RET1_A10_H3"
+  ],
+  "soft_ids": [],
+  "best": "CONF_RET3_A10_H5",
+  "charter": "research/ops/COOL_T50_LEV_SHORT_ASSIST_STAGEA_CHARTER.md",
+  "stage_a": "research/ops/COOL_T50_LEV_SHORT_ASSIST_STAGEA_SCREEN.md",
+  "tracks": [
+    "THIN",
+    "CONFIRM",
+    "STOP",
+    "RESIDUAL"
+  ],
+  "excluded": [
+    "near_flat_policy"
+  ],
+  "hit_books": [
+    {
+      "id": "CONF_RET3_A10_H5",
+      "held_cagr_lift_pp": 0.5369,
+      "sealed_mdd_improve_pp": 0.0238,
+      "held_mdd_improve_pp": -0.2209
+    },
+    {
+      "id": "CONF_RET1_A10_H3",
+      "held_cagr_lift_pp": 0.2512,
+      "sealed_mdd_improve_pp": 0.0714,
+      "held_mdd_improve_pp": -0.2111
+    }
+  ],
+  "track_summary": {
+    "THIN": "no",
+    "CONFIRM": "HIT\u00d72",
+    "STOP": "no",
+    "RESIDUAL": "no",
+    "near_flat": "OUT"
+  }
+}
