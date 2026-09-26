@@ -1,0 +1,12 @@
+{
+  "label": "COOL_T50_LEV_REBOUND_DECISION_PACK",
+  "generated_at_utc": "2026-09-26T08:05:46Z",
+  "status": "MDD_BLOCK",
+  "live_wire": false,
+  "n_coexist": 0,
+  "coexist_ids": [],
+  "soft_ids": [],
+  "best": "REB_A10_H10",
+  "charter": "research/ops/COOL_T50_LEV_REBOUND_STAGEA_CHARTER.md",
+  "stage_a": "research/ops/COOL_T50_LEV_REBOUND_STAGEA_SCREEN.md"
+}

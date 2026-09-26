@@ -20,6 +20,7 @@ Soft-Frozen live: **F[0.60, 0.80] E[0.00, 0.50] LIVE** · COOL live: **KEEP**
 | 5b | COOL 極短脈衝 00632R | **Stage A `COOL_INV_PULSE_SOFT`** · Soft-Frozen KEEP · `COOL_T50_INV_PULSE_DECISION_PACK.md` |
 | 5c | FUSE Soft-sell → 00632R | **Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `FUSE_SOFTSELL_T50_INV_DECISION_PACK.md` |
 | 5d | 大盤下行 → 00632R | **Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `MKTDOWN_T50_INV_DECISION_PACK.md` |
+| 5e | COOL 結束 → `00631L` 搶反彈 | **Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `COOL_T50_LEV_REBOUND_DECISION_PACK.md` |
 
 Binding: forward-only · no tip history rewrite · broker still PREP-only · live universe expand = Class D ACCEPT only.
 
