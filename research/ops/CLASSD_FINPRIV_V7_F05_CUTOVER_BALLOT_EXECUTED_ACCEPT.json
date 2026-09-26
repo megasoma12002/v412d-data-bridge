@@ -1,0 +1,13 @@
+{
+  "label": "CLASSD_FINPRIV_V7_F05_CUTOVER_BALLOT_EXECUTED_ACCEPT",
+  "date": "2026-09-25",
+  "status": "ACCEPTED_LIVE_WIRED_FORWARD_ONLY",
+  "human_accept": "ACCEPT Class D: FinPriv V7 F05",
+  "live_recipe_id": "LIVE_FINPRIV_V7_REG_BULL_SIDE_F05_KDMAY",
+  "gate_id": "REG_BULL_SIDE",
+  "priv_frac": 0.05,
+  "priv_policy": "PRIV_KD_MAY",
+  "soft_frozen_3sleeve_keep": true,
+  "broker_live_write": false,
+  "rollback": "live_config.live_fin_priv_v7_f05=False"
+}

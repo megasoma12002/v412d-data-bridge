@@ -12,8 +12,6 @@ Soft-Frozen live: **F[0.60, 0.80] E[0.00, 0.50] LIVE** · COOL live: **KEEP**
 | 2d | Paper observe near-flat | OPEN then **promoted** |
 | 2e | Soft-Frozen clip flip | **LIVE WIRED** · `ACCEPT … F0.60-0.80_E0.00-0.50` |
 | 3 | 公＋民 mix (dollar-split / SF4) | **SKIP** 0b2 STOP |
-| 4 | 民股金控 Gate V7 | Stage A **SOFT** · observe **OPEN** · **NEAR_FLAT_ACCEPT** floor +0.15 · Soft-Frozen 公股 KEEP · Class D BLOCKED |
-
-Binding: forward-only · no tip history rewrite · broker still PREP-only · live universe expand = Class D ACCEPT only.
+| 4 | 民股金控 Gate V7 | **Class D LIVE WIRED** · `ACCEPT Class D: FinPriv V7 F05` · Soft-Frozen 3-sleeve KEEP · checklist AUTHORIZED |
 
 ABCD 2026-09-25: A observe refresh · B near-flat ACCEPT floor +0.15 · C Gate V8 · D within-sleeve COOL micro (parallel PRs).
