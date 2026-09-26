@@ -1,0 +1,23 @@
+{
+  "label": "PRIV_FINHC_CAGR_MDD_GATE_V7_DECISION",
+  "generated_at_utc": "2026-09-25T14:18:29Z",
+  "status": "PRIV_FINHC_SOFT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "n_coexist": 0,
+  "n_soft": 2,
+  "soft_ids": [
+    "V7_REG_BULL_SIDE_F05_KDMAY",
+    "V7_REG_BULL_F05_KDMAY"
+  ],
+  "coexist_ids": [],
+  "best_soft": {
+    "id": "V7_REG_BULL_SIDE_F05_KDMAY",
+    "held_cagr_lift_pp": 0.1821,
+    "sealed_mdd_improve_pp": 0.1386,
+    "held_mdd_improve_pp": -0.1899
+  },
+  "charter": "research/ops/PRIV_FINHC_CAGR_MDD_GATE_V7_CHARTER.md",
+  "stage_a": "research/ops/PRIV_FINHC_CAGR_MDD_GATE_V7_STAGEA_SCREEN.md",
+  "note": "Sealed MDD clear on 2 small Bull-gate books; held CAGR short of +0.20pp floor. Offense RS60 books CAGR↑ but sealed MDD↓."
+}
