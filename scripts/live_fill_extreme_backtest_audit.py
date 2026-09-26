@@ -211,9 +211,7 @@ def main() -> int:
 
     detail = pd.DataFrame(rows)
     detail.to_csv(OUT / "backtest_fill_extreme_detail.csv", index=False)
-    (OUT / "backtest_fill_extreme_detail.json").write_text(
-        json.dumps(rows, indent=2) + "\n"
-    )
+    # Skip full-row JSON (multi-MB); screen/decision packs carry aggregates.
 
     def _agg(df: pd.DataFrame, n: int) -> dict[str, Any]:
         return _agg_from_extremes(df, n)
