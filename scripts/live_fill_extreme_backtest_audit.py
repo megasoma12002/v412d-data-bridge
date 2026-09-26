@@ -24,8 +24,10 @@ from live_fill_extreme_audit import (
     N_GRID,
     _agg_from_extremes,
     _clip_binding,
+    _fill_px_on_panel,
     _in_kd_season,
     _ohlc_panel,
+    _ohlc_panel_raw,
     _sleeve,
     _window_ext,
 )
@@ -124,16 +126,22 @@ def main() -> int:
         cal, dividends, FIN, pre_days=int(KD_OPT["pre_days"]), also_stock_ex=True
     )
     panels = {c: _ohlc_panel(market, c) for c in sorted(fills["code"].astype(str).unique())}
+    panels_raw = {
+        c: _ohlc_panel_raw(market, c)
+        for c in sorted(fills["code"].astype(str).unique())
+    }
 
     rows: list[dict[str, Any]] = []
     for i, f in fills.iterrows():
         code = str(f["code"])
         side = str(f["side"]).upper()
-        px = float(f["fill_price"])
+        px_raw = float(f["fill_price"])
         sig_d = pd.Timestamp(f["signal_date"])
         fill_d = pd.Timestamp(f["fill_date"])
         sleeve = _sleeve(code)
         panel = panels.get(code, pd.DataFrame())
+        raw_panel = panels_raw.get(code, pd.DataFrame())
+        px = _fill_px_on_panel(px_raw, fill_d, raw_panel, panel)
 
         cool_exp = _lookup_exp(cool, sig_d)
         dh_exp = _lookup_exp(dh, sig_d)
@@ -193,7 +201,9 @@ def main() -> int:
                 "sleeve": sleeve,
                 "side": side,
                 "quantity": int(f["quantity"]),
-                "fill_price": px,
+                "fill_price": px_raw,
+                "fill_price_adj": round(float(px), 6),
+                "ohlc_basis": "adj_close_scaled",
                 "t1_drag_vs_signal_ext_pct": None
                 if t1_drag_pp is None
                 else round(float(t1_drag_pp), 4),
@@ -328,7 +338,9 @@ def main() -> int:
             "DEFENSE_COOL is on-book (exposure applied in sim); DEFENSE_DH_CF is counterfactual DH.",
             "Clip tags from Soft-Frozen champion target on signal_date (pre-defense).",
             "dist_pct: BUY=above local low; SELL=below local high (0=perfect extreme).",
+            "OHLC basis: adj_close-scaled (fill_price_adj); raw unadjusted OHLC is not used.",
         ],
+        "ohlc_basis": "adj_close_scaled",
     }
     (REP / f"{SCREEN_ID}.json").write_text(json.dumps(payload, indent=2) + "\n")
     (OPS / f"{SCREEN_ID}.json").write_text(json.dumps(payload, indent=2) + "\n")
