@@ -1,0 +1,16 @@
+{
+  "label": "PRIV_FINHC_V7_F05_NEAR_FLAT_FLOOR015_RESCORE",
+  "generated_at_utc": "2026-09-25T18:45:00Z",
+  "status": "NEAR_FLAT_HIT",
+  "human_accept": "ACCEPT near-flat: V7_REG_BULL_SIDE_F05_KDMAY (CAGR floor +0.15)",
+  "cagr_floor_pp_prior": 0.20,
+  "cagr_floor_pp_accepted": 0.15,
+  "champion_id": "V7_REG_BULL_SIDE_F05_KDMAY",
+  "held_cagr_lift_pp": 0.18,
+  "sealed_mdd_improve_pp": 0.14,
+  "held_mdd_improve_pp": -0.19,
+  "tip_ok": true,
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "cutover": "BLOCKED"
+}

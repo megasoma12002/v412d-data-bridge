@@ -1,0 +1,120 @@
+{
+  "generated_at_utc": "2026-09-25T18:43:03.162015+00:00",
+  "asof": "2026-09-24",
+  "label": "PRIV_FINHC_V7_BULL_SIDE_F05_MONTH_END_MONITOR",
+  "status": "OPERATING_OBSERVE",
+  "base_id": "BASE_LIVE_FUSE_COOL",
+  "challenger_id": "V7_REG_BULL_SIDE_F05_KDMAY",
+  "locked_id": "V7_REG_BULL_SIDE_F05_KDMAY",
+  "nav_source": "daily_nav",
+  "live_wire": false,
+  "soft_frozen_clips_unchanged": true,
+  "soft_frozen_unchanged": true,
+  "cutover_authorized": false,
+  "alerts": [
+    "ALERT: V7_REG_BULL_SIDE_F05_KDMAY heldout_2019_plus MDD worse than BASE_LIVE_FUSE_COOL"
+  ],
+  "windows": [
+    {
+      "window": "mtd",
+      "start": "2026-09-01",
+      "end": "2026-09-24",
+      "n_days": 18,
+      "base_cagr": 1.6737213074866033,
+      "base_mdd": -0.02551127049915125,
+      "chal_cagr": 1.5678412964811876,
+      "chal_mdd": -0.02408868776124573,
+      "mdd_improve_pp": 0.142258273790552,
+      "cagr_giveback_pp": 10.588001100541566,
+      "rel_nav_end": 0.9972779324609043,
+      "score": -5.151742276480231
+    },
+    {
+      "window": "ytd",
+      "start": "2026-01-01",
+      "end": "2026-09-24",
+      "n_days": 176,
+      "base_cagr": 0.5577668424744922,
+      "base_mdd": -0.07356125604280006,
+      "chal_cagr": 0.5611307620532358,
+      "chal_mdd": -0.07218478141439455,
+      "mdd_improve_pp": 0.13764746284055107,
+      "cagr_giveback_pp": -0.33639195787436016,
+      "rel_nav_end": 1.0014991237589481,
+      "score": -0.030548516096629008
+    },
+    {
+      "window": "trailing_1y",
+      "start": "2025-09-24",
+      "end": "2026-09-24",
+      "n_days": 242,
+      "base_cagr": 0.42304440746546956,
+      "base_mdd": -0.07356125604280006,
+      "chal_cagr": 0.42900136022892355,
+      "chal_mdd": -0.07218478141439466,
+      "mdd_improve_pp": 0.13764746284053997,
+      "cagr_giveback_pp": -0.5956952763453982,
+      "rel_nav_end": 1.0040029722816104,
+      "score": -0.16020017533215913
+    },
+    {
+      "window": "heldout_2019_plus",
+      "start": "2019-01-01",
+      "end": "2026-09-24",
+      "n_days": 1875,
+      "base_cagr": 0.14866241993775198,
+      "base_mdd": -0.14683692377366864,
+      "chal_cagr": 0.15048268233331652,
+      "chal_mdd": -0.1487364782540901,
+      "mdd_improve_pp": -0.18995544804214504,
+      "cagr_giveback_pp": -0.18202623955645425,
+      "rel_nav_end": 1.0118447582271586,
+      "score": -0.28096856782037216
+    },
+    {
+      "window": "sealed_2023_plus",
+      "start": "2023-01-01",
+      "end": "2026-09-24",
+      "n_days": 898,
+      "base_cagr": 0.16753849173124924,
+      "base_mdd": -0.1133353568260187,
+      "chal_cagr": 0.17181322750307526,
+      "chal_mdd": -0.11194928587262043,
+      "mdd_improve_pp": 0.13860709533982662,
+      "cagr_giveback_pp": -0.42747357718260215,
+      "rel_nav_end": 1.0130937490893965,
+      "score": -0.07512969325147445
+    },
+    {
+      "window": "full",
+      "start": "2012-12-04",
+      "end": "2026-09-24",
+      "n_days": 3370,
+      "base_cagr": 0.1190800598456121,
+      "base_mdd": -0.14683692377366875,
+      "chal_cagr": 0.12017112744379044,
+      "chal_mdd": -0.1487364782540901,
+      "mdd_improve_pp": -0.18995544804213393,
+      "cagr_giveback_pp": -0.10910675981783413,
+      "rel_nav_end": 1.013113282630498,
+      "score": -0.244508827951051
+    }
+  ],
+  "gates": {
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "design_giveback_pp": {
+      "heldout_2019_plus": 1.0,
+      "sealed_2023_plus": 5.0
+    },
+    "structural_buffer_pp": 2.0,
+    "alert_policy": "default"
+  },
+  "non_actions": [
+    "paper observe only",
+    "no Soft-Frozen FinPriv expand",
+    "no live wire from this monitor",
+    "near-flat CAGR SOFT is observe posture only"
+  ],
+  "cutover_blocked": true
+}
