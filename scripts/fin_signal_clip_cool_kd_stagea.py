@@ -29,7 +29,7 @@ from cool_c8_proxy_observe_helpers import (
 from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats
 from e50_early_stack_combined_nav import FIN, TEL, e16_features, simulate_core
 from fuse_additive_helpers import SLEEVE_ALPHA
-from live_fill_extreme_audit import _fill_px_on_panel, _in_kd_season, _ohlc_panel, _ohlc_panel_raw, _window_ext
+from live_fill_extreme_audit import _in_kd_season, _window_ext
 from portfolio_capital import DEFAULT_CAPITAL
 from research_metric_helpers import cagr_delta_pp, mdd_delta_pp
 from sleeve_tilt_helpers import (
@@ -81,15 +81,60 @@ def _utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def _ohlc_panel_raw(market: pd.DataFrame, code: str) -> pd.DataFrame:
+    m = market[market["code"].astype(str) == str(code)].copy()
+    m["date"] = pd.to_datetime(m["date"]).dt.normalize()
+    m = m.drop_duplicates("date").sort_values("date").set_index("date")
+    for col in ("open", "high", "low", "close"):
+        if col not in m.columns:
+            m[col] = np.nan
+    if m["high"].isna().all() and "adj_close" in m.columns:
+        m["high"] = m["adj_close"]
+        m["low"] = m["adj_close"]
+        m["close"] = m["adj_close"]
+        m["open"] = m["adj_close"]
+    return m[["open", "high", "low", "close"]].astype(float)
+
+
+def _ohlc_panel(market: pd.DataFrame, code: str) -> pd.DataFrame:
+    """adj_close-scaled OHLC (authoritative for fill-distance gates)."""
+    m = market[market["code"].astype(str) == str(code)].copy()
+    m["date"] = pd.to_datetime(m["date"]).dt.normalize()
+    m = m.drop_duplicates("date").sort_values("date").set_index("date")
+    for col in ("open", "high", "low", "close", "adj_close"):
+        if col not in m.columns:
+            m[col] = np.nan
+    close = m["close"].astype(float)
+    adj = m["adj_close"].astype(float)
+    if adj.notna().any() and close.notna().any():
+        factor = adj / close.replace(0, np.nan)
+        factor = factor.ffill().bfill().fillna(1.0)
+        out = pd.DataFrame(index=m.index)
+        for col in ("open", "high", "low", "close"):
+            out[col] = m[col].astype(float) * factor
+        out["close"] = adj.where(adj.notna(), out["close"])
+        return out
+    return _ohlc_panel_raw(market, code)
+
+
+def _fill_px_on_panel(
+    raw_px: float,
+    fill_d: pd.Timestamp,
+    raw_panel: pd.DataFrame,
+    adj_panel: pd.DataFrame,
+) -> float:
+    if fill_d in adj_panel.index and fill_d in raw_panel.index:
+        raw_c = float(raw_panel.loc[fill_d, "close"])
+        adj_c = float(adj_panel.loc[fill_d, "close"])
+        if raw_c > 0 and np.isfinite(raw_c) and np.isfinite(adj_c):
+            return float(raw_px) * (adj_c / raw_c)
+    return float(raw_px)
+
+
 def _sleeve(code: str) -> str:
     c = str(code)
     if c in set(FIN):
         return "FIN"
-    if c in {"2890", "2801", "2880", "2881", "2882", "2883", "2884", "2885", "2886", "2887"}:
-        return "FIN"
-    # FIN list from e50; TEL / 0050 fallback
-    from e50_early_stack_combined_nav import TEL
-
     if c in set(TEL):
         return "TEL"
     if c == "0050":
