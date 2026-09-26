@@ -56,6 +56,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | β／0050 densify under COOL | **HIT → LIVE clip** (2026-09-25) | `F[0.60,0.80] E[0,0.50]` +0.57pp tip-OK · **observe only** · Soft-Frozen KEEP · `#284` · `BETA_0050_DENSIFY_UNDER_COOL_DECISION_PACK.md` |
 | Within-sleeve FinPub/TEL micro × COOL | **`NO_FLAT_LIFT`** (2026-09-25) | Stage A 13 books · best +0.14pp out-of-band · live KD_OPT/TEL_EQUAL/Soft-Frozen **KEEP** · `WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md` |
 | TEL within-sleeve 三軌（名目／結構／COOL 聯動） | **Stage A `TEL_WITHIN_SOFT`** (2026-09-26) | 0 HIT · 3 SOFT · best `T3_COOL_INV_VOL20` held CAGR↑ +0.16 · Soft-Frozen/TEL_EQUAL **KEEP** · no live · `TEL_WITHIN_SLEEVE_DECISION_PACK.md` |
+| TEL T3 densify／T2 半開／近持平 +0.15 | **Stage A `TEL_NEARFLAT_READY`** (2026-09-26) | 0 HIT · 1 nearflat=`D3_A100_C100_B00` · T2 sealed MDD 仍不過 · Soft-Frozen/TEL_EQUAL **KEEP** · READY≠ACCEPT · `TEL_T3_DENSIFY_DECISION_PACK.md` |
 | Active research KEEP | **LOCKED** | FIN quartet (**`MIX_L75`** + **`KD_OPT`**) + E45 **`A05`/`C35`** + month-end gates |
 | FIN within-sleeve live | **`KD_OPT` LIVE** (ACCEPT 2026-09-09) | `FIN_PRE_EXDIV_KD` forward-only; Soft-Frozen KEEP; note `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` |
 | FIN autumn post-ex probe | **STOP** (2026-09-09) | small-search+dual no lift vs KD_OPT · `FIN_KD_AUTUMN_DUAL_SEASON.md` · live KD_OPT untouched |
