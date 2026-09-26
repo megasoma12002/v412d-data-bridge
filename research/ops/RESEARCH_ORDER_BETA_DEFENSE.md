@@ -34,4 +34,5 @@ ABCD 2026-09-25: A observe refresh · B near-flat ACCEPT floor +0.15 · C Gate V
 2026-09-26: Human `OPEN observe: CONF_RET3_A10_H5` → dual-paper **OPERATING** · cutover **BLOCKED**.  
 2026-09-26: Human `開 dual-handoff Stage A` → **`DUAL_HANDOFF_SOFT`** (INV ahead of LEV does not inherit HIT).  
 2026-09-26: Human `CONF_RET3_A10_H5 accept live` → **LIVE WIRED** forward-only.  
-2026-09-26: Human `三軌都做` → TEL within-sleeve Stage A **`TEL_WITHIN_SOFT`** (best `T3_COOL_INV_VOL20` +0.16pp).
+2026-09-26: Human `三軌都做` → TEL within-sleeve Stage A **`TEL_WITHIN_SOFT`** (best `T3_COOL_INV_VOL20` +0.16pp).  
+2026-09-26: Human densify×T2半開×近持平 → **`TEL_NEARFLAT_READY`** (parent only · densify no HIT · T2 sealed MDD fail).

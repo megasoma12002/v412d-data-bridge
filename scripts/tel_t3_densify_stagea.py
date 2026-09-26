@@ -42,13 +42,6 @@ def cool_gate_depth(scores: pd.DataFrame, cool: pd.Series, cool_lt: float) -> pd
     return out
 
 
-def prop_cool_scores(scores: pd.DataFrame, cool: pd.Series, amp: float) -> pd.DataFrame:
-    """Always available but scaled by defense depth (1−cool) × amp."""
-    c = cool.reindex(scores.index).fillna(1.0).astype(float)
-    depth = (1.0 - c).clip(lower=0.0, upper=1.0)
-    return scores.astype(float).mul(depth, axis=0) * float(amp)
-
-
 def blend_scores(inv_vol: pd.DataFrame, dist60: pd.DataFrame, lam: float) -> pd.DataFrame:
     """λ·DIST60 + (1−λ)·INV_VOL20, clipped."""
     lam = float(lam)
