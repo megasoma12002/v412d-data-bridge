@@ -55,6 +55,8 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | β densify near-flat paper observe | **PROMOTED LIVE** (2026-09-25) | `OPEN … BETA_F0.60-0.80_E0.00-0.50` · Soft-Frozen KEEP · cutover BLOCKED · `#284` · `BETA_0050_DENSIFY_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | β／0050 densify under COOL | **HIT → LIVE clip** (2026-09-25) | `F[0.60,0.80] E[0,0.50]` +0.57pp tip-OK · **observe only** · Soft-Frozen KEEP · `#284` · `BETA_0050_DENSIFY_UNDER_COOL_DECISION_PACK.md` |
 | Within-sleeve FinPub/TEL micro × COOL | **`NO_FLAT_LIFT`** (2026-09-25) | Stage A 13 books · best +0.14pp out-of-band · live KD_OPT/TEL_EQUAL/Soft-Frozen **KEEP** · `WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md` |
+| TEL within-sleeve 三軌（名目／結構／COOL 聯動） | **Stage A `TEL_WITHIN_SOFT`** (2026-09-26) | 0 HIT · 3 SOFT · best `T3_COOL_INV_VOL20` held CAGR↑ +0.16 · Soft-Frozen/TEL_EQUAL **KEEP** · no live · `TEL_WITHIN_SLEEVE_DECISION_PACK.md` |
+| TEL T3 densify／T2 半開／近持平 +0.15 | **Stage A `TEL_NEARFLAT_READY` → LIVE WIRED** (2026-09-26) | Human `請上live` · `T3_COOL_INV_VOL20` forward-only · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | Live tip fill 高低點／機制審計 | **`FILL_EXTREME_AUDIT_DONE`** (2026-09-26) | 96 fills · ±5d mean ~3.8% · T+1 drag ~1.2% · Soft-Frozen/T+1 **KEEP** · no live · `LIVE_FILL_EXTREME_AUDIT_DECISION_PACK.md` |
 | Active research KEEP | **LOCKED** | FIN quartet (**`MIX_L75`** + **`KD_OPT`**) + E45 **`A05`/`C35`** + month-end gates |
 | FIN within-sleeve live | **`KD_OPT` LIVE** (ACCEPT 2026-09-09) | `FIN_PRE_EXDIV_KD` forward-only; Soft-Frozen KEEP; note `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` |
@@ -67,7 +69,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | Post-rollback data re-run | **DONE** (2026-09-09) | `LIVE_STACK_RERUN.md` CURRENT_LIVE tip PASS held-out +0.02 · month-end pack refresh |
 | Post-rollback improve status | **IMPROVED** (2026-09-09) | vs retired A05: held-out lift **+0.70**, tip ALERT→PASS · `LIVE_STACK_IMPROVE_STATUS.md` |
 | Telecom async split (FIN-parallel) | **STOP** (2026-09-09) | Stage D + summer KD grid no lift vs TEL_EQUAL · keep live EQUAL · `TELECOM_WITHIN_SLEEVE_ASYNC_DECISION_PACK.md` |
-| Telecom pack cutover ballot | **EXECUTED KEEP TEL_EQUAL** (2026-09-09) | Human `KEEP live TEL_EQUAL` · no live wire · `TELECOM_PACK_CUTOVER_KEEP_TEL_EQUAL.md` |
+| Telecom pack cutover ballot | **EXECUTED KEEP TEL_EQUAL** (2026-09-09) | Human `KEEP live TEL_EQUAL` · superseded 2026-09-26 by `T3_COOL_INV_VOL20` live · `TELECOM_PACK_CUTOVER_KEEP_TEL_EQUAL.md` |
 | 民營金控 paper re-screen | **STOP** (2026-09-09) | Stage A vs `LIVE_PUB_KD` · 0 coexist · Soft-Frozen 公股 R1 KEEP · post div/adj fill still STOP · `PRIVATE_FIN_HOLDINGS_DECISION_PACK.md` |
 | 金融公/金融民 dual-sleeve | **STOP** (2026-09-09) | Dollar-split Stage A tip-clean but held-out&lt;0 · keep 公股 R1 · `FIN_PUB_PRIV_DUAL_SLEEVE_DECISION_PACK.md` |
 | Soft-Frozen 4-sleeve (公/民 clips) | **STOP** (2026-09-09) | Stage A 48-challenger grid 0 coexist · live 3-sleeve KEEP · `SOFT_FROZEN_4SLEEVE_DECISION_PACK.md` |

@@ -1,0 +1,869 @@
+{
+  "generated_at_utc": "2026-09-26T11:35:53Z",
+  "label": "TEL_WITHIN_SLEEVE_STAGEA_SCREEN",
+  "charter": "research/ops/TEL_WITHIN_SLEEVE_STAGEA_CHARTER.md",
+  "status": "TEL_WITHIN_SOFT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "baseline": "BASE_LIVE_FUSE_COOL",
+  "sell_amp": 0.75,
+  "baseline_windows": {
+    "full": {
+      "cagr": 0.122924,
+      "max_drawdown": -0.146855,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.086175,
+      "max_drawdown": -0.132385,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.13164,
+      "max_drawdown": -0.146855,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.183165,
+      "max_drawdown": -0.063907,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.155817,
+      "max_drawdown": -0.146855,
+      "n_days": 1870
+    }
+  },
+  "n_challengers": 12,
+  "n_hits": 0,
+  "n_soft": 3,
+  "hit_ids": [],
+  "soft_ids": [
+    "T3_COOL_INV_VOL20",
+    "T3_COOL_DIST60",
+    "T1_BELOW_MA60"
+  ],
+  "mdd_block_ids": [
+    "T1_DIST60",
+    "T1_RSI14_INV",
+    "T1_DIST60_RSI",
+    "T2_INV_VOL20",
+    "T2_ADV20",
+    "T2_INV_BETA0050",
+    "T2_ADV_INVVOL",
+    "T3_COOL_RSI14",
+    "T3_COOL_ADV20"
+  ],
+  "ranked": [
+    {
+      "id": "T3_COOL_INV_VOL20",
+      "track": "T3",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "INV_VOL20",
+        "cool_gated": true,
+        "sell_amp": 0.75
+      },
+      "n_fills": 8093,
+      "windows": {
+        "full": {
+          "cagr": 0.123868,
+          "max_drawdown": -0.146265,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086181,
+          "max_drawdown": -0.13168,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.133176,
+          "max_drawdown": -0.146265,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.184941,
+          "max_drawdown": -0.063727,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.157459,
+          "max_drawdown": -0.146265,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.157459,
+      "held_mdd": -0.146265,
+      "sealed_cagr": 0.184941,
+      "sealed_mdd": -0.063727,
+      "held_cagr_lift_pp": 0.1642,
+      "sealed_cagr_lift_pp": 0.1776,
+      "held_mdd_improve_pp": 0.059,
+      "sealed_mdd_improve_pp": 0.018,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0402,
+          "cagr_giveback_pp": 0.5401,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0402,
+          "cagr_giveback_pp": 0.4323,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": true,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": true
+    },
+    {
+      "id": "T3_COOL_DIST60",
+      "track": "T3",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "DIST60",
+        "cool_gated": true,
+        "sell_amp": 0.75
+      },
+      "n_fills": 8165,
+      "windows": {
+        "full": {
+          "cagr": 0.123689,
+          "max_drawdown": -0.147466,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086746,
+          "max_drawdown": -0.132338,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131699,
+          "max_drawdown": -0.147466,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.184989,
+          "max_drawdown": -0.063389,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156701,
+          "max_drawdown": -0.147466,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156701,
+      "held_mdd": -0.147466,
+      "sealed_cagr": 0.184989,
+      "sealed_mdd": -0.063389,
+      "held_cagr_lift_pp": 0.0884,
+      "sealed_cagr_lift_pp": 0.1824,
+      "held_mdd_improve_pp": -0.0611,
+      "sealed_mdd_improve_pp": 0.0518,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0733,
+          "cagr_giveback_pp": 0.0752,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0733,
+          "cagr_giveback_pp": -0.0226,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": true,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": true
+    },
+    {
+      "id": "T1_BELOW_MA60",
+      "track": "T1",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "BELOW_MA60",
+        "cool_gated": false,
+        "sell_amp": 0.75
+      },
+      "n_fills": 7869,
+      "windows": {
+        "full": {
+          "cagr": 0.122663,
+          "max_drawdown": -0.146821,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.085908,
+          "max_drawdown": -0.133441,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.13175,
+          "max_drawdown": -0.146821,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.182753,
+          "max_drawdown": -0.063762,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.15568,
+          "max_drawdown": -0.146821,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.15568,
+      "held_mdd": -0.146821,
+      "sealed_cagr": 0.182753,
+      "sealed_mdd": -0.063762,
+      "held_cagr_lift_pp": -0.0137,
+      "sealed_cagr_lift_pp": -0.0412,
+      "held_mdd_improve_pp": 0.0034,
+      "sealed_mdd_improve_pp": 0.0145,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0795,
+          "cagr_giveback_pp": 0.1404,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0795,
+          "cagr_giveback_pp": 0.0973,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": true,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": true
+    },
+    {
+      "id": "T2_INV_VOL20",
+      "track": "T2",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "INV_VOL20",
+        "cool_gated": false,
+        "sell_amp": 0.75
+      },
+      "n_fills": 7667,
+      "windows": {
+        "full": {
+          "cagr": 0.125505,
+          "max_drawdown": -0.145216,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087601,
+          "max_drawdown": -0.117494,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.137064,
+          "max_drawdown": -0.145216,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.182471,
+          "max_drawdown": -0.066231,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.158383,
+          "max_drawdown": -0.145216,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.158383,
+      "held_mdd": -0.145216,
+      "sealed_cagr": 0.182471,
+      "sealed_mdd": -0.066231,
+      "held_cagr_lift_pp": 0.2566,
+      "sealed_cagr_lift_pp": -0.0694,
+      "held_mdd_improve_pp": 0.1639,
+      "sealed_mdd_improve_pp": -0.2324,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0117,
+          "cagr_giveback_pp": 0.6197,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0117,
+          "cagr_giveback_pp": 0.5053,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": false,
+        "held_cagr_floor": true
+      },
+      "hit": false,
+      "soft": false
+    },
+    {
+      "id": "T2_ADV_INVVOL",
+      "track": "T2",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "ADV_INVVOL",
+        "cool_gated": false,
+        "sell_amp": 0.75
+      },
+      "n_fills": 7513,
+      "windows": {
+        "full": {
+          "cagr": 0.124438,
+          "max_drawdown": -0.145819,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087208,
+          "max_drawdown": -0.117648,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.134654,
+          "max_drawdown": -0.145819,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.183527,
+          "max_drawdown": -0.066379,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.157483,
+          "max_drawdown": -0.145819,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.157483,
+      "held_mdd": -0.145819,
+      "sealed_cagr": 0.183527,
+      "sealed_mdd": -0.066379,
+      "held_cagr_lift_pp": 0.1666,
+      "sealed_cagr_lift_pp": 0.0362,
+      "held_mdd_improve_pp": 0.1036,
+      "sealed_mdd_improve_pp": -0.2472,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.1274,
+          "cagr_giveback_pp": 1.0027,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.1274,
+          "cagr_giveback_pp": 0.7789,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": false,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": false
+    },
+    {
+      "id": "T3_COOL_RSI14",
+      "track": "T3",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "RSI14_INV",
+        "cool_gated": true,
+        "sell_amp": 0.75
+      },
+      "n_fills": 8044,
+      "windows": {
+        "full": {
+          "cagr": 0.123137,
+          "max_drawdown": -0.146677,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08631,
+          "max_drawdown": -0.133635,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132858,
+          "max_drawdown": -0.146677,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.18223,
+          "max_drawdown": -0.065153,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156048,
+          "max_drawdown": -0.146677,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.156048,
+      "held_mdd": -0.146677,
+      "sealed_cagr": 0.18223,
+      "sealed_mdd": -0.065153,
+      "held_cagr_lift_pp": 0.0231,
+      "sealed_cagr_lift_pp": -0.0935,
+      "held_mdd_improve_pp": 0.0178,
+      "sealed_mdd_improve_pp": -0.1246,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.08,
+          "cagr_giveback_pp": 0.7488,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.08,
+          "cagr_giveback_pp": 0.5448,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": false,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": false
+    },
+    {
+      "id": "T1_DIST60_RSI",
+      "track": "T1",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "DIST60_RSI",
+        "cool_gated": false,
+        "sell_amp": 0.75
+      },
+      "n_fills": 7784,
+      "windows": {
+        "full": {
+          "cagr": 0.123116,
+          "max_drawdown": -0.14706,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086712,
+          "max_drawdown": -0.135269,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.133338,
+          "max_drawdown": -0.14706,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.181554,
+          "max_drawdown": -0.066438,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155989,
+          "max_drawdown": -0.14706,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155989,
+      "held_mdd": -0.14706,
+      "sealed_cagr": 0.181554,
+      "sealed_mdd": -0.066438,
+      "held_cagr_lift_pp": 0.0172,
+      "sealed_cagr_lift_pp": -0.1611,
+      "held_mdd_improve_pp": -0.0205,
+      "sealed_mdd_improve_pp": -0.2531,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0234,
+          "cagr_giveback_pp": -0.2842,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0234,
+          "cagr_giveback_pp": -0.3309,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": false,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": false
+    },
+    {
+      "id": "T2_INV_BETA0050",
+      "track": "T2",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "INV_BETA0050",
+        "cool_gated": false,
+        "sell_amp": 0.75
+      },
+      "n_fills": 7760,
+      "windows": {
+        "full": {
+          "cagr": 0.123358,
+          "max_drawdown": -0.145204,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086697,
+          "max_drawdown": -0.131866,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132458,
+          "max_drawdown": -0.145204,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.18195,
+          "max_drawdown": -0.065104,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155713,
+          "max_drawdown": -0.145204,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155713,
+      "held_mdd": -0.145204,
+      "sealed_cagr": 0.18195,
+      "sealed_mdd": -0.065104,
+      "held_cagr_lift_pp": -0.0104,
+      "sealed_cagr_lift_pp": -0.1215,
+      "held_mdd_improve_pp": 0.1651,
+      "sealed_mdd_improve_pp": -0.1197,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0016,
+          "cagr_giveback_pp": 0.1984,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0016,
+          "cagr_giveback_pp": 0.0191,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": false,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": false
+    },
+    {
+      "id": "T3_COOL_ADV20",
+      "track": "T3",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "ADV20",
+        "cool_gated": true,
+        "sell_amp": 0.75
+      },
+      "n_fills": 8014,
+      "windows": {
+        "full": {
+          "cagr": 0.123327,
+          "max_drawdown": -0.145814,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087337,
+          "max_drawdown": -0.132222,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132198,
+          "max_drawdown": -0.145814,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.181985,
+          "max_drawdown": -0.064287,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155548,
+          "max_drawdown": -0.145814,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155548,
+      "held_mdd": -0.145814,
+      "sealed_cagr": 0.181985,
+      "sealed_mdd": -0.064287,
+      "held_cagr_lift_pp": -0.0269,
+      "sealed_cagr_lift_pp": -0.118,
+      "held_mdd_improve_pp": 0.1041,
+      "sealed_mdd_improve_pp": -0.038,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0257,
+          "cagr_giveback_pp": 0.6826,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0257,
+          "cagr_giveback_pp": 0.5764,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": false,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": false
+    },
+    {
+      "id": "T1_DIST60",
+      "track": "T1",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "DIST60",
+        "cool_gated": false,
+        "sell_amp": 0.75
+      },
+      "n_fills": 7823,
+      "windows": {
+        "full": {
+          "cagr": 0.123016,
+          "max_drawdown": -0.147693,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087361,
+          "max_drawdown": -0.136401,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131855,
+          "max_drawdown": -0.147693,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.182057,
+          "max_drawdown": -0.06402,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155386,
+          "max_drawdown": -0.147693,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155386,
+      "held_mdd": -0.147693,
+      "sealed_cagr": 0.182057,
+      "sealed_mdd": -0.06402,
+      "held_cagr_lift_pp": -0.0431,
+      "sealed_cagr_lift_pp": -0.1108,
+      "held_mdd_improve_pp": -0.0838,
+      "sealed_mdd_improve_pp": -0.0113,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0571,
+          "cagr_giveback_pp": 0.2699,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0571,
+          "cagr_giveback_pp": 0.0934,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": false,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": false
+    },
+    {
+      "id": "T1_RSI14_INV",
+      "track": "T1",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "RSI14_INV",
+        "cool_gated": false,
+        "sell_amp": 0.75
+      },
+      "n_fills": 8068,
+      "windows": {
+        "full": {
+          "cagr": 0.122199,
+          "max_drawdown": -0.146646,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.085746,
+          "max_drawdown": -0.129574,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131816,
+          "max_drawdown": -0.146646,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.181189,
+          "max_drawdown": -0.066368,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155055,
+          "max_drawdown": -0.146646,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.155055,
+      "held_mdd": -0.146646,
+      "sealed_cagr": 0.181189,
+      "sealed_mdd": -0.066368,
+      "held_cagr_lift_pp": -0.0762,
+      "sealed_cagr_lift_pp": -0.1976,
+      "held_mdd_improve_pp": 0.0209,
+      "sealed_mdd_improve_pp": -0.2461,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0043,
+          "cagr_giveback_pp": -0.2322,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0043,
+          "cagr_giveback_pp": -0.2439,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": false,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": false
+    },
+    {
+      "id": "T2_ADV20",
+      "track": "T2",
+      "meta": {
+        "telecom_alloc": "TEL_RS_SOFT_TILT",
+        "score_family": "ADV20",
+        "cool_gated": false,
+        "sell_amp": 0.75
+      },
+      "n_fills": 7438,
+      "windows": {
+        "full": {
+          "cagr": 0.123328,
+          "max_drawdown": -0.144729,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.088773,
+          "max_drawdown": -0.118109,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132,
+          "max_drawdown": -0.144729,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.180937,
+          "max_drawdown": -0.065389,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.154822,
+          "max_drawdown": -0.144729,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.154822,
+      "held_mdd": -0.144729,
+      "sealed_cagr": 0.180937,
+      "sealed_mdd": -0.065389,
+      "held_cagr_lift_pp": -0.0995,
+      "sealed_cagr_lift_pp": -0.2228,
+      "held_mdd_improve_pp": 0.2126,
+      "sealed_mdd_improve_pp": -0.1482,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0925,
+          "cagr_giveback_pp": 2.2413,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0925,
+          "cagr_giveback_pp": 1.8027,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": true,
+        "held_mdd": true,
+        "sealed_mdd": false,
+        "held_cagr_floor": false
+      },
+      "hit": false,
+      "soft": false
+    }
+  ],
+  "gates": {
+    "cagr_floor_pp": 0.2,
+    "held_mdd_min_pp": -0.25,
+    "sealed_mdd_min_pp": 0.0,
+    "tip_mdd_tol_pp": -0.5
+  }
+}

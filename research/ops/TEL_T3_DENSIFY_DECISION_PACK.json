@@ -1,0 +1,95 @@
+{
+  "label": "TEL_T3_DENSIFY_DECISION_PACK",
+  "generated_at_utc": "2026-09-26T11:58:10Z",
+  "status": "TEL_NEARFLAT_READY",
+  "verdict": "TEL_NEARFLAT_READY",
+  "live_wire": false,
+  "n_hits": 0,
+  "n_nearflat": 1,
+  "n_soft": 7,
+  "hit_ids": [],
+  "nearflat_ids": [
+    "D3_A100_C100_B00"
+  ],
+  "soft_ids": [
+    "D3_A150_C100_B50",
+    "D3_A050_C050_B00",
+    "D3_A050_C050_B50",
+    "D3_A100_C050_B00",
+    "D3_A100_C050_B50",
+    "D3_A150_C050_B00",
+    "D3_A150_C050_B50"
+  ],
+  "mdd_block_ids": [
+    "D3_A050_C100_B00",
+    "D3_A050_C100_B50",
+    "D3_A100_C100_B50",
+    "D3_A150_C100_B00",
+    "T2_ALWAYS_A25",
+    "T2_ALWAYS_A50",
+    "T2_ALWAYS_A75",
+    "T2_ALWAYS_A100",
+    "T2_PROP_A50",
+    "T2_PROP_A100"
+  ],
+  "best": "D3_A100_C100_B00",
+  "best_metrics": {
+    "id": "D3_A100_C100_B00",
+    "track": "P1_T3_DENSIFY",
+    "held_cagr_lift_pp": 0.1642,
+    "held_mdd_improve_pp": 0.059,
+    "sealed_mdd_improve_pp": 0.018,
+    "gates": {
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "held_mdd": true,
+      "sealed_mdd": true,
+      "held_cagr_floor": false,
+      "held_cagr_nearflat": true
+    },
+    "hit": false,
+    "nearflat": true,
+    "soft": false,
+    "meta": {
+      "telecom_alloc": "TEL_RS_SOFT_TILT",
+      "mode": "cool_gate",
+      "amp": 1.0,
+      "cool_lt": 1.0,
+      "blend": 0.0,
+      "sell_amp": 0.75
+    }
+  },
+  "path_summary": {
+    "P1_T3_DENSIFY": {
+      "n": 12,
+      "hits": [],
+      "nearflat": [
+        "D3_A100_C100_B00"
+      ]
+    },
+    "P2_T2_HALF": {
+      "n": 6,
+      "hits": [],
+      "nearflat": [],
+      "sealed_mdd_ok": []
+    },
+    "P3_NEARFLAT": {
+      "floor_pp": 0.15,
+      "ready_ids": [
+        "D3_A100_C100_B00"
+      ],
+      "accept_needed": true
+    }
+  },
+  "binding": [
+    "Soft-Frozen live clip KEEP until Class D ACCEPT",
+    "Live KD_OPT + TEL_EQUAL KEEP until dedicated ACCEPT",
+    "Near-flat READY \u2260 human ACCEPT \u2260 live wire",
+    "Do not reopen TEL_PRE_EXDIV_KD / async STOP",
+    "CONF_RET3 / 00631L orthogonal KEEP"
+  ],
+  "next": "NEARFLAT_READY under floor +0.15 \u2014 needs human ACCEPT near-flat ballot (paper observe only; \u2260 live wire)",
+  "charter": "research/ops/TEL_T3_DENSIFY_STAGEA_CHARTER.md",
+  "stage_a": "research/ops/TEL_T3_DENSIFY_STAGEA_SCREEN.md",
+  "order": "research/ops/RESEARCH_ORDER_BETA_DEFENSE.md"
+}

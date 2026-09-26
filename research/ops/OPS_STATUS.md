@@ -17,6 +17,8 @@ COOL × 台50反1（成立買／結束賣）：**Stage A `COOL_INV_SOFT`** · So
 COOL 結束 × 台50正2（`00631L` 搶反彈）：**Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `COOL_T50_LEV_REBOUND_DECISION_PACK.md`  
 `00631L` 短線輔助（確認進場等）：**Stage A `SHORT_ASSIST_HIT` → OBSERVE → LIVE WIRED `CONF_RET3_A10_H5`** · Soft-Frozen KEEP · forward-only · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`  
 COOL dual-handoff（防守 `00632R` → 結束 `00631L`）：**Stage A `DUAL_HANDOFF_SOFT`** · 0 HIT · Soft-Frozen KEEP · no live · `COOL_T50_DUAL_HANDOFF_DECISION_PACK.md`  
+TEL within-sleeve 三軌（名目／結構／COOL 聯動）：**Stage A `TEL_WITHIN_SOFT`** → densify near-flat → **LIVE WIRED `T3_COOL_INV_VOL20`** · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`  
+TEL T3 densify／T2 半開／近持平 +0.15：**Stage A `TEL_NEARFLAT_READY`** → human `請上live` → **LIVE WIRED `T3_COOL_INV_VOL20`** · Soft-Frozen KEEP · forward-only · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`  
 Live tip fill 高低點／機制審計：**`FILL_EXTREME_AUDIT_DONE`** · 96 fills · ±5d mean ~3.8% · T+1 結構性 · Soft-Frozen KEEP · no live · `LIVE_FILL_EXTREME_AUDIT_DECISION_PACK.md`  
 Soft∥Sleeve ops auto-fuse agenda：**CLOSED**（Gate H FORBIDDEN KEEP）· `ACCEPT_DROP_AUTO_FUSE_AGENDA.md`  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
@@ -32,7 +34,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Path | `forward/e21/` |
 | Capital / lot | **500M** · board-lot **1000** |
 | Clip | Financial **[0.60, 0.80]** · TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]** via `scripts/e16_soft_frozen_base.py` |
-| Within-sleeve | FIN **`KD_OPT`** · TEL **`TEL_EQUAL`** · Class D FinPriv V7 F05 carve (`REG_BULL_SIDE` · 5% · `PRIV_KD_MAY`) · FUSE Soft sell **`SELL_a75`** · COOL-exit satellite **`CONF_RET3_A10_H5`/`00631L`** |
+| Within-sleeve | FIN **`KD_OPT`** · TEL **`T3_COOL_INV_VOL20`** (COOL-defend INV_VOL soft-tilt; else EQUAL) · Class D FinPriv V7 F05 carve (`REG_BULL_SIDE` · 5% · `PRIV_KD_MAY`) · FUSE Soft sell **`SELL_a75`** · COOL-exit satellite **`CONF_RET3_A10_H5`/`00631L`** |
 | Overlay | **`FUSE_ADDITIVE` KEEP** + **`COOL_c8_f50_d21`** (`LIVE_FUSE_ADDITIVE` / `LIVE_COOL_EXPOSURE`; **DH replaced** 2026-09-25) |
 | Offense CAGR paper | Stage A **`OFFENSE_CAGR_SOFT`** (Soft/Sleeve/FUSE densify under COOL · Soft-Frozen KEEP · no live) · `OFFENSE_CAGR_UNDER_COOL_STAGEA_SCREEN.md` |
 | Legacy A05 stitch | **DROPPED** (`ACCEPT_2026-09-09_DROP_E45_A05`) — see `E45_A05_STITCH_DROPPED.md` |
@@ -55,6 +57,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | BLEND_025 | Dual-paper **OPERATING OBSERVE** | Sole sealed-CAGR successor (register #3); live **NOT READY** (#5); promote review **2026-09-26 BLOCKED** (`BLEND_025_PROMOTE_GATE_REVIEW_2026-09-26.md`); checklist: `CUTOVER_CHECKLIST_BLEND025.md` |
 | Offense SOFT near-flat (`SELL_a75`) | **LIVE WIRED** under COOL | sell boost 0.75 · coexists FUSE+COOL · Soft-Frozen KEEP · `LIVE_SELL_A75_UNDER_COOL_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | `00631L` short-assist `CONF_RET3_A10_H5` | **LIVE WIRED** (forward-only) | COOL exit · RET3 · α=0.10 · H=5 · Soft-Frozen KEEP · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
+| TEL `T3_COOL_INV_VOL20` | **LIVE WIRED** (forward-only) | COOL-defend INV_VOL soft-tilt · else EQUAL · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | Track A S9A1 | KEEP (paper/monitor) | N/A — pointer: `TRACK_A_RUNBOOK_POINTER.md` |
 | Track B S1 | STOP | Closed |
 
