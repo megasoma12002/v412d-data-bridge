@@ -1,8 +1,9 @@
 # 電信 within-sleeve 三軌 — 紙上憲章（Stage A）
 
 日期：2026-09-26  
-狀態：**憲章開啟 · Stage A 執行中** · Soft-Frozen **KEEP** · 不上 live  
-人令：`三軌都做`
+狀態：**Stage A `TEL_WITHIN_SOFT`** · Soft-Frozen **KEEP** · 不上 live  
+人令：`三軌都做`  
+最佳 SOFT：`T3_COOL_INV_VOL20` held CAGR↑ +0.16pp（未達 +0.20）· MDD/tip OK
 
 ## 問題
 

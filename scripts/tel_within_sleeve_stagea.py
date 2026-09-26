@@ -484,8 +484,8 @@ def main() -> int:
         "n_challengers": len(rows),
         "n_hits": len(hits),
         "n_soft": len(softs),
-        "hit_ids": [r["id"] for r in hits],
-        "soft_ids": [r["id"] for r in softs],
+        "hit_ids": [r["id"] for r in ranked if r["hit"]],
+        "soft_ids": [r["id"] for r in ranked if r["soft"]],
         "mdd_block_ids": [r["id"] for r in mdd_block],
         "ranked": ranked,
         "gates": {
@@ -537,8 +537,8 @@ def main() -> int:
         "verdict": verdict,
         "live_wire": False,
         "n_hits": len(hits),
-        "hit_ids": [r["id"] for r in hits],
-        "soft_ids": [r["id"] for r in softs],
+        "hit_ids": [r["id"] for r in ranked if r["hit"]],
+        "soft_ids": [r["id"] for r in ranked if r["soft"]],
         "mdd_block_ids": [r["id"] for r in mdd_block],
         "best": best["id"] if best else None,
         "best_metrics": None
@@ -582,14 +582,16 @@ def main() -> int:
         f"HIT: **{len(hits)}** · SOFT: **{len(softs)}** · MDD_BLOCK: **{len(mdd_block)}** / {len(rows)}.",
         "",
     ]
-    if hits:
-        b = hits[0]
+    best_hit = next((r for r in ranked if r["hit"]), None)
+    best_soft = next((r for r in ranked if r["soft"]), None)
+    if best_hit is not None:
+        b = best_hit
         dlines.append(
             f"Best HIT: `{b['id']}` · CAGR↑h {b['held_cagr_lift_pp']:+.2f} · "
             f"MDD↑h {b['held_mdd_improve_pp']:+.2f} · MDD↑s {b['sealed_mdd_improve_pp']:+.2f}"
         )
-    elif softs:
-        b = softs[0]
+    elif best_soft is not None:
+        b = best_soft
         dlines.append(
             f"Best SOFT: `{b['id']}` · CAGR↑h {b['held_cagr_lift_pp']:+.2f} · "
             f"MDD↑h {b['held_mdd_improve_pp']:+.2f} · MDD↑s {b['sealed_mdd_improve_pp']:+.2f}"

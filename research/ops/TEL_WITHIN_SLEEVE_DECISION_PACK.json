@@ -1,0 +1,53 @@
+{
+  "label": "TEL_WITHIN_SLEEVE_DECISION_PACK",
+  "generated_at_utc": "2026-09-26T11:35:53Z",
+  "status": "TEL_WITHIN_SOFT",
+  "verdict": "TEL_WITHIN_SOFT",
+  "live_wire": false,
+  "n_hits": 0,
+  "hit_ids": [],
+  "soft_ids": [
+    "T3_COOL_INV_VOL20",
+    "T3_COOL_DIST60",
+    "T1_BELOW_MA60"
+  ],
+  "mdd_block_ids": [
+    "T1_DIST60",
+    "T1_RSI14_INV",
+    "T1_DIST60_RSI",
+    "T2_INV_VOL20",
+    "T2_ADV20",
+    "T2_INV_BETA0050",
+    "T2_ADV_INVVOL",
+    "T3_COOL_RSI14",
+    "T3_COOL_ADV20"
+  ],
+  "best": "T3_COOL_INV_VOL20",
+  "best_metrics": {
+    "id": "T3_COOL_INV_VOL20",
+    "track": "T3",
+    "held_cagr_lift_pp": 0.1642,
+    "held_mdd_improve_pp": 0.059,
+    "sealed_mdd_improve_pp": 0.018,
+    "gates": {
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "held_mdd": true,
+      "sealed_mdd": true,
+      "held_cagr_floor": false
+    },
+    "hit": false,
+    "soft": true
+  },
+  "binding": [
+    "Soft-Frozen live clip KEEP until Class D ACCEPT",
+    "Live KD_OPT + TEL_EQUAL KEEP until dedicated ACCEPT",
+    "Do not reopen TEL_PRE_EXDIV_KD / async STOP path",
+    "CONF_RET3 / 00631L orthogonal KEEP \u2014 not in this paper twin",
+    "Passing \u2260 live wire"
+  ],
+  "next": "MDD/tip OK but CAGR short \u2014 densify only on soft_ids if human asks",
+  "charter": "research/ops/TEL_WITHIN_SLEEVE_STAGEA_CHARTER.md",
+  "stage_a": "research/ops/TEL_WITHIN_SLEEVE_STAGEA_SCREEN.md",
+  "order": "research/ops/RESEARCH_ORDER_BETA_DEFENSE.md"
+}

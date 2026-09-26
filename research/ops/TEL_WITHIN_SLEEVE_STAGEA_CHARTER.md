@@ -1,7 +1,7 @@
 # TEL within-sleeve — 名目高低／結構／防守聯動 — Paper Charter (Stage A)
 
 Date: 2026-09-26  
-Status: **CHARTER OPEN · Stage A RUNNING** · Soft-Frozen live **KEEP** · live wire **false**  
+Status: **Stage A `TEL_WITHIN_SOFT`** · Soft-Frozen live **KEEP** · live wire **false**  
 Human: **三軌都做**（TEL within-sleeve Stage A）
 
 Priors (do not reopen as this charter):
