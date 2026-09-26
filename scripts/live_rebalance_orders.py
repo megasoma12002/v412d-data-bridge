@@ -14,11 +14,14 @@ from live_config import (
     LIVE_FIN_PRIV_V7_F05,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
+    LIVE_TEL_T3_COOL_INV_VOL20,
+    LIVE_TEL_WITHIN_SLEEVE,
 )
 from live_ledger import make_order_id
 from tw_share_lots import BOARD_LOT, board_lots
 from within_sleeve_alloc import (
     FIN_DUAL_PUB_PRIV,
+    TEL_RS_SOFT_TILT,
     allocate_sleeve_orders,
     build_kd_season_tilt_scores,
     build_pre_exdiv_window_buy_ok,
@@ -49,10 +52,14 @@ def build_live_order_rows(
     sleeve_trade: Mapping[str, float],
     dividends_path: str | Any,
     regime_today: str | None = None,
-) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    """Allocate FIN (KD_OPT ± FUSE softs ± Class D FinPriv) + TEL/0050 equal-split.
+    cool_exposure_today: float | None = None,
+) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
+    """Allocate FIN (KD_OPT ± FUSE softs ± Class D FinPriv) + TEL/0050.
 
-    Returns (order_rows, fin_priv_meta). fin_priv_meta is empty when Class D off.
+    TEL: equal-split by default; when ``LIVE_TEL_T3_COOL_INV_VOL20`` and COOL
+    defending (cool_exposure<1), ``TEL_RS_SOFT_TILT`` + INV_VOL20 scores.
+
+    Returns (order_rows, fin_priv_meta, tel_meta).
     """
     div_df = (
         pd.read_csv(dividends_path, dtype={"code": str})
@@ -267,6 +274,8 @@ def build_live_order_rows(
                 )
 
     for sleeve_name, codes in [("Telecom", TEL), ("0050", ["0050"])]:
+        if sleeve_name == "Telecom" and LIVE_TEL_T3_COOL_INV_VOL20:
+            continue  # handled below
         value = sleeve_trade[sleeve_name] * nav / len(codes)
         for c in codes:
             qty = board_lots(abs(value) / prices[c])
@@ -288,5 +297,82 @@ def build_live_order_rows(
                     "reference_close": prices[c],
                 }
             )
+
+    tel_meta: dict[str, Any] = {
+        "enabled": bool(LIVE_TEL_T3_COOL_INV_VOL20),
+        "telecom_alloc": LIVE_TEL_WITHIN_SLEEVE,
+        "recipe": None,
+        "active": False,
+    }
+    tel_dollars = float(sleeve_trade["Telecom"]) * nav
+    if LIVE_TEL_T3_COOL_INV_VOL20:
+        import live_tel_t3_invvol_cutover as tel_t3
+
+        tel_scores, score_meta = tel_t3.scores_for_asof(market, latest)
+        policy, tilt_active, pol_meta = tel_t3.resolve_tel_policy(
+            cool_exposure=cool_exposure_today,
+            scores_ok=bool(score_meta.get("ok")),
+        )
+        tel_meta.update(pol_meta)
+        tel_meta["score_meta"] = score_meta
+        tel_meta["telecom_alloc"] = policy
+        tel_meta["active"] = bool(tilt_active)
+        tel_meta["recipe"] = tel_t3.LIVE_RECIPE_ID
+        tel_px = {c: float(prices[c]) for c in TEL if c in prices and float(prices[c]) > 0}
+        if abs(tel_dollars) >= 1e-9 and tel_px:
+            if tilt_active and tel_scores is not None:
+                for c, side, qty in allocate_sleeve_orders(
+                    tel_dollars,
+                    tel_px,
+                    pos,
+                    policy_id=TEL_RS_SOFT_TILT,
+                    codes=list(TEL),
+                    lot_size=BOARD_LOT,
+                    scores=tel_scores,
+                ):
+                    if qty < BOARD_LOT or qty % BOARD_LOT != 0:
+                        continue
+                    if c not in prices:
+                        continue
+                    oid = make_order_id(signal_date=sig_d, code=c, side=side)
+                    order_rows.append(
+                        {
+                            "order_id": oid,
+                            "signal_date": sig_d.isoformat(),
+                            "code": c,
+                            "side": side,
+                            "quantity": int(qty),
+                            "reference_close": prices[c],
+                        }
+                    )
+            else:
+                # Off-defense / fail-closed: legacy equal dollar split
+                value = tel_dollars / len(TEL)
+                for c in TEL:
+                    if c not in prices or float(prices[c]) <= 0:
+                        continue
+                    qty = board_lots(abs(value) / prices[c])
+                    if qty < BOARD_LOT:
+                        continue
+                    side = "BUY" if value > 0 else "SELL"
+                    if side == "SELL":
+                        qty = min(qty, board_lots(pos.get(c, 0)))
+                    if qty < BOARD_LOT:
+                        continue
+                    oid = make_order_id(signal_date=sig_d, code=c, side=side)
+                    order_rows.append(
+                        {
+                            "order_id": oid,
+                            "signal_date": sig_d.isoformat(),
+                            "code": c,
+                            "side": side,
+                            "quantity": qty,
+                            "reference_close": prices[c],
+                        }
+                    )
+    elif abs(tel_dollars) >= 1e-9:
+        # Flag off: keep prior equal-split (already emitted in loop above when flag off)
+        pass
+
     order_rows.sort(key=lambda o: (0 if o["side"] == "SELL" else 1, o["code"]))
-    return order_rows, fin_priv_meta
+    return order_rows, fin_priv_meta, tel_meta

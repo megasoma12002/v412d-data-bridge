@@ -40,6 +40,8 @@ from live_config import (
     LIVE_FIN_PRIV_V7_F05,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
+    LIVE_TEL_T3_BALLOT,
+    LIVE_TEL_T3_COOL_INV_VOL20,
     TIP_BOOKS_ALIGN_BALLOT,
 )
 from live_day_commit import (
@@ -268,7 +270,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
     }
     pre = {k: v / nav for k, v in sleeve_vals.items()}
     sleeve_trade, l1 = sleeve_trade_from_gap(pre, tw)
-    order_rows, fin_priv_meta = build_live_order_rows(
+    order_rows, fin_priv_meta, tel_meta = build_live_order_rows(
         market=m,
         latest=latest,
         prices=prices,
@@ -277,6 +279,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         sleeve_trade=sleeve_trade,
         dividends_path=a.dividends,
         regime_today=str(diag.get("regime", "")),
+        cool_exposure_today=float(risk_exposure_today) if LIVE_COOL_EXPOSURE else None,
     )
     conf_ret3_order_meta: dict = {"enabled": bool(LIVE_CONF_RET3_631L)}
     if LIVE_CONF_RET3_631L:
@@ -365,6 +368,16 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "conf_ret3_n_orders": int(conf_ret3_order_meta.get("n_orders") or 0)
         if LIVE_CONF_RET3_631L
         else None,
+        "tel_t3_cool_inv_vol20_live": bool(LIVE_TEL_T3_COOL_INV_VOL20),
+        "tel_t3_ballot": LIVE_TEL_T3_BALLOT if LIVE_TEL_T3_COOL_INV_VOL20 else None,
+        "telecom_alloc": tel_meta.get("telecom_alloc")
+        if LIVE_TEL_T3_COOL_INV_VOL20
+        else "TEL_EQUAL",
+        "tel_t3_active": bool(tel_meta.get("active")) if LIVE_TEL_T3_COOL_INV_VOL20 else None,
+        "tel_t3_defending": bool(tel_meta.get("defending"))
+        if LIVE_TEL_T3_COOL_INV_VOL20
+        else None,
+        "tel_t3_recipe": tel_meta.get("recipe") if LIVE_TEL_T3_COOL_INV_VOL20 else None,
     }
     navrow = {
         "date": latest.date().isoformat(),

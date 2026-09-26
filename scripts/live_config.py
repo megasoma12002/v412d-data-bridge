@@ -16,7 +16,7 @@ from typing import Any, Mapping
 
 import e22_dividend_accounting as e22div
 from portfolio_capital import DEFAULT_CAPITAL
-from within_sleeve_alloc import FIN_PRE_EXDIV_KD
+from within_sleeve_alloc import FIN_PRE_EXDIV_KD, TEL_EQUAL
 
 # Live FIN within-sleeve — human ACCEPT 2026-09-09: KD_OPT cutover
 # Frozen MappingProxyType: runtime mutation cannot bypass ACCEPT narrative.
@@ -93,6 +93,16 @@ class LiveConfig:
         "ACCEPT Live cutover: CONF_RET3_A10_H5 (00631L short-assist under COOL)"
     )
 
+    # TEL T3_COOL_INV_VOL20 within-sleeve — human ACCEPT 2026-09-26 live cutover
+    # Paper: TEL_WITHIN_SOFT → TEL_NEARFLAT_READY (+0.16pp · floor +0.15).
+    # TEL_RS_SOFT_TILT + INV_VOL20 only when cool_exposure<1; else TEL_EQUAL.
+    # Soft-Frozen / KD_OPT / FUSE / COOL / SELL_a75 / FinPriv / CONF_RET3 KEEP.
+    live_tel_within_sleeve: str = TEL_EQUAL  # default off-defense / rollback target
+    live_tel_t3_cool_inv_vol20: bool = True
+    live_tel_t3_ballot: str = (
+        "ACCEPT Live cutover: T3_COOL_INV_VOL20 (TEL within-sleeve under COOL)"
+    )
+
     # Fill backend — default paper Exact T+1. Broker / dry_run via CLI or E21_FILL_PORT.
     # True broker live write requires ALL of:
     #   broker_live_write_accepted=True (ACCEPT PR), E21_BROKER_WRITE_LIVE=1, and broker_safety gates.
@@ -117,6 +127,9 @@ LIVE_FUSE_SOFT_SELL_BOOST = LIVE.live_fuse_soft_sell_boost
 LIVE_FUSE_SOFT_SELL_BALLOT = LIVE.live_fuse_soft_sell_ballot
 LIVE_CONF_RET3_631L = LIVE.live_conf_ret3_631l
 LIVE_CONF_RET3_BALLOT = LIVE.live_conf_ret3_ballot
+LIVE_TEL_WITHIN_SLEEVE = LIVE.live_tel_within_sleeve
+LIVE_TEL_T3_COOL_INV_VOL20 = LIVE.live_tel_t3_cool_inv_vol20
+LIVE_TEL_T3_BALLOT = LIVE.live_tel_t3_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital

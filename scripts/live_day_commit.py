@@ -27,6 +27,9 @@ from live_config import (
     LIVE_FUSE_ADDITIVE,
     LIVE_FUSE_SOFT_SELL_BALLOT,
     LIVE_FUSE_SOFT_SELL_BOOST,
+    LIVE_TEL_T3_BALLOT,
+    LIVE_TEL_T3_COOL_INV_VOL20,
+    LIVE_TEL_WITHIN_SLEEVE,
     TIP_BOOKS_ALIGN_BALLOT,
 )
 from live_ledger import append_immutable, atomic_write_json
@@ -137,6 +140,20 @@ def build_portfolio_state_payload(
         "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
         "kd_opt_id": KD_OPT["id"],
         "fin_within_sleeve_cutover": "ACCEPT_2026-09-09_KD_OPT",
+        "telecom_alloc": (
+            "TEL_T3_COOL_INV_VOL20" if LIVE_TEL_T3_COOL_INV_VOL20 else LIVE_TEL_WITHIN_SLEEVE
+        ),
+        "tel_t3_cool_inv_vol20_live": bool(LIVE_TEL_T3_COOL_INV_VOL20),
+        "tel_t3_ballot": LIVE_TEL_T3_BALLOT if LIVE_TEL_T3_COOL_INV_VOL20 else None,
+        "tel_t3_cutover": (
+            "ACCEPT_2026-09-26_TEL_T3_COOL_INV_VOL20" if LIVE_TEL_T3_COOL_INV_VOL20 else None
+        ),
+        "tel_t3_rollback": (
+            "Set LIVE_TEL_T3_COOL_INV_VOL20=False (live_config.live_tel_t3_cool_inv_vol20); "
+            "reverts Telecom to TEL_EQUAL equal-split"
+            if LIVE_TEL_T3_COOL_INV_VOL20
+            else None
+        ),
         "soft_frozen_clip_flip": "ACCEPT_2026-09-09_FINBAND_F0.60-0.90",
         "e45_stitch": False,
         "e45_book": None,
