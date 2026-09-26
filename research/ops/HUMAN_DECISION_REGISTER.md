@@ -34,6 +34,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | 0k3 | FUSE Soft-sell → 00632R | **STAGE A MDD_BLOCK** (2026-09-25) | 0 HIT · CAGR↓ sealed MDD↓ · Soft-Frozen KEEP · `FUSE_SOFTSELL_T50_INV_DECISION_PACK.md` |
 | 0k4 | **大盤下行** → 00632R | **STAGE A MDD_BLOCK** (2026-09-25) | 正確觸發仍 CAGR↓ / sealed MDD 不過 · Soft-Frozen KEEP · `MKTDOWN_T50_INV_DECISION_PACK.md` |
 | 0k5 | COOL **結束** → `00631L` 搶反彈 | **STAGE A MDD_BLOCK** (2026-09-26) | CAGR 可↑但 MDD 門不過 · Soft-Frozen KEEP · no live · `COOL_T50_LEV_REBOUND_DECISION_PACK.md` |
+| 0k6 | `00631L` **短線輔助** T1–T4 | **STAGE A SHORT_ASSIST_HIT** (2026-09-26) | CONFIRM winners `CONF_RET3_A10_H5` / `CONF_RET1_A10_H3` · near-flat OUT · Soft-Frozen KEEP · no live · `COOL_T50_LEV_SHORT_ASSIST_DECISION_PACK.md` |
 | 0l | 民股金控 Gate V8 AND-confirm stack | **STAGE A SOFT** (2026-09-25) | 0 HIT · 5 soft · best `V8_BSIDE_MA120_F05_KDMAY_COOL1` held CAGR↑ ≈0 / sealed MDD↑ +0.13 · Soft-Frozen KEEP · no V7 retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.80]** / ETF **[0.00, 0.50]** | **FLIPPED** (ACCEPT 2026-09-25 β densify) | Was FINBAND [0.60,0.90]/ETF[0.00,0.35]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md` · prior FINBAND note KEEP |
 | 1c | 非對稱 0050 Bull 加碼 / MDD 持平 under COOL | **CAGR_SOFT** (2026-09-25) | Stage A 0 HIT · 7 tip-clean MDD-flat · best CAGR↑ +0.06 · Soft-Frozen KEEP · `ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.md` |

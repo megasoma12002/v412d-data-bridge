@@ -21,8 +21,10 @@ Soft-Frozen live: **F[0.60, 0.80] E[0.00, 0.50] LIVE** · COOL live: **KEEP**
 | 5c | FUSE Soft-sell → 00632R | **Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `FUSE_SOFTSELL_T50_INV_DECISION_PACK.md` |
 | 5d | 大盤下行 → 00632R | **Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `MKTDOWN_T50_INV_DECISION_PACK.md` |
 | 5e | COOL 結束 → `00631L` 搶反彈 | **Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `COOL_T50_LEV_REBOUND_DECISION_PACK.md` |
+| 5f | `00631L` 短線輔助 T1–T4 | **Stage A `SHORT_ASSIST_HIT`** · CONFIRM ×2 · Soft-Frozen KEEP · no live · `COOL_T50_LEV_SHORT_ASSIST_DECISION_PACK.md` |
 
 Binding: forward-only · no tip history rewrite · broker still PREP-only · live universe expand = Class D ACCEPT only.
 
 ABCD 2026-09-25: A observe refresh · B near-flat ACCEPT floor +0.15 · C Gate V8 · D within-sleeve COOL micro (parallel PRs).  
-2026-09-26: BLEND_025 promote 檢核 **BLOCKED** · `SELL_a75` near-flat → **LIVE WIRED** under COOL (keep FUSE+COOL).
+2026-09-26: BLEND_025 promote 檢核 **BLOCKED** · `SELL_a75` near-flat → **LIVE WIRED** under COOL (keep FUSE+COOL).  
+2026-09-26: `00631L` rebound **MDD_BLOCK** · short-assist T1–T4 **SHORT_ASSIST_HIT** (CONFIRM; near-flat OUT).

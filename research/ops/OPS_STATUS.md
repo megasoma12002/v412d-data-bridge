@@ -15,6 +15,7 @@ Live Soft-Frozen clips: **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** (β densif
 民股金控 Gate V8（AND-confirm）：**Stage A `PRIV_FINHC_V8_SOFT`** · 0 HIT · 5 soft · best `V8_BSIDE_MA120_F05_KDMAY_COOL1` · Soft-Frozen 公股 KEEP · no V7 retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md`  
 COOL × 台50反1（成立買／結束賣）：**Stage A `COOL_INV_SOFT`** · Soft-Frozen KEEP · `COOL_T50_INV_SATELLITE_DECISION_PACK.md`  
 COOL 結束 × 台50正2（`00631L` 搶反彈）：**Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `COOL_T50_LEV_REBOUND_DECISION_PACK.md`  
+`00631L` 短線輔助（確認進場等）：**Stage A `SHORT_ASSIST_HIT`** · Soft-Frozen KEEP · no live · `COOL_T50_LEV_SHORT_ASSIST_DECISION_PACK.md`  
 Soft∥Sleeve ops auto-fuse agenda：**CLOSED**（Gate H FORBIDDEN KEEP）· `ACCEPT_DROP_AUTO_FUSE_AGENDA.md`  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
