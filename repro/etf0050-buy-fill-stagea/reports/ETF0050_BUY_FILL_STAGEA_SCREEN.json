@@ -1,0 +1,1067 @@
+{
+  "generated_at_utc": "2026-09-26T14:47:54Z",
+  "label": "ETF0050_BUY_FILL_STAGEA_SCREEN",
+  "charter": "research/ops/ETF0050_BUY_FILL_STAGEA_CHARTER.md",
+  "status": "METRIC_ARTIFACT_ONLY",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "book_id": "LIVE_FUSE_ADDITIVE_SELL_a75_COOL_c8",
+  "gates": {
+    "fill_improve_pp": 0.25,
+    "mdd_slack_pp": -0.5,
+    "cagr_giveback_max_pp": 0.5
+  },
+  "base": {
+    "fuse_offense_n_fills": 5412,
+    "stack_n_fills": 6299,
+    "nav": {
+      "full": {
+        "cagr": 0.122945,
+        "max_drawdown": -0.150154,
+        "n_days": 3365
+      },
+      "oof_2011_2018": {
+        "cagr": 0.08862,
+        "max_drawdown": -0.131794,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.132036,
+        "max_drawdown": -0.150154,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.177853,
+        "max_drawdown": -0.064657,
+        "n_days": 893
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.15357,
+        "max_drawdown": -0.150154,
+        "n_days": 1870
+      }
+    },
+    "metric": {
+      "buy_n": 406,
+      "sell_n": 402,
+      "buy_n5_raw": {
+        "n": 406,
+        "mean": 6.0627,
+        "median": 2.8465,
+        "p90": 5.4656,
+        "share_le3": 0.5246,
+        "mean_t1": 0.9101
+      },
+      "buy_n5_adj": {
+        "n": 406,
+        "mean": 3.234,
+        "median": 2.9086,
+        "p90": 5.3324,
+        "share_le3": 0.5172,
+        "mean_t1": 0.9101
+      },
+      "sell_n5_raw": {
+        "n": 402,
+        "mean": 3.8781,
+        "median": 3.0145,
+        "p90": 6.0737,
+        "share_le3": 0.5,
+        "mean_t1": 0.6447
+      },
+      "sell_n5_adj": {
+        "n": 402,
+        "mean": 3.5141,
+        "median": 3.0145,
+        "p90": 5.9369,
+        "share_le3": 0.5,
+        "mean_t1": 0.6447
+      },
+      "raw_minus_adj_buy_mean": 2.8287,
+      "artifact_note": "2025-06-18 ~4:1 split makes raw \u00b15d explode; adj_close-scaled OHLC is authoritative"
+    },
+    "strata": {
+      "buy": {
+        "n": 406,
+        "mean": 3.234,
+        "median": 2.9086,
+        "p90": 5.3324,
+        "share_le3": 0.5172,
+        "mean_t1": 0.9101
+      },
+      "sell": {
+        "n": 402,
+        "mean": 3.5141,
+        "median": 3.0145,
+        "p90": 5.9369,
+        "share_le3": 0.5,
+        "mean_t1": 0.6447
+      },
+      "buy_raw": {
+        "n": 406,
+        "mean": 6.0627,
+        "median": 2.8465,
+        "p90": 5.4656,
+        "share_le3": 0.5246,
+        "mean_t1": 0.9101
+      },
+      "sell_raw": {
+        "n": 402,
+        "mean": 3.8781,
+        "median": 3.0145,
+        "p90": 6.0737,
+        "share_le3": 0.5,
+        "mean_t1": 0.6447
+      },
+      "windows": {
+        "full": {
+          "buy_adj": {
+            "n": 406,
+            "mean": 3.234,
+            "median": 2.9086,
+            "p90": 5.3324,
+            "share_le3": 0.5172,
+            "mean_t1": 0.9101
+          },
+          "sell_adj": {
+            "n": 402,
+            "mean": 3.5141,
+            "median": 3.0145,
+            "p90": 5.9369,
+            "share_le3": 0.5,
+            "mean_t1": 0.6447
+          },
+          "buy_raw": {
+            "n": 406,
+            "mean": 6.0627,
+            "median": 2.8465,
+            "p90": 5.4656,
+            "share_le3": 0.5246,
+            "mean_t1": 0.9101
+          }
+        },
+        "oof_2011_2018": {
+          "buy_adj": {
+            "n": 172,
+            "mean": 2.6662,
+            "median": 2.3906,
+            "p90": 4.2715,
+            "share_le3": 0.6337,
+            "mean_t1": 0.8995
+          },
+          "sell_adj": {
+            "n": 168,
+            "mean": 3.0203,
+            "median": 2.9373,
+            "p90": 4.9474,
+            "share_le3": 0.5238,
+            "mean_t1": 0.6065
+          },
+          "buy_raw": {
+            "n": 172,
+            "mean": 2.6679,
+            "median": 2.4238,
+            "p90": 4.2862,
+            "share_le3": 0.6395,
+            "mean_t1": 0.8995
+          }
+        },
+        "validation_2019_2022": {
+          "buy_adj": {
+            "n": 124,
+            "mean": 3.3716,
+            "median": 3.0369,
+            "p90": 5.5771,
+            "share_le3": 0.4919,
+            "mean_t1": 0.6938
+          },
+          "sell_adj": {
+            "n": 128,
+            "mean": 3.6782,
+            "median": 2.9139,
+            "p90": 6.3691,
+            "share_le3": 0.5391,
+            "mean_t1": 0.7099
+          },
+          "buy_raw": {
+            "n": 124,
+            "mean": 3.3526,
+            "median": 3.0369,
+            "p90": 5.5771,
+            "share_le3": 0.4919,
+            "mean_t1": 0.6938
+          }
+        },
+        "sealed_2023_plus": {
+          "buy_adj": {
+            "n": 110,
+            "mean": 3.9665,
+            "median": 3.78,
+            "p90": 7.6101,
+            "share_le3": 0.3636,
+            "mean_t1": 1.1706
+          },
+          "sell_adj": {
+            "n": 106,
+            "mean": 4.0984,
+            "median": 3.4463,
+            "p90": 7.0878,
+            "share_le3": 0.4151,
+            "mean_t1": 0.6266
+          },
+          "buy_raw": {
+            "n": 110,
+            "mean": 14.4258,
+            "median": 3.6343,
+            "p90": 8.4878,
+            "share_le3": 0.3818,
+            "mean_t1": 1.1706
+          }
+        },
+        "heldout_2019_plus": {
+          "buy_adj": {
+            "n": 234,
+            "mean": 3.6513,
+            "median": 3.3436,
+            "p90": 6.2708,
+            "share_le3": 0.4316,
+            "mean_t1": 0.918
+          },
+          "sell_adj": {
+            "n": 234,
+            "mean": 3.8685,
+            "median": 3.1603,
+            "p90": 6.8807,
+            "share_le3": 0.4829,
+            "mean_t1": 0.6722
+          },
+          "buy_raw": {
+            "n": 234,
+            "mean": 8.558,
+            "median": 3.2762,
+            "p90": 6.9372,
+            "share_le3": 0.4402,
+            "mean_t1": 0.918
+          }
+        }
+      },
+      "cool": {
+        "buy_on": {
+          "n": 12,
+          "mean": 4.6412,
+          "median": 4.3945,
+          "p90": 5.4529,
+          "share_le3": 0.25,
+          "mean_t1": 1.5142
+        },
+        "buy_off": {
+          "n": 394,
+          "mean": 3.1911,
+          "median": 2.8271,
+          "p90": 5.2954,
+          "share_le3": 0.5254,
+          "mean_t1": 0.8917
+        },
+        "sell_on": {
+          "n": 175,
+          "mean": 4.3841,
+          "median": 3.9369,
+          "p90": 7.6037,
+          "share_le3": 0.3086,
+          "mean_t1": 0.7299
+        },
+        "sell_off": {
+          "n": 227,
+          "mean": 2.8433,
+          "median": 2.6024,
+          "p90": 4.883,
+          "share_le3": 0.6476,
+          "mean_t1": 0.5791
+        }
+      },
+      "t1_buckets_buy": {
+        "<=0.5": {
+          "n": 155,
+          "mean": 2.6994,
+          "median": 2.2313,
+          "p90": 4.614,
+          "share_le3": 0.6516,
+          "mean_t1": -0.2272
+        },
+        "0.5-1": {
+          "n": 112,
+          "mean": 3.0935,
+          "median": 2.9691,
+          "p90": 4.6435,
+          "share_le3": 0.5089,
+          "mean_t1": 0.7572
+        },
+        "1-2": {
+          "n": 100,
+          "mean": 3.7875,
+          "median": 3.3585,
+          "p90": 5.7764,
+          "share_le3": 0.38,
+          "mean_t1": 1.4395
+        },
+        ">2": {
+          "n": 39,
+          "mean": 4.3422,
+          "median": 4.0107,
+          "p90": 7.9451,
+          "share_le3": 0.359,
+          "mean_t1": 4.5121
+        }
+      },
+      "qty_tercile_buy": {
+        "Q3_large": {
+          "n": 135,
+          "mean": 3.5292,
+          "median": 3.2621,
+          "p90": 6.2674,
+          "share_le3": 0.437,
+          "mean_t1": 1.1382
+        },
+        "Q2_mid": {
+          "n": 135,
+          "mean": 2.8555,
+          "median": 2.5464,
+          "p90": 4.7993,
+          "share_le3": 0.6074,
+          "mean_t1": 0.7956
+        },
+        "Q1_small": {
+          "n": 136,
+          "mean": 3.3165,
+          "median": 2.9617,
+          "p90": 5.3523,
+          "share_le3": 0.5074,
+          "mean_t1": 0.7975
+        }
+      }
+    }
+  },
+  "challengers": [
+    {
+      "id": "SLEW_UP_50bp",
+      "track": "SLEW_UP_ABS",
+      "meta": {
+        "max_up": 0.005
+      },
+      "n_fills_0050": 879,
+      "n_buy": 482,
+      "n_sell": 397,
+      "buy_n5_adj": {
+        "n": 482,
+        "mean": 3.0739,
+        "median": 2.6684,
+        "p90": 5.2206,
+        "share_le3": 0.5622,
+        "mean_t1": 0.8432
+      },
+      "sell_n5_adj": {
+        "n": 397,
+        "mean": 3.4759,
+        "median": 2.9342,
+        "p90": 5.9862,
+        "share_le3": 0.5239,
+        "mean_t1": 0.6083
+      },
+      "buy_n5_raw": {
+        "n": 482,
+        "mean": 4.8542,
+        "median": 2.689,
+        "p90": 5.2914,
+        "share_le3": 0.5643,
+        "mean_t1": 0.8432
+      },
+      "fill_improve_pp": 0.1601,
+      "fill_gate": false,
+      "held_cagr_giveback_pp": -0.4485,
+      "held_mdd_improve_pp": -0.012,
+      "nav_gate": true,
+      "hit": false,
+      "windows_nav": {
+        "full": {
+          "cagr": 0.125177,
+          "max_drawdown": -0.150274,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.088206,
+          "max_drawdown": -0.131222,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131193,
+          "max_drawdown": -0.150274,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.188313,
+          "max_drawdown": -0.065886,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.158055,
+          "max_drawdown": -0.150274,
+          "n_days": 1870
+        }
+      },
+      "strata_cool": {
+        "buy_on": {
+          "n": 10,
+          "mean": 3.7494,
+          "median": 3.7592,
+          "p90": 5.2538,
+          "share_le3": 0.4,
+          "mean_t1": 1.4413
+        },
+        "buy_off": {
+          "n": 472,
+          "mean": 3.0596,
+          "median": 2.6465,
+          "p90": 5.2192,
+          "share_le3": 0.5657,
+          "mean_t1": 0.8305
+        },
+        "sell_on": {
+          "n": 178,
+          "mean": 4.309,
+          "median": 3.9067,
+          "p90": 7.5789,
+          "share_le3": 0.3258,
+          "mean_t1": 0.7041
+        },
+        "sell_off": {
+          "n": 219,
+          "mean": 2.7988,
+          "median": 2.5499,
+          "p90": 4.9116,
+          "share_le3": 0.6849,
+          "mean_t1": 0.5304
+        }
+      },
+      "strata_windows_buy_adj": {
+        "full": {
+          "n": 482,
+          "mean": 3.0739,
+          "median": 2.6684,
+          "p90": 5.2206,
+          "share_le3": 0.5622,
+          "mean_t1": 0.8432
+        },
+        "oof_2011_2018": {
+          "n": 206,
+          "mean": 2.6639,
+          "median": 2.2519,
+          "p90": 4.2797,
+          "share_le3": 0.6602,
+          "mean_t1": 0.8353
+        },
+        "validation_2019_2022": {
+          "n": 144,
+          "mean": 3.1927,
+          "median": 2.9049,
+          "p90": 5.2204,
+          "share_le3": 0.5208,
+          "mean_t1": 0.8891
+        },
+        "sealed_2023_plus": {
+          "n": 132,
+          "mean": 3.5842,
+          "median": 3.3342,
+          "p90": 6.5194,
+          "share_le3": 0.4545,
+          "mean_t1": 0.8053
+        },
+        "heldout_2019_plus": {
+          "n": 276,
+          "mean": 3.38,
+          "median": 3.0987,
+          "p90": 5.7894,
+          "share_le3": 0.4891,
+          "mean_t1": 0.849
+        }
+      }
+    },
+    {
+      "id": "SLEW_UP_100bp",
+      "track": "SLEW_UP_ABS",
+      "meta": {
+        "max_up": 0.01
+      },
+      "n_fills_0050": 831,
+      "n_buy": 434,
+      "n_sell": 397,
+      "buy_n5_adj": {
+        "n": 434,
+        "mean": 3.1337,
+        "median": 2.7483,
+        "p90": 5.264,
+        "share_le3": 0.5553,
+        "mean_t1": 1.0824
+      },
+      "sell_n5_adj": {
+        "n": 397,
+        "mean": 3.5222,
+        "median": 2.9524,
+        "p90": 5.9695,
+        "share_le3": 0.5088,
+        "mean_t1": 0.6203
+      },
+      "buy_n5_raw": {
+        "n": 434,
+        "mean": 5.0986,
+        "median": 2.7297,
+        "p90": 5.3468,
+        "share_le3": 0.5622,
+        "mean_t1": 1.0824
+      },
+      "fill_improve_pp": 0.1003,
+      "fill_gate": false,
+      "held_cagr_giveback_pp": -0.2427,
+      "held_mdd_improve_pp": -0.0174,
+      "nav_gate": true,
+      "hit": false,
+      "windows_nav": {
+        "full": {
+          "cagr": 0.124251,
+          "max_drawdown": -0.150328,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.088608,
+          "max_drawdown": -0.130841,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131214,
+          "max_drawdown": -0.150328,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.183962,
+          "max_drawdown": -0.064818,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.155997,
+          "max_drawdown": -0.150328,
+          "n_days": 1870
+        }
+      },
+      "strata_cool": {
+        "buy_on": {
+          "n": 9,
+          "mean": 3.9253,
+          "median": 4.3289,
+          "p90": 4.7648,
+          "share_le3": 0.3333,
+          "mean_t1": 1.4668
+        },
+        "buy_off": {
+          "n": 425,
+          "mean": 3.1169,
+          "median": 2.7186,
+          "p90": 5.2613,
+          "share_le3": 0.56,
+          "mean_t1": 1.0742
+        },
+        "sell_on": {
+          "n": 175,
+          "mean": 4.3929,
+          "median": 3.9369,
+          "p90": 7.6037,
+          "share_le3": 0.3143,
+          "mean_t1": 0.6822
+        },
+        "sell_off": {
+          "n": 222,
+          "mean": 2.8358,
+          "median": 2.5781,
+          "p90": 4.91,
+          "share_le3": 0.6622,
+          "mean_t1": 0.5716
+        }
+      },
+      "strata_windows_buy_adj": {
+        "full": {
+          "n": 434,
+          "mean": 3.1337,
+          "median": 2.7483,
+          "p90": 5.264,
+          "share_le3": 0.5553,
+          "mean_t1": 1.0824
+        },
+        "oof_2011_2018": {
+          "n": 188,
+          "mean": 2.6098,
+          "median": 2.2267,
+          "p90": 4.2588,
+          "share_le3": 0.6755,
+          "mean_t1": 1.0174
+        },
+        "validation_2019_2022": {
+          "n": 129,
+          "mean": 3.286,
+          "median": 2.9813,
+          "p90": 5.4665,
+          "share_le3": 0.5116,
+          "mean_t1": 1.0664
+        },
+        "sealed_2023_plus": {
+          "n": 117,
+          "mean": 3.8074,
+          "median": 3.53,
+          "p90": 7.2739,
+          "share_le3": 0.4103,
+          "mean_t1": 1.2045
+        },
+        "heldout_2019_plus": {
+          "n": 246,
+          "mean": 3.534,
+          "median": 3.2241,
+          "p90": 6.1808,
+          "share_le3": 0.4634,
+          "mean_t1": 1.1321
+        }
+      }
+    },
+    {
+      "id": "SLEW_UP_200bp",
+      "track": "SLEW_UP_ABS",
+      "meta": {
+        "max_up": 0.02
+      },
+      "n_fills_0050": 808,
+      "n_buy": 406,
+      "n_sell": 402,
+      "buy_n5_adj": {
+        "n": 406,
+        "mean": 3.2192,
+        "median": 2.8271,
+        "p90": 5.2949,
+        "share_le3": 0.5296,
+        "mean_t1": 0.7922
+      },
+      "sell_n5_adj": {
+        "n": 402,
+        "mean": 3.5113,
+        "median": 2.9684,
+        "p90": 5.9618,
+        "share_le3": 0.51,
+        "mean_t1": 0.6505
+      },
+      "buy_n5_raw": {
+        "n": 406,
+        "mean": 6.0531,
+        "median": 2.7966,
+        "p90": 5.4244,
+        "share_le3": 0.5345,
+        "mean_t1": 0.7922
+      },
+      "fill_improve_pp": 0.0148,
+      "fill_gate": false,
+      "held_cagr_giveback_pp": -0.0321,
+      "held_mdd_improve_pp": -0.0056,
+      "nav_gate": true,
+      "hit": false,
+      "windows_nav": {
+        "full": {
+          "cagr": 0.123173,
+          "max_drawdown": -0.15021,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.088732,
+          "max_drawdown": -0.131794,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132165,
+          "max_drawdown": -0.15021,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.178379,
+          "max_drawdown": -0.064171,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.153891,
+          "max_drawdown": -0.15021,
+          "n_days": 1870
+        }
+      },
+      "strata_cool": {
+        "buy_on": {
+          "n": 12,
+          "mean": 4.7155,
+          "median": 4.4657,
+          "p90": 5.5182,
+          "share_le3": 0.25,
+          "mean_t1": 1.5373
+        },
+        "buy_off": {
+          "n": 394,
+          "mean": 3.1736,
+          "median": 2.7752,
+          "p90": 5.2871,
+          "share_le3": 0.5381,
+          "mean_t1": 0.7696
+        },
+        "sell_on": {
+          "n": 175,
+          "mean": 4.3801,
+          "median": 3.9312,
+          "p90": 7.6954,
+          "share_le3": 0.3257,
+          "mean_t1": 0.7331
+        },
+        "sell_off": {
+          "n": 227,
+          "mean": 2.8415,
+          "median": 2.585,
+          "p90": 4.883,
+          "share_le3": 0.652,
+          "mean_t1": 0.5868
+        }
+      },
+      "strata_windows_buy_adj": {
+        "full": {
+          "n": 406,
+          "mean": 3.2192,
+          "median": 2.8271,
+          "p90": 5.2949,
+          "share_le3": 0.5296,
+          "mean_t1": 0.7922
+        },
+        "oof_2011_2018": {
+          "n": 173,
+          "mean": 2.6647,
+          "median": 2.336,
+          "p90": 4.2715,
+          "share_le3": 0.6358,
+          "mean_t1": 0.9522
+        },
+        "validation_2019_2022": {
+          "n": 123,
+          "mean": 3.365,
+          "median": 2.9813,
+          "p90": 5.4724,
+          "share_le3": 0.5122,
+          "mean_t1": 0.5863
+        },
+        "sealed_2023_plus": {
+          "n": 110,
+          "mean": 3.928,
+          "median": 3.6934,
+          "p90": 7.6101,
+          "share_le3": 0.3818,
+          "mean_t1": 0.771
+        },
+        "heldout_2019_plus": {
+          "n": 233,
+          "mean": 3.6308,
+          "median": 3.2621,
+          "p90": 6.2742,
+          "share_le3": 0.4506,
+          "mean_t1": 0.6735
+        }
+      }
+    },
+    {
+      "id": "SLEW_FRAC_25",
+      "track": "SLEW_UP_FRAC",
+      "meta": {
+        "frac": 0.25
+      },
+      "n_fills_0050": 864,
+      "n_buy": 466,
+      "n_sell": 398,
+      "buy_n5_adj": {
+        "n": 466,
+        "mean": 3.0563,
+        "median": 2.5775,
+        "p90": 5.2949,
+        "share_le3": 0.573,
+        "mean_t1": 0.8408
+      },
+      "sell_n5_adj": {
+        "n": 398,
+        "mean": 3.4784,
+        "median": 2.9239,
+        "p90": 5.984,
+        "share_le3": 0.5276,
+        "mean_t1": 0.6256
+      },
+      "buy_n5_raw": {
+        "n": 466,
+        "mean": 4.8912,
+        "median": 2.6442,
+        "p90": 5.3764,
+        "share_le3": 0.5751,
+        "mean_t1": 0.8408
+      },
+      "fill_improve_pp": 0.1777,
+      "fill_gate": false,
+      "held_cagr_giveback_pp": -0.5244,
+      "held_mdd_improve_pp": -0.0638,
+      "nav_gate": true,
+      "hit": false,
+      "windows_nav": {
+        "full": {
+          "cagr": 0.125506,
+          "max_drawdown": -0.150792,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.088086,
+          "max_drawdown": -0.132901,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131393,
+          "max_drawdown": -0.150792,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.189716,
+          "max_drawdown": -0.066109,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.158814,
+          "max_drawdown": -0.150792,
+          "n_days": 1870
+        }
+      },
+      "strata_cool": {
+        "buy_on": {
+          "n": 9,
+          "mean": 4.2883,
+          "median": 4.5025,
+          "p90": 5.8098,
+          "share_le3": 0.3333,
+          "mean_t1": 1.7901
+        },
+        "buy_off": {
+          "n": 457,
+          "mean": 3.032,
+          "median": 2.569,
+          "p90": 5.2806,
+          "share_le3": 0.5777,
+          "mean_t1": 0.8221
+        },
+        "sell_on": {
+          "n": 177,
+          "mean": 4.3321,
+          "median": 3.9088,
+          "p90": 7.5872,
+          "share_le3": 0.3277,
+          "mean_t1": 0.7179
+        },
+        "sell_off": {
+          "n": 221,
+          "mean": 2.7947,
+          "median": 2.5246,
+          "p90": 4.9427,
+          "share_le3": 0.6878,
+          "mean_t1": 0.5516
+        }
+      },
+      "strata_windows_buy_adj": {
+        "full": {
+          "n": 466,
+          "mean": 3.0563,
+          "median": 2.5775,
+          "p90": 5.2949,
+          "share_le3": 0.573,
+          "mean_t1": 0.8408
+        },
+        "oof_2011_2018": {
+          "n": 204,
+          "mean": 2.6293,
+          "median": 2.1857,
+          "p90": 4.266,
+          "share_le3": 0.6618,
+          "mean_t1": 0.8942
+        },
+        "validation_2019_2022": {
+          "n": 135,
+          "mean": 3.2145,
+          "median": 2.8991,
+          "p90": 5.4325,
+          "share_le3": 0.5259,
+          "mean_t1": 0.918
+        },
+        "sealed_2023_plus": {
+          "n": 127,
+          "mean": 3.5738,
+          "median": 3.24,
+          "p90": 6.743,
+          "share_le3": 0.4803,
+          "mean_t1": 0.6728
+        },
+        "heldout_2019_plus": {
+          "n": 262,
+          "mean": 3.3887,
+          "median": 2.9617,
+          "p90": 6.1321,
+          "share_le3": 0.5038,
+          "mean_t1": 0.7991
+        }
+      }
+    },
+    {
+      "id": "SLEW_FRAC_50",
+      "track": "SLEW_UP_FRAC",
+      "meta": {
+        "frac": 0.5
+      },
+      "n_fills_0050": 828,
+      "n_buy": 433,
+      "n_sell": 395,
+      "buy_n5_adj": {
+        "n": 433,
+        "mean": 3.0845,
+        "median": 2.7492,
+        "p90": 5.2021,
+        "share_le3": 0.5589,
+        "mean_t1": 0.8021
+      },
+      "sell_n5_adj": {
+        "n": 395,
+        "mean": 3.4997,
+        "median": 2.9524,
+        "p90": 5.9906,
+        "share_le3": 0.5114,
+        "mean_t1": 0.6569
+      },
+      "buy_n5_raw": {
+        "n": 433,
+        "mean": 5.7389,
+        "median": 2.7408,
+        "p90": 5.2957,
+        "share_le3": 0.5635,
+        "mean_t1": 0.8021
+      },
+      "fill_improve_pp": 0.1495,
+      "fill_gate": false,
+      "held_cagr_giveback_pp": -0.2624,
+      "held_mdd_improve_pp": -0.0192,
+      "nav_gate": true,
+      "hit": false,
+      "windows_nav": {
+        "full": {
+          "cagr": 0.124266,
+          "max_drawdown": -0.150346,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08841,
+          "max_drawdown": -0.131665,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132751,
+          "max_drawdown": -0.150346,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.182614,
+          "max_drawdown": -0.06486,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156194,
+          "max_drawdown": -0.150346,
+          "n_days": 1870
+        }
+      },
+      "strata_cool": {
+        "buy_on": {
+          "n": 10,
+          "mean": 4.2058,
+          "median": 4.4657,
+          "p90": 6.1172,
+          "share_le3": 0.3,
+          "mean_t1": 1.2805
+        },
+        "buy_off": {
+          "n": 423,
+          "mean": 3.058,
+          "median": 2.6906,
+          "p90": 5.1303,
+          "share_le3": 0.565,
+          "mean_t1": 0.7908
+        },
+        "sell_on": {
+          "n": 177,
+          "mean": 4.3689,
+          "median": 3.9369,
+          "p90": 7.5872,
+          "share_le3": 0.3164,
+          "mean_t1": 0.7322
+        },
+        "sell_off": {
+          "n": 218,
+          "mean": 2.794,
+          "median": 2.5441,
+          "p90": 4.8776,
+          "share_le3": 0.6697,
+          "mean_t1": 0.5958
+        }
+      },
+      "strata_windows_buy_adj": {
+        "full": {
+          "n": 433,
+          "mean": 3.0845,
+          "median": 2.7492,
+          "p90": 5.2021,
+          "share_le3": 0.5589,
+          "mean_t1": 0.8021
+        },
+        "oof_2011_2018": {
+          "n": 185,
+          "mean": 2.5609,
+          "median": 2.2554,
+          "p90": 4.1955,
+          "share_le3": 0.6811,
+          "mean_t1": 0.8912
+        },
+        "validation_2019_2022": {
+          "n": 127,
+          "mean": 3.2771,
+          "median": 2.9894,
+          "p90": 5.4684,
+          "share_le3": 0.5039,
+          "mean_t1": 0.6712
+        },
+        "sealed_2023_plus": {
+          "n": 121,
+          "mean": 3.6829,
+          "median": 3.4692,
+          "p90": 6.8441,
+          "share_le3": 0.4298,
+          "mean_t1": 0.8034
+        },
+        "heldout_2019_plus": {
+          "n": 248,
+          "mean": 3.4751,
+          "median": 3.1759,
+          "p90": 6.06,
+          "share_le3": 0.4677,
+          "mean_t1": 0.7357
+        }
+      }
+    }
+  ],
+  "n_hit": 0,
+  "binding": [
+    "Soft-Frozen live KEEP",
+    "Exact T+1 KEEP",
+    "No tip rewrite",
+    "No live wire from Stage A"
+  ]
+}
