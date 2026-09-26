@@ -723,8 +723,6 @@ def main() -> None:
             ]
         )
     )
-    # silence unused
-    _ = (_in_kd_season, kd)
     print(
         json.dumps(
             {
