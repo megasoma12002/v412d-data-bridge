@@ -16,6 +16,8 @@ from live_config import (
     KD_OPT,
     LIVE_COOL_EXPOSURE,
     LIVE_COOL_ID,
+    LIVE_CONF_RET3_631L,
+    LIVE_CONF_RET3_BALLOT,
     LIVE_CUTOVER_BALLOT,
     LIVE_DH_EXPOSURE,
     LIVE_DH_ID,
@@ -169,6 +171,17 @@ def build_portfolio_state_payload(
             "Set LIVE_FIN_PRIV_V7_F05=False (live_config.live_fin_priv_v7_f05); "
             "gate-off path force-sells PRIV holdings"
             if LIVE_FIN_PRIV_V7_F05
+            else None
+        ),
+        "conf_ret3_631l_live": bool(LIVE_CONF_RET3_631L),
+        "conf_ret3_ballot": LIVE_CONF_RET3_BALLOT if LIVE_CONF_RET3_631L else None,
+        "conf_ret3_cutover": (
+            "ACCEPT_2026-09-26_CONF_RET3_A10_H5_00631L" if LIVE_CONF_RET3_631L else None
+        ),
+        "conf_ret3_rollback": (
+            "Set LIVE_CONF_RET3_631L=False (live_config.live_conf_ret3_631l); "
+            "next tip day force-flats 00631L when off_weight=0"
+            if LIVE_CONF_RET3_631L
             else None
         ),
     }

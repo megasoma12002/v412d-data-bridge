@@ -21,17 +21,23 @@ def live_holdings_universe() -> list[str]:
     """Codes marked in live NAV/positions.
 
     Soft-Frozen default: FIN+TEL+0050. Class D FinPriv ACCEPT expands Financial
-    holdings to include PRIV_R3R4 (router features stay 公股).
+    holdings to include PRIV_R3R4 (router features stay 公股). CONF_RET3 ACCEPT
+    adds tradable ``00631L`` satellite (forward-only membership).
     """
     try:
-        from live_config import LIVE_FIN_PRIV_V7_F05
+        from live_config import LIVE_CONF_RET3_631L, LIVE_FIN_PRIV_V7_F05
     except Exception:
         return list(ALL)
-    if not LIVE_FIN_PRIV_V7_F05:
-        return list(ALL)
-    import live_finhc_v7_f05_cutover as finpriv
+    out = list(ALL)
+    if LIVE_FIN_PRIV_V7_F05:
+        import live_finhc_v7_f05_cutover as finpriv
 
-    return finpriv.holdings_universe_class_d()
+        out = finpriv.holdings_universe_class_d()
+    if LIVE_CONF_RET3_631L:
+        import live_conf_ret3_631l_cutover as conf_ret3
+
+        out = conf_ret3.holdings_universe_with_off(out)
+    return out
 
 # Cost model shared by live session (paper Exact T+1). Broker port may override later.
 BUY_FEE = 0.001425 * 0.6
@@ -55,6 +61,20 @@ def commission(gross: float, rate: float, *, min_commission: float = MIN_COMMISS
 _DEFAULT_ETF_CODES = frozenset({"0050"})
 
 
+def live_etf_codes() -> frozenset[str]:
+    """ETF tax set for live fills — expands with CONF_RET3 ``00631L`` when wired."""
+    codes = set(_DEFAULT_ETF_CODES)
+    try:
+        from live_config import LIVE_CONF_RET3_631L
+    except Exception:
+        return frozenset(codes)
+    if LIVE_CONF_RET3_631L:
+        import live_conf_ret3_631l_cutover as conf_ret3
+
+        return conf_ret3.etf_codes_with_off(codes)
+    return frozenset(codes)
+
+
 def sell_tax(
     code: str,
     gross: float,
@@ -63,7 +83,7 @@ def sell_tax(
     tax_etf: float = TAX_ETF,
     etf_codes: frozenset[str] | set[str] | None = None,
 ) -> float:
-    codes = _DEFAULT_ETF_CODES if etf_codes is None else frozenset(str(c) for c in etf_codes)
+    codes = live_etf_codes() if etf_codes is None else frozenset(str(c) for c in etf_codes)
     tax = tax_etf if str(code) in codes else tax_stock
     return float(gross) * float(tax)
 
