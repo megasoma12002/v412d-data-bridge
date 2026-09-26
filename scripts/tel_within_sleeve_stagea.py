@@ -250,11 +250,11 @@ def build_score_family(market: pd.DataFrame, cal: pd.DatetimeIndex) -> dict[str,
         "DIST60": dist60,
         "RSI14_INV": rsi_inv,
         "BELOW_MA60": below_ma60,
-        "DIST60_RSI": _xz(0.5 * dist60_raw.fillna(0.0) + 0.5 * ((50.0 - rsi_panel) / 50.0).fillna(0.0)),
+        "DIST60_RSI": (0.5 * dist60 + 0.5 * rsi_inv).clip(-3.0, 3.0),
         "INV_VOL20": inv_vol,
         "ADV20": adv,
         "INV_BETA0050": inv_beta,
-        "ADV_INVVOL": _xz(0.5 * adv20.fillna(0.0) + 0.5 * (1.0 / (vol20 + 1e-8)).fillna(0.0)),
+        "ADV_INVVOL": (0.5 * adv + 0.5 * inv_vol).clip(-3.0, 3.0),
     }
 
 
