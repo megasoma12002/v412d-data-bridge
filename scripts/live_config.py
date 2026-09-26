@@ -71,6 +71,12 @@ class LiveConfig:
         "ACCEPT Live cutover: COOL_c8_f50_d21 (replace DH, keep FUSE)"
     )
 
+    # Class D FinPriv V7 Bull+Side F05 carve-out — human ACCEPT 2026-09-25/26
+    # Soft-Frozen 3-sleeve router KEEP (公股 features); within-Financial dual carve only.
+    # Gate REG_BULL_SIDE · priv_frac=0.05 · PRIV_KD_MAY; fail-closed on stale PRIV px.
+    live_fin_priv_v7_f05: bool = True
+    live_fin_priv_ballot: str = "ACCEPT Class D: FinPriv V7 F05"
+
     # Fill backend — default paper Exact T+1. Broker / dry_run via CLI or E21_FILL_PORT.
     # True broker live write requires ALL of:
     #   broker_live_write_accepted=True (ACCEPT PR), E21_BROKER_WRITE_LIVE=1, and broker_safety gates.
@@ -89,6 +95,8 @@ LIVE_DH_ID = LIVE.live_dh_id
 LIVE_COOL_EXPOSURE = LIVE.live_cool_exposure
 LIVE_COOL_ID = LIVE.live_cool_id
 LIVE_CUTOVER_BALLOT = LIVE.live_cutover_ballot
+LIVE_FIN_PRIV_V7_F05 = LIVE.live_fin_priv_v7_f05
+LIVE_FIN_PRIV_BALLOT = LIVE.live_fin_priv_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital

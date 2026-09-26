@@ -1,0 +1,28 @@
+{
+  "label": "PUB_PRIV_COOL_COEXIST_DECISION",
+  "generated_at_utc": "2026-09-25T09:20:04Z",
+  "status": "STAGE_A_NO_COEXIST",
+  "verdict": "NO_COEXIST",
+  "coexist_ids": [],
+  "held_only_ids": [],
+  "best": "DUAL_p85_EQ_COOL",
+  "binding": [
+    "Soft-Frozen Financial membership stays 公股 R1 until dedicated ACCEPT",
+    "Do not live-expand e21 universe from this Stage A",
+    "COOL live KEEP independent of this paper screen",
+    "Register 0b2 STOP — COOL alone is not a new 公+民 coexist unlock"
+  ],
+  "next": "STOP this reopen · new mechanism required for 公+民 MDD coexist",
+  "charter": "research/ops/PUB_PRIV_COOL_COEXIST_STAGEA_CHARTER.md",
+  "stage_a": "research/ops/PUB_PRIV_COOL_COEXIST_STAGEA_SCREEN.md",
+  "register_item": "0b2",
+  "highlight": {
+    "best": "DUAL_p85_EQ_COOL",
+    "held_cagr_lift_pp": 1.693,
+    "held_mdd_improve_pp": -0.2242,
+    "sealed_mdd_improve_pp": -1.0054,
+    "n_challengers": 8,
+    "n_coexist": 0,
+    "n_held_only": 0
+  }
+}

@@ -1,12 +1,16 @@
 # 民股 Gate V7 Bull+Side F05 observe posture
 
-Date: 2026-09-25  
-Status: **KEEP OBSERVE** · Soft-Frozen 公股 R1 **KEEP** · live wire **false** · cutover **BLOCKED**
+Date: 2026-09-26  
+Status: **Class D LIVE WIRED** · Soft-Frozen 3-sleeve 公股 features **KEEP** · dual-paper observe may continue as shadow
 
-Human:
+Human Class D ACCEPT:
 
 ```
-OPEN observe: 民股 V7 Bull+Side F05 近持平
+ACCEPT Class D: FinPriv V7 F05
 ```
 
-Stage A SOFT champion paper-only. Promote / FinPriv live membership requires dedicated Class D ACCEPT.
+Prior: observe OPEN → near-flat ACCEPT (floor +0.15) → Class D live carve.
+
+Live: gate `REG_BULL_SIDE` · `priv_frac=0.05` · `PRIV_KD_MAY` · fail-closed on stale PRIV px.  
+Ballot: `CLASSD_FINPRIV_V7_F05_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`  
+Checklist: `CUTOVER_CHECKLIST_PRIV_FINHC_V7_BULL_SIDE_F05.md` (**AUTHORIZED · LIVE WIRED**)
