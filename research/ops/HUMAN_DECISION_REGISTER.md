@@ -27,6 +27,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | 0g | 民股 MDD **新機制 V4**（sealed 事件剖檢→日曆閘） | **STOP** (2026-09-19) | A0 span>120 · A1 未開 · Soft-Frozen KEEP · `PRIV_MDD_SEALED_EPISODE_V4_DECISION_PACK.md` |
 | 0h | 民股 MDD **新機制 V5**（DH 防衛窗 → 只關 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V5_DH_0050_XTIGHT` −0.27 · Soft-Frozen KEEP · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md` |
 | 0i | 民股 MDD **新機制 V6**（shadow 相對 NAV 連續阻尼 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V6_C100_PUB` −0.24 · Soft-Frozen KEEP · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md` |
+| 0j | 民股金控 Gate V7 carve-out（Bull+Side F05 近持平） | **SOFT → OBSERVE OPEN → NEAR_FLAT_ACCEPT** (2026-09-25) | floor +0.15 · paper `NEAR_FLAT_HIT` · Soft-Frozen 公股 KEEP · Class D BLOCKED · `PRIV_FINHC_V7_F05_NEAR_FLAT_ACCEPT_BALLOT_EXECUTED.md` |
 | 0j | 民股金控 **max CAGR × min MDD** Gate V7 | **STAGE A SOFT** (2026-09-25) | 0 HIT · 2 soft (Bull-gate F05 sealed MDD↑ OK, CAGR short of +0.20) · Soft-Frozen KEEP · `PRIV_FINHC_CAGR_MDD_GATE_V7_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.80]** / ETF **[0.00, 0.50]** | **FLIPPED** (ACCEPT 2026-09-25 β densify) | Was FINBAND [0.60,0.90]/ETF[0.00,0.35]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md` · prior FINBAND note KEEP |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
