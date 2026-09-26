@@ -1,7 +1,7 @@
 # Live fill extreme + mechanism audit (paper / observe)
 
 Date: 2026-09-26  
-Status: **CHARTER OPEN · AUDIT RUNNING** · Soft-Frozen live **KEEP** · no live wire / no tip rewrite  
+Status: **Stage A `FILL_EXTREME_AUDIT_DONE`** · Soft-Frozen live **KEEP** · no live wire / no tip rewrite  
 Human: 事後審計（fill vs 高低）+ 機制對照（clip／T+1／COOL／KD）
 
 Scope: `forward/e21/fills.csv` executed tip fills (observe ledger).  

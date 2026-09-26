@@ -55,6 +55,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | β densify near-flat paper observe | **PROMOTED LIVE** (2026-09-25) | `OPEN … BETA_F0.60-0.80_E0.00-0.50` · Soft-Frozen KEEP · cutover BLOCKED · `#284` · `BETA_0050_DENSIFY_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | β／0050 densify under COOL | **HIT → LIVE clip** (2026-09-25) | `F[0.60,0.80] E[0,0.50]` +0.57pp tip-OK · **observe only** · Soft-Frozen KEEP · `#284` · `BETA_0050_DENSIFY_UNDER_COOL_DECISION_PACK.md` |
 | Within-sleeve FinPub/TEL micro × COOL | **`NO_FLAT_LIFT`** (2026-09-25) | Stage A 13 books · best +0.14pp out-of-band · live KD_OPT/TEL_EQUAL/Soft-Frozen **KEEP** · `WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md` |
+| Live tip fill 高低點／機制審計 | **`FILL_EXTREME_AUDIT_DONE`** (2026-09-26) | 96 fills · ±5d mean ~3.8% · T+1 drag ~1.2% · Soft-Frozen/T+1 **KEEP** · no live · `LIVE_FILL_EXTREME_AUDIT_DECISION_PACK.md` |
 | Active research KEEP | **LOCKED** | FIN quartet (**`MIX_L75`** + **`KD_OPT`**) + E45 **`A05`/`C35`** + month-end gates |
 | FIN within-sleeve live | **`KD_OPT` LIVE** (ACCEPT 2026-09-09) | `FIN_PRE_EXDIV_KD` forward-only; Soft-Frozen KEEP; note `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` |
 | FIN autumn post-ex probe | **STOP** (2026-09-09) | small-search+dual no lift vs KD_OPT · `FIN_KD_AUTUMN_DUAL_SEASON.md` · live KD_OPT untouched |
