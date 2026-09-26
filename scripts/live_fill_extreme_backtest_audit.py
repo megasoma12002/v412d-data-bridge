@@ -1,186 +1,132 @@
 #!/usr/bin/env python3
-"""Live tip fill extreme + mechanism audit (observe only).
+"""Backtest fill extreme + mechanism audit on live FUSE+COOL twin (observe only).
 
 Charter: research/ops/LIVE_FILL_EXTREME_AUDIT_CHARTER.md
-Uses forward/e21 fills + live_market; Soft-Frozen KEEP; no tip rewrite.
+Full-history paper fills from simulate_core (FUSE offense → COOL_c8 stacked).
+Soft-Frozen KEEP; no live wire; no tip rewrite.
 """
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import numpy as np
 import pandas as pd
 
-import e16_soft_frozen_base as soft
 import live_cool_c8_cutover as cool_cut
 import live_dh_fuse_cutover as fuse_cut
-from e16_soft_frozen_base import FIN, TEL
-from live_config import DIV_PATH, KD_OPT
+from e16_soft_frozen_base import FIN
+from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market
+from live_config import KD_OPT
+from live_fill_extreme_audit import (
+    N_GRID,
+    _agg_from_extremes,
+    _clip_binding,
+    _in_kd_season,
+    _ohlc_panel,
+    _sleeve,
+    _window_ext,
+)
 from within_sleeve_alloc import build_pre_exdiv_window_buy_ok
 
 ROOT = Path(__file__).resolve().parents[1]
-STATE = ROOT / "forward" / "e21"
 REPRO = ROOT / "repro" / "live-fill-extreme-audit"
 OUT = REPRO / "outputs"
 REP = REPRO / "reports"
 OPS = ROOT / "research" / "ops"
 
 CHARTER_ID = "LIVE_FILL_EXTREME_AUDIT_CHARTER"
-SCREEN_ID = "LIVE_FILL_EXTREME_AUDIT_SCREEN"
-DECISION_ID = "LIVE_FILL_EXTREME_AUDIT_DECISION_PACK"
-N_GRID = (5, 21)
-CLIP_EPS = 1e-4
+SCREEN_ID = "LIVE_FILL_EXTREME_BACKTEST_SCREEN"
+DECISION_ID = "LIVE_FILL_EXTREME_BACKTEST_DECISION_PACK"
+BOOK_ID = "LIVE_FUSE_ADDITIVE_SELL_a75_COOL_c8"
 
 
 def _utc() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def _sleeve(code: str) -> str:
-    c = str(code)
-    if c in FIN:
-        return "FIN"
-    if c in TEL:
-        return "TEL"
-    if c == "0050":
-        return "0050"
-    if c in ("00631L", "00632R"):
-        return "SAT"
-    return "OTHER"
+def _lookup_exp(exp: pd.Series, sig_d: pd.Timestamp) -> float | None:
+    if exp.empty:
+        return None
+    if sig_d in exp.index and pd.notna(exp.loc[sig_d]):
+        return float(exp.loc[sig_d])
+    prior = exp.index[exp.index <= sig_d]
+    if len(prior) and pd.notna(exp.loc[prior[-1]]):
+        return float(exp.loc[prior[-1]])
+    return None
 
 
-def _in_kd_season(dt: pd.Timestamp) -> bool:
-    ss = tuple(KD_OPT["season_start"])
-    se = tuple(KD_OPT["season_end"])
-    md = (int(dt.month), int(dt.day))
-    return ss <= md <= se
+def _lookup_sleeve(
+    target: pd.DataFrame, sig_d: pd.Timestamp
+) -> tuple[float | None, float | None, float | None]:
+    if target.empty:
+        return None, None, None
+    row = None
+    if sig_d in target.index:
+        row = target.loc[sig_d]
+    else:
+        prior = target.index[target.index <= sig_d]
+        if len(prior):
+            row = target.loc[prior[-1]]
+    if row is None:
+        return None, None, None
+    return (
+        float(row["Financial"]) if "Financial" in row.index else None,
+        float(row["Telecom"]) if "Telecom" in row.index else None,
+        float(row["0050"]) if "0050" in row.index else None,
+    )
 
 
-def _ohlc_panel(market: pd.DataFrame, code: str) -> pd.DataFrame:
-    m = market[market["code"].astype(str) == str(code)].copy()
-    m["date"] = pd.to_datetime(m["date"]).dt.normalize()
-    m = m.drop_duplicates("date").sort_values("date").set_index("date")
-    for col in ("open", "high", "low", "close"):
-        if col not in m.columns:
-            m[col] = np.nan
-    if m["high"].isna().all() and "adj_close" in m.columns:
-        m["high"] = m["adj_close"]
-        m["low"] = m["adj_close"]
-        m["close"] = m["adj_close"]
-        m["open"] = m["adj_close"]
-    return m[["open", "high", "low", "close"]].astype(float)
-
-
-def _window_ext(
-    panel: pd.DataFrame, center: pd.Timestamp, n: int
-) -> tuple[float | None, float | None, int]:
-    if panel.empty:
-        return None, None, 0
-    idx = panel.index
-    # n trading days each side via positional neighborhood
-    if center not in idx:
-        prior = idx[idx <= center]
-        if len(prior) == 0:
-            return None, None, 0
-        center = prior[-1]
-    loc = int(idx.get_loc(center))
-    lo_i = max(0, loc - int(n))
-    hi_i = min(len(idx) - 1, loc + int(n))
-    sub = panel.iloc[lo_i : hi_i + 1]
-    if sub.empty:
-        return None, None, 0
-    return float(sub["low"].min()), float(sub["high"].max()), int(len(sub))
-
-
-def _clip_binding(fin_w: float, tel_w: float, etf_w: float) -> list[str]:
-    tags: list[str] = []
-    flo, fhi = soft.SOFT_FROZEN_FIN_LO, soft.SOFT_FROZEN_FIN_HI
-    # tip period may still be prior FIN hi 0.90 before flip asof
-    if fin_w <= flo + CLIP_EPS:
-        tags.append("CLIP_FIN_LO")
-    if fin_w >= fhi - CLIP_EPS or fin_w >= soft.SOFT_FROZEN_PRIOR_FIN_HI - CLIP_EPS:
-        tags.append("CLIP_FIN_HI")
-    if tel_w <= soft.SOFT_FROZEN_TEL_LO + CLIP_EPS:
-        tags.append("CLIP_TEL_LO")
-    if tel_w >= soft.SOFT_FROZEN_TEL_HI - CLIP_EPS:
-        tags.append("CLIP_TEL_HI")
-    if etf_w <= soft.SOFT_FROZEN_ETF_LO + CLIP_EPS:
-        tags.append("CLIP_ETF_LO")
-    if etf_w >= soft.SOFT_FROZEN_ETF_HI - CLIP_EPS:
-        tags.append("CLIP_ETF_HI")
-    return tags
-
-
-def _agg_from_extremes(df: pd.DataFrame, n: int) -> dict[str, Any]:
-    key = f"n{n}"
-    dists = []
-    for _, r in df.iterrows():
-        e = r["extremes"] if isinstance(r["extremes"], dict) else {}
-        cell = e.get(key) or {}
-        if cell.get("ok"):
-            dists.append(float(cell["dist_pct"]))
-    if not dists:
-        return {"n": 0}
-    a = np.asarray(dists, dtype=float)
-    return {
-        "n": int(len(a)),
-        "mean_dist_pct": round(float(a.mean()), 4),
-        "median_dist_pct": round(float(np.median(a)), 4),
-        "p90_dist_pct": round(float(np.quantile(a, 0.90)), 4),
-        "share_within_1pct": round(float((a <= 1.0).mean()), 4),
-        "share_within_3pct": round(float((a <= 3.0).mean()), 4),
-    }
+def _window_mask(fill_dates: pd.Series, a: date | None, b: date | None) -> pd.Series:
+    d = pd.to_datetime(fill_dates).dt.date
+    ok = pd.Series(True, index=fill_dates.index)
+    if a is not None:
+        ok &= d >= a
+    if b is not None:
+        ok &= d <= b
+    return ok
 
 
 def main() -> int:
     for d in (OUT, REP, OPS):
         d.mkdir(parents=True, exist_ok=True)
 
-    fills_path = STATE / "fills.csv"
-    sig_path = STATE / "signals.csv"
-    mkt_path = STATE / "live_market.csv"
-    assert fills_path.exists(), fills_path
-    assert mkt_path.exists(), mkt_path
+    print("loading market ...", flush=True)
+    market = load_market()
+    dividends = load_dividends()
 
-    fills = pd.read_csv(fills_path, dtype={"code": str})
+    print("building FUSE offense (SELL_a75) ...", flush=True)
+    fuse_nav, _fills_off, fuse_meta = fuse_cut.build_fuse_offense_sim(market, dividends)
+    print(f"  offense fills={fuse_meta['n_fills']}", flush=True)
+
+    print("building COOL_c8 from offense ...", flush=True)
+    cool = cool_cut.build_cool_exposure_from_offense(market, fuse_nav)
+    cool.to_frame("cool_exposure").to_csv(OUT / "backtest_cool_c8_from_fuse.csv")
+    dh = fuse_cut.build_dh_exposure_from_offense(market, fuse_nav)
+    dh.to_frame("dh_exposure").to_csv(OUT / "backtest_dh_from_fuse.csv")
+
+    print("building FUSE+COOL live-twin fills ...", flush=True)
+    cool_nav, fills, cool_meta = fuse_cut.build_fuse_offense_sim(
+        market, dividends, e45_exposure=cool
+    )
+    cool_nav.to_csv(OUT / "backtest_fuse_cool_nav.csv", index=False)
+    fills = fills.copy()
     fills["signal_date"] = pd.to_datetime(fills["signal_date"]).dt.normalize()
     fills["fill_date"] = pd.to_datetime(fills["fill_date"]).dt.normalize()
-    signals = (
-        pd.read_csv(sig_path)
-        if sig_path.exists()
-        else pd.DataFrame()
-    )
-    if not signals.empty:
-        signals["date"] = pd.to_datetime(signals["date"]).dt.normalize()
-        sig_map = signals.set_index("date")
-    else:
-        sig_map = pd.DataFrame()
+    fills.to_csv(OUT / "backtest_fuse_cool_fills.csv", index=False)
+    print(f"  twin fills={len(fills)}", flush=True)
 
-    market = pd.read_csv(mkt_path, dtype={"code": str})
-    market["date"] = pd.to_datetime(market["date"]).dt.normalize()
-    dividends = (
-        pd.read_csv(DIV_PATH, dtype={"code": str})
-        if Path(DIV_PATH).exists()
-        else pd.DataFrame()
-    )
-
-    print("building cool (reconstructed COOL_c8 twin) ...", flush=True)
-    fuse_nav, _ = fuse_cut.build_fuse_offense_nav(market, dividends)
-    cool = cool_cut.build_cool_exposure_from_offense(market, fuse_nav)
-    cool.to_frame("cool_exposure").to_csv(OUT / "cool_c8_reconstructed.csv")
-
+    target = fuse_cut.fuse_target_for_market(market)
     cal = pd.DatetimeIndex(pd.to_datetime(market["date"]).drop_duplicates().sort_values())
     buy_ok = build_pre_exdiv_window_buy_ok(
         cal, dividends, FIN, pre_days=int(KD_OPT["pre_days"]), also_stock_ex=True
     )
-
-    panels = {c: _ohlc_panel(market, c) for c in sorted(fills["code"].unique())}
+    panels = {c: _ohlc_panel(market, c) for c in sorted(fills["code"].astype(str).unique())}
 
     rows: list[dict[str, Any]] = []
-    for _, f in fills.iterrows():
+    for i, f in fills.iterrows():
         code = str(f["code"])
         side = str(f["side"]).upper()
         px = float(f["fill_price"])
@@ -189,29 +135,11 @@ def main() -> int:
         sleeve = _sleeve(code)
         panel = panels.get(code, pd.DataFrame())
 
-        # tip defense (DH historical)
-        dh_exp = None
-        fin_w = tel_w = etf_w = None
-        if not sig_map.empty and sig_d in sig_map.index:
-            srow = sig_map.loc[sig_d]
-            if isinstance(srow, pd.DataFrame):
-                srow = srow.iloc[-1]
-            if "dh_exposure" in srow.index and pd.notna(srow["dh_exposure"]):
-                dh_exp = float(srow["dh_exposure"])
-            fin_w = float(srow["e16_financial"]) if "e16_financial" in srow.index else None
-            tel_w = float(srow["e16_telecom"]) if "e16_telecom" in srow.index else None
-            etf_w = float(srow["e16_0050"]) if "e16_0050" in srow.index else None
-
-        cool_exp = None
-        if sig_d in cool.index and pd.notna(cool.loc[sig_d]):
-            cool_exp = float(cool.loc[sig_d])
-        elif len(cool.dropna()):
-            prior = cool.index[cool.index <= sig_d]
-            if len(prior):
-                cool_exp = float(cool.loc[prior[-1]])
+        cool_exp = _lookup_exp(cool, sig_d)
+        dh_exp = _lookup_exp(dh, sig_d)
+        fin_w, tel_w, etf_w = _lookup_sleeve(target, sig_d)
 
         mech: list[str] = ["T1_ALWAYS"]
-        # T+1 drag vs signal-day extreme
         t1_drag_pp = None
         if not panel.empty and sig_d in panel.index:
             s_low = float(panel.loc[sig_d, "low"])
@@ -222,9 +150,9 @@ def main() -> int:
                 t1_drag_pp = (s_high - px) / s_high * 100.0
             mech.append("T1_DRAG")
         if dh_exp is not None and dh_exp < 1.0 - 1e-12:
-            mech.append("DEFENSE_DH")
+            mech.append("DEFENSE_DH_CF")
         if cool_exp is not None and cool_exp < 1.0 - 1e-12:
-            mech.append("DEFENSE_COOL_CF")
+            mech.append("DEFENSE_COOL")
         if fin_w is not None and tel_w is not None and etf_w is not None:
             for t in _clip_binding(fin_w, tel_w, etf_w):
                 mech.append(t)
@@ -247,7 +175,6 @@ def main() -> int:
             else:
                 dist = (hi - px) / hi * 100.0
                 kind = "below_high_pct"
-            # 0 = perfect extreme, larger = farther from ideal
             ext[f"n{n}"] = {
                 "ok": True,
                 "kind": kind,
@@ -259,7 +186,7 @@ def main() -> int:
 
         rows.append(
             {
-                "fill_id": f["fill_id"],
+                "fill_id": f"{fill_d.date().isoformat()}-{code}-{side}-{i}",
                 "signal_date": sig_d.date().isoformat(),
                 "fill_date": fill_d.date().isoformat(),
                 "code": code,
@@ -270,10 +197,10 @@ def main() -> int:
                 "t1_drag_vs_signal_ext_pct": None
                 if t1_drag_pp is None
                 else round(float(t1_drag_pp), 4),
-                "dh_exposure": dh_exp,
-                "cool_exposure_cf": None if cool_exp is None else round(float(cool_exp), 6),
-                "defense_dh": bool(dh_exp is not None and dh_exp < 1.0 - 1e-12),
-                "defense_cool_cf": bool(cool_exp is not None and cool_exp < 1.0 - 1e-12),
+                "dh_exposure_cf": None if dh_exp is None else round(float(dh_exp), 6),
+                "cool_exposure": None if cool_exp is None else round(float(cool_exp), 6),
+                "defense_dh_cf": bool(dh_exp is not None and dh_exp < 1.0 - 1e-12),
+                "defense_cool": bool(cool_exp is not None and cool_exp < 1.0 - 1e-12),
                 "e16_financial": fin_w,
                 "e16_telecom": tel_w,
                 "e16_0050": etf_w,
@@ -283,28 +210,31 @@ def main() -> int:
         )
 
     detail = pd.DataFrame(rows)
-    detail.to_csv(OUT / "fill_extreme_detail.csv", index=False)
-    (OUT / "fill_extreme_detail.json").write_text(
+    detail.to_csv(OUT / "backtest_fill_extreme_detail.csv", index=False)
+    (OUT / "backtest_fill_extreme_detail.json").write_text(
         json.dumps(rows, indent=2) + "\n"
     )
 
-    strata = []
+    def _agg(df: pd.DataFrame, n: int) -> dict[str, Any]:
+        return _agg_from_extremes(df, n)
+
+    strata: list[dict[str, Any]] = []
     for sleeve in ("FIN", "TEL", "0050", "ALL"):
         for side in ("BUY", "SELL", "ALL"):
-            for def_lab in ("ALL", "DH_DEFEND", "DH_OFF", "COOL_CF_DEFEND", "COOL_CF_OFF"):
+            for def_lab in ("ALL", "COOL_DEFEND", "COOL_OFF", "DH_CF_DEFEND", "DH_CF_OFF"):
                 sub = detail
                 if sleeve != "ALL":
                     sub = sub[sub["sleeve"] == sleeve]
                 if side != "ALL":
                     sub = sub[sub["side"] == side]
-                if def_lab == "DH_DEFEND":
-                    sub = sub[sub["defense_dh"].fillna(False)]
-                elif def_lab == "DH_OFF":
-                    sub = sub[~sub["defense_dh"].fillna(False)]
-                elif def_lab == "COOL_CF_DEFEND":
-                    sub = sub[sub["defense_cool_cf"].fillna(False)]
-                elif def_lab == "COOL_CF_OFF":
-                    sub = sub[~sub["defense_cool_cf"].fillna(False)]
+                if def_lab == "COOL_DEFEND":
+                    sub = sub[sub["defense_cool"].fillna(False)]
+                elif def_lab == "COOL_OFF":
+                    sub = sub[~sub["defense_cool"].fillna(False)]
+                elif def_lab == "DH_CF_DEFEND":
+                    sub = sub[sub["defense_dh_cf"].fillna(False)]
+                elif def_lab == "DH_CF_OFF":
+                    sub = sub[~sub["defense_dh_cf"].fillna(False)]
                 if sub.empty:
                     continue
                 strata.append(
@@ -313,8 +243,8 @@ def main() -> int:
                         "side": side,
                         "defense": def_lab,
                         "n_fills": int(len(sub)),
-                        "n5": _agg_from_extremes(sub, 5),
-                        "n21": _agg_from_extremes(sub, 21),
+                        "n5": _agg(sub, 5),
+                        "n21": _agg(sub, 21),
                         "mean_t1_drag_pct": round(
                             float(
                                 pd.to_numeric(
@@ -328,19 +258,43 @@ def main() -> int:
                     }
                 )
 
+    windows: dict[str, Any] = {}
+    for wname, (a, b) in WINDOWS_STANDARD.items():
+        mask = _window_mask(detail["fill_date"], a, b)
+        sub = detail[mask]
+        if sub.empty:
+            windows[wname] = {"n_fills": 0}
+            continue
+        windows[wname] = {
+            "n_fills": int(len(sub)),
+            "n_buy": int((sub["side"] == "BUY").sum()),
+            "n_sell": int((sub["side"] == "SELL").sum()),
+            "overall_n5": _agg(sub, 5),
+            "overall_n21": _agg(sub, 21),
+            "mean_t1_drag_pct": round(
+                float(
+                    pd.to_numeric(sub["t1_drag_vs_signal_ext_pct"], errors="coerce").mean()
+                ),
+                4,
+            )
+            if sub["t1_drag_vs_signal_ext_pct"].notna().any()
+            else None,
+            "cool_defend_share": round(float(sub["defense_cool"].fillna(False).mean()), 4),
+        }
+
     mech_counts: dict[str, int] = {}
     for r in rows:
         for m in r["mechanisms"]:
             mech_counts[m] = mech_counts.get(m, 0) + 1
 
-    # Binding summary narrative numbers
     n = len(rows)
     n_buy = int((detail["side"] == "BUY").sum())
     n_sell = int((detail["side"] == "SELL").sum())
-    core = _agg_from_extremes(detail, 5)
-    core21 = _agg_from_extremes(detail, 21)
+    core = _agg(detail, 5)
+    core21 = _agg(detail, 21)
+    cool_frac = float((cool < 1.0 - 1e-12).mean()) if len(cool) else 0.0
 
-    verdict = "FILL_EXTREME_AUDIT_DONE"
+    verdict = "FILL_EXTREME_BACKTEST_DONE"
     payload = {
         "generated_at_utc": _utc(),
         "label": SCREEN_ID,
@@ -348,6 +302,14 @@ def main() -> int:
         "status": verdict,
         "live_wire": False,
         "soft_frozen_keep": True,
+        "book_id": BOOK_ID,
+        "fuse_meta": {k: fuse_meta[k] for k in (
+            "fuse_id", "soft_id", "soft_sell_boost", "sleeve_id", "n_fills", "e22_books_version"
+        )},
+        "cool_meta": {
+            "n_fills": int(cool_meta["n_fills"]),
+            "cool_defense_frac_days": round(cool_frac, 4),
+        },
         "n_fills": n,
         "n_buy": n_buy,
         "n_sell": n_sell,
@@ -361,36 +323,37 @@ def main() -> int:
             4,
         ),
         "mechanism_fill_counts": dict(sorted(mech_counts.items(), key=lambda x: -x[1])),
+        "windows": windows,
         "strata": strata,
         "notes": [
-            "Tip fill window predates COOL live ACCEPT; DEFENSE_DH is historical tip stamp.",
-            "DEFENSE_COOL_CF is reconstructed COOL_c8 on FUSE offense (current-stack twin).",
-            "No rejected-order log — mechanisms tagged as binding/active on fill days.",
+            "Fills from simulate_core FUSE+COOL live twin (SELL_a75 + COOL_c8 e45_exposure).",
+            "DEFENSE_COOL is on-book (exposure applied in sim); DEFENSE_DH_CF is counterfactual DH.",
+            "Clip tags from Soft-Frozen champion target on signal_date (pre-defense).",
             "dist_pct: BUY=above local low; SELL=below local high (0=perfect extreme).",
         ],
     }
     (REP / f"{SCREEN_ID}.json").write_text(json.dumps(payload, indent=2) + "\n")
     (OPS / f"{SCREEN_ID}.json").write_text(json.dumps(payload, indent=2) + "\n")
 
-    # Top strata table for md
     focus = [
         s
         for s in strata
-        if s["defense"] in ("ALL", "DH_DEFEND", "COOL_CF_DEFEND")
+        if s["defense"] in ("ALL", "COOL_DEFEND", "COOL_OFF")
         and s["side"] == "ALL"
         and s["sleeve"] in ("ALL", "FIN", "TEL", "0050")
     ]
 
     lines = [
-        "# Live fill extreme + mechanism audit — Screen",
+        "# Backtest fill extreme + mechanism audit — Screen",
         "",
         f"Generated: `{payload['generated_at_utc']}`",
-        f"Status: **`{verdict}`** · Soft-Frozen KEEP · **no live wire** · no tip rewrite",
+        f"Status: **`{verdict}`** · Soft-Frozen KEEP · **no live wire** · book `{BOOK_ID}`",
         "",
         f"Fills: **{n}** (BUY {n_buy} / SELL {n_sell}) · "
         f"`{payload['fill_date_min']}` → `{payload['fill_date_max']}` · codes `{payload['codes']}`",
+        f"COOL defense day-frac: **{cool_frac:.2%}**",
         "",
-        "## A — Distance to local extreme",
+        "## A — Distance to local extreme (full history)",
         "",
         f"Overall ±5d: mean **{core.get('mean_dist_pct')}%** · median {core.get('median_dist_pct')}% · "
         f"≤1%: {core.get('share_within_1pct')} · ≤3%: {core.get('share_within_3pct')}",
@@ -409,6 +372,23 @@ def main() -> int:
 
     lines += [
         "",
+        "## Windows",
+        "",
+        "| window | n | ±5 mean% | ±21 mean% | T+1 drag% | cool_defend_share |",
+        "|---|---:|---:|---:|---:|---:|",
+    ]
+    for wname, w in windows.items():
+        if not w.get("n_fills"):
+            continue
+        lines.append(
+            f"| `{wname}` | {w['n_fills']} | "
+            f"{(w.get('overall_n5') or {}).get('mean_dist_pct', '')} | "
+            f"{(w.get('overall_n21') or {}).get('mean_dist_pct', '')} | "
+            f"{w.get('mean_t1_drag_pct')} | {w.get('cool_defend_share')} |"
+        )
+
+    lines += [
+        "",
         "## B — Mechanism tags (count of fills where tag active)",
         "",
         "| mechanism | n_fills |",
@@ -421,13 +401,15 @@ def main() -> int:
         "",
         "### Read",
         "",
-        "1. **T1_ALWAYS / T1_DRAG** — every tip fill is Exact T+1; drag vs signal-day low/high is structural.",
-        "2. **CLIP_*** — Soft-Frozen sleeve weight on a clip edge that signal day.",
-        "3. **DEFENSE_DH** — historical tip defense (fill window pre-COOL live).",
-        "4. **DEFENSE_COOL_CF** — same dates under reconstructed COOL_c8 (counterfactual).",
-        "5. **KD_OFFSEASON** — FIN fills outside Apr15–May15 (expected for Aug–Sep tip).",
+        "1. **T1_ALWAYS / T1_DRAG** — Exact T+1 open fills (by design).",
+        "2. **DEFENSE_COOL** — on-book COOL_c8 shrink day (live twin).",
+        "3. **DEFENSE_DH_CF** — same signal dates under historical DH rule (counterfactual).",
+        "4. **CLIP_*** — Soft-Frozen champion sleeve weight on a clip edge that signal day.",
+        "5. **KD_OFFSEASON / KD_BUY_BLOCK** — FIN KD season / pre-exdiv buy gate.",
         "",
-        "Repro: `PYTHONPATH=scripts python3 scripts/live_fill_extreme_audit.py`",
+        "Compare tip audit (`LIVE_FILL_EXTREME_AUDIT_SCREEN`) for short live tip window.",
+        "",
+        "Repro: `PYTHONPATH=scripts python3 scripts/live_fill_extreme_backtest_audit.py`",
         "",
         f"Label: `{SCREEN_ID}_{payload['generated_at_utc'][:10]}__{verdict}`",
         "",
@@ -442,16 +424,28 @@ def main() -> int:
         "status": verdict,
         "verdict": verdict,
         "live_wire": False,
+        "book_id": BOOK_ID,
         "n_fills": n,
         "overall_n5_mean_dist_pct": core.get("mean_dist_pct"),
         "overall_n21_mean_dist_pct": core21.get("mean_dist_pct"),
         "mean_t1_drag_pct": payload["mean_t1_drag_pct"],
+        "cool_defense_frac_days": round(cool_frac, 4),
+        "windows": {
+            k: {
+                "n_fills": v.get("n_fills"),
+                "n5_mean": (v.get("overall_n5") or {}).get("mean_dist_pct"),
+                "t1_drag": v.get("mean_t1_drag_pct"),
+                "cool_defend_share": v.get("cool_defend_share"),
+            }
+            for k, v in windows.items()
+            if v.get("n_fills")
+        },
         "mechanism_fill_counts": payload["mechanism_fill_counts"],
         "binding": [
             "Soft-Frozen live KEEP — audit does not authorize clip flip",
-            "Exact T+1 KEEP — drag is by design, not a defect to 'fix' by same-bar fills",
+            "Exact T+1 KEEP — drag is by design",
             "No tip history rewrite",
-            "No live wire from this audit",
+            "No live wire from this backtest audit",
         ],
         "next": (
             "If human wants action: open a dedicated Stage A on ONE mechanism "
@@ -459,19 +453,21 @@ def main() -> int:
         ),
         "charter": f"research/ops/{CHARTER_ID}.md",
         "screen": f"research/ops/{SCREEN_ID}.md",
+        "tip_screen": "research/ops/LIVE_FILL_EXTREME_AUDIT_SCREEN.md",
     }
     dlines = [
-        "# Live fill extreme + mechanism audit — Decision Pack",
+        "# Backtest fill extreme + mechanism audit — Decision Pack",
         "",
         f"Date: 2026-09-26 · Generated `{decision['generated_at_utc']}`",
-        f"Status: **{verdict}** · Soft-Frozen **KEEP** · live wire **false**",
+        f"Status: **{verdict}** · Soft-Frozen **KEEP** · live wire **false** · `{BOOK_ID}`",
         "",
-        f"Tip fills **{n}** · ±5d mean distance to extreme **{core.get('mean_dist_pct')}%** · "
-        f"T+1 drag mean **{payload['mean_t1_drag_pct']}%**.",
+        f"Paper twin fills **{n}** · ±5d mean distance to extreme **{core.get('mean_dist_pct')}%** · "
+        f"T+1 drag mean **{payload['mean_t1_drag_pct']}%** · "
+        f"COOL defend day-frac **{cool_frac:.2%}**.",
         "",
-        "Primary structural driver: **Exact T+1** (all fills tagged). "
-        "Aug–Sep tip sits **KD off-season** for FIN. "
-        "Defense tags: use `DEFENSE_DH` for historical tip; `DEFENSE_COOL_CF` for current-stack twin.",
+        "Primary structural driver remains **Exact T+1**. "
+        "COOL on-book defense days are now visible across full history "
+        "(unlike the short tip window which had full exposure).",
         "",
         "## Binding",
         "",
@@ -494,7 +490,13 @@ def main() -> int:
                 "n_fills": n,
                 "overall_n5": core,
                 "mean_t1_drag_pct": payload["mean_t1_drag_pct"],
-                "top_mechanisms": list(payload["mechanism_fill_counts"].items())[:8],
+                "cool_defense_frac_days": round(cool_frac, 4),
+                "windows": {
+                    k: v.get("overall_n5", {}).get("mean_dist_pct")
+                    for k, v in windows.items()
+                    if v.get("n_fills")
+                },
+                "top_mechanisms": list(payload["mechanism_fill_counts"].items())[:10],
             },
             indent=2,
         )

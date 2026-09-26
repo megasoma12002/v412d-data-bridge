@@ -77,10 +77,16 @@ def _kd_panels(market: pd.DataFrame, dividends: pd.DataFrame):
     return kd, buy_ok, buy, sell
 
 
-def build_fuse_offense_nav(
-    market: pd.DataFrame, dividends: pd.DataFrame
-) -> tuple[pd.DataFrame, dict[str, Any]]:
-    """Paper-faithful FUSE_ADDITIVE offense book (no DH), Exact T+1.
+def build_fuse_offense_sim(
+    market: pd.DataFrame,
+    dividends: pd.DataFrame,
+    *,
+    e45_exposure: pd.Series | None = None,
+) -> tuple[pd.DataFrame, pd.DataFrame, dict[str, Any]]:
+    """Paper-faithful FUSE_ADDITIVE offense book, Exact T+1.
+
+    Returns ``(nav, fills, meta)``. Optional ``e45_exposure`` stacks defense
+    (COOL / DH) onto the same Soft+Sleeve fuse offense.
 
     Pin E22 books to preserved cash-on-ex ``E22_v2s_tw_effex`` (not live Stage-E
     DEFAULT). Full-history DH/FUSE exposure must not fail-closed on blank
@@ -90,11 +96,7 @@ def build_fuse_offense_nav(
     _prices, sleeve, _target, regime = e16_features(market)
     _kd, buy_ok, buy, sell = _kd_panels(market, dividends)
     target = build_champion_target(market, sleeve, regime)
-    nav, fills, meta = simulate_core(
-        market,
-        target,
-        regime,
-        dividends,
+    kwargs: dict[str, Any] = dict(
         apply_e22=True,
         e22_version=e22div.PRESERVED_CASH_ON_EX,
         apply_stock_div=True,
@@ -106,9 +108,12 @@ def build_fuse_offense_nav(
         fin_buy_ok=buy_ok,
         fin_sell_scores=sell,
     )
+    if e45_exposure is not None:
+        kwargs["e45_exposure"] = e45_exposure.astype(float)
+    nav, fills, meta = simulate_core(market, target, regime, dividends, **kwargs)
     if not bool(meta.get("exact_t1_ok")):
         raise RuntimeError("FUSE offense exact_t1_ok failed")
-    return nav, {
+    out_meta = {
         "fuse_id": FUSE_ID,
         "soft_id": SOFT_ID,
         "soft_id_prior_observe": SOFT_ID_PRIOR,
@@ -118,7 +123,18 @@ def build_fuse_offense_nav(
         "n_fills": int(len(fills)),
         "dh_id": DH_ID,
         "e22_books_version": e22div.PRESERVED_CASH_ON_EX,
+        "has_e45_exposure": e45_exposure is not None,
+        "target_cols": list(target.columns),
     }
+    return nav, fills, out_meta
+
+
+def build_fuse_offense_nav(
+    market: pd.DataFrame, dividends: pd.DataFrame
+) -> tuple[pd.DataFrame, dict[str, Any]]:
+    """Paper-faithful FUSE_ADDITIVE offense book (no DH), Exact T+1."""
+    nav, _fills, meta = build_fuse_offense_sim(market, dividends)
+    return nav, meta
 
 
 def build_dh_exposure_from_offense(
