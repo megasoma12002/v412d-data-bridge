@@ -1,0 +1,479 @@
+{
+  "generated_at_utc": "2026-09-25T14:46:35Z",
+  "label": "FUSE_SOFTSELL_T50_INV_STAGEA_SCREEN",
+  "charter": "research/ops/FUSE_SOFTSELL_T50_INV_CHARTER.md",
+  "status": "MDD_BLOCK",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "soft_sell_frac": 0.165883,
+  "def_code": "00632R",
+  "baseline": "BASE_LIVE_FUSE_COOL",
+  "baseline_windows": {
+    "full": {
+      "cagr": 0.123209,
+      "max_drawdown": -0.146837,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.086107,
+      "max_drawdown": -0.132008,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.131823,
+      "max_drawdown": -0.146837,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.184149,
+      "max_drawdown": -0.064189,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.156382,
+      "max_drawdown": -0.146837,
+      "n_days": 1870
+    }
+  },
+  "n_challengers": 6,
+  "n_coexist": 0,
+  "coexist_ids": [],
+  "soft_ids": [],
+  "best": {
+    "id": "SS_DWELL_A50",
+    "alpha": 0.5,
+    "mode": "dwell",
+    "n_fills": 12627,
+    "mean_def": 0.017936,
+    "defend_frac": 0.143489,
+    "windows": {
+      "full": {
+        "cagr": 0.096578,
+        "max_drawdown": -0.140625,
+        "n_days": 3365
+      },
+      "oof_2011_2018": {
+        "cagr": 0.06229,
+        "max_drawdown": -0.140625,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.091247,
+        "max_drawdown": -0.11373,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.168737,
+        "max_drawdown": -0.0728,
+        "n_days": 893
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.127514,
+        "max_drawdown": -0.11373,
+        "n_days": 1870
+      }
+    },
+    "held_cagr_lift_pp": -2.8868,
+    "sealed_cagr_lift_pp": -1.5412,
+    "held_mdd_improve_pp": 3.3107,
+    "sealed_mdd_improve_pp": -0.8611,
+    "tip": {
+      "ytd": {
+        "mdd_improve_pp": -0.6347,
+        "cagr_giveback_pp": 4.1452,
+        "gate": "PASS"
+      },
+      "trailing_1y": {
+        "mdd_improve_pp": -0.6347,
+        "cagr_giveback_pp": 3.1958,
+        "gate": "PASS"
+      }
+    },
+    "gates": {
+      "tip_clean": true,
+      "tip_mdd_ok": false,
+      "sealed_mdd": false,
+      "held_mdd": true,
+      "held_cagr_floor": false
+    },
+    "coexist": false,
+    "score": -1.7109,
+    "hold_h": 0,
+    "on_days": 519
+  },
+  "ranked": [
+    {
+      "id": "SS_DWELL_A50",
+      "alpha": 0.5,
+      "mode": "dwell",
+      "n_fills": 12627,
+      "mean_def": 0.017936,
+      "defend_frac": 0.143489,
+      "windows": {
+        "full": {
+          "cagr": 0.096578,
+          "max_drawdown": -0.140625,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.06229,
+          "max_drawdown": -0.140625,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.091247,
+          "max_drawdown": -0.11373,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.168737,
+          "max_drawdown": -0.0728,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.127514,
+          "max_drawdown": -0.11373,
+          "n_days": 1870
+        }
+      },
+      "held_cagr_lift_pp": -2.8868,
+      "sealed_cagr_lift_pp": -1.5412,
+      "held_mdd_improve_pp": 3.3107,
+      "sealed_mdd_improve_pp": -0.8611,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.6347,
+          "cagr_giveback_pp": 4.1452,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.6347,
+          "cagr_giveback_pp": 3.1958,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": false,
+        "sealed_mdd": false,
+        "held_mdd": true,
+        "held_cagr_floor": false
+      },
+      "coexist": false,
+      "score": -1.7109,
+      "hold_h": 0,
+      "on_days": 519
+    },
+    {
+      "id": "SS_PULSE_H1_A50",
+      "alpha": 0.5,
+      "mode": "pulse",
+      "n_fills": 12627,
+      "mean_def": 0.017936,
+      "defend_frac": 0.143489,
+      "windows": {
+        "full": {
+          "cagr": 0.096578,
+          "max_drawdown": -0.140625,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.06229,
+          "max_drawdown": -0.140625,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.091247,
+          "max_drawdown": -0.11373,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.168737,
+          "max_drawdown": -0.0728,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.127514,
+          "max_drawdown": -0.11373,
+          "n_days": 1870
+        }
+      },
+      "held_cagr_lift_pp": -2.8868,
+      "sealed_cagr_lift_pp": -1.5412,
+      "held_mdd_improve_pp": 3.3107,
+      "sealed_mdd_improve_pp": -0.8611,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.6347,
+          "cagr_giveback_pp": 4.1452,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.6347,
+          "cagr_giveback_pp": 3.1958,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": false,
+        "sealed_mdd": false,
+        "held_mdd": true,
+        "held_cagr_floor": false
+      },
+      "coexist": false,
+      "score": -1.7109,
+      "hold_h": 1,
+      "on_days": 519
+    },
+    {
+      "id": "SS_PULSE_H2_A50",
+      "alpha": 0.5,
+      "mode": "pulse",
+      "n_fills": 13658,
+      "mean_def": 0.022844,
+      "defend_frac": 0.182748,
+      "windows": {
+        "full": {
+          "cagr": 0.090228,
+          "max_drawdown": -0.14933,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.058669,
+          "max_drawdown": -0.14933,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.090927,
+          "max_drawdown": -0.114708,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.148275,
+          "max_drawdown": -0.096246,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.117882,
+          "max_drawdown": -0.114708,
+          "n_days": 1870
+        }
+      },
+      "held_cagr_lift_pp": -3.85,
+      "sealed_cagr_lift_pp": -3.5874,
+      "held_mdd_improve_pp": 3.2129,
+      "sealed_mdd_improve_pp": -3.2057,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -1.877,
+          "cagr_giveback_pp": 10.2771,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -1.877,
+          "cagr_giveback_pp": 7.7301,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": false,
+        "sealed_mdd": false,
+        "held_mdd": true,
+        "held_cagr_floor": false
+      },
+      "coexist": false,
+      "score": -4.6776,
+      "hold_h": 2,
+      "on_days": 661
+    },
+    {
+      "id": "SS_DWELL_A100",
+      "alpha": 1.0,
+      "mode": "dwell",
+      "n_fills": 13380,
+      "mean_def": 0.035872,
+      "defend_frac": 0.143489,
+      "windows": {
+        "full": {
+          "cagr": 0.081634,
+          "max_drawdown": -0.146479,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.06699,
+          "max_drawdown": -0.146479,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.090491,
+          "max_drawdown": -0.091671,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.10228,
+          "max_drawdown": -0.118194,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.096153,
+          "max_drawdown": -0.118194,
+          "n_days": 1870
+        }
+      },
+      "held_cagr_lift_pp": -6.0229,
+      "sealed_cagr_lift_pp": -8.1869,
+      "held_mdd_improve_pp": 2.8643,
+      "sealed_mdd_improve_pp": -5.4005,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -3.2897,
+          "cagr_giveback_pp": 24.5842,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -3.2897,
+          "cagr_giveback_pp": 17.1853,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": false,
+        "sealed_mdd": false,
+        "held_mdd": true,
+        "held_cagr_floor": false
+      },
+      "coexist": false,
+      "score": -9.8787,
+      "hold_h": 0,
+      "on_days": 519
+    },
+    {
+      "id": "SS_PULSE_H1_A100",
+      "alpha": 1.0,
+      "mode": "pulse",
+      "n_fills": 13380,
+      "mean_def": 0.035872,
+      "defend_frac": 0.143489,
+      "windows": {
+        "full": {
+          "cagr": 0.081634,
+          "max_drawdown": -0.146479,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.06699,
+          "max_drawdown": -0.146479,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.090491,
+          "max_drawdown": -0.091671,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.10228,
+          "max_drawdown": -0.118194,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.096153,
+          "max_drawdown": -0.118194,
+          "n_days": 1870
+        }
+      },
+      "held_cagr_lift_pp": -6.0229,
+      "sealed_cagr_lift_pp": -8.1869,
+      "held_mdd_improve_pp": 2.8643,
+      "sealed_mdd_improve_pp": -5.4005,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -3.2897,
+          "cagr_giveback_pp": 24.5842,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -3.2897,
+          "cagr_giveback_pp": 17.1853,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": false,
+        "sealed_mdd": false,
+        "held_mdd": true,
+        "held_cagr_floor": false
+      },
+      "coexist": false,
+      "score": -9.8787,
+      "hold_h": 1,
+      "on_days": 519
+    },
+    {
+      "id": "SS_PULSE_H2_A100",
+      "alpha": 1.0,
+      "mode": "pulse",
+      "n_fills": 14461,
+      "mean_def": 0.045687,
+      "defend_frac": 0.182748,
+      "windows": {
+        "full": {
+          "cagr": 0.060101,
+          "max_drawdown": -0.199095,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.054349,
+          "max_drawdown": -0.162842,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.031366,
+          "max_drawdown": -0.199095,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.109641,
+          "max_drawdown": -0.178467,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.068129,
+          "max_drawdown": -0.199095,
+          "n_days": 1870
+        }
+      },
+      "held_cagr_lift_pp": -8.8253,
+      "sealed_cagr_lift_pp": -7.4508,
+      "held_mdd_improve_pp": -5.2258,
+      "sealed_mdd_improve_pp": -11.4278,
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -3.8016,
+          "cagr_giveback_pp": 22.4296,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -3.8016,
+          "cagr_giveback_pp": 15.2793,
+          "gate": "PASS"
+        }
+      },
+      "gates": {
+        "tip_clean": true,
+        "tip_mdd_ok": false,
+        "sealed_mdd": false,
+        "held_mdd": false,
+        "held_cagr_floor": false
+      },
+      "coexist": false,
+      "score": -18.6712,
+      "hold_h": 2,
+      "on_days": 661
+    }
+  ],
+  "note": "FUSE always-on; gate=Soft RSI6_GT80 any FIN"
+}

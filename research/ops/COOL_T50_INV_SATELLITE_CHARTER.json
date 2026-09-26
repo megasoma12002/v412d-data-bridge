@@ -1,0 +1,22 @@
+{
+  "label": "COOL_T50_INV_SATELLITE_CHARTER",
+  "date": "2026-09-25",
+  "status": "CHARTER_OPEN_STAGE_A",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "cool_id": "COOL_c8_f50_d21",
+  "def_code": "00632R",
+  "def_name": "台50反1",
+  "rule": "buy_00632R_while_cool_defending_sell_when_cool_ends",
+  "alpha_residual": [0.25, 0.5, 1.0],
+  "baseline": "BASE_LIVE_FUSE_COOL",
+  "held_cagr_floor_pp": 0.2,
+  "sealed_mdd_improve_min_pp": 0.0,
+  "held_mdd_improve_min_pp": -0.25,
+  "artifacts": {
+    "charter_en": "research/ops/COOL_T50_INV_SATELLITE_CHARTER.md",
+    "charter_zh": "research/ops/COOL_T50_INV_SATELLITE_CHARTER.zh-TW.md",
+    "price": "data/def_proxies/00632R_ohlcv.csv",
+    "stage_a_script": "scripts/cool_t50_inv_satellite_stagea.py"
+  }
+}

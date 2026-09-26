@@ -1,0 +1,14 @@
+{
+  "label": "COOL_T50_INV_PULSE_DECISION",
+  "generated_at_utc": "2026-09-25T14:41:38Z",
+  "status": "COOL_INV_PULSE_SOFT",
+  "live_wire": false,
+  "n_coexist": 0,
+  "coexist_ids": [],
+  "soft_ids": [
+    "PULSE_H1_A50"
+  ],
+  "best": "PULSE_H1_A50",
+  "charter": "research/ops/COOL_T50_INV_PULSE_CHARTER.md",
+  "stage_a": "research/ops/COOL_T50_INV_PULSE_STAGEA_SCREEN.md"
+}

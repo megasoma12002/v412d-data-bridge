@@ -29,8 +29,13 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | 0i | 民股 MDD **新機制 V6**（shadow 相對 NAV 連續阻尼 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V6_C100_PUB` −0.24 · Soft-Frozen KEEP · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md` |
 | 0j | 民股金控 Gate V7 carve-out（Bull+Side F05 近持平） | **SOFT → OBSERVE → NEAR_FLAT → Class D LIVE** (2026-09-26) | floor +0.15 · `LIVE_FIN_PRIV_V7_F05` · Soft-Frozen 3-sleeve KEEP · `CLASSD_FINPRIV_V7_F05_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 0j | 民股金控 **max CAGR × min MDD** Gate V7 | **STAGE A SOFT** (2026-09-25) | 0 HIT · 2 soft (Bull-gate F05 sealed MDD↑ OK, CAGR short of +0.20) · Soft-Frozen KEEP · `PRIV_FINHC_CAGR_MDD_GATE_V7_DECISION_PACK.md` |
+| 0k | COOL 成立買 **台50反1**／結束賣 | **STAGE A SOFT** (2026-09-25) | 0 HIT · α=0.25 MDD↑ / CAGR↓ · Soft-Frozen KEEP · `COOL_T50_INV_SATELLITE_DECISION_PACK.md` |
+| 0k2 | COOL 觸發 **極短脈衝** 00632R | **STAGE A SOFT** (2026-09-25) | 0 HIT · H=1 最小傷害仍 CAGR↓ · Soft-Frozen KEEP · `COOL_T50_INV_PULSE_DECISION_PACK.md` |
+| 0k3 | FUSE Soft-sell → 00632R | **STAGE A MDD_BLOCK** (2026-09-25) | 0 HIT · CAGR↓ sealed MDD↓ · Soft-Frozen KEEP · `FUSE_SOFTSELL_T50_INV_DECISION_PACK.md` |
+| 0k4 | **大盤下行** → 00632R | **STAGE A MDD_BLOCK** (2026-09-25) | 正確觸發仍 CAGR↓ / sealed MDD 不過 · Soft-Frozen KEEP · `MKTDOWN_T50_INV_DECISION_PACK.md` |
 | 0l | 民股金控 Gate V8 AND-confirm stack | **STAGE A SOFT** (2026-09-25) | 0 HIT · 5 soft · best `V8_BSIDE_MA120_F05_KDMAY_COOL1` held CAGR↑ ≈0 / sealed MDD↑ +0.13 · Soft-Frozen KEEP · no V7 retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.80]** / ETF **[0.00, 0.50]** | **FLIPPED** (ACCEPT 2026-09-25 β densify) | Was FINBAND [0.60,0.90]/ETF[0.00,0.35]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md` · prior FINBAND note KEEP |
+| 1c | 非對稱 0050 Bull 加碼 / MDD 持平 under COOL | **CAGR_SOFT** (2026-09-25) | Stage A 0 HIT · 7 tip-clean MDD-flat · best CAGR↑ +0.06 · Soft-Frozen KEEP · `ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.md` |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
 | 3 | Sealed-CAGR successor path | **FINCAP BLEND_025 OPERATING OBSERVE** | FINCAP sleeve KEEP; observe ≠ promote · **E45_BLEND025 archived 2026-09-13** |
@@ -46,6 +51,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 |---|---|---|
 | β densify near-flat paper observe | **PROMOTED LIVE** (2026-09-25) | `OPEN … BETA_F0.60-0.80_E0.00-0.50` · Soft-Frozen KEEP · cutover BLOCKED · `#284` · `BETA_0050_DENSIFY_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | β／0050 densify under COOL | **HIT → LIVE clip** (2026-09-25) | `F[0.60,0.80] E[0,0.50]` +0.57pp tip-OK · **observe only** · Soft-Frozen KEEP · `#284` · `BETA_0050_DENSIFY_UNDER_COOL_DECISION_PACK.md` |
+| Within-sleeve FinPub/TEL micro × COOL | **`NO_FLAT_LIFT`** (2026-09-25) | Stage A 13 books · best +0.14pp out-of-band · live KD_OPT/TEL_EQUAL/Soft-Frozen **KEEP** · `WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md` |
 | Active research KEEP | **LOCKED** | FIN quartet (**`MIX_L75`** + **`KD_OPT`**) + E45 **`A05`/`C35`** + month-end gates |
 | FIN within-sleeve live | **`KD_OPT` LIVE** (ACCEPT 2026-09-09) | `FIN_PRE_EXDIV_KD` forward-only; Soft-Frozen KEEP; note `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` |
 | FIN autumn post-ex probe | **STOP** (2026-09-09) | small-search+dual no lift vs KD_OPT · `FIN_KD_AUTUMN_DUAL_SEASON.md` · live KD_OPT untouched |
