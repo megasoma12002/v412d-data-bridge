@@ -1,12 +1,12 @@
 # Ops Alerts
 
-Generated: `2026-09-25T05:03:33.154746+00:00`
+Generated: `2026-09-26T08:30:46.301568+00:00`
 Overall: **HIGH**
-Soft-Frozen **F[0.60, 0.80] / E[0.00, 0.50] unchanged** (β densify live). No auto cutover.
+Soft-Frozen **[0.60, 0.80] unchanged**. No auto cutover.
 
 - CRITICAL: 0
 - HIGH (PAUSE_REVIEW etc.): 7
-- INFO: 27
+- INFO: 35
 
 | Severity | Source | Code | Message |
 |---|---|---|---|
@@ -18,6 +18,7 @@ Soft-Frozen **F[0.60, 0.80] / E[0.00, 0.50] unchanged** (β densify live). No au
 | HIGH | `e45_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: CHAL_E45_E3 ytd giveback > 5 pp |
 | HIGH | `e45_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: CHAL_E45_E3 trailing_1y giveback > 5 pp |
 | INFO | `live_qc` | `QC_PASS` | live QC PASS; Exact T+1 ok |
+| INFO | `fin_priv_v7_f05` | `FINPRIV_PX_FRESH` | Class D priv panel fresh vs tip asof 2026-09-24 (lag≤5d) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 sealed MDD worse than BASE (paper) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops) |
@@ -39,6 +40,13 @@ Soft-Frozen **F[0.60, 0.80] / E[0.00, 0.50] unchanged** (β densify live). No au
 | INFO | `sleeve_tilt_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `fuse_additive_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `e45_defend_handoff_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `cool_c8_proxy_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `beta_0050_densify_month_end` | `MONITOR_ALERT` | ALERT: BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50 heldout_2019_plus MDD worse than LIVE_FUSE_COOL |
+| INFO | `beta_0050_densify_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `priv_finhc_v7_bull_side_f05_month_end` | `MONITOR_ALERT` | ALERT: V7_REG_BULL_SIDE_F05_KDMAY heldout_2019_plus MDD worse than BASE_LIVE_FUSE_COOL |
+| INFO | `priv_finhc_v7_bull_side_f05_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `cool_631l_short_assist_month_end` | `MONITOR_ALERT` | ALERT: CONF_RET3_A10_H5 heldout_2019_plus MDD worse than BASE_LIVE_FUSE_COOL |
+| INFO | `cool_631l_short_assist_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=3.3350% > 2% on overlap |
 | INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=18 (<60) — not decision-grade for cutover |
 | INFO | `r4_settlement_estimate` | `R4_ESTIMATE_PRESENT` | R4 settlement_cash_estimate present — settled_cash_estimate=50415.51358572836 is liquidity view NOT portfolio NAV / Soft-Frozen cash |

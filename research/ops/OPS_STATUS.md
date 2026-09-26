@@ -15,7 +15,7 @@ Live Soft-Frozen clips: **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** (β densif
 民股金控 Gate V8（AND-confirm）：**Stage A `PRIV_FINHC_V8_SOFT`** · 0 HIT · 5 soft · best `V8_BSIDE_MA120_F05_KDMAY_COOL1` · Soft-Frozen 公股 KEEP · no V7 retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md`  
 COOL × 台50反1（成立買／結束賣）：**Stage A `COOL_INV_SOFT`** · Soft-Frozen KEEP · `COOL_T50_INV_SATELLITE_DECISION_PACK.md`  
 COOL 結束 × 台50正2（`00631L` 搶反彈）：**Stage A `MDD_BLOCK`** · Soft-Frozen KEEP · `COOL_T50_LEV_REBOUND_DECISION_PACK.md`  
-`00631L` 短線輔助（確認進場等）：**Stage A `SHORT_ASSIST_HIT`** · Soft-Frozen KEEP · no live · `COOL_T50_LEV_SHORT_ASSIST_DECISION_PACK.md`  
+`00631L` 短線輔助（確認進場等）：**Stage A `SHORT_ASSIST_HIT` → OBSERVE OPEN `CONF_RET3_A10_H5`** · Soft-Frozen KEEP · no live · cutover BLOCKED · `COOL_631L_SHORT_ASSIST_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
 Soft∥Sleeve ops auto-fuse agenda：**CLOSED**（Gate H FORBIDDEN KEEP）· `ACCEPT_DROP_AUTO_FUSE_AGENDA.md`  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  
@@ -52,6 +52,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | L4_DD_PATH_08_50 | Held-out PASS; YTD **and** trailing_1y PAUSE_REVIEW (asof 2026-09-16) | **DEFER** cutover — register #4; checklist: `CUTOVER_CHECKLIST_L4.md` (hygiene sync `L4_HYGIENE_CHECKLIST_SYNC_2026-09-19.md`) |
 | BLEND_025 | Dual-paper **OPERATING OBSERVE** | Sole sealed-CAGR successor (register #3); live **NOT READY** (#5); promote review **2026-09-26 BLOCKED** (`BLEND_025_PROMOTE_GATE_REVIEW_2026-09-26.md`); checklist: `CUTOVER_CHECKLIST_BLEND025.md` |
 | Offense SOFT near-flat (`SELL_a75`) | **LIVE WIRED** under COOL | sell boost 0.75 · coexists FUSE+COOL · Soft-Frozen KEEP · `LIVE_SELL_A75_UNDER_COOL_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
+| `00631L` short-assist `CONF_RET3_A10_H5` | Dual-paper **OPERATING OBSERVE** | Paper pulse · cutover **BLOCKED** · Soft-Frozen KEEP · no live · `COOL_631L_SHORT_ASSIST_DUAL_PAPER_OBSERVE_OPEN.md` · checklist `CUTOVER_CHECKLIST_COOL_631L_SHORT_ASSIST.md` |
 | Track A S9A1 | KEEP (paper/monitor) | N/A — pointer: `TRACK_A_RUNBOOK_POINTER.md` |
 | Track B S1 | STOP | Closed |
 

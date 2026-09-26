@@ -84,6 +84,10 @@ STEPS_MONITOR = [
         ["python3", "scripts/priv_finhc_v7_bull_side_f05_month_end_monitor.py"],
     ),
     (
+        "cool_631l_short_assist_month_end",
+        ["python3", "scripts/cool_631l_short_assist_month_end_monitor.py"],
+    ),
+    (
         "soft_sleeve_observe_overlap",
         ["python3", "scripts/e16_soft_sleeve_observe_overlap.py"],
     ),
@@ -146,6 +150,10 @@ STEPS_REFRESH = [
     (
         "priv_finhc_v7_bull_side_f05_dual_paper_ledgers",
         ["python3", "scripts/priv_finhc_v7_bull_side_f05_dual_paper_ledgers.py"],
+    ),
+    (
+        "cool_631l_short_assist_dual_paper_ledgers",
+        ["python3", "scripts/cool_631l_short_assist_dual_paper_ledgers.py"],
     ),
 ]
 
