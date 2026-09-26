@@ -19,6 +19,8 @@ from live_config import (
     LIVE_CUTOVER_BALLOT,
     LIVE_DH_EXPOSURE,
     LIVE_DH_ID,
+    LIVE_FIN_PRIV_BALLOT,
+    LIVE_FIN_PRIV_V7_F05,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
     TIP_BOOKS_ALIGN_BALLOT,
@@ -149,6 +151,17 @@ def build_portfolio_state_payload(
         "live_cutover_rollback": (
             "Set LIVE_COOL_EXPOSURE=False; optional restore LIVE_DH_EXPOSURE=True "
             "only with dedicated ACCEPT; LIVE_FUSE_ADDITIVE independent"
+        ),
+        "fin_priv_v7_f05_live": bool(LIVE_FIN_PRIV_V7_F05),
+        "fin_priv_ballot": LIVE_FIN_PRIV_BALLOT if LIVE_FIN_PRIV_V7_F05 else None,
+        "fin_priv_cutover": (
+            "ACCEPT_2026-09-25_CLASSD_FINPRIV_V7_F05" if LIVE_FIN_PRIV_V7_F05 else None
+        ),
+        "fin_priv_rollback": (
+            "Set LIVE_FIN_PRIV_V7_F05=False (live_config.live_fin_priv_v7_f05); "
+            "gate-off path force-sells PRIV holdings"
+            if LIVE_FIN_PRIV_V7_F05
+            else None
         ),
     }
 

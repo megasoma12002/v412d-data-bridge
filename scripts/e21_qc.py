@@ -166,6 +166,18 @@ def main() -> None:
     checks["frozen_financial_universe"] = set(FIN).issuperset(
         set(orders.code.astype(str)) - set(TEL + ["0050"])
     )
+    # Class D FinPriv ACCEPT: allow PRIV_R3R4 in Financial orders when live flag on.
+    try:
+        from live_config import LIVE_FIN_PRIV_V7_F05
+    except Exception:
+        LIVE_FIN_PRIV_V7_F05 = False
+    if LIVE_FIN_PRIV_V7_F05:
+        import live_finhc_v7_f05_cutover as finpriv
+
+        allowed_fin = set(FIN) | set(finpriv.PRIV_CODES)
+        checks["frozen_financial_universe"] = allowed_fin.issuperset(
+            set(orders.code.astype(str)) - set(TEL + ["0050"])
+        )
 
     fills_path = s / "fills.csv"
     checks["fills_file_present"] = fills_path.exists()

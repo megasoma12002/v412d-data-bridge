@@ -1,0 +1,659 @@
+{
+  "schema_version": "pub_priv_cool_coexist_stagea_v1",
+  "charter_id": "PUB_PRIV_COOL_COEXIST_STAGEA_CHARTER",
+  "screen_id": "PUB_PRIV_COOL_COEXIST_STAGEA_SCREEN",
+  "generated_at_utc": "2026-09-25T09:20:04Z",
+  "verdict": "NO_COEXIST",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "cool_frozen": true,
+  "base_id": "BASE_PUB_KD_COOL",
+  "e22_books_version": "E22_v3_recv_pay_effdelay",
+  "base_windows": {
+    "full": {
+      "cagr": 0.120607,
+      "max_drawdown": -0.148566,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.084227,
+      "max_drawdown": -0.137502,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.132749,
+      "max_drawdown": -0.148566,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.175756,
+      "max_drawdown": -0.069367,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.152949,
+      "max_drawdown": -0.148566,
+      "n_days": 1870
+    }
+  },
+  "n_challengers": 8,
+  "coexist_ids": [],
+  "held_only_ids": [],
+  "best": "DUAL_p85_EQ_COOL",
+  "rows": [
+    {
+      "id": "DUAL_p85_EQ_COOL",
+      "mechanism": "DUAL_SPLIT_COOL",
+      "meta": {
+        "pub_share": 0.85,
+        "priv_policy": "FIN_EQUAL",
+        "tip_pub": 4,
+        "tip_priv": 6,
+        "n_fills": 17846
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.130472,
+          "max_drawdown": -0.158321,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086335,
+          "max_drawdown": -0.158321,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.131079,
+          "max_drawdown": -0.150808,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.214093,
+          "max_drawdown": -0.079421,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.169879,
+          "max_drawdown": -0.150808,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.169879,
+      "held_mdd": -0.150808,
+      "sealed_cagr": 0.214093,
+      "sealed_mdd": -0.079421,
+      "held_mdd_improve_pp": -0.2242,
+      "sealed_mdd_improve_pp": -1.0054,
+      "held_cagr_giveback_pp": -1.693,
+      "held_cagr_lift_pp": 1.693,
+      "score_mdd": -0.7269,
+      "tip": {
+        "ytd": {
+          "giveback_pp": -7.291319467985624,
+          "gate": "PASS",
+          "rel_nav": 1.0324802158765385
+        },
+        "trailing_1y": {
+          "giveback_pp": -10.383802689867094,
+          "gate": "PASS",
+          "rel_nav": 1.0705852461904026
+        }
+      },
+      "tip_mdd": {
+        "ytd": {
+          "mdd_improve_pp": -0.1847,
+          "ok": true
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.1847,
+          "ok": true
+        },
+        "ok": true
+      },
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "held_mdd_ok": false,
+      "sealed_mdd_ok": false,
+      "giveback_ok": true,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_p90_EQ_COOL",
+      "mechanism": "DUAL_SPLIT_COOL",
+      "meta": {
+        "pub_share": 0.9,
+        "priv_policy": "FIN_EQUAL",
+        "tip_pub": 4,
+        "tip_priv": 6,
+        "n_fills": 17267
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.127487,
+          "max_drawdown": -0.153671,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087505,
+          "max_drawdown": -0.147963,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.128098,
+          "max_drawdown": -0.153671,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.203474,
+          "max_drawdown": -0.078393,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.163314,
+          "max_drawdown": -0.153671,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.163314,
+      "held_mdd": -0.153671,
+      "sealed_cagr": 0.203474,
+      "sealed_mdd": -0.078393,
+      "held_mdd_improve_pp": -0.5105,
+      "sealed_mdd_improve_pp": -0.9026,
+      "held_cagr_giveback_pp": -1.0365,
+      "held_cagr_lift_pp": 1.0365,
+      "score_mdd": -0.9618,
+      "tip": {
+        "ytd": {
+          "giveback_pp": -5.044751911994738,
+          "gate": "PASS",
+          "rel_nav": 1.0225210632554853
+        },
+        "trailing_1y": {
+          "giveback_pp": -7.04724296678827,
+          "gate": "PASS",
+          "rel_nav": 1.0479283979131435
+        }
+      },
+      "tip_mdd": {
+        "ytd": {
+          "mdd_improve_pp": 0.0674,
+          "ok": true
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0674,
+          "ok": true
+        },
+        "ok": true
+      },
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "held_mdd_ok": false,
+      "sealed_mdd_ok": false,
+      "giveback_ok": true,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_p75_EQ_COOL",
+      "mechanism": "DUAL_SPLIT_COOL",
+      "meta": {
+        "pub_share": 0.75,
+        "priv_policy": "FIN_EQUAL",
+        "tip_pub": 4,
+        "tip_priv": 6,
+        "n_fills": 19382
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.134027,
+          "max_drawdown": -0.166453,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08687,
+          "max_drawdown": -0.166453,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.128259,
+          "max_drawdown": -0.15118,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.231256,
+          "max_drawdown": -0.08549,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.176246,
+          "max_drawdown": -0.15118,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.176246,
+      "held_mdd": -0.15118,
+      "sealed_cagr": 0.231256,
+      "sealed_mdd": -0.08549,
+      "held_mdd_improve_pp": -0.2614,
+      "sealed_mdd_improve_pp": -1.6123,
+      "held_cagr_giveback_pp": -2.3297,
+      "held_cagr_lift_pp": 2.3297,
+      "score_mdd": -1.0676,
+      "tip": {
+        "ytd": {
+          "giveback_pp": -10.098649942505865,
+          "gate": "PASS",
+          "rel_nav": 1.0448661868273155
+        },
+        "trailing_1y": {
+          "giveback_pp": -14.758537370342806,
+          "gate": "PASS",
+          "rel_nav": 1.1002587509711927
+        }
+      },
+      "tip_mdd": {
+        "ytd": {
+          "mdd_improve_pp": -0.5085,
+          "ok": false
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.5085,
+          "ok": false
+        },
+        "ok": false
+      },
+      "tip_clean": true,
+      "tip_mdd_ok": false,
+      "held_mdd_ok": false,
+      "sealed_mdd_ok": false,
+      "giveback_ok": true,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_p90_KD_COOL",
+      "mechanism": "DUAL_SPLIT_COOL",
+      "meta": {
+        "pub_share": 0.9,
+        "priv_policy": "FIN_PRE_EXDIV_KD",
+        "tip_pub": 4,
+        "tip_priv": 6,
+        "n_fills": 16604
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.128064,
+          "max_drawdown": -0.153742,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087618,
+          "max_drawdown": -0.14896,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.128504,
+          "max_drawdown": -0.153742,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.205112,
+          "max_drawdown": -0.080626,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.164281,
+          "max_drawdown": -0.153742,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.164281,
+      "held_mdd": -0.153742,
+      "sealed_cagr": 0.205112,
+      "sealed_mdd": -0.080626,
+      "held_mdd_improve_pp": -0.5176,
+      "sealed_mdd_improve_pp": -1.1259,
+      "held_cagr_giveback_pp": -1.1332,
+      "held_cagr_lift_pp": 1.1332,
+      "score_mdd": -1.0805,
+      "tip": {
+        "ytd": {
+          "giveback_pp": -5.26410453192927,
+          "gate": "PASS",
+          "rel_nav": 1.0234953406583835
+        },
+        "trailing_1y": {
+          "giveback_pp": -7.425929520804941,
+          "gate": "PASS",
+          "rel_nav": 1.0505009782391448
+        }
+      },
+      "tip_mdd": {
+        "ytd": {
+          "mdd_improve_pp": 0.0705,
+          "ok": true
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0705,
+          "ok": true
+        },
+        "ok": true
+      },
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "held_mdd_ok": false,
+      "sealed_mdd_ok": false,
+      "giveback_ok": true,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_p85_KD_COOL",
+      "mechanism": "DUAL_SPLIT_COOL",
+      "meta": {
+        "pub_share": 0.85,
+        "priv_policy": "FIN_PRE_EXDIV_KD",
+        "tip_pub": 4,
+        "tip_priv": 6,
+        "n_fills": 17034
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.131528,
+          "max_drawdown": -0.15813,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08595,
+          "max_drawdown": -0.15813,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.132292,
+          "max_drawdown": -0.153417,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.217889,
+          "max_drawdown": -0.081379,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.172213,
+          "max_drawdown": -0.153417,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.172213,
+      "held_mdd": -0.153417,
+      "sealed_cagr": 0.217889,
+      "sealed_mdd": -0.081379,
+      "held_mdd_improve_pp": -0.4851,
+      "sealed_mdd_improve_pp": -1.2012,
+      "held_cagr_giveback_pp": -1.9264,
+      "held_cagr_lift_pp": 1.9264,
+      "score_mdd": -1.0857,
+      "tip": {
+        "ytd": {
+          "giveback_pp": -7.480335044719966,
+          "gate": "PASS",
+          "rel_nav": 1.033316201672808
+        },
+        "trailing_1y": {
+          "giveback_pp": -10.690084284713786,
+          "gate": "PASS",
+          "rel_nav": 1.0726639424285753
+        }
+      },
+      "tip_mdd": {
+        "ytd": {
+          "mdd_improve_pp": -0.1287,
+          "ok": true
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.1287,
+          "ok": true
+        },
+        "ok": true
+      },
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "held_mdd_ok": false,
+      "sealed_mdd_ok": false,
+      "giveback_ok": true,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_p80_EQ_COOL",
+      "mechanism": "DUAL_SPLIT_COOL",
+      "meta": {
+        "pub_share": 0.8,
+        "priv_policy": "FIN_EQUAL",
+        "tip_pub": 4,
+        "tip_priv": 6,
+        "n_fills": 18332
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.134043,
+          "max_drawdown": -0.161561,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.089169,
+          "max_drawdown": -0.161561,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.128948,
+          "max_drawdown": -0.152875,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.225956,
+          "max_drawdown": -0.083639,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.17418,
+          "max_drawdown": -0.152875,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.17418,
+      "held_mdd": -0.152875,
+      "sealed_cagr": 0.225956,
+      "sealed_mdd": -0.083639,
+      "held_mdd_improve_pp": -0.4309,
+      "sealed_mdd_improve_pp": -1.4272,
+      "held_cagr_giveback_pp": -2.1231,
+      "held_cagr_lift_pp": 2.1231,
+      "score_mdd": -1.1445,
+      "tip": {
+        "ytd": {
+          "giveback_pp": -9.138435451351068,
+          "gate": "PASS",
+          "rel_nav": 1.0406370147205546
+        },
+        "trailing_1y": {
+          "giveback_pp": -12.87161632233973,
+          "gate": "PASS",
+          "rel_nav": 1.0874644418130628
+        }
+      },
+      "tip_mdd": {
+        "ytd": {
+          "mdd_improve_pp": -0.3092,
+          "ok": true
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.3092,
+          "ok": true
+        },
+        "ok": true
+      },
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "held_mdd_ok": false,
+      "sealed_mdd_ok": false,
+      "giveback_ok": true,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_p80_KD_COOL",
+      "mechanism": "DUAL_SPLIT_COOL",
+      "meta": {
+        "pub_share": 0.8,
+        "priv_policy": "FIN_PRE_EXDIV_KD",
+        "tip_pub": 4,
+        "tip_priv": 6,
+        "n_fills": 18022
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.132968,
+          "max_drawdown": -0.161282,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086126,
+          "max_drawdown": -0.161282,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.130617,
+          "max_drawdown": -0.153372,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.225518,
+          "max_drawdown": -0.092126,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.174836,
+          "max_drawdown": -0.153372,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.174836,
+      "held_mdd": -0.153372,
+      "sealed_cagr": 0.225518,
+      "sealed_mdd": -0.092126,
+      "held_mdd_improve_pp": -0.4806,
+      "sealed_mdd_improve_pp": -2.2759,
+      "held_cagr_giveback_pp": -2.1887,
+      "held_cagr_lift_pp": 2.1887,
+      "score_mdd": -1.6186,
+      "tip": {
+        "ytd": {
+          "giveback_pp": -9.562408482214945,
+          "gate": "PASS",
+          "rel_nav": 1.0425052936744352
+        },
+        "trailing_1y": {
+          "giveback_pp": -13.746182999331147,
+          "gate": "PASS",
+          "rel_nav": 1.0933953095511397
+        }
+      },
+      "tip_mdd": {
+        "ytd": {
+          "mdd_improve_pp": -0.239,
+          "ok": true
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.239,
+          "ok": true
+        },
+        "ok": true
+      },
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "held_mdd_ok": false,
+      "sealed_mdd_ok": false,
+      "giveback_ok": true,
+      "coexist": false
+    },
+    {
+      "id": "DUAL_p75_KD_COOL",
+      "mechanism": "DUAL_SPLIT_COOL",
+      "meta": {
+        "pub_share": 0.75,
+        "priv_policy": "FIN_PRE_EXDIV_KD",
+        "tip_pub": 4,
+        "tip_priv": 6,
+        "n_fills": 18192
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.136069,
+          "max_drawdown": -0.166391,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087464,
+          "max_drawdown": -0.166391,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.128465,
+          "max_drawdown": -0.153058,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.238374,
+          "max_drawdown": -0.092833,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.179549,
+          "max_drawdown": -0.153058,
+          "n_days": 1870
+        }
+      },
+      "held_cagr": 0.179549,
+      "held_mdd": -0.153058,
+      "sealed_cagr": 0.238374,
+      "sealed_mdd": -0.092833,
+      "held_mdd_improve_pp": -0.4492,
+      "sealed_mdd_improve_pp": -2.3466,
+      "held_cagr_giveback_pp": -2.66,
+      "held_cagr_lift_pp": 2.66,
+      "score_mdd": -1.6225,
+      "tip": {
+        "ytd": {
+          "giveback_pp": -10.375986323799612,
+          "gate": "PASS",
+          "rel_nav": 1.046086286268772
+        },
+        "trailing_1y": {
+          "giveback_pp": -15.435906654361231,
+          "gate": "PASS",
+          "rel_nav": 1.1048500080604937
+        }
+      },
+      "tip_mdd": {
+        "ytd": {
+          "mdd_improve_pp": -0.4189,
+          "ok": true
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.4189,
+          "ok": true
+        },
+        "ok": true
+      },
+      "tip_clean": true,
+      "tip_mdd_ok": true,
+      "held_mdd_ok": false,
+      "sealed_mdd_ok": false,
+      "giveback_ok": true,
+      "coexist": false
+    }
+  ],
+  "prior_stop": "PUB_PRIV_COEXIST_MDD_DECISION_PACK (0 sealed coexist pre-COOL)",
+  "non_actions": [
+    "No Soft-Frozen live membership change",
+    "No e21 universe expand from Stage A",
+    "No DH re-enable / stack"
+  ]
+}
