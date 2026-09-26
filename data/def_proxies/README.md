@@ -11,6 +11,8 @@ Soft-Frozen KEEP · DEFAULT KEEP · stitch FORBIDDEN.
 
 Also ingested for M2 BIL_FX improve pack: `00720B`, `00740B`, `00751B` (TWD short-bond ETF proxies).
 
+Research satellite (not live merge): `00632R` (台50反1) · `00631L` (台50正2, FinMind 2026-09-26 for COOL exit rebound Stage A).
+
 ## Tradable TWD cash-like honesty (2026-09-07)
 
 - `00740B` / `00751B`: listed TW short-bond ETFs (research DEF destination) — **not** bank deposits.
