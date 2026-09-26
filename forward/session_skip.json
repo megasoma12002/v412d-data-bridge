@@ -1,24 +1,24 @@
 {
-  "asof": "2026-09-25",
-  "status": "CLOSED_HOLIDAY",
+  "asof": "2026-09-26",
+  "status": "WEEKEND",
   "is_session": false,
   "broker_submit_allowed": false,
   "skipped": true,
-  "reason": "no trading session (CLOSED_HOLIDAY)",
+  "reason": "no trading session (WEEKEND)",
   "notes": [
-    "annual:holidaySchedule"
+    "annual:weekend"
   ],
   "sources": {
     "annual_calendar": {
-      "date": "2026-09-25",
+      "date": "2026-09-26",
       "is_session": "0",
       "is_settlement": "0",
-      "kind": "CLOSED_HOLIDAY",
-      "name": "中秋節",
-      "source": "holidaySchedule",
-      "notes": "依規定放假1日。"
+      "kind": "WEEKEND",
+      "name": "",
+      "source": "weekend",
+      "notes": ""
     }
   },
-  "generated_at": "2026-09-25T21:59:20.485600+08:00",
+  "generated_at": "2026-09-26T11:51:03.006796+08:00",
   "soft_frozen_untouched": true
 }
