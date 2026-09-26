@@ -1,0 +1,64 @@
+{
+  "label": "ETF0050_BUY_FILL_STAGEA_DECISION_PACK",
+  "generated_at_utc": "2026-09-26T14:47:54Z",
+  "status": "METRIC_ARTIFACT_ONLY",
+  "verdict": "METRIC_ARTIFACT_ONLY",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "n_hit": 0,
+  "metric": {
+    "buy_n": 406,
+    "sell_n": 402,
+    "buy_n5_raw": {
+      "n": 406,
+      "mean": 6.0627,
+      "median": 2.8465,
+      "p90": 5.4656,
+      "share_le3": 0.5246,
+      "mean_t1": 0.9101
+    },
+    "buy_n5_adj": {
+      "n": 406,
+      "mean": 3.234,
+      "median": 2.9086,
+      "p90": 5.3324,
+      "share_le3": 0.5172,
+      "mean_t1": 0.9101
+    },
+    "sell_n5_raw": {
+      "n": 402,
+      "mean": 3.8781,
+      "median": 3.0145,
+      "p90": 6.0737,
+      "share_le3": 0.5,
+      "mean_t1": 0.6447
+    },
+    "sell_n5_adj": {
+      "n": 402,
+      "mean": 3.5141,
+      "median": 3.0145,
+      "p90": 5.9369,
+      "share_le3": 0.5,
+      "mean_t1": 0.6447
+    },
+    "raw_minus_adj_buy_mean": 2.8287,
+    "artifact_note": "2025-06-18 ~4:1 split makes raw \u00b15d explode; adj_close-scaled OHLC is authoritative"
+  },
+  "best_fill": {
+    "id": "SLEW_FRAC_25",
+    "fill_improve_pp": 0.1777,
+    "buy_n5_adj_mean": 3.0563,
+    "held_cagr_giveback_pp": -0.5244,
+    "held_mdd_improve_pp": -0.0638,
+    "hit": false
+  },
+  "binding": [
+    "Soft-Frozen live KEEP",
+    "Exact T+1 KEEP",
+    "No tip rewrite",
+    "No live wire from Stage A"
+  ],
+  "next": "Discussion only \u2014 HIT \u21d2 optional paper observe ballot; METRIC_ARTIFACT_ONLY \u21d2 keep live, fix audit metrics to adj; do not Soft-Frozen flip from this Stage A",
+  "charter": "research/ops/ETF0050_BUY_FILL_STAGEA_CHARTER.md",
+  "screen": "research/ops/ETF0050_BUY_FILL_STAGEA_SCREEN.md"
+}
