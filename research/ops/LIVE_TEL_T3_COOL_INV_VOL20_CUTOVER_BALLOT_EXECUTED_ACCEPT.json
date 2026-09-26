@@ -1,0 +1,27 @@
+{
+  "label": "LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT",
+  "generated_at_utc": "2026-09-26T13:50:00Z",
+  "human_ballot_exact": "請上live",
+  "normalized": "ACCEPT Live cutover: T3_COOL_INV_VOL20 (TEL within-sleeve under COOL)",
+  "status": "ACCEPTED_LIVE_WIRED_FORWARD_ONLY",
+  "recipe_id": "LIVE_TEL_T3_COOL_INV_VOL20",
+  "live_flag": "live_tel_t3_cool_inv_vol20",
+  "paper_prior": {
+    "stage_a": "TEL_WITHIN_SOFT",
+    "densify": "TEL_NEARFLAT_READY",
+    "champion": "T3_COOL_INV_VOL20",
+    "held_cagr_lift_pp": 0.1642,
+    "nearflat_floor_pp": 0.15
+  },
+  "coexist_keep": [
+    "Soft-Frozen F[0.60,0.80] T[0.03,0.35] E[0.00,0.50]",
+    "KD_OPT",
+    "FUSE_ADDITIVE",
+    "COOL_c8_f50_d21",
+    "SELL_a75",
+    "FinPriv V7 F05",
+    "CONF_RET3_A10_H5"
+  ],
+  "rollback": "live_config.live_tel_t3_cool_inv_vol20=False",
+  "broker_live_write": false
+}
