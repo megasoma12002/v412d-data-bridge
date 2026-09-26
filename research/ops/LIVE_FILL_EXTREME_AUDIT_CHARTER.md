@@ -2,7 +2,8 @@
 
 Date: 2026-09-26  
 Status: **Stage A tip `FILL_EXTREME_AUDIT_DONE` + backtest `FILL_EXTREME_BACKTEST_DONE`** · Soft-Frozen live **KEEP** · no live wire / no tip rewrite  
-Human: 事後審計（fill vs 高低）+ 機制對照（clip／T+1／COOL／KD）；回測同題
+Human: 事後審計（fill vs 高低）+ 機制對照（clip／T+1／COOL／KD）；回測同題  
+OHLC basis: **`adj_close`-scaled** (ACCEPT follow-up from `ETF0050_BUY_FILL_STAGEA` `METRIC_ARTIFACT_ONLY`)
 
 ## Tip path
 
@@ -22,12 +23,15 @@ Label: `LIVE_FILL_EXTREME_AUDIT_CHARTER_2026-09-26__OPEN`
 
 ## A — Fill vs local extreme
 
-For each fill, vs OHLC on the **fill code**:
+Authoritative OHLC: **`adj_close`-scaled** (open/high/low/close × `adj_close/close`; fill px mapped with same-day factor).  
+Raw unadjusted OHLC is **not** used — splits (e.g. 0050 2025-06-18 ~4:1) otherwise explode ±N windows (`METRIC_ARTIFACT_ONLY`).
+
+For each fill, vs **adj** OHLC on the **fill code**:
 
 | Metric | BUY | SELL |
 |---|---|---|
-| Primary | `(px − low_N) / low_N` | `(high_N − px) / high_N` |
-| Window | ±**N** calendar trading days around **fill_date** | same |
+| Primary | `(px_adj − low_N) / low_N` | `(high_N − px_adj) / high_N` |
+| Window | ±**N** trading days around **fill_date** | same |
 | N grid | **5 · 21** | |
 
 Strata: sleeve **FIN / TEL / 0050** · side · defense (tip DH & reconstructed COOL; backtest on-book COOL).

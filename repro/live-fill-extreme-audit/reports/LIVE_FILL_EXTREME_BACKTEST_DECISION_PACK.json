@@ -1,44 +1,44 @@
 {
   "label": "LIVE_FILL_EXTREME_BACKTEST_DECISION_PACK",
-  "generated_at_utc": "2026-09-26T14:23:45Z",
+  "generated_at_utc": "2026-09-26T15:06:25Z",
   "status": "FILL_EXTREME_BACKTEST_DONE",
   "verdict": "FILL_EXTREME_BACKTEST_DONE",
   "live_wire": false,
   "book_id": "LIVE_FUSE_ADDITIVE_SELL_a75_COOL_c8",
   "n_fills": 6299,
-  "overall_n5_mean_dist_pct": 2.6809,
-  "overall_n21_mean_dist_pct": 5.4727,
-  "mean_t1_drag_pct": 0.761,
+  "overall_n5_mean_dist_pct": 2.44,
+  "overall_n21_mean_dist_pct": 4.9849,
+  "mean_t1_drag_pct": 0.789,
   "cool_defense_frac_days": 0.1602,
   "windows": {
     "full": {
       "n_fills": 6299,
-      "n5_mean": 2.6809,
-      "t1_drag": 0.761,
+      "n5_mean": 2.44,
+      "t1_drag": 0.789,
       "cool_defend_share": 0.2308
     },
     "oof_2011_2018": {
       "n_fills": 2651,
-      "n5_mean": 2.2555,
-      "t1_drag": 0.7003,
+      "n5_mean": 2.2161,
+      "t1_drag": 0.7319,
       "cool_defend_share": 0.1531
     },
     "validation_2019_2022": {
       "n_fills": 1981,
-      "n5_mean": 2.5394,
-      "t1_drag": 0.8172,
+      "n5_mean": 2.5134,
+      "t1_drag": 0.817,
       "cool_defend_share": 0.311
     },
     "sealed_2023_plus": {
       "n_fills": 1667,
-      "n5_mean": 3.5258,
-      "t1_drag": 0.7907,
+      "n5_mean": 2.7087,
+      "t1_drag": 0.8466,
       "cool_defend_share": 0.2591
     },
     "heldout_2019_plus": {
       "n_fills": 3648,
-      "n5_mean": 2.9901,
-      "t1_drag": 0.8051,
+      "n5_mean": 2.6026,
+      "t1_drag": 0.8305,
       "cool_defend_share": 0.2873
     }
   },
