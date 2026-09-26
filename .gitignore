@@ -37,3 +37,4 @@ archive/repro/**/outputs/*_daily_nav.csv
 # R5 smoke outputs (regenerate)
 fixtures/r5_reconcile_smoke/
 
+.worktrees/
