@@ -29,6 +29,10 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | 0i | 民股 MDD **新機制 V6**（shadow 相對 NAV 連續阻尼 FinPriv） | **STOP** (2026-09-19) | 0 sealed coexist · best tip-clean sealed `V6_C100_PUB` −0.24 · Soft-Frozen KEEP · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md` |
 | 0j | 民股金控 Gate V7 carve-out（Bull+Side F05 近持平） | **SOFT → OBSERVE → NEAR_FLAT → Class D LIVE** (2026-09-26) | floor +0.15 · `LIVE_FIN_PRIV_V7_F05` · Soft-Frozen 3-sleeve KEEP · `CLASSD_FINPRIV_V7_F05_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 0j | 民股金控 **max CAGR × min MDD** Gate V7 | **STAGE A SOFT** (2026-09-25) | 0 HIT · 2 soft (Bull-gate F05 sealed MDD↑ OK, CAGR short of +0.20) · Soft-Frozen KEEP · `PRIV_FINHC_CAGR_MDD_GATE_V7_DECISION_PACK.md` |
+| 0k | COOL 成立買 **台50反1**／結束賣 | **STAGE A SOFT** (2026-09-25) | 0 HIT · α=0.25 MDD↑ / CAGR↓ · Soft-Frozen KEEP · `COOL_T50_INV_SATELLITE_DECISION_PACK.md` |
+| 0k2 | COOL 觸發 **極短脈衝** 00632R | **STAGE A SOFT** (2026-09-25) | 0 HIT · H=1 最小傷害仍 CAGR↓ · Soft-Frozen KEEP · `COOL_T50_INV_PULSE_DECISION_PACK.md` |
+| 0k3 | FUSE Soft-sell → 00632R | **STAGE A MDD_BLOCK** (2026-09-25) | 0 HIT · CAGR↓ sealed MDD↓ · Soft-Frozen KEEP · `FUSE_SOFTSELL_T50_INV_DECISION_PACK.md` |
+| 0k4 | **大盤下行** → 00632R | **STAGE A MDD_BLOCK** (2026-09-25) | 正確觸發仍 CAGR↓ / sealed MDD 不過 · Soft-Frozen KEEP · `MKTDOWN_T50_INV_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.80]** / ETF **[0.00, 0.50]** | **FLIPPED** (ACCEPT 2026-09-25 β densify) | Was FINBAND [0.60,0.90]/ETF[0.00,0.35]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md` · prior FINBAND note KEEP |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |

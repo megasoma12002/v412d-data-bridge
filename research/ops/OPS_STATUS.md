@@ -12,6 +12,7 @@ Live Soft-Frozen clips: **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** (β densif
 新機制 V5：**STOP** · `PRIV_MDD_DH_PRIV_WINDOW_V5_DECISION_PACK.md`（N1–N3+V2+V3+V4+V5 STOP）  
 新機制 V6：**STOP** · `PRIV_MDD_SHADOW_RELNAV_V6_DECISION_PACK.md`（N1–N3+V2+V3+V4+V5+V6 STOP）  
 民股金控 Gate V7：Stage A SOFT → OBSERVE → NEAR_FLAT → **Class D LIVE WIRED** (`ACCEPT Class D: FinPriv V7 F05`) · Soft-Frozen 3-sleeve KEEP · `CLASSD_FINPRIV_V7_F05_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`  
+COOL × 台50反1（成立買／結束賣）：**Stage A `COOL_INV_SOFT`** · Soft-Frozen KEEP · `COOL_T50_INV_SATELLITE_DECISION_PACK.md`  
 Soft∥Sleeve ops auto-fuse agenda：**CLOSED**（Gate H FORBIDDEN KEEP）· `ACCEPT_DROP_AUTO_FUSE_AGENDA.md`  
 Portfolio: `research/ops/RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md`  
 Binding decisions: `research/ops/HUMAN_DECISION_REGISTER.md`  

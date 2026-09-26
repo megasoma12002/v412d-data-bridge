@@ -1,0 +1,13 @@
+{
+  "label": "MKTDOWN_T50_INV_DECISION",
+  "generated_at_utc": "2026-09-25T14:55:50Z",
+  "status": "MDD_BLOCK",
+  "live_wire": false,
+  "n_coexist": 0,
+  "soft_ids": [],
+  "coexist_ids": [],
+  "thesis": "00632R useful in market-down",
+  "reading": "Correct trigger thesis; under FUSE+COOL twin still CAGR↓ and sealed MDD fails coexist.",
+  "charter": "research/ops/MKTDOWN_T50_INV_CHARTER.md",
+  "stage_a": "research/ops/MKTDOWN_T50_INV_STAGEA_SCREEN.md"
+}
