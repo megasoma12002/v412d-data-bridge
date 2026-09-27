@@ -1,10 +1,15 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-25 (Deferred ops ACCEPT: day-commit atomicity · tip-write gate · broker PREP · Stage-E sandbox research)  
+Date: 2026-09-27 (ops pack: R5 synth · UAT readonly checklist · SAT_A20 decision · tip catch-up **2026-09-29**)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen clips: **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** (β densify ACCEPT 2026-09-25; was FINBAND F[0.60,0.90] E[0.00,0.35])  
-**Cutover `#257`: CLOSED** (not merged) · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` · live KEEP 公股+FUSE+DH · reopen only new mechanism or sealed-gate  
-**Deferred ops ACCEPT:** `ACCEPT_DEFERRED_OPS_HARDEN_2026-09-25.md` · broker PREP `ACCEPT_PREP_BROKER_LIVE_WRITE_2026-09-25.md` · Stage-E sandbox `ACCEPT_RESEARCH_STAGE_E_FULL_HISTORY_SANDBOX_2026-09-25.md`
+Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27)  
+**Tip calendar:** last tip `2026-09-24` · closed 9/25–28 · **next session 2026-09-29** · checklist `TIP_CATCHUP_2026-09-29_CHECKLIST.md`  
+**Cutover `#257`: CLOSED** (not merged) · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` · live KEEP 公股+FUSE · DH later **replaced by COOL_c8** 2026-09-25 · reopen only new mechanism or sealed-gate  
+**Deferred ops ACCEPT:** `ACCEPT_DEFERRED_OPS_HARDEN_2026-09-25.md` · broker PREP `ACCEPT_PREP_BROKER_LIVE_WRITE_2026-09-25.md` · Stage-E sandbox `ACCEPT_RESEARCH_STAGE_E_FULL_HISTORY_SANDBOX_2026-09-25.md`  
+**Eng tip-path P0–P2:** merged `#314` · Soft-Frozen KEEP  
+**Broker/R5/OCO PREP not open:** merged `#315` · `BROKER_R5_OCO_PREP_NOT_OPEN.md` · UAT readonly checklist `YUANTA_SPARK_UAT_READONLY_CHECKLIST.md`  
+**SAT_A20_H5:** Stage A MECH_HIT · Stage B PARENT_KEEP · decision **OPEN observe recommended** (ballot DRAFT) · `SAT_A20_H5_DECISION_2026-09-27.md` · live **BLOCKED**
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
 新機制 V3：**STOP** · `PRIV_MDD_M1_SCALE_V3_DECISION_PACK.md`（N1–N3+V2+V3 STOP）  
@@ -105,7 +110,7 @@ Odd-lot promote decision pack (**ACCEPT promote**): `research/ops/ODD_LOT_PROMOT
 Par-value lookup charter: `research/ops/PAR_VALUE_LOOKUP_CHARTER.md`  
 Par-value inventory: `research/ops/PAR_VALUE_INVENTORY.md` · `data/corporate_actions/par_value_by_code.csv`  
 Tax/receivable formal books: Stage-E live **TAX0** · human **BALLOT A KEEP TAX0** (2026-09-20) — after-tax DEFAULT path closed this cycle; sandbox tax10/20 research-only · NHI211 dual-book observe `E22_TAX0_VS_NHI211_OBSERVE.md` · `E22_V3_WITHHOLDING_RESIDENT_NOTE.md` · Stage B `E22_V3_TAX_RECV_STAGE_B_STATUS.md`  
-Realism automation gap-close (toward 全自動化): Phase **0–1 + 2 + 3 + 5 LANDED** — tip Stage-E confirm 2026-09-21 · verify · `ops_alert_scan` R4/tip-lag · `v412e22-dividend-events` weekday cron · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md`  
+Realism automation gap-close (toward 全自動化): Phase **0–1 + 2 + 3 + 5 LANDED** — tip Stage-E confirm 2026-09-21 · verify · `ops_alert_scan` R4/tip-lag · `v412e22-dividend-events` weekday cron · Phase 4 R5 **synthetic OK** 2026-09-27 (`R5_OBSERVE_SYNTHETIC_2026-09-27.md`) · waiting real custody drop-in · roadmap `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md` · next tip catch-up **2026-09-29** `TIP_CATCHUP_2026-09-29_CHECKLIST.md`
 E45 A05 live-stitch (**DROPPED** 2026-09-09): Soft-Frozen CRITICAL class KEEP as paper; dual-paper observe **OPERATING**; A05 live wire **retired** (`E45_A05_STITCH_DROPPED.md`); live risk overlay was **DH_dd06** + **FUSE** (ACCEPT 2026-09-13) → **COOL_c8 replace DH, keep FUSE** (ACCEPT 2026-09-25). Tip books align ACCEPT 2026-09-19 → tip catch-up **CONFIRMED** 2026-09-21: `ACCEPT_TIP_BOOKS_ALIGN_V3.md` · `TIP_CATCHUP_MONDAY_2026-09-21.md`. Paper/live fill skip align: `ACCEPT_PAPER_LIVE_FILL_SKIP_ALIGN.md`. Ops residual 全修 ACCEPT 2026-09-19: `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` (dual-paper refresh + tip-lag stamp + INDEX_DRIFT non-decision; no challenger/broker promote).
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  

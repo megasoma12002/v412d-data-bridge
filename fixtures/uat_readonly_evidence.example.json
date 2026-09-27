@@ -1,0 +1,12 @@
+{
+  "label": "uat_readonly_evidence_example",
+  "env": "UAT",
+  "api_wired_in_repo": false,
+  "login_msg_code": "0001",
+  "login_ok": true,
+  "queries": ["GetStoreSummary", "GetBankBalance"],
+  "orders_sent": false,
+  "send_algo": false,
+  "noted_at_utc": "YYYY-MM-DDThh:mm:ssZ",
+  "operator_note": "Redact account numbers. Never commit real evidence with secrets."
+}

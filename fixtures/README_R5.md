@@ -3,7 +3,8 @@
 | File | Role |
 |---|---|
 | `r5_custody_synthetic.csv` | **CI / scaffold only** — byte-mirror of `forward/e21/settlement_cash_estimate.csv` fill rows so `twse_t2_broker_reconcile.py` returns `all_ok=true` |
-| `r5_custody_dropin.csv` | **Optional ops drop-in** — place a real broker/custody export here (gitignored pattern OK); `ops_r5_observe_auto.py` prefers this over synthetic |
+| `r5_custody_dropin.example.csv` | **Schema example** (safe to commit) — copy shape into `r5_custody_dropin.csv` |
+| `uat_readonly_evidence.example.json` | Redacted UAT Login evidence shape — real file gitignored |
 | `r5_reconcile_smoke/` | Generated smoke pack (CI) |
 | `r5_reconcile_observe/` | Generated observe pack from `ops_r5_observe_auto.py` |
 

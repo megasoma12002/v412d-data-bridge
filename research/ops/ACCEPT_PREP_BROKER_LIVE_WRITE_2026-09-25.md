@@ -17,11 +17,13 @@ Soft-Frozen: **KEEP** · `broker_live_write_accepted=False` · `API_WIRED=False`
 
 ## EXECUTE prerequisites (human)
 
-- [ ] UAT firewall open; `ystest.yuanta.com.tw:443` OK from `35.206.200.31`
-- [ ] UAT readonly Login MsgCode `0001`/`00001` + GetStoreSummary/GetBankBalance
+- [ ] UAT firewall open; `ystest.yuanta.com.tw:443` OK from jump VM static IP
+- [ ] UAT readonly Login MsgCode `0001`/`00001` + GetStoreSummary/GetBankBalance — checklist `YUANTA_SPARK_UAT_READONLY_CHECKLIST.md`
 - [ ] PROD readonly (separate machine) optional but recommended
 - [ ] Secrets only in Secret Manager / VM env — never git
 - [ ] New ballot: `ACCEPT EXECUTE broker live-write …` with date + scope (UAT shadow vs Soft-Frozen paper port)
+
+Repo PREP surfaces (2026-09-27 `#315`): `BROKER_R5_OCO_PREP_NOT_OPEN.md` · `ops_uat_readonly_prep_status.py` · OCO INTENT_ONLY.
 
 ## Non-goals this cycle
 

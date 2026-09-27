@@ -36,6 +36,7 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27 `R_L1_05`; prior 0.0
 | 0k4 | **大盤下行** → 00632R | **STAGE A MDD_BLOCK** (2026-09-25) | 正確觸發仍 CAGR↓ / sealed MDD 不過 · Soft-Frozen KEEP · `MKTDOWN_T50_INV_DECISION_PACK.md` |
 | 0k5 | COOL **結束** → `00631L` 搶反彈 | **STAGE A MDD_BLOCK** (2026-09-26) | CAGR 可↑但 MDD 門不過 · Soft-Frozen KEEP · no live · `COOL_T50_LEV_REBOUND_DECISION_PACK.md` |
 | 0k6 | `00631L` **短線輔助** T1–T4 | **STAGE A SHORT_ASSIST_HIT → OBSERVE → LIVE WIRED** (2026-09-26) | Human `CONF_RET3_A10_H5 accept live` · Soft-Frozen KEEP · forward-only · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
+| 0k6b | CONF densify **`SAT_A20_H5`** | **DECISION: OPEN observe recommended** (2026-09-27) | Stage A MECH_HIT · Stage B PARENT_KEEP · ballot **DRAFT** · live **BLOCKED** · `SAT_A20_H5_DECISION_2026-09-27.md` |
 | 0k7 | COOL **dual-handoff** 防守反1→結束正2 | **STAGE A DUAL_HANDOFF_SOFT** (2026-09-26) | 0 HIT · 3 SOFT · INV 拖垮 LEV CAGR · Soft-Frozen KEEP · no live · `COOL_T50_DUAL_HANDOFF_DECISION_PACK.md` |
 | 0l | 民股金控 Gate V8 AND-confirm stack | **STAGE A SOFT** (2026-09-25) | 0 HIT · 5 soft · best `V8_BSIDE_MA120_F05_KDMAY_COOL1` held CAGR↑ ≈0 / sealed MDD↑ +0.13 · Soft-Frozen KEEP · no V7 retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.80]** / ETF **[0.00, 0.50]** | **FLIPPED** (ACCEPT 2026-09-25 β densify) | Was FINBAND [0.60,0.90]/ETF[0.00,0.35]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md` · prior FINBAND note KEEP |
@@ -182,6 +183,10 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - Practitioner borrow map (reference only): `EXTERNAL_BORROW_NOTES.md` / `EXTERNAL_BORROW_NOTES.zh-TW.md` — does not open live or combo
 - Ops residual 全修 **ACCEPTED** 2026-09-19 — dual-paper refresh + tip-lag Gap6 stamp + INDEX_DRIFT non-decision · `ACCEPT_OPS_RESIDUAL_FULL_FIX.md` · does **not** promote L4/FIN50/BLEND/Soft/Sleeve/priv/broker/tax Stage-B
 - Deferred ops harden **ACCEPTED** 2026-09-25 — day-commit atomicity + tip-write gate EXECUTE; broker live-write **PREP only** (flags stay False); Stage-E full-history sandbox RESEARCH only · `ACCEPT_DEFERRED_OPS_HARDEN_2026-09-25.md`
+- Broker/R5/OCO **PREP not open** merged `#315` (2026-09-27) — INTENT_ONLY + R5 observe auto · UAT readonly checklist · EXECUTE still BLOCKED · `BROKER_R5_OCO_PREP_NOT_OPEN.md` · `YUANTA_SPARK_UAT_READONLY_CHECKLIST.md`
+- Eng tip-path P0–P2 merged `#314` (2026-09-27) — FUSE offense cache · batch ledger · Soft-Frozen KEEP
+- Tip holiday gap: last tip `2026-09-24` · closed 9/25–28 · **next catch-up session 2026-09-29** · `TIP_CATCHUP_2026-09-29_CHECKLIST.md` · do not invent tip
+- R5 synthetic observe OK 2026-09-27 — waiting real `fixtures/r5_custody_dropin.csv` · `R5_OBSERVE_SYNTHETIC_2026-09-27.md`
 - R2 MDD band floor **−14.5% ACCEPTED** 2026-09-25 — paper rescore only · Soft-Frozen KEEP · no live wire · `ACCEPT_R2_MDD_BAND_FLOOR_14_5_2026-09-25.md` · Stage A still `BAND_ONLY`
 - R2/Stage-B MDD band floor **−15% ACCEPTED** 2026-09-25 — tip-safe FAST rescore **`TIPSAFE_STRETCH`** (`COOL_c8_f50_d21` · `GATE_g04_f50_d21`) · Soft-Frozen KEEP · `ACCEPT_R2_MDD_BAND_FLOOR_15_2026-09-25.md`
 - Realism → 全自動化: Phase **0–1+2+3+5 LANDED** · Phase **4 scaffold** (synthetic R5) · Phase 2 tip **CONFIRMED** 2026-09-21 · Phase 6/7 ballot · `REALISM_AUTOMATION_GAP_CLOSE_2026-09-20.md` · `PHASE_2_TIP_CATCHUP_CONFIRMED_2026-09-21.md`

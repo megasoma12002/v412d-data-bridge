@@ -1,6 +1,8 @@
 # Monday tip catch-up checklist (concrete ops + cashflow asserts)
 
-Status: **CONFIRMED 2026-09-21** — Soft-Frozen KEEP · no history rewrite  
+Status: **CONFIRMED 2026-09-21** (Phase 2 books) · Soft-Frozen KEEP · no history rewrite  
+**Next tip advance after 2026-09 holidays:** use **`TIP_CATCHUP_2026-09-29_CHECKLIST.md`**  
+(9/25 中秋 · 9/28 教師節 closed · tip frozen at 2026-09-24 until **2026-09-29**)
 When: first **weekday** after tip-align ACCEPT (tip may have shown `E22_v2s_tw_effex`)  
 Goal: confirm tip → `E22_v3_recv_pay_effdelay` (= realism **Phase 2**) so **View C** (cash + receivable) is live; then print three cashflow views.
 
