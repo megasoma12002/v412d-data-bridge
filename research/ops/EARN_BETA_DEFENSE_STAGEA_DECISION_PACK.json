@@ -1,0 +1,27 @@
+{
+  "schema_version": "earn_beta_defense_stagea_decision_v1",
+  "id": "EARN_BETA_DEFENSE_STAGEA_DECISION_PACK",
+  "generated_at": "2026-09-27T04:06:52Z",
+  "status": "CLOSE_OBSERVE_RECOMMENDED",
+  "track_verdicts": {
+    "BETA": "BETA_NO_LIFT",
+    "COOL": "COOL_NO_LIFT",
+    "FIN_DYN": "FIN_DYN_NO_LIFT",
+    "VOL": "VOL_NO_LIFT",
+    "CLOSE": "CLOSE_OBSERVE_RECOMMENDED"
+  },
+  "live_wire": false,
+  "hits": [],
+  "cagr_soft": [],
+  "close_observe_recommended": true,
+  "binding": [
+    "Soft-Frozen clips KEEP",
+    "Exact T+1 KEEP",
+    "live REBALANCE_L1_MIN=0.05 KEEP",
+    "No tip rewrite",
+    "No live wire from this Stage A",
+    "At most one track for follow-up ACCEPT discussion"
+  ],
+  "next": "CLOSE_OBSERVE \u2014 tip monitor; do not reopen this menu without new lever",
+  "label": "EARN_BETA_DEFENSE_STAGEA_DECISION_PACK_20260927__CLOSE_OBSERVE_RECOMMENDED"
+}
