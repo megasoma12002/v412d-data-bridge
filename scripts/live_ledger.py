@@ -152,29 +152,51 @@ def make_order_id(*, signal_date: Any, code: str, side: str) -> str:
     return f"{d}-{str(code).strip()}-{str(side).strip().upper()}"
 
 
-def append_immutable(path: Path | str, row: dict[str, Any], key: str) -> bool:
-    """Append one row if ``key`` is new. Never rewrite history. Returns True if written.
+def append_immutable_many(
+    path: Path | str,
+    rows: list[dict[str, Any]],
+    key: str,
+) -> int:
+    """Append rows whose ``key`` is new. First-key-wins (file then rows order).
 
-    CSV rewrite uses temp + ``os.replace`` so a crash mid-write cannot truncate the ledger.
+    Single temp + ``os.replace`` per call — avoids O(n²) rewrite when committing
+    many day rows. Returns count of rows newly written.
     """
     import os
     import tempfile
 
+    if not rows:
+        return 0
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
-    new = pd.DataFrame([row])
+
+    seen: set[str] = set()
+    frames: list[pd.DataFrame] = []
     if p.exists():
+        # Prefer str dtype for ``code`` when present (fills/orders); harmless otherwise.
         old = pd.read_csv(p, dtype={"code": str})
-        hit = old[old[key].astype(str) == str(row[key])]
-        if len(hit):
-            return False
-        new = pd.concat([old, new], ignore_index=True)
+        if not old.empty and key in old.columns:
+            seen = set(old[key].astype(str))
+            frames.append(old)
+
+    new_rows: list[dict[str, Any]] = []
+    for row in rows:
+        k = str(row[key])
+        if k in seen:
+            continue
+        seen.add(k)
+        new_rows.append(row)
+    if not new_rows:
+        return 0
+    frames.append(pd.DataFrame(new_rows))
+    out = pd.concat(frames, ignore_index=True) if len(frames) > 1 else frames[0]
+
     fd, tmp_name = tempfile.mkstemp(
         prefix=p.name + ".", suffix=".tmp", dir=str(p.parent)
     )
     try:
         with os.fdopen(fd, "w", encoding="utf-8", newline="") as f:
-            new.to_csv(f, index=False)
+            out.to_csv(f, index=False)
             f.flush()
             os.fsync(f.fileno())
         os.replace(tmp_name, p)
@@ -184,7 +206,15 @@ def append_immutable(path: Path | str, row: dict[str, Any], key: str) -> bool:
         except OSError:
             pass
         raise
-    return True
+    return len(new_rows)
+
+
+def append_immutable(path: Path | str, row: dict[str, Any], key: str) -> bool:
+    """Append one row if ``key`` is new. Never rewrite history. Returns True if written.
+
+    CSV rewrite uses temp + ``os.replace`` so a crash mid-write cannot truncate the ledger.
+    """
+    return append_immutable_many(path, [row], key) == 1
 
 
 def atomic_write_json(path: Path | str, obj: Any) -> None:
@@ -340,3 +370,6 @@ class LedgerStore:
 
     def append(self, name: str, row: dict[str, Any], key: str) -> bool:
         return append_immutable(self.path(name), row, key)
+
+    def append_many(self, name: str, rows: list[dict[str, Any]], key: str) -> int:
+        return append_immutable_many(self.path(name), rows, key)

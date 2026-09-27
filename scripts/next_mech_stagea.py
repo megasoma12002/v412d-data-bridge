@@ -74,59 +74,15 @@ def _rebuild_e16_targets(
     score_w: tuple[float, float, float, float] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.DataFrame]:
     """Causal Soft-Frozen router with optional Bull prior / score-weight override."""
-    prices = (
-        market.pivot(index="date", columns="code", values="adj_close")
-        .sort_index()
-        .ffill()
-    )
-    rets = prices.pct_change(fill_method=None).fillna(0.0)
-    sleeve = pd.DataFrame(
-        {
-            "Financial": rets[list(soft.FIN)].mean(axis=1),
-            "Telecom": rets[list(soft.TEL)].mean(axis=1),
-            "0050": rets["0050"],
-        }
-    )
-    taiex = prices["TAIEX"]
-    tr = taiex.pct_change()
-    ma = taiex.rolling(200).mean()
-    vol = tr.rolling(20).std() * np.sqrt(252)
-    dd = taiex / taiex.rolling(252, min_periods=120).max() - 1.0
-    regime = pd.Series("Sideways", index=prices.index)
-    regime[(taiex > ma) & (vol < 0.25)] = "Bull"
-    regime[taiex < ma] = "Bear"
-    regime[(vol > 0.35) | (dd < -0.15)] = "Crisis"
-
-    nav = (1.0 + sleeve).cumprod()
-    m20 = nav / nav.shift(20) - 1.0
-    m60 = nav / nav.shift(60) - 1.0
-    sv = sleeve.rolling(20).std() * np.sqrt(252)
-    d60 = nav / nav.rolling(60, min_periods=20).max() - 1.0
-
-    def _z(x: pd.DataFrame) -> pd.DataFrame:
-        return x.sub(x.mean(axis=1), axis=0).div(
-            x.std(axis=1).replace(0.0, np.nan), axis=0
-        ).fillna(0.0)
-
-    w = score_w if score_w is not None else LIVE_SCORE_W
-    score = w[0] * _z(m20) + w[1] * _z(m60) - w[2] * _z(sv) + w[3] * _z(d60)
-
-    priors = {k: v.copy() for k, v in soft.REGIME_PRIORS.items()}
+    priors = None
     if bull_prior is not None:
+        priors = {k: v.copy() for k, v in soft.REGIME_PRIORS.items()}
         priors["Bull"] = np.asarray(bull_prior, dtype=float).copy()
-
-    out = []
-    cur = soft.apply_soft_frozen_clips(soft.START_WEIGHTS.copy())
-    for i, _dt in enumerate(prices.index):
-        pri = priors[str(regime.iloc[i])]
-        cand = np.maximum(pri + 0.10 * np.clip(score.iloc[i].to_numpy(), -2.0, 2.0), 0.0)
-        cand = soft.apply_soft_frozen_clips(cand)
-        desired = soft.BLEND_OLD * cur + soft.BLEND_NEW * cand
-        desired = soft.apply_soft_frozen_clips(desired)
-        if float(np.abs(desired - cur).sum()) >= float(soft.REBALANCE_L1_MIN):
-            cur = desired
-        out.append(cur.copy())
-    target = pd.DataFrame(out, index=prices.index, columns=["Financial", "Telecom", "0050"])
+    _prices, sleeve, target, regime, score = soft.build_soft_frozen_targets(
+        market,
+        regime_priors=priors,
+        score_weights=score_w,
+    )
     return sleeve, target, regime, score
 
 

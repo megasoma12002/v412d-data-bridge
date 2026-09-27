@@ -77,6 +77,16 @@ def _kd_panels(market: pd.DataFrame, dividends: pd.DataFrame):
     return kd, buy_ok, buy, sell
 
 
+# Session-scoped FUSE offense NAV cache (COOL + CONF share one simulate_core).
+# Keyed by id(market), id(dividends) — tip path must pass the same DataFrame objs.
+_FUSE_OFFENSE_NAV_CACHE: dict[tuple[int, int], tuple[pd.DataFrame, dict[str, Any]]] = {}
+
+
+def clear_fuse_offense_cache() -> None:
+    """Drop session cache (tests / multi-asof research loops)."""
+    _FUSE_OFFENSE_NAV_CACHE.clear()
+
+
 def build_fuse_offense_sim(
     market: pd.DataFrame,
     dividends: pd.DataFrame,
@@ -132,8 +142,19 @@ def build_fuse_offense_sim(
 def build_fuse_offense_nav(
     market: pd.DataFrame, dividends: pd.DataFrame
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
-    """Paper-faithful FUSE_ADDITIVE offense book (no DH), Exact T+1."""
+    """Paper-faithful FUSE_ADDITIVE offense book (no DH), Exact T+1.
+
+    Caches by DataFrame identity so COOL + CONF_RET3 tip paths share one
+    ``simulate_core`` when passed the same market/dividends objects.
+    """
+    key = (id(market), id(dividends))
+    hit = _FUSE_OFFENSE_NAV_CACHE.get(key)
+    if hit is not None:
+        nav, meta = hit
+        return nav, {**meta, "fuse_offense_cache_hit": True}
     nav, _fills, meta = build_fuse_offense_sim(market, dividends)
+    meta = {**meta, "fuse_offense_cache_hit": False}
+    _FUSE_OFFENSE_NAV_CACHE[key] = (nav, meta)
     return nav, meta
 
 

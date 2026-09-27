@@ -11,28 +11,8 @@ from typing import Any
 import pandas as pd
 
 from e22_books_apply import books_manifest
-from live_config import (
-    E45_STITCH_ROLLBACK,
-    KD_OPT,
-    LIVE_COOL_EXPOSURE,
-    LIVE_COOL_ID,
-    LIVE_CONF_RET3_631L,
-    LIVE_CONF_RET3_BALLOT,
-    LIVE_CUTOVER_BALLOT,
-    LIVE_DH_EXPOSURE,
-    LIVE_DH_ID,
-    LIVE_FIN_PRIV_BALLOT,
-    LIVE_FIN_PRIV_V7_F05,
-    LIVE_FIN_WITHIN_SLEEVE,
-    LIVE_FUSE_ADDITIVE,
-    LIVE_FUSE_SOFT_SELL_BALLOT,
-    LIVE_FUSE_SOFT_SELL_BOOST,
-    LIVE_TEL_T3_BALLOT,
-    LIVE_TEL_T3_COOL_INV_VOL20,
-    LIVE_TEL_WITHIN_SLEEVE,
-    TIP_BOOKS_ALIGN_BALLOT,
-)
-from live_ledger import append_immutable, atomic_write_json
+from live_ledger import append_immutable, append_immutable_many, atomic_write_json
+from live_tip_meta import build_cutover_stamps
 
 
 def commit_day_books(
@@ -49,27 +29,25 @@ def commit_day_books(
     order_rows: list[dict[str, Any]],
     applied_details: list,
     asof_iso: str,
+    write_excel_dashboard: bool = True,
 ) -> None:
     """Persist day ledgers then atomic portfolio_state (ACCEPT day-commit atomicity).
 
     Order (crash window shrink):
-      1) orders / signals / nav (immutable CSV)
+      1) orders / signals / nav (immutable CSV, batched where possible)
       2) deferred paper fills + dividends_applied
       3) portfolio_state.json last (atomic_write_json)
-      4) audit_chain + dashboard
+      4) audit_chain + optional dashboard
 
     Soft-Frozen KEEP — never rewrite existing rows (append_immutable first-key wins).
     """
     sdir = Path(state_dir)
-    for o in order_rows:
-        append_immutable(sdir / "orders.csv", o, "order_id")
+    append_immutable_many(sdir / "orders.csv", list(order_rows), "order_id")
     append_immutable(sdir / "signals.csv", signal, "date")
     append_immutable(sdir / "nav.csv", navrow, "date")
     if fill_port_name == "paper":
-        for f in fills:
-            append_immutable(sdir / "fills.csv", f, "fill_id")
-    for row in pending_div_rows:
-        append_immutable(div_path, row, "key")
+        append_immutable_many(sdir / "fills.csv", list(fills), "fill_id")
+    append_immutable_many(div_path, list(pending_div_rows), "key")
     # State last — assert_no_uncommitted_ledger detects orphans if we die above.
     atomic_write_json(state_path, state_payload)
 
@@ -103,18 +81,19 @@ def commit_day_books(
                 + "\n"
             )
 
-    sheet_sources = [
-        ("Signals", "signals.csv"),
-        ("NAV", "nav.csv"),
-        ("Orders", "orders.csv"),
-        ("Fills", "fills.csv"),
-        ("Dividends", "dividends_applied.csv"),
-    ]
-    present = [(name, sdir / file) for name, file in sheet_sources if (sdir / file).exists()]
-    if present:
-        with pd.ExcelWriter(sdir / "E21_forward_dashboard.xlsx", engine="openpyxl") as xw:
-            for name, p in present:
-                pd.read_csv(p).to_excel(xw, sheet_name=name, index=False)
+    if write_excel_dashboard:
+        sheet_sources = [
+            ("Signals", "signals.csv"),
+            ("NAV", "nav.csv"),
+            ("Orders", "orders.csv"),
+            ("Fills", "fills.csv"),
+            ("Dividends", "dividends_applied.csv"),
+        ]
+        present = [(name, sdir / file) for name, file in sheet_sources if (sdir / file).exists()]
+        if present:
+            with pd.ExcelWriter(sdir / "E21_forward_dashboard.xlsx", engine="openpyxl") as xw:
+                for name, p in present:
+                    pd.read_csv(p).to_excel(xw, sheet_name=name, index=False)
 
 
 def build_portfolio_state_payload(
@@ -137,70 +116,7 @@ def build_portfolio_state_payload(
         "e22_applied_keys": sorted(skip),
         "e22_manifest": books_manifest(e22_version),
         "stage_e_recv_accept": "ACCEPT_2026-09-16_E22_v3_recv_pay_effdelay",
-        "financial_alloc": LIVE_FIN_WITHIN_SLEEVE,
-        "kd_opt_id": KD_OPT["id"],
-        "fin_within_sleeve_cutover": "ACCEPT_2026-09-09_KD_OPT",
-        "telecom_alloc": (
-            "TEL_T3_COOL_INV_VOL20" if LIVE_TEL_T3_COOL_INV_VOL20 else LIVE_TEL_WITHIN_SLEEVE
-        ),
-        "tel_t3_cool_inv_vol20_live": bool(LIVE_TEL_T3_COOL_INV_VOL20),
-        "tel_t3_ballot": LIVE_TEL_T3_BALLOT if LIVE_TEL_T3_COOL_INV_VOL20 else None,
-        "tel_t3_cutover": (
-            "ACCEPT_2026-09-26_TEL_T3_COOL_INV_VOL20" if LIVE_TEL_T3_COOL_INV_VOL20 else None
-        ),
-        "tel_t3_rollback": (
-            "Set LIVE_TEL_T3_COOL_INV_VOL20=False (live_config.live_tel_t3_cool_inv_vol20); "
-            "reverts Telecom to TEL_EQUAL equal-split"
-            if LIVE_TEL_T3_COOL_INV_VOL20
-            else None
-        ),
-        "soft_frozen_clip_flip": "ACCEPT_2026-09-09_FINBAND_F0.60-0.90",
-        "e45_stitch": False,
-        "e45_book": None,
-        "e45_stitch_ballot": None,
-        "e45_stitch_rollback": E45_STITCH_ROLLBACK,
-        "tip_books_align_ballot": TIP_BOOKS_ALIGN_BALLOT,
-        "fuse_additive": bool(LIVE_FUSE_ADDITIVE),
-        "fuse_soft_sell_boost": float(LIVE_FUSE_SOFT_SELL_BOOST) if LIVE_FUSE_ADDITIVE else None,
-        "fuse_soft_sell_ballot": LIVE_FUSE_SOFT_SELL_BALLOT if LIVE_FUSE_ADDITIVE else None,
-        "fuse_soft_sell_cutover": (
-            "ACCEPT_2026-09-26_SELL_A75_UNDER_COOL" if LIVE_FUSE_ADDITIVE else None
-        ),
-        "dh_exposure_live": bool(LIVE_DH_EXPOSURE),
-        "dh_id": LIVE_DH_ID if LIVE_DH_EXPOSURE else None,
-        "cool_exposure_live": bool(LIVE_COOL_EXPOSURE),
-        "cool_id": LIVE_COOL_ID if LIVE_COOL_EXPOSURE else None,
-        "live_cutover": "ACCEPT_2026-09-25_COOL_c8_REPLACE_DH_KEEP_FUSE",
-        "live_cutover_ballot": LIVE_CUTOVER_BALLOT
-        if (LIVE_FUSE_ADDITIVE or LIVE_DH_EXPOSURE or LIVE_COOL_EXPOSURE)
-        else None,
-        "live_cutover_rollback": (
-            "Set LIVE_COOL_EXPOSURE=False; optional restore LIVE_DH_EXPOSURE=True "
-            "only with dedicated ACCEPT; LIVE_FUSE_ADDITIVE independent; "
-            "SELL_a75 → set live_fuse_soft_sell_boost=0.5"
-        ),
-        "fin_priv_v7_f05_live": bool(LIVE_FIN_PRIV_V7_F05),
-        "fin_priv_ballot": LIVE_FIN_PRIV_BALLOT if LIVE_FIN_PRIV_V7_F05 else None,
-        "fin_priv_cutover": (
-            "ACCEPT_2026-09-25_CLASSD_FINPRIV_V7_F05" if LIVE_FIN_PRIV_V7_F05 else None
-        ),
-        "fin_priv_rollback": (
-            "Set LIVE_FIN_PRIV_V7_F05=False (live_config.live_fin_priv_v7_f05); "
-            "gate-off path force-sells PRIV holdings"
-            if LIVE_FIN_PRIV_V7_F05
-            else None
-        ),
-        "conf_ret3_631l_live": bool(LIVE_CONF_RET3_631L),
-        "conf_ret3_ballot": LIVE_CONF_RET3_BALLOT if LIVE_CONF_RET3_631L else None,
-        "conf_ret3_cutover": (
-            "ACCEPT_2026-09-26_CONF_RET3_A10_H5_00631L" if LIVE_CONF_RET3_631L else None
-        ),
-        "conf_ret3_rollback": (
-            "Set LIVE_CONF_RET3_631L=False (live_config.live_conf_ret3_631l); "
-            "next tip day force-flats 00631L when off_weight=0"
-            if LIVE_CONF_RET3_631L
-            else None
-        ),
+        **build_cutover_stamps(),
     }
 
 
