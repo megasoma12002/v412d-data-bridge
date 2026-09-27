@@ -1,0 +1,11 @@
+{
+  "label": "SAT_A20_H5_DECISION_2026-09-27__OPEN_OBSERVE_RECOMMENDED__NO_LIVE",
+  "status": "OPEN_OBSERVE_RECOMMENDED",
+  "live_wire": false,
+  "parent": "SAT_A20_H5",
+  "stage_a": "MECH_HIT",
+  "stage_b": "PARENT_KEEP",
+  "ballot_draft": "OPEN paper observe: SAT_A20_H5 (00631L CONF densify α=0.20 H=5 under COOL)",
+  "soft_frozen_keep": true,
+  "next_tip_session": "2026-09-29"
+}
