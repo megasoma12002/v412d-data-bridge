@@ -17,11 +17,14 @@ on:
   pull_request:
     paths:
       - "scripts/twse_t2_broker_reconcile.py"
+      - "scripts/ops_r5_observe_auto.py"
+      - "scripts/ops_broker_r5_oco_prep_status.py"
       - "fixtures/r5_custody_synthetic.csv"
       - "fixtures/README_R5.md"
       - ".github/workflows/r5-broker-reconcile.yml"
       - "tests/test_twse_t2_broker_reconcile.py"
       - "tests/test_r5_scaffold.py"
+      - "tests/test_broker_r5_oco_prep.py"
 
 permissions:
   contents: read

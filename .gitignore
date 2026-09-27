@@ -36,5 +36,9 @@ archive/repro/**/outputs/*_daily_nav.csv
 
 # R5 smoke outputs (regenerate)
 fixtures/r5_reconcile_smoke/
+fixtures/r5_reconcile_observe/
+# Real custody drop-in (ops-local; never commit broker exports)
+fixtures/r5_custody_dropin.csv
 
 .worktrees/
+research/ops/BROKER_R5_OCO_PREP_STATUS.json

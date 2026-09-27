@@ -488,6 +488,83 @@ def main() -> int:
                 }
             )
 
+    # Phase 4+ PREP — R5 observe pack (never NAV; never open broker).
+    r5_latest = ROOT / "fixtures" / "r5_reconcile_observe" / "t2_broker_reconcile_latest.json"
+    r5_live = state_dir / "broker_reconcile" / "t2_broker_reconcile_latest.json"
+    r5_path = r5_latest if r5_latest.exists() else (r5_live if r5_live.exists() else None)
+    if r5_path is not None:
+        try:
+            r5_pack = json.loads(r5_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            r5_pack = {}
+        all_ok = r5_pack.get("all_ok")
+        code = "R5_RECONCILE_OK" if all_ok else "R5_RECONCILE_MISMATCH"
+        sev = "INFO" if all_ok else "HIGH"
+        alerts.append(
+            {
+                "severity": sev,
+                "source": "r5_broker_reconcile",
+                "code": code,
+                "message": (
+                    f"R5 observe pack {r5_path.relative_to(ROOT)} "
+                    f"all_ok={all_ok} — T+2 custody vs estimate (NOT NAV); "
+                    "broker live-write still PREP / EXECUTE blocked"
+                ),
+            }
+        )
+    elif (ROOT / "fixtures" / "r5_custody_dropin.csv").exists():
+        alerts.append(
+            {
+                "severity": "INFO",
+                "source": "r5_broker_reconcile",
+                "code": "R5_DROPIN_PENDING",
+                "message": (
+                    "fixtures/r5_custody_dropin.csv present but no reconcile pack — "
+                    "run ops_r5_observe_auto.py (observe-only)"
+                ),
+            }
+        )
+
+    # PREP gate hygiene — unexpected open gates are CRITICAL (should stay closed).
+    try:
+        from live_config import LIVE
+        import yuanta_spark_adapter as spark
+
+        if bool(LIVE.broker_live_write_accepted) or bool(spark.API_WIRED):
+            alerts.append(
+                {
+                    "severity": "CRITICAL",
+                    "source": "broker_prep_gates",
+                    "code": "BROKER_EXECUTE_GATE_OPEN_UNEXPECTED",
+                    "message": (
+                        "broker_live_write_accepted or SPARK API_WIRED True without "
+                        "this alert path expecting EXECUTE — Soft-Frozen review required"
+                    ),
+                }
+            )
+        else:
+            alerts.append(
+                {
+                    "severity": "INFO",
+                    "source": "broker_prep_gates",
+                    "code": "BROKER_PREP_GATES_CLOSED",
+                    "message": (
+                        "broker live-write PREP: fill_port=paper · "
+                        "broker_live_write_accepted=False · API_WIRED=False · "
+                        "SendStockOrder/SendAlgo blocked"
+                    ),
+                }
+            )
+    except Exception as exc:  # noqa: BLE001
+        alerts.append(
+            {
+                "severity": "INFO",
+                "source": "broker_prep_gates",
+                "code": "BROKER_PREP_GATE_CHECK_SKIP",
+                "message": f"could not import live gates: {exc}",
+            }
+        )
+
     resilience = _load(RESILIENCE_JSON)
     if resilience is None:
         alerts.append(

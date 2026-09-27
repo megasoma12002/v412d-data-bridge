@@ -129,6 +129,10 @@ True broker adapter (元大 SPARK) maps exchange acks → same fill row schema; 
 
 Tip-day: FUSE offense NAV session cache (COOL+CONF share `simulate_core`); dividends loaded once; `append_immutable_many` batch ledger writes; optional `--skip-excel-dashboard`. Shared `sleeve_gap_trade` + `live_tip_meta` + Stage A `stagea_screen_helpers`. Clip stamp → β densify `ACCEPT_2026-09-25_BETA_F0.60-0.80_E0.00-0.50`.
 
+## Broker / R5 / OCO PREP (2026-09-27) — **NOT OPEN**
+
+`BROKER_R5_OCO_PREP_NOT_OPEN.md` — StockOrder + OCO INTENT_ONLY · R5 observe auto on drop-in · gates stay `paper` / `API_WIRED=False`. EXECUTE still separate ballot.
+
 ## Next (optional)
 
 1. Cloud long-run deploy of the Docker ops image (GCP asia-east1 candidate; pick single writer for `forward/e21`)

@@ -14,6 +14,7 @@ SPARK API **有對應**：`OCOStrategy` + `SendAlgoCOOdrStrategy`（`StrategyTyp
 |---|---|
 | 已驗證 | PROD Login＋庫存／餘額／交割**只讀** |
 | **未做** | 任何 `SendStockOrder`／`SendAlgoCOOdrStrategy` 真送單 |
+| PREP code | `yuanta_spark_adapter.build_oco_strategy_intent` · `write_spark_oco_intents` · `send_algo_oco_live` → 永遠 `SparkNotWiredError`（`BROKER_R5_OCO_PREP_NOT_OPEN.md`） |
 | 要「成交一筆」 | 需另開 **ACCEPT**（真錢／真庫存風險）；本文件只備研究與骨架參數 |
 
 ---
