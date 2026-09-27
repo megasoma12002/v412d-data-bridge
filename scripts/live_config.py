@@ -17,6 +17,7 @@ from typing import Any, Mapping
 import e22_dividend_accounting as e22div
 from portfolio_capital import DEFAULT_CAPITAL
 from within_sleeve_alloc import FIN_PRE_EXDIV_KD, TEL_EQUAL
+import e16_soft_frozen_base as soft_frozen_ssot
 
 # Live FIN within-sleeve — human ACCEPT 2026-09-09: KD_OPT cutover
 # Frozen MappingProxyType: runtime mutation cannot bypass ACCEPT narrative.
@@ -56,6 +57,12 @@ class LiveConfig:
     # Prior FINBAND ACCEPT 2026-09-09: FIN [0.60, 0.90] / ETF [0.00, 0.35]
     live_fin_within_sleeve: str = FIN_PRE_EXDIV_KD
     kd_opt: Mapping[str, Any] = field(default_factory=lambda: MappingProxyType(dict(KD_OPT)))
+
+    # Soft-Frozen router rebalance L1 — human ACCEPT 2026-09-27 (R_L1_05)
+    # Bound SSOT: e16_soft_frozen_base.REBALANCE_L1_MIN (0.05; prior 0.02).
+    # Exact T+1 / clips / COOL / FUSE / KD KEEP · forward-only · broker PREP-only.
+    live_rebalance_l1_min: float = float(soft_frozen_ssot.REBALANCE_L1_MIN)
+    live_rebalance_l1_ballot: str = str(soft_frozen_ssot.REBALANCE_L1_BALLOT)
 
     # Tip books align ACCEPT 2026-09-19 — next forward may advance tip to DEFAULT.
     tip_books_align_ballot: str = "ACCEPT_2026-09-19_TIP_BOOKS_ALIGN_V3"

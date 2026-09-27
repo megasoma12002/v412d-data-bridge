@@ -15,6 +15,7 @@ Soft-Frozen live: **F[0.60, 0.80] E[0.00, 0.50] LIVE** · COOL live: **KEEP**
 | 2g | Within-sleeve FinPub/TEL micro under COOL | **`NO_FLAT_LIFT`** · Soft-Frozen/KD/TEL KEEP · `WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md` |
 | 2h | TEL within-sleeve 三軌（T1/T2/T3） | Stage A **`TEL_WITHIN_SOFT`** · Soft-Frozen/TEL_EQUAL KEEP · no live · `TEL_WITHIN_SLEEVE_DECISION_PACK.md` |
 | 2i | TEL T3 densify／T2 半開／近持平 +0.15 | Stage A **`TEL_NEARFLAT_READY`** → human `請上live` → **LIVE WIRED `T3_COOL_INV_VOL20`** · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
+| 2j | Soft-Frozen rebalance L1（residual Stage A） | Stage A **`SIGNAL_HIT` `R_L1_05`** → human `R_L1_05請上live` → **LIVE WIRED `REBALANCE_L1_MIN=0.05`** · Exact T+1 KEEP · `LIVE_SOFT_FROZEN_REBALANCE_L1_05_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 3 | 公＋民 mix (dollar-split / SF4) | **SKIP** 0b2 STOP |
 | 4 | 民股金控 Gate V7 | **Class D LIVE WIRED** · `ACCEPT Class D: FinPriv V7 F05` · Soft-Frozen 3-sleeve KEEP · checklist AUTHORIZED |
 | 4b | 民股金控 Gate V8 AND-confirm | Stage A **`PRIV_FINHC_V8_SOFT`** · Soft-Frozen KEEP · no V7 grid retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md` |
