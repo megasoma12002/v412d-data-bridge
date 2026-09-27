@@ -59,7 +59,8 @@ def _in_kd_season(dt: pd.Timestamp) -> bool:
     return ss <= md <= se
 
 
-def _ohlc_panel(market: pd.DataFrame, code: str) -> pd.DataFrame:
+def _ohlc_panel_raw(market: pd.DataFrame, code: str) -> pd.DataFrame:
+    """Raw (unadjusted) OHLC — prefer ``_ohlc_panel`` for extreme audits."""
     m = market[market["code"].astype(str) == str(code)].copy()
     m["date"] = pd.to_datetime(m["date"]).dt.normalize()
     m = m.drop_duplicates("date").sort_values("date").set_index("date")
@@ -72,6 +73,47 @@ def _ohlc_panel(market: pd.DataFrame, code: str) -> pd.DataFrame:
         m["close"] = m["adj_close"]
         m["open"] = m["adj_close"]
     return m[["open", "high", "low", "close"]].astype(float)
+
+
+def _ohlc_panel(market: pd.DataFrame, code: str) -> pd.DataFrame:
+    """Split-adjusted OHLC via ``adj_close/close`` (authoritative for extreme audits).
+
+    Raw fills are scaled onto this plane with ``_fill_px_on_panel`` so ±N windows
+    spanning corporate actions (e.g. 0050 2025-06-18 ~4:1) stay continuous.
+    See ``ETF0050_BUY_FILL_STAGEA`` ``METRIC_ARTIFACT_ONLY``.
+    """
+    m = market[market["code"].astype(str) == str(code)].copy()
+    m["date"] = pd.to_datetime(m["date"]).dt.normalize()
+    m = m.drop_duplicates("date").sort_values("date").set_index("date")
+    for col in ("open", "high", "low", "close", "adj_close"):
+        if col not in m.columns:
+            m[col] = np.nan
+    close = m["close"].astype(float)
+    adj = m["adj_close"].astype(float)
+    if adj.notna().any() and close.notna().any():
+        factor = adj / close.replace(0, np.nan)
+        factor = factor.ffill().bfill().fillna(1.0)
+        out = pd.DataFrame(index=m.index)
+        for col in ("open", "high", "low", "close"):
+            out[col] = m[col].astype(float) * factor
+        out["close"] = adj.where(adj.notna(), out["close"])
+        return out
+    return _ohlc_panel_raw(market, code)
+
+
+def _fill_px_on_panel(
+    raw_px: float,
+    fill_d: pd.Timestamp,
+    raw_panel: pd.DataFrame,
+    adj_panel: pd.DataFrame,
+) -> float:
+    """Map a raw fill price onto the adj OHLC plane for the fill day."""
+    if fill_d in adj_panel.index and fill_d in raw_panel.index:
+        raw_c = float(raw_panel.loc[fill_d, "close"])
+        adj_c = float(adj_panel.loc[fill_d, "close"])
+        if raw_c > 0 and np.isfinite(raw_c) and np.isfinite(adj_c):
+            return float(raw_px) * (adj_c / raw_c)
+    return float(raw_px)
 
 
 def _window_ext(
@@ -178,16 +220,21 @@ def main() -> int:
     )
 
     panels = {c: _ohlc_panel(market, c) for c in sorted(fills["code"].unique())}
+    panels_raw = {
+        c: _ohlc_panel_raw(market, c) for c in sorted(fills["code"].unique())
+    }
 
     rows: list[dict[str, Any]] = []
     for _, f in fills.iterrows():
         code = str(f["code"])
         side = str(f["side"]).upper()
-        px = float(f["fill_price"])
+        px_raw = float(f["fill_price"])
         sig_d = pd.Timestamp(f["signal_date"])
         fill_d = pd.Timestamp(f["fill_date"])
         sleeve = _sleeve(code)
         panel = panels.get(code, pd.DataFrame())
+        raw_panel = panels_raw.get(code, pd.DataFrame())
+        px = _fill_px_on_panel(px_raw, fill_d, raw_panel, panel)
 
         # tip defense (DH historical)
         dh_exp = None
@@ -211,7 +258,7 @@ def main() -> int:
                 cool_exp = float(cool.loc[prior[-1]])
 
         mech: list[str] = ["T1_ALWAYS"]
-        # T+1 drag vs signal-day extreme
+        # T+1 drag vs signal-day extreme (adj OHLC plane)
         t1_drag_pp = None
         if not panel.empty and sig_d in panel.index:
             s_low = float(panel.loc[sig_d, "low"])
@@ -266,7 +313,9 @@ def main() -> int:
                 "sleeve": sleeve,
                 "side": side,
                 "quantity": int(f["quantity"]),
-                "fill_price": px,
+                "fill_price": px_raw,
+                "fill_price_adj": round(float(px), 6),
+                "ohlc_basis": "adj_close_scaled",
                 "t1_drag_vs_signal_ext_pct": None
                 if t1_drag_pp is None
                 else round(float(t1_drag_pp), 4),
@@ -348,6 +397,7 @@ def main() -> int:
         "status": verdict,
         "live_wire": False,
         "soft_frozen_keep": True,
+        "ohlc_basis": "adj_close_scaled",
         "n_fills": n,
         "n_buy": n_buy,
         "n_sell": n_sell,
@@ -367,6 +417,7 @@ def main() -> int:
             "DEFENSE_COOL_CF is reconstructed COOL_c8 on FUSE offense (current-stack twin).",
             "No rejected-order log — mechanisms tagged as binding/active on fill days.",
             "dist_pct: BUY=above local low; SELL=below local high (0=perfect extreme).",
+            "OHLC basis: adj_close-scaled (fill_price_adj); raw unadjusted OHLC is not used.",
         ],
     }
     (REP / f"{SCREEN_ID}.json").write_text(json.dumps(payload, indent=2) + "\n")

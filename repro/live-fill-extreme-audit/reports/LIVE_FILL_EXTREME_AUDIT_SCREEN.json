@@ -1,10 +1,11 @@
 {
-  "generated_at_utc": "2026-09-26T14:15:29Z",
+  "generated_at_utc": "2026-09-26T15:15:00Z",
   "label": "LIVE_FILL_EXTREME_AUDIT_SCREEN",
   "charter": "research/ops/LIVE_FILL_EXTREME_AUDIT_CHARTER.md",
   "status": "FILL_EXTREME_AUDIT_DONE",
   "live_wire": false,
   "soft_frozen_keep": true,
+  "ohlc_basis": "adj_close_scaled",
   "n_fills": 96,
   "n_buy": 72,
   "n_sell": 24,
@@ -808,6 +809,7 @@
     "Tip fill window predates COOL live ACCEPT; DEFENSE_DH is historical tip stamp.",
     "DEFENSE_COOL_CF is reconstructed COOL_c8 on FUSE offense (current-stack twin).",
     "No rejected-order log \u2014 mechanisms tagged as binding/active on fill days.",
-    "dist_pct: BUY=above local low; SELL=below local high (0=perfect extreme)."
+    "dist_pct: BUY=above local low; SELL=below local high (0=perfect extreme).",
+    "OHLC basis: adj_close-scaled (fill_price_adj); raw unadjusted OHLC is not used."
   ]
 }

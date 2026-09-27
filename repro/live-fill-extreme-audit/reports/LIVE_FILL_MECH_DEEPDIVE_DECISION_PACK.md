@@ -1,6 +1,6 @@
 # Fill mechanism deep dive (A–D) — Decision Pack
 
-Date: 2026-09-26 · Generated `2026-09-26T14:32:42Z`
+Date: 2026-09-26 · Generated `2026-09-26T15:06:34Z`
 Status: **FILL_MECH_DEEPDIVE_DONE** · Soft-Frozen **KEEP** · live wire **false**
 
 Comprehensive observe pack over tip + FUSE+COOL backtest fills. No live change authorized.
