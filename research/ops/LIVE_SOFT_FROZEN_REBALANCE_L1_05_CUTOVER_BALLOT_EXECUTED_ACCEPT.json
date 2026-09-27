@@ -1,0 +1,30 @@
+{
+  "schema_version": "live_soft_frozen_rebalance_l1_05_cutover_v1",
+  "id": "LIVE_SOFT_FROZEN_REBALANCE_L1_05_CUTOVER_BALLOT_EXECUTED_ACCEPT",
+  "date": "2026-09-27",
+  "status": "ACCEPTED_LIVE_WIRED_FORWARD_ONLY",
+  "human_ballot": "R_L1_05請上live",
+  "normalized": "ACCEPT Live cutover: Soft-Frozen REBALANCE_L1_MIN=0.05 (R_L1_05)",
+  "prior_paper": "FIN_RESIDUAL_RESEARCH_STAGEA_SCREEN / SIGNAL_HIT / R_L1_05",
+  "change": {
+    "param": "REBALANCE_L1_MIN",
+    "before": 0.02,
+    "after": 0.05,
+    "ssot": "scripts/e16_soft_frozen_base.py"
+  },
+  "keep": [
+    "Soft-Frozen clips F0.60-0.80 T0.03-0.35 E0.00-0.50",
+    "Exact T+1",
+    "FUSE_ADDITIVE",
+    "COOL_c8_f50_d21",
+    "SELL_a75",
+    "KD_OPT"
+  ],
+  "non_actions": [
+    "tip rewrite",
+    "broker live write",
+    "clip flip",
+    "R_L1_10 promote"
+  ],
+  "label": "LIVE_SOFT_FROZEN_REBALANCE_L1_05_CUTOVER_ACCEPTED_2026-09-27__FORWARD_ONLY"
+}

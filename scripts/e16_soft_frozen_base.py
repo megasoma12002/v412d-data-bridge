@@ -60,7 +60,12 @@ def soft_frozen_fin_hi_for_dates(dates) -> pd.Series:
 START_WEIGHTS = np.array([0.80, 0.10, 0.10], dtype=float)
 BLEND_OLD = 0.75
 BLEND_NEW = 0.25
-REBALANCE_L1_MIN = 0.02
+# Live rebalance L1 — human ACCEPT 2026-09-27: R_L1_05 (was 0.02).
+# Paper: FIN_RESIDUAL_RESEARCH_STAGEA SIGNAL_HIT · fewer trades · sealed FIN BUY fill↑.
+REBALANCE_L1_MIN_PRIOR = 0.02
+REBALANCE_L1_MIN = 0.05
+REBALANCE_L1_FLIP_ASOF = "2026-09-27"
+REBALANCE_L1_BALLOT = "ACCEPT Live cutover: Soft-Frozen REBALANCE_L1_MIN=0.05 (R_L1_05)"
 
 REGIME_PRIORS = {
     "Bull": np.array([0.85, 0.05, 0.10], dtype=float),

@@ -3,7 +3,8 @@
 Date: 2026-09-05  
 Authority: `research/STRATEGY_DEBT_BOARD.md` · map: `OPS_STATUS.md`  
 Live Soft-Frozen Financial clip: **[0.60, 0.80]** (β densify ACCEPT 2026-09-25; prior FINBAND [0.60, 0.90])
-TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
+TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**  
+Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27 `R_L1_05`; prior 0.02)
 
 ## Decision rules (frozen)
 
@@ -38,6 +39,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | 0k7 | COOL **dual-handoff** 防守反1→結束正2 | **STAGE A DUAL_HANDOFF_SOFT** (2026-09-26) | 0 HIT · 3 SOFT · INV 拖垮 LEV CAGR · Soft-Frozen KEEP · no live · `COOL_T50_DUAL_HANDOFF_DECISION_PACK.md` |
 | 0l | 民股金控 Gate V8 AND-confirm stack | **STAGE A SOFT** (2026-09-25) | 0 HIT · 5 soft · best `V8_BSIDE_MA120_F05_KDMAY_COOL1` held CAGR↑ ≈0 / sealed MDD↑ +0.13 · Soft-Frozen KEEP · no V7 retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.80]** / ETF **[0.00, 0.50]** | **FLIPPED** (ACCEPT 2026-09-25 β densify) | Was FINBAND [0.60,0.90]/ETF[0.00,0.35]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md` · prior FINBAND note KEEP |
+| 1b | Soft-Frozen `REBALANCE_L1_MIN` **0.05** | **LIVE WIRED** (ACCEPT 2026-09-27) | Human `R_L1_05請上live` · paper `FIN_RESIDUAL` `SIGNAL_HIT` · was 0.02 · Exact T+1 KEEP · `LIVE_SOFT_FROZEN_REBALANCE_L1_05_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 1c | 非對稱 0050 Bull 加碼 / MDD 持平 under COOL | **CAGR_SOFT** (2026-09-25) | Stage A 0 HIT · 7 tip-clean MDD-flat · best CAGR↑ +0.06 · Soft-Frozen KEEP · `ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.md` |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
@@ -58,6 +60,7 @@ TEL **[0.03, 0.35]** · 0050 **[0.00, 0.50]**
 | TEL within-sleeve 三軌（名目／結構／COOL 聯動） | **Stage A `TEL_WITHIN_SOFT`** (2026-09-26) | 0 HIT · 3 SOFT · best `T3_COOL_INV_VOL20` held CAGR↑ +0.16 · Soft-Frozen/TEL_EQUAL **KEEP** · no live · `TEL_WITHIN_SLEEVE_DECISION_PACK.md` |
 | TEL T3 densify／T2 半開／近持平 +0.15 | **Stage A `TEL_NEARFLAT_READY` → LIVE WIRED** (2026-09-26) | Human `請上live` · `T3_COOL_INV_VOL20` forward-only · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | Live tip fill 高低點／機制審計 | **`FILL_EXTREME_AUDIT_DONE`** (2026-09-26) | 96 fills · ±5d mean ~3.8% · T+1 drag ~1.2% · Soft-Frozen/T+1 **KEEP** · no live · `LIVE_FILL_EXTREME_AUDIT_DECISION_PACK.md` |
+| FIN residual Stage A（sleeve／exec／within／rebal） | **`SIGNAL_HIT` → LIVE WIRED L1=0.05** (2026-09-27) | Human `R_L1_05請上live` · `REBALANCE_L1_MIN` 0.02→0.05 · Exact T+1 KEEP · `LIVE_SOFT_FROZEN_REBALANCE_L1_05_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | Active research KEEP | **LOCKED** | FIN quartet (**`MIX_L75`** + **`KD_OPT`**) + E45 **`A05`/`C35`** + month-end gates |
 | FIN within-sleeve live | **`KD_OPT` LIVE** (ACCEPT 2026-09-09) | `FIN_PRE_EXDIV_KD` forward-only; Soft-Frozen KEEP; note `FIN_WITHIN_SLEEVE_CUTOVER_ACCEPTED_KD_OPT.md` |
 | FIN autumn post-ex probe | **STOP** (2026-09-09) | small-search+dual no lift vs KD_OPT · `FIN_KD_AUTUMN_DUAL_SEASON.md` · live KD_OPT untouched |
