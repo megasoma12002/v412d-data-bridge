@@ -96,6 +96,11 @@ def main() -> None:
     ap.add_argument("--allow-noncanonical-paths", action="store_true")
     ap.add_argument("--asof", default=None)
     ap.add_argument("--fill-port", default=None)
+    ap.add_argument(
+        "--skip-excel-dashboard",
+        action="store_true",
+        help="Skip E21_forward_dashboard.xlsx rebuild (CSV ledgers remain SSOT).",
+    )
     a = ap.parse_args()
     if a.e22_version != E22_BOOKS_VERSION and not a.confirm_e22_version_override:
         raise SystemExit(
@@ -128,11 +133,20 @@ def main() -> None:
 def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
     """Fill → E22 → orders → day-commit under session lock."""
     global CAPITAL
+    import pandas as pd
 
     m, latest, day = load_market_session(market_path, asof=a.asof)
+    # Soft features always run for signal diag; FUSE discards Soft target for trading.
     px, sleeve, target, e20, diag = features(m)
+    div_df = (
+        pd.read_csv(a.dividends, dtype={"code": str})
+        if Path(a.dividends).exists()
+        else pd.DataFrame()
+    )
     tw, _e20w, tw_pre_risk, risk_exposure_today, e45_exposure_today, _fuse_meta, risk_meta = (
-        resolve_session_targets(m, target, latest, a.dividends, LIVE)
+        resolve_session_targets(
+            m, target, latest, a.dividends, LIVE, dividends=div_df
+        )
     )
     e20w = e20.iloc[-1]
     prices = day.close.astype(float).to_dict()
@@ -278,6 +292,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         nav=nav,
         sleeve_trade=sleeve_trade,
         dividends_path=a.dividends,
+        dividends=div_df,
         regime_today=str(diag.get("regime", "")),
         cool_exposure_today=float(risk_exposure_today) if LIVE_COOL_EXPOSURE else None,
     )
@@ -427,6 +442,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         order_rows=order_rows,
         applied_details=applied.details,
         asof_iso=latest.date().isoformat(),
+        write_excel_dashboard=not bool(a.skip_excel_dashboard),
     )
     print(
         json.dumps(

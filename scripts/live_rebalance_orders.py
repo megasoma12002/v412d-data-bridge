@@ -5,7 +5,6 @@ from __future__ import annotations
 from datetime import date
 from typing import Any, Mapping
 
-import numpy as np
 import pandas as pd
 
 from e16_soft_frozen_base import FIN, TEL
@@ -18,6 +17,7 @@ from live_config import (
     LIVE_TEL_WITHIN_SLEEVE,
 )
 from live_ledger import make_order_id
+from sleeve_gap_trade import sleeve_trade_from_gap as _sleeve_trade_from_gap
 from tw_share_lots import BOARD_LOT, board_lots
 from within_sleeve_alloc import (
     FIN_DUAL_PUB_PRIV,
@@ -31,15 +31,26 @@ from within_sleeve_alloc import (
 def sleeve_trade_from_gap(
     pre: Mapping[str, float], target: Mapping[str, float]
 ) -> tuple[dict[str, float], float]:
-    gap = {k: float(target[k] - pre[k]) for k in pre}
-    l1 = sum(abs(v) for v in gap.values())
-    trade = np.zeros(3)
-    if max(abs(v) for v in gap.values()) >= 0.015:
-        trade = np.array([gap["Financial"], gap["Telecom"], gap["0050"]]) * 0.75
-        if abs(trade).sum() > 0.20:
-            trade *= 0.20 / abs(trade).sum()
-    sleeve_trade = dict(zip(["Financial", "Telecom", "0050"], trade))
-    return sleeve_trade, l1
+    """Live Soft sleeves gap → trade (shared SSOT: ``sleeve_gap_trade``)."""
+    return _sleeve_trade_from_gap(pre, target)
+
+
+def _order_row(
+    *,
+    signal_date: date,
+    code: str,
+    side: str,
+    quantity: int,
+    reference_close: float,
+) -> dict[str, Any]:
+    return {
+        "order_id": make_order_id(signal_date=signal_date, code=code, side=side),
+        "signal_date": signal_date.isoformat(),
+        "code": code,
+        "side": side,
+        "quantity": int(quantity),
+        "reference_close": float(reference_close),
+    }
 
 
 def build_live_order_rows(
@@ -50,9 +61,10 @@ def build_live_order_rows(
     pos: dict[str, float],
     nav: float,
     sleeve_trade: Mapping[str, float],
-    dividends_path: str | Any,
+    dividends_path: str | Any | None = None,
     regime_today: str | None = None,
     cool_exposure_today: float | None = None,
+    dividends: pd.DataFrame | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
     """Allocate FIN (KD_OPT ± FUSE softs ± Class D FinPriv) + TEL/0050.
 
@@ -61,11 +73,15 @@ def build_live_order_rows(
 
     Returns (order_rows, fin_priv_meta, tel_meta).
     """
-    div_df = (
-        pd.read_csv(dividends_path, dtype={"code": str})
-        if __import__("pathlib").Path(dividends_path).exists()
-        else pd.DataFrame()
-    )
+    if dividends is not None:
+        div_df = dividends
+    else:
+        div_df = (
+            pd.read_csv(dividends_path, dtype={"code": str})
+            if dividends_path is not None
+            and __import__("pathlib").Path(dividends_path).exists()
+            else pd.DataFrame()
+        )
     cal = pd.to_datetime(market["date"]).drop_duplicates().sort_values()
     kd_scores = build_kd_season_tilt_scores(
         market,
@@ -193,16 +209,14 @@ def build_live_order_rows(
                     continue
                 if c not in prices:
                     continue
-                oid = make_order_id(signal_date=sig_d, code=c, side=side)
                 order_rows.append(
-                    {
-                        "order_id": oid,
-                        "signal_date": sig_d.isoformat(),
-                        "code": c,
-                        "side": side,
-                        "quantity": int(qty),
-                        "reference_close": prices[c],
-                    }
+                    _order_row(
+                        signal_date=sig_d,
+                        code=c,
+                        side=side,
+                        quantity=int(qty),
+                        reference_close=prices[c],
+                    )
                 )
         elif abs(fin_dollars) >= 1e-9:
             # Gate off: FinPub only (KD_OPT / FUSE softs).
@@ -219,16 +233,14 @@ def build_live_order_rows(
             ):
                 if qty < BOARD_LOT or qty % BOARD_LOT != 0:
                     continue
-                oid = make_order_id(signal_date=sig_d, code=c, side=side)
                 order_rows.append(
-                    {
-                        "order_id": oid,
-                        "signal_date": sig_d.isoformat(),
-                        "code": c,
-                        "side": side,
-                        "quantity": int(qty),
-                        "reference_close": prices[c],
-                    }
+                    _order_row(
+                        signal_date=sig_d,
+                        code=c,
+                        side=side,
+                        quantity=int(qty),
+                        reference_close=prices[c],
+                    )
                 )
 
         if not gate_on:
@@ -261,16 +273,14 @@ def build_live_order_rows(
             ):
                 if qty < BOARD_LOT or qty % BOARD_LOT != 0:
                     continue
-                oid = make_order_id(signal_date=sig_d, code=c, side=side)
                 order_rows.append(
-                    {
-                        "order_id": oid,
-                        "signal_date": sig_d.isoformat(),
-                        "code": c,
-                        "side": side,
-                        "quantity": int(qty),
-                        "reference_close": prices[c],
-                    }
+                    _order_row(
+                        signal_date=sig_d,
+                        code=c,
+                        side=side,
+                        quantity=int(qty),
+                        reference_close=prices[c],
+                    )
                 )
 
     for sleeve_name, codes in [("Telecom", TEL), ("0050", ["0050"])]:
@@ -286,16 +296,14 @@ def build_live_order_rows(
                 qty = min(qty, board_lots(pos.get(c, 0)))
             if qty < BOARD_LOT:
                 continue
-            oid = make_order_id(signal_date=sig_d, code=c, side=side)
             order_rows.append(
-                {
-                    "order_id": oid,
-                    "signal_date": sig_d.isoformat(),
-                    "code": c,
-                    "side": side,
-                    "quantity": qty,
-                    "reference_close": prices[c],
-                }
+                _order_row(
+                    signal_date=sig_d,
+                    code=c,
+                    side=side,
+                    quantity=qty,
+                    reference_close=prices[c],
+                )
             )
 
     tel_meta: dict[str, Any] = {
@@ -334,17 +342,15 @@ def build_live_order_rows(
                         continue
                     if c not in prices:
                         continue
-                    oid = make_order_id(signal_date=sig_d, code=c, side=side)
-                    order_rows.append(
-                        {
-                            "order_id": oid,
-                            "signal_date": sig_d.isoformat(),
-                            "code": c,
-                            "side": side,
-                            "quantity": int(qty),
-                            "reference_close": prices[c],
-                        }
+                order_rows.append(
+                    _order_row(
+                        signal_date=sig_d,
+                        code=c,
+                        side=side,
+                        quantity=int(qty),
+                        reference_close=prices[c],
                     )
+                )
             else:
                 # Off-defense / fail-closed: legacy equal dollar split
                 value = tel_dollars / len(TEL)
@@ -359,17 +365,15 @@ def build_live_order_rows(
                         qty = min(qty, board_lots(pos.get(c, 0)))
                     if qty < BOARD_LOT:
                         continue
-                    oid = make_order_id(signal_date=sig_d, code=c, side=side)
-                    order_rows.append(
-                        {
-                            "order_id": oid,
-                            "signal_date": sig_d.isoformat(),
-                            "code": c,
-                            "side": side,
-                            "quantity": qty,
-                            "reference_close": prices[c],
-                        }
-                    )
+            order_rows.append(
+                _order_row(
+                    signal_date=sig_d,
+                    code=c,
+                    side=side,
+                    quantity=qty,
+                    reference_close=prices[c],
+                )
+            )
     elif abs(tel_dollars) >= 1e-9:
         # Flag off: keep prior equal-split (already emitted in loop above when flag off)
         pass

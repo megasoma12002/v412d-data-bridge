@@ -26,14 +26,18 @@ def features(m: pd.DataFrame):
     """Live Soft-Frozen E16 targets (+ E19/E20 diagnostics).
 
     Clip/prior/blend: ``e16_soft_frozen_base`` SSOT (shared with research).
+    When ``LIVE_FUSE_ADDITIVE``, sleeve weights for trading come from
+    ``fuse_target_for_market``; Soft ``target`` / ``e20`` here remain signal
+    diagnostics only.
     """
     p, sleeve, target, reg, score = soft_frozen.build_soft_frozen_targets(m)
     tc = p["TAIEX"]
     vol = tc.pct_change().rolling(20).std() * np.sqrt(252)
     defensive = (sleeve.Financial + sleeve["0050"]) / 2
     corr = sleeve.Telecom.rolling(20).corr(defensive)
-    te = (1 + sleeve.Telecom).rolling(20).apply(np.prod, raw=True) - 1
-    me = (1 + defensive).rolling(20).apply(np.prod, raw=True) - 1
+    # log1p rolling-sum ≈ rolling product of (1+r) without Python apply
+    te = np.expm1(np.log1p(sleeve.Telecom.fillna(0.0)).rolling(20).sum())
+    me = np.expm1(np.log1p(defensive.fillna(0.0)).rolling(20).sum())
     tv = sleeve.Telecom.rolling(20).std()
     mv = defensive.rolling(20).std()
     pts = (
@@ -48,11 +52,11 @@ def features(m: pd.DataFrame):
     rel = (1 + sleeve.Financial).cumprod() / (1 + sleeve["0050"]).cumprod()
     rs_ok = rel / rel.shift(20) - 1 >= 0
     conf = price_ok.astype(int) + vol_ok.astype(int) + rs_ok.astype(int)
-    streak = []
-    n = 0
-    for v in (conf >= 3).fillna(False):
-        n = n + 1 if v else 0
-        streak.append(n)
+    ok = (conf >= 3).fillna(False)
+    # Vectorized run-length streak of consecutive True
+    groups = (~ok).cumsum()
+    streak_s = ok.groupby(groups).cumsum().astype(int)
+    streak = streak_s.tolist()
     e20 = target.copy()
     latest = len(e20) - 1
     req = 6 if alert.iloc[latest] else 3
@@ -73,12 +77,28 @@ def features(m: pd.DataFrame):
     return p, sleeve, target, e20, diag
 
 
+def _load_dividends_df(
+    dividends_path: Path | str | None,
+    dividends: pd.DataFrame | None,
+) -> pd.DataFrame:
+    if dividends is not None:
+        return dividends
+    if dividends_path is None:
+        return pd.DataFrame()
+    p = Path(dividends_path)
+    if not p.exists():
+        return pd.DataFrame()
+    return pd.read_csv(p, dtype={"code": str})
+
+
 def resolve_session_targets(
     m: pd.DataFrame,
     target: pd.DataFrame,
     latest: pd.Timestamp,
-    dividends_path: Path | str,
+    dividends_path: Path | str | None = None,
     cfg: LiveConfig = LIVE,
+    *,
+    dividends: pd.DataFrame | None = None,
 ) -> tuple[pd.Series, pd.Series, dict[str, float], float, float, dict[str, Any], dict[str, Any]]:
     """Apply live overlays to Soft-Frozen targets for one session date.
 
@@ -87,6 +107,9 @@ def resolve_session_targets(
 
     ``e45_exposure_today`` is always 1.0 — A05 live stitch is DROPPED (no flip path).
     ``risk_exposure_today`` is COOL or legacy DH scale (1.0 when neither live).
+
+    Pass a shared ``dividends`` DataFrame so COOL + CONF_RET3 hit the FUSE offense
+    NAV session cache (same object identity).
     """
     if bool(cfg.live_dh_exposure) and bool(cfg.live_cool_exposure):
         raise SystemExit(
@@ -94,11 +117,16 @@ def resolve_session_targets(
             "(stacking FORBIDDEN — replace DH or keep DH, not both)."
         )
 
+    import live_dh_fuse_cutover as live_cut
+
+    live_cut.clear_fuse_offense_cache()
+    div_df = _load_dividends_df(dividends_path, dividends)
+
     fuse_meta: dict[str, Any] = {"enabled": bool(cfg.live_fuse_additive)}
     if cfg.live_fuse_additive:
         import live_cool_c8_cutover as cool_cut
-        import live_dh_fuse_cutover as live_cut
 
+        # Soft ``target`` from features() is diag-only when FUSE is live.
         target = live_cut.fuse_target_for_market(m)
         recipe = (
             cool_cut.LIVE_RECIPE_ID
@@ -114,6 +142,7 @@ def resolve_session_targets(
             "enabled": True,
             "recipe": recipe,
             "human_accept": accept,
+            "soft_target_discarded_for_trading": True,
         }
     tw = target.iloc[-1]
     tw_pre_risk = {
@@ -128,13 +157,8 @@ def resolve_session_targets(
         import live_cool_c8_cutover as cool_cut
         import e45_crisis_core as e45
 
-        div_for_cool = (
-            pd.read_csv(dividends_path, dtype={"code": str})
-            if Path(dividends_path).exists()
-            else pd.DataFrame()
-        )
         risk_exposure_today, risk_meta = cool_cut.cool_exposure_today(
-            m, div_for_cool, latest
+            m, div_df, latest
         )
         risk_meta = {**risk_meta, "enabled": True, "overlay": "COOL"}
         tw = pd.Series(
@@ -143,16 +167,10 @@ def resolve_session_targets(
             )
         )
     elif cfg.live_dh_exposure:
-        import live_dh_fuse_cutover as live_cut
         import e45_crisis_core as e45
 
-        div_for_dh = (
-            pd.read_csv(dividends_path, dtype={"code": str})
-            if Path(dividends_path).exists()
-            else pd.DataFrame()
-        )
         risk_exposure_today, risk_meta = live_cut.dh_exposure_today(
-            m, div_for_dh, latest
+            m, div_df, latest
         )
         risk_meta = {**risk_meta, "enabled": True, "overlay": "DH"}
         tw = pd.Series(
@@ -165,12 +183,7 @@ def resolve_session_targets(
     if bool(getattr(cfg, "live_conf_ret3_631l", False)):
         import live_conf_ret3_631l_cutover as conf_ret3
 
-        div_for_off = (
-            pd.read_csv(dividends_path, dtype={"code": str})
-            if Path(dividends_path).exists()
-            else pd.DataFrame()
-        )
-        off_w, off_meta = conf_ret3.off_weight_today(m, div_for_off, latest)
+        off_w, off_meta = conf_ret3.off_weight_today(m, div_df, latest)
         tw = pd.Series(conf_ret3.apply_off_to_soft_targets(tw, off_w))
         risk_meta = {
             **risk_meta,

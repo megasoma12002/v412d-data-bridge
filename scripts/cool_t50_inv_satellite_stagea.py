@@ -7,7 +7,6 @@ Soft-Frozen live KEEP · COOL_c8 params frozen · no live wire.
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -18,7 +17,7 @@ import e16_soft_frozen_base as soft
 import e22_dividend_accounting as e22div
 import e45_defend_handoff_stagea_screen as stagea
 from cool_c8_proxy_observe_helpers import FLOOR, build_cool_c8_exposure
-from e45_paper_harness import WINDOWS_STANDARD, load_dividends, load_market, window_stats
+from e45_paper_harness import load_dividends, load_market
 from e50_early_stack_combined_nav import FIN, TEL, e16_features, simulate_core
 from portfolio_capital import DEFAULT_CAPITAL
 from research_metric_helpers import cagr_delta_pp, mdd_delta_pp
@@ -30,6 +29,7 @@ from soft_assist_helpers import (
     soft_boost_scores,
     soft_sell_panel,
 )
+from stagea_screen_helpers import pack_nav_windows, tip_hygiene, utc_now_z
 from ta_indicator_catalog import build_low_high_catalog
 from tw_share_lots import BOARD_LOT
 from within_sleeve_alloc import (
@@ -62,51 +62,15 @@ ALPHAS = (0.25, 0.50, 1.00)
 
 
 def _utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return utc_now_z()
 
 
 def _pack(nav: pd.DataFrame) -> dict[str, Any]:
-    out: dict[str, Any] = {}
-    for k, (a, b) in WINDOWS_STANDARD.items():
-        st = window_stats(nav, a, b)
-        out[k] = {
-            "cagr": None if st.get("cagr") is None else round(float(st["cagr"]), 6),
-            "max_drawdown": None
-            if st.get("max_drawdown") is None
-            else round(float(st["max_drawdown"]), 6),
-            "n_days": int(st.get("n_days") or 0),
-        }
-    return out
+    return pack_nav_windows(nav)
 
 
 def _tip(base_nav: pd.DataFrame, chal_nav: pd.DataFrame) -> dict[str, Any]:
-    asof = pd.Timestamp(pd.to_datetime(base_nav["date"]).max())
-    b_dates = pd.to_datetime(base_nav["date"])
-    c_dates = pd.to_datetime(chal_nav["date"])
-    out: dict[str, Any] = {}
-    for wname, start in (
-        ("ytd", pd.Timestamp(asof.year, 1, 1)),
-        ("trailing_1y", asof - pd.Timedelta(days=365)),
-    ):
-        b = base_nav[(b_dates >= start) & (b_dates <= asof)].reset_index(drop=True)
-        c = chal_nav[(c_dates >= start) & (c_dates <= asof)].reset_index(drop=True)
-        if len(b) < 20 or len(c) < 20:
-            out[wname] = {"mdd_improve_pp": None, "cagr_giveback_pp": None, "gate": "INSUFFICIENT"}
-            continue
-        bn = b["nav"].astype(float) / float(b["nav"].iloc[0])
-        cn = c["nav"].astype(float) / float(c["nav"].iloc[0])
-        b_mdd = float((bn / bn.cummax() - 1.0).min())
-        c_mdd = float((cn / cn.cummax() - 1.0).min())
-        years = (len(b) - 1) / 252.0
-        bc = float(bn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        cc = float(cn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        gb = cagr_delta_pp(bc, cc)
-        out[wname] = {
-            "mdd_improve_pp": round(float(mdd_delta_pp(b_mdd, c_mdd)), 4),
-            "cagr_giveback_pp": None if gb is None else round(float(gb), 4),
-            "gate": "PASS",
-        }
-    return out
+    return tip_hygiene(base_nav, chal_nav)
 
 
 def _buy(kd, lows, k9_amp: float = 1.0) -> pd.DataFrame:

@@ -37,7 +37,10 @@ import math
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
-from typing import Iterable, Sequence
+from typing import TYPE_CHECKING, Iterable, Sequence
+
+if TYPE_CHECKING:
+    import pandas as pd
 
 E22_V2 = "E22_v2"  # cash-only baseline (preserved)
 E22_V2S = "E22_v2s"  # formal books: cash + stock share increase (float ok)
@@ -150,47 +153,82 @@ def load_dividend_events(
     out: list[DivEvent] = []
     with path.open(newline="", encoding="utf-8") as handle:
         for row_i, row in enumerate(csv.DictReader(handle), start=2):
-            code = str(row.get("code") or "").strip()
-            raw_cash = row.get("cash_dividend")
-            raw_stock = row.get("stock_dividend")
-            try:
-                cash = float(raw_cash or 0)
-            except ValueError:
-                if fail_closed_amounts and str(raw_cash or "").strip():
-                    raise ValueError(
-                        f"unparseable cash_dividend at line {row_i} code={code!r}: {raw_cash!r}"
-                    ) from None
-                cash = 0.0
-            try:
-                stock = float(raw_stock or 0)
-            except ValueError:
-                if fail_closed_amounts and str(raw_stock or "").strip():
-                    raise ValueError(
-                        f"unparseable stock_dividend at line {row_i} code={code!r}: {raw_stock!r}"
-                    ) from None
-                stock = 0.0
-            cash_ex = str(row.get("cash_ex_date") or "").strip()[:10]
-            stock_ex = str(row.get("stock_ex_date") or "").strip()[:10]
-            if code and cash_ex and cash > 0:
-                out.append(
-                    DivEvent(
-                        code=code,
-                        kind="cash",
-                        ex_date=cash_ex,
-                        amount=cash,
-                        payment_date=str(row.get("cash_payment_date") or "").strip()[:10],
-                    )
-                )
-            if code and stock_ex and stock > 0:
-                out.append(
-                    DivEvent(
-                        code=code,
-                        kind="stock",
-                        ex_date=stock_ex,
-                        amount=stock,
-                        payment_date=str(row.get("stock_payment_date") or "").strip()[:10],
-                    )
-                )
+            out.extend(
+                _events_from_row(row, row_i=row_i, fail_closed_amounts=fail_closed_amounts)
+            )
+    return out
+
+
+def dividend_events_from_frame(
+    dividends: "pd.DataFrame | None",
+    *,
+    fail_closed_amounts: bool = False,
+) -> list[DivEvent]:
+    """Parse dividend events from an in-memory DataFrame (same rules as CSV).
+
+    Avoids Stage A / FUSE offense ``simulate_core`` writing ``/tmp`` just to reload.
+    """
+    if dividends is None or len(dividends) == 0:
+        return []
+    out: list[DivEvent] = []
+    records = dividends.to_dict(orient="records")
+    for row_i, row in enumerate(records, start=2):
+        # Normalize keys to str for DictReader parity
+        norm = {str(k): ("" if v is None else v) for k, v in row.items()}
+        out.extend(
+            _events_from_row(norm, row_i=row_i, fail_closed_amounts=fail_closed_amounts)
+        )
+    return out
+
+
+def _events_from_row(
+    row: dict,
+    *,
+    row_i: int,
+    fail_closed_amounts: bool,
+) -> list[DivEvent]:
+    code = str(row.get("code") or "").strip()
+    raw_cash = row.get("cash_dividend")
+    raw_stock = row.get("stock_dividend")
+    try:
+        cash = float(raw_cash or 0)
+    except (TypeError, ValueError):
+        if fail_closed_amounts and str(raw_cash or "").strip():
+            raise ValueError(
+                f"unparseable cash_dividend at line {row_i} code={code!r}: {raw_cash!r}"
+            ) from None
+        cash = 0.0
+    try:
+        stock = float(raw_stock or 0)
+    except (TypeError, ValueError):
+        if fail_closed_amounts and str(raw_stock or "").strip():
+            raise ValueError(
+                f"unparseable stock_dividend at line {row_i} code={code!r}: {raw_stock!r}"
+            ) from None
+        stock = 0.0
+    cash_ex = str(row.get("cash_ex_date") or "").strip()[:10]
+    stock_ex = str(row.get("stock_ex_date") or "").strip()[:10]
+    out: list[DivEvent] = []
+    if code and cash_ex and cash > 0:
+        out.append(
+            DivEvent(
+                code=code,
+                kind="cash",
+                ex_date=cash_ex,
+                amount=cash,
+                payment_date=str(row.get("cash_payment_date") or "").strip()[:10],
+            )
+        )
+    if code and stock_ex and stock > 0:
+        out.append(
+            DivEvent(
+                code=code,
+                kind="stock",
+                ex_date=stock_ex,
+                amount=stock,
+                payment_date=str(row.get("stock_payment_date") or "").strip()[:10],
+            )
+        )
     return out
 
 

@@ -15,8 +15,11 @@ PR scope: extract seams for Docker / future broker adapter — **no strategy cut
 | `scripts/live_session_io.py` | Canonical path gates · market/state load · asof rewind refuse |
 | `scripts/live_e22_day.py` | One-day E22 books apply helper |
 | `scripts/live_rebalance_orders.py` | Sleeve gap → Soft-Frozen order rows (SELL-before-BUY) |
-| `scripts/live_day_commit.py` | Deferred fills/divs + atomic `portfolio_state` + Excel audit |
-| `scripts/live_ledger.py` | Immutable CSV append + holdings + commission helpers |
+| `scripts/live_day_commit.py` | Deferred fills/divs + atomic `portfolio_state` + optional Excel audit |
+| `scripts/live_ledger.py` | Immutable CSV append (`append_immutable_many`) + holdings + commission helpers |
+| `scripts/live_tip_meta.py` | Shared cutover stamps for tip state / audits |
+| `scripts/sleeve_gap_trade.py` | Shared sleeve-gap trade sizing (live ↔ `simulate_core`; ≠ `REBALANCE_L1_MIN`) |
+| `scripts/stagea_screen_helpers.py` | Stage A pack/tip/UTC DRY helpers |
 | `scripts/e21_forward_pipeline.py` | CLI + day orchestration only (thin) |
 | `scripts/e50_early_stack_combined_nav.py` | Research sim — shared `sort_rows_sell_before_buy` |
 | `scripts/yuanta_spark_adapter.py` | Offline SPARK field map (`API_WIRED=False`) |
@@ -121,6 +124,10 @@ True broker adapter (元大 SPARK) maps exchange acks → same fill row schema; 
 | `broker_safety` / `broker_risk` | Submit reserve · dedupe · live write gates |
 
 `API_WIRED` stays `False` until a separate ACCEPT.
+
+## Eng opt (2026-09-27) — Soft-Frozen KEEP
+
+Tip-day: FUSE offense NAV session cache (COOL+CONF share `simulate_core`); dividends loaded once; `append_immutable_many` batch ledger writes; optional `--skip-excel-dashboard`. Shared `sleeve_gap_trade` + `live_tip_meta` + Stage A `stagea_screen_helpers`. Clip stamp → β densify `ACCEPT_2026-09-25_BETA_F0.60-0.80_E0.00-0.50`.
 
 ## Next (optional)
 

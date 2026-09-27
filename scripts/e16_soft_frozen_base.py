@@ -31,6 +31,11 @@ SOFT_FROZEN_ETF_HI = 0.50
 # Tip history is not rewritten; dates < ASOF use PRIOR_FIN_HI, else live FIN_HI.
 SOFT_FROZEN_PRIOR_FIN_HI = 0.90  # FINBAND ACCEPT 2026-09-09
 SOFT_FROZEN_CLIP_FLIP_ASOF = "2026-09-25"  # β densify ACCEPT / first new-clip session
+# Tip portfolio_state / signal stamp (β densify supersedes FINBAND F0.60-0.90).
+SOFT_FROZEN_CLIP_FLIP_STAMP = "ACCEPT_2026-09-25_BETA_F0.60-0.80_E0.00-0.50"
+SOFT_FROZEN_CLIP_FLIP_BALLOT = (
+    "ACCEPT Soft-Frozen clip flip: F0.60-0.80_T0.03-0.35_E0.00-0.50"
+)
 # Canonical list form for JSON / monitors (import this — do not re-type).
 SOFT_FROZEN_FIN_CLIP = [SOFT_FROZEN_FIN_LO, SOFT_FROZEN_FIN_HI]
 SOFT_FROZEN_TEL_CLIP = [SOFT_FROZEN_TEL_LO, SOFT_FROZEN_TEL_HI]
@@ -125,8 +130,18 @@ def apply_soft_frozen_clips(cand: np.ndarray) -> np.ndarray:
     return START_WEIGHTS.copy()
 
 
-def build_soft_frozen_targets(market: pd.DataFrame):
+def build_soft_frozen_targets(
+    market: pd.DataFrame,
+    *,
+    regime_priors: dict[str, np.ndarray] | None = None,
+    score_weights: tuple[float, float, float, float] | None = None,
+    rebalance_l1_min: float | None = None,
+):
     """Causal Soft-Frozen E16 target history from adj_close panel.
+
+    Optional ``regime_priors`` / ``score_weights`` / ``rebalance_l1_min`` are
+    **paper Stage A overrides only** — live tip must call with defaults so
+    clips/priors cannot drift from Soft-Frozen SSOT.
 
     Returns
     -------
@@ -175,17 +190,24 @@ def build_soft_frozen_targets(market: pd.DataFrame):
             x.std(axis=1).replace(0.0, np.nan), axis=0
         ).fillna(0.0)
 
-    score = 0.35 * _z(m20) + 0.35 * _z(m60) - 0.20 * _z(sv) + 0.10 * _z(d60)
+    w = score_weights if score_weights is not None else (0.35, 0.35, 0.20, 0.10)
+    score = w[0] * _z(m20) + w[1] * _z(m60) - w[2] * _z(sv) + w[3] * _z(d60)
+
+    priors = {k: v.copy() for k, v in REGIME_PRIORS.items()}
+    if regime_priors is not None:
+        for k, v in regime_priors.items():
+            priors[str(k)] = np.asarray(v, dtype=float).copy()
+    l1_min = float(REBALANCE_L1_MIN if rebalance_l1_min is None else rebalance_l1_min)
 
     out = []
     cur = apply_soft_frozen_clips(START_WEIGHTS.copy())
     for i, _dt in enumerate(prices.index):
-        pri = REGIME_PRIORS[str(regime.iloc[i])]
+        pri = priors[str(regime.iloc[i])]
         cand = np.maximum(pri + 0.10 * np.clip(score.iloc[i].to_numpy(), -2.0, 2.0), 0.0)
         cand = apply_soft_frozen_clips(cand)
         desired = BLEND_OLD * cur + BLEND_NEW * cand
         desired = apply_soft_frozen_clips(desired)
-        if float(np.abs(desired - cur).sum()) >= REBALANCE_L1_MIN:
+        if float(np.abs(desired - cur).sum()) >= l1_min:
             cur = desired
         out.append(cur.copy())
 

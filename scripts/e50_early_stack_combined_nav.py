@@ -68,6 +68,7 @@ from live_ledger import (
     TEL,
     fees_tax_for,
 )
+from sleeve_gap_trade import sleeve_trade_vector
 
 CAPITAL = DEFAULT_CAPITAL
 WARMUP_DAYS = 252
@@ -81,7 +82,7 @@ def build_tel_name_scores(market: pd.DataFrame):
 def e16_features(m: pd.DataFrame):
     """Causal Soft-Frozen E16 targets — delegates to `e16_soft_frozen_base`.
 
-    Live clip from `e16_soft_frozen_base.SOFT_FROZEN_FIN_CLIP` (currently [0.60, 0.90]).
+    Live clip from `e16_soft_frozen_base.SOFT_FROZEN_FIN_CLIP` (currently [0.60, 0.80]).
     Challenger clips use `e16_fin_cap_oof_challenger.e16_features_fin_cap` only.
     """
     p, sleeve, target, reg, _score = soft_frozen.build_soft_frozen_targets(m)
@@ -224,9 +225,11 @@ def simulate_core(
 
     events: list[e22div.DivEvent] = []
     if apply_e22 and dividends is not None and len(dividends):
-        tmp = Path("/tmp/e50_e22_div_events.csv")
-        dividends.to_csv(tmp, index=False)
-        events = [e for e in e22div.load_dividend_events(tmp) if e.code in ALL]
+        events = [
+            e
+            for e in e22div.dividend_events_from_frame(dividends)
+            if e.code in ALL
+        ]
 
     pos = {c: 0.0 for c in universe}
     cash = float(capital)
@@ -488,11 +491,7 @@ def simulate_core(
                 sleeve_codes.append(("OFF", [off_c]))
         pre = {k: (v / nav if nav > 0 else 0.0) for k, v in sleeve_vals.items()}
         gap = {k: float(sleeve_w.get(k, 0.0)) - pre[k] for k in pre}
-        trade = np.zeros(len(sleeve_names))
-        if max(abs(v) for v in gap.values()) >= 0.015:
-            trade = np.array([gap[n] for n in sleeve_names]) * 0.75
-            if abs(trade).sum() > 0.20:
-                trade *= 0.20 / abs(trade).sum()
+        trade = sleeve_trade_vector(gap, sleeve_names)
 
         # 5) Create next-day orders (signal today → fill tomorrow open)
         sleeve_trade = dict(zip(sleeve_names, trade))
