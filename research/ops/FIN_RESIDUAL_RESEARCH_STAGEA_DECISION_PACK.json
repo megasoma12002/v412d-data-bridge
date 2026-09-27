@@ -1,0 +1,32 @@
+{
+  "schema_version": "fin_residual_research_stagea_decision_v1",
+  "id": "FIN_RESIDUAL_RESEARCH_STAGEA_DECISION_PACK",
+  "generated_at": "2026-09-26T15:56:55Z",
+  "status": "SIGNAL_HIT",
+  "track_verdicts": {
+    "SLEEVE": "SLEEVE_NO_LIFT",
+    "EXEC": "EXEC_NO_LIFT",
+    "WITHIN": "WITHIN_FILL_ONLY",
+    "REBAL": "REBAL_HIT",
+    "CLOSE": "CLOSE_NOT_YET"
+  },
+  "live_wire": false,
+  "exact_t1": "KEEP",
+  "hits": [
+    "R_L1_05"
+  ],
+  "fill_only": [
+    "W_FIN_TOP2_EQUAL",
+    "R_L1_10"
+  ],
+  "close_observe_recommended": false,
+  "binding": [
+    "Soft-Frozen live KEEP",
+    "Exact T+1 KEEP",
+    "No tip rewrite",
+    "No live wire from this Stage A",
+    "At most one track for follow-up ACCEPT discussion"
+  ],
+  "next": "Discussion only \u2014 pick ZERO or ONE track; Exact T+1 KEEP",
+  "label": "FIN_RESIDUAL_RESEARCH_STAGEA_DECISION_PACK_20260926__SIGNAL_HIT"
+}
