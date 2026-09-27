@@ -379,3 +379,129 @@ def map_send_stock_order_row(
 def send_stock_order_live(*_a: Any, **_k: Any) -> None:
     """Placeholder for future pythonnet ``SendStockOrder`` — always blocked."""
     assert_not_wired()
+
+
+# --- Conditional OCO (StrategyType=3) — INTENT_ONLY; no SendAlgo -----------------
+
+OCO_STRATEGY_TYPE = 3  # SPARK OCOStrategy / 二擇一
+
+
+@dataclass
+class SparkOcoLegIntent:
+    """One OCO leg (same StkCode; typically both SELL for stop-profit / stop-loss)."""
+
+    StkCode: str
+    BuySell: str  # B/S
+    TriggerPrice: float
+    OrderPrice: float
+    OrderQty: int  # 張
+    PriceFlag: str = " "  # limit
+    Time_in_force: str = "0"
+    note: str = ""
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass
+class SparkOcoStrategyIntent:
+    """Offline mirror of SPARK ``OCOStrategy`` (StrategyType=3).
+
+    INTENT_ONLY — ``send_algo_oco_live`` always raises while ``API_WIRED=False``.
+    """
+
+    StrategyType: int
+    Account: str
+    StkCode: str
+    BasketNo: str
+    leg1: SparkOcoLegIntent
+    leg2: SparkOcoLegIntent
+    asof: str
+    client_strategy_id: str
+    status: str = "INTENT_ONLY"
+    api_wired: bool = False
+    note: str = (
+        "Offline OCO skeleton — no SendAlgoCOOdrStrategy; EXECUTE needs separate ACCEPT"
+    )
+
+    def to_dict(self) -> dict[str, Any]:
+        d = asdict(self)
+        return d
+
+
+def build_oco_strategy_intent(
+    *,
+    code: str,
+    asof: date,
+    shares: int,
+    trigger_price_1: float,
+    order_price_1: float,
+    trigger_price_2: float,
+    order_price_2: float,
+    side: str = "SELL",
+    account: str = "",
+    client_strategy_id: str | None = None,
+) -> SparkOcoStrategyIntent:
+    """Build a fail-closed OCO intent (same code, two triggers).
+
+    Default both legs SELL (stop-profit + stop-loss 二擇一) — research mapping
+    only; does not validate broker day-trade / inventory permissions.
+    """
+    lots = shares_to_order_qty(shares)
+    coid = client_strategy_id or f"OCO-{code}-{asof.isoformat()}"
+    basket = basket_no_for(coid)
+    bs = buy_sell_flag(side)
+    leg1 = SparkOcoLegIntent(
+        StkCode=str(code).strip(),
+        BuySell=bs,
+        TriggerPrice=float(trigger_price_1),
+        OrderPrice=float(order_price_1),
+        OrderQty=lots,
+        note="leg1",
+    )
+    leg2 = SparkOcoLegIntent(
+        StkCode=str(code).strip(),
+        BuySell=bs,
+        TriggerPrice=float(trigger_price_2),
+        OrderPrice=float(order_price_2),
+        OrderQty=lots,
+        note="leg2",
+    )
+    return SparkOcoStrategyIntent(
+        StrategyType=OCO_STRATEGY_TYPE,
+        Account=str(account or ""),
+        StkCode=str(code).strip(),
+        BasketNo=basket,
+        leg1=leg1,
+        leg2=leg2,
+        asof=asof.isoformat(),
+        client_strategy_id=coid,
+        api_wired=API_WIRED,
+    )
+
+
+def write_spark_oco_intents(
+    state_dir: Path,
+    asof: date,
+    intents: Sequence[SparkOcoStrategyIntent],
+) -> Path:
+    out = Path(state_dir) / "broker_preflight"
+    out.mkdir(parents=True, exist_ok=True)
+    path = out / f"spark_oco_intents_{asof.isoformat()}.json"
+    payload = {
+        "asof": asof.isoformat(),
+        "n": len(intents),
+        "strategy_type": OCO_STRATEGY_TYPE,
+        "api_wired": API_WIRED,
+        "intents": [i.to_dict() for i in intents],
+        "generated_at_utc": datetime.now(tz=timezone.utc).isoformat(),
+        "note": "Offline OCO mapping only — SendAlgoCOOdrStrategy blocked",
+        "execute_blocked": True,
+    }
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return path
+
+
+def send_algo_oco_live(*_a: Any, **_k: Any) -> None:
+    """Placeholder for future ``SendAlgoCOOdrStrategy`` — always blocked."""
+    assert_not_wired()

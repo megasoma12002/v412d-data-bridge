@@ -1,0 +1,16 @@
+{
+  "label": "BROKER_R5_OCO_PREP_NOT_OPEN_2026-09-27",
+  "status": "PREP_NOT_OPEN",
+  "execute_blocked": true,
+  "soft_frozen_keep": true,
+  "tracks": {
+    "real_submit": "INTENT_ONLY",
+    "t2_r5": "OBSERVE_AUTO_DROPIN",
+    "conditional_oco": "INTENT_ONLY_STRATEGY_TYPE_3"
+  },
+  "gates_must_stay": {
+    "fill_port": "paper",
+    "broker_live_write_accepted": false,
+    "API_WIRED": false
+  }
+}

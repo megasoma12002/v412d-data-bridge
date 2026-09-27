@@ -14,7 +14,8 @@ Live seam: `BrokerPreflightFillPort._write_spark_offline_intents` in `live_fill_
 | `live_fill_broker` | session gate · fixture acks · Soft-Frozen write gates · call offline intent writer | own SPARK field math |
 | `broker_safety` / `broker_risk` | confirm+reserve · circuit · dedupe · ballot | know SPARK DLL types |
 
-`send_stock_order_live()` always raises `SparkNotWiredError` while `API_WIRED=False`.
+`send_stock_order_live()` always raises `SparkNotWiredError` while `API_WIRED=False`.  
+`send_algo_oco_live()` / OCO intents (`StrategyType=3`) likewise INTENT_ONLY — see `YUANTA_SPARK_CONDITIONAL_OCO_NOTES.md` · PREP pack `BROKER_R5_OCO_PREP_NOT_OPEN.md`.
 
 ## What this is
 
