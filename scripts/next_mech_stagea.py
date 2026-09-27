@@ -18,7 +18,6 @@ import pandas as pd
 import cool_t50_inv_satellite_stagea as sat
 import cool_t50_lev_rebound_stagea as reb
 import cool_t50_lev_short_assist_stagea as short
-import e16_clip_search_challenger as clip
 import e16_soft_frozen_base as soft
 import e50_early_stack_combined_nav as e50
 import priv_finhc_cagr_mdd_gate_v7_stagea as v7
@@ -164,9 +163,9 @@ def _score_row(
         "held_mdd": bool(mdd_hit),
         "held_cagr_floor": bool(cagr_hit),
     }
-    # Charter MECH_HIT = CAGR + MDD; tip/sealed are hygiene for coexist
-    mech_hit = bool(cagr_hit and mdd_hit and tip_mdd_ok and sealed_mdd_up >= SEALED_MDD_MIN_PP)
-    cagr_soft = bool(mdd_hit and tip_mdd_ok and sealed_mdd_up >= SEALED_MDD_MIN_PP and not cagr_hit)
+    # Charter MECH_HIT = held CAGR + held MDD only; tip/sealed are hygiene notes
+    mech_hit = bool(cagr_hit and mdd_hit)
+    cagr_soft = bool(mdd_hit and not cagr_hit)
     score = (
         0.50 * ((held_cagr_lift or 0.0) + (sealed_cagr_lift or 0.0))
         + 0.50 * (held_mdd_up + sealed_mdd_up)
@@ -666,22 +665,26 @@ def main() -> int:
         f"MECH_HIT: **{len(hits)}** · CAGR_SOFT: **{len(softs)}**.",
         "",
     ]
-    if hits:
+    if verdict == "MECH_HIT" and hits:
         b = sorted(hits, key=lambda r: -r["score"])[0]
+        sealed_note = (
+            f" · sealed MDD↑ {b['sealed_mdd_improve_pp']:+.2f}"
+            f"{' (hygiene soft)' if not b['gates']['sealed_mdd'] else ''}"
+        )
         dlines += [
             f"Best: `{b['id']}` ({b['track']}) · held CAGR↑ **{b['held_cagr_lift_pp']:+.2f}** · "
-            f"held MDD↑ **{b['held_mdd_improve_pp']:+.2f}**",
+            f"held MDD↑ **{b['held_mdd_improve_pp']:+.2f}**{sealed_note}",
             "",
             "Next: paper observe / ACCEPT discussion for **one** track only. No live wire from this pack.",
             "",
         ]
-    elif softs:
+    elif verdict == "CAGR_SOFT" and softs:
         b = sorted(softs, key=lambda r: -r["score"])[0]
         dlines += [
             f"CAGR_SOFT best: `{b['id']}` ({b['track']}) · held CAGR↑ {b['held_cagr_lift_pp']:+.2f} · "
             f"held MDD↑ {b['held_mdd_improve_pp']:+.2f}.",
             "",
-            "Reading: MDD near-flat but CAGR gate (+0.20pp) not cleared.",
+            "Reading: held MDD gate OK but CAGR gate (+0.20pp) not cleared.",
             "",
             "Binding: Soft-Frozen KEEP · no live without new ACCEPT.",
             "",
@@ -699,7 +702,7 @@ def main() -> int:
         ]
     else:
         dlines += [
-            "CAGR cleared somewhere but MDD/tip hygiene blocked MECH_HIT.",
+            "CAGR cleared somewhere but held MDD gate (≥ −0.50pp) failed (or no coexist hygiene).",
             "",
             "Binding: Soft-Frozen KEEP · no live wire.",
             "",
