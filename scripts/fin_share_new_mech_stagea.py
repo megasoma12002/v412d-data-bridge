@@ -534,14 +534,26 @@ def main() -> int:
 
     chal = [r for r in rows if r["track"] != "BASE"]
     hits = [r for r in chal if r["mech_hit"]]
-    softs = [r for r in chal if r["cagr_soft"]]
+    fin_hits = [r for r in hits if r["track"] != "SAT_REF"]
+    sat_hits = [r for r in hits if r["track"] == "SAT_REF"]
+    softs = [r for r in chal if r["cagr_soft"] and r["track"] != "SAT_REF"]
     fin_down_only = [
-        r for r in chal if r["gates"]["fin_down"] and not r["mech_hit"] and not r["cagr_soft"]
+        r
+        for r in chal
+        if r["gates"]["fin_down"]
+        and not r["mech_hit"]
+        and not r["cagr_soft"]
+        and r["track"] != "SAT_REF"
     ]
-    any_cagr = any(r["gates"]["held_cagr_floor"] for r in chal)
+    any_cagr = any(
+        r["gates"]["held_cagr_floor"] for r in chal if r["track"] != "SAT_REF"
+    )
 
-    if hits:
+    if fin_hits:
         verdict = "MECH_HIT"
+    elif sat_hits and not fin_hits:
+        # Parent CONF densify still HIT; FIN-share actuators did not clear gates
+        verdict = "SAT_REF_ONLY"
     elif softs and not any_cagr:
         verdict = "CAGR_SOFT"
     elif fin_down_only and not any_cagr:
@@ -574,14 +586,20 @@ def main() -> int:
         },
         "n_challengers": len(chal),
         "n_mech_hit": len(hits),
+        "n_fin_share_hit": len(fin_hits),
         "n_cagr_soft": len(softs),
         "mech_hit_ids": [r["id"] for r in sorted(hits, key=lambda r: -r["score"])],
+        "fin_share_hit_ids": [r["id"] for r in sorted(fin_hits, key=lambda r: -r["score"])],
         "cagr_soft_ids": [r["id"] for r in softs],
         "fin_down_ids": [r["id"] for r in chal if r["gates"]["fin_down"]],
         "best": (
-            sorted(hits, key=lambda r: -r["score"])[0]["id"]
-            if hits
-            else (ranked[0]["id"] if ranked else None)
+            sorted(fin_hits, key=lambda r: -r["score"])[0]["id"]
+            if fin_hits
+            else (
+                sorted(sat_hits, key=lambda r: -r["score"])[0]["id"]
+                if sat_hits
+                else (ranked[0]["id"] if ranked else None)
+            )
         ),
         "ranked": ranked,
         "by_track": by_track,
@@ -597,7 +615,7 @@ def main() -> int:
         f"Status: **`{verdict}`** · Soft-Frozen **KEEP** · Exact T+1 **KEEP** · live wire **false**",
         f"Base `{BASE_ID}` mean FIN=**{base_mean_fin:.2%}** · cool_exits=**{n_exits}**",
         "",
-        f"MECH_HIT: **{len(hits)}** · CAGR_SOFT: **{len(softs)}** / {len(chal)}",
+        f"MECH_HIT: **{len(hits)}** (FIN-share HIT: **{len(fin_hits)}**) · CAGR_SOFT: **{len(softs)}** / {len(chal)}",
         "",
         "## Ranked",
         "",
@@ -634,7 +652,9 @@ def main() -> int:
         "status": verdict,
         "live_wire": False,
         "n_mech_hit": len(hits),
+        "n_fin_share_hit": len(fin_hits),
         "mech_hit_ids": payload["mech_hit_ids"],
+        "fin_share_hit_ids": payload["fin_share_hit_ids"],
         "cagr_soft_ids": payload["cagr_soft_ids"],
         "fin_down_ids": payload["fin_down_ids"],
         "best": payload["best"],
@@ -651,18 +671,34 @@ def main() -> int:
         "",
         "Tracks: CLIP · COND · SKEW · CASH · SAT_REF",
         "",
-        f"MECH_HIT: **{len(hits)}** · CAGR_SOFT: **{len(softs)}** · FIN↓ books: **{len(payload['fin_down_ids'])}**",
+        f"MECH_HIT: **{len(hits)}** · FIN-share HIT: **{len(fin_hits)}** · CAGR_SOFT: **{len(softs)}** · FIN↓ books: **{len(payload['fin_down_ids'])}**",
         f"Base mean FIN: **{base_mean_fin:.2%}**",
         "",
     ]
-    if verdict == "MECH_HIT" and hits:
-        b = sorted(hits, key=lambda r: -r["score"])[0]
+    if verdict == "MECH_HIT" and fin_hits:
+        b = sorted(fin_hits, key=lambda r: -r["score"])[0]
         dlines += [
-            f"Best: `{b['id']}` ({b['track']}) · held CAGR↑ **{b['held_cagr_lift_pp']:+.2f}** · "
+            f"Best FIN-share: `{b['id']}` ({b['track']}) · held CAGR↑ **{b['held_cagr_lift_pp']:+.2f}** · "
             f"held MDD↑ **{b['held_mdd_improve_pp']:+.2f}** · FIN↓ **{b['fin_down_pp']:+.2f}pp**",
             "",
             "Next: paper observe / ACCEPT discussion for **one** track. "
             "CLIP HIT ⇒ Soft-Frozen flip ballot only.",
+            "",
+        ]
+    elif verdict == "SAT_REF_ONLY":
+        dlines += [
+            "FIN-share actuators (CLIP / COND / SKEW / CASH) **do not** clear CAGR+MDD gates.",
+            "",
+            "They often **lower mean FIN** (good for the ratio question) but **give back CAGR**.",
+            "",
+            f"Only parent reference `SAT_A20_H5` remains MECH_HIT (CONF densify — not a FIN-share lever).",
+            "",
+            "Reading: cutting Soft FIN share is not a free lunch under the live twin. "
+            "Keep Soft-Frozen clips; tip ~87% FIN is mostly **lot drift** (fix on next open via L1=0.05), "
+            "not a clip rewrite.",
+            "",
+            "Binding: Soft-Frozen KEEP · Exact T+1 KEEP · L1=0.05 KEEP · no live wire. "
+            "SAT_A20 remains the only ACCEPT-discussion candidate from recent menus.",
             "",
         ]
     elif verdict == "CAGR_SOFT":
@@ -690,7 +726,7 @@ def main() -> int:
         ]
     else:
         dlines += [
-            "CAGR cleared somewhere but MDD blocked (or SAT_REF hygiene).",
+            "CAGR cleared somewhere but MDD blocked.",
             "",
             "Binding: Soft-Frozen KEEP · no live wire.",
             "",

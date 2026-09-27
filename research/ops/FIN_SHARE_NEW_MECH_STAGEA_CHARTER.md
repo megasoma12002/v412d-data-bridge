@@ -44,7 +44,7 @@ Diagnostics (not gates): mean FIN weight · FIN↓ vs base.
 
 ## Verdicts
 
-`MECH_HIT` · `CAGR_SOFT` · `FIN_DOWN_NO_LIFT` · `NO_LIFT` · `CLOSE_OBSERVE_RECOMMENDED`
+`MECH_HIT` · `SAT_REF_ONLY` · `CAGR_SOFT` · `FIN_DOWN_NO_LIFT` · `NO_LIFT` · `CLOSE_OBSERVE_RECOMMENDED`
 
 Even HIT → paper only; **at most one** track for ACCEPT discussion. CLIP HIT → Soft-Frozen flip ballot only (not silent live).
 
