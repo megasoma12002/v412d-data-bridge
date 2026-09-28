@@ -19,6 +19,7 @@ FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE OPEN** `B_OR_K9_x_
 **ABC Stage A next (2026-09-28):** A `LOCK_KEEP_NO_TIP_LIFT` · B `NO_EDGE` · C `MONITOR_READY` · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
 ETF **0050 買賣品質** Stage A：**`TIP_BLOCK`** · best sell `SELL_COOL_DEFEND` CAGR↑+0.16 但 tip MDD↓ · clip/`SELL_a75` KEEP · no live · `ETF0050_BOTH_QUALITY_STAGEA_DECISION_PACK.md`  
 ETF **0050 軟縮放 × 高低點／DD** Stage A：**`TIP_BLOCK`** · best `EXT_SELL_HIGH20` CAGR↑+0.16 tip↓ · Soft-Frozen KEEP · no live · `ETF0050_SOFT_EXTREME_STAGEA_DECISION_PACK.md`  
+ETF **0050 regime × 多空偵測器** Stage A：**OPEN** · REG+DET dual-track · KEEP clip · no live · `ETF0050_REGIME_DETECTOR_STAGEA_CHARTER.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  

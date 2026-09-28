@@ -51,6 +51,7 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27 `R_L1_05`; prior 0.0
 | 1c | 非對稱 0050 Bull 加碼 / MDD 持平 under COOL | **CAGR_SOFT** (2026-09-25) | Stage A 0 HIT · 7 tip-clean MDD-flat · best CAGR↑ +0.06 · Soft-Frozen KEEP · `ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.md` |
 | 1d | ETF **0050 買賣品質**（加減碼時機 · 非 densify／slew） | **STAGE A `TIP_BLOCK`** (2026-09-28) | 0 HIT · best sell `SELL_COOL_DEFEND` CAGR↑+0.16 但 tip MDD↓ · Soft-Frozen KEEP · no live · `ETF0050_BOTH_QUALITY_STAGEA_DECISION_PACK.md` |
 | 1e | ETF **0050 軟縮放 × 高低點／DD** | **STAGE A `TIP_BLOCK`** (2026-09-28) | 0 HIT · best `EXT_SELL_HIGH20` CAGR↑+0.16 tip↓ · soft dampen also tip↓ · Soft-Frozen KEEP · no live · `ETF0050_SOFT_EXTREME_STAGEA_DECISION_PACK.md` |
+| 1f | ETF **0050 regime × 多空偵測器** | **STAGE A OPEN** (2026-09-28) | Human `都做` · REG live Bull/Bear + DET MA60/MACD · KEEP clip · no densify · no live · `ETF0050_REGIME_DETECTOR_STAGEA_CHARTER.md` |
 | 1b | Live starting capital | **500M** (ACCEPT 2026-09-09) | Was 3M restore; prior 15M then 3M; see `CAPITAL_500M_2026-09-09.md` |
 | 2 | FIN_CAP_50 **static** live cutover | **REJECT for now** | Do not open cutover PR; do not retune FIN50 lock |
 | 3 | Sealed-CAGR successor path | **FINCAP BLEND_025 OBSERVE CLOSED** (2026-09-28) | Paper queue closed · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` · FINCAP sleeve KEEP · promote still NOT READY · **E45_BLEND025 archived 2026-09-13** |

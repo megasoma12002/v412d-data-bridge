@@ -1,0 +1,35 @@
+{
+  "label": "ETF0050_REGIME_DETECTOR_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "status": "STAGE_A_OPEN",
+  "verdict": null,
+  "date": "2026-09-28",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "beta_clip_keep": true,
+  "sell_a75_keep": true,
+  "cagr_sign": "chal_minus_base",
+  "parents": ["1d_TIP_BLOCK", "1e_TIP_BLOCK", "1c_ASYMM_CAGR_SOFT"],
+  "tracks": ["REG_LIVE_REGIME", "DET_0050_LOCAL"],
+  "not_mechanism": ["asymm_bull_clip_densify", "1d_hard_ma_ret_grid", "1e_soft_extreme_grid"],
+  "charter": "research/ops/ETF0050_REGIME_DETECTOR_STAGEA_CHARTER.md",
+  "charter_zh_tw": "research/ops/ETF0050_REGIME_DETECTOR_STAGEA_CHARTER.zh-TW.md",
+  "script": "scripts/etf0050_regime_detector_stagea.py",
+  "repro": "repro/etf0050-regime-detector-stagea/",
+  "register": "1f",
+  "gates": {
+    "held_cagr_pp": 0.15,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0,
+    "wr_either_pp": 0.5,
+    "win_horizon": 21
+  },
+  "verdicts": [
+    "REGIME_DETECTOR_HIT",
+    "WIN_SOFT",
+    "CAGR_SOFT",
+    "TIP_BLOCK",
+    "MDD_BLOCK",
+    "NO_EDGE"
+  ]
+}
