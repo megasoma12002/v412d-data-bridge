@@ -1,0 +1,90 @@
+{
+  "label": "FIN_SAT_TIPGAP_FFT_STAGEA_DECISION_PACK_2026-09-28__FFT_SIGNAL__NO_LIVE",
+  "status": "FFT_SIGNAL",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "charter": "research/ops/FIN_SAT_TIPGAP_FFT_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_TIPGAP_FFT_STAGEA_SCREEN.md",
+  "reading": {
+    "daily_rel_near_white": true,
+    "strong_series": [
+      "trail_rel_21",
+      "trail_rel_63",
+      "trail_drag",
+      "monthly_rel",
+      "tip_daily_rel",
+      "tip_trail_rel_63"
+    ],
+    "best_bandpass": {
+      "src": "trail_rel_63",
+      "period_tdays": 256.0,
+      "power_frac": 0.43131,
+      "lag1_ic_vs_fwd_rel_21": 0.132,
+      "ic_gate": true
+    },
+    "ic_gated_bandpass": [
+      {
+        "src": "trail_rel_63",
+        "period_tdays": 256.0,
+        "power_frac": 0.43131,
+        "lag1_ic_vs_fwd_rel_21": 0.132,
+        "ic_gate": true
+      },
+      {
+        "src": "trail_rel_63",
+        "period_tdays": 128.0,
+        "power_frac": 0.3261,
+        "lag1_ic_vs_fwd_rel_21": -0.206,
+        "ic_gate": true
+      },
+      {
+        "src": "trail_rel_21",
+        "period_tdays": 85.33,
+        "power_frac": 0.13276,
+        "lag1_ic_vs_fwd_rel_21": -0.3783,
+        "ic_gate": true
+      }
+    ],
+    "implication": "FFT does not yield a clean actionable tip-gap oscillator from daily COMP−SAT; prefer 0k9i time-domain leads (r0050_63) over spectral cycles unless FFT_SIGNAL."
+  },
+  "bandpass_ics": [
+    {
+      "src": "trail_rel_63",
+      "period_tdays": 256.0,
+      "power_frac": 0.43131,
+      "lag1_ic_vs_fwd_rel_21": 0.132,
+      "ic_gate": true
+    },
+    {
+      "src": "trail_rel_63",
+      "period_tdays": 128.0,
+      "power_frac": 0.3261,
+      "lag1_ic_vs_fwd_rel_21": -0.206,
+      "ic_gate": true
+    },
+    {
+      "src": "trail_rel_21",
+      "period_tdays": 85.33,
+      "power_frac": 0.13276,
+      "lag1_ic_vs_fwd_rel_21": -0.3783,
+      "ic_gate": true
+    }
+  ],
+  "register": "0k9j",
+  "generated_at_utc": "2026-09-28T13:35:42Z",
+  "reading_zh": {
+    "daily_rel": "near_white",
+    "useful_bands_tdays": [
+      85,
+      128,
+      256
+    ],
+    "best_bandpass_ic": {
+      "85d": -0.378,
+      "128d": -0.206,
+      "256d": 0.132
+    },
+    "practical": "assist_only_not_replace_0k9i_time_domain"
+  }
+}

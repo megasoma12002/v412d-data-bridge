@@ -1,0 +1,436 @@
+{
+  "daily_rel": {
+    "n": 3365,
+    "method": "periodogram",
+    "top": [
+      {
+        "period_tdays": 2.89,
+        "period_approx_cal_days": 4.2,
+        "power_frac": 0.00493,
+        "freq": 0.346211
+      },
+      {
+        "period_tdays": 3.72,
+        "period_approx_cal_days": 5.4,
+        "power_frac": 0.00421,
+        "freq": 0.268648
+      },
+      {
+        "period_tdays": 2.78,
+        "period_approx_cal_days": 4.0,
+        "power_frac": 0.00416,
+        "freq": 0.359584
+      },
+      {
+        "period_tdays": 2.62,
+        "period_approx_cal_days": 3.8,
+        "power_frac": 0.00384,
+        "freq": 0.382169
+      },
+      {
+        "period_tdays": 3.97,
+        "period_approx_cal_days": 5.8,
+        "power_frac": 0.00383,
+        "freq": 0.252006
+      },
+      {
+        "period_tdays": 3.87,
+        "period_approx_cal_days": 5.6,
+        "power_frac": 0.00361,
+        "freq": 0.258544
+      },
+      {
+        "period_tdays": 2.88,
+        "period_approx_cal_days": 4.2,
+        "power_frac": 0.00348,
+        "freq": 0.347103
+      },
+      {
+        "period_tdays": 2.69,
+        "period_approx_cal_days": 3.9,
+        "power_frac": 0.00345,
+        "freq": 0.372363
+      }
+    ],
+    "max_power_frac": 0.00493
+  },
+  "trail_rel_21": {
+    "n": 3345,
+    "method": "welch",
+    "top": [
+      {
+        "period_tdays": 128.0,
+        "period_approx_cal_days": 185.5,
+        "power_frac": 0.18204,
+        "freq": 0.007812
+      },
+      {
+        "period_tdays": 256.0,
+        "period_approx_cal_days": 371.0,
+        "power_frac": 0.1458,
+        "freq": 0.003906
+      },
+      {
+        "period_tdays": 85.33,
+        "period_approx_cal_days": 123.7,
+        "power_frac": 0.13276,
+        "freq": 0.011719
+      },
+      {
+        "period_tdays": 64.0,
+        "period_approx_cal_days": 92.8,
+        "power_frac": 0.12333,
+        "freq": 0.015625
+      },
+      {
+        "period_tdays": 51.2,
+        "period_approx_cal_days": 74.2,
+        "power_frac": 0.1194,
+        "freq": 0.019531
+      },
+      {
+        "period_tdays": 42.67,
+        "period_approx_cal_days": 61.8,
+        "power_frac": 0.06927,
+        "freq": 0.023438
+      },
+      {
+        "period_tdays": 36.57,
+        "period_approx_cal_days": 53.0,
+        "power_frac": 0.05243,
+        "freq": 0.027344
+      },
+      {
+        "period_tdays": 32.0,
+        "period_approx_cal_days": 46.4,
+        "power_frac": 0.03253,
+        "freq": 0.03125
+      }
+    ],
+    "max_power_frac": 0.18204
+  },
+  "trail_rel_63": {
+    "n": 3303,
+    "method": "welch",
+    "top": [
+      {
+        "period_tdays": 256.0,
+        "period_approx_cal_days": 371.0,
+        "power_frac": 0.43131,
+        "freq": 0.003906
+      },
+      {
+        "period_tdays": 128.0,
+        "period_approx_cal_days": 185.5,
+        "power_frac": 0.3261,
+        "freq": 0.007812
+      },
+      {
+        "period_tdays": 85.33,
+        "period_approx_cal_days": 123.7,
+        "power_frac": 0.09961,
+        "freq": 0.011719
+      },
+      {
+        "period_tdays": 42.67,
+        "period_approx_cal_days": 61.8,
+        "power_frac": 0.02402,
+        "freq": 0.023438
+      },
+      {
+        "period_tdays": 51.2,
+        "period_approx_cal_days": 74.2,
+        "power_frac": 0.02141,
+        "freq": 0.019531
+      },
+      {
+        "period_tdays": 64.0,
+        "period_approx_cal_days": 92.8,
+        "power_frac": 0.01356,
+        "freq": 0.015625
+      },
+      {
+        "period_tdays": 36.57,
+        "period_approx_cal_days": 53.0,
+        "power_frac": 0.01164,
+        "freq": 0.027344
+      },
+      {
+        "period_tdays": 25.6,
+        "period_approx_cal_days": 37.1,
+        "power_frac": 0.00841,
+        "freq": 0.039062
+      }
+    ],
+    "max_power_frac": 0.43131
+  },
+  "trail_drag": {
+    "n": 3365,
+    "method": "welch",
+    "top": [
+      {
+        "period_tdays": 256.0,
+        "period_approx_cal_days": 371.0,
+        "power_frac": 0.30944,
+        "freq": 0.003906
+      },
+      {
+        "period_tdays": 128.0,
+        "period_approx_cal_days": 185.5,
+        "power_frac": 0.22346,
+        "freq": 0.007812
+      },
+      {
+        "period_tdays": 85.33,
+        "period_approx_cal_days": 123.7,
+        "power_frac": 0.07613,
+        "freq": 0.011719
+      },
+      {
+        "period_tdays": 42.67,
+        "period_approx_cal_days": 61.8,
+        "power_frac": 0.0427,
+        "freq": 0.023438
+      },
+      {
+        "period_tdays": 64.0,
+        "period_approx_cal_days": 92.8,
+        "power_frac": 0.03886,
+        "freq": 0.015625
+      },
+      {
+        "period_tdays": 51.2,
+        "period_approx_cal_days": 74.2,
+        "power_frac": 0.0363,
+        "freq": 0.019531
+      },
+      {
+        "period_tdays": 36.57,
+        "period_approx_cal_days": 53.0,
+        "power_frac": 0.02448,
+        "freq": 0.027344
+      },
+      {
+        "period_tdays": 32.0,
+        "period_approx_cal_days": 46.4,
+        "power_frac": 0.01352,
+        "freq": 0.03125
+      }
+    ],
+    "max_power_frac": 0.30944
+  },
+  "r0050": {
+    "n": 3365,
+    "method": "periodogram",
+    "top": [
+      {
+        "period_tdays": 16.58,
+        "period_approx_cal_days": 24.0,
+        "power_frac": 0.00438,
+        "freq": 0.060327
+      },
+      {
+        "period_tdays": 6.03,
+        "period_approx_cal_days": 8.7,
+        "power_frac": 0.00385,
+        "freq": 0.165825
+      },
+      {
+        "period_tdays": 2.16,
+        "period_approx_cal_days": 3.1,
+        "power_frac": 0.00363,
+        "freq": 0.463299
+      },
+      {
+        "period_tdays": 4.45,
+        "period_approx_cal_days": 6.4,
+        "power_frac": 0.00359,
+        "freq": 0.224963
+      },
+      {
+        "period_tdays": 5.31,
+        "period_approx_cal_days": 7.7,
+        "power_frac": 0.00355,
+        "freq": 0.18841
+      },
+      {
+        "period_tdays": 2.02,
+        "period_approx_cal_days": 2.9,
+        "power_frac": 0.00344,
+        "freq": 0.495988
+      },
+      {
+        "period_tdays": 4.39,
+        "period_approx_cal_days": 6.4,
+        "power_frac": 0.00343,
+        "freq": 0.227637
+      },
+      {
+        "period_tdays": 15.72,
+        "period_approx_cal_days": 22.8,
+        "power_frac": 0.00341,
+        "freq": 0.063596
+      }
+    ],
+    "max_power_frac": 0.00438
+  },
+  "monthly_rel": {
+    "n": 166,
+    "method": "periodogram_monthly",
+    "top": [
+      {
+        "period_tdays": 53.5,
+        "period_approx_cal_days": 3.7,
+        "power_frac": 0.0432,
+        "freq": 0.391566,
+        "period_months": 2.55
+      },
+      {
+        "period_tdays": 232.5,
+        "period_approx_cal_days": 16.0,
+        "power_frac": 0.04233,
+        "freq": 0.090361,
+        "period_months": 11.07
+      },
+      {
+        "period_tdays": 58.2,
+        "period_approx_cal_days": 4.0,
+        "power_frac": 0.04001,
+        "freq": 0.361446,
+        "period_months": 2.77
+      },
+      {
+        "period_tdays": 52.9,
+        "period_approx_cal_days": 3.6,
+        "power_frac": 0.03708,
+        "freq": 0.39759,
+        "period_months": 2.52
+      },
+      {
+        "period_tdays": 120.1,
+        "period_approx_cal_days": 8.3,
+        "power_frac": 0.0352,
+        "freq": 0.174699,
+        "period_months": 5.72
+      },
+      {
+        "period_tdays": 105.6,
+        "period_approx_cal_days": 7.3,
+        "power_frac": 0.03332,
+        "freq": 0.198795,
+        "period_months": 5.03
+      }
+    ],
+    "max_power_frac": 0.0432
+  },
+  "tip_daily_rel": {
+    "n": 242,
+    "method": "periodogram",
+    "top": [
+      {
+        "period_tdays": 2.92,
+        "period_approx_cal_days": 4.2,
+        "power_frac": 0.03738,
+        "freq": 0.342975
+      },
+      {
+        "period_tdays": 2.6,
+        "period_approx_cal_days": 3.8,
+        "power_frac": 0.03707,
+        "freq": 0.384298
+      },
+      {
+        "period_tdays": 6.05,
+        "period_approx_cal_days": 8.8,
+        "power_frac": 0.03309,
+        "freq": 0.165289
+      },
+      {
+        "period_tdays": 5.5,
+        "period_approx_cal_days": 8.0,
+        "power_frac": 0.03237,
+        "freq": 0.181818
+      },
+      {
+        "period_tdays": 2.88,
+        "period_approx_cal_days": 4.2,
+        "power_frac": 0.03046,
+        "freq": 0.347107
+      },
+      {
+        "period_tdays": 6.21,
+        "period_approx_cal_days": 9.0,
+        "power_frac": 0.02279,
+        "freq": 0.161157
+      },
+      {
+        "period_tdays": 17.29,
+        "period_approx_cal_days": 25.1,
+        "power_frac": 0.02197,
+        "freq": 0.057851
+      },
+      {
+        "period_tdays": 2.63,
+        "period_approx_cal_days": 3.8,
+        "power_frac": 0.02147,
+        "freq": 0.380165
+      }
+    ],
+    "max_power_frac": 0.03738
+  },
+  "tip_trail_rel_63": {
+    "n": 242,
+    "method": "periodogram",
+    "top": [
+      {
+        "period_tdays": 121.0,
+        "period_approx_cal_days": 175.4,
+        "power_frac": 0.68947,
+        "freq": 0.008264
+      },
+      {
+        "period_tdays": 242.0,
+        "period_approx_cal_days": 350.8,
+        "power_frac": 0.09787,
+        "freq": 0.004132
+      },
+      {
+        "period_tdays": 40.33,
+        "period_approx_cal_days": 58.5,
+        "power_frac": 0.04468,
+        "freq": 0.024793
+      },
+      {
+        "period_tdays": 17.29,
+        "period_approx_cal_days": 25.1,
+        "power_frac": 0.03146,
+        "freq": 0.057851
+      },
+      {
+        "period_tdays": 48.4,
+        "period_approx_cal_days": 70.2,
+        "power_frac": 0.02874,
+        "freq": 0.020661
+      },
+      {
+        "period_tdays": 60.5,
+        "period_approx_cal_days": 87.7,
+        "power_frac": 0.01286,
+        "freq": 0.016529
+      },
+      {
+        "period_tdays": 30.25,
+        "period_approx_cal_days": 43.8,
+        "power_frac": 0.0092,
+        "freq": 0.033058
+      },
+      {
+        "period_tdays": 24.2,
+        "period_approx_cal_days": 35.1,
+        "power_frac": 0.00767,
+        "freq": 0.041322
+      }
+    ],
+    "max_power_frac": 0.68947
+  }
+}

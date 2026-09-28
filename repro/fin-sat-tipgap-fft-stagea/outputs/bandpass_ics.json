@@ -1,0 +1,23 @@
+[
+  {
+    "src": "trail_rel_63",
+    "period_tdays": 256.0,
+    "power_frac": 0.43131,
+    "lag1_ic_vs_fwd_rel_21": 0.132,
+    "ic_gate": true
+  },
+  {
+    "src": "trail_rel_63",
+    "period_tdays": 128.0,
+    "power_frac": 0.3261,
+    "lag1_ic_vs_fwd_rel_21": -0.206,
+    "ic_gate": true
+  },
+  {
+    "src": "trail_rel_21",
+    "period_tdays": 85.33,
+    "power_frac": 0.13276,
+    "lag1_ic_vs_fwd_rel_21": -0.3783,
+    "ic_gate": true
+  }
+]

@@ -25,6 +25,7 @@ FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE CLOSED** (2026-09-
 **FIN×SAT 互斥特徵→切換 (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · year mutex Bull↔Crisis real · oracle year upper-bound tip-clean · pre-reg switches tip CAGR− · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_MUTEX_FEAT_STAGEA_DECISION_PACK.md`  
 **FIN×SAT 週期互斥切換 (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · not year-switch · ZigZag/K5/month-qtr · episode Bull≠COMP-stable · ZZ08 held↑ tipCAGR− · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_CYCLE_SWITCH_STAGEA_DECISION_PACK.md`  
 **FIN×SAT tip-gap 預測／特徵 (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · gap=tip-drag timing · lead `r0050_63` IC−0.11 · tip Crisis/SELL overlap · zz08 tip-desync · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_TIPGAP_PRED_STAGEA_DECISION_PACK.md`  
+**FIN×SAT tip-gap FFT (2026-09-28):** Stage A **`FFT_SIGNAL`** · daily rel≈white · trail ~85/128/256td + bandpass IC · assist≠replace 0k9i · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_TIPGAP_FFT_STAGEA_DECISION_PACK.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  

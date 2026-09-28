@@ -1,8 +1,8 @@
 {
   "id": "FIN_SAT_TIPGAP_FFT_STAGEA_CHARTER",
-  "status": "STAGE_A_OPEN",
+  "status": "STAGE_A_DONE",
   "date": "2026-09-28",
-  "label": "FIN_SAT_TIPGAP_FFT_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "label": "FIN_SAT_TIPGAP_FFT_STAGEA_CHARTER_2026-09-28__DONE_FFT_SIGNAL__NO_LIVE_WIRE",
   "register": "0k9j",
   "parents": [
     "0k9i_TIPGAP_PRED_TIP_MDD_ONLY",
@@ -13,5 +13,8 @@
   "live_wire": false,
   "soft_frozen_keep": true,
   "parent_observes_keep": true,
-  "script": "scripts/fin_sat_tipgap_fft_stagea.py"
+  "script": "scripts/fin_sat_tipgap_fft_stagea.py",
+  "verdict": "FFT_SIGNAL",
+  "screen": "research/ops/FIN_SAT_TIPGAP_FFT_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SAT_TIPGAP_FFT_STAGEA_DECISION_PACK.md"
 }

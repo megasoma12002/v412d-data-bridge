@@ -1,7 +1,7 @@
 # FIN×SAT tip-gap FFT 光譜 Stage A (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `FFT_SIGNAL`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - 0k9i tip-gap **`TIP_MDD_ONLY`** — binding gap = tip-drag timing · lead `r0050_63`
 - COMPOSITE **`COMP_H150_x_A20`** · SAT_RELAX **`SAT_A20_RELAX`**
@@ -12,7 +12,7 @@ Human intent (normalized):
 OPEN Stage A: FFT／Welch 能否從 tip-gap 序列找出可用週期訊號 · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_TIPGAP_FFT_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_TIPGAP_FFT_STAGEA_CHARTER_2026-09-28__DONE_FFT_SIGNAL__NO_LIVE_WIRE`
 
 ## Why
 
