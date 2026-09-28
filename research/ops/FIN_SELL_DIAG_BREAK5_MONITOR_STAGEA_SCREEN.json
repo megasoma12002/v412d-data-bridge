@@ -1,0 +1,58 @@
+{
+  "label": "FIN_SELL_DIAG_BREAK5_MONITOR_STAGEA_SCREEN_20260928T075739Z",
+  "generated_at_utc": "2026-09-28T07:57:39Z",
+  "charter": "research/ops/FIN_SELL_DIAG_BREAK5_MONITOR_STAGEA_CHARTER.md",
+  "parent_charter": "research/ops/FIN_SELL_DIAG_ROLE_STAGEA_CHARTER.md",
+  "parent_decision": "research/ops/FIN_SELL_DIAG_ROLE_STAGEA_DECISION_PACK.md",
+  "track": "C",
+  "status": "STAGE_A_SCREEN_DONE",
+  "verdict": "MONITOR_READY",
+  "role": "diagnostic_monitor_log_only",
+  "attr_id": "A_BREAK5",
+  "fin_sell_ok_applied": false,
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "exact_t1_keep": true,
+  "cool_keep": true,
+  "sell_a75_keep": true,
+  "sell_amp": 0.75,
+  "base_id": "CTRL_BASE",
+  "base_sell": {
+    "n": 924,
+    "wins": 323,
+    "win_rate": 34.9567,
+    "horizon": 21,
+    "win_def": "fwd_ret_lt_0"
+  },
+  "break5": {
+    "stat": {
+      "n": 98,
+      "wins": 38,
+      "win_rate": 38.7755,
+      "wr_lift_pp": 3.8188,
+      "coverage": 10.6061,
+      "mean_fwd": 0.679
+    },
+    "flags": {
+      "ready": true,
+      "weak": false,
+      "cov_ok": true
+    }
+  },
+  "bars": {
+    "ready_lift_pp": 3.0,
+    "ready_n_min": 80,
+    "cov_lo": 5.0,
+    "cov_hi": 70.0,
+    "weak_lift_pp": 1.5,
+    "weak_n_min": 50
+  },
+  "monitor_csv": "repro/fin-sell-diag-break5-monitor-stagea/outputs/sell_break5_monitor.csv",
+  "binding": [
+    "Diagnostic monitor/log only — labels live SELL_a75 fills with A_BREAK5; does not pass fin_sell_ok",
+    "Soft-Frozen / Exact T+1 / COOL / SELL_a75 KEEP",
+    "MONITOR_READY ≠ observe authorize ≠ live wire ≠ reopen hard sell gates",
+    "Prior hard-gate tracks (quality / new-mech) remain STOP / MDD_BLOCK",
+    "Sell loss-defer remains REJECTED"
+  ]
+}

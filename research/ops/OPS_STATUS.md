@@ -9,12 +9,15 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27)
 **Deferred ops ACCEPT:** `ACCEPT_DEFERRED_OPS_HARDEN_2026-09-25.md` · broker PREP `ACCEPT_PREP_BROKER_LIVE_WRITE_2026-09-25.md` · Stage-E sandbox `ACCEPT_RESEARCH_STAGE_E_FULL_HISTORY_SANDBOX_2026-09-25.md`  
 **Eng tip-path P0–P2:** merged `#314` · Soft-Frozen KEEP  
 **Broker/R5/OCO PREP not open:** merged `#315` · `BROKER_R5_OCO_PREP_NOT_OPEN.md` · UAT readonly checklist `YUANTA_SPARK_UAT_READONLY_CHECKLIST.md`  
-**SAT_A20_H5:** Stage A MECH_HIT · Stage B PARENT_KEEP · decision **OPEN observe recommended** (ballot DRAFT) · `SAT_A20_H5_DECISION_2026-09-27.md` · live **BLOCKED**  
+**SAT_A20_H5:** Stage A MECH_HIT · Stage B PARENT_KEEP · **OBSERVE OPEN** (2026-09-28) · `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · live **BLOCKED**  
 FIN 賣側新機制（timing/confirm · 非 MA-dampen）：Stage A **`MDD_BLOCK`** · WR↑仍傷 MDD/tip · SELL_a75 KEEP · no observe · no live · `FIN_SELL_NEW_MECH_STAGEA_DECISION_PACK.md`
 FIN 浮虧延後賣（等回本）：**Stage A `COOL_GATE_REQUIRED`** · gated defer no lift · NOCOOLGATE proves gate needed · `FIN_LOSS_DEFER_SELL_STAGEA_DECISION_PACK.md` · no live  
-FIN 買側品質：**OBSERVE OPEN A/B/C** · human `請上observe` · `BASE∥A_SEED_MA120∥B_MA120_OR_K9∥C_OR_K9_AND_BELOW_MA60` OPERATING · cutover **BLOCKED** · Soft-Frozen KEEP · no live · `FIN_BUY_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
+FIN 買側品質：**OBSERVE CLOSED** (superseded by both-quality HARD150) · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
 FIN 賣側品質：Stage A `MDD_BLOCK` → Stage B **`NO_EDGE`** · soft-dampen 護 MDD 失 CAGR · SELL_a75 KEEP · no observe · no live · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md`  
-FIN 買賣側聯優：Stage A `WIN_SOFT` → Stage B **`BOTH_QUALITY_HIT`** · champion `B_OR_K9_x_HARD150` · ballot DRAFT · SELL_a75 KEEP · no live · `FIN_BOTH_QUALITY_STAGEB_DECISION_PACK.md`  
+FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE OPEN** `B_OR_K9_x_HARD150` · `FIN_BOTH_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · SELL_a75 KEEP  
+**Observe UP/DOWN batch 2026-09-28:** `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` — OPEN both-quality+SAT_A20; CLOSE soft/sleeve/fuse/priv/within-sleeve/BLEND025/FIN50/E45 paper observes (live stack KEEP)
+**ABC Stage A next (2026-09-28):** A `LOCK_KEEP_NO_TIP_LIFT` · B `NO_EDGE` · C `MONITOR_READY` · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
+
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
 新機制 V3：**STOP** · `PRIV_MDD_M1_SCALE_V3_DECISION_PACK.md`（N1–N3+V2+V3 STOP）  
@@ -62,9 +65,11 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 
 | Sleeve | Status | Cutover |
 |---|---|---|
-| FIN_CAP_50 | Dual-paper OPERATING; YTD/1y PAUSE | **REJECT static cutover for now** (`NOT_READY_SEALED_CAGR`) — register #2 |
+| FIN_CAP_50 | **OBSERVE CLOSED** (2026-09-28) | **REJECT static cutover for now** (`NOT_READY_SEALED_CAGR`) — register #2 · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
 | L4_DD_PATH_08_50 | Held-out PASS; YTD **and** trailing_1y PAUSE_REVIEW (asof 2026-09-16) | **DEFER** cutover — register #4; checklist: `CUTOVER_CHECKLIST_L4.md` (hygiene sync `L4_HYGIENE_CHECKLIST_SYNC_2026-09-19.md`) |
-| BLEND_025 | Dual-paper **OPERATING OBSERVE** | Sole sealed-CAGR successor (register #3); live **NOT READY** (#5); promote review **2026-09-26 BLOCKED** (`BLEND_025_PROMOTE_GATE_REVIEW_2026-09-26.md`); checklist: `CUTOVER_CHECKLIST_BLEND025.md` |
+| BLEND_025 | **OBSERVE CLOSED** (2026-09-28) | Was sealed-CAGR successor (register #3); live **NOT READY** (#5); promote review **2026-09-26 BLOCKED** · paper queue closed · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
+| FIN both-quality `B_OR_K9_x_HARD150` | **OBSERVE OPEN** (2026-09-28) | Stage B HIT · cutover **BLOCKED** · `FIN_BOTH_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| `SAT_A20_H5` | **OBSERVE OPEN** (2026-09-28) | Stage A MECH_HIT · cutover **BLOCKED** · `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Offense SOFT near-flat (`SELL_a75`) | **LIVE WIRED** under COOL | sell boost 0.75 · coexists FUSE+COOL · Soft-Frozen KEEP · `LIVE_SELL_A75_UNDER_COOL_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | `00631L` short-assist `CONF_RET3_A10_H5` | **LIVE WIRED** (forward-only) | COOL exit · RET3 · α=0.10 · H=5 · Soft-Frozen KEEP · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | TEL `T3_COOL_INV_VOL20` | **LIVE WIRED** (forward-only) | COOL-defend INV_VOL soft-tilt · else EQUAL · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
@@ -121,12 +126,12 @@ E45 A05 live-stitch (**DROPPED** 2026-09-09): Soft-Frozen CRITICAL class KEEP as
 FIN50 sealed-CAGR charter: `research/gaps/FINCAP50_SEALED_CAGR_IMPROVE_CHARTER.md`  
 FIN50 charter screen: `research/gaps/FINCAP50_SEALED_CAGR_CHARTER_SCREEN.md`  
 BLEND_025 paper-promote proposal: `research/gaps/FINCAP_BLEND025_DUAL_PAPER_PROMOTE_PROPOSAL.md`  
-E45 blend-α=0.25 observe **OPERATING**: `research/ops/E45_BLEND025_OBSERVE_OPEN.md` · monitor `E45_BLEND025_MONTH_END_MONITOR.md`  
+E45 blend-α=0.25 observe **ARCHIVED** (2026-09-13): `research/ops/E45_BLEND025_OBSERVE_OPEN.md` · monitor `E45_BLEND025_MONTH_END_MONITOR.md`  
 E45 paper research roadmap (1–7 status): `research/ops/E45_PAPER_RESEARCH_ROADMAP.md`  
 E45 P1–P7 integrated analysis: `research/ops/E45_PAPER_P1_P7_INTEGRATED_ANALYSIS.md`
 E45 sleeve-local deep-dive (post-P7): `research/e45/E45_SLEEVE_LOCAL_DEEP_DIVE.md`  
-E45 sleeve-local observe **OPERATING**: `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md`（中文：`E45_SLEEVE_LOCAL_OBSERVE_OPEN.zh-TW.md`）  
-E45 blend-α=0.05 observe **OPERATING**: `research/ops/E45_BLEND005_OBSERVE_OPEN.md` · monitor `research/gaps/E45_BLEND005_MONTH_END_MONITOR.md`  
+E45 sleeve-local observe **CLOSED** (2026-09-28): `research/ops/E45_SLEEVE_LOCAL_OBSERVE_OPEN.md`（中文：`E45_SLEEVE_LOCAL_OBSERVE_OPEN.zh-TW.md`）  
+E45 blend-α=0.05 observe **CLOSED** (2026-09-28): `research/ops/E45_BLEND005_OBSERVE_OPEN.md` · monitor `research/gaps/E45_BLEND005_MONTH_END_MONITOR.md`  
   
 E45 dual-sleeve monitor dashboard (#7): `research/e45/E45_DUAL_SLEEVE_MONITOR_DASHBOARD.md`  
 E45 sleeve-local overlay (#6): `research/e45/E45_SLEEVE_LOCAL.md`  
@@ -148,7 +153,7 @@ BLEND_025 dual-paper observe: `research/gaps/BLEND_025_DUAL_PAPER_OBSERVE.md`
 BLEND_025 month-end: `research/gaps/BLEND_025_MONTH_END_MONITOR.md`  
 BLEND_025 month-end runbook: `research/gaps/BLEND_025_MONTH_END_RUNBOOK.md`  
 BLEND_025 cutover checklist (prep): `research/ops/CUTOVER_CHECKLIST_BLEND025.md`  
-民營 native dual-paper **OPERATING OBSERVE** (KEEP OBSERVE): `FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPEN.md` · runbook `FIN_PRIV_NATIVE_MONTH_END_RUNBOOK.md` · posture `FIN_PRIV_NATIVE_OBSERVE_POSTURE.md` · status ballot DRAFT `FIN_PRIV_NATIVE_OBSERVE_STATUS_BALLOT_DRAFT.md` · cutover **BLOCKED** `CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md`  
+民營 native dual-paper **OBSERVE CLOSED** (2026-09-28): `FIN_PRIV_NATIVE_DUAL_PAPER_OBSERVE_OPEN.md` · Class D V7 F05 live carve KEEP · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` · cutover **BLOCKED** `CUTOVER_CHECKLIST_FIN_PRIV_NATIVE.md`  
  
 Live claim / target policy: `research/ops/LIVE_CLAIM_TARGET_POLICY.md`  
 Live E22 evidence readiness: `research/ops/LIVE_E22_FIELD_EVIDENCE.md`  

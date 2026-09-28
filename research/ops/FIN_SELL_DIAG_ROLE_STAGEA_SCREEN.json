@@ -1,0 +1,310 @@
+{
+  "label": "FIN_SELL_DIAG_ROLE_STAGEA_SCREEN_20260928T065606Z",
+  "generated_at_utc": "2026-09-28T06:56:06Z",
+  "charter": "research/ops/FIN_SELL_DIAG_ROLE_STAGEA_CHARTER.md",
+  "status": "STAGE_A_SCREEN_DONE",
+  "verdict": "DIAG_SIGNAL",
+  "role": "diagnostic_label_only",
+  "fin_sell_ok_applied": false,
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "exact_t1_keep": true,
+  "cool_keep": true,
+  "sell_a75_keep": true,
+  "sell_amp": 0.75,
+  "base_id": "CTRL_BASE",
+  "base_sell": {
+    "n": 924,
+    "wins": 323,
+    "win_rate": 34.9567,
+    "horizon": 21,
+    "win_def": "fwd_ret_lt_0"
+  },
+  "bars": {
+    "signal_lift_pp": 3.0,
+    "signal_n_min": 80,
+    "signal_cov_lo": 5.0,
+    "signal_cov_hi": 70.0,
+    "weak_lift_pp": 1.5,
+    "weak_n_min": 50
+  },
+  "attributes": [
+    {
+      "id": "A_PERSIST2",
+      "label": "sell-fire RSI6_GT80 persist 2d",
+      "stat": {
+        "n": 22,
+        "wins": 13,
+        "win_rate": 59.0909,
+        "wr_lift_pp": 24.1342,
+        "coverage": 2.381,
+        "mean_fwd": -1.261
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": false
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_PERSIST3",
+      "label": "sell-fire persist 3d",
+      "stat": {
+        "n": 11,
+        "wins": 8,
+        "win_rate": 72.7273,
+        "wr_lift_pp": 37.7706,
+        "coverage": 1.1905,
+        "mean_fwd": -2.7408
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": false
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_DN1",
+      "label": "today ret < 0",
+      "stat": {
+        "n": 353,
+        "wins": 120,
+        "win_rate": 33.9943,
+        "wr_lift_pp": -0.9624,
+        "coverage": 38.2035,
+        "mean_fwd": 1.7836
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": true
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_DN2",
+      "label": "2 consecutive down days",
+      "stat": {
+        "n": 143,
+        "wins": 51,
+        "win_rate": 35.6643,
+        "wr_lift_pp": 0.7076,
+        "coverage": 15.4762,
+        "mean_fwd": 1.9449
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": true
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_BREAK5",
+      "label": "close < prior 5d low",
+      "stat": {
+        "n": 98,
+        "wins": 38,
+        "win_rate": 38.7755,
+        "wr_lift_pp": 3.8188,
+        "coverage": 10.6061,
+        "mean_fwd": 0.679
+      },
+      "flags": {
+        "signal": true,
+        "weak": false,
+        "cov_ok": true
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_BREAK10",
+      "label": "close < prior 10d low",
+      "stat": {
+        "n": 71,
+        "wins": 23,
+        "win_rate": 32.3944,
+        "wr_lift_pp": -2.5623,
+        "coverage": 7.684,
+        "mean_fwd": 1.7734
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": true
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_VOL1P5",
+      "label": "volume > 1.5× MA20",
+      "stat": {
+        "n": 147,
+        "wins": 46,
+        "win_rate": 31.2925,
+        "wr_lift_pp": -3.6642,
+        "coverage": 15.9091,
+        "mean_fwd": 1.3936
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": true
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_VOL2",
+      "label": "volume > 2× MA20",
+      "stat": {
+        "n": 41,
+        "wins": 15,
+        "win_rate": 36.5854,
+        "wr_lift_pp": 1.6287,
+        "coverage": 4.4372,
+        "mean_fwd": 0.3428
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": false
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_ATR_UP",
+      "label": "ATR14 rising vs 5d ago",
+      "stat": {
+        "n": 517,
+        "wins": 175,
+        "win_rate": 33.8491,
+        "wr_lift_pp": -1.1076,
+        "coverage": 55.9524,
+        "mean_fwd": 1.2759
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": true
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_MACD_NEG",
+      "label": "MACD_HIST_NEG",
+      "stat": {
+        "n": 549,
+        "wins": 175,
+        "win_rate": 31.8761,
+        "wr_lift_pp": -3.0806,
+        "coverage": 59.4156,
+        "mean_fwd": 1.8264
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": true
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_MACD_FLIP",
+      "label": "MACD hist flip to neg",
+      "stat": {
+        "n": 31,
+        "wins": 13,
+        "win_rate": 41.9355,
+        "wr_lift_pp": 6.9788,
+        "coverage": 3.355,
+        "mean_fwd": -0.0191
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": false
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_BB_UPPER",
+      "label": "BB_UPPER",
+      "stat": {
+        "n": 49,
+        "wins": 13,
+        "win_rate": 26.5306,
+        "wr_lift_pp": -8.4261,
+        "coverage": 5.303,
+        "mean_fwd": 1.0326
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": true
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_MFI80",
+      "label": "MFI14_GT80",
+      "stat": {
+        "n": 24,
+        "wins": 9,
+        "win_rate": 37.5,
+        "wr_lift_pp": 2.5433,
+        "coverage": 2.5974,
+        "mean_fwd": 0.5074
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": false
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_RSI6_GT80",
+      "label": "RSI6_GT80 (live sell-fire same day)",
+      "stat": {
+        "n": 38,
+        "wins": 18,
+        "win_rate": 47.3684,
+        "wr_lift_pp": 12.4117,
+        "coverage": 4.1126,
+        "mean_fwd": -0.2893
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": false
+      },
+      "neg_expect": false
+    },
+    {
+      "id": "A_UP1",
+      "label": "today ret > 0 (NEG expect)",
+      "stat": {
+        "n": 465,
+        "wins": 162,
+        "win_rate": 34.8387,
+        "wr_lift_pp": -0.118,
+        "coverage": 50.3247,
+        "mean_fwd": 1.3013
+      },
+      "flags": {
+        "signal": false,
+        "weak": false,
+        "cov_ok": true
+      },
+      "neg_expect": true
+    }
+  ],
+  "binding": [
+    "Diagnostic role only — labels live SELL_a75 fills; does not pass fin_sell_ok",
+    "Soft-Frozen / Exact T+1 / COOL / SELL_a75 KEEP",
+    "DIAG_SIGNAL ≠ observe authorize ≠ live wire ≠ reopen hard sell gates",
+    "Prior hard-gate tracks (quality / new-mech) remain STOP / MDD_BLOCK",
+    "Sell loss-defer remains REJECTED"
+  ]
+}

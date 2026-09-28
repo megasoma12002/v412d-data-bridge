@@ -1,0 +1,14 @@
+{
+  "label": "FIN_SELL_DIAG_ROLE_STAGEA_CHARTER_2026-09-28__DONE_DIAG_SIGNAL__NO_GATE__NO_LIVE",
+  "status": "DONE",
+  "verdict": "DIAG_SIGNAL",
+  "date": "2026-09-28",
+  "role": "diagnostic_label_only",
+  "fin_sell_ok_applied": false,
+  "live_wire": false,
+  "sell_a75_keep": true,
+  "charter": "research/ops/FIN_SELL_DIAG_ROLE_STAGEA_CHARTER.md",
+  "script": "scripts/fin_sell_diag_role_stagea.py",
+  "screen": "research/ops/FIN_SELL_DIAG_ROLE_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SELL_DIAG_ROLE_STAGEA_DECISION_PACK.md"
+}

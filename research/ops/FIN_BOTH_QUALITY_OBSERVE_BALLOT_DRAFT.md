@@ -1,5 +1,6 @@
 # FIN_BOTH_QUALITY_OBSERVE_BALLOT_DRAFT
 
+Status note: **SUPERSEDED 2026-09-28** by `FIN_BOTH_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md`
 Status: **DRAFT — not executed** · Soft-Frozen **KEEP** · SELL_a75 **KEEP** · live wire **false**
 
 ## Proposed human line

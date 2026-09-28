@@ -39,38 +39,21 @@ CLIP_TXT = f"[{SOFT_FROZEN_FIN_CLIP[0]:.2f}, {SOFT_FROZEN_FIN_CLIP[1]:.2f}]"
 
 STEPS_MONITOR = [
     ("l4_month_end", ["python3", "scripts/e16_l4_dd_path_month_end_monitor.py"]),
-    ("fincap50_month_end", ["python3", "scripts/e16_fincap50_month_end_monitor.py"]),
-    ("blend025_month_end", ["python3", "scripts/e16_blend025_month_end_monitor.py"]),
-    ("e45_month_end", ["python3", "scripts/e45_month_end_monitor.py"]),
+    # OBSERVE_DOWN 2026-09-28 — fincap50 / blend025 / e45* / soft / sleeve / fuse / priv / within-sleeve / DH
+    # ("fincap50_month_end", ["python3", "scripts/e16_fincap50_month_end_monitor.py"]),
+    # ("blend025_month_end", ["python3", "scripts/e16_blend025_month_end_monitor.py"]),
+    # ("e45_month_end", ["python3", "scripts/e45_month_end_monitor.py"]),
     # E45_BLEND025 observe ARCHIVED 2026-09-13 — skip month-end schedule
     # ("e45_blend025_month_end", ["python3", "scripts/e45_blend025_month_end_monitor.py"]),
-    ("e45_blend005_month_end", ["python3", "scripts/e45_blend005_month_end_monitor.py"]),
-    ("e45_sleeve_local_month_end", ["python3", "scripts/e45_sleeve_local_month_end_monitor.py"]),
+    # ("e45_blend005_month_end", ["python3", "scripts/e45_blend005_month_end_monitor.py"]),
+    # ("e45_sleeve_local_month_end", ["python3", "scripts/e45_sleeve_local_month_end_monitor.py"]),
     ("e45_m2_bil_fx_month_end", ["python3", "scripts/e45_m2_bil_fx_month_end_monitor.py"]),
-    (
-        "fin_within_sleeve_month_end",
-        ["python3", "scripts/e16_fin_within_sleeve_month_end_monitor.py"],
-    ),
-    (
-        "fin_priv_native_month_end",
-        ["python3", "scripts/e16_fin_priv_native_month_end_monitor.py"],
-    ),
-    (
-        "soft_assist_month_end",
-        ["python3", "scripts/e16_soft_assist_month_end_monitor.py"],
-    ),
-    (
-        "sleeve_tilt_month_end",
-        ["python3", "scripts/e16_sleeve_tilt_month_end_monitor.py"],
-    ),
-    (
-        "fuse_additive_month_end",
-        ["python3", "scripts/e16_fuse_additive_month_end_monitor.py"],
-    ),
-    (
-        "e45_defend_handoff_month_end",
-        ["python3", "scripts/e45_defend_handoff_month_end_monitor.py"],
-    ),
+    # ("fin_within_sleeve_month_end", ["python3", "scripts/e16_fin_within_sleeve_month_end_monitor.py"]),
+    # ("fin_priv_native_month_end", ["python3", "scripts/e16_fin_priv_native_month_end_monitor.py"]),
+    # ("soft_assist_month_end", ["python3", "scripts/e16_soft_assist_month_end_monitor.py"]),
+    # ("sleeve_tilt_month_end", ["python3", "scripts/e16_sleeve_tilt_month_end_monitor.py"]),
+    # ("fuse_additive_month_end", ["python3", "scripts/e16_fuse_additive_month_end_monitor.py"]),
+    # ("e45_defend_handoff_month_end", ["python3", "scripts/e45_defend_handoff_month_end_monitor.py"]),
     (
         "cool_c8_proxy_month_end",
         ["python3", "scripts/cool_c8_proxy_month_end_monitor.py"],
@@ -87,14 +70,16 @@ STEPS_MONITOR = [
         "cool_631l_short_assist_month_end",
         ["python3", "scripts/cool_631l_short_assist_month_end_monitor.py"],
     ),
+    # OBSERVE_UP 2026-09-28
     (
-        "fin_buy_quality_month_end",
-        ["python3", "scripts/fin_buy_quality_month_end_monitor.py"],
+        "fin_both_quality_month_end",
+        ["python3", "scripts/fin_both_quality_month_end_monitor.py"],
     ),
     (
-        "soft_sleeve_observe_overlap",
-        ["python3", "scripts/e16_soft_sleeve_observe_overlap.py"],
+        "sat_a20_h5_month_end",
+        ["python3", "scripts/sat_a20_h5_month_end_monitor.py"],
     ),
+    # ("soft_sleeve_observe_overlap", ["python3", "scripts/e16_soft_sleeve_observe_overlap.py"]),
     ("track_a_s9a1", ["python3", "scripts/e50a_dual_track_s9a1_monitor.py"]),
     ("live_paper_recon", ["python3", "scripts/e21_live_vs_paper_recon.py"]),
     ("e22_data_quality_kpi", ["python3", "scripts/e22_data_quality_kpi.py"]),
@@ -111,38 +96,21 @@ STEPS_MONITOR = [
 
 STEPS_REFRESH = [
     ("l4_dual_paper_ledgers", ["python3", "scripts/e16_l4_dd_path_dual_paper_ledgers.py"]),
-    ("fincap50_dual_paper_ledgers", ["python3", "scripts/e16_fincap50_dual_paper_ledgers.py"]),
-    ("blend025_dual_paper_ledgers", ["python3", "scripts/e16_blend025_dual_paper_ledgers.py"]),
-    ("e45_dual_paper_ledgers", ["python3", "scripts/e45_dual_paper_ledgers.py"]),
+    # OBSERVE_DOWN 2026-09-28
+    # ("fincap50_dual_paper_ledgers", ["python3", "scripts/e16_fincap50_dual_paper_ledgers.py"]),
+    # ("blend025_dual_paper_ledgers", ["python3", "scripts/e16_blend025_dual_paper_ledgers.py"]),
+    # ("e45_dual_paper_ledgers", ["python3", "scripts/e45_dual_paper_ledgers.py"]),
     # E45_BLEND025 observe ARCHIVED 2026-09-13 — skip ledger refresh schedule
     # ("e45_blend025_dual_paper_ledgers", ["python3", "scripts/e45_blend025_dual_paper_ledgers.py"]),
-    ("e45_blend005_dual_paper_ledgers", ["python3", "scripts/e45_blend005_dual_paper_ledgers.py"]),
-    ("e45_sleeve_local_dual_paper_ledgers", ["python3", "scripts/e45_sleeve_local_dual_paper_ledgers.py"]),
+    # ("e45_blend005_dual_paper_ledgers", ["python3", "scripts/e45_blend005_dual_paper_ledgers.py"]),
+    # ("e45_sleeve_local_dual_paper_ledgers", ["python3", "scripts/e45_sleeve_local_dual_paper_ledgers.py"]),
     ("e45_m2_bil_fx_dual_paper_ledgers", ["python3", "scripts/e45_m2_bil_fx_dual_paper_ledgers.py"]),
-    (
-        "fin_within_sleeve_dual_paper_ledgers",
-        ["python3", "scripts/e16_fin_within_sleeve_dual_paper_ledgers.py"],
-    ),
-    (
-        "fin_priv_native_dual_paper_ledgers",
-        ["python3", "scripts/e16_fin_priv_native_dual_paper_ledgers.py"],
-    ),
-    (
-        "soft_assist_dual_paper_ledgers",
-        ["python3", "scripts/e16_soft_assist_dual_paper_ledgers.py"],
-    ),
-    (
-        "sleeve_tilt_dual_paper_ledgers",
-        ["python3", "scripts/e16_sleeve_tilt_dual_paper_ledgers.py"],
-    ),
-    (
-        "fuse_additive_dual_paper_ledgers",
-        ["python3", "scripts/e16_fuse_additive_dual_paper_ledgers.py"],
-    ),
-    (
-        "e45_defend_handoff_dual_paper_ledgers",
-        ["python3", "scripts/e45_defend_handoff_dual_paper_ledgers.py"],
-    ),
+    # ("fin_within_sleeve_dual_paper_ledgers", ["python3", "scripts/e16_fin_within_sleeve_dual_paper_ledgers.py"]),
+    # ("fin_priv_native_dual_paper_ledgers", ["python3", "scripts/e16_fin_priv_native_dual_paper_ledgers.py"]),
+    # ("soft_assist_dual_paper_ledgers", ["python3", "scripts/e16_soft_assist_dual_paper_ledgers.py"]),
+    # ("sleeve_tilt_dual_paper_ledgers", ["python3", "scripts/e16_sleeve_tilt_dual_paper_ledgers.py"]),
+    # ("fuse_additive_dual_paper_ledgers", ["python3", "scripts/e16_fuse_additive_dual_paper_ledgers.py"]),
+    # ("e45_defend_handoff_dual_paper_ledgers", ["python3", "scripts/e45_defend_handoff_dual_paper_ledgers.py"]),
     (
         "cool_c8_proxy_dual_paper_ledgers",
         ["python3", "scripts/cool_c8_proxy_dual_paper_ledgers.py"],
@@ -159,9 +127,14 @@ STEPS_REFRESH = [
         "cool_631l_short_assist_dual_paper_ledgers",
         ["python3", "scripts/cool_631l_short_assist_dual_paper_ledgers.py"],
     ),
+    # OBSERVE_UP 2026-09-28
     (
-        "fin_buy_quality_dual_paper_ledgers",
-        ["python3", "scripts/fin_buy_quality_dual_paper_ledgers.py"],
+        "fin_both_quality_dual_paper_ledgers",
+        ["python3", "scripts/fin_both_quality_dual_paper_ledgers.py"],
+    ),
+    (
+        "sat_a20_h5_dual_paper_ledgers",
+        ["python3", "scripts/sat_a20_h5_dual_paper_ledgers.py"],
     ),
 ]
 

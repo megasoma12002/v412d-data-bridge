@@ -1,5 +1,6 @@
 # SAT_A20_H5 — Observe ballot DRAFT (not executed)
 
+Status note: **SUPERSEDED 2026-09-28** by `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md`
 Date: 2026-09-27  
 Status: **DRAFT** — awaiting human OPEN · Soft-Frozen **KEEP** · **no live wire**
 

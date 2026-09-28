@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-28T04:28:13.826027+00:00",
+  "generated_at_utc": "2026-09-28T07:19:31.314673+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -9,8 +9,8 @@
   ],
   "overall": "HIGH",
   "n_critical": 0,
-  "n_high": 13,
-  "n_info": 45,
+  "n_high": 4,
+  "n_info": 26,
   "alerts": [
     {
       "severity": "HIGH",
@@ -26,33 +26,15 @@
     },
     {
       "severity": "HIGH",
-      "source": "fincap50_month_end",
+      "source": "fin_both_quality_month_end",
       "code": "PAUSE_REVIEW",
-      "message": "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no cutover talk"
+      "message": "PAUSE_REVIEW: B_OR_K9_x_HARD150 ytd giveback > 5 pp"
     },
     {
       "severity": "HIGH",
-      "source": "fincap50_month_end",
+      "source": "fin_both_quality_month_end",
       "code": "PAUSE_REVIEW",
-      "message": "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no cutover talk"
-    },
-    {
-      "severity": "HIGH",
-      "source": "blend025_month_end",
-      "code": "PAUSE_REVIEW",
-      "message": "PAUSE_REVIEW: ytd giveback > 5 pp \u2014 extend observe; Soft-Frozen unchanged; no cutover talk"
-    },
-    {
-      "severity": "HIGH",
-      "source": "e45_month_end",
-      "code": "PAUSE_REVIEW",
-      "message": "PAUSE_REVIEW: CHAL_E45_E3 ytd giveback > 5 pp"
-    },
-    {
-      "severity": "HIGH",
-      "source": "e45_month_end",
-      "code": "PAUSE_REVIEW",
-      "message": "PAUSE_REVIEW: CHAL_E45_E3 trailing_1y giveback > 5 pp"
+      "message": "PAUSE_REVIEW: B_OR_K9_x_HARD150 trailing_1y giveback > 5 pp"
     },
     {
       "severity": "HIGH",
@@ -128,103 +110,37 @@
     },
     {
       "severity": "INFO",
-      "source": "fincap50_month_end",
+      "source": "fin_both_quality_month_end",
       "code": "MONITOR_ALERT",
-      "message": "ALERT: FIN_CAP_50 heldout_2019_plus MDD worse than BASE (paper)"
+      "message": "ALERT: B_OR_K9_x_HARD150 ytd CAGR giveback > 3.0 pp"
     },
     {
       "severity": "INFO",
-      "source": "fincap50_month_end",
+      "source": "fin_both_quality_month_end",
       "code": "MONITOR_ALERT",
-      "message": "ALERT: FIN_CAP_50 ytd CAGR giveback > 3.0 pp (paper)"
+      "message": "ALERT: B_OR_K9_x_HARD150 trailing_1y CAGR giveback > 3.0 pp"
     },
     {
       "severity": "INFO",
-      "source": "fincap50_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: FIN_CAP_50 trailing_1y CAGR giveback > 3.0 pp (paper)"
-    },
-    {
-      "severity": "INFO",
-      "source": "fincap50_month_end",
+      "source": "fin_both_quality_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },
     {
       "severity": "INFO",
-      "source": "blend025_month_end",
+      "source": "sat_a20_h5_month_end",
       "code": "MONITOR_ALERT",
-      "message": "ALERT: BLEND_025 sealed_2023_plus MDD worse than BASE (paper)"
+      "message": "ALERT: SAT_A20_H5 heldout_2019_plus MDD worse than BASE_LIVE_CONF"
     },
     {
       "severity": "INFO",
-      "source": "blend025_month_end",
+      "source": "sat_a20_h5_month_end",
       "code": "MONITOR_ALERT",
-      "message": "ALERT: BLEND_025 ytd CAGR giveback > 3.0 pp (paper)"
+      "message": "ALERT: SAT_A20_H5 sealed_2023_plus MDD worse than BASE_LIVE_CONF"
     },
     {
       "severity": "INFO",
-      "source": "blend025_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: BLEND_025 trailing_1y CAGR giveback > 3.0 pp (paper)"
-    },
-    {
-      "severity": "INFO",
-      "source": "blend025_month_end",
-      "code": "CUTOVER_BLOCKED_FLAG",
-      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
-    },
-    {
-      "severity": "INFO",
-      "source": "e45_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: CHAL_E45_E3 ytd MDD worse than BASE_E16_E18_E22_v2s"
-    },
-    {
-      "severity": "INFO",
-      "source": "e45_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: CHAL_E45_E3 ytd CAGR giveback > 3.0 pp"
-    },
-    {
-      "severity": "INFO",
-      "source": "e45_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: CHAL_E45_E3 trailing_1y MDD worse than BASE_E16_E18_E22_v2s"
-    },
-    {
-      "severity": "INFO",
-      "source": "e45_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: CHAL_E45_E3 trailing_1y CAGR giveback > 3.0 pp"
-    },
-    {
-      "severity": "INFO",
-      "source": "e45_month_end",
-      "code": "CUTOVER_BLOCKED_FLAG",
-      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
-    },
-    {
-      "severity": "INFO",
-      "source": "soft_assist_month_end",
-      "code": "CUTOVER_BLOCKED_FLAG",
-      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
-    },
-    {
-      "severity": "INFO",
-      "source": "sleeve_tilt_month_end",
-      "code": "CUTOVER_BLOCKED_FLAG",
-      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
-    },
-    {
-      "severity": "INFO",
-      "source": "fuse_additive_month_end",
-      "code": "CUTOVER_BLOCKED_FLAG",
-      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
-    },
-    {
-      "severity": "INFO",
-      "source": "e45_defend_handoff_month_end",
+      "source": "sat_a20_h5_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },

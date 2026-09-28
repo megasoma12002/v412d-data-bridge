@@ -10,15 +10,12 @@ Soft-Frozen: **KEEP** · live DEFAULT **`E22_v3_recv_pay_effdelay`** (Stage-E; t
 | Track | Focus | Cadence / gate |
 |---|---|---|
 | **Live stack** | Soft-Frozen FIN **[0.60, 0.80]** + **`KD_OPT`** + **`TEL_EQUAL`** + **`FUSE_ADDITIVE`** + **`COOL_c8_f50_d21`** + Class D FinPriv V7 F05 | Live wire · authority: `OPS_STATUS.md` / `live_config.py` |
-| **Soft-assist observe** | `SOFT_CHAMP_PLUS_K9_LT30_a10__SELL_a05` | Dual-paper month-end · **independent** cutover **BLOCKED** (live Soft softs arrive via FUSE) |
-| **Sleeve-tilt observe** | `SLEEVE_RSI14_LT30_a0225` | Dual-paper month-end · independent of Soft · cutover **BLOCKED** |
-| **FUSE_ADDITIVE** | Soft×Sleeve joint actuator | **LIVE WIRED** KEEP · paper shadow may continue |
+| **FIN both-quality observe** | `B_OR_K9_x_HARD150` | Dual-paper month-end · cutover **BLOCKED** · OPEN 2026-09-28 |
+| **SAT_A20_H5 observe** | 00631L CONF densify α=0.20 H=5 under COOL | Dual-paper month-end · cutover **BLOCKED** · OPEN 2026-09-28 |
+| **FUSE_ADDITIVE** | Soft×Sleeve joint actuator | **LIVE WIRED** KEEP · paper shadow **CLOSED** 2026-09-28 |
 | **COOL_c8** | PROXY circuit replace DH | **LIVE WIRED 2026-09-25** · DH retired forward-only |
 | **Class D FinPriv V7 F05** | Bull+Side 5% PRIV_KD_MAY carve | **LIVE WIRED** · Soft-Frozen 3-sleeve KEEP · fail-closed stale priv px |
-| **BLEND_025 observe (FINCAP)** | 0.25·FIN50 + 0.75·BASE sealed-CAGR path | OPERATING OBSERVE · live **NOT READY** · **≠** E45_BLEND025 |
-| **FIN 民營 native (paper)** | `PRIV_EQUAL` ∥ `PRIV_KD_MAY_Klt25_T15` | Month-end dual-paper · **KEEP OBSERVE** · native observe ≠ Class D V7 carve |
-| **E45 defend→handoff DH_dd06** | Stage A `DH_dd06_vz1p0` · `HANDOFF_PROMOTE_SHAPED` | Was LIVE with FUSE 2026-09-13 → **DH replaced by COOL** 2026-09-25 · paper shadow may continue |
-| **Month-end gates** | tip ALERT/PAUSE · held-out · pack hygiene | Soft∥Sleeve∥FUSE∥COOL∥FINCAP BLEND∥priv packs |
+| **Month-end gates** | tip ALERT/PAUSE · held-out · pack hygiene | both-quality ∥ SAT_A20 ∥ COOL ∥ Class D packs |
 
 ## ARCHIVE (evidence retained · no new expansion)
 
@@ -61,3 +58,11 @@ Soft-Frozen: **KEEP** · live DEFAULT **`E22_v3_recv_pay_effdelay`** (Stage-E; t
 ## Label
 
 `RESEARCH_PORTFOLIO_KEEP_ARCHIVE_LOCKED_2026-09-13__BANNER_SYNC_2026-09-26__FUSE_COOL_CLASSD`
+
+## 2026-09-28 Observe UP/DOWN batch
+
+Human: `請把可上 與可下進行上下` · `OBSERVE_UP_DOWN_BATCH_2026-09-28.md`
+
+**KEEP / OPEN observe:** FIN both-quality `B_OR_K9_x_HARD150` · `SAT_A20_H5`  
+**ARCHIVE paper observe queue:** Soft-assist · Sleeve · FUSE_ADDITIVE · priv native · FIN within-sleeve · FINCAP BLEND_025 · FIN_CAP_50 · E45 dual/sleeve-local/BLEND005 · DH_dd06 paper · FIN buy-quality A/B/C  
+**Live KEEP:** Soft-Frozen · FUSE · SELL_a75 · COOL_c8 · CONF_RET3_A10_H5 · Class D V7 F05 · TEL T3 · β clip

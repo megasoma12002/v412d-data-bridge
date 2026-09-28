@@ -1,51 +1,31 @@
 # Ops Alerts
 
-Generated: `2026-09-28T04:28:13.826027+00:00`
+Generated: `2026-09-28T07:19:31.314673+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.60, 0.80] unchanged**. No auto cutover.
 
 - CRITICAL: 0
-- HIGH (PAUSE_REVIEW etc.): 13
-- INFO: 45
+- HIGH (PAUSE_REVIEW etc.): 4
+- INFO: 26
 
 | Severity | Source | Code | Message |
 |---|---|---|---|
 | HIGH | `l4_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: ytd giveback > 5 pp — extend observation; does not revoke PASS_HELDOUT_L4 |
 | HIGH | `l4_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observation; does not revoke PASS_HELDOUT_L4 |
-| HIGH | `fincap50_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no cutover talk |
-| HIGH | `fincap50_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: trailing_1y giveback > 5 pp — extend observe; Soft-Frozen unchanged; no cutover talk |
-| HIGH | `blend025_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: ytd giveback > 5 pp — extend observe; Soft-Frozen unchanged; no cutover talk |
-| HIGH | `e45_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: CHAL_E45_E3 ytd giveback > 5 pp |
-| HIGH | `e45_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: CHAL_E45_E3 trailing_1y giveback > 5 pp |
-| HIGH | `fin_buy_quality_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: A_SEED_MA120 ytd giveback > 5 pp |
-| HIGH | `fin_buy_quality_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: A_SEED_MA120 trailing_1y giveback > 5 pp |
-| HIGH | `fin_buy_quality_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: B_MA120_OR_K9 ytd giveback > 5 pp |
-| HIGH | `fin_buy_quality_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: B_MA120_OR_K9 trailing_1y giveback > 5 pp |
-| HIGH | `fin_buy_quality_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: C_OR_K9_AND_BELOW_MA60 ytd giveback > 5 pp |
-| HIGH | `fin_buy_quality_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: C_OR_K9_AND_BELOW_MA60 trailing_1y giveback > 5 pp |
+| HIGH | `fin_both_quality_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: B_OR_K9_x_HARD150 ytd giveback > 5 pp |
+| HIGH | `fin_both_quality_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: B_OR_K9_x_HARD150 trailing_1y giveback > 5 pp |
 | INFO | `live_qc` | `QC_PASS` | live QC PASS; Exact T+1 ok |
 | INFO | `fin_priv_v7_f05` | `FINPRIV_PX_FRESH` | Class D priv panel fresh vs tip asof 2026-09-24 (lag≤5d) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 sealed MDD worse than BASE (paper) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops) |
 | INFO | `l4_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
-| INFO | `fincap50_month_end` | `MONITOR_ALERT` | ALERT: FIN_CAP_50 heldout_2019_plus MDD worse than BASE (paper) |
-| INFO | `fincap50_month_end` | `MONITOR_ALERT` | ALERT: FIN_CAP_50 ytd CAGR giveback > 3.0 pp (paper) |
-| INFO | `fincap50_month_end` | `MONITOR_ALERT` | ALERT: FIN_CAP_50 trailing_1y CAGR giveback > 3.0 pp (paper) |
-| INFO | `fincap50_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
-| INFO | `blend025_month_end` | `MONITOR_ALERT` | ALERT: BLEND_025 sealed_2023_plus MDD worse than BASE (paper) |
-| INFO | `blend025_month_end` | `MONITOR_ALERT` | ALERT: BLEND_025 ytd CAGR giveback > 3.0 pp (paper) |
-| INFO | `blend025_month_end` | `MONITOR_ALERT` | ALERT: BLEND_025 trailing_1y CAGR giveback > 3.0 pp (paper) |
-| INFO | `blend025_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
-| INFO | `e45_month_end` | `MONITOR_ALERT` | ALERT: CHAL_E45_E3 ytd MDD worse than BASE_E16_E18_E22_v2s |
-| INFO | `e45_month_end` | `MONITOR_ALERT` | ALERT: CHAL_E45_E3 ytd CAGR giveback > 3.0 pp |
-| INFO | `e45_month_end` | `MONITOR_ALERT` | ALERT: CHAL_E45_E3 trailing_1y MDD worse than BASE_E16_E18_E22_v2s |
-| INFO | `e45_month_end` | `MONITOR_ALERT` | ALERT: CHAL_E45_E3 trailing_1y CAGR giveback > 3.0 pp |
-| INFO | `e45_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
-| INFO | `soft_assist_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
-| INFO | `sleeve_tilt_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
-| INFO | `fuse_additive_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
-| INFO | `e45_defend_handoff_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `fin_both_quality_month_end` | `MONITOR_ALERT` | ALERT: B_OR_K9_x_HARD150 ytd CAGR giveback > 3.0 pp |
+| INFO | `fin_both_quality_month_end` | `MONITOR_ALERT` | ALERT: B_OR_K9_x_HARD150 trailing_1y CAGR giveback > 3.0 pp |
+| INFO | `fin_both_quality_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `sat_a20_h5_month_end` | `MONITOR_ALERT` | ALERT: SAT_A20_H5 heldout_2019_plus MDD worse than BASE_LIVE_CONF |
+| INFO | `sat_a20_h5_month_end` | `MONITOR_ALERT` | ALERT: SAT_A20_H5 sealed_2023_plus MDD worse than BASE_LIVE_CONF |
+| INFO | `sat_a20_h5_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `cool_c8_proxy_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `beta_0050_densify_month_end` | `MONITOR_ALERT` | ALERT: BETA_F0.60-0.80_T0.03-0.35_E0.00-0.50 heldout_2019_plus MDD worse than LIVE_FUSE_COOL |
 | INFO | `beta_0050_densify_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |

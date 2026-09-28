@@ -1,7 +1,7 @@
 # FIN buy-quality A/B/C — Ballot EXECUTED (OPEN observe)
 
 Date: 2026-09-28  
-Status: **EXECUTED**  
+Status: **EXECUTED OPEN → CLOSED 2026-09-28** (superseded by both-quality HARD150 · `OBSERVE_UP_DOWN_BATCH_2026-09-28.md`)  
 Human (exact):
 
 ```

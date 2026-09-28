@@ -41,6 +41,10 @@ E45_BLEND025_ALERT_SCAN = False
 SOFT_ASSIST_JSON = ROOT / "research/ops/SOFT_ASSIST_MONTH_END_MONITOR.json"
 SLEEVE_TILT_JSON = ROOT / "research/ops/SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json"
 FUSE_ADDITIVE_JSON = ROOT / "research/ops/FUSE_ADDITIVE_MONTH_END_MONITOR.json"
+FIN_BOTH_QUALITY_JSON = ROOT / "research/ops/FIN_BOTH_QUALITY_MONTH_END_MONITOR.json"
+SAT_A20_H5_JSON = ROOT / "research/ops/SAT_A20_H5_MONTH_END_MONITOR.json"
+# OBSERVE_DOWN 2026-09-28 — soft/sleeve/fuse/e45/blend/fincap paper observes not scanned
+OBSERVE_DOWN_ALERT_SCAN = False
 E45_DEFEND_HANDOFF_JSON = ROOT / "research/ops/E45_DEFEND_HANDOFF_MONTH_END_MONITOR.json"
 COOL_C8_PROXY_JSON = ROOT / "research/ops/COOL_C8_PROXY_MONTH_END_MONITOR.json"
 BETA_0050_DENSIFY_JSON = ROOT / "research/ops/BETA_0050_DENSIFY_MONTH_END_MONITOR.json"
@@ -260,14 +264,10 @@ def main() -> int:
 
     monitor_sources = [
         ("l4_month_end", L4_JSON),
-        ("fincap50_month_end", FIN_JSON),
-        ("blend025_month_end", BLEND_JSON),  # FINCAP BLEND_025 KEEP
-        ("e45_month_end", E45_JSON),
-        # Operating paper observes — PAUSE_REVIEW must surface in OPS_ALERTS.
-        ("soft_assist_month_end", SOFT_ASSIST_JSON),
-        ("sleeve_tilt_month_end", SLEEVE_TILT_JSON),
-        ("fuse_additive_month_end", FUSE_ADDITIVE_JSON),
-        ("e45_defend_handoff_month_end", E45_DEFEND_HANDOFF_JSON),
+        # OBSERVE_DOWN 2026-09-28 paper observes closed (soft/sleeve/fuse/e45/blend/fincap/DH)
+        # OBSERVE_UP 2026-09-28
+        ("fin_both_quality_month_end", FIN_BOTH_QUALITY_JSON),
+        ("sat_a20_h5_month_end", SAT_A20_H5_JSON),
         ("cool_c8_proxy_month_end", COOL_C8_PROXY_JSON),
         ("beta_0050_densify_month_end", BETA_0050_DENSIFY_JSON),
         ("priv_finhc_v7_bull_side_f05_month_end", PRIV_FINHC_V7_F05_JSON),
