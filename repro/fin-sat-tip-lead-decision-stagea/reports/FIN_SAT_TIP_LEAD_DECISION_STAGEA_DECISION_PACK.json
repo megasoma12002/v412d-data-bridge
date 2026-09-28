@@ -1,27 +1,5 @@
-{
-  "label": "FIN_SAT_TIP_LEAD_DECISION_STAGEA_DECISION_PACK_2026-09-28__TIP_LAG_BLOCK__NO_LIVE",
-  "status": "TIP_LAG_BLOCK",
-  "live_wire": false,
-  "soft_frozen_keep": true,
-  "parent_observes_keep": true,
-  "lead_signal": true,
-  "best_hit": null,
-  "best_ub_shaped": "UB_STATE_SD",
-  "charter": "research/ops/FIN_SAT_TIP_LEAD_DECISION_STAGEA_CHARTER.md",
-  "screen": "research/ops/FIN_SAT_TIP_LEAD_DECISION_STAGEA_SCREEN.md",
-  "register": "0k9o",
-  "generated_at_utc": "2026-09-28T14:30:48Z",
-  "reading": {
-    "summary": "TIP_LAG_BLOCK: enter=77; external lead weak (trail|IC|~0.10); Crisis/SELL are in-state not pre-enter; UB_ENTER_M1 tip-clean+held; CONF_EARLY tipY-3.6 not clean",
-    "decision_points": [
-      "structural: 1-day-early SAT enter sufficient (UB_ENTER_M1)",
-      "external pre-enter leads insufficient in existing feature set",
-      "best causal approx: R_CONF_EARLY_L1"
-    ],
-    "next_narrow_paths": [
-      "CONF timing calibrate only",
-      "accept tip-clean≈SAT + held MDD repair",
-      "stop at paper map"
-    ]
-  }
-}
+# Pointer — decision pack SSOT
+
+Canonical copy: `research/ops/FIN_SAT_TIP_LEAD_DECISION_STAGEA_DECISION_PACK.json`
+
+Do not dual-write the full artifact into `repro/*/reports/` (see `research/ops/REPRO_DEDUPE_HYGIENE.md`).

@@ -1,25 +1,5 @@
-{
-  "label": "FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_DECISION_PACK_2026-09-28__T0_ONLY_EDGE__NO_LIVE",
-  "status": "T0_ONLY_EDGE",
-  "live_wire": false,
-  "soft_frozen_keep": true,
-  "parent_observes_keep": true,
-  "best_sf_score": "P2_SAT_PURE",
-  "best_sf_tip_clean": "P2_SAT_PURE",
-  "best_sf_held": "R_SAT_LEAD_L1",
-  "best_hit": null,
-  "t0_shaped": [
-    "P3_T0_STATE",
-    "P3_T0_ENTER_M1"
-  ],
-  "charter": "research/ops/FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_CHARTER.md",
-  "screen": "research/ops/FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_SCREEN.md",
-  "register": "0k9q",
-  "generated_at_utc": "2026-09-28T14:49:23Z",
-  "reading": {
-    "summary": "T0_ONLY_EDGE: Soft-Frozen best score P2_SAT_PURE (tip-clean, held MDD fail). Only T+0 counterfactuals are HIT-shaped. Path4 blend does not fix tip. Recommend path2 under Soft-Frozen KEEP.",
-    "sf_rank_1": "P2_SAT_PURE",
-    "t0_best": "P3_T0_STATE",
-    "recommendation_soft_frozen": "path_2_sat_pure_for_tip_line"
-  }
-}
+# Pointer — decision pack SSOT
+
+Canonical copy: `research/ops/FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_DECISION_PACK.json`
+
+Do not dual-write the full artifact into `repro/*/reports/` (see `research/ops/REPRO_DEDUPE_HYGIENE.md`).

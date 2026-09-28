@@ -1,19 +1,5 @@
-{
-  "label": "FIN_SAT_FFT_PHASE_LAG_STAGEA_DECISION_PACK_2026-09-28__FFT_LAG_NO_EDGE__NO_LIVE",
-  "status": "FFT_LAG_NO_EDGE",
-  "live_wire": false,
-  "soft_frozen_keep": true,
-  "parent_observes_keep": true,
-  "best_fft_abs_ic": 0.0898,
-  "trail_abs_ic_k1": 0.1005,
-  "best_hit": null,
-  "best_ub_shaped": "UB_ENTER_M1",
-  "charter": "research/ops/FIN_SAT_FFT_PHASE_LAG_STAGEA_CHARTER.md",
-  "screen": "research/ops/FIN_SAT_FFT_PHASE_LAG_STAGEA_SCREEN.md",
-  "register": "0k9p",
-  "generated_at_utc": "2026-09-28T14:39:34Z",
-  "reading": {
-    "summary": "FFT_LAG_NO_EDGE: causal STFT phase |IC|0.09 < trail 0.10; FFT cannot invent lead beyond carrier; best probe dphase tipY-1.7 still not tip-clean",
-    "answer": "No — Fourier/causal phase does not solve Exact T+1 lag under Soft-Frozen"
-  }
-}
+# Pointer — decision pack SSOT
+
+Canonical copy: `research/ops/FIN_SAT_FFT_PHASE_LAG_STAGEA_DECISION_PACK.json`
+
+Do not dual-write the full artifact into `repro/*/reports/` (see `research/ops/REPRO_DEDUPE_HYGIENE.md`).
