@@ -1,8 +1,8 @@
 {
   "id": "FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_CHARTER",
-  "status": "STAGE_A_OPEN",
+  "status": "STAGE_A_DONE",
   "date": "2026-09-28",
-  "label": "FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "label": "FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_CHARTER_2026-09-28__DONE_T0_ONLY_EDGE__NO_LIVE_WIRE",
   "register": "0k9q",
   "parents": [
     "0k9p_FFT_LAG_NO_EDGE",
@@ -15,5 +15,8 @@
   "live_wire": false,
   "exact_t_plus_1": true,
   "question": "Which Exact T+1 lag handling path backtests best under Soft-Frozen?",
-  "script": "scripts/fin_sat_t1_lag_path_compare_stagea.py"
+  "script": "scripts/fin_sat_t1_lag_path_compare_stagea.py",
+  "verdict": "T0_ONLY_EDGE",
+  "screen": "research/ops/FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_DECISION_PACK.md"
 }

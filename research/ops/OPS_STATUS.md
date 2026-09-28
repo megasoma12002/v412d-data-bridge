@@ -32,6 +32,7 @@ FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE CLOSED** (2026-09-
 **FIN×SAT 局部互斥 (2026-09-28):** Stage A **`TIP_LAG_BLOCK`** · tip/held 時段分離（score0.62）· UB tip-clean+held · Exact T+1 lag-1 擋 HIT · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_LOCAL_MUTEX_STAGEA_DECISION_PACK.md`  
 **FIN×SAT tip-lead 決策點 (2026-09-28):** Stage A **`TIP_LAG_BLOCK`** · enter lead 外部弱 · UB_ENTER_M1 tip-clean+held · CONF_EARLY tipY−3.6 未 clean · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_TIP_LEAD_DECISION_STAGEA_DECISION_PACK.md`  
 **FIN×SAT FFT-phase × T+1 lag (2026-09-28):** Stage A **`FFT_LAG_NO_EDGE`** · causal phase IC0.09 < trail0.10 · FFT 無法補 Exact T+1 · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_FFT_PHASE_LAG_STAGEA_DECISION_PACK.md`  
+**FIN×SAT T+1 lag 路徑比較 (2026-09-28):** Stage A **`T0_ONLY_EDGE`** · SF 最優 `P2_SAT_PURE` · 唯一 HIT 形狀是 T+0 反事實 · path4 不解 tip · parents KEEP · Soft-Frozen KEEP · no live · `FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_DECISION_PACK.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  

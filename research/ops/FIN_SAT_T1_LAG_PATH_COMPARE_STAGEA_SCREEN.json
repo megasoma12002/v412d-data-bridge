@@ -1,0 +1,502 @@
+{
+  "label": "FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_SCREEN_20260928T144923Z",
+  "generated_at_utc": "2026-09-28T14:49:23Z",
+  "charter": "research/ops/FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_CHARTER.md",
+  "status": "STAGE_A_SCREEN_DONE",
+  "verdict": "T0_ONLY_EDGE",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "sat_held_cagr_lift_pp": 0.3343,
+  "ranking_sf": [
+    {
+      "id": "P2_SAT_PURE",
+      "path": "2_sat",
+      "score": 2.2002,
+      "tip_clean": true,
+      "held_cagr_lift_pp": 0.3343,
+      "tip_ytd_cagr_pp": 0.6801,
+      "shaped": false
+    },
+    {
+      "id": "P1_STOP_LIVE",
+      "path": "1_stop",
+      "score": 1.0,
+      "tip_clean": true,
+      "held_cagr_lift_pp": -0.0,
+      "tip_ytd_cagr_pp": 0.0,
+      "shaped": false
+    },
+    {
+      "id": "R_SAT_LEAD_L1",
+      "path": "ref_switch",
+      "score": -5.154,
+      "tip_clean": false,
+      "held_cagr_lift_pp": 1.2962,
+      "tip_ytd_cagr_pp": -8.4925,
+      "shaped": false
+    },
+    {
+      "id": "P4_BLEND_TRAIL",
+      "path": "4_mech",
+      "score": -5.173,
+      "tip_clean": false,
+      "held_cagr_lift_pp": 1.2948,
+      "tip_ytd_cagr_pp": -6.1442,
+      "shaped": false
+    },
+    {
+      "id": "P4_SCALE50_L1",
+      "path": "4_mech",
+      "score": -5.5252,
+      "tip_clean": false,
+      "held_cagr_lift_pp": 0.925,
+      "tip_ytd_cagr_pp": -10.9176,
+      "shaped": false
+    },
+    {
+      "id": "P1_STOP_COMP",
+      "path": "1_stop",
+      "score": -6.0129,
+      "tip_clean": false,
+      "held_cagr_lift_pp": 0.5415,
+      "tip_ytd_cagr_pp": -13.3591,
+      "shaped": false
+    }
+  ],
+  "books": [
+    {
+      "id": "CTRL_LIVE_A10",
+      "fam": "ctrl",
+      "path": "ctrl",
+      "meta": {
+        "pct_days_sat": 0.0,
+        "n_flips": 0,
+        "mean_w_sat": 0.0,
+        "rule": "live"
+      },
+      "eval": {
+        "held_cagr_lift_pp": -0.0,
+        "held_mdd_pp": 0.0,
+        "held_abs_mdd": -0.144234,
+        "tip_ytd_cagr_pp": 0.0,
+        "tip_1y_cagr_pp": 0.0,
+        "tip_ytd_mdd_pp": 0.0,
+        "tip_1y_mdd_pp": 0.0,
+        "family": "ctrl",
+        "sf_ok": true,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "vs_sat_held": false,
+          "shaped": false
+        },
+        "score": 1.0,
+        "hit": false,
+        "t0_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "P1_STOP_LIVE",
+      "fam": "path",
+      "path": "1_stop",
+      "meta": {
+        "pct_days_sat": 0.0,
+        "n_flips": 0,
+        "mean_w_sat": 0.0,
+        "rule": "live"
+      },
+      "eval": {
+        "held_cagr_lift_pp": -0.0,
+        "held_mdd_pp": 0.0,
+        "held_abs_mdd": -0.144234,
+        "tip_ytd_cagr_pp": 0.0,
+        "tip_1y_cagr_pp": 0.0,
+        "tip_ytd_mdd_pp": 0.0,
+        "tip_1y_mdd_pp": 0.0,
+        "family": "path",
+        "sf_ok": true,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "vs_sat_held": false,
+          "shaped": false
+        },
+        "score": 1.0,
+        "hit": false,
+        "t0_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "P1_STOP_COMP",
+      "fam": "path",
+      "path": "1_stop",
+      "meta": {
+        "pct_days_sat": 0.0,
+        "n_flips": 0,
+        "mean_w_sat": 0.0,
+        "rule": "P1_STOP_COMP"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.5415,
+        "held_mdd_pp": -0.1088,
+        "held_abs_mdd": -0.145322,
+        "tip_ytd_cagr_pp": -13.3591,
+        "tip_1y_cagr_pp": -9.0207,
+        "tip_ytd_mdd_pp": 0.9278,
+        "tip_1y_mdd_pp": 0.9278,
+        "family": "path",
+        "sf_ok": true,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "score": -6.0129,
+        "hit": false,
+        "t0_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.9278,
+          "cagr_lift_pp": -13.3591,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.9278,
+          "cagr_lift_pp": -9.0207,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "P2_SAT_PURE",
+      "fam": "path",
+      "path": "2_sat",
+      "meta": {
+        "pct_days_sat": 100.0,
+        "n_flips": 0,
+        "mean_w_sat": 1.0,
+        "rule": "P2_SAT_PURE"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.3343,
+        "held_mdd_pp": -0.3084,
+        "held_abs_mdd": -0.147318,
+        "tip_ytd_cagr_pp": 0.6801,
+        "tip_1y_cagr_pp": 0.7413,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "path",
+        "sf_ok": true,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": false,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "vs_sat_held": false,
+          "shaped": false
+        },
+        "score": 2.2002,
+        "hit": false,
+        "t0_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 0.6801,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 0.7413,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "P3_T0_STATE",
+      "fam": "path",
+      "path": "3_t0",
+      "meta": {
+        "pct_days_sat": 24.16,
+        "n_flips": 153,
+        "mean_w_sat": 0.2416,
+        "rule": "P3_T0_STATE"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 3.4758,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": 2.7325,
+        "tip_1y_cagr_pp": 1.7356,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "path",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": true
+        },
+        "score": 8.6243,
+        "hit": false,
+        "t0_shaped": true
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 2.7325,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 1.7356,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "P3_T0_ENTER_M1",
+      "fam": "path",
+      "path": "3_t0",
+      "meta": {
+        "pct_days_sat": 26.45,
+        "n_flips": 115,
+        "mean_w_sat": 0.2645,
+        "rule": "P3_T0_ENTER_M1"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 3.4426,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": 1.7875,
+        "tip_1y_cagr_pp": 1.1126,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "path",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": true
+        },
+        "score": 7.1736,
+        "hit": false,
+        "t0_shaped": true
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 1.7875,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 1.1126,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "P4_BLEND_TRAIL",
+      "fam": "path",
+      "path": "4_mech",
+      "meta": {
+        "pct_days_sat": 35.11,
+        "n_flips": 948,
+        "mean_w_sat": 0.3511,
+        "rule": "P4_BLEND_TRAIL"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 1.2948,
+        "held_mdd_pp": 0.0645,
+        "held_abs_mdd": -0.143589,
+        "tip_ytd_cagr_pp": -6.1442,
+        "tip_1y_cagr_pp": -4.3513,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "path",
+        "sf_ok": true,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "score": -5.173,
+        "hit": false,
+        "t0_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -6.1442,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -4.3513,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "P4_SCALE50_L1",
+      "fam": "path",
+      "path": "4_mech",
+      "meta": {
+        "pct_days_sat": 12.07,
+        "n_flips": 153,
+        "mean_w_sat": 0.1207,
+        "rule": "P4_SCALE50_L1"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.925,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -10.9176,
+        "tip_1y_cagr_pp": -7.3677,
+        "tip_ytd_mdd_pp": 0.5383,
+        "tip_1y_mdd_pp": 0.5383,
+        "family": "path",
+        "sf_ok": true,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "score": -5.5252,
+        "hit": false,
+        "t0_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.5383,
+          "cagr_lift_pp": -10.9176,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.5383,
+          "cagr_lift_pp": -7.3677,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "R_SAT_LEAD_L1",
+      "fam": "switch",
+      "path": "ref_switch",
+      "meta": {
+        "pct_days_sat": 24.13,
+        "n_flips": 153,
+        "mean_w_sat": 0.2413,
+        "rule": "R_SAT_LEAD_L1"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 1.2962,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -8.4925,
+        "tip_1y_cagr_pp": -5.7336,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "switch",
+        "sf_ok": true,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "score": -5.154,
+        "hit": false,
+        "t0_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -8.4925,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -5.7336,
+          "gate": "PASS"
+        }
+      }
+    }
+  ],
+  "register": "0k9q"
+}

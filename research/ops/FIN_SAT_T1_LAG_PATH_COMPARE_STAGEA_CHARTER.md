@@ -1,7 +1,7 @@
 # FIN×SAT Exact T+1 lag 處理路徑比較 Stage A (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP**（路徑 3 標為政策反事實）· `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `T0_ONLY_EDGE`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP**（路徑 3 標為政策反事實）· `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - 0k9n/0k9o/0k9p **`TIP_LAG_BLOCK` / `FFT_LAG_NO_EDGE`** — lag 不可解；處理改路徑
 - COMPOSITE **`COMP_H150_x_A20`** · SAT_RELAX **`SAT_A20_RELAX`**
@@ -12,7 +12,7 @@ Human intent (normalized):
 OPEN Stage A: 回測比較 Exact T+1 lag 四條處理路徑哪個較優 · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_CHARTER_2026-09-28__DONE_T0_ONLY_EDGE__NO_LIVE_WIRE`
 
 ## Paths（預註冊）
 
