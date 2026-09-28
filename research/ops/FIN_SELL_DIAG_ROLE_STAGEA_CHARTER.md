@@ -1,7 +1,7 @@
 # FIN sell diagnostic-role Stage A — Paper Charter
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · **`fin_sell_ok` OFF** · no live wire  
+Status: **Stage A DONE — `DIAG_SIGNAL`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · **`fin_sell_ok` OFF** · no live wire  
 Parent live: Soft-Frozen F[0.60,0.80] T[0.03,0.35] E[0.00,0.50] + FUSE + `SELL_a75` + `COOL_c8_f50_d21` + L1=0.05  
 Prior: sell-quality `MDD_BLOCK`/`NO_EDGE` · sell new-mech `MDD_BLOCK` (hard gates starve exits)  
 Human intent (normalized):
