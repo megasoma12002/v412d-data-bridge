@@ -1,0 +1,86 @@
+{
+  "label": "FIN_SAT_DIV_EPISODE_STAGEA_DECISION_PACK_2026-09-28__TIP_MDD_ONLY__NO_LIVE",
+  "status": "TIP_MDD_ONLY",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "charter": "research/ops/FIN_SAT_DIV_EPISODE_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_DIV_EPISODE_STAGEA_SCREEN.md",
+  "recommendation": {
+    "method": "label_divergence_episodes_then_contrast",
+    "primary_theta": 0.01,
+    "sat_lead_vs_similar": {
+      "crisis": 0.16529,
+      "bearcrisis": 0.209503,
+      "r0050_63": -0.014226,
+      "mdd0050_63": -0.015563,
+      "vol0050_21": 0.001252,
+      "comp_sells_21": 6.754526,
+      "zz08_bear": -0.001151
+    },
+    "sat_lead_vs_comp": {
+      "crisis": 0.112516,
+      "bearcrisis": 0.117208,
+      "r0050_63": 0.009671,
+      "mdd0050_63": -0.001356,
+      "vol0050_21": 0.001747,
+      "comp_sells_21": 9.096223,
+      "zz08_bear": 0.079818
+    },
+    "top_leading_ic": [
+      {
+        "feat": "crisis_l1",
+        "ic": 0.1853,
+        "abs_ic": 0.1853,
+        "sign_hit": 0.7625,
+        "sat_when_high": true,
+        "ic_gate": true,
+        "n": 3364,
+        "base_sat_rate": 0.217
+      },
+      {
+        "feat": "bearcrisis_l1",
+        "ic": 0.1734,
+        "abs_ic": 0.1734,
+        "sign_hit": 0.7087,
+        "sat_when_high": true,
+        "ic_gate": true,
+        "n": 3364,
+        "base_sat_rate": 0.217
+      },
+      {
+        "feat": "comp_sells_21_l1",
+        "ic": 0.1382,
+        "abs_ic": 0.1382,
+        "sign_hit": 0.566,
+        "sat_when_high": true,
+        "ic_gate": true,
+        "n": 3364,
+        "base_sat_rate": 0.217
+      },
+      {
+        "feat": "vol0050_21_l1",
+        "ic": 0.1111,
+        "abs_ic": 0.1111,
+        "sign_hit": 0.5197,
+        "sat_when_high": true,
+        "ic_gate": false,
+        "n": 3344,
+        "base_sat_rate": 0.2183
+      },
+      {
+        "feat": "mdd0050_63_l1",
+        "ic": -0.0847,
+        "abs_ic": 0.0847,
+        "sign_hit": 0.5394,
+        "sat_when_high": false,
+        "ic_gate": true,
+        "n": 3302,
+        "base_sat_rate": 0.2211
+      }
+    ],
+    "note": "Differences live in SAT_LEAD episodes; SIMILAR segments dilute full-sample spectra."
+  },
+  "register": "0k9l",
+  "generated_at_utc": "2026-09-28T14:02:05Z"
+}

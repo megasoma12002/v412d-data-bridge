@@ -1,0 +1,20 @@
+{
+  "label": "FIN_SAT_SWITCH_STAGEA_DECISION_PACK_2026-09-28__TIP_MDD_ONLY__NO_LIVE",
+  "status": "TIP_MDD_ONLY",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "charter": "research/ops/FIN_SAT_SWITCH_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_SWITCH_STAGEA_SCREEN.md",
+  "best_hit": null,
+  "best_tip_clean_economic_switch": null,
+  "near_miss": "SW_REL126_CDEF tip_clean but held_mdd -0.576",
+  "sat_held_cagr_lift_pp": 0.3343,
+  "register": "0k9f",
+  "diagnosis": {
+    "short_rel": "held lift OK + tipMDD but tip CAGR -5pp",
+    "rel126": "only tip-clean switch; held MDD fails economic",
+    "feasible_region": "empty under finite lag-1 REL/DD grid"
+  },
+  "generated_at_utc": "2026-09-28T13:10:09Z"
+}

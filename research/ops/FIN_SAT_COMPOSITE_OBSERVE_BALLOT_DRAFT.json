@@ -1,0 +1,18 @@
+{
+  "label": "FIN_SAT_COMPOSITE_OBSERVE_BALLOT_DRAFT_2026-09-28__COMPOSITE_HIT_H150_A20",
+  "status": "DRAFT_NOT_EXECUTED",
+  "proposed_open": "OPEN paper observe: FIN×SAT COMPOSITE COMP_H150_x_A20 (Stage A COMPOSITE_HIT)",
+  "champion": "COMP_H150_x_A20",
+  "alt_hit": "COMP_H150_x_A15",
+  "verdict": "COMPOSITE_HIT",
+  "held_cagr_lift_pp": 0.5415,
+  "held_mdd_pp": -0.1088,
+  "tip_ytd_mdd_pp": 0.9278,
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "sell_a75_keep": true,
+  "live_conf_a10_keep": true,
+  "charter": "research/ops/FIN_SAT_COMPOSITE_STAGEA_CHARTER.md",
+  "decision": "research/ops/FIN_SAT_COMPOSITE_STAGEA_DECISION_PACK.md",
+  "register": "0k9b"
+}

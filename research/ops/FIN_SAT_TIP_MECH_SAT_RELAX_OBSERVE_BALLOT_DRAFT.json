@@ -1,0 +1,12 @@
+{
+  "label": "FIN_SAT_TIP_MECH_SAT_RELAX_OBSERVE_BALLOT_DRAFT_2026-09-28__SAT_A20_RELAX",
+  "status": "DRAFT_NOT_EXECUTED",
+  "proposed_open": "OPEN paper observe: SAT_A20_RELAX (Stage A SAT_RELAX_HIT · tip-first densify)",
+  "champion": "SAT_A20_RELAX",
+  "alt": "SAT_A15_RELAX",
+  "verdict": "SAT_RELAX_HIT",
+  "composite_observe_keep": true,
+  "live_wire": false,
+  "register": "0k9d",
+  "decision": "research/ops/FIN_SAT_TIP_MECH_STAGEA_DECISION_PACK.md"
+}

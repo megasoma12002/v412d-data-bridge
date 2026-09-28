@@ -1,0 +1,73 @@
+{
+  "id": "FIN_SAT_TIPGAP_PRED_STAGEA_CHARTER",
+  "status": "STAGE_A_DONE",
+  "date": "2026-09-28",
+  "label": "FIN_SAT_TIPGAP_PRED_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE",
+  "register": "0k9i",
+  "parents": [
+    "0k9h_CYCLE_SWITCH_TIP_MDD_ONLY",
+    "0k9b_COMPOSITE_OBSERVE_OPEN",
+    "0k9d_SAT_A20_RELAX_OBSERVE_OPEN"
+  ],
+  "mechanism": "tipgap_feature_ic_cycle_overlap_probe",
+  "methods_open": true,
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "script": "scripts/fin_sat_tipgap_pred_stagea.py",
+  "verdict": "TIP_MDD_ONLY",
+  "screen": "research/ops/FIN_SAT_TIPGAP_PRED_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SAT_TIPGAP_PRED_STAGEA_DECISION_PACK.md",
+  "recommendation": {
+    "binding_gap": "tip_cagr_drag_timing",
+    "best_leading_feat": "r0050_63_l1",
+    "best_ic": -0.1094,
+    "ic_gate_feats": [
+      "r0050_63_l1",
+      "zz08_bear_l1"
+    ],
+    "tip_vs_held_highlights": {
+      "trail_rel_63": -0.013667,
+      "comp_sells_21": 1.861838,
+      "vol0050_21": 0.004554,
+      "crisis": 0.043267,
+      "zz08_bear": 0.051094,
+      "pct_trail_drag": 24.13
+    },
+    "cycle_overlap_tip": {
+      "tip_drag_base_rate": 69.42,
+      "n_tip": 242,
+      "crisis": {
+        "n": 48,
+        "drag_rate": 100.0,
+        "lift_pp": 30.58
+      },
+      "bearcrisis": {
+        "n": 48,
+        "drag_rate": 100.0,
+        "lift_pp": 30.58
+      },
+      "zz08_bear": {
+        "n": 53,
+        "drag_rate": 60.38,
+        "lift_pp": -9.04
+      },
+      "zz12_bear": {
+        "n": 11,
+        "drag_rate": 100.0,
+        "lift_pp": 30.58
+      },
+      "sells21_hi": {
+        "n": 114,
+        "drag_rate": 87.72,
+        "lift_pp": 18.3
+      },
+      "rel63_neg": {
+        "n": 168,
+        "drag_rate": 100.0,
+        "lift_pp": 30.58
+      }
+    },
+    "note": "Prefer features that lead fwd_rel_21 and lift tip-drag overlap; do not return to calendar year switch."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "FIN_SAT_FFT_PHASE_LAG_STAGEA_CHARTER",
+  "status": "STAGE_A_DONE",
+  "date": "2026-09-28",
+  "label": "FIN_SAT_FFT_PHASE_LAG_STAGEA_CHARTER_2026-09-28__DONE_FFT_LAG_NO_EDGE__NO_LIVE_WIRE",
+  "register": "0k9p",
+  "parents": [
+    "0k9o_TIP_LEAD_TIP_LAG_BLOCK",
+    "0k9j_TIPGAP_FFT_SIGNAL",
+    "0k9n_LOCAL_MUTEX_TIP_LAG_BLOCK"
+  ],
+  "soft_frozen_keep": true,
+  "live_wire": false,
+  "exact_t_plus_1": true,
+  "question": "Can causal FFT phase/Hilbert on trail bands close Exact T+1 enter lag?",
+  "script": "scripts/fin_sat_fft_phase_lag_stagea.py",
+  "verdict": "FFT_LAG_NO_EDGE",
+  "screen": "research/ops/FIN_SAT_FFT_PHASE_LAG_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SAT_FFT_PHASE_LAG_STAGEA_DECISION_PACK.md"
+}

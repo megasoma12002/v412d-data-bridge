@@ -1,0 +1,41 @@
+{
+  "label": "FIN_SAT_CYCLE_SWITCH_STAGEA_DECISION_PACK_2026-09-28__TIP_MDD_ONLY__NO_LIVE",
+  "status": "TIP_MDD_ONLY",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "not_year_switch": true,
+  "charter": "research/ops/FIN_SAT_CYCLE_SWITCH_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_CYCLE_SWITCH_STAGEA_SCREEN.md",
+  "best_hit": null,
+  "best_tip_clean_economic_switch": null,
+  "episode_summary": {
+    "Bear": {
+      "n_episodes": 19,
+      "mean_len": 16.9,
+      "comp_win_rate": 42.1,
+      "mean_comp_minus_sat_pp": 0.053
+    },
+    "Bull": {
+      "n_episodes": 32,
+      "mean_len": 75.6,
+      "comp_win_rate": 37.5,
+      "mean_comp_minus_sat_pp": -0.184
+    },
+    "Crisis": {
+      "n_episodes": 11,
+      "mean_len": 36.3,
+      "comp_win_rate": 45.5,
+      "mean_comp_minus_sat_pp": -0.002
+    },
+    "Sideways": {
+      "n_episodes": 7,
+      "mean_len": 12.3,
+      "comp_win_rate": 28.6,
+      "mean_comp_minus_sat_pp": -0.42
+    }
+  },
+  "sat_held_cagr_lift_pp": 0.3343,
+  "register": "0k9h",
+  "generated_at_utc": "2026-09-28T13:25:18Z"
+}

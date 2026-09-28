@@ -1,0 +1,13 @@
+feat,ic,abs_ic,sign_hit,n,ic_gate,sat_when_high
+r0050_63_l1,-0.1094,0.1094,0.5379,3281,True,True
+zz08_bear_l1,-0.0855,0.0855,0.5307,3343,True,True
+mdd0050_63_l1,-0.0757,0.0757,0.4694,3281,False,True
+crisis_l1,0.0671,0.0671,0.5121,3343,False,False
+zz12_bear_l1,0.0652,0.0652,0.4912,3343,False,False
+vol0050_21_l1,0.0511,0.0511,0.4989,3323,False,False
+trail_rel_63_l1,-0.0454,0.0454,0.511,3280,False,True
+comp_sells_21_l1,-0.0425,0.0425,0.5187,3343,False,True
+trail_rel_21_l1,-0.0384,0.0384,0.5072,3322,False,True
+month_sin_l1,0.0347,0.0347,0.5151,3343,False,False
+month_cos_l1,-0.0212,0.0212,0.5121,3343,False,True
+bearcrisis_l1,0.0128,0.0128,0.5154,3343,False,False

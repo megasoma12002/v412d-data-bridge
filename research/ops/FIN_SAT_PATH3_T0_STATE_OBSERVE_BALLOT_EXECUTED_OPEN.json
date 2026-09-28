@@ -1,0 +1,27 @@
+{
+  "label": "FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_EXECUTED_2026-09-28__OPEN__NO_LIVE",
+  "status": "EXECUTED_OPEN",
+  "date": "2026-09-28",
+  "human_accept": "ACCEPT T+0 carve-out + OPEN paper observe: P3_T0_STATE (FIN×SAT Path3 · T0_CARVE_FIN_SAT_SWITCH)",
+  "champion": "P3_T0_STATE",
+  "verdict": "T0_ONLY_EDGE",
+  "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+  "exact_t0_carve_out": true,
+  "exact_t_plus_1_global_keep": true,
+  "live_wire": false,
+  "cutover_authorized": false,
+  "soft_frozen_keep": true,
+  "live_conf_a10_keep": true,
+  "parents_keep": ["COMP_H150_x_A20_OBSERVE", "SAT_A20_RELAX_OBSERVE"],
+  "policy_ballot": "research/ops/FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_EXECUTED_ACCEPT.md",
+  "operating": "research/ops/FIN_SAT_PATH3_T0_DUAL_PAPER_OBSERVE_OPERATING.md",
+  "register": "0k9r",
+  "heldout_delta": {
+    "cagr_lift_pp": 3.4758,
+    "mdd_improve_pp": 0.0996
+  },
+  "tip": {
+    "ytd_cagr_lift_pp": 2.7325,
+    "trailing_1y_cagr_lift_pp": 1.7356
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "label": "FIN_SAT_COMPOSITE_STAGEA_DECISION_PACK_2026-09-28__COMPOSITE_HIT__NO_LIVE",
+  "status": "COMPOSITE_HIT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "sell_a75_keep": true,
+  "live_conf_a10_keep": true,
+  "cagr_sign": "chal_minus_base",
+  "charter": "research/ops/FIN_SAT_COMPOSITE_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_COMPOSITE_STAGEA_SCREEN.md",
+  "best_hit": "COMP_H150_x_A20",
+  "best_comp_economic": "COMP_H150_x_A20",
+  "best_parent_economic": "FIN_HARD150_A10",
+  "generated_at_utc": "2026-09-28T09:47:28Z"
+}

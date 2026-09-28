@@ -9,17 +9,34 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27)
 **Deferred ops ACCEPT:** `ACCEPT_DEFERRED_OPS_HARDEN_2026-09-25.md` · broker PREP `ACCEPT_PREP_BROKER_LIVE_WRITE_2026-09-25.md` · Stage-E sandbox `ACCEPT_RESEARCH_STAGE_E_FULL_HISTORY_SANDBOX_2026-09-25.md`  
 **Eng tip-path P0–P2:** merged `#314` · Soft-Frozen KEEP  
 **Broker/R5/OCO PREP not open:** merged `#315` · `BROKER_R5_OCO_PREP_NOT_OPEN.md` · UAT readonly checklist `YUANTA_SPARK_UAT_READONLY_CHECKLIST.md`  
-**SAT_A20_H5:** Stage A MECH_HIT · Stage B PARENT_KEEP · **OBSERVE OPEN** (2026-09-28) · `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · live **BLOCKED**  
+**SAT_A20_H5:** Stage A MECH_HIT · Stage B PARENT_KEEP · **OBSERVE CLOSED** (2026-09-28 · superseded by COMPOSITE) · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md`  
 FIN 賣側新機制（timing/confirm · 非 MA-dampen）：Stage A **`MDD_BLOCK`** · WR↑仍傷 MDD/tip · SELL_a75 KEEP · no observe · no live · `FIN_SELL_NEW_MECH_STAGEA_DECISION_PACK.md`
 FIN 浮虧延後賣（等回本）：**Stage A `COOL_GATE_REQUIRED`** · gated defer no lift · NOCOOLGATE proves gate needed · `FIN_LOSS_DEFER_SELL_STAGEA_DECISION_PACK.md` · no live  
 FIN 買側品質：**OBSERVE CLOSED** (superseded by both-quality HARD150) · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
 FIN 賣側品質：Stage A `MDD_BLOCK` → Stage B **`NO_EDGE`** · soft-dampen 護 MDD 失 CAGR · SELL_a75 KEEP · no observe · no live · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md`  
-FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE OPEN** `B_OR_K9_x_HARD150` · `FIN_BOTH_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · SELL_a75 KEEP  
+FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE CLOSED** (2026-09-28 · superseded by COMPOSITE) · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md`  
 **Observe UP/DOWN batch 2026-09-28:** `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` — OPEN both-quality+SAT_A20; CLOSE soft/sleeve/fuse/priv/within-sleeve/BLEND025/FIN50/E45 paper observes (live stack KEEP)
 **ABC Stage A next (2026-09-28):** A `LOCK_KEEP_NO_TIP_LIFT` · B `NO_EDGE` · C `MONITOR_READY` · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
 ETF **0050 買賣品質** Stage A：**`TIP_BLOCK`** · best sell `SELL_COOL_DEFEND` CAGR↑+0.16 但 tip MDD↓ · clip/`SELL_a75` KEEP · no live · `ETF0050_BOTH_QUALITY_STAGEA_DECISION_PACK.md`  
 ETF **0050 軟縮放 × 高低點／DD** Stage A：**`TIP_BLOCK`** · best `EXT_SELL_HIGH20` CAGR↑+0.16 tip↓ · Soft-Frozen KEEP · no live · `ETF0050_SOFT_EXTREME_STAGEA_DECISION_PACK.md`  
 ETF **0050 regime × 多空偵測器** Stage A：**`NO_EDGE`** · best `DET_BUY_MA60_UP` CAGR↑+0.13 tip↓ · Soft-Frozen KEEP · no live · `ETF0050_REGIME_DETECTOR_STAGEA_DECISION_PACK.md`  
+**FIN×SAT COMPOSITE (2026-09-28):** Stage A **`COMPOSITE_HIT`** · **OBSERVE OPEN** `COMP_H150_x_A20` · parents CLOSED · Soft-Frozen KEEP · live CONF α=0.10 KEEP · cutover **BLOCKED** · no live · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
+**FIN×SAT tip-CAGR repair (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · HARD150 tip CAGR− · SAT tip-clean/held short · COMPOSITE observe KEEP · no live · `FIN_SAT_TIP_CAGR_STAGEA_DECISION_PACK.md`  
+**FIN×SAT tip new-mech (2026-09-28):** Stage A **`SAT_RELAX_HIT`** · **OBSERVE OPEN** `SAT_A20_RELAX` · COMPOSITE observe KEEP · Soft-Frozen KEEP · live CONF α=0.10 KEEP · cutover **BLOCKED** · no live · `SAT_A20_RELAX_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
+**FIN×SAT 配資混合 (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · COMP×SAT daily blend C25…C75 · tip CAGR− whenever w_COMP≥0.25 · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_BLEND_STAGEA_DECISION_PACK.md`  
+**FIN×SAT 切換機制 (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · lag-1 COMP↔SAT · short REL tip CAGR− · REL126 tip-clean/held MDD fail · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_SWITCH_STAGEA_DECISION_PACK.md`  
+**FIN×SAT 互斥特徵→切換 (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · year mutex Bull↔Crisis real · oracle year upper-bound tip-clean · pre-reg switches tip CAGR− · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_MUTEX_FEAT_STAGEA_DECISION_PACK.md`  
+**FIN×SAT 週期互斥切換 (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · not year-switch · ZigZag/K5/month-qtr · episode Bull≠COMP-stable · ZZ08 held↑ tipCAGR− · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_CYCLE_SWITCH_STAGEA_DECISION_PACK.md`  
+**FIN×SAT tip-gap 預測／特徵 (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · gap=tip-drag timing · lead `r0050_63` IC−0.11 · tip Crisis/SELL overlap · zz08 tip-desync · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_TIPGAP_PRED_STAGEA_DECISION_PACK.md`  
+**FIN×SAT tip-gap FFT (2026-09-28):** Stage A **`FFT_SIGNAL`** · daily rel≈white · trail ~85/128/256td + bandpass IC · assist≠replace 0k9i · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_TIPGAP_FFT_STAGEA_DECISION_PACK.md`  
+**FIN×SAT tip-gap 小波／拉普拉斯 (2026-09-28):** Stage A **`WAVE_LAP_SIGNAL`** · CWT trail ~200–234td · tip ~107–115td · Laplace σ≈0 @115/231td · assist≠replace 0k9i · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_DECISION_PACK.md`  
+**FIN×SAT 分歧 Episode (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · SAT_LEAD vs SIMILAR: Crisis/SELL↑ · crisis→SAT_LEAD IC 0.19 hit76% · SIMILAR~54% dilutes spectra · probes tip CAGR− · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_DIV_EPISODE_STAGEA_DECISION_PACK.md`  
+**FIN×SAT 分歧切換規則 (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · enter/confirm/exit 6 switch 全 tipCAGR− · best `R_DIV_ONLY` held+1.30 tipY−8.5 · rule-layer day-switch exhausted · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_DIV_RULE_STAGEA_DECISION_PACK.md`  
+**FIN×SAT 局部互斥 (2026-09-28):** Stage A **`TIP_LAG_BLOCK`** · tip/held 時段分離（score0.62）· UB tip-clean+held · Exact T+1 lag-1 擋 HIT · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_LOCAL_MUTEX_STAGEA_DECISION_PACK.md`  
+**FIN×SAT tip-lead 決策點 (2026-09-28):** Stage A **`TIP_LAG_BLOCK`** · enter lead 外部弱 · UB_ENTER_M1 tip-clean+held · CONF_EARLY tipY−3.6 未 clean · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_TIP_LEAD_DECISION_STAGEA_DECISION_PACK.md`  
+**FIN×SAT FFT-phase × T+1 lag (2026-09-28):** Stage A **`FFT_LAG_NO_EDGE`** · causal phase IC0.09 < trail0.10 · FFT 無法補 Exact T+1 · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_FFT_PHASE_LAG_STAGEA_DECISION_PACK.md`  
+**FIN×SAT T+1 lag 路徑比較 (2026-09-28):** Stage A **`T0_ONLY_EDGE`** · SF 最優 `P2_SAT_PURE` · 唯一 HIT 形狀是 T+0 反事實 · path4 不解 tip · parents KEEP · Soft-Frozen KEEP · no live · `FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_DECISION_PACK.md`  
+**FIN×SAT Path3 T+0 carve-out (2026-09-28):** **EXECUTED ACCEPT** `T0_CARVE_FIN_SAT_SWITCH` · **OBSERVE OPEN** `P3_T0_STATE` · dual-paper OPERATING · sealed MDD −0.17pp human **ACCEPTABLE** (abs sealed≪full/held) · COMPOSITE+SAT_RELAX KEEP · Soft-Frozen clips KEEP · cutover **BLOCKED** · no live · `FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
@@ -71,8 +88,11 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | FIN_CAP_50 | **OBSERVE CLOSED** (2026-09-28) | **REJECT static cutover for now** (`NOT_READY_SEALED_CAGR`) — register #2 · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
 | L4_DD_PATH_08_50 | Held-out PASS; YTD **and** trailing_1y PAUSE_REVIEW (asof 2026-09-16) | **DEFER** cutover — register #4; checklist: `CUTOVER_CHECKLIST_L4.md` (hygiene sync `L4_HYGIENE_CHECKLIST_SYNC_2026-09-19.md`) |
 | BLEND_025 | **OBSERVE CLOSED** (2026-09-28) | Was sealed-CAGR successor (register #3); live **NOT READY** (#5); promote review **2026-09-26 BLOCKED** · paper queue closed · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
-| FIN both-quality `B_OR_K9_x_HARD150` | **OBSERVE OPEN** (2026-09-28) | Stage B HIT · cutover **BLOCKED** · `FIN_BOTH_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
-| `SAT_A20_H5` | **OBSERVE OPEN** (2026-09-28) | Stage A MECH_HIT · cutover **BLOCKED** · `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| FIN both-quality `B_OR_K9_x_HARD150` | **OBSERVE CLOSED** (2026-09-28) | Superseded by COMPOSITE · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md` |
+| `SAT_A20_H5` | **OBSERVE CLOSED** (2026-09-28) | Superseded by COMPOSITE · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md` |
+| FIN×SAT COMPOSITE `COMP_H150_x_A20` | **OBSERVE OPEN** (2026-09-28) | Stage A HIT · cutover **BLOCKED** · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| `SAT_A20_RELAX` tip-first densify | **OBSERVE OPEN** (2026-09-28) | Stage A `SAT_RELAX_HIT` · cutover **BLOCKED** · `SAT_A20_RELAX_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| FIN×SAT Path3 `P3_T0_STATE` | **OBSERVE OPEN** (2026-09-28) | Exact T+0 carve `T0_CARVE_FIN_SAT_SWITCH` · cutover **BLOCKED** · `FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Offense SOFT near-flat (`SELL_a75`) | **LIVE WIRED** under COOL | sell boost 0.75 · coexists FUSE+COOL · Soft-Frozen KEEP · `LIVE_SELL_A75_UNDER_COOL_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | `00631L` short-assist `CONF_RET3_A10_H5` | **LIVE WIRED** (forward-only) | COOL exit · RET3 · α=0.10 · H=5 · Soft-Frozen KEEP · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | TEL `T3_COOL_INV_VOL20` | **LIVE WIRED** (forward-only) | COOL-defend INV_VOL soft-tilt · else EQUAL · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
