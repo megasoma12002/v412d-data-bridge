@@ -10,7 +10,7 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27)
 **Eng tip-path P0–P2:** merged `#314` · Soft-Frozen KEEP  
 **Broker/R5/OCO PREP not open:** merged `#315` · `BROKER_R5_OCO_PREP_NOT_OPEN.md` · UAT readonly checklist `YUANTA_SPARK_UAT_READONLY_CHECKLIST.md`  
 **SAT_A20_H5:** Stage A MECH_HIT · Stage B PARENT_KEEP · decision **OPEN observe recommended** (ballot DRAFT) · `SAT_A20_H5_DECISION_2026-09-27.md` · live **BLOCKED**  
-FIN 買側品質：A→B→C→D **`PARENT_KEEP_B`** · regime switch 全期 HIT 但 2020 stress 不足 · Soft-Frozen KEEP · no live · `FIN_BUY_QUALITY_STAGED_DECISION_PACK.md`
+FIN 買側品質：**OBSERVE OPEN A/B/C** · human `請上observe` · `BASE∥A_SEED_MA120∥B_MA120_OR_K9∥C_OR_K9_AND_BELOW_MA60` OPERATING · cutover **BLOCKED** · Soft-Frozen KEEP · no live · `FIN_BUY_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md`
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
 新機制 V3：**STOP** · `PRIV_MDD_M1_SCALE_V3_DECISION_PACK.md`（N1–N3+V2+V3 STOP）  

@@ -1,6 +1,6 @@
 # FIN_BUY_QUALITY_COMPOSITE_OBSERVE_BALLOT_DRAFT
 
-Status: **DRAFT — not executed** · Soft-Frozen **KEEP** · live wire **false**
+Status: **SUPERSEDED by EXECUTED A/B/C observe** · see `FIN_BUY_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` · Soft-Frozen **KEEP** · live wire **false**
 
 ## Proposed human line
 
