@@ -38,7 +38,7 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27 `R_L1_05`; prior 0.0
 | 0k6 | `00631L` **短線輔助** T1–T4 | **STAGE A SHORT_ASSIST_HIT → OBSERVE → LIVE WIRED** (2026-09-26) | Human `CONF_RET3_A10_H5 accept live` · Soft-Frozen KEEP · forward-only · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 0k6b | CONF densify **`SAT_A20_H5`** | **DECISION: OPEN observe recommended** (2026-09-27) | Stage A MECH_HIT · Stage B PARENT_KEEP · ballot **DRAFT** · live **BLOCKED** · `SAT_A20_H5_DECISION_2026-09-27.md` |
 | 0k6d | FIN 買側品質過濾（勝率＋MDD＋CAGR） | **OBSERVE OPEN A/B/C** (2026-09-28) | Human `請上observe` · multi-paper `BASE∥A∥B∥C` OPERATING · cutover **BLOCKED** · Soft-Frozen KEEP · no live · `FIN_BUY_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
-| 0k6e | FIN 賣側品質過濾（保留 SELL_a75 · MDD＋CAGR＋勝率） | **STAGE B OPEN** (2026-09-28) | Parent A `MDD_BLOCK` · soft-dampen + MDD soft −1.0pp · SELL_a75 KEEP · no live · `FIN_SELL_QUALITY_STAGEB_CHARTER.md` |
+| 0k6e | FIN 賣側品質過濾（保留 SELL_a75 · MDD＋CAGR＋勝率） | **STAGE B `NO_EDGE`** (2026-09-28) | Soft-dampen 護 MDD 但 CAGR≈0 · hard 仍傷 MDD · SELL_a75 KEEP · no observe · no live · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md` |
 | 0k7 | COOL **dual-handoff** 防守反1→結束正2 | **STAGE A DUAL_HANDOFF_SOFT** (2026-09-26) | 0 HIT · 3 SOFT · INV 拖垮 LEV CAGR · Soft-Frozen KEEP · no live · `COOL_T50_DUAL_HANDOFF_DECISION_PACK.md` |
 | 0l | 民股金控 Gate V8 AND-confirm stack | **STAGE A SOFT** (2026-09-25) | 0 HIT · 5 soft · best `V8_BSIDE_MA120_F05_KDMAY_COOL1` held CAGR↑ ≈0 / sealed MDD↑ +0.13 · Soft-Frozen KEEP · no V7 retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.80]** / ETF **[0.00, 0.50]** | **FLIPPED** (ACCEPT 2026-09-25 β densify) | Was FINBAND [0.60,0.90]/ETF[0.00,0.35]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md` · prior FINBAND note KEEP |
@@ -189,7 +189,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - Eng tip-path P0–P2 merged `#314` (2026-09-27) — FUSE offense cache · batch ledger · Soft-Frozen KEEP
 - Tip holiday gap: last tip `2026-09-24` · closed 9/25–28 · **next catch-up session 2026-09-29** · `TIP_CATCHUP_2026-09-29_CHECKLIST.md` · do not invent tip
 - FIN buy-quality A→B→C→D **`PARENT_KEEP_B`** → **OBSERVE OPEN A/B/C** 2026-09-28 — human `請上observe` · multi-paper OPERATING · cutover BLOCKED · Soft-Frozen KEEP · no live · `FIN_BUY_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md`
-- FIN sell-quality Stage A **`MDD_BLOCK`** 2026-09-28 — CAGR↑ possible but MDD fails · SELL_a75 KEEP · no observe · no live · `FIN_SELL_QUALITY_STAGEA_DECISION_PACK.md`
+- FIN sell-quality Stage A **`MDD_BLOCK`** → Stage B **`NO_EDGE`** 2026-09-28 — soft-dampen 護 MDD 失 CAGR · SELL_a75 KEEP · no observe · no live · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md`
 - R5 synthetic observe OK 2026-09-27 — waiting real `fixtures/r5_custody_dropin.csv` · `R5_OBSERVE_SYNTHETIC_2026-09-27.md`
 - R2 MDD band floor **−14.5% ACCEPTED** 2026-09-25 — paper rescore only · Soft-Frozen KEEP · no live wire · `ACCEPT_R2_MDD_BAND_FLOOR_14_5_2026-09-25.md` · Stage A still `BAND_ONLY`
 - R2/Stage-B MDD band floor **−15% ACCEPTED** 2026-09-25 — tip-safe FAST rescore **`TIPSAFE_STRETCH`** (`COOL_c8_f50_d21` · `GATE_g04_f50_d21`) · Soft-Frozen KEEP · `ACCEPT_R2_MDD_BAND_FLOOR_15_2026-09-25.md`

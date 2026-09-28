@@ -1,7 +1,7 @@
 # FIN sell-quality Stage B — soft-dampen + relaxed MDD (paper)
 
 Date: 2026-09-28  
-Status: **Stage B OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · no live wire  
+Status: **Stage B DONE — `NO_EDGE`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · no live wire  
 Parent Stage A: **`MDD_BLOCK`** · hard `fin_sell_ok` lifts CAGR/WR but worsens MDD (≥−1.46pp nearest)  
 Human intent (normalized):
 

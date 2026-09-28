@@ -1,7 +1,7 @@
 # FIN 賣側品質 Stage B — 章程（繁中摘要）
 
 日期：2026-09-28  
-狀態：**Stage B OPEN** · Soft-Frozen / Exact T+1 / COOL / **SELL_a75 KEEP** · 無 live wire  
+狀態：**Stage B DONE — `NO_EDGE`** · Soft-Frozen / Exact T+1 / COOL / **SELL_a75 KEEP** · 無 live wire  
 父層 Stage A：`MDD_BLOCK`（硬閘抬 CAGR 但傷 MDD）
 
 ```
