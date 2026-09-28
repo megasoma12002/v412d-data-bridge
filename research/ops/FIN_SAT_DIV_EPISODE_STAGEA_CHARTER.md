@@ -1,7 +1,7 @@
 # FIN×SAT 分歧 Episode 特徵 Stage A (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `TIP_MDD_ONLY`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - 0k9i tip-gap 時域 **`TIP_MDD_ONLY`** — 全日平均稀釋；需先標分歧再比特徵
 - 0k9j／0k9k 頻域／時頻 — 確認尺度，不取代時域
@@ -13,7 +13,7 @@ Human intent (normalized):
 OPEN Stage A: 先標 COMP−SAT 分歧 episode，再只在 episode 內比特徵 · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_DIV_EPISODE_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_DIV_EPISODE_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE`
 
 ## Why
 
