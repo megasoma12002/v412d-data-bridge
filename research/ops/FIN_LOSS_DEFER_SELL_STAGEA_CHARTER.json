@@ -1,6 +1,7 @@
 {
-  "label": "FIN_LOSS_DEFER_SELL_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
-  "status": "STAGE_A_OPEN",
+  "label": "FIN_LOSS_DEFER_SELL_STAGEA_CHARTER_2026-09-28__DONE_COOL_GATE_REQUIRED__NO_LIVE_WIRE",
+  "status": "STAGE_A_DONE_COOL_GATE_REQUIRED",
+  "verdict": "COOL_GATE_REQUIRED",
   "live_wire": false,
   "soft_frozen_keep": true,
   "exact_t1_keep": true,

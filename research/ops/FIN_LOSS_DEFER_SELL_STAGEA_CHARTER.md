@@ -1,7 +1,7 @@
 # FIN loss-defer sell Stage A — Paper Charter
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · no live wire  
+Status: **Stage A DONE — `COOL_GATE_REQUIRED`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · no live wire  
 Parent live: Soft-Frozen F[0.60,0.80] T[0.03,0.35] E[0.00,0.50] + FUSE + `SELL_a75` + `COOL_c8_f50_d21` + L1=0.05  
 Human intent (normalized):
 
@@ -12,7 +12,9 @@ OPEN Stage A charter: FIN 浮虧延後賣（等回本）· COOL 強制減碼仍�
 Motivation: tip fills show **11/24** realized SELL losses under FIFO all-in cost, and **12** open BUY lots underwater vs tip — hypothesis that **穩健金融股** can wait for cost recovery before rebalance sells.  
 **Important:** this is **not** an accounting FIFO rewrite; it is a **sell-eligibility / sell-priority** overlay on rebalance SELLs.
 
-Label: `FIN_LOSS_DEFER_SELL_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+**Screen result (2026-09-28):** gated defer books **no CAGR lift** + tip MDD worse; only `NOCOOLGATE` shows CAGR↑ (~+1.2pp) but held MDD worsens and records cool-gate violations → verdict **`COOL_GATE_REQUIRED`**. Soft-Frozen KEEP · no live.
+
+Label: `FIN_LOSS_DEFER_SELL_STAGEA_CHARTER_2026-09-28__COOL_GATE_REQUIRED__NO_LIVE_WIRE`
 
 ## Philosophy
 

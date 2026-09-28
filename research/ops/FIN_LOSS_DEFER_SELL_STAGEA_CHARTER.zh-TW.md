@@ -1,7 +1,7 @@
 # FIN 浮虧延後賣 Stage A — 紙上章程
 
 日期：2026-09-28  
-狀態：**Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · 不下 live  
+狀態：**Stage A DONE — `COOL_GATE_REQUIRED`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · 不下 live  
 父層 live：Soft-Frozen F[0.60,0.80] T[0.03,0.35] E[0.00,0.50] + FUSE + `SELL_a75` + `COOL_c8_f50_d21` + L1=0.05  
 人話（正規化）：
 
@@ -12,7 +12,9 @@ OPEN Stage A charter: FIN 浮虧延後賣（等回本）· COOL 強制減碼仍�
 動機：tip 成交顯示 **11/24** 筆賣出以 FIFO all-in 成本計為虧，另有 **12** 筆未平倉買進相對 tip 浮虧；假設**穩健金融股**可在再平衡賣出前等待回本。  
 **重點：這不是改 FIFO 記帳，而是再平衡「可不可以賣／先賣誰」的 overlay。**
 
-Label: `FIN_LOSS_DEFER_SELL_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+**Screen（2026-09-28）：** 有 COOL 閘的延後賣 **無 CAGR 提升**且 tip MDD 變差；只有關掉 COOL 閘才有 CAGR↑（約 +1.2pp）但 held MDD 變差並出現 cool-gate violations → 裁決 **`COOL_GATE_REQUIRED`**。不下 live。
+
+Label: `FIN_LOSS_DEFER_SELL_STAGEA_CHARTER_2026-09-28__COOL_GATE_REQUIRED__NO_LIVE_WIRE`
 
 ## 哲學
 

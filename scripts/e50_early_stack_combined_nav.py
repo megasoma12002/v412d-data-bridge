@@ -125,6 +125,7 @@ def simulate_core(
     fin_priv_codes: list[str] | tuple[str, ...] | None = None,
     fin_pub_alloc: str | None = None,
     fin_priv_alloc: str | None = None,
+    loss_defer_policy: object | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
@@ -154,6 +155,8 @@ def simulate_core(
     fin_dual_* codes/policies nest within-group alloc.
     For FinPub/FinPriv schedule: fin_pub_codes / fin_priv_codes required;
     fin_pub_alloc defaults to financial_alloc; fin_priv_alloc defaults to FIN_EQUAL.
+    loss_defer_policy: optional paper Stage A object with ``on_fill`` / ``sell_ok_and_scores``
+    (see ``fin_loss_defer_sell_helpers.LossDeferPolicy``). Live tip path never passes this.
     Live e21 unchanged until dedicated cutover ACCEPT.
     """
     if financial_alloc not in FIN_ALLOC_POLICIES:
@@ -342,6 +345,14 @@ def simulate_core(
                     "fees_tax": fee,
                 }
             )
+            if loss_defer_policy is not None:
+                loss_defer_policy.on_fill(
+                    code=str(code),
+                    side=str(side),
+                    qty=int(q),
+                    fill_price=float(fp),
+                    fees_tax=float(fee),
+                )
             # Exact T+1 audit on the recorded fill (filter above already requires signal < dt).
             if pd.Timestamp(sig_s).normalize() >= dt.normalize():
                 same_bar += 1
@@ -523,6 +534,42 @@ def simulate_core(
                 for c in FIN
                 if c in fin_sell_scores.columns and pd.notna(fin_sell_scores.loc[dt, c])
             }
+        if loss_defer_policy is not None:
+            univ = set(getattr(loss_defer_policy, "universe", set()) or set())
+            cool_scale = 1.0
+            if e45_exposure is not None and dt in e45_exposure.index:
+                cool_scale = float(e45_exposure.loc[dt])
+            if univ & set(FIN):
+                defer_ok, defer_scores = loss_defer_policy.sell_ok_and_scores(
+                    codes=list(FIN),
+                    marks={c: float(cl[c]) for c in FIN if c in cl.index},
+                    cool_scale=cool_scale,
+                )
+                if fin_sell_ok_today is None:
+                    fin_sell_ok_today = {c: defer_ok.get(c, True) for c in FIN}
+                else:
+                    fin_sell_ok_today = {
+                        c: bool(fin_sell_ok_today.get(c, True)) and bool(defer_ok.get(c, True))
+                        for c in FIN
+                    }
+                if defer_scores is not None:
+                    fin_sell_scores_today = defer_scores
+        tel_sell_ok_today = None
+        tel_sell_scores_today = None
+        if loss_defer_policy is not None:
+            univ = set(getattr(loss_defer_policy, "universe", set()) or set())
+            if univ & set(TEL):
+                cool_scale = 1.0
+                if e45_exposure is not None and dt in e45_exposure.index:
+                    cool_scale = float(e45_exposure.loc[dt])
+                tel_ok, tel_sc = loss_defer_policy.sell_ok_and_scores(
+                    codes=list(TEL),
+                    marks={c: float(cl[c]) for c in TEL if c in cl.index},
+                    cool_scale=cool_scale,
+                )
+                tel_sell_ok_today = tel_ok
+                if tel_sc is not None:
+                    tel_sell_scores_today = tel_sc
         tel_scores_today = None
         if tel_name_scores is not None and dt in tel_name_scores.index:
             tel_scores_today = {
@@ -645,6 +692,8 @@ def simulate_core(
                         lot_size=lot_size,
                         scores=tel_scores_today,
                         buy_ok=tel_buy_ok_today,
+                        sell_ok=tel_sell_ok_today,
+                        sell_scores=tel_sell_scores_today,
                         mix_lambda=tel_mix_lambda,
                     ):
                         if qty < 1:
@@ -734,6 +783,11 @@ def simulate_core(
         "fin_mix_lambda": None if fin_mix_lambda is None else float(fin_mix_lambda),
         "telecom_alloc": str(telecom_alloc),
         "e22_manifest": books_manifest(e22_version) if apply_e22 else None,
+        "loss_defer": (
+            loss_defer_policy.meta()
+            if loss_defer_policy is not None and hasattr(loss_defer_policy, "meta")
+            else None
+        ),
     }
     return nav_df, fills_df, meta
 
