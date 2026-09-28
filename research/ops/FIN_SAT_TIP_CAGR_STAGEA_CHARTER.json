@@ -1,8 +1,8 @@
 {
   "id": "FIN_SAT_TIP_CAGR_STAGEA_CHARTER",
-  "status": "STAGE_A_OPEN",
+  "status": "STAGE_A_DONE",
   "date": "2026-09-28",
-  "label": "FIN_SAT_TIP_CAGR_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "label": "FIN_SAT_TIP_CAGR_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE",
   "register": "0k9c",
   "parent": "0k9b_FIN_SAT_COMPOSITE_OBSERVE_OPEN",
   "binding_gate": "tip_ytd_and_1y_cagr_lift_pp_ge_0",
@@ -11,5 +11,8 @@
   "sell_a75_keep": true,
   "live_conf_a10_keep": true,
   "composite_observe_keep": true,
-  "script": "scripts/fin_sat_tip_cagr_stagea.py"
+  "script": "scripts/fin_sat_tip_cagr_stagea.py",
+  "verdict": "TIP_MDD_ONLY",
+  "screen": "research/ops/FIN_SAT_TIP_CAGR_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SAT_TIP_CAGR_STAGEA_DECISION_PACK.md"
 }

@@ -18,6 +18,7 @@ FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE CLOSED** (2026-09-
 **Observe UP/DOWN batch 2026-09-28:** `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` — OPEN both-quality+SAT_A20; CLOSE soft/sleeve/fuse/priv/within-sleeve/BLEND025/FIN50/E45 paper observes (live stack KEEP)
 **ABC Stage A next (2026-09-28):** A `LOCK_KEEP_NO_TIP_LIFT` · B `NO_EDGE` · C `MONITOR_READY` · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
 **FIN×SAT COMPOSITE (2026-09-28):** Stage A **`COMPOSITE_HIT`** · **OBSERVE OPEN** `COMP_H150_x_A20` · parents CLOSED · Soft-Frozen KEEP · live CONF α=0.10 KEEP · cutover **BLOCKED** · no live · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
+**FIN×SAT tip-CAGR repair (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · HARD150 tip CAGR− · SAT tip-clean/held short · COMPOSITE observe KEEP · no live · `FIN_SAT_TIP_CAGR_STAGEA_DECISION_PACK.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  

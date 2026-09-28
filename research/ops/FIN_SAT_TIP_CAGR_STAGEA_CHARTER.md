@@ -1,7 +1,7 @@
 # FIN×SAT tip-CAGR Stage A — repair tip giveback (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · live `CONF_RET3_A10_H5` **KEEP** · COMPOSITE observe **KEEP OPEN** · no live wire  
+Status: **Stage A DONE — `TIP_MDD_ONLY`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · live `CONF_RET3_A10_H5` **KEEP** · COMPOSITE observe **KEEP OPEN** · no live wire  
 Parent:
 - FIN×SAT COMPOSITE **`COMP_H150_x_A20`** · OBSERVE OPEN · Stage A `COMPOSITE_HIT` · tip MDD↑ OK · tip CAGR giveback **PAUSE_REVIEW** (~13pp YTD)
 
@@ -11,7 +11,7 @@ Human intent (normalized):
 OPEN Stage A: tip CAGR repair · keep tip MDD · Soft-Frozen KEEP · paper only · no live
 ```
 
-Label: `FIN_SAT_TIP_CAGR_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_TIP_CAGR_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE`
 
 ## Why
 
