@@ -17,6 +17,8 @@ No candidate.
 Buy books use ``TEL_RS_SOFT_TILT_EXDIV`` so ``tel_buy_ok`` is honored (plain ``TEL_RS_SOFT_TILT`` ignores ``buy_ok``).
 Re-run 2026-09-28 still ``NO_EDGE``: BUY_* NAVs remained ≈ CTRL under T3 cool-gate (off-defense score=0 / thin TEL buy dollars); sell hard books move WR but miss CAGR/tip floors.
 
+## Binding
+
 1. Soft-Frozen / Exact T+1 / COOL / FIN KD_OPT / SELL_a75 KEEP
 2. Even HIT → ballot only; no live TEL flip from Stage A
 3. Live T3_COOL_INV_VOL20 KEEP unless dedicated ACCEPT
