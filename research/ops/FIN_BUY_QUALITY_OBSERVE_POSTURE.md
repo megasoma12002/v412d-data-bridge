@@ -8,7 +8,8 @@ Human OPEN: `請上observe` → `OPEN paper observe: FIN buy-quality A/B/C`
 
 - Refresh multi-paper ledgers on month-end pack / on demand
 - Watch tip YTD/1y MDD vs base · held MDD near −0.25 floor
-- Compare A (CAGR) vs B (crisis MDD) vs C (full-sample Pareto)
+- Tip YTD/1y CAGR giveback ALERT/PAUSE_REVIEW is expected while filters trade less — keep OBSERVE (not promote)
+- Compare A (CAGR column lineage) vs B (crisis MDD) vs C (full-sample Pareto)
 - Soft-Frozen live stack unchanged
 
 ## Promote path (future only)

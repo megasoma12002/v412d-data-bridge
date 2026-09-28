@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-26T08:30:46.301568+00:00",
+  "generated_at_utc": "2026-09-28T04:28:13.826027+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -9,8 +9,8 @@
   ],
   "overall": "HIGH",
   "n_critical": 0,
-  "n_high": 7,
-  "n_info": 35,
+  "n_high": 13,
+  "n_info": 45,
   "alerts": [
     {
       "severity": "HIGH",
@@ -53,6 +53,42 @@
       "source": "e45_month_end",
       "code": "PAUSE_REVIEW",
       "message": "PAUSE_REVIEW: CHAL_E45_E3 trailing_1y giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: A_SEED_MA120 ytd giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: A_SEED_MA120 trailing_1y giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: B_MA120_OR_K9 ytd giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: B_MA120_OR_K9 trailing_1y giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: C_OR_K9_AND_BELOW_MA60 ytd giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: C_OR_K9_AND_BELOW_MA60 trailing_1y giveback > 5 pp"
     },
     {
       "severity": "INFO",
@@ -236,6 +272,54 @@
     },
     {
       "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: A_SEED_MA120 ytd CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: A_SEED_MA120 trailing_1y CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: B_MA120_OR_K9 ytd CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: B_MA120_OR_K9 trailing_1y CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: C_OR_K9_AND_BELOW_MA60 ytd CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: C_OR_K9_AND_BELOW_MA60 trailing_1y CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: C_OR_K9_AND_BELOW_MA60 sealed_2023_plus MDD worse than BASE_LIVE_FUSE_COOL"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
       "source": "live_paper_recon",
       "code": "RECON_NOTE",
       "message": "INDEX_DRIFT: max |live_idx-paper_idx|=3.3350% > 2% on overlap"
@@ -251,6 +335,18 @@
       "source": "r4_settlement_estimate",
       "code": "R4_ESTIMATE_PRESENT",
       "message": "R4 settlement_cash_estimate present \u2014 settled_cash_estimate=50415.51358572836 is liquidity view NOT portfolio NAV / Soft-Frozen cash"
+    },
+    {
+      "severity": "INFO",
+      "source": "r5_broker_reconcile",
+      "code": "R5_RECONCILE_OK",
+      "message": "R5 observe pack fixtures/r5_reconcile_observe/t2_broker_reconcile_latest.json all_ok=True \u2014 T+2 custody vs estimate (NOT NAV); broker live-write still PREP / EXECUTE blocked"
+    },
+    {
+      "severity": "INFO",
+      "source": "broker_prep_gates",
+      "code": "BROKER_PREP_GATES_CLOSED",
+      "message": "broker live-write PREP: fill_port=paper \u00b7 broker_live_write_accepted=False \u00b7 API_WIRED=False \u00b7 SendStockOrder/SendAlgo blocked"
     },
     {
       "severity": "INFO",
