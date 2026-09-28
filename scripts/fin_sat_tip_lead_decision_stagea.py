@@ -305,7 +305,10 @@ def _spearman(x: pd.Series, y: pd.Series) -> float | None:
     a = pd.concat([x, y], axis=1).dropna()
     if len(a) < 60:
         return None
-    return float(a.iloc[:, 0].corr(a.iloc[:, 1], method="spearman"))
+    # rank-Pearson avoids scipy dependency
+    rx = a.iloc[:, 0].rank()
+    ry = a.iloc[:, 1].rank()
+    return float(rx.corr(ry))
 
 
 def _lead_analysis(feat: pd.DataFrame) -> dict[str, Any]:

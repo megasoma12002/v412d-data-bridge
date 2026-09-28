@@ -1,8 +1,8 @@
 {
   "id": "FIN_SAT_TIP_LEAD_DECISION_STAGEA_CHARTER",
-  "status": "STAGE_A_OPEN",
+  "status": "STAGE_A_DONE",
   "date": "2026-09-28",
-  "label": "FIN_SAT_TIP_LEAD_DECISION_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "label": "FIN_SAT_TIP_LEAD_DECISION_STAGEA_CHARTER_2026-09-28__DONE_LEAD_SIGNAL__NO_LIVE_WIRE",
   "register": "0k9o",
   "parents": [
     "0k9n_LOCAL_MUTEX_TIP_LAG_BLOCK",
@@ -14,5 +14,8 @@
   "live_wire": false,
   "exact_t_plus_1": true,
   "question": "Find lead enter/exit decision points so Exact T+1 lag can still tip-clean under local mutex",
-  "script": "scripts/fin_sat_tip_lead_decision_stagea.py"
+  "script": "scripts/fin_sat_tip_lead_decision_stagea.py",
+  "verdict": "LEAD_SIGNAL",
+  "screen": "research/ops/FIN_SAT_TIP_LEAD_DECISION_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SAT_TIP_LEAD_DECISION_STAGEA_DECISION_PACK.md"
 }

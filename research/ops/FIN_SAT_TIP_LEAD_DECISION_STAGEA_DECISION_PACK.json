@@ -1,0 +1,23 @@
+{
+  "label": "FIN_SAT_TIP_LEAD_DECISION_STAGEA_DECISION_PACK_2026-09-28__LEAD_SIGNAL__NO_LIVE",
+  "status": "LEAD_SIGNAL",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "lead_signal": true,
+  "best_hit": null,
+  "best_ub_shaped": "UB_STATE_SD",
+  "charter": "research/ops/FIN_SAT_TIP_LEAD_DECISION_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_TIP_LEAD_DECISION_STAGEA_SCREEN.md",
+  "register": "0k9o",
+  "generated_at_utc": "2026-09-28T14:29:12Z",
+  "reading": {
+    "summary": "LEAD_SIGNAL: pre-enter SELL+5/Crisis↑ are external decision points; trail IC near-tautological; UB_ENTER_M1 tip-clean+held; best causal R_CONF_EARLY_L1 tipY−3.6 not clean",
+    "decision_points": [
+      "comp_sells_21 rising pre-enter",
+      "crisis/bearcrisis elevated pre-enter",
+      "1-day early enter sufficient (UB_ENTER_M1)"
+    ],
+    "best_causal": "R_CONF_EARLY_L1"
+  }
+}

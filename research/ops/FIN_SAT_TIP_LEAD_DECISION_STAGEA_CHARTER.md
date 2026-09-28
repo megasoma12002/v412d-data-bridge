@@ -1,7 +1,7 @@
 # FIN×SAT tip-lead 決策點 Stage A (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `LEAD_SIGNAL`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - 0k9n 局部互斥 **`TIP_LAG_BLOCK`** — tip/held 時段分離；UB tip-clean+held；lag-1 擋 HIT
 - 0k9m/0k9l · COMPOSITE **`COMP_H150_x_A20`** · SAT_RELAX **`SAT_A20_RELAX`**
@@ -12,7 +12,7 @@ Human intent (normalized):
 OPEN Stage A: 在局部互斥＋TIP_LAG_BLOCK 下，找出可領先 SAT_LEAD 進入／退出的決策點，讓 Exact T+1 仍可能 tip-clean · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_TIP_LEAD_DECISION_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_TIP_LEAD_DECISION_STAGEA_CHARTER_2026-09-28__DONE_LEAD_SIGNAL__NO_LIVE_WIRE`
 
 ## Why
 
