@@ -1,0 +1,18 @@
+{
+  "id": "FIN_SAT_TIPGAP_PRED_STAGEA_CHARTER",
+  "status": "STAGE_A_OPEN",
+  "date": "2026-09-28",
+  "label": "FIN_SAT_TIPGAP_PRED_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "register": "0k9i",
+  "parents": [
+    "0k9h_CYCLE_SWITCH_TIP_MDD_ONLY",
+    "0k9b_COMPOSITE_OBSERVE_OPEN",
+    "0k9d_SAT_A20_RELAX_OBSERVE_OPEN"
+  ],
+  "mechanism": "tipgap_feature_ic_cycle_overlap_probe",
+  "methods_open": true,
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "script": "scripts/fin_sat_tipgap_pred_stagea.py"
+}
