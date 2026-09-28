@@ -1,0 +1,63 @@
+{
+  "label": "ETF0050_BOTH_QUALITY_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "status": "STAGE_A_OPEN",
+  "verdict": null,
+  "date": "2026-09-28",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "exact_t1_keep": true,
+  "cool_keep": true,
+  "sell_a75_keep": true,
+  "beta_clip_keep": true,
+  "cagr_sign": "chal_minus_base",
+  "charter": "research/ops/ETF0050_BOTH_QUALITY_STAGEA_CHARTER.md",
+  "charter_zh_tw": "research/ops/ETF0050_BOTH_QUALITY_STAGEA_CHARTER.zh-TW.md",
+  "base": "BASE_LIVE_FUSE_COOL",
+  "mechanism": "etf0050_delta_w_buy_sell_quality_overlay",
+  "not_mechanism": [
+    "soft_frozen_clip_densify",
+    "asymm_bull_densify",
+    "buy_fill_slew",
+    "ex_calendar_timing",
+    "fincap50"
+  ],
+  "universe_v1": ["0050"],
+  "excluded_v1": ["FIN_PUB", "FIN_PRIV", "TEL", "00631L", "00632R"],
+  "grid_ids": [
+    "CTRL_BASE",
+    "BUY_BELOW_MA120",
+    "BUY_ABOVE_MA60",
+    "BUY_RET5_POS",
+    "BUY_NOT_COOL",
+    "SELL_ABOVE_MA60",
+    "SELL_RET5_NEG",
+    "SELL_RSI14_GT70",
+    "SELL_COOL1_ONLY",
+    "BOTH_MA120_x_MA60",
+    "BOTH_RET5_x_RET5",
+    "BOTH_NOTCOOL_x_COOL",
+    "BOTH_MA60TREND_x_RSI",
+    "BUY_RET5_NEG_CTRL"
+  ],
+  "gates": {
+    "held_cagr_pp": 0.15,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0,
+    "buy_or_sell_win_rate_pp": 0.5,
+    "win_horizon": 21
+  },
+  "verdicts": [
+    "ETF_BOTH_QUALITY_HIT",
+    "WIN_SOFT",
+    "CAGR_SOFT",
+    "SINGLE_SIDE_ONLY",
+    "MDD_BLOCK",
+    "TIP_BLOCK",
+    "NO_EDGE"
+  ],
+  "script": "scripts/etf0050_both_quality_stagea.py",
+  "repro": "repro/etf0050-both-quality-stagea/",
+  "register": "1d",
+  "note": "OPEN charter only — screen script not yet run; no live wire"
+}
