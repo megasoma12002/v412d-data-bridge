@@ -10,7 +10,10 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27)
 **Eng tip-path P0–P2:** merged `#314` · Soft-Frozen KEEP  
 **Broker/R5/OCO PREP not open:** merged `#315` · `BROKER_R5_OCO_PREP_NOT_OPEN.md` · UAT readonly checklist `YUANTA_SPARK_UAT_READONLY_CHECKLIST.md`  
 **SAT_A20_H5:** Stage A MECH_HIT · Stage B PARENT_KEEP · decision **OPEN observe recommended** (ballot DRAFT) · `SAT_A20_H5_DECISION_2026-09-27.md` · live **BLOCKED**  
-FIN 浮虧延後賣（等回本）：**Stage A `COOL_GATE_REQUIRED`** · gated defer no lift · NOCOOLGATE proves gate needed · `FIN_LOSS_DEFER_SELL_STAGEA_DECISION_PACK.md` · no live
+FIN 浮虧延後賣（等回本）：**Stage A `COOL_GATE_REQUIRED`** · gated defer no lift · NOCOOLGATE proves gate needed · `FIN_LOSS_DEFER_SELL_STAGEA_DECISION_PACK.md` · no live  
+FIN 買側品質：**OBSERVE OPEN A/B/C** · human `請上observe` · `BASE∥A_SEED_MA120∥B_MA120_OR_K9∥C_OR_K9_AND_BELOW_MA60` OPERATING · cutover **BLOCKED** · Soft-Frozen KEEP · no live · `FIN_BUY_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
+FIN 賣側品質：Stage A `MDD_BLOCK` → Stage B **`NO_EDGE`** · soft-dampen 護 MDD 失 CAGR · SELL_a75 KEEP · no observe · no live · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md`  
+FIN 買賣側聯優：Stage A `WIN_SOFT` → Stage B **`BOTH_QUALITY_HIT`** · champion `B_OR_K9_x_HARD150` · ballot DRAFT · SELL_a75 KEEP · no live · `FIN_BOTH_QUALITY_STAGEB_DECISION_PACK.md`  
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
 新機制 V3：**STOP** · `PRIV_MDD_M1_SCALE_V3_DECISION_PACK.md`（N1–N3+V2+V3 STOP）  

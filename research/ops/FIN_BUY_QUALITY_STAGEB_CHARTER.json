@@ -1,0 +1,51 @@
+{
+  "label": "FIN_BUY_QUALITY_STAGEB_CHARTER_2026-09-28__DONE_BUY_QUALITY_HIT__NO_LIVE_WIRE",
+  "status": "STAGE_B_DONE_BUY_QUALITY_HIT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "exact_t1_keep": true,
+  "cool_keep": true,
+  "parent_stage_a": "WIN_SOFT",
+  "seed": "Q_BELOW_MA120",
+  "charter": "research/ops/FIN_BUY_QUALITY_STAGEB_CHARTER.md",
+  "charter_zh_tw": "research/ops/FIN_BUY_QUALITY_STAGEB_CHARTER.zh-TW.md",
+  "grid_ids": [
+    "CTRL_BASE",
+    "SEED_MA120",
+    "B_MA90",
+    "B_MA100",
+    "B_MA150",
+    "B_MA180",
+    "B_MA120_KD_ONLY",
+    "B_MA120_OFF_ONLY",
+    "B_MA120_OR_K9",
+    "B_MA120_OR_RSI50"
+  ],
+  "gates_hit": {
+    "held_cagr_pp": 0.15,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0,
+    "buy_win_rate_pp": 1.0
+  },
+  "gates_observe": {
+    "held_cagr_pp": 0.15,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0,
+    "buy_win_rate_pp_floor": -1.0
+  },
+  "verdicts": [
+    "BUY_QUALITY_HIT",
+    "OBSERVE_RECOMMENDED",
+    "MICRO_SOFT",
+    "PARENT_KEEP",
+    "MDD_BLOCK",
+    "NO_LIFT"
+  ],
+  "script": "scripts/fin_buy_quality_stageb.py",
+  "repro": "repro/fin-buy-quality-stageb/",
+  "register": "0k6d2",
+  "verdict": "BUY_QUALITY_HIT",
+  "champion": "B_MA120_OR_K9"
+}

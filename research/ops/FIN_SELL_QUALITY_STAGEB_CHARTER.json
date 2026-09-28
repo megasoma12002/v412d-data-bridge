@@ -1,0 +1,13 @@
+{
+  "label": "FIN_SELL_QUALITY_STAGEB_CHARTER_2026-09-28__DONE_NO_EDGE__NO_LIVE_WIRE",
+  "status": "DONE",
+  "verdict": "NO_EDGE",
+  "date": "2026-09-28",
+  "live_wire": false,
+  "sell_a75_keep": true,
+  "cagr_sign": "chal_minus_base",
+  "charter": "research/ops/FIN_SELL_QUALITY_STAGEB_CHARTER.md",
+  "script": "scripts/fin_sell_quality_stageb.py",
+  "screen": "research/ops/FIN_SELL_QUALITY_STAGEB_SCREEN.md",
+  "decision": "research/ops/FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md"
+}

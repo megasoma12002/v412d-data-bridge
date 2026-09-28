@@ -1,0 +1,246 @@
+{
+  "generated_at_utc": "2026-09-28T04:27:12.600545+00:00",
+  "label": "FIN_BUY_QUALITY_DUAL_PAPER_OBSERVE_OPERATING",
+  "human_open": "OPEN paper observe: FIN buy-quality A/B/C",
+  "status": "OPERATING_OBSERVE",
+  "live_wire": false,
+  "cutover": "BLOCKED",
+  "cutover_blocked": true,
+  "soft_frozen_unchanged": true,
+  "base_id": "BASE_LIVE_FUSE_COOL",
+  "challengers": [
+    "A_SEED_MA120",
+    "B_MA120_OR_K9",
+    "C_OR_K9_AND_BELOW_MA60"
+  ],
+  "stage_a_verdict": "WIN_SOFT",
+  "stage_b_verdict": "BUY_QUALITY_HIT",
+  "stage_c_verdict": "HYBRID_PARETO",
+  "parent_d_verdict": "PARENT_KEEP_B",
+  "filters": {
+    "A_SEED_MA120": "BELOW_MA120",
+    "B_MA120_OR_K9": "BELOW_MA120 OR K9_LT30",
+    "C_OR_K9_AND_BELOW_MA60": "BELOW_MA120 OR (K9_LT30 AND BELOW_MA60)"
+  },
+  "cool_frac_defense": 0.16017830609212483,
+  "books": {
+    "BASE_LIVE_FUSE_COOL": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 0.9199108469539375,
+      "e45_sleeve_names": null,
+      "windows": {
+        "full": {
+          "cagr": 0.12449002529256115,
+          "max_drawdown": -0.14107650967243457,
+          "utility": 0.05395177045634386,
+          "vol": 0.10140738866725925,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08711707907608379,
+          "max_drawdown": -0.12974077306607634,
+          "utility": 0.02224669254304562,
+          "vol": 0.09158434098446268,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.13024783629673964,
+          "max_drawdown": -0.14107650967243468,
+          "utility": 0.0597095814605223,
+          "vol": 0.10305791291904527,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.1888749409432433,
+          "max_drawdown": -0.062412345775515465,
+          "utility": 0.15766876805548558,
+          "vol": 0.11423178564544828,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1576942168390123,
+          "max_drawdown": -0.14107650967243468,
+          "utility": 0.08715596200279496,
+          "vol": 0.10849191957783863,
+          "n_days": 1870
+        }
+      }
+    },
+    "A_SEED_MA120": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 0.9199108469539375,
+      "e45_sleeve_names": null,
+      "windows": {
+        "full": {
+          "cagr": 0.11744266688399962,
+          "max_drawdown": -0.13216396878230663,
+          "utility": 0.05136068249284631,
+          "vol": 0.09639235643294466,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09091980039754977,
+          "max_drawdown": -0.11903538758793808,
+          "utility": 0.031402106603580726,
+          "vol": 0.0880664826898303,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12491948558521826,
+          "max_drawdown": -0.13216396878230674,
+          "utility": 0.05883750119406489,
+          "vol": 0.09785650760271682,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.15968149958066769,
+          "max_drawdown": -0.06171256250228041,
+          "utility": 0.12882521832952748,
+          "vol": 0.10733518859113722,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.14144089306455432,
+          "max_drawdown": -0.13216396878230674,
+          "utility": 0.07535890867340095,
+          "vol": 0.10244187009951751,
+          "n_days": 1870
+        }
+      }
+    },
+    "B_MA120_OR_K9": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 0.9199108469539375,
+      "e45_sleeve_names": null,
+      "windows": {
+        "full": {
+          "cagr": 0.12245316080159796,
+          "max_drawdown": -0.12058322041066638,
+          "utility": 0.06216155059626477,
+          "vol": 0.09845399009063088,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09105372646048338,
+          "max_drawdown": -0.11893939450603708,
+          "utility": 0.03158402920746484,
+          "vol": 0.08881235588510875,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12298463545105531,
+          "max_drawdown": -0.12058322041066616,
+          "utility": 0.06269302524572223,
+          "vol": 0.10139271844495287,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.18210684811213418,
+          "max_drawdown": -0.061631498307681665,
+          "utility": 0.15129109895829335,
+          "vol": 0.10960355033941001,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.15097817179452977,
+          "max_drawdown": -0.12058322041066616,
+          "utility": 0.09068656158919669,
+          "vol": 0.1053500109174106,
+          "n_days": 1870
+        }
+      }
+    },
+    "C_OR_K9_AND_BELOW_MA60": {
+      "exact_t1_ok": true,
+      "same_bar_fills": 0,
+      "mean_e45_exposure": 0.9199108469539375,
+      "e45_sleeve_names": null,
+      "windows": {
+        "full": {
+          "cagr": 0.11758710112241966,
+          "max_drawdown": -0.14044479491292605,
+          "utility": 0.04736470366595663,
+          "vol": 0.09735581315542229,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08889706336551417,
+          "max_drawdown": -0.11893939450603708,
+          "utility": 0.029427366112495634,
+          "vol": 0.0880748877717881,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12053861853220682,
+          "max_drawdown": -0.14044479491292627,
+          "utility": 0.05031622107574368,
+          "vol": 0.09935340691273295,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.16936718565234954,
+          "max_drawdown": -0.0625814993420507,
+          "utility": 0.13807643598132419,
+          "vol": 0.10904058372853234,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.1435212486819628,
+          "max_drawdown": -0.14044479491292627,
+          "utility": 0.07329885122549967,
+          "vol": 0.10404497643452959,
+          "n_days": 1870
+        }
+      }
+    }
+  },
+  "heldout_2019_plus": {
+    "A_SEED_MA120": {
+      "mdd_improve_pp": 0.8913,
+      "cagr_giveback_pp": 1.6253,
+      "cagr_lift_pp": -1.6253,
+      "score": 0.0786
+    },
+    "B_MA120_OR_K9": {
+      "mdd_improve_pp": 2.0493,
+      "cagr_giveback_pp": 0.6716,
+      "cagr_lift_pp": -0.6716,
+      "score": 1.7135
+    },
+    "C_OR_K9_AND_BELOW_MA60": {
+      "mdd_improve_pp": 0.0632,
+      "cagr_giveback_pp": 1.4173,
+      "cagr_lift_pp": -1.4173,
+      "score": -0.6455
+    }
+  },
+  "sealed_2023_plus": {
+    "A_SEED_MA120": {
+      "mdd_improve_pp": 0.07,
+      "cagr_giveback_pp": 2.9193,
+      "cagr_lift_pp": -2.9193,
+      "score": -1.3897
+    },
+    "B_MA120_OR_K9": {
+      "mdd_improve_pp": 0.0781,
+      "cagr_giveback_pp": 0.6768,
+      "cagr_lift_pp": -0.6768,
+      "score": -0.2603
+    },
+    "C_OR_K9_AND_BELOW_MA60": {
+      "mdd_improve_pp": -0.0169,
+      "cagr_giveback_pp": 1.9508,
+      "cagr_lift_pp": -1.9508,
+      "score": -0.9923
+    }
+  },
+  "non_actions": [
+    "paper observe only",
+    "no Soft-Frozen clip flip",
+    "no tip history rewrite",
+    "no live buy-quality wire without dedicated Class D ACCEPT"
+  ]
+}
