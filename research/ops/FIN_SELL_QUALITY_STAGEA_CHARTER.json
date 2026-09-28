@@ -1,20 +1,13 @@
 {
-  "label": "FIN_SELL_QUALITY_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
-  "status": "OPEN",
+  "label": "FIN_SELL_QUALITY_STAGEA_CHARTER_2026-09-28__DONE_MDD_BLOCK__NO_LIVE_WIRE",
+  "status": "DONE",
+  "verdict": "MDD_BLOCK",
   "date": "2026-09-28",
   "live_wire": false,
-  "keep": [
-    "Soft-Frozen",
-    "Exact T+1",
-    "COOL_c8",
-    "SELL_a75"
-  ],
-  "forbidden": [
-    "sell_loss_defer",
-    "tip_rewrite",
-    "remove_SELL_a75"
-  ],
+  "sell_a75_keep": true,
   "cagr_sign": "chal_minus_base",
+  "charter": "research/ops/FIN_SELL_QUALITY_STAGEA_CHARTER.md",
   "script": "scripts/fin_sell_quality_stagea.py",
-  "charter": "research/ops/FIN_SELL_QUALITY_STAGEA_CHARTER.md"
+  "screen": "research/ops/FIN_SELL_QUALITY_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SELL_QUALITY_STAGEA_DECISION_PACK.md"
 }

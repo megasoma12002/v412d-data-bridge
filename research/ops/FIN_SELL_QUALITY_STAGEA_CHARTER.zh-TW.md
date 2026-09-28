@@ -1,7 +1,7 @@
 # FIN 賣側品質 Stage A — 章程（繁中摘要）
 
 日期：2026-09-28  
-狀態：**Stage A OPEN** · Soft-Frozen / Exact T+1 / COOL / **SELL_a75 KEEP** · 無 live wire
+狀態：**Stage A DONE — `MDD_BLOCK`** · Soft-Frozen / Exact T+1 / COOL / **SELL_a75 KEEP** · 無 live wire
 
 ```
 OPEN Stage A: FIN 賣側品質過濾 · 保留已測賣側優化(SELL_a75) · MDD持平/改善 + CAGR↑ · 勝率兼顧更好 · paper only
