@@ -1,0 +1,121 @@
+{
+  "generated_at_utc": "2026-09-28T07:16:44.455977+00:00",
+  "asof": "2026-09-24",
+  "label": "SAT_A20_H5_MONTH_END_MONITOR",
+  "status": "OPERATING_OBSERVE",
+  "base_id": "BASE_LIVE_CONF",
+  "challenger_id": "SAT_A20_H5",
+  "locked_id": "SAT_A20_H5",
+  "nav_source": "daily_nav",
+  "live_wire": false,
+  "soft_frozen_clips_unchanged": true,
+  "soft_frozen_unchanged": true,
+  "cutover_authorized": false,
+  "alerts": [
+    "ALERT: SAT_A20_H5 heldout_2019_plus MDD worse than BASE_LIVE_CONF",
+    "ALERT: SAT_A20_H5 sealed_2023_plus MDD worse than BASE_LIVE_CONF"
+  ],
+  "windows": [
+    {
+      "window": "mtd",
+      "start": "2026-09-01",
+      "end": "2026-09-24",
+      "n_days": 18,
+      "base_cagr": 1.6105221219377515,
+      "base_mdd": -0.025073931338289612,
+      "chal_cagr": 1.625104722266018,
+      "chal_mdd": -0.025448793195384734,
+      "mdd_improve_pp": -0.03748618570951212,
+      "cagr_giveback_pp": -1.4582600328266526,
+      "rel_nav_end": 1.0003758611091624,
+      "score": -0.7666162021228384
+    },
+    {
+      "window": "ytd",
+      "start": "2026-01-01",
+      "end": "2026-09-24",
+      "n_days": 176,
+      "base_cagr": 0.5356437459853218,
+      "base_mdd": -0.060876697029569105,
+      "chal_cagr": 0.5424452346996007,
+      "chal_mdd": -0.060666323701651814,
+      "mdd_improve_pp": 0.021037332791729035,
+      "cagr_giveback_pp": -0.680148871427888,
+      "rel_nav_end": 1.003073672618818,
+      "score": -0.319037102922215
+    },
+    {
+      "window": "trailing_1y",
+      "start": "2025-09-24",
+      "end": "2026-09-24",
+      "n_days": 242,
+      "base_cagr": 0.4004931156677818,
+      "base_mdd": -0.060876697029569216,
+      "chal_cagr": 0.4079056766378295,
+      "chal_mdd": -0.060666323701651814,
+      "mdd_improve_pp": 0.021037332791740138,
+      "cagr_giveback_pp": -0.7412560970047721,
+      "rel_nav_end": 1.0050612025999033,
+      "score": -0.3495907157106459
+    },
+    {
+      "window": "heldout_2019_plus",
+      "start": "2019-01-01",
+      "end": "2026-09-24",
+      "n_days": 1870,
+      "base_cagr": 0.1630541396530214,
+      "base_mdd": -0.14423362198120193,
+      "chal_cagr": 0.1663970804171444,
+      "chal_mdd": -0.1473182644112726,
+      "mdd_improve_pp": -0.3084642430070672,
+      "cagr_giveback_pp": -0.33429407641230036,
+      "rel_nav_end": 1.0215151671453286,
+      "score": -0.4756112812132174
+    },
+    {
+      "window": "sealed_2023_plus",
+      "start": "2023-01-01",
+      "end": "2026-09-24",
+      "n_days": 893,
+      "base_cagr": 0.19510071628428882,
+      "base_mdd": -0.06202220203644304,
+      "chal_cagr": 0.19641797864535082,
+      "chal_mdd": -0.0630151218200663,
+      "mdd_improve_pp": -0.09929197836232584,
+      "cagr_giveback_pp": -0.13172623610619993,
+      "rel_nav_end": 1.0039069680986605,
+      "score": -0.1651550964154258
+    },
+    {
+      "window": "full",
+      "start": "2012-12-04",
+      "end": "2026-09-24",
+      "n_days": 3365,
+      "base_cagr": 0.12738075071916577,
+      "base_mdd": -0.14423362198120193,
+      "chal_cagr": 0.12942945488662327,
+      "chal_mdd": -0.1473182644112725,
+      "mdd_improve_pp": -0.3084642430070561,
+      "cagr_giveback_pp": -0.20487041674575046,
+      "rel_nav_end": 1.0245325838606851,
+      "score": -0.41089945137993134
+    }
+  ],
+  "gates": {
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "design_giveback_pp": {
+      "heldout_2019_plus": 1.0,
+      "sealed_2023_plus": 5.0
+    },
+    "structural_buffer_pp": 2.0,
+    "alert_policy": "default"
+  },
+  "non_actions": [
+    "paper observe only",
+    "no Soft-Frozen clip flip",
+    "no live CONF \u03b1 densify from this monitor",
+    "MECH_HIT observe posture only \u00b7 cutover BLOCKED"
+  ],
+  "cutover_blocked": true
+}

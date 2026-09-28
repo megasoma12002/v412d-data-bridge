@@ -1,0 +1,819 @@
+{
+  "label": "FIN_BUY_QUALITY_STAGEA_SCREEN_20260928T032742Z",
+  "generated_at_utc": "2026-09-28T03:27:42Z",
+  "charter": "research/ops/FIN_BUY_QUALITY_STAGEA_CHARTER.md",
+  "status": "STAGE_A_SCREEN_DONE",
+  "verdict": "WIN_SOFT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "exact_t1_keep": true,
+  "cool_keep": true,
+  "base_id": "CTRL_BASE",
+  "gates": {
+    "held_cagr_pp": 0.15,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0,
+    "buy_win_rate_pp": 2.0,
+    "buy_win_horizon": 21
+  },
+  "books": [
+    {
+      "id": "CTRL_BASE",
+      "windows": {
+        "full": {
+          "cagr": 0.12449,
+          "max_drawdown": -0.141077,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087117,
+          "max_drawdown": -0.129741,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.130248,
+          "max_drawdown": -0.141077,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.188875,
+          "max_drawdown": -0.062412,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.157694,
+          "max_drawdown": -0.141077,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 0.0,
+        "held_mdd_pp": 0.0,
+        "held_abs_mdd": -0.141077,
+        "tip_ytd_mdd_pp": 0.0,
+        "tip_1y_mdd_pp": 0.0,
+        "buy_win_rate": 73.5113,
+        "buy_win_rate_pp": 0.0,
+        "buy_win_n": 1461,
+        "sell_win_rate": 63.6364,
+        "sell_win_n": 924,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_rate": false
+        },
+        "hit": false
+      },
+      "buy_wr": {
+        "n": 1461,
+        "wins": 1074,
+        "win_rate": 73.5113,
+        "mean_fwd": 1.9555
+      },
+      "sell_wr": {
+        "n": 924,
+        "wins": 588,
+        "win_rate": 63.6364,
+        "mean_fwd": 1.4376
+      },
+      "spec": {
+        "id": "CTRL_BASE",
+        "filter": null
+      },
+      "n_fills": 4757
+    },
+    {
+      "id": "Q_BELOW_MA60",
+      "windows": {
+        "full": {
+          "cagr": 0.123745,
+          "max_drawdown": -0.153531,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.084633,
+          "max_drawdown": -0.13333,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.103334,
+          "max_drawdown": -0.153531,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.220676,
+          "max_drawdown": -0.078153,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.158447,
+          "max_drawdown": -0.153531,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -1.797,
+          "cagr_giveback_pp": -1.8786,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -1.797,
+          "cagr_giveback_pp": -3.9017,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.0753,
+        "held_mdd_pp": -1.2454,
+        "held_abs_mdd": -0.153531,
+        "tip_ytd_mdd_pp": -1.797,
+        "tip_1y_mdd_pp": -1.797,
+        "buy_win_rate": 77.0424,
+        "buy_win_rate_pp": 3.5311,
+        "buy_win_n": 967,
+        "sell_win_rate": 63.5605,
+        "sell_win_n": 719,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": false,
+          "mdd_band": false,
+          "tip_safe": false,
+          "buy_win_rate": true
+        },
+        "hit": false
+      },
+      "buy_wr": {
+        "n": 967,
+        "wins": 745,
+        "win_rate": 77.0424,
+        "mean_fwd": 2.7118
+      },
+      "sell_wr": {
+        "n": 719,
+        "wins": 457,
+        "win_rate": 63.5605,
+        "mean_fwd": 1.5473
+      },
+      "spec": {
+        "id": "Q_BELOW_MA60",
+        "filter": "BELOW_MA60"
+      },
+      "n_fills": 5093
+    },
+    {
+      "id": "Q_BELOW_MA120",
+      "windows": {
+        "full": {
+          "cagr": 0.117443,
+          "max_drawdown": -0.132164,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09092,
+          "max_drawdown": -0.119035,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.124919,
+          "max_drawdown": -0.132164,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.159681,
+          "max_drawdown": -0.061713,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.141441,
+          "max_drawdown": -0.132164,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.6645,
+          "cagr_giveback_pp": 20.3257,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.6645,
+          "cagr_giveback_pp": 13.8379,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.6253,
+        "held_mdd_pp": 0.8913,
+        "held_abs_mdd": -0.132164,
+        "tip_ytd_mdd_pp": 0.6645,
+        "tip_1y_mdd_pp": 0.6645,
+        "buy_win_rate": 72.9288,
+        "buy_win_rate_pp": -0.5825,
+        "buy_win_n": 857,
+        "sell_win_rate": 62.8686,
+        "sell_win_n": 746,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_rate": false
+        },
+        "hit": false
+      },
+      "buy_wr": {
+        "n": 857,
+        "wins": 625,
+        "win_rate": 72.9288,
+        "mean_fwd": 2.5344
+      },
+      "sell_wr": {
+        "n": 746,
+        "wins": 469,
+        "win_rate": 62.8686,
+        "mean_fwd": 1.437
+      },
+      "spec": {
+        "id": "Q_BELOW_MA120",
+        "filter": "BELOW_MA120"
+      },
+      "n_fills": 4788
+    },
+    {
+      "id": "Q_NOT_RSI14_GT70",
+      "windows": {
+        "full": {
+          "cagr": 0.126784,
+          "max_drawdown": -0.145513,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086372,
+          "max_drawdown": -0.129741,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.127856,
+          "max_drawdown": -0.145513,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.201537,
+          "max_drawdown": -0.069606,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.162555,
+          "max_drawdown": -0.145513,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.9424,
+          "cagr_giveback_pp": -2.2963,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.9424,
+          "cagr_giveback_pp": -2.7368,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.4861,
+        "held_mdd_pp": -0.4436,
+        "held_abs_mdd": -0.145513,
+        "tip_ytd_mdd_pp": -0.9424,
+        "tip_1y_mdd_pp": -0.9424,
+        "buy_win_rate": 75.6011,
+        "buy_win_rate_pp": 2.0898,
+        "buy_win_n": 1414,
+        "sell_win_rate": 64.9619,
+        "sell_win_n": 919,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": false,
+          "mdd_band": true,
+          "tip_safe": false,
+          "buy_win_rate": true
+        },
+        "hit": false
+      },
+      "buy_wr": {
+        "n": 1414,
+        "wins": 1069,
+        "win_rate": 75.6011,
+        "mean_fwd": 2.1839
+      },
+      "sell_wr": {
+        "n": 919,
+        "wins": 597,
+        "win_rate": 64.9619,
+        "mean_fwd": 1.5254
+      },
+      "spec": {
+        "id": "Q_NOT_RSI14_GT70",
+        "filter": "NOT_RSI14_GT70"
+      },
+      "n_fills": 4738
+    },
+    {
+      "id": "Q_RSI14_LT50",
+      "windows": {
+        "full": {
+          "cagr": 0.129667,
+          "max_drawdown": -0.142716,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.098662,
+          "max_drawdown": -0.124024,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.094883,
+          "max_drawdown": -0.142716,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.230268,
+          "max_drawdown": -0.075951,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.158271,
+          "max_drawdown": -0.142716,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -1.5769,
+          "cagr_giveback_pp": -0.1451,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -1.5769,
+          "cagr_giveback_pp": -2.7158,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.0577,
+        "held_mdd_pp": -0.1639,
+        "held_abs_mdd": -0.142716,
+        "tip_ytd_mdd_pp": -1.5769,
+        "tip_1y_mdd_pp": -1.5769,
+        "buy_win_rate": 75.7025,
+        "buy_win_rate_pp": 2.1912,
+        "buy_win_n": 605,
+        "sell_win_rate": 65.7434,
+        "sell_win_n": 686,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": false,
+          "buy_win_rate": true
+        },
+        "hit": false
+      },
+      "buy_wr": {
+        "n": 605,
+        "wins": 458,
+        "win_rate": 75.7025,
+        "mean_fwd": 3.0129
+      },
+      "sell_wr": {
+        "n": 686,
+        "wins": 451,
+        "win_rate": 65.7434,
+        "mean_fwd": 1.7146
+      },
+      "spec": {
+        "id": "Q_RSI14_LT50",
+        "filter": "RSI14_LT50"
+      },
+      "n_fills": 4590
+    },
+    {
+      "id": "Q_ABOVE_MA60",
+      "windows": {
+        "full": {
+          "cagr": 0.113254,
+          "max_drawdown": -0.151826,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.078738,
+          "max_drawdown": -0.141838,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.093725,
+          "max_drawdown": -0.151826,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.202573,
+          "max_drawdown": -0.104371,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.144179,
+          "max_drawdown": -0.151826,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -4.4188,
+          "cagr_giveback_pp": -10.6603,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -4.4188,
+          "cagr_giveback_pp": -9.9233,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.3515,
+        "held_mdd_pp": -1.0749,
+        "held_abs_mdd": -0.151826,
+        "tip_ytd_mdd_pp": -4.4188,
+        "tip_1y_mdd_pp": -4.4188,
+        "buy_win_rate": 64.5933,
+        "buy_win_rate_pp": -8.918,
+        "buy_win_n": 627,
+        "sell_win_rate": 62.4638,
+        "sell_win_n": 690,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": false,
+          "mdd_band": false,
+          "tip_safe": false,
+          "buy_win_rate": false
+        },
+        "hit": false
+      },
+      "buy_wr": {
+        "n": 627,
+        "wins": 405,
+        "win_rate": 64.5933,
+        "mean_fwd": 1.0224
+      },
+      "sell_wr": {
+        "n": 690,
+        "wins": 431,
+        "win_rate": 62.4638,
+        "mean_fwd": 1.2513
+      },
+      "spec": {
+        "id": "Q_ABOVE_MA60",
+        "filter": "ABOVE_MA60"
+      },
+      "n_fills": 4303
+    },
+    {
+      "id": "Q_RET5_POS",
+      "windows": {
+        "full": {
+          "cagr": 0.118018,
+          "max_drawdown": -0.141262,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.082164,
+          "max_drawdown": -0.123671,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.128692,
+          "max_drawdown": -0.141262,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.173369,
+          "max_drawdown": -0.063087,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.149708,
+          "max_drawdown": -0.141262,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0465,
+          "cagr_giveback_pp": 4.2487,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0465,
+          "cagr_giveback_pp": 3.0741,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 0.7986,
+        "held_mdd_pp": -0.0185,
+        "held_abs_mdd": -0.141262,
+        "tip_ytd_mdd_pp": -0.0465,
+        "tip_1y_mdd_pp": -0.0465,
+        "buy_win_rate": 71.8782,
+        "buy_win_rate_pp": -1.6331,
+        "buy_win_n": 985,
+        "sell_win_rate": 65.7955,
+        "sell_win_n": 880,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": false,
+          "buy_win_rate": false
+        },
+        "hit": false
+      },
+      "buy_wr": {
+        "n": 985,
+        "wins": 708,
+        "win_rate": 71.8782,
+        "mean_fwd": 1.4631
+      },
+      "sell_wr": {
+        "n": 880,
+        "wins": 579,
+        "win_rate": 65.7955,
+        "mean_fwd": 1.5539
+      },
+      "spec": {
+        "id": "Q_RET5_POS",
+        "filter": "RET5_POS"
+      },
+      "n_fills": 4588
+    },
+    {
+      "id": "Q_RET10_POS",
+      "windows": {
+        "full": {
+          "cagr": 0.115218,
+          "max_drawdown": -0.149833,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.080909,
+          "max_drawdown": -0.146257,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.122052,
+          "max_drawdown": -0.149833,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.172451,
+          "max_drawdown": -0.066521,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.145723,
+          "max_drawdown": -0.149833,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.6338,
+          "cagr_giveback_pp": 4.7766,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.6338,
+          "cagr_giveback_pp": 3.0443,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.1971,
+        "held_mdd_pp": -0.8756,
+        "held_abs_mdd": -0.149833,
+        "tip_ytd_mdd_pp": -0.6338,
+        "tip_1y_mdd_pp": -0.6338,
+        "buy_win_rate": 69.9779,
+        "buy_win_rate_pp": -3.5334,
+        "buy_win_n": 906,
+        "sell_win_rate": 63.7993,
+        "sell_win_n": 837,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": false,
+          "mdd_band": true,
+          "tip_safe": false,
+          "buy_win_rate": false
+        },
+        "hit": false
+      },
+      "buy_wr": {
+        "n": 906,
+        "wins": 634,
+        "win_rate": 69.9779,
+        "mean_fwd": 1.2612
+      },
+      "sell_wr": {
+        "n": 837,
+        "wins": 534,
+        "win_rate": 63.7993,
+        "mean_fwd": 1.283
+      },
+      "spec": {
+        "id": "Q_RET10_POS",
+        "filter": "RET10_POS"
+      },
+      "n_fills": 4381
+    },
+    {
+      "id": "Q_COOL1_ONLY",
+      "windows": {
+        "full": {
+          "cagr": 0.123785,
+          "max_drawdown": -0.141389,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086665,
+          "max_drawdown": -0.129688,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.12977,
+          "max_drawdown": -0.141389,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.18741,
+          "max_drawdown": -0.062487,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.156761,
+          "max_drawdown": -0.141389,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0207,
+          "cagr_giveback_pp": 0.141,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0207,
+          "cagr_giveback_pp": 0.1175,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 0.0933,
+        "held_mdd_pp": -0.0312,
+        "held_abs_mdd": -0.141389,
+        "tip_ytd_mdd_pp": 0.0207,
+        "tip_1y_mdd_pp": 0.0207,
+        "buy_win_rate": 74.1643,
+        "buy_win_rate_pp": 0.653,
+        "buy_win_n": 1436,
+        "sell_win_rate": 63.7339,
+        "sell_win_n": 932,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_rate": false
+        },
+        "hit": false
+      },
+      "buy_wr": {
+        "n": 1436,
+        "wins": 1065,
+        "win_rate": 74.1643,
+        "mean_fwd": 2.0207
+      },
+      "sell_wr": {
+        "n": 932,
+        "wins": 594,
+        "win_rate": 63.7339,
+        "mean_fwd": 1.4462
+      },
+      "spec": {
+        "id": "Q_COOL1_ONLY",
+        "filter": "COOL1_ONLY"
+      },
+      "n_fills": 4776
+    },
+    {
+      "id": "Q_RET5_NEG",
+      "windows": {
+        "full": {
+          "cagr": 0.125577,
+          "max_drawdown": -0.153062,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.083538,
+          "max_drawdown": -0.153062,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.103532,
+          "max_drawdown": -0.151174,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.231601,
+          "max_drawdown": -0.084892,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.163377,
+          "max_drawdown": -0.151174,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -2.4709,
+          "cagr_giveback_pp": -5.5716,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -2.4709,
+          "cagr_giveback_pp": -7.57,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.5683,
+        "held_mdd_pp": -1.0097,
+        "held_abs_mdd": -0.151174,
+        "tip_ytd_mdd_pp": -2.4709,
+        "tip_1y_mdd_pp": -2.4709,
+        "buy_win_rate": 74.7207,
+        "buy_win_rate_pp": 1.2094,
+        "buy_win_n": 716,
+        "sell_win_rate": 65.6827,
+        "sell_win_n": 813,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": false,
+          "mdd_band": false,
+          "tip_safe": false,
+          "buy_win_rate": false
+        },
+        "hit": false
+      },
+      "buy_wr": {
+        "n": 716,
+        "wins": 535,
+        "win_rate": 74.7207,
+        "mean_fwd": 2.4892
+      },
+      "sell_wr": {
+        "n": 813,
+        "wins": 534,
+        "win_rate": 65.6827,
+        "mean_fwd": 1.7129
+      },
+      "spec": {
+        "id": "Q_RET5_NEG",
+        "filter": "RET5_NEG"
+      },
+      "n_fills": 4565
+    }
+  ],
+  "binding": [
+    "Soft-Frozen live KEEP — Stage A does not authorize buy-filter live wire",
+    "Exact T+1 KEEP",
+    "COOL_c8 KEEP",
+    "Win-rate is diagnostic on FIN BUY fwd H=21; not tip rewrite",
+    "Sell loss-defer is out of scope (separate rejected track)"
+  ]
+}

@@ -61,3 +61,11 @@ Soft-Frozen: **KEEP** · live DEFAULT **`E22_v3_recv_pay_effdelay`** (Stage-E; t
 ## Label
 
 `RESEARCH_PORTFOLIO_KEEP_ARCHIVE_LOCKED_2026-09-13__BANNER_SYNC_2026-09-26__FUSE_COOL_CLASSD`
+
+## 2026-09-28 Observe UP/DOWN batch
+
+Human: `請把可上 與可下進行上下` · `OBSERVE_UP_DOWN_BATCH_2026-09-28.md`
+
+**KEEP / OPEN observe:** FIN both-quality `B_OR_K9_x_HARD150` · `SAT_A20_H5`  
+**ARCHIVE paper observe queue:** Soft-assist · Sleeve · FUSE_ADDITIVE · priv native · FIN within-sleeve · FINCAP BLEND_025 · FIN_CAP_50 · E45 dual/sleeve-local/BLEND005 · DH_dd06 paper · FIN buy-quality A/B/C  
+**Live KEEP:** Soft-Frozen · FUSE · SELL_a75 · COOL_c8 · CONF_RET3_A10_H5 · Class D V7 F05 · TEL T3 · β clip

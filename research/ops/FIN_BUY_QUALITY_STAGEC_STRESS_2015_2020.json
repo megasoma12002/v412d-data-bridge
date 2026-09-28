@@ -1,0 +1,213 @@
+{
+  "label": "FIN_BUY_QUALITY_STAGEC_STRESS_2015_2020_2026-09-28",
+  "live_wire": false,
+  "verdict": "CHAMP_STRESS_MIXED",
+  "champion": "C_OR_K9_AND_BELOW_MA60",
+  "vs_ctrl_mdd_pp": {
+    "2015_summer_crash": -0.183,
+    "2020_covid_crash": 0.064,
+    "2020_feb_mar": 0.745
+  },
+  "rows": [
+    {
+      "book": "CTRL_BASE",
+      "window": "2015_calendar",
+      "n_days": 244,
+      "ret_pct": -1.662,
+      "mdd_pct": -10.016,
+      "peak_date": "2015-04-28",
+      "trough_date": "2015-12-15",
+      "end_date": "2015-12-31"
+    },
+    {
+      "book": "CTRL_BASE",
+      "window": "2015_summer_crash",
+      "n_days": 124,
+      "ret_pct": -1.267,
+      "mdd_pct": -9.42,
+      "peak_date": "2015-04-28",
+      "trough_date": "2015-08-24",
+      "end_date": "2015-09-30"
+    },
+    {
+      "book": "CTRL_BASE",
+      "window": "2020_calendar",
+      "n_days": 245,
+      "ret_pct": 5.469,
+      "mdd_pct": -14.108,
+      "peak_date": "2020-01-20",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-12-31"
+    },
+    {
+      "book": "CTRL_BASE",
+      "window": "2020_covid_crash",
+      "n_days": 67,
+      "ret_pct": -3.618,
+      "mdd_pct": -14.108,
+      "peak_date": "2020-01-20",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-04-30"
+    },
+    {
+      "book": "CTRL_BASE",
+      "window": "2020_feb_mar",
+      "n_days": 41,
+      "ret_pct": -6.331,
+      "mdd_pct": -13.298,
+      "peak_date": "2020-02-19",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-03-31"
+    },
+    {
+      "book": "P_SEED_MA120",
+      "window": "2015_calendar",
+      "n_days": 244,
+      "ret_pct": -1.885,
+      "mdd_pct": -9.593,
+      "peak_date": "2015-04-28",
+      "trough_date": "2015-08-24",
+      "end_date": "2015-12-31"
+    },
+    {
+      "book": "P_SEED_MA120",
+      "window": "2015_summer_crash",
+      "n_days": 124,
+      "ret_pct": -1.103,
+      "mdd_pct": -9.593,
+      "peak_date": "2015-04-28",
+      "trough_date": "2015-08-24",
+      "end_date": "2015-09-30"
+    },
+    {
+      "book": "P_SEED_MA120",
+      "window": "2020_calendar",
+      "n_days": 245,
+      "ret_pct": 4.941,
+      "mdd_pct": -13.216,
+      "peak_date": "2020-01-20",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-12-31"
+    },
+    {
+      "book": "P_SEED_MA120",
+      "window": "2020_covid_crash",
+      "n_days": 67,
+      "ret_pct": -3.493,
+      "mdd_pct": -13.216,
+      "peak_date": "2020-01-20",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-04-30"
+    },
+    {
+      "book": "P_SEED_MA120",
+      "window": "2020_feb_mar",
+      "n_days": 41,
+      "ret_pct": -6.047,
+      "mdd_pct": -11.721,
+      "peak_date": "2020-02-19",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-03-31"
+    },
+    {
+      "book": "P_B_OR_K9",
+      "window": "2015_calendar",
+      "n_days": 244,
+      "ret_pct": -1.874,
+      "mdd_pct": -9.603,
+      "peak_date": "2015-04-28",
+      "trough_date": "2015-08-24",
+      "end_date": "2015-12-31"
+    },
+    {
+      "book": "P_B_OR_K9",
+      "window": "2015_summer_crash",
+      "n_days": 124,
+      "ret_pct": -1.077,
+      "mdd_pct": -9.603,
+      "peak_date": "2015-04-28",
+      "trough_date": "2015-08-24",
+      "end_date": "2015-09-30"
+    },
+    {
+      "book": "P_B_OR_K9",
+      "window": "2020_calendar",
+      "n_days": 245,
+      "ret_pct": 5.788,
+      "mdd_pct": -12.058,
+      "peak_date": "2020-01-20",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-12-31"
+    },
+    {
+      "book": "P_B_OR_K9",
+      "window": "2020_covid_crash",
+      "n_days": 67,
+      "ret_pct": -3.064,
+      "mdd_pct": -12.058,
+      "peak_date": "2020-01-20",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-04-30"
+    },
+    {
+      "book": "P_B_OR_K9",
+      "window": "2020_feb_mar",
+      "n_days": 41,
+      "ret_pct": -5.482,
+      "mdd_pct": -10.917,
+      "peak_date": "2020-02-19",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-03-31"
+    },
+    {
+      "book": "C_OR_K9_AND_BELOW_MA60",
+      "window": "2015_calendar",
+      "n_days": 244,
+      "ret_pct": -1.874,
+      "mdd_pct": -9.603,
+      "peak_date": "2015-04-28",
+      "trough_date": "2015-08-24",
+      "end_date": "2015-12-31"
+    },
+    {
+      "book": "C_OR_K9_AND_BELOW_MA60",
+      "window": "2015_summer_crash",
+      "n_days": 124,
+      "ret_pct": -1.077,
+      "mdd_pct": -9.603,
+      "peak_date": "2015-04-28",
+      "trough_date": "2015-08-24",
+      "end_date": "2015-09-30"
+    },
+    {
+      "book": "C_OR_K9_AND_BELOW_MA60",
+      "window": "2020_calendar",
+      "n_days": 245,
+      "ret_pct": 5.072,
+      "mdd_pct": -14.044,
+      "peak_date": "2020-01-20",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-12-31"
+    },
+    {
+      "book": "C_OR_K9_AND_BELOW_MA60",
+      "window": "2020_covid_crash",
+      "n_days": 67,
+      "ret_pct": -3.335,
+      "mdd_pct": -14.044,
+      "peak_date": "2020-01-20",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-04-30"
+    },
+    {
+      "book": "C_OR_K9_AND_BELOW_MA60",
+      "window": "2020_feb_mar",
+      "n_days": 41,
+      "ret_pct": -6.539,
+      "mdd_pct": -12.553,
+      "peak_date": "2020-02-19",
+      "trough_date": "2020-03-19",
+      "end_date": "2020-03-31"
+    }
+  ]
+}

@@ -36,7 +36,11 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27 `R_L1_05`; prior 0.0
 | 0k4 | **大盤下行** → 00632R | **STAGE A MDD_BLOCK** (2026-09-25) | 正確觸發仍 CAGR↓ / sealed MDD 不過 · Soft-Frozen KEEP · `MKTDOWN_T50_INV_DECISION_PACK.md` |
 | 0k5 | COOL **結束** → `00631L` 搶反彈 | **STAGE A MDD_BLOCK** (2026-09-26) | CAGR 可↑但 MDD 門不過 · Soft-Frozen KEEP · no live · `COOL_T50_LEV_REBOUND_DECISION_PACK.md` |
 | 0k6 | `00631L` **短線輔助** T1–T4 | **STAGE A SHORT_ASSIST_HIT → OBSERVE → LIVE WIRED** (2026-09-26) | Human `CONF_RET3_A10_H5 accept live` · Soft-Frozen KEEP · forward-only · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
-| 0k6b | CONF densify **`SAT_A20_H5`** | **DECISION: OPEN observe recommended** (2026-09-27) | Stage A MECH_HIT · Stage B PARENT_KEEP · ballot **DRAFT** · live **BLOCKED** · `SAT_A20_H5_DECISION_2026-09-27.md` |
+| 0k6z | Observe UP/DOWN batch | **EXECUTED** (2026-09-28) | Human `請把可上 與可下進行上下` · OPEN both+SAT · CLOSE soft/sleeve/fuse/priv/BLEND/FIN50/E45 paper · `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
+| 0k6b | CONF densify **`SAT_A20_H5`** | **OBSERVE OPEN** (2026-09-28) | Human batch UP/DOWN · `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · live **BLOCKED** |
+| 0k6d | FIN 買側品質過濾 A/B/C | **OBSERVE CLOSED** (2026-09-28) | Superseded by both-quality HARD150 · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
+| 0k6e | FIN 賣側品質過濾 | **STAGE B `NO_EDGE`** (2026-09-28) | no observe · SELL_a75 KEEP · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md` |
+| 0k6f | FIN 買賣側聯優 | **OBSERVE OPEN HARD150** (2026-09-28) | Stage B HIT · `FIN_BOTH_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · SELL_a75 KEEP |
 | 0k7 | COOL **dual-handoff** 防守反1→結束正2 | **STAGE A DUAL_HANDOFF_SOFT** (2026-09-26) | 0 HIT · 3 SOFT · INV 拖垮 LEV CAGR · Soft-Frozen KEEP · no live · `COOL_T50_DUAL_HANDOFF_DECISION_PACK.md` |
 | 0l | 民股金控 Gate V8 AND-confirm stack | **STAGE A SOFT** (2026-09-25) | 0 HIT · 5 soft · best `V8_BSIDE_MA120_F05_KDMAY_COOL1` held CAGR↑ ≈0 / sealed MDD↑ +0.13 · Soft-Frozen KEEP · no V7 retune · `PRIV_FINHC_GATE_V8_DECISION_PACK.md` |
 | 1 | Soft-Frozen live clip **[0.60, 0.80]** / ETF **[0.00, 0.50]** | **FLIPPED** (ACCEPT 2026-09-25 β densify) | Was FINBAND [0.60,0.90]/ETF[0.00,0.35]; note `SOFT_FROZEN_CLIP_FLIP_ACCEPTED_BETA_0050.md` · prior FINBAND note KEEP |
