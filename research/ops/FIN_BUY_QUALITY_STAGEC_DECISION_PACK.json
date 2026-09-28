@@ -1,0 +1,13 @@
+{
+  "label": "FIN_BUY_QUALITY_STAGEC_DECISION_PACK_2026-09-28__HYBRID_PARETO__NO_LIVE",
+  "status": "HYBRID_PARETO",
+  "champion": "C_OR_K9_AND_BELOW_MA60",
+  "live_wire": false,
+  "parents": {
+    "A": "P_SEED_MA120",
+    "B": "P_B_OR_K9"
+  },
+  "charter": "research/ops/FIN_BUY_QUALITY_STAGEC_CHARTER.md",
+  "screen": "research/ops/FIN_BUY_QUALITY_STAGEC_SCREEN.md",
+  "generated_at_utc": "2026-09-28T04:02:15Z"
+}

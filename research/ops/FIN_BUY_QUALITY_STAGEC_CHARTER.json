@@ -1,6 +1,6 @@
 {
-  "label": "FIN_BUY_QUALITY_STAGEC_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
-  "status": "STAGE_C_OPEN",
+  "label": "FIN_BUY_QUALITY_STAGEC_CHARTER_2026-09-28__DONE_HYBRID_PARETO__NO_LIVE_WIRE",
+  "status": "STAGE_C_DONE_HYBRID_PARETO",
   "live_wire": false,
   "soft_frozen_keep": true,
   "parents": {
@@ -18,5 +18,8 @@
     "PARENT_KEEP_B",
     "MDD_BLOCK",
     "NO_LIFT"
-  ]
+  ],
+  "verdict": "HYBRID_PARETO",
+  "champion": "C_OR_K9_AND_BELOW_MA60",
+  "note": "MA120 ∨ (K9 ∧ BELOW_MA60): CAGR↑+1.42 WR↑+1.03 — beats A on WR and B on CAGR"
 }

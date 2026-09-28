@@ -1,7 +1,7 @@
 # FIN buy-quality Stage C — A∪B hybrid (paper)
 
 Date: 2026-09-28  
-Status: **Stage C OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · no live wire  
+Status: **Stage C DONE — `HYBRID_PARETO`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · no live wire  
 Parents: Stage A seed `SEED_MA120` (CAGR↑) · Stage B HIT `B_MA120_OR_K9` (WR↑ + MDD↑)  
 Human intent:
 
