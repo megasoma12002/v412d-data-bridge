@@ -1,7 +1,7 @@
 # ETF 0050 regime × 多空偵測器 Stage A — 紙上章程
 
 日期：2026-09-28  
-狀態：**Stage A OPEN** · Soft-Frozen **KEEP** · β clip **KEEP** · 不下 live  
+狀態：**Stage A DONE — `NO_EDGE`** · Soft-Frozen **KEEP** · β clip **KEEP** · 不下 live  
 父層：`1d`/`1e` **`TIP_BLOCK`** · `1c` densify **`CAGR_SOFT`**（不重開 clip densify）
 
 人話：
@@ -10,7 +10,7 @@
 OPEN Stage A: 0050 多空都做 · (A) live regime 閘 Δw · (B) 新 0050 多空偵測器閘 Δw · tip-safe + CAGR↑ · KEEP clip · paper only
 ```
 
-Label: `ETF0050_REGIME_DETECTOR_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `ETF0050_REGIME_DETECTOR_STAGEA_CHARTER_2026-09-28__DONE_NO_EDGE__NO_LIVE_WIRE`
 
 ## 雙軌
 

@@ -1,7 +1,7 @@
 # ETF 0050 regime × local detector Stage A — paper
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · β clip **KEEP** · no live wire  
+Status: **Stage A DONE — `NO_EDGE`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · β clip **KEEP** · no live wire  
 Parents: `1d` hard quality **`TIP_BLOCK`** · `1e` soft×extreme **`TIP_BLOCK`** · `1c` ASYMM Bull densify **`CAGR_SOFT`** (do **not** reopen clip densify)
 
 Human intent (normalized):
@@ -10,7 +10,7 @@ Human intent (normalized):
 OPEN Stage A: 0050 多空都做 · (A) live regime 閘 Δw · (B) 新 0050 多空偵測器閘 Δw · tip-safe + CAGR↑ · KEEP clip · paper only
 ```
 
-Label: `ETF0050_REGIME_DETECTOR_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `ETF0050_REGIME_DETECTOR_STAGEA_CHARTER_2026-09-28__DONE_NO_EDGE__NO_LIVE_WIRE`
 
 ## Why
 
