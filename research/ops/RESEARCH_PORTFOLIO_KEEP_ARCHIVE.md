@@ -10,12 +10,14 @@ Soft-Frozen: **KEEP** · live DEFAULT **`E22_v3_recv_pay_effdelay`** (Stage-E; t
 | Track | Focus | Cadence / gate |
 |---|---|---|
 | **Live stack** | Soft-Frozen FIN **[0.60, 0.80]** + **`KD_OPT`** + **`TEL_EQUAL`** + **`FUSE_ADDITIVE`** + **`COOL_c8_f50_d21`** + Class D FinPriv V7 F05 | Live wire · authority: `OPS_STATUS.md` / `live_config.py` |
-| **FIN both-quality observe** | `B_OR_K9_x_HARD150` | Dual-paper month-end · cutover **BLOCKED** · OPEN 2026-09-28 |
-| **SAT_A20_H5 observe** | 00631L CONF densify α=0.20 H=5 under COOL | Dual-paper month-end · cutover **BLOCKED** · OPEN 2026-09-28 |
+| **FIN both-quality observe** | `B_OR_K9_x_HARD150` | **CLOSED** 2026-09-28 · superseded by COMPOSITE |
+| **SAT_A20_H5 observe** | 00631L CONF densify α=0.20 H=5 under COOL | **CLOSED** 2026-09-28 · superseded by COMPOSITE |
+| **FIN×SAT COMPOSITE observe** | `COMP_H150_x_A20` | Dual-paper month-end · cutover **BLOCKED** · OPEN 2026-09-28 |
+| **SAT_A20_RELAX tip-first observe** | 00631L CONF densify α=0.20 H=5 | Dual-paper month-end · cutover **BLOCKED** · OPEN 2026-09-28 |
 | **FUSE_ADDITIVE** | Soft×Sleeve joint actuator | **LIVE WIRED** KEEP · paper shadow **CLOSED** 2026-09-28 |
 | **COOL_c8** | PROXY circuit replace DH | **LIVE WIRED 2026-09-25** · DH retired forward-only |
 | **Class D FinPriv V7 F05** | Bull+Side 5% PRIV_KD_MAY carve | **LIVE WIRED** · Soft-Frozen 3-sleeve KEEP · fail-closed stale priv px |
-| **Month-end gates** | tip ALERT/PAUSE · held-out · pack hygiene | both-quality ∥ SAT_A20 ∥ COOL ∥ Class D packs |
+| **Month-end gates** | tip ALERT/PAUSE · held-out · pack hygiene | COMPOSITE ∥ COOL ∥ Class D packs |
 
 ## ARCHIVE (evidence retained · no new expansion)
 
@@ -63,6 +65,9 @@ Soft-Frozen: **KEEP** · live DEFAULT **`E22_v3_recv_pay_effdelay`** (Stage-E; t
 
 Human: `請把可上 與可下進行上下` · `OBSERVE_UP_DOWN_BATCH_2026-09-28.md`
 
-**KEEP / OPEN observe:** FIN both-quality `B_OR_K9_x_HARD150` · `SAT_A20_H5`  
-**ARCHIVE paper observe queue:** Soft-assist · Sleeve · FUSE_ADDITIVE · priv native · FIN within-sleeve · FINCAP BLEND_025 · FIN_CAP_50 · E45 dual/sleeve-local/BLEND005 · DH_dd06 paper · FIN buy-quality A/B/C  
+**KEEP / OPEN observe:** FIN×SAT COMPOSITE `COMP_H150_x_A20` · `SAT_A20_RELAX` tip-first · Path3 `P3_T0_STATE` (Exact T+0 carve)  
+**COMPOSITE observe OPEN 2026-09-28:** parents both-quality + SAT_A20 **CLOSED** · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md` · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
+**SAT_A20_RELAX observe OPEN 2026-09-28:** tip-first densify · `SAT_A20_RELAX_OBSERVE_BALLOT_EXECUTED_OPEN.md` · COMPOSITE KEEP  
+**Path3 T+0 carve observe OPEN 2026-09-28:** `T0_CARVE_FIN_SAT_SWITCH` · `P3_T0_STATE` · parents COMPOSITE+SAT_RELAX KEEP · `FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_EXECUTED_ACCEPT.md` · `FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
+**ARCHIVE paper observe queue:** Soft-assist · Sleeve · FUSE_ADDITIVE · priv native · FIN within-sleeve · FINCAP BLEND_025 · FIN_CAP_50 · E45 dual/sleeve-local/BLEND005 · DH_dd06 paper · FIN buy-quality A/B/C · FIN both-quality · SAT_A20_H5  
 **Live KEEP:** Soft-Frozen · FUSE · SELL_a75 · COOL_c8 · CONF_RET3_A10_H5 · Class D V7 F05 · TEL T3 · β clip

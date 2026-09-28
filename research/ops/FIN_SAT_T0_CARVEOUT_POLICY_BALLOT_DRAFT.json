@@ -1,0 +1,26 @@
+{
+  "id": "FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_DRAFT",
+  "status": "SUPERSEDED",
+  "superseded_by": "FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_EXECUTED_ACCEPT",
+  "date": "2026-09-28",
+  "label": "FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_DRAFT_2026-09-28__AWAITING_HUMAN",
+  "register": "0k9r",
+  "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+  "mechanism": "P3_T0_STATE",
+  "soft_frozen_clips_keep": true,
+  "exact_t_plus_1_global_keep": true,
+  "exact_t0_carve_out_pending": true,
+  "live_wire": false,
+  "cutover_blocked": true,
+  "human_intent_note": "User considering Path3 and accepting change to Exact T+1 policy — draft awaiting exact ACCEPT line",
+  "accept_lines": {
+    "policy_only": "ACCEPT Soft-Frozen carve-out: Exact T+0 for FIN×SAT COMP↔SAT switch only (T0_CARVE_FIN_SAT_SWITCH · Path3 P3_T0_STATE)",
+    "policy_plus_observe": "ACCEPT T+0 carve-out + OPEN paper observe: P3_T0_STATE (FIN×SAT Path3 · T0_CARVE_FIN_SAT_SWITCH)",
+    "defer": "DEFER Soft-Frozen Exact T+0 carve-out (Path3)",
+    "reject": "REJECT Soft-Frozen Exact T+0 carve-out · KEEP Exact T+1"
+  },
+  "evidence": [
+    "research/ops/FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_DECISION_PACK.md",
+    "research/ops/FIN_SAT_T1_LAG_PATH3_VS_BASE.md"
+  ]
+}

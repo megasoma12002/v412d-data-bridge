@@ -1,0 +1,99 @@
+{
+  "generated_at_utc": "2026-09-28T09:58:59Z",
+  "schema_version": "fin_sat_composite_dual_paper_observe_v1",
+  "label": "FIN_SAT_COMPOSITE_DUAL_PAPER_OBSERVE_OPERATING",
+  "status": "OPERATING_OBSERVE",
+  "human_open": "OPEN paper observe: FIN×SAT COMPOSITE COMP_H150_x_A20 (Stage A COMPOSITE_HIT)",
+  "live_wire": false,
+  "cutover_authorized": false,
+  "soft_frozen_keep": true,
+  "sell_a75_keep": true,
+  "live_conf_a10_keep": true,
+  "base_id": "CTRL_LIVE_A10",
+  "challenger_id": "COMP_H150_x_A20",
+  "base_alpha": 0.1,
+  "chal_alpha": 0.2,
+  "hold_h": 5,
+  "confirm": "RET3",
+  "buy_overlay": "OR_K9",
+  "sell_overlay": "HARD150",
+  "stage_a_verdict": "COMPOSITE_HIT",
+  "base_windows": {
+    "full": {
+      "cagr": 0.127381,
+      "max_drawdown": -0.144234,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.087124,
+      "max_drawdown": -0.129568,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.134708,
+      "max_drawdown": -0.144234,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.195101,
+      "max_drawdown": -0.062022,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.163054,
+      "max_drawdown": -0.144234,
+      "n_days": 1870
+    }
+  },
+  "chal_windows": {
+    "full": {
+      "cagr": 0.127406,
+      "max_drawdown": -0.150775,
+      "n_days": 3365
+    },
+    "oof_2011_2018": {
+      "cagr": 0.080975,
+      "max_drawdown": -0.150775,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.128191,
+      "max_drawdown": -0.145322,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.213256,
+      "max_drawdown": -0.065582,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.168469,
+      "max_drawdown": -0.145322,
+      "n_days": 1870
+    }
+  },
+  "heldout_delta": {
+    "cagr_lift_pp": 0.5415,
+    "mdd_improve_pp": -0.1088
+  },
+  "tip": {
+    "ytd": {
+      "mdd_improve_pp": 0.9278,
+      "cagr_lift_pp": -13.3591,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "mdd_improve_pp": 0.9278,
+      "cagr_lift_pp": -9.0207,
+      "gate": "PASS"
+    }
+  },
+  "n_fills_base": 5388,
+  "n_fills_chal": 6541,
+  "non_actions": [
+    "Soft-Frozen KEEP — no Class D from observe",
+    "SELL_a75 KEEP · live CONF α=0.10 KEEP",
+    "Do not Gate-H Soft×Sleeve fuse",
+    "Cutover BLOCKED until dedicated ACCEPT"
+  ]
+}

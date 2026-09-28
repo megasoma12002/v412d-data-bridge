@@ -1,0 +1,18 @@
+{
+  "label": "FIN_SAT_TIP_MECH_STAGEA_DECISION_PACK_2026-09-28__SAT_RELAX_HIT__NO_LIVE",
+  "status": "SAT_RELAX_HIT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "sell_a75_keep": true,
+  "live_conf_a10_keep": true,
+  "composite_observe_keep": true,
+  "cagr_sign": "chal_minus_base",
+  "charter": "research/ops/FIN_SAT_TIP_MECH_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_TIP_MECH_STAGEA_SCREEN.md",
+  "best_hit": "SAT_A20_RELAX",
+  "best_sat_tip_clean": "SAT_A20_RELAX",
+  "best_mech_economic": "MECH_H150_COOLON_A10",
+  "generated_at_utc": "2026-09-28T10:48:42Z",
+  "observe_ballot_draft": "research/ops/FIN_SAT_TIP_MECH_SAT_RELAX_OBSERVE_BALLOT_DRAFT.md",
+  "cool_hard_tip_cagr": "still_negative"
+}

@@ -1,0 +1,934 @@
+{
+  "label": "FIN_SAT_TIP_MECH_STAGEA_SCREEN_20260928T104842Z",
+  "generated_at_utc": "2026-09-28T10:48:42Z",
+  "charter": "research/ops/FIN_SAT_TIP_MECH_STAGEA_CHARTER.md",
+  "status": "STAGE_A_SCREEN_DONE",
+  "verdict": "SAT_RELAX_HIT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "sell_a75_keep": true,
+  "live_conf_a10_keep": true,
+  "cagr_sign": "chal_minus_base",
+  "base_id": "CTRL_LIVE_A10",
+  "gates": {
+    "held_cagr_lift_pp": 0.1,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0,
+    "tip_cagr_pp_floor": 0.0,
+    "sat_held_cagr_lift_pp": 0.05,
+    "sat_held_mdd_pp_floor": -0.4,
+    "win_horizon": 21
+  },
+  "books": [
+    {
+      "id": "CTRL_LIVE_A10",
+      "fam": "ctrl",
+      "alpha": 0.1,
+      "windows": {
+        "full": {
+          "cagr": 0.127381,
+          "max_drawdown": -0.144234,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087124,
+          "max_drawdown": -0.129568,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.134708,
+          "max_drawdown": -0.144234,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.195101,
+          "max_drawdown": -0.062022,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.163054,
+          "max_drawdown": -0.144234,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_lift_pp": -0.0,
+        "held_mdd_pp": 0.0,
+        "held_abs_mdd": -0.144234,
+        "tip_ytd_mdd_pp": 0.0,
+        "tip_1y_mdd_pp": 0.0,
+        "tip_ytd_cagr_pp": 0.0,
+        "tip_1y_cagr_pp": 0.0,
+        "buy_win_rate_pp": 0.0,
+        "sell_win_rate_pp": 0.0,
+        "buy_win_n": 1624,
+        "sell_win_n": 960,
+        "family": "ctrl",
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "sat_cagr": false,
+          "sat_mdd": true,
+          "sat_econ": false
+        },
+        "hit": false,
+        "cagr_sign": "chal_minus_base"
+      },
+      "buy_wr": {
+        "n": 1624,
+        "wins": 1183,
+        "win_rate": 72.8448,
+        "mean_fwd": 1.9284
+      },
+      "sell_wr": {
+        "n": 960,
+        "wins": 315,
+        "win_rate": 32.8125,
+        "mean_fwd": 1.6257
+      },
+      "spec": {
+        "id": "CTRL_LIVE_A10",
+        "fam": "ctrl",
+        "buy": null,
+        "sell": null,
+        "alpha": 0.1
+      },
+      "sched_meta": {
+        "track": "CONFIRM",
+        "confirm": "RET3",
+        "stop": null,
+        "n_entries": 23,
+        "pulse_frac": 0.031794,
+        "mean_off": 0.003179
+      },
+      "n_fills": 5388,
+      "exact_t1_ok": true
+    },
+    {
+      "id": "REF_COMP_H150_A20",
+      "fam": "ref",
+      "alpha": 0.2,
+      "windows": {
+        "full": {
+          "cagr": 0.127406,
+          "max_drawdown": -0.150775,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.080975,
+          "max_drawdown": -0.150775,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.128191,
+          "max_drawdown": -0.145322,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.213256,
+          "max_drawdown": -0.065582,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.168469,
+          "max_drawdown": -0.145322,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.9278,
+          "cagr_lift_pp": -13.3591,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.9278,
+          "cagr_lift_pp": -9.0207,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.5415,
+        "held_mdd_pp": -0.1088,
+        "held_abs_mdd": -0.145322,
+        "tip_ytd_mdd_pp": 0.9278,
+        "tip_1y_mdd_pp": 0.9278,
+        "tip_ytd_cagr_pp": -13.3591,
+        "tip_1y_cagr_pp": -9.0207,
+        "buy_win_rate_pp": 4.0958,
+        "sell_win_rate_pp": -0.2728,
+        "buy_win_n": 876,
+        "sell_win_n": 630,
+        "family": "ref",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "sat_cagr": true,
+          "sat_mdd": true,
+          "sat_econ": false
+        },
+        "hit": false,
+        "cagr_sign": "chal_minus_base"
+      },
+      "buy_wr": {
+        "n": 876,
+        "wins": 674,
+        "win_rate": 76.9406,
+        "mean_fwd": 2.4037
+      },
+      "sell_wr": {
+        "n": 630,
+        "wins": 205,
+        "win_rate": 32.5397,
+        "mean_fwd": 1.1814
+      },
+      "spec": {
+        "id": "REF_COMP_H150_A20",
+        "fam": "ref",
+        "buy": "OR_K9",
+        "sell": "HARD150",
+        "alpha": 0.2
+      },
+      "sched_meta": {
+        "track": "CONFIRM",
+        "confirm": "RET3",
+        "stop": null,
+        "n_entries": 23,
+        "pulse_frac": 0.031794,
+        "mean_off": 0.006359
+      },
+      "n_fills": 6541,
+      "exact_t1_ok": true
+    },
+    {
+      "id": "MECH_H150_COOLON_A10",
+      "fam": "mech",
+      "alpha": 0.1,
+      "windows": {
+        "full": {
+          "cagr": 0.130303,
+          "max_drawdown": -0.141682,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09163,
+          "max_drawdown": -0.139799,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.124344,
+          "max_drawdown": -0.141682,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.209913,
+          "max_drawdown": -0.061775,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.16482,
+          "max_drawdown": -0.141682,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 1.0346,
+          "cagr_lift_pp": -13.2345,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 1.0346,
+          "cagr_lift_pp": -9.3777,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.1766,
+        "held_mdd_pp": 0.2552,
+        "held_abs_mdd": -0.141682,
+        "tip_ytd_mdd_pp": 1.0346,
+        "tip_1y_mdd_pp": 1.0346,
+        "tip_ytd_cagr_pp": -13.2345,
+        "tip_1y_cagr_pp": -9.3777,
+        "buy_win_rate_pp": 0.2673,
+        "sell_win_rate_pp": 2.2895,
+        "buy_win_n": 874,
+        "sell_win_n": 490,
+        "family": "mech",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "sat_cagr": true,
+          "sat_mdd": true,
+          "sat_econ": false
+        },
+        "hit": false,
+        "cagr_sign": "chal_minus_base"
+      },
+      "buy_wr": {
+        "n": 874,
+        "wins": 639,
+        "win_rate": 73.1121,
+        "mean_fwd": 2.2341
+      },
+      "sell_wr": {
+        "n": 490,
+        "wins": 172,
+        "win_rate": 35.102,
+        "mean_fwd": 1.3402
+      },
+      "spec": {
+        "id": "MECH_H150_COOLON_A10",
+        "fam": "mech",
+        "buy": "OR_K9",
+        "sell": "HARD150_COOLON",
+        "alpha": 0.1
+      },
+      "sched_meta": {
+        "track": "CONFIRM",
+        "confirm": "RET3",
+        "stop": null,
+        "n_entries": 23,
+        "pulse_frac": 0.031794,
+        "mean_off": 0.003179
+      },
+      "n_fills": 5346,
+      "exact_t1_ok": true
+    },
+    {
+      "id": "MECH_H150_COOLOFF_A10",
+      "fam": "mech",
+      "alpha": 0.1,
+      "windows": {
+        "full": {
+          "cagr": 0.127197,
+          "max_drawdown": -0.123304,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09025,
+          "max_drawdown": -0.119535,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.126427,
+          "max_drawdown": -0.123304,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.198573,
+          "max_drawdown": -0.060465,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.160607,
+          "max_drawdown": -0.123304,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0412,
+          "cagr_lift_pp": -8.8727,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0412,
+          "cagr_lift_pp": -5.1524,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_lift_pp": -0.2447,
+        "held_mdd_pp": 2.093,
+        "held_abs_mdd": -0.123304,
+        "tip_ytd_mdd_pp": 0.0412,
+        "tip_1y_mdd_pp": 0.0412,
+        "tip_ytd_cagr_pp": -8.8727,
+        "tip_1y_cagr_pp": -5.1524,
+        "buy_win_rate_pp": -0.407,
+        "sell_win_rate_pp": 1.6246,
+        "buy_win_n": 1005,
+        "sell_win_n": 755,
+        "family": "mech",
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": false,
+          "sat_cagr": false,
+          "sat_mdd": true,
+          "sat_econ": false
+        },
+        "hit": false,
+        "cagr_sign": "chal_minus_base"
+      },
+      "buy_wr": {
+        "n": 1005,
+        "wins": 728,
+        "win_rate": 72.4378,
+        "mean_fwd": 2.4917
+      },
+      "sell_wr": {
+        "n": 755,
+        "wins": 260,
+        "win_rate": 34.4371,
+        "mean_fwd": 1.531
+      },
+      "spec": {
+        "id": "MECH_H150_COOLOFF_A10",
+        "fam": "mech",
+        "buy": "OR_K9",
+        "sell": "HARD150_COOLOFF",
+        "alpha": 0.1
+      },
+      "sched_meta": {
+        "track": "CONFIRM",
+        "confirm": "RET3",
+        "stop": null,
+        "n_entries": 23,
+        "pulse_frac": 0.031794,
+        "mean_off": 0.003179
+      },
+      "n_fills": 5484,
+      "exact_t1_ok": true
+    },
+    {
+      "id": "MECH_H150_COOLON_A15",
+      "fam": "mech",
+      "alpha": 0.15,
+      "windows": {
+        "full": {
+          "cagr": 0.131844,
+          "max_drawdown": -0.143365,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.092037,
+          "max_drawdown": -0.138985,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.125865,
+          "max_drawdown": -0.143365,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.213514,
+          "max_drawdown": -0.062123,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.167335,
+          "max_drawdown": -0.143365,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 1.0289,
+          "cagr_lift_pp": -13.0141,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 1.0289,
+          "cagr_lift_pp": -9.0914,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.4281,
+        "held_mdd_pp": 0.0869,
+        "held_abs_mdd": -0.143365,
+        "tip_ytd_mdd_pp": 1.0289,
+        "tip_1y_mdd_pp": 1.0289,
+        "tip_ytd_cagr_pp": -13.0141,
+        "tip_1y_cagr_pp": -9.0914,
+        "buy_win_rate_pp": -0.895,
+        "sell_win_rate_pp": 0.8509,
+        "buy_win_n": 877,
+        "sell_win_n": 505,
+        "family": "mech",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "sat_cagr": true,
+          "sat_mdd": true,
+          "sat_econ": false
+        },
+        "hit": false,
+        "cagr_sign": "chal_minus_base"
+      },
+      "buy_wr": {
+        "n": 877,
+        "wins": 631,
+        "win_rate": 71.9498,
+        "mean_fwd": 2.1267
+      },
+      "sell_wr": {
+        "n": 505,
+        "wins": 170,
+        "win_rate": 33.6634,
+        "mean_fwd": 1.4361
+      },
+      "spec": {
+        "id": "MECH_H150_COOLON_A15",
+        "fam": "mech",
+        "buy": "OR_K9",
+        "sell": "HARD150_COOLON",
+        "alpha": 0.15
+      },
+      "sched_meta": {
+        "track": "CONFIRM",
+        "confirm": "RET3",
+        "stop": null,
+        "n_entries": 23,
+        "pulse_frac": 0.031794,
+        "mean_off": 0.004769
+      },
+      "n_fills": 5414,
+      "exact_t1_ok": true
+    },
+    {
+      "id": "MECH_H150_COOLOFF_A15",
+      "fam": "mech",
+      "alpha": 0.15,
+      "windows": {
+        "full": {
+          "cagr": 0.128047,
+          "max_drawdown": -0.124812,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.089013,
+          "max_drawdown": -0.122443,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.127441,
+          "max_drawdown": -0.124812,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.202841,
+          "max_drawdown": -0.062774,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.163195,
+          "max_drawdown": -0.124812,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.1897,
+          "cagr_lift_pp": -7.9496,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.1897,
+          "cagr_lift_pp": -4.1298,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.0141,
+        "held_mdd_pp": 1.9422,
+        "held_abs_mdd": -0.124812,
+        "tip_ytd_mdd_pp": -0.1897,
+        "tip_1y_mdd_pp": -0.1897,
+        "tip_ytd_cagr_pp": -7.9496,
+        "tip_1y_cagr_pp": -4.1298,
+        "buy_win_rate_pp": -1.3875,
+        "sell_win_rate_pp": 1.6424,
+        "buy_win_n": 995,
+        "sell_win_n": 743,
+        "family": "mech",
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": false,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": false,
+          "sat_cagr": false,
+          "sat_mdd": true,
+          "sat_econ": false
+        },
+        "hit": false,
+        "cagr_sign": "chal_minus_base"
+      },
+      "buy_wr": {
+        "n": 995,
+        "wins": 711,
+        "win_rate": 71.4573,
+        "mean_fwd": 2.3225
+      },
+      "sell_wr": {
+        "n": 743,
+        "wins": 256,
+        "win_rate": 34.4549,
+        "mean_fwd": 1.5267
+      },
+      "spec": {
+        "id": "MECH_H150_COOLOFF_A15",
+        "fam": "mech",
+        "buy": "OR_K9",
+        "sell": "HARD150_COOLOFF",
+        "alpha": 0.15
+      },
+      "sched_meta": {
+        "track": "CONFIRM",
+        "confirm": "RET3",
+        "stop": null,
+        "n_entries": 23,
+        "pulse_frac": 0.031794,
+        "mean_off": 0.004769
+      },
+      "n_fills": 5481,
+      "exact_t1_ok": true
+    },
+    {
+      "id": "MECH_H150_COOLON_A20",
+      "fam": "mech",
+      "alpha": 0.2,
+      "windows": {
+        "full": {
+          "cagr": 0.133456,
+          "max_drawdown": -0.145254,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.092822,
+          "max_drawdown": -0.136278,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.127211,
+          "max_drawdown": -0.145254,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.216944,
+          "max_drawdown": -0.063392,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.169647,
+          "max_drawdown": -0.145254,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 1.0557,
+          "cagr_lift_pp": -12.393,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 1.0557,
+          "cagr_lift_pp": -8.4525,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.6593,
+        "held_mdd_pp": -0.102,
+        "held_abs_mdd": -0.145254,
+        "tip_ytd_mdd_pp": 1.0557,
+        "tip_1y_mdd_pp": 1.0557,
+        "tip_ytd_cagr_pp": -12.393,
+        "tip_1y_cagr_pp": -8.4525,
+        "buy_win_rate_pp": -2.4052,
+        "sell_win_rate_pp": 1.5904,
+        "buy_win_n": 910,
+        "sell_win_n": 561,
+        "family": "mech",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "sat_cagr": true,
+          "sat_mdd": true,
+          "sat_econ": false
+        },
+        "hit": false,
+        "cagr_sign": "chal_minus_base"
+      },
+      "buy_wr": {
+        "n": 910,
+        "wins": 641,
+        "win_rate": 70.4396,
+        "mean_fwd": 1.9605
+      },
+      "sell_wr": {
+        "n": 561,
+        "wins": 193,
+        "win_rate": 34.4029,
+        "mean_fwd": 1.4033
+      },
+      "spec": {
+        "id": "MECH_H150_COOLON_A20",
+        "fam": "mech",
+        "buy": "OR_K9",
+        "sell": "HARD150_COOLON",
+        "alpha": 0.2
+      },
+      "sched_meta": {
+        "track": "CONFIRM",
+        "confirm": "RET3",
+        "stop": null,
+        "n_entries": 23,
+        "pulse_frac": 0.031794,
+        "mean_off": 0.006359
+      },
+      "n_fills": 5557,
+      "exact_t1_ok": true
+    },
+    {
+      "id": "SAT_A15_RELAX",
+      "fam": "sat",
+      "alpha": 0.15,
+      "windows": {
+        "full": {
+          "cagr": 0.127882,
+          "max_drawdown": -0.145185,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087126,
+          "max_drawdown": -0.129537,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.135939,
+          "max_drawdown": -0.145185,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.195652,
+          "max_drawdown": -0.062553,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.164004,
+          "max_drawdown": -0.145185,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0179,
+          "cagr_lift_pp": 0.3817,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0179,
+          "cagr_lift_pp": 0.3329,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.095,
+        "held_mdd_pp": -0.0951,
+        "held_abs_mdd": -0.145185,
+        "tip_ytd_mdd_pp": 0.0179,
+        "tip_1y_mdd_pp": 0.0179,
+        "tip_ytd_cagr_pp": 0.3817,
+        "tip_1y_cagr_pp": 0.3329,
+        "buy_win_rate_pp": 0.4725,
+        "sell_win_rate_pp": -0.0628,
+        "buy_win_n": 1664,
+        "sell_win_n": 971,
+        "family": "sat",
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "sat_cagr": true,
+          "sat_mdd": true,
+          "sat_econ": true
+        },
+        "hit": true,
+        "cagr_sign": "chal_minus_base"
+      },
+      "buy_wr": {
+        "n": 1664,
+        "wins": 1220,
+        "win_rate": 73.3173,
+        "mean_fwd": 1.9699
+      },
+      "sell_wr": {
+        "n": 971,
+        "wins": 318,
+        "win_rate": 32.7497,
+        "mean_fwd": 1.6232
+      },
+      "spec": {
+        "id": "SAT_A15_RELAX",
+        "fam": "sat",
+        "buy": null,
+        "sell": null,
+        "alpha": 0.15
+      },
+      "sched_meta": {
+        "track": "CONFIRM",
+        "confirm": "RET3",
+        "stop": null,
+        "n_entries": 23,
+        "pulse_frac": 0.031794,
+        "mean_off": 0.004769
+      },
+      "n_fills": 5488,
+      "exact_t1_ok": true
+    },
+    {
+      "id": "SAT_A20_RELAX",
+      "fam": "sat",
+      "alpha": 0.2,
+      "windows": {
+        "full": {
+          "cagr": 0.129429,
+          "max_drawdown": -0.147318,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087684,
+          "max_drawdown": -0.128951,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.139702,
+          "max_drawdown": -0.147318,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.196418,
+          "max_drawdown": -0.063015,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.166397,
+          "max_drawdown": -0.147318,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 0.6801,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 0.7413,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.3343,
+        "held_mdd_pp": -0.3084,
+        "held_abs_mdd": -0.147318,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "tip_ytd_cagr_pp": 0.6801,
+        "tip_1y_cagr_pp": 0.7413,
+        "buy_win_rate_pp": -1.5553,
+        "sell_win_rate_pp": 0.8695,
+        "buy_win_n": 1644,
+        "sell_win_n": 956,
+        "family": "sat",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": false,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "sat_cagr": true,
+          "sat_mdd": true,
+          "sat_econ": true
+        },
+        "hit": true,
+        "cagr_sign": "chal_minus_base"
+      },
+      "buy_wr": {
+        "n": 1644,
+        "wins": 1172,
+        "win_rate": 71.2895,
+        "mean_fwd": 1.7678
+      },
+      "sell_wr": {
+        "n": 956,
+        "wins": 322,
+        "win_rate": 33.682,
+        "mean_fwd": 1.5838
+      },
+      "spec": {
+        "id": "SAT_A20_RELAX",
+        "fam": "sat",
+        "buy": null,
+        "sell": null,
+        "alpha": 0.2
+      },
+      "sched_meta": {
+        "track": "CONFIRM",
+        "confirm": "RET3",
+        "stop": null,
+        "n_entries": 23,
+        "pulse_frac": 0.031794,
+        "mean_off": 0.006359
+      },
+      "n_fills": 5436,
+      "exact_t1_ok": true
+    }
+  ]
+}

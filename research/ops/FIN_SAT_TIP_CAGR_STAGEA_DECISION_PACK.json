@@ -1,0 +1,18 @@
+{
+  "label": "FIN_SAT_TIP_CAGR_STAGEA_DECISION_PACK_2026-09-28__TIP_MDD_ONLY__NO_LIVE",
+  "status": "TIP_MDD_ONLY",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "sell_a75_keep": true,
+  "live_conf_a10_keep": true,
+  "composite_observe_keep": true,
+  "cagr_sign": "chal_minus_base",
+  "charter": "research/ops/FIN_SAT_TIP_CAGR_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_TIP_CAGR_STAGEA_SCREEN.md",
+  "best_hit": null,
+  "best_tip_clean": "REF_SAT_A20",
+  "best_tip_economic": "TIP_H120_x_A15",
+  "generated_at_utc": "2026-09-28T10:36:02Z",
+  "diagnosis": "HARD150 tip CAGR drag; SAT tip-clean held short/MDD; no joint TIP_CAGR_HIT",
+  "best_tip_clean_note": "REF_SAT_A20 tip-clean held MDD miss; TIP_SAT_A15 tip-clean held CAGR +0.095 short of +0.10"
+}

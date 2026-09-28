@@ -1,0 +1,38 @@
+{
+  "asof": "2026-09-24",
+  "theta": 0.01,
+  "n_tip": 242,
+  "n_pre_tip": 1628,
+  "n_held": 1870,
+  "p_sat_lead_tip_pct": 56.61,
+  "p_sat_lead_pre_pct": 18.73,
+  "p_comp_lead_tip_pct": 8.26,
+  "p_comp_lead_pre_pct": 32.0,
+  "p_drag_tip_pct": 69.42,
+  "p_drag_pre_pct": 41.71,
+  "delta_p_sat_lead_tip_minus_pre": 37.88,
+  "delta_p_comp_lead_pre_minus_tip": 23.74,
+  "local_mutex_score": 0.6162,
+  "sum_rel_tip": {
+    "ALL": -0.071071,
+    "SAT_LEAD": -0.076438,
+    "COMP_LEAD": 0.000688,
+    "SIMILAR": 0.00468
+  },
+  "sum_rel_held": {
+    "ALL": 0.015716,
+    "SAT_LEAD": -0.183915,
+    "COMP_LEAD": 0.203611,
+    "SIMILAR": -0.00398
+  },
+  "sum_rel_pre": {
+    "ALL": 0.086787,
+    "SAT_LEAD": -0.107477,
+    "COMP_LEAD": 0.202923,
+    "SIMILAR": -0.00866
+  },
+  "tip_damage_frac_from_sat_lead": 1.0755,
+  "tip_comp_lead_conflict_pct": 8.26,
+  "p_comp_lead_and_drag": 0.0,
+  "local_mutex_diag": true
+}

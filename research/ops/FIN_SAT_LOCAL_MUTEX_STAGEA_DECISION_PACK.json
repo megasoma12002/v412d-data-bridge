@@ -1,0 +1,20 @@
+{
+  "label": "FIN_SAT_LOCAL_MUTEX_STAGEA_DECISION_PACK_2026-09-28__TIP_LAG_BLOCK__NO_LIVE",
+  "status": "TIP_LAG_BLOCK",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "local_mutex_diag": true,
+  "local_mutex_score": 0.6162,
+  "best_hit": null,
+  "best_ub_shaped": "UB_STATE_SD",
+  "charter": "research/ops/FIN_SAT_LOCAL_MUTEX_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_LOCAL_MUTEX_STAGEA_SCREEN.md",
+  "register": "0k9n",
+  "generated_at_utc": "2026-09-28T14:18:26Z",
+  "reading": {
+    "summary": "Local mutex True (score 0.62): tip damage in SAT_LEAD, held gain in pre-tip COMP_LEAD. UBs tip-clean+held; Exact T+1 lag-1 blocks causal HIT.",
+    "best_ub_shaped": "UB_STATE_SD",
+    "binding": "TIP_LAG_BLOCK — not global same-day conflict"
+  }
+}

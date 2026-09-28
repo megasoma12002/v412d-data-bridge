@@ -1,0 +1,20 @@
+{
+  "label": "FIN_SAT_DIV_RULE_STAGEA_DECISION_PACK_2026-09-28__TIP_MDD_ONLY__NO_LIVE",
+  "status": "TIP_MDD_ONLY",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "best_hit": null,
+  "best_economic_tipmdd": "R_DIV_ONLY",
+  "charter": "research/ops/FIN_SAT_DIV_RULE_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_DIV_RULE_STAGEA_SCREEN.md",
+  "register": "0k9m",
+  "generated_at_utc": "2026-09-28T14:09:59Z",
+  "reading": {
+    "summary": "6 switch rules all tipCAGR−; best economic tipMDD R_DIV_ONLY held+1.30 tipY−8.5; enter/confirm/exit no better than DIV; rule-layer COMP↔SAT day-switch ladder exhausted",
+    "best_economic_tipmdd": "R_DIV_ONLY",
+    "held_cagr_lift_pp": 1.2962,
+    "tip_ytd_cagr_pp": -8.4925,
+    "next": "Do not expand this rule grid; tip-clean needs near-pure SAT or new mechanism family"
+  }
+}

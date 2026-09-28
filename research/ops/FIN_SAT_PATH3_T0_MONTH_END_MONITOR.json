@@ -1,0 +1,127 @@
+{
+  "generated_at_utc": "2026-09-28T15:17:54.803746+00:00",
+  "asof": "2026-09-24",
+  "label": "FIN_SAT_PATH3_T0_MONTH_END_MONITOR",
+  "status": "OPERATING_OBSERVE",
+  "base_id": "CTRL_LIVE_A10",
+  "challenger_id": "P3_T0_STATE",
+  "locked_id": "P3_T0_STATE",
+  "nav_source": "daily_nav",
+  "live_wire": false,
+  "soft_frozen_clips_unchanged": true,
+  "soft_frozen_unchanged": true,
+  "cutover_authorized": false,
+  "alerts": [
+    "ALERT: P3_T0_STATE sealed_2023_plus MDD worse than CTRL_LIVE_A10"
+  ],
+  "alert_disposition": {
+    "sealed_mdd_worse": "ACCEPTABLE",
+    "note": "human: abs sealed |MDD| ≪ full/held",
+    "artifact": "research/ops/FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION.md"
+  },
+  "windows": [
+    {
+      "window": "mtd",
+      "start": "2026-09-01",
+      "end": "2026-09-24",
+      "n_days": 18,
+      "base_cagr": 1.6105221219377515,
+      "base_mdd": -0.025073931338289612,
+      "chal_cagr": 1.6251047222660095,
+      "chal_mdd": -0.025448793195384956,
+      "mdd_improve_pp": -0.037486185709534325,
+      "cagr_giveback_pp": -1.4582600328258088,
+      "rel_nav_end": 1.0003758611091622,
+      "score": -0.7666162021224388
+    },
+    {
+      "window": "ytd",
+      "start": "2026-01-01",
+      "end": "2026-09-24",
+      "n_days": 176,
+      "base_cagr": 0.5356437459853218,
+      "base_mdd": -0.060876697029569105,
+      "chal_cagr": 0.56296911924072,
+      "chal_mdd": -0.0606663237016517,
+      "mdd_improve_pp": 0.021037332791740138,
+      "cagr_giveback_pp": -2.732537325539819,
+      "rel_nav_end": 1.012323667012298,
+      "score": -1.3452313299781693
+    },
+    {
+      "window": "trailing_1y",
+      "start": "2025-09-24",
+      "end": "2026-09-24",
+      "n_days": 242,
+      "base_cagr": 0.4004931156677818,
+      "base_mdd": -0.060876697029569216,
+      "chal_cagr": 0.41784915011274704,
+      "chal_mdd": -0.0606663237016517,
+      "mdd_improve_pp": 0.02103733279175124,
+      "cagr_giveback_pp": -1.7356034444965251,
+      "rel_nav_end": 1.011848654811415,
+      "score": -0.8467643894565113
+    },
+    {
+      "window": "heldout_2019_plus",
+      "start": "2019-01-01",
+      "end": "2026-09-24",
+      "n_days": 1870,
+      "base_cagr": 0.1630541396530214,
+      "base_mdd": -0.14423362198120193,
+      "chal_cagr": 0.19781248423126208,
+      "chal_mdd": -0.14323834557255088,
+      "mdd_improve_pp": 0.09952764086510468,
+      "cagr_giveback_pp": -3.4758344578240674,
+      "rel_nav_end": 1.2440878151618076,
+      "score": -1.638389588046929
+    },
+    {
+      "window": "sealed_2023_plus",
+      "start": "2023-01-01",
+      "end": "2026-09-24",
+      "n_days": 893,
+      "base_cagr": 0.19510071628428882,
+      "base_mdd": -0.06202220203644304,
+      "chal_cagr": 0.24292300696086566,
+      "chal_mdd": -0.06367307521369026,
+      "mdd_improve_pp": -0.1650873177247214,
+      "cagr_giveback_pp": -4.782229067657684,
+      "rel_nav_end": 1.148987226549377,
+      "score": -2.5562018515535634
+    },
+    {
+      "window": "full",
+      "start": "2012-12-04",
+      "end": "2026-09-24",
+      "n_days": 3365,
+      "base_cagr": 0.12738075071916577,
+      "base_mdd": -0.14423362198120193,
+      "chal_cagr": 0.15966329381161293,
+      "chal_mdd": -0.1432383455725511,
+      "mdd_improve_pp": 0.09952764086508248,
+      "cagr_giveback_pp": -3.228254309244716,
+      "rel_nav_end": 1.4577349473686962,
+      "score": -1.5145995137572754
+    }
+  ],
+  "gates": {
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "design_giveback_pp": {
+      "heldout_2019_plus": 1.0,
+      "sealed_2023_plus": 5.0
+    },
+    "structural_buffer_pp": 2.0,
+    "alert_policy": "default"
+  },
+  "non_actions": [
+    "paper observe only",
+    "Exact T+0 carve-out T0_CARVE_FIN_SAT_SWITCH only \u2014 no expand",
+    "no Soft-Frozen clip flip",
+    "no live wire / CONF \u03b1 flip from this monitor",
+    "COMPOSITE + SAT_RELAX observes KEEP",
+    "cutover BLOCKED"
+  ],
+  "cutover_blocked": true
+}

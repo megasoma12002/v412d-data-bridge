@@ -1,0 +1,20 @@
+{
+  "label": "FIN_SAT_BLEND_STAGEA_DECISION_PACK_2026-09-28__TIP_MDD_ONLY__NO_LIVE",
+  "status": "TIP_MDD_ONLY",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "charter": "research/ops/FIN_SAT_BLEND_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_BLEND_STAGEA_SCREEN.md",
+  "best_hit": null,
+  "best_tip_clean_economic_blend": null,
+  "sat_held_cagr_lift_pp": 0.3343,
+  "register": "0k9e",
+  "diagnosis": {
+    "ref_sat": "tip_clean but held_mdd -0.308 fails economic floor -0.25",
+    "ref_comp": "economic + tip_mdd but tip_cagr -13.4",
+    "blends": "all C25..C75 economic+tip_mdd+vs_sat but tip_cagr -2.9..-9.9",
+    "feasible_region": "empty — tip-clean needs near-pure SAT; MDD near-flat needs COMP weight that kills tip CAGR"
+  },
+  "generated_at_utc": "2026-09-28T12:48:06Z"
+}

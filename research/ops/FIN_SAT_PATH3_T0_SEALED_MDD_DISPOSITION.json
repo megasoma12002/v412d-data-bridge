@@ -1,0 +1,19 @@
+{
+  "label": "FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION_2026-09-28__ACCEPTABLE__NO_LIVE",
+  "status": "HUMAN_DISPOSITION_ACCEPTABLE",
+  "date": "2026-09-28",
+  "register": "0k9r",
+  "human": "sealed MDD 已比 base 差约 −0.17pp 這個數值可接受 因為sealed的mdd數值比full held小很多",
+  "sealed_mdd_delta_pp": -0.1651,
+  "rationale": "absolute_sealed_mdd_much_smaller_than_full_held",
+  "absolute": {
+    "sealed_base_mdd": -0.062022,
+    "sealed_chal_mdd": -0.063673,
+    "full_held_base_mdd": -0.144234,
+    "full_held_chal_mdd": -0.143238
+  },
+  "month_end_alert_disposition": "ACCEPTABLE",
+  "cutover_authorized": false,
+  "live_wire": false,
+  "soft_frozen_keep": true
+}
