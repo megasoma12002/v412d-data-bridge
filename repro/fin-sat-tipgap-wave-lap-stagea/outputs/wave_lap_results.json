@@ -1,0 +1,438 @@
+{
+  "label": "FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_SCREEN_20260928T134020Z",
+  "generated_at_utc": "2026-09-28T13:40:20Z",
+  "charter": "research/ops/FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_CHARTER.md",
+  "status": "STAGE_A_SCREEN_DONE",
+  "verdict": "WAVE_LAP_SIGNAL",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "results": {
+    "wavelet": {
+      "daily_rel": {
+        "full": {
+          "top": [
+            {
+              "period_tdays": 53.0,
+              "power_frac": 0.02656
+            },
+            {
+              "period_tdays": 57.0,
+              "power_frac": 0.0265
+            },
+            {
+              "period_tdays": 216.0,
+              "power_frac": 0.02643
+            },
+            {
+              "period_tdays": 8.0,
+              "power_frac": 0.02619
+            },
+            {
+              "period_tdays": 200.0,
+              "power_frac": 0.0258
+            },
+            {
+              "period_tdays": 234.0,
+              "power_frac": 0.02534
+            }
+          ],
+          "ridge_period_mode": 125.0,
+          "max_frac": 0.02656
+        },
+        "tip": {
+          "top": [
+            {
+              "period_tdays": 18.0,
+              "power_frac": 0.04265
+            },
+            {
+              "period_tdays": 19.0,
+              "power_frac": 0.03981
+            },
+            {
+              "period_tdays": 16.0,
+              "power_frac": 0.03903
+            },
+            {
+              "period_tdays": 15.0,
+              "power_frac": 0.03417
+            },
+            {
+              "period_tdays": 33.0,
+              "power_frac": 0.03322
+            },
+            {
+              "period_tdays": 21.0,
+              "power_frac": 0.03121
+            }
+          ],
+          "ridge_period_mode": 125.0,
+          "max_frac": 0.04265
+        }
+      },
+      "trail_rel_63": {
+        "full": {
+          "top": [
+            {
+              "period_tdays": 234.0,
+              "power_frac": 0.09024
+            },
+            {
+              "period_tdays": 216.0,
+              "power_frac": 0.08685
+            },
+            {
+              "period_tdays": 200.0,
+              "power_frac": 0.07821
+            },
+            {
+              "period_tdays": 253.0,
+              "power_frac": 0.07729
+            },
+            {
+              "period_tdays": 185.0,
+              "power_frac": 0.07245
+            },
+            {
+              "period_tdays": 171.0,
+              "power_frac": 0.0648
+            }
+          ],
+          "ridge_period_mode": 320.0,
+          "max_frac": 0.09024
+        },
+        "tip": {
+          "top": [
+            {
+              "period_tdays": 320.0,
+              "power_frac": 0.12733
+            },
+            {
+              "period_tdays": 115.0,
+              "power_frac": 0.11008
+            },
+            {
+              "period_tdays": 107.0,
+              "power_frac": 0.09821
+            },
+            {
+              "period_tdays": 125.0,
+              "power_frac": 0.09174
+            },
+            {
+              "period_tdays": 296.0,
+              "power_frac": 0.08384
+            },
+            {
+              "period_tdays": 99.0,
+              "power_frac": 0.06827
+            }
+          ],
+          "ridge_period_mode": 320.0,
+          "max_frac": 0.12733
+        }
+      }
+    },
+    "laplace": {
+      "daily_rel": {
+        "peaks": [
+          {
+            "sigma": 0.0,
+            "omega": 0.02721,
+            "period_tdays": 230.94,
+            "mag": 0.167253,
+            "mag_frac": 1.0
+          },
+          {
+            "sigma": 0.0,
+            "omega": 0.05466,
+            "period_tdays": 114.95,
+            "mag": 0.157205,
+            "mag_frac": 0.93993
+          },
+          {
+            "sigma": 0.0,
+            "omega": 0.03534,
+            "period_tdays": 177.78,
+            "mag": 0.1415,
+            "mag_frac": 0.84603
+          },
+          {
+            "sigma": 0.0,
+            "omega": 0.10065,
+            "period_tdays": 62.43,
+            "mag": 0.137372,
+            "mag_frac": 0.82134
+          },
+          {
+            "sigma": 0.0,
+            "omega": 0.34124,
+            "period_tdays": 18.41,
+            "mag": 0.119895,
+            "mag_frac": 0.71685
+          },
+          {
+            "sigma": 0.0,
+            "omega": 0.14266,
+            "period_tdays": 44.04,
+            "mag": 0.113008,
+            "mag_frac": 0.67567
+          }
+        ],
+        "n": 1800
+      },
+      "trail_rel_63": {
+        "peaks": [
+          {
+            "sigma": 0.0,
+            "omega": 0.02721,
+            "period_tdays": 230.94,
+            "mag": 13.201103,
+            "mag_frac": 1.0
+          },
+          {
+            "sigma": 0.0,
+            "omega": 0.03534,
+            "period_tdays": 177.78,
+            "mag": 9.028941,
+            "mag_frac": 0.68395
+          },
+          {
+            "sigma": 0.0,
+            "omega": 0.05466,
+            "period_tdays": 114.95,
+            "mag": 6.593851,
+            "mag_frac": 0.49949
+          },
+          {
+            "sigma": 0.0,
+            "omega": 0.02094,
+            "period_tdays": 300.0,
+            "mag": 5.605125,
+            "mag_frac": 0.4246
+          },
+          {
+            "sigma": 0.0,
+            "omega": 0.07748,
+            "period_tdays": 81.1,
+            "mag": 2.285141,
+            "mag_frac": 0.1731
+          },
+          {
+            "sigma": 0.0,
+            "omega": 0.15566,
+            "period_tdays": 40.36,
+            "mag": 2.189525,
+            "mag_frac": 0.16586
+          }
+        ],
+        "n": 3365
+      }
+    },
+    "ics": [
+      {
+        "method": "wavelet",
+        "series": "daily_rel",
+        "feature": "ridge",
+        "lag1_ic": 0.0148,
+        "ic_gate": false
+      },
+      {
+        "method": "wavelet",
+        "series": "daily_rel",
+        "feature": "band_85_128",
+        "lag1_ic": -0.0347,
+        "ic_gate": false
+      },
+      {
+        "method": "wavelet",
+        "series": "daily_rel",
+        "feature": "band_200_280",
+        "lag1_ic": -0.0288,
+        "ic_gate": false
+      },
+      {
+        "method": "wavelet",
+        "series": "trail_rel_63",
+        "feature": "ridge",
+        "lag1_ic": -0.0558,
+        "ic_gate": true
+      },
+      {
+        "method": "wavelet",
+        "series": "trail_rel_63",
+        "feature": "band_85_128",
+        "lag1_ic": -0.03,
+        "ic_gate": false
+      },
+      {
+        "method": "wavelet",
+        "series": "trail_rel_63",
+        "feature": "band_200_280",
+        "lag1_ic": -0.0252,
+        "ic_gate": false
+      },
+      {
+        "method": "laplace",
+        "series": "daily_rel",
+        "feature": "osc_p230.94_s0.0",
+        "period_tdays": 230.94,
+        "sigma": 0.0,
+        "lag1_ic": 0.0695,
+        "ic_gate": true
+      },
+      {
+        "method": "laplace",
+        "series": "daily_rel",
+        "feature": "osc_p114.95_s0.0",
+        "period_tdays": 114.95,
+        "sigma": 0.0,
+        "lag1_ic": 0.0475,
+        "ic_gate": true
+      },
+      {
+        "method": "laplace",
+        "series": "daily_rel",
+        "feature": "osc_p177.78_s0.0",
+        "period_tdays": 177.78,
+        "sigma": 0.0,
+        "lag1_ic": -0.0015,
+        "ic_gate": false
+      },
+      {
+        "method": "laplace",
+        "series": "trail_rel_63",
+        "feature": "osc_p230.94_s0.0",
+        "period_tdays": 230.94,
+        "sigma": 0.0,
+        "lag1_ic": 0.0686,
+        "ic_gate": true
+      },
+      {
+        "method": "laplace",
+        "series": "trail_rel_63",
+        "feature": "osc_p177.78_s0.0",
+        "period_tdays": 177.78,
+        "sigma": 0.0,
+        "lag1_ic": 0.0263,
+        "ic_gate": false
+      },
+      {
+        "method": "laplace",
+        "series": "trail_rel_63",
+        "feature": "osc_p114.95_s0.0",
+        "period_tdays": 114.95,
+        "sigma": 0.0,
+        "lag1_ic": 0.0079,
+        "ic_gate": false
+      }
+    ]
+  },
+  "reading": {
+    "wavelet_daily_top": [
+      {
+        "period_tdays": 53.0,
+        "power_frac": 0.02656
+      },
+      {
+        "period_tdays": 57.0,
+        "power_frac": 0.0265
+      },
+      {
+        "period_tdays": 216.0,
+        "power_frac": 0.02643
+      }
+    ],
+    "wavelet_trail_top": [
+      {
+        "period_tdays": 234.0,
+        "power_frac": 0.09024
+      },
+      {
+        "period_tdays": 216.0,
+        "power_frac": 0.08685
+      },
+      {
+        "period_tdays": 200.0,
+        "power_frac": 0.07821
+      }
+    ],
+    "wavelet_tip_trail_top": [
+      {
+        "period_tdays": 320.0,
+        "power_frac": 0.12733
+      },
+      {
+        "period_tdays": 115.0,
+        "power_frac": 0.11008
+      },
+      {
+        "period_tdays": 107.0,
+        "power_frac": 0.09821
+      }
+    ],
+    "laplace_trail_peaks": [
+      {
+        "sigma": 0.0,
+        "omega": 0.02721,
+        "period_tdays": 230.94,
+        "mag": 13.201103,
+        "mag_frac": 1.0
+      },
+      {
+        "sigma": 0.0,
+        "omega": 0.03534,
+        "period_tdays": 177.78,
+        "mag": 9.028941,
+        "mag_frac": 0.68395
+      },
+      {
+        "sigma": 0.0,
+        "omega": 0.05466,
+        "period_tdays": 114.95,
+        "mag": 6.593851,
+        "mag_frac": 0.49949
+      }
+    ],
+    "ic_gated": [
+      {
+        "method": "wavelet",
+        "series": "trail_rel_63",
+        "feature": "ridge",
+        "lag1_ic": -0.0558,
+        "ic_gate": true
+      },
+      {
+        "method": "laplace",
+        "series": "daily_rel",
+        "feature": "osc_p230.94_s0.0",
+        "period_tdays": 230.94,
+        "sigma": 0.0,
+        "lag1_ic": 0.0695,
+        "ic_gate": true
+      },
+      {
+        "method": "laplace",
+        "series": "daily_rel",
+        "feature": "osc_p114.95_s0.0",
+        "period_tdays": 114.95,
+        "sigma": 0.0,
+        "lag1_ic": 0.0475,
+        "ic_gate": true
+      },
+      {
+        "method": "laplace",
+        "series": "trail_rel_63",
+        "feature": "osc_p230.94_s0.0",
+        "period_tdays": 230.94,
+        "sigma": 0.0,
+        "lag1_ic": 0.0686,
+        "ic_gate": true
+      }
+    ],
+    "vs_fft_0k9j": "Expect overlap with 85/128/256td if wavelet ridges agree; Laplace poles add decay σ.",
+    "practical": "Use wavelet band 70–140td and/or Laplace damped oscillator as assist to 0k9i time-domain; do not replace r0050_63 / Crisis / SELL."
+  },
+  "register": "0k9k"
+}

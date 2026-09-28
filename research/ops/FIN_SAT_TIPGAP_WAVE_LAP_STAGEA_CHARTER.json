@@ -1,8 +1,8 @@
 {
   "id": "FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_CHARTER",
-  "status": "STAGE_A_OPEN",
+  "status": "STAGE_A_DONE",
   "date": "2026-09-28",
-  "label": "FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "label": "FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_CHARTER_2026-09-28__DONE_WAVE_LAP_SIGNAL__NO_LIVE_WIRE",
   "register": "0k9k",
   "parents": [
     "0k9j_TIPGAP_FFT_SIGNAL",
@@ -14,5 +14,8 @@
   "live_wire": false,
   "soft_frozen_keep": true,
   "parent_observes_keep": true,
-  "script": "scripts/fin_sat_tipgap_wave_lap_stagea.py"
+  "script": "scripts/fin_sat_tipgap_wave_lap_stagea.py",
+  "verdict": "WAVE_LAP_SIGNAL",
+  "screen": "research/ops/FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_DECISION_PACK.md"
 }

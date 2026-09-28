@@ -1,0 +1,116 @@
+{
+  "label": "FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_DECISION_PACK_2026-09-28__WAVE_LAP_SIGNAL__NO_LIVE",
+  "status": "WAVE_LAP_SIGNAL",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "charter": "research/ops/FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_SCREEN.md",
+  "reading": {
+    "wavelet_daily_top": [
+      {
+        "period_tdays": 53.0,
+        "power_frac": 0.02656
+      },
+      {
+        "period_tdays": 57.0,
+        "power_frac": 0.0265
+      },
+      {
+        "period_tdays": 216.0,
+        "power_frac": 0.02643
+      }
+    ],
+    "wavelet_trail_top": [
+      {
+        "period_tdays": 234.0,
+        "power_frac": 0.09024
+      },
+      {
+        "period_tdays": 216.0,
+        "power_frac": 0.08685
+      },
+      {
+        "period_tdays": 200.0,
+        "power_frac": 0.07821
+      }
+    ],
+    "wavelet_tip_trail_top": [
+      {
+        "period_tdays": 320.0,
+        "power_frac": 0.12733
+      },
+      {
+        "period_tdays": 115.0,
+        "power_frac": 0.11008
+      },
+      {
+        "period_tdays": 107.0,
+        "power_frac": 0.09821
+      }
+    ],
+    "laplace_trail_peaks": [
+      {
+        "sigma": 0.0,
+        "omega": 0.02721,
+        "period_tdays": 230.94,
+        "mag": 13.201103,
+        "mag_frac": 1.0
+      },
+      {
+        "sigma": 0.0,
+        "omega": 0.03534,
+        "period_tdays": 177.78,
+        "mag": 9.028941,
+        "mag_frac": 0.68395
+      },
+      {
+        "sigma": 0.0,
+        "omega": 0.05466,
+        "period_tdays": 114.95,
+        "mag": 6.593851,
+        "mag_frac": 0.49949
+      }
+    ],
+    "ic_gated": [
+      {
+        "method": "wavelet",
+        "series": "trail_rel_63",
+        "feature": "ridge",
+        "lag1_ic": -0.0558,
+        "ic_gate": true
+      },
+      {
+        "method": "laplace",
+        "series": "daily_rel",
+        "feature": "osc_p230.94_s0.0",
+        "period_tdays": 230.94,
+        "sigma": 0.0,
+        "lag1_ic": 0.0695,
+        "ic_gate": true
+      },
+      {
+        "method": "laplace",
+        "series": "daily_rel",
+        "feature": "osc_p114.95_s0.0",
+        "period_tdays": 114.95,
+        "sigma": 0.0,
+        "lag1_ic": 0.0475,
+        "ic_gate": true
+      },
+      {
+        "method": "laplace",
+        "series": "trail_rel_63",
+        "feature": "osc_p230.94_s0.0",
+        "period_tdays": 230.94,
+        "sigma": 0.0,
+        "lag1_ic": 0.0686,
+        "ic_gate": true
+      }
+    ],
+    "vs_fft_0k9j": "Expect overlap with 85/128/256td if wavelet ridges agree; Laplace poles add decay σ.",
+    "practical": "Use wavelet band 70–140td and/or Laplace damped oscillator as assist to 0k9i time-domain; do not replace r0050_63 / Crisis / SELL."
+  },
+  "register": "0k9k",
+  "generated_at_utc": "2026-09-28T13:40:20Z"
+}
