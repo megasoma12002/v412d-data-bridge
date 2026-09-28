@@ -37,6 +37,7 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27 `R_L1_05`; prior 0.0
 | 0k5 | COOL **結束** → `00631L` 搶反彈 | **STAGE A MDD_BLOCK** (2026-09-26) | CAGR 可↑但 MDD 門不過 · Soft-Frozen KEEP · no live · `COOL_T50_LEV_REBOUND_DECISION_PACK.md` |
 | 0k6 | `00631L` **短線輔助** T1–T4 | **STAGE A SHORT_ASSIST_HIT → OBSERVE → LIVE WIRED** (2026-09-26) | Human `CONF_RET3_A10_H5 accept live` · Soft-Frozen KEEP · forward-only · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 0k6z | Observe UP/DOWN batch | **EXECUTED** (2026-09-28) | Human `請把可上 與可下進行上下` · OPEN both+SAT · CLOSE soft/sleeve/fuse/priv/BLEND/FIN50/E45 paper · `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
+| 0k9a | ABC Stage A next (tip repair / TEL quality / BREAK5 log) | **IN PROGRESS** (2026-09-28) | Human `ABC都做` · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live |
 | 0k6b | CONF densify **`SAT_A20_H5`** | **OBSERVE OPEN** (2026-09-28) | Human batch UP/DOWN · `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · live **BLOCKED** |
 | 0k6d | FIN 買側品質過濾 A/B/C | **OBSERVE CLOSED** (2026-09-28) | Superseded by both-quality HARD150 · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
 | 0k6e | FIN 賣側品質過濾 | **STAGE B `NO_EDGE`** (2026-09-28) | no observe · SELL_a75 KEEP · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md` |

@@ -12,6 +12,7 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27)
 **SAT_A20_H5:** Stage A MECH_HIT · Stage B PARENT_KEEP · **OBSERVE OPEN** (2026-09-28) · `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · live **BLOCKED**  
 FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE OPEN** `B_OR_K9_x_HARD150` · `FIN_BOTH_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · SELL_a75 KEEP  
 **Observe UP/DOWN batch 2026-09-28:** `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` — OPEN both-quality+SAT_A20; CLOSE soft/sleeve/fuse/priv/within-sleeve/BLEND025/FIN50/E45 paper observes (live stack KEEP)
+**ABC Stage A next (2026-09-28):** tip-repair HARD150 · TEL both-quality · BREAK5 monitor/log · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
 新機制 V3：**STOP** · `PRIV_MDD_M1_SCALE_V3_DECISION_PACK.md`（N1–N3+V2+V3 STOP）  

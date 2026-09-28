@@ -115,6 +115,8 @@ def simulate_core(
     tel_buy_ok: pd.DataFrame | None = None,
     fin_sell_ok: pd.DataFrame | None = None,
     fin_sell_scores: pd.DataFrame | None = None,
+    tel_sell_ok: pd.DataFrame | None = None,
+    tel_sell_scores: pd.DataFrame | None = None,
     fin_mix_lambda: float | None = None,
     tel_mix_lambda: float | None = None,
     fin_dual_pub_codes: list[str] | tuple[str, ...] | None = None,
@@ -537,6 +539,20 @@ def simulate_core(
                 for c in TEL
                 if c in tel_buy_ok.columns
             }
+        tel_sell_ok_today = None
+        if tel_sell_ok is not None and dt in tel_sell_ok.index:
+            tel_sell_ok_today = {
+                c: bool(tel_sell_ok.loc[dt, c])
+                for c in TEL
+                if c in tel_sell_ok.columns
+            }
+        tel_sell_scores_today = None
+        if tel_sell_scores is not None and dt in tel_sell_scores.index:
+            tel_sell_scores_today = {
+                c: float(tel_sell_scores.loc[dt, c])
+                for c in TEL
+                if c in tel_sell_scores.columns and pd.notna(tel_sell_scores.loc[dt, c])
+            }
         for sleeve_name, codes in sleeve_codes:
             if four_sleeve and sleeve_name in ("FinPub", "FinPriv"):
                 alloc = pub_alloc if sleeve_name == "FinPub" else priv_alloc
@@ -645,6 +661,8 @@ def simulate_core(
                         lot_size=lot_size,
                         scores=tel_scores_today,
                         buy_ok=tel_buy_ok_today,
+                        sell_ok=tel_sell_ok_today,
+                        sell_scores=tel_sell_scores_today,
                         mix_lambda=tel_mix_lambda,
                     ):
                         if qty < 1:

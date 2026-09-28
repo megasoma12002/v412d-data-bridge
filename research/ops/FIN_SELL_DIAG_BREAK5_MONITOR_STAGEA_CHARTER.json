@@ -1,0 +1,21 @@
+{
+  "label": "FIN_SELL_DIAG_BREAK5_MONITOR_STAGEA_CHARTER_2026-09-28__OPEN__NO_GATE__NO_LIVE",
+  "status": "OPEN",
+  "verdict": null,
+  "date": "2026-09-28",
+  "track": "C",
+  "role": "diagnostic_monitor_log_only",
+  "attr_id": "A_BREAK5",
+  "fin_sell_ok_applied": false,
+  "live_wire": false,
+  "sell_a75_keep": true,
+  "soft_frozen_keep": true,
+  "charter": "research/ops/FIN_SELL_DIAG_BREAK5_MONITOR_STAGEA_CHARTER.md",
+  "script": "scripts/fin_sell_diag_break5_monitor_stagea.py",
+  "parent_charter": "research/ops/FIN_SELL_DIAG_ROLE_STAGEA_CHARTER.md",
+  "parent_decision": "research/ops/FIN_SELL_DIAG_ROLE_STAGEA_DECISION_PACK.md",
+  "screen": null,
+  "decision": null,
+  "pending_run": true,
+  "human_intent": "OPEN Stage A: FIN sell BREAK5 diagnostic monitor/log · no fin_sell_ok · paper only"
+}
