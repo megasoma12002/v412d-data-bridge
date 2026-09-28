@@ -46,6 +46,7 @@ COOL_C8_PROXY_JSON = ROOT / "research/ops/COOL_C8_PROXY_MONTH_END_MONITOR.json"
 BETA_0050_DENSIFY_JSON = ROOT / "research/ops/BETA_0050_DENSIFY_MONTH_END_MONITOR.json"
 PRIV_FINHC_V7_F05_JSON = ROOT / "research/ops/PRIV_FINHC_V7_BULL_SIDE_F05_MONTH_END_MONITOR.json"
 COOL_631L_SHORT_ASSIST_JSON = ROOT / "research/ops/COOL_631L_SHORT_ASSIST_MONTH_END_MONITOR.json"
+FIN_BUY_QUALITY_JSON = ROOT / "research/ops/FIN_BUY_QUALITY_MONTH_END_MONITOR.json"
 RECON_JSON = ROOT / "research/ops/LIVE_PAPER_RECON.json"
 GAP6_JSON = ROOT / "research/ops/E22_GAP6_FIDELITY_KPI.json"
 E22_KPI_JSON = ROOT / "research/ops/E22_DATA_QUALITY_KPI.json"
@@ -271,6 +272,7 @@ def main() -> int:
         ("beta_0050_densify_month_end", BETA_0050_DENSIFY_JSON),
         ("priv_finhc_v7_bull_side_f05_month_end", PRIV_FINHC_V7_F05_JSON),
         ("cool_631l_short_assist_month_end", COOL_631L_SHORT_ASSIST_JSON),
+        ("fin_buy_quality_month_end", FIN_BUY_QUALITY_JSON),
     ]
     if E45_BLEND025_ALERT_SCAN:
         monitor_sources.insert(4, ("e45_blend025_month_end", E45_BLEND025_JSON))
