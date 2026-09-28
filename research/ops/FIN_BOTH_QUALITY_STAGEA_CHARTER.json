@@ -1,16 +1,13 @@
 {
-  "label": "FIN_BOTH_QUALITY_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
-  "status": "OPEN",
+  "label": "FIN_BOTH_QUALITY_STAGEA_CHARTER_2026-09-28__DONE_WIN_SOFT__NO_LIVE_WIRE",
+  "status": "DONE",
+  "verdict": "WIN_SOFT",
   "date": "2026-09-28",
   "live_wire": false,
-  "parents": [
-    "FIN_BUY_QUALITY_STAGED_DECISION_PACK",
-    "FIN_SELL_QUALITY_STAGEA_DECISION_PACK",
-    "FIN_SELL_QUALITY_STAGEB_DECISION_PACK"
-  ],
-  "keep": ["Soft-Frozen", "Exact T+1", "COOL_c8", "SELL_a75"],
-  "forbidden": ["sell_loss_defer", "unbounded_combo"],
+  "sell_a75_keep": true,
   "cagr_sign": "chal_minus_base",
+  "charter": "research/ops/FIN_BOTH_QUALITY_STAGEA_CHARTER.md",
   "script": "scripts/fin_both_quality_stagea.py",
-  "charter": "research/ops/FIN_BOTH_QUALITY_STAGEA_CHARTER.md"
+  "screen": "research/ops/FIN_BOTH_QUALITY_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_BOTH_QUALITY_STAGEA_DECISION_PACK.md"
 }

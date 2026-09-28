@@ -1,7 +1,7 @@
 # FIN both-quality Stage A — joint buy×sell (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · no live wire  
+Status: **Stage A DONE — `WIN_SOFT`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · no live wire  
 Parents:
 - Buy-quality A→D / observe OPEN (CAGR sign later corrected = chal−base; buy filters MDD↑ / CAGR↓)
 - Sell-quality A `MDD_BLOCK` · B `NO_EDGE` (hard sell CAGR↑ / MDD↓; soft-dampen MDD≈flat / CAGR≈0)
