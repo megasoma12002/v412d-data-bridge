@@ -15,6 +15,7 @@ from ta_indicator_catalog import rsi
 
 
 def close_panel(market: pd.DataFrame, cal: pd.DatetimeIndex, codes: list[str]) -> pd.DataFrame:
+    """Adj-close panel (preferred for forward win-rate diagnostics)."""
     out = pd.DataFrame(index=cal, columns=list(codes), dtype=float)
     for c in codes:
         m = market[market["code"].astype(str) == str(c)].copy()
@@ -27,6 +28,19 @@ def close_panel(market: pd.DataFrame, cal: pd.DatetimeIndex, codes: list[str]) -
         else:
             s = m["close"].astype(float)
         out[c] = s.reindex(cal)
+    return out
+
+
+def raw_close_panel(market: pd.DataFrame, cal: pd.DatetimeIndex, codes: list[str]) -> pd.DataFrame:
+    """Raw close panel — matches ``ta_indicator_catalog`` MA gates (Stage A seed)."""
+    out = pd.DataFrame(index=cal, columns=list(codes), dtype=float)
+    for c in codes:
+        m = market[market["code"].astype(str) == str(c)].copy()
+        if m.empty:
+            continue
+        m["date"] = pd.to_datetime(m["date"]).dt.normalize()
+        m = m.drop_duplicates("date").set_index("date").sort_index()
+        out[c] = pd.to_numeric(m["close"], errors="coerce").reindex(cal)
     return out
 
 

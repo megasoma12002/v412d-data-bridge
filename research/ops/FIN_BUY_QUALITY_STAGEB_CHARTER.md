@@ -1,7 +1,7 @@
 # FIN buy-quality Stage B — MA120 seed micro-tune (paper)
 
 Date: 2026-09-28  
-Status: **Stage B OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · no live wire  
+Status: **Stage B DONE — `BUY_QUALITY_HIT`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · no live wire  
 Parent Stage A: **`WIN_SOFT`** · seed `Q_BELOW_MA120` (CAGR↑+1.63 · MDD↑+0.89 · tip OK · buy WR↓)  
 Human intent (normalized):
 

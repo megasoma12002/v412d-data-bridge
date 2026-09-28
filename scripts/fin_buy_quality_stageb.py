@@ -29,6 +29,7 @@ from fin_buy_quality_helpers import (
     forward_win_stats,
     kd_season_mask,
     or_buy_ok,
+    raw_close_panel,
     rsi_lt_ok,
 )
 from live_config import LIVE_FUSE_SOFT_SELL_BOOST
@@ -198,7 +199,7 @@ def _sim(market, target, regime, dividends, *, scores, buy_ok, sell, exposure):
 def _extra_for_spec(
     spec: dict[str, Any],
     *,
-    closes: pd.DataFrame,
+    raw_closes: pd.DataFrame,
     lows: dict,
     season: pd.Series,
 ) -> pd.DataFrame | None:
@@ -206,15 +207,23 @@ def _extra_for_spec(
     if kind == "ctrl":
         return None
     ma = int(spec.get("ma") or 120)
-    gate = below_ma_ok(closes, ma)
+    # MA gates on raw close (same series as Stage A catalog BELOW_MA*).
+    if ma == 120 and kind in ("seed", "ma"):
+        gate = catalog_gate(lows["BELOW_MA120"])
+    else:
+        gate = below_ma_ok(raw_closes, ma)
     if kind in ("seed", "ma"):
         return gate
     if kind == "ma_season":
-        return apply_filter_in_season(gate, season, in_season=bool(spec.get("in_season")))
+        # season overlays always start from catalog MA120 seed
+        gate120 = catalog_gate(lows["BELOW_MA120"])
+        return apply_filter_in_season(gate120, season, in_season=bool(spec.get("in_season")))
     if kind == "ma_or_k9":
-        return or_buy_ok(gate, catalog_gate(lows["K9_LT30"]))
+        gate120 = catalog_gate(lows["BELOW_MA120"])
+        return or_buy_ok(gate120, catalog_gate(lows["K9_LT30"]))
     if kind == "ma_or_rsi50":
-        return or_buy_ok(gate, rsi_lt_ok(closes, thresh=50.0, n=14))
+        gate120 = catalog_gate(lows["BELOW_MA120"])
+        return or_buy_ok(gate120, rsi_lt_ok(raw_closes, thresh=50.0, n=14))
     raise ValueError(f"unknown kind {kind}")
 
 
@@ -331,7 +340,8 @@ def main() -> int:
     _ = prices
     cal = pd.DatetimeIndex(pd.to_datetime(sorted(market["date"].unique())))
     lows, highs = build_low_high_catalog(market, cal, list(FIN))
-    closes = close_panel(market, cal, list(FIN))
+    closes = close_panel(market, cal, list(FIN))  # adj for win-rate
+    raw_closes = raw_close_panel(market, cal, list(FIN))  # raw for MA gates
     season = kd_season_mask(
         cal,
         season_start=tuple(LIVE_KD["season_start"]),
@@ -381,7 +391,7 @@ def main() -> int:
 
     for spec in GRID:
         bid = str(spec["id"])
-        extra = _extra_for_spec(spec, closes=closes, lows=lows, season=season)
+        extra = _extra_for_spec(spec, raw_closes=raw_closes, lows=lows, season=season)
         buy_ok = base_buy_ok if extra is None else and_buy_ok(base_buy_ok, extra)
         nav, fills, meta = _sim(
             market,

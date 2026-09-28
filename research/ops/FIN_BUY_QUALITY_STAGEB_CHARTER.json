@@ -1,6 +1,6 @@
 {
-  "label": "FIN_BUY_QUALITY_STAGEB_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
-  "status": "STAGE_B_OPEN",
+  "label": "FIN_BUY_QUALITY_STAGEB_CHARTER_2026-09-28__DONE_BUY_QUALITY_HIT__NO_LIVE_WIRE",
+  "status": "STAGE_B_DONE_BUY_QUALITY_HIT",
   "live_wire": false,
   "soft_frozen_keep": true,
   "exact_t1_keep": true,
@@ -45,5 +45,7 @@
   ],
   "script": "scripts/fin_buy_quality_stageb.py",
   "repro": "repro/fin-buy-quality-stageb/",
-  "register": "0k6d2"
+  "register": "0k6d2",
+  "verdict": "BUY_QUALITY_HIT",
+  "champion": "B_MA120_OR_K9"
 }

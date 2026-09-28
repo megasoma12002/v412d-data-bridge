@@ -1,7 +1,7 @@
 # FIN 買側品質 Stage B — MA120 種子微調（紙上）
 
 日期：2026-09-28  
-狀態：**Stage B OPEN** · Soft-Frozen **KEEP** · Exact T+1 **KEEP** · 不下 live  
+狀態：**Stage B DONE — `BUY_QUALITY_HIT`** · Soft-Frozen **KEEP** · Exact T+1 **KEEP** · 不下 live  
 父層 Stage A：`WIN_SOFT` · 種子 `Q_BELOW_MA120`  
 人話：
 

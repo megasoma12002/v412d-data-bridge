@@ -1,0 +1,13 @@
+{
+  "label": "FIN_BUY_QUALITY_STAGEB_DECISION_PACK_2026-09-28__BUY_QUALITY_HIT__NO_LIVE",
+  "status": "BUY_QUALITY_HIT",
+  "champion": "B_MA120_OR_K9",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_stage_a": "WIN_SOFT",
+  "seed": "SEED_MA120",
+  "charter": "research/ops/FIN_BUY_QUALITY_STAGEB_CHARTER.md",
+  "screen": "research/ops/FIN_BUY_QUALITY_STAGEB_SCREEN.md",
+  "ballot_draft": "research/ops/FIN_BUY_QUALITY_MA120_OBSERVE_BALLOT_DRAFT.md",
+  "generated_at_utc": "2026-09-28T03:47:41Z"
+}
