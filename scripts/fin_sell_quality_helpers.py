@@ -100,12 +100,43 @@ def forward_sell_win_stats(
     }
 
 
+def dampen_sell_when_false(
+    sell: pd.DataFrame,
+    quality_ok: pd.DataFrame,
+    damp: float,
+) -> pd.DataFrame:
+    """Keep sell scores when ``quality_ok``; else multiply by ``damp`` in (0, 1]."""
+    d = float(damp)
+    if d <= 0.0 or d > 1.0:
+        raise ValueError(f"damp must be in (0,1], got {d}")
+    q = quality_ok.reindex(index=sell.index, columns=sell.columns).fillna(False).astype(bool)
+    out = sell.astype(float).copy()
+    for c in out.columns:
+        out[c] = np.where(q[c].to_numpy(), out[c].to_numpy(), out[c].to_numpy() * d)
+    return out
+
+
+def boost_only_when(
+    high_panel: pd.DataFrame,
+    quality_ok: pd.DataFrame,
+    *,
+    boost: float = 0.75,
+    base: float = 1.0,
+) -> pd.DataFrame:
+    """``base + boost * high * quality`` — live SELL_a75 shape, gated by quality."""
+    h = high_panel.reindex(index=quality_ok.index, columns=quality_ok.columns).fillna(False)
+    q = quality_ok.fillna(False).astype(bool)
+    return float(base) + float(boost) * h.astype(float) * q.astype(float)
+
+
 __all__ = [
     "above_ma_ok",
+    "boost_only_when",
     "cagr_lift_pp",
     "catalog_gate",
     "close_panel",
     "cool1_buy_ok",
+    "dampen_sell_when_false",
     "forward_sell_win_stats",
     "not_gate",
     "raw_close_panel",

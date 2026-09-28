@@ -1,0 +1,15 @@
+{
+  "label": "FIN_SELL_QUALITY_STAGEB_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "status": "OPEN",
+  "date": "2026-09-28",
+  "parent": "FIN_SELL_QUALITY_STAGEA_DECISION_PACK",
+  "parent_verdict": "MDD_BLOCK",
+  "live_wire": false,
+  "keep": ["Soft-Frozen", "Exact T+1", "COOL_c8", "SELL_a75"],
+  "mechanism": ["soft_dampen", "boost_only_when_quality"],
+  "mdd_strict_pp": -0.25,
+  "mdd_soft_pp": -1.0,
+  "cagr_sign": "chal_minus_base",
+  "script": "scripts/fin_sell_quality_stageb.py",
+  "charter": "research/ops/FIN_SELL_QUALITY_STAGEB_CHARTER.md"
+}
