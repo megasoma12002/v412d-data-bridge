@@ -1,6 +1,6 @@
 # TEL_BOTH_QUALITY_STAGEA_SCREEN
 
-Date: 2026-09-28 · Generated `2026-09-28T07:59:43Z`
+Date: 2026-09-28 · Generated `2026-09-28T08:03:21Z`
 Status: **NO_EDGE** · Soft-Frozen **KEEP** · live wire **false**
 
 | ID | CAGR↑ | MDD↑ | tip YTD MDD↑ | buyWR↑ | sellWR↑ | HIT |

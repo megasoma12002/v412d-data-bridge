@@ -57,6 +57,7 @@ from within_sleeve_alloc import (
     FIN_PRE_EXDIV_KD,
     TEL_EQUAL,
     TEL_RS_SOFT_TILT,
+    TEL_RS_SOFT_TILT_EXDIV,
     build_kd_season_tilt_scores,
     build_pre_exdiv_window_buy_ok,
 )
@@ -372,8 +373,12 @@ def main() -> int:
         tel_sell, tel_sell_ok = _sell_overlay(
             spec.get("sell"), lows=lows_t, raw_closes=raw_t, sell0=tel_sell0
         )
-        # When any TEL overlay active, use RS soft tilt; else EQUAL off-defense path still uses scores=0 off cool
-        telecom_alloc = TEL_RS_SOFT_TILT
+        # Buy overlays need EXDIV policy so buy_ok is honored (plain RS_SOFT_TILT ignores buy_ok).
+        # Sell-only / CTRL keep T3 twin: RS_SOFT_TILT + cool-gated INV_VOL scores.
+        if extra is not None:
+            telecom_alloc = TEL_RS_SOFT_TILT_EXDIV
+        else:
+            telecom_alloc = TEL_RS_SOFT_TILT
         print(f"{bid} ...", flush=True)
         nav, fills, meta = _sim(
             market,

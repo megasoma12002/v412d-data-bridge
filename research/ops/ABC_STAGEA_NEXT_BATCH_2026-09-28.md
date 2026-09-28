@@ -6,7 +6,7 @@ Human: `ABC都做`
 | Track | ID | Verdict | Evidence |
 |---|---|---|---|
 | **A** | FIN HARD150 tip/near-window repair | **`LOCK_KEEP_NO_TIP_LIFT`** | Finite densify did not clear tip YTD/1y CAGR PAUSE while held stays · best tip-ish `T_OR_K9_KD_x_HARD150` (−6.1/−4.4) breaks held MDD · `FIN_HARD150_TIP_REPAIR_STAGEA_DECISION_PACK.md` |
-| **B** | TEL both-quality buy×sell | **`NO_EDGE`** | No book clears held CAGR≥+0.15 · sell hard moves WR but tip/CAGR short · buy overlays inert under T3 cool-gate · `TEL_BOTH_QUALITY_STAGEA_DECISION_PACK.md` |
+| **B** | TEL both-quality buy×sell | **`NO_EDGE`** | No book clears held CAGR≥+0.15 · sell hard moves WR but tip/CAGR short · buy overlays use EXDIV so buy_ok honored but still ≈CTRL under T3 cool-gate · `TEL_BOTH_QUALITY_STAGEA_DECISION_PACK.md` |
 | **C** | FIN sell BREAK5 diagnostic monitor/log | **`MONITOR_READY`** | `A_BREAK5` WR↑ **+3.82pp** · n=98 · cov≈10.6% · **no** `fin_sell_ok` · CSV log ready · `FIN_SELL_DIAG_BREAK5_MONITOR_STAGEA_DECISION_PACK.md` |
 
 ## Binding
