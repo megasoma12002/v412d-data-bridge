@@ -1,7 +1,7 @@
 # ETF 0050 買賣品質 Stage A — 紙上章程
 
 日期：2026-09-28  
-狀態：**Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · β densify clip **KEEP** · 不下 live  
+狀態：**Stage A DONE — `TIP_BLOCK`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · β densify clip **KEEP** · 不下 live  
 父層 live：Soft-Frozen F[0.60,0.80] T[0.03,0.35] E[0.00,0.50] + FUSE + `SELL_a75` + `COOL_c8_f50_d21` + L1=0.05  
 
 先前 0050 軌（**勿重開同旋鈕**）：
@@ -16,7 +16,7 @@
 OPEN Stage A charter: 0050 買賣品質過濾 · 加減碼時機 · MDD持平/改善 + CAGR↑ · 勝率診斷 · KEEP clip/SELL_a75 · paper only
 ```
 
-Label: `ETF0050_BOTH_QUALITY_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `ETF0050_BOTH_QUALITY_STAGEA_CHARTER_2026-09-28__DONE_TIP_BLOCK__NO_LIVE_WIRE`
 
 ## 為何開這軌
 

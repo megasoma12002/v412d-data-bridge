@@ -579,18 +579,57 @@ def main() -> int:
         "best_single_economic": None if not single_econ else single_econ[0]["id"],
         "generated_at_utc": generated,
     }
+    decision_md = "\n".join(dlines)
     write_ops_and_repro_pointer(
-        DECISION_ID,
-        "\n".join(dlines),
+        OPS / f"{DECISION_ID}.md",
+        REP / f"{DECISION_ID}.md",
+        decision_md,
+    )
+    write_ops_and_repro_pointer(
+        OPS / f"{DECISION_ID}.json",
+        REP / f"{DECISION_ID}.json",
         json.dumps(decision, indent=2, ensure_ascii=False) + "\n",
     )
     write_ops_and_repro_pointer(
-        SCREEN_ID,
+        OPS / f"{SCREEN_ID}.md",
+        REP / f"{SCREEN_ID}.md",
         screen_md,
+        kind="screen",
+    )
+    write_ops_and_repro_pointer(
+        OPS / f"{SCREEN_ID}.json",
+        REP / f"{SCREEN_ID}.json",
         json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+        kind="screen",
     )
 
-    # Update charter JSON status
+    # Update charter status (keep body; flip OPEN → DONE)
+    charter_md_path = OPS / f"{CHARTER_ID}.md"
+    if charter_md_path.exists():
+        body = charter_md_path.read_text(encoding="utf-8")
+        body = body.replace(
+            "Status: **Stage A OPEN**",
+            f"Status: **Stage A DONE — `{verdict}`**",
+            1,
+        )
+        body = body.replace(
+            f"{CHARTER_ID}_2026-09-28__OPEN__NO_LIVE_WIRE",
+            f"{CHARTER_ID}_2026-09-28__DONE_{verdict}__NO_LIVE_WIRE",
+        )
+        charter_md_path.write_text(body, encoding="utf-8")
+    charter_zh = OPS / f"{CHARTER_ID}.zh-TW.md"
+    if charter_zh.exists():
+        z = charter_zh.read_text(encoding="utf-8")
+        z = z.replace(
+            "狀態：**Stage A OPEN**",
+            f"狀態：**Stage A DONE — `{verdict}`**",
+            1,
+        )
+        z = z.replace(
+            f"{CHARTER_ID}_2026-09-28__OPEN__NO_LIVE_WIRE",
+            f"{CHARTER_ID}_2026-09-28__DONE_{verdict}__NO_LIVE_WIRE",
+        )
+        charter_zh.write_text(z, encoding="utf-8")
     charter_json = OPS / f"{CHARTER_ID}.json"
     if charter_json.exists():
         cj = json.loads(charter_json.read_text(encoding="utf-8"))

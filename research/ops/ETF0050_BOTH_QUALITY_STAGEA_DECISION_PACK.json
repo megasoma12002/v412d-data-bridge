@@ -1,0 +1,15 @@
+{
+  "label": "ETF0050_BOTH_QUALITY_STAGEA_DECISION_PACK_2026-09-28__TIP_BLOCK__NO_LIVE",
+  "status": "TIP_BLOCK",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "sell_a75_keep": true,
+  "beta_clip_keep": true,
+  "cagr_sign": "chal_minus_base",
+  "charter": "research/ops/ETF0050_BOTH_QUALITY_STAGEA_CHARTER.md",
+  "screen": "research/ops/ETF0050_BOTH_QUALITY_STAGEA_SCREEN.md",
+  "best_hit": null,
+  "best_both_economic": null,
+  "best_single_economic": null,
+  "generated_at_utc": "2026-09-28T09:12:22Z"
+}

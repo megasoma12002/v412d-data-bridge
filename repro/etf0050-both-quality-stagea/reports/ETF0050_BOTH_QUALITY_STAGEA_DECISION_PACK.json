@@ -1,0 +1,5 @@
+# Pointer — decision pack SSOT
+
+Canonical copy: `research/ops/ETF0050_BOTH_QUALITY_STAGEA_DECISION_PACK.json`
+
+Do not dual-write the full artifact into `repro/*/reports/` (see `research/ops/REPRO_DEDUPE_HYGIENE.md`).

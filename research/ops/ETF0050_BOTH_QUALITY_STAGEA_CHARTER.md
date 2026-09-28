@@ -1,7 +1,7 @@
 # ETF 0050 both-quality Stage A — buy×sell sleeve filters (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · β densify clip **KEEP** · no live wire  
+Status: **Stage A DONE — `TIP_BLOCK`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · β densify clip **KEEP** · no live wire  
 Parent live: Soft-Frozen F[0.60,0.80] T[0.03,0.35] E[0.00,0.50] + FUSE + `SELL_a75` + `COOL_c8_f50_d21` + L1=0.05  
 Prior 0050 tracks (do **not** reopen same knob):
 - β densify → **`BETA_0050_HIT` → LIVE clip** · Stage B `HELD_FLAT_TIP_FAIL`
@@ -15,7 +15,7 @@ Human intent (normalized):
 OPEN Stage A charter: 0050 買賣品質過濾 · 加減碼時機 · MDD持平/改善 + CAGR↑ · 勝率診斷 · KEEP clip/SELL_a75 · paper only
 ```
 
-Label: `ETF0050_BOTH_QUALITY_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `ETF0050_BOTH_QUALITY_STAGEA_CHARTER_2026-09-28__DONE_TIP_BLOCK__NO_LIVE_WIRE`
 
 ## Why this track
 
@@ -70,7 +70,7 @@ Does a finite buy×sell quality grid produce ≥1 book with:
 | `BUY_BELOW_MA120` | AND `close < MA120` | — |
 | `BUY_ABOVE_MA60` | AND `close > MA60` | — |
 | `BUY_RET5_POS` | AND RET5 &gt; 0 | — |
-| `BUY_NOT_COOL` | AND cool≈1 **blocked** (no add while defending) | — |
+| `BUY_NOT_COOL` | AND cool≥1 (no add while defending) | — |
 | `SELL_ABOVE_MA60` | — | AND `close > MA60` |
 | `SELL_RET5_NEG` | — | AND RET5 &lt; 0 |
 | `SELL_RSI14_GT70` | — | AND RSI14 &gt; 70 |
