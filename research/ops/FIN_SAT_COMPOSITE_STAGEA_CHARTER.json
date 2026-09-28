@@ -1,0 +1,42 @@
+{
+  "label": "FIN_SAT_COMPOSITE_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "status": "STAGE_A_OPEN",
+  "verdict": null,
+  "date": "2026-09-28",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "sell_a75_keep": true,
+  "live_conf_a10_keep": true,
+  "cagr_sign": "chal_minus_base",
+  "parents": [
+    "0k6f_FIN_BOTH_QUALITY_OBSERVE_OPEN_HARD150",
+    "0k6b_SAT_A20_H5_OBSERVE_OPEN"
+  ],
+  "out_of_mix": [
+    "etf0050_tip_block_tracks",
+    "closed_soft_sleeve_blend_observes",
+    "asymm_densify",
+    "gate_h_auto_fuse"
+  ],
+  "charter": "research/ops/FIN_SAT_COMPOSITE_STAGEA_CHARTER.md",
+  "charter_zh_tw": "research/ops/FIN_SAT_COMPOSITE_STAGEA_CHARTER.zh-TW.md",
+  "script": "scripts/fin_sat_composite_stagea.py",
+  "repro": "repro/fin-sat-composite-stagea/",
+  "register": "0k9b",
+  "gates": {
+    "held_cagr_pp": 0.15,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0,
+    "wr_either_pp": 0.5,
+    "win_horizon": 21
+  },
+  "verdicts": [
+    "COMPOSITE_HIT",
+    "WIN_SOFT",
+    "PARENT_KEEP",
+    "CAGR_SOFT",
+    "TIP_BLOCK",
+    "NO_EDGE"
+  ]
+}
