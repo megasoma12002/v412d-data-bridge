@@ -1,7 +1,7 @@
 # FIN×SAT FFT-phase × Exact T+1 lag Stage A (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `FFT_LAG_NO_EDGE`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - 0k9o tip-lead **`TIP_LAG_BLOCK`** — 早 1 日足夠；外部 lead 弱
 - 0k9j tip-gap FFT **`FFT_SIGNAL`** — trail ~85/128/256td；assist≠replace
@@ -13,7 +13,7 @@ Human intent (normalized):
 OPEN Stage A: 傅立葉／因果相位能否解決 Exact T+1 lag（領先 SAT_LEAD enter ≥1 日）· Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_FFT_PHASE_LAG_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_FFT_PHASE_LAG_STAGEA_CHARTER_2026-09-28__DONE_FFT_LAG_NO_EDGE__NO_LIVE_WIRE`
 
 ## Why
 

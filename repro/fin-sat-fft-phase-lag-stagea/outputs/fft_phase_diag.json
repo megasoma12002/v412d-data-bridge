@@ -1,0 +1,135 @@
+{
+  "n_enter": 77,
+  "periods": [
+    85.0,
+    128.0,
+    256.0
+  ],
+  "wins": [
+    64,
+    128,
+    256
+  ],
+  "top_fft_ic": [
+    {
+      "feat": "w64_phase",
+      "k": 1,
+      "ic": -0.0898,
+      "abs_ic": 0.0898,
+      "win": 64
+    },
+    {
+      "feat": "w64_phase",
+      "k": 2,
+      "ic": -0.0753,
+      "abs_ic": 0.0753,
+      "win": 64
+    },
+    {
+      "feat": "w64_phase",
+      "k": 3,
+      "ic": -0.0716,
+      "abs_ic": 0.0716,
+      "win": 64
+    },
+    {
+      "feat": "w64_dphase",
+      "k": 3,
+      "ic": 0.0686,
+      "abs_ic": 0.0686,
+      "win": 64
+    },
+    {
+      "feat": "w64_dphase",
+      "k": 2,
+      "ic": 0.0679,
+      "abs_ic": 0.0679,
+      "win": 64
+    },
+    {
+      "feat": "w64_dphase",
+      "k": 1,
+      "ic": 0.065,
+      "abs_ic": 0.065,
+      "win": 64
+    },
+    {
+      "feat": "w64_dphase",
+      "k": 5,
+      "ic": 0.0578,
+      "abs_ic": 0.0578,
+      "win": 64
+    },
+    {
+      "feat": "w64_phase",
+      "k": 5,
+      "ic": -0.0553,
+      "abs_ic": 0.0553,
+      "win": 64
+    },
+    {
+      "feat": "w256_phase",
+      "k": 5,
+      "ic": -0.0513,
+      "abs_ic": 0.0513,
+      "win": 256
+    },
+    {
+      "feat": "w256_phase",
+      "k": 1,
+      "ic": -0.0501,
+      "abs_ic": 0.0501,
+      "win": 256
+    },
+    {
+      "feat": "w256_phase",
+      "k": 3,
+      "ic": -0.0467,
+      "abs_ic": 0.0467,
+      "win": 256
+    },
+    {
+      "feat": "w128_amp",
+      "k": 1,
+      "ic": -0.0459,
+      "abs_ic": 0.0459,
+      "win": 128
+    }
+  ],
+  "trail_lead_ic": [
+    {
+      "feat": "trail_rel_63",
+      "k": 2,
+      "ic": -0.1067,
+      "abs_ic": 0.1067
+    },
+    {
+      "feat": "trail_rel_63",
+      "k": 1,
+      "ic": -0.1005,
+      "abs_ic": 0.1005
+    },
+    {
+      "feat": "trail_rel_63",
+      "k": 5,
+      "ic": -0.0998,
+      "abs_ic": 0.0998
+    },
+    {
+      "feat": "trail_rel_63",
+      "k": 3,
+      "ic": -0.0987,
+      "abs_ic": 0.0987
+    }
+  ],
+  "best_fft_abs_ic": 0.0898,
+  "best_fft": {
+    "feat": "w64_phase",
+    "k": 1,
+    "ic": -0.0898,
+    "abs_ic": 0.0898,
+    "win": 64
+  },
+  "trail_abs_ic_k1": 0.1005,
+  "note": "Causal STFT end-point phase/recon on trail_rel_63 bands from 0k9j"
+}

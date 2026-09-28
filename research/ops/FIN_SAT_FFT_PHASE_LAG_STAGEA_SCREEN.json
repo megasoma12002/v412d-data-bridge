@@ -1,0 +1,544 @@
+{
+  "label": "FIN_SAT_FFT_PHASE_LAG_STAGEA_SCREEN_20260928T143934Z",
+  "generated_at_utc": "2026-09-28T14:39:34Z",
+  "charter": "research/ops/FIN_SAT_FFT_PHASE_LAG_STAGEA_CHARTER.md",
+  "status": "STAGE_A_SCREEN_DONE",
+  "verdict": "FFT_LAG_NO_EDGE",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "diagnosis": {
+    "n_enter": 77,
+    "periods": [
+      85.0,
+      128.0,
+      256.0
+    ],
+    "wins": [
+      64,
+      128,
+      256
+    ],
+    "top_fft_ic": [
+      {
+        "feat": "w64_phase",
+        "k": 1,
+        "ic": -0.0898,
+        "abs_ic": 0.0898,
+        "win": 64
+      },
+      {
+        "feat": "w64_phase",
+        "k": 2,
+        "ic": -0.0753,
+        "abs_ic": 0.0753,
+        "win": 64
+      },
+      {
+        "feat": "w64_phase",
+        "k": 3,
+        "ic": -0.0716,
+        "abs_ic": 0.0716,
+        "win": 64
+      },
+      {
+        "feat": "w64_dphase",
+        "k": 3,
+        "ic": 0.0686,
+        "abs_ic": 0.0686,
+        "win": 64
+      },
+      {
+        "feat": "w64_dphase",
+        "k": 2,
+        "ic": 0.0679,
+        "abs_ic": 0.0679,
+        "win": 64
+      },
+      {
+        "feat": "w64_dphase",
+        "k": 1,
+        "ic": 0.065,
+        "abs_ic": 0.065,
+        "win": 64
+      },
+      {
+        "feat": "w64_dphase",
+        "k": 5,
+        "ic": 0.0578,
+        "abs_ic": 0.0578,
+        "win": 64
+      },
+      {
+        "feat": "w64_phase",
+        "k": 5,
+        "ic": -0.0553,
+        "abs_ic": 0.0553,
+        "win": 64
+      },
+      {
+        "feat": "w256_phase",
+        "k": 5,
+        "ic": -0.0513,
+        "abs_ic": 0.0513,
+        "win": 256
+      },
+      {
+        "feat": "w256_phase",
+        "k": 1,
+        "ic": -0.0501,
+        "abs_ic": 0.0501,
+        "win": 256
+      },
+      {
+        "feat": "w256_phase",
+        "k": 3,
+        "ic": -0.0467,
+        "abs_ic": 0.0467,
+        "win": 256
+      },
+      {
+        "feat": "w128_amp",
+        "k": 1,
+        "ic": -0.0459,
+        "abs_ic": 0.0459,
+        "win": 128
+      }
+    ],
+    "trail_lead_ic": [
+      {
+        "feat": "trail_rel_63",
+        "k": 2,
+        "ic": -0.1067,
+        "abs_ic": 0.1067
+      },
+      {
+        "feat": "trail_rel_63",
+        "k": 1,
+        "ic": -0.1005,
+        "abs_ic": 0.1005
+      },
+      {
+        "feat": "trail_rel_63",
+        "k": 5,
+        "ic": -0.0998,
+        "abs_ic": 0.0998
+      },
+      {
+        "feat": "trail_rel_63",
+        "k": 3,
+        "ic": -0.0987,
+        "abs_ic": 0.0987
+      }
+    ],
+    "best_fft_abs_ic": 0.0898,
+    "best_fft": {
+      "feat": "w64_phase",
+      "k": 1,
+      "ic": -0.0898,
+      "abs_ic": 0.0898,
+      "win": 64
+    },
+    "trail_abs_ic_k1": 0.1005,
+    "note": "Causal STFT end-point phase/recon on trail_rel_63 bands from 0k9j"
+  },
+  "books": [
+    {
+      "id": "CTRL_LIVE_A10",
+      "fam": "ctrl",
+      "meta": {
+        "pct_days_sat": 0.0,
+        "n_flips": 0,
+        "rule": "ctrl"
+      },
+      "eval": {
+        "held_cagr_lift_pp": -0.0,
+        "held_mdd_pp": 0.0,
+        "held_abs_mdd": -0.144234,
+        "tip_ytd_cagr_pp": 0.0,
+        "tip_1y_cagr_pp": 0.0,
+        "tip_ytd_mdd_pp": 0.0,
+        "tip_1y_mdd_pp": 0.0,
+        "family": "ctrl",
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "vs_sat_held": false,
+          "shaped": false
+        },
+        "hit": false,
+        "ub_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "REF_SAT_RELAX",
+      "fam": "ref",
+      "meta": {
+        "pct_days_sat": 100.0,
+        "n_flips": 0,
+        "rule": "sat"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.3343,
+        "held_mdd_pp": -0.3084,
+        "held_abs_mdd": -0.147318,
+        "tip_ytd_cagr_pp": 0.6801,
+        "tip_1y_cagr_pp": 0.7413,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "ref",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": false,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "vs_sat_held": false,
+          "shaped": false
+        },
+        "hit": false,
+        "ub_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 0.6801,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 0.7413,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "REF_COMP_H150_A20",
+      "fam": "ref",
+      "meta": {
+        "pct_days_sat": 0.0,
+        "n_flips": 0,
+        "rule": "comp"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.5415,
+        "held_mdd_pp": -0.1088,
+        "held_abs_mdd": -0.145322,
+        "tip_ytd_cagr_pp": -13.3591,
+        "tip_1y_cagr_pp": -9.0207,
+        "tip_ytd_mdd_pp": 0.9278,
+        "tip_1y_mdd_pp": 0.9278,
+        "family": "ref",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "hit": false,
+        "ub_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.9278,
+          "cagr_lift_pp": -13.3591,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.9278,
+          "cagr_lift_pp": -9.0207,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "UB_ENTER_M1",
+      "fam": "ub",
+      "meta": {
+        "pct_days_sat": 26.45,
+        "n_flips": 115,
+        "rule": "UB_ENTER_M1"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 3.4426,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": 1.7875,
+        "tip_1y_cagr_pp": 1.1126,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "ub",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": true
+        },
+        "hit": false,
+        "ub_shaped": true
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 1.7875,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 1.1126,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "R_SAT_LEAD_L1",
+      "fam": "switch",
+      "meta": {
+        "pct_days_sat": 24.13,
+        "n_flips": 153,
+        "rule": "R_SAT_LEAD_L1"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 1.2962,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -8.4925,
+        "tip_1y_cagr_pp": -5.7336,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "switch",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "hit": false,
+        "ub_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -8.4925,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -5.7336,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "R_PHASE_QUAD_L1",
+      "fam": "switch",
+      "meta": {
+        "pct_days_sat": 48.92,
+        "n_flips": 59,
+        "rule": "R_PHASE_QUAD_L1"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 1.105,
+        "held_mdd_pp": 0.356,
+        "held_abs_mdd": -0.140674,
+        "tip_ytd_cagr_pp": -7.0231,
+        "tip_1y_cagr_pp": -6.1731,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "switch",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "hit": false,
+        "ub_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -7.0231,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -6.1731,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "R_DPHASE_HI_L1",
+      "fam": "switch",
+      "meta": {
+        "pct_days_sat": 23.48,
+        "n_flips": 271,
+        "rule": "R_DPHASE_HI_L1"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 2.0412,
+        "held_mdd_pp": 0.2747,
+        "held_abs_mdd": -0.141487,
+        "tip_ytd_cagr_pp": -1.7041,
+        "tip_1y_cagr_pp": -1.1984,
+        "tip_ytd_mdd_pp": 0.9278,
+        "tip_1y_mdd_pp": 0.9278,
+        "family": "switch",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "hit": false,
+        "ub_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.9278,
+          "cagr_lift_pp": -1.7041,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.9278,
+          "cagr_lift_pp": -1.1984,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "R_RECON_HALF_L1",
+      "fam": "switch",
+      "meta": {
+        "pct_days_sat": 30.55,
+        "n_flips": 51,
+        "rule": "R_RECON_HALF_L1"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 1.0299,
+        "held_mdd_pp": 0.1425,
+        "held_abs_mdd": -0.142809,
+        "tip_ytd_cagr_pp": -7.1779,
+        "tip_1y_cagr_pp": -5.8393,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "switch",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "hit": false,
+        "ub_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -7.1779,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -5.8393,
+          "gate": "PASS"
+        }
+      }
+    },
+    {
+      "id": "R_AMP_TREND_L1",
+      "fam": "switch",
+      "meta": {
+        "pct_days_sat": 24.64,
+        "n_flips": 85,
+        "rule": "R_AMP_TREND_L1"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.7382,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -10.788,
+        "tip_1y_cagr_pp": -8.0447,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "switch",
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "hit": false,
+        "ub_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -10.788,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -8.0447,
+          "gate": "PASS"
+        }
+      }
+    }
+  ],
+  "register": "0k9p"
+}
