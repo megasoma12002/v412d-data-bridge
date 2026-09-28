@@ -13,14 +13,20 @@ Parents: 0k9o/0k9j/0k9n · register **0k9p**
 
 ## Reading
 
-- best FFT lead IC: {"feat": "w64_phase", "k": 1, "ic": -0.0898, "abs_ic": 0.0898, "win": 64}
-- trail_rel lag-1 |IC| vs enter: `0.1005`
-- enters=77
+- best FFT lead IC: `w64_phase` k=1 |IC|**=0.090**（仍 **低於** `trail_rel_63` lag-1 |IC|=**0.101**）
+- enters=77 · 相位／dphase／recon／amp 均未超越原始 trail 載體
+- 因果 STFT 窗（64–256）本身帶延遲，無法「變出」早於載體的資訊
 
 UB shaped:
-- `UB_ENTER_M1` held↑ 3.4426 tipY↑ 1.7875
+- `UB_ENTER_M1` held↑ 3.44 tipY↑ 1.79
 
 No causal FFT_LAG_HIT.
+
+**精煉：**
+1. **傅立葉解不了 Exact T+1 lag** — 因果相位 IC < trail 本身；譜只是 trail 的線性濾波，無額外 lead。
+2. **最好的 FFT probe** — `R_DPHASE_HI_L1` tipY **−1.70**（優於狀態 L1 −8.5）仍未 tip-clean。
+3. **0k9j 功率譜仍只是 assist** — 對 tip-gap 有色，對 enter 時序無解；與 0k9o 結論一致。
+4. **Binding 不變** — Soft-Frozen Exact T+1 下，FFT 不是出路；停此譜線或改非譜路徑。
 
 ## Books
 
