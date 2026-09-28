@@ -1,7 +1,7 @@
 # FIN×SAT 局部互斥 Stage A (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `TIP_LAG_BLOCK`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - 0k9m 分歧切換規則 **`TIP_MDD_ONLY`** — enter/confirm/exit 全 tipCAGR− · rule-layer day-switch exhausted
 - 0k9l Episode — SAT_LEAD vs SIMILAR 互斥；SIMILAR~54%
@@ -13,7 +13,7 @@ Human intent (normalized):
 OPEN Stage A: tip/held 互斥是不是「局部」——損害與獲利是否落在不同時段 · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_LOCAL_MUTEX_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_LOCAL_MUTEX_STAGEA_CHARTER_2026-09-28__DONE_TIP_LAG_BLOCK__NO_LIVE_WIRE`
 
 ## Why
 
