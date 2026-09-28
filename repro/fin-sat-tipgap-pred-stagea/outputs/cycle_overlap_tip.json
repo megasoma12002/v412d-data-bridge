@@ -1,0 +1,34 @@
+{
+  "tip_drag_base_rate": 69.42,
+  "n_tip": 242,
+  "crisis": {
+    "n": 48,
+    "drag_rate": 100.0,
+    "lift_pp": 30.58
+  },
+  "bearcrisis": {
+    "n": 48,
+    "drag_rate": 100.0,
+    "lift_pp": 30.58
+  },
+  "zz08_bear": {
+    "n": 53,
+    "drag_rate": 60.38,
+    "lift_pp": -9.04
+  },
+  "zz12_bear": {
+    "n": 11,
+    "drag_rate": 100.0,
+    "lift_pp": 30.58
+  },
+  "sells21_hi": {
+    "n": 114,
+    "drag_rate": 87.72,
+    "lift_pp": 18.3
+  },
+  "rel63_neg": {
+    "n": 168,
+    "drag_rate": 100.0,
+    "lift_pp": 30.58
+  }
+}

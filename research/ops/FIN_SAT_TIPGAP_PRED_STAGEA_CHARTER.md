@@ -1,7 +1,7 @@
 # FIN×SAT tip-gap 週期預測／特徵 Stage A (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `TIP_MDD_ONLY`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - 0k9h 週期切換 **`TIP_MDD_ONLY`** — ZigZag／regime／月季未對齊 tip HARD 拖累
 - 0k9g 年聚合有誤導 · oracle 年切不可用
@@ -13,7 +13,7 @@ Human intent (normalized):
 OPEN Stage A: 研究 tip-gap／週期缺口如何預測或找特徵 · 方法不限 · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_TIPGAP_PRED_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_TIPGAP_PRED_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE`
 
 ## Why
 

@@ -1,23 +1,11 @@
 {
-  "id": "FIN_SAT_TIPGAP_PRED_STAGEA_CHARTER",
-  "status": "STAGE_A_DONE",
-  "date": "2026-09-28",
-  "label": "FIN_SAT_TIPGAP_PRED_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE",
-  "register": "0k9i",
-  "parents": [
-    "0k9h_CYCLE_SWITCH_TIP_MDD_ONLY",
-    "0k9b_COMPOSITE_OBSERVE_OPEN",
-    "0k9d_SAT_A20_RELAX_OBSERVE_OPEN"
-  ],
-  "mechanism": "tipgap_feature_ic_cycle_overlap_probe",
-  "methods_open": true,
+  "label": "FIN_SAT_TIPGAP_PRED_STAGEA_DECISION_PACK_2026-09-28__TIP_MDD_ONLY__NO_LIVE",
+  "status": "TIP_MDD_ONLY",
   "live_wire": false,
   "soft_frozen_keep": true,
   "parent_observes_keep": true,
-  "script": "scripts/fin_sat_tipgap_pred_stagea.py",
-  "verdict": "TIP_MDD_ONLY",
+  "charter": "research/ops/FIN_SAT_TIPGAP_PRED_STAGEA_CHARTER.md",
   "screen": "research/ops/FIN_SAT_TIPGAP_PRED_STAGEA_SCREEN.md",
-  "decision": "research/ops/FIN_SAT_TIPGAP_PRED_STAGEA_DECISION_PACK.md",
   "recommendation": {
     "binding_gap": "tip_cagr_drag_timing",
     "best_leading_feat": "r0050_63_l1",
@@ -69,5 +57,11 @@
       }
     },
     "note": "Prefer features that lead fwd_rel_21 and lift tip-drag overlap; do not return to calendar year switch."
-  }
+  },
+  "ic_gate_feats": [
+    "r0050_63_l1",
+    "zz08_bear_l1"
+  ],
+  "register": "0k9i",
+  "generated_at_utc": "2026-09-28T13:31:00Z"
 }

@@ -609,7 +609,7 @@ def main() -> int:
     }
 
     ic_md = [
-        "| feat | IC | \|IC\| | signHit | gate | sat_when_high |",
+        "| feat | IC | absIC | signHit | gate | sat_when_high |",
         "|---|---:|---:|---:|---|---|",
     ]
     for r in ic_rows:
