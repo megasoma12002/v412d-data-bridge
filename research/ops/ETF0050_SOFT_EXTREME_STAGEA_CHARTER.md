@@ -1,7 +1,7 @@
 # ETF 0050 soft-dampen × extreme/DD Stage A — paper
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · β clip **KEEP** · no live wire  
+Status: **Stage A DONE — `TIP_BLOCK`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · β clip **KEEP** · no live wire  
 Parent: `1d` both-quality Stage A **`TIP_BLOCK`** (hard Δw freeze lifts WR / occasional CAGR but tip MDD fails)  
 Seeds to soft-scale: `SELL_COOL_DEFEND` (held CAGR↑+0.16 tip↓) · `BUY_RET5_POS` (CAGR↑+0.14 tip↓)
 
@@ -11,7 +11,7 @@ Human intent (normalized):
 OPEN Stage A: 0050 Δw 軟縮放（seed SELL_COOL_DEFEND / BUY_RET5_POS）或 0050 自身高低點／DD 閘 · tip-safe + CAGR↑ · paper only
 ```
 
-Label: `ETF0050_SOFT_EXTREME_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `ETF0050_SOFT_EXTREME_STAGEA_CHARTER_2026-09-28__DONE_TIP_BLOCK__NO_LIVE_WIRE`
 
 ## Why
 

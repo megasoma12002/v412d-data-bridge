@@ -1,7 +1,7 @@
 {
-  "label": "ETF0050_SOFT_EXTREME_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
-  "status": "STAGE_A_OPEN",
-  "verdict": null,
+  "label": "ETF0050_SOFT_EXTREME_STAGEA_CHARTER_2026-09-28__DONE_TIP_BLOCK__NO_LIVE_WIRE",
+  "status": "STAGE_A_DONE",
+  "verdict": "TIP_BLOCK",
   "date": "2026-09-28",
   "live_wire": false,
   "soft_frozen_keep": true,
@@ -9,8 +9,14 @@
   "sell_a75_keep": true,
   "cagr_sign": "chal_minus_base",
   "parent": "1d_ETF0050_BOTH_QUALITY_TIP_BLOCK",
-  "seeds": ["SELL_COOL_DEFEND", "BUY_RET5_POS"],
-  "tracks": ["SOFT_DAMPEN", "EXTREME_DD"],
+  "seeds": [
+    "SELL_COOL_DEFEND",
+    "BUY_RET5_POS"
+  ],
+  "tracks": [
+    "SOFT_DAMPEN",
+    "EXTREME_DD"
+  ],
   "charter": "research/ops/ETF0050_SOFT_EXTREME_STAGEA_CHARTER.md",
   "charter_zh_tw": "research/ops/ETF0050_SOFT_EXTREME_STAGEA_CHARTER.zh-TW.md",
   "script": "scripts/etf0050_soft_extreme_stagea.py",
@@ -31,5 +37,7 @@
     "TIP_BLOCK",
     "MDD_BLOCK",
     "NO_EDGE"
-  ]
+  ],
+  "screen": "research/ops/ETF0050_SOFT_EXTREME_STAGEA_SCREEN.md",
+  "decision": "research/ops/ETF0050_SOFT_EXTREME_STAGEA_DECISION_PACK.md"
 }
