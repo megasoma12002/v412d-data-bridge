@@ -10,3 +10,12 @@ e50a3r1-audit-20260903/ci_reference/
 **/outputs/*daily_nav*.csv
 **/outputs/*fill_extreme_detail.*
 **/outputs/*fuse_cool_nav.csv
+
+# Reports must not mirror bulky outputs (SSOT = outputs/; see REPRO_DEDUPE_HYGIENE.md)
+**/reports/nav_*.csv
+**/reports/*_nav.csv
+**/reports/*daily_nav*.csv
+**/reports/*fills*.csv
+**/reports/*_fills.csv
+**/reports/*exposure*.csv
+**/reports/*sleeve_schedule.csv

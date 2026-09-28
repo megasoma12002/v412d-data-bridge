@@ -1,29 +1,5 @@
-{
-  "label": "NEXT_MECH_STAGEA_DECISION_PACK",
-  "generated_at_utc": "2026-09-27T04:30:18Z",
-  "status": "MECH_HIT",
-  "live_wire": false,
-  "soft_frozen_keep": true,
-  "exact_t1_keep": true,
-  "n_mech_hit": 1,
-  "n_cagr_soft": 4,
-  "mech_hit_ids": [
-    "SAT_A20_H5"
-  ],
-  "cagr_soft_ids": [
-    "SAT_A15_H5",
-    "SAT_A10_H8",
-    "E16_M20_050",
-    "PRIV_V8BEST_F08"
-  ],
-  "best": "SAT_A20_H5",
-  "charter": "research/ops/NEXT_MECH_STAGEA_CHARTER.md",
-  "stage_a": "research/ops/NEXT_MECH_STAGEA_SCREEN.md",
-  "tracks": [
-    "SAT",
-    "E16",
-    "PRIV",
-    "CLOSE"
-  ],
-  "baseline": "BASE_LIVE_CONF"
-}
+# Pointer — decision pack SSOT
+
+Canonical copy: `research/ops/NEXT_MECH_STAGEA_DECISION_PACK.json`
+
+Do not dual-write the full artifact into `repro/*/reports/` (see `research/ops/REPRO_DEDUPE_HYGIENE.md`).

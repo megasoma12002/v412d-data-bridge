@@ -1,14 +1,5 @@
-{
-  "label": "SAT_A20_SEALED_HYGIENE_DECISION_PACK",
-  "generated_at_utc": "2026-09-27T04:37:44Z",
-  "status": "PARENT_KEEP",
-  "live_wire": false,
-  "n_hygiene_hit": 0,
-  "hygiene_hit_ids": [],
-  "best": "SAT_A20_H5",
-  "parent": "SAT_A20_H5",
-  "parent_sealed_mdd_improve_pp": -0.0993,
-  "charter": "research/ops/SAT_A20_SEALED_HYGIENE_STAGEB_CHARTER.md",
-  "stage_b": "research/ops/SAT_A20_SEALED_HYGIENE_STAGEB_SCREEN.md",
-  "parent_stage_a": "research/ops/NEXT_MECH_STAGEA_DECISION_PACK.md"
-}
+# Pointer — decision pack SSOT
+
+Canonical copy: `research/ops/SAT_A20_SEALED_HYGIENE_DECISION_PACK.json`
+
+Do not dual-write the full artifact into `repro/*/reports/` (see `research/ops/REPRO_DEDUPE_HYGIENE.md`).
