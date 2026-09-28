@@ -1,0 +1,51 @@
+{
+  "label": "TEL_BOTH_QUALITY_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "status": "OPEN",
+  "verdict": null,
+  "date": "2026-09-28",
+  "live_wire": false,
+  "sell_a75_keep": true,
+  "soft_frozen_keep": true,
+  "tel_live_twin": "T3_COOL_INV_VOL20",
+  "fin_path": "FIN_PRE_EXDIV_KD + SELL_a75",
+  "cagr_sign": "chal_minus_base",
+  "tel_codes": [
+    "2412",
+    "3045",
+    "4904"
+  ],
+  "grid_ids": [
+    "CTRL_BASE",
+    "BUY_MA60",
+    "BUY_MA120",
+    "BUY_OR_K9",
+    "BUY_RSI14_LT40",
+    "SELL_HARD_MA60",
+    "SELL_HARD_MA120",
+    "SELL_DAMP_MA60_d50",
+    "BOTH_MA60_x_HARD60",
+    "BOTH_OR_K9_x_HARD60",
+    "BOTH_MA120_x_HARD120",
+    "BOTH_OR_K9_x_HARD120"
+  ],
+  "gates": {
+    "held_cagr_lift_pp": 0.15,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0,
+    "wr_either_pp": 0.5,
+    "win_horizon": 21,
+    "hit_verdict": "TEL_QUALITY_HIT"
+  },
+  "verdicts": [
+    "TEL_QUALITY_HIT",
+    "WIN_SOFT",
+    "MDD_BLOCK",
+    "NO_EDGE"
+  ],
+  "charter": "research/ops/TEL_BOTH_QUALITY_STAGEA_CHARTER.md",
+  "script": "scripts/tel_both_quality_stagea.py",
+  "screen": "research/ops/TEL_BOTH_QUALITY_STAGEA_SCREEN.md",
+  "decision": "research/ops/TEL_BOTH_QUALITY_STAGEA_DECISION_PACK.md",
+  "note": "Screen / decision pack fill on run. Do not run screen in this OPEN commit."
+}
