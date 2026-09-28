@@ -19,7 +19,7 @@ FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE CLOSED** (2026-09-
 **ABC Stage A next (2026-09-28):** A `LOCK_KEEP_NO_TIP_LIFT` · B `NO_EDGE` · C `MONITOR_READY` · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
 **FIN×SAT COMPOSITE (2026-09-28):** Stage A **`COMPOSITE_HIT`** · **OBSERVE OPEN** `COMP_H150_x_A20` · parents CLOSED · Soft-Frozen KEEP · live CONF α=0.10 KEEP · cutover **BLOCKED** · no live · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
 **FIN×SAT tip-CAGR repair (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · HARD150 tip CAGR− · SAT tip-clean/held short · COMPOSITE observe KEEP · no live · `FIN_SAT_TIP_CAGR_STAGEA_DECISION_PACK.md`  
-**FIN×SAT tip new-mech (2026-09-28):** Stage A **`SAT_RELAX_HIT`** · champion `SAT_A20_RELAX` · ballot **DRAFT** · COOL-HARD fail tip CAGR · COMPOSITE observe KEEP · no live · `FIN_SAT_TIP_MECH_STAGEA_DECISION_PACK.md`  
+**FIN×SAT tip new-mech (2026-09-28):** Stage A **`SAT_RELAX_HIT`** · **OBSERVE OPEN** `SAT_A20_RELAX` · COMPOSITE observe KEEP · Soft-Frozen KEEP · live CONF α=0.10 KEEP · cutover **BLOCKED** · no live · `SAT_A20_RELAX_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
@@ -74,6 +74,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | FIN both-quality `B_OR_K9_x_HARD150` | **OBSERVE CLOSED** (2026-09-28) | Superseded by COMPOSITE · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md` |
 | `SAT_A20_H5` | **OBSERVE CLOSED** (2026-09-28) | Superseded by COMPOSITE · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md` |
 | FIN×SAT COMPOSITE `COMP_H150_x_A20` | **OBSERVE OPEN** (2026-09-28) | Stage A HIT · cutover **BLOCKED** · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| `SAT_A20_RELAX` tip-first densify | **OBSERVE OPEN** (2026-09-28) | Stage A `SAT_RELAX_HIT` · cutover **BLOCKED** · `SAT_A20_RELAX_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Offense SOFT near-flat (`SELL_a75`) | **LIVE WIRED** under COOL | sell boost 0.75 · coexists FUSE+COOL · Soft-Frozen KEEP · `LIVE_SELL_A75_UNDER_COOL_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | `00631L` short-assist `CONF_RET3_A10_H5` | **LIVE WIRED** (forward-only) | COOL exit · RET3 · α=0.10 · H=5 · Soft-Frozen KEEP · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | TEL `T3_COOL_INV_VOL20` | **LIVE WIRED** (forward-only) | COOL-defend INV_VOL soft-tilt · else EQUAL · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |

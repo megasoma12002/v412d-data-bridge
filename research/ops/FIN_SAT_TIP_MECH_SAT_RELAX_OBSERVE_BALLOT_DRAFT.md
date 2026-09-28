@@ -1,6 +1,7 @@
 # FIN_SAT_TIP_MECH_SAT_RELAX_OBSERVE_BALLOT_DRAFT
 
-Status: **DRAFT — not executed** · Soft-Frozen **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · live wire **false**
+Status note: **SUPERSEDED 2026-09-28** by `SAT_A20_RELAX_OBSERVE_BALLOT_EXECUTED_OPEN.md`
+Status: **DRAFT — superseded** · Soft-Frozen **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · live wire **false**
 
 ## Proposed human line
 
