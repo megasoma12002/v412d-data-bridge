@@ -1,0 +1,18 @@
+{
+  "id": "FIN_SAT_LOCAL_MUTEX_STAGEA_CHARTER",
+  "status": "STAGE_A_OPEN",
+  "date": "2026-09-28",
+  "label": "FIN_SAT_LOCAL_MUTEX_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "register": "0k9n",
+  "parents": [
+    "0k9m_DIV_RULE_TIP_MDD_ONLY",
+    "0k9l_DIV_EPISODE_TIP_MDD_ONLY",
+    "COMP_H150_x_A20_OBSERVE",
+    "SAT_A20_RELAX_OBSERVE"
+  ],
+  "soft_frozen_keep": true,
+  "live_wire": false,
+  "exact_t_plus_1": true,
+  "question": "Is tip/held mutex local (temporally separated) rather than global same-day conflict?",
+  "script": "scripts/fin_sat_local_mutex_stagea.py"
+}
