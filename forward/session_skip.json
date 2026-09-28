@@ -1,24 +1,73 @@
 {
-  "asof": "2026-09-26",
-  "status": "WEEKEND",
+  "asof": "2026-09-29",
+  "status": "UNKNOWN",
   "is_session": false,
   "broker_submit_allowed": false,
   "skipped": true,
-  "reason": "no trading session (WEEKEND)",
+  "reason": "no trading session (UNKNOWN)",
   "notes": [
-    "annual:weekend"
+    "annual planned SESSION",
+    "MIS before 09:05 — open may still be forming",
+    "MI_INDEX empty before close heuristic → not conclusive",
+    "fail-closed for broker until OPEN confirmed"
   ],
   "sources": {
     "annual_calendar": {
-      "date": "2026-09-26",
-      "is_session": "0",
-      "is_settlement": "0",
-      "kind": "WEEKEND",
+      "date": "2026-09-29",
+      "is_session": "1",
+      "is_settlement": "1",
+      "kind": "SESSION",
       "name": "",
-      "source": "weekend",
+      "source": "weekday_default",
       "notes": ""
+    },
+    "dgpa_cap": {
+      "closes_twse": false,
+      "afternoon_only": false,
+      "n_hits": 0
+    },
+    "mis_quote": {
+      "open": false,
+      "n_hits": 0,
+      "rows": [
+        {
+          "ex_ch": "tse_t00.tw",
+          "open_signal": false,
+          "c": "t00",
+          "d": "20260924",
+          "o": "48075.39",
+          "t": "13:31:00",
+          "v": null,
+          "rtcode": "0000"
+        },
+        {
+          "ex_ch": "tse_0050.tw",
+          "open_signal": false,
+          "c": "0050",
+          "d": "20260924",
+          "o": "112.0000",
+          "t": "13:30:00",
+          "v": "66000",
+          "rtcode": "0000"
+        },
+        {
+          "ex_ch": "tse_2330.tw",
+          "open_signal": false,
+          "c": "2330",
+          "d": "20260924",
+          "o": "2480.0000",
+          "t": "13:30:00",
+          "v": "12990",
+          "rtcode": "0000"
+        }
+      ]
+    },
+    "mi_index": {
+      "stat": "很抱歉，沒有符合條件的資料!",
+      "has_session": false,
+      "after_close_heuristic": false
     }
   },
-  "generated_at": "2026-09-26T11:51:03.006796+08:00",
+  "generated_at": "2026-09-29T00:51:44.660516+08:00",
   "soft_frozen_untouched": true
 }
