@@ -289,9 +289,11 @@ def _build_panel(dates: pd.DatetimeIndex, comp: pd.DataFrame, sat_nav: pd.DataFr
     feat["vol0050_21"] = feat["date"].map(r0050).rolling(21, min_periods=21).std().to_numpy()
     feat["comp_sells_21"] = sells.rolling(21, min_periods=1).sum().to_numpy()
     feat["zz08_bear"] = _zigzag_bear(feat["close0050"]).to_numpy()
-    feat["sat_lead"] = feat["trail_rel_63"] <= -THETA
-    feat["enter"] = feat["sat_lead"] & ~feat["sat_lead"].shift(1).fillna(False)
-    feat["exit"] = (~feat["sat_lead"]) & feat["sat_lead"].shift(1).fillna(False)
+    feat["sat_lead"] = (feat["trail_rel_63"] <= -THETA).fillna(False).astype(bool)
+    prev_sat = feat["sat_lead"].shift(1).fillna(False).astype(bool)
+    # avoid `~` on Python-bool Series (bitwise -2 is truthy on some numpy builds)
+    feat["enter"] = feat["sat_lead"] & ~prev_sat.to_numpy()
+    feat["exit"] = (~feat["sat_lead"].to_numpy()) & prev_sat.to_numpy()
     med_sells = float(feat["comp_sells_21"].median(skipna=True))
     feat["sells_hi"] = feat["comp_sells_21"] > med_sells
     for col in LEAD_FEATS + ["sat_lead", "sells_hi"]:

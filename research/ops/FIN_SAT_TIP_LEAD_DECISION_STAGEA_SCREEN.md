@@ -1,33 +1,33 @@
 # FIN_SAT_TIP_LEAD_DECISION_STAGEA_SCREEN
 
-Date: 2026-09-28 · Generated `2026-09-28T14:29:12Z`
-Status: **LEAD_SIGNAL** · Soft-Frozen **KEEP** · parents **KEEP** · live wire **false**
+Date: 2026-09-28 · Generated `2026-09-28T14:30:48Z`
+Status: **TIP_LAG_BLOCK** · Soft-Frozen **KEEP** · parents **KEEP** · live wire **false**
 
 ## Lead diagnosis
 
-- enters=813 (tip 137) · exits=76 · lead_signal=`True`
+- enters=77 (tip 8) · exits=76 · lead_signal=`True`
 
 | feat | k | IC | lift |
 |---|---:|---:|---:|
-| trail_rel_63 | 1 | -0.7273 | 2.032 |
-| trail_rel_63 | 2 | -0.7147 | 2.022 |
-| trail_rel_63 | 3 | -0.7004 | 2.008 |
-| trail_rel_63 | 5 | -0.6805 | 1.994 |
-| comp_sells_21 | 5 | 0.1784 | 1.255 |
-| comp_sells_21 | 3 | 0.1735 | 1.251 |
-| comp_sells_21 | 2 | 0.1721 | 1.243 |
-| comp_sells_21 | 1 | 0.1702 | 1.242 |
+| trail_rel_63 | 2 | -0.1067 | 1.933 |
+| trail_rel_63 | 1 | -0.1004 | 1.96 |
+| trail_rel_63 | 5 | -0.0998 | 1.777 |
+| trail_rel_63 | 3 | -0.0987 | 1.855 |
+| zz08_bear | 2 | 0.0369 | 1.514 |
+| zz08_bear | 3 | 0.0368 | 1.514 |
+| zz08_bear | 5 | 0.0368 | 1.514 |
+| crisis | 3 | -0.0341 | 0.413 |
 
 ## Pre-enter (−5..−1) deltas
 
 | feat | pre | base | Δ |
 |---|---:|---:|---:|
-| comp_sells_21 | 24.202214 | 19.158098 | 5.044116 |
-| bearcrisis | 0.355474 | 0.23893 | 0.116543 |
-| crisis | 0.219926 | 0.125706 | 0.09422 |
-| zz08_bear | 0.214268 | 0.180089 | 0.034179 |
-| trail_rel_63 | -0.021821 | 3.2e-05 | -0.021853 |
-| mdd0050_63 | -0.085695 | -0.078973 | -0.006722 |
+| comp_sells_21 | 18.54026 | 19.158098 | -0.617838 |
+| zz08_bear | 0.27013 | 0.180089 | 0.090041 |
+| crisis | 0.062338 | 0.125706 | -0.063368 |
+| bearcrisis | 0.223377 | 0.23893 | -0.015554 |
+| mdd0050_63 | -0.070579 | -0.078973 | 0.008394 |
+| trail_rel_63 | -0.007265 | 3.2e-05 | -0.007297 |
 
 ## Books
 
@@ -44,6 +44,6 @@ Status: **LEAD_SIGNAL** · Soft-Frozen **KEEP** · parents **KEEP** · live wire
 | R_CONF_EARLY_L1 | switch | 35.57 | 2.0233 | -3.636 | False | False | · |
 | R_LEAD_OR_STATE_L1 | switch | 24.78 | 1.3752 | -8.4925 | False | False | · |
 
-Verdict: **`LEAD_SIGNAL`**
+Verdict: **`TIP_LAG_BLOCK`**
 
-Label: `FIN_SAT_TIP_LEAD_DECISION_STAGEA_SCREEN_2026-09-28__LEAD_SIGNAL`
+Label: `FIN_SAT_TIP_LEAD_DECISION_STAGEA_SCREEN_2026-09-28__TIP_LAG_BLOCK`

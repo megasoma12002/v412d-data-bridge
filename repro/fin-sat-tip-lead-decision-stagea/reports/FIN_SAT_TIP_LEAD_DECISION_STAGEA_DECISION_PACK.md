@@ -1,7 +1,7 @@
 # FIN_SAT_TIP_LEAD_DECISION_STAGEA_DECISION_PACK
 
-Date: 2026-09-28 · Generated `2026-09-28T14:29:12Z`
-Status: **LEAD_SIGNAL** · Soft-Frozen **KEEP** · COMPOSITE+SAT_RELAX observes **KEEP** · live wire **false**
+Date: 2026-09-28 · Generated `2026-09-28T14:30:48Z`
+Status: **TIP_LAG_BLOCK** · Soft-Frozen **KEEP** · COMPOSITE+SAT_RELAX observes **KEEP** · live wire **false**
 
 Charter: `FIN_SAT_TIP_LEAD_DECISION_STAGEA_CHARTER.md`
 Screen: `FIN_SAT_TIP_LEAD_DECISION_STAGEA_SCREEN.md`
@@ -9,19 +9,25 @@ Parents: 0k9n · register **0k9o**
 
 ## Verdict
 
-**`LEAD_SIGNAL`**
+**`TIP_LAG_BLOCK`**
 
 ## Reading
 
-- enters=813 tip_enters=137 · lead_signal=`True`
-- top IC: [{"feat": "trail_rel_63", "k": 1, "ic": -0.7273, "abs_ic": 0.7273, "enter_rate_selected": 0.4909, "base_enter_rate": 0.2416, "lift": 2.032}, {"feat": "trail_rel_63", "k": 2, "ic": -0.7147, "abs_ic": 0.7147, "enter_rate_selected": 0.4885, "base_enter_rate": 0.2416, "lift": 2.022}, {"feat": "trail_rel_63", "k": 3, "ic": -0.7004, "abs_ic": 0.7004, "enter_rate_selected": 0.4851, "base_enter_rate": 0.2416, "lift": 2.008}, {"feat": "trail_rel_63", "k": 5, "ic": -0.6805, "abs_ic": 0.6805, "enter_rate_selected": 0.4818, "base_enter_rate": 0.2416, "lift": 1.994}, {"feat": "comp_sells_21", "k": 5, "ic": 0.1784, "abs_ic": 0.1784, "enter_rate_selected": 0.3032, "base_enter_rate": 0.2416, "lift": 1.255}]
-- pre-enter Δ: [{"feat": "comp_sells_21", "pre_enter_mean": 24.202214, "base_mean": 19.158098, "delta": 5.044116}, {"feat": "bearcrisis", "pre_enter_mean": 0.355474, "base_mean": 0.23893, "delta": 0.116543}, {"feat": "crisis", "pre_enter_mean": 0.219926, "base_mean": 0.125706, "delta": 0.09422}, {"feat": "zz08_bear", "pre_enter_mean": 0.214268, "base_mean": 0.180089, "delta": 0.034179}]
+- enters=**77** tip_enters=**8** · lead_signal=`True`（弱）
+- top IC: `trail_rel_63` k=1..5 |IC|≈**0.10**（接近 θ 的定義性接近，非強外部 lead）· 次佳 `zz08_bear` k=2 IC **0.037**
+- pre-enter Δ: zz08_bear **+0.09** · crisis/SELL **無上升**（進入前危機／賣壓不提前抬升）
 
 UB shaped:
 - `UB_STATE_SD` held↑ 3.4758 tipY↑ 2.7325
 - `UB_ENTER_M1` held↑ 3.4426 tipY↑ 1.7875
 
 No causal LEAD_HIT.
+
+**精煉／決策點地圖：**
+1. **結構決策點** — 只要比同日狀態 **早 1 日** 進 SAT（`UB_ENTER_M1`），即可 tip-clean+held。問題不是「切不切」，是「能不能早一天知道」。
+2. **外部 lead 不足** — 既有特徵對 **enter 事件** IC 偏弱；Crisis/SELL 是 SAT_LEAD **狀態內** 差異（0k9l），不是 **進入前** 預警。
+3. **最佳因果近似** — `R_CONF_EARLY_L1` tipY **−3.6**（優於 L1 −8.5）仍未 tip-clean；半閾／斜率提早無效。
+4. **可繼續的窄路徑** — (a) 只校準 CONF 進場時序（不擴表）；(b) 接受 Exact T+1 下 tip-clean≈近純 SAT 並另修 held MDD；(c) 停在 paper map。**不開新特徵掃描。**
 
 ## Books
 
@@ -42,4 +48,4 @@ No causal LEAD_HIT.
 3. Do not expand feature table after peek
 4. UB diagnosis only · no observe · no live
 
-Label: `FIN_SAT_TIP_LEAD_DECISION_STAGEA_DECISION_PACK_2026-09-28__LEAD_SIGNAL__NO_LIVE`
+Label: `FIN_SAT_TIP_LEAD_DECISION_STAGEA_DECISION_PACK_2026-09-28__TIP_LAG_BLOCK__NO_LIVE`
