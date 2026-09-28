@@ -28,6 +28,7 @@ FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE CLOSED** (2026-09-
 **FIN×SAT tip-gap FFT (2026-09-28):** Stage A **`FFT_SIGNAL`** · daily rel≈white · trail ~85/128/256td + bandpass IC · assist≠replace 0k9i · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_TIPGAP_FFT_STAGEA_DECISION_PACK.md`  
 **FIN×SAT tip-gap 小波／拉普拉斯 (2026-09-28):** Stage A **`WAVE_LAP_SIGNAL`** · CWT trail ~200–234td · tip ~107–115td · Laplace σ≈0 @115/231td · assist≠replace 0k9i · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_TIPGAP_WAVE_LAP_STAGEA_DECISION_PACK.md`  
 **FIN×SAT 分歧 Episode (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · SAT_LEAD vs SIMILAR: Crisis/SELL↑ · crisis→SAT_LEAD IC 0.19 hit76% · SIMILAR~54% dilutes spectra · probes tip CAGR− · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_DIV_EPISODE_STAGEA_DECISION_PACK.md`  
+**FIN×SAT 分歧切換規則 (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · enter/confirm/exit 6 switch 全 tipCAGR− · best `R_DIV_ONLY` held+1.30 tipY−8.5 · rule-layer day-switch exhausted · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_DIV_RULE_STAGEA_DECISION_PACK.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  

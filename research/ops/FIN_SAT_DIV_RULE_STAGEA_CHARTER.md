@@ -1,7 +1,7 @@
 # FIN×SAT 分歧切換規則 Stage A (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `TIP_MDD_ONLY`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - 0k9l 分歧 Episode **`TIP_MDD_ONLY`** — SAT_LEAD 內 Crisis／SELL↑；crisis→SAT_LEAD IC 強；單狀態切仍 tip CAGR−
 - 0k9i tip-gap — `r0050_63` 過熱領先；單門檻不夠
@@ -13,7 +13,7 @@ Human intent (normalized):
 OPEN Stage A: 研究分歧切換規則層（過熱進入 + Crisis/SELL 確認 + 明確退出）能否 tip-clean · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_DIV_RULE_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_DIV_RULE_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE`
 
 ## Why
 
