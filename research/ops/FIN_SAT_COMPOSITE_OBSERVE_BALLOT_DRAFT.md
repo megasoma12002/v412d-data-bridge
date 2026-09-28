@@ -1,6 +1,7 @@
 # FIN_SAT_COMPOSITE_OBSERVE_BALLOT_DRAFT
 
-Status: **DRAFT — not executed** · Soft-Frozen **KEEP** · SELL_a75 **KEEP** · live CONF α=0.10 **KEEP** · live wire **false**
+Status note: **SUPERSEDED 2026-09-28** by `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md`
+Status: **DRAFT — superseded** · Soft-Frozen **KEEP** · SELL_a75 **KEEP** · live CONF α=0.10 **KEEP** · live wire **false**
 
 ## Proposed human line
 

@@ -43,7 +43,9 @@ SLEEVE_TILT_JSON = ROOT / "research/ops/SLEEVE_LAYER_TILT_MONTH_END_MONITOR.json
 FUSE_ADDITIVE_JSON = ROOT / "research/ops/FUSE_ADDITIVE_MONTH_END_MONITOR.json"
 FIN_BOTH_QUALITY_JSON = ROOT / "research/ops/FIN_BOTH_QUALITY_MONTH_END_MONITOR.json"
 SAT_A20_H5_JSON = ROOT / "research/ops/SAT_A20_H5_MONTH_END_MONITOR.json"
+FIN_SAT_COMPOSITE_JSON = ROOT / "research/ops/FIN_SAT_COMPOSITE_MONTH_END_MONITOR.json"
 # OBSERVE_DOWN 2026-09-28 — soft/sleeve/fuse/e45/blend/fincap paper observes not scanned
+# Parents both-quality + SAT_A20 CLOSED 2026-09-28 (superseded by COMPOSITE observe)
 OBSERVE_DOWN_ALERT_SCAN = False
 E45_DEFEND_HANDOFF_JSON = ROOT / "research/ops/E45_DEFEND_HANDOFF_MONTH_END_MONITOR.json"
 COOL_C8_PROXY_JSON = ROOT / "research/ops/COOL_C8_PROXY_MONTH_END_MONITOR.json"
@@ -265,9 +267,10 @@ def main() -> int:
     monitor_sources = [
         ("l4_month_end", L4_JSON),
         # OBSERVE_DOWN 2026-09-28 paper observes closed (soft/sleeve/fuse/e45/blend/fincap/DH)
-        # OBSERVE_UP 2026-09-28
-        ("fin_both_quality_month_end", FIN_BOTH_QUALITY_JSON),
-        ("sat_a20_h5_month_end", SAT_A20_H5_JSON),
+        # Parents both-quality + SAT_A20 CLOSED 2026-09-28 → COMPOSITE observe
+        # ("fin_both_quality_month_end", FIN_BOTH_QUALITY_JSON),
+        # ("sat_a20_h5_month_end", SAT_A20_H5_JSON),
+        ("fin_sat_composite_month_end", FIN_SAT_COMPOSITE_JSON),
         ("cool_c8_proxy_month_end", COOL_C8_PROXY_JSON),
         ("beta_0050_densify_month_end", BETA_0050_DENSIFY_JSON),
         ("priv_finhc_v7_bull_side_f05_month_end", PRIV_FINHC_V7_F05_JSON),
