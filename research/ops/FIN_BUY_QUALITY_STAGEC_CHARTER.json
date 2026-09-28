@@ -1,0 +1,22 @@
+{
+  "label": "FIN_BUY_QUALITY_STAGEC_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "status": "STAGE_C_OPEN",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parents": {
+    "stage_a_seed": "SEED_MA120",
+    "stage_b_hit": "B_MA120_OR_K9"
+  },
+  "charter": "research/ops/FIN_BUY_QUALITY_STAGEC_CHARTER.md",
+  "script": "scripts/fin_buy_quality_stagec.py",
+  "repro": "repro/fin-buy-quality-stagec/",
+  "register": "0k6d3",
+  "verdicts": [
+    "HYBRID_PARETO",
+    "BUY_QUALITY_HIT",
+    "HYBRID_SOFT",
+    "PARENT_KEEP_B",
+    "MDD_BLOCK",
+    "NO_LIFT"
+  ]
+}

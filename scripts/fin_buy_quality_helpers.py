@@ -139,6 +139,26 @@ def apply_filter_in_season(
     return out.astype(bool)
 
 
+def blend_hard_or_soft(
+    hard: pd.DataFrame,
+    soft_or: pd.DataFrame,
+    when_soft: pd.Series,
+) -> pd.DataFrame:
+    """Use ``soft_or`` on days ``when_soft`` else ``hard`` (column-wise)."""
+    w = when_soft.reindex(hard.index).fillna(False).astype(bool)
+    h = hard.fillna(False).astype(bool)
+    s = soft_or.reindex(index=h.index, columns=h.columns).fillna(False).astype(bool)
+    out = pd.DataFrame(False, index=h.index, columns=h.columns)
+    for c in out.columns:
+        out[c] = np.where(w.values, s[c].values, h[c].values)
+    return out.astype(bool)
+
+
+def or_and_exception(hard: pd.DataFrame, exception_a: pd.DataFrame, exception_b: pd.DataFrame) -> pd.DataFrame:
+    """``hard OR (exception_a AND exception_b)``."""
+    return or_buy_ok(hard, and_buy_ok(exception_a, exception_b))
+
+
 def forward_win_stats(
     fills: pd.DataFrame,
     closes: pd.DataFrame,
