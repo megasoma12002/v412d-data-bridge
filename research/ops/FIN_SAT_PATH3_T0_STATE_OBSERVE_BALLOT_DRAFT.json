@@ -1,0 +1,13 @@
+{
+  "id": "FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_DRAFT",
+  "status": "DRAFT_BLOCKED_ON_POLICY",
+  "date": "2026-09-28",
+  "label": "FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_DRAFT_2026-09-28__AWAITING_CARVEOUT",
+  "register": "0k9r",
+  "champion": "P3_T0_STATE",
+  "depends_on": "FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_DRAFT",
+  "live_wire": false,
+  "cutover_blocked": true,
+  "open_line": "OPEN paper observe: P3_T0_STATE (FIN×SAT Path3 · Exact T+0 carve-out T0_CARVE_FIN_SAT_SWITCH)",
+  "combined_accept_open": "ACCEPT T+0 carve-out + OPEN paper observe: P3_T0_STATE (FIN×SAT Path3 · T0_CARVE_FIN_SAT_SWITCH)"
+}
