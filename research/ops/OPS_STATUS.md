@@ -10,9 +10,14 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27)
 **Eng tip-path P0–P2:** merged `#314` · Soft-Frozen KEEP  
 **Broker/R5/OCO PREP not open:** merged `#315` · `BROKER_R5_OCO_PREP_NOT_OPEN.md` · UAT readonly checklist `YUANTA_SPARK_UAT_READONLY_CHECKLIST.md`  
 **SAT_A20_H5:** Stage A MECH_HIT · Stage B PARENT_KEEP · **OBSERVE OPEN** (2026-09-28) · `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · live **BLOCKED**  
+FIN 賣側新機制（timing/confirm · 非 MA-dampen）：Stage A **`MDD_BLOCK`** · WR↑仍傷 MDD/tip · SELL_a75 KEEP · no observe · no live · `FIN_SELL_NEW_MECH_STAGEA_DECISION_PACK.md`
+FIN 浮虧延後賣（等回本）：**Stage A `COOL_GATE_REQUIRED`** · gated defer no lift · NOCOOLGATE proves gate needed · `FIN_LOSS_DEFER_SELL_STAGEA_DECISION_PACK.md` · no live  
+FIN 買側品質：**OBSERVE CLOSED** (superseded by both-quality HARD150) · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
+FIN 賣側品質：Stage A `MDD_BLOCK` → Stage B **`NO_EDGE`** · soft-dampen 護 MDD 失 CAGR · SELL_a75 KEEP · no observe · no live · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md`  
 FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE OPEN** `B_OR_K9_x_HARD150` · `FIN_BOTH_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · SELL_a75 KEEP  
 **Observe UP/DOWN batch 2026-09-28:** `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` — OPEN both-quality+SAT_A20; CLOSE soft/sleeve/fuse/priv/within-sleeve/BLEND025/FIN50/E45 paper observes (live stack KEEP)
 **ABC Stage A next (2026-09-28):** A `LOCK_KEEP_NO_TIP_LIFT` · B `NO_EDGE` · C `MONITOR_READY` · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
+
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
 新機制 V3：**STOP** · `PRIV_MDD_M1_SCALE_V3_DECISION_PACK.md`（N1–N3+V2+V3 STOP）  

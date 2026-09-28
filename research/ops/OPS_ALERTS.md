@@ -33,6 +33,14 @@ Soft-Frozen **[0.60, 0.80] unchanged**. No auto cutover.
 | INFO | `priv_finhc_v7_bull_side_f05_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `cool_631l_short_assist_month_end` | `MONITOR_ALERT` | ALERT: CONF_RET3_A10_H5 heldout_2019_plus MDD worse than BASE_LIVE_FUSE_COOL |
 | INFO | `cool_631l_short_assist_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
+| INFO | `fin_buy_quality_month_end` | `MONITOR_ALERT` | ALERT: A_SEED_MA120 ytd CAGR giveback > 3.0 pp |
+| INFO | `fin_buy_quality_month_end` | `MONITOR_ALERT` | ALERT: A_SEED_MA120 trailing_1y CAGR giveback > 3.0 pp |
+| INFO | `fin_buy_quality_month_end` | `MONITOR_ALERT` | ALERT: B_MA120_OR_K9 ytd CAGR giveback > 3.0 pp |
+| INFO | `fin_buy_quality_month_end` | `MONITOR_ALERT` | ALERT: B_MA120_OR_K9 trailing_1y CAGR giveback > 3.0 pp |
+| INFO | `fin_buy_quality_month_end` | `MONITOR_ALERT` | ALERT: C_OR_K9_AND_BELOW_MA60 ytd CAGR giveback > 3.0 pp |
+| INFO | `fin_buy_quality_month_end` | `MONITOR_ALERT` | ALERT: C_OR_K9_AND_BELOW_MA60 trailing_1y CAGR giveback > 3.0 pp |
+| INFO | `fin_buy_quality_month_end` | `MONITOR_ALERT` | ALERT: C_OR_K9_AND_BELOW_MA60 sealed_2023_plus MDD worse than BASE_LIVE_FUSE_COOL |
+| INFO | `fin_buy_quality_month_end` | `CUTOVER_BLOCKED_FLAG` | cutover_blocked=true (expected while Soft-Frozen KEEP) |
 | INFO | `live_paper_recon` | `RECON_NOTE` | INDEX_DRIFT: max \|live_idx-paper_idx\|=3.3350% > 2% on overlap |
 | INFO | `live_paper_recon` | `THIN_LIVE_HISTORY` | overlap_n=18 (<60) — not decision-grade for cutover |
 | INFO | `r4_settlement_estimate` | `R4_ESTIMATE_PRESENT` | R4 settlement_cash_estimate present — settled_cash_estimate=50415.51358572836 is liquidity view NOT portfolio NAV / Soft-Frozen cash |

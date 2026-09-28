@@ -1,0 +1,49 @@
+{
+  "label": "FIN_LOSS_DEFER_SELL_STAGEA_CHARTER_2026-09-28__DONE_COOL_GATE_REQUIRED__NO_LIVE_WIRE",
+  "status": "STAGE_A_DONE_COOL_GATE_REQUIRED",
+  "verdict": "COOL_GATE_REQUIRED",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "exact_t1_keep": true,
+  "cool_keep": true,
+  "charter": "research/ops/FIN_LOSS_DEFER_SELL_STAGEA_CHARTER.md",
+  "charter_zh_tw": "research/ops/FIN_LOSS_DEFER_SELL_STAGEA_CHARTER.zh-TW.md",
+  "base": "BASE_LIVE_FUSE_COOL",
+  "mechanism": "sell_eligibility_defer_on_unrealized_loss_vs_fifo_all_in_cost",
+  "not_mechanism": "fifo_accounting_rewrite",
+  "cool_override": "never_defer_when_cool_exposure_lt_1",
+  "universe_v1": ["FIN_PUB"],
+  "optional_tracks": ["TEL"],
+  "excluded_v1": ["0050", "00631L", "FIN_PRIV"],
+  "grid_ids": [
+    "CTRL_NO_DEFER",
+    "D_FIN_LOSS0_W5",
+    "D_FIN_LOSS0_W10",
+    "D_FIN_LOSS0_W21",
+    "D_FIN_LOSS2_W10",
+    "D_FIN_LOSS5_W10",
+    "D_FIN_WORST_FIRST_W10",
+    "D_TEL_LOSS0_W10",
+    "D_FIN_LOSS0_W10_NOCOOLGATE"
+  ],
+  "gates": {
+    "held_cagr_pp": 0.15,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0
+  },
+  "verdicts": [
+    "LOSS_DEFER_HIT",
+    "CAGR_SOFT",
+    "MDD_BLOCK",
+    "NO_LIFT",
+    "COOL_GATE_REQUIRED"
+  ],
+  "script": "scripts/fin_loss_defer_sell_stagea.py",
+  "repro": "repro/fin-loss-defer-sell-stagea/",
+  "tip_evidence": {
+    "realized_sell_losses": "11/24",
+    "open_buy_underwater_lots": 12,
+    "note": "evidence for question only — not live authorization"
+  }
+}

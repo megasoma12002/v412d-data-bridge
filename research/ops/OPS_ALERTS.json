@@ -37,6 +37,42 @@
       "message": "PAUSE_REVIEW: B_OR_K9_x_HARD150 trailing_1y giveback > 5 pp"
     },
     {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: A_SEED_MA120 ytd giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: A_SEED_MA120 trailing_1y giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: B_MA120_OR_K9 ytd giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: B_MA120_OR_K9 trailing_1y giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: C_OR_K9_AND_BELOW_MA60 ytd giveback > 5 pp"
+    },
+    {
+      "severity": "HIGH",
+      "source": "fin_buy_quality_month_end",
+      "code": "PAUSE_REVIEW",
+      "message": "PAUSE_REVIEW: C_OR_K9_AND_BELOW_MA60 trailing_1y giveback > 5 pp"
+    },
+    {
       "severity": "INFO",
       "source": "live_qc",
       "code": "QC_PASS",
@@ -147,6 +183,54 @@
     {
       "severity": "INFO",
       "source": "cool_631l_short_assist_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: A_SEED_MA120 ytd CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: A_SEED_MA120 trailing_1y CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: B_MA120_OR_K9 ytd CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: B_MA120_OR_K9 trailing_1y CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: C_OR_K9_AND_BELOW_MA60 ytd CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: C_OR_K9_AND_BELOW_MA60 trailing_1y CAGR giveback > 3.0 pp"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
+      "code": "MONITOR_ALERT",
+      "message": "ALERT: C_OR_K9_AND_BELOW_MA60 sealed_2023_plus MDD worse than BASE_LIVE_FUSE_COOL"
+    },
+    {
+      "severity": "INFO",
+      "source": "fin_buy_quality_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },
