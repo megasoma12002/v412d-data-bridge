@@ -1,8 +1,8 @@
 {
   "id": "FIN_SAT_SWITCH_STAGEA_CHARTER",
-  "status": "STAGE_A_OPEN",
+  "status": "STAGE_A_DONE",
   "date": "2026-09-28",
-  "label": "FIN_SAT_SWITCH_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "label": "FIN_SAT_SWITCH_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE",
   "register": "0k9f",
   "parents": [
     "0k9e_BLEND_TIP_MDD_ONLY",
@@ -13,5 +13,8 @@
   "live_wire": false,
   "soft_frozen_keep": true,
   "parent_observes_keep": true,
-  "script": "scripts/fin_sat_switch_stagea.py"
+  "script": "scripts/fin_sat_switch_stagea.py",
+  "verdict": "TIP_MDD_ONLY",
+  "screen": "research/ops/FIN_SAT_SWITCH_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SAT_SWITCH_STAGEA_DECISION_PACK.md"
 }

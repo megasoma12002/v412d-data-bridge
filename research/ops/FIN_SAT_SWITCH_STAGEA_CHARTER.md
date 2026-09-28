@@ -1,7 +1,7 @@
 # FIN×SAT 切換機制 Stage A — COMPOSITE ↔ SAT_RELAX (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `TIP_MDD_ONLY`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - 0k9e 配資混合 **`TIP_MDD_ONLY`** — continuous `w` blend 可行域空（任一 COMP 權重 tip CAGR−）
 - COMPOSITE observe **`COMP_H150_x_A20`** · SAT_RELAX observe **`SAT_A20_RELAX`**
@@ -12,7 +12,7 @@ Human intent (normalized):
 OPEN Stage A: 切換機制 COMPOSITE ↔ SAT_RELAX · lag-1 signal · tip-clean + held lift · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_SWITCH_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_SWITCH_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE`
 
 ## Why
 
