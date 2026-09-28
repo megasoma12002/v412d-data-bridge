@@ -1,0 +1,18 @@
+{
+  "id": "FIN_SAT_CYCLE_SWITCH_STAGEA_CHARTER",
+  "status": "STAGE_A_OPEN",
+  "date": "2026-09-28",
+  "label": "FIN_SAT_CYCLE_SWITCH_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "register": "0k9h",
+  "parents": [
+    "0k9g_MUTEX_FEAT_TIP_MDD_ONLY",
+    "0k9b_COMPOSITE_OBSERVE_OPEN",
+    "0k9d_SAT_A20_RELAX_OBSERVE_OPEN"
+  ],
+  "mechanism": "cycle_half_regime_confirm_month_qtr_switch",
+  "not_year_switch": true,
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parent_observes_keep": true,
+  "script": "scripts/fin_sat_cycle_switch_stagea.py"
+}
