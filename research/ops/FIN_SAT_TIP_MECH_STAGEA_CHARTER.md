@@ -1,7 +1,7 @@
 # FIN×SAT tip new-mech Stage A — COOL-conditional HARD + SAT-relax (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · live `CONF_RET3_A10_H5` **KEEP** · COMPOSITE observe **KEEP OPEN** · no live wire  
+Status: **Stage A DONE — `SAT_RELAX_HIT`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · live `CONF_RET3_A10_H5` **KEEP** · COMPOSITE observe **KEEP OPEN** · no live wire  
 Parents:
 - tip-CAGR Stage A **`TIP_MDD_ONLY`** (0k9c) — HARD overlays tip CAGR−; SAT tip-clean but held short
 - ABC-A HARD150 tip-repair **`LOCK_KEEP_NO_TIP_LIFT`** — season/MA/dampen grid exhausted (no SAT)
@@ -12,7 +12,7 @@ Human intent (normalized):
 OPEN Stage A: tip new-mech · COOL-conditional HARD sell · OR SAT-only relaxed held ballot · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_TIP_MECH_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_TIP_MECH_STAGEA_CHARTER_2026-09-28__DONE_SAT_RELAX_HIT__NO_LIVE_WIRE`
 
 ## Why
 

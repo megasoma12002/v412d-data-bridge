@@ -1,7 +1,7 @@
 # FIN×SAT tip 新機制 Stage A — COOL 條件 HARD + SAT 放寬 held（paper）
 
 日期：2026-09-28  
-狀態：**Stage A OPEN** · Soft-Frozen **KEEP** · COMPOSITE observe **KEEP** · 不上 live  
+狀態：**Stage A DONE — `SAT_RELAX_HIT`** · Soft-Frozen **KEEP** · COMPOSITE observe **KEEP** · 不上 live  
 
 人話：
 
@@ -13,4 +13,4 @@ OPEN Stage A: tip new-mech · COOL-conditional HARD sell · OR SAT-only relaxed 
 
 詳見 `FIN_SAT_TIP_MECH_STAGEA_CHARTER.md`。
 
-標籤：`FIN_SAT_TIP_MECH_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+標籤：`FIN_SAT_TIP_MECH_STAGEA_CHARTER_2026-09-28__DONE_SAT_RELAX_HIT__NO_LIVE_WIRE`
