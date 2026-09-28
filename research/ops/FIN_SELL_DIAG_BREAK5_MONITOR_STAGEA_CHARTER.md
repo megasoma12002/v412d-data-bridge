@@ -1,7 +1,7 @@
 # FIN sell BREAK5 diagnostic monitor/log Stage A — Paper Charter
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · **`fin_sell_ok` OFF** · no live wire  
+Status: **Stage A DONE — `MONITOR_READY`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · **`fin_sell_ok` OFF** · no live wire  
 Parent: `FIN_SELL_DIAG_ROLE_STAGEA` · top SIGNAL **`A_BREAK5`** (WR↑ +3.82pp · n=98 · cov≈10.6%)  
 Track: **C** (`ABC_STAGEA_NEXT_BATCH_2026-09-28`)  
 Parent live: Soft-Frozen F[0.60,0.80] T[0.03,0.35] E[0.00,0.50] + FUSE + `SELL_a75` + `COOL_c8_f50_d21` + L1=0.05  

@@ -574,15 +574,15 @@ def main() -> int:
         ]
         + ["", f"Verdict: **`{verdict}`**", f"Label: `{SCREEN_ID}_2026-09-28__{verdict}`", ""]
     )
-    write_ops_and_repro_pointer(
-        ops_json=OPS / f"{SCREEN_ID}.json",
-        ops_md=OPS / f"{SCREEN_ID}.md",
-        repro_dir=REPRO,
-        payload=payload,
-        md_text=screen_md,
-        repro_json_name=f"{SCREEN_ID}.json",
-        repro_md_name=f"{SCREEN_ID}.md",
+    REP.mkdir(parents=True, exist_ok=True)
+    (OPS / f"{SCREEN_ID}.json").write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
+    (OPS / f"{SCREEN_ID}.md").write_text(screen_md, encoding="utf-8")
+    (REP / f"{SCREEN_ID}.json").write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    (REP / f"{SCREEN_ID}.md").write_text(screen_md, encoding="utf-8")
 
     decision_md = "\n".join(
         [
@@ -624,13 +624,14 @@ def main() -> int:
         "cagr_sign": "chal_minus_base",
     }
     write_ops_and_repro_pointer(
-        ops_json=OPS / f"{DECISION_ID}.json",
-        ops_md=OPS / f"{DECISION_ID}.md",
-        repro_dir=REPRO,
-        payload=decision,
-        md_text=decision_md,
-        repro_json_name=f"{DECISION_ID}.json",
-        repro_md_name=f"{DECISION_ID}.md",
+        OPS / f"{DECISION_ID}.json",
+        REP / f"{DECISION_ID}.json",
+        json.dumps(decision, indent=2, ensure_ascii=False) + "\n",
+    )
+    write_ops_and_repro_pointer(
+        OPS / f"{DECISION_ID}.md",
+        REP / f"{DECISION_ID}.md",
+        decision_md,
     )
 
     charter_md = "\n".join(

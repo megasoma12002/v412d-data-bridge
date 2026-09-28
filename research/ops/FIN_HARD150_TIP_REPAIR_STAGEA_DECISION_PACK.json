@@ -1,0 +1,11 @@
+{
+  "label": "FIN_HARD150_TIP_REPAIR_STAGEA_DECISION_PACK_2026-09-28__LOCK_KEEP_NO_TIP_LIFT__NO_LIVE",
+  "status": "LOCK_KEEP_NO_TIP_LIFT",
+  "generated_at_utc": "2026-09-28T07:57:16Z",
+  "charter": "research/ops/FIN_HARD150_TIP_REPAIR_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_HARD150_TIP_REPAIR_STAGEA_SCREEN.md",
+  "live_wire": false,
+  "sell_a75_keep": true,
+  "best_candidate": null,
+  "cagr_sign": "chal_minus_base"
+}
