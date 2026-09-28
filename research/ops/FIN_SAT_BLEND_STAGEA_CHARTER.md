@@ -1,7 +1,7 @@
 # FIN×SAT 配資混合 Stage A — COMPOSITE × SAT_RELAX (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `TIP_MDD_ONLY`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - COMPOSITE observe **`COMP_H150_x_A20`** · held／sealed 強 · tip MDD↑ · tip CAGR PAUSE
 - SAT_RELAX observe **`SAT_A20_RELAX`** · tip CAGR 乾淨 · held 升幅較小
@@ -12,7 +12,7 @@ Human intent (normalized):
 OPEN Stage A: 配資混合 COMPOSITE × SAT_RELAX · tip-clean + held lift · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_BLEND_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_BLEND_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE`
 
 ## Why
 
