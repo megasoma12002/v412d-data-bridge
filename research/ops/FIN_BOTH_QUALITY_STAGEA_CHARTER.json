@@ -1,0 +1,16 @@
+{
+  "label": "FIN_BOTH_QUALITY_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "status": "OPEN",
+  "date": "2026-09-28",
+  "live_wire": false,
+  "parents": [
+    "FIN_BUY_QUALITY_STAGED_DECISION_PACK",
+    "FIN_SELL_QUALITY_STAGEA_DECISION_PACK",
+    "FIN_SELL_QUALITY_STAGEB_DECISION_PACK"
+  ],
+  "keep": ["Soft-Frozen", "Exact T+1", "COOL_c8", "SELL_a75"],
+  "forbidden": ["sell_loss_defer", "unbounded_combo"],
+  "cagr_sign": "chal_minus_base",
+  "script": "scripts/fin_both_quality_stagea.py",
+  "charter": "research/ops/FIN_BOTH_QUALITY_STAGEA_CHARTER.md"
+}
