@@ -17,6 +17,9 @@ FIN 賣側品質：Stage A `MDD_BLOCK` → Stage B **`NO_EDGE`** · soft-dampen 
 FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE CLOSED** (2026-09-28 · superseded by COMPOSITE) · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md`  
 **Observe UP/DOWN batch 2026-09-28:** `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` — OPEN both-quality+SAT_A20; CLOSE soft/sleeve/fuse/priv/within-sleeve/BLEND025/FIN50/E45 paper observes (live stack KEEP)
 **ABC Stage A next (2026-09-28):** A `LOCK_KEEP_NO_TIP_LIFT` · B `NO_EDGE` · C `MONITOR_READY` · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
+ETF **0050 買賣品質** Stage A：**`TIP_BLOCK`** · best sell `SELL_COOL_DEFEND` CAGR↑+0.16 但 tip MDD↓ · clip/`SELL_a75` KEEP · no live · `ETF0050_BOTH_QUALITY_STAGEA_DECISION_PACK.md`  
+ETF **0050 軟縮放 × 高低點／DD** Stage A：**`TIP_BLOCK`** · best `EXT_SELL_HIGH20` CAGR↑+0.16 tip↓ · Soft-Frozen KEEP · no live · `ETF0050_SOFT_EXTREME_STAGEA_DECISION_PACK.md`  
+ETF **0050 regime × 多空偵測器** Stage A：**`NO_EDGE`** · best `DET_BUY_MA60_UP` CAGR↑+0.13 tip↓ · Soft-Frozen KEEP · no live · `ETF0050_REGIME_DETECTOR_STAGEA_DECISION_PACK.md`  
 **FIN×SAT COMPOSITE (2026-09-28):** Stage A **`COMPOSITE_HIT`** · **OBSERVE OPEN** `COMP_H150_x_A20` · parents CLOSED · Soft-Frozen KEEP · live CONF α=0.10 KEEP · cutover **BLOCKED** · no live · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
 **FIN×SAT tip-CAGR repair (2026-09-28):** Stage A **`TIP_MDD_ONLY`** · HARD150 tip CAGR− · SAT tip-clean/held short · COMPOSITE observe KEEP · no live · `FIN_SAT_TIP_CAGR_STAGEA_DECISION_PACK.md`  
 **FIN×SAT tip new-mech (2026-09-28):** Stage A **`SAT_RELAX_HIT`** · **OBSERVE OPEN** `SAT_A20_RELAX` · COMPOSITE observe KEEP · Soft-Frozen KEEP · live CONF α=0.10 KEEP · cutover **BLOCKED** · no live · `SAT_A20_RELAX_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
