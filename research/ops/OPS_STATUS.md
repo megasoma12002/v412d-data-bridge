@@ -33,7 +33,7 @@ FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE CLOSED** (2026-09-
 **FIN×SAT tip-lead 決策點 (2026-09-28):** Stage A **`TIP_LAG_BLOCK`** · enter lead 外部弱 · UB_ENTER_M1 tip-clean+held · CONF_EARLY tipY−3.6 未 clean · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_TIP_LEAD_DECISION_STAGEA_DECISION_PACK.md`  
 **FIN×SAT FFT-phase × T+1 lag (2026-09-28):** Stage A **`FFT_LAG_NO_EDGE`** · causal phase IC0.09 < trail0.10 · FFT 無法補 Exact T+1 · parents KEEP · Soft-Frozen KEEP · no observe · no live · `FIN_SAT_FFT_PHASE_LAG_STAGEA_DECISION_PACK.md`  
 **FIN×SAT T+1 lag 路徑比較 (2026-09-28):** Stage A **`T0_ONLY_EDGE`** · SF 最優 `P2_SAT_PURE` · 唯一 HIT 形狀是 T+0 反事實 · path4 不解 tip · parents KEEP · Soft-Frozen KEEP · no live · `FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_DECISION_PACK.md`  
-**FIN×SAT Path3 T+0 carve-out (2026-09-28):** **DRAFT AWAITING** human ACCEPT · narrow Exact T+0 for COMP↔SAT switch only · observe ballot blocked on policy · Soft-Frozen clips KEEP · no live · `FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_DRAFT.md`  
+**FIN×SAT Path3 T+0 carve-out (2026-09-28):** **EXECUTED ACCEPT** `T0_CARVE_FIN_SAT_SWITCH` · **OBSERVE OPEN** `P3_T0_STATE` · dual-paper OPERATING · COMPOSITE+SAT_RELAX KEEP · Soft-Frozen clips KEEP · cutover **BLOCKED** · no live · `FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_EXECUTED_ACCEPT.md` · `FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
@@ -89,6 +89,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | `SAT_A20_H5` | **OBSERVE CLOSED** (2026-09-28) | Superseded by COMPOSITE · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md` |
 | FIN×SAT COMPOSITE `COMP_H150_x_A20` | **OBSERVE OPEN** (2026-09-28) | Stage A HIT · cutover **BLOCKED** · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | `SAT_A20_RELAX` tip-first densify | **OBSERVE OPEN** (2026-09-28) | Stage A `SAT_RELAX_HIT` · cutover **BLOCKED** · `SAT_A20_RELAX_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| FIN×SAT Path3 `P3_T0_STATE` | **OBSERVE OPEN** (2026-09-28) | Exact T+0 carve `T0_CARVE_FIN_SAT_SWITCH` · cutover **BLOCKED** · `FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | Offense SOFT near-flat (`SELL_a75`) | **LIVE WIRED** under COOL | sell boost 0.75 · coexists FUSE+COOL · Soft-Frozen KEEP · `LIVE_SELL_A75_UNDER_COOL_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | `00631L` short-assist `CONF_RET3_A10_H5` | **LIVE WIRED** (forward-only) | COOL exit · RET3 · α=0.10 · H=5 · Soft-Frozen KEEP · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | TEL `T3_COOL_INV_VOL20` | **LIVE WIRED** (forward-only) | COOL-defend INV_VOL soft-tilt · else EQUAL · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |

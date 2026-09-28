@@ -65,8 +65,9 @@ Soft-Frozen: **KEEP** · live DEFAULT **`E22_v3_recv_pay_effdelay`** (Stage-E; t
 
 Human: `請把可上 與可下進行上下` · `OBSERVE_UP_DOWN_BATCH_2026-09-28.md`
 
-**KEEP / OPEN observe:** FIN×SAT COMPOSITE `COMP_H150_x_A20` · `SAT_A20_RELAX` tip-first  
+**KEEP / OPEN observe:** FIN×SAT COMPOSITE `COMP_H150_x_A20` · `SAT_A20_RELAX` tip-first · Path3 `P3_T0_STATE` (Exact T+0 carve)  
 **COMPOSITE observe OPEN 2026-09-28:** parents both-quality + SAT_A20 **CLOSED** · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md` · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
 **SAT_A20_RELAX observe OPEN 2026-09-28:** tip-first densify · `SAT_A20_RELAX_OBSERVE_BALLOT_EXECUTED_OPEN.md` · COMPOSITE KEEP  
+**Path3 T+0 carve observe OPEN 2026-09-28:** `T0_CARVE_FIN_SAT_SWITCH` · `P3_T0_STATE` · parents COMPOSITE+SAT_RELAX KEEP · `FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_EXECUTED_ACCEPT.md` · `FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
 **ARCHIVE paper observe queue:** Soft-assist · Sleeve · FUSE_ADDITIVE · priv native · FIN within-sleeve · FINCAP BLEND_025 · FIN_CAP_50 · E45 dual/sleeve-local/BLEND005 · DH_dd06 paper · FIN buy-quality A/B/C · FIN both-quality · SAT_A20_H5  
 **Live KEEP:** Soft-Frozen · FUSE · SELL_a75 · COOL_c8 · CONF_RET3_A10_H5 · Class D V7 F05 · TEL T3 · β clip

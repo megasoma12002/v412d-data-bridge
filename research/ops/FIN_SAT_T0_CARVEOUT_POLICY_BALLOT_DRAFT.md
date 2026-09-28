@@ -1,7 +1,8 @@
 # Soft-Frozen Exact T+0 carve-out — Ballot DRAFT (Path3 only)
 
 Date: 2026-09-28  
-Status: **DRAFT — NOT AUTHORIZED** · do **not** treat as ACCEPT  
+Status note: **SUPERSEDED 2026-09-28** by `FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_EXECUTED_ACCEPT.md`  
+Status (historical): **DRAFT — NOT AUTHORIZED** · do **not** treat as ACCEPT  
 Parents: 0k9q `T0_ONLY_EDGE` · `FIN_SAT_T1_LAG_PATH3_VS_BASE.md` · Soft-Frozen clips **KEEP**
 
 ## Purpose

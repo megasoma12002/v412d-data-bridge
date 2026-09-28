@@ -1,7 +1,8 @@
 # Soft-Frozen Exact T+0 例外 — Ballot 草案（僅 Path3）
 
 日期：2026-09-28  
-狀態：**DRAFT — 未授權** · Soft-Frozen 帶寬 **KEEP**
+狀態註記：**已由** `FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_EXECUTED_ACCEPT.zh-TW.md` **取代（2026-09-28）**  
+狀態（歷史）：**DRAFT — 未授權** · Soft-Frozen 帶寬 **KEEP**
 
 人裁若要走路徑三，須先（或同時）ACCEPT 窄範圍 Exact T+0 例外。
 

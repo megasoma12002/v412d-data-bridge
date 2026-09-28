@@ -1,7 +1,8 @@
 # FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_DRAFT
 
 Date: 2026-09-28  
-Status: **DRAFT — blocked on policy carve-out** · Soft-Frozen clips **KEEP** · live wire **false** · cutover **BLOCKED**
+Status note: **SUPERSEDED 2026-09-28** by `FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
+Status (historical): **DRAFT — blocked on policy carve-out** · Soft-Frozen clips **KEEP** · live wire **false** · cutover **BLOCKED**
 
 Depends on: `FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_DRAFT.md` **ACCEPT** (or combined line B).
 
