@@ -74,10 +74,10 @@ Does a finite buy×sell quality grid produce ≥1 book with:
 | `SELL_ABOVE_MA60` | — | AND `close > MA60` |
 | `SELL_RET5_NEG` | — | AND RET5 &lt; 0 |
 | `SELL_RSI14_GT70` | — | AND RSI14 &gt; 70 |
-| `SELL_COOL1_ONLY` | — | AND cool≈1 (cut mainly while defending) |
+| `SELL_COOL_DEFEND` | — | AND cool&lt;1 (cut mainly while defending) |
 | `BOTH_MA120_x_MA60` | BELOW_MA120 | ABOVE_MA60 |
 | `BOTH_RET5_x_RET5` | RET5&gt;0 | RET5&lt;0 |
-| `BOTH_NOTCOOL_x_COOL` | NOT_COOL add | COOL1_ONLY cut |
+| `BOTH_NOTCOOL_x_DEFEND` | NOT_COOL add | COOL_DEFEND cut |
 | `BOTH_MA60TREND_x_RSI` | ABOVE_MA60 | RSI14&gt;70 |
 | `BUY_RET5_NEG_CTRL` | AND RET5 &lt; 0 (**NEG** control) | — |
 
