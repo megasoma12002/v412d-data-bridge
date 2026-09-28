@@ -547,14 +547,18 @@ def main() -> int:
         f"Label: `WITHIN_SLEEVE_COOL_MICRO_DECISION_2026-09-25__{verdict}`",
         "",
     ]
-    (OPS / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.json").write_text(
-        json.dumps(decision, indent=2) + "\n"
+    from ops_repro_ssot import write_ops_and_repro_pointer
+
+    write_ops_and_repro_pointer(
+        OPS / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.json",
+        REP / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.json",
+        json.dumps(decision, indent=2) + "\n",
     )
-    (OPS / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md").write_text("\n".join(dlines) + "\n")
-    (REP / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.json").write_text(
-        json.dumps(decision, indent=2) + "\n"
+    write_ops_and_repro_pointer(
+        OPS / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md",
+        REP / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md",
+        "\n".join(dlines) + "\n",
     )
-    (REP / "WITHIN_SLEEVE_COOL_MICRO_DECISION_PACK.md").write_text("\n".join(dlines) + "\n")
     (OUT / "stagea_summary.json").write_text(json.dumps(payload, indent=2) + "\n")
     print(
         json.dumps(

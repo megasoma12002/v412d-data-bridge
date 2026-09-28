@@ -95,6 +95,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | Residual gap-close (2026-09-20) | TAX0 vs NHI211 observe `E22_TAX0_VS_NHI211_OBSERVE.*` (`promote_ready=false`) · Gap6 `nhi211_*` tax sensitivity · `DIV_APPLIED_EMPTY_IN_RECV_WINDOW` · e50 Y±1 calendar align · Soft-Frozen **KEEP** |
 | E22 payment-date completeness | Soft-Frozen + private cash/stock pay blank **0%** after re-backfill 2026-09-21 (`E22_PAYMENT_DATE_REBACKFILL_2026-09-21.md`) · DQ `kpi_ok` · Soft-Frozen **KEEP** |
 | Month-end monitors | all thin wrappers → `ops_dual_paper_month_end` (`DualPaperMonitorSpec` / `MultiPaperMonitorSpec`) |
+| Repro/ops dedupe | Decision packs SSOT in `research/ops` · `repro/*/reports` pointers · no reports≡outputs NAV · `REPRO_DEDUPE_HYGIENE.md` · helper `ops_repro_ssot.py` |
 | Dual-paper ledgers | shared driver `ops_dual_paper_ledgers` (14/14 wrapped; M2=`chal_market` · DH=`post_base` · priv=`sim_context`) |
 
 Latest pack: `research/ops/MONTH_END_PAPER_PACK.md` (2026-09-10 primary observe: `OPS_CADENCE_2026-09-10_PRIMARY_OBSERVE.md`)  

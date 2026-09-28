@@ -1,45 +1,5 @@
-{
-  "label": "FIN_SHARE_NEW_MECH_DECISION_PACK",
-  "generated_at_utc": "2026-09-27T05:25:38Z",
-  "status": "SAT_REF_ONLY",
-  "live_wire": false,
-  "n_mech_hit": 1,
-  "n_fin_share_hit": 0,
-  "mech_hit_ids": [
-    "SAT_A20_H5"
-  ],
-  "fin_share_hit_ids": [],
-  "cagr_soft_ids": [
-    "CLIP_F070",
-    "CLIP_F072",
-    "CLIP_F075",
-    "COND_BULL_F070",
-    "COND_BULL_F072",
-    "COND_BSIDE_F070",
-    "SKEW_FIN_HEAVY",
-    "CASH_F05",
-    "CASH_F10"
-  ],
-  "fin_down_ids": [
-    "CLIP_F070",
-    "CLIP_F072",
-    "CLIP_F075",
-    "COND_BULL_F070",
-    "COND_BULL_F072",
-    "COND_BSIDE_F070",
-    "CASH_F05",
-    "CASH_F10",
-    "SAT_A20_H5"
-  ],
-  "best": "SAT_A20_H5",
-  "base_mean_fin": 0.691799,
-  "charter": "research/ops/FIN_SHARE_NEW_MECH_STAGEA_CHARTER.md",
-  "stage_a": "research/ops/FIN_SHARE_NEW_MECH_STAGEA_SCREEN.md",
-  "tracks": [
-    "CLIP",
-    "COND",
-    "SKEW",
-    "CASH",
-    "SAT_REF"
-  ]
-}
+# Pointer — decision pack SSOT
+
+Canonical copy: `research/ops/FIN_SHARE_NEW_MECH_DECISION_PACK.json`
+
+Do not dual-write the full artifact into `repro/*/reports/` (see `research/ops/REPRO_DEDUPE_HYGIENE.md`).

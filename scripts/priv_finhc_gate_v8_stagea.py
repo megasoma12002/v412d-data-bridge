@@ -348,10 +348,18 @@ def main() -> int:
         f"Label: `PRIV_FINHC_GATE_V8_DECISION_2026-09-25__{verdict}`",
         "",
     ]
-    (OPS / "PRIV_FINHC_GATE_V8_DECISION_PACK.json").write_text(json.dumps(decision, indent=2) + "\n")
-    (OPS / "PRIV_FINHC_GATE_V8_DECISION_PACK.md").write_text("\n".join(dlines))
-    (REP / "PRIV_FINHC_GATE_V8_DECISION_PACK.json").write_text(json.dumps(decision, indent=2) + "\n")
-    (REP / "PRIV_FINHC_GATE_V8_DECISION_PACK.md").write_text("\n".join(dlines))
+    from ops_repro_ssot import write_ops_and_repro_pointer
+
+    write_ops_and_repro_pointer(
+        OPS / "PRIV_FINHC_GATE_V8_DECISION_PACK.json",
+        REP / "PRIV_FINHC_GATE_V8_DECISION_PACK.json",
+        json.dumps(decision, indent=2) + "\n",
+    )
+    write_ops_and_repro_pointer(
+        OPS / "PRIV_FINHC_GATE_V8_DECISION_PACK.md",
+        REP / "PRIV_FINHC_GATE_V8_DECISION_PACK.md",
+        "\n".join(dlines),
+    )
     print(json.dumps({"verdict": verdict, "n_hits": len(hits), "n_soft": len(soft_hits)}, indent=2))
     return 0
 

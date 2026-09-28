@@ -566,14 +566,18 @@ def main() -> int:
         f"Label: `ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_2026-09-25__{verdict}`",
         "",
     ]
-    (OPS / "ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.json").write_text(
-        json.dumps(decision, indent=2) + "\n"
+    from ops_repro_ssot import write_ops_and_repro_pointer
+
+    write_ops_and_repro_pointer(
+        OPS / "ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.json",
+        REP / "ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.json",
+        json.dumps(decision, indent=2) + "\n",
     )
-    (OPS / "ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.md").write_text("\n".join(dlines))
-    (REP / "ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.json").write_text(
-        json.dumps(decision, indent=2) + "\n"
+    write_ops_and_repro_pointer(
+        OPS / "ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.md",
+        REP / "ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.md",
+        "\n".join(dlines),
     )
-    (REP / "ASYMM_0050_BULL_DENSIFY_UNDER_COOL_DECISION_PACK.md").write_text("\n".join(dlines))
 
     # Update charter status line lightly via sidecar note only — charter stays OPEN until screen done.
     print(json.dumps({"verdict": verdict, "n_hits": len(hits), "n_books": len(rows)}, indent=2))
