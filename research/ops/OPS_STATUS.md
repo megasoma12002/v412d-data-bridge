@@ -17,6 +17,7 @@ FIN 賣側品質：Stage A `MDD_BLOCK` → Stage B **`NO_EDGE`** · soft-dampen 
 FIN 買賣側聯優：Stage B `BOTH_QUALITY_HIT` · **OBSERVE OPEN** `B_OR_K9_x_HARD150` · `FIN_BOTH_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · SELL_a75 KEEP  
 **Observe UP/DOWN batch 2026-09-28:** `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` — OPEN both-quality+SAT_A20; CLOSE soft/sleeve/fuse/priv/within-sleeve/BLEND025/FIN50/E45 paper observes (live stack KEEP)
 **ABC Stage A next (2026-09-28):** A `LOCK_KEEP_NO_TIP_LIFT` · B `NO_EDGE` · C `MONITOR_READY` · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` · Soft-Frozen KEEP · no live  
+**FIN×SAT COMPOSITE (2026-09-28):** Stage A **`COMPOSITE_HIT`** · champion `COMP_H150_x_A20` · observe ballot **DRAFT** · Soft-Frozen KEEP · live CONF α=0.10 KEEP · no live · `FIN_SAT_COMPOSITE_STAGEA_DECISION_PACK.md` · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_DRAFT.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
@@ -70,6 +71,7 @@ Strategy update SOP: `research/ops/STRATEGY_UPDATE_STANDARD_PROCESS.md`
 | BLEND_025 | **OBSERVE CLOSED** (2026-09-28) | Was sealed-CAGR successor (register #3); live **NOT READY** (#5); promote review **2026-09-26 BLOCKED** · paper queue closed · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
 | FIN both-quality `B_OR_K9_x_HARD150` | **OBSERVE OPEN** (2026-09-28) | Stage B HIT · cutover **BLOCKED** · `FIN_BOTH_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | `SAT_A20_H5` | **OBSERVE OPEN** (2026-09-28) | Stage A MECH_HIT · cutover **BLOCKED** · `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
+| FIN×SAT COMPOSITE `COMP_H150_x_A20` | Stage A **`COMPOSITE_HIT`** · ballot **DRAFT** | Observe not open · cutover **BLOCKED** · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_DRAFT.md` |
 | Offense SOFT near-flat (`SELL_a75`) | **LIVE WIRED** under COOL | sell boost 0.75 · coexists FUSE+COOL · Soft-Frozen KEEP · `LIVE_SELL_A75_UNDER_COOL_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | `00631L` short-assist `CONF_RET3_A10_H5` | **LIVE WIRED** (forward-only) | COOL exit · RET3 · α=0.10 · H=5 · Soft-Frozen KEEP · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | TEL `T3_COOL_INV_VOL20` | **LIVE WIRED** (forward-only) | COOL-defend INV_VOL soft-tilt · else EQUAL · Soft-Frozen KEEP · `LIVE_TEL_T3_COOL_INV_VOL20_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |

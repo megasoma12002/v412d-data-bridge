@@ -1,7 +1,7 @@
 {
-  "label": "FIN_SAT_COMPOSITE_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
-  "status": "STAGE_A_OPEN",
-  "verdict": null,
+  "label": "FIN_SAT_COMPOSITE_STAGEA_CHARTER_2026-09-28__DONE_COMPOSITE_HIT__NO_LIVE_WIRE",
+  "status": "STAGE_A_DONE",
+  "verdict": "COMPOSITE_HIT",
   "date": "2026-09-28",
   "live_wire": false,
   "soft_frozen_keep": true,
@@ -38,5 +38,7 @@
     "CAGR_SOFT",
     "TIP_BLOCK",
     "NO_EDGE"
-  ]
+  ],
+  "screen": "research/ops/FIN_SAT_COMPOSITE_STAGEA_SCREEN.md",
+  "decision": "research/ops/FIN_SAT_COMPOSITE_STAGEA_DECISION_PACK.md"
 }

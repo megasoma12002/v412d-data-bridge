@@ -38,6 +38,7 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27 `R_L1_05`; prior 0.0
 | 0k6 | `00631L` **短線輔助** T1–T4 | **STAGE A SHORT_ASSIST_HIT → OBSERVE → LIVE WIRED** (2026-09-26) | Human `CONF_RET3_A10_H5 accept live` · Soft-Frozen KEEP · forward-only · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 0k6z | Observe UP/DOWN batch | **EXECUTED** (2026-09-28) | Human `請把可上 與可下進行上下` · OPEN both+SAT · CLOSE soft/sleeve/fuse/priv/BLEND/FIN50/E45 paper · `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
 | 0k9a | ABC Stage A next (tip repair / TEL quality / BREAK5 log) | **EXECUTED** (2026-09-28) | A `LOCK_KEEP_NO_TIP_LIFT` · B `NO_EDGE` · C `MONITOR_READY` · Soft-Frozen KEEP · no live · `ABC_STAGEA_NEXT_BATCH_2026-09-28.md` |
+| 0k9b | FIN×SAT COMPOSITE (HARD150 × SAT densify) | **STAGE A `COMPOSITE_HIT`** (2026-09-28) | Champion `COMP_H150_x_A20` · observe ballot **DRAFT** · Soft-Frozen KEEP · live CONF α=0.10 KEEP · no live · `FIN_SAT_COMPOSITE_STAGEA_DECISION_PACK.md` · `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_DRAFT.md` |
 | 0k6b | CONF densify **`SAT_A20_H5`** | **OBSERVE OPEN** (2026-09-28) | Human batch UP/DOWN · `SAT_A20_H5_OBSERVE_BALLOT_EXECUTED_OPEN.md` · cutover **BLOCKED** · live **BLOCKED** |
 | 0k6c | FIN 浮虧延後賣（等回本） | **STAGE A `COOL_GATE_REQUIRED`** (2026-09-28) | Gated defer no CAGR lift · tip MDD↓ · NOCOOLGATE CAGR↑ but MDD worsens · Soft-Frozen KEEP · no live · `FIN_LOSS_DEFER_SELL_STAGEA_DECISION_PACK.md` |
 | 0k6d | FIN 買側品質過濾 A/B/C | **OBSERVE CLOSED** (2026-09-28) | Superseded by both-quality HARD150 · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
@@ -198,6 +199,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - FIN sell new-mech Stage A **`MDD_BLOCK`** 2026-09-28 — timing/confirm WR↑ still MDD/tip · SELL_a75 KEEP · no observe · no live · `FIN_SELL_NEW_MECH_STAGEA_DECISION_PACK.md`
 - FIN sell-quality Stage A **`MDD_BLOCK`** → Stage B **`NO_EDGE`** 2026-09-28 — soft-dampen 護 MDD 失 CAGR · SELL_a75 KEEP · no observe · no live · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md`
 - FIN both-quality Stage A `WIN_SOFT` → Stage B **`BOTH_QUALITY_HIT`** 2026-09-28 — `B_OR_K9_x_HARD150` · ballot DRAFT · SELL_a75 KEEP · no live · `FIN_BOTH_QUALITY_STAGEB_DECISION_PACK.md`
+- FIN×SAT COMPOSITE Stage A **`COMPOSITE_HIT`** 2026-09-28 — champion `COMP_H150_x_A20` (CAGR↑ +0.54 · tip↑ +0.93) · alt `COMP_H150_x_A15` · observe ballot DRAFT · Soft-Frozen / SELL_a75 / live CONF α=0.10 KEEP · no live · `FIN_SAT_COMPOSITE_STAGEA_DECISION_PACK.md`
 - R5 synthetic observe OK 2026-09-27 — waiting real `fixtures/r5_custody_dropin.csv` · `R5_OBSERVE_SYNTHETIC_2026-09-27.md`
 - R2 MDD band floor **−14.5% ACCEPTED** 2026-09-25 — paper rescore only · Soft-Frozen KEEP · no live wire · `ACCEPT_R2_MDD_BAND_FLOOR_14_5_2026-09-25.md` · Stage A still `BAND_ONLY`
 - R2/Stage-B MDD band floor **−15% ACCEPTED** 2026-09-25 — tip-safe FAST rescore **`TIPSAFE_STRETCH`** (`COOL_c8_f50_d21` · `GATE_g04_f50_d21`) · Soft-Frozen KEEP · `ACCEPT_R2_MDD_BAND_FLOOR_15_2026-09-25.md`

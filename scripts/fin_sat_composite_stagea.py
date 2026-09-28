@@ -549,7 +549,9 @@ def main() -> int:
         + ["", f"Verdict: **`{verdict}`**", "", f"Label: `{SCREEN_ID}_2026-09-28__{verdict}`", ""]
     )
 
-    best = next((r for r in rows if r["eval"]["hit"]), None)
+    hits = [r for r in rows if r["eval"]["hit"]]
+    hits.sort(key=lambda r: float(r["eval"]["held_cagr_lift_pp"] or -9), reverse=True)
+    best = hits[0] if hits else None
     comp_econ = [r for r in rows if r["fam"] == "comp" and r["eval"]["gates"]["economic"]]
     comp_econ.sort(key=lambda r: float(r["eval"]["held_cagr_lift_pp"] or -9), reverse=True)
     parent_econ = [r for r in rows if r["fam"] in ("fin", "sat") and r["eval"]["gates"]["economic"]]
@@ -573,11 +575,21 @@ def main() -> int:
         "",
     ]
     if best:
+        alt = [r for r in hits if r["id"] != best["id"]]
         dlines += [
             (
-                f"Best HIT: `{best['id']}` · CAGR↑ {best['eval']['held_cagr_lift_pp']}pp · "
+                f"Champion HIT: `{best['id']}` · CAGR↑ {best['eval']['held_cagr_lift_pp']}pp · "
                 f"MDD↑ {best['eval']['held_mdd_pp']}pp · tip↑ {best['eval']['tip_ytd_mdd_pp']}"
             ),
+            "",
+        ]
+        if alt:
+            ids = ", ".join(
+                f"`{r['id']}` (CAGR↑{r['eval']['held_cagr_lift_pp']})" for r in alt
+            )
+            dlines += [f"Other HIT(s): {ids}", ""]
+        dlines += [
+            "Observe ballot DRAFT: primary champion; parents stay OPEN until composite observe opens.",
             "",
         ]
     elif comp_econ:

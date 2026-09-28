@@ -1,7 +1,7 @@
 # FIN×SAT COMPOSITE Stage A — mix OPEN-observe strengths (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · live `CONF_RET3_A10_H5` **KEEP** · no live wire  
+Status: **Stage A DONE — `COMPOSITE_HIT`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · live `CONF_RET3_A10_H5` **KEEP** · no live wire  
 Parents (UP/DOWN 2026-09-28):
 - FIN both-quality **`B_OR_K9_x_HARD150`** · OBSERVE OPEN · Stage B `BOTH_QUALITY_HIT`
 - CONF densify **`SAT_A20_H5`** · OBSERVE OPEN · Stage A `MECH_HIT` · live α=0.10 KEEP
@@ -12,7 +12,7 @@ Human intent (normalized):
 OPEN Stage A: COMPOSITE 取優混合 · FIN HARD150 × SAT_A20 · tip-safe + CAGR↑ · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_COMPOSITE_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_COMPOSITE_STAGEA_CHARTER_2026-09-28__DONE_COMPOSITE_HIT__NO_LIVE_WIRE`
 
 ## Why
 
