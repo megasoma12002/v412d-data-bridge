@@ -1,0 +1,690 @@
+{
+  "label": "FIN_LOSS_DEFER_SELL_STAGEA_SCREEN_20260928T031118Z",
+  "generated_at_utc": "2026-09-28T03:11:18Z",
+  "charter": "research/ops/FIN_LOSS_DEFER_SELL_STAGEA_CHARTER.md",
+  "status": "STAGE_A_SCREEN_DONE",
+  "verdict": "COOL_GATE_REQUIRED",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "exact_t1_keep": true,
+  "cool_keep": true,
+  "base_id": "CTRL_NO_DEFER",
+  "gates": {
+    "held_cagr_pp": 0.15,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0
+  },
+  "books": [
+    {
+      "id": "CTRL_NO_DEFER",
+      "windows": {
+        "full": {
+          "cagr": 0.12449,
+          "max_drawdown": -0.141077,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087117,
+          "max_drawdown": -0.129741,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.130248,
+          "max_drawdown": -0.141077,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.188875,
+          "max_drawdown": -0.062412,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.157694,
+          "max_drawdown": -0.141077,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 0.0,
+        "held_mdd_pp": 0.0,
+        "held_abs_mdd": -0.141077,
+        "tip_ytd_mdd_pp": 0.0,
+        "tip_1y_mdd_pp": 0.0,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "cool_integrity": true
+        },
+        "hit": false,
+        "loss_defer": null,
+        "n_fills": 4757
+      },
+      "spec": {
+        "id": "CTRL_NO_DEFER"
+      }
+    },
+    {
+      "id": "D_FIN_LOSS0_W5",
+      "windows": {
+        "full": {
+          "cagr": 0.125999,
+          "max_drawdown": -0.142739,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087083,
+          "max_drawdown": -0.1287,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.130733,
+          "max_drawdown": -0.142739,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.194267,
+          "max_drawdown": -0.064156,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.160465,
+          "max_drawdown": -0.142739,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.3973,
+          "cagr_giveback_pp": -1.1672,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.3973,
+          "cagr_giveback_pp": -1.3056,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.2771,
+        "held_mdd_pp": -0.1662,
+        "held_abs_mdd": -0.142739,
+        "tip_ytd_mdd_pp": -0.3973,
+        "tip_1y_mdd_pp": -0.3973,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": false,
+          "cool_integrity": true
+        },
+        "hit": false,
+        "loss_defer": {
+          "deferred_sells": 1840,
+          "forced_sells_cool": 1890,
+          "cool_gate_violations": 0,
+          "max_wait": 5,
+          "loss_band": 0.0,
+          "cool_gate": true,
+          "worst_first": false,
+          "universe_n": 4
+        },
+        "n_fills": 4834
+      },
+      "spec": {
+        "id": "D_FIN_LOSS0_W5",
+        "universe": "FIN",
+        "max_wait": 5,
+        "loss_band": 0.0,
+        "cool_gate": true
+      }
+    },
+    {
+      "id": "D_FIN_LOSS0_W10",
+      "windows": {
+        "full": {
+          "cagr": 0.125899,
+          "max_drawdown": -0.142697,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.08708,
+          "max_drawdown": -0.128677,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.130764,
+          "max_drawdown": -0.142697,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.193832,
+          "max_drawdown": -0.064139,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.160279,
+          "max_drawdown": -0.142697,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.3957,
+          "cagr_giveback_pp": -1.1648,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.3957,
+          "cagr_giveback_pp": -1.3031,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.2585,
+        "held_mdd_pp": -0.162,
+        "held_abs_mdd": -0.142697,
+        "tip_ytd_mdd_pp": -0.3957,
+        "tip_1y_mdd_pp": -0.3957,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": false,
+          "cool_integrity": true
+        },
+        "hit": false,
+        "loss_defer": {
+          "deferred_sells": 1947,
+          "forced_sells_cool": 1894,
+          "cool_gate_violations": 0,
+          "max_wait": 10,
+          "loss_band": 0.0,
+          "cool_gate": true,
+          "worst_first": false,
+          "universe_n": 4
+        },
+        "n_fills": 4833
+      },
+      "spec": {
+        "id": "D_FIN_LOSS0_W10",
+        "universe": "FIN",
+        "max_wait": 10,
+        "loss_band": 0.0,
+        "cool_gate": true
+      }
+    },
+    {
+      "id": "D_FIN_LOSS0_W21",
+      "windows": {
+        "full": {
+          "cagr": 0.124745,
+          "max_drawdown": -0.142847,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086934,
+          "max_drawdown": -0.128487,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.130348,
+          "max_drawdown": -0.142847,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.18998,
+          "max_drawdown": -0.062941,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.158263,
+          "max_drawdown": -0.142847,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.1899,
+          "cagr_giveback_pp": -0.4975,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.1899,
+          "cagr_giveback_pp": -0.5749,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.0569,
+        "held_mdd_pp": -0.177,
+        "held_abs_mdd": -0.142847,
+        "tip_ytd_mdd_pp": -0.1899,
+        "tip_1y_mdd_pp": -0.1899,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": false,
+          "cool_integrity": true
+        },
+        "hit": false,
+        "loss_defer": {
+          "deferred_sells": 2086,
+          "forced_sells_cool": 1889,
+          "cool_gate_violations": 0,
+          "max_wait": 21,
+          "loss_band": 0.0,
+          "cool_gate": true,
+          "worst_first": false,
+          "universe_n": 4
+        },
+        "n_fills": 4765
+      },
+      "spec": {
+        "id": "D_FIN_LOSS0_W21",
+        "universe": "FIN",
+        "max_wait": 21,
+        "loss_band": 0.0,
+        "cool_gate": true
+      }
+    },
+    {
+      "id": "D_FIN_LOSS2_W10",
+      "windows": {
+        "full": {
+          "cagr": 0.125575,
+          "max_drawdown": -0.142065,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.0869,
+          "max_drawdown": -0.128934,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.130296,
+          "max_drawdown": -0.142065,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.193453,
+          "max_drawdown": -0.064848,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.159857,
+          "max_drawdown": -0.142065,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.4666,
+          "cagr_giveback_pp": -1.2683,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.4666,
+          "cagr_giveback_pp": -1.4367,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.2163,
+        "held_mdd_pp": -0.0988,
+        "held_abs_mdd": -0.142065,
+        "tip_ytd_mdd_pp": -0.4666,
+        "tip_1y_mdd_pp": -0.4666,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": false,
+          "cool_integrity": true
+        },
+        "hit": false,
+        "loss_defer": {
+          "deferred_sells": 1255,
+          "forced_sells_cool": 1889,
+          "cool_gate_violations": 0,
+          "max_wait": 10,
+          "loss_band": -0.02,
+          "cool_gate": true,
+          "worst_first": false,
+          "universe_n": 4
+        },
+        "n_fills": 4745
+      },
+      "spec": {
+        "id": "D_FIN_LOSS2_W10",
+        "universe": "FIN",
+        "max_wait": 10,
+        "loss_band": -0.02,
+        "cool_gate": true
+      }
+    },
+    {
+      "id": "D_FIN_LOSS5_W10",
+      "windows": {
+        "full": {
+          "cagr": 0.126299,
+          "max_drawdown": -0.1416,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087073,
+          "max_drawdown": -0.129757,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.130096,
+          "max_drawdown": -0.1416,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.196301,
+          "max_drawdown": -0.064392,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.161072,
+          "max_drawdown": -0.1416,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.4209,
+          "cagr_giveback_pp": -1.3544,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.4209,
+          "cagr_giveback_pp": -1.4655,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.3378,
+        "held_mdd_pp": -0.0523,
+        "held_abs_mdd": -0.1416,
+        "tip_ytd_mdd_pp": -0.4209,
+        "tip_1y_mdd_pp": -0.4209,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": false,
+          "cool_integrity": true
+        },
+        "hit": false,
+        "loss_defer": {
+          "deferred_sells": 544,
+          "forced_sells_cool": 1907,
+          "cool_gate_violations": 0,
+          "max_wait": 10,
+          "loss_band": -0.05,
+          "cool_gate": true,
+          "worst_first": false,
+          "universe_n": 4
+        },
+        "n_fills": 4801
+      },
+      "spec": {
+        "id": "D_FIN_LOSS5_W10",
+        "universe": "FIN",
+        "max_wait": 10,
+        "loss_band": -0.05,
+        "cool_gate": true
+      }
+    },
+    {
+      "id": "D_FIN_WORST_FIRST_W10",
+      "windows": {
+        "full": {
+          "cagr": 0.12516,
+          "max_drawdown": -0.14334,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086628,
+          "max_drawdown": -0.129188,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.130973,
+          "max_drawdown": -0.14334,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.191402,
+          "max_drawdown": -0.064154,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.159273,
+          "max_drawdown": -0.14334,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.3971,
+          "cagr_giveback_pp": -1.2625,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.3971,
+          "cagr_giveback_pp": -1.3465,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.1579,
+        "held_mdd_pp": -0.2263,
+        "held_abs_mdd": -0.14334,
+        "tip_ytd_mdd_pp": -0.3971,
+        "tip_1y_mdd_pp": -0.3971,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": false,
+          "cool_integrity": true
+        },
+        "hit": false,
+        "loss_defer": {
+          "deferred_sells": 2064,
+          "forced_sells_cool": 1886,
+          "cool_gate_violations": 0,
+          "max_wait": 10,
+          "loss_band": 0.0,
+          "cool_gate": true,
+          "worst_first": true,
+          "universe_n": 4
+        },
+        "n_fills": 4790
+      },
+      "spec": {
+        "id": "D_FIN_WORST_FIRST_W10",
+        "universe": "FIN",
+        "max_wait": 10,
+        "loss_band": 0.0,
+        "cool_gate": true,
+        "worst_first": true
+      }
+    },
+    {
+      "id": "D_TEL_LOSS0_W10",
+      "windows": {
+        "full": {
+          "cagr": 0.125957,
+          "max_drawdown": -0.143661,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.088616,
+          "max_drawdown": -0.121566,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.129078,
+          "max_drawdown": -0.143661,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.193496,
+          "max_drawdown": -0.062169,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.159243,
+          "max_drawdown": -0.143661,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": -0.0727,
+          "cagr_giveback_pp": -0.0132,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": -0.0727,
+          "cagr_giveback_pp": -0.1018,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": -0.1549,
+        "held_mdd_pp": -0.2584,
+        "held_abs_mdd": -0.143661,
+        "tip_ytd_mdd_pp": -0.0727,
+        "tip_1y_mdd_pp": -0.0727,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": false,
+          "mdd_band": true,
+          "tip_safe": false,
+          "cool_integrity": true
+        },
+        "hit": false,
+        "loss_defer": {
+          "deferred_sells": 3803,
+          "forced_sells_cool": 1568,
+          "cool_gate_violations": 0,
+          "max_wait": 10,
+          "loss_band": 0.0,
+          "cool_gate": true,
+          "worst_first": false,
+          "universe_n": 3
+        },
+        "n_fills": 4661
+      },
+      "spec": {
+        "id": "D_TEL_LOSS0_W10",
+        "universe": "TEL",
+        "max_wait": 10,
+        "loss_band": 0.0,
+        "cool_gate": true
+      }
+    },
+    {
+      "id": "D_FIN_LOSS0_W10_NOCOOLGATE",
+      "windows": {
+        "full": {
+          "cagr": 0.121761,
+          "max_drawdown": -0.14507,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.095538,
+          "max_drawdown": -0.115575,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.129366,
+          "max_drawdown": -0.14507,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.163258,
+          "max_drawdown": -0.064488,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.145754,
+          "max_drawdown": -0.14507,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.6024,
+          "cagr_giveback_pp": 15.0873,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.6024,
+          "cagr_giveback_pp": 10.7079,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.194,
+        "held_mdd_pp": -0.3993,
+        "held_abs_mdd": -0.14507,
+        "tip_ytd_mdd_pp": 0.6024,
+        "tip_1y_mdd_pp": 0.6024,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": false,
+          "mdd_band": true,
+          "tip_safe": true,
+          "cool_integrity": true
+        },
+        "hit": false,
+        "loss_defer": {
+          "deferred_sells": 4206,
+          "forced_sells_cool": 0,
+          "cool_gate_violations": 946,
+          "max_wait": 10,
+          "loss_band": 0.0,
+          "cool_gate": false,
+          "worst_first": false,
+          "universe_n": 4
+        },
+        "n_fills": 4681
+      },
+      "spec": {
+        "id": "D_FIN_LOSS0_W10_NOCOOLGATE",
+        "universe": "FIN",
+        "max_wait": 10,
+        "loss_band": 0.0,
+        "cool_gate": false
+      }
+    }
+  ],
+  "binding": [
+    "Soft-Frozen live KEEP — Stage A does not authorize sell-overlay live wire",
+    "Exact T+1 KEEP",
+    "COOL forced de-risk lexically prior to loss-defer (except NOCOOLGATE negative control)",
+    "Not a FIFO accounting rewrite",
+    "No tip history rewrite"
+  ]
+}

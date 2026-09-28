@@ -37,6 +37,7 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27 `R_L1_05`; prior 0.0
 | 0k5 | COOL **結束** → `00631L` 搶反彈 | **STAGE A MDD_BLOCK** (2026-09-26) | CAGR 可↑但 MDD 門不過 · Soft-Frozen KEEP · no live · `COOL_T50_LEV_REBOUND_DECISION_PACK.md` |
 | 0k6 | `00631L` **短線輔助** T1–T4 | **STAGE A SHORT_ASSIST_HIT → OBSERVE → LIVE WIRED** (2026-09-26) | Human `CONF_RET3_A10_H5 accept live` · Soft-Frozen KEEP · forward-only · `LIVE_CONF_RET3_A10_H5_00631L_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` |
 | 0k6b | CONF densify **`SAT_A20_H5`** | **DECISION: OPEN observe recommended** (2026-09-27) | Stage A MECH_HIT · Stage B PARENT_KEEP · ballot **DRAFT** · live **BLOCKED** · `SAT_A20_H5_DECISION_2026-09-27.md` |
+| 0k6c | FIN 浮虧延後賣（等回本） | **STAGE A `COOL_GATE_REQUIRED`** (2026-09-28) | Gated defer no CAGR lift · tip MDD↓ · NOCOOLGATE CAGR↑ but MDD worsens · Soft-Frozen KEEP · no live · `FIN_LOSS_DEFER_SELL_STAGEA_DECISION_PACK.md` |
 | 0k6d | FIN 買側品質過濾（勝率＋MDD＋CAGR） | **OBSERVE OPEN A/B/C** (2026-09-28) | Human `請上observe` · multi-paper `BASE∥A∥B∥C` OPERATING · cutover **BLOCKED** · Soft-Frozen KEEP · no live · `FIN_BUY_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md` |
 | 0k6e | FIN 賣側品質過濾（保留 SELL_a75 · MDD＋CAGR＋勝率） | **STAGE B `NO_EDGE`** (2026-09-28) | Soft-dampen 護 MDD 但 CAGR≈0 · hard 仍傷 MDD · SELL_a75 KEEP · no observe · no live · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md` |
 | 0k6f | FIN 買賣側聯優（有限 buy×sell） | **STAGE B `BOTH_QUALITY_HIT`** (2026-09-28) | Champion `B_OR_K9_x_HARD150` · CAGR↑+0.47 MDD↑+0.53 buyWR↑+7.7 · ballot DRAFT · SELL_a75 KEEP · `FIN_BOTH_QUALITY_STAGEB_DECISION_PACK.md` |
@@ -189,6 +190,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - Broker/R5/OCO **PREP not open** merged `#315` (2026-09-27) — INTENT_ONLY + R5 observe auto · UAT readonly checklist · EXECUTE still BLOCKED · `BROKER_R5_OCO_PREP_NOT_OPEN.md` · `YUANTA_SPARK_UAT_READONLY_CHECKLIST.md`
 - Eng tip-path P0–P2 merged `#314` (2026-09-27) — FUSE offense cache · batch ledger · Soft-Frozen KEEP
 - Tip holiday gap: last tip `2026-09-24` · closed 9/25–28 · **next catch-up session 2026-09-29** · `TIP_CATCHUP_2026-09-29_CHECKLIST.md` · do not invent tip
+- FIN loss-defer sell **Stage A `COOL_GATE_REQUIRED`** 2026-09-28 — gated defer no lift; NOCOOLGATE CAGR↑ but MDD worsens · Soft-Frozen KEEP · no live · `FIN_LOSS_DEFER_SELL_STAGEA_DECISION_PACK.md`
 - FIN buy-quality A→B→C→D **`PARENT_KEEP_B`** → **OBSERVE OPEN A/B/C** 2026-09-28 — human `請上observe` · multi-paper OPERATING · cutover BLOCKED · Soft-Frozen KEEP · no live · `FIN_BUY_QUALITY_OBSERVE_BALLOT_EXECUTED_OPEN.md`
 - FIN sell-quality Stage A **`MDD_BLOCK`** → Stage B **`NO_EDGE`** 2026-09-28 — soft-dampen 護 MDD 失 CAGR · SELL_a75 KEEP · no observe · no live · `FIN_SELL_QUALITY_STAGEB_DECISION_PACK.md`
 - FIN both-quality Stage A `WIN_SOFT` → Stage B **`BOTH_QUALITY_HIT`** 2026-09-28 — `B_OR_K9_x_HARD150` · ballot DRAFT · SELL_a75 KEEP · no live · `FIN_BOTH_QUALITY_STAGEB_DECISION_PACK.md`
