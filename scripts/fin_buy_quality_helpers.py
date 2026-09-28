@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Paper-only FIN buy-quality overlays (Stage A).
+"""Paper-only FIN buy-quality overlays (Stage A/B).
 
 AND-filters on ``fin_buy_ok`` + forward win-rate diagnostics.
 Soft-Frozen / live tip untouched.
@@ -34,6 +34,12 @@ def and_buy_ok(base: pd.DataFrame, extra: pd.DataFrame) -> pd.DataFrame:
     b = base.astype(bool).copy()
     e = extra.reindex(index=b.index, columns=b.columns).fillna(False).astype(bool)
     return b & e
+
+
+def or_buy_ok(a: pd.DataFrame, b: pd.DataFrame) -> pd.DataFrame:
+    x = a.fillna(False).astype(bool)
+    y = b.reindex(index=x.index, columns=x.columns).fillna(False).astype(bool)
+    return x | y
 
 
 def ret_sign_ok(
@@ -72,6 +78,53 @@ def rsi_lt_ok(closes: pd.DataFrame, thresh: float = 50.0, n: int = 14) -> pd.Dat
     return out
 
 
+def below_ma_ok(closes: pd.DataFrame, window: int) -> pd.DataFrame:
+    out = pd.DataFrame(False, index=closes.index, columns=closes.columns)
+    w = int(window)
+    for c in closes.columns:
+        s = closes[c].astype(float)
+        ma = s.rolling(w, min_periods=w).mean()
+        out[c] = (s < ma).fillna(False)
+    return out
+
+
+def kd_season_mask(
+    cal: pd.DatetimeIndex,
+    *,
+    season_start: tuple[int, int],
+    season_end: tuple[int, int],
+) -> pd.Series:
+    """Boolean series True on calendar days inside [start, end] inclusive (month/day)."""
+    sm, sd = int(season_start[0]), int(season_start[1])
+    em, ed = int(season_end[0]), int(season_end[1])
+    out = []
+    for d in cal:
+        md = (int(d.month), int(d.day))
+        if (sm, sd) <= (em, ed):
+            ok = (sm, sd) <= md <= (em, ed)
+        else:
+            ok = md >= (sm, sd) or md <= (em, ed)
+        out.append(bool(ok))
+    return pd.Series(out, index=cal, dtype=bool)
+
+
+def apply_filter_in_season(
+    gate: pd.DataFrame,
+    season: pd.Series,
+    *,
+    in_season: bool,
+) -> pd.DataFrame:
+    """When season matches, require ``gate``; otherwise pass-through True."""
+    s = season.reindex(gate.index).fillna(False).astype(bool)
+    if not in_season:
+        s = ~s
+    out = pd.DataFrame(True, index=gate.index, columns=gate.columns)
+    g = gate.fillna(False).astype(bool)
+    for c in out.columns:
+        out[c] = np.where(s.values, g[c].values, True)
+    return out.astype(bool)
+
+
 def forward_win_stats(
     fills: pd.DataFrame,
     closes: pd.DataFrame,
@@ -80,7 +133,7 @@ def forward_win_stats(
     side: str = "BUY",
     horizon: int = 21,
 ) -> dict[str, Any]:
-    """Fraction of fills with fwd close return > 0 after ``horizon`` calendar rows."""
+    """Fraction of fills with fwd adj-close return > 0 after ``horizon`` rows."""
     if fills is None or fills.empty:
         return {"n": 0, "wins": 0, "win_rate": None, "mean_fwd": None}
     f = fills.copy()
@@ -88,7 +141,6 @@ def forward_win_stats(
     f["side"] = f["side"].astype(str).str.upper()
     date_col = "fill_date" if "fill_date" in f.columns else "date"
     f[date_col] = pd.to_datetime(f[date_col]).dt.normalize()
-    # Codes may be int in CSV (e.g. 50); normalize to str without leading zeros loss for FIN.
     f = f[(f["side"] == str(side).upper()) & (f["code"].isin({str(c) for c in codes}))]
     if f.empty:
         return {"n": 0, "wins": 0, "win_rate": None, "mean_fwd": None}
