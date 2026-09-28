@@ -1,0 +1,13 @@
+{
+  "label": "FIN_BOTH_QUALITY_STAGEA_DECISION_PACK_2026-09-28__WIN_SOFT__NO_LIVE",
+  "status": "WIN_SOFT",
+  "live_wire": false,
+  "sell_a75_keep": true,
+  "cagr_sign": "chal_minus_base",
+  "charter": "research/ops/FIN_BOTH_QUALITY_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_BOTH_QUALITY_STAGEA_SCREEN.md",
+  "best_hit": null,
+  "best_both_economic": "BOTH_OR_K9_x_HARD120",
+  "generated_at_utc": "2026-09-28T05:57:23Z",
+  "observe_ballot_draft": "research/ops/FIN_BOTH_QUALITY_OBSERVE_BALLOT_DRAFT.md"
+}

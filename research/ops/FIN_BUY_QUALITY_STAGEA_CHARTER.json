@@ -1,0 +1,48 @@
+{
+  "label": "FIN_BUY_QUALITY_STAGEA_CHARTER_2026-09-28__DONE_WIN_SOFT__NO_LIVE_WIRE",
+  "status": "STAGE_A_DONE_WIN_SOFT",
+  "verdict": "WIN_SOFT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "exact_t1_keep": true,
+  "cool_keep": true,
+  "charter": "research/ops/FIN_BUY_QUALITY_STAGEA_CHARTER.md",
+  "charter_zh_tw": "research/ops/FIN_BUY_QUALITY_STAGEA_CHARTER.zh-TW.md",
+  "base": "BASE_LIVE_FUSE_COOL",
+  "mechanism": "fin_buy_ok_and_quality_overlay",
+  "not_mechanism": "sell_loss_defer_or_fifo_accounting_rewrite",
+  "universe_v1": ["FIN_PUB"],
+  "excluded_v1": ["0050", "00631L", "TEL", "FIN_PRIV"],
+  "grid_ids": [
+    "CTRL_BASE",
+    "Q_BELOW_MA60",
+    "Q_BELOW_MA120",
+    "Q_NOT_RSI14_GT70",
+    "Q_RSI14_LT50",
+    "Q_ABOVE_MA60",
+    "Q_RET5_POS",
+    "Q_RET10_POS",
+    "Q_COOL1_ONLY",
+    "Q_RET5_NEG"
+  ],
+  "gates": {
+    "held_cagr_pp": 0.15,
+    "held_mdd_pp_floor": -0.25,
+    "held_abs_mdd_max": 0.15,
+    "tip_mdd_pp_floor": 0.0,
+    "buy_win_rate_pp": 2.0,
+    "buy_win_horizon": 21
+  },
+  "best_economic": "Q_BELOW_MA120",
+  "note": "Q_BELOW_MA120 clears CAGR+MDD+tip but buy WR↓; filters that lift WR hurt MDD/tip",
+  "verdicts": [
+    "BUY_QUALITY_HIT",
+    "WIN_SOFT",
+    "CAGR_SOFT",
+    "MDD_BLOCK",
+    "NO_LIFT"
+  ],
+  "script": "scripts/fin_buy_quality_stagea.py",
+  "repro": "repro/fin-buy-quality-stagea/",
+  "register": "0k6d"
+}
