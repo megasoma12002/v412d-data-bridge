@@ -1,0 +1,30 @@
+{
+  "label": "FIN_BUY_QUALITY_STAGED_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "status": "STAGE_D_OPEN",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "parents": {
+    "stage_c": "C_OR_K9_AND_BELOW_MA60",
+    "stage_b": "P_B_OR_K9"
+  },
+  "mechanism": "regime_switch_buy_ok_C_calm_B_crisis",
+  "charter": "research/ops/FIN_BUY_QUALITY_STAGED_CHARTER.md",
+  "script": "scripts/fin_buy_quality_staged.py",
+  "repro": "repro/fin-buy-quality-staged/",
+  "register": "0k6d4",
+  "gates": {
+    "held_cagr_pp": 0.15,
+    "buy_win_rate_pp": 1.0,
+    "stress_2020_mdd_pp": 1.0,
+    "cagr_vs_C_slack_pp": 0.30
+  },
+  "verdicts": [
+    "COMPOSITE_PARETO",
+    "COMPOSITE_HIT",
+    "COMPOSITE_SOFT",
+    "PARENT_KEEP_C",
+    "PARENT_KEEP_B",
+    "MDD_BLOCK",
+    "NO_LIFT"
+  ]
+}

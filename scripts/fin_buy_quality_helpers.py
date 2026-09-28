@@ -154,6 +154,31 @@ def blend_hard_or_soft(
     return out.astype(bool)
 
 
+def regime_switch_panels(
+    calm: pd.DataFrame,
+    crisis: pd.DataFrame,
+    crisis_days: pd.Series,
+) -> pd.DataFrame:
+    """Use ``crisis`` panel on crisis days else ``calm``."""
+    return blend_hard_or_soft(calm, crisis, crisis_days)
+
+
+def hold_signal(fire: pd.Series, hold_days: int) -> pd.Series:
+    """Once ``fire`` is True, keep True for ``hold_days`` sessions (inclusive)."""
+    f = fire.fillna(False).astype(bool)
+    out = f.copy()
+    left = 0
+    vals = []
+    for v in f.values:
+        if bool(v):
+            left = int(hold_days)
+        on = left > 0
+        vals.append(on)
+        if left > 0:
+            left -= 1
+    return pd.Series(vals, index=f.index, dtype=bool)
+
+
 def or_and_exception(hard: pd.DataFrame, exception_a: pd.DataFrame, exception_b: pd.DataFrame) -> pd.DataFrame:
     """``hard OR (exception_a AND exception_b)``."""
     return or_buy_ok(hard, and_buy_ok(exception_a, exception_b))
