@@ -1,7 +1,7 @@
 # FIN×SAT 週期互斥切換 Stage A (paper)
 
 Date: 2026-09-28  
-Status: **Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
+Status: **Stage A DONE — `TIP_MDD_ONLY`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `SELL_a75` **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · SAT_A20_RELAX observe **KEEP** · no live wire  
 Parents:
 - 0k9g 互斥特徵 **`TIP_MDD_ONLY`** — 年切 oracle 有上界，但年切不可實作；日頻 lag-1 未對齊 tip
 - 0k9e／0k9f blend／REL 皆 `TIP_MDD_ONLY`
@@ -13,7 +13,7 @@ Human intent (normalized):
 OPEN Stage A: 以週期（峰谷／regime confirm／月季）抓 COMP↔SAT 互斥 · 非年切 · Soft-Frozen KEEP · paper only
 ```
 
-Label: `FIN_SAT_CYCLE_SWITCH_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE`
+Label: `FIN_SAT_CYCLE_SWITCH_STAGEA_CHARTER_2026-09-28__DONE_TIP_MDD_ONLY__NO_LIVE_WIRE`
 
 ## Why
 

@@ -1,0 +1,26 @@
+{
+  "Bear": {
+    "n_episodes": 19,
+    "mean_len": 16.9,
+    "comp_win_rate": 42.1,
+    "mean_comp_minus_sat_pp": 0.053
+  },
+  "Bull": {
+    "n_episodes": 32,
+    "mean_len": 75.6,
+    "comp_win_rate": 37.5,
+    "mean_comp_minus_sat_pp": -0.184
+  },
+  "Crisis": {
+    "n_episodes": 11,
+    "mean_len": 36.3,
+    "comp_win_rate": 45.5,
+    "mean_comp_minus_sat_pp": -0.002
+  },
+  "Sideways": {
+    "n_episodes": 7,
+    "mean_len": 12.3,
+    "comp_win_rate": 28.6,
+    "mean_comp_minus_sat_pp": -0.42
+  }
+}
