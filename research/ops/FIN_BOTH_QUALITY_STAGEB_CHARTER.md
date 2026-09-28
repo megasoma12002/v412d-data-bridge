@@ -1,7 +1,7 @@
 # FIN both-quality Stage B — WR densify on joint seed (paper)
 
 Date: 2026-09-28  
-Status: **Stage B OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · no live wire  
+Status: **Stage B DONE — `BOTH_QUALITY_HIT`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · `SELL_a75` **KEEP** · no live wire  
 Parent Stage A: **`WIN_SOFT`** · champion `BOTH_OR_K9_x_HARD120` (CAGR↑+1.07 · MDD↑+0.30 · tip OK · sell WR↓)  
 Human intent (normalized):
 

@@ -5,17 +5,17 @@ Status: **DRAFT — not executed** · Soft-Frozen **KEEP** · SELL_a75 **KEEP** 
 ## Proposed human line
 
 ```
-OPEN paper observe: FIN both-quality `BOTH_OR_K9_x_HARD120` (buy MA120∨K9 × sell hard NOT_BELOW_MA120)
+OPEN paper observe: FIN both-quality `B_OR_K9_x_HARD150` (Stage B BOTH_QUALITY_HIT)
 ```
 
 ## Why
 
-- Stage A **`WIN_SOFT`** · economic champion `BOTH_OR_K9_x_HARD120`
-- held CAGR↑ **+1.07pp** · held MDD↑ **+0.30pp** · tip OK · WR either short
-- Seed `BOTH_MA120_x_HARD120` also economic (+0.24 / +0.23) if human prefers simpler buy filter
+- Stage B **`BOTH_QUALITY_HIT`** · champion `B_OR_K9_x_HARD150`
+- held CAGR↑ +0.47pp · held MDD↑ +0.53pp · tip OK · buy WR↑ +7.72pp
+- Alt observe: Stage A seed `BOTH_OR_K9_x_HARD120` (CAGR↑+1.07 / MDD↑+0.30 / WR soft) if human prefers CAGR over WR HIT
 
 ## Non-goals
 
 - Live wire · Soft-Frozen retune · tip rewrite · loss-defer
 
-Label: `FIN_BOTH_QUALITY_OBSERVE_BALLOT_DRAFT_2026-09-28__DRAFT`
+Label: `FIN_BOTH_QUALITY_OBSERVE_BALLOT_DRAFT_2026-09-28__HIT_HARD150`

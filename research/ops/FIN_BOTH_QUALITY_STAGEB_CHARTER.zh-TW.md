@@ -1,7 +1,7 @@
 # FIN 買賣側聯優 Stage B — 章程（繁中摘要）
 
 日期：2026-09-28  
-狀態：**Stage B OPEN** · Soft-Frozen / Exact T+1 / COOL / **SELL_a75 KEEP** · 無 live wire  
+狀態：**Stage B DONE — `BOTH_QUALITY_HIT`** · Soft-Frozen / Exact T+1 / COOL / **SELL_a75 KEEP** · 無 live wire  
 父層 Stage A：`WIN_SOFT` · 種子 `BOTH_OR_K9_x_HARD120`
 
 ```
