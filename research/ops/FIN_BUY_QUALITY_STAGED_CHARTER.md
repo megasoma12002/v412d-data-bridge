@@ -1,7 +1,7 @@
 # FIN buy-quality Stage D — Composite regime decision (paper)
 
 Date: 2026-09-28  
-Status: **Stage D OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · no live wire  
+Status: **Stage D DONE — `PARENT_KEEP_B`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · no live wire  
 Parents: Stage C `C_OR_K9_AND_BELOW_MA60` (full-sample Pareto) · Stage B `P_B_OR_K9` (2020 crisis MDD)  
 Human intent:
 

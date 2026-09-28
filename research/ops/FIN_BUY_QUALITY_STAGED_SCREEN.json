@@ -1,0 +1,742 @@
+{
+  "label": "FIN_BUY_QUALITY_STAGED_SCREEN_20260928T041507Z",
+  "generated_at_utc": "2026-09-28T04:15:07Z",
+  "charter": "research/ops/FIN_BUY_QUALITY_STAGED_CHARTER.md",
+  "status": "STAGE_D_SCREEN_DONE",
+  "verdict": "PARENT_KEEP_B",
+  "champion": "P_B",
+  "live_wire": false,
+  "parents": {
+    "C": "P_C",
+    "B": "P_B"
+  },
+  "stress_window": [
+    "2020-01-15",
+    "2020-04-30"
+  ],
+  "books": [
+    {
+      "id": "CTRL_BASE",
+      "windows": {
+        "full": {
+          "cagr": 0.12449,
+          "max_drawdown": -0.141077,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087117,
+          "max_drawdown": -0.129741,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.130248,
+          "max_drawdown": -0.141077,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.188875,
+          "max_drawdown": -0.062412,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.157694,
+          "max_drawdown": -0.141077,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_giveback_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 0.0,
+        "held_mdd_pp": 0.0,
+        "held_abs_mdd": -0.141077,
+        "tip_ytd_mdd_pp": 0.0,
+        "tip_1y_mdd_pp": 0.0,
+        "buy_win_rate": 73.5113,
+        "buy_win_rate_pp": 0.0,
+        "buy_win_n": 1461,
+        "stress_2020_mdd_pct": -14.1077,
+        "stress_2020_mdd_pp": 0.0,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_hit": false,
+          "buy_win_observe": true,
+          "economic": false,
+          "stress": false
+        },
+        "hit": false,
+        "observe_ok": false,
+        "composite_hit": false
+      },
+      "buy_wr": {
+        "n": 1461,
+        "wins": 1074,
+        "win_rate": 73.5113,
+        "mean_fwd": 1.9555
+      },
+      "spec": {
+        "id": "CTRL_BASE",
+        "kind": "ctrl"
+      },
+      "n_fills": 4757,
+      "crisis_days": null
+    },
+    {
+      "id": "P_C",
+      "windows": {
+        "full": {
+          "cagr": 0.117587,
+          "max_drawdown": -0.140445,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.088897,
+          "max_drawdown": -0.118939,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.120539,
+          "max_drawdown": -0.140445,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.169367,
+          "max_drawdown": -0.062581,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.143521,
+          "max_drawdown": -0.140445,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.6645,
+          "cagr_giveback_pp": 14.2199,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.6645,
+          "cagr_giveback_pp": 9.6819,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.4173,
+        "held_mdd_pp": 0.0632,
+        "held_abs_mdd": -0.140445,
+        "tip_ytd_mdd_pp": 0.6645,
+        "tip_1y_mdd_pp": 0.6645,
+        "buy_win_rate": 74.5375,
+        "buy_win_rate_pp": 1.0262,
+        "buy_win_n": 919,
+        "stress_2020_mdd_pct": -14.0445,
+        "stress_2020_mdd_pp": 0.0632,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_hit": true,
+          "buy_win_observe": true,
+          "economic": true,
+          "stress": false
+        },
+        "hit": true,
+        "observe_ok": true,
+        "composite_hit": false
+      },
+      "buy_wr": {
+        "n": 919,
+        "wins": 685,
+        "win_rate": 74.5375,
+        "mean_fwd": 2.5827
+      },
+      "spec": {
+        "id": "P_C",
+        "kind": "parent_c"
+      },
+      "n_fills": 4867,
+      "crisis_days": null
+    },
+    {
+      "id": "P_B",
+      "windows": {
+        "full": {
+          "cagr": 0.122453,
+          "max_drawdown": -0.120583,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.091054,
+          "max_drawdown": -0.118939,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.122985,
+          "max_drawdown": -0.120583,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.182107,
+          "max_drawdown": -0.061631,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.150978,
+          "max_drawdown": -0.120583,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.1908,
+          "cagr_giveback_pp": 9.8472,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.1908,
+          "cagr_giveback_pp": 6.0867,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 0.6716,
+        "held_mdd_pp": 2.0494,
+        "held_abs_mdd": -0.120583,
+        "tip_ytd_mdd_pp": 0.1908,
+        "tip_1y_mdd_pp": 0.1908,
+        "buy_win_rate": 74.7289,
+        "buy_win_rate_pp": 1.2176,
+        "buy_win_n": 922,
+        "stress_2020_mdd_pct": -12.0583,
+        "stress_2020_mdd_pp": 2.0493,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_hit": true,
+          "buy_win_observe": true,
+          "economic": true,
+          "stress": true
+        },
+        "hit": true,
+        "observe_ok": true,
+        "composite_hit": true
+      },
+      "buy_wr": {
+        "n": 922,
+        "wins": 689,
+        "win_rate": 74.7289,
+        "mean_fwd": 2.7252
+      },
+      "spec": {
+        "id": "P_B",
+        "kind": "parent_b"
+      },
+      "n_fills": 4804,
+      "crisis_days": null
+    },
+    {
+      "id": "D_C_B_COOL",
+      "windows": {
+        "full": {
+          "cagr": 0.118046,
+          "max_drawdown": -0.13963,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.089067,
+          "max_drawdown": -0.118939,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.121138,
+          "max_drawdown": -0.13963,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.170121,
+          "max_drawdown": -0.062869,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.144202,
+          "max_drawdown": -0.13963,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.6674,
+          "cagr_giveback_pp": 13.6745,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.6674,
+          "cagr_giveback_pp": 9.3344,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.3492,
+        "held_mdd_pp": 0.1447,
+        "held_abs_mdd": -0.13963,
+        "tip_ytd_mdd_pp": 0.6674,
+        "tip_1y_mdd_pp": 0.6674,
+        "buy_win_rate": 75.4153,
+        "buy_win_rate_pp": 1.904,
+        "buy_win_n": 903,
+        "stress_2020_mdd_pct": -13.963,
+        "stress_2020_mdd_pp": 0.1447,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_hit": true,
+          "buy_win_observe": true,
+          "economic": true,
+          "stress": false
+        },
+        "hit": true,
+        "observe_ok": true,
+        "composite_hit": false
+      },
+      "buy_wr": {
+        "n": 903,
+        "wins": 681,
+        "win_rate": 75.4153,
+        "mean_fwd": 2.6382
+      },
+      "spec": {
+        "id": "D_C_B_COOL",
+        "kind": "switch",
+        "fire": "cool"
+      },
+      "n_fills": 4826,
+      "crisis_days": 539
+    },
+    {
+      "id": "D_C_B_MDD8",
+      "windows": {
+        "full": {
+          "cagr": 0.118198,
+          "max_drawdown": -0.13963,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.089067,
+          "max_drawdown": -0.118939,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.121138,
+          "max_drawdown": -0.13963,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.170719,
+          "max_drawdown": -0.0618,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.14448,
+          "max_drawdown": -0.13963,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.6393,
+          "cagr_giveback_pp": 13.5346,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.6393,
+          "cagr_giveback_pp": 9.1893,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.3214,
+        "held_mdd_pp": 0.1447,
+        "held_abs_mdd": -0.13963,
+        "tip_ytd_mdd_pp": 0.6393,
+        "tip_1y_mdd_pp": 0.6393,
+        "buy_win_rate": 75.3032,
+        "buy_win_rate_pp": 1.7919,
+        "buy_win_n": 907,
+        "stress_2020_mdd_pct": -13.963,
+        "stress_2020_mdd_pp": 0.1447,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_hit": true,
+          "buy_win_observe": true,
+          "economic": true,
+          "stress": false
+        },
+        "hit": true,
+        "observe_ok": true,
+        "composite_hit": false
+      },
+      "buy_wr": {
+        "n": 907,
+        "wins": 683,
+        "win_rate": 75.3032,
+        "mean_fwd": 2.6364
+      },
+      "spec": {
+        "id": "D_C_B_MDD8",
+        "kind": "switch",
+        "fire": "mdd8"
+      },
+      "n_fills": 4829,
+      "crisis_days": 582
+    },
+    {
+      "id": "D_C_B_MDD10",
+      "windows": {
+        "full": {
+          "cagr": 0.117721,
+          "max_drawdown": -0.13974,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.089048,
+          "max_drawdown": -0.118939,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.120041,
+          "max_drawdown": -0.13974,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.170176,
+          "max_drawdown": -0.061184,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.143623,
+          "max_drawdown": -0.13974,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.629,
+          "cagr_giveback_pp": 13.6942,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.629,
+          "cagr_giveback_pp": 9.2595,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.4071,
+        "held_mdd_pp": 0.1337,
+        "held_abs_mdd": -0.13974,
+        "tip_ytd_mdd_pp": 0.629,
+        "tip_1y_mdd_pp": 0.629,
+        "buy_win_rate": 75.6368,
+        "buy_win_rate_pp": 2.1255,
+        "buy_win_n": 903,
+        "stress_2020_mdd_pct": -13.974,
+        "stress_2020_mdd_pp": 0.1337,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_hit": true,
+          "buy_win_observe": true,
+          "economic": true,
+          "stress": false
+        },
+        "hit": true,
+        "observe_ok": true,
+        "composite_hit": false
+      },
+      "buy_wr": {
+        "n": 903,
+        "wins": 683,
+        "win_rate": 75.6368,
+        "mean_fwd": 2.6503
+      },
+      "spec": {
+        "id": "D_C_B_MDD10",
+        "kind": "switch",
+        "fire": "mdd10"
+      },
+      "n_fills": 4788,
+      "crisis_days": 413
+    },
+    {
+      "id": "D_C_B_COOL_OR_MDD8",
+      "windows": {
+        "full": {
+          "cagr": 0.118198,
+          "max_drawdown": -0.13963,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.089067,
+          "max_drawdown": -0.118939,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.121138,
+          "max_drawdown": -0.13963,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.170719,
+          "max_drawdown": -0.0618,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.14448,
+          "max_drawdown": -0.13963,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.6393,
+          "cagr_giveback_pp": 13.5346,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.6393,
+          "cagr_giveback_pp": 9.1893,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.3214,
+        "held_mdd_pp": 0.1447,
+        "held_abs_mdd": -0.13963,
+        "tip_ytd_mdd_pp": 0.6393,
+        "tip_1y_mdd_pp": 0.6393,
+        "buy_win_rate": 75.3032,
+        "buy_win_rate_pp": 1.7919,
+        "buy_win_n": 907,
+        "stress_2020_mdd_pct": -13.963,
+        "stress_2020_mdd_pp": 0.1447,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_hit": true,
+          "buy_win_observe": true,
+          "economic": true,
+          "stress": false
+        },
+        "hit": true,
+        "observe_ok": true,
+        "composite_hit": false
+      },
+      "buy_wr": {
+        "n": 907,
+        "wins": 683,
+        "win_rate": 75.3032,
+        "mean_fwd": 2.6364
+      },
+      "spec": {
+        "id": "D_C_B_COOL_OR_MDD8",
+        "kind": "switch",
+        "fire": "cool_or_mdd8"
+      },
+      "n_fills": 4829,
+      "crisis_days": 682
+    },
+    {
+      "id": "D_C_B_RET21_N5",
+      "windows": {
+        "full": {
+          "cagr": 0.117846,
+          "max_drawdown": -0.140643,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.088897,
+          "max_drawdown": -0.118939,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.121064,
+          "max_drawdown": -0.140643,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.1698,
+          "max_drawdown": -0.06159,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.143998,
+          "max_drawdown": -0.140643,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.6094,
+          "cagr_giveback_pp": 14.0518,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.6094,
+          "cagr_giveback_pp": 9.4666,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.3696,
+        "held_mdd_pp": 0.0434,
+        "held_abs_mdd": -0.140643,
+        "tip_ytd_mdd_pp": 0.6094,
+        "tip_1y_mdd_pp": 0.6094,
+        "buy_win_rate": 74.6739,
+        "buy_win_rate_pp": 1.1626,
+        "buy_win_n": 920,
+        "stress_2020_mdd_pct": -14.0643,
+        "stress_2020_mdd_pp": 0.0433,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_hit": true,
+          "buy_win_observe": true,
+          "economic": true,
+          "stress": false
+        },
+        "hit": true,
+        "observe_ok": true,
+        "composite_hit": false
+      },
+      "buy_wr": {
+        "n": 920,
+        "wins": 687,
+        "win_rate": 74.6739,
+        "mean_fwd": 2.6027
+      },
+      "spec": {
+        "id": "D_C_B_RET21_N5",
+        "kind": "switch",
+        "fire": "ret21_n5"
+      },
+      "n_fills": 4857,
+      "crisis_days": 315
+    },
+    {
+      "id": "D_C_B_MDD8_H5",
+      "windows": {
+        "full": {
+          "cagr": 0.11801,
+          "max_drawdown": -0.13963,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.089067,
+          "max_drawdown": -0.118939,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.121138,
+          "max_drawdown": -0.13963,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.169976,
+          "max_drawdown": -0.0618,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.144134,
+          "max_drawdown": -0.13963,
+          "n_days": 1870
+        }
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.6614,
+          "cagr_giveback_pp": 13.7962,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.6614,
+          "cagr_giveback_pp": 9.4018,
+          "gate": "PASS"
+        }
+      },
+      "eval": {
+        "held_cagr_pp": 1.356,
+        "held_mdd_pp": 0.1447,
+        "held_abs_mdd": -0.13963,
+        "tip_ytd_mdd_pp": 0.6614,
+        "tip_1y_mdd_pp": 0.6614,
+        "buy_win_rate": 75.3863,
+        "buy_win_rate_pp": 1.875,
+        "buy_win_n": 906,
+        "stress_2020_mdd_pct": -13.963,
+        "stress_2020_mdd_pp": 0.1447,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_safe": true,
+          "buy_win_hit": true,
+          "buy_win_observe": true,
+          "economic": true,
+          "stress": false
+        },
+        "hit": true,
+        "observe_ok": true,
+        "composite_hit": false
+      },
+      "buy_wr": {
+        "n": 906,
+        "wins": 683,
+        "win_rate": 75.3863,
+        "mean_fwd": 2.6418
+      },
+      "spec": {
+        "id": "D_C_B_MDD8_H5",
+        "kind": "switch",
+        "fire": "mdd8",
+        "hold": 5
+      },
+      "n_fills": 4828,
+      "crisis_days": 735
+    }
+  ],
+  "binding": [
+    "Soft-Frozen KEEP — Stage D does not authorize live wire",
+    "Composite = C calm buy-gate / B crisis buy-gate",
+    "Even HIT → human observe ballot only"
+  ]
+}

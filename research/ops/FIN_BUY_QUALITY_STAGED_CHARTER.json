@@ -1,6 +1,6 @@
 {
-  "label": "FIN_BUY_QUALITY_STAGED_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
-  "status": "STAGE_D_OPEN",
+  "label": "FIN_BUY_QUALITY_STAGED_CHARTER_2026-09-28__DONE_PARENT_KEEP_B__NO_LIVE_WIRE",
+  "status": "STAGE_D_DONE_PARENT_KEEP_B",
   "live_wire": false,
   "soft_frozen_keep": true,
   "parents": {
@@ -16,7 +16,7 @@
     "held_cagr_pp": 0.15,
     "buy_win_rate_pp": 1.0,
     "stress_2020_mdd_pp": 1.0,
-    "cagr_vs_C_slack_pp": 0.30
+    "cagr_vs_C_slack_pp": 0.3
   },
   "verdicts": [
     "COMPOSITE_PARETO",
@@ -26,5 +26,8 @@
     "PARENT_KEEP_B",
     "MDD_BLOCK",
     "NO_LIFT"
-  ]
+  ],
+  "verdict": "PARENT_KEEP_B",
+  "champion": "P_B",
+  "note": "C→B regime switches keep full-sample HIT/CAGR but 2020 stress MDD↑ only ~+0.14pp; only always-B clears +1.0pp stress floor."
 }

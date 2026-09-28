@@ -1,7 +1,7 @@
 # FIN 買側品質 Stage D — 複合制度決策（紙上）
 
 日期：2026-09-28  
-狀態：**Stage D OPEN** · Soft-Frozen **KEEP** · 不下 live  
+狀態：**Stage D DONE — `PARENT_KEEP_B`** · Soft-Frozen **KEEP** · 不下 live  
 父層：C `C_OR_K9_AND_BELOW_MA60`（全期）· B `P_B_OR_K9`（2020 危機）  
 人話：
 
