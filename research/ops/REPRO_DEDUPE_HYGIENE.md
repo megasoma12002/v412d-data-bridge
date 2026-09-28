@@ -25,4 +25,14 @@ write_ops_and_repro_pointer(OPS / "FOO_DECISION_PACK.md", REP / "FOO_DECISION_PA
 - Live tip path `forward/e21/`
 - Thin `*_month_end_monitor.py` / `*_dual_paper_ledgers.py` entrypoints (shared drivers already exist)
 
+## Safety / rollback (no history rewrite)
+
+| Risk | Mitigation |
+|---|---|
+| Need an old reports NAV back | SSOT is `repro/*/outputs/` (same bytes); or `git show <pre-dedupe>:<path>` |
+| Pointer target missing | CI `test_repro_dedupe_hygiene` fails closed |
+| Stage script re-dual-writes packs | Scripts must use `write_ops_and_repro_pointer`; static guard bans `(REP / …DECISION_PACK…).write_text` |
+| Undo whole dedupe PR | `git revert` (tree restore from history) — **do not** filter-repo / force-push |
+| Soft-Frozen / tip | Untouched by this hygiene |
+
 Label: `REPRO_DEDUPE_HYGIENE_2026-09-28`
