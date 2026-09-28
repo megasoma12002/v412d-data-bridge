@@ -1,0 +1,577 @@
+{
+  "label": "FIN_SAT_T1_LAG_PATH3_VS_BASE_20260928T145500Z",
+  "generated_at_utc": "2026-09-28T14:55:00Z",
+  "base": "CTRL_LIVE_A10",
+  "soft_frozen_exact_t_plus_1_keep": true,
+  "counterfactual_only": true,
+  "live_wire": false,
+  "windows": {
+    "P3_T0_STATE": {
+      "full": {
+        "cagr_lift_pp": 3.2282,
+        "mdd_improve_pp": 0.0996,
+        "chal_cagr": 0.159663,
+        "base_cagr": 0.127381,
+        "chal_mdd": -0.143238,
+        "base_mdd": -0.144234,
+        "n_days": 3365
+      },
+      "oof_2011_2018": {
+        "cagr_lift_pp": 2.9552,
+        "mdd_improve_pp": 1.1081,
+        "chal_cagr": 0.116676,
+        "base_cagr": 0.087124,
+        "chal_mdd": -0.118487,
+        "base_mdd": -0.129568,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr_lift_pp": 2.3426,
+        "mdd_improve_pp": 0.0996,
+        "chal_cagr": 0.158134,
+        "base_cagr": 0.134708,
+        "chal_mdd": -0.143238,
+        "base_mdd": -0.144234,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 4.7822,
+        "mdd_improve_pp": -0.1651,
+        "chal_cagr": 0.242923,
+        "base_cagr": 0.195101,
+        "chal_mdd": -0.063673,
+        "base_mdd": -0.062022,
+        "n_days": 893
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 3.4758,
+        "mdd_improve_pp": 0.0996,
+        "chal_cagr": 0.197812,
+        "base_cagr": 0.163054,
+        "chal_mdd": -0.143238,
+        "base_mdd": -0.144234,
+        "n_days": 1870
+      }
+    },
+    "P3_T0_ENTER_M1": {
+      "full": {
+        "cagr_lift_pp": 3.2797,
+        "mdd_improve_pp": 0.0996,
+        "chal_cagr": 0.160178,
+        "base_cagr": 0.127381,
+        "chal_mdd": -0.143238,
+        "base_mdd": -0.144234,
+        "n_days": 3365
+      },
+      "oof_2011_2018": {
+        "cagr_lift_pp": 3.1057,
+        "mdd_improve_pp": 1.0984,
+        "chal_cagr": 0.118181,
+        "base_cagr": 0.087124,
+        "chal_mdd": -0.118584,
+        "base_mdd": -0.129568,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr_lift_pp": 2.6496,
+        "mdd_improve_pp": 0.0996,
+        "chal_cagr": 0.161204,
+        "base_cagr": 0.134708,
+        "chal_mdd": -0.143238,
+        "base_mdd": -0.144234,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 4.3507,
+        "mdd_improve_pp": -0.1651,
+        "chal_cagr": 0.238608,
+        "base_cagr": 0.195101,
+        "chal_mdd": -0.063673,
+        "base_mdd": -0.062022,
+        "n_days": 893
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 3.4426,
+        "mdd_improve_pp": 0.0996,
+        "chal_cagr": 0.19748,
+        "base_cagr": 0.163054,
+        "chal_mdd": -0.143238,
+        "base_mdd": -0.144234,
+        "n_days": 1870
+      }
+    }
+  },
+  "yearly": {
+    "P3_T0_STATE": [
+      {
+        "year": 2012,
+        "n_days": 20,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 0.55,
+        "chal_ret_pct": 1.2,
+        "ret_lift_pp": 0.65,
+        "base_mdd_pct": -2.49,
+        "chal_mdd_pct": -2.31,
+        "mdd_improve_pp": 0.19,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2013,
+        "n_days": 246,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 7.26,
+        "chal_ret_pct": 11.46,
+        "ret_lift_pp": 4.2,
+        "base_mdd_pct": -7.11,
+        "chal_mdd_pct": -6.7,
+        "mdd_improve_pp": 0.41,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2014,
+        "n_days": 248,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 7.27,
+        "chal_ret_pct": 11.31,
+        "ret_lift_pp": 4.04,
+        "base_mdd_pct": -7.55,
+        "chal_mdd_pct": -6.31,
+        "mdd_improve_pp": 1.25,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2015,
+        "n_days": 244,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": -1.64,
+        "chal_ret_pct": 0.81,
+        "ret_lift_pp": 2.44,
+        "base_mdd_pct": -10.0,
+        "chal_mdd_pct": -9.22,
+        "mdd_improve_pp": 0.78,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2016,
+        "n_days": 244,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 14.56,
+        "chal_ret_pct": 15.76,
+        "ret_lift_pp": 1.19,
+        "base_mdd_pct": -4.06,
+        "chal_mdd_pct": -4.69,
+        "mdd_improve_pp": -0.63,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2017,
+        "n_days": 246,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 17.58,
+        "chal_ret_pct": 21.36,
+        "ret_lift_pp": 3.78,
+        "base_mdd_pct": -2.65,
+        "chal_mdd_pct": -2.7,
+        "mdd_improve_pp": -0.05,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2018,
+        "n_days": 247,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 7.65,
+        "chal_ret_pct": 10.1,
+        "ret_lift_pp": 2.46,
+        "base_mdd_pct": -6.65,
+        "chal_mdd_pct": -6.97,
+        "mdd_improve_pp": -0.32,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2019,
+        "n_days": 242,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 20.49,
+        "chal_ret_pct": 22.73,
+        "ret_lift_pp": 2.24,
+        "base_mdd_pct": -4.31,
+        "chal_mdd_pct": -2.81,
+        "mdd_improve_pp": 1.5,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2020,
+        "n_days": 245,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 5.85,
+        "chal_ret_pct": 9.17,
+        "ret_lift_pp": 3.32,
+        "base_mdd_pct": -14.42,
+        "chal_mdd_pct": -14.32,
+        "mdd_improve_pp": 0.1,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2021,
+        "n_days": 244,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 20.63,
+        "chal_ret_pct": 25.29,
+        "ret_lift_pp": 4.66,
+        "base_mdd_pct": -7.14,
+        "chal_mdd_pct": -7.28,
+        "mdd_improve_pp": -0.14,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2022,
+        "n_days": 246,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 6.5,
+        "chal_ret_pct": 5.75,
+        "ret_lift_pp": -0.75,
+        "base_mdd_pct": -9.53,
+        "chal_mdd_pct": -10.93,
+        "mdd_improve_pp": -1.39,
+        "winner_vs_base": "BASE"
+      },
+      {
+        "year": 2023,
+        "n_days": 238,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 12.7,
+        "chal_ret_pct": 22.78,
+        "ret_lift_pp": 10.09,
+        "base_mdd_pct": -6.2,
+        "chal_mdd_pct": -6.37,
+        "mdd_improve_pp": -0.17,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2024,
+        "n_days": 242,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 10.63,
+        "chal_ret_pct": 10.66,
+        "ret_lift_pp": 0.04,
+        "base_mdd_pct": -4.42,
+        "chal_mdd_pct": -4.7,
+        "mdd_improve_pp": -0.28,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2025,
+        "n_days": 237,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 11.21,
+        "chal_ret_pct": 16.07,
+        "ret_lift_pp": 4.86,
+        "base_mdd_pct": -5.88,
+        "chal_mdd_pct": -5.06,
+        "mdd_improve_pp": 0.81,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2026,
+        "n_days": 176,
+        "book": "P3_T0_STATE",
+        "base_ret_pct": 34.7,
+        "chal_ret_pct": 36.36,
+        "ret_lift_pp": 1.66,
+        "base_mdd_pct": -6.09,
+        "chal_mdd_pct": -6.07,
+        "mdd_improve_pp": 0.02,
+        "winner_vs_base": "P3"
+      }
+    ],
+    "P3_T0_ENTER_M1": [
+      {
+        "year": 2012,
+        "n_days": 20,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 0.55,
+        "chal_ret_pct": 1.2,
+        "ret_lift_pp": 0.65,
+        "base_mdd_pct": -2.49,
+        "chal_mdd_pct": -2.31,
+        "mdd_improve_pp": 0.19,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2013,
+        "n_days": 246,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 7.26,
+        "chal_ret_pct": 11.45,
+        "ret_lift_pp": 4.19,
+        "base_mdd_pct": -7.11,
+        "chal_mdd_pct": -6.7,
+        "mdd_improve_pp": 0.41,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2014,
+        "n_days": 248,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 7.27,
+        "chal_ret_pct": 11.0,
+        "ret_lift_pp": 3.74,
+        "base_mdd_pct": -7.55,
+        "chal_mdd_pct": -6.31,
+        "mdd_improve_pp": 1.25,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2015,
+        "n_days": 244,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": -1.64,
+        "chal_ret_pct": 0.31,
+        "ret_lift_pp": 1.95,
+        "base_mdd_pct": -10.0,
+        "chal_mdd_pct": -9.24,
+        "mdd_improve_pp": 0.75,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2016,
+        "n_days": 244,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 14.56,
+        "chal_ret_pct": 16.38,
+        "ret_lift_pp": 1.82,
+        "base_mdd_pct": -4.06,
+        "chal_mdd_pct": -4.78,
+        "mdd_improve_pp": -0.72,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2017,
+        "n_days": 246,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 17.58,
+        "chal_ret_pct": 21.36,
+        "ret_lift_pp": 3.78,
+        "base_mdd_pct": -2.65,
+        "chal_mdd_pct": -2.7,
+        "mdd_improve_pp": -0.05,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2018,
+        "n_days": 247,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 7.65,
+        "chal_ret_pct": 11.25,
+        "ret_lift_pp": 3.61,
+        "base_mdd_pct": -6.65,
+        "chal_mdd_pct": -6.97,
+        "mdd_improve_pp": -0.32,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2019,
+        "n_days": 242,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 20.49,
+        "chal_ret_pct": 22.85,
+        "ret_lift_pp": 2.36,
+        "base_mdd_pct": -4.31,
+        "chal_mdd_pct": -2.61,
+        "mdd_improve_pp": 1.7,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2020,
+        "n_days": 245,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 5.85,
+        "chal_ret_pct": 9.17,
+        "ret_lift_pp": 3.32,
+        "base_mdd_pct": -14.42,
+        "chal_mdd_pct": -14.32,
+        "mdd_improve_pp": 0.1,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2021,
+        "n_days": 244,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 20.63,
+        "chal_ret_pct": 25.65,
+        "ret_lift_pp": 5.01,
+        "base_mdd_pct": -7.14,
+        "chal_mdd_pct": -7.24,
+        "mdd_improve_pp": -0.1,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2022,
+        "n_days": 246,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 6.5,
+        "chal_ret_pct": 6.43,
+        "ret_lift_pp": -0.07,
+        "base_mdd_pct": -9.53,
+        "chal_mdd_pct": -10.85,
+        "mdd_improve_pp": -1.32,
+        "winner_vs_base": "BASE"
+      },
+      {
+        "year": 2023,
+        "n_days": 238,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 12.7,
+        "chal_ret_pct": 22.78,
+        "ret_lift_pp": 10.09,
+        "base_mdd_pct": -6.2,
+        "chal_mdd_pct": -6.37,
+        "mdd_improve_pp": -0.17,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2024,
+        "n_days": 242,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 10.63,
+        "chal_ret_pct": 9.85,
+        "ret_lift_pp": -0.78,
+        "base_mdd_pct": -4.42,
+        "chal_mdd_pct": -4.74,
+        "mdd_improve_pp": -0.32,
+        "winner_vs_base": "BASE"
+      },
+      {
+        "year": 2025,
+        "n_days": 237,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 11.21,
+        "chal_ret_pct": 15.99,
+        "ret_lift_pp": 4.78,
+        "base_mdd_pct": -5.88,
+        "chal_mdd_pct": -5.13,
+        "mdd_improve_pp": 0.75,
+        "winner_vs_base": "P3"
+      },
+      {
+        "year": 2026,
+        "n_days": 176,
+        "book": "P3_T0_ENTER_M1",
+        "base_ret_pct": 34.7,
+        "chal_ret_pct": 35.79,
+        "ret_lift_pp": 1.09,
+        "base_mdd_pct": -6.09,
+        "chal_mdd_pct": -6.07,
+        "mdd_improve_pp": 0.02,
+        "winner_vs_base": "P3"
+      }
+    ]
+  },
+  "summary": {
+    "P3_T0_STATE": {
+      "full": {
+        "cagr_lift_pp": 3.2282,
+        "mdd_improve_pp": 0.0996,
+        "chal_cagr": 0.159663,
+        "base_cagr": 0.127381,
+        "chal_mdd": -0.143238,
+        "base_mdd": -0.144234,
+        "n_days": 3365
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 3.4758,
+        "mdd_improve_pp": 0.0996,
+        "chal_cagr": 0.197812,
+        "base_cagr": 0.163054,
+        "chal_mdd": -0.143238,
+        "base_mdd": -0.144234,
+        "n_days": 1870
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 4.7822,
+        "mdd_improve_pp": -0.1651,
+        "chal_cagr": 0.242923,
+        "base_cagr": 0.195101,
+        "chal_mdd": -0.063673,
+        "base_mdd": -0.062022,
+        "n_days": 893
+      },
+      "years_beat_base": 14,
+      "years_lose_base": 1,
+      "n_years": 15,
+      "mean_ret_lift_pp": 2.99,
+      "p3_win_years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "base_win_years": [
+        2022
+      ]
+    },
+    "P3_T0_ENTER_M1": {
+      "full": {
+        "cagr_lift_pp": 3.2797,
+        "mdd_improve_pp": 0.0996,
+        "chal_cagr": 0.160178,
+        "base_cagr": 0.127381,
+        "chal_mdd": -0.143238,
+        "base_mdd": -0.144234,
+        "n_days": 3365
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 3.4426,
+        "mdd_improve_pp": 0.0996,
+        "chal_cagr": 0.19748,
+        "base_cagr": 0.163054,
+        "chal_mdd": -0.143238,
+        "base_mdd": -0.144234,
+        "n_days": 1870
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 4.3507,
+        "mdd_improve_pp": -0.1651,
+        "chal_cagr": 0.238608,
+        "base_cagr": 0.195101,
+        "chal_mdd": -0.063673,
+        "base_mdd": -0.062022,
+        "n_days": 893
+      },
+      "years_beat_base": 13,
+      "years_lose_base": 2,
+      "n_years": 15,
+      "mean_ret_lift_pp": 3.04,
+      "p3_win_years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2023,
+        2025,
+        2026
+      ],
+      "base_win_years": [
+        2022,
+        2024
+      ]
+    }
+  },
+  "register": "0k9q"
+}

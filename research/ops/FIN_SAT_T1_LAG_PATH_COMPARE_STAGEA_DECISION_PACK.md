@@ -51,4 +51,9 @@ No Soft-Frozen PATH_HIT.
 3. T+0 paths are counterfactual only · not observe · not live without policy change
 4. Do not expand path grid after peek
 
+
+## Path-3 detail vs base
+
+Full／held／sealed／逐年：`FIN_SAT_T1_LAG_PATH3_VS_BASE.md`
+
 Label: `FIN_SAT_T1_LAG_PATH_COMPARE_STAGEA_DECISION_PACK_2026-09-28__T0_ONLY_EDGE__NO_LIVE`
