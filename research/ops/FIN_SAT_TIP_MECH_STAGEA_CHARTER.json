@@ -1,0 +1,16 @@
+{
+  "id": "FIN_SAT_TIP_MECH_STAGEA_CHARTER",
+  "status": "STAGE_A_OPEN",
+  "date": "2026-09-28",
+  "label": "FIN_SAT_TIP_MECH_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
+  "register": "0k9d",
+  "parents": [
+    "0k9c_TIP_MDD_ONLY",
+    "0k9a_ABC_A_LOCK_KEEP_NO_TIP_LIFT"
+  ],
+  "tracks": ["HARD150_COOLON_COOLOFF", "SAT_RELAX_HELD"],
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "composite_observe_keep": true,
+  "script": "scripts/fin_sat_tip_mech_stagea.py"
+}
