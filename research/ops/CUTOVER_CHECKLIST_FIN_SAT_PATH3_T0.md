@@ -6,7 +6,8 @@ Policy: `FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_EXECUTED_ACCEPT.md`
 
 ## Gate
 
-- [ ] Sustained clean month-end on dual-paper (no PAUSE cascade; sealed MDD alert reviewed)
+- [x] Sealed MDD alert reviewed — human **ACCEPTABLE** (−0.17pp; abs sealed |MDD|≪full/held) · `FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION.md`
+- [ ] Sustained clean month-end on dual-paper (no PAUSE cascade)
 - [ ] Dedicated human ACCEPT Class D / live cutover ballot (separate from observe OPEN)
 - [ ] Tip / Soft-Frozen / Exact T+0 carve-out scope / live CONF α impact review
 - [ ] Confirm carve-out stays narrow (`T0_CARVE_FIN_SAT_SWITCH` only — no expand)

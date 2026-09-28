@@ -14,6 +14,11 @@
   "alerts": [
     "ALERT: P3_T0_STATE sealed_2023_plus MDD worse than CTRL_LIVE_A10"
   ],
+  "alert_disposition": {
+    "sealed_mdd_worse": "ACCEPTABLE",
+    "note": "human: abs sealed |MDD| ≪ full/held",
+    "artifact": "research/ops/FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION.md"
+  },
   "windows": [
     {
       "window": "mtd",

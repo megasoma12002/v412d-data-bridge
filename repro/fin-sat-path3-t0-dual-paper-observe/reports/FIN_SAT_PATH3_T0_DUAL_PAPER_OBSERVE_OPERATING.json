@@ -16,6 +16,8 @@
   "stage_a_verdict": "T0_ONLY_EDGE",
   "theta": 0.01,
   "pct_days_sat": 24.16,
+  "sealed_mdd_disposition": "ACCEPTABLE",
+  "sealed_mdd_disposition_note": "abs sealed |MDD| ≪ full/held · FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION.md",
   "windows": {
     "base": {
       "full": {

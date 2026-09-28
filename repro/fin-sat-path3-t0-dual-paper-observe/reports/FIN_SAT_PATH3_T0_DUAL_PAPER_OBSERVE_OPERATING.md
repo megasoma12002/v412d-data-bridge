@@ -10,6 +10,7 @@ Canonical copy: `research/ops/FIN_SAT_PATH3_T0_DUAL_PAPER_OBSERVE_OPERATING.md`
 - held-out: CAGR↑ 3.4758 pp · MDD↑ 0.0996 pp
 - tip ytd CAGR↑ 2.7325 · tip 1y CAGR↑ 1.7356
 - % days SAT: 24.16
+- sealed MDD Δ −0.17pp: human **ACCEPTABLE** (abs sealed |MDD|≪full/held) · `FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION.md`
 
 ## Non-actions
 

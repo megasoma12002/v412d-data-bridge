@@ -14,6 +14,7 @@ Status: `OPERATING_OBSERVE` · paper only · base `CTRL_LIVE_A10` vs `P3_T0_STAT
 ## Alerts
 
 - ALERT: P3_T0_STATE sealed_2023_plus MDD worse than CTRL_LIVE_A10
+- Disposition: human **ACCEPTABLE** (−0.17pp; abs sealed |MDD|≪full/held) · `FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION.md` · cutover still BLOCKED
 
 ## Non-actions
 
