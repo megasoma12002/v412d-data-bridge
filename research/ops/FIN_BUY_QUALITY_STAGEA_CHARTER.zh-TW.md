@@ -1,7 +1,7 @@
 # FIN 買側品質 Stage A — 紙上章程
 
 日期：2026-09-28  
-狀態：**Stage A OPEN** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · 不下 live  
+狀態：**Stage A DONE — `WIN_SOFT`** · Soft-Frozen live **KEEP** · Exact T+1 **KEEP** · `COOL_c8` **KEEP** · 不下 live  
 父層 live：Soft-Frozen F[0.60,0.80] T[0.03,0.35] E[0.00,0.50] + FUSE + `SELL_a75` + `COOL_c8_f50_d21` + L1=0.05  
 人話（正規化）：
 

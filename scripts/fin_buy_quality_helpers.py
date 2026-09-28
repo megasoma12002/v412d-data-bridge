@@ -106,9 +106,7 @@ def forward_win_stats(
         i1 = i0 + int(horizon)
         if i1 >= len(idx):
             continue
-        px0 = float(row.get("fill_price") or row.get("price") or np.nan)
-        if not np.isfinite(px0) or px0 <= 0:
-            px0 = float(closes.iloc[i0][c])
+        px0 = float(closes.iloc[i0][c])
         px1 = float(closes.iloc[i1][c])
         if not np.isfinite(px0) or not np.isfinite(px1) or px0 <= 0:
             continue

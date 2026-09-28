@@ -1,0 +1,12 @@
+{
+  "label": "FIN_BUY_QUALITY_STAGEA_DECISION_PACK_2026-09-28__WIN_SOFT__NO_LIVE",
+  "status": "WIN_SOFT",
+  "live_wire": false,
+  "soft_frozen_keep": true,
+  "charter": "research/ops/FIN_BUY_QUALITY_STAGEA_CHARTER.md",
+  "screen": "research/ops/FIN_BUY_QUALITY_STAGEA_SCREEN.md",
+  "best_hit": null,
+  "generated_at_utc": "2026-09-28T03:27:42Z",
+  "best_economic": "Q_BELOW_MA120",
+  "note": "Clears CAGR+MDD+tip; buy WR not lifted. No joint HIT."
+}

@@ -1,6 +1,7 @@
 {
-  "label": "FIN_BUY_QUALITY_STAGEA_CHARTER_2026-09-28__OPEN__NO_LIVE_WIRE",
-  "status": "STAGE_A_OPEN",
+  "label": "FIN_BUY_QUALITY_STAGEA_CHARTER_2026-09-28__DONE_WIN_SOFT__NO_LIVE_WIRE",
+  "status": "STAGE_A_DONE_WIN_SOFT",
+  "verdict": "WIN_SOFT",
   "live_wire": false,
   "soft_frozen_keep": true,
   "exact_t1_keep": true,
@@ -32,6 +33,8 @@
     "buy_win_rate_pp": 2.0,
     "buy_win_horizon": 21
   },
+  "best_economic": "Q_BELOW_MA120",
+  "note": "Q_BELOW_MA120 clears CAGR+MDD+tip but buy WR↓; filters that lift WR hurt MDD/tip",
   "verdicts": [
     "BUY_QUALITY_HIT",
     "WIN_SOFT",
