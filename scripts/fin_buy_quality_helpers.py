@@ -86,17 +86,19 @@ def forward_win_stats(
     f = fills.copy()
     f["code"] = f["code"].astype(str)
     f["side"] = f["side"].astype(str).str.upper()
-    f["date"] = pd.to_datetime(f["date"]).dt.normalize()
-    f = f[(f["side"] == str(side).upper()) & (f["code"].isin(set(codes)))]
+    date_col = "fill_date" if "fill_date" in f.columns else "date"
+    f[date_col] = pd.to_datetime(f[date_col]).dt.normalize()
+    # Codes may be int in CSV (e.g. 50); normalize to str without leading zeros loss for FIN.
+    f = f[(f["side"] == str(side).upper()) & (f["code"].isin({str(c) for c in codes}))]
     if f.empty:
         return {"n": 0, "wins": 0, "win_rate": None, "mean_fwd": None}
 
     idx = closes.index
-    pos = {d: i for i, d in enumerate(idx)}
+    pos = {pd.Timestamp(d).normalize(): i for i, d in enumerate(idx)}
     wins = 0
     rets: list[float] = []
     for _, row in f.iterrows():
-        d = pd.Timestamp(row["date"]).normalize()
+        d = pd.Timestamp(row[date_col]).normalize()
         c = str(row["code"])
         if c not in closes.columns or d not in pos:
             continue
