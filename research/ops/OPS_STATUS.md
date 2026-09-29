@@ -39,6 +39,7 @@ ETF **0050 regime × 多空偵測器** Stage A：**`NO_EDGE`** · best `DET_BUY_
 **FIN×SAT Path3 T+0 carve-out (2026-09-28):** **EXECUTED ACCEPT** `T0_CARVE_FIN_SAT_SWITCH` · **OBSERVE OPEN** `P3_T0_STATE` · dual-paper OPERATING · sealed MDD −0.17pp human **ACCEPTABLE** (abs sealed≪full/held) · COMPOSITE+SAT_RELAX KEEP · Soft-Frozen clips KEEP · cutover **BLOCKED** · no live · `FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION.md`  
 **FIN×SAT Path3 T0×T1 hybrid (2026-09-28):** Stage A **`T0_SAMEBAR_ONLY`** · hybrid T1-fill tipY↑ **−8.49** · ≡ `R_SAT_LEAD_L1` · same-bar observe tip gap +11.2pp · Path3 observe KEEP · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_T0_T1_HYBRID_STAGEA_DECISION_PACK.md`  
 **FIN×SAT Path3 live T+0 机制 (2026-09-29):** Stage A **`ORACLE_ONLY`** · MOC F25/50/75 tipY仍−（best F50 −4.71）· live Exact T+1 guards binding · Path3 observe KEEP · Soft-Frozen／全局 T+1 KEEP · no fill-core edit · no live · `FIN_SAT_PATH3_LIVE_T0_MECH_STAGEA_DECISION_PACK.md`  
+**FIN×SAT Path3 live T+0 fill PREP (2026-09-29):** named allowlist wired · `live_t0_carve_fin_sat_switch_fill=False` · DRAFT ballot awaiting ACCEPT · Soft-Frozen Exact T+1 KEEP elsewhere · no Path3 router · no broker · `LIVE_T0_CARVE_FIN_SAT_SWITCH_FILL_PREP.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  

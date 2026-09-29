@@ -29,6 +29,10 @@ def exact_t1_from_fills(fills: pd.DataFrame, *, fills_required: bool = True) -> 
     Research opt-out (fills_required=False): empty fills → ok (nothing to violate).
     Non-empty fills missing the date schema → always fail closed.
     Blank / NaT dates → fail closed (not same-bar-ok).
+
+    Named carve-out: when ``LIVE.live_t0_carve_fin_sat_switch_fill`` is True,
+    rows tagged ``carve_out_id=T0_CARVE_FIN_SAT_SWITCH`` are excluded from
+    same-bar violations (global Exact T+1 KEEP for untagged fills).
     """
     if fills.empty:
         return {
@@ -59,7 +63,16 @@ def exact_t1_from_fills(fills: pd.DataFrame, *, fills_required: bool = True) -> 
             "schema_ok": False,
             "reason": "fills_date_nat_or_blank",
         }
-    same_bar = int((fill_dt <= sig).sum())
+    same_mask = fill_dt <= sig
+    try:
+        from t0_carve_fin_sat_switch import CARVE_OUT_ID, ORDER_TAG_COL, is_live_fill_authorized
+
+        if is_live_fill_authorized() and ORDER_TAG_COL in fills.columns:
+            tagged = fills[ORDER_TAG_COL].astype(str).str.strip() == CARVE_OUT_ID
+            same_mask = same_mask & ~tagged
+    except Exception:
+        pass
+    same_bar = int(same_mask.sum())
     return {
         "exact_t1_ok": same_bar == 0,
         "same_bar_fills": same_bar,

@@ -3,6 +3,9 @@
 
 Broker preflight lives in ``live_fill_broker``. Import via ``live_execution``
 facade for stable call sites.
+
+Named carve-out ``T0_CARVE_FIN_SAT_SWITCH`` may allow tagged same-bar fills
+only when ``LIVE.live_t0_carve_fin_sat_switch_fill`` is True (default False).
 """
 from __future__ import annotations
 
@@ -16,6 +19,12 @@ from live_ledger import (
     SLIP,
     fees_tax_for,
     max_affordable_buy_qty,
+)
+from t0_carve_fin_sat_switch import (
+    CARVE_OUT_ID,
+    ORDER_TAG_COL,
+    authorize_same_bar_fill,
+    is_live_fill_authorized,
 )
 from tw_share_lots import BOARD_LOT
 
@@ -53,8 +62,18 @@ class FillPort(Protocol):
         ...
 
 
-def _exact_t1_stats(fills: list[dict[str, Any]]) -> tuple[int, bool]:
-    """Return (same_bar_count, exact_t1_ok). Missing/NaT dates fail closed."""
+def _exact_t1_stats(
+    fills: list[dict[str, Any]],
+    *,
+    carve_authorized: bool | None = None,
+) -> tuple[int, bool]:
+    """Return (same_bar_count, exact_t1_ok). Missing/NaT dates fail closed.
+
+    When ``carve_authorized`` (default: live flag) is True, fills tagged
+    ``carve_out_id=T0_CARVE_FIN_SAT_SWITCH`` are excluded from same-bar violations.
+    Untagged / other fills still fail closed on same-bar.
+    """
+    auth = is_live_fill_authorized() if carve_authorized is None else bool(carve_authorized)
     same_bar_fills = 0
     for f in fills:
         sig = pd.to_datetime(f.get("signal_date"), errors="coerce")
@@ -65,6 +84,8 @@ def _exact_t1_stats(fills: list[dict[str, Any]]) -> tuple[int, bool]:
         sig_n = sig.normalize()
         fill_n = fill_dt.normalize()
         if fill_n <= sig_n:
+            if authorize_same_bar_fill(f, authorized=auth):
+                continue
             same_bar_fills += 1
     return same_bar_fills, same_bar_fills == 0
 
@@ -97,7 +118,17 @@ def sort_pending_sell_before_buy(pending: pd.DataFrame) -> pd.DataFrame:
     return out.sort_values(["signal_date", "_side_rank", "code"])
 
 
-def _iter_pending(state_dir: Path, latest: pd.Timestamp) -> pd.DataFrame:
+def _iter_pending(
+    state_dir: Path,
+    latest: pd.Timestamp,
+    *,
+    carve_authorized: bool | None = None,
+) -> pd.DataFrame:
+    """Pending Exact T+1: ``signal_date < latest``.
+
+    When carve-out fill is authorized, also include same-day orders tagged
+    ``carve_out_id=T0_CARVE_FIN_SAT_SWITCH`` (``signal_date == latest``).
+    """
     sdir = Path(state_dir)
     orders_path = sdir / "orders.csv"
     if not orders_path.exists():
@@ -106,9 +137,17 @@ def _iter_pending(state_dir: Path, latest: pd.Timestamp) -> pd.DataFrame:
     filled: set[str] = set()
     if (sdir / "fills.csv").exists():
         filled = set(pd.read_csv(sdir / "fills.csv", dtype={"code": str}).fill_id.astype(str))
-    pending = orders[
-        (~orders.order_id.astype(str).isin(filled)) & (pd.to_datetime(orders.signal_date) < latest)
-    ].copy()
+    unfilled = ~orders.order_id.astype(str).isin(filled)
+    sig = pd.to_datetime(orders["signal_date"], errors="coerce")
+    latest_n = pd.Timestamp(latest).normalize()
+    prior = unfilled & (sig < latest_n)
+    auth = is_live_fill_authorized() if carve_authorized is None else bool(carve_authorized)
+    if auth and ORDER_TAG_COL in orders.columns:
+        tagged = orders[ORDER_TAG_COL].astype(str).str.strip() == CARVE_OUT_ID
+        same_day = unfilled & tagged & (sig.dt.normalize() == latest_n)
+        pending = orders[prior | same_day].copy()
+    else:
+        pending = orders[prior].copy()
     return sort_pending_sell_before_buy(pending)
 
 
@@ -119,14 +158,30 @@ def _paper_fill_rows(
     open_prices: dict[str, float],
     pos: dict[str, float],
     cash: float,
+    carve_authorized: bool | None = None,
 ) -> tuple[dict[str, float], float, list[dict[str, Any]]]:
-    """Live paper policy: underfunded BUY skips entirely when afford < orig_q."""
+    """Live paper policy: underfunded BUY skips entirely when afford < orig_q.
+
+    Carve-tagged same-bar fills (signal_date == fill_date) price off
+    ``reference_close`` when present (MOC proxy); else open+slip.
+    """
+    auth = is_live_fill_authorized() if carve_authorized is None else bool(carve_authorized)
     fills: list[dict[str, Any]] = []
+    latest_n = pd.Timestamp(latest).normalize()
     for _, o in pending.iterrows():
         orig_q = int(o.quantity)
         q = orig_q
         side = o.side
-        fp = open_prices[o.code] * (1 + SLIP if side == "BUY" else 1 - SLIP)
+        sig = pd.to_datetime(o.signal_date, errors="coerce")
+        same_bar = bool(pd.notna(sig) and sig.normalize() == latest_n)
+        use_moc = same_bar and authorize_same_bar_fill(o, authorized=auth)
+        if use_moc and "reference_close" in pending.columns and pd.notna(
+            getattr(o, "reference_close", None)
+        ):
+            raw_px = float(o.reference_close)
+            fp = raw_px * (1 + SLIP if side == "BUY" else 1 - SLIP)
+        else:
+            fp = open_prices[o.code] * (1 + SLIP if side == "BUY" else 1 - SLIP)
         gross = q * fp
         fee = fees_tax_for(side=side, code=str(o.code), gross=gross)
         signed = q if side == "BUY" else -q
@@ -147,25 +202,34 @@ def _paper_fill_rows(
             continue
         pos[o.code] = pos.get(o.code, 0) + signed
         cash += -gross - fee if side == "BUY" else gross - fee
-        fills.append(
-            {
-                "fill_id": o.order_id,
-                "signal_date": o.signal_date,
-                "fill_date": latest.date().isoformat(),
-                "code": o.code,
-                "side": side,
-                "quantity": q,
-                "fill_price": fp,
-                "gross": gross,
-                "fees_tax": fee,
-                "slippage_bp": SLIP * 10000,
-            }
-        )
+        row = {
+            "fill_id": o.order_id,
+            "signal_date": o.signal_date,
+            "fill_date": latest.date().isoformat(),
+            "code": o.code,
+            "side": side,
+            "quantity": q,
+            "fill_price": fp,
+            "gross": gross,
+            "fees_tax": fee,
+            "slippage_bp": SLIP * 10000,
+        }
+        if ORDER_TAG_COL in pending.columns:
+            tag = getattr(o, ORDER_TAG_COL, None)
+            if tag is not None and str(tag).strip():
+                row[ORDER_TAG_COL] = str(tag).strip()
+        if use_moc:
+            row["fill_policy"] = "T0_CARVE_MOC_REF_CLOSE"
+        fills.append(row)
     return pos, cash, fills
 
 
 class PaperOpenFillPort:
-    """Paper Exact T+1: fill prior pending at today's open + slip/fee model."""
+    """Paper Exact T+1: fill prior pending at today's open + slip/fee model.
+
+    Optional named carve-out: tagged Path3 switch orders may fill same-bar
+    when ``LIVE.live_t0_carve_fin_sat_switch_fill`` is True.
+    """
 
     name = "paper"
 
@@ -178,7 +242,8 @@ class PaperOpenFillPort:
         pos: dict[str, float],
         cash: float,
     ) -> tuple[dict[str, float], float, list[dict[str, Any]], int, bool]:
-        pending = _iter_pending(state_dir, latest)
+        auth = is_live_fill_authorized()
+        pending = _iter_pending(state_dir, latest, carve_authorized=auth)
         if pending.empty:
             return pos, cash, [], 0, True
         pos, cash, fills = _paper_fill_rows(
@@ -187,10 +252,11 @@ class PaperOpenFillPort:
             open_prices=open_prices,
             pos=pos,
             cash=cash,
+            carve_authorized=auth,
         )
         # Defer fills.csv append to pipeline day-commit (with portfolio_state)
         # to shrink crash window between immutable CSV and state JSON.
-        same_bar, ok = _exact_t1_stats(fills)
+        same_bar, ok = _exact_t1_stats(fills, carve_authorized=auth)
         return pos, cash, fills, same_bar, ok
 
 
@@ -214,7 +280,7 @@ class DryRunFillPort:
     ) -> tuple[dict[str, float], float, list[dict[str, Any]], int, bool]:
         import json
 
-        pending = _iter_pending(state_dir, latest)
+        pending = _iter_pending(state_dir, latest, carve_authorized=is_live_fill_authorized())
         pos_shadow = dict(pos)
         cash_shadow = float(cash)
         if pending.empty:
@@ -226,6 +292,7 @@ class DryRunFillPort:
                 open_prices=open_prices,
                 pos=pos_shadow,
                 cash=cash_shadow,
+                carve_authorized=is_live_fill_authorized(),
             )
         out = Path(state_dir) / "broker_dryrun"
         out.mkdir(parents=True, exist_ok=True)
@@ -240,5 +307,5 @@ class DryRunFillPort:
         (out / f"fills_{latest.date().isoformat()}.json").write_text(
             json.dumps(payload, indent=2, default=str) + "\n", encoding="utf-8"
         )
-        same_bar, ok = _exact_t1_stats(fills)
+        same_bar, ok = _exact_t1_stats(fills, carve_authorized=is_live_fill_authorized())
         return pos, cash, fills, same_bar, ok
