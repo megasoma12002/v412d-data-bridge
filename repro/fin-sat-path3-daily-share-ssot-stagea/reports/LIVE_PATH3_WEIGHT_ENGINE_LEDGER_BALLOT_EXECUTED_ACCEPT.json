@@ -1,22 +1,5 @@
-{
-  "id": "LIVE_PATH3_WEIGHT_ENGINE_LEDGER_BALLOT_EXECUTED_ACCEPT",
-  "status": "EXECUTED_ACCEPT",
-  "register": "0kab",
-  "generated_at_utc": "2026-09-29T14:40:00Z",
-  "accept_line": "ACCEPT Path3 weight engine: P3_COMP_SAT_DAILY_POS_LEDGER_A (ledger-scaled recon · Soft 0050 KEEP · cutover still BLOCKED)",
-  "flag_name": "live_path3_weight_engine_mode",
-  "flag_after": "ledger",
-  "engine_id": "P3_COMP_SAT_DAILY_POS_LEDGER_A",
-  "rollback_mode": "asof_b",
-  "rollback_engine_id": "P3_COMP_SAT_ASOF_RECON_B",
-  "parents": [
-    "LEDGER_SSOT_BUILT",
-    "0ka9",
-    "0ka7"
-  ],
-  "soft_frozen_exact_t1_keep": true,
-  "soft_0050_keep": true,
-  "broker_live_write": false,
-  "cutover": "BLOCKED",
-  "label": "LIVE_PATH3_WEIGHT_ENGINE_LEDGER_BALLOT_EXECUTED_2026-09-29__ACCEPT__LEDGER__NO_BROKER"
-}
+# Pointer — ballot SSOT
+
+Canonical copy: `research/ops/LIVE_PATH3_WEIGHT_ENGINE_LEDGER_BALLOT_EXECUTED_ACCEPT.json`
+
+Do not dual-write the full artifact into `repro/*/reports/` (see `research/ops/REPRO_DEDUPE_HYGIENE.md`).
