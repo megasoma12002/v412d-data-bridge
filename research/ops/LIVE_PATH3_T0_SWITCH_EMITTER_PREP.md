@@ -20,18 +20,18 @@ Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEE
 - Signal days: 3365 · proposed flips: **153** · %days SAT **24.16**
 - Repro: `repro/fin-sat-path3-t0-emitter-prep/`
 
-## Weight engine (0ka8 Stage A → 0ka9 Stage B)
+## Weight engine (0ka8 → 0ka9 → 0kab LIVE WIRED)
 
 - Stage A named proxy `P3_SOFT_SLEEVE_EQ_RECON_PROXY` (`plan_sat_equal_recon` helper kept)
-- Stage B engine `P3_COMP_SAT_ASOF_RECON_B` wired into e21 (`plan_or_none_for_pipeline`)
-- COMP→SAT: SAT RELAX KD · SAT→COMP: OR_K9×HARD150 · both-direction `-P3T0`
-- Soft-Frozen coexistence mute still open
+- Stage B engine `P3_COMP_SAT_ASOF_RECON_B` retained as rollback mode `asof_b`
+- **ACCEPT 0kab:** `live_path3_weight_engine_mode=ledger` → `P3_COMP_SAT_DAILY_POS_LEDGER_A` via `plan_or_none_for_pipeline`
+- Soft 0050 KEEP · Soft-Frozen Exact T+1 KEEP · broker false · cutover BLOCKED
+- Ballot: `LIVE_PATH3_WEIGHT_ENGINE_LEDGER_BALLOT_EXECUTED_ACCEPT.md`
+- Soft↔Path3 coexistence mute → **0kaa EXECUTED ACCEPT / LIVE WIRED** · `live_soft_path3_coexist_mute=True` · `LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_EXECUTED_ACCEPT.md`
 
 ## Not implemented (still BLOCKED)
 
-- Soft-Frozen flip-day coexistence mute
-- Flipping emit/fill already ON (0ka7); broker live-write / Path3 strategy cutover still BLOCKED
-- Cloning paper share ledgers (no daily pos SSOT)
+- Broker live-write / Path3 strategy cutover still BLOCKED
 
 ## Accept to enable emit flag
 

@@ -40,6 +40,11 @@ from live_config import (
     LIVE_FIN_PRIV_V7_F05,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
+    LIVE_PATH3_WEIGHT_ENGINE_BALLOT,
+    LIVE_PATH3_WEIGHT_ENGINE_MODE,
+    LIVE_SOFT_PATH3_COEXIST_MUTE,
+    LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT,
+    LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,
     LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT,
     LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT,
     LIVE_TEL_T3_BALLOT,
@@ -315,18 +320,40 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         )
         order_rows.extend(off_orders)
         conf_ret3_order_meta["enabled"] = True
-    # Path3 T0 carve switch emitter — weight-engine Stage B asof recon (0ka9).
+    # Path3 T0 carve switch emitter — weight engine mode from LIVE (0kab ledger).
+    # Soft↔Path3 coexistence mute (0kaa): filter Soft FIN/TEL before Path3 append.
     path3_emit_meta: dict = {"enabled": bool(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT)}
-    path3_weight_meta: dict = {"engine_id": None, "reason": "emit_flag_off"}
+    path3_weight_meta: dict = {
+        "engine_id": None,
+        "reason": "emit_flag_off",
+        "weight_engine_mode": LIVE_PATH3_WEIGHT_ENGINE_MODE,
+    }
+    soft_path3_mute_meta: dict = {
+        "enabled": bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
+        "policy": LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,
+        "applied": False,
+        "n_muted": 0,
+    }
     if LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT:
         import live_path3_t0_switch_emitter as path3_em
         import live_path3_t0_weight_engine as path3_we
+        import live_soft_path3_coexist_mute as soft_p3_mute
 
         path3_deltas, path3_weight_meta = path3_we.plan_or_none_for_pipeline(
             asof=latest,
             pos=pos,
             prices=prices,
         )
+        flip = bool((path3_weight_meta.get("switch") or {}).get("flip"))
+        order_rows, soft_path3_mute_meta = soft_p3_mute.apply_coexist_mute(
+            order_rows,
+            mute_enabled=bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
+            emit_enabled=True,
+            flip=flip,
+            path3_delta_shares=path3_deltas,
+            policy=str(LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY),
+        )
+        soft_path3_mute_meta["ballot"] = LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT
         path3_orders, path3_emit_meta = path3_em.maybe_emit_switch_orders(
             asof=latest,
             prices=prices,
@@ -414,9 +441,18 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         else None,
         "path3_t0_emit_reason": path3_emit_meta.get("reason"),
         "path3_t0_n_orders": int(path3_emit_meta.get("n_orders") or 0),
+        "path3_t0_weight_engine_mode": LIVE_PATH3_WEIGHT_ENGINE_MODE,
+        "path3_t0_weight_engine_ballot": LIVE_PATH3_WEIGHT_ENGINE_BALLOT,
         "path3_t0_weight_engine_id": path3_weight_meta.get("engine_id"),
         "path3_t0_weight_reason": path3_weight_meta.get("reason"),
         "path3_t0_weight_n_delta_names": path3_weight_meta.get("n_delta_names"),
+        "soft_path3_coexist_mute_live": bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
+        "soft_path3_coexist_mute_ballot": LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT
+        if LIVE_SOFT_PATH3_COEXIST_MUTE
+        else None,
+        "soft_path3_coexist_mute_policy": soft_path3_mute_meta.get("policy"),
+        "soft_path3_coexist_mute_applied": bool(soft_path3_mute_meta.get("applied")),
+        "soft_path3_coexist_mute_n_muted": int(soft_path3_mute_meta.get("n_muted") or 0),
         "tel_t3_cool_inv_vol20_live": bool(LIVE_TEL_T3_COOL_INV_VOL20),
         "tel_t3_ballot": LIVE_TEL_T3_BALLOT if LIVE_TEL_T3_COOL_INV_VOL20 else None,
         "telecom_alloc": tel_meta.get("telecom_alloc")

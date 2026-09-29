@@ -390,9 +390,54 @@ def plan_or_none_for_pipeline(
     prices: Mapping[str, float],
     signal: pd.DataFrame | None = None,
 ) -> tuple[dict[str, float] | None, dict[str, Any]]:
+    """Pipeline entry: dispatch by ``LIVE.live_path3_weight_engine_mode``.
+
+    - ``ledger`` (ACCEPT 0kab): ledger-scaled recon from daily share SSOT
+    - ``asof_b``: Stage B OR_K9×HARD150 / SAT RELAX asof overlays
+    """
+    try:
+        from live_config import LIVE
+
+        mode = str(getattr(LIVE, "live_path3_weight_engine_mode", "asof_b") or "asof_b")
+    except Exception:
+        mode = "asof_b"
+
+    if mode == "ledger":
+        from path3_comp_sat_daily_share_ssot import plan_delta_shares_ledger
+
+        sw = switch_meta_for_asof(asof, signal=signal)
+        meta: dict[str, Any] = {
+            "weight_engine_mode": mode,
+            "switch": sw,
+            "asof": str(pd.Timestamp(asof).date()),
+        }
+        if not sw.get("ok"):
+            meta["reason"] = sw.get("reason") or "signal_unavailable"
+            meta["engine_id"] = None
+            return None, meta
+        if not sw.get("flip"):
+            meta["reason"] = "no_flip"
+            meta["engine_id"] = None
+            return None, meta
+        book = str(sw.get("book") or "")
+        delta, plan_meta = plan_delta_shares_ledger(
+            asof=asof,
+            dest_book=book,
+            live_pos=pos,
+            prices=prices,
+        )
+        meta.update(plan_meta)
+        meta["weight_engine_mode"] = mode
+        meta["switch"] = sw
+        if delta is None:
+            return None, meta
+        return delta, meta
+
     delta, meta = plan_delta_shares(
         asof=asof, pos=pos, prices=prices, signal=signal, require_flip=True
     )
+    meta = dict(meta)
+    meta["weight_engine_mode"] = mode
     if delta is None:
         return None, meta
     return delta, meta

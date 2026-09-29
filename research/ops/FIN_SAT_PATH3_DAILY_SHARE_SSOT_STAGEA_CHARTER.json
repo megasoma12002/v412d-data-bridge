@@ -1,0 +1,10 @@
+{
+  "id": "FIN_SAT_PATH3_DAILY_SHARE_SSOT_STAGEA_CHARTER",
+  "register": "0kab",
+  "engine_id": "P3_COMP_SAT_DAILY_POS_LEDGER_A",
+  "parent": "0ka9",
+  "soft_frozen_keep": true,
+  "broker_live_write": false,
+  "cutover": "BLOCKED",
+  "live_wire_ledger_engine": false
+}
