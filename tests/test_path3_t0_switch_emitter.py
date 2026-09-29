@@ -27,10 +27,11 @@ from t0_carve_fin_sat_switch import CARVE_OUT_ID, authorize_same_bar_fill
 
 
 class Path3EmitterFlagDefaultOff(unittest.TestCase):
-    def test_live_emit_flag_default_false(self) -> None:
-        self.assertFalse(LIVE.live_t0_carve_fin_sat_switch_emit)
-        self.assertFalse(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT)
-        self.assertFalse(is_emit_authorized())
+    def test_live_emit_flag_on_after_accept(self) -> None:
+        self.assertTrue(LIVE.live_t0_carve_fin_sat_switch_emit)
+        self.assertTrue(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT)
+        self.assertTrue(is_emit_authorized())
+        self.assertIn("ACCEPT Live Path3 switch emitter", LIVE.live_t0_carve_fin_sat_switch_emit_ballot)
 
     def test_accept_emit_line_mentions_carve(self) -> None:
         self.assertIn(CARVE_OUT_ID, ACCEPT_EMIT_LINE)
@@ -152,7 +153,7 @@ class Path3EmitterSignal(unittest.TestCase):
         sat_nav = 1.0 + 0.001 * np.arange(len(dates), dtype=float)
         sat_nav[-10:] = sat_nav[-11] * (0.99 ** np.arange(1, 11))
         sat = pd.DataFrame({"date": dates, "nav": sat_nav})
-        sig = build_sat_lead_signal(comp, sat, theta=0.01)
+        sig = build_sat_lead_signal(comp, sat, theta=0.005)
         self.assertIn("flip", sig.columns)
         self.assertIn("book", sig.columns)
         ledger = propose_switch_ledger(sig)

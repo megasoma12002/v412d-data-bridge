@@ -1,6 +1,6 @@
 {
-  "label": "FIN_SAT_PATH3_T0_DUAL_PAPER_OBSERVE_20260928T151754Z",
-  "generated_at_utc": "2026-09-28T15:17:54Z",
+  "label": "FIN_SAT_PATH3_T0_DUAL_PAPER_OBSERVE_20260929T110737Z",
+  "generated_at_utc": "2026-09-29T11:07:37Z",
   "status": "OPERATING_OBSERVE",
   "human_accept": "ACCEPT T+0 carve-out + OPEN paper observe: P3_T0_STATE (FIN×SAT Path3 · T0_CARVE_FIN_SAT_SWITCH)",
   "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
@@ -14,10 +14,12 @@
     "P3_T0_STATE"
   ],
   "stage_a_verdict": "T0_ONLY_EDGE",
-  "theta": 0.01,
-  "pct_days_sat": 24.16,
-  "sealed_mdd_disposition": "ACCEPTABLE",
-  "sealed_mdd_disposition_note": "abs sealed |MDD| ≪ full/held · FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION.md",
+  "theta": 0.005,
+  "theta_prior": 0.01,
+  "human_retune_theta": "ACCEPT Path3 observe retune: SAT_LEAD θ=0.005 (P3_T0_STATE · T0_CARVE_FIN_SAT_SWITCH · parents 0ka3–0ka6)",
+  "live_t0_fill": true,
+  "live_t0_emit": true,
+  "pct_days_sat": 34.89,
   "windows": {
     "base": {
       "full": {
@@ -48,49 +50,49 @@
     },
     "chal": {
       "full": {
-        "cagr": 0.159663,
+        "cagr": 0.162952,
         "max_drawdown": -0.143238,
         "n_days": 3365
       },
       "oof_2011_2018": {
-        "cagr": 0.116676,
-        "max_drawdown": -0.118487,
+        "cagr": 0.120366,
+        "max_drawdown": -0.11319,
         "n_days": 1495
       },
       "validation_2019_2022": {
-        "cagr": 0.158134,
+        "cagr": 0.163856,
         "max_drawdown": -0.143238,
         "n_days": 977
       },
       "sealed_2023_plus": {
-        "cagr": 0.242923,
+        "cagr": 0.24263,
         "max_drawdown": -0.063673,
         "n_days": 893
       },
       "heldout_2019_plus": {
-        "cagr": 0.197812,
+        "cagr": 0.200764,
         "max_drawdown": -0.143238,
         "n_days": 1870
       }
     }
   },
   "heldout_delta": {
-    "cagr_lift_pp": 3.4758,
+    "cagr_lift_pp": 3.771,
     "mdd_improve_pp": 0.0996
   },
   "tip": {
     "ytd": {
       "mdd_improve_pp": 0.021,
-      "cagr_lift_pp": 2.7325
+      "cagr_lift_pp": 2.877
     },
     "trailing_1y": {
       "mdd_improve_pp": 0.021,
-      "cagr_lift_pp": 1.7356
+      "cagr_lift_pp": 2.3879
     }
   },
   "parents_keep": [
     "COMP_H150_x_A20_OBSERVE",
     "SAT_A20_RELAX_OBSERVE"
   ],
-  "register": "0k9r"
+  "register": "0ka7"
 }

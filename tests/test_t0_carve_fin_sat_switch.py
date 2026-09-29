@@ -21,10 +21,11 @@ from t0_carve_fin_sat_switch import (
 
 
 class T0CarveFlagDefaultOff(unittest.TestCase):
-    def test_live_flag_default_false(self) -> None:
-        self.assertFalse(LIVE.live_t0_carve_fin_sat_switch_fill)
-        self.assertFalse(LIVE_T0_CARVE_FIN_SAT_SWITCH_FILL)
-        self.assertFalse(is_live_fill_authorized())
+    def test_live_flag_on_after_accept(self) -> None:
+        self.assertTrue(LIVE.live_t0_carve_fin_sat_switch_fill)
+        self.assertTrue(LIVE_T0_CARVE_FIN_SAT_SWITCH_FILL)
+        self.assertTrue(is_live_fill_authorized())
+        self.assertIn("ACCEPT Live fill carve-out", LIVE.live_t0_carve_fin_sat_switch_ballot)
 
     def test_untagged_same_bar_still_fails(self) -> None:
         same, ok = _exact_t1_stats(

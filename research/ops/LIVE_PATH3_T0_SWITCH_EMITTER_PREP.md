@@ -1,7 +1,7 @@
 # Live Path3 T0 switch emitter — PREP OPERATING
 
 Date: 2026-09-29  
-Status: **PREP / emit flag OFF** · Soft-Frozen Exact T+1 **KEEP** · Path3 observe **KEEP** · fill allowlist PREP separate (0k9u) · cutover **BLOCKED** · no broker write
+Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEEP** · Path3 observe θ=**0.005** · cutover **BLOCKED** · no broker write
 
 ## Implemented
 

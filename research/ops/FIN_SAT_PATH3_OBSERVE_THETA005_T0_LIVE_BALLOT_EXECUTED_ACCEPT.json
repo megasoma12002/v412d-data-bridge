@@ -1,0 +1,18 @@
+{
+  "id": "FIN_SAT_PATH3_OBSERVE_THETA005_T0_LIVE_BALLOT_EXECUTED_ACCEPT",
+  "register": "0ka7",
+  "status": "EXECUTED_ACCEPT",
+  "date": "2026-09-29",
+  "theta": 0.005,
+  "theta_prior": 0.01,
+  "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+  "human_retune_theta": "ACCEPT Path3 observe retune: SAT_LEAD θ=0.005 (P3_T0_STATE · T0_CARVE_FIN_SAT_SWITCH · parents 0ka3–0ka6)",
+  "human_fill": "ACCEPT Live fill carve-out: T0_CARVE_FIN_SAT_SWITCH same-bar (Path3 P3_T0_STATE only · Soft-Frozen Exact T+1 KEEP elsewhere)",
+  "human_emit": "ACCEPT Live Path3 switch emitter: T0_CARVE_FIN_SAT_SWITCH tagged orders (P3_T0_STATE · Soft-Frozen Exact T+1 KEEP elsewhere · cutover still BLOCKED)",
+  "live_t0_carve_fin_sat_switch_fill": true,
+  "live_t0_carve_fin_sat_switch_emit": true,
+  "broker_live_write": false,
+  "cutover": "BLOCKED",
+  "soft_frozen_exact_t1_keep": true,
+  "parents": ["0k9r", "0k9u", "0k9w", "0ka3", "0ka4", "0ka5", "0ka6"]
+}

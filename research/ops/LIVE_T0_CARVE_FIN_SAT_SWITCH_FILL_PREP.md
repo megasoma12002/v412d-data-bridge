@@ -1,7 +1,7 @@
 # Live T0_CARVE_FIN_SAT_SWITCH fill allowlist — PREP OPERATING
 
 Date: 2026-09-29  
-Status: **PREP / flag OFF** · Soft-Frozen Exact T+1 **KEEP** · Path3 observe **KEEP** · no live Path3 router · no broker write
+Status: **EXECUTED via 0ka7** · fill flag **ON** · Soft-Frozen Exact T+1 **KEEP** elsewhere · Path3 observe θ=**0.005** · no broker write
 
 ## Implemented
 
