@@ -1,0 +1,32 @@
+{
+  "id": "FIN_SAT_PATH3_LIVE_T0_MECH_STAGEA_CHARTER",
+  "status": "STAGE_A_DONE",
+  "date": "2026-09-29",
+  "register": "0k9t",
+  "parents": [
+    "0k9r",
+    "0k9s"
+  ],
+  "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+  "books": [
+    "CTRL_LIVE_A10",
+    "ORACLE_SAMEBAR",
+    "T1_OPEN",
+    "MOC_F25",
+    "MOC_F50",
+    "MOC_F75",
+    "P2_SAT_PURE"
+  ],
+  "soft_frozen_keep": true,
+  "global_exact_t1_keep": true,
+  "path3_observe_keep": true,
+  "live_wire": false,
+  "code_change_this_stage": false,
+  "verdicts": [
+    "LIVE_T0_MOC_HIT",
+    "LIVE_T0_MOC_SOFT",
+    "LIVE_T0_BLOCK",
+    "ORACLE_ONLY"
+  ],
+  "verdict": "ORACLE_ONLY"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "FIN_SAT_PATH3_T0_T1_HYBRID_STAGEA_CHARTER",
+  "status": "STAGE_A_DONE",
+  "date": "2026-09-28",
+  "register": "0k9s",
+  "parents": [
+    "0k9q",
+    "0k9r"
+  ],
+  "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+  "books": [
+    "CTRL_LIVE_A10",
+    "P3_T0_STATE",
+    "P3_HYBRID_T1_FILL",
+    "R_SAT_LEAD_L1",
+    "P2_SAT_PURE"
+  ],
+  "soft_frozen_keep": true,
+  "exact_t_plus_1_fills_keep": true,
+  "path3_observe_keep": true,
+  "live_wire": false,
+  "verdicts": [
+    "HYBRID_HIT",
+    "HYBRID_SOFT",
+    "HYBRID_TIP_BLOCK",
+    "T0_SAMEBAR_ONLY"
+  ],
+  "verdict": "T0_SAMEBAR_ONLY"
+}

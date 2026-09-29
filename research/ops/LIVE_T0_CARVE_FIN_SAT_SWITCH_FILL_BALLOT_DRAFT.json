@@ -1,0 +1,15 @@
+{
+  "id": "LIVE_T0_CARVE_FIN_SAT_SWITCH_FILL_BALLOT_DRAFT",
+  "status": "DRAFT_AWAITING_HUMAN",
+  "date": "2026-09-29",
+  "register": "0k9u",
+  "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+  "live_flag": "LIVE.live_t0_carve_fin_sat_switch_fill",
+  "live_flag_default": false,
+  "accept_line": "ACCEPT Live fill carve-out: T0_CARVE_FIN_SAT_SWITCH same-bar (Path3 P3_T0_STATE only · Soft-Frozen Exact T+1 KEEP elsewhere)",
+  "soft_frozen_exact_t1_elsewhere_keep": true,
+  "path3_observe_keep": true,
+  "path3_router_live": false,
+  "broker_write": false,
+  "parents": ["0k9r", "0k9s", "0k9t"]
+}

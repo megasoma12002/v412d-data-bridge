@@ -116,6 +116,15 @@ class LiveConfig:
     fill_port: str = "paper"
     broker_live_write_accepted: bool = False  # Soft-Frozen KEEP until ACCEPT PR
 
+    # Path3 Exact T+0 fill carve-out — named allowlist OFF until dedicated ACCEPT.
+    # Policy: T0_CARVE_FIN_SAT_SWITCH (COMP↔SAT switch orders only). Soft-Frozen Exact T+1 KEEP
+    # elsewhere. Stage A 0k9t ORACLE_ONLY: hybrid/MOC tip−; same-bar needed for tip.
+    # Does NOT wire Path3 live router; only unlocks tagged same-bar fills when True.
+    live_t0_carve_fin_sat_switch_fill: bool = False
+    live_t0_carve_fin_sat_switch_ballot: str = (
+        "DRAFT — ACCEPT Live fill carve-out: T0_CARVE_FIN_SAT_SWITCH same-bar"
+    )
+
 
 # Module-level singleton used by the live pipeline (edit + ACCEPT PR to cut over).
 LIVE = LiveConfig()
@@ -137,6 +146,8 @@ LIVE_CONF_RET3_BALLOT = LIVE.live_conf_ret3_ballot
 LIVE_TEL_WITHIN_SLEEVE = LIVE.live_tel_within_sleeve
 LIVE_TEL_T3_COOL_INV_VOL20 = LIVE.live_tel_t3_cool_inv_vol20
 LIVE_TEL_T3_BALLOT = LIVE.live_tel_t3_ballot
+LIVE_T0_CARVE_FIN_SAT_SWITCH_FILL = LIVE.live_t0_carve_fin_sat_switch_fill
+LIVE_T0_CARVE_FIN_SAT_SWITCH_BALLOT = LIVE.live_t0_carve_fin_sat_switch_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital
