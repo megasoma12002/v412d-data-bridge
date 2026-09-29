@@ -40,6 +40,8 @@ from live_config import (
     LIVE_FIN_PRIV_V7_F05,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
+    LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT,
+    LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT,
     LIVE_TEL_T3_BALLOT,
     LIVE_TEL_T3_COOL_INV_VOL20,
     TIP_BOOKS_ALIGN_BALLOT,
@@ -313,6 +315,21 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         )
         order_rows.extend(off_orders)
         conf_ret3_order_meta["enabled"] = True
+    # Path3 T0 carve switch emitter — PREP fail-closed (flag OFF; no delta engine).
+    path3_emit_meta: dict = {"enabled": bool(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT)}
+    if LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT:
+        import live_path3_t0_switch_emitter as path3_em
+
+        path3_orders, path3_emit_meta = path3_em.maybe_emit_switch_orders(
+            asof=latest,
+            prices=prices,
+            delta_shares=None,  # weight engines not wired — fail-closed
+            authorized=True,
+        )
+        order_rows.extend(path3_orders)
+        path3_emit_meta["enabled"] = True
+    else:
+        path3_emit_meta["reason"] = "emit_flag_off"
     stamp = utc_now_iso()
     fin_alloc_signal = LIVE_FIN_WITHIN_SLEEVE
     if LIVE_FIN_PRIV_V7_F05 and fin_priv_meta.get("gate_on"):
@@ -383,6 +400,12 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "conf_ret3_n_orders": int(conf_ret3_order_meta.get("n_orders") or 0)
         if LIVE_CONF_RET3_631L
         else None,
+        "path3_t0_emit_live": bool(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT),
+        "path3_t0_emit_ballot": LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT
+        if LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT
+        else None,
+        "path3_t0_emit_reason": path3_emit_meta.get("reason"),
+        "path3_t0_n_orders": int(path3_emit_meta.get("n_orders") or 0),
         "tel_t3_cool_inv_vol20_live": bool(LIVE_TEL_T3_COOL_INV_VOL20),
         "tel_t3_ballot": LIVE_TEL_T3_BALLOT if LIVE_TEL_T3_COOL_INV_VOL20 else None,
         "telecom_alloc": tel_meta.get("telecom_alloc")

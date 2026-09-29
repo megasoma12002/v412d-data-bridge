@@ -1,0 +1,14 @@
+{
+  "label": "LIVE_PATH3_T0_SWITCH_EMITTER_BALLOT_DRAFT_2026-09-29__AWAITING_HUMAN",
+  "status": "DRAFT_NOT_AUTHORIZED",
+  "register": "0k9w",
+  "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+  "accept_line": "ACCEPT Live Path3 switch emitter: T0_CARVE_FIN_SAT_SWITCH tagged orders (P3_T0_STATE · Soft-Frozen Exact T+1 KEEP elsewhere · cutover still BLOCKED)",
+  "live_t0_carve_fin_sat_switch_emit": false,
+  "weight_engine": "not_wired",
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "live_wire": false,
+  "cutover": "BLOCKED",
+  "broker_write": false
+}
