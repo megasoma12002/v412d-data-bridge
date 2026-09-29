@@ -1,0 +1,410 @@
+{
+  "label": "FIN_SAT_FFT_EXOG_AND_STAGEA_SCREEN_20260929T045057Z",
+  "verdict": "EXOG_FFT_WEAK",
+  "register": "0ka1",
+  "features": [
+    {
+      "feature": "rel_5",
+      "n": 76,
+      "ic_full": 0.1713,
+      "ic_oof_le2018": -0.0075,
+      "ic_held_ge2019": 0.3508,
+      "hit_median": 0.5921,
+      "hit_side": "high→good",
+      "abs_ic": 0.17134654818865344
+    },
+    {
+      "feature": "endo_dphase",
+      "n": 75,
+      "ic_full": 0.1277,
+      "ic_oof_le2018": 0.1274,
+      "ic_held_ge2019": 0.1548,
+      "hit_median": 0.5467,
+      "hit_side": "high→good",
+      "abs_ic": 0.12770981507823612
+    },
+    {
+      "feature": "exog_dphase",
+      "n": 75,
+      "ic_full": -0.1215,
+      "ic_oof_le2018": 0.0474,
+      "ic_held_ge2019": -0.4327,
+      "hit_median": 0.52,
+      "hit_side": "low→good",
+      "abs_ic": 0.12145092460881934
+    },
+    {
+      "feature": "exog_recon",
+      "n": 75,
+      "ic_full": 0.089,
+      "ic_oof_le2018": 0.1292,
+      "ic_held_ge2019": 0.071,
+      "hit_median": 0.6,
+      "hit_side": "high→good",
+      "abs_ic": 0.08901849217638692
+    },
+    {
+      "feature": "endo_recon",
+      "n": 75,
+      "ic_full": -0.0846,
+      "ic_oof_le2018": -0.2266,
+      "ic_held_ge2019": 0.1242,
+      "hit_median": 0.5467,
+      "hit_side": "low→good",
+      "abs_ic": 0.08463726884779516
+    },
+    {
+      "feature": "exog_phase",
+      "n": 75,
+      "ic_full": 0.0689,
+      "ic_oof_le2018": 0.0506,
+      "ic_held_ge2019": 0.0915,
+      "hit_median": 0.52,
+      "hit_side": "low→good",
+      "abs_ic": 0.06890469416785205
+    },
+    {
+      "feature": "r0050_63",
+      "n": 76,
+      "ic_full": 0.0113,
+      "ic_oof_le2018": -0.0671,
+      "ic_held_ge2019": 0.127,
+      "hit_median": 0.5395,
+      "hit_side": "high→good",
+      "abs_ic": 0.011346548188653452
+    },
+    {
+      "feature": "exog_amp",
+      "n": 75,
+      "ic_full": -0.0102,
+      "ic_oof_le2018": -0.0063,
+      "ic_held_ge2019": 0.0673,
+      "hit_median": 0.52,
+      "hit_side": "low→good",
+      "abs_ic": 0.010241820768136557
+    }
+  ],
+  "books": [
+    {
+      "id": "P3_T0_STATE",
+      "fam": "ref",
+      "held_cagr_lift_pp": 3.4758,
+      "held_mdd_pp": 0.0996,
+      "tip_ytd_cagr_pp": 2.7325,
+      "tip_1y_cagr_pp": 1.7356,
+      "tip_ytd_mdd_pp": 0.021,
+      "tip_1y_mdd_pp": 0.021,
+      "tip_clean": true,
+      "y2022_vs_base": -0.75,
+      "gates": {
+        "cagr": true,
+        "mdd": true,
+        "tip_clean": true,
+        "y2022_nonneg": false,
+        "shaped": true
+      },
+      "pct_sat": 24.16
+    },
+    {
+      "id": "AND_TD_R0050",
+      "fam": "and",
+      "held_cagr_lift_pp": 1.8763,
+      "held_mdd_pp": 0.0996,
+      "tip_ytd_cagr_pp": -11.0737,
+      "tip_1y_cagr_pp": -7.4732,
+      "tip_ytd_mdd_pp": 0.9278,
+      "tip_1y_mdd_pp": 0.9278,
+      "tip_clean": false,
+      "y2022_vs_base": -0.7,
+      "gates": {
+        "cagr": true,
+        "mdd": true,
+        "tip_clean": false,
+        "y2022_nonneg": false,
+        "shaped": false
+      },
+      "pct_sat": 12.63,
+      "rule": "SAT_LEAD & r0050_63<=med"
+    },
+    {
+      "id": "AND_EXOG_exog_recon",
+      "fam": "and",
+      "held_cagr_lift_pp": 1.7007,
+      "held_mdd_pp": 0.0996,
+      "tip_ytd_cagr_pp": -3.4475,
+      "tip_1y_cagr_pp": -2.3577,
+      "tip_ytd_mdd_pp": 0.9383,
+      "tip_1y_mdd_pp": 0.9383,
+      "tip_clean": false,
+      "y2022_vs_base": -4.52,
+      "gates": {
+        "cagr": true,
+        "mdd": true,
+        "tip_clean": false,
+        "y2022_nonneg": false,
+        "shaped": false
+      },
+      "pct_sat": 10.64,
+      "rule": "SAT_LEAD & exog_recon low med"
+    },
+    {
+      "id": "AND_EXOG_exog_amp",
+      "fam": "and",
+      "held_cagr_lift_pp": 2.1266,
+      "held_mdd_pp": -0.1088,
+      "tip_ytd_cagr_pp": -3.6757,
+      "tip_1y_cagr_pp": -2.5098,
+      "tip_ytd_mdd_pp": 0.9278,
+      "tip_1y_mdd_pp": 0.9278,
+      "tip_clean": false,
+      "y2022_vs_base": -5.06,
+      "gates": {
+        "cagr": true,
+        "mdd": true,
+        "tip_clean": false,
+        "y2022_nonneg": false,
+        "shaped": false
+      },
+      "pct_sat": 7.85,
+      "rule": "SAT_LEAD & exog_amp high med"
+    },
+    {
+      "id": "AND_EXOG_exog_dphase",
+      "fam": "and",
+      "held_cagr_lift_pp": 2.0253,
+      "held_mdd_pp": -0.1088,
+      "tip_ytd_cagr_pp": 1.4879,
+      "tip_1y_cagr_pp": 0.9148,
+      "tip_ytd_mdd_pp": 0.9278,
+      "tip_1y_mdd_pp": 0.9278,
+      "tip_clean": true,
+      "y2022_vs_base": -5.29,
+      "gates": {
+        "cagr": true,
+        "mdd": true,
+        "tip_clean": true,
+        "y2022_nonneg": false,
+        "shaped": true
+      },
+      "pct_sat": 11.2,
+      "rule": "SAT_LEAD & exog_dphase low med"
+    },
+    {
+      "id": "AND_EXOG_exog_phase",
+      "fam": "and",
+      "held_cagr_lift_pp": 1.9518,
+      "held_mdd_pp": -0.1088,
+      "tip_ytd_cagr_pp": -4.3627,
+      "tip_1y_cagr_pp": -2.9678,
+      "tip_ytd_mdd_pp": 0.021,
+      "tip_1y_mdd_pp": 0.021,
+      "tip_clean": false,
+      "y2022_vs_base": -6.72,
+      "gates": {
+        "cagr": true,
+        "mdd": true,
+        "tip_clean": false,
+        "y2022_nonneg": false,
+        "shaped": false
+      },
+      "pct_sat": 11.03,
+      "rule": "SAT_LEAD & exog_phase low med"
+    },
+    {
+      "id": "BLOCK_EXOG_BEST",
+      "fam": "block",
+      "held_cagr_lift_pp": 3.1951,
+      "held_mdd_pp": 0.0996,
+      "tip_ytd_cagr_pp": -1.1323,
+      "tip_1y_cagr_pp": -0.819,
+      "tip_ytd_mdd_pp": 0.021,
+      "tip_1y_mdd_pp": 0.021,
+      "tip_clean": false,
+      "y2022_vs_base": 0.76,
+      "gates": {
+        "cagr": true,
+        "mdd": true,
+        "tip_clean": false,
+        "y2022_nonneg": true,
+        "shaped": false
+      },
+      "pct_sat": 32.04,
+      "feature": "exog_dphase",
+      "side": "low→good"
+    }
+  ],
+  "summary": {
+    "exog_best": {
+      "feature": "exog_dphase",
+      "n": 75,
+      "ic_full": -0.1215,
+      "ic_oof_le2018": 0.0474,
+      "ic_held_ge2019": -0.4327,
+      "hit_median": 0.52,
+      "hit_side": "low→good",
+      "abs_ic": 0.12145092460881934
+    },
+    "td_best": {
+      "feature": "r0050_63",
+      "n": 76,
+      "ic_full": 0.0113,
+      "ic_oof_le2018": -0.0671,
+      "ic_held_ge2019": 0.127,
+      "hit_median": 0.5395,
+      "hit_side": "high→good",
+      "abs_ic": 0.011346548188653452
+    },
+    "n_entries": 76,
+    "books": [
+      {
+        "id": "P3_T0_STATE",
+        "fam": "ref",
+        "held_cagr_lift_pp": 3.4758,
+        "held_mdd_pp": 0.0996,
+        "tip_ytd_cagr_pp": 2.7325,
+        "tip_1y_cagr_pp": 1.7356,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "tip_clean": true,
+        "y2022_vs_base": -0.75,
+        "gates": {
+          "cagr": true,
+          "mdd": true,
+          "tip_clean": true,
+          "y2022_nonneg": false,
+          "shaped": true
+        },
+        "pct_sat": 24.16
+      },
+      {
+        "id": "AND_TD_R0050",
+        "fam": "and",
+        "held_cagr_lift_pp": 1.8763,
+        "held_mdd_pp": 0.0996,
+        "tip_ytd_cagr_pp": -11.0737,
+        "tip_1y_cagr_pp": -7.4732,
+        "tip_ytd_mdd_pp": 0.9278,
+        "tip_1y_mdd_pp": 0.9278,
+        "tip_clean": false,
+        "y2022_vs_base": -0.7,
+        "gates": {
+          "cagr": true,
+          "mdd": true,
+          "tip_clean": false,
+          "y2022_nonneg": false,
+          "shaped": false
+        },
+        "pct_sat": 12.63,
+        "rule": "SAT_LEAD & r0050_63<=med"
+      },
+      {
+        "id": "AND_EXOG_exog_recon",
+        "fam": "and",
+        "held_cagr_lift_pp": 1.7007,
+        "held_mdd_pp": 0.0996,
+        "tip_ytd_cagr_pp": -3.4475,
+        "tip_1y_cagr_pp": -2.3577,
+        "tip_ytd_mdd_pp": 0.9383,
+        "tip_1y_mdd_pp": 0.9383,
+        "tip_clean": false,
+        "y2022_vs_base": -4.52,
+        "gates": {
+          "cagr": true,
+          "mdd": true,
+          "tip_clean": false,
+          "y2022_nonneg": false,
+          "shaped": false
+        },
+        "pct_sat": 10.64,
+        "rule": "SAT_LEAD & exog_recon low med"
+      },
+      {
+        "id": "AND_EXOG_exog_amp",
+        "fam": "and",
+        "held_cagr_lift_pp": 2.1266,
+        "held_mdd_pp": -0.1088,
+        "tip_ytd_cagr_pp": -3.6757,
+        "tip_1y_cagr_pp": -2.5098,
+        "tip_ytd_mdd_pp": 0.9278,
+        "tip_1y_mdd_pp": 0.9278,
+        "tip_clean": false,
+        "y2022_vs_base": -5.06,
+        "gates": {
+          "cagr": true,
+          "mdd": true,
+          "tip_clean": false,
+          "y2022_nonneg": false,
+          "shaped": false
+        },
+        "pct_sat": 7.85,
+        "rule": "SAT_LEAD & exog_amp high med"
+      },
+      {
+        "id": "AND_EXOG_exog_dphase",
+        "fam": "and",
+        "held_cagr_lift_pp": 2.0253,
+        "held_mdd_pp": -0.1088,
+        "tip_ytd_cagr_pp": 1.4879,
+        "tip_1y_cagr_pp": 0.9148,
+        "tip_ytd_mdd_pp": 0.9278,
+        "tip_1y_mdd_pp": 0.9278,
+        "tip_clean": true,
+        "y2022_vs_base": -5.29,
+        "gates": {
+          "cagr": true,
+          "mdd": true,
+          "tip_clean": true,
+          "y2022_nonneg": false,
+          "shaped": true
+        },
+        "pct_sat": 11.2,
+        "rule": "SAT_LEAD & exog_dphase low med"
+      },
+      {
+        "id": "AND_EXOG_exog_phase",
+        "fam": "and",
+        "held_cagr_lift_pp": 1.9518,
+        "held_mdd_pp": -0.1088,
+        "tip_ytd_cagr_pp": -4.3627,
+        "tip_1y_cagr_pp": -2.9678,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "tip_clean": false,
+        "y2022_vs_base": -6.72,
+        "gates": {
+          "cagr": true,
+          "mdd": true,
+          "tip_clean": false,
+          "y2022_nonneg": false,
+          "shaped": false
+        },
+        "pct_sat": 11.03,
+        "rule": "SAT_LEAD & exog_phase low med"
+      },
+      {
+        "id": "BLOCK_EXOG_BEST",
+        "fam": "block",
+        "held_cagr_lift_pp": 3.1951,
+        "held_mdd_pp": 0.0996,
+        "tip_ytd_cagr_pp": -1.1323,
+        "tip_1y_cagr_pp": -0.819,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "tip_clean": false,
+        "y2022_vs_base": 0.76,
+        "gates": {
+          "cagr": true,
+          "mdd": true,
+          "tip_clean": false,
+          "y2022_nonneg": true,
+          "shaped": false
+        },
+        "pct_sat": 32.04,
+        "feature": "exog_dphase",
+        "side": "low→good"
+      }
+    ]
+  },
+  "soft_frozen_keep": true,
+  "live_wire": false
+}

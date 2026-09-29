@@ -1,0 +1,190 @@
+[
+  {
+    "id": "P3_HARD",
+    "fam": "ref",
+    "held_cagr_lift_pp": 3.4758,
+    "held_mdd_pp": 0.0996,
+    "tip_ytd_cagr_pp": 2.7325,
+    "tip_1y_cagr_pp": 1.7356,
+    "tip_ytd_mdd_pp": 0.021,
+    "tip_1y_mdd_pp": 0.021,
+    "tip_clean": true,
+    "y2022_vs_base": -0.75,
+    "gates": {
+      "cagr": true,
+      "mdd": true,
+      "tip_clean": true,
+      "y2022_nonneg": false,
+      "shaped": true
+    },
+    "pct_sat": 24.16
+  },
+  {
+    "id": "TILT_AMP_5",
+    "fam": "tilt",
+    "held_cagr_lift_pp": 3.3477,
+    "held_mdd_pp": 0.1027,
+    "tip_ytd_cagr_pp": 2.666,
+    "tip_1y_cagr_pp": 1.6589,
+    "tip_ytd_mdd_pp": 0.0515,
+    "tip_1y_mdd_pp": 0.0515,
+    "tip_clean": true,
+    "y2022_vs_base": -0.88,
+    "gates": {
+      "cagr": true,
+      "mdd": true,
+      "tip_clean": true,
+      "y2022_nonneg": false,
+      "shaped": true
+    },
+    "tilt": 0.05,
+    "pct_sat": 24.96
+  },
+  {
+    "id": "TILT_RECON_5",
+    "fam": "tilt",
+    "held_cagr_lift_pp": 3.2732,
+    "held_mdd_pp": 0.0792,
+    "tip_ytd_cagr_pp": 2.4681,
+    "tip_1y_cagr_pp": 1.5801,
+    "tip_ytd_mdd_pp": 0.0763,
+    "tip_1y_mdd_pp": 0.0763,
+    "tip_clean": true,
+    "y2022_vs_base": -0.94,
+    "gates": {
+      "cagr": true,
+      "mdd": true,
+      "tip_clean": true,
+      "y2022_nonneg": false,
+      "shaped": true
+    },
+    "tilt": 0.05,
+    "pct_sat": 25.36
+  },
+  {
+    "id": "TILT_AMP_10",
+    "fam": "tilt",
+    "held_cagr_lift_pp": 3.2196,
+    "held_mdd_pp": 0.1059,
+    "tip_ytd_cagr_pp": 2.5992,
+    "tip_1y_cagr_pp": 1.582,
+    "tip_ytd_mdd_pp": 0.0821,
+    "tip_1y_mdd_pp": 0.0821,
+    "tip_clean": true,
+    "y2022_vs_base": -1.01,
+    "gates": {
+      "cagr": true,
+      "mdd": true,
+      "tip_clean": true,
+      "y2022_nonneg": false,
+      "shaped": true
+    },
+    "tilt": 0.1,
+    "pct_sat": 25.76
+  },
+  {
+    "id": "TILT_RECON_10",
+    "fam": "tilt",
+    "held_cagr_lift_pp": 3.0708,
+    "held_mdd_pp": 0.0589,
+    "tip_ytd_cagr_pp": 2.2038,
+    "tip_1y_cagr_pp": 1.4244,
+    "tip_ytd_mdd_pp": 0.1316,
+    "tip_1y_mdd_pp": 0.1316,
+    "tip_clean": true,
+    "y2022_vs_base": -1.14,
+    "gates": {
+      "cagr": true,
+      "mdd": true,
+      "tip_clean": true,
+      "y2022_nonneg": false,
+      "shaped": true
+    },
+    "tilt": 0.1,
+    "pct_sat": 26.56
+  },
+  {
+    "id": "TILT_AMP_15",
+    "fam": "tilt",
+    "held_cagr_lift_pp": 3.0915,
+    "held_mdd_pp": 0.109,
+    "tip_ytd_cagr_pp": 2.5324,
+    "tip_1y_cagr_pp": 1.5051,
+    "tip_ytd_mdd_pp": 0.1126,
+    "tip_1y_mdd_pp": 0.1126,
+    "tip_clean": true,
+    "y2022_vs_base": -1.14,
+    "gates": {
+      "cagr": true,
+      "mdd": true,
+      "tip_clean": true,
+      "y2022_nonneg": false,
+      "shaped": true
+    },
+    "tilt": 0.15,
+    "pct_sat": 26.56
+  },
+  {
+    "id": "TILT_RECON_15",
+    "fam": "tilt",
+    "held_cagr_lift_pp": 2.8684,
+    "held_mdd_pp": 0.0385,
+    "tip_ytd_cagr_pp": 1.9395,
+    "tip_1y_cagr_pp": 1.2686,
+    "tip_ytd_mdd_pp": 0.1869,
+    "tip_1y_mdd_pp": 0.1869,
+    "tip_clean": true,
+    "y2022_vs_base": -1.33,
+    "gates": {
+      "cagr": true,
+      "mdd": true,
+      "tip_clean": true,
+      "y2022_nonneg": false,
+      "shaped": true
+    },
+    "tilt": 0.15,
+    "pct_sat": 27.76
+  },
+  {
+    "id": "TILT_AMP_25",
+    "fam": "tilt",
+    "held_cagr_lift_pp": 2.8354,
+    "held_mdd_pp": 0.1153,
+    "tip_ytd_cagr_pp": 2.3984,
+    "tip_1y_cagr_pp": 1.351,
+    "tip_ytd_mdd_pp": 0.1736,
+    "tip_1y_mdd_pp": 0.1736,
+    "tip_clean": true,
+    "y2022_vs_base": -1.39,
+    "gates": {
+      "cagr": true,
+      "mdd": true,
+      "tip_clean": true,
+      "y2022_nonneg": false,
+      "shaped": true
+    },
+    "tilt": 0.25,
+    "pct_sat": 28.16
+  },
+  {
+    "id": "TILT_RECON_25",
+    "fam": "tilt",
+    "held_cagr_lift_pp": 2.464,
+    "held_mdd_pp": -0.0022,
+    "tip_ytd_cagr_pp": 1.4114,
+    "tip_1y_cagr_pp": 0.9568,
+    "tip_ytd_mdd_pp": 0.2975,
+    "tip_1y_mdd_pp": 0.2975,
+    "tip_clean": true,
+    "y2022_vs_base": -1.71,
+    "gates": {
+      "cagr": true,
+      "mdd": true,
+      "tip_clean": true,
+      "y2022_nonneg": false,
+      "shaped": true
+    },
+    "tilt": 0.25,
+    "pct_sat": 30.16
+  }
+]
