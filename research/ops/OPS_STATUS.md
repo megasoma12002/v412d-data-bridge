@@ -46,6 +46,7 @@ ETF **0050 regime × 多空偵測器** Stage A：**`NO_EDGE`** · best `DET_BUY_
 **FIN×SAT Path3 COMP confirm／min-stay (2026-09-29):** Stage A **`COMP_CONFIRM_NO_EDGE`** · confirm/minstay 修不了 2022（最佳 −0.74≈原 −0.75）且 D≥2 傷 tip · Path3 observe KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_COMP_CONFIRM_STAGEA_DECISION_PACK.md`  
 **FIN×SAT Path3 COMP-entry signal (2026-09-29):** Stage A **`SIGNAL_WEAK`** · best `rel_5` IC0.17 hit0.59 · OOF IC≈0 不穩 · `BLOCK_rel_5` 修2022(+0.79)但 tipY↓ · Path3 observe KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_COMP_ENTRY_SIGNAL_STAGEA_DECISION_PACK.md`  
 
+**FIN×SAT Path3 COMP-entry FFT (2026-09-29):** Stage A **`FFT_ENTRY_WEAK`** · best `w256_dphase` IC0.19 hit0.50 · block 傷2022/held/tip · 譜不解進場 · Path3 observe KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_COMP_ENTRY_FFT_STAGEA_DECISION_PACK.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  

@@ -1,0 +1,66 @@
+{
+  "daily_rel": [
+    {
+      "period_tdays": 2.89,
+      "power_frac": 0.00493,
+      "freq": 0.346211
+    },
+    {
+      "period_tdays": 3.72,
+      "power_frac": 0.00421,
+      "freq": 0.268648
+    },
+    {
+      "period_tdays": 2.78,
+      "power_frac": 0.00416,
+      "freq": 0.359584
+    },
+    {
+      "period_tdays": 2.62,
+      "power_frac": 0.00384,
+      "freq": 0.382169
+    },
+    {
+      "period_tdays": 3.97,
+      "power_frac": 0.00383,
+      "freq": 0.252006
+    },
+    {
+      "period_tdays": 3.87,
+      "power_frac": 0.00361,
+      "freq": 0.258544
+    }
+  ],
+  "trail_rel_63": [
+    {
+      "period_tdays": 471.86,
+      "power_frac": 0.08632,
+      "freq": 0.002119
+    },
+    {
+      "period_tdays": 173.84,
+      "power_frac": 0.06803,
+      "freq": 0.005752
+    },
+    {
+      "period_tdays": 220.2,
+      "power_frac": 0.06079,
+      "freq": 0.004541
+    },
+    {
+      "period_tdays": 825.75,
+      "power_frac": 0.05894,
+      "freq": 0.001211
+    },
+    {
+      "period_tdays": 235.93,
+      "power_frac": 0.04969,
+      "freq": 0.004239
+    },
+    {
+      "period_tdays": 183.5,
+      "power_frac": 0.0424,
+      "freq": 0.00545
+    }
+  ]
+}
