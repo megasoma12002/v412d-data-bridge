@@ -1,0 +1,14 @@
+# LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_DRAFT
+
+Date: 2026-09-29  
+Status: **SUPERSEDED** by EXECUTED ACCEPT · Stage A verdict **`MUTE_WIRED_DEMO_OK`**
+
+See: `LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_EXECUTED_ACCEPT.md`
+
+## Proposed ACCEPT line (executed)
+
+```
+ACCEPT Soft↔Path3 coexist mute: MUTE_SOFT_FIN_TEL (flip-day Soft FIN/TEL Exact T+1 muted · Soft 0050 KEEP · Path3 -P3T0 KEEP · cutover still BLOCKED)
+```
+
+Label: `LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_DRAFT_2026-09-29__SUPERSEDED`

@@ -1,0 +1,58 @@
+{
+  "id": "FIN_SAT_SOFT_PATH3_COEXIST_MUTE_STAGEA_CHARTER",
+  "generated_at_utc": "2026-09-29T13:25:00Z",
+  "register": "0kaa",
+  "status": "STAGE_A_CHARTER",
+  "mechanism_id": "SOFT_PATH3_FLIP_MUTE",
+  "default_policy": "MUTE_SOFT_FIN_TEL",
+  "parents": [
+    "0ka9",
+    "0ka8",
+    "0ka7",
+    "0k9r"
+  ],
+  "soft_frozen_clips_keep": true,
+  "exact_t1_keep_elsewhere": true,
+  "path3_emit_fill_on": true,
+  "weight_engine": "P3_COMP_SAT_ASOF_RECON_B",
+  "broker_live_write": false,
+  "cutover": "BLOCKED",
+  "flag_default": false,
+  "flag_name": "live_soft_path3_coexist_mute",
+  "mute_scope_default": [
+    "FIN",
+    "TEL"
+  ],
+  "keep_on_flip": [
+    "Soft_0050_Exact_T1",
+    "CONF_RET3",
+    "COOL",
+    "FUSE",
+    "FinPriv",
+    "Path3_P3T0"
+  ],
+  "policy_ladder": [
+    "MUTE_SOFT_FIN_TEL",
+    "MUTE_SOFT_ALL_SLEEVES",
+    "MUTE_OVERLAP_CODES",
+    "MUTE_SOFT_ON_FLIP_META"
+  ],
+  "verdicts": [
+    "MUTE_WIRED_DEMO_OK",
+    "MUTE_NO_FLIP",
+    "MUTE_SOFT_ALREADY_EMPTY",
+    "MUTE_PATH3_REGRESSED",
+    "POLICY_AMBIGUOUS",
+    "BLOCK"
+  ],
+  "hit_verdict": "MUTE_WIRED_DEMO_OK",
+  "apis": {
+    "switch_meta_for_asof": "scripts/live_path3_t0_switch_emitter.py",
+    "plan_or_none_for_pipeline": "scripts/live_path3_t0_weight_engine.py",
+    "build_live_order_rows": "scripts/live_rebalance_orders.py",
+    "mute_helper": "scripts/live_soft_path3_coexist_mute.py (NEW)",
+    "pipeline_hook": "scripts/e21_forward_pipeline.py",
+    "live_flag": "scripts/live_config.py"
+  },
+  "label": "FIN_SAT_SOFT_PATH3_COEXIST_MUTE_STAGEA_CHARTER_2026-09-29__MUTE_SOFT_FIN_TEL__NO_BROKER"
+}

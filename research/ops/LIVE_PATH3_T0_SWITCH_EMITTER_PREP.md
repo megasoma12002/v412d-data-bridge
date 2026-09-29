@@ -27,10 +27,10 @@ Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEE
 - **ACCEPT 0kab:** `live_path3_weight_engine_mode=ledger` → `P3_COMP_SAT_DAILY_POS_LEDGER_A` via `plan_or_none_for_pipeline`
 - Soft 0050 KEEP · Soft-Frozen Exact T+1 KEEP · broker false · cutover BLOCKED
 - Ballot: `LIVE_PATH3_WEIGHT_ENGINE_LEDGER_BALLOT_EXECUTED_ACCEPT.md`
+- Soft↔Path3 coexistence mute → **0kaa EXECUTED ACCEPT / LIVE WIRED** · `live_soft_path3_coexist_mute=True` · `LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_EXECUTED_ACCEPT.md`
 
 ## Not implemented (still BLOCKED)
 
-- Soft-Frozen flip-day coexistence mute live ACCEPT (if still open on other PR)
 - Broker live-write / Path3 strategy cutover still BLOCKED
 
 ## Accept to enable emit flag
