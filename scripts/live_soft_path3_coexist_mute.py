@@ -5,7 +5,7 @@ Mechanism: ``SOFT_PATH3_FLIP_MUTE``
 Default policy: ``MUTE_SOFT_FIN_TEL`` — on Path3 flip + non-empty deltas,
 drop Soft Exact T+1 orders for FIN∪TEL; keep Soft 0050 / satellites / Path3.
 
-Flag default OFF until Stage A HIT + human ACCEPT.
+Live flag ``LIVE.live_soft_path3_coexist_mute=True`` after ACCEPT 0kaa (2026-09-29).
 """
 from __future__ import annotations
 
