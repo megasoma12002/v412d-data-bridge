@@ -1,0 +1,39 @@
+{
+  "id": "FIN_SAT_PATH3_WEIGHT_ENGINE_STAGEA_CHARTER",
+  "generated_at_utc": "2026-09-29T11:19:41Z",
+  "register": "0ka8",
+  "status": "STAGE_A_CHARTER",
+  "engine_id": "P3_SOFT_SLEEVE_EQ_RECON_PROXY",
+  "parents": [
+    "0ka7",
+    "0k9w",
+    "0k9u",
+    "0k9r"
+  ],
+  "soft_frozen_keep": true,
+  "emit_fill_on": true,
+  "broker": false,
+  "cutover": "BLOCKED",
+  "full_engine_rebuild": false,
+  "conf_alpha_diff_sufficient": false,
+  "e21_sample_pos_prices": true,
+  "e21_asof": "2026-09-24",
+  "verdicts": [
+    "PROXY_WIRED_DEMO_OK",
+    "PROXY_EMPTY_LOT",
+    "PROXY_NO_FLIP",
+    "FULL_ENGINE_REQUIRED",
+    "BLOCK"
+  ],
+  "hit_verdict": "PROXY_WIRED_DEMO_OK",
+  "apis": {
+    "plan_delta_shares": "scripts/live_path3_t0_weight_engine.py (NEW)",
+    "maybe_emit_switch_orders": "scripts/live_path3_t0_switch_emitter.py",
+    "build_tagged_switch_order_rows": "scripts/live_path3_t0_switch_emitter.py",
+    "build_live_order_rows": "scripts/live_rebalance_orders.py",
+    "allocate_sleeve_orders": "scripts/within_sleeve_alloc.py",
+    "authorize_same_bar_fill": "scripts/t0_carve_fin_sat_switch.py",
+    "pipeline_hook": "scripts/e21_forward_pipeline.py"
+  },
+  "label": "FIN_SAT_PATH3_WEIGHT_ENGINE_STAGEA_CHARTER_2026-09-29__PROXY_EQ_RECON__NO_BROKER"
+}
