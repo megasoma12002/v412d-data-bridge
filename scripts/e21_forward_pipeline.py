@@ -315,19 +315,27 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         )
         order_rows.extend(off_orders)
         conf_ret3_order_meta["enabled"] = True
-    # Path3 T0 carve switch emitter — PREP fail-closed (flag OFF; no delta engine).
+    # Path3 T0 carve switch emitter — weight-engine Stage A proxy (0ka8).
     path3_emit_meta: dict = {"enabled": bool(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT)}
+    path3_weight_meta: dict = {"engine_id": None, "reason": "emit_flag_off"}
     if LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT:
         import live_path3_t0_switch_emitter as path3_em
+        import live_path3_t0_weight_engine as path3_we
 
+        path3_deltas, path3_weight_meta = path3_we.plan_or_none_for_pipeline(
+            asof=latest,
+            pos=pos,
+            prices=prices,
+        )
         path3_orders, path3_emit_meta = path3_em.maybe_emit_switch_orders(
             asof=latest,
             prices=prices,
-            delta_shares=None,  # weight engines not wired — fail-closed
+            delta_shares=path3_deltas,
             authorized=True,
         )
         order_rows.extend(path3_orders)
         path3_emit_meta["enabled"] = True
+        path3_emit_meta["weight_engine"] = path3_weight_meta
     else:
         path3_emit_meta["reason"] = "emit_flag_off"
     stamp = utc_now_iso()
@@ -406,6 +414,9 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         else None,
         "path3_t0_emit_reason": path3_emit_meta.get("reason"),
         "path3_t0_n_orders": int(path3_emit_meta.get("n_orders") or 0),
+        "path3_t0_weight_engine_id": path3_weight_meta.get("engine_id"),
+        "path3_t0_weight_reason": path3_weight_meta.get("reason"),
+        "path3_t0_weight_n_delta_names": path3_weight_meta.get("n_delta_names"),
         "tel_t3_cool_inv_vol20_live": bool(LIVE_TEL_T3_COOL_INV_VOL20),
         "tel_t3_ballot": LIVE_TEL_T3_BALLOT if LIVE_TEL_T3_COOL_INV_VOL20 else None,
         "telecom_alloc": tel_meta.get("telecom_alloc")

@@ -20,6 +20,12 @@ Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEE
 - Signal days: 3365 · proposed flips: **153** · %days SAT **24.16**
 - Repro: `repro/fin-sat-path3-t0-emitter-prep/`
 
+## Weight engine (0ka8 Stage A)
+
+- Named proxy `P3_SOFT_SLEEVE_EQ_RECON_PROXY` wired into e21 (`plan_or_none_for_pipeline`)
+- COMP→SAT equal-recon deltas · COMP identity empty (Stage B)
+- Soft-Frozen coexistence mute still open
+
 ## Not implemented (still BLOCKED)
 
 - COMP↔SAT sleeve **weight engines** (delta_shares provider)

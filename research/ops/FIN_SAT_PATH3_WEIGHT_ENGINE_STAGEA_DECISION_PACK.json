@@ -1,0 +1,153 @@
+{
+  "label": "FIN_SAT_PATH3_WEIGHT_ENGINE_STAGEA_DECISION_PACK_2026-09-29__PROXY_WIRED_DEMO_OK__NO_BROKER",
+  "verdict": "PROXY_WIRED_DEMO_OK",
+  "register": "0ka8",
+  "engine_id": "P3_SOFT_SLEEVE_EQ_RECON_PROXY",
+  "screen": {
+    "label": "FIN_SAT_PATH3_WEIGHT_ENGINE_STAGEA_SCREEN_20260929T112316Z",
+    "generated_at_utc": "2026-09-29T11:23:16Z",
+    "verdict": "PROXY_WIRED_DEMO_OK",
+    "register": "0ka8",
+    "engine_id": "P3_SOFT_SLEEVE_EQ_RECON_PROXY",
+    "demo_asof": "2026-06-12",
+    "state_asof": "2026-09-24",
+    "plan_meta": {
+      "engine_id": "P3_SOFT_SLEEVE_EQ_RECON_PROXY",
+      "switch": {
+        "asof": "2026-06-12",
+        "ok": true,
+        "flip": true,
+        "sat_lead": true,
+        "w_sat": 1.0,
+        "book": "SAT_A20_RELAX",
+        "book_prev": "COMP_H150_x_A20",
+        "trail_rel_63": -0.0069671998313391,
+        "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+        "mechanism": "P3_T0_STATE",
+        "theta": 0.005
+      },
+      "asof": "2026-06-12",
+      "dest_book": "SAT_A20_RELAX",
+      "fin_notional": 476401750.0,
+      "tel_notional": 35667500.0,
+      "n_delta_names": 6,
+      "delta_shares": {
+        "2412": -3000.0,
+        "2880": -101000.0,
+        "2886": 108000.0,
+        "2892": -168000.0,
+        "4904": 2000.0,
+        "5880": 221000.0
+      },
+      "dest_shares_fin_tel": {
+        "2880": 2603000.0,
+        "2886": 2401000.0,
+        "2892": 3015000.0,
+        "5880": 4502000.0,
+        "2412": 81000.0,
+        "3045": 97000.0,
+        "4904": 112000.0
+      },
+      "reason": "sat_equal_recon"
+    },
+    "emit_meta": {
+      "enabled": true,
+      "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+      "mechanism": "P3_T0_STATE",
+      "n_orders": 6,
+      "n_skipped": 0,
+      "skipped": [],
+      "signal_date": "2026-06-12",
+      "reason": "emitted"
+    },
+    "n_orders": 6,
+    "order_ids": [
+      "2026-06-12-2412-SELL-P3T0",
+      "2026-06-12-2880-SELL-P3T0",
+      "2026-06-12-2892-SELL-P3T0",
+      "2026-06-12-2886-BUY-P3T0",
+      "2026-06-12-4904-BUY-P3T0",
+      "2026-06-12-5880-BUY-P3T0"
+    ],
+    "all_tagged_p3t0": true,
+    "all_carve": true,
+    "fill_meta": {
+      "n_fills": 3,
+      "fill_ok": true,
+      "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+      "fill_policy": "T0_CARVE_MOC_REF_CLOSE",
+      "sample_fill_price": 49.6248
+    },
+    "recon_probe": {
+      "engine_id": "P3_SOFT_SLEEVE_EQ_RECON_PROXY",
+      "dest_book": "SAT_A20_RELAX",
+      "fin_notional": 476401750.0,
+      "tel_notional": 35667500.0,
+      "n_delta_names": 6,
+      "delta_shares": {
+        "2412": -3000.0,
+        "2880": -101000.0,
+        "2886": 108000.0,
+        "2892": -168000.0,
+        "4904": 2000.0,
+        "5880": 221000.0
+      },
+      "dest_shares_fin_tel": {
+        "2880": 2603000.0,
+        "2886": 2401000.0,
+        "2892": 3015000.0,
+        "5880": 4502000.0,
+        "2412": 81000.0,
+        "3045": 97000.0,
+        "4904": 112000.0
+      }
+    },
+    "noflip_control": {
+      "engine_id": "P3_SOFT_SLEEVE_EQ_RECON_PROXY",
+      "switch": {
+        "asof": "2026-09-24",
+        "ok": true,
+        "flip": false,
+        "sat_lead": true,
+        "w_sat": 1.0,
+        "book": "SAT_A20_RELAX",
+        "book_prev": "SAT_A20_RELAX",
+        "trail_rel_63": -0.0357380062856641,
+        "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+        "mechanism": "P3_T0_STATE",
+        "theta": 0.005
+      },
+      "asof": "2026-09-24",
+      "reason": "no_flip"
+    },
+    "comp_identity_control": {
+      "engine_id": "P3_SOFT_SLEEVE_EQ_RECON_PROXY",
+      "switch": {
+        "asof": "2026-05-20",
+        "ok": true,
+        "flip": true,
+        "sat_lead": false,
+        "w_sat": 0.0,
+        "book": "COMP_H150_x_A20",
+        "book_prev": "SAT_A20_RELAX",
+        "trail_rel_63": 0.0059542926378797,
+        "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+        "mechanism": "P3_T0_STATE",
+        "theta": 0.005
+      },
+      "asof": "2026-05-20",
+      "dest_book": "COMP_H150_x_A20",
+      "reason": "comp_identity_proxy_no_delta",
+      "note": "Stage A COMP dest = current Soft within-sleeve (identity). Full OR_K9×HARD150 = Stage B.",
+      "n_delta_names": 0,
+      "delta_shares": {}
+    },
+    "soft_frozen_keep": true,
+    "broker_live_write": false,
+    "cutover": "BLOCKED",
+    "e21_history_rewritten": false
+  },
+  "soft_frozen_keep": true,
+  "broker_live_write": false,
+  "cutover": "BLOCKED"
+}
