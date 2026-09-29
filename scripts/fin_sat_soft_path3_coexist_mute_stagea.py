@@ -187,10 +187,8 @@ def _verdict(
     to_sat: dict[str, Any],
     to_comp: dict[str, Any],
     noflip: dict[str, Any],
-    flag_still_off: bool,
+    flag_on: bool,
 ) -> str:
-    if not flag_still_off:
-        return "BLOCK"
     for leg in (to_sat, to_comp):
         if not leg.get("flip"):
             return "MUTE_NO_FLIP"
@@ -209,6 +207,8 @@ def _verdict(
         return "MUTE_PATH3_REGRESSED"
     if int(noflip.get("n_soft_kept_on") or 0) != int(noflip.get("n_soft_before") or -1):
         return "MUTE_PATH3_REGRESSED"
+    if flag_on:
+        return "MUTE_LIVE_WIRED_OK"
     return "MUTE_WIRED_DEMO_OK"
 
 
@@ -250,8 +250,8 @@ def main() -> int:
         "should_mute": nf_meta.get("should_mute"),
     }
 
-    flag_still_off = (not LIVE_SOFT_PATH3_COEXIST_MUTE) and (not LIVE.live_soft_path3_coexist_mute)
-    verdict = _verdict(to_sat=to_sat, to_comp=to_comp, noflip=noflip, flag_still_off=flag_still_off)
+    flag_on = bool(LIVE_SOFT_PATH3_COEXIST_MUTE) and bool(LIVE.live_soft_path3_coexist_mute)
+    verdict = _verdict(to_sat=to_sat, to_comp=to_comp, noflip=noflip, flag_on=flag_on)
 
     pd.DataFrame(
         [
@@ -283,7 +283,7 @@ def main() -> int:
         "register": REGISTER,
         "mechanism_id": MECHANISM_ID,
         "policy": DEFAULT_POLICY,
-        "live_flag_default_off": flag_still_off,
+        "live_flag_on": flag_on,
         "live_policy_config": LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,
         "state_asof": state_asof,
         "to_sat": to_sat,
@@ -302,7 +302,7 @@ def main() -> int:
         f"# {SCREEN_ID}",
         "",
         f"Date: 2026-09-29 · `{generated}` · Verdict **`{verdict}`**",
-        f"Mechanism `{MECHANISM_ID}` · policy `{DEFAULT_POLICY}` · live flag OFF={flag_still_off}",
+        f"Mechanism `{MECHANISM_ID}` · policy `{DEFAULT_POLICY}` · live flag ON={flag_on}",
         "",
         "## Flip-day mute demo",
         "",
@@ -327,7 +327,7 @@ def main() -> int:
             f"# {DECISION_ID}",
             "",
             f"Date: 2026-09-29 · Verdict: **`{verdict}`**",
-            "Status: Soft-Frozen clips / Exact T+1 **KEEP** elsewhere · mute flag **OFF** · "
+            "Status: Soft-Frozen clips / Exact T+1 **KEEP** elsewhere · mute flag **ON** · "
             "Path3 emit/fill/engine B **ON** · broker **false** · cutover **BLOCKED**",
             f"Register: **{REGISTER}** · Mechanism: `{MECHANISM_ID}` · Policy: `{DEFAULT_POLICY}`",
             "",
@@ -341,13 +341,13 @@ def main() -> int:
             "",
             "## Implication",
             "",
-            "- `MUTE_WIRED_DEMO_OK`：helper + e21 hook wired · live flag still OFF until ACCEPT",
-            "- DRAFT ballot: `LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_DRAFT.md`",
+            "- `MUTE_LIVE_WIRED_OK` / `MUTE_WIRED_DEMO_OK`：helper + e21 hook · live flag follows ACCEPT",
+            "- ACCEPT ballot: `LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_EXECUTED_ACCEPT.md`",
             "- broker / cutover 仍另票",
             "",
             f"Screen: `{SCREEN_ID}.md` · Charter: `{CHARTER_ID}.md`",
             "",
-            f"Label: `{DECISION_ID}_2026-09-29__{verdict}__FLAG_OFF__NO_BROKER`",
+            f"Label: `{DECISION_ID}_2026-09-29__{verdict}__NO_BROKER`",
             "",
         ]
     )
@@ -355,12 +355,12 @@ def main() -> int:
     (OPS / f"{DECISION_ID}.json").write_text(
         json.dumps(
             {
-                "label": f"{DECISION_ID}_2026-09-29__{verdict}__FLAG_OFF__NO_BROKER",
+                "label": f"{DECISION_ID}_2026-09-29__{verdict}__NO_BROKER",
                 "verdict": verdict,
                 "register": REGISTER,
                 "mechanism_id": MECHANISM_ID,
                 "policy": DEFAULT_POLICY,
-                "live_flag_default_off": flag_still_off,
+                "live_flag_on": flag_on,
                 "screen": screen,
                 "soft_frozen_keep": True,
                 "broker_live_write": False,
@@ -374,60 +374,13 @@ def main() -> int:
     )
     write_repro_pointer(OPS / f"{DECISION_ID}.json", REP / f"{DECISION_ID}.json", kind="decision pack")
 
-    ballot = "\n".join(
-        [
-            f"# {BALLOT_ID}",
-            "",
-            "Date: 2026-09-29",
-            f"Status: **DRAFT** · awaiting human ACCEPT · Stage A verdict **`{verdict}`**",
-            "Soft-Frozen clips / Exact T+1 KEEP elsewhere · broker false · cutover BLOCKED",
-            "",
-            "## Proposed ACCEPT line",
-            "",
-            "```",
-            LIVE.live_soft_path3_coexist_mute_ballot,
-            "```",
-            "",
-            "## Effect if ACCEPT",
-            "",
-            "- Flip `live_soft_path3_coexist_mute=True` in `live_config.py`",
-            f"- Policy `{DEFAULT_POLICY}`: Path3 flip+hit → mute Soft FIN∪TEL Exact T+1",
-            "- Soft 0050 Exact T+1 KEEP · Path3 `-P3T0` KEEP · COOL/FUSE/CONF_RET3 KEEP",
-            "- Does **not** authorize broker write or Path3 strategy cutover",
-            "",
-            f"Parent decision: `{DECISION_ID}.md`",
-            "",
-            f"Label: `{BALLOT_ID}_2026-09-29__DRAFT__FLAG_OFF`",
-            "",
-        ]
-    )
-    write_ops_and_repro_pointer(OPS / f"{BALLOT_ID}.md", REP / f"{BALLOT_ID}.md", ballot, kind="ballot draft")
-    (OPS / f"{BALLOT_ID}.json").write_text(
-        json.dumps(
-            {
-                "id": BALLOT_ID,
-                "status": "DRAFT",
-                "register": REGISTER,
-                "verdict_parent": verdict,
-                "accept_line": LIVE.live_soft_path3_coexist_mute_ballot,
-                "flag_name": "live_soft_path3_coexist_mute",
-                "flag_current": False,
-                "policy": DEFAULT_POLICY,
-                "broker_live_write": False,
-                "cutover": "BLOCKED",
-            },
-            indent=2,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
-    write_repro_pointer(OPS / f"{BALLOT_ID}.json", REP / f"{BALLOT_ID}.json", kind="ballot draft")
-
+    # Ballot artifacts written by ACCEPT commit; harness only refreshes screen/decision.
+    _ = BALLOT_ID  # retained for label stability
     print(
         json.dumps(
             {
                 "verdict": verdict,
-                "flag_off": flag_still_off,
+                "flag_on": flag_on,
                 "to_sat": {
                     "asof": to_sat["asof"],
                     "n_muted": to_sat["n_muted"],

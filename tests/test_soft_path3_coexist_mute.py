@@ -35,10 +35,11 @@ def _soft_rows():
 
 
 class MuteFlagDefaults(unittest.TestCase):
-    def test_flag_off_by_default(self) -> None:
-        self.assertFalse(LIVE.live_soft_path3_coexist_mute)
-        self.assertFalse(LIVE_SOFT_PATH3_COEXIST_MUTE)
+    def test_flag_on_after_accept(self) -> None:
+        self.assertTrue(LIVE.live_soft_path3_coexist_mute)
+        self.assertTrue(LIVE_SOFT_PATH3_COEXIST_MUTE)
         self.assertEqual(LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY, POLICY_MUTE_SOFT_FIN_TEL)
+        self.assertIn("ACCEPT Soft↔Path3 coexist mute", LIVE.live_soft_path3_coexist_mute_ballot)
 
 
 class ShouldMute(unittest.TestCase):

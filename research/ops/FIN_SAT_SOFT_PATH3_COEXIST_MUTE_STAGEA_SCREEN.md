@@ -1,7 +1,7 @@
 # FIN_SAT_SOFT_PATH3_COEXIST_MUTE_STAGEA_SCREEN
 
-Date: 2026-09-29 · `2026-09-29T13:46:43Z` · Verdict **`MUTE_WIRED_DEMO_OK`**
-Mechanism `SOFT_PATH3_FLIP_MUTE` · policy `MUTE_SOFT_FIN_TEL` · live flag OFF=True
+Date: 2026-09-29 · `2026-09-29T13:51:03Z` · Verdict **`MUTE_LIVE_WIRED_OK`**
+Mechanism `SOFT_PATH3_FLIP_MUTE` · policy `MUTE_SOFT_FIN_TEL` · live flag ON=True
 
 ## Flip-day mute demo
 

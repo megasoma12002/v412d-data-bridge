@@ -1,11 +1,12 @@
 {
   "id": "LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_DRAFT",
-  "status": "DRAFT",
+  "status": "SUPERSEDED",
   "register": "0kaa",
+  "superseded_by": "LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_EXECUTED_ACCEPT.md",
   "verdict_parent": "MUTE_WIRED_DEMO_OK",
-  "accept_line": "ACCEPT Soft\u2194Path3 coexist mute: MUTE_SOFT_FIN_TEL (flip-day Soft FIN/TEL Exact T+1 muted \u00b7 Soft 0050 KEEP \u00b7 Path3 -P3T0 KEEP \u00b7 cutover still BLOCKED)",
+  "accept_line": "ACCEPT Soft↔Path3 coexist mute: MUTE_SOFT_FIN_TEL (flip-day Soft FIN/TEL Exact T+1 muted · Soft 0050 KEEP · Path3 -P3T0 KEEP · cutover still BLOCKED)",
   "flag_name": "live_soft_path3_coexist_mute",
-  "flag_current": false,
+  "flag_current": true,
   "policy": "MUTE_SOFT_FIN_TEL",
   "broker_live_write": false,
   "cutover": "BLOCKED"

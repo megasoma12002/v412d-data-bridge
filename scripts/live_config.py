@@ -130,9 +130,9 @@ class LiveConfig:
         "(P3_T0_STATE · Soft-Frozen Exact T+1 KEEP elsewhere · cutover still BLOCKED)"
     )
 
-    # Soft↔Path3 flip-day coexistence mute — Stage A CHARTER 0kaa; flag OFF until ACCEPT.
+    # Soft↔Path3 flip-day coexistence mute — human ACCEPT 2026-09-29 (0kaa).
     # On Path3 flip + non-empty -P3T0: mute Soft FIN∪TEL Exact T+1; Soft 0050 KEEP.
-    live_soft_path3_coexist_mute: bool = False
+    live_soft_path3_coexist_mute: bool = True
     live_soft_path3_coexist_mute_policy: str = "MUTE_SOFT_FIN_TEL"
     live_soft_path3_coexist_mute_ballot: str = (
         "ACCEPT Soft↔Path3 coexist mute: MUTE_SOFT_FIN_TEL "

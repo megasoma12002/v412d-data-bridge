@@ -1,4 +1,4 @@
-# Pointer — ballot draft SSOT
+# Pointer — ballot SSOT
 
 Canonical copy: `research/ops/LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_DRAFT.md`
 
