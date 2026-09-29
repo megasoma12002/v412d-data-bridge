@@ -125,6 +125,14 @@ class LiveConfig:
         "DRAFT — ACCEPT Live fill carve-out: T0_CARVE_FIN_SAT_SWITCH same-bar"
     )
 
+    # Path3 COMP↔SAT tagged switch order emitter — OFF until dedicated ACCEPT.
+    # When True, pipeline may append carve-tagged switch rows (still needs fill flag
+    # for same-bar MOC). Weight engines not wired → fail-closed without delta_shares.
+    live_t0_carve_fin_sat_switch_emit: bool = False
+    live_t0_carve_fin_sat_switch_emit_ballot: str = (
+        "DRAFT — ACCEPT Live Path3 switch emitter: T0_CARVE_FIN_SAT_SWITCH tagged orders"
+    )
+
 
 # Module-level singleton used by the live pipeline (edit + ACCEPT PR to cut over).
 LIVE = LiveConfig()
@@ -148,6 +156,8 @@ LIVE_TEL_T3_COOL_INV_VOL20 = LIVE.live_tel_t3_cool_inv_vol20
 LIVE_TEL_T3_BALLOT = LIVE.live_tel_t3_ballot
 LIVE_T0_CARVE_FIN_SAT_SWITCH_FILL = LIVE.live_t0_carve_fin_sat_switch_fill
 LIVE_T0_CARVE_FIN_SAT_SWITCH_BALLOT = LIVE.live_t0_carve_fin_sat_switch_ballot
+LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT = LIVE.live_t0_carve_fin_sat_switch_emit
+LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT = LIVE.live_t0_carve_fin_sat_switch_emit_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital

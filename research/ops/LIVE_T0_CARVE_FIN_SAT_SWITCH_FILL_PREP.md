@@ -14,8 +14,8 @@ Status: **PREP / flag OFF** · Soft-Frozen Exact T+1 **KEEP** · Path3 observe *
 
 ## Not implemented (still BLOCKED)
 
-- Path3 COMP↔SAT live order emitter / router  
-- Flipping the live flag (needs human ACCEPT line)  
+- Path3 COMP↔SAT **weight engines** / live delta provider (emitter PREP landed 0k9w — flag OFF)
+- Flipping the live fill flag (needs human ACCEPT line)  
 - Broker live-write
 
 ## Accept to enable flag
