@@ -25,13 +25,14 @@ Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEE
 - Stage A named proxy `P3_SOFT_SLEEVE_EQ_RECON_PROXY` (`plan_sat_equal_recon` helper kept)
 - Stage B engine `P3_COMP_SAT_ASOF_RECON_B` wired into e21 (`plan_or_none_for_pipeline`)
 - COMP→SAT: SAT RELAX KD · SAT→COMP: OR_K9×HARD150 · both-direction `-P3T0`
-- Soft-Frozen coexistence mute still open
+- Soft-Frozen coexistence mute still open (0kaa track if open)
+- Daily share SSOT Stage A **`LEDGER_SSOT_BUILT`** (0kab) — ledger-scaled recon API; **not** live-wired
 
 ## Not implemented (still BLOCKED)
 
-- Soft-Frozen flip-day coexistence mute
-- Flipping emit/fill already ON (0ka7); broker live-write / Path3 strategy cutover still BLOCKED
-- Cloning paper share ledgers (no daily pos SSOT)
+- Soft-Frozen flip-day coexistence mute live ACCEPT (if still open)
+- Live-wiring `P3_COMP_SAT_DAILY_POS_LEDGER_A` into `plan_or_none_for_pipeline`
+- Broker live-write / Path3 strategy cutover still BLOCKED
 
 ## Accept to enable emit flag
 
