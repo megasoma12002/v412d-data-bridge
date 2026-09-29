@@ -1,14 +1,14 @@
 # P3_T0_STATE dual-paper observe — OPERATING
 
 - human_accept: `ACCEPT T+0 carve-out + OPEN paper observe: P3_T0_STATE (FIN×SAT Path3 · T0_CARVE_FIN_SAT_SWITCH)`
-- status: **OPERATING_OBSERVE** · live_wire: false · cutover: **BLOCKED** · Soft-Frozen clips KEEP
+- human_retune: `ACCEPT Path3 observe retune: SAT_LEAD θ=0.005 (P3_T0_STATE · T0_CARVE_FIN_SAT_SWITCH · parents 0ka3–0ka6)` · θ **0.005** (prior 0.01)
+- status: **OPERATING_OBSERVE** · live T+0 fill/emit **ON** · broker write **false** · cutover: **BLOCKED** · Soft-Frozen clips KEEP
 - carve-out: **`T0_CARVE_FIN_SAT_SWITCH`** (Exact T+0 for COMP↔SAT switch only) · global Exact T+1 KEEP elsewhere
-- books: `CTRL_LIVE_A10` ∥ `P3_T0_STATE` (same-day SAT_LEAD→SAT else COMP · θ=0.01)
+- books: `CTRL_LIVE_A10` ∥ `P3_T0_STATE` (same-day SAT_LEAD→SAT else COMP · θ=0.005)
 - Stage A parent: `T0_ONLY_EDGE` · COMPOSITE+SAT_RELAX observes **KEEP**
-- held-out: CAGR↑ 3.4758 pp · MDD↑ 0.0996 pp
-- tip ytd CAGR↑ 2.7325 · tip 1y CAGR↑ 1.7356
-- % days SAT: 24.16
-- sealed MDD Δ −0.17pp: human **ACCEPTABLE** (abs sealed |MDD|≪full/held) · `FIN_SAT_PATH3_T0_SEALED_MDD_DISPOSITION.md`
+- held-out: CAGR↑ 3.771 pp · MDD↑ 0.0996 pp
+- tip ytd CAGR↑ 2.877 · tip 1y CAGR↑ 2.3879
+- % days SAT: 34.89
 
 ## Non-actions
 

@@ -116,21 +116,18 @@ class LiveConfig:
     fill_port: str = "paper"
     broker_live_write_accepted: bool = False  # Soft-Frozen KEEP until ACCEPT PR
 
-    # Path3 Exact T+0 fill carve-out — named allowlist OFF until dedicated ACCEPT.
-    # Policy: T0_CARVE_FIN_SAT_SWITCH (COMP↔SAT switch orders only). Soft-Frozen Exact T+1 KEEP
-    # elsewhere. Stage A 0k9t ORACLE_ONLY: hybrid/MOC tip−; same-bar needed for tip.
-    # Does NOT wire Path3 live router; only unlocks tagged same-bar fills when True.
-    live_t0_carve_fin_sat_switch_fill: bool = False
+    # Path3 Exact T+0 fill carve-out — human ACCEPT 2026-09-29 (0ka7).
+    live_t0_carve_fin_sat_switch_fill: bool = True
     live_t0_carve_fin_sat_switch_ballot: str = (
-        "DRAFT — ACCEPT Live fill carve-out: T0_CARVE_FIN_SAT_SWITCH same-bar"
+        "ACCEPT Live fill carve-out: T0_CARVE_FIN_SAT_SWITCH same-bar "
+        "(Path3 P3_T0_STATE only · Soft-Frozen Exact T+1 KEEP elsewhere)"
     )
 
-    # Path3 COMP↔SAT tagged switch order emitter — OFF until dedicated ACCEPT.
-    # When True, pipeline may append carve-tagged switch rows (still needs fill flag
-    # for same-bar MOC). Weight engines not wired → fail-closed without delta_shares.
-    live_t0_carve_fin_sat_switch_emit: bool = False
+    # Path3 COMP↔SAT tagged switch order emitter — human ACCEPT 2026-09-29 (0ka7).
+    live_t0_carve_fin_sat_switch_emit: bool = True
     live_t0_carve_fin_sat_switch_emit_ballot: str = (
-        "DRAFT — ACCEPT Live Path3 switch emitter: T0_CARVE_FIN_SAT_SWITCH tagged orders"
+        "ACCEPT Live Path3 switch emitter: T0_CARVE_FIN_SAT_SWITCH tagged orders "
+        "(P3_T0_STATE · Soft-Frozen Exact T+1 KEEP elsewhere · cutover still BLOCKED)"
     )
 
 

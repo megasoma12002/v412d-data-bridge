@@ -20,9 +20,11 @@ from fin_sat_path3_t0_observe_helpers import (
     CARVE_OUT_ID,
     CHAL_ID,
     HUMAN_ACCEPT,
+    HUMAN_RETUNE_THETA,
     STAGE_A_VERDICT,
     STATUS,
     THETA,
+    THETA_PRIOR,
 )
 from fin_sell_quality_helpers import cagr_lift_pp
 from research_metric_helpers import mdd_delta_pp
@@ -170,6 +172,10 @@ def main() -> int:
         "books": [BASE_ID, CHAL_ID],
         "stage_a_verdict": STAGE_A_VERDICT,
         "theta": THETA,
+        "theta_prior": THETA_PRIOR,
+        "human_retune_theta": HUMAN_RETUNE_THETA,
+        "live_t0_fill": True,
+        "live_t0_emit": True,
         "pct_days_sat": round(float(sig["w_sat"].mean()) * 100, 2),
         "windows": {"base": base_w, "chal": chal_w},
         "heldout_delta": {
@@ -178,7 +184,7 @@ def main() -> int:
         },
         "tip": tip,
         "parents_keep": ["COMP_H150_x_A20_OBSERVE", "SAT_A20_RELAX_OBSERVE"],
-        "register": "0k9r",
+        "register": "0ka7",
     }
 
     op_md = "\n".join(
@@ -186,7 +192,8 @@ def main() -> int:
             f"# {CHAL_ID} dual-paper observe — OPERATING",
             "",
             f"- human_accept: `{HUMAN_ACCEPT}`",
-            f"- status: **{STATUS}** · live_wire: false · cutover: **BLOCKED** · Soft-Frozen clips KEEP",
+            f"- human_retune: `{HUMAN_RETUNE_THETA}` · θ **{THETA}** (prior {THETA_PRIOR})",
+            f"- status: **{STATUS}** · live T+0 fill/emit **ON** · broker write **false** · cutover: **BLOCKED** · Soft-Frozen clips KEEP",
             f"- carve-out: **`{CARVE_OUT_ID}`** (Exact T+0 for COMP↔SAT switch only) · global Exact T+1 KEEP elsewhere",
             f"- books: `{BASE_ID}` ∥ `{CHAL_ID}` (same-day SAT_LEAD→SAT else COMP · θ={THETA})",
             f"- Stage A parent: `{STAGE_A_VERDICT}` · COMPOSITE+SAT_RELAX observes **KEEP**",

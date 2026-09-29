@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
-"""Path3 COMP↔SAT switch order emitter — PREP (flag OFF).
+"""Path3 COMP↔SAT switch order emitter (0ka7 ACCEPT · flag ON).
 
 Builds ``carve_out_id=T0_CARVE_FIN_SAT_SWITCH`` tagged Soft-Frozen order rows
 for Exact T+0 same-bar fill allowlist (0k9u). Soft-Frozen Exact T+1 KEEP
-elsewhere · Path3 observe KEEP · cutover BLOCKED · no broker write.
+elsewhere · observe θ=0.005 · cutover BLOCKED · no broker write.
 
-Emit stays **OFF** until dedicated ACCEPT flips
-``LIVE.live_t0_carve_fin_sat_switch_emit``. Full COMP/SAT sleeve weight engines
-are **not** wired here — ``maybe_emit_switch_orders`` fail-closes without an
-explicit ``delta_shares`` plan (cutover / Stage-B scope).
+``LIVE.live_t0_carve_fin_sat_switch_emit`` **True** after 0ka7 ACCEPT. Full
+COMP/SAT sleeve weight engines are **not** wired — ``maybe_emit_switch_orders``
+fail-closes without an explicit ``delta_shares`` plan.
 """
 from __future__ import annotations
 
@@ -19,6 +18,7 @@ from typing import Any, Callable, Mapping, Sequence
 import numpy as np
 import pandas as pd
 
+from fin_sat_path3_t0_observe_helpers import THETA as P3_OBSERVE_THETA
 from t0_carve_fin_sat_switch import (
     CARVE_OUT_ID,
     MECHANISM,
@@ -32,7 +32,7 @@ COMP_NAV = ROOT / "repro/fin-sat-composite-dual-paper-observe/outputs/comp_h150_
 SAT_NAV = ROOT / "repro/sat-a20-relax-dual-paper-observe/outputs/sat_a20_relax_daily_nav.csv"
 SIGNAL_CSV = ROOT / "repro/fin-sat-path3-t0-dual-paper-observe/outputs/p3_t0_state_signal.csv"
 
-THETA = 0.01
+THETA = P3_OBSERVE_THETA
 BOOK_COMP = "COMP_H150_x_A20"
 BOOK_SAT = "SAT_A20_RELAX"
 
