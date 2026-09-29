@@ -1,0 +1,477 @@
+{
+  "label": "FIN_SAT_PATH3_T0_FILL_SIM_STAGEA_SCREEN_20260929T002127Z",
+  "generated_at_utc": "2026-09-29T00:21:27Z",
+  "charter": "FIN_SAT_PATH3_T0_FILL_SIM_STAGEA_CHARTER",
+  "register": "0k9v",
+  "verdict": "FILL_CARVE_CLOSE_ONLY",
+  "theta": 0.01,
+  "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+  "mapping": {
+    "FILL_CARVE_CLOSE": "live fill allowlist ON + reference_close same-bar ≡ P3_T0_STATE",
+    "STATUS_QUO_T1": "fill allowlist OFF / Exact T+1 open earn"
+  },
+  "gap_carve_minus_t1": {
+    "held_cagr_gap_pp": 2.1796,
+    "tip_ytd_gap_pp": 11.225,
+    "tip_1y_gap_pp": 7.4692,
+    "sealed_cagr_gap_pp": 2.3554
+  },
+  "fill_carve_yearly_wl": {
+    "carve_wins": 14,
+    "base_wins": 1
+  },
+  "rows": [
+    {
+      "id": "CTRL_LIVE_A10",
+      "fam": "ctrl",
+      "meta": {
+        "pct_days_sat": 0.0,
+        "n_flips": 0,
+        "mean_w_sat": 0.0,
+        "note": "live Soft-Frozen base (Exact T+1 stack)"
+      },
+      "eval": {
+        "held_cagr_lift_pp": -0.0,
+        "held_mdd_pp": 0.0,
+        "held_abs_mdd": -0.144234,
+        "tip_ytd_cagr_pp": 0.0,
+        "tip_1y_cagr_pp": 0.0,
+        "tip_ytd_mdd_pp": 0.0,
+        "tip_1y_mdd_pp": 0.0,
+        "family": "ctrl",
+        "sf_ok": true,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "vs_sat_held": false,
+          "shaped": false
+        },
+        "score": 1.0,
+        "hit": false,
+        "fill_carve_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.127381,
+          "max_drawdown": -0.144234,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087124,
+          "max_drawdown": -0.129568,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.134708,
+          "max_drawdown": -0.144234,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.195101,
+          "max_drawdown": -0.062022,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.163054,
+          "max_drawdown": -0.144234,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "FILL_CARVE_CLOSE",
+      "fam": "fill_sim",
+      "meta": {
+        "pct_days_sat": 24.16,
+        "n_flips": 153,
+        "mean_w_sat": 0.2416,
+        "note": "Simulated live fill carve T0_CARVE_FIN_SAT_SWITCH: tagged Path3 switch fills same-bar @ reference_close (≡ P3_T0_STATE observe upper bound)"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 3.4758,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": 2.7325,
+        "tip_1y_cagr_pp": 1.7356,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "fill_sim",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": true
+        },
+        "score": 8.6243,
+        "hit": false,
+        "fill_carve_shaped": true
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 2.7325,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 1.7356,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.159663,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.116676,
+          "max_drawdown": -0.118487,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.158134,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.242923,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.197812,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "STATUS_QUO_T1",
+      "fam": "fill_sim",
+      "meta": {
+        "pct_days_sat": 24.13,
+        "n_flips": 153,
+        "mean_w_sat": 0.2413,
+        "note": "No fill carve: Path3 decision day-t, earn from T+1 open (SAT_LEAD.shift(1))"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 1.2962,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -8.4925,
+        "tip_1y_cagr_pp": -5.7336,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "fill_sim",
+        "sf_ok": true,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false
+        },
+        "score": -5.154,
+        "hit": false,
+        "fill_carve_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -8.4925,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -5.7336,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.127733,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.073006,
+          "max_drawdown": -0.142742,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.137836,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.219369,
+          "max_drawdown": -0.067806,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.176016,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "P2_SAT_PURE",
+      "fam": "ref",
+      "meta": {
+        "pct_days_sat": 100.0,
+        "n_flips": 0,
+        "mean_w_sat": 1.0,
+        "note": "always SAT tip line (SF-legal ref)"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 0.3343,
+        "held_mdd_pp": -0.3084,
+        "held_abs_mdd": -0.147318,
+        "tip_ytd_cagr_pp": 0.6801,
+        "tip_1y_cagr_pp": 0.7413,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "family": "ref",
+        "sf_ok": true,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": false,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "vs_sat_held": false,
+          "shaped": false
+        },
+        "score": 2.2002,
+        "hit": false,
+        "fill_carve_shaped": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 0.6801,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 0.7413,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.129429,
+          "max_drawdown": -0.147318,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087684,
+          "max_drawdown": -0.128951,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.139702,
+          "max_drawdown": -0.147318,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.196418,
+          "max_drawdown": -0.063015,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.166397,
+          "max_drawdown": -0.147318,
+          "n_days": 1870
+        }
+      }
+    }
+  ],
+  "yearly_fill_carve_vs_base": [
+    {
+      "year": 2012,
+      "base_ret_pct": 0.55,
+      "chal_ret_pct": 1.2,
+      "ret_lift_pp": 0.65,
+      "base_mdd_pct": -2.49,
+      "chal_mdd_pct": -2.31,
+      "mdd_lift_pp": 0.19,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2013,
+      "base_ret_pct": 7.26,
+      "chal_ret_pct": 11.46,
+      "ret_lift_pp": 4.2,
+      "base_mdd_pct": -7.11,
+      "chal_mdd_pct": -6.7,
+      "mdd_lift_pp": 0.41,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2014,
+      "base_ret_pct": 7.27,
+      "chal_ret_pct": 11.31,
+      "ret_lift_pp": 4.04,
+      "base_mdd_pct": -7.55,
+      "chal_mdd_pct": -6.31,
+      "mdd_lift_pp": 1.25,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2015,
+      "base_ret_pct": -1.64,
+      "chal_ret_pct": 0.81,
+      "ret_lift_pp": 2.44,
+      "base_mdd_pct": -10.0,
+      "chal_mdd_pct": -9.22,
+      "mdd_lift_pp": 0.78,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2016,
+      "base_ret_pct": 14.56,
+      "chal_ret_pct": 15.76,
+      "ret_lift_pp": 1.19,
+      "base_mdd_pct": -4.06,
+      "chal_mdd_pct": -4.69,
+      "mdd_lift_pp": -0.63,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2017,
+      "base_ret_pct": 17.58,
+      "chal_ret_pct": 21.36,
+      "ret_lift_pp": 3.78,
+      "base_mdd_pct": -2.65,
+      "chal_mdd_pct": -2.7,
+      "mdd_lift_pp": -0.05,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2018,
+      "base_ret_pct": 7.65,
+      "chal_ret_pct": 10.1,
+      "ret_lift_pp": 2.46,
+      "base_mdd_pct": -6.65,
+      "chal_mdd_pct": -6.97,
+      "mdd_lift_pp": -0.32,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2019,
+      "base_ret_pct": 20.49,
+      "chal_ret_pct": 22.73,
+      "ret_lift_pp": 2.24,
+      "base_mdd_pct": -4.31,
+      "chal_mdd_pct": -2.81,
+      "mdd_lift_pp": 1.5,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2020,
+      "base_ret_pct": 5.85,
+      "chal_ret_pct": 9.17,
+      "ret_lift_pp": 3.32,
+      "base_mdd_pct": -14.42,
+      "chal_mdd_pct": -14.32,
+      "mdd_lift_pp": 0.1,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2021,
+      "base_ret_pct": 20.63,
+      "chal_ret_pct": 25.29,
+      "ret_lift_pp": 4.66,
+      "base_mdd_pct": -7.14,
+      "chal_mdd_pct": -7.28,
+      "mdd_lift_pp": -0.14,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2022,
+      "base_ret_pct": 6.5,
+      "chal_ret_pct": 5.75,
+      "ret_lift_pp": -0.75,
+      "base_mdd_pct": -9.53,
+      "chal_mdd_pct": -10.93,
+      "mdd_lift_pp": -1.39,
+      "winner": "BASE"
+    },
+    {
+      "year": 2023,
+      "base_ret_pct": 12.7,
+      "chal_ret_pct": 22.78,
+      "ret_lift_pp": 10.09,
+      "base_mdd_pct": -6.2,
+      "chal_mdd_pct": -6.37,
+      "mdd_lift_pp": -0.17,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2024,
+      "base_ret_pct": 10.63,
+      "chal_ret_pct": 10.66,
+      "ret_lift_pp": 0.04,
+      "base_mdd_pct": -4.42,
+      "chal_mdd_pct": -4.7,
+      "mdd_lift_pp": -0.28,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2025,
+      "base_ret_pct": 11.21,
+      "chal_ret_pct": 16.07,
+      "ret_lift_pp": 4.86,
+      "base_mdd_pct": -5.88,
+      "chal_mdd_pct": -5.06,
+      "mdd_lift_pp": 0.81,
+      "winner": "FILL_CARVE"
+    },
+    {
+      "year": 2026,
+      "base_ret_pct": 34.7,
+      "chal_ret_pct": 36.36,
+      "ret_lift_pp": 1.66,
+      "base_mdd_pct": -6.09,
+      "chal_mdd_pct": -6.07,
+      "mdd_lift_pp": 0.02,
+      "winner": "FILL_CARVE"
+    }
+  ],
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "live_wire": false,
+  "fill_flag": false
+}
