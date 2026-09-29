@@ -20,18 +20,18 @@ Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEE
 - Signal days: 3365 · proposed flips: **153** · %days SAT **24.16**
 - Repro: `repro/fin-sat-path3-t0-emitter-prep/`
 
-## Weight engine (0ka8 Stage A)
+## Weight engine (0ka8 Stage A → 0ka9 Stage B)
 
-- Named proxy `P3_SOFT_SLEEVE_EQ_RECON_PROXY` wired into e21 (`plan_or_none_for_pipeline`)
-- COMP→SAT equal-recon deltas · COMP identity empty (Stage B)
+- Stage A named proxy `P3_SOFT_SLEEVE_EQ_RECON_PROXY` (`plan_sat_equal_recon` helper kept)
+- Stage B engine `P3_COMP_SAT_ASOF_RECON_B` wired into e21 (`plan_or_none_for_pipeline`)
+- COMP→SAT: SAT RELAX KD · SAT→COMP: OR_K9×HARD150 · both-direction `-P3T0`
 - Soft-Frozen coexistence mute still open
 
 ## Not implemented (still BLOCKED)
 
-- COMP↔SAT sleeve **weight engines** (delta_shares provider)
-- Flipping emit flag (needs human ACCEPT)
-- Flipping fill flag (separate 0k9u ACCEPT)
-- Broker live-write / Path3 strategy cutover
+- Soft-Frozen flip-day coexistence mute
+- Flipping emit/fill already ON (0ka7); broker live-write / Path3 strategy cutover still BLOCKED
+- Cloning paper share ledgers (no daily pos SSOT)
 
 ## Accept to enable emit flag
 

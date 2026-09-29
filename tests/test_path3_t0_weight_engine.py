@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
-"""Guards for Path3 COMP↔SAT weight-engine Stage A proxy (0ka8)."""
+"""Guards for Path3 COMP↔SAT weight-engine Stage A proxy helpers (0ka8).
+
+Stage B (0ka9) owns ``plan_delta_shares`` both-direction asof recon; Stage A
+equal-recon helper remains as ``plan_sat_equal_recon``.
+"""
 from __future__ import annotations
 
 import unittest
-from unittest import mock
 
 import pandas as pd
 
-from e16_soft_frozen_base import FIN, TEL
 from live_path3_t0_switch_emitter import BOOK_COMP, BOOK_SAT, maybe_emit_switch_orders
 from live_path3_t0_weight_engine import (
     ENGINE_ID,
+    ENGINE_ID_STAGEA,
     plan_delta_shares,
     plan_sat_equal_recon,
 )
@@ -54,7 +57,7 @@ class WeightEngineSatRecon(unittest.TestCase):
             "0050": 100.0,
         }
         delta, meta = plan_sat_equal_recon(pos=pos, prices=prices)
-        self.assertEqual(meta["engine_id"], ENGINE_ID)
+        self.assertEqual(meta["engine_id"], ENGINE_ID_STAGEA)
         self.assertGreater(meta["n_delta_names"], 0)
         self.assertIn("2880", delta)
         # 0050 KEEP — not in delta
@@ -86,7 +89,8 @@ class WeightEngineSatRecon(unittest.TestCase):
             asof="2026-09-24", pos=pos, prices=prices, signal=sig, require_flip=True
         )
         self.assertIsNotNone(delta)
-        self.assertEqual(meta["reason"], "sat_equal_recon")
+        self.assertEqual(meta["engine_id"], ENGINE_ID)
+        self.assertTrue(str(meta.get("reason", "")).startswith("sat_"))
         self.assertGreater(len(delta or {}), 0)
         rows, em = maybe_emit_switch_orders(
             asof="2026-09-24",
@@ -112,7 +116,8 @@ class WeightEngineSatRecon(unittest.TestCase):
         self.assertIsNone(delta)
         self.assertEqual(meta["reason"], "no_flip")
 
-    def test_comp_identity_empty(self) -> None:
+    def test_comp_flip_uses_stageb_policy(self) -> None:
+        """Stage B supersedes Stage A COMP identity — OR_K9×HARD150 path."""
         sig = pd.DataFrame(
             {
                 "date": pd.to_datetime(["2026-09-23", "2026-09-24"]),
@@ -124,15 +129,37 @@ class WeightEngineSatRecon(unittest.TestCase):
                 "book_prev": [BOOK_SAT, BOOK_SAT],
             }
         )
+        pos = {
+            "2880": 2_700_000.0,
+            "2886": 2_200_000.0,
+            "2892": 3_100_000.0,
+            "5880": 4_200_000.0,
+            "2412": 80_000.0,
+            "3045": 100_000.0,
+            "4904": 110_000.0,
+            "0050": 300_000.0,
+        }
+        prices = {
+            "2880": 45.0,
+            "2886": 50.0,
+            "2892": 40.0,
+            "5880": 26.0,
+            "2412": 145.0,
+            "3045": 120.0,
+            "4904": 105.0,
+            "0050": 110.0,
+        }
         delta, meta = plan_delta_shares(
             asof="2026-09-24",
-            pos={"2880": 1000.0, "2886": 1000.0},
-            prices={"2880": 40.0, "2886": 40.0},
+            pos=pos,
+            prices=prices,
             signal=sig,
             require_flip=True,
         )
-        self.assertEqual(delta, {})
-        self.assertEqual(meta["reason"], "comp_identity_proxy_no_delta")
+        self.assertIsNotNone(delta)
+        self.assertEqual(meta["engine_id"], ENGINE_ID)
+        self.assertTrue(str(meta.get("reason", "")).startswith("comp_"))
+        self.assertEqual(meta.get("policy"), "OR_K9xHARD150")
 
 
 if __name__ == "__main__":

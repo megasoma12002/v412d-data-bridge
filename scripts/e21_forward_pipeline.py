@@ -315,7 +315,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         )
         order_rows.extend(off_orders)
         conf_ret3_order_meta["enabled"] = True
-    # Path3 T0 carve switch emitter — weight-engine Stage A proxy (0ka8).
+    # Path3 T0 carve switch emitter — weight-engine Stage B asof recon (0ka9).
     path3_emit_meta: dict = {"enabled": bool(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT)}
     path3_weight_meta: dict = {"engine_id": None, "reason": "emit_flag_off"}
     if LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT:

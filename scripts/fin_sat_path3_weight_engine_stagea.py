@@ -24,7 +24,12 @@ from live_path3_t0_switch_emitter import (
     load_or_build_signal,
     maybe_emit_switch_orders,
 )
-from live_path3_t0_weight_engine import ENGINE_ID, plan_delta_shares, plan_sat_equal_recon
+from live_path3_t0_weight_engine import (
+    ENGINE_ID,
+    ENGINE_ID_STAGEA,
+    plan_delta_shares,
+    plan_sat_equal_recon,
+)
 from ops_repro_ssot import write_ops_and_repro_pointer, write_repro_pointer
 from t0_carve_fin_sat_switch import CARVE_OUT_ID
 
@@ -104,8 +109,9 @@ def main() -> int:
     delta, plan_meta = plan_delta_shares(
         asof=demo_asof, pos=pos, prices=prices, signal=sig, require_flip=True
     )
-    # Also show raw equal recon regardless of book (probe)
+    # Also show raw equal recon regardless of book (Stage A proxy probe)
     recon_delta, recon_meta = plan_sat_equal_recon(pos=pos, prices=prices)
+    assert recon_meta.get("engine_id") == ENGINE_ID_STAGEA
 
     rows: list[dict[str, Any]] = []
     emit_meta: dict[str, Any] = {}
