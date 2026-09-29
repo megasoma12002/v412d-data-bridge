@@ -243,6 +243,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - FIN×SAT FFT exog×TD AND Stage A **`EXOG_FFT_WEAK`** 2026-09-29 — AND 輸 P3 parent · Soft-Frozen KEEP · no live · `FIN_SAT_FFT_EXOG_AND_STAGEA_DECISION_PACK.md`
 - FIN×SAT FFT non-switch tilt Stage A **`FFT_OBSERVE_ONLY`** 2026-09-29 — tilts dominated by P3 hard · observe-only · Soft-Frozen KEEP · no live · `FIN_SAT_FFT_NONSWITCH_TILT_STAGEA_DECISION_PACK.md`
 - FIN×SAT Path3 θ sweep Stage A **`THETA_HIT`** 2026-09-29 — challenger θ=0.005 tip/held↑ · parent observe θ=0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_THETA_SWEEP_STAGEA_DECISION_PACK.md`
+- FIN×SAT Path3 θ dense down-grid Stage A **`THETA_DOWN_CONFIRM`** 2026-09-29 — champion still θ=0.005 · observe 0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_THETA_DOWN_GRID_STAGEA_DECISION_PACK.md`
 - R5 synthetic observe OK 2026-09-27 — waiting real `fixtures/r5_custody_dropin.csv` · `R5_OBSERVE_SYNTHETIC_2026-09-27.md`
 - R2 MDD band floor **−14.5% ACCEPTED** 2026-09-25 — paper rescore only · Soft-Frozen KEEP · no live wire · `ACCEPT_R2_MDD_BAND_FLOOR_14_5_2026-09-25.md` · Stage A still `BAND_ONLY`
 - R2/Stage-B MDD band floor **−15% ACCEPTED** 2026-09-25 — tip-safe FAST rescore **`TIPSAFE_STRETCH`** (`COOL_c8_f50_d21` · `GATE_g04_f50_d21`) · Soft-Frozen KEEP · `ACCEPT_R2_MDD_BAND_FLOOR_15_2026-09-25.md`
