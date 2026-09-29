@@ -1,0 +1,16 @@
+{
+  "id": "FIN_SAT_PATH3_T0_FILL_SIM_STAGEA_CHARTER",
+  "register": "0k9v",
+  "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+  "books": [
+    "CTRL_LIVE_A10",
+    "FILL_CARVE_CLOSE",
+    "STATUS_QUO_T1",
+    "P2_SAT_PURE"
+  ],
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "live_wire": false,
+  "fill_flag": false,
+  "cutover": "BLOCKED"
+}

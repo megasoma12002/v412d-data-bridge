@@ -1,0 +1,88 @@
+{
+  "label": "FIN_SAT_PATH3_T0_FILL_SIM_STAGEA_DECISION_PACK_2026-09-29__FILL_CARVE_CLOSE_ONLY__NO_LIVE",
+  "verdict": "FILL_CARVE_CLOSE_ONLY",
+  "register": "0k9v",
+  "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+  "gap_carve_minus_t1": {
+    "held_cagr_gap_pp": 2.1796,
+    "tip_ytd_gap_pp": 11.225,
+    "tip_1y_gap_pp": 7.4692,
+    "sealed_cagr_gap_pp": 2.3554
+  },
+  "fill_carve_close": {
+    "held_cagr_lift_pp": 3.4758,
+    "held_mdd_pp": 0.0996,
+    "held_abs_mdd": -0.143238,
+    "tip_ytd_cagr_pp": 2.7325,
+    "tip_1y_cagr_pp": 1.7356,
+    "tip_ytd_mdd_pp": 0.021,
+    "tip_1y_mdd_pp": 0.021,
+    "family": "fill_sim",
+    "sf_ok": false,
+    "gates": {
+      "cagr": true,
+      "mdd_near_flat": true,
+      "mdd_band": true,
+      "tip_mdd": true,
+      "tip_cagr": true,
+      "tip_clean": true,
+      "economic": true,
+      "vs_sat_held": true,
+      "shaped": true
+    },
+    "score": 8.6243,
+    "hit": false,
+    "fill_carve_shaped": true
+  },
+  "status_quo_t1": {
+    "held_cagr_lift_pp": 1.2962,
+    "held_mdd_pp": 0.0996,
+    "held_abs_mdd": -0.143238,
+    "tip_ytd_cagr_pp": -8.4925,
+    "tip_1y_cagr_pp": -5.7336,
+    "tip_ytd_mdd_pp": 0.021,
+    "tip_1y_mdd_pp": 0.021,
+    "family": "fill_sim",
+    "sf_ok": true,
+    "gates": {
+      "cagr": true,
+      "mdd_near_flat": true,
+      "mdd_band": true,
+      "tip_mdd": true,
+      "tip_cagr": false,
+      "tip_clean": false,
+      "economic": true,
+      "vs_sat_held": true,
+      "shaped": false
+    },
+    "score": -5.154,
+    "hit": false,
+    "fill_carve_shaped": false
+  },
+  "sealed": {
+    "base": {
+      "cagr": 0.195101,
+      "max_drawdown": -0.062022,
+      "n_days": 893
+    },
+    "fill_carve_close": {
+      "cagr": 0.242923,
+      "max_drawdown": -0.063673,
+      "n_days": 893
+    },
+    "status_quo_t1": {
+      "cagr": 0.219369,
+      "max_drawdown": -0.067806,
+      "n_days": 893
+    }
+  },
+  "yearly_wl": {
+    "carve": 14,
+    "base": 1
+  },
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "live_wire": false,
+  "fill_flag": false,
+  "cutover": "BLOCKED"
+}
