@@ -1,0 +1,18 @@
+{
+  "id": "FIN_SAT_PATH3_WRONG_STAY_CENSUS_STAGEA_CHARTER",
+  "register": "0ka5",
+  "thetas": [
+    0.01,
+    0.005
+  ],
+  "severity": {
+    "severe_gap_pp": -0.5,
+    "severe_min_days": 10,
+    "mod_gap_pp": -0.1,
+    "mod_vs_best_pp": -0.3
+  },
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "fill_emit_flags": false,
+  "live_wire": false
+}
