@@ -1,0 +1,53 @@
+{
+  "label": "FIN_SAT_PATH3_COMP_ENTRY_SIGNAL_STAGEA_DECISION_PACK_2026-09-29__SIGNAL_WEAK__NO_LIVE",
+  "verdict": "SIGNAL_WEAK",
+  "register": "0k9z",
+  "summary": {
+    "n_comp_entries": 76,
+    "n_good": 55,
+    "n_bad": 21,
+    "pct_good": 72.37,
+    "n_2022": 7,
+    "n_2022_good": 4,
+    "mean_ep_days": 32.72
+  },
+  "best_feature": {
+    "feature": "rel_5",
+    "n": 76,
+    "ic_full": 0.1713,
+    "ic_oof_le2018": -0.0075,
+    "ic_held_ge2019": 0.3508,
+    "hit_median": 0.5921,
+    "hit_side": "high→good",
+    "mean_good": 0.00027,
+    "mean_bad": 0.00014,
+    "abs_ic": 0.17134654818865344
+  },
+  "probe": {
+    "id": "BLOCK_rel_5",
+    "feature": "rel_5",
+    "side": "high→good",
+    "threshold": 0.0005270594619857794,
+    "y2022_base": 6.5,
+    "y2022_p3": 5.75,
+    "y2022_probe": 7.29,
+    "y2022_vs_base_p3": -0.75,
+    "y2022_vs_base_probe": 0.79,
+    "held_p3": 3.4758,
+    "held_probe": 3.6722,
+    "tip_ytd_p3": 2.7325,
+    "tip_ytd_probe": 2.1769,
+    "n_flips_p3": 153,
+    "n_flips_probe": 121,
+    "pct_sat_p3": 24.16,
+    "pct_sat_probe": 27.4,
+    "y2022_ok": true,
+    "tip_ok": false,
+    "held_ok": true
+  },
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "fill_emit_flags": false,
+  "live_wire": false,
+  "cutover": "BLOCKED"
+}
