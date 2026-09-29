@@ -1,0 +1,14 @@
+{
+  "id": "FIN_SAT_PATH3_WINDOW_PACK_STAGEA_CHARTER",
+  "register": "0ka6",
+  "windows": [
+    "full",
+    "heldout_2019_plus",
+    "sealed_2023_plus"
+  ],
+  "sealed_mdd_floor_pp": -0.25,
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "fill_emit_flags": false,
+  "live_wire": false
+}
