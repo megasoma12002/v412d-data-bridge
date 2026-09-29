@@ -1,0 +1,19 @@
+{
+  "id": "FIN_SAT_PATH3_THETA_SWEEP_STAGEA_CHARTER",
+  "register": "0ka3",
+  "parent_theta": 0.01,
+  "grid": [
+    0.005,
+    0.0075,
+    0.01,
+    0.0125,
+    0.015,
+    0.02,
+    0.025,
+    0.03
+  ],
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "fill_emit_flags": false,
+  "live_wire": false
+}

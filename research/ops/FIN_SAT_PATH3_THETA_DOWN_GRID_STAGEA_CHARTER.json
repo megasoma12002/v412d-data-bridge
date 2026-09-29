@@ -1,0 +1,31 @@
+{
+  "id": "FIN_SAT_PATH3_THETA_DOWN_GRID_STAGEA_CHARTER",
+  "register": "0ka4",
+  "parent_theta": 0.01,
+  "ref_hit_theta": 0.005,
+  "grid": [
+    0.001,
+    0.0015,
+    0.002,
+    0.0025,
+    0.003,
+    0.0035,
+    0.004,
+    0.0045,
+    0.005,
+    0.0055,
+    0.006,
+    0.0065,
+    0.007,
+    0.0075,
+    0.008,
+    0.0085,
+    0.009,
+    0.0095,
+    0.01
+  ],
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "fill_emit_flags": false,
+  "live_wire": false
+}
