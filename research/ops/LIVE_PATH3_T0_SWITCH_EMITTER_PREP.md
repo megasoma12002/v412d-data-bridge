@@ -31,6 +31,7 @@ Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEE
 
 ## Not implemented (still BLOCKED)
 
+- Path3 strategy cutover (`PATH3_STRATEGY_CUTOVER` / 0kac CHARTER) — Soft still primary daily; flip carve only
 - Broker live-write / Path3 strategy cutover still BLOCKED
 
 ## Accept to enable emit flag
