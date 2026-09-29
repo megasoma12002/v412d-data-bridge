@@ -1,10 +1,10 @@
 # Ops Status — One-Page Map
 
-Date: 2026-09-27 (ops pack: R5 synth · UAT readonly checklist · SAT_A20 decision · tip catch-up **2026-09-29**)  
+Date: 2026-09-29 (tip catch-up CONFIRMED · Path3 dual-paper/signal/ledger refreshed)  
 Charter: `research/ops/OPS_CONVERGENCE_CHARTER.md`  
 Live Soft-Frozen clips: **F[0.60, 0.80] T[0.03, 0.35] E[0.00, 0.50]** (β densify ACCEPT 2026-09-25; was FINBAND F[0.60,0.90] E[0.00,0.35])  
 Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27)  
-**Tip calendar:** last tip `2026-09-24` · closed 9/25–28 · **next session 2026-09-29** · checklist `TIP_CATCHUP_2026-09-29_CHECKLIST.md`  
+**Tip calendar:** live + COMPOSITE/SAT/P3 signal/ledger tip **`2026-09-29`** · holiday gap 9/25–28 · evidence `TIP_CATCHUP_2026-09-29.md` · checklist `TIP_CATCHUP_2026-09-29_CHECKLIST.md`  
 **Cutover `#257`: CLOSED** (not merged) · `ACCEPT_CLOSE_CUTOVER_BUNDLE_257.md` · live KEEP 公股+FUSE · DH later **replaced by COOL_c8** 2026-09-25 · reopen only new mechanism or sealed-gate  
 **Deferred ops ACCEPT:** `ACCEPT_DEFERRED_OPS_HARDEN_2026-09-25.md` · broker PREP `ACCEPT_PREP_BROKER_LIVE_WRITE_2026-09-25.md` · Stage-E sandbox `ACCEPT_RESEARCH_STAGE_E_FULL_HISTORY_SANDBOX_2026-09-25.md`  
 **Eng tip-path P0–P2:** merged `#314` · Soft-Frozen KEEP  
