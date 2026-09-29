@@ -1,0 +1,9 @@
+{
+  "id": "FIN_SAT_PATH3_WEIGHT_ENGINE_STAGEB_CHARTER",
+  "register": "0ka9",
+  "engine_id": "P3_COMP_SAT_ASOF_RECON_B",
+  "parent": "0ka8",
+  "soft_frozen_keep": true,
+  "broker_live_write": false,
+  "cutover": "BLOCKED"
+}

@@ -7,7 +7,7 @@
   "live_t0_carve_fin_sat_switch_emit": false,
   "n_proposed_flips": 153,
   "pct_days_sat": 24.16,
-  "weight_engine": "not_wired",
+  "weight_engine": "P3_COMP_SAT_ASOF_RECON_B",
   "soft_frozen_keep": true,
   "path3_observe_keep": true,
   "live_wire": false,

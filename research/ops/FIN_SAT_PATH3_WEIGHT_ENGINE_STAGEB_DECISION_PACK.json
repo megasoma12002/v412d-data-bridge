@@ -1,0 +1,158 @@
+{
+  "label": "FIN_SAT_PATH3_WEIGHT_ENGINE_STAGEB_DECISION_PACK_2026-09-29__FULL_ENGINE_BOTH_OK__NO_BROKER",
+  "verdict": "FULL_ENGINE_BOTH_OK",
+  "register": "0ka9",
+  "engine_id": "P3_COMP_SAT_ASOF_RECON_B",
+  "screen": {
+    "label": "FIN_SAT_PATH3_WEIGHT_ENGINE_STAGEB_SCREEN_20260929T113715Z",
+    "generated_at_utc": "2026-09-29T11:37:15Z",
+    "verdict": "FULL_ENGINE_BOTH_OK",
+    "register": "0ka9",
+    "engine_id": "P3_COMP_SAT_ASOF_RECON_B",
+    "state_asof": "2026-09-24",
+    "to_sat": {
+      "label": "COMP→SAT",
+      "asof": "2026-06-12",
+      "plan_reason": "sat_relax_kd",
+      "policy": "SAT_RELAX_KD",
+      "n_delta_names": 6,
+      "delta_shares": {
+        "2412": -3000.0,
+        "2880": 2334000.0,
+        "2886": -2139000.0,
+        "2892": -2989000.0,
+        "4904": 2000.0,
+        "5880": 4434000.0
+      },
+      "forced_zero_hard": null,
+      "n_orders": 6,
+      "emit_reason": "emitted",
+      "order_ids": [
+        "2026-06-12-2412-SELL-P3T0",
+        "2026-06-12-2886-SELL-P3T0",
+        "2026-06-12-2892-SELL-P3T0",
+        "2026-06-12-2880-BUY-P3T0",
+        "2026-06-12-4904-BUY-P3T0",
+        "2026-06-12-5880-BUY-P3T0"
+      ],
+      "all_p3t0": true,
+      "all_carve": true,
+      "fill": {
+        "n_fills": 3,
+        "fill_ok": true,
+        "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+        "fill_policy": "T0_CARVE_MOC_REF_CLOSE"
+      },
+      "plan_meta": {
+        "engine_id": "P3_COMP_SAT_ASOF_RECON_B",
+        "asof": "2026-06-12",
+        "dest_book": "SAT_A20_RELAX",
+        "overlay_asof": "2026-06-12",
+        "policy": "SAT_RELAX_KD",
+        "fin_notional": 476401750.0,
+        "tel_notional": 35667500.0,
+        "n_eligible_fin": 4,
+        "n_delta_names": 6,
+        "delta_shares": {
+          "2412": -3000.0,
+          "2880": 2334000.0,
+          "2886": -2139000.0,
+          "2892": -2989000.0,
+          "4904": 2000.0,
+          "5880": 4434000.0
+        },
+        "asof_used": "2026-06-12",
+        "reason": "sat_relax_kd"
+      }
+    },
+    "to_comp": {
+      "label": "SAT→COMP",
+      "asof": "2026-05-20",
+      "plan_reason": "comp_or_k9_hard150",
+      "policy": "OR_K9xHARD150",
+      "n_delta_names": 6,
+      "delta_shares": {
+        "2412": -3000.0,
+        "2880": -2704000.0,
+        "2886": 7311000.0,
+        "2892": -3183000.0,
+        "4904": 2000.0,
+        "5880": -4281000.0
+      },
+      "forced_zero_hard": [
+        "2880",
+        "2892",
+        "5880"
+      ],
+      "n_orders": 6,
+      "emit_reason": "emitted",
+      "order_ids": [
+        "2026-05-20-2412-SELL-P3T0",
+        "2026-05-20-2880-SELL-P3T0",
+        "2026-05-20-2892-SELL-P3T0",
+        "2026-05-20-5880-SELL-P3T0",
+        "2026-05-20-2886-BUY-P3T0",
+        "2026-05-20-4904-BUY-P3T0"
+      ],
+      "all_p3t0": true,
+      "all_carve": true,
+      "fill": {
+        "n_fills": 2,
+        "fill_ok": true,
+        "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+        "fill_policy": "T0_CARVE_MOC_REF_CLOSE"
+      },
+      "plan_meta": {
+        "engine_id": "P3_COMP_SAT_ASOF_RECON_B",
+        "asof": "2026-05-20",
+        "dest_book": "COMP_H150_x_A20",
+        "overlay_asof": "2026-05-20",
+        "policy": "OR_K9xHARD150",
+        "fin_notional": 476401750.0,
+        "tel_notional": 35667500.0,
+        "n_eligible_fin": 1,
+        "forced_zero_hard": [
+          "2880",
+          "2892",
+          "5880"
+        ],
+        "n_delta_names": 6,
+        "delta_shares": {
+          "2412": -3000.0,
+          "2880": -2704000.0,
+          "2886": 7311000.0,
+          "2892": -3183000.0,
+          "4904": 2000.0,
+          "5880": -4281000.0
+        },
+        "asof_used": "2026-05-20",
+        "reason": "comp_or_k9_hard150"
+      }
+    },
+    "noflip_control": {
+      "engine_id": "P3_COMP_SAT_ASOF_RECON_B",
+      "switch": {
+        "asof": "2026-09-24",
+        "ok": true,
+        "flip": false,
+        "sat_lead": true,
+        "w_sat": 1.0,
+        "book": "SAT_A20_RELAX",
+        "book_prev": "SAT_A20_RELAX",
+        "trail_rel_63": -0.0357380062856641,
+        "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+        "mechanism": "P3_T0_STATE",
+        "theta": 0.005
+      },
+      "asof": "2026-09-24",
+      "reason": "no_flip"
+    },
+    "soft_frozen_keep": true,
+    "broker_live_write": false,
+    "cutover": "BLOCKED",
+    "e21_history_rewritten": false
+  },
+  "soft_frozen_keep": true,
+  "broker_live_write": false,
+  "cutover": "BLOCKED"
+}
