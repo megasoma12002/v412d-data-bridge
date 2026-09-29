@@ -66,6 +66,7 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27 `R_L1_05`; prior 0.0
 | 0ka0 | Path3 COMP-entry FFT 訊號 | **STAGE A `FFT_ENTRY_WEAK`** (2026-09-29) | Parents 0k9z/0k9j/0k9p · best `w256_dphase` IC**0.19** hit**0.50** · block 傷2022/held/tipY− · 譜不解進場 · Path3 observe KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_COMP_ENTRY_FFT_STAGEA_DECISION_PACK.md` |
 | 0ka1 | Path3／FIN×SAT 外生0050 FFT × TD AND | **STAGE A `EXOG_FFT_WEAK`** (2026-09-29) | `exog_dphase` IC−0.12 hit0.52 · AND 輸 P3 tip/held/2022 · Soft-Frozen KEEP · no live · `FIN_SAT_FFT_EXOG_AND_STAGEA_DECISION_PACK.md` |
 | 0ka2 | Path3／FIN×SAT FFT non-switch soft tilt | **STAGE A `FFT_OBSERVE_ONLY`** (2026-09-29) | soft-tilt 全被 P3 hard 支配 · observe `exog_amp` IC~0.11 · 不當曝險旋鈕 · Soft-Frozen KEEP · no live · `FIN_SAT_FFT_NONSWITCH_TILT_STAGEA_DECISION_PACK.md` |
+| 0ka3 | Path3 SAT_LEAD θ sweep | **STAGE A `THETA_HIT`** (2026-09-29) | Challenger θ=**0.005** tipY↑+0.14 held↑+0.30 vs parent 0.01 · θ↑≥0.02 tip垮 · 2022 不敏感 · observe θ=0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_THETA_SWEEP_STAGEA_DECISION_PACK.md` |
 | 0k6b | CONF densify **`SAT_A20_H5`** | **OBSERVE CLOSED** (2026-09-28) | Superseded by COMPOSITE observe · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md` |
 | 0k6c | FIN 浮虧延後賣（等回本） | **STAGE A `COOL_GATE_REQUIRED`** (2026-09-28) | Gated defer no CAGR lift · tip MDD↓ · NOCOOLGATE CAGR↑ but MDD worsens · Soft-Frozen KEEP · no live · `FIN_LOSS_DEFER_SELL_STAGEA_DECISION_PACK.md` |
 | 0k6d | FIN 買側品質過濾 A/B/C | **OBSERVE CLOSED** (2026-09-28) | Superseded by both-quality HARD150 · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
@@ -240,6 +241,7 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - FIN×SAT Path3 COMP-entry FFT Stage A **`FFT_ENTRY_WEAK`** 2026-09-29 — `w256_dphase` IC0.19 hit0.50 · block worsens 2022/held/tip · spectrum no entry edge · Path3 observe KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_COMP_ENTRY_FFT_STAGEA_DECISION_PACK.md`
 - FIN×SAT FFT exog×TD AND Stage A **`EXOG_FFT_WEAK`** 2026-09-29 — AND 輸 P3 parent · Soft-Frozen KEEP · no live · `FIN_SAT_FFT_EXOG_AND_STAGEA_DECISION_PACK.md`
 - FIN×SAT FFT non-switch tilt Stage A **`FFT_OBSERVE_ONLY`** 2026-09-29 — tilts dominated by P3 hard · observe-only · Soft-Frozen KEEP · no live · `FIN_SAT_FFT_NONSWITCH_TILT_STAGEA_DECISION_PACK.md`
+- FIN×SAT Path3 θ sweep Stage A **`THETA_HIT`** 2026-09-29 — challenger θ=0.005 tip/held↑ · parent observe θ=0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_THETA_SWEEP_STAGEA_DECISION_PACK.md`
 - R5 synthetic observe OK 2026-09-27 — waiting real `fixtures/r5_custody_dropin.csv` · `R5_OBSERVE_SYNTHETIC_2026-09-27.md`
 - R2 MDD band floor **−14.5% ACCEPTED** 2026-09-25 — paper rescore only · Soft-Frozen KEEP · no live wire · `ACCEPT_R2_MDD_BAND_FLOOR_14_5_2026-09-25.md` · Stage A still `BAND_ONLY`
 - R2/Stage-B MDD band floor **−15% ACCEPTED** 2026-09-25 — tip-safe FAST rescore **`TIPSAFE_STRETCH`** (`COOL_c8_f50_d21` · `GATE_g04_f50_d21`) · Soft-Frozen KEEP · `ACCEPT_R2_MDD_BAND_FLOOR_15_2026-09-25.md`
