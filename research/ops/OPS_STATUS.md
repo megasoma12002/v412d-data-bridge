@@ -50,7 +50,8 @@ ETF **0050 regime × 多空偵測器** Stage A：**`NO_EDGE`** · best `DET_BUY_
 **FIN×SAT FFT exog×TD AND (2026-09-29):** Stage A **`EXOG_FFT_WEAK`** · `exog_dphase` IC−0.12 hit0.52 · AND 輸 P3 tip/held/2022 · Soft-Frozen KEEP · no live · `FIN_SAT_FFT_EXOG_AND_STAGEA_DECISION_PACK.md`  
 **FIN×SAT FFT non-switch tilt (2026-09-29):** Stage A **`FFT_OBSERVE_ONLY`** · soft-tilt 全被 P3 hard 支配 · observe `exog_amp` IC~0.11 · 不當曝險旋鈕 · Soft-Frozen KEEP · no live · `FIN_SAT_FFT_NONSWITCH_TILT_STAGEA_DECISION_PACK.md`  
 **FIN×SAT Path3 θ sweep (2026-09-29):** Stage A **`THETA_HIT`** · challenger θ=**0.005** tipY↑+0.14 held↑+0.30 · θ↑≥0.02 tip垮 · 2022 不敏感 · observe θ=0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_THETA_SWEEP_STAGEA_DECISION_PACK.md`  
-**FIN×SAT Path3 θ dense down-grid (2026-09-29):** Stage A **`THETA_DOWN_CONFIRM`** · 19-pt ≤1% · 冠軍仍 θ=**0.005**（平台 0.005–0.006）· θ≤0.004 tip塌 · observe θ=0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_THETA_DOWN_GRID_STAGEA_DECISION_PACK.md`
+**FIN×SAT Path3 θ dense down-grid (2026-09-29):** Stage A **`THETA_DOWN_CONFIRM`** · 19-pt ≤1% · 冠軍仍 θ=**0.005**（平台 0.005–0.006）· θ≤0.004 tip塌 · observe θ=0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_THETA_DOWN_GRID_STAGEA_DECISION_PACK.md`  
+**FIN×SAT Path3 wrong-stay census (2026-09-29):** Stage A **`WRONG_STAY_RECURRENT__THETA_INSENSITIVE`** · θ=0.01 wrong**74** SEVERE_COMP**6** years[2016,2018,2022,2024,2026] · only **2022** year-loss · θ=0.005 SEVERE不減 · observe θ=0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_WRONG_STAY_CENSUS_STAGEA_DECISION_PACK.md`
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
