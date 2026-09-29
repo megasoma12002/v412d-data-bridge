@@ -130,6 +130,16 @@ class LiveConfig:
         "(P3_T0_STATE · Soft-Frozen Exact T+1 KEEP elsewhere · cutover still BLOCKED)"
     )
 
+    # Soft↔Path3 flip-day coexistence mute — Stage A CHARTER 0kaa; flag OFF until ACCEPT.
+    # On Path3 flip + non-empty -P3T0: mute Soft FIN∪TEL Exact T+1; Soft 0050 KEEP.
+    live_soft_path3_coexist_mute: bool = False
+    live_soft_path3_coexist_mute_policy: str = "MUTE_SOFT_FIN_TEL"
+    live_soft_path3_coexist_mute_ballot: str = (
+        "ACCEPT Soft↔Path3 coexist mute: MUTE_SOFT_FIN_TEL "
+        "(flip-day Soft FIN/TEL Exact T+1 muted · Soft 0050 KEEP · Path3 -P3T0 KEEP · "
+        "cutover still BLOCKED)"
+    )
+
 
 # Module-level singleton used by the live pipeline (edit + ACCEPT PR to cut over).
 LIVE = LiveConfig()
@@ -155,6 +165,9 @@ LIVE_T0_CARVE_FIN_SAT_SWITCH_FILL = LIVE.live_t0_carve_fin_sat_switch_fill
 LIVE_T0_CARVE_FIN_SAT_SWITCH_BALLOT = LIVE.live_t0_carve_fin_sat_switch_ballot
 LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT = LIVE.live_t0_carve_fin_sat_switch_emit
 LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT = LIVE.live_t0_carve_fin_sat_switch_emit_ballot
+LIVE_SOFT_PATH3_COEXIST_MUTE = LIVE.live_soft_path3_coexist_mute
+LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY = LIVE.live_soft_path3_coexist_mute_policy
+LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT = LIVE.live_soft_path3_coexist_mute_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital

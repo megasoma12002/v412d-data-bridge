@@ -25,11 +25,11 @@ Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEE
 - Stage A named proxy `P3_SOFT_SLEEVE_EQ_RECON_PROXY` (`plan_sat_equal_recon` helper kept)
 - Stage B engine `P3_COMP_SAT_ASOF_RECON_B` wired into e21 (`plan_or_none_for_pipeline`)
 - COMP→SAT: SAT RELAX KD · SAT→COMP: OR_K9×HARD150 · both-direction `-P3T0`
-- Soft-Frozen coexistence mute still open → **0kaa Stage A CHARTER** `FIN_SAT_SOFT_PATH3_COEXIST_MUTE_STAGEA_CHARTER.md` (`MUTE_SOFT_FIN_TEL` · flag OFF)
+- Soft-Frozen coexistence mute → **0kaa Stage A `MUTE_WIRED_DEMO_OK`** · live flag **OFF** · DRAFT ballot `LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_DRAFT.md`
 
 ## Not implemented (still BLOCKED)
 
-- Soft-Frozen flip-day coexistence mute (**chartered 0kaa** — not wired)
+- Soft-Frozen flip-day coexistence mute **live flag ON** (needs ACCEPT of DRAFT ballot)
 - Flipping emit/fill already ON (0ka7); broker live-write / Path3 strategy cutover still BLOCKED
 - Cloning paper share ledgers (no daily pos SSOT)
 
