@@ -18,14 +18,14 @@ Label: `PROJECT_CODEREVIEW_2026-09-29__PATH3_LIVE_WIRED__LEDGER_STALE__OPS_DRIFT
 | Path3 fill/emit/ledger/mute flags | **LIVE WIRED** | fill/emit True · `mode=ledger` · mute True |
 | Sticky tip-`flip` landmine | **FIXED this pass** | flip only on exact signal date |
 | Path3 strategy cutover | **CHARTER ONLY** | 0kac `CUTOVER_SCOPE_DEFINED` · live flag absent |
-| Path3 daily share ledger freshness | **RISK** | nearest-prior silent; refresh+QC still open |
+| Path3 daily share ledger freshness | **HARDENED** | `ledger_stale` fail-closed (max_stale=0); panel tip still 2026-09-24 vs market 2026-09-29 |
 | Ops register / PREP supersession | **DRIFT** | 0k9u/0k9w/PREP still claim flag OFF / weight not wired |
-| e21 Path3+mute integration tests | **GAP** | unit helpers covered · no e21 day orchestration test |
+| e21 Path3+mute integration tests | **FIXED this pass** | `tests/test_e21_path3_mute_ledger.py` orchestration harness |
 | Weight-mode dispatch except | **FIXED this pass** | was bare `Exception` → `asof_b`; now `ImportError` only |
 | Paper SELL-before-BUY (prior O1) | **CLOSED** | `sort_rows_sell_before_buy` shared in `simulate_core` path |
 | Partial-write fills vs state (prior O2) | **CLOSED** | `live_day_commit` deferred fills + atomic state |
 
-**Overall:** Live Soft-Frozen + broker gates remain healthy. Path3 flip-carve stack is correctly LIVE WIRED and fail-closed on missing plan, but **ledger SSOT is already behind tip** (silent stale mix) and **ops docs still advertise PREP/flag OFF** for paths that ACCEPT flipped ON — same class of governance drift fixed on 2026-09-12.
+**Overall:** Live Soft-Frozen + broker gates remain healthy. Path3 flip-carve stack is LIVE WIRED; this pass closes mute-on-empty, ledger stale fail-closed, empty-mix fail-closed, and e21 orchestration tests. Ledger/signal panel tip still **2026-09-24** while market tip is **2026-09-29** (refresh blocked until Path3 signal catches market). Ops PREP/register drift remains.
 
 ---
 
@@ -39,24 +39,26 @@ Label: `PROJECT_CODEREVIEW_2026-09-29__PATH3_LIVE_WIRED__LEDGER_STALE__OPS_DRIFT
 - **Fix:** `flip` only when matched row date **equals** asof; expose `signal_date` / `signal_exact`. Test: `Path3SwitchMetaExactFlip`.
 - **Source:** [Live broker Path3 safety](bc-dc17798f-3c90-5b25-b16e-7bd3fdc731c1)
 
-### P1 — Path3 daily ledger / signal freshness (silent nearest-prior)
+### P1 — Path3 daily ledger / signal freshness (silent nearest-prior) — **FIXED this pass** (code)
 
-- **Where:** `scripts/path3_comp_sat_daily_share_ssot.py` `shares_asof` · outputs `…/daily_shares_*.meta.json` `end=2026-09-24` · tip may be ahead
-- **Bug/risk:** After ledger/signal end, plans still succeed via nearest-prior — **no `ledger_stale` / `signal_stale` reason**. Combined with pre-fix sticky flip = landmine.
-- **Action:** Refresh ledger on tip catch-up; add meta stale-days; optional e21/QC warn if `asof - tip > N` sessions.
+- **Where:** `scripts/path3_comp_sat_daily_share_ssot.py` `shares_asof_detail` · `plan_delta_shares_ledger`
+- **Was:** After ledger end, plans still succeeded via nearest-prior with no stale reason.
+- **Fix:** `ledger_asof` / `ledger_lag_calendar_days` / `ledger_stale` meta; default `max_stale_calendar_days=0` → return `None` + `reason=ledger_stale`. Empty sleeve mix with ledger names present → fail-closed keep live (no equal-weight recon unless `allow_equal_fallback=True`).
+- **Residual ops:** panel `end=2026-09-24` · Path3 signal tip same · market tip `2026-09-29`. Full ledger rebuild deferred until signal catches market tip.
 
-### P1 — Mute hole on flip + empty/failed Path3 plan
+### P1 — Mute hole on flip + empty/failed Path3 plan — **FIXED this pass**
 
 - **Where:** `live_soft_path3_coexist_mute.should_mute` · default `MUTE_SOFT_FIN_TEL`
-- **Risk:** Flip + `delta_shares` empty/`None` (ledger miss / empty recon) → mute skips → Soft FIN/TEL Exact T+1 still emit. `MUTE_SOFT_ON_FLIP_META` would mute; live policy does not.
-- **Action:** Charter/ballot to strengthen policy, or fail-closed Soft FIN/TEL on flip whenever emit ON.
+- **Was:** Flip + empty/`None` Path3 deltas → mute skipped → Soft FIN/TEL Exact T+1 still emitted.
+- **Fix:** `MUTE_SOFT_FIN_TEL` / `MUTE_SOFT_ON_FLIP_META` / `MUTE_SOFT_ALL_SLEEVES` mute on flip whenever emit ON (even if Path3 plan empty). Only `MUTE_OVERLAP_CODES` still requires non-empty deltas.
 - **Source:** [Live broker Path3 safety](bc-dc17798f-3c90-5b25-b16e-7bd3fdc731c1)
 
-### P1 — COMP/SAT recon quality fail-open
+### P1 — COMP/SAT recon quality fail-open (asof_b path; ledger mix hardened)
 
 - **Where:** `live_path3_t0_weight_engine.py` empty eligible → all FIN; overlay bools default True
-- **Risk:** Missing buy_ok/hard150 forces moves / weakens HARD.
-- **Action:** Prefer fail-closed empty delta + reason when asof_b path used; document for ledger path (mix-based).
+- **Risk:** Missing buy_ok/hard150 forces moves / weakens HARD on **asof_b** path (ACCEPT mode is ledger).
+- **Ledger path:** empty-mix fail-closed landed this pass (see above).
+- **Action:** Prefer fail-closed empty delta + reason when asof_b path used.
 
 ### P1 — Register / OPS / PREP supersession drift (flags ON, docs say OFF)
 
@@ -81,11 +83,10 @@ Label: `PROJECT_CODEREVIEW_2026-09-29__PATH3_LIVE_WIRED__LEDGER_STALE__OPS_DRIFT
 - **Risk:** If emit flag ever flipped OFF while mute stays True, Soft FIN/TEL mute never runs (by design of `should_mute(emit_enabled=…)`). Documented coupling; easy to miss on rollback.
 - **Action:** Landmine comment + test: emit OFF ⇒ mute applied false even if mute flag True; optional QC field.
 
-### P2 — No e21 orchestration test for Path3+mute+ledger
+### P2 — No e21 orchestration test for Path3+mute+ledger — **FIXED this pass**
 
-- **Where:** `tests/test_path3_*` · `tests/test_soft_path3_coexist_mute.py` · no `test_e21_path3_*`
-- **Gap:** Unit paths pass in isolation; day order Soft→mute→Path3 append untested end-to-end.
-- **Action:** Thin harness: stub Soft rows + flip signal + ledger mock → assert FIN/TEL Soft muted · `-P3T0` tagged · 0050 Soft kept.
+- **Where:** `tests/test_e21_path3_mute_ledger.py`
+- **Fix:** Stub Soft rows + flip signal + ledger mock → Soft FIN/TEL muted · `-P3T0` tagged · 0050 Soft kept; also asserts flip+empty Path3 still mutes.
 
 ### P2 — Mute / emitter test docstring stale
 
@@ -123,6 +124,10 @@ Label: `PROJECT_CODEREVIEW_2026-09-29__PATH3_LIVE_WIRED__LEDGER_STALE__OPS_DRIFT
 - Clarify 0ka7 weight-engine clause → see 0kab
 - Narrow weight-mode `except Exception` → `ImportError`
 - Stale mute/emitter test module docstrings
+- **P1 mute hole**: default policy mutes Soft FIN/TEL on flip even if Path3 deltas empty
+- **P1 ledger stale**: `shares_asof_detail` + `ledger_stale` fail-closed (`max_stale_calendar_days=0`)
+- **P1 empty-mix**: ledger names present but mix empty → keep live (no equal recon by default)
+- **P2 e21 orchestration**: `tests/test_e21_path3_mute_ledger.py`
 
 ---
 
@@ -130,11 +135,10 @@ Label: `PROJECT_CODEREVIEW_2026-09-29__PATH3_LIVE_WIRED__LEDGER_STALE__OPS_DRIFT
 
 | Pri | Item |
 |---|---|
-| 1 | Refresh Path3 daily share ledgers through tip; add stale meta/QC |
-| 2 | Mute policy on flip+empty Path3 plan (coexistence hole) |
-| 3 | Paper dual for 0kac `WITHIN_SLEEVE_PATH3` → `PAPER_WITHIN_HIT` |
-| 4 | e21 Path3+mute+ledger orchestration unit test |
-| 5 | Close residual Sept-12 O3/O4/O5 when next ops touch |
+| 1 | Refresh Path3 signal + daily share ledgers through market tip (2026-09-29) |
+| 2 | Paper dual for 0kac `WITHIN_SLEEVE_PATH3` → `PAPER_WITHIN_HIT` |
+| 3 | asof_b empty-eligible fail-closed (ACCEPT mode is ledger; residual) |
+| 4 | Close residual Sept-12 O3/O4/O5 when next ops touch |
 
 ---
 
@@ -147,5 +151,5 @@ Label: `PROJECT_CODEREVIEW_2026-09-29__PATH3_LIVE_WIRED__LEDGER_STALE__OPS_DRIFT
 
 ```bash
 PYTHONPATH=scripts python3 -c "from live_config import LIVE; assert LIVE.broker_live_write_accepted is False; assert LIVE.live_path3_weight_engine_mode=='ledger'; assert LIVE.live_soft_path3_coexist_mute is True"
-PYTHONPATH=scripts python3 -m unittest tests.test_path3_t0_weight_engine tests.test_soft_path3_coexist_mute tests.test_path3_daily_share_ssot tests.test_broker_safety -q
+PYTHONPATH=scripts python3 -m unittest tests.test_path3_t0_weight_engine tests.test_soft_path3_coexist_mute tests.test_path3_daily_share_ssot tests.test_e21_path3_mute_ledger tests.test_broker_safety -q
 ```
