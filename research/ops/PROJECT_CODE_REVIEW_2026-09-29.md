@@ -16,8 +16,9 @@ Label: `PROJECT_CODEREVIEW_2026-09-29__PATH3_LIVE_WIRED__LEDGER_STALE__OPS_DRIFT
 | Broker live-write fail-closed | **HEALTHY** | `broker_live_write_accepted=False` · triple gate (flag+env+ballot) |
 | Soft-Frozen clips / Exact T+1 | **HEALTHY** | Path3 carve narrow; untagged same-bar still fail-closed |
 | Path3 fill/emit/ledger/mute flags | **LIVE WIRED** | fill/emit True · `mode=ledger` · mute True |
+| Sticky tip-`flip` landmine | **FIXED this pass** | flip only on exact signal date |
 | Path3 strategy cutover | **CHARTER ONLY** | 0kac `CUTOVER_SCOPE_DEFINED` · live flag absent |
-| Path3 daily share ledger freshness | **RISK** | ledger `end=2026-09-24` · tip `last_date=2026-09-29` · silent nearest-prior |
+| Path3 daily share ledger freshness | **RISK** | nearest-prior silent; refresh+QC still open |
 | Ops register / PREP supersession | **DRIFT** | 0k9u/0k9w/PREP still claim flag OFF / weight not wired |
 | e21 Path3+mute integration tests | **GAP** | unit helpers covered · no e21 day orchestration test |
 | Weight-mode dispatch except | **FIXED this pass** | was bare `Exception` → `asof_b`; now `ImportError` only |
@@ -30,11 +31,32 @@ Label: `PROJECT_CODEREVIEW_2026-09-29__PATH3_LIVE_WIRED__LEDGER_STALE__OPS_DRIFT
 
 ## Findings
 
-### P1 — Path3 daily ledger stale vs tip (silent nearest-prior)
+### P0 — Sticky tip-`flip` after flip day (fixed this pass)
 
-- **Where:** `scripts/path3_comp_sat_daily_share_ssot.py` `shares_asof` · outputs `…/daily_shares_*.meta.json` `end=2026-09-24` · `forward/e21/portfolio_state.json` `last_date=2026-09-29`
-- **Bug/risk:** After ledger end, `plan_delta_shares_ledger` still returns `ledger_scaled_recon` using last panel row — **no `ledger_stale` reason / QC alert**. Live flip after 2026-09-24 uses frozen within-sleeve mix.
-- **Action:** Refresh ledger on tip catch-up; add meta `ledger_asof` + stale-days in plan meta; optional e21/QC warn if `asof - ledger_end > N` sessions.
+- **Where:** `scripts/live_path3_t0_switch_emitter.py` `switch_meta_for_asof`
+- **Bug:** Matched latest `date <= asof` and reused raw `flip=True`. If signal tip ended on a flip, every later asof kept `flip=True` → re-emit `-P3T0` + Soft mute every session.
+- **Evidence:** tip flip `2026-06-12` → asof `2026-06-13`/`2026-06-17` still `flip=True` (repro). Live tip today was non-flip (latent).
+- **Fix:** `flip` only when matched row date **equals** asof; expose `signal_date` / `signal_exact`. Test: `Path3SwitchMetaExactFlip`.
+- **Source:** [Live broker Path3 safety](bc-dc17798f-3c90-5b25-b16e-7bd3fdc731c1)
+
+### P1 — Path3 daily ledger / signal freshness (silent nearest-prior)
+
+- **Where:** `scripts/path3_comp_sat_daily_share_ssot.py` `shares_asof` · outputs `…/daily_shares_*.meta.json` `end=2026-09-24` · tip may be ahead
+- **Bug/risk:** After ledger/signal end, plans still succeed via nearest-prior — **no `ledger_stale` / `signal_stale` reason**. Combined with pre-fix sticky flip = landmine.
+- **Action:** Refresh ledger on tip catch-up; add meta stale-days; optional e21/QC warn if `asof - tip > N` sessions.
+
+### P1 — Mute hole on flip + empty/failed Path3 plan
+
+- **Where:** `live_soft_path3_coexist_mute.should_mute` · default `MUTE_SOFT_FIN_TEL`
+- **Risk:** Flip + `delta_shares` empty/`None` (ledger miss / empty recon) → mute skips → Soft FIN/TEL Exact T+1 still emit. `MUTE_SOFT_ON_FLIP_META` would mute; live policy does not.
+- **Action:** Charter/ballot to strengthen policy, or fail-closed Soft FIN/TEL on flip whenever emit ON.
+- **Source:** [Live broker Path3 safety](bc-dc17798f-3c90-5b25-b16e-7bd3fdc731c1)
+
+### P1 — COMP/SAT recon quality fail-open
+
+- **Where:** `live_path3_t0_weight_engine.py` empty eligible → all FIN; overlay bools default True
+- **Risk:** Missing buy_ok/hard150 forces moves / weakens HARD.
+- **Action:** Prefer fail-closed empty delta + reason when asof_b path used; document for ledger path (mix-based).
 
 ### P1 — Register / OPS / PREP supersession drift (flags ON, docs say OFF)
 
@@ -95,6 +117,7 @@ Label: `PROJECT_CODEREVIEW_2026-09-29__PATH3_LIVE_WIRED__LEDGER_STALE__OPS_DRIFT
 
 ## Fixed this pass (hygiene + code)
 
+- **P0 sticky tip-`flip`**: exact-date flip gate + tests
 - Supersede stale 0k9u / 0k9w / PREP / OPS Path3 bullets to match LIVE WIRED reality
 - Stamp emitter / fill PREP “Implemented” sections for 0ka7–0kab
 - Clarify 0ka7 weight-engine clause → see 0kab
@@ -108,9 +131,10 @@ Label: `PROJECT_CODEREVIEW_2026-09-29__PATH3_LIVE_WIRED__LEDGER_STALE__OPS_DRIFT
 | Pri | Item |
 |---|---|
 | 1 | Refresh Path3 daily share ledgers through tip; add stale meta/QC |
-| 2 | Paper dual for 0kac `WITHIN_SLEEVE_PATH3` → `PAPER_WITHIN_HIT` |
-| 3 | e21 Path3+mute+ledger orchestration unit test |
-| 4 | Close residual Sept-12 O3/O4/O5 when next ops touch |
+| 2 | Mute policy on flip+empty Path3 plan (coexistence hole) |
+| 3 | Paper dual for 0kac `WITHIN_SLEEVE_PATH3` → `PAPER_WITHIN_HIT` |
+| 4 | e21 Path3+mute+ledger orchestration unit test |
+| 5 | Close residual Sept-12 O3/O4/O5 when next ops touch |
 
 ---
 
