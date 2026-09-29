@@ -1,0 +1,38 @@
+{
+  "id": "FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEA_CHARTER",
+  "generated_at_utc": "2026-09-29T15:10:00Z",
+  "register": "0kac",
+  "status": "STAGE_A_CHARTER",
+  "mechanism_id": "PATH3_STRATEGY_CUTOVER",
+  "default_scope": "WITHIN_SLEEVE_PATH3",
+  "scope_ladder": [
+    "FLIP_CARVE_ONLY",
+    "WITHIN_SLEEVE_PATH3",
+    "SLEEVE_AND_WITHIN_PATH3",
+    "FULL_SOFT_REPLACE"
+  ],
+  "parents": [
+    "0kab",
+    "0kaa",
+    "0ka9",
+    "0ka7",
+    "0k9r"
+  ],
+  "soft_frozen_clips_keep_under_default": true,
+  "soft_0050_exact_t1_keep_under_default": true,
+  "soft_fin_tel_exact_t1_under_default": "retire",
+  "path3_ledger_cadence_under_default": "daily",
+  "overlays_keep": [
+    "COOL",
+    "FUSE",
+    "CONF_RET3",
+    "FinPriv"
+  ],
+  "t0_carve_keep": "T0_CARVE_FIN_SAT_SWITCH",
+  "broker_live_write": false,
+  "live_flag_default": false,
+  "live_flag_name": "live_path3_strategy_cutover",
+  "stage_a_exit_hit": "CUTOVER_SCOPE_DEFINED",
+  "paper_hit_before_accept": "PAPER_WITHIN_HIT",
+  "label": "FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEA_CHARTER_2026-09-29__WITHIN_SLEEVE_PATH3__NO_BROKER"
+}
