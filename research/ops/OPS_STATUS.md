@@ -43,6 +43,7 @@ ETF **0050 regime × 多空偵測器** Stage A：**`NO_EDGE`** · best `DET_BUY_
 **FIN×SAT Path3 T0 fill-carve simulate (2026-09-29):** Stage A **`FILL_CARVE_CLOSE_ONLY`** · same-bar close held↑3.48 tipY↑2.73 · T+1 status-quo tipY↑−8.49 · tip gap +11.2pp · fill flag OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_T0_FILL_SIM_STAGEA_DECISION_PACK.md`  
 **FIN×SAT Path3 T0 switch emitter PREP (2026-09-29):** tagged builder + pipeline hook · `live_t0_carve_fin_sat_switch_emit=False` · shadow flips 153 · weight engines not wired · Soft-Frozen KEEP · no live · `LIVE_PATH3_T0_SWITCH_EMITTER_PREP.md`  
 **FIN×SAT Path3 2022 flip 落點 (2026-09-29):** Stage A **`COMP_STAY_MISS`** · 2022 P3−BASE −0.75 · 主因錯站 COMP（3月／夏秋）· May–Jun whipsaw 非主因（窗內 +1.04）· Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_2022_FLIP_STAGEA_DECISION_PACK.md`  
+**FIN×SAT Path3 COMP confirm／min-stay (2026-09-29):** Stage A **`COMP_CONFIRM_NO_EDGE`** · confirm/minstay 修不了 2022（最佳 −0.74≈原 −0.75）且 D≥2 傷 tip · Path3 observe KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_COMP_CONFIRM_STAGEA_DECISION_PACK.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  

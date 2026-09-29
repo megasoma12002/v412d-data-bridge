@@ -1,0 +1,103 @@
+{
+  "label": "FIN_SAT_PATH3_COMP_CONFIRM_STAGEA_DECISION_PACK_2026-09-29__COMP_CONFIRM_NO_EDGE__NO_LIVE",
+  "verdict": "COMP_CONFIRM_NO_EDGE",
+  "register": "0k9y",
+  "p3": {
+    "held_cagr_lift_pp": 3.4758,
+    "held_mdd_pp": 0.0996,
+    "held_abs_mdd": -0.143238,
+    "tip_ytd_cagr_pp": 2.7325,
+    "tip_1y_cagr_pp": 1.7356,
+    "tip_ytd_mdd_pp": 0.021,
+    "tip_1y_mdd_pp": 0.021,
+    "y2022_ret_pct": 5.75,
+    "y2022_vs_base_pp": -0.75,
+    "family": "path_ref",
+    "sf_ok": false,
+    "gates": {
+      "cagr": true,
+      "mdd_near_flat": true,
+      "mdd_band": true,
+      "tip_mdd": true,
+      "tip_cagr": true,
+      "tip_clean": true,
+      "economic": true,
+      "vs_sat_held": true,
+      "shaped": true,
+      "y2022_nonneg": false
+    },
+    "score": 8.2493,
+    "hit": false,
+    "path_shaped": true,
+    "path_hit_2022": false
+  },
+  "best_probe": {
+    "id": "COMP_CONFIRM_D1",
+    "eval": {
+      "held_cagr_lift_pp": 3.4758,
+      "held_mdd_pp": 0.0996,
+      "held_abs_mdd": -0.143238,
+      "tip_ytd_cagr_pp": 2.7325,
+      "tip_1y_cagr_pp": 1.7356,
+      "tip_ytd_mdd_pp": 0.021,
+      "tip_1y_mdd_pp": 0.021,
+      "y2022_ret_pct": 5.75,
+      "y2022_vs_base_pp": -0.75,
+      "family": "confirm",
+      "sf_ok": false,
+      "gates": {
+        "cagr": true,
+        "mdd_near_flat": true,
+        "mdd_band": true,
+        "tip_mdd": true,
+        "tip_cagr": true,
+        "tip_clean": true,
+        "economic": true,
+        "vs_sat_held": true,
+        "shaped": true,
+        "y2022_nonneg": false
+      },
+      "score": 8.2493,
+      "hit": false,
+      "path_shaped": true,
+      "path_hit_2022": false
+    }
+  },
+  "best_y2022": {
+    "id": "SAT_MINSTAY_21",
+    "eval": {
+      "held_cagr_lift_pp": 2.5997,
+      "held_mdd_pp": 0.0996,
+      "held_abs_mdd": -0.143238,
+      "tip_ytd_cagr_pp": -0.4617,
+      "tip_1y_cagr_pp": -0.3744,
+      "tip_ytd_mdd_pp": 0.021,
+      "tip_1y_mdd_pp": 0.021,
+      "y2022_ret_pct": 5.76,
+      "y2022_vs_base_pp": -0.74,
+      "family": "minstay",
+      "sf_ok": false,
+      "gates": {
+        "cagr": true,
+        "mdd_near_flat": true,
+        "mdd_band": true,
+        "tip_mdd": true,
+        "tip_cagr": false,
+        "tip_clean": false,
+        "economic": true,
+        "vs_sat_held": true,
+        "shaped": false,
+        "y2022_nonneg": false
+      },
+      "score": 2.5869,
+      "hit": false,
+      "path_shaped": false,
+      "path_hit_2022": false
+    }
+  },
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "fill_emit_flags": false,
+  "live_wire": false,
+  "cutover": "BLOCKED"
+}

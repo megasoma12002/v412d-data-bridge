@@ -1,0 +1,1031 @@
+{
+  "label": "FIN_SAT_PATH3_COMP_CONFIRM_STAGEA_SCREEN_20260929T032204Z",
+  "generated_at_utc": "2026-09-29T03:22:04Z",
+  "charter": "FIN_SAT_PATH3_COMP_CONFIRM_STAGEA_CHARTER",
+  "register": "0k9y",
+  "verdict": "COMP_CONFIRM_NO_EDGE",
+  "theta": 0.01,
+  "y2022_base_ret_pct": 6.5,
+  "best_probe_by_score": "COMP_CONFIRM_D1",
+  "best_probe_by_y2022": "SAT_MINSTAY_21",
+  "rows": [
+    {
+      "id": "CTRL_LIVE_A10",
+      "fam": "ctrl",
+      "meta": {
+        "pct_days_sat": 0.0,
+        "n_flips": 0,
+        "mean_w_sat": 0.0,
+        "note": "live Soft-Frozen base"
+      },
+      "eval": {
+        "held_cagr_lift_pp": -0.0,
+        "held_mdd_pp": 0.0,
+        "held_abs_mdd": -0.144234,
+        "tip_ytd_cagr_pp": 0.0,
+        "tip_1y_cagr_pp": 0.0,
+        "tip_ytd_mdd_pp": 0.0,
+        "tip_1y_mdd_pp": 0.0,
+        "y2022_ret_pct": 6.5,
+        "y2022_vs_base_pp": 0.0,
+        "family": "ctrl",
+        "sf_ok": true,
+        "gates": {
+          "cagr": false,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": false,
+          "vs_sat_held": false,
+          "shaped": false,
+          "y2022_nonneg": true
+        },
+        "score": 1.0,
+        "hit": false,
+        "path_shaped": false,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.0,
+          "cagr_lift_pp": 0.0,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.127381,
+          "max_drawdown": -0.144234,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.087124,
+          "max_drawdown": -0.129568,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.134708,
+          "max_drawdown": -0.144234,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.195101,
+          "max_drawdown": -0.062022,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.163054,
+          "max_drawdown": -0.144234,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "P3_T0_STATE",
+      "fam": "path_ref",
+      "meta": {
+        "pct_days_sat": 24.16,
+        "n_flips": 153,
+        "mean_w_sat": 0.2416,
+        "note": "raw same-bar SAT_LEAD (observe upper bound)"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 3.4758,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": 2.7325,
+        "tip_1y_cagr_pp": 1.7356,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 5.75,
+        "y2022_vs_base_pp": -0.75,
+        "family": "path_ref",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": true,
+          "y2022_nonneg": false
+        },
+        "score": 8.2493,
+        "hit": false,
+        "path_shaped": true,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 2.7325,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 1.7356,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.159663,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.116676,
+          "max_drawdown": -0.118487,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.158134,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.242923,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.197812,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "COMP_CONFIRM_D1",
+      "fam": "confirm",
+      "meta": {
+        "pct_days_sat": 24.16,
+        "n_flips": 153,
+        "mean_w_sat": 0.2416,
+        "note": "COMP entry needs 1 consecutive non-SAT_LEAD days"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 3.4758,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": 2.7325,
+        "tip_1y_cagr_pp": 1.7356,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 5.75,
+        "y2022_vs_base_pp": -0.75,
+        "family": "confirm",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": true,
+          "y2022_nonneg": false
+        },
+        "score": 8.2493,
+        "hit": false,
+        "path_shaped": true,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 2.7325,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 1.7356,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.159663,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.116676,
+          "max_drawdown": -0.118487,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.158134,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.242923,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.197812,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "COMP_CONFIRM_D2",
+      "fam": "confirm",
+      "meta": {
+        "pct_days_sat": 26.42,
+        "n_flips": 115,
+        "mean_w_sat": 0.2642,
+        "note": "COMP entry needs 2 consecutive non-SAT_LEAD days"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 2.6991,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -2.9826,
+        "tip_1y_cagr_pp": -2.0482,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 5.57,
+        "y2022_vs_base_pp": -0.93,
+        "family": "confirm",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false,
+          "y2022_nonneg": false
+        },
+        "score": -1.19,
+        "hit": false,
+        "path_shaped": false,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -2.9826,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -2.0482,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.144789,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.09355,
+          "max_drawdown": -0.129983,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.15194,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.233309,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.190045,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "COMP_CONFIRM_D3",
+      "fam": "confirm",
+      "meta": {
+        "pct_days_sat": 28.11,
+        "n_flips": 99,
+        "mean_w_sat": 0.2811,
+        "note": "COMP entry needs 3 consecutive non-SAT_LEAD days"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 2.3799,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -4.1267,
+        "tip_1y_cagr_pp": -2.8104,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 4.81,
+        "y2022_vs_base_pp": -1.69,
+        "family": "confirm",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false,
+          "y2022_nonneg": false
+        },
+        "score": -3.6054,
+        "hit": false,
+        "path_shaped": false,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -4.1267,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -2.8104,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.143095,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.093576,
+          "max_drawdown": -0.123693,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.1477,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.231348,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.186853,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "COMP_CONFIRM_D5",
+      "fam": "confirm",
+      "meta": {
+        "pct_days_sat": 30.79,
+        "n_flips": 69,
+        "mean_w_sat": 0.3079,
+        "note": "COMP entry needs 5 consecutive non-SAT_LEAD days"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 2.2123,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -6.2285,
+        "tip_1y_cagr_pp": -4.2147,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 4.91,
+        "y2022_vs_base_pp": -1.59,
+        "family": "confirm",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false,
+          "y2022_nonneg": false
+        },
+        "score": -5.0329,
+        "hit": false,
+        "path_shaped": false,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -6.2285,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -4.2147,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.14134,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.091727,
+          "max_drawdown": -0.126505,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.149579,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.225512,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.185177,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "SAT_MINSTAY_5",
+      "fam": "minstay",
+      "meta": {
+        "pct_days_sat": 27.01,
+        "n_flips": 115,
+        "mean_w_sat": 0.2701,
+        "note": "after SAT entry, block COMP for 5 sessions"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 3.0478,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": 0.7621,
+        "tip_1y_cagr_pp": 0.4354,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 5.73,
+        "y2022_vs_base_pp": -0.77,
+        "family": "minstay",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": true,
+          "tip_clean": true,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": true,
+          "y2022_nonneg": false
+        },
+        "score": 4.8558,
+        "hit": false,
+        "path_shaped": true,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 0.7621,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": 0.4354,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.150547,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.101931,
+          "max_drawdown": -0.118487,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.153448,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.239119,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.193532,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "SAT_MINSTAY_10",
+      "fam": "minstay",
+      "meta": {
+        "pct_days_sat": 29.81,
+        "n_flips": 97,
+        "mean_w_sat": 0.2981,
+        "note": "after SAT entry, block COMP for 10 sessions"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 2.7075,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -1.9644,
+        "tip_1y_cagr_pp": -1.3712,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 5.54,
+        "y2022_vs_base_pp": -0.96,
+        "family": "minstay",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false,
+          "y2022_nonneg": false
+        },
+        "score": 0.3307,
+        "hit": false,
+        "path_shaped": false,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -1.9644,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -1.3712,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.144715,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.093292,
+          "max_drawdown": -0.125304,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.15101,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.234584,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.190129,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "SAT_MINSTAY_21",
+      "fam": "minstay",
+      "meta": {
+        "pct_days_sat": 35.3,
+        "n_flips": 73,
+        "mean_w_sat": 0.353,
+        "note": "after SAT entry, block COMP for 21 sessions"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 2.5997,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -0.4617,
+        "tip_1y_cagr_pp": -0.3744,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 5.76,
+        "y2022_vs_base_pp": -0.74,
+        "family": "minstay",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false,
+          "y2022_nonneg": false
+        },
+        "score": 2.5869,
+        "hit": false,
+        "path_shaped": false,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -0.4617,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -0.3744,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.141073,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086707,
+          "max_drawdown": -0.123447,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.148511,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.235176,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.189051,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "COMBO_D2_S10",
+      "fam": "combo",
+      "meta": {
+        "pct_days_sat": 30.34,
+        "n_flips": 87,
+        "mean_w_sat": 0.3034,
+        "note": "confirm D2 + SAT min-stay 10"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 2.461,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -5.7791,
+        "tip_1y_cagr_pp": -3.914,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 5.46,
+        "y2022_vs_base_pp": -1.04,
+        "family": "combo",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false,
+          "y2022_nonneg": false
+        },
+        "score": -4.5092,
+        "hit": false,
+        "path_shaped": false,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -5.7791,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -3.914,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.140357,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086758,
+          "max_drawdown": -0.129983,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.151573,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.228574,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.187664,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "COMBO_D3_S10",
+      "fam": "combo",
+      "meta": {
+        "pct_days_sat": 30.82,
+        "n_flips": 79,
+        "mean_w_sat": 0.3082,
+        "note": "confirm D3 + SAT min-stay 10"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 2.3073,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -6.2705,
+        "tip_1y_cagr_pp": -4.2428,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 4.89,
+        "y2022_vs_base_pp": -1.61,
+        "family": "combo",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false,
+          "y2022_nonneg": false
+        },
+        "score": -4.9479,
+        "hit": false,
+        "path_shaped": false,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -6.2705,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -4.2428,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.140395,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.088602,
+          "max_drawdown": -0.123693,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.14933,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.227863,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.186127,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "COMBO_D2_S21",
+      "fam": "combo",
+      "meta": {
+        "pct_days_sat": 35.22,
+        "n_flips": 67,
+        "mean_w_sat": 0.3522,
+        "note": "confirm D2 + SAT min-stay 21"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 2.4845,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -2.2419,
+        "tip_1y_cagr_pp": -1.5557,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 5.74,
+        "y2022_vs_base_pp": -0.76,
+        "family": "combo",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false,
+          "y2022_nonneg": false
+        },
+        "score": -0.2085,
+        "hit": false,
+        "path_shaped": false,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -2.2419,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -1.5557,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.139029,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.083643,
+          "max_drawdown": -0.129983,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.148661,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.232493,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.187899,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    },
+    {
+      "id": "COMBO_D3_S21",
+      "fam": "combo",
+      "meta": {
+        "pct_days_sat": 34.62,
+        "n_flips": 61,
+        "mean_w_sat": 0.3462,
+        "note": "confirm D3 + SAT min-stay 21"
+      },
+      "eval": {
+        "held_cagr_lift_pp": 2.1996,
+        "held_mdd_pp": 0.0996,
+        "held_abs_mdd": -0.143238,
+        "tip_ytd_cagr_pp": -3.8466,
+        "tip_1y_cagr_pp": -2.6236,
+        "tip_ytd_mdd_pp": 0.021,
+        "tip_1y_mdd_pp": 0.021,
+        "y2022_ret_pct": 4.59,
+        "y2022_vs_base_pp": -1.91,
+        "family": "combo",
+        "sf_ok": false,
+        "gates": {
+          "cagr": true,
+          "mdd_near_flat": true,
+          "mdd_band": true,
+          "tip_mdd": true,
+          "tip_cagr": false,
+          "tip_clean": false,
+          "economic": true,
+          "vs_sat_held": true,
+          "shaped": false,
+          "y2022_nonneg": false
+        },
+        "score": -3.4755,
+        "hit": false,
+        "path_shaped": false,
+        "path_hit_2022": false
+      },
+      "tip": {
+        "ytd": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -3.8466,
+          "gate": "PASS"
+        },
+        "trailing_1y": {
+          "mdd_improve_pp": 0.021,
+          "cagr_lift_pp": -2.6236,
+          "gate": "PASS"
+        }
+      },
+      "windows": {
+        "full": {
+          "cagr": 0.138643,
+          "max_drawdown": -0.143238,
+          "n_days": 3365
+        },
+        "oof_2011_2018": {
+          "cagr": 0.086074,
+          "max_drawdown": -0.123693,
+          "n_days": 1495
+        },
+        "validation_2019_2022": {
+          "cagr": 0.144386,
+          "max_drawdown": -0.143238,
+          "n_days": 977
+        },
+        "sealed_2023_plus": {
+          "cagr": 0.23132,
+          "max_drawdown": -0.063673,
+          "n_days": 893
+        },
+        "heldout_2019_plus": {
+          "cagr": 0.18505,
+          "max_drawdown": -0.143238,
+          "n_days": 1870
+        }
+      }
+    }
+  ],
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "live_wire": false,
+  "fill_emit_flags": false
+}
