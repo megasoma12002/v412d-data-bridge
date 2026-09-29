@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-28T15:17:43.069894+00:00",
+  "generated_at_utc": "2026-09-29T15:00:28.077321+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -10,7 +10,7 @@
   "overall": "HIGH",
   "n_critical": 0,
   "n_high": 10,
-  "n_info": 38,
+  "n_info": 37,
   "alerts": [
     {
       "severity": "HIGH",
@@ -82,7 +82,7 @@
       "severity": "INFO",
       "source": "fin_priv_v7_f05",
       "code": "FINPRIV_PX_FRESH",
-      "message": "Class D priv panel fresh vs tip asof 2026-09-24 (lag\u22645d)"
+      "message": "Class D priv panel fresh vs tip asof 2026-09-29 (lag\u22645d)"
     },
     {
       "severity": "INFO",
@@ -275,12 +275,6 @@
       "source": "r4_settlement_estimate",
       "code": "R4_ESTIMATE_PRESENT",
       "message": "R4 settlement_cash_estimate present \u2014 settled_cash_estimate=50415.51358572836 is liquidity view NOT portfolio NAV / Soft-Frozen cash"
-    },
-    {
-      "severity": "INFO",
-      "source": "r5_broker_reconcile",
-      "code": "R5_RECONCILE_OK",
-      "message": "R5 observe pack fixtures/r5_reconcile_observe/t2_broker_reconcile_latest.json all_ok=True \u2014 T+2 custody vs estimate (NOT NAV); broker live-write still PREP / EXECUTE blocked"
     },
     {
       "severity": "INFO",

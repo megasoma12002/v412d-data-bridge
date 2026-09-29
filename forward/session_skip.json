@@ -1,15 +1,14 @@
 {
   "asof": "2026-09-29",
-  "status": "UNKNOWN",
-  "is_session": false,
-  "broker_submit_allowed": false,
-  "skipped": true,
-  "reason": "no trading session (UNKNOWN)",
+  "status": "OPEN",
+  "is_session": true,
+  "broker_submit_allowed": true,
+  "skipped": false,
+  "reason": "session open or confirmed",
   "notes": [
     "annual planned SESSION",
-    "MIS before 09:05 — open may still be forming",
-    "MI_INDEX empty before close heuristic → not conclusive",
-    "fail-closed for broker until OPEN confirmed"
+    "MIS no same-day open yet",
+    "MI_INDEX OK"
   ],
   "sources": {
     "annual_calendar": {
@@ -33,41 +32,41 @@
         {
           "ex_ch": "tse_t00.tw",
           "open_signal": false,
-          "c": "t00",
-          "d": "20260924",
-          "o": "48075.39",
-          "t": "13:31:00",
+          "c": null,
+          "d": null,
+          "o": null,
+          "t": null,
           "v": null,
-          "rtcode": "0000"
+          "rtcode": "ERR"
         },
         {
           "ex_ch": "tse_0050.tw",
           "open_signal": false,
-          "c": "0050",
-          "d": "20260924",
-          "o": "112.0000",
-          "t": "13:30:00",
-          "v": "66000",
-          "rtcode": "0000"
+          "c": null,
+          "d": null,
+          "o": null,
+          "t": null,
+          "v": null,
+          "rtcode": "ERR"
         },
         {
           "ex_ch": "tse_2330.tw",
           "open_signal": false,
-          "c": "2330",
-          "d": "20260924",
-          "o": "2480.0000",
-          "t": "13:30:00",
-          "v": "12990",
-          "rtcode": "0000"
+          "c": null,
+          "d": null,
+          "o": null,
+          "t": null,
+          "v": null,
+          "rtcode": "ERR"
         }
       ]
     },
     "mi_index": {
-      "stat": "很抱歉，沒有符合條件的資料!",
-      "has_session": false,
-      "after_close_heuristic": false
+      "stat": "OK",
+      "has_session": true,
+      "after_close_heuristic": true
     }
   },
-  "generated_at": "2026-09-29T00:51:44.660516+08:00",
+  "generated_at": "2026-09-29T22:56:37.633752+08:00",
   "soft_frozen_untouched": true
 }

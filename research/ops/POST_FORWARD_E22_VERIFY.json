@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-09-25T05:03:33.204909+00:00",
+  "generated_at_utc": "2026-09-29T15:00:28.163300+00:00",
   "label": "POST_FORWARD_E22_VERIFY",
   "phase": "0_1",
   "live_wire": false,
   "soft_frozen_keep": true,
-  "state_dir": "/workspace/forward/e21",
+  "state_dir": "/home/runner/work/v412d-data-bridge/v412d-data-bridge/forward/e21",
   "stage_e_default": "E22_v3_recv_pay_effdelay",
   "tip_lag": false,
   "ok": true,
@@ -41,8 +41,8 @@
       "rc": 0,
       "overall": "HIGH",
       "n_critical": 0,
-      "n_high": 7,
-      "n_info": 27
+      "n_high": 10,
+      "n_info": 37
     },
     "cashflow_three_views": {
       "ok": true,
@@ -74,7 +74,7 @@
         "identity_ok": true,
         "identity_delta": 0.0,
         "present": true,
-        "asof": "2026-09-24",
+        "asof": "2026-09-29",
         "source": "forward/e21/settlement_cash_estimate.json \u2192 summary",
         "use": "spendable / custody liquidity estimate",
         "not": "NOT Soft-Frozen NAV; never merge into portfolio_state.cash"
@@ -97,7 +97,7 @@
     "cross_checks": {
       "paper_cash_minus_r4_paper_cash": 0.0,
       "r4_identity_ok": true,
-      "r4_asof": "2026-09-24",
+      "r4_asof": "2026-09-29",
       "r4_asof_matches_last_date": true,
       "r4_asof_mismatch": false,
       "tip_lag": false,
