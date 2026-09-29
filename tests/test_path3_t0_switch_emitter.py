@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Guards for Path3 T0 switch order emitter PREP (flag OFF)."""
+"""Guards for Path3 T0 switch order emitter (0ka7 emit flag ON)."""
 from __future__ import annotations
 
 import tempfile
