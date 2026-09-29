@@ -1,0 +1,8 @@
+{
+  "id": "FIN_SAT_FFT_NONSWITCH_TILT_STAGEA_CHARTER",
+  "register": "0ka2",
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "fill_emit_flags": false,
+  "live_wire": false
+}
