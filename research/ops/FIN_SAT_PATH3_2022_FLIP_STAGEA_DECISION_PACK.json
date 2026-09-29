@@ -1,0 +1,84 @@
+{
+  "label": "FIN_SAT_PATH3_2022_FLIP_STAGEA_DECISION_PACK_2026-09-29__COMP_STAY_MISS__NO_LIVE",
+  "verdict": "COMP_STAY_MISS",
+  "register": "0k9x",
+  "year": 2022,
+  "p3_vs_base_pp": -0.75,
+  "year_books": {
+    "base": {
+      "ret_pct": 6.5,
+      "mdd_pct": -9.53
+    },
+    "comp": {
+      "ret_pct": 0.7,
+      "mdd_pct": -14.53
+    },
+    "sat": {
+      "ret_pct": 6.3,
+      "mdd_pct": -9.79
+    },
+    "p3": {
+      "ret_pct": 5.75,
+      "mdd_pct": -10.93
+    }
+  },
+  "may_jun": {
+    "n_flips": 11,
+    "p3_vs_base_pp": 1.04
+  },
+  "n_wrong_episodes": 7,
+  "top_drag_episodes": [
+    {
+      "ep": 2,
+      "start": "2022-03-10",
+      "end": "2022-03-31",
+      "n_days": 16,
+      "book": "COMP",
+      "best_book": "SAT",
+      "wrong": true,
+      "base_ret_pct": 4.42,
+      "comp_ret_pct": 3.09,
+      "sat_ret_pct": 4.46,
+      "p3_ret_pct": 3.09,
+      "p3_vs_base_pp": -1.33,
+      "p3_vs_best_pp": -1.37,
+      "trail_rel_63_end": -0.0091
+    },
+    {
+      "ep": 14,
+      "start": "2022-06-21",
+      "end": "2022-09-26",
+      "n_days": 69,
+      "book": "COMP",
+      "best_book": "SAT",
+      "wrong": true,
+      "base_ret_pct": -2.67,
+      "comp_ret_pct": -3.21,
+      "sat_ret_pct": -2.86,
+      "p3_ret_pct": -3.21,
+      "p3_vs_base_pp": -0.54,
+      "p3_vs_best_pp": -0.35,
+      "trail_rel_63_end": -0.005
+    },
+    {
+      "ep": 7,
+      "start": "2022-05-19",
+      "end": "2022-05-26",
+      "n_days": 6,
+      "book": "SAT",
+      "best_book": "COMP",
+      "wrong": true,
+      "base_ret_pct": 2.15,
+      "comp_ret_pct": 2.2,
+      "sat_ret_pct": 2.13,
+      "p3_ret_pct": 2.13,
+      "p3_vs_base_pp": -0.02,
+      "p3_vs_best_pp": -0.07,
+      "trail_rel_63_end": -0.0133
+    }
+  ],
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "live_wire": false,
+  "cutover": "BLOCKED"
+}

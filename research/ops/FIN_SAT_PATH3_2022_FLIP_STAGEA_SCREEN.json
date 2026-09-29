@@ -1,0 +1,421 @@
+{
+  "label": "FIN_SAT_PATH3_2022_FLIP_STAGEA_SCREEN_20260929T031833Z",
+  "generated_at_utc": "2026-09-29T03:18:33Z",
+  "charter": "FIN_SAT_PATH3_2022_FLIP_STAGEA_CHARTER",
+  "register": "0k9x",
+  "verdict": "COMP_STAY_MISS",
+  "year": 2022,
+  "year_books": {
+    "base": {
+      "ret_pct": 6.5,
+      "mdd_pct": -9.53
+    },
+    "comp": {
+      "ret_pct": 0.7,
+      "mdd_pct": -14.53
+    },
+    "sat": {
+      "ret_pct": 6.3,
+      "mdd_pct": -9.79
+    },
+    "p3": {
+      "ret_pct": 5.75,
+      "mdd_pct": -10.93
+    }
+  },
+  "p3_vs_base_pp": -0.75,
+  "n_flips": 14,
+  "n_episodes": 15,
+  "n_wrong_episodes": 7,
+  "pct_days_sat": 58.54,
+  "may_jun": {
+    "n_flips": 11,
+    "p3_vs_base_pp": 1.04
+  },
+  "oracle_daily_best": {
+    "ret_pct": 35.27,
+    "mdd_pct": -6.1
+  },
+  "sat_vs_base_pp": -0.2,
+  "top_drag_episodes": [
+    {
+      "ep": 2,
+      "start": "2022-03-10",
+      "end": "2022-03-31",
+      "n_days": 16,
+      "book": "COMP",
+      "best_book": "SAT",
+      "wrong": true,
+      "base_ret_pct": 4.42,
+      "comp_ret_pct": 3.09,
+      "sat_ret_pct": 4.46,
+      "p3_ret_pct": 3.09,
+      "p3_vs_base_pp": -1.33,
+      "p3_vs_best_pp": -1.37,
+      "trail_rel_63_end": -0.0091
+    },
+    {
+      "ep": 14,
+      "start": "2022-06-21",
+      "end": "2022-09-26",
+      "n_days": 69,
+      "book": "COMP",
+      "best_book": "SAT",
+      "wrong": true,
+      "base_ret_pct": -2.67,
+      "comp_ret_pct": -3.21,
+      "sat_ret_pct": -2.86,
+      "p3_ret_pct": -3.21,
+      "p3_vs_base_pp": -0.54,
+      "p3_vs_best_pp": -0.35,
+      "trail_rel_63_end": -0.005
+    },
+    {
+      "ep": 7,
+      "start": "2022-05-19",
+      "end": "2022-05-26",
+      "n_days": 6,
+      "book": "SAT",
+      "best_book": "COMP",
+      "wrong": true,
+      "base_ret_pct": 2.15,
+      "comp_ret_pct": 2.2,
+      "sat_ret_pct": 2.13,
+      "p3_ret_pct": 2.13,
+      "p3_vs_base_pp": -0.02,
+      "p3_vs_best_pp": -0.07,
+      "trail_rel_63_end": -0.0133
+    }
+  ],
+  "episodes": [
+    {
+      "ep": 1,
+      "start": "2022-01-03",
+      "end": "2022-03-09",
+      "n_days": 40,
+      "book": "SAT",
+      "best_book": "COMP",
+      "wrong": true,
+      "base_ret_pct": 3.63,
+      "comp_ret_pct": 4.21,
+      "sat_ret_pct": 3.65,
+      "p3_ret_pct": 3.65,
+      "p3_vs_base_pp": 0.02,
+      "p3_vs_best_pp": -0.56,
+      "trail_rel_63_end": -0.0106
+    },
+    {
+      "ep": 2,
+      "start": "2022-03-10",
+      "end": "2022-03-31",
+      "n_days": 16,
+      "book": "COMP",
+      "best_book": "SAT",
+      "wrong": true,
+      "base_ret_pct": 4.42,
+      "comp_ret_pct": 3.09,
+      "sat_ret_pct": 4.46,
+      "p3_ret_pct": 3.09,
+      "p3_vs_base_pp": -1.33,
+      "p3_vs_best_pp": -1.37,
+      "trail_rel_63_end": -0.0091
+    },
+    {
+      "ep": 3,
+      "start": "2022-04-01",
+      "end": "2022-05-06",
+      "n_days": 23,
+      "book": "SAT",
+      "best_book": "SAT",
+      "wrong": false,
+      "base_ret_pct": -1.66,
+      "comp_ret_pct": -1.73,
+      "sat_ret_pct": -1.67,
+      "p3_ret_pct": -1.67,
+      "p3_vs_base_pp": -0.01,
+      "p3_vs_best_pp": 0.0,
+      "trail_rel_63_end": -0.012
+    },
+    {
+      "ep": 4,
+      "start": "2022-05-09",
+      "end": "2022-05-13",
+      "n_days": 5,
+      "book": "COMP",
+      "best_book": "COMP",
+      "wrong": false,
+      "base_ret_pct": -0.7,
+      "comp_ret_pct": -0.23,
+      "sat_ret_pct": -0.73,
+      "p3_ret_pct": -0.23,
+      "p3_vs_base_pp": 0.47,
+      "p3_vs_best_pp": 0.0,
+      "trail_rel_63_end": -0.007
+    },
+    {
+      "ep": 5,
+      "start": "2022-05-16",
+      "end": "2022-05-17",
+      "n_days": 2,
+      "book": "SAT",
+      "best_book": "SAT",
+      "wrong": false,
+      "base_ret_pct": 0.13,
+      "comp_ret_pct": 0.07,
+      "sat_ret_pct": 0.12,
+      "p3_ret_pct": 0.12,
+      "p3_vs_base_pp": -0.01,
+      "p3_vs_best_pp": 0.0,
+      "trail_rel_63_end": -0.0111
+    },
+    {
+      "ep": 6,
+      "start": "2022-05-18",
+      "end": "2022-05-18",
+      "n_days": 1,
+      "book": "COMP",
+      "best_book": "COMP",
+      "wrong": false,
+      "base_ret_pct": 0.0,
+      "comp_ret_pct": 0.0,
+      "sat_ret_pct": 0.0,
+      "p3_ret_pct": 0.0,
+      "p3_vs_base_pp": 0.0,
+      "p3_vs_best_pp": 0.0,
+      "trail_rel_63_end": -0.0085
+    },
+    {
+      "ep": 7,
+      "start": "2022-05-19",
+      "end": "2022-05-26",
+      "n_days": 6,
+      "book": "SAT",
+      "best_book": "COMP",
+      "wrong": true,
+      "base_ret_pct": 2.15,
+      "comp_ret_pct": 2.2,
+      "sat_ret_pct": 2.13,
+      "p3_ret_pct": 2.13,
+      "p3_vs_base_pp": -0.02,
+      "p3_vs_best_pp": -0.07,
+      "trail_rel_63_end": -0.0133
+    },
+    {
+      "ep": 8,
+      "start": "2022-05-27",
+      "end": "2022-06-06",
+      "n_days": 6,
+      "book": "COMP",
+      "best_book": "COMP",
+      "wrong": false,
+      "base_ret_pct": -0.4,
+      "comp_ret_pct": -0.01,
+      "sat_ret_pct": -0.41,
+      "p3_ret_pct": -0.01,
+      "p3_vs_base_pp": 0.39,
+      "p3_vs_best_pp": 0.0,
+      "trail_rel_63_end": -0.0078
+    },
+    {
+      "ep": 9,
+      "start": "2022-06-07",
+      "end": "2022-06-07",
+      "n_days": 1,
+      "book": "SAT",
+      "best_book": "COMP",
+      "wrong": true,
+      "base_ret_pct": 0.0,
+      "comp_ret_pct": 0.0,
+      "sat_ret_pct": 0.0,
+      "p3_ret_pct": 0.0,
+      "p3_vs_base_pp": 0.0,
+      "p3_vs_best_pp": 0.0,
+      "trail_rel_63_end": -0.011
+    },
+    {
+      "ep": 10,
+      "start": "2022-06-08",
+      "end": "2022-06-10",
+      "n_days": 3,
+      "book": "COMP",
+      "best_book": "COMP",
+      "wrong": false,
+      "base_ret_pct": -0.53,
+      "comp_ret_pct": -0.51,
+      "sat_ret_pct": -0.53,
+      "p3_ret_pct": -0.51,
+      "p3_vs_base_pp": 0.02,
+      "p3_vs_best_pp": 0.0,
+      "trail_rel_63_end": -0.0095
+    },
+    {
+      "ep": 11,
+      "start": "2022-06-13",
+      "end": "2022-06-15",
+      "n_days": 3,
+      "book": "SAT",
+      "best_book": "COMP",
+      "wrong": true,
+      "base_ret_pct": 0.41,
+      "comp_ret_pct": 0.44,
+      "sat_ret_pct": 0.4,
+      "p3_ret_pct": 0.4,
+      "p3_vs_base_pp": -0.01,
+      "p3_vs_best_pp": -0.04,
+      "trail_rel_63_end": -0.0106
+    },
+    {
+      "ep": 12,
+      "start": "2022-06-16",
+      "end": "2022-06-17",
+      "n_days": 2,
+      "book": "COMP",
+      "best_book": "COMP",
+      "wrong": false,
+      "base_ret_pct": -0.43,
+      "comp_ret_pct": -0.35,
+      "sat_ret_pct": -0.44,
+      "p3_ret_pct": -0.35,
+      "p3_vs_base_pp": 0.08,
+      "p3_vs_best_pp": 0.0,
+      "trail_rel_63_end": -0.01
+    },
+    {
+      "ep": 13,
+      "start": "2022-06-20",
+      "end": "2022-06-20",
+      "n_days": 1,
+      "book": "SAT",
+      "best_book": "COMP",
+      "wrong": true,
+      "base_ret_pct": 0.0,
+      "comp_ret_pct": 0.0,
+      "sat_ret_pct": 0.0,
+      "p3_ret_pct": 0.0,
+      "p3_vs_base_pp": 0.0,
+      "p3_vs_best_pp": 0.0,
+      "trail_rel_63_end": -0.0101
+    },
+    {
+      "ep": 14,
+      "start": "2022-06-21",
+      "end": "2022-09-26",
+      "n_days": 69,
+      "book": "COMP",
+      "best_book": "SAT",
+      "wrong": true,
+      "base_ret_pct": -2.67,
+      "comp_ret_pct": -3.21,
+      "sat_ret_pct": -2.86,
+      "p3_ret_pct": -3.21,
+      "p3_vs_base_pp": -0.54,
+      "p3_vs_best_pp": -0.35,
+      "trail_rel_63_end": -0.005
+    },
+    {
+      "ep": 15,
+      "start": "2022-09-27",
+      "end": "2022-12-30",
+      "n_days": 68,
+      "book": "SAT",
+      "best_book": "SAT",
+      "wrong": false,
+      "base_ret_pct": -0.17,
+      "comp_ret_pct": -3.19,
+      "sat_ret_pct": -0.1,
+      "p3_ret_pct": -0.1,
+      "p3_vs_base_pp": 0.07,
+      "p3_vs_best_pp": 0.0,
+      "trail_rel_63_end": -0.0132
+    }
+  ],
+  "flips": [
+    {
+      "date": "2022-03-10",
+      "to_book": "COMP",
+      "trail_rel_63": -0.0028,
+      "w_sat": 0.0
+    },
+    {
+      "date": "2022-04-01",
+      "to_book": "SAT",
+      "trail_rel_63": -0.0102,
+      "w_sat": 1.0
+    },
+    {
+      "date": "2022-05-09",
+      "to_book": "COMP",
+      "trail_rel_63": -0.0085,
+      "w_sat": 0.0
+    },
+    {
+      "date": "2022-05-16",
+      "to_book": "SAT",
+      "trail_rel_63": -0.011,
+      "w_sat": 1.0
+    },
+    {
+      "date": "2022-05-18",
+      "to_book": "COMP",
+      "trail_rel_63": -0.0085,
+      "w_sat": 0.0
+    },
+    {
+      "date": "2022-05-19",
+      "to_book": "SAT",
+      "trail_rel_63": -0.0119,
+      "w_sat": 1.0
+    },
+    {
+      "date": "2022-05-27",
+      "to_book": "COMP",
+      "trail_rel_63": -0.0088,
+      "w_sat": 0.0
+    },
+    {
+      "date": "2022-06-07",
+      "to_book": "SAT",
+      "trail_rel_63": -0.011,
+      "w_sat": 1.0
+    },
+    {
+      "date": "2022-06-08",
+      "to_book": "COMP",
+      "trail_rel_63": -0.0081,
+      "w_sat": 0.0
+    },
+    {
+      "date": "2022-06-13",
+      "to_book": "SAT",
+      "trail_rel_63": -0.0111,
+      "w_sat": 1.0
+    },
+    {
+      "date": "2022-06-16",
+      "to_book": "COMP",
+      "trail_rel_63": -0.01,
+      "w_sat": 0.0
+    },
+    {
+      "date": "2022-06-20",
+      "to_book": "SAT",
+      "trail_rel_63": -0.0101,
+      "w_sat": 1.0
+    },
+    {
+      "date": "2022-06-21",
+      "to_book": "COMP",
+      "trail_rel_63": -0.0065,
+      "w_sat": 0.0
+    },
+    {
+      "date": "2022-09-27",
+      "to_book": "SAT",
+      "trail_rel_63": -0.0155,
+      "w_sat": 1.0
+    }
+  ],
+  "soft_frozen_keep": true,
+  "path3_observe_keep": true,
+  "live_wire": false
+}
