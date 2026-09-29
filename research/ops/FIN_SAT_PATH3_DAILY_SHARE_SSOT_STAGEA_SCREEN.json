@@ -1,0 +1,191 @@
+{
+  "label": "FIN_SAT_PATH3_DAILY_SHARE_SSOT_STAGEA_SCREEN_20260929T143202Z",
+  "generated_at_utc": "2026-09-29T14:32:02Z",
+  "verdict": "LEDGER_SSOT_BUILT",
+  "register": "0kab",
+  "engine_id": "P3_COMP_SAT_DAILY_POS_LEDGER_A",
+  "state_asof": "2026-09-24",
+  "build": {
+    "comp": {
+      "book": "COMP_H150_x_A20",
+      "path": "repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_COMP_H150_x_A20.csv",
+      "n_rows": 27480,
+      "n_days": 3364,
+      "n_nav_days": 3365,
+      "n_fills": 6541,
+      "start": "2012-12-04",
+      "end": "2026-09-24",
+      "exact_t1_ok": true,
+      "codes": [
+        "0050",
+        "00631L",
+        "2412",
+        "2880",
+        "2886",
+        "2892",
+        "3045",
+        "4904",
+        "5880"
+      ]
+    },
+    "sat": {
+      "book": "SAT_A20_RELAX",
+      "path": "repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_SAT_A20_RELAX.csv",
+      "n_rows": 29646,
+      "n_days": 3364,
+      "n_nav_days": 3365,
+      "n_fills": 5436,
+      "start": "2012-12-04",
+      "end": "2026-09-24",
+      "exact_t1_ok": true,
+      "codes": [
+        "0050",
+        "00631L",
+        "2412",
+        "2880",
+        "2886",
+        "2892",
+        "3045",
+        "4904",
+        "5880"
+      ]
+    },
+    "schedule_alpha": 0.2
+  },
+  "flip_legs": [
+    {
+      "label": "COMP→SAT",
+      "asof": "2026-06-12",
+      "dest_book": "SAT_A20_RELAX",
+      "ledger_delta": {
+        "2412": -17000.0,
+        "2880": -888000.0,
+        "2886": -677000.0,
+        "2892": 2511000.0,
+        "3045": -35000.0,
+        "4904": 63000.0,
+        "5880": -948000.0
+      },
+      "ledger_meta": {
+        "engine_id": "P3_COMP_SAT_DAILY_POS_LEDGER_A",
+        "dest_book": "SAT_A20_RELAX",
+        "asof": "2026-06-12",
+        "ledger_asof_names": [
+          "0050",
+          "00631L",
+          "2412",
+          "2880",
+          "2886",
+          "2892",
+          "3045",
+          "4904",
+          "5880"
+        ],
+        "policy": "LEDGER_SCALED_RECON",
+        "fin_notional": 476401750.0,
+        "tel_notional": 35667500.0,
+        "fin_mix": {
+          "2880": 0.174487,
+          "2886": 0.16828,
+          "2892": 0.472136,
+          "5880": 0.185097
+        },
+        "tel_mix": {
+          "2412": 0.27419,
+          "3045": 0.213538,
+          "4904": 0.512272
+        },
+        "n_delta_names": 7,
+        "keep_0050": true,
+        "ledger_n_names": 9,
+        "reason": "ledger_scaled_recon"
+      },
+      "recon_b_delta": {
+        "2412": -3000.0,
+        "2880": 2334000.0,
+        "2886": -2139000.0,
+        "2892": -2989000.0,
+        "4904": 2000.0,
+        "5880": 4434000.0
+      },
+      "recon_b_reason": "sat_relax_kd",
+      "recon_b_engine": "P3_COMP_SAT_ASOF_RECON_B",
+      "overlap": {
+        "n_ledger": 7,
+        "n_recon_b": 6,
+        "n_union": 7,
+        "n_same_sign": 3,
+        "jaccard_codes": 0.8571
+      }
+    },
+    {
+      "label": "SAT→COMP",
+      "asof": "2026-05-20",
+      "dest_book": "COMP_H150_x_A20",
+      "ledger_delta": {
+        "2412": -45000.0,
+        "2880": -2584000.0,
+        "2886": 783000.0,
+        "2892": -2162000.0,
+        "3045": -14000.0,
+        "4904": 77000.0,
+        "5880": 6227000.0
+      },
+      "ledger_meta": {
+        "engine_id": "P3_COMP_SAT_DAILY_POS_LEDGER_A",
+        "dest_book": "COMP_H150_x_A20",
+        "asof": "2026-05-20",
+        "ledger_asof_names": [
+          "0050",
+          "00631L",
+          "2412",
+          "2880",
+          "2886",
+          "2892",
+          "3045",
+          "4904",
+          "5880"
+        ],
+        "policy": "LEDGER_SCALED_RECON",
+        "fin_notional": 476401750.0,
+        "tel_notional": 35667500.0,
+        "fin_mix": {
+          "2880": 0.011545,
+          "2886": 0.320277,
+          "2892": 0.084722,
+          "5880": 0.583455
+        },
+        "tel_mix": {
+          "2412": 0.159346,
+          "3045": 0.286364,
+          "4904": 0.55429
+        },
+        "n_delta_names": 7,
+        "keep_0050": true,
+        "ledger_n_names": 9,
+        "reason": "ledger_scaled_recon"
+      },
+      "recon_b_delta": {
+        "2412": -3000.0,
+        "2880": -2704000.0,
+        "2886": 7311000.0,
+        "2892": -3183000.0,
+        "4904": 2000.0,
+        "5880": -4281000.0
+      },
+      "recon_b_reason": "comp_or_k9_hard150",
+      "recon_b_engine": "P3_COMP_SAT_ASOF_RECON_B",
+      "overlap": {
+        "n_ledger": 7,
+        "n_recon_b": 6,
+        "n_union": 7,
+        "n_same_sign": 5,
+        "jaccard_codes": 0.8571
+      }
+    }
+  ],
+  "soft_frozen_keep": true,
+  "broker_live_write": false,
+  "cutover": "BLOCKED",
+  "live_wire_ledger_engine": false
+}

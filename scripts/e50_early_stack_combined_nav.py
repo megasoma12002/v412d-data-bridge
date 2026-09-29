@@ -128,6 +128,7 @@ def simulate_core(
     fin_pub_alloc: str | None = None,
     fin_priv_alloc: str | None = None,
     loss_defer_policy: object | None = None,
+    daily_pos_sink: list | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
     """Exact T+1 open fills; E22 books on raw close; optional named-E45.
 
@@ -159,6 +160,9 @@ def simulate_core(
     fin_pub_alloc defaults to financial_alloc; fin_priv_alloc defaults to FIN_EQUAL.
     loss_defer_policy: optional paper Stage A object with ``on_fill`` / ``sell_ok_and_scores``
     (see ``fin_loss_defer_sell_helpers.LossDeferPolicy``). Live tip path never passes this.
+    daily_pos_sink: optional list; when provided, append one dict per day
+    ``{date, code, shares}`` for nonzero Soft-universe holdings after mark
+    (FIN/TEL/0050 + def/off extras). Path3 daily share SSOT (0kab).
     Live e21 unchanged until dedicated cutover ACCEPT.
     """
     if financial_alloc not in FIN_ALLOC_POLICIES:
@@ -770,6 +774,15 @@ def simulate_core(
                 "tgt_off": float(sleeve_w.get("OFF", 0.0)),
             }
         )
+        if daily_pos_sink is not None:
+            day_iso = dt.date().isoformat()
+            soft_codes = list(FIN) + list(TEL) + ["0050"] + extras
+            for c in soft_codes:
+                sh = float(pos.get(c, 0.0) or 0.0)
+                if abs(sh) > 1e-12:
+                    daily_pos_sink.append(
+                        {"date": day_iso, "code": str(c), "shares": round(sh, 4)}
+                    )
 
     nav_df = pd.DataFrame(nav_rows)
     fills_df = pd.DataFrame(fill_rows)
@@ -798,6 +811,7 @@ def simulate_core(
         "financial_alloc": str(financial_alloc),
         "fin_mix_lambda": None if fin_mix_lambda is None else float(fin_mix_lambda),
         "telecom_alloc": str(telecom_alloc),
+        "n_daily_pos_rows": int(len(daily_pos_sink)) if daily_pos_sink is not None else 0,
         "e22_manifest": books_manifest(e22_version) if apply_e22 else None,
         "loss_defer": (
             loss_defer_policy.meta()
