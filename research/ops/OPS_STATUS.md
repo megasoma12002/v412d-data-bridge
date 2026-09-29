@@ -55,7 +55,6 @@ ETF **0050 regime × 多空偵測器** Stage A：**`NO_EDGE`** · best `DET_BUY_
 **FIN×SAT Path3 window pack (2026-09-29):** Stage A **`WINDOW_UNIFORM__THETA005_HELD_EDGE`** · θ=0.01 vs BASE full↑**+3.23** held↑**+3.48** sealed↑**+4.78**/MDD**−0.17** · θ=0.005 full/held再+0.3 · yearly ret W–L **14–1**／MDD W–L **8–7** · observe θ=0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_WINDOW_PACK_STAGEA_DECISION_PACK.md`  
 **FIN×SAT Path3 weight-engine (2026-09-29):** Stage A **`PROXY_WIRED_DEMO_OK`** · `P3_SOFT_SLEEVE_EQ_RECON_PROXY` · demo 6×`-P3T0` + same-bar fill · e21 hook wired · Soft KEEP · broker false · cutover BLOCKED · `FIN_SAT_PATH3_WEIGHT_ENGINE_STAGEA_DECISION_PACK.md`
 **FIN×SAT Path3 observe θ=0.005 + T+0 live (2026-09-29):** **EXECUTED ACCEPT** · dual-paper θ=**0.005** · `live_t0_carve_fin_sat_switch_fill/emit` **ON** · weight engine not wired · broker **false** · cutover **BLOCKED** · `FIN_SAT_PATH3_OBSERVE_THETA005_T0_LIVE_BALLOT_EXECUTED_ACCEPT.md`
-**FIN×SAT Path3 COMP↔SAT weight-engine Stage A (2026-09-29):** **CHARTER** · proxy `P3_SOFT_SLEEVE_EQ_RECON_PROXY` · Soft sleeve EQ recon · no full engine rebuild · emit/fill ON KEEP · Soft-Frozen KEEP · broker false · cutover **BLOCKED** · `FIN_SAT_PATH3_WEIGHT_ENGINE_STAGEA_CHARTER.md`  
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
