@@ -130,6 +130,15 @@ class LiveConfig:
         "(P3_T0_STATE · Soft-Frozen Exact T+1 KEEP elsewhere · cutover still BLOCKED)"
     )
 
+    # Path3 weight engine mode — human ACCEPT 2026-09-29 (0kab).
+    # "ledger" = P3_COMP_SAT_DAILY_POS_LEDGER_A (ledger-scaled recon)
+    # "asof_b" = P3_COMP_SAT_ASOF_RECON_B (Stage B overlays)
+    live_path3_weight_engine_mode: str = "ledger"
+    live_path3_weight_engine_ballot: str = (
+        "ACCEPT Path3 weight engine: P3_COMP_SAT_DAILY_POS_LEDGER_A "
+        "(ledger-scaled recon · Soft 0050 KEEP · cutover still BLOCKED)"
+    )
+
 
 # Module-level singleton used by the live pipeline (edit + ACCEPT PR to cut over).
 LIVE = LiveConfig()
@@ -155,6 +164,8 @@ LIVE_T0_CARVE_FIN_SAT_SWITCH_FILL = LIVE.live_t0_carve_fin_sat_switch_fill
 LIVE_T0_CARVE_FIN_SAT_SWITCH_BALLOT = LIVE.live_t0_carve_fin_sat_switch_ballot
 LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT = LIVE.live_t0_carve_fin_sat_switch_emit
 LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT = LIVE.live_t0_carve_fin_sat_switch_emit_ballot
+LIVE_PATH3_WEIGHT_ENGINE_MODE = LIVE.live_path3_weight_engine_mode
+LIVE_PATH3_WEIGHT_ENGINE_BALLOT = LIVE.live_path3_weight_engine_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital

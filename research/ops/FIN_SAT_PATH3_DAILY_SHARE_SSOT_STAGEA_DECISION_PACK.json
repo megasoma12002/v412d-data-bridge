@@ -197,5 +197,7 @@
   "soft_frozen_keep": true,
   "broker_live_write": false,
   "cutover": "BLOCKED",
-  "live_wire_ledger_engine": false
+  "live_wire_ledger_engine": true,
+  "live_ballot": "LIVE_PATH3_WEIGHT_ENGINE_LEDGER_BALLOT_EXECUTED_ACCEPT.md",
+  "live_mode": "ledger"
 }

@@ -40,6 +40,8 @@ from live_config import (
     LIVE_FIN_PRIV_V7_F05,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
+    LIVE_PATH3_WEIGHT_ENGINE_BALLOT,
+    LIVE_PATH3_WEIGHT_ENGINE_MODE,
     LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT,
     LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT,
     LIVE_TEL_T3_BALLOT,
@@ -315,9 +317,13 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         )
         order_rows.extend(off_orders)
         conf_ret3_order_meta["enabled"] = True
-    # Path3 T0 carve switch emitter — weight-engine Stage B asof recon (0ka9).
+    # Path3 T0 carve switch emitter — weight engine mode from LIVE (0kab ledger).
     path3_emit_meta: dict = {"enabled": bool(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT)}
-    path3_weight_meta: dict = {"engine_id": None, "reason": "emit_flag_off"}
+    path3_weight_meta: dict = {
+        "engine_id": None,
+        "reason": "emit_flag_off",
+        "weight_engine_mode": LIVE_PATH3_WEIGHT_ENGINE_MODE,
+    }
     if LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT:
         import live_path3_t0_switch_emitter as path3_em
         import live_path3_t0_weight_engine as path3_we
@@ -414,6 +420,8 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         else None,
         "path3_t0_emit_reason": path3_emit_meta.get("reason"),
         "path3_t0_n_orders": int(path3_emit_meta.get("n_orders") or 0),
+        "path3_t0_weight_engine_mode": LIVE_PATH3_WEIGHT_ENGINE_MODE,
+        "path3_t0_weight_engine_ballot": LIVE_PATH3_WEIGHT_ENGINE_BALLOT,
         "path3_t0_weight_engine_id": path3_weight_meta.get("engine_id"),
         "path3_t0_weight_reason": path3_weight_meta.get("reason"),
         "path3_t0_weight_n_delta_names": path3_weight_meta.get("n_delta_names"),
