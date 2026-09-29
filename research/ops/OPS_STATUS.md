@@ -42,6 +42,8 @@ ETF **0050 regime × 多空偵測器** Stage A：**`NO_EDGE`** · best `DET_BUY_
 **FIN×SAT Path3 live T+0 fill PREP (2026-09-29):** named allowlist wired · `live_t0_carve_fin_sat_switch_fill=False` · DRAFT ballot awaiting ACCEPT · Soft-Frozen Exact T+1 KEEP elsewhere · no Path3 router · no broker · `LIVE_T0_CARVE_FIN_SAT_SWITCH_FILL_PREP.md`  
 **FIN×SAT Path3 T0 fill-carve simulate (2026-09-29):** Stage A **`FILL_CARVE_CLOSE_ONLY`** · same-bar close held↑3.48 tipY↑2.73 · T+1 status-quo tipY↑−8.49 · tip gap +11.2pp · fill flag OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_T0_FILL_SIM_STAGEA_DECISION_PACK.md`  
 **FIN×SAT Path3 T0 switch emitter PREP (2026-09-29):** tagged builder + pipeline hook · `live_t0_carve_fin_sat_switch_emit=False` · shadow flips 153 · weight engines not wired · Soft-Frozen KEEP · no live · `LIVE_PATH3_T0_SWITCH_EMITTER_PREP.md`  
+**FIN×SAT Path3 COMP-entry signal (2026-09-29):** Stage A **`SIGNAL_WEAK`** · best `rel_5` IC0.17 hit0.59 · OOF IC≈0 不穩 · `BLOCK_rel_5` 修2022(+0.79)但 tipY↓ · Path3 observe KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_COMP_ENTRY_SIGNAL_STAGEA_DECISION_PACK.md`  
+
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
