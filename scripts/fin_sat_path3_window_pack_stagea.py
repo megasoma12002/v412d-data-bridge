@@ -173,6 +173,68 @@ def _book_row(book_id: str, base: pd.DataFrame, nav: pd.DataFrame, *, note: str)
     }
 
 
+def _year_stats(nav: pd.DataFrame, year: int) -> dict[str, float] | None:
+    d = nav.copy()
+    d["y"] = pd.to_datetime(d["date"]).dt.year
+    g = d[d["y"] == year].reset_index(drop=True)
+    if len(g) < 20:
+        return None
+    n = g["nav"].astype(float) / float(g["nav"].iloc[0])
+    ret = float(n.iloc[-1] - 1.0) * 100.0
+    mdd = float((n / n.cummax() - 1.0).min()) * 100.0
+    return {"ret_pct": round(ret, 2), "mdd_pct": round(mdd, 2), "n_days": int(len(g))}
+
+
+def _yearly_panel(navs: dict[str, pd.DataFrame]) -> list[dict[str, Any]]:
+    """Calendar-year ret%/MDD% for BASE · COMP · SAT · P3_0.01 · P3_0.005."""
+    years = sorted(
+        set.intersection(*(set(pd.to_datetime(v["date"]).dt.year) for v in navs.values()))
+    )
+    rows: list[dict[str, Any]] = []
+    for y in years:
+        stats = {k: _year_stats(v, int(y)) for k, v in navs.items()}
+        if any(s is None for s in stats.values()):
+            continue
+        base = stats["BASE"]
+        p01 = stats["P3_01"]
+        p005 = stats["P3_005"]
+        assert base and p01 and p005 and stats["COMP"] and stats["SAT"]
+        lift01 = round(p01["ret_pct"] - base["ret_pct"], 2)
+        lift005 = round(p005["ret_pct"] - base["ret_pct"], 2)
+        if lift01 > 0:
+            win01 = "P3_01"
+        elif lift01 < 0:
+            win01 = "BASE"
+        else:
+            win01 = "TIE"
+        if lift005 > 0:
+            win005 = "P3_005"
+        elif lift005 < 0:
+            win005 = "BASE"
+        else:
+            win005 = "TIE"
+        rows.append(
+            {
+                "year": int(y),
+                "n_days": base["n_days"],
+                "base_ret": base["ret_pct"],
+                "base_mdd": base["mdd_pct"],
+                "comp_ret": stats["COMP"]["ret_pct"],
+                "sat_ret": stats["SAT"]["ret_pct"],
+                "p3_01_ret": p01["ret_pct"],
+                "p3_01_mdd": p01["mdd_pct"],
+                "p3_01_vs_base": lift01,
+                "p3_005_ret": p005["ret_pct"],
+                "p3_005_mdd": p005["mdd_pct"],
+                "p3_005_vs_base": lift005,
+                "d_005_minus_01": round(lift005 - lift01, 2),
+                "winner_01": win01,
+                "winner_005": win005,
+            }
+        )
+    return rows
+
+
 def _verdict(books: dict[str, dict[str, Any]]) -> str:
     p01 = books["P3_THETA_0.01"]
     p005 = books["P3_THETA_0.005"]
@@ -274,6 +336,26 @@ def main() -> int:
     verdict = _verdict(books)
     generated = _utc()
 
+    yearly = _yearly_panel(
+        {
+            "BASE": base,
+            "COMP": comp,
+            "SAT": sat,
+            "P3_01": p3_01,
+            "P3_005": p3_005,
+        }
+    )
+    wl01 = {
+        "p3": sum(1 for y in yearly if y["winner_01"] == "P3_01"),
+        "base": sum(1 for y in yearly if y["winner_01"] == "BASE"),
+        "tie": sum(1 for y in yearly if y["winner_01"] == "TIE"),
+    }
+    wl005 = {
+        "p3": sum(1 for y in yearly if y["winner_005"] == "P3_005"),
+        "base": sum(1 for y in yearly if y["winner_005"] == "BASE"),
+        "tie": sum(1 for y in yearly if y["winner_005"] == "TIE"),
+    }
+
     # flat CSV
     flat = []
     for bid, b in books.items():
@@ -290,13 +372,14 @@ def main() -> int:
                 }
             )
     pd.DataFrame(flat).to_csv(OUT / "window_pack.csv", index=False)
+    pd.DataFrame(yearly).to_csv(OUT / "yearly_pack.csv", index=False)
 
     charter = "\n".join(
         [
             f"# {CHARTER_ID}",
             "",
             "Date: 2026-09-29",
-            "Status: **Stage A — Path3 full/held/sealed window pack** · Soft-Frozen **KEEP** · "
+            "Status: **Stage A — Path3 full/held/sealed + yearly window pack** · Soft-Frozen **KEEP** · "
             "Path3 observe θ=0.01 **KEEP** · fill/emit **OFF** · no live",
             "Parents: 0k9r observe · 0k9v fill-sim · 0ka3/0ka4 θ · 0ka5 wrong-stay census",
             f"Register: **{REGISTER}**",
@@ -304,12 +387,12 @@ def main() -> int:
             "## Question",
             "",
             "`P3_T0_STATE`（θ=0.01）與 paper θ=0.005 在 **full / held / sealed** 相對 `CTRL_LIVE_A10` "
-            "的 CAGR／MDD 差異為何？sealed MDD 稅是否仍在 ACCEPTABLE 帶？",
+            "的 CAGR／MDD 差異為何？各曆年 ret%／vs BASE 又如何？",
             "",
             "## Method",
             "",
             "- `WINDOWS_STANDARD`: full · heldout_2019_plus · sealed_2023_plus",
-            "- Books: BASE · COMP · SAT · P3 θ=0.01 (observe NAV) · P3 θ=0.005 (rebuild)",
+            "- Calendar-year ret%/MDD% for BASE · COMP · SAT · P3 θ=0.01 · P3 θ=0.005",
             "- Tip YTD / trailing_1y for tip-clean context",
             "- No live / Soft-Frozen KEEP / fill/emit OFF",
             "",
@@ -345,6 +428,9 @@ def main() -> int:
         "books": books,
         "delta_005_minus_01": d005,
         "rebuild_01_gap_vs_observe": rebuild_gap,
+        "yearly": yearly,
+        "yearly_wl_01": wl01,
+        "yearly_wl_005": wl005,
         "soft_frozen_keep": True,
         "path3_observe_keep": True,
         "fill_emit_flags": False,
@@ -424,6 +510,22 @@ def main() -> int:
         "",
         f"Rebuild θ=0.01 vs observe gap (CAGR↑): `{rebuild_gap}`",
         "",
+        f"## Calendar years · W–L θ=0.01 **{wl01['p3']}–{wl01['base']}**"
+        + (f" (tie {wl01['tie']})" if wl01["tie"] else "")
+        + f" · θ=0.005 **{wl005['p3']}–{wl005['base']}**"
+        + (f" (tie {wl005['tie']})" if wl005["tie"] else ""),
+        "",
+        "| year | BASE% | COMP% | SAT% | P3@0.01% | vsBASE | P3@0.005% | vsBASE | Δ005−01 | win01 |",
+        "|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+    ]
+    for y in yearly:
+        md.append(
+            f"| {y['year']} | {y['base_ret']} | {y['comp_ret']} | {y['sat_ret']} | "
+            f"{y['p3_01_ret']} | {y['p3_01_vs_base']:+.2f} | {y['p3_005_ret']} | "
+            f"{y['p3_005_vs_base']:+.2f} | {y['d_005_minus_01']:+.2f} | {y['winner_01']} |"
+        )
+    md += [
+        "",
         "Repro: `repro/fin-sat-path3-window-pack-stagea/`",
         "",
     ]
@@ -457,6 +559,12 @@ def main() -> int:
             + ", ".join(f"{k} {_pp(d005[k]['d_cagr_lift_pp'])}" for k in WIN_KEYS)
             + ".",
             "",
+            f"Yearly W–L vs BASE: θ=0.01 **{wl01['p3']}–{wl01['base']}** · "
+            f"θ=0.005 **{wl005['p3']}–{wl005['base']}** "
+            f"(sole BASE win years θ=0.01: "
+            + ", ".join(str(y["year"]) for y in yearly if y["winner_01"] == "BASE")
+            + ").",
+            "",
             "## Implication",
             "",
             "- `WINDOW_UNIFORM*`：三窗 CAGR 全正、sealed MDD 稅可接受 → Path3 edge 非 tip-only。",
@@ -479,6 +587,9 @@ def main() -> int:
                 "books": books,
                 "delta_005_minus_01": d005,
                 "rebuild_01_gap_vs_observe": rebuild_gap,
+                "yearly": yearly,
+                "yearly_wl_01": wl01,
+                "yearly_wl_005": wl005,
                 "soft_frozen_keep": True,
                 "path3_observe_keep": True,
                 "fill_emit_flags": False,
@@ -503,6 +614,9 @@ def main() -> int:
                 "tip_01": p01["tip"],
                 "tip_005": p005["tip"],
                 "rebuild_gap": rebuild_gap,
+                "yearly_wl_01": wl01,
+                "yearly_wl_005": wl005,
+                "yearly": yearly,
             },
             indent=2,
             ensure_ascii=False,

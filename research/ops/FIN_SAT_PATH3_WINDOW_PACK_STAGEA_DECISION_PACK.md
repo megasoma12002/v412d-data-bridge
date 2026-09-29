@@ -14,6 +14,8 @@ Path3 θ=0.01 vs BASE:
 
 θ=0.005 vs θ=0.01 (Δ CAGR↑): full +0.33, heldout_2019_plus +0.30, sealed_2023_plus -0.03.
 
+Yearly W–L vs BASE: θ=0.01 **14–1** · θ=0.005 **13–2** (sole BASE win years θ=0.01: 2022).
+
 ## Implication
 
 - `WINDOW_UNIFORM*`：三窗 CAGR 全正、sealed MDD 稅可接受 → Path3 edge 非 tip-only。
