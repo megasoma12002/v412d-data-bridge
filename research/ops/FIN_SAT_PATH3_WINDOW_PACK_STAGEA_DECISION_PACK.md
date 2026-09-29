@@ -16,6 +16,8 @@ Path3 θ=0.01 vs BASE:
 
 Yearly W–L vs BASE: θ=0.01 **14–1** · θ=0.005 **13–2** (sole BASE win years θ=0.01: 2022).
 
+Yearly MDD W–L (shallower): θ=0.01 **8–7** · θ=0.005 **9–6** · tax years `[2016, 2017, 2018, 2021, 2022, 2023, 2024]`.
+
 ## Implication
 
 - `WINDOW_UNIFORM*`：三窗 CAGR 全正、sealed MDD 稅可接受 → Path3 edge 非 tip-only。

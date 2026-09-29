@@ -201,6 +201,9 @@ def _yearly_panel(navs: dict[str, pd.DataFrame]) -> list[dict[str, Any]]:
         assert base and p01 and p005 and stats["COMP"] and stats["SAT"]
         lift01 = round(p01["ret_pct"] - base["ret_pct"], 2)
         lift005 = round(p005["ret_pct"] - base["ret_pct"], 2)
+        # MDD↑ positive = shallower drawdown (same sign as window mdd_pp)
+        mdd01 = round(p01["mdd_pct"] - base["mdd_pct"], 2)
+        mdd005 = round(p005["mdd_pct"] - base["mdd_pct"], 2)
         if lift01 > 0:
             win01 = "P3_01"
         elif lift01 < 0:
@@ -213,6 +216,18 @@ def _yearly_panel(navs: dict[str, pd.DataFrame]) -> list[dict[str, Any]]:
             win005 = "BASE"
         else:
             win005 = "TIE"
+        if mdd01 > 0:
+            mdd_win01 = "P3_01"
+        elif mdd01 < 0:
+            mdd_win01 = "BASE"
+        else:
+            mdd_win01 = "TIE"
+        if mdd005 > 0:
+            mdd_win005 = "P3_005"
+        elif mdd005 < 0:
+            mdd_win005 = "BASE"
+        else:
+            mdd_win005 = "TIE"
         rows.append(
             {
                 "year": int(y),
@@ -220,16 +235,23 @@ def _yearly_panel(navs: dict[str, pd.DataFrame]) -> list[dict[str, Any]]:
                 "base_ret": base["ret_pct"],
                 "base_mdd": base["mdd_pct"],
                 "comp_ret": stats["COMP"]["ret_pct"],
+                "comp_mdd": stats["COMP"]["mdd_pct"],
                 "sat_ret": stats["SAT"]["ret_pct"],
+                "sat_mdd": stats["SAT"]["mdd_pct"],
                 "p3_01_ret": p01["ret_pct"],
                 "p3_01_mdd": p01["mdd_pct"],
                 "p3_01_vs_base": lift01,
+                "p3_01_mdd_vs_base": mdd01,
                 "p3_005_ret": p005["ret_pct"],
                 "p3_005_mdd": p005["mdd_pct"],
                 "p3_005_vs_base": lift005,
+                "p3_005_mdd_vs_base": mdd005,
                 "d_005_minus_01": round(lift005 - lift01, 2),
+                "d_mdd_005_minus_01": round(mdd005 - mdd01, 2),
                 "winner_01": win01,
                 "winner_005": win005,
+                "mdd_winner_01": mdd_win01,
+                "mdd_winner_005": mdd_win005,
             }
         )
     return rows
@@ -355,6 +377,19 @@ def main() -> int:
         "base": sum(1 for y in yearly if y["winner_005"] == "BASE"),
         "tie": sum(1 for y in yearly if y["winner_005"] == "TIE"),
     }
+    mdd_wl01 = {
+        "p3": sum(1 for y in yearly if y["mdd_winner_01"] == "P3_01"),
+        "base": sum(1 for y in yearly if y["mdd_winner_01"] == "BASE"),
+        "tie": sum(1 for y in yearly if y["mdd_winner_01"] == "TIE"),
+    }
+    mdd_wl005 = {
+        "p3": sum(1 for y in yearly if y["mdd_winner_005"] == "P3_005"),
+        "base": sum(1 for y in yearly if y["mdd_winner_005"] == "BASE"),
+        "tie": sum(1 for y in yearly if y["mdd_winner_005"] == "TIE"),
+    }
+    # years where P3 MDD worse (tax) under θ=0.01
+    mdd_tax_years_01 = [y["year"] for y in yearly if y["p3_01_mdd_vs_base"] < 0]
+    mdd_help_years_01 = [y["year"] for y in yearly if y["p3_01_mdd_vs_base"] > 0]
 
     # flat CSV
     flat = []
@@ -431,6 +466,10 @@ def main() -> int:
         "yearly": yearly,
         "yearly_wl_01": wl01,
         "yearly_wl_005": wl005,
+        "yearly_mdd_wl_01": mdd_wl01,
+        "yearly_mdd_wl_005": mdd_wl005,
+        "mdd_tax_years_01": mdd_tax_years_01,
+        "mdd_help_years_01": mdd_help_years_01,
         "soft_frozen_keep": True,
         "path3_observe_keep": True,
         "fill_emit_flags": False,
@@ -526,6 +565,26 @@ def main() -> int:
         )
     md += [
         "",
+        f"## Calendar-year MDD% · W–L(shallower) θ=0.01 **{mdd_wl01['p3']}–{mdd_wl01['base']}**"
+        + (f" (tie {mdd_wl01['tie']})" if mdd_wl01["tie"] else "")
+        + f" · θ=0.005 **{mdd_wl005['p3']}–{mdd_wl005['base']}**"
+        + (f" (tie {mdd_wl005['tie']})" if mdd_wl005["tie"] else ""),
+        "",
+        "MDD↑ = chal_mdd − base_mdd（正＝回撤更淺）",
+        "",
+        "| year | BASE MDD | COMP | SAT | P3@0.01 | MDD↑ | P3@0.005 | MDD↑ | Δ005−01 | win |",
+        "|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|",
+    ]
+    for y in yearly:
+        md.append(
+            f"| {y['year']} | {y['base_mdd']} | {y['comp_mdd']} | {y['sat_mdd']} | "
+            f"{y['p3_01_mdd']} | {y['p3_01_mdd_vs_base']:+.2f} | {y['p3_005_mdd']} | "
+            f"{y['p3_005_mdd_vs_base']:+.2f} | {y['d_mdd_005_minus_01']:+.2f} | {y['mdd_winner_01']} |"
+        )
+    md += [
+        "",
+        f"θ=0.01 MDD tax years (MDD↑&lt;0): `{mdd_tax_years_01}` · help years: `{mdd_help_years_01}`",
+        "",
         "Repro: `repro/fin-sat-path3-window-pack-stagea/`",
         "",
     ]
@@ -565,6 +624,12 @@ def main() -> int:
             + ", ".join(str(y["year"]) for y in yearly if y["winner_01"] == "BASE")
             + ").",
             "",
+            f"Yearly MDD W–L (shallower): θ=0.01 **{mdd_wl01['p3']}–{mdd_wl01['base']}**"
+            + (f" tie{mdd_wl01['tie']}" if mdd_wl01["tie"] else "")
+            + f" · θ=0.005 **{mdd_wl005['p3']}–{mdd_wl005['base']}**"
+            + (f" tie{mdd_wl005['tie']}" if mdd_wl005["tie"] else "")
+            + f" · tax years `{mdd_tax_years_01}`.",
+            "",
             "## Implication",
             "",
             "- `WINDOW_UNIFORM*`：三窗 CAGR 全正、sealed MDD 稅可接受 → Path3 edge 非 tip-only。",
@@ -590,6 +655,10 @@ def main() -> int:
                 "yearly": yearly,
                 "yearly_wl_01": wl01,
                 "yearly_wl_005": wl005,
+                "yearly_mdd_wl_01": mdd_wl01,
+                "yearly_mdd_wl_005": mdd_wl005,
+                "mdd_tax_years_01": mdd_tax_years_01,
+                "mdd_help_years_01": mdd_help_years_01,
                 "soft_frozen_keep": True,
                 "path3_observe_keep": True,
                 "fill_emit_flags": False,
@@ -616,6 +685,10 @@ def main() -> int:
                 "rebuild_gap": rebuild_gap,
                 "yearly_wl_01": wl01,
                 "yearly_wl_005": wl005,
+                "yearly_mdd_wl_01": mdd_wl01,
+                "yearly_mdd_wl_005": mdd_wl005,
+                "mdd_tax_years_01": mdd_tax_years_01,
+                "mdd_help_years_01": mdd_help_years_01,
                 "yearly": yearly,
             },
             indent=2,

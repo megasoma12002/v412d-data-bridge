@@ -49,7 +49,7 @@ ETF **0050 regime × 多空偵測器** Stage A：**`NO_EDGE`** · best `DET_BUY_
 **FIN×SAT Path3 COMP-entry FFT (2026-09-29):** Stage A **`FFT_ENTRY_WEAK`** · best `w256_dphase` IC0.19 hit0.50 · block 傷2022/held/tip · 譜不解進場 · Path3 observe KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_COMP_ENTRY_FFT_STAGEA_DECISION_PACK.md`  
 **FIN×SAT FFT exog×TD AND (2026-09-29):** Stage A **`EXOG_FFT_WEAK`** · `exog_dphase` IC−0.12 hit0.52 · AND 輸 P3 tip/held/2022 · Soft-Frozen KEEP · no live · `FIN_SAT_FFT_EXOG_AND_STAGEA_DECISION_PACK.md`  
 **FIN×SAT FFT non-switch tilt (2026-09-29):** Stage A **`FFT_OBSERVE_ONLY`** · soft-tilt 全被 P3 hard 支配 · observe `exog_amp` IC~0.11 · 不當曝險旋鈕 · Soft-Frozen KEEP · no live · `FIN_SAT_FFT_NONSWITCH_TILT_STAGEA_DECISION_PACK.md`  
-**FIN×SAT Path3 window pack (2026-09-29):** Stage A **`WINDOW_UNIFORM__THETA005_HELD_EDGE`** · θ=0.01 vs BASE full↑**+3.23** held↑**+3.48** sealed↑**+4.78**/MDD**−0.17** · θ=0.005 full/held再+0.3 · yearly W–L **14–1**（sole 2022）· observe θ=0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_WINDOW_PACK_STAGEA_DECISION_PACK.md`
+**FIN×SAT Path3 window pack (2026-09-29):** Stage A **`WINDOW_UNIFORM__THETA005_HELD_EDGE`** · θ=0.01 vs BASE full↑**+3.23** held↑**+3.48** sealed↑**+4.78**/MDD**−0.17** · θ=0.005 full/held再+0.3 · yearly ret W–L **14–1**／MDD W–L **7–8**· observe θ=0.01 KEEP · fill/emit OFF · Soft-Frozen KEEP · no live · `FIN_SAT_PATH3_WINDOW_PACK_STAGEA_DECISION_PACK.md`
 
 新機制 N1–N3：**STOP / ladder exhausted** · `PRIV_MDD_NEW_MECH_N3_DECISION_PACK.md`  
 新機制 V2 S1–S2：**STOP / ladder exhausted** · `PRIV_MDD_SENSOR_S2_DECISION_PACK.md`  
