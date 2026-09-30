@@ -1,0 +1,13 @@
+{
+  "id": "META_DETECT_SEALED_MDD_HARDEN_STAGEA_CHARTER",
+  "register": "0kau",
+  "parents": [
+    "0kat",
+    "0kas",
+    "0kar"
+  ],
+  "mech": "META_DETECT_SEALED_MDD_HARDEN",
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false
+}

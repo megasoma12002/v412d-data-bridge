@@ -1,0 +1,18 @@
+arm,note,pct_fuse_on,pct_cool_on,pct_p3_on,n_days,p3_theta,proxy_x
+STATIC_L3_LIVE_FUSE_COOL,Always Soft+FUSE+COOL (=live base),100.0,100.0,0.0,3366,0.005,0.08
+REF_DETECT_P3_THETA,0kat baseline: live stack + P3 when |trail|≥θ (no MDD harden),100.0,100.0,73.14,3366,0.005,0.08
+REF_DETECT_FUSE_RISKON,0kat contrast: FUSE risk-on; COOL always; no P3,78.43,100.0,0.0,3366,0.005,0.08
+P3_THETA_PROXY05,P3 |trail|≥θ AND Soft proxy_mdd63 > −5%,100.0,100.0,26.23,3366,0.005,0.08
+P3_THETA_PROXY08,P3 |trail|≥θ AND Soft proxy_mdd63 > −8%,100.0,100.0,49.14,3366,0.005,0.08
+P3_THETA_PROXY10,P3 |trail|≥θ AND Soft proxy_mdd63 > −10%,100.0,100.0,53.95,3366,0.005,0.08
+P3_THETA_NEARPEAK3,P3 |trail|≥θ AND Soft within 3% of 63d peak,100.0,100.0,50.83,3366,0.005,0.08
+P3_THETA_NEARPEAK5,P3 |trail|≥θ AND Soft within 5% of 63d peak,100.0,100.0,62.0,3366,0.005,0.08
+P3_THETA_RISKON,P3 |trail|≥θ AND COOL risk-on (not defending),100.0,100.0,55.2,3366,0.005,0.08
+P3_THETA_NOT_BLEED,P3 |trail|≥θ AND lagged 5d prem_p3 sum ≥ 0,100.0,100.0,37.17,3366,0.005,0.08
+P3_HARD_PEAK3_RISKON,P3 |trail|≥θ AND near-peak3 AND risk-on,100.0,100.0,41.77,3366,0.005,0.08
+P3_HARD_PEAK5_PROXY08,P3 |trail|≥θ AND near-peak5 AND proxy > −8%,100.0,100.0,46.29,3366,0.005,0.08
+P3_HARD_PEAK3_NOTBLEED,P3 |trail|≥θ AND near-peak3 AND not bleeding,100.0,100.0,26.11,3366,0.005,0.08
+FUSE_RISKON_PROXY08,FUSE only risk-on∩proxy>−8%; COOL always; no P3,70.23,100.0,0.0,3366,0.005,0.08
+FUSE_RISKON_NEARPEAK5,FUSE only risk-on∩near-peak5; COOL always; no P3,71.98,100.0,0.0,3366,0.005,0.08
+COMBO_HARD_P3PEAK_FUSERISK,FUSE risk-on∩proxy08; COOL always; P3 peak3∩riskon∩notbleed,70.23,100.0,21.84,3366,0.005,0.08
+COMBO_HARD_DEFEND_COOL,FUSE riskon∩peak5; COOL when defending or not near-peak; P3 peak3∩riskon,71.98,28.02,41.77,3366,0.005,0.08
