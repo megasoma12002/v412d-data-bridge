@@ -1,0 +1,20 @@
+{
+  "label": "FIN_SAT_PATH4_SOFT_0050_MUTEX_STAGEA_DECISION_PACK_2026-09-30__PATH4_MUTEX_HIT__NO_LIVE",
+  "verdict": "PATH4_MUTEX_HIT",
+  "register": "0kak",
+  "mech": "PATH4_SOFT_0050_MUTEX",
+  "champion_arm": "SW_TRAIL_001",
+  "corr_p4_vs_p3_trail": -0.135,
+  "held_cagr_lift_pp": 0.4031,
+  "tip_ytd_cagr_lift_pp": 0.1865,
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true,
+  "live_wire": false,
+  "next": [
+    "Stage B: Soft Exact T+1 / e16 clip-book dual for `SW_TRAIL_001` \u2014 still no live",
+    "Optional \u03b8 densify / OFF book = DEF sleeve (not zero-0050 only)",
+    "0kae\u20130kaj remain Path3-hitchhike track \u2014 separate from Path4 mutex",
+    "Soft KEEP \u00b7 Path3 keep_0050=True \u00b7 no live"
+  ]
+}
