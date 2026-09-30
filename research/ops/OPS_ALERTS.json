@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-29T15:00:28.077321+00:00",
+  "generated_at_utc": "2026-09-30T15:06:03.843819+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -82,7 +82,7 @@
       "severity": "INFO",
       "source": "fin_priv_v7_f05",
       "code": "FINPRIV_PX_FRESH",
-      "message": "Class D priv panel fresh vs tip asof 2026-09-29 (lag\u22645d)"
+      "message": "Class D priv panel fresh vs tip asof 2026-09-30 (lag\u22645d)"
     },
     {
       "severity": "INFO",
@@ -274,7 +274,7 @@
       "severity": "INFO",
       "source": "r4_settlement_estimate",
       "code": "R4_ESTIMATE_PRESENT",
-      "message": "R4 settlement_cash_estimate present \u2014 settled_cash_estimate=50415.51358572836 is liquidity view NOT portfolio NAV / Soft-Frozen cash"
+      "message": "R4 settlement_cash_estimate present \u2014 settled_cash_estimate=50415.51358573139 is liquidity view NOT portfolio NAV / Soft-Frozen cash"
     },
     {
       "severity": "INFO",

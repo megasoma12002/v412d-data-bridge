@@ -1,5 +1,5 @@
 {
-  "asof": "2026-09-29",
+  "asof": "2026-09-30",
   "status": "OPEN",
   "is_session": true,
   "broker_submit_allowed": true,
@@ -7,12 +7,11 @@
   "reason": "session open or confirmed",
   "notes": [
     "annual planned SESSION",
-    "MIS no same-day open yet",
-    "MI_INDEX OK"
+    "MIS delayed quote d==asof + open price"
   ],
   "sources": {
     "annual_calendar": {
-      "date": "2026-09-29",
+      "date": "2026-09-30",
       "is_session": "1",
       "is_settlement": "1",
       "kind": "SESSION",
@@ -26,47 +25,42 @@
       "n_hits": 0
     },
     "mis_quote": {
-      "open": false,
-      "n_hits": 0,
+      "open": true,
+      "n_hits": 3,
       "rows": [
         {
           "ex_ch": "tse_t00.tw",
-          "open_signal": false,
-          "c": null,
-          "d": null,
-          "o": null,
-          "t": null,
+          "open_signal": true,
+          "c": "t00",
+          "d": "20260930",
+          "o": "47767.49",
+          "t": "13:33:00",
           "v": null,
-          "rtcode": "ERR"
+          "rtcode": "0000"
         },
         {
           "ex_ch": "tse_0050.tw",
-          "open_signal": false,
-          "c": null,
-          "d": null,
-          "o": null,
-          "t": null,
-          "v": null,
-          "rtcode": "ERR"
+          "open_signal": true,
+          "c": "0050",
+          "d": "20260930",
+          "o": "112.5000",
+          "t": "13:30:00",
+          "v": "57767",
+          "rtcode": "0000"
         },
         {
           "ex_ch": "tse_2330.tw",
-          "open_signal": false,
-          "c": null,
-          "d": null,
-          "o": null,
-          "t": null,
-          "v": null,
-          "rtcode": "ERR"
+          "open_signal": true,
+          "c": "2330",
+          "d": "20260930",
+          "o": "2495.0000",
+          "t": "13:30:00",
+          "v": "30440",
+          "rtcode": "0000"
         }
       ]
-    },
-    "mi_index": {
-      "stat": "OK",
-      "has_session": true,
-      "after_close_heuristic": true
     }
   },
-  "generated_at": "2026-09-29T22:56:37.633752+08:00",
+  "generated_at": "2026-09-30T23:02:25.361071+08:00",
   "soft_frozen_untouched": true
 }

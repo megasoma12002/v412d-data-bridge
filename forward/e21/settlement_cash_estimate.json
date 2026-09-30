@@ -1,15 +1,15 @@
 {
   "summary": {
-    "asof": "2026-09-29",
-    "n_fills": 96,
+    "asof": "2026-09-30",
+    "n_fills": 102,
     "settling_today_net": 0,
     "n_settling_today": 0,
-    "unsettled_payables": 0,
-    "unsettled_receivables": 0,
-    "unsettled_net": 0,
-    "n_unsettled": 0,
-    "paper_cash": 50415.51358572836,
-    "settled_cash_estimate": 50415.51358572836,
+    "unsettled_payables": -23949918.43723125,
+    "unsettled_receivables": 45213521.754088,
+    "unsettled_net": 21263603.31685675,
+    "n_unsettled": 6,
+    "paper_cash": 21314018.83044248,
+    "settled_cash_estimate": 50415.51358573139,
     "note": "settled_cash_estimate ≈ paper_cash - unsettled_net; liquidity view only — not NAV. Typhoon/holiday skipped via session calendar."
   },
   "fills": [
@@ -1164,6 +1164,78 @@
       "settlement_cash": -1031195.8192395,
       "settle_date": "2026-09-18",
       "sessions_to_settle": 0
+    },
+    {
+      "fill_id": "2026-09-29-2880-SELL",
+      "fill_date": "2026-09-30",
+      "code": "2880",
+      "side": "SELL",
+      "quantity": 249000.0,
+      "gross": 11373610.350000001,
+      "fees_tax": 43845.26789925001,
+      "settlement_cash": 11329765.08210075,
+      "settle_date": "2026-10-02",
+      "sessions_to_settle": 2
+    },
+    {
+      "fill_id": "2026-09-29-2886-SELL",
+      "fill_date": "2026-09-30",
+      "code": "2886",
+      "side": "SELL",
+      "quantity": 228000.0,
+      "gross": 11291751.299999999,
+      "fees_tax": 43529.7012615,
+      "settlement_cash": 11248221.598738499,
+      "settle_date": "2026-10-02",
+      "sessions_to_settle": 2
+    },
+    {
+      "fill_id": "2026-09-29-2892-SELL",
+      "fill_date": "2026-09-30",
+      "code": "2892",
+      "side": "SELL",
+      "quantity": 290000.0,
+      "gross": 11376808.75,
+      "fees_tax": 43857.59773125,
+      "settlement_cash": 11332951.15226875,
+      "settle_date": "2026-10-02",
+      "sessions_to_settle": 2
+    },
+    {
+      "fill_id": "2026-09-29-5880-SELL",
+      "fill_date": "2026-09-30",
+      "code": "5880",
+      "side": "SELL",
+      "quantity": 430000.0,
+      "gross": 11346324.0,
+      "fees_tax": 43740.079020000005,
+      "settlement_cash": 11302583.92098,
+      "settle_date": "2026-10-02",
+      "sessions_to_settle": 2
+    },
+    {
+      "fill_id": "2026-09-29-0050-BUY",
+      "fill_date": "2026-09-30",
+      "code": "0050",
+      "side": "BUY",
+      "quantity": 109000.0,
+      "gross": 12268631.25,
+      "fees_tax": 10489.67971875,
+      "settlement_cash": -12279120.92971875,
+      "settle_date": "2026-10-02",
+      "sessions_to_settle": 2
+    },
+    {
+      "fill_id": "2026-09-29-4904-BUY",
+      "fill_date": "2026-09-30",
+      "code": "4904",
+      "side": "BUY",
+      "quantity": 111000.0,
+      "gross": 11660827.5,
+      "fees_tax": 9970.0075125,
+      "settlement_cash": -11670797.5075125,
+      "settle_date": "2026-10-02",
+      "sessions_to_settle": 2
     }
   ]
 }
