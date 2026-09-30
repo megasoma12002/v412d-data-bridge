@@ -1,0 +1,16 @@
+{
+  "id": "FIN_SAT_PATH3_SATELLITE_REHOME_STAGEA_CHARTER",
+  "register": "0kaf",
+  "parent": "0kad",
+  "code": "00631L",
+  "options": [
+    "KEEP_OVERLAY",
+    "PATH3_SNAPSHOT_ONLY",
+    "PATH3_DEF_ON_FLIP",
+    "DAILY_PATH3_DEF",
+    "FORBID_IN_LEDGER"
+  ],
+  "soft_keep": true,
+  "cool_keep": true,
+  "broker": false
+}
