@@ -1,34 +1,12 @@
 {
   "id": "PATH4_SOFT_0050_EXTREME_OFF_DISPOSITION",
   "date": "2026-09-30",
-  "status": "OPEN",
-  "awaiting": "human",
+  "status": "SUPERSEDED_BY_EXECUTED",
+  "verdict": "KEEP_STAGEA_RENORM",
+  "executed_ssot": "PATH4_SOFT_0050_EXTREME_OFF_DISPOSITION_EXECUTED",
   "register_parents": ["0kak", "0kan", "0kal"],
   "recommendation": "KEEP_STAGEA_RENORM",
   "soft_keep": true,
   "live_wire": false,
-  "broker": false,
-  "arms": {
-    "stage_a_renorm": {
-      "arm": "SW_TRAIL_001",
-      "held_cagr_lift_pp": 0.4031,
-      "tip_ytd_cagr_lift_pp": 0.1865,
-      "role": "Path4 Soft-0050 mutex primary (recommended)"
-    },
-    "cash_etf_runner": {
-      "arm": "SW_CASH_ETF_00025",
-      "held_cagr_lift_pp": 0.4934,
-      "tip_ytd_cagr_lift_pp": -0.3214,
-      "role": "0050 cash-park extreme; tip soft — not mainline"
-    },
-    "full_cash_champion": {
-      "arm": "SW_FULL_CASH_00025",
-      "held_cagr_lift_pp": 6.5084,
-      "tip_ytd_cagr_lift_pp": 6.1187,
-      "role": "Soft-core risk-off — separate track if pursued"
-    }
-  },
-  "accept_line_recommended": "PATH4 DISPOSITION: KEEP_STAGEA_RENORM\n(Path4 Soft-0050 primary = SW_TRAIL_001 · FULL_CASH = separate Soft-core risk-off track · no live)",
-  "accept_line_alternate": "PATH4 DISPOSITION: PROMOTE_FULL_CASH_00025\n(Path4 primary = Soft-core full-cash risk-off · still no live · requires new wire charter)",
-  "defer_line": "PATH4 DISPOSITION: DEFER"
+  "broker": false
 }
