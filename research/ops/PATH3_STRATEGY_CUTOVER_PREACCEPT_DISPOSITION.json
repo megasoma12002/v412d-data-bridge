@@ -1,0 +1,25 @@
+{
+  "id": "PATH3_STRATEGY_CUTOVER_PREACCEPT_DISPOSITION",
+  "date": "2026-09-30",
+  "status": "PRE_ACCEPT_DISPOSITION",
+  "register_parents": ["0kac", "0kam", "0k9r", "0ka5", "0k9x", "0ka6"],
+  "live_path3_strategy_cutover": false,
+  "broker": false,
+  "soft_keep": true,
+  "gates": {
+    "paper_within_hit": true,
+    "sealed_tip_held_disposition": "PASS",
+    "wrong_stay_2022_disposition": "KNOWN_ACCEPTABLE_TO_BALLOT",
+    "overlay_smoke": "OVERLAY_DESIGN_COEXIST_OK",
+    "parent_observes": "KEEP_OPEN",
+    "t0_carve_narrow": true
+  },
+  "paper_hit_cite": {
+    "held_cagr_lift_pp": 3.0409,
+    "tip_ytd_cagr_lift_pp": 0.2679,
+    "sealed_mdd_improve_pp": 7.2414,
+    "yearly_ret_wl": "14-1",
+    "within_vs_flip_2022_ret_lift_pp": 1.937
+  },
+  "next": "PATH3_STRATEGY_CUTOVER_ACCEPT_BALLOT_OPEN"
+}
