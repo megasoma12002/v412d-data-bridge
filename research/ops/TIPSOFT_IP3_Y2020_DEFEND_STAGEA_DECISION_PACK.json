@@ -1,0 +1,42 @@
+{
+  "id": "TIPSOFT_IP3_Y2020_DEFEND_STAGEA_DECISION_PACK",
+  "register": "0kb4",
+  "parents": [
+    "0kb3",
+    "0kb2",
+    "0kb1"
+  ],
+  "verdict": "IP3_Y2020_DEFEND_NO_EDGE",
+  "champion": {
+    "arm": "HARD_FUSENEG5_ST0",
+    "family": "HARD",
+    "verdict_vs_live": "HIT",
+    "held_vs_live": 0.8241,
+    "held_vs_parent": -0.7895,
+    "sealed_vs_live": -0.0244,
+    "tipY_vs_live": 2.2569,
+    "year_gap_to_oracle_pp": 0.7653,
+    "year_regret_improve_vs_parent_pp": -0.3833,
+    "year_wins": 4,
+    "n_beats_live": 9,
+    "n_beats_live_vs_parent": 1,
+    "y2020_delta_vs_live_pp": 0.2018,
+    "y2020_improve_vs_parent_pp": 0.8725,
+    "y2020_beats_live": true,
+    "y2020_flip": true,
+    "held_pos_vs_parent": false,
+    "y2020_obj_clear": false,
+    "strong_clear": false,
+    "oracle": false,
+    "is_ref": false
+  },
+  "stop_freeze_0kb2_observe_mainline": true,
+  "n_strong_clear": 0,
+  "n_held_pos_vs_parent": 1,
+  "n_held_pos_and_y2020": 0,
+  "n_y2020_obj_clear": 0,
+  "n_y2020_flip": 3,
+  "soft_keep": true,
+  "path4_live": false,
+  "label": "TIPSOFT_IP3_Y2020_DEFEND_STAGEA_DECISION_PACK_2026-09-30__IP3_Y2020_DEFEND_NO_EDGE__NO_LIVE"
+}
