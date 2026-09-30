@@ -8,7 +8,7 @@ Charter: `FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEA_CHARTER.md` · Register **0kac**
 - [x] Carve / emit / fill / ledger / mute LIVE WIRED (0ka7–0kab) — flip-day status quo
 - [x] Scope ladder defined (`FLIP_CARVE_ONLY` … `FULL_SOFT_REPLACE`)
 - [x] Stage A `CUTOVER_SCOPE_DEFINED` decision pack filed
-- [ ] Paper dual Soft-carve vs `WITHIN_SLEEVE_PATH3` → **`PAPER_WITHIN_HIT`** (or human scope pick)
+- [x] Paper dual Soft-carve vs `WITHIN_SLEEVE_PATH3` → **`PAPER_WITHIN_HIT`** (2026-09-30 · `FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEB_DECISION_PACK.md` · still no live flag)
 - [ ] Sealed MDD / tip / held disposition vs Path3 observe baseline (cite 0ka6 / sealed ACCEPTABLE)
 - [ ] Wrong-stay / 2022 residual disposition explicit (0ka5 / 0k9x)
 - [ ] Overlay coexistence smoke (COOL / FUSE / CONF_RET3 / FinPriv)
