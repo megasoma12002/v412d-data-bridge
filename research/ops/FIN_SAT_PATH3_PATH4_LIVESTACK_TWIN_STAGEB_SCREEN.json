@@ -1,0 +1,512 @@
+{
+  "generated_at_utc": "2026-09-30T09:44:38Z",
+  "register": "0kap",
+  "parents": [
+    "0kao",
+    "0kac",
+    "0kak"
+  ],
+  "mech": "PATH3_PATH4_LIVESTACK_TWIN",
+  "verdict": "LIVESTACK_TWIN_MDD_BLOCK",
+  "fill_timing": "exact_t1",
+  "base": "BASE_LIVE_FUSE_COOL",
+  "champion_arm": "LIVE_P3_WITHIN",
+  "live_stack": {
+    "soft_clips": true,
+    "fuse_sell_a75": true,
+    "cool_c8": true,
+    "cool_frozen_from_base_offense": true
+  },
+  "arms_vs_live": [
+    {
+      "arm": "LIVE_P3_WITHIN",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": 0.3296,
+      "held_cagr_lift_pp": 0.8475,
+      "sealed_mdd_improve_pp": -0.5026,
+      "tip_ytd_cagr_lift_pp": 2.8524,
+      "tip_1y_cagr_lift_pp": 2.0757,
+      "yearly_ret_wl": "10-5",
+      "meta_n_fills": 4876,
+      "meta_exact_t1_ok": true,
+      "meta_financial_alloc": "FIN_RS_SOFT_TILT",
+      "meta_telecom_alloc": "TEL_RS_SOFT_TILT",
+      "meta_kind": "live_p3_within",
+      "meta_path3": true,
+      "meta_path4": false
+    },
+    {
+      "arm": "LIVE_P3_P4_CASH_00025",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": 0.0401,
+      "held_cagr_lift_pp": 0.4137,
+      "sealed_mdd_improve_pp": -0.53,
+      "tip_ytd_cagr_lift_pp": 2.6826,
+      "tip_1y_cagr_lift_pp": 2.025,
+      "yearly_ret_wl": "9-6",
+      "meta_n_fills": 5369,
+      "meta_exact_t1_ok": true,
+      "meta_financial_alloc": "FIN_RS_SOFT_TILT",
+      "meta_telecom_alloc": "TEL_RS_SOFT_TILT",
+      "meta_kind": "live_p3_p4_cash_etf",
+      "meta_path3": true,
+      "meta_path4": true,
+      "meta_theta": 0.0025,
+      "meta_n_off_days": 691,
+      "meta_pct_off": 0.191,
+      "meta_off_book": "CASH_ETF"
+    },
+    {
+      "arm": "LIVE_P3_P4_CASH_0005",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -0.0385,
+      "held_cagr_lift_pp": 0.3216,
+      "sealed_mdd_improve_pp": -0.5231,
+      "tip_ytd_cagr_lift_pp": 3.1852,
+      "tip_1y_cagr_lift_pp": 2.2802,
+      "yearly_ret_wl": "7-8",
+      "meta_n_fills": 5183,
+      "meta_exact_t1_ok": true,
+      "meta_financial_alloc": "FIN_RS_SOFT_TILT",
+      "meta_telecom_alloc": "TEL_RS_SOFT_TILT",
+      "meta_kind": "live_p3_p4_cash_etf",
+      "meta_path3": true,
+      "meta_path4": true,
+      "meta_theta": 0.005,
+      "meta_n_off_days": 382,
+      "meta_pct_off": 0.1056,
+      "meta_off_book": "CASH_ETF"
+    },
+    {
+      "arm": "LIVE_P3_P4_CASH_001",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": 0.1384,
+      "held_cagr_lift_pp": 0.5078,
+      "sealed_mdd_improve_pp": -0.5192,
+      "tip_ytd_cagr_lift_pp": 3.1308,
+      "tip_1y_cagr_lift_pp": 2.1696,
+      "yearly_ret_wl": "9-6",
+      "meta_n_fills": 4890,
+      "meta_exact_t1_ok": true,
+      "meta_financial_alloc": "FIN_RS_SOFT_TILT",
+      "meta_telecom_alloc": "TEL_RS_SOFT_TILT",
+      "meta_kind": "live_p3_p4_cash_etf",
+      "meta_path3": true,
+      "meta_path4": true,
+      "meta_theta": 0.01,
+      "meta_n_off_days": 133,
+      "meta_pct_off": 0.0368,
+      "meta_off_book": "CASH_ETF"
+    },
+    {
+      "arm": "LIVE_P4_ONLY_001",
+      "verdict_vs_live": "NO_EDGE",
+      "full_cagr_lift_pp": -0.2182,
+      "held_cagr_lift_pp": -0.3898,
+      "sealed_mdd_improve_pp": -0.0914,
+      "tip_ytd_cagr_lift_pp": 0.003,
+      "tip_1y_cagr_lift_pp": -0.1522,
+      "yearly_ret_wl": "5-10",
+      "meta_n_fills": 4780,
+      "meta_exact_t1_ok": true,
+      "meta_financial_alloc": "FIN_PRE_EXDIV_KD",
+      "meta_telecom_alloc": "TEL_EQUAL",
+      "meta_kind": "live_p4_only",
+      "meta_path3": false,
+      "meta_path4": true,
+      "meta_theta": 0.01,
+      "meta_n_off_days": 133,
+      "meta_pct_off": 0.0368,
+      "meta_off_book": "CASH_ETF"
+    }
+  ],
+  "champion": {
+    "arm": "LIVE_P3_WITHIN",
+    "verdict_vs_live": "MDD_BLOCK",
+    "delta": {
+      "full": {
+        "cagr_lift_pp": 0.3296,
+        "mdd_improve_pp": -0.3234,
+        "base_cagr": 0.123001,
+        "chal_cagr": 0.126297,
+        "base_mdd": -0.141077,
+        "chal_mdd": -0.144311
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 0.8475,
+        "mdd_improve_pp": -0.3234,
+        "base_cagr": 0.15492,
+        "chal_cagr": 0.163395,
+        "base_mdd": -0.141077,
+        "chal_mdd": -0.144311
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 1.7529,
+        "mdd_improve_pp": -0.5026,
+        "base_cagr": 0.182881,
+        "chal_cagr": 0.20041,
+        "base_mdd": -0.062412,
+        "chal_mdd": -0.067438
+      }
+    },
+    "tip": {
+      "ytd": {
+        "cagr_lift_pp": 2.8524,
+        "mdd_improve_pp": -0.7255
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": 2.0757,
+        "mdd_improve_pp": -0.7255
+      }
+    },
+    "meta": {
+      "n_fills": 4876,
+      "exact_t1_ok": true,
+      "financial_alloc": "FIN_RS_SOFT_TILT",
+      "telecom_alloc": "TEL_RS_SOFT_TILT",
+      "kind": "live_p3_within",
+      "path3": true,
+      "path4": false
+    }
+  },
+  "live_p3_within": {
+    "arm": "LIVE_P3_WITHIN",
+    "verdict_vs_live": "MDD_BLOCK",
+    "full_cagr_lift_pp": 0.3296,
+    "held_cagr_lift_pp": 0.8475,
+    "sealed_mdd_improve_pp": -0.5026,
+    "tip_ytd_cagr_lift_pp": 2.8524,
+    "tip_1y_cagr_lift_pp": 2.0757,
+    "yearly_ret_wl": "10-5",
+    "meta": {
+      "n_fills": 4876,
+      "exact_t1_ok": true,
+      "financial_alloc": "FIN_RS_SOFT_TILT",
+      "telecom_alloc": "TEL_RS_SOFT_TILT",
+      "kind": "live_p3_within",
+      "path3": true,
+      "path4": false
+    },
+    "delta": {
+      "full": {
+        "cagr_lift_pp": 0.3296,
+        "mdd_improve_pp": -0.3234,
+        "base_cagr": 0.123001,
+        "chal_cagr": 0.126297,
+        "base_mdd": -0.141077,
+        "chal_mdd": -0.144311
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 0.8475,
+        "mdd_improve_pp": -0.3234,
+        "base_cagr": 0.15492,
+        "chal_cagr": 0.163395,
+        "base_mdd": -0.141077,
+        "chal_mdd": -0.144311
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 1.7529,
+        "mdd_improve_pp": -0.5026,
+        "base_cagr": 0.182881,
+        "chal_cagr": 0.20041,
+        "base_mdd": -0.062412,
+        "chal_mdd": -0.067438
+      }
+    },
+    "tip": {
+      "ytd": {
+        "cagr_lift_pp": 2.8524,
+        "mdd_improve_pp": -0.7255
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": 2.0757,
+        "mdd_improve_pp": -0.7255
+      }
+    },
+    "yearly": [
+      {
+        "year": 2012,
+        "ret_keep_pct": 0.5502,
+        "ret_chal_pct": 0.6681,
+        "ret_lift_pp": 0.1179,
+        "ret_win": true
+      },
+      {
+        "year": 2013,
+        "ret_keep_pct": 7.26,
+        "ret_chal_pct": 5.9867,
+        "ret_lift_pp": -1.2733,
+        "ret_win": false
+      },
+      {
+        "year": 2014,
+        "ret_keep_pct": 7.3084,
+        "ret_chal_pct": 7.635,
+        "ret_lift_pp": 0.3266,
+        "ret_win": true
+      },
+      {
+        "year": 2015,
+        "ret_keep_pct": -1.6617,
+        "ret_chal_pct": -1.8631,
+        "ret_lift_pp": -0.2014,
+        "ret_win": false
+      },
+      {
+        "year": 2016,
+        "ret_keep_pct": 14.2102,
+        "ret_chal_pct": 11.2374,
+        "ret_lift_pp": -2.9727,
+        "ret_win": false
+      },
+      {
+        "year": 2017,
+        "ret_keep_pct": 17.7368,
+        "ret_chal_pct": 20.1496,
+        "ret_lift_pp": 2.4128,
+        "ret_win": true
+      },
+      {
+        "year": 2018,
+        "ret_keep_pct": 7.8242,
+        "ret_chal_pct": 8.2445,
+        "ret_lift_pp": 0.4203,
+        "ret_win": true
+      },
+      {
+        "year": 2019,
+        "ret_keep_pct": 20.2367,
+        "ret_chal_pct": 18.7092,
+        "ret_lift_pp": -1.5276,
+        "ret_win": false
+      },
+      {
+        "year": 2020,
+        "ret_keep_pct": 5.4687,
+        "ret_chal_pct": 6.6637,
+        "ret_lift_pp": 1.1951,
+        "ret_win": true
+      },
+      {
+        "year": 2021,
+        "ret_keep_pct": 19.4702,
+        "ret_chal_pct": 21.5005,
+        "ret_lift_pp": 2.0304,
+        "ret_win": true
+      },
+      {
+        "year": 2022,
+        "ret_keep_pct": 6.5304,
+        "ret_chal_pct": 4.9252,
+        "ret_lift_pp": -1.6052,
+        "ret_win": false
+      },
+      {
+        "year": 2023,
+        "ret_keep_pct": 12.6402,
+        "ret_chal_pct": 16.3853,
+        "ret_lift_pp": 3.7451,
+        "ret_win": true
+      },
+      {
+        "year": 2024,
+        "ret_keep_pct": 10.2368,
+        "ret_chal_pct": 10.9107,
+        "ret_lift_pp": 0.6738,
+        "ret_win": true
+      },
+      {
+        "year": 2025,
+        "ret_keep_pct": 10.3895,
+        "ret_chal_pct": 10.6982,
+        "ret_lift_pp": 0.3087,
+        "ret_win": true
+      },
+      {
+        "year": 2026,
+        "ret_keep_pct": 31.5227,
+        "ret_chal_pct": 33.2874,
+        "ret_lift_pp": 1.7647,
+        "ret_win": true
+      }
+    ]
+  },
+  "live_p4_only_001": {
+    "arm": "LIVE_P4_ONLY_001",
+    "verdict_vs_live": "NO_EDGE",
+    "full_cagr_lift_pp": -0.2182,
+    "held_cagr_lift_pp": -0.3898,
+    "sealed_mdd_improve_pp": -0.0914,
+    "tip_ytd_cagr_lift_pp": 0.003,
+    "tip_1y_cagr_lift_pp": -0.1522,
+    "yearly_ret_wl": "5-10",
+    "meta": {
+      "n_fills": 4780,
+      "exact_t1_ok": true,
+      "financial_alloc": "FIN_PRE_EXDIV_KD",
+      "telecom_alloc": "TEL_EQUAL",
+      "kind": "live_p4_only",
+      "path3": false,
+      "path4": true,
+      "theta": 0.01,
+      "n_off_days": 133,
+      "pct_off": 0.0368,
+      "off_book": "CASH_ETF"
+    },
+    "delta": {
+      "full": {
+        "cagr_lift_pp": -0.2182,
+        "mdd_improve_pp": -0.0488,
+        "base_cagr": 0.123001,
+        "chal_cagr": 0.120819,
+        "base_mdd": -0.141077,
+        "chal_mdd": -0.141565
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": -0.3898,
+        "mdd_improve_pp": -0.0488,
+        "base_cagr": 0.15492,
+        "chal_cagr": 0.151022,
+        "base_mdd": -0.141077,
+        "chal_mdd": -0.141565
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": -0.7595,
+        "mdd_improve_pp": -0.0914,
+        "base_cagr": 0.182881,
+        "chal_cagr": 0.175286,
+        "base_mdd": -0.062412,
+        "chal_mdd": -0.063326
+      }
+    },
+    "tip": {
+      "ytd": {
+        "cagr_lift_pp": 0.003,
+        "mdd_improve_pp": 0.0786
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": -0.1522,
+        "mdd_improve_pp": 0.0786
+      }
+    },
+    "yearly": [
+      {
+        "year": 2012,
+        "ret_keep_pct": 0.5502,
+        "ret_chal_pct": 0.5502,
+        "ret_lift_pp": 0.0,
+        "ret_win": false
+      },
+      {
+        "year": 2013,
+        "ret_keep_pct": 7.26,
+        "ret_chal_pct": 7.26,
+        "ret_lift_pp": 0.0,
+        "ret_win": false
+      },
+      {
+        "year": 2014,
+        "ret_keep_pct": 7.3084,
+        "ret_chal_pct": 7.3084,
+        "ret_lift_pp": 0.0,
+        "ret_win": false
+      },
+      {
+        "year": 2015,
+        "ret_keep_pct": -1.6617,
+        "ret_chal_pct": -1.6617,
+        "ret_lift_pp": 0.0,
+        "ret_win": false
+      },
+      {
+        "year": 2016,
+        "ret_keep_pct": 14.2102,
+        "ret_chal_pct": 14.2102,
+        "ret_lift_pp": 0.0,
+        "ret_win": false
+      },
+      {
+        "year": 2017,
+        "ret_keep_pct": 17.7368,
+        "ret_chal_pct": 17.7368,
+        "ret_lift_pp": 0.0,
+        "ret_win": false
+      },
+      {
+        "year": 2018,
+        "ret_keep_pct": 7.8242,
+        "ret_chal_pct": 7.7271,
+        "ret_lift_pp": -0.0971,
+        "ret_win": false
+      },
+      {
+        "year": 2019,
+        "ret_keep_pct": 20.2367,
+        "ret_chal_pct": 20.2495,
+        "ret_lift_pp": 0.0127,
+        "ret_win": true
+      },
+      {
+        "year": 2020,
+        "ret_keep_pct": 5.4687,
+        "ret_chal_pct": 5.1238,
+        "ret_lift_pp": -0.3449,
+        "ret_win": false
+      },
+      {
+        "year": 2021,
+        "ret_keep_pct": 19.4702,
+        "ret_chal_pct": 19.5208,
+        "ret_lift_pp": 0.0507,
+        "ret_win": true
+      },
+      {
+        "year": 2022,
+        "ret_keep_pct": 6.5304,
+        "ret_chal_pct": 6.5606,
+        "ret_lift_pp": 0.0303,
+        "ret_win": true
+      },
+      {
+        "year": 2023,
+        "ret_keep_pct": 12.6402,
+        "ret_chal_pct": 12.6648,
+        "ret_lift_pp": 0.0246,
+        "ret_win": true
+      },
+      {
+        "year": 2024,
+        "ret_keep_pct": 10.2368,
+        "ret_chal_pct": 9.7341,
+        "ret_lift_pp": -0.5028,
+        "ret_win": false
+      },
+      {
+        "year": 2025,
+        "ret_keep_pct": 10.3895,
+        "ret_chal_pct": 8.3727,
+        "ret_lift_pp": -2.0169,
+        "ret_win": false
+      },
+      {
+        "year": 2026,
+        "ret_keep_pct": 31.5227,
+        "ret_chal_pct": 31.5245,
+        "ret_lift_pp": 0.0018,
+        "ret_win": true
+      }
+    ]
+  },
+  "optimize_live": [
+    "Keep live Soft + COOL_c8 + FUSE SELL_a75 as the base \u2014 tip Soft twin does not clear a free P3/P4 upgrade",
+    "Path3 WITHIN: tip/held good (held +0.85 tipY +2.85) but sealed MDD \u22120.50 \u2192 MDD_BLOCK; need sealed-MDD disposition or MDD-harden before ACCEPT",
+    "Path4 Soft-0050 CASH_ETF under live stack: all \u03b8 MDD_BLOCK and held\u2264P3-only \u2014 Path4 live OFF; Soft sticky 0050 KEEP",
+    "P4-only NO_EDGE (held \u22120.39) \u2014 do not ship Path4",
+    "Soft KEEP \u00b7 broker false \u00b7 Path4 live flag OFF \u00b7 no wire this pack"
+  ],
+  "gates": {
+    "held_cagr_floor_pp": 0.1,
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0
+  }
+}

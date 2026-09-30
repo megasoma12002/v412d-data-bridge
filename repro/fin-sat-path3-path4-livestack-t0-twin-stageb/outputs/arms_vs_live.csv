@@ -1,0 +1,10 @@
+arm,verdict_vs_live,full_cagr_lift_pp,held_cagr_lift_pp,sealed_mdd_improve_pp,tip_ytd_cagr_lift_pp,tip_1y_cagr_lift_pp,yearly_ret_wl,meta_kind,meta_fill_timing,meta_softcore_arm,meta_path3,meta_path4,meta_cool_overlay,meta_mean_cool,meta_pct_cool_lt1,meta_note
+T0_REF_P3_WITHIN,MDD_BLOCK,-2.7988,-2.5148,-7.028,1.923,-0.2688,5-10,softcore_t0_raw,t0,REF_P3_WITHIN,True,False,False,,,
+T0COOL_REF_P3_WITHIN,MDD_BLOCK,-1.957,-1.7637,-7.1212,-1.3987,-2.0253,4-11,softcore_t0_x_cool,t0,REF_P3_WITHIN,True,False,True,0.9199,0.1602,
+T0_P3_P4_CASH_00025,MDD_BLOCK,-0.7709,0.4714,-5.6671,1.6422,-0.4557,7-8,softcore_t0_raw,t0,P3_P4_CASH_00025,True,True,False,,,
+T0COOL_P3_P4_CASH_00025,MDD_BLOCK,-0.2057,0.9913,-3.1588,-1.6733,-2.2097,7-8,softcore_t0_x_cool,t0,P3_P4_CASH_00025,True,True,True,0.9199,0.1602,
+T0_P3_P4_CASH_0005,MDD_BLOCK,-0.922,0.2552,-5.2622,1.923,-0.2688,6-9,softcore_t0_raw,t0,P3_P4_CASH_0005,True,True,False,,,
+T0COOL_P3_P4_CASH_0005,MDD_BLOCK,-0.2899,0.9233,-3.1588,-1.3987,-2.0253,7-8,softcore_t0_x_cool,t0,P3_P4_CASH_0005,True,True,True,0.9199,0.1602,
+T0_P3_P4_CASH_001,MDD_BLOCK,-1.3406,0.053,-6.4203,1.923,-0.2688,6-9,softcore_t0_raw,t0,P3_P4_CASH_001,True,True,False,,,
+T0COOL_P3_P4_CASH_001,MDD_BLOCK,-0.6307,0.6478,-3.939,-1.3987,-2.0253,5-10,softcore_t0_x_cool,t0,P3_P4_CASH_001,True,True,True,0.9199,0.1602,
+T1_LIVE_P3_WITHIN,MDD_BLOCK,0.3296,0.8475,-0.5026,2.8524,2.0757,10-5,live_exact_t1_p3_ref,exact_t1,,True,False,True,,,0kap tip Soft twin reference

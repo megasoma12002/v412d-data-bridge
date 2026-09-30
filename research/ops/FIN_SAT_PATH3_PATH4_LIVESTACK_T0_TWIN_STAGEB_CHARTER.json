@@ -1,0 +1,12 @@
+{
+  "id": "FIN_SAT_PATH3_PATH4_LIVESTACK_T0_TWIN_STAGEB_CHARTER",
+  "register": "0kaq",
+  "parents": [
+    "0kap",
+    "0kao"
+  ],
+  "mech": "PATH3_PATH4_LIVESTACK_T0_TWIN",
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false
+}
