@@ -1,6 +1,6 @@
 {
-  "label": "FIN_SAT_PATH3_T0_DUAL_PAPER_OBSERVE_20260929T110737Z",
-  "generated_at_utc": "2026-09-29T11:07:37Z",
+  "label": "FIN_SAT_PATH3_T0_DUAL_PAPER_OBSERVE_20260929T173607Z",
+  "generated_at_utc": "2026-09-29T17:36:07Z",
   "status": "OPERATING_OBSERVE",
   "human_accept": "ACCEPT T+0 carve-out + OPEN paper observe: P3_T0_STATE (FIN×SAT Path3 · T0_CARVE_FIN_SAT_SWITCH)",
   "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
@@ -19,13 +19,13 @@
   "human_retune_theta": "ACCEPT Path3 observe retune: SAT_LEAD θ=0.005 (P3_T0_STATE · T0_CARVE_FIN_SAT_SWITCH · parents 0ka3–0ka6)",
   "live_t0_fill": true,
   "live_t0_emit": true,
-  "pct_days_sat": 34.89,
+  "pct_days_sat": 34.91,
   "windows": {
     "base": {
       "full": {
-        "cagr": 0.127381,
+        "cagr": 0.125909,
         "max_drawdown": -0.144234,
-        "n_days": 3365
+        "n_days": 3366
       },
       "oof_2011_2018": {
         "cagr": 0.087124,
@@ -38,21 +38,21 @@
         "n_days": 977
       },
       "sealed_2023_plus": {
-        "cagr": 0.195101,
+        "cagr": 0.189154,
         "max_drawdown": -0.062022,
-        "n_days": 893
+        "n_days": 894
       },
       "heldout_2019_plus": {
-        "cagr": 0.163054,
+        "cagr": 0.160304,
         "max_drawdown": -0.144234,
-        "n_days": 1870
+        "n_days": 1871
       }
     },
     "chal": {
       "full": {
-        "cagr": 0.162952,
+        "cagr": 0.161435,
         "max_drawdown": -0.143238,
-        "n_days": 3365
+        "n_days": 3366
       },
       "oof_2011_2018": {
         "cagr": 0.120366,
@@ -65,29 +65,29 @@
         "n_days": 977
       },
       "sealed_2023_plus": {
-        "cagr": 0.24263,
+        "cagr": 0.236439,
         "max_drawdown": -0.063673,
-        "n_days": 893
+        "n_days": 894
       },
       "heldout_2019_plus": {
-        "cagr": 0.200764,
+        "cagr": 0.197926,
         "max_drawdown": -0.143238,
-        "n_days": 1870
+        "n_days": 1871
       }
     }
   },
   "heldout_delta": {
-    "cagr_lift_pp": 3.771,
+    "cagr_lift_pp": 3.7622,
     "mdd_improve_pp": 0.0996
   },
   "tip": {
     "ytd": {
       "mdd_improve_pp": 0.021,
-      "cagr_lift_pp": 2.877
+      "cagr_lift_pp": 2.8143
     },
     "trailing_1y": {
       "mdd_improve_pp": 0.021,
-      "cagr_lift_pp": 2.3879
+      "cagr_lift_pp": 2.0177
     }
   },
   "parents_keep": [

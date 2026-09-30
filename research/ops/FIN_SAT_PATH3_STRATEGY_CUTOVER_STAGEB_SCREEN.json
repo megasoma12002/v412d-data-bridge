@@ -1,0 +1,248 @@
+{
+  "generated_at_utc": "2026-09-30T05:30:29Z",
+  "register": "0kam",
+  "parent": "0kac",
+  "mechanism": "PATH3_STRATEGY_CUTOVER",
+  "scope": "WITHIN_SLEEVE_PATH3",
+  "verdict": "PAPER_WITHIN_HIT",
+  "fill_timing": "t0",
+  "base": "FLIP_CARVE",
+  "chal": "WITHIN_DAILY",
+  "meta": {
+    "FLIP_CARVE": {
+      "policy": "FLIP_CARVE",
+      "fill_timing": "t0",
+      "keep_0050": true,
+      "n_days": 3364,
+      "n_flip_days": 199,
+      "n_recon_days": 199,
+      "start": "2012-12-05",
+      "end": "2026-09-24"
+    },
+    "WITHIN_DAILY": {
+      "policy": "WITHIN_DAILY",
+      "fill_timing": "t0",
+      "keep_0050": true,
+      "n_days": 3364,
+      "n_flip_days": 199,
+      "n_recon_days": 3363,
+      "start": "2012-12-05",
+      "end": "2026-09-24"
+    },
+    "FULL_DAILY": {
+      "policy": "FULL_DAILY",
+      "fill_timing": "t0",
+      "keep_0050": false,
+      "n_days": 3364,
+      "n_flip_days": 199,
+      "n_recon_days": 3363,
+      "start": "2012-12-05",
+      "end": "2026-09-24"
+    }
+  },
+  "delta_within_minus_flip": {
+    "full": {
+      "cagr_lift_pp": 2.0041,
+      "mdd_improve_pp": 1.5241,
+      "base_cagr": 0.074972,
+      "chal_cagr": 0.095013,
+      "base_mdd": -0.242673,
+      "chal_mdd": -0.227432
+    },
+    "heldout_2019_plus": {
+      "cagr_lift_pp": 3.0409,
+      "mdd_improve_pp": 1.5241,
+      "base_cagr": 0.099363,
+      "chal_cagr": 0.129772,
+      "base_mdd": -0.242673,
+      "chal_mdd": -0.227432
+    },
+    "sealed_2023_plus": {
+      "cagr_lift_pp": 5.6176,
+      "mdd_improve_pp": 7.2414,
+      "base_cagr": 0.114482,
+      "chal_cagr": 0.170658,
+      "base_mdd": -0.205106,
+      "chal_mdd": -0.132692
+    }
+  },
+  "tip_within_minus_flip": {
+    "ytd": {
+      "cagr_lift_pp": 0.2679,
+      "mdd_improve_pp": 1.1772
+    },
+    "trailing_1y": {
+      "cagr_lift_pp": 0.778,
+      "mdd_improve_pp": 1.1772
+    }
+  },
+  "delta_full_minus_flip": {
+    "full": {
+      "cagr_lift_pp": 3.4939,
+      "mdd_improve_pp": 2.029,
+      "base_cagr": 0.074972,
+      "chal_cagr": 0.109911,
+      "base_mdd": -0.242673,
+      "chal_mdd": -0.222383
+    },
+    "heldout_2019_plus": {
+      "cagr_lift_pp": 5.8263,
+      "mdd_improve_pp": 2.029,
+      "base_cagr": 0.099363,
+      "chal_cagr": 0.157626,
+      "base_mdd": -0.242673,
+      "chal_mdd": -0.222383
+    },
+    "sealed_2023_plus": {
+      "cagr_lift_pp": 10.9624,
+      "mdd_improve_pp": 7.9158,
+      "base_cagr": 0.114482,
+      "chal_cagr": 0.224106,
+      "base_mdd": -0.205106,
+      "chal_mdd": -0.125948
+    }
+  },
+  "tip_full_minus_flip": {
+    "ytd": {
+      "cagr_lift_pp": 3.7564,
+      "mdd_improve_pp": 0.9836
+    },
+    "trailing_1y": {
+      "cagr_lift_pp": 4.6246,
+      "mdd_improve_pp": 0.9836
+    }
+  },
+  "yearly_within_minus_flip": [
+    {
+      "year": 2012,
+      "ret_base_pct": 1.0747,
+      "ret_chal_pct": 1.1092,
+      "ret_lift_pp": 0.0345,
+      "mdd_improve_pp": 0.0112,
+      "ret_win": true
+    },
+    {
+      "year": 2013,
+      "ret_base_pct": 3.3679,
+      "ret_chal_pct": 3.9704,
+      "ret_lift_pp": 0.6025,
+      "mdd_improve_pp": 0.0231,
+      "ret_win": true
+    },
+    {
+      "year": 2014,
+      "ret_base_pct": 4.7782,
+      "ret_chal_pct": 5.4661,
+      "ret_lift_pp": 0.6879,
+      "mdd_improve_pp": 0.3256,
+      "ret_win": true
+    },
+    {
+      "year": 2015,
+      "ret_base_pct": -7.8635,
+      "ret_chal_pct": -7.2958,
+      "ret_lift_pp": 0.5677,
+      "mdd_improve_pp": 0.2132,
+      "ret_win": true
+    },
+    {
+      "year": 2016,
+      "ret_base_pct": 11.985,
+      "ret_chal_pct": 12.5989,
+      "ret_lift_pp": 0.6139,
+      "mdd_improve_pp": -0.2596,
+      "ret_win": true
+    },
+    {
+      "year": 2017,
+      "ret_base_pct": 14.6668,
+      "ret_chal_pct": 14.8816,
+      "ret_lift_pp": 0.2148,
+      "mdd_improve_pp": 0.0804,
+      "ret_win": true
+    },
+    {
+      "year": 2018,
+      "ret_base_pct": 3.6407,
+      "ret_chal_pct": 5.6662,
+      "ret_lift_pp": 2.0255,
+      "mdd_improve_pp": 0.6183,
+      "ret_win": true
+    },
+    {
+      "year": 2019,
+      "ret_base_pct": 19.3672,
+      "ret_chal_pct": 20.8667,
+      "ret_lift_pp": 1.4994,
+      "mdd_improve_pp": 0.6289,
+      "ret_win": true
+    },
+    {
+      "year": 2020,
+      "ret_base_pct": -1.1371,
+      "ret_chal_pct": -1.564,
+      "ret_lift_pp": -0.4268,
+      "mdd_improve_pp": 1.524,
+      "ret_win": false
+    },
+    {
+      "year": 2021,
+      "ret_base_pct": 21.7165,
+      "ret_chal_pct": 21.7227,
+      "ret_lift_pp": 0.0062,
+      "mdd_improve_pp": 0.0312,
+      "ret_win": true
+    },
+    {
+      "year": 2022,
+      "ret_base_pct": -4.1938,
+      "ret_chal_pct": -2.2568,
+      "ret_lift_pp": 1.937,
+      "mdd_improve_pp": 1.3288,
+      "ret_win": true
+    },
+    {
+      "year": 2023,
+      "ret_base_pct": 17.8991,
+      "ret_chal_pct": 19.7595,
+      "ret_lift_pp": 1.8605,
+      "mdd_improve_pp": -1.1218,
+      "ret_win": true
+    },
+    {
+      "year": 2024,
+      "ret_base_pct": 6.8083,
+      "ret_chal_pct": 9.7547,
+      "ret_lift_pp": 2.9464,
+      "mdd_improve_pp": 0.513,
+      "ret_win": true
+    },
+    {
+      "year": 2025,
+      "ret_base_pct": -12.6658,
+      "ret_chal_pct": -0.4586,
+      "ret_lift_pp": 12.2072,
+      "mdd_improve_pp": 5.1494,
+      "ret_win": true
+    },
+    {
+      "year": 2026,
+      "ret_base_pct": 32.5492,
+      "ret_chal_pct": 32.7135,
+      "ret_lift_pp": 0.1643,
+      "mdd_improve_pp": 1.1772,
+      "ret_win": true
+    }
+  ],
+  "yearly_ret_wl": {
+    "w": 14,
+    "l": 1
+  },
+  "gates": {
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0
+  },
+  "live_flag": false,
+  "broker": false,
+  "note": "Soft-core carve paper dual; Soft Exact T+1 FIN/TEL retire is scope intent \u2014 this pack measures Path3 daily FIN\u222aTEL ownership vs flip-carve with sticky 0050"
+}

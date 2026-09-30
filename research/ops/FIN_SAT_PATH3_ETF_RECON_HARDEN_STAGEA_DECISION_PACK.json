@@ -1,0 +1,19 @@
+{
+  "label": "FIN_SAT_PATH3_ETF_RECON_HARDEN_STAGEA_DECISION_PACK_2026-09-30__ETF_HARDEN_HIT__NO_LIVE",
+  "verdict": "ETF_HARDEN_HIT",
+  "register": "0kah",
+  "parent": "0kag",
+  "champion_arm": "DEAD_05",
+  "fill_timing": "t0",
+  "champion_held_cagr_lift_pp": 1.6638,
+  "champion_tip_ytd_cagr_lift_pp": 3.938,
+  "ratio_held_cagr_lift_pp": 1.6839,
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true,
+  "live_wire": false,
+  "next": [
+    "Carry champion `DEAD_05` into coexist Stage C / e21 smoke \u2014 still no live",
+    "0kac PAPER_WITHIN_HIT remains primary Path3 roadmap"
+  ]
+}

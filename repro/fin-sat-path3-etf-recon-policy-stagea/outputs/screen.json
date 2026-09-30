@@ -1,0 +1,139 @@
+{
+  "generated_at_utc": "2026-09-30T00:40:40Z",
+  "register": "0kae",
+  "parent": "0kad",
+  "state_asof": "2026-09-29",
+  "ledger_panel_end": "2026-09-24",
+  "n_flip_rows": 199,
+  "schedule_meta": {
+    "comp_sat_schedule_identical": true,
+    "per_col": {
+      "Financial": {
+        "max_abs": 0.0,
+        "pct_days_differ": 0.0
+      },
+      "Telecom": {
+        "max_abs": 0.0,
+        "pct_days_differ": 0.0
+      },
+      "0050": {
+        "max_abs": 0.0,
+        "pct_days_differ": 0.0
+      },
+      "DEF": {
+        "max_abs": 0.0,
+        "pct_days_differ": 0.0
+      }
+    }
+  },
+  "schedule_status": "RULED_OUT_IDENTICAL_COMP_SAT",
+  "policy_summary": {
+    "KEEP": {
+      "n_flips": 199,
+      "n_traded_0050": 0,
+      "pct_flips_trade_0050": 0.0,
+      "median_abs_delta_when_traded": 0.0,
+      "max_abs_delta": 0.0
+    },
+    "SCHEDULE_W": {
+      "n_flips": 199,
+      "n_traded_0050": 199,
+      "pct_flips_trade_0050": 1.0,
+      "median_abs_delta_when_traded": 218000.0,
+      "max_abs_delta": 347000.0
+    },
+    "LEDGER_SOFT_RATIO": {
+      "n_flips": 199,
+      "n_traded_0050": 199,
+      "pct_flips_trade_0050": 1.0,
+      "median_abs_delta_when_traded": 165000.0,
+      "max_abs_delta": 940000.0
+    }
+  },
+  "legs_last": [
+    {
+      "label": "COMP\u2192SAT",
+      "date": "2026-06-12",
+      "book": "SAT_A20_RELAX",
+      "book_prev": "COMP_H150_x_A20",
+      "KEEP": {
+        "target_shares": 299000.0,
+        "delta_shares": null,
+        "traded": false,
+        "meta": {
+          "policy": "KEEP",
+          "live_etf_shares": 299000.0,
+          "reason": "keep_live"
+        }
+      },
+      "SCHEDULE_W": {
+        "target_shares": 632000.0,
+        "delta_shares": 333000.0,
+        "traded": true,
+        "meta": {
+          "policy": "SCHEDULE_W",
+          "live_etf_shares": 299000.0,
+          "live_soft_core_notional": 536986450.0,
+          "schedule_etf_w": 0.1311972924635056,
+          "reason": "schedule_w_on_live_soft_core"
+        }
+      },
+      "LEDGER_SOFT_RATIO": {
+        "target_shares": 541000.0,
+        "delta_shares": 242000.0,
+        "traded": true,
+        "meta": {
+          "policy": "LEDGER_SOFT_RATIO",
+          "live_etf_shares": 299000.0,
+          "live_soft_core_notional": 536986450.0,
+          "paper_etf_w_in_soft_core": 0.112331,
+          "paper_soft_core_notional_at_live_px": 2458222304.75,
+          "reason": "ledger_soft_ratio_on_live_soft_core"
+        }
+      }
+    },
+    {
+      "label": "SAT\u2192COMP",
+      "date": "2026-05-20",
+      "book": "COMP_H150_x_A20",
+      "book_prev": "SAT_A20_RELAX",
+      "KEEP": {
+        "target_shares": 299000.0,
+        "delta_shares": null,
+        "traded": false,
+        "meta": {
+          "policy": "KEEP",
+          "live_etf_shares": 299000.0,
+          "reason": "keep_live"
+        }
+      },
+      "SCHEDULE_W": {
+        "target_shares": 632000.0,
+        "delta_shares": 333000.0,
+        "traded": true,
+        "meta": {
+          "policy": "SCHEDULE_W",
+          "live_etf_shares": 299000.0,
+          "live_soft_core_notional": 536986450.0,
+          "schedule_etf_w": 0.1311972924635056,
+          "reason": "schedule_w_on_live_soft_core"
+        }
+      },
+      "LEDGER_SOFT_RATIO": {
+        "target_shares": 610000.0,
+        "delta_shares": 311000.0,
+        "traded": true,
+        "meta": {
+          "policy": "LEDGER_SOFT_RATIO",
+          "live_etf_shares": 299000.0,
+          "live_soft_core_notional": 536986450.0,
+          "paper_etf_w_in_soft_core": 0.126629,
+          "paper_soft_core_notional_at_live_px": 2354698093.1,
+          "reason": "ledger_soft_ratio_on_live_soft_core"
+        }
+      }
+    }
+  ],
+  "verdict": "ETF_POLICY_LEDGER_RATIO_HIT",
+  "live_0050_shares": 299000.0
+}

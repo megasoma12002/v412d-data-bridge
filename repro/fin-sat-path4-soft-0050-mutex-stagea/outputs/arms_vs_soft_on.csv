@@ -1,0 +1,8 @@
+arm,verdict_vs_on,full_cagr_lift_pp,held_cagr_lift_pp,sealed_mdd_improve_pp,tip_ytd_cagr_lift_pp,tip_1y_cagr_lift_pp,yearly_ret_wl,meta_kind,meta_n_off_days,meta_theta,meta_pct_off,meta_n_flips
+REF_SOFT_OFF,TIP_BLOCK,-1.2771,-2.0349,0.1436,-8.047,-7.9817,5-10,sticky_off,3364,,,
+SW_TRAIL_0005,MDD_BLOCK,0.663,0.7903,-0.3583,0.5287,0.3601,11-4,trail_mutex,526,0.005,0.1564,128.0
+SW_TRAIL_001,HIT,0.2333,0.4031,0.0485,0.1865,0.1271,9-6,trail_mutex,109,0.01,0.0324,40.0
+SW_TRAIL_002,SOFT,-0.0,-0.0,0.0,-0.0,-0.0,0-15,trail_mutex,0,0.02,0.0,0.0
+SW_TRAIL_005,SOFT,-0.0,-0.0,0.0,-0.0,-0.0,0-15,trail_mutex,0,0.05,0.0,0.0
+SW_R50NEG,SOFT,-0.1936,-0.0491,-0.2488,0.0492,0.0335,6-9,r0050_neg,876,,0.2604,
+SW_ZZ08,SOFT,-0.1237,-0.1477,0.5732,-0.385,-1.4493,6-9,zz08_bear,606,,0.1801,

@@ -1,0 +1,13 @@
+{
+  "id": "FIN_SAT_PATH3_ETF_RECON_POLICY_STAGEA_CHARTER",
+  "register": "0kae",
+  "parent": "0kad",
+  "policies": [
+    "KEEP",
+    "SCHEDULE_W",
+    "LEDGER_SOFT_RATIO"
+  ],
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true
+}

@@ -1,0 +1,9 @@
+{
+  "id": "FIN_SAT_PATH3_ETF_RECON_CUTGATE_STAGEA_CHARTER",
+  "register": "0kaj",
+  "parent": "0kai",
+  "fill_timing": "t0",
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true
+}

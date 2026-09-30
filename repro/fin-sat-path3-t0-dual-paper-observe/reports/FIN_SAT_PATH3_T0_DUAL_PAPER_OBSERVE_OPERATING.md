@@ -8,9 +8,9 @@ Canonical copy: `research/ops/FIN_SAT_PATH3_T0_DUAL_PAPER_OBSERVE_OPERATING.md`
 - carve-out: **`T0_CARVE_FIN_SAT_SWITCH`** (Exact T+0 for COMP↔SAT switch only) · global Exact T+1 KEEP elsewhere
 - books: `CTRL_LIVE_A10` ∥ `P3_T0_STATE` (same-day SAT_LEAD→SAT else COMP · θ=0.005)
 - Stage A parent: `T0_ONLY_EDGE` · COMPOSITE+SAT_RELAX observes **KEEP**
-- held-out: CAGR↑ 3.771 pp · MDD↑ 0.0996 pp
-- tip ytd CAGR↑ 2.877 · tip 1y CAGR↑ 2.3879
-- % days SAT: 34.89
+- held-out: CAGR↑ 3.7622 pp · MDD↑ 0.0996 pp
+- tip ytd CAGR↑ 2.8143 · tip 1y CAGR↑ 2.0177
+- % days SAT: 34.91
 
 ## Non-actions
 
