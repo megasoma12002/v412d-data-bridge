@@ -1,0 +1,12 @@
+{
+  "id": "PATH4_SOFT_0050_EXTREME_OFF_DISPOSITION",
+  "date": "2026-09-30",
+  "status": "SUPERSEDED_BY_EXECUTED",
+  "verdict": "KEEP_STAGEA_RENORM",
+  "executed_ssot": "PATH4_SOFT_0050_EXTREME_OFF_DISPOSITION_EXECUTED",
+  "register_parents": ["0kak", "0kan", "0kal"],
+  "recommendation": "KEEP_STAGEA_RENORM",
+  "soft_keep": true,
+  "live_wire": false,
+  "broker": false
+}
