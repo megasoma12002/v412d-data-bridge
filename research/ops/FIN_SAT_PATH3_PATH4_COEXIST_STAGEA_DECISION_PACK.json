@@ -1,0 +1,26 @@
+{
+  "label": "FIN_SAT_PATH3_PATH4_COEXIST_STAGEA_DECISION_PACK_2026-09-30__P3_P4_COEXIST_HIT__NO_LIVE",
+  "verdict": "P3_P4_COEXIST_HIT",
+  "register": "0kao",
+  "parents": [
+    "0kac",
+    "0kak",
+    "0kan"
+  ],
+  "mech": "PATH3_PATH4_COEXIST",
+  "champion_arm": "P3_P4_CASH_00025",
+  "held_cagr_lift_pp": 2.9862,
+  "tip_ytd_cagr_lift_pp": -0.2831,
+  "sealed_mdd_improve_pp": 1.3609,
+  "corr_p4_vs_p3_trail": -0.0716,
+  "off_book_live_intent": "CASH_ETF",
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false,
+  "next": [
+    "Carry `P3_P4_CASH_00025` coexist design (OFF=CASH_ETF) \u2014 still no Path4 live",
+    "Optional Stage B: tip Soft twin smoke under live P3 cutover stack \u2014 no wire",
+    "OFF_RENORM remains forbidden live under P3 FIN\u222aTEL ownership",
+    "Soft KEEP \u00b7 broker false \u00b7 Path4 live flag OFF"
+  ]
+}
