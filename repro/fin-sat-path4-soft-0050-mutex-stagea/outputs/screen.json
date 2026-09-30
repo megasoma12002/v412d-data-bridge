@@ -1,0 +1,168 @@
+{
+  "generated_at_utc": "2026-09-30T04:04:13Z",
+  "register": "0kak",
+  "mech": "PATH4_SOFT_0050_MUTEX",
+  "verdict": "PATH4_MUTEX_HIT",
+  "fill_timing": "t0",
+  "champion_arm": "SW_TRAIL_001",
+  "books": {
+    "on": "SOFT_ON",
+    "off": "SOFT_OFF"
+  },
+  "feature_primary": "trail_rel_on_off_63",
+  "forbid_path3_inputs": true,
+  "corr_p4_trail_vs_p3_trail_rel_63": -0.135,
+  "arms_vs_soft_on": [
+    {
+      "arm": "REF_SOFT_OFF",
+      "verdict_vs_on": "TIP_BLOCK",
+      "full_cagr_lift_pp": -1.2771,
+      "held_cagr_lift_pp": -2.0349,
+      "sealed_mdd_improve_pp": 0.1436,
+      "tip_ytd_cagr_lift_pp": -8.047,
+      "tip_1y_cagr_lift_pp": -7.9817,
+      "yearly_ret_wl": "5-10",
+      "meta_kind": "sticky_off",
+      "meta_n_off_days": 3364
+    },
+    {
+      "arm": "SW_TRAIL_0005",
+      "verdict_vs_on": "MDD_BLOCK",
+      "full_cagr_lift_pp": 0.663,
+      "held_cagr_lift_pp": 0.7903,
+      "sealed_mdd_improve_pp": -0.3583,
+      "tip_ytd_cagr_lift_pp": 0.5287,
+      "tip_1y_cagr_lift_pp": 0.3601,
+      "yearly_ret_wl": "11-4",
+      "meta_kind": "trail_mutex",
+      "meta_theta": 0.005,
+      "meta_n_off_days": 526,
+      "meta_pct_off": 0.1564,
+      "meta_n_flips": 128
+    },
+    {
+      "arm": "SW_TRAIL_001",
+      "verdict_vs_on": "HIT",
+      "full_cagr_lift_pp": 0.2333,
+      "held_cagr_lift_pp": 0.4031,
+      "sealed_mdd_improve_pp": 0.0485,
+      "tip_ytd_cagr_lift_pp": 0.1865,
+      "tip_1y_cagr_lift_pp": 0.1271,
+      "yearly_ret_wl": "9-6",
+      "meta_kind": "trail_mutex",
+      "meta_theta": 0.01,
+      "meta_n_off_days": 109,
+      "meta_pct_off": 0.0324,
+      "meta_n_flips": 40
+    },
+    {
+      "arm": "SW_TRAIL_002",
+      "verdict_vs_on": "SOFT",
+      "full_cagr_lift_pp": -0.0,
+      "held_cagr_lift_pp": -0.0,
+      "sealed_mdd_improve_pp": 0.0,
+      "tip_ytd_cagr_lift_pp": -0.0,
+      "tip_1y_cagr_lift_pp": -0.0,
+      "yearly_ret_wl": "0-15",
+      "meta_kind": "trail_mutex",
+      "meta_theta": 0.02,
+      "meta_n_off_days": 0,
+      "meta_pct_off": 0.0,
+      "meta_n_flips": 0
+    },
+    {
+      "arm": "SW_TRAIL_005",
+      "verdict_vs_on": "SOFT",
+      "full_cagr_lift_pp": -0.0,
+      "held_cagr_lift_pp": -0.0,
+      "sealed_mdd_improve_pp": 0.0,
+      "tip_ytd_cagr_lift_pp": -0.0,
+      "tip_1y_cagr_lift_pp": -0.0,
+      "yearly_ret_wl": "0-15",
+      "meta_kind": "trail_mutex",
+      "meta_theta": 0.05,
+      "meta_n_off_days": 0,
+      "meta_pct_off": 0.0,
+      "meta_n_flips": 0
+    },
+    {
+      "arm": "SW_R50NEG",
+      "verdict_vs_on": "SOFT",
+      "full_cagr_lift_pp": -0.1936,
+      "held_cagr_lift_pp": -0.0491,
+      "sealed_mdd_improve_pp": -0.2488,
+      "tip_ytd_cagr_lift_pp": 0.0492,
+      "tip_1y_cagr_lift_pp": 0.0335,
+      "yearly_ret_wl": "6-9",
+      "meta_kind": "r0050_neg",
+      "meta_n_off_days": 876,
+      "meta_pct_off": 0.2604
+    },
+    {
+      "arm": "SW_ZZ08",
+      "verdict_vs_on": "SOFT",
+      "full_cagr_lift_pp": -0.1237,
+      "held_cagr_lift_pp": -0.1477,
+      "sealed_mdd_improve_pp": 0.5732,
+      "tip_ytd_cagr_lift_pp": -0.385,
+      "tip_1y_cagr_lift_pp": -1.4493,
+      "yearly_ret_wl": "6-9",
+      "meta_kind": "zz08_bear",
+      "meta_n_off_days": 606,
+      "meta_pct_off": 0.1801
+    }
+  ],
+  "champion": {
+    "arm": "SW_TRAIL_001",
+    "verdict_vs_on": "HIT",
+    "delta": {
+      "full": {
+        "cagr_lift_pp": 0.2333,
+        "mdd_improve_pp": 0.0,
+        "base_cagr": 0.081432,
+        "chal_cagr": 0.083765,
+        "base_mdd": -0.230903,
+        "chal_mdd": -0.230903
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 0.4031,
+        "mdd_improve_pp": 0.0,
+        "base_cagr": 0.128863,
+        "chal_cagr": 0.132894,
+        "base_mdd": -0.222383,
+        "chal_mdd": -0.222383
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 0.6009,
+        "mdd_improve_pp": 0.0485,
+        "base_cagr": 0.192875,
+        "chal_cagr": 0.198884,
+        "base_mdd": -0.132894,
+        "chal_mdd": -0.132409
+      }
+    },
+    "tip": {
+      "ytd": {
+        "cagr_lift_pp": 0.1865,
+        "mdd_improve_pp": 0.0
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": 0.1271,
+        "mdd_improve_pp": 0.0
+      }
+    },
+    "meta": {
+      "kind": "trail_mutex",
+      "theta": 0.01,
+      "n_off_days": 109,
+      "pct_off": 0.0324,
+      "n_flips": 40
+    }
+  },
+  "note_vs_0kae_0kaj": "0kae\u20130kaj hitchhiked Path3 flips to move Soft 0050; this pack is Soft-own ON\u2194OFF mutex mirroring Path3 structure",
+  "gates": {
+    "held_cagr_floor_pp": 0.1,
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0
+  }
+}
