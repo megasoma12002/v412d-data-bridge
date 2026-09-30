@@ -1,0 +1,449 @@
+{
+  "live_win_years": [
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2019,
+    2020,
+    2025
+  ],
+  "p3_win_years": [
+    2017,
+    2018,
+    2022,
+    2023,
+    2024
+  ],
+  "p34_win_years": [
+    2021,
+    2026
+  ],
+  "near_year_oracle": {
+    "mean_policy": 11.5296,
+    "mean_oracle": 12.2803,
+    "gap_to_oracle_pp": 0.7507,
+    "year_wins": 6,
+    "n_years": 15,
+    "best_counts": {
+      "live": 8,
+      "P3": 5,
+      "P3+P4": 2
+    }
+  },
+  "feat_drag_in_live_win_years": {
+    "n_days": 440,
+    "pct_sat_lead": 59.32,
+    "pct_risk_on": 85.91,
+    "mean_dd63": -0.0095,
+    "mean_trail_abs": 0.0165,
+    "mean_prem_p3": -10.4016,
+    "sum_prem_p3_pp": -45.7671
+  },
+  "feat_help_in_live_win_years": {
+    "n_days": 363,
+    "pct_sat_lead": 57.3,
+    "pct_risk_on": 85.12,
+    "mean_dd63": -0.0099,
+    "mean_trail_abs": 0.0158,
+    "mean_prem_p3": 9.7394,
+    "sum_prem_p3_pp": 35.3542
+  },
+  "feat_drag_in_p3_win_years": {
+    "n_days": 315,
+    "pct_sat_lead": 31.11,
+    "pct_risk_on": 76.51,
+    "mean_dd63": -0.0095,
+    "mean_trail_abs": 0.0161,
+    "mean_prem_p3": -8.6505,
+    "sum_prem_p3_pp": -27.2492
+  },
+  "feat_help_in_p3_win_years": {
+    "n_days": 349,
+    "pct_sat_lead": 28.65,
+    "pct_risk_on": 77.08,
+    "mean_dd63": -0.0097,
+    "mean_trail_abs": 0.0161,
+    "mean_prem_p3": 10.805,
+    "sum_prem_p3_pp": 37.7095
+  },
+  "feat_near_all": {
+    "n_days": 1711,
+    "pct_sat_lead": 48.51,
+    "pct_risk_on": 82.17,
+    "mean_dd63": -0.0094,
+    "mean_trail_abs": 0.0169,
+    "mean_prem_p3": 0.2087,
+    "sum_prem_p3_pp": 3.5717
+  },
+  "n_drag_episodes_live_win_years": 258,
+  "n_drag_episodes_p3_win_years": 206,
+  "top_drag_episodes_live_win": [
+    {
+      "start": "2015-04-07",
+      "end": "2015-04-14",
+      "n_days": 6,
+      "year_start": 2015
+    },
+    {
+      "start": "2025-01-15",
+      "end": "2025-01-22",
+      "n_days": 6,
+      "year_start": 2025
+    },
+    {
+      "start": "2014-04-08",
+      "end": "2014-04-14",
+      "n_days": 5,
+      "year_start": 2014
+    },
+    {
+      "start": "2015-01-19",
+      "end": "2015-01-23",
+      "n_days": 5,
+      "year_start": 2015
+    },
+    {
+      "start": "2019-03-15",
+      "end": "2019-03-21",
+      "n_days": 5,
+      "year_start": 2019
+    },
+    {
+      "start": "2019-05-07",
+      "end": "2019-05-13",
+      "n_days": 5,
+      "year_start": 2019
+    },
+    {
+      "start": "2019-10-25",
+      "end": "2019-10-31",
+      "n_days": 5,
+      "year_start": 2019
+    },
+    {
+      "start": "2025-05-16",
+      "end": "2025-05-22",
+      "n_days": 5,
+      "year_start": 2025
+    },
+    {
+      "start": "2015-02-12",
+      "end": "2015-02-25",
+      "n_days": 4,
+      "year_start": 2015
+    },
+    {
+      "start": "2015-03-16",
+      "end": "2015-03-19",
+      "n_days": 4,
+      "year_start": 2015
+    },
+    {
+      "start": "2015-03-27",
+      "end": "2015-04-01",
+      "n_days": 4,
+      "year_start": 2015
+    },
+    {
+      "start": "2016-06-04",
+      "end": "2016-06-08",
+      "n_days": 4,
+      "year_start": 2016
+    }
+  ],
+  "top_drag_episodes_p3_win": [
+    {
+      "start": "2023-04-24",
+      "end": "2023-05-02",
+      "n_days": 6,
+      "year_start": 2023
+    },
+    {
+      "start": "2017-02-17",
+      "end": "2017-02-21",
+      "n_days": 4,
+      "year_start": 2017
+    },
+    {
+      "start": "2017-11-16",
+      "end": "2017-11-21",
+      "n_days": 4,
+      "year_start": 2017
+    },
+    {
+      "start": "2017-11-30",
+      "end": "2017-12-05",
+      "n_days": 4,
+      "year_start": 2017
+    },
+    {
+      "start": "2018-06-22",
+      "end": "2018-06-27",
+      "n_days": 4,
+      "year_start": 2018
+    },
+    {
+      "start": "2018-09-17",
+      "end": "2018-09-20",
+      "n_days": 4,
+      "year_start": 2018
+    },
+    {
+      "start": "2022-02-21",
+      "end": "2022-02-24",
+      "n_days": 4,
+      "year_start": 2022
+    },
+    {
+      "start": "2022-08-16",
+      "end": "2022-08-19",
+      "n_days": 4,
+      "year_start": 2022
+    }
+  ],
+  "year_rows": [
+    {
+      "year": 2012,
+      "live": 0.5502,
+      "P3": 0.5502,
+      "P3+P4": 0.5502,
+      "policy": 0.5502,
+      "oracle": 0.5502,
+      "gap": 0.0,
+      "base_best": "live",
+      "policy_wins": true,
+      "near_on_days": 0,
+      "drag_days": 0,
+      "help_days": 0,
+      "sum_prem_p3_pp": 0.0,
+      "sum_prem_p4_pp": 0.0
+    },
+    {
+      "year": 2013,
+      "live": 8.0952,
+      "P3": 6.4369,
+      "P3+P4": 6.4369,
+      "policy": 6.4369,
+      "oracle": 8.0952,
+      "gap": 1.6583,
+      "base_best": "live",
+      "policy_wins": false,
+      "near_on_days": 103,
+      "drag_days": 57,
+      "help_days": 46,
+      "sum_prem_p3_pp": -1.5711,
+      "sum_prem_p4_pp": 0.0
+    },
+    {
+      "year": 2014,
+      "live": 7.3946,
+      "P3": 5.7009,
+      "P3+P4": 5.7009,
+      "policy": 5.7009,
+      "oracle": 7.3946,
+      "gap": 1.6937,
+      "base_best": "live",
+      "policy_wins": false,
+      "near_on_days": 112,
+      "drag_days": 59,
+      "help_days": 53,
+      "sum_prem_p3_pp": -1.604,
+      "sum_prem_p4_pp": 0.0
+    },
+    {
+      "year": 2015,
+      "live": -2.7064,
+      "P3": -5.1523,
+      "P3+P4": -5.1523,
+      "policy": -5.1523,
+      "oracle": -2.7064,
+      "gap": 2.4458,
+      "base_best": "live",
+      "policy_wins": false,
+      "near_on_days": 85,
+      "drag_days": 52,
+      "help_days": 33,
+      "sum_prem_p3_pp": -2.5741,
+      "sum_prem_p4_pp": 0.0
+    },
+    {
+      "year": 2016,
+      "live": 13.1983,
+      "P3": 9.9938,
+      "P3+P4": 9.9938,
+      "policy": 9.9938,
+      "oracle": 13.1983,
+      "gap": 3.2045,
+      "base_best": "live",
+      "policy_wins": false,
+      "near_on_days": 154,
+      "drag_days": 80,
+      "help_days": 74,
+      "sum_prem_p3_pp": -2.8695,
+      "sum_prem_p4_pp": 0.0
+    },
+    {
+      "year": 2017,
+      "live": 17.7989,
+      "P3": 20.4435,
+      "P3+P4": 20.4435,
+      "policy": 20.4435,
+      "oracle": 20.4435,
+      "gap": 0.0,
+      "base_best": "P3",
+      "policy_wins": true,
+      "near_on_days": 165,
+      "drag_days": 77,
+      "help_days": 88,
+      "sum_prem_p3_pp": 2.2283,
+      "sum_prem_p4_pp": 0.0
+    },
+    {
+      "year": 2018,
+      "live": 8.3502,
+      "P3": 8.9408,
+      "P3+P4": 8.8942,
+      "policy": 8.9408,
+      "oracle": 8.9408,
+      "gap": 0.0,
+      "base_best": "P3",
+      "policy_wins": true,
+      "near_on_days": 154,
+      "drag_days": 80,
+      "help_days": 74,
+      "sum_prem_p3_pp": 0.5521,
+      "sum_prem_p4_pp": -0.0434
+    },
+    {
+      "year": 2019,
+      "live": 18.4494,
+      "P3": 17.6033,
+      "P3+P4": 17.6093,
+      "policy": 17.6033,
+      "oracle": 18.4494,
+      "gap": 0.8461,
+      "base_best": "live",
+      "policy_wins": false,
+      "near_on_days": 150,
+      "drag_days": 84,
+      "help_days": 66,
+      "sum_prem_p3_pp": -0.7172,
+      "sum_prem_p4_pp": 0.0051
+    },
+    {
+      "year": 2020,
+      "live": 5.7396,
+      "P3": 5.0688,
+      "P3+P4": 5.0689,
+      "policy": 5.0688,
+      "oracle": 5.7396,
+      "gap": 0.6707,
+      "base_best": "live",
+      "policy_wins": false,
+      "near_on_days": 52,
+      "drag_days": 28,
+      "help_days": 24,
+      "sum_prem_p3_pp": -0.6385,
+      "sum_prem_p4_pp": 0.0001
+    },
+    {
+      "year": 2021,
+      "live": 19.0611,
+      "P3": 19.9893,
+      "P3+P4": 19.9944,
+      "policy": 19.9893,
+      "oracle": 19.9944,
+      "gap": 0.0052,
+      "base_best": "P3+P4",
+      "policy_wins": false,
+      "near_on_days": 131,
+      "drag_days": 61,
+      "help_days": 70,
+      "sum_prem_p3_pp": 0.7807,
+      "sum_prem_p4_pp": 0.0044
+    },
+    {
+      "year": 2022,
+      "live": 6.1446,
+      "P3": 6.3351,
+      "P3+P4": 6.3338,
+      "policy": 6.3351,
+      "oracle": 6.3351,
+      "gap": 0.0,
+      "base_best": "P3",
+      "policy_wins": true,
+      "near_on_days": 83,
+      "drag_days": 40,
+      "help_days": 43,
+      "sum_prem_p3_pp": 0.2038,
+      "sum_prem_p4_pp": -0.0012
+    },
+    {
+      "year": 2023,
+      "live": 12.5764,
+      "P3": 16.5811,
+      "P3+P4": 16.5804,
+      "policy": 16.5811,
+      "oracle": 16.5811,
+      "gap": 0.0,
+      "base_best": "P3",
+      "policy_wins": true,
+      "near_on_days": 175,
+      "drag_days": 85,
+      "help_days": 90,
+      "sum_prem_p3_pp": 3.5505,
+      "sum_prem_p4_pp": -0.0006
+    },
+    {
+      "year": 2024,
+      "live": 10.1122,
+      "P3": 14.4905,
+      "P3+P4": 14.4827,
+      "policy": 14.4905,
+      "oracle": 14.4905,
+      "gap": 0.0,
+      "base_best": "P3",
+      "policy_wins": true,
+      "near_on_days": 87,
+      "drag_days": 33,
+      "help_days": 54,
+      "sum_prem_p3_pp": 3.9256,
+      "sum_prem_p4_pp": -0.0069
+    },
+    {
+      "year": 2025,
+      "live": 10.3488,
+      "P3": 9.8489,
+      "P3+P4": 9.8483,
+      "policy": 9.8489,
+      "oracle": 10.3488,
+      "gap": 0.4999,
+      "base_best": "live",
+      "policy_wins": false,
+      "near_on_days": 147,
+      "drag_days": 80,
+      "help_days": 67,
+      "sum_prem_p3_pp": -0.4385,
+      "sum_prem_p4_pp": -0.0005
+    },
+    {
+      "year": 2026,
+      "live": 32.4895,
+      "P3": 36.1133,
+      "P3+P4": 36.3488,
+      "policy": 36.1133,
+      "oracle": 36.3488,
+      "gap": 0.2355,
+      "base_best": "P3+P4",
+      "policy_wins": false,
+      "near_on_days": 113,
+      "drag_days": 48,
+      "help_days": 65,
+      "sum_prem_p3_pp": 2.7436,
+      "sum_prem_p4_pp": 0.175
+    }
+  ],
+  "note": "Drag/help uses same-bar prem_p3 for DIAG census only; mute gates below are lag-1 causal."
+}
