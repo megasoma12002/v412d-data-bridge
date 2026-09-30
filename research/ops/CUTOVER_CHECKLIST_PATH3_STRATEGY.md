@@ -1,20 +1,22 @@
 # Cutover checklist — Path3 strategy cutover (`PATH3_STRATEGY_CUTOVER`)
 
-Status: **BLOCKED / Stage A CHARTER** · default scope `WITHIN_SLEEVE_PATH3` · broker **false** · live flag **OFF**  
-Charter: `FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEA_CHARTER.md` · Register **0kac**
+Status: **EXECUTED ACCEPT / LIVE WIRED** · scope `WITHIN_SLEEVE_PATH3` · broker **false** · live flag **ON**  
+Charter: `FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEA_CHARTER.md` · Register **0kac** · Paper **0kam** · Ballot `LIVE_PATH3_STRATEGY_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`
 
 ## Gate
 
 - [x] Carve / emit / fill / ledger / mute LIVE WIRED (0ka7–0kab) — flip-day status quo
 - [x] Scope ladder defined (`FLIP_CARVE_ONLY` … `FULL_SOFT_REPLACE`)
 - [x] Stage A `CUTOVER_SCOPE_DEFINED` decision pack filed
-- [ ] Paper dual Soft-carve vs `WITHIN_SLEEVE_PATH3` → **`PAPER_WITHIN_HIT`** (or human scope pick)
-- [ ] Sealed MDD / tip / held disposition vs Path3 observe baseline (cite 0ka6 / sealed ACCEPTABLE)
-- [ ] Wrong-stay / 2022 residual disposition explicit (0ka5 / 0k9x)
-- [ ] Overlay coexistence smoke (COOL / FUSE / CONF_RET3 / FinPriv)
-- [ ] Parent observes disposition (COMPOSITE · SAT_RELAX · P3_T0_STATE) at cutover time
-- [ ] Confirm T+0 carve stays narrow (`T0_CARVE_FIN_SAT_SWITCH` only)
-- [ ] Dedicated human ACCEPT ballot (scope line exact) — **separate from broker**
-- [ ] Broker live-write still **false** unless its own ACCEPT
+- [x] Paper dual Soft-carve vs `WITHIN_SLEEVE_PATH3` → **`PAPER_WITHIN_HIT`** (2026-09-30 · 0kam)
+- [x] Sealed MDD / tip / held disposition vs Path3 observe baseline — **PASS**
+- [x] Wrong-stay / 2022 residual disposition explicit — **KNOWN / ACCEPTABLE to ballot**
+- [x] Overlay coexistence smoke — **`OVERLAY_DESIGN_COEXIST_OK`**
+- [x] Parent observes disposition — **KEEP OPEN**
+- [x] Confirm T+0 carve stays narrow (`T0_CARVE_FIN_SAT_SWITCH` only)
+- [x] Dedicated human ACCEPT ballot (scope line exact) — **EXECUTED** · **separate from broker**
+- [x] Human ACCEPT reply (2026-09-30)
+- [x] EXECUTED wire (`live_path3_strategy_cutover=True` · scope `WITHIN_SLEEVE_PATH3`)
+- [x] Broker live-write still **false** unless its own ACCEPT
 
-Until paper HIT + ACCEPT: **no** `live_path3_strategy_cutover=True`.
+Live: Soft FIN/TEL Exact T+1 **OFF** · Soft 0050 KEEP · Path3 ledger **daily** · flip mute superseded-when-ON.

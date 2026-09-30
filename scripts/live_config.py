@@ -141,12 +141,24 @@ class LiveConfig:
 
     # Soft↔Path3 flip-day coexistence mute — human ACCEPT 2026-09-29 (0kaa).
     # On Path3 flip + non-empty -P3T0: mute Soft FIN∪TEL Exact T+1; Soft 0050 KEEP.
+    # Superseded-when-ON by live_path3_strategy_cutover WITHIN_SLEEVE_PATH3 (0kac).
     live_soft_path3_coexist_mute: bool = True
     live_soft_path3_coexist_mute_policy: str = "MUTE_SOFT_FIN_TEL"
     live_soft_path3_coexist_mute_ballot: str = (
         "ACCEPT Soft↔Path3 coexist mute: MUTE_SOFT_FIN_TEL "
         "(flip-day Soft FIN/TEL Exact T+1 muted · Soft 0050 KEEP · Path3 -P3T0 KEEP · "
         "cutover still BLOCKED)"
+    )
+
+    # Path3 strategy cutover — human ACCEPT 2026-09-30 (0kac / 0kam PAPER_WITHIN_HIT).
+    # WITHIN_SLEEVE_PATH3: Soft FIN/TEL Exact T+1 OFF daily · Soft 0050 KEEP ·
+    # Path3 ledger recon daily · T0_CARVE_FIN_SAT_SWITCH KEEP · broker false.
+    live_path3_strategy_cutover: bool = True
+    live_path3_strategy_cutover_scope: str = "WITHIN_SLEEVE_PATH3"
+    live_path3_strategy_cutover_ballot: str = (
+        "ACCEPT Path3 strategy cutover: WITHIN_SLEEVE_PATH3\n"
+        "(Soft clips+0050 Exact T+1 KEEP · Soft FIN/TEL Exact T+1 OFF · Path3 ledger daily ·\n"
+        " T0_CARVE_FIN_SAT_SWITCH KEEP · broker false · overlays KEEP)"
     )
 
 
@@ -179,6 +191,9 @@ LIVE_PATH3_WEIGHT_ENGINE_BALLOT = LIVE.live_path3_weight_engine_ballot
 LIVE_SOFT_PATH3_COEXIST_MUTE = LIVE.live_soft_path3_coexist_mute
 LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY = LIVE.live_soft_path3_coexist_mute_policy
 LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT = LIVE.live_soft_path3_coexist_mute_ballot
+LIVE_PATH3_STRATEGY_CUTOVER = LIVE.live_path3_strategy_cutover
+LIVE_PATH3_STRATEGY_CUTOVER_SCOPE = LIVE.live_path3_strategy_cutover_scope
+LIVE_PATH3_STRATEGY_CUTOVER_BALLOT = LIVE.live_path3_strategy_cutover_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital

@@ -174,13 +174,17 @@ class PipelineLedgerDispatch(unittest.TestCase):
         self.assertIn("P3_COMP_SAT_DAILY_POS_LEDGER_A", LIVE.live_path3_weight_engine_ballot)
 
     def test_pipeline_no_flip_ledger_mode(self) -> None:
+        """Status-quo flip gate when strategy cutover daily recon is OFF."""
         sig = _toy_signal()
-        delta, meta = plan_or_none_for_pipeline(
-            asof="2026-09-23",
-            pos={"2880": 1000.0},
-            prices={"2880": 40.0},
-            signal=sig,
-        )
+        with mock.patch(
+            "live_path3_strategy_cutover.daily_path3_recon_enabled", return_value=False
+        ):
+            delta, meta = plan_or_none_for_pipeline(
+                asof="2026-09-23",
+                pos={"2880": 1000.0},
+                prices={"2880": 40.0},
+                signal=sig,
+            )
         self.assertIsNone(delta)
         self.assertEqual(meta["reason"], "no_flip")
         self.assertEqual(meta["weight_engine_mode"], "ledger")
