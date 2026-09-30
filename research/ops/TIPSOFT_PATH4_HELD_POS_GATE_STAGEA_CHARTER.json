@@ -1,0 +1,12 @@
+{
+  "id": "TIPSOFT_PATH4_HELD_POS_GATE_STAGEA_CHARTER",
+  "register": "0kay",
+  "parents": [
+    "0kax",
+    "0kaw",
+    "0kau"
+  ],
+  "mech": "TIPSOFT_PATH4_HELD_POS_GATE",
+  "hybrid_t0_carve": false,
+  "path4_live": false
+}

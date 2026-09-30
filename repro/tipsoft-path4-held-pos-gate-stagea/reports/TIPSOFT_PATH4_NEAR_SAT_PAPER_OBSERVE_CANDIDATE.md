@@ -1,0 +1,5 @@
+# Pointer — candidate SSOT
+
+Canonical copy: `research/ops/TIPSOFT_PATH4_NEAR_SAT_PAPER_OBSERVE_CANDIDATE.md`
+
+Do not dual-write the full artifact into `repro/*/reports/` (see `research/ops/REPRO_DEDUPE_HYGIENE.md`).

@@ -1,0 +1,17 @@
+{
+  "id": "TIPSOFT_PATH4_NEAR_SAT_PAPER_OBSERVE_CANDIDATE",
+  "status": "PAPER_OBSERVE_CANDIDATE_DRAFT",
+  "register": "0kay",
+  "policy_id": "P4_C001_NEAR_AND_SAT",
+  "parent_observe": "TIPSOFT_P3_THETA_NEARPEAK3",
+  "hybrid_t0_carve": false,
+  "path4_live": false,
+  "live_wire": false,
+  "open_line": "OPEN paper observe: TIPSOFT_P4_C001_NEAR_AND_SAT (tip Soft Exact T+1 \u00b7 NEARPEAK3 + Path4 CASH_001 on sat_lead \u00b7 NOT hybrid T+0)",
+  "metrics": {
+    "held_vs_near": 0.0273,
+    "sealed_vs_live": -0.0523,
+    "tipY_vs_live": 6.0402
+  },
+  "label": "TIPSOFT_PATH4_NEAR_SAT_PAPER_OBSERVE_CANDIDATE_2026-09-30__DRAFT"
+}
