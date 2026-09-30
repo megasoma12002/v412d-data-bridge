@@ -77,11 +77,8 @@ Soft-Frozen `REBALANCE_L1_MIN`: **0.05** (ACCEPT 2026-09-27 `R_L1_05`; prior 0.0
 | 0kab | Path3 COMP/SAT daily share SSOT | **EXECUTED ACCEPT / LIVE WIRED** (2026-09-29) | engine `P3_COMP_SAT_DAILY_POS_LEDGER_A` · `live_path3_weight_engine_mode=ledger` · COMP **27480** / SAT **29646** Soft share rows · ledger-scaled recon on flips · Soft KEEP · broker false · cutover BLOCKED · `LIVE_PATH3_WEIGHT_ENGINE_LEDGER_BALLOT_EXECUTED_ACCEPT.md` |
 | 0kac | Path3 strategy cutover（取代 Soft 主路由） | **STAGE A `CUTOVER_SCOPE_DEFINED`** (2026-09-29) | mech `PATH3_STRATEGY_CUTOVER` · default scope `WITHIN_SLEEVE_PATH3` · Soft clips+0050 KEEP · Soft FIN/TEL Exact T+1 retire candidate · daily ledger · broker false · live flag OFF · next paper `PAPER_WITHIN_HIT` · `FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEA_DECISION_PACK.md` |
 | 0kad | Path3 0050 / satellite scope | **STAGE A `ETF_DIVERGES__SATELLITE_OVERLAY_BLOCK`** (2026-09-30) | 0050 COMP≠SAT **99.3%** days · `keep_0050=False` no-op under freeze-$ · 00631L overlay-blocked · Soft KEEP · broker false · cutover BLOCKED · no live · `FIN_SAT_PATH3_ETF_SAT_SCOPE_STAGEA_DECISION_PACK.md` |
-<<<<<<< HEAD
 | 0kae | Path3 0050 ETF recon policy | **STAGE A `ETF_POLICY_LEDGER_RATIO_HIT`** (2026-09-30) | SCHEDULE_W ruled out (COMP=SAT schedule) · champion `LEDGER_SOFT_RATIO` trades 0050 on **199/199** flips · KEEP 0 · Soft KEEP · broker false · cutover BLOCKED · no live · next paper NAV dual · `FIN_SAT_PATH3_ETF_RECON_POLICY_STAGEA_DECISION_PACK.md` |
 | 0kaf | Path3 satellite overlay re-home | **STAGE A `OVERLAY_REHOME_REQUIRED__KEEP_PATH3_OUT`** (2026-09-30) | `00631L` · recommend `KEEP_OVERLAY` · DEF schedule≠share divergence · COOL owns satellite · Soft/COOL KEEP · broker false · no Path3 satellite recon · `FIN_SAT_PATH3_SATELLITE_REHOME_STAGEA_DECISION_PACK.md` |
-=======
->>>>>>> origin/main
 | 0k6b | CONF densify **`SAT_A20_H5`** | **OBSERVE CLOSED** (2026-09-28) | Superseded by COMPOSITE observe · `COMPOSITE_OBSERVE_OPEN_PARENTS_CLOSE_2026-09-28.md` |
 | 0k6c | FIN 浮虧延後賣（等回本） | **STAGE A `COOL_GATE_REQUIRED`** (2026-09-28) | Gated defer no CAGR lift · tip MDD↓ · NOCOOLGATE CAGR↑ but MDD worsens · Soft-Frozen KEEP · no live · `FIN_LOSS_DEFER_SELL_STAGEA_DECISION_PACK.md` |
 | 0k6d | FIN 買側品質過濾 A/B/C | **OBSERVE CLOSED** (2026-09-28) | Superseded by both-quality HARD150 · batch `OBSERVE_UP_DOWN_BATCH_2026-09-28.md` |
@@ -266,12 +263,9 @@ Detail: `RESEARCH_PORTFOLIO_KEEP_ARCHIVE.md` · batch `RESEARCH_ARCHIVE_BATCH_20
 - Soft↔Path3 flip-day coexistence mute **EXECUTED ACCEPT / LIVE WIRED** 2026-09-29 — `MUTE_SOFT_FIN_TEL` · flag ON · Soft KEEP · broker false · cutover BLOCKED · `LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT_EXECUTED_ACCEPT.md`
 - Path3 COMP/SAT daily share SSOT **EXECUTED ACCEPT / LIVE WIRED** 2026-09-29 — `live_path3_weight_engine_mode=ledger` · `P3_COMP_SAT_DAILY_POS_LEDGER_A` · Soft KEEP · broker false · cutover BLOCKED · `LIVE_PATH3_WEIGHT_ENGINE_LEDGER_BALLOT_EXECUTED_ACCEPT.md`
 - Path3 strategy cutover Stage A **`CUTOVER_SCOPE_DEFINED`** 2026-09-29 — `WITHIN_SLEEVE_PATH3` default · Soft clips+0050 KEEP · Soft FIN/TEL Exact T+1 retire candidate · broker false · live flag OFF · next paper HIT · `FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEA_DECISION_PACK.md`
-<<<<<<< HEAD
+- Project code review **2026-09-29** — Path3 LIVE WIRED healthy · P1 ledger stale vs tip · P1 ops PREP supersession drift fixed this pass · broker fail-closed KEEP · `PROJECT_CODE_REVIEW_2026-09-29.md`
 - Path3 0050 ETF recon policy Stage A **`ETF_POLICY_LEDGER_RATIO_HIT`** 2026-09-30 — champion `LEDGER_SOFT_RATIO` · Soft KEEP · no live · `FIN_SAT_PATH3_ETF_RECON_POLICY_STAGEA_DECISION_PACK.md`
 - Path3 satellite re-home Stage A **`OVERLAY_REHOME_REQUIRED__KEEP_PATH3_OUT`** 2026-09-30 — `KEEP_OVERLAY` · no Path3 00631L recon · `FIN_SAT_PATH3_SATELLITE_REHOME_STAGEA_DECISION_PACK.md`
-=======
-- Project code review **2026-09-29** — Path3 LIVE WIRED healthy · P1 ledger stale vs tip · P1 ops PREP supersession drift fixed this pass · broker fail-closed KEEP · `PROJECT_CODE_REVIEW_2026-09-29.md`
->>>>>>> origin/main
 - Path3 0050 / satellite scope Stage A **`ETF_DIVERGES__SATELLITE_OVERLAY_BLOCK`** 2026-09-30 — 0050 COMP≠SAT material · `keep_0050=False` no-op · 00631L overlay-blocked · Soft KEEP · no live · `FIN_SAT_PATH3_ETF_SAT_SCOPE_STAGEA_DECISION_PACK.md`
 - R5 synthetic observe OK 2026-09-27 — waiting real `fixtures/r5_custody_dropin.csv` · `R5_OBSERVE_SYNTHETIC_2026-09-27.md`
 - R2 MDD band floor **−14.5% ACCEPTED** 2026-09-25 — paper rescore only · Soft-Frozen KEEP · no live wire · `ACCEPT_R2_MDD_BAND_FLOOR_14_5_2026-09-25.md` · Stage A still `BAND_ONLY`
