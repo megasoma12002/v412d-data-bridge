@@ -399,8 +399,18 @@ def plan_or_none_for_pipeline(
         from live_config import LIVE
 
         mode = str(getattr(LIVE, "live_path3_weight_engine_mode", "asof_b") or "asof_b")
-    except Exception:
+    except ImportError:
+        # Fail soft only on missing live_config (research sandbox). Never swallow
+        # unrelated errors — that used to silently drop ACCEPT ledger → asof_b.
         mode = "asof_b"
+
+    daily_ok = False
+    try:
+        from live_path3_strategy_cutover import daily_path3_recon_enabled
+
+        daily_ok = bool(daily_path3_recon_enabled())
+    except Exception:
+        daily_ok = False
 
     if mode == "ledger":
         from path3_comp_sat_daily_share_ssot import plan_delta_shares_ledger
@@ -410,12 +420,13 @@ def plan_or_none_for_pipeline(
             "weight_engine_mode": mode,
             "switch": sw,
             "asof": str(pd.Timestamp(asof).date()),
+            "path3_strategy_cutover_daily": daily_ok,
         }
         if not sw.get("ok"):
             meta["reason"] = sw.get("reason") or "signal_unavailable"
             meta["engine_id"] = None
             return None, meta
-        if not sw.get("flip"):
+        if not sw.get("flip") and not daily_ok:
             meta["reason"] = "no_flip"
             meta["engine_id"] = None
             return None, meta
@@ -429,12 +440,19 @@ def plan_or_none_for_pipeline(
         meta.update(plan_meta)
         meta["weight_engine_mode"] = mode
         meta["switch"] = sw
+        meta["path3_strategy_cutover_daily"] = daily_ok
+        if not sw.get("flip") and daily_ok:
+            meta["recon_mode"] = "daily_cutover"
         if delta is None:
             return None, meta
         return delta, meta
 
     delta, meta = plan_delta_shares(
-        asof=asof, pos=pos, prices=prices, signal=signal, require_flip=True
+        asof=asof,
+        pos=pos,
+        prices=prices,
+        signal=signal,
+        require_flip=not daily_ok,
     )
     meta = dict(meta)
     meta["weight_engine_mode"] = mode

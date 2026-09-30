@@ -1,0 +1,17 @@
+{
+  "id": "PATH4_SOFT_0050_EXTREME_OFF_DISPOSITION_EXECUTED",
+  "date": "2026-09-30",
+  "status": "EXECUTED",
+  "verdict": "KEEP_STAGEA_RENORM",
+  "register": "0kan",
+  "register_parents": ["0kak", "0kan", "0kal"],
+  "human_line": "PATH4 DISPOSITION: KEEP_STAGEA_RENORM\n(Path4 Soft-0050 primary = SW_TRAIL_001 · FULL_CASH = separate Soft-core risk-off track · no live)",
+  "path4_soft_0050_primary": "SW_TRAIL_001",
+  "full_cash_role": "separate_soft_core_riskoff_track",
+  "soft_keep": true,
+  "live_wire": false,
+  "broker": false,
+  "cutover_unchanged": true,
+  "supersedes": "PATH4_SOFT_0050_EXTREME_OFF_DISPOSITION",
+  "label": "PATH4_SOFT_0050_EXTREME_OFF_DISPOSITION_EXECUTED_2026-09-30__KEEP_STAGEA_RENORM__NO_LIVE"
+}

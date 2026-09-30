@@ -1,0 +1,33 @@
+{
+  "id": "LIVE_PATH3_STRATEGY_CUTOVER_BALLOT_EXECUTED_ACCEPT",
+  "date": "2026-09-30",
+  "status": "EXECUTED_ACCEPT",
+  "live_wired": true,
+  "register": "0kac",
+  "parents": ["0kam", "0kac"],
+  "scope": "WITHIN_SLEEVE_PATH3",
+  "human_line": "ACCEPT Path3 strategy cutover: WITHIN_SLEEVE_PATH3\n(Soft clips+0050 Exact T+1 KEEP · Soft FIN/TEL Exact T+1 OFF · Path3 ledger daily ·\n T0_CARVE_FIN_SAT_SWITCH KEEP · broker false · overlays KEEP)",
+  "flags": {
+    "live_path3_strategy_cutover": true,
+    "live_path3_strategy_cutover_scope": "WITHIN_SLEEVE_PATH3",
+    "live_t0_carve_fin_sat_switch_fill": true,
+    "live_t0_carve_fin_sat_switch_emit": true,
+    "live_path3_weight_engine_mode": "ledger",
+    "live_soft_path3_coexist_mute": true,
+    "mute_superseded_when_cutover_on": true,
+    "broker_live_write_accepted": false
+  },
+  "soft_keep": {
+    "clips": true,
+    "exact_t1_0050": true,
+    "exact_t1_fin_tel": false
+  },
+  "paper_hit": {
+    "verdict": "PAPER_WITHIN_HIT",
+    "held_cagr_lift_pp": 3.0409,
+    "tip_ytd_cagr_lift_pp": 0.2679,
+    "sealed_mdd_improve_pp": 7.2414,
+    "yearly_ret_wl": "14-1"
+  },
+  "label": "LIVE_PATH3_STRATEGY_CUTOVER_BALLOT_EXECUTED_2026-09-30__ACCEPT__WITHIN_SLEEVE_PATH3__NO_BROKER"
+}

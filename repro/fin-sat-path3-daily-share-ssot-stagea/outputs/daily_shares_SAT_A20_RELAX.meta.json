@@ -2,10 +2,10 @@
   "book": "SAT_A20_RELAX",
   "engine_id": "P3_COMP_SAT_DAILY_POS_LEDGER_A",
   "register": "0kab",
-  "n_rows": 29646,
-  "n_days": 3364,
+  "n_rows": 29655,
+  "n_days": 3365,
   "start": "2012-12-05",
-  "end": "2026-09-24",
+  "end": "2026-09-29",
   "codes": [
     "0050",
     "00631L",

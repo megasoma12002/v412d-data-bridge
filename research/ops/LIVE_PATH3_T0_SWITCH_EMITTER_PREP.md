@@ -1,7 +1,7 @@
-# Live Path3 T0 switch emitter — PREP OPERATING
+# Live Path3 T0 switch emitter — PREP → EXECUTED (0ka7+)
 
 Date: 2026-09-29  
-Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEEP** · Path3 observe θ=**0.005** · cutover **BLOCKED** · no broker write
+Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEEP** · Path3 observe θ=**0.005** · weight **ledger (0kab)** · mute **ON (0kaa)** · cutover **BLOCKED** · no broker write
 
 ## Implemented
 
@@ -10,12 +10,12 @@ Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEE
    - `build_tagged_switch_order_rows` → `carve_out_id=T0_CARVE_FIN_SAT_SWITCH` + `-P3T0` order_id
    - `maybe_emit_switch_orders` fail-closed without explicit `delta_shares`
    - Shadow propose ledger (`path3_t0_proposed_switches.csv`)
-2. `LiveConfig.live_t0_carve_fin_sat_switch_emit = False`
-3. `e21_forward_pipeline` hook gated OFF (when ON still fail-closes: weight engine not wired)
-4. Unit tests: `tests/test_path3_t0_switch_emitter.py`
-5. DRAFT ballot: `LIVE_PATH3_T0_SWITCH_EMITTER_BALLOT_DRAFT.md`
+2. `LiveConfig.live_t0_carve_fin_sat_switch_emit = True` (**0ka7 ACCEPT**)
+3. `e21_forward_pipeline` hook ON · weight via `plan_or_none_for_pipeline` (**0kab ledger**) · Soft mute (**0kaa**)
+4. Unit tests: `tests/test_path3_t0_switch_emitter.py` · `tests/test_path3_t0_weight_engine.py` · `tests/test_soft_path3_coexist_mute.py`
+5. EXECUTED ballot parents: `FIN_SAT_PATH3_OBSERVE_THETA005_T0_LIVE_BALLOT_EXECUTED_ACCEPT.md`
 
-## Shadow propose (this PREP run)
+## Shadow propose (original PREP run)
 
 - Signal days: 3365 · proposed flips: **153** · %days SAT **24.16**
 - Repro: `repro/fin-sat-path3-t0-emitter-prep/`
@@ -32,12 +32,7 @@ Status: **EXECUTED via 0ka7** · emit flag **ON** · Soft-Frozen Exact T+1 **KEE
 ## Not implemented (still BLOCKED)
 
 - Path3 strategy cutover (`PATH3_STRATEGY_CUTOVER` / 0kac CHARTER) — Soft still primary daily; flip carve only
-- Broker live-write / Path3 strategy cutover still BLOCKED
+- Broker live-write still BLOCKED
+- Daily share ledger refresh past tip (see `PROJECT_CODE_REVIEW_2026-09-29.md` P1 stale)
 
-## Accept to enable emit flag
-
-```
-ACCEPT Live Path3 switch emitter: T0_CARVE_FIN_SAT_SWITCH tagged orders (P3_T0_STATE · Soft-Frozen Exact T+1 KEEP elsewhere · cutover still BLOCKED)
-```
-
-Label: `LIVE_PATH3_T0_SWITCH_EMITTER_PREP_2026-09-29__FLAG_OFF__NO_LIVE`
+Label: `LIVE_PATH3_T0_SWITCH_EMITTER_PREP_2026-09-29__EXECUTED_0ka7__LEDGER_0kab`

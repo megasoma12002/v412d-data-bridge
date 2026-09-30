@@ -1,0 +1,241 @@
+{
+  "generated_at_utc": "2026-09-30T03:53:49Z",
+  "register": "0kaj",
+  "parent": "0kai",
+  "verdict": "ETF_CUTGATE_HIT",
+  "fill_timing": "t0",
+  "champion_arm": "CG_ZZ08_ALLOW",
+  "base_policy": "ADD_FULL_CUT_D05",
+  "features": [
+    "prior_book_days",
+    "r0050_63_l1",
+    "trail_drag_l1",
+    "zz08_bear_l1",
+    "trail_rel_63"
+  ],
+  "arms_vs_keep": [
+    {
+      "arm": "RATIO",
+      "verdict_vs_keep": "HIT",
+      "held_cagr_lift_pp": 1.6839,
+      "full_cagr_lift_pp": 0.9479,
+      "sealed_mdd_improve_pp": 7.1272,
+      "tip_ytd_cagr_lift_pp": 3.7838,
+      "tip_1y_cagr_lift_pp": 1.4372,
+      "yearly_ret_wl": "7-8",
+      "loser_years_ret_lift_sum_pp": -7.6229,
+      "y2024_ret_lift_pp": -4.9148,
+      "y2025_ret_lift_pp": 10.9872,
+      "n_large_cuts_would": 0,
+      "n_large_cuts_blocked": 0,
+      "etf_turnover": 2.704911
+    },
+    {
+      "arm": "DEAD_05",
+      "verdict_vs_keep": "HIT",
+      "held_cagr_lift_pp": 1.6638,
+      "full_cagr_lift_pp": 0.9748,
+      "sealed_mdd_improve_pp": 6.8958,
+      "tip_ytd_cagr_lift_pp": 3.938,
+      "tip_1y_cagr_lift_pp": 1.5369,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -7.1645,
+      "y2024_ret_lift_pp": -5.0968,
+      "y2025_ret_lift_pp": 10.9733,
+      "n_large_cuts_would": 0,
+      "n_large_cuts_blocked": 0,
+      "etf_turnover": 1.752793
+    },
+    {
+      "arm": "ADD_FULL_CUT_D05",
+      "verdict_vs_keep": "HIT",
+      "held_cagr_lift_pp": 1.7891,
+      "full_cagr_lift_pp": 1.0304,
+      "sealed_mdd_improve_pp": 7.1135,
+      "tip_ytd_cagr_lift_pp": 3.671,
+      "tip_1y_cagr_lift_pp": 1.3642,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -5.7897,
+      "y2024_ret_lift_pp": -3.9902,
+      "y2025_ret_lift_pp": 10.9702,
+      "n_large_cuts_would": 13,
+      "n_large_cuts_blocked": 0,
+      "etf_turnover": 1.929305
+    },
+    {
+      "arm": "CG_TENURE_LT5",
+      "verdict_vs_keep": "HIT",
+      "held_cagr_lift_pp": 1.7891,
+      "full_cagr_lift_pp": 1.0422,
+      "sealed_mdd_improve_pp": 7.1135,
+      "tip_ytd_cagr_lift_pp": 3.671,
+      "tip_1y_cagr_lift_pp": 1.3642,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -5.7897,
+      "y2024_ret_lift_pp": -3.9902,
+      "y2025_ret_lift_pp": 10.9702,
+      "n_large_cuts_would": 15,
+      "n_large_cuts_blocked": 3,
+      "etf_turnover": 1.807368
+    },
+    {
+      "arm": "CG_TENURE_LT10",
+      "verdict_vs_keep": "HIT",
+      "held_cagr_lift_pp": 1.8354,
+      "full_cagr_lift_pp": 0.9677,
+      "sealed_mdd_improve_pp": 7.1135,
+      "tip_ytd_cagr_lift_pp": 3.671,
+      "tip_1y_cagr_lift_pp": 1.3642,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -5.9317,
+      "y2024_ret_lift_pp": -4.1248,
+      "y2025_ret_lift_pp": 10.9702,
+      "n_large_cuts_would": 31,
+      "n_large_cuts_blocked": 20,
+      "etf_turnover": 1.682473
+    },
+    {
+      "arm": "CG_R50_POS",
+      "verdict_vs_keep": "HIT",
+      "held_cagr_lift_pp": 1.7939,
+      "full_cagr_lift_pp": 1.0273,
+      "sealed_mdd_improve_pp": 7.1849,
+      "tip_ytd_cagr_lift_pp": 2.96,
+      "tip_1y_cagr_lift_pp": 0.9039,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -5.7674,
+      "y2024_ret_lift_pp": -3.9963,
+      "y2025_ret_lift_pp": 10.9702,
+      "n_large_cuts_would": 35,
+      "n_large_cuts_blocked": 26,
+      "etf_turnover": 1.499675
+    },
+    {
+      "arm": "CG_DRAG_ONLY",
+      "verdict_vs_keep": "HIT",
+      "held_cagr_lift_pp": 1.8107,
+      "full_cagr_lift_pp": 1.0356,
+      "sealed_mdd_improve_pp": 7.1135,
+      "tip_ytd_cagr_lift_pp": 3.671,
+      "tip_1y_cagr_lift_pp": 1.3642,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -5.7897,
+      "y2024_ret_lift_pp": -3.9902,
+      "y2025_ret_lift_pp": 10.9702,
+      "n_large_cuts_would": 14,
+      "n_large_cuts_blocked": 1,
+      "etf_turnover": 1.98303
+    },
+    {
+      "arm": "CG_ZZ08_ALLOW",
+      "verdict_vs_keep": "HIT",
+      "held_cagr_lift_pp": 1.9001,
+      "full_cagr_lift_pp": 1.0644,
+      "sealed_mdd_improve_pp": 7.2953,
+      "tip_ytd_cagr_lift_pp": 2.96,
+      "tip_1y_cagr_lift_pp": 0.9039,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -5.3236,
+      "y2024_ret_lift_pp": -3.5525,
+      "y2025_ret_lift_pp": 10.6975,
+      "n_large_cuts_would": 42,
+      "n_large_cuts_blocked": 35,
+      "etf_turnover": 1.444978
+    },
+    {
+      "arm": "CG_DEEP_SAT",
+      "verdict_vs_keep": "HIT",
+      "held_cagr_lift_pp": 1.0225,
+      "full_cagr_lift_pp": 0.4707,
+      "sealed_mdd_improve_pp": 4.3863,
+      "tip_ytd_cagr_lift_pp": 2.96,
+      "tip_1y_cagr_lift_pp": 1.4937,
+      "yearly_ret_wl": "8-7",
+      "loser_years_ret_lift_sum_pp": -5.7681,
+      "y2024_ret_lift_pp": -3.5966,
+      "y2025_ret_lift_pp": 5.154,
+      "n_large_cuts_would": 57,
+      "n_large_cuts_blocked": 52,
+      "etf_turnover": 1.040735
+    },
+    {
+      "arm": "CG_TENURE5_R50",
+      "verdict_vs_keep": "HIT",
+      "held_cagr_lift_pp": 1.7939,
+      "full_cagr_lift_pp": 1.0296,
+      "sealed_mdd_improve_pp": 7.1849,
+      "tip_ytd_cagr_lift_pp": 2.96,
+      "tip_1y_cagr_lift_pp": 0.9039,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -5.7674,
+      "y2024_ret_lift_pp": -3.9963,
+      "y2025_ret_lift_pp": 10.9702,
+      "n_large_cuts_would": 40,
+      "n_large_cuts_blocked": 32,
+      "etf_turnover": 1.387496
+    }
+  ],
+  "champion": {
+    "arm": "CG_ZZ08_ALLOW",
+    "verdict_vs_keep": "HIT",
+    "loser_years_ret_lift_sum_pp": -5.3236,
+    "y2024_ret_lift_pp": -3.5525,
+    "held_cagr_lift_pp": 1.9001,
+    "delta": {
+      "full": {
+        "cagr_lift_pp": 1.0644,
+        "mdd_improve_pp": 0.1429,
+        "base_cagr": 0.074972,
+        "chal_cagr": 0.085616,
+        "base_mdd": -0.242673,
+        "chal_mdd": -0.241244
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 1.9001,
+        "mdd_improve_pp": 0.1429,
+        "base_cagr": 0.099363,
+        "chal_cagr": 0.118364,
+        "base_mdd": -0.242673,
+        "chal_mdd": -0.241244
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 2.9743,
+        "mdd_improve_pp": 7.2953,
+        "base_cagr": 0.114482,
+        "chal_cagr": 0.144225,
+        "base_mdd": -0.205106,
+        "chal_mdd": -0.132153
+      }
+    },
+    "tip": {
+      "ytd": {
+        "cagr_lift_pp": 2.96,
+        "mdd_improve_pp": 0.7712
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": 0.9039,
+        "mdd_improve_pp": 0.7712
+      }
+    },
+    "meta": {
+      "arm": "CG_ZZ08_ALLOW",
+      "fill_timing": "t0",
+      "n_days": 3364,
+      "n_flips_applied": 199,
+      "n_large_cuts_would": 42,
+      "n_large_cuts_blocked": 35,
+      "sum_abs_etf_weight_delta_on_flips": 1.444978,
+      "start": "2012-12-05",
+      "end": "2026-09-24"
+    }
+  },
+  "parent_add_full_cut_d05": {
+    "held_cagr_lift_pp": 1.7891,
+    "loser_years_ret_lift_sum_pp": -5.7897,
+    "y2024_ret_lift_pp": -3.9902
+  },
+  "gates": {
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0
+  }
+}

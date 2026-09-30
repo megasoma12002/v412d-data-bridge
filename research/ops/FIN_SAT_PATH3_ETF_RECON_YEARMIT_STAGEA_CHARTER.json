@@ -1,0 +1,9 @@
+{
+  "id": "FIN_SAT_PATH3_ETF_RECON_YEARMIT_STAGEA_CHARTER",
+  "register": "0kai",
+  "parent": "0kah",
+  "fill_timing": "t0",
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true
+}

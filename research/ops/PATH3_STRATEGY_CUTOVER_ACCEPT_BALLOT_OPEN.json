@@ -1,0 +1,31 @@
+{
+  "id": "PATH3_STRATEGY_CUTOVER_ACCEPT_BALLOT_OPEN",
+  "date_opened": "2026-09-30",
+  "status": "OPEN",
+  "awaiting": "human",
+  "register_parents": ["0kac", "0kam"],
+  "scope": "WITHIN_SLEEVE_PATH3",
+  "live_path3_strategy_cutover": false,
+  "broker": false,
+  "soft_keep": true,
+  "accept_line": "ACCEPT Path3 strategy cutover: WITHIN_SLEEVE_PATH3\n(Soft clips+0050 Exact T+1 KEEP · Soft FIN/TEL Exact T+1 OFF · Path3 ledger daily ·\n T0_CARVE_FIN_SAT_SWITCH KEEP · broker false · overlays KEEP)",
+  "status": "SUPERSEDED_BY_EXECUTED",
+  "register_parents": [
+    "0kac",
+    "0kam"
+  ],
+  "live_path3_strategy_cutover": true,
+  "accept_line": "ACCEPT Path3 strategy cutover: WITHIN_SLEEVE_PATH3\n(Soft clips+0050 Exact T+1 KEEP \u00b7 Soft FIN/TEL Exact T+1 OFF \u00b7 Path3 ledger daily \u00b7\n T0_CARVE_FIN_SAT_SWITCH KEEP \u00b7 broker false \u00b7 overlays KEEP)",
+  "defer_line": "DEFER Path3 strategy cutover: WITHIN_SLEEVE_PATH3",
+  "reject_line": "REJECT Path3 strategy cutover: WITHIN_SLEEVE_PATH3",
+  "preaccept_disposition": "PATH3_STRATEGY_CUTOVER_PREACCEPT_DISPOSITION",
+  "paper_hit": {
+    "verdict": "PAPER_WITHIN_HIT",
+    "held_cagr_lift_pp": 3.0409,
+    "tip_ytd_cagr_lift_pp": 0.2679,
+    "sealed_mdd_improve_pp": 7.2414,
+    "yearly_ret_wl": "14-1"
+  }
+  },
+  "executed_ssot": "LIVE_PATH3_STRATEGY_CUTOVER_BALLOT_EXECUTED_ACCEPT"
+}

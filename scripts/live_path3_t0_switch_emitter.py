@@ -144,7 +144,13 @@ def load_or_build_signal(*, prefer_observe_csv: bool = True) -> pd.DataFrame:
 
 
 def switch_meta_for_asof(asof: pd.Timestamp | str, signal: pd.DataFrame | None = None) -> dict[str, Any]:
-    """Path3 switch meta on ``asof`` (flip / book / SAT_LEAD)."""
+    """Path3 switch meta on ``asof`` (flip / book / SAT_LEAD).
+
+    Uses the latest signal row with ``date <= asof`` for book / SAT_LEAD state.
+    ``flip`` is True only when that row's date **equals** ``asof`` — otherwise a
+    tip that ends on a flip day would sticky-retrigger emit/mute on every later
+    session (landmine).
+    """
     asof = pd.Timestamp(asof).normalize()
     sig = load_or_build_signal() if signal is None else signal
     sub = sig[pd.to_datetime(sig["date"]) <= asof]
@@ -158,12 +164,16 @@ def switch_meta_for_asof(asof: pd.Timestamp | str, signal: pd.DataFrame | None =
             "mechanism": MECHANISM,
         }
     row = sub.iloc[-1]
-    flip = bool(row.get("flip", False))
+    row_date = pd.Timestamp(row["date"]).normalize()
+    exact = bool(row_date == asof)
+    flip = bool(row.get("flip", False)) and exact
     sat_lead = bool(row.get("sat_lead", False))
     return {
         "asof": asof.date().isoformat(),
         "ok": True,
         "flip": flip,
+        "signal_date": row_date.date().isoformat(),
+        "signal_exact": exact,
         "sat_lead": sat_lead,
         "w_sat": float(row.get("w_sat", 0.0) or 0.0),
         "book": str(row.get("book") or (BOOK_SAT if sat_lead else BOOK_COMP)),
@@ -249,19 +259,30 @@ def maybe_emit_switch_orders(
     authorized: bool | None = None,
     signal: pd.DataFrame | None = None,
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    """Pipeline entry: emit tagged switch orders only when authorized + flip + deltas.
+    """Pipeline entry: emit tagged switch orders when authorized + (flip|cutover) + deltas.
 
     Fail-closed defaults:
     - emit flag OFF → empty
-    - no flip → empty
+    - no flip and Path3 strategy cutover OFF → empty
     - ``delta_shares`` missing → empty (``weight_engine_not_wired``)
+
+    When ``live_path3_strategy_cutover`` WITHIN_SLEEVE is ON, daily ledger
+    recon deltas may emit without flip (still tagged ``-P3T0``).
     """
     auth = is_emit_authorized() if authorized is None else bool(authorized)
+    daily_ok = False
+    try:
+        from live_path3_strategy_cutover import daily_path3_recon_enabled
+
+        daily_ok = bool(daily_path3_recon_enabled())
+    except Exception:
+        daily_ok = False
     meta: dict[str, Any] = {
         "enabled": auth,
         "carve_out_id": CARVE_OUT_ID,
         "mechanism": MECHANISM,
         "n_orders": 0,
+        "path3_strategy_cutover_daily": daily_ok,
     }
     if not auth:
         meta["reason"] = "emit_flag_off"
@@ -272,7 +293,7 @@ def maybe_emit_switch_orders(
     if not sw.get("ok"):
         meta["reason"] = sw.get("reason") or "signal_unavailable"
         return [], meta
-    if not sw.get("flip"):
+    if not sw.get("flip") and not daily_ok:
         meta["reason"] = "no_flip"
         return [], meta
     if delta_shares is None:

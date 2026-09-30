@@ -42,6 +42,9 @@ from live_config import (
     LIVE_FUSE_ADDITIVE,
     LIVE_PATH3_WEIGHT_ENGINE_BALLOT,
     LIVE_PATH3_WEIGHT_ENGINE_MODE,
+    LIVE_PATH3_STRATEGY_CUTOVER,
+    LIVE_PATH3_STRATEGY_CUTOVER_BALLOT,
+    LIVE_PATH3_STRATEGY_CUTOVER_SCOPE,
     LIVE_SOFT_PATH3_COEXIST_MUTE,
     LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT,
     LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,
@@ -320,8 +323,22 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         )
         order_rows.extend(off_orders)
         conf_ret3_order_meta["enabled"] = True
+    # Path3 strategy cutover WITHIN_SLEEVE: Soft FIN/TEL Exact T+1 OFF daily (0kac).
+    import live_path3_strategy_cutover as p3_cut
+
+    path3_cutover_meta: dict = {
+        "enabled": bool(LIVE_PATH3_STRATEGY_CUTOVER),
+        "scope": LIVE_PATH3_STRATEGY_CUTOVER_SCOPE,
+        "applied": False,
+        "n_muted": 0,
+    }
+    cutover_within = bool(p3_cut.is_within_sleeve_cutover())
+    if cutover_within:
+        order_rows, path3_cutover_meta = p3_cut.suppress_soft_fin_tel(order_rows)
+        path3_cutover_meta["ballot"] = LIVE_PATH3_STRATEGY_CUTOVER_BALLOT
     # Path3 T0 carve switch emitter — weight engine mode from LIVE (0kab ledger).
     # Soft↔Path3 coexistence mute (0kaa): filter Soft FIN/TEL before Path3 append.
+    # Under WITHIN cutover, mute is superseded (Soft FIN/TEL already suppressed).
     path3_emit_meta: dict = {"enabled": bool(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT)}
     path3_weight_meta: dict = {
         "engine_id": None,
@@ -333,6 +350,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "policy": LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,
         "applied": False,
         "n_muted": 0,
+        "superseded_by_cutover": cutover_within,
     }
     if LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT:
         import live_path3_t0_switch_emitter as path3_em
@@ -345,15 +363,26 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
             prices=prices,
         )
         flip = bool((path3_weight_meta.get("switch") or {}).get("flip"))
-        order_rows, soft_path3_mute_meta = soft_p3_mute.apply_coexist_mute(
-            order_rows,
-            mute_enabled=bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
-            emit_enabled=True,
-            flip=flip,
-            path3_delta_shares=path3_deltas,
-            policy=str(LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY),
-        )
-        soft_path3_mute_meta["ballot"] = LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT
+        if cutover_within:
+            soft_path3_mute_meta = {
+                "enabled": bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
+                "policy": LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,
+                "applied": False,
+                "n_muted": 0,
+                "superseded_by_cutover": True,
+                "ballot": LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT,
+            }
+        else:
+            order_rows, soft_path3_mute_meta = soft_p3_mute.apply_coexist_mute(
+                order_rows,
+                mute_enabled=bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
+                emit_enabled=True,
+                flip=flip,
+                path3_delta_shares=path3_deltas,
+                policy=str(LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY),
+            )
+            soft_path3_mute_meta["ballot"] = LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT
+            soft_path3_mute_meta["superseded_by_cutover"] = False
         path3_orders, path3_emit_meta = path3_em.maybe_emit_switch_orders(
             asof=latest,
             prices=prices,
@@ -363,6 +392,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         order_rows.extend(path3_orders)
         path3_emit_meta["enabled"] = True
         path3_emit_meta["weight_engine"] = path3_weight_meta
+        path3_emit_meta["path3_strategy_cutover"] = cutover_within
     else:
         path3_emit_meta["reason"] = "emit_flag_off"
     stamp = utc_now_iso()
@@ -453,6 +483,16 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "soft_path3_coexist_mute_policy": soft_path3_mute_meta.get("policy"),
         "soft_path3_coexist_mute_applied": bool(soft_path3_mute_meta.get("applied")),
         "soft_path3_coexist_mute_n_muted": int(soft_path3_mute_meta.get("n_muted") or 0),
+        "soft_path3_coexist_mute_superseded_by_cutover": bool(
+            soft_path3_mute_meta.get("superseded_by_cutover")
+        ),
+        "path3_strategy_cutover_live": bool(LIVE_PATH3_STRATEGY_CUTOVER),
+        "path3_strategy_cutover_scope": LIVE_PATH3_STRATEGY_CUTOVER_SCOPE,
+        "path3_strategy_cutover_ballot": LIVE_PATH3_STRATEGY_CUTOVER_BALLOT
+        if LIVE_PATH3_STRATEGY_CUTOVER
+        else None,
+        "path3_strategy_cutover_applied": bool(path3_cutover_meta.get("applied")),
+        "path3_strategy_cutover_n_muted": int(path3_cutover_meta.get("n_muted") or 0),
         "tel_t3_cool_inv_vol20_live": bool(LIVE_TEL_T3_COOL_INV_VOL20),
         "tel_t3_ballot": LIVE_TEL_T3_BALLOT if LIVE_TEL_T3_COOL_INV_VOL20 else None,
         "telecom_alloc": tel_meta.get("telecom_alloc")

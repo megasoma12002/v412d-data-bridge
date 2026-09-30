@@ -1,0 +1,264 @@
+{
+  "generated_at_utc": "2026-09-30T04:13:48Z",
+  "register": "0kal",
+  "parent": "0kak",
+  "mech": "PATH4_SOFT_0050_MUTEX",
+  "verdict": "PATH4_MUTEX_STAGEB_HIT",
+  "champion_arm": "SW_HI_DEF_0005",
+  "beats_parent_held": false,
+  "clips": {
+    "SOFT_HI": [
+      0.6,
+      0.8,
+      0.03,
+      0.35,
+      0.0,
+      0.5
+    ],
+    "SOFT_LO": [
+      0.6,
+      0.8,
+      0.03,
+      0.35,
+      0.0,
+      0.35
+    ],
+    "SOFT_DEF": [
+      0.6,
+      0.9,
+      0.03,
+      0.35,
+      0.0,
+      0.35
+    ]
+  },
+  "mean_etf_target": {
+    "SOFT_HI": 0.0882,
+    "SOFT_LO": 0.0874,
+    "SOFT_DEF": 0.0722
+  },
+  "arms_vs_soft_hi": [
+    {
+      "arm": "REF_SOFT_LO",
+      "verdict_vs_hi": "SOFT",
+      "full_cagr_lift_pp": 0.0031,
+      "held_cagr_lift_pp": 0.0238,
+      "sealed_mdd_improve_pp": -0.029,
+      "tip_ytd_cagr_lift_pp": 0.2306,
+      "tip_1y_cagr_lift_pp": 0.1663,
+      "meta_kind": "sticky",
+      "meta_book": "SOFT_LO",
+      "meta_mean_etf": 0.0874
+    },
+    {
+      "arm": "REF_SOFT_DEF",
+      "verdict_vs_hi": "SOFT",
+      "full_cagr_lift_pp": 0.0691,
+      "held_cagr_lift_pp": 0.0977,
+      "sealed_mdd_improve_pp": -0.1029,
+      "tip_ytd_cagr_lift_pp": 0.4097,
+      "tip_1y_cagr_lift_pp": 0.1166,
+      "meta_kind": "sticky",
+      "meta_book": "SOFT_DEF",
+      "meta_mean_etf": 0.0722
+    },
+    {
+      "arm": "SW_HI_LO_0005",
+      "verdict_vs_hi": "SOFT",
+      "full_cagr_lift_pp": -0.0,
+      "held_cagr_lift_pp": -0.0,
+      "sealed_mdd_improve_pp": 0.0,
+      "tip_ytd_cagr_lift_pp": -0.0,
+      "tip_1y_cagr_lift_pp": -0.0,
+      "meta_kind": "trail_mutex",
+      "meta_pair": "HI_LO",
+      "meta_book_a": "SOFT_HI",
+      "meta_book_b": "SOFT_LO",
+      "meta_theta": 0.005,
+      "meta_pct_b": 0.0,
+      "meta_n_b_days": 0,
+      "meta_n_flips": 0
+    },
+    {
+      "arm": "SW_HI_LO_001",
+      "verdict_vs_hi": "SOFT",
+      "full_cagr_lift_pp": -0.0,
+      "held_cagr_lift_pp": -0.0,
+      "sealed_mdd_improve_pp": 0.0,
+      "tip_ytd_cagr_lift_pp": -0.0,
+      "tip_1y_cagr_lift_pp": -0.0,
+      "meta_kind": "trail_mutex",
+      "meta_pair": "HI_LO",
+      "meta_book_a": "SOFT_HI",
+      "meta_book_b": "SOFT_LO",
+      "meta_theta": 0.01,
+      "meta_pct_b": 0.0,
+      "meta_n_b_days": 0,
+      "meta_n_flips": 0
+    },
+    {
+      "arm": "SW_HI_LO_002",
+      "verdict_vs_hi": "SOFT",
+      "full_cagr_lift_pp": -0.0,
+      "held_cagr_lift_pp": -0.0,
+      "sealed_mdd_improve_pp": 0.0,
+      "tip_ytd_cagr_lift_pp": -0.0,
+      "tip_1y_cagr_lift_pp": -0.0,
+      "meta_kind": "trail_mutex",
+      "meta_pair": "HI_LO",
+      "meta_book_a": "SOFT_HI",
+      "meta_book_b": "SOFT_LO",
+      "meta_theta": 0.02,
+      "meta_pct_b": 0.0,
+      "meta_n_b_days": 0,
+      "meta_n_flips": 0
+    },
+    {
+      "arm": "SW_HI_DEF_0005",
+      "verdict_vs_hi": "HIT",
+      "full_cagr_lift_pp": 0.1044,
+      "held_cagr_lift_pp": 0.1144,
+      "sealed_mdd_improve_pp": 0.0,
+      "tip_ytd_cagr_lift_pp": 0.6151,
+      "tip_1y_cagr_lift_pp": 0.4152,
+      "meta_kind": "trail_mutex",
+      "meta_pair": "HI_DEF",
+      "meta_book_a": "SOFT_HI",
+      "meta_book_b": "SOFT_DEF",
+      "meta_theta": 0.005,
+      "meta_pct_b": 0.0273,
+      "meta_n_b_days": 92,
+      "meta_n_flips": 47
+    },
+    {
+      "arm": "SW_HI_DEF_001",
+      "verdict_vs_hi": "SOFT",
+      "full_cagr_lift_pp": -0.0,
+      "held_cagr_lift_pp": -0.0,
+      "sealed_mdd_improve_pp": 0.0,
+      "tip_ytd_cagr_lift_pp": -0.0,
+      "tip_1y_cagr_lift_pp": -0.0,
+      "meta_kind": "trail_mutex",
+      "meta_pair": "HI_DEF",
+      "meta_book_a": "SOFT_HI",
+      "meta_book_b": "SOFT_DEF",
+      "meta_theta": 0.01,
+      "meta_pct_b": 0.0,
+      "meta_n_b_days": 0,
+      "meta_n_flips": 0
+    },
+    {
+      "arm": "SW_HI_DEF_002",
+      "verdict_vs_hi": "SOFT",
+      "full_cagr_lift_pp": -0.0,
+      "held_cagr_lift_pp": -0.0,
+      "sealed_mdd_improve_pp": 0.0,
+      "tip_ytd_cagr_lift_pp": -0.0,
+      "tip_1y_cagr_lift_pp": -0.0,
+      "meta_kind": "trail_mutex",
+      "meta_pair": "HI_DEF",
+      "meta_book_a": "SOFT_HI",
+      "meta_book_b": "SOFT_DEF",
+      "meta_theta": 0.02,
+      "meta_pct_b": 0.0,
+      "meta_n_b_days": 0,
+      "meta_n_flips": 0
+    }
+  ],
+  "champion": {
+    "arm": "SW_HI_DEF_0005",
+    "verdict_vs_hi": "HIT",
+    "delta": {
+      "full": {
+        "cagr_lift_pp": 0.1044,
+        "mdd_improve_pp": 0.0006,
+        "base_cagr": 0.12259,
+        "chal_cagr": 0.123634,
+        "base_mdd": -0.141724,
+        "chal_mdd": -0.141718
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 0.1144,
+        "mdd_improve_pp": 0.0006,
+        "base_cagr": 0.154158,
+        "chal_cagr": 0.155302,
+        "base_mdd": -0.141724,
+        "chal_mdd": -0.141718
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 0.1065,
+        "mdd_improve_pp": 0.0,
+        "base_cagr": 0.181432,
+        "chal_cagr": 0.182497,
+        "base_mdd": -0.062322,
+        "chal_mdd": -0.062322
+      }
+    },
+    "tip": {
+      "ytd": {
+        "cagr_lift_pp": 0.6151,
+        "mdd_improve_pp": 0.0
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": 0.4152,
+        "mdd_improve_pp": 0.0
+      }
+    },
+    "meta": {
+      "kind": "trail_mutex",
+      "pair": "HI_DEF",
+      "book_a": "SOFT_HI",
+      "book_b": "SOFT_DEF",
+      "theta": 0.005,
+      "pct_b": 0.0273,
+      "n_b_days": 92,
+      "n_flips": 47
+    }
+  },
+  "parent_stagea_context": {
+    "arm": "SW_TRAIL_001",
+    "note": "Stage A Soft-core carve parent \u2014 not Soft Exact clip books",
+    "delta_vs_soft_on": {
+      "full": {
+        "cagr_lift_pp": 0.2333,
+        "mdd_improve_pp": 0.0,
+        "base_cagr": 0.081432,
+        "chal_cagr": 0.083765,
+        "base_mdd": -0.230903,
+        "chal_mdd": -0.230903
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 0.4031,
+        "mdd_improve_pp": 0.0,
+        "base_cagr": 0.128863,
+        "chal_cagr": 0.132894,
+        "base_mdd": -0.222383,
+        "chal_mdd": -0.222383
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 0.6009,
+        "mdd_improve_pp": 0.0485,
+        "base_cagr": 0.192875,
+        "chal_cagr": 0.198884,
+        "base_mdd": -0.132894,
+        "chal_mdd": -0.132409
+      }
+    },
+    "tip_vs_soft_on": {
+      "ytd": {
+        "cagr_lift_pp": 0.1865,
+        "mdd_improve_pp": 0.0
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": 0.1271,
+        "mdd_improve_pp": 0.0
+      }
+    }
+  },
+  "forbid_path3_inputs": true,
+  "gates": {
+    "held_cagr_floor_pp": 0.1,
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0
+  }
+}
