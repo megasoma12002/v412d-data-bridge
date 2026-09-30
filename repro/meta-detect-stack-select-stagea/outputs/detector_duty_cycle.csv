@@ -1,0 +1,12 @@
+arm,note,pct_fuse_on,pct_cool_on,pct_p3_on,n_days,p3_theta,proxy_x
+STATIC_L1_SOFT,Soft only (no FUSE/COOL/P3),0.0,0.0,0.0,3366,0.005,0.08
+STATIC_L2_SOFT_FUSE,Always Soft+FUSE,100.0,0.0,0.0,3366,0.005,0.08
+STATIC_L3_LIVE_FUSE_COOL,Always Soft+FUSE+COOL (=live base),100.0,100.0,0.0,3366,0.005,0.08
+STATIC_L4_LIVE_P3,Always Soft+FUSE+COOL+P3,100.0,100.0,100.0,3366,0.005,0.08
+DETECT_P3_THETA,Live stack always; Path3 only when |trail_rel_63|≥θ,100.0,100.0,73.14,3366,0.005,0.08
+DETECT_P3_FLIP,Live stack always; Path3 premium only on sat_lead flip days,100.0,100.0,5.94,3366,0.005,0.08
+DETECT_FUSE_RISKON,FUSE only risk-on; COOL always; no P3,78.43,100.0,0.0,3366,0.005,0.08
+DETECT_COOL_DEFEND,FUSE always; COOL only while COOL_c8 defending,100.0,21.57,0.0,3366,0.005,0.08
+DETECT_COMPLEMENT,FUSE risk-on XOR-ish COOL defend; Soft always; no P3,78.43,21.57,0.0,3366,0.005,0.08
+DETECT_ALL_GATED,FUSE risk-on + COOL defend + P3 |trail|≥θ,78.43,21.57,73.14,3366,0.005,0.08
+DETECT_MUTE_FUSE_ON_P3FLIP,Mute FUSE on Path3 flip days; COOL always; P3 on |trail|≥θ,94.06,100.0,73.14,3366,0.005,0.08

@@ -1,0 +1,12 @@
+arm,verdict,promote_eligible,held,full,sealed_mdd,tipY,tip1y,ret_wl,pct_fuse,pct_cool,pct_p3,note
+STATIC_L1_SOFT,MDD_BLOCK,True,1.5328,0.8749,-3.2544,8.8607,6.1164,9-6,0.0,0.0,0.0,Soft only (no FUSE/COOL/P3)
+STATIC_L2_SOFT_FUSE,MDD_BLOCK,True,-1.7035,-0.8242,-3.4929,-11.1273,-11.4109,8-7,100.0,0.0,0.0,Always Soft+FUSE
+STATIC_L4_LIVE_P3,MDD_BLOCK,True,0.8475,0.3296,-0.5026,2.8524,2.0757,10-5,100.0,100.0,100.0,Always Soft+FUSE+COOL+P3
+DETECT_P3_THETA,MDD_BLOCK,True,1.248,0.487,-0.5026,2.8672,3.1765,8-7,100.0,100.0,73.14,Live stack always; Path3 only when |trail_rel_63|≥θ
+DETECT_P3_FLIP,TIP_BLOCK,True,0.0389,-0.0962,0.1088,-2.0757,-1.3061,8-7,100.0,100.0,5.94,Live stack always; Path3 premium only on sat_lead flip days
+DETECT_FUSE_RISKON,MDD_BLOCK,True,0.5163,0.2809,-0.4627,7.1249,4.782,8-7,78.43,100.0,0.0,FUSE only risk-on; COOL always; no P3
+DETECT_COOL_DEFEND,MDD_BLOCK,True,-0.7079,-0.217,-0.3978,-11.1078,-11.3979,7-8,100.0,21.57,0.0,FUSE always; COOL only while COOL_c8 defending
+DETECT_COMPLEMENT,MDD_BLOCK,True,-0.1948,0.0633,-1.1431,-4.5176,-7.0174,7-8,78.43,21.57,0.0,FUSE risk-on XOR-ish COOL defend; Soft always; no P3
+DETECT_ALL_GATED,MDD_BLOCK,True,1.0356,0.5478,-1.7832,-1.7714,-4.0422,9-6,78.43,21.57,73.14,FUSE risk-on + COOL defend + P3 |trail|≥θ
+DETECT_MUTE_FUSE_ON_P3FLIP,MDD_BLOCK,True,0.7682,0.2509,-1.9223,-3.4004,-1.1018,7-8,94.06,100.0,73.14,Mute FUSE on Path3 flip days; COOL always; P3 on |trail|≥θ
+ORACLE_BEST_LAYER_DIAG,DIAGNOSTIC,False,59.5982,44.1978,2.1212,130.8534,102.7648,15-0,,,,Lookahead upper bound: each day max(L1..L4) return — diagnostic only
