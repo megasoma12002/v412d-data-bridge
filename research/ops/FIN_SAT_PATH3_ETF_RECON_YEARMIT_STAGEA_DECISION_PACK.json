@@ -1,0 +1,21 @@
+{
+  "label": "FIN_SAT_PATH3_ETF_RECON_YEARMIT_STAGEA_DECISION_PACK_2026-09-30__ETF_YEARMIT_HIT__NO_LIVE",
+  "verdict": "ETF_YEARMIT_HIT",
+  "register": "0kai",
+  "parent": "0kah",
+  "champion_arm": "ADD_FULL_CUT_D05",
+  "fill_timing": "t0",
+  "champion_held_cagr_lift_pp": 1.7891,
+  "champion_loser_sum_pp": -5.7897,
+  "champion_y2024_pp": -3.9902,
+  "parent_dead05_loser_sum_pp": -7.1645,
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true,
+  "live_wire": false,
+  "next": [
+    "Carry `ADD_FULL_CUT_D05` (not raw DEAD_05) into coexist Stage C \u2014 still no live",
+    "Optional: feature-conditioned cut gate (tip-gap / book tenure) Stage A+",
+    "0kac PAPER_WITHIN_HIT remains primary Path3 roadmap"
+  ]
+}
