@@ -4,7 +4,7 @@
 - status: **OPERATING_OBSERVE** · live_wire: false · cutover: **BLOCKED** · Soft-Frozen KEEP · SELL_a75 KEEP · live CONF α=0.10 KEEP
 - books: `CTRL_LIVE_A10` (α=0.1) ∥ `COMP_H150_x_A20` (α=0.2 · OR_K9×HARD150)
 - Stage A: `COMPOSITE_HIT`
-- held-out: CAGR↑ 0.5415 pp · MDD↑ -0.1088 pp
+- held-out: CAGR↑ 0.5764 pp · MDD↑ -0.1088 pp
 - tip ytd MDD↑ 0.9278 · tip 1y MDD↑ 0.9278
 
 ## Non-actions

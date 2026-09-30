@@ -1,0 +1,214 @@
+{
+  "generated_at_utc": "2026-09-30T01:21:52Z",
+  "register": "0kah",
+  "parent": "0kag",
+  "verdict": "ETF_HARDEN_HIT",
+  "fill_timing": "t0",
+  "champion_arm": "DEAD_05",
+  "method": {
+    "universe": [
+      "2880",
+      "2886",
+      "2892",
+      "5880",
+      "2412",
+      "3045",
+      "4904",
+      "0050"
+    ],
+    "fill_timing": "t0",
+    "between_flips": "hold Soft-core weights",
+    "arms": [
+      "KEEP",
+      "RATIO",
+      "CLIP_05",
+      "CLIP_10",
+      "CLIP_15",
+      "SLEW_50",
+      "SLEW_75",
+      "DEAD_02",
+      "DEAD_05"
+    ],
+    "note": "clip/slew/deadband only reshape flip-day \u0394w_0050; FIN\u222aTEL from dest"
+  },
+  "arms_vs_keep": [
+    {
+      "arm": "RATIO",
+      "kind": "ratio",
+      "param": null,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.9479,
+      "held_cagr_lift_pp": 1.6839,
+      "sealed_mdd_improve_pp": 7.1272,
+      "tip_ytd_cagr_lift_pp": 3.7838,
+      "tip_1y_cagr_lift_pp": 1.4372,
+      "yearly_ret_wl": "7-8",
+      "yearly_mdd_wl": "8-7",
+      "etf_turnover": 2.704911
+    },
+    {
+      "arm": "CLIP_05",
+      "kind": "clip",
+      "param": 0.05,
+      "verdict_vs_keep": "TIP_BLOCK",
+      "full_cagr_lift_pp": 0.6886,
+      "held_cagr_lift_pp": 1.2151,
+      "sealed_mdd_improve_pp": 6.9679,
+      "tip_ytd_cagr_lift_pp": -1.2947,
+      "tip_1y_cagr_lift_pp": -1.9434,
+      "yearly_ret_wl": "6-9",
+      "yearly_mdd_wl": "8-7",
+      "etf_turnover": 2.027377
+    },
+    {
+      "arm": "CLIP_10",
+      "kind": "clip",
+      "param": 0.1,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.8975,
+      "held_cagr_lift_pp": 1.6008,
+      "sealed_mdd_improve_pp": 7.1272,
+      "tip_ytd_cagr_lift_pp": 2.6108,
+      "tip_1y_cagr_lift_pp": 0.6479,
+      "yearly_ret_wl": "7-8",
+      "yearly_mdd_wl": "8-7",
+      "etf_turnover": 2.418864
+    },
+    {
+      "arm": "CLIP_15",
+      "kind": "clip",
+      "param": 0.15,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.9443,
+      "held_cagr_lift_pp": 1.6839,
+      "sealed_mdd_improve_pp": 7.1272,
+      "tip_ytd_cagr_lift_pp": 3.7838,
+      "tip_1y_cagr_lift_pp": 1.4372,
+      "yearly_ret_wl": "7-8",
+      "yearly_mdd_wl": "8-7",
+      "etf_turnover": 2.551161
+    },
+    {
+      "arm": "SLEW_50",
+      "kind": "slew",
+      "param": 0.5,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.5633,
+      "held_cagr_lift_pp": 0.993,
+      "sealed_mdd_improve_pp": 6.7959,
+      "tip_ytd_cagr_lift_pp": -0.5298,
+      "tip_1y_cagr_lift_pp": -1.2897,
+      "yearly_ret_wl": "6-9",
+      "yearly_mdd_wl": "7-8",
+      "etf_turnover": 1.334257
+    },
+    {
+      "arm": "SLEW_75",
+      "kind": "slew",
+      "param": 0.75,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.7536,
+      "held_cagr_lift_pp": 1.3272,
+      "sealed_mdd_improve_pp": 6.9639,
+      "tip_ytd_cagr_lift_pp": 1.448,
+      "tip_1y_cagr_lift_pp": -0.0422,
+      "yearly_ret_wl": "7-8",
+      "yearly_mdd_wl": "7-8",
+      "etf_turnover": 1.947343
+    },
+    {
+      "arm": "DEAD_02",
+      "kind": "deadband",
+      "param": 0.02,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.9295,
+      "held_cagr_lift_pp": 1.6986,
+      "sealed_mdd_improve_pp": 7.0715,
+      "tip_ytd_cagr_lift_pp": 3.938,
+      "tip_1y_cagr_lift_pp": 1.5369,
+      "yearly_ret_wl": "7-8",
+      "yearly_mdd_wl": "6-9",
+      "etf_turnover": 2.230624
+    },
+    {
+      "arm": "DEAD_05",
+      "kind": "deadband",
+      "param": 0.05,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.9748,
+      "held_cagr_lift_pp": 1.6638,
+      "sealed_mdd_improve_pp": 6.8958,
+      "tip_ytd_cagr_lift_pp": 3.938,
+      "tip_1y_cagr_lift_pp": 1.5369,
+      "yearly_ret_wl": "9-6",
+      "yearly_mdd_wl": "7-8",
+      "etf_turnover": 1.752793
+    }
+  ],
+  "champion": {
+    "arm": "DEAD_05",
+    "verdict_vs_keep": "HIT",
+    "delta": {
+      "full": {
+        "cagr_lift_pp": 0.9748,
+        "mdd_improve_pp": 0.1429,
+        "base_cagr": 0.074972,
+        "chal_cagr": 0.08472,
+        "base_mdd": -0.242673,
+        "chal_mdd": -0.241244
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 1.6638,
+        "mdd_improve_pp": 0.1429,
+        "base_cagr": 0.099363,
+        "chal_cagr": 0.116001,
+        "base_mdd": -0.242673,
+        "chal_mdd": -0.241244
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 2.694,
+        "mdd_improve_pp": 6.8958,
+        "base_cagr": 0.114482,
+        "chal_cagr": 0.141422,
+        "base_mdd": -0.205106,
+        "chal_mdd": -0.136148
+      }
+    },
+    "tip": {
+      "ytd": {
+        "cagr_lift_pp": 3.938,
+        "mdd_improve_pp": -0.0732
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": 1.5369,
+        "mdd_improve_pp": -0.0732
+      }
+    },
+    "yearly_ret_wl": {
+      "w": 9,
+      "l": 6
+    },
+    "meta": {
+      "kind": "deadband",
+      "param": 0.05,
+      "fill_timing": "t0",
+      "n_days": 3364,
+      "n_flips_applied": 199,
+      "sum_abs_etf_weight_delta_on_flips": 1.752793,
+      "start": "2012-12-05",
+      "end": "2026-09-24"
+    }
+  },
+  "ratio_baseline": {
+    "held_cagr_lift_pp": 1.6839,
+    "yearly_ret_wl": {
+      "w": 7,
+      "l": 8
+    },
+    "tip_ytd_cagr_lift_pp": 3.7838
+  },
+  "gates": {
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0
+  }
+}

@@ -1,6 +1,7 @@
 # Path3 strategy cutover — ACCEPT ballot **OPEN**
 
 Date opened: 2026-09-30  
+Status: **OPEN — awaiting human** · Soft clips+0050 Exact T+1 **KEEP** · broker **false** · live flag still **OFF**  
 Status: **SUPERSEDED by EXECUTED ACCEPT** · see `LIVE_PATH3_STRATEGY_CUTOVER_BALLOT_EXECUTED_ACCEPT.md` · Soft clips+0050 Exact T+1 **KEEP** · broker **false** · live flag still **OFF**  
 Register parents: **0kac** / **0kam** `PAPER_WITHIN_HIT` · Pre-ACCEPT: `PATH3_STRATEGY_CUTOVER_PREACCEPT_DISPOSITION.md`
 

@@ -2,6 +2,8 @@
 
 Status: **EXECUTED ACCEPT / LIVE WIRED** · scope `WITHIN_SLEEVE_PATH3` · broker **false** · live flag **ON**  
 Charter: `FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEA_CHARTER.md` · Register **0kac** · Paper **0kam** · Ballot `LIVE_PATH3_STRATEGY_CUTOVER_BALLOT_EXECUTED_ACCEPT.md`
+Status: **BALLOT OPEN** · default scope `WITHIN_SLEEVE_PATH3` · broker **false** · live flag **OFF**  
+Charter: `FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEA_CHARTER.md` · Register **0kac** · Paper **0kam** · Ballot `PATH3_STRATEGY_CUTOVER_ACCEPT_BALLOT_OPEN.md`
 
 ## Gate
 
@@ -20,3 +22,14 @@ Charter: `FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEA_CHARTER.md` · Register **0kac**
 - [x] Broker live-write still **false** unless its own ACCEPT
 
 Live: Soft FIN/TEL Exact T+1 **OFF** · Soft 0050 KEEP · Path3 ledger **daily** · flip mute superseded-when-ON.
+- [x] Paper dual Soft-carve vs `WITHIN_SLEEVE_PATH3` → **`PAPER_WITHIN_HIT`** (2026-09-30 · 0kam · still no live flag)
+- [x] Sealed MDD / tip / held disposition vs Path3 observe baseline — **PASS** (`PATH3_STRATEGY_CUTOVER_PREACCEPT_DISPOSITION.md` · cite 0ka6 / 0k9r ACCEPTABLE · 0kam sealed+7.24)
+- [x] Wrong-stay / 2022 residual disposition explicit — **KNOWN / ACCEPTABLE to ballot** (0ka5 / 0k9x · WITHIN 2022 +1.94 vs FLIP)
+- [x] Overlay coexistence smoke — **`OVERLAY_DESIGN_COEXIST_OK`** (FIN/TEL retire · overlays KEEP · e21 dual-smoke = EXECUTED-prep)
+- [x] Parent observes disposition (COMPOSITE · SAT_RELAX · P3_T0_STATE) — **KEEP OPEN** at cutover time
+- [x] Dedicated human ACCEPT ballot (scope line exact) — **OPEN** · **separate from broker**
+- [ ] Human ACCEPT / DEFER / REJECT reply
+- [ ] EXECUTED wire (`live_path3_strategy_cutover=True`) — only after ACCEPT
+- [ ] Broker live-write still **false** unless its own ACCEPT
+
+Until human ACCEPT + EXECUTED: **no** `live_path3_strategy_cutover=True`.

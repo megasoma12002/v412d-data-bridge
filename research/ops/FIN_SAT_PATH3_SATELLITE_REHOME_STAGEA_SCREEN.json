@@ -1,0 +1,51 @@
+{
+  "generated_at_utc": "2026-09-30T00:40:41Z",
+  "register": "0kaf",
+  "parent": "0kad",
+  "code": "00631L",
+  "ledger_panel_end": "2026-09-24",
+  "live_last_date": "2026-09-29",
+  "live_satellite_shares": 0.0,
+  "schedule_def": {
+    "comp_max": 0.2,
+    "sat_max": 0.2,
+    "comp_pct_days_pos": 0.031794304672380425,
+    "sat_pct_days_pos": 0.031794304672380425,
+    "comp_sat_def_identical": true
+  },
+  "share_divergence": {
+    "n_days": 3364,
+    "pct_days_differ": 0.298157,
+    "max_abs_share_delta": 7430000.0,
+    "tip_comp": 1000.0,
+    "tip_sat": 1000.0,
+    "tip_delta": 0.0,
+    "flip_n": 199,
+    "flip_pct_nonzero": 0.376884
+  },
+  "overlap_with_schedule_def": {
+    "pct_share_diff_days_with_def_gt0": 0.029429,
+    "pct_share_diff_days_with_def_eq0": 0.268728,
+    "note": "Share divergence with DEF=0 \u21d2 path-dependent COOL/satellite inventory, not sleeve schedule DEF \u2014 Path3 recon would not follow Soft DEF clip."
+  },
+  "owner_today": {
+    "path3_recon": false,
+    "soft_exact_t1": true,
+    "cool_overlay": true,
+    "mute_on_path3_flip": false
+  },
+  "options": [
+    "KEEP_OVERLAY",
+    "PATH3_SNAPSHOT_ONLY",
+    "PATH3_DEF_ON_FLIP",
+    "DAILY_PATH3_DEF",
+    "FORBID_IN_LEDGER"
+  ],
+  "binding": {
+    "0kad_satellite_overlay_block": true,
+    "0kac_overlays_keep_under_default_cutover": true,
+    "cool_c8_live": true
+  },
+  "verdict": "OVERLAY_REHOME_REQUIRED__KEEP_PATH3_OUT",
+  "recommended_option": "KEEP_OVERLAY"
+}

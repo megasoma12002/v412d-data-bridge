@@ -399,7 +399,9 @@ def plan_or_none_for_pipeline(
         from live_config import LIVE
 
         mode = str(getattr(LIVE, "live_path3_weight_engine_mode", "asof_b") or "asof_b")
-    except Exception:
+    except ImportError:
+        # Fail soft only on missing live_config (research sandbox). Never swallow
+        # unrelated errors — that used to silently drop ACCEPT ledger → asof_b.
         mode = "asof_b"
 
     daily_ok = False

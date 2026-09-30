@@ -1,0 +1,10 @@
+{
+  "id": "FIN_SAT_PATH4_SOFT_0050_MUTEX_EXTREME_OFF_CHARTER",
+  "register": "0kan",
+  "parent_register": "0kak",
+  "mech": "PATH4_SOFT_0050_MUTEX_EXTREME_OFF",
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true,
+  "forbid_path3_inputs": true
+}

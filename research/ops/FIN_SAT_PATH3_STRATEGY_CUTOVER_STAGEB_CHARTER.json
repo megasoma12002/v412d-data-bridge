@@ -1,0 +1,10 @@
+{
+  "id": "FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEB_CHARTER",
+  "register": "0kam",
+  "parent": "0kac",
+  "mechanism": "PATH3_STRATEGY_CUTOVER",
+  "scope": "WITHIN_SLEEVE_PATH3",
+  "soft_keep": true,
+  "broker": false,
+  "live_path3_strategy_cutover": false
+}
