@@ -1,0 +1,144 @@
+{
+  "generated_at_utc": "2026-09-30T10:08:43Z",
+  "register": "0kas",
+  "parents": [
+    "0kar",
+    "0kap",
+    "0kao"
+  ],
+  "mech": "TIP_SOFT_HYBRID_RUNNER",
+  "runner_id": "TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE",
+  "verdict": "HYBRID_MDD_BLOCK",
+  "base": "BASE_LIVE_FUSE_COOL",
+  "champion_arm": "HYBRID_P3_P4_CASH_00025_T0",
+  "arms_vs_live": [
+    {
+      "arm": "TIPSOFT_P3_WITHIN_T1",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": 0.3296,
+      "held_cagr_lift_pp": 0.8475,
+      "sealed_mdd_improve_pp": -0.5026,
+      "tip_ytd_cagr_lift_pp": 2.8524,
+      "tip_1y_cagr_lift_pp": 2.0757,
+      "yearly_ret_wl": "10-5",
+      "meta_runner_id": "TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE",
+      "meta_kind": "tip_soft_p3_exact_t1_ref",
+      "meta_shell_fill_timing": "exact_t1",
+      "meta_carve_fill_timing": "exact_t1",
+      "meta_path3": true,
+      "meta_path4": false,
+      "meta_note": "0kap Exact T+1 tip Soft Path3 (no T+0 carve premium)"
+    },
+    {
+      "arm": "HYBRID_P3_WITHIN_T0",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -3.1276,
+      "held_cagr_lift_pp": -3.7406,
+      "sealed_mdd_improve_pp": -11.4448,
+      "tip_ytd_cagr_lift_pp": -5.6871,
+      "tip_1y_cagr_lift_pp": -5.527,
+      "yearly_ret_wl": "2-13",
+      "meta_runner_id": "TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE",
+      "meta_carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+      "meta_shell_fill_timing": "exact_t1",
+      "meta_carve_fill_timing": "t0",
+      "meta_n_days": 3364,
+      "meta_mean_t0_premium": -2e-06,
+      "meta_sum_t0_premium": -0.006666,
+      "meta_pct_days_premium_pos": 0.4863,
+      "meta_start": "2012-12-05",
+      "meta_end": "2026-09-24",
+      "meta_kind": "tip_soft_hybrid",
+      "meta_path3": true,
+      "meta_path4": false,
+      "meta_softcore_t0_path": "/workspace/repro/fin-sat-path3-path4-coexist-stagea/outputs/nav_REF_P3_WITHIN.csv",
+      "meta_shell_nav_path": "/workspace/repro/fin-sat-path3-path4-livestack-twin-stageb/outputs/nav_BASE_LIVE_FUSE_COOL.csv",
+      "meta_note": "Soft Exact T+1 FUSE+COOL + Path3 WITHIN Soft-core T+0 carve premium"
+    },
+    {
+      "arm": "HYBRID_P3_P4_CASH_00025_T0",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -2.7661,
+      "held_cagr_lift_pp": -3.2202,
+      "sealed_mdd_improve_pp": -8.7247,
+      "tip_ytd_cagr_lift_pp": -5.6993,
+      "tip_1y_cagr_lift_pp": -5.5353,
+      "yearly_ret_wl": "2-13",
+      "meta_runner_id": "TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE",
+      "meta_carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+      "meta_shell_fill_timing": "exact_t1",
+      "meta_carve_fill_timing": "t0",
+      "meta_n_days": 3364,
+      "meta_mean_t0_premium": -2e-06,
+      "meta_sum_t0_premium": -0.006666,
+      "meta_pct_days_premium_pos": 0.4875,
+      "meta_start": "2012-12-05",
+      "meta_end": "2026-09-24",
+      "meta_kind": "tip_soft_hybrid",
+      "meta_path3": true,
+      "meta_path4": true,
+      "meta_softcore_t0_path": "/workspace/repro/fin-sat-path3-path4-coexist-stagea/outputs/nav_P3_P4_CASH_00025.csv",
+      "meta_shell_nav_path": "/workspace/repro/fin-sat-path3-path4-livestack-twin-stageb/outputs/nav_BASE_LIVE_FUSE_COOL.csv",
+      "meta_note": "Soft Exact T+1 FUSE+COOL + Path3+Path4 CASH Soft-core T+0 carve premium"
+    }
+  ],
+  "champion": {
+    "arm": "HYBRID_P3_P4_CASH_00025_T0",
+    "verdict_vs_live": "MDD_BLOCK",
+    "delta": {
+      "full": {
+        "cagr_lift_pp": -2.7661,
+        "mdd_improve_pp": -5.0304
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": -3.2202,
+        "mdd_improve_pp": -5.0304
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": -3.7269,
+        "mdd_improve_pp": -8.7247
+      }
+    },
+    "tip": {
+      "ytd": {
+        "cagr_lift_pp": -5.6993,
+        "mdd_improve_pp": -3.9332
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": -5.5353,
+        "mdd_improve_pp": -3.9332
+      }
+    },
+    "meta": {
+      "runner_id": "TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE",
+      "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+      "shell_fill_timing": "exact_t1",
+      "carve_fill_timing": "t0",
+      "n_days": 3364,
+      "mean_t0_premium": -2e-06,
+      "sum_t0_premium": -0.006666,
+      "pct_days_premium_pos": 0.4875,
+      "start": "2012-12-05",
+      "end": "2026-09-24",
+      "kind": "tip_soft_hybrid",
+      "path3": true,
+      "path4": true,
+      "softcore_t0_path": "/workspace/repro/fin-sat-path3-path4-coexist-stagea/outputs/nav_P3_P4_CASH_00025.csv",
+      "shell_nav_path": "/workspace/repro/fin-sat-path3-path4-livestack-twin-stageb/outputs/nav_BASE_LIVE_FUSE_COOL.csv",
+      "note": "Soft Exact T+1 FUSE+COOL + Path3+Path4 CASH Soft-core T+0 carve premium"
+    }
+  },
+  "optimize_live": [
+    "Default twin runner = `TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE` (Soft Exact T+1 overlays + P3/P4 Exact T+0 carve premium)",
+    "Hybrid Path3 `HYBRID_P3_WITHIN_T0` \u2192 MDD_BLOCK held -3.7406 tipY -5.6871 sealedMDD -11.4448",
+    "Hybrid P3+P4 `HYBRID_P3_P4_CASH_00025_T0` \u2192 MDD_BLOCK held -3.2202 tipY -5.6993 sealedMDD -8.7247",
+    "Contrast Exact T+1 tip Soft Path3 `TIPSOFT_P3_WITHIN_T1` was MDD_BLOCK (clock-mismatch ref from 0kap)",
+    "Hybrid still blocked vs live Soft+FUSE+COOL \u2014 keep live stack; do not promote P3/P4 on Soft-core HIT alone",
+    "Soft KEEP \u00b7 broker false \u00b7 Path4 live flag OFF \u00b7 no wire this pack"
+  ],
+  "gates": {
+    "held_cagr_floor_pp": 0.1,
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "label": "TIP_SOFT_HYBRID_RUNNER_STAGEA_DECISION_PACK_2026-09-30__HYBRID_MDD_BLOCK__NO_LIVE",
+  "verdict": "HYBRID_MDD_BLOCK",
+  "register": "0kas",
+  "parents": [
+    "0kar",
+    "0kap",
+    "0kao"
+  ],
+  "runner_id": "TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE",
+  "champion_arm": "HYBRID_P3_P4_CASH_00025_T0",
+  "held_cagr_lift_pp": -3.2202,
+  "tip_ytd_cagr_lift_pp": -5.6993,
+  "sealed_mdd_improve_pp": -8.7247,
+  "optimize_live": [
+    "Default twin runner = `TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE` (Soft Exact T+1 overlays + P3/P4 Exact T+0 carve premium)",
+    "Hybrid Path3 `HYBRID_P3_WITHIN_T0` \u2192 MDD_BLOCK held -3.7406 tipY -5.6871 sealedMDD -11.4448",
+    "Hybrid P3+P4 `HYBRID_P3_P4_CASH_00025_T0` \u2192 MDD_BLOCK held -3.2202 tipY -5.6993 sealedMDD -8.7247",
+    "Contrast Exact T+1 tip Soft Path3 `TIPSOFT_P3_WITHIN_T1` was MDD_BLOCK (clock-mismatch ref from 0kap)",
+    "Hybrid still blocked vs live Soft+FUSE+COOL \u2014 keep live stack; do not promote P3/P4 on Soft-core HIT alone",
+    "Soft KEEP \u00b7 broker false \u00b7 Path4 live flag OFF \u00b7 no wire this pack"
+  ],
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false,
+  "default_twin_template": true
+}
