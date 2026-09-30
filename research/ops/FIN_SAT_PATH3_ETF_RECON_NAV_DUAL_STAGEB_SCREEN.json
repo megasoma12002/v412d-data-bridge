@@ -1,0 +1,248 @@
+{
+  "generated_at_utc": "2026-09-30T00:50:09Z",
+  "register": "0kag",
+  "parent": "0kae",
+  "verdict": "ETF_NAV_DUAL_HIT",
+  "method": {
+    "universe": [
+      "2880",
+      "2886",
+      "2892",
+      "5880",
+      "2412",
+      "3045",
+      "4904",
+      "0050"
+    ],
+    "between_flips": "hold Soft-core weights",
+    "KEEP": "flip: FIN\u222aTEL \u2192 dest Soft-core mix; sticky 0050 weight",
+    "LEDGER_SOFT_RATIO": "flip: full Soft-core \u2192 dest book",
+    "FULL_DAILY": "context: daily Soft-core = active book"
+  },
+  "meta_keep": {
+    "policy": "KEEP",
+    "n_days": 3364,
+    "n_flips_applied": 199,
+    "n_flips_etf_weight_moved": 0,
+    "sum_abs_etf_weight_delta_on_flips": 0.0,
+    "start": "2012-12-05",
+    "end": "2026-09-24"
+  },
+  "meta_ratio": {
+    "policy": "LEDGER_SOFT_RATIO",
+    "n_days": 3364,
+    "n_flips_applied": 199,
+    "n_flips_etf_weight_moved": 199,
+    "sum_abs_etf_weight_delta_on_flips": 2.679016,
+    "start": "2012-12-05",
+    "end": "2026-09-24"
+  },
+  "meta_full_daily": {
+    "policy": "FULL_DAILY",
+    "n_days": 3364
+  },
+  "windows_keep": {
+    "full": {
+      "cagr": 0.053444,
+      "max_drawdown": -0.244416,
+      "n_days": 3364
+    },
+    "oof_2011_2018": {
+      "cagr": 0.019767,
+      "max_drawdown": -0.202556,
+      "n_days": 1494
+    },
+    "validation_2019_2022": {
+      "cagr": 0.073303,
+      "max_drawdown": -0.244416,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.094062,
+      "max_drawdown": -0.2342,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.083203,
+      "max_drawdown": -0.244416,
+      "n_days": 1870
+    }
+  },
+  "windows_ratio": {
+    "full": {
+      "cagr": 0.061661,
+      "max_drawdown": -0.239482,
+      "n_days": 3364
+    },
+    "oof_2011_2018": {
+      "cagr": 0.018186,
+      "max_drawdown": -0.204106,
+      "n_days": 1494
+    },
+    "validation_2019_2022": {
+      "cagr": 0.07861,
+      "max_drawdown": -0.239482,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.1234,
+      "max_drawdown": -0.13537,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.099672,
+      "max_drawdown": -0.239482,
+      "n_days": 1870
+    }
+  },
+  "windows_full_daily": {
+    "full": {
+      "cagr": 0.073738,
+      "max_drawdown": -0.226468,
+      "n_days": 3364
+    },
+    "oof_2011_2018": {
+      "cagr": 0.015679,
+      "max_drawdown": -0.203875,
+      "n_days": 1494
+    },
+    "validation_2019_2022": {
+      "cagr": 0.071012,
+      "max_drawdown": -0.226468,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.187021,
+      "max_drawdown": -0.130655,
+      "n_days": 893
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.124889,
+      "max_drawdown": -0.226468,
+      "n_days": 1870
+    }
+  },
+  "delta_ratio_minus_keep": {
+    "full": {
+      "cagr_lift_pp": 0.8217,
+      "mdd_improve_pp": 0.4934,
+      "base_cagr": 0.053444,
+      "chal_cagr": 0.061661,
+      "base_mdd": -0.244416,
+      "chal_mdd": -0.239482
+    },
+    "heldout_2019_plus": {
+      "cagr_lift_pp": 1.6469,
+      "mdd_improve_pp": 0.4934,
+      "base_cagr": 0.083203,
+      "chal_cagr": 0.099672,
+      "base_mdd": -0.244416,
+      "chal_mdd": -0.239482
+    },
+    "sealed_2023_plus": {
+      "cagr_lift_pp": 2.9338,
+      "mdd_improve_pp": 9.883,
+      "base_cagr": 0.094062,
+      "chal_cagr": 0.1234,
+      "base_mdd": -0.2342,
+      "chal_mdd": -0.13537
+    }
+  },
+  "delta_full_minus_keep": {
+    "full": {
+      "cagr_lift_pp": 2.0294,
+      "mdd_improve_pp": 1.7948,
+      "base_cagr": 0.053444,
+      "chal_cagr": 0.073738,
+      "base_mdd": -0.244416,
+      "chal_mdd": -0.226468
+    },
+    "heldout_2019_plus": {
+      "cagr_lift_pp": 4.1686,
+      "mdd_improve_pp": 1.7948,
+      "base_cagr": 0.083203,
+      "chal_cagr": 0.124889,
+      "base_mdd": -0.244416,
+      "chal_mdd": -0.226468
+    },
+    "sealed_2023_plus": {
+      "cagr_lift_pp": 9.2959,
+      "mdd_improve_pp": 10.3545,
+      "base_cagr": 0.094062,
+      "chal_cagr": 0.187021,
+      "base_mdd": -0.2342,
+      "chal_mdd": -0.130655
+    }
+  },
+  "tip_ratio_minus_keep": {
+    "ytd": {
+      "cagr_lift_pp": 1.882,
+      "mdd_improve_pp": -0.3684
+    },
+    "trailing_1y": {
+      "cagr_lift_pp": -0.4106,
+      "mdd_improve_pp": -0.3684
+    }
+  },
+  "gates": {
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0
+  },
+  "context": {
+    "ctrl_windows": {
+      "full": {
+        "cagr": 0.125909,
+        "max_drawdown": -0.144234,
+        "n_days": 3366
+      },
+      "oof_2011_2018": {
+        "cagr": 0.087124,
+        "max_drawdown": -0.129568,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.134708,
+        "max_drawdown": -0.144234,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.189154,
+        "max_drawdown": -0.062022,
+        "n_days": 894
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.160304,
+        "max_drawdown": -0.144234,
+        "n_days": 1871
+      }
+    },
+    "p3_blend_windows": {
+      "full": {
+        "cagr": 0.161435,
+        "max_drawdown": -0.143238,
+        "n_days": 3366
+      },
+      "oof_2011_2018": {
+        "cagr": 0.120366,
+        "max_drawdown": -0.11319,
+        "n_days": 1495
+      },
+      "validation_2019_2022": {
+        "cagr": 0.163856,
+        "max_drawdown": -0.143238,
+        "n_days": 977
+      },
+      "sealed_2023_plus": {
+        "cagr": 0.236439,
+        "max_drawdown": -0.063673,
+        "n_days": 894
+      },
+      "heldout_2019_plus": {
+        "cagr": 0.197926,
+        "max_drawdown": -0.143238,
+        "n_days": 1871
+      }
+    },
+    "note": "CTRL/P3_T0_STATE are full-book NAVs (incl DEF/overlays); Soft-core dual is carve-only"
+  }
+}
