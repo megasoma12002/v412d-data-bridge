@@ -1,0 +1,4 @@
+step,from,to,held_cagr_lift_pp,full_cagr_lift_pp,sealed_mdd_improve_pp,tip_ytd_cagr_lift_pp,tip_1y_cagr_lift_pp
++FUSE_SELL_a75,L1_SOFT_T1,L2_SOFT_FUSE_T1,-3.2363,-1.6991,-0.2385,-19.988,-17.5274
++COOL_c8,L2_SOFT_FUSE_T1,L3_LIVE_FUSE_COOL,1.7035,0.8242,3.4929,11.1273,11.4109
++Path3_WITHIN_tipSoft,L3_LIVE_FUSE_COOL,L4_LIVE_P3_WITHIN,0.8475,0.3296,-0.5026,2.8524,2.0757

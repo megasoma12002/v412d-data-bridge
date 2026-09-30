@@ -1,0 +1,6 @@
+compare,held_cagr_lift_pp,full_cagr_lift_pp,sealed_mdd_improve_pp,tip_ytd_cagr_lift_pp,tip_1y_cagr_lift_pp,research_held_cagr,other_held_cagr,research_held_mdd,other_held_mdd,meta_layer,meta_fill_timing,meta_fuse,meta_cool,meta_path3,meta_n_fills,meta_reuse,meta_book,meta_path4
+L1_SOFT_T1_minus_R0_T0_P3_WITHIN,4.0476,3.6737,3.7736,11.0218,8.6169,0.129772,0.170248,-0.227432,-0.21333,1,exact_t1,False,False,False,5739.0,,,
+L2_SOFT_FUSE_T1_minus_R0_T0_P3_WITHIN,0.8113,1.9746,3.5351,-10.2211,-9.0015,0.129772,0.137885,-0.227432,-0.223369,2,exact_t1,True,False,False,6305.0,,,
+L3_LIVE_FUSE_COOL_minus_R0_T0_P3_WITHIN,2.5148,2.7988,7.028,1.7877,2.1278,0.129772,0.15492,-0.227432,-0.141077,3,exact_t1,True,True,False,,0kap,,
+L4_LIVE_P3_WITHIN_minus_R0_T0_P3_WITHIN,3.3623,3.1284,6.5254,4.8589,4.648,0.129772,0.163395,-0.227432,-0.144311,4,exact_t1,True,True,True,,0kap,,
+R1_T0_P3_P4_CASH_00025_minus_R0_T0_P3_WITHIN,2.9862,2.0279,1.3609,-0.2831,-0.1865,0.129772,0.159634,-0.227432,-0.196953,0,t0,False,False,True,,0kao,softcore_carve,True

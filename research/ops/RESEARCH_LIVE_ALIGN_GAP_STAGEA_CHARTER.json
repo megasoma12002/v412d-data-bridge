@@ -1,0 +1,10 @@
+{
+  "id": "RESEARCH_LIVE_ALIGN_GAP_STAGEA_CHARTER",
+  "register": "0kar",
+  "parents": [
+    "0kao",
+    "0kap",
+    "0kaq"
+  ],
+  "mech": "RESEARCH_LIVE_ALIGN_GAP"
+}
