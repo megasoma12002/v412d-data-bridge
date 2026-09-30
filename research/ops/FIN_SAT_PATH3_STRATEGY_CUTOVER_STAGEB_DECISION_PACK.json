@@ -1,0 +1,57 @@
+{
+  "label": "FIN_SAT_PATH3_STRATEGY_CUTOVER_STAGEB_DECISION_PACK_2026-09-30__PAPER_WITHIN_HIT__NO_LIVE",
+  "verdict": "PAPER_WITHIN_HIT",
+  "register": "0kam",
+  "parent": "0kac",
+  "mechanism": "PATH3_STRATEGY_CUTOVER",
+  "scope": "WITHIN_SLEEVE_PATH3",
+  "delta_within_minus_flip": {
+    "full": {
+      "cagr_lift_pp": 2.0041,
+      "mdd_improve_pp": 1.5241,
+      "base_cagr": 0.074972,
+      "chal_cagr": 0.095013,
+      "base_mdd": -0.242673,
+      "chal_mdd": -0.227432
+    },
+    "heldout_2019_plus": {
+      "cagr_lift_pp": 3.0409,
+      "mdd_improve_pp": 1.5241,
+      "base_cagr": 0.099363,
+      "chal_cagr": 0.129772,
+      "base_mdd": -0.242673,
+      "chal_mdd": -0.227432
+    },
+    "sealed_2023_plus": {
+      "cagr_lift_pp": 5.6176,
+      "mdd_improve_pp": 7.2414,
+      "base_cagr": 0.114482,
+      "chal_cagr": 0.170658,
+      "base_mdd": -0.205106,
+      "chal_mdd": -0.132692
+    }
+  },
+  "tip_within_minus_flip": {
+    "ytd": {
+      "cagr_lift_pp": 0.2679,
+      "mdd_improve_pp": 1.1772
+    },
+    "trailing_1y": {
+      "cagr_lift_pp": 0.778,
+      "mdd_improve_pp": 1.1772
+    }
+  },
+  "yearly_ret_wl": {
+    "w": 14,
+    "l": 1
+  },
+  "soft_keep": true,
+  "broker": false,
+  "live_path3_strategy_cutover": false,
+  "next": [
+    "Human ballot only: ACCEPT Path3 strategy cutover WITHIN_SLEEVE_PATH3 \u2014 still no auto wire",
+    "Overlay coexistence smoke + wrong-stay/2022 disposition before ACCEPT",
+    "Broker remains separate ballot \u00b7 cutover flag stays OFF until ACCEPT",
+    "Path4 Soft-0050 mutex remains separate track"
+  ]
+}
