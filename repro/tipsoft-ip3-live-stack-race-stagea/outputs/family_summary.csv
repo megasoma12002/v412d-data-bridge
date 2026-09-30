@@ -1,0 +1,7 @@
+family,n,n_strong,n_held_pos,n_dual,max_held_vs_champ,max_held_vs_live,max_regret_imp,max_wins_vs_champ,max_beats_live
+BLEND,9,0,0,0,-0.4904,1.0273,-0.0434,-4,7
+OVERRIDE,20,2,2,2,0.0628,1.5805,0.2142,1,8
+OVERRIDE_CONF,60,6,9,10,0.0959,1.6136,0.366,1,8
+RACE3,20,0,0,0,-0.6803,0.8374,-0.2478,-1,9
+RACE_DUAL,25,5,5,5,0.0759,1.5936,0.3261,0,8
+RACE_RECON,8,0,0,1,-0.0432,1.4745,0.2207,1,8
