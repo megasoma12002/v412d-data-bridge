@@ -1,0 +1,278 @@
+{
+  "id": "META_DETECT_STACK_SELECT_STAGEA_SCREEN",
+  "register": "0kat",
+  "parents": [
+    "0kas",
+    "0kar",
+    "0kaa"
+  ],
+  "generated_at_utc": "2026-09-30T10:23:33Z",
+  "mech": "META_DETECT_STACK_SELECT",
+  "verdict": "META_DETECT_MDD_BLOCK",
+  "base": "STATIC_L3_LIVE_FUSE_COOL",
+  "champion": {
+    "arm": "DETECT_P3_THETA",
+    "verdict_vs_live": "MDD_BLOCK",
+    "held_cagr_lift_pp": 1.248,
+    "full_cagr_lift_pp": 0.487,
+    "sealed_mdd_improve_pp": -0.5026,
+    "tip_ytd_cagr_lift_pp": 2.8672,
+    "tip_1y_cagr_lift_pp": 3.1765,
+    "meta": {
+      "note": "Live stack always; Path3 only when |trail_rel_63|\u2265\u03b8",
+      "pct_fuse_on": 100.0,
+      "pct_cool_on": 100.0,
+      "pct_p3_on": 73.14,
+      "n_days": 3366,
+      "p3_theta": 0.005,
+      "proxy_x": 0.08
+    }
+  },
+  "best_static_contrast": {
+    "arm": "STATIC_L1_SOFT",
+    "verdict_vs_live": "MDD_BLOCK",
+    "held_cagr_lift_pp": 1.5328,
+    "sealed_mdd_improve_pp": -3.2544,
+    "tip_ytd_cagr_lift_pp": 8.8607
+  },
+  "arms": [
+    {
+      "arm": "STATIC_L1_SOFT",
+      "verdict_vs_live": "MDD_BLOCK",
+      "promote_eligible": true,
+      "held_cagr_lift_pp": 1.5328,
+      "full_cagr_lift_pp": 0.8749,
+      "sealed_mdd_improve_pp": -3.2544,
+      "tip_ytd_cagr_lift_pp": 8.8607,
+      "tip_1y_cagr_lift_pp": 6.1164,
+      "yearly_ret_wl": "9-6",
+      "meta": {
+        "note": "Soft only (no FUSE/COOL/P3)",
+        "pct_fuse_on": 0.0,
+        "pct_cool_on": 0.0,
+        "pct_p3_on": 0.0,
+        "n_days": 3366,
+        "p3_theta": 0.005,
+        "proxy_x": 0.08
+      }
+    },
+    {
+      "arm": "STATIC_L2_SOFT_FUSE",
+      "verdict_vs_live": "MDD_BLOCK",
+      "promote_eligible": true,
+      "held_cagr_lift_pp": -1.7035,
+      "full_cagr_lift_pp": -0.8242,
+      "sealed_mdd_improve_pp": -3.4929,
+      "tip_ytd_cagr_lift_pp": -11.1273,
+      "tip_1y_cagr_lift_pp": -11.4109,
+      "yearly_ret_wl": "8-7",
+      "meta": {
+        "note": "Always Soft+FUSE",
+        "pct_fuse_on": 100.0,
+        "pct_cool_on": 0.0,
+        "pct_p3_on": 0.0,
+        "n_days": 3366,
+        "p3_theta": 0.005,
+        "proxy_x": 0.08
+      }
+    },
+    {
+      "arm": "STATIC_L4_LIVE_P3",
+      "verdict_vs_live": "MDD_BLOCK",
+      "promote_eligible": true,
+      "held_cagr_lift_pp": 0.8475,
+      "full_cagr_lift_pp": 0.3296,
+      "sealed_mdd_improve_pp": -0.5026,
+      "tip_ytd_cagr_lift_pp": 2.8524,
+      "tip_1y_cagr_lift_pp": 2.0757,
+      "yearly_ret_wl": "10-5",
+      "meta": {
+        "note": "Always Soft+FUSE+COOL+P3",
+        "pct_fuse_on": 100.0,
+        "pct_cool_on": 100.0,
+        "pct_p3_on": 100.0,
+        "n_days": 3366,
+        "p3_theta": 0.005,
+        "proxy_x": 0.08
+      }
+    },
+    {
+      "arm": "DETECT_P3_THETA",
+      "verdict_vs_live": "MDD_BLOCK",
+      "promote_eligible": true,
+      "held_cagr_lift_pp": 1.248,
+      "full_cagr_lift_pp": 0.487,
+      "sealed_mdd_improve_pp": -0.5026,
+      "tip_ytd_cagr_lift_pp": 2.8672,
+      "tip_1y_cagr_lift_pp": 3.1765,
+      "yearly_ret_wl": "8-7",
+      "meta": {
+        "note": "Live stack always; Path3 only when |trail_rel_63|\u2265\u03b8",
+        "pct_fuse_on": 100.0,
+        "pct_cool_on": 100.0,
+        "pct_p3_on": 73.14,
+        "n_days": 3366,
+        "p3_theta": 0.005,
+        "proxy_x": 0.08
+      }
+    },
+    {
+      "arm": "DETECT_P3_FLIP",
+      "verdict_vs_live": "TIP_BLOCK",
+      "promote_eligible": true,
+      "held_cagr_lift_pp": 0.0389,
+      "full_cagr_lift_pp": -0.0962,
+      "sealed_mdd_improve_pp": 0.1088,
+      "tip_ytd_cagr_lift_pp": -2.0757,
+      "tip_1y_cagr_lift_pp": -1.3061,
+      "yearly_ret_wl": "8-7",
+      "meta": {
+        "note": "Live stack always; Path3 premium only on sat_lead flip days",
+        "pct_fuse_on": 100.0,
+        "pct_cool_on": 100.0,
+        "pct_p3_on": 5.94,
+        "n_days": 3366,
+        "p3_theta": 0.005,
+        "proxy_x": 0.08
+      }
+    },
+    {
+      "arm": "DETECT_FUSE_RISKON",
+      "verdict_vs_live": "MDD_BLOCK",
+      "promote_eligible": true,
+      "held_cagr_lift_pp": 0.5163,
+      "full_cagr_lift_pp": 0.2809,
+      "sealed_mdd_improve_pp": -0.4627,
+      "tip_ytd_cagr_lift_pp": 7.1249,
+      "tip_1y_cagr_lift_pp": 4.782,
+      "yearly_ret_wl": "8-7",
+      "meta": {
+        "note": "FUSE only risk-on; COOL always; no P3",
+        "pct_fuse_on": 78.43,
+        "pct_cool_on": 100.0,
+        "pct_p3_on": 0.0,
+        "n_days": 3366,
+        "p3_theta": 0.005,
+        "proxy_x": 0.08
+      }
+    },
+    {
+      "arm": "DETECT_COOL_DEFEND",
+      "verdict_vs_live": "MDD_BLOCK",
+      "promote_eligible": true,
+      "held_cagr_lift_pp": -0.7079,
+      "full_cagr_lift_pp": -0.217,
+      "sealed_mdd_improve_pp": -0.3978,
+      "tip_ytd_cagr_lift_pp": -11.1078,
+      "tip_1y_cagr_lift_pp": -11.3979,
+      "yearly_ret_wl": "7-8",
+      "meta": {
+        "note": "FUSE always; COOL only while COOL_c8 defending",
+        "pct_fuse_on": 100.0,
+        "pct_cool_on": 21.57,
+        "pct_p3_on": 0.0,
+        "n_days": 3366,
+        "p3_theta": 0.005,
+        "proxy_x": 0.08
+      }
+    },
+    {
+      "arm": "DETECT_COMPLEMENT",
+      "verdict_vs_live": "MDD_BLOCK",
+      "promote_eligible": true,
+      "held_cagr_lift_pp": -0.1948,
+      "full_cagr_lift_pp": 0.0633,
+      "sealed_mdd_improve_pp": -1.1431,
+      "tip_ytd_cagr_lift_pp": -4.5176,
+      "tip_1y_cagr_lift_pp": -7.0174,
+      "yearly_ret_wl": "7-8",
+      "meta": {
+        "note": "FUSE risk-on XOR-ish COOL defend; Soft always; no P3",
+        "pct_fuse_on": 78.43,
+        "pct_cool_on": 21.57,
+        "pct_p3_on": 0.0,
+        "n_days": 3366,
+        "p3_theta": 0.005,
+        "proxy_x": 0.08
+      }
+    },
+    {
+      "arm": "DETECT_ALL_GATED",
+      "verdict_vs_live": "MDD_BLOCK",
+      "promote_eligible": true,
+      "held_cagr_lift_pp": 1.0356,
+      "full_cagr_lift_pp": 0.5478,
+      "sealed_mdd_improve_pp": -1.7832,
+      "tip_ytd_cagr_lift_pp": -1.7714,
+      "tip_1y_cagr_lift_pp": -4.0422,
+      "yearly_ret_wl": "9-6",
+      "meta": {
+        "note": "FUSE risk-on + COOL defend + P3 |trail|\u2265\u03b8",
+        "pct_fuse_on": 78.43,
+        "pct_cool_on": 21.57,
+        "pct_p3_on": 73.14,
+        "n_days": 3366,
+        "p3_theta": 0.005,
+        "proxy_x": 0.08
+      }
+    },
+    {
+      "arm": "DETECT_MUTE_FUSE_ON_P3FLIP",
+      "verdict_vs_live": "MDD_BLOCK",
+      "promote_eligible": true,
+      "held_cagr_lift_pp": 0.7682,
+      "full_cagr_lift_pp": 0.2509,
+      "sealed_mdd_improve_pp": -1.9223,
+      "tip_ytd_cagr_lift_pp": -3.4004,
+      "tip_1y_cagr_lift_pp": -1.1018,
+      "yearly_ret_wl": "7-8",
+      "meta": {
+        "note": "Mute FUSE on Path3 flip days; COOL always; P3 on |trail|\u2265\u03b8",
+        "pct_fuse_on": 94.06,
+        "pct_cool_on": 100.0,
+        "pct_p3_on": 73.14,
+        "n_days": 3366,
+        "p3_theta": 0.005,
+        "proxy_x": 0.08
+      }
+    },
+    {
+      "arm": "ORACLE_BEST_LAYER_DIAG",
+      "verdict_vs_live": "DIAGNOSTIC",
+      "promote_eligible": false,
+      "held_cagr_lift_pp": 59.5982,
+      "full_cagr_lift_pp": 44.1978,
+      "sealed_mdd_improve_pp": 2.1212,
+      "tip_ytd_cagr_lift_pp": 130.8534,
+      "tip_1y_cagr_lift_pp": 102.7648,
+      "yearly_ret_wl": "15-0",
+      "meta": {
+        "note": "Lookahead upper bound: each day max(L1..L4) return \u2014 diagnostic only",
+        "pct_pick_r1": 28.76,
+        "pct_pick_r2": 17.83,
+        "pct_pick_r3": 18.33,
+        "pct_pick_r4": 35.09,
+        "promote_eligible": false
+      }
+    }
+  ],
+  "gates": {
+    "held_cagr_floor_pp": 0.1,
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0,
+    "p3_theta": 0.005
+  },
+  "optimize_live": [
+    "Meta rule: Soft shell always-on; FUSE/COOL/P3 are optional blocks gated by detectors",
+    "Detect champion `DETECT_P3_THETA` \u2192 MDD_BLOCK held 1.248 tipY 2.8672 sealedMDD -0.5026",
+    "Best static contrast `STATIC_L1_SOFT` \u2192 MDD_BLOCK held 1.5328 tipY 8.8607 sealedMDD -3.2544",
+    "DETECT_P3_THETA (live stack + Path3 only when |trail|\u2265\u03b8) lifts held vs always-on P3 but sealed MDD still blocks",
+    "DETECT_FUSE_RISKON lifts tipY a lot vs always-on FUSE+COOL but sealed MDD still blocks",
+    "Oracle DIAG lookahead upper bound proves selection headroom \u2014 never promote",
+    "Path4 OFF \u00b7 Soft KEEP \u00b7 broker false \u00b7 no live wire \u00b7 next harden sealed-MDD detectors"
+  ],
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false,
+  "label": "META_DETECT_STACK_SELECT_STAGEA_SCREEN_2026-09-30__META_DETECT_MDD_BLOCK"
+}
