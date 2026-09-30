@@ -1,0 +1,25 @@
+{
+  "id": "TIPSOFT_PATH4_NEAR_SAT_OBSERVE_BALLOT_DRAFT",
+  "status": "DRAFT",
+  "date": "2026-09-30",
+  "register": "0kay",
+  "parents": [
+    "0kay",
+    "0kaw"
+  ],
+  "policy_id": "P4_C001_NEAR_AND_SAT",
+  "arm_id": "P4_C001_NEAR&SAT",
+  "clock": "exact_t1",
+  "path4_book": "LIVE_P3_P4_CASH_001",
+  "gate": "I_p3=NEARPEAK3 AND I_p4=(NEARPEAK3 \u2227 sat_lead) with CASH_001 premium",
+  "hybrid_t0_carve": false,
+  "live_wire": false,
+  "cutover_blocked": true,
+  "soft_keep": true,
+  "path4_live": false,
+  "held_vs_nearpeak3_pp": 0.0273,
+  "sealed_vs_live_pp": -0.0523,
+  "tipY_vs_live_pp": 6.0402,
+  "open_line": "OPEN paper observe: TIPSOFT_P4_C001_NEAR_AND_SAT (tip Soft Exact T+1 \u00b7 NEARPEAK3 + Path4 CASH_001 on sat_lead \u00b7 NOT hybrid T+0)",
+  "label": "TIPSOFT_PATH4_NEAR_SAT_OBSERVE_BALLOT_DRAFT_2026-09-30__AWAITING_OPEN__NO_LIVE"
+}
