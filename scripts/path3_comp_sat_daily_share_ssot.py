@@ -70,15 +70,36 @@ def shares_asof(
     out_dir: Path | str = DEFAULT_LEDGER_DIR,
 ) -> dict[str, float]:
     """Nearest prior (or equal) date share map for Soft universe codes."""
+    shares, _ledger_asof, _ = shares_asof_detail(
+        book, asof, panel=panel, out_dir=out_dir
+    )
+    return shares
+
+
+def shares_asof_detail(
+    book: str,
+    asof: pd.Timestamp | str,
+    *,
+    panel: pd.DataFrame | None = None,
+    out_dir: Path | str = DEFAULT_LEDGER_DIR,
+) -> tuple[dict[str, float], pd.Timestamp | None, pd.Timestamp | None]:
+    """Return ``(shares, ledger_asof, panel_end)``.
+
+    ``ledger_asof`` is the panel row date used; ``panel_end`` is the last
+    available ledger date (for stale checks).
+    """
     pan = panel if panel is not None else load_book_shares(book, out_dir=out_dir)
     if pan.empty:
-        return {}
+        return {}, None, None
     asof_ts = pd.Timestamp(asof).normalize()
+    panel_end = pd.Timestamp(pan.index.max()).normalize()
     prior = pan.index[pan.index <= asof_ts]
     if len(prior) == 0:
-        return {}
+        return {}, None, panel_end
+    row_date = pd.Timestamp(prior[-1]).normalize()
     row = pan.loc[prior[-1]]
-    return {str(c): float(row[c]) for c in row.index if abs(float(row[c])) > 1e-12}
+    shares = {str(c): float(row[c]) for c in row.index if abs(float(row[c])) > 1e-12}
+    return shares, row_date, panel_end
 
 
 def dollar_mix(
@@ -120,20 +141,38 @@ def plan_delta_ledger_scaled(
     prices: Mapping[str, float],
     ledger_shares: Mapping[str, float],
     keep_0050: bool = True,
+    allow_equal_fallback: bool = False,
 ) -> tuple[dict[str, float], dict[str, Any]]:
-    """Freeze live Soft sleeve $; apply ledger within-sleeve mix; delta vs live."""
+    """Freeze live Soft sleeve $; apply ledger within-sleeve mix; delta vs live.
+
+    When ledger has sleeve names but mix is empty (e.g. missing prices), default
+    is fail-closed (leave sleeve unchanged) — not equal-weight recon — unless
+    ``allow_equal_fallback=True``.
+    """
     p = {str(k): float(v) for k, v in live_pos.items() if abs(float(v)) > 1e-12}
     px = {str(k): float(v) for k, v in prices.items() if float(v) > 0}
     fin_dol = sleeve_notional(FIN, p, px)
     tel_dol = sleeve_notional(TEL, p, px)
     fin_mix = dollar_mix(ledger_shares, px, FIN)
     tel_mix = dollar_mix(ledger_shares, px, TEL)
+    fin_fallback = False
+    tel_fallback = False
     if not fin_mix:
-        fin_t = equal_target_shares(FIN, sleeve_dollars=fin_dol, prices=px)
+        if allow_equal_fallback or not any(c in ledger_shares for c in FIN):
+            fin_t = equal_target_shares(FIN, sleeve_dollars=fin_dol, prices=px)
+            fin_fallback = bool(allow_equal_fallback and any(c in ledger_shares for c in FIN))
+        else:
+            fin_t = {c: float(p.get(c, 0.0)) for c in FIN}
+            fin_fallback = False
+            # fail-closed: keep live FIN weights
     else:
         fin_t = scale_mix_to_shares(fin_mix, sleeve_dollars=fin_dol, prices=px)
     if not tel_mix:
-        tel_t = equal_target_shares(TEL, sleeve_dollars=tel_dol, prices=px)
+        if allow_equal_fallback or not any(c in ledger_shares for c in TEL):
+            tel_t = equal_target_shares(TEL, sleeve_dollars=tel_dol, prices=px)
+            tel_fallback = bool(allow_equal_fallback and any(c in ledger_shares for c in TEL))
+        else:
+            tel_t = {c: float(p.get(c, 0.0)) for c in TEL}
     else:
         tel_t = scale_mix_to_shares(tel_mix, sleeve_dollars=tel_dol, prices=px)
 
@@ -165,6 +204,9 @@ def plan_delta_ledger_scaled(
         "tel_notional": round(tel_dol, 2),
         "fin_mix": {k: round(v, 6) for k, v in fin_mix.items()},
         "tel_mix": {k: round(v, 6) for k, v in tel_mix.items()},
+        "fin_mix_empty": not bool(fin_mix),
+        "tel_mix_empty": not bool(tel_mix),
+        "equal_fallback": bool(fin_fallback or tel_fallback),
         "n_delta_names": len(delta),
         "delta_shares": {k: round(v, 1) for k, v in delta.items()},
         "keep_0050": bool(keep_0050),
@@ -182,25 +224,50 @@ def plan_delta_shares_ledger(
     panels: Mapping[str, pd.DataFrame] | None = None,
     out_dir: Path | str = DEFAULT_LEDGER_DIR,
     keep_0050: bool = True,
+    max_stale_calendar_days: int = 0,
+    allow_equal_fallback: bool = False,
 ) -> tuple[dict[str, float] | None, dict[str, Any]]:
+    """Ledger-scaled recon for ``dest_book`` asof.
+
+    ``max_stale_calendar_days``: if ``asof`` is more than this many calendar days
+    after the ledger row date, return ``None`` with ``reason=ledger_stale``
+    (default 0 = require exact ledger date match / same-day tip).
+    """
     book = str(dest_book)
+    asof_ts = pd.Timestamp(asof).normalize()
     meta: dict[str, Any] = {
         "engine_id": ENGINE_ID,
         "dest_book": book,
-        "asof": str(pd.Timestamp(asof).date()),
+        "asof": str(asof_ts.date()),
     }
     try:
         panel = None if panels is None else panels.get(book)
-        led = shares_asof(book, asof, panel=panel, out_dir=out_dir)
+        led, ledger_asof, panel_end = shares_asof_detail(
+            book, asof, panel=panel, out_dir=out_dir
+        )
     except FileNotFoundError as exc:
         meta["reason"] = f"ledger_missing:{exc}"
         return None, meta
+    if panel_end is not None:
+        meta["ledger_panel_end"] = str(panel_end.date())
+    if ledger_asof is not None:
+        meta["ledger_asof"] = str(ledger_asof.date())
+        lag = int((asof_ts - ledger_asof).days)
+        meta["ledger_lag_calendar_days"] = lag
+        meta["ledger_stale"] = bool(lag > int(max_stale_calendar_days))
+        if meta["ledger_stale"]:
+            meta["reason"] = "ledger_stale"
+            return None, meta
     if not led:
         meta["reason"] = "ledger_empty_asof"
         return None, meta
     meta["ledger_asof_names"] = sorted(led)
     delta, plan_meta = plan_delta_ledger_scaled(
-        live_pos=live_pos, prices=prices, ledger_shares=led, keep_0050=keep_0050
+        live_pos=live_pos,
+        prices=prices,
+        ledger_shares=led,
+        keep_0050=keep_0050,
+        allow_equal_fallback=allow_equal_fallback,
     )
     meta.update(plan_meta)
     meta["reason"] = "ledger_scaled_recon" if delta else "ledger_scaled_empty"

@@ -12,6 +12,7 @@ from live_config import (
 from live_soft_path3_coexist_mute import (
     DEFAULT_POLICY,
     MECHANISM_ID,
+    POLICY_MUTE_OVERLAP_CODES,
     POLICY_MUTE_SOFT_FIN_TEL,
     POLICY_MUTE_SOFT_ON_FLIP_META,
     apply_coexist_mute,
@@ -43,7 +44,7 @@ class MuteFlagDefaults(unittest.TestCase):
 
 
 class ShouldMute(unittest.TestCase):
-    def test_requires_flag_emit_flip_and_deltas(self) -> None:
+    def test_requires_flag_emit_and_flip(self) -> None:
         self.assertFalse(
             should_mute(mute_enabled=False, emit_enabled=True, flip=True, n_path3_delta_names=3)
         )
@@ -53,7 +54,8 @@ class ShouldMute(unittest.TestCase):
         self.assertFalse(
             should_mute(mute_enabled=True, emit_enabled=True, flip=False, n_path3_delta_names=3)
         )
-        self.assertFalse(
+        # Default MUTE_SOFT_FIN_TEL: flip+emit → mute even with empty Path3 plan
+        self.assertTrue(
             should_mute(mute_enabled=True, emit_enabled=True, flip=True, n_path3_delta_names=0)
         )
         self.assertTrue(
@@ -70,6 +72,40 @@ class ShouldMute(unittest.TestCase):
                 policy=POLICY_MUTE_SOFT_ON_FLIP_META,
             )
         )
+
+    def test_overlap_policy_requires_deltas(self) -> None:
+        self.assertFalse(
+            should_mute(
+                mute_enabled=True,
+                emit_enabled=True,
+                flip=True,
+                n_path3_delta_names=0,
+                policy=POLICY_MUTE_OVERLAP_CODES,
+            )
+        )
+        self.assertTrue(
+            should_mute(
+                mute_enabled=True,
+                emit_enabled=True,
+                flip=True,
+                n_path3_delta_names=2,
+                policy=POLICY_MUTE_OVERLAP_CODES,
+            )
+        )
+
+    def test_default_mutes_on_flip_with_empty_path3_plan(self) -> None:
+        kept, meta = apply_coexist_mute(
+            _soft_rows(),
+            mute_enabled=True,
+            emit_enabled=True,
+            flip=True,
+            path3_delta_shares=None,
+            policy=POLICY_MUTE_SOFT_FIN_TEL,
+        )
+        self.assertTrue(meta["should_mute"])
+        self.assertTrue(meta["applied"])
+        self.assertEqual(meta["n_muted"], 2)
+        self.assertEqual({r["code"] for r in kept}, {"0050", "00631L"})
 
 
 class FilterSoftOrders(unittest.TestCase):
