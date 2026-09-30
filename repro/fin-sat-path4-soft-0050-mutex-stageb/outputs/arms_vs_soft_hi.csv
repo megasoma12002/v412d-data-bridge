@@ -1,0 +1,9 @@
+arm,verdict_vs_hi,full_cagr_lift_pp,held_cagr_lift_pp,sealed_mdd_improve_pp,tip_ytd_cagr_lift_pp,tip_1y_cagr_lift_pp,meta_kind,meta_book,meta_mean_etf,meta_pair,meta_book_a,meta_book_b,meta_theta,meta_pct_b,meta_n_b_days,meta_n_flips
+REF_SOFT_LO,SOFT,0.0031,0.0238,-0.029,0.2306,0.1663,sticky,SOFT_LO,0.0874,,,,,,,
+REF_SOFT_DEF,SOFT,0.0691,0.0977,-0.1029,0.4097,0.1166,sticky,SOFT_DEF,0.0722,,,,,,,
+SW_HI_LO_0005,SOFT,-0.0,-0.0,0.0,-0.0,-0.0,trail_mutex,,,HI_LO,SOFT_HI,SOFT_LO,0.005,0.0,0.0,0.0
+SW_HI_LO_001,SOFT,-0.0,-0.0,0.0,-0.0,-0.0,trail_mutex,,,HI_LO,SOFT_HI,SOFT_LO,0.01,0.0,0.0,0.0
+SW_HI_LO_002,SOFT,-0.0,-0.0,0.0,-0.0,-0.0,trail_mutex,,,HI_LO,SOFT_HI,SOFT_LO,0.02,0.0,0.0,0.0
+SW_HI_DEF_0005,HIT,0.1044,0.1144,0.0,0.6151,0.4152,trail_mutex,,,HI_DEF,SOFT_HI,SOFT_DEF,0.005,0.0273,92.0,47.0
+SW_HI_DEF_001,SOFT,-0.0,-0.0,0.0,-0.0,-0.0,trail_mutex,,,HI_DEF,SOFT_HI,SOFT_DEF,0.01,0.0,0.0,0.0
+SW_HI_DEF_002,SOFT,-0.0,-0.0,0.0,-0.0,-0.0,trail_mutex,,,HI_DEF,SOFT_HI,SOFT_DEF,0.02,0.0,0.0,0.0
