@@ -1,0 +1,40 @@
+{
+  "id": "TIPSOFT_IP3_LIVE_YEAR_RESIDUAL_STAGEA_DECISION_PACK",
+  "register": "0kb3",
+  "parents": [
+    "0kb2",
+    "0kb1",
+    "0kaw"
+  ],
+  "verdict": "IP3_LIVE_YEAR_RESIDUAL_HIT",
+  "champion": {
+    "arm": "SHORT_SAT_W21_M0005_K1_ST0",
+    "family": "SHORT_SAT",
+    "verdict_vs_live": "HIT",
+    "held_vs_live": 1.6246,
+    "held_vs_parent": 0.011,
+    "sealed_vs_live": -0.0523,
+    "tipY_vs_live": 6.0402,
+    "year_gap_to_oracle_pp": 0.3799,
+    "year_regret_improve_vs_parent_pp": 0.0021,
+    "year_wins": 6,
+    "year_wins_vs_parent": -1,
+    "n_beats_live": 8,
+    "n_beats_live_vs_parent": 0,
+    "target_sum_delta_vs_live_pp": -3.38,
+    "target_delta_improve_vs_parent_pp": 0.156,
+    "target_n_beats_live": 0,
+    "target_beats_lift": 0,
+    "held_pos_vs_parent": true,
+    "residual_obj_clear": true,
+    "strong_clear": true,
+    "oracle": false,
+    "is_ref": false
+  },
+  "n_strong_clear": 2,
+  "n_held_pos_vs_parent": 4,
+  "n_residual_obj_clear": 7,
+  "soft_keep": true,
+  "path4_live": false,
+  "label": "TIPSOFT_IP3_LIVE_YEAR_RESIDUAL_STAGEA_DECISION_PACK_2026-09-30__IP3_LIVE_YEAR_RESIDUAL_HIT__NO_LIVE"
+}

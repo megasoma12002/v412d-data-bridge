@@ -1,0 +1,23 @@
+{
+  "id": "TIPSOFT_IP3_LIVE_YEAR_RESIDUAL_STAGEA_CHARTER",
+  "register": "0kb3",
+  "parents": [
+    "0kb2",
+    "0kb1",
+    "0kaw"
+  ],
+  "mech": "TIPSOFT_IP3_LIVE_YEAR_RESIDUAL",
+  "date": "2026-09-30",
+  "target_years": [
+    2013,
+    2019,
+    2020
+  ],
+  "forbidden": [
+    "year_cut",
+    "lookahead_promote",
+    "hybrid_t0",
+    "path4_live",
+    "full_0kb2_regrid"
+  ]
+}

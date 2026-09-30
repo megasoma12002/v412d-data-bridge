@@ -1,0 +1,5 @@
+family,n,n_strong,n_held,n_resid,max_held_vs_parent,max_tgt_improve,max_tgt_beats,max_beats_live
+COMBO,12,0,0,0,-0.4354,2.0569,0,8
+SHAPE20,24,0,0,0,-0.0,1.6144,0,9
+SHORT_SAT,102,2,4,7,0.0126,2.2085,0,8
+SOFT,4,0,0,0,-0.8564,1.6511,0,7
