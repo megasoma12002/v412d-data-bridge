@@ -1,0 +1,26 @@
+{
+  "label": "FIN_SAT_PATH3_ETF_SAT_SCOPE_STAGEA_DECISION_PACK_2026-09-30__ETF_DIVERGES__SATELLITE_OVERLAY_BLOCK__NO_LIVE",
+  "verdict": "ETF_DIVERGES__SATELLITE_OVERLAY_BLOCK",
+  "register": "0kad",
+  "generated_at_utc": "2026-09-30T00:21:20Z",
+  "etf_code": "0050",
+  "satellite_code": "00631L",
+  "etf_pct_days_differ": 0.993163,
+  "satellite_pct_days_differ": 0.298157,
+  "etf_engine_gap": {
+    "flag": "keep_0050_false_noop_under_freeze_sleeve_dollars",
+    "why": "ETF sleeve is a single code; dollar_mix \u2192 {0050:1.0}; scale_mix_to_shares rebuilds the same live ETF notional \u2192 delta\u22480. Material COMP\u2260SAT share divergence is invisible to this API.",
+    "implication": "0050 Path3 research needs a new recon policy, not a bool flip"
+  },
+  "keep_0050_false_moves_etf": false,
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true,
+  "live_wire": false,
+  "next": [
+    "Design ETF Path3 policy beyond keep_0050=False (today freeze-ETF-$ \u00d7 single-name mix is a no-op). Candidates: (a) paper Soft sleeve % for 0050 from COMP/SAT schedule \u2192 scale live Soft NAV; (b) absolute ledger share ratio 0050/(FIN+TEL+0050) under live Soft $; (c) leave KEEP",
+    "Paper dual after policy pick: KEEP vs ETF-recon on Path3 flip/cutover window (tipY/held/sealed + 0050 trade count) \u2014 Soft KEEP / no live",
+    "Satellite: do **not** fold 00631L into Path3 recon; open overlay re-home charter only if cutover scope needs Path3-owned DEF",
+    "0kac PAPER_WITHIN_HIT remains primary Path3 roadmap (FIN\u222aTEL daily)"
+  ]
+}
