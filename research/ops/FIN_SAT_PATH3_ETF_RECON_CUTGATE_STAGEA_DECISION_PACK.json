@@ -1,0 +1,20 @@
+{
+  "label": "FIN_SAT_PATH3_ETF_RECON_CUTGATE_STAGEA_DECISION_PACK_2026-09-30__ETF_CUTGATE_HIT__NO_LIVE",
+  "verdict": "ETF_CUTGATE_HIT",
+  "register": "0kaj",
+  "parent": "0kai",
+  "champion_arm": "CG_ZZ08_ALLOW",
+  "fill_timing": "t0",
+  "champion_held_cagr_lift_pp": 1.9001,
+  "champion_loser_sum_pp": -5.3236,
+  "champion_y2024_pp": -3.5525,
+  "parent_loser_sum_pp": -5.7897,
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true,
+  "live_wire": false,
+  "next": [
+    "Carry `CG_ZZ08_ALLOW` into coexist Stage C \u2014 still no live",
+    "0kac PAPER_WITHIN_HIT remains primary Path3 roadmap"
+  ]
+}
