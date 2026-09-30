@@ -1,0 +1,265 @@
+{
+  "generated_at_utc": "2026-09-30T10:02:36Z",
+  "register": "0kar",
+  "parents": [
+    "0kao",
+    "0kap",
+    "0kaq"
+  ],
+  "mech": "RESEARCH_LIVE_ALIGN_GAP",
+  "verdict": "ALIGN_GAP_LARGE",
+  "research_ref": "R0_T0_P3_WITHIN",
+  "live_base": "L3_LIVE_FUSE_COOL",
+  "held_gap_research_to_live_pp": 2.5148,
+  "gap_vs_research": [
+    {
+      "compare": "L1_SOFT_T1_minus_R0_T0_P3_WITHIN",
+      "held_cagr_lift_pp": 4.0476,
+      "full_cagr_lift_pp": 3.6737,
+      "sealed_mdd_improve_pp": 3.7736,
+      "tip_ytd_cagr_lift_pp": 11.0218,
+      "tip_1y_cagr_lift_pp": 8.6169,
+      "research_held_cagr": 0.129772,
+      "other_held_cagr": 0.170248,
+      "research_held_mdd": -0.227432,
+      "other_held_mdd": -0.21333,
+      "meta_layer": 1,
+      "meta_fill_timing": "exact_t1",
+      "meta_fuse": false,
+      "meta_cool": false,
+      "meta_path3": false,
+      "meta_n_fills": 5739
+    },
+    {
+      "compare": "L2_SOFT_FUSE_T1_minus_R0_T0_P3_WITHIN",
+      "held_cagr_lift_pp": 0.8113,
+      "full_cagr_lift_pp": 1.9746,
+      "sealed_mdd_improve_pp": 3.5351,
+      "tip_ytd_cagr_lift_pp": -10.2211,
+      "tip_1y_cagr_lift_pp": -9.0015,
+      "research_held_cagr": 0.129772,
+      "other_held_cagr": 0.137885,
+      "research_held_mdd": -0.227432,
+      "other_held_mdd": -0.223369,
+      "meta_layer": 2,
+      "meta_fill_timing": "exact_t1",
+      "meta_fuse": true,
+      "meta_cool": false,
+      "meta_path3": false,
+      "meta_n_fills": 6305
+    },
+    {
+      "compare": "L3_LIVE_FUSE_COOL_minus_R0_T0_P3_WITHIN",
+      "held_cagr_lift_pp": 2.5148,
+      "full_cagr_lift_pp": 2.7988,
+      "sealed_mdd_improve_pp": 7.028,
+      "tip_ytd_cagr_lift_pp": 1.7877,
+      "tip_1y_cagr_lift_pp": 2.1278,
+      "research_held_cagr": 0.129772,
+      "other_held_cagr": 0.15492,
+      "research_held_mdd": -0.227432,
+      "other_held_mdd": -0.141077,
+      "meta_layer": 3,
+      "meta_fill_timing": "exact_t1",
+      "meta_reuse": "0kap",
+      "meta_fuse": true,
+      "meta_cool": true,
+      "meta_path3": false
+    },
+    {
+      "compare": "L4_LIVE_P3_WITHIN_minus_R0_T0_P3_WITHIN",
+      "held_cagr_lift_pp": 3.3623,
+      "full_cagr_lift_pp": 3.1284,
+      "sealed_mdd_improve_pp": 6.5254,
+      "tip_ytd_cagr_lift_pp": 4.8589,
+      "tip_1y_cagr_lift_pp": 4.648,
+      "research_held_cagr": 0.129772,
+      "other_held_cagr": 0.163395,
+      "research_held_mdd": -0.227432,
+      "other_held_mdd": -0.144311,
+      "meta_layer": 4,
+      "meta_fill_timing": "exact_t1",
+      "meta_reuse": "0kap",
+      "meta_fuse": true,
+      "meta_cool": true,
+      "meta_path3": true
+    },
+    {
+      "compare": "R1_T0_P3_P4_CASH_00025_minus_R0_T0_P3_WITHIN",
+      "held_cagr_lift_pp": 2.9862,
+      "full_cagr_lift_pp": 2.0279,
+      "sealed_mdd_improve_pp": 1.3609,
+      "tip_ytd_cagr_lift_pp": -0.2831,
+      "tip_1y_cagr_lift_pp": -0.1865,
+      "research_held_cagr": 0.129772,
+      "other_held_cagr": 0.159634,
+      "research_held_mdd": -0.227432,
+      "other_held_mdd": -0.196953,
+      "meta_layer": 0,
+      "meta_fill_timing": "t0",
+      "meta_book": "softcore_carve",
+      "meta_reuse": "0kao",
+      "meta_fuse": false,
+      "meta_cool": false,
+      "meta_path3": true,
+      "meta_path4": true
+    }
+  ],
+  "tipsoft_layer_deltas": [
+    {
+      "step": "+FUSE_SELL_a75",
+      "from": "L1_SOFT_T1",
+      "to": "L2_SOFT_FUSE_T1",
+      "held_cagr_lift_pp": -3.2363,
+      "full_cagr_lift_pp": -1.6991,
+      "sealed_mdd_improve_pp": -0.2385,
+      "tip_ytd_cagr_lift_pp": -19.988,
+      "tip_1y_cagr_lift_pp": -17.5274
+    },
+    {
+      "step": "+COOL_c8",
+      "from": "L2_SOFT_FUSE_T1",
+      "to": "L3_LIVE_FUSE_COOL",
+      "held_cagr_lift_pp": 1.7035,
+      "full_cagr_lift_pp": 0.8242,
+      "sealed_mdd_improve_pp": 3.4929,
+      "tip_ytd_cagr_lift_pp": 11.1273,
+      "tip_1y_cagr_lift_pp": 11.4109
+    },
+    {
+      "step": "+Path3_WITHIN_tipSoft",
+      "from": "L3_LIVE_FUSE_COOL",
+      "to": "L4_LIVE_P3_WITHIN",
+      "held_cagr_lift_pp": 0.8475,
+      "full_cagr_lift_pp": 0.3296,
+      "sealed_mdd_improve_pp": -0.5026,
+      "tip_ytd_cagr_lift_pp": 2.8524,
+      "tip_1y_cagr_lift_pp": 2.0757
+    }
+  ],
+  "absolute_windows": [
+    {
+      "arm": "L1_SOFT_T1",
+      "held_cagr": 0.170248,
+      "held_mdd": -0.21333,
+      "full_cagr": 0.13175,
+      "sealed_mdd": -0.094956,
+      "layer": 1,
+      "fill_timing": "exact_t1",
+      "fuse": false,
+      "cool": false,
+      "path3": false,
+      "n_fills": 5739
+    },
+    {
+      "arm": "L2_SOFT_FUSE_T1",
+      "held_cagr": 0.137885,
+      "held_mdd": -0.223369,
+      "full_cagr": 0.114759,
+      "sealed_mdd": -0.097341,
+      "layer": 2,
+      "fill_timing": "exact_t1",
+      "fuse": true,
+      "cool": false,
+      "path3": false,
+      "n_fills": 6305
+    },
+    {
+      "arm": "L3_LIVE_FUSE_COOL",
+      "held_cagr": 0.15492,
+      "held_mdd": -0.141077,
+      "full_cagr": 0.123001,
+      "sealed_mdd": -0.062412,
+      "layer": 3,
+      "fill_timing": "exact_t1",
+      "reuse": "0kap",
+      "fuse": true,
+      "cool": true,
+      "path3": false
+    },
+    {
+      "arm": "L4_LIVE_P3_WITHIN",
+      "held_cagr": 0.163395,
+      "held_mdd": -0.144311,
+      "full_cagr": 0.126297,
+      "sealed_mdd": -0.067438,
+      "layer": 4,
+      "fill_timing": "exact_t1",
+      "reuse": "0kap",
+      "fuse": true,
+      "cool": true,
+      "path3": true
+    },
+    {
+      "arm": "R0_T0_P3_WITHIN",
+      "held_cagr": 0.129772,
+      "held_mdd": -0.227432,
+      "full_cagr": 0.095013,
+      "sealed_mdd": -0.132692,
+      "layer": 0,
+      "fill_timing": "t0",
+      "book": "softcore_carve",
+      "reuse": "0kao",
+      "fuse": false,
+      "cool": false,
+      "path3": true,
+      "path4": false
+    },
+    {
+      "arm": "R1_T0_P3_P4_CASH_00025",
+      "held_cagr": 0.159634,
+      "held_mdd": -0.196953,
+      "full_cagr": 0.115292,
+      "sealed_mdd": -0.119083,
+      "layer": 0,
+      "fill_timing": "t0",
+      "book": "softcore_carve",
+      "reuse": "0kao",
+      "fuse": false,
+      "cool": false,
+      "path3": true,
+      "path4": true
+    }
+  ],
+  "alignment_protocol": [
+    {
+      "id": "P1_DUAL_TRACK",
+      "rule": "Every promote-candidate mechanism ships Soft-core carve AND tip Soft twin in the same decision pack",
+      "closes": "Soft-core HIT alone cannot promote"
+    },
+    {
+      "id": "P2_CLOCK_SSOT",
+      "rule": "tip Soft twin fill timing must match live carve (P3/P4 \u2192 Exact T+0; Soft elsewhere Exact T+1)",
+      "closes": "T+0 research vs T+1 live clock mismatch"
+    },
+    {
+      "id": "P3_OVERLAY_FREEZE",
+      "rule": "tip Soft twin freezes live COOL_c8 + FUSE SELL_a75 + Soft clips from live_config",
+      "closes": "missing COOL/FUSE in research books"
+    },
+    {
+      "id": "P4_LAYER_LADDER",
+      "rule": "Before ACCEPT, publish Soft\u2192FUSE\u2192COOL\u2192mech layer deltas (this Stage A template)",
+      "closes": "unknown which overlay creates research\u2194live gap"
+    },
+    {
+      "id": "P5_GAP_GATE",
+      "rule": "Report held/tip/sealed gap of Soft-core vs L3_LIVE_FUSE_COOL; promote only if tip Soft twin clears gates",
+      "closes": "large silent divergence"
+    },
+    {
+      "id": "P6_NO_CROSS_BASE",
+      "rule": "Do not score Soft-core T+0 absolute CAGR against Exact T+1 live base for HIT/STOP \u2014 use within-track deltas",
+      "closes": "apples-to-oranges MDD_BLOCK from book mismatch"
+    }
+  ],
+  "recommendations": [
+    "Research Soft-core `R0_T0_P3_WITHIN` vs live `L3_LIVE_FUSE_COOL` held gap = **+2.51** pp (tipY 1.7877) \u2192 `ALIGN_GAP_LARGE`",
+    "Vs tip Soft Soft-only `L1_SOFT_T1` held gap = **+4.05** pp \u2014 clock/book still diverge even without FUSE/COOL",
+    "Vs tip Soft +P3 `L4_LIVE_P3_WITHIN` held gap = **+3.36** pp",
+    "Largest tip Soft layer step: `+FUSE_SELL_a75` held -3.2363 / sealedMDD -0.2385 / tipY -19.988",
+    "Adopt protocol P1\u2013P6 as research\u2194live alignment SSOT (see decision pack)",
+    "Next implementable fix: tip Soft hybrid runner (Soft Exact T+1 overlays + P3/P4 Exact T+0 carve) as default twin template",
+    "Soft KEEP \u00b7 broker false \u00b7 Path4 live OFF \u00b7 no wire this pack"
+  ]
+}

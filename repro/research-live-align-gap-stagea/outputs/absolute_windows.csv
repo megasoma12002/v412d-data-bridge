@@ -1,0 +1,7 @@
+arm,held_cagr,held_mdd,full_cagr,sealed_mdd,layer,fill_timing,fuse,cool,path3,n_fills,reuse,book,path4
+L1_SOFT_T1,0.170248,-0.21333,0.13175,-0.094956,1,exact_t1,False,False,False,5739.0,,,
+L2_SOFT_FUSE_T1,0.137885,-0.223369,0.114759,-0.097341,2,exact_t1,True,False,False,6305.0,,,
+L3_LIVE_FUSE_COOL,0.15492,-0.141077,0.123001,-0.062412,3,exact_t1,True,True,False,,0kap,,
+L4_LIVE_P3_WITHIN,0.163395,-0.144311,0.126297,-0.067438,4,exact_t1,True,True,True,,0kap,,
+R0_T0_P3_WITHIN,0.129772,-0.227432,0.095013,-0.132692,0,t0,False,False,True,,0kao,softcore_carve,False
+R1_T0_P3_P4_CASH_00025,0.159634,-0.196953,0.115292,-0.119083,0,t0,False,False,True,,0kao,softcore_carve,True
