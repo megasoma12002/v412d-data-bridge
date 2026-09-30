@@ -1,0 +1,39 @@
+{
+  "id": "TIPSOFT_IP3_SIGNAL_REFINE_STAGEA_DECISION_PACK",
+  "register": "0kaz",
+  "parents": [
+    "0kay",
+    "0kaw",
+    "0kau"
+  ],
+  "verdict": "IP3_REFINE_NO_EDGE",
+  "champion": {
+    "arm": "NEAR&PEAK2__P4_SAT",
+    "i_p3": "NEAR&PEAK2",
+    "i_p4": "P4_SAT",
+    "pct_p3_on": 43.29,
+    "pct_p4_on": 20.5,
+    "verdict_vs_live": "HIT",
+    "held_vs_live": 1.4264,
+    "full_vs_live": 0.4056,
+    "sealed_vs_live": -0.0523,
+    "tipY_vs_live": 6.4231,
+    "held_vs_near": -0.0209,
+    "sealed_vs_near": -0.0089,
+    "tipY_vs_near": 0.7442,
+    "year_gap_to_oracle_pp": 0.6534,
+    "year_gap_improve_vs_near_pp": 0.0973,
+    "year_mean_policy": 11.6269,
+    "held_pos_vs_near": false,
+    "year_gap_close": true,
+    "oracle": false,
+    "is_ip3_refine": true,
+    "is_path4_on_near": false
+  },
+  "n_held_pos_vs_near": 0,
+  "n_year_gap_close": 24,
+  "soft_keep": true,
+  "path4_live": false,
+  "hybrid_t0_carve": false,
+  "label": "TIPSOFT_IP3_SIGNAL_REFINE_STAGEA_DECISION_PACK_2026-09-30__IP3_REFINE_NO_EDGE__NO_LIVE"
+}
