@@ -1,0 +1,14 @@
+{
+  "id": "FIN_SAT_PATH3_PATH4_COEXIST_STAGEA_CHARTER",
+  "register": "0kao",
+  "parents": [
+    "0kac",
+    "0kak",
+    "0kan"
+  ],
+  "mech": "PATH3_PATH4_COEXIST",
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false,
+  "off_book_live_intent": "CASH_ETF"
+}

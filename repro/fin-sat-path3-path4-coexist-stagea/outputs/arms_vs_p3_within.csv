@@ -1,0 +1,8 @@
+arm,verdict_vs_p3_within,full_cagr_lift_pp,held_cagr_lift_pp,sealed_mdd_improve_pp,tip_ytd_cagr_lift_pp,tip_1y_cagr_lift_pp,yearly_ret_wl,meta_fill_timing,meta_p3_policy,meta_p4_off_mode,meta_n_days,meta_n_flip_days,meta_n_recon_days,meta_n_off_days,meta_pct_off,meta_start,meta_end,meta_soft_sticky_separate_from_p4,meta_kind,meta_theta,meta_live_intent_off_book
+P3_P4_CASH_00025,HIT,2.0279,2.9862,1.3609,-0.2831,-0.1865,11-4,t0,WITHIN_DAILY,cash_etf,3364,199,3363,625,0.1858,2012-12-05,2026-09-24,True,p3_within_p4_cash_etf,0.0025,CASH_ETF
+P3_P4_CASH_0005,HIT,1.8768,2.77,1.7658,0.0,-0.0,11-4,t0,WITHIN_DAILY,cash_etf,3364,199,3363,369,0.1097,2012-12-05,2026-09-24,True,p3_within_p4_cash_etf,0.005,CASH_ETF
+P3_P4_CASH_00075,HIT,1.7244,2.7879,1.6019,0.0,0.0,9-6,t0,WITHIN_DAILY,cash_etf,3364,199,3363,197,0.0586,2012-12-05,2026-09-24,True,p3_within_p4_cash_etf,0.0075,CASH_ETF
+P3_P4_CASH_001,HIT,1.4582,2.5678,0.6077,-0.0,-0.0,10-5,t0,WITHIN_DAILY,cash_etf,3364,199,3363,95,0.0282,2012-12-05,2026-09-24,True,p3_within_p4_cash_etf,0.01,CASH_ETF
+P3_P4_CASH_0015,NO_EDGE,-0.0918,-0.2577,0.0,0.0,0.0,4-11,t0,WITHIN_DAILY,cash_etf,3364,199,3363,31,0.0092,2012-12-05,2026-09-24,True,p3_within_p4_cash_etf,0.015,CASH_ETF
+P3_P4_CASH_002,NO_EDGE,-0.0,-0.0,0.0,-0.0,-0.0,0-15,t0,WITHIN_DAILY,cash_etf,3364,199,3363,0,0.0,2012-12-05,2026-09-24,True,p3_within_p4_cash_etf,0.02,CASH_ETF
+P3_P4_RENORM_001,HIT,1.578,2.9014,0.6733,0.7619,0.5016,8-7,t0,WITHIN_DAILY,renorm,3364,199,3363,109,0.0324,2012-12-05,2026-09-24,True,diagnostic_renorm_forbidden_live,0.01,RENORM_FORBIDDEN
