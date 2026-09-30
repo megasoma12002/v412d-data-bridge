@@ -1,0 +1,51 @@
+{
+  "label": "META_DETECT_SEALED_MDD_HARDEN_STAGEA_DECISION_PACK_2026-09-30__SEALED_MDD_HARDEN_HIT__NO_LIVE",
+  "verdict": "SEALED_MDD_HARDEN_HIT",
+  "register": "0kau",
+  "parents": [
+    "0kat",
+    "0kas",
+    "0kar"
+  ],
+  "mech": "META_DETECT_SEALED_MDD_HARDEN",
+  "champion": {
+    "arm": "P3_THETA_NEARPEAK3",
+    "verdict_vs_live": "HIT",
+    "held_cagr_lift_pp": 1.4473,
+    "full_cagr_lift_pp": 0.2907,
+    "sealed_mdd_improve_pp": -0.0434,
+    "tip_ytd_cagr_lift_pp": 5.6789,
+    "tip_1y_cagr_lift_pp": 4.2409,
+    "meta": {
+      "note": "P3 |trail|\u2265\u03b8 AND Soft within 3% of 63d peak",
+      "pct_fuse_on": 100.0,
+      "pct_cool_on": 100.0,
+      "pct_p3_on": 50.83,
+      "n_days": 3366,
+      "p3_theta": 0.005,
+      "proxy_x": 0.08
+    }
+  },
+  "ref_0kat": {
+    "arm": "REF_DETECT_P3_THETA",
+    "verdict_vs_live": "MDD_BLOCK",
+    "held_cagr_lift_pp": 1.248,
+    "sealed_mdd_improve_pp": -0.5026,
+    "tip_ytd_cagr_lift_pp": 2.8672
+  },
+  "sealed_delta_vs_ref_pp": 0.4592,
+  "n_sealed_clear": 4,
+  "optimize_live": [
+    "Objective: clear sealed MDD floor (\u22120.25pp) while keeping Soft shell + detector-gated blocks",
+    "Harden champion `P3_THETA_NEARPEAK3` \u2192 HIT held 1.4473 tipY 5.6789 sealedMDD -0.0434",
+    "0kat ref `REF_DETECT_FUSE_RISKON` \u2192 MDD_BLOCK sealedMDD -0.4627",
+    "Sealed MDD delta vs REF_DETECT_P3_THETA = 0.4592 pp",
+    "n_harden arms clearing sealed floor: 4 / 14",
+    "Soft KEEP \u00b7 Path4 OFF \u00b7 broker false \u00b7 no live wire this pack",
+    "Next: if HIT/CLEARED \u2192 Stage B under hybrid promote twin; else tighter peak/bleed gates or Path3 OFF"
+  ],
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false,
+  "wire": false
+}
