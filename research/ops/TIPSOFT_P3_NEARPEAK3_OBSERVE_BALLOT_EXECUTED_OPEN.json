@@ -1,0 +1,38 @@
+{
+  "id": "TIPSOFT_P3_NEARPEAK3_OBSERVE_BALLOT_EXECUTED_OPEN",
+  "status": "EXECUTED_OPEN",
+  "date": "2026-09-30",
+  "generated_at_utc": "2026-09-30T10:43:26Z",
+  "register": "0kaw",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_THETA_NEARPEAK3 (tip Soft Exact T+1 \u00b7 meta-detect Path3 near-peak3 \u00b7 NOT hybrid T+0 carve)",
+  "policy_id": "P3_THETA_NEARPEAK3",
+  "clock": "exact_t1",
+  "hybrid_t0_carve": false,
+  "live_wire": false,
+  "cutover_blocked": true,
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "draft_superseded": "TIPSOFT_P3_NEARPEAK3_OBSERVE_BALLOT_DRAFT",
+  "heldout_delta": {
+    "cagr_lift_pp": 1.4473,
+    "mdd_improve_pp": -0.0429
+  },
+  "sealed_delta": {
+    "cagr_lift_pp": 3.1657,
+    "mdd_improve_pp": -0.0434
+  },
+  "tip": {
+    "ytd": {
+      "cagr_lift_pp": 5.6789,
+      "mdd_improve_pp": -0.2663,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "cagr_lift_pp": 4.2409,
+      "mdd_improve_pp": -0.2663,
+      "gate": "PASS"
+    }
+  },
+  "label": "TIPSOFT_P3_NEARPEAK3_OBSERVE_BALLOT_EXECUTED_OPEN_2026-09-30__OPEN__NO_LIVE"
+}

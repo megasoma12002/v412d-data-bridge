@@ -1,0 +1,15 @@
+{
+  "id": "TIPSOFT_P3_NEARPEAK3_PAPER_OBSERVE_CHARTER",
+  "register": "0kaw",
+  "parents": [
+    "0kav",
+    "0kau",
+    "0kat"
+  ],
+  "policy_id": "P3_THETA_NEARPEAK3",
+  "clock": "exact_t1",
+  "hybrid_t0_carve": false,
+  "soft_keep": true,
+  "path4_live": false,
+  "live_wire": false
+}

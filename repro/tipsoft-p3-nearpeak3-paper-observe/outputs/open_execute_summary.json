@@ -1,0 +1,12 @@
+{
+  "register": "0kaw",
+  "status": "OBSERVE_OPEN_OPERATING",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_THETA_NEARPEAK3 (tip Soft Exact T+1 \u00b7 meta-detect Path3 near-peak3 \u00b7 NOT hybrid T+0 carve)",
+  "policy_id": "P3_THETA_NEARPEAK3",
+  "held_cagr_lift_pp": 1.4473,
+  "sealed_mdd_improve_pp": -0.0434,
+  "tip_ytd_cagr_lift_pp": 5.6789,
+  "live_wire": false,
+  "cutover_blocked": true,
+  "hybrid_t0_carve": false
+}

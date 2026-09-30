@@ -1,0 +1,13 @@
+{
+  "id": "TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_PREP",
+  "status": "PREP_NOT_OPERATING",
+  "date": "2026-09-30",
+  "register": "0kaw",
+  "base_book": "BASE_LIVE_FUSE_COOL",
+  "challenger_book": "P3_THETA_NEARPEAK3",
+  "clock": "exact_t1",
+  "live_wire": false,
+  "operating": false,
+  "awaiting": "OPEN paper observe: TIPSOFT_P3_THETA_NEARPEAK3 (tip Soft Exact T+1 \u00b7 meta-detect Path3 near-peak3 \u00b7 NOT hybrid T+0 carve)",
+  "label": "TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_PREP_2026-09-30__PREP__NO_LIVE_WIRE"
+}

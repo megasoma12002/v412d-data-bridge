@@ -1,0 +1,52 @@
+{
+  "id": "TIPSOFT_P3_NEARPEAK3_PAPER_OBSERVE_CANDIDATE",
+  "register": "0kaw",
+  "parents": [
+    "0kav",
+    "0kau",
+    "0kat"
+  ],
+  "generated_at_utc": "2026-09-30T10:37:53Z",
+  "status": "OBSERVE_OPEN_OPERATING",
+  "policy_id": "P3_THETA_NEARPEAK3",
+  "clock": "exact_t1",
+  "fill_timing": "exact_t1",
+  "hybrid_t0_carve": false,
+  "path4_live": false,
+  "soft_keep": true,
+  "broker": false,
+  "live_wire": false,
+  "cutover_blocked": true,
+  "base_book": "BASE_LIVE_FUSE_COOL",
+  "challenger_book": "P3_THETA_NEARPEAK3",
+  "duty": {
+    "policy_id": "P3_THETA_NEARPEAK3",
+    "clock": "exact_t1",
+    "fill_timing": "exact_t1",
+    "p3_theta": 0.005,
+    "near_peak_pct": 0.03,
+    "gate": "|trail_rel_63|\u2265\u03b8 AND Soft DD63_peak \u2265 \u22123%",
+    "hybrid_t0_carve": false,
+    "path4": false,
+    "pct_gate_on": 50.83,
+    "n_days": 3366
+  },
+  "stage_a_metrics_0kau": {
+    "verdict_vs_live": "HIT",
+    "held_cagr_lift_pp": 1.4473,
+    "full_cagr_lift_pp": 0.2907,
+    "sealed_mdd_improve_pp": -0.0434,
+    "tip_ytd_cagr_lift_pp": 5.6789,
+    "tip_1y_cagr_lift_pp": 4.2409,
+    "pct_p3_on": 50.83
+  },
+  "stage_b_hybrid_0kav": {
+    "verdict": "HYBRID_NEARPEAK3_MDD_BLOCK",
+    "disposition": "Do NOT use Soft-core T+0 carve hybrid for this candidate"
+  },
+  "nav_challenger": "repro/tipsoft-p3-nearpeak3-paper-observe/outputs/nav_P3_THETA_NEARPEAK3.csv",
+  "nav_base": "repro/tipsoft-p3-nearpeak3-paper-observe/outputs/nav_BASE_LIVE_FUSE_COOL.csv",
+  "label": "TIPSOFT_P3_NEARPEAK3_PAPER_OBSERVE_CANDIDATE_2026-09-30__TIPSOFT_EXACT_T1__NO_HYBRID_T0",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_THETA_NEARPEAK3 (tip Soft Exact T+1 \u00b7 meta-detect Path3 near-peak3 \u00b7 NOT hybrid T+0 carve)",
+  "opened_at_utc": "2026-09-30T10:43:26Z"
+}
