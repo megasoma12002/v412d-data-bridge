@@ -13,9 +13,11 @@ Does flip-day `LEDGER_SOFT_RATIO` (move Soft 0050 toward dest book Soft-core wei
 
 - Soft-core = FIN∪TEL∪0050 from COMP/SAT daily share ledgers × close
 - Path3 flips from `p3_t0_state` signal
+- **Fill timing `t0` (primary):** flip recon **before** same-day return (aligns live `T0_CARVE_FIN_SAT_SWITCH` same-bar / MOC)
+- Sensitivity: also report `eod_t1` (earn old mix, then EOD recon)
 - Between flips: **hold** Soft-core weights (carve-only paper)
 - Arms: `KEEP` vs `LEDGER_SOFT_RATIO` (+ `FULL_DAILY` context)
-- Metrics: WINDOWS_STANDARD + tip YTD/1y · lift = chal − KEEP
+- Metrics: WINDOWS_STANDARD + tip YTD/1y + yearly W–L · lift = chal − KEEP
 
 ## Gates
 

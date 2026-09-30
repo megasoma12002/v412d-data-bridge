@@ -8,6 +8,10 @@ This pack rebuilds Soft-core (FIN∪TEL∪0050) path NAV under Path3 flips:
 - ``LEDGER_SOFT_RATIO`` — on flip, full Soft-core weights → dest book (incl. 0050)
 - ``FULL_DAILY`` — context: every day Soft-core weights = active book (cutover-like)
 
+**Fill timing (default ``t0``):** flip-day recon **before** same-day close-to-close
+return — aligns with live ``T0_CARVE_FIN_SAT_SWITCH`` same-bar / MOC Path3 fill.
+Optional ``eod_t1``: earn with old weights then EOD recon (prior pack).
+
 Between flips: hold Soft-core weights (Path3-carve-only paper; no Soft Exact T+1).
 Soft-Frozen KEEP · broker false · cutover BLOCKED · no live.
 Register: 0kag
@@ -161,22 +165,65 @@ def _apply_flip_weights(
     raise ValueError(policy)
 
 
+def _maybe_flip_recon(
+    *,
+    d: pd.Timestamp,
+    w: np.ndarray,
+    policy: str,
+    sig_by_date: pd.DataFrame,
+    weights_by_book: dict[str, pd.DataFrame],
+    etf_idx: int,
+    fin_tel_idx: list[int],
+) -> tuple[np.ndarray, bool, float]:
+    """Apply flip recon if signal says flip on ``d``. Returns (w, flipped, |Δw_etf|)."""
+    if d not in sig_by_date.index:
+        return w, False, 0.0
+    srow = sig_by_date.loc[d]
+    if isinstance(srow, pd.DataFrame):
+        srow = srow.iloc[-1]
+    if not bool(srow.get("flip", False)):
+        return w, False, 0.0
+    book = str(srow.get("book") or BOOK_COMP)
+    if book not in weights_by_book or d not in weights_by_book[book].index:
+        return w, False, 0.0
+    w_dest = weights_by_book[book].loc[d, SOFT_CORE].to_numpy(dtype=float)
+    if w_dest.sum() <= 1e-12:
+        return w, False, 0.0
+    w_dest = w_dest / w_dest.sum()
+    w_before = w.copy()
+    w_new = _apply_flip_weights(
+        policy=policy, w_prev=w, w_dest=w_dest, etf_idx=etf_idx, fin_tel_idx=fin_tel_idx
+    )
+    dw = abs(float(w_new[etf_idx] - w_before[etf_idx]))
+    return w_new, True, dw
+
+
 def simulate_soft_core_nav(
     *,
     weights_by_book: dict[str, pd.DataFrame],
     px: pd.DataFrame,
     signal: pd.DataFrame,
     policy: str,
+    fill_timing: str = "t0",
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
-    """Path3-carve Soft-core NAV under KEEP or LEDGER_SOFT_RATIO (flip-only recon)."""
+    """Path3-carve Soft-core NAV under KEEP or LEDGER_SOFT_RATIO (flip-only recon).
+
+    ``fill_timing``:
+    - ``t0``: recon on flip day **before** same-day return (live T+0 same-bar / MOC).
+    - ``eod_t1``: earn with old weights, then EOD recon (effective next-day for new mix).
+    """
+    timing = str(fill_timing or "t0").lower()
+    if timing not in {"t0", "eod_t1"}:
+        raise ValueError(f"fill_timing must be t0|eod_t1, got {fill_timing!r}")
+
     sig = signal.copy()
     sig["date"] = pd.to_datetime(sig["date"]).dt.normalize()
     sig = sig.sort_values("date").reset_index(drop=True)
 
     # Align to intersection of signal, px, both books
     dates = sig["date"]
-    for w in weights_by_book.values():
-        dates = dates[dates.isin(w.index)]
+    for wdf in weights_by_book.values():
+        dates = dates[dates.isin(wdf.index)]
     dates = dates[dates.isin(px.index)].reset_index(drop=True)
     if len(dates) < 100:
         raise RuntimeError("insufficient overlap for Soft-core NAV sim")
@@ -204,44 +251,55 @@ def simulate_soft_core_nav(
     sig_by_date = sig.set_index("date")
     for i in range(1, len(dates)):
         d = dates.iloc[i]
-        d_prev = dates.iloc[i - 1]
         r = rets.loc[d, SOFT_CORE].to_numpy(dtype=float)
-        # earn
-        port_r = float(np.dot(w, r))
-        nav.append(nav[-1] * (1.0 + port_r))
-        # weight drift from returns
-        w = w * (1.0 + r)
-        s = float(w.sum())
-        w = w / s if s > 1e-12 else w
 
-        # flip recon at EOD of flip day (signal date == d)
-        if d not in sig_by_date.index:
-            continue
-        srow = sig_by_date.loc[d]
-        if isinstance(srow, pd.DataFrame):
-            srow = srow.iloc[-1]
-        if not bool(srow.get("flip", False)):
-            continue
-        book = str(srow.get("book") or BOOK_COMP)
-        if book not in weights_by_book or d not in weights_by_book[book].index:
-            continue
-        w_dest = weights_by_book[book].loc[d, SOFT_CORE].to_numpy(dtype=float)
-        if w_dest.sum() <= 1e-12:
-            continue
-        w_dest = w_dest / w_dest.sum()
-        w_before = w.copy()
-        w = _apply_flip_weights(
-            policy=policy, w_prev=w, w_dest=w_dest, etf_idx=etf_idx, fin_tel_idx=fin_tel_idx
-        )
-        n_flip += 1
-        dw = abs(float(w[etf_idx] - w_before[etf_idx]))
-        etf_turnover += dw
-        if dw > 1e-6:
-            n_etf_move += 1
+        if timing == "t0":
+            # Same-bar Path3: recon first, then earn today's close-to-close on new mix.
+            w, flipped, dw = _maybe_flip_recon(
+                d=d,
+                w=w,
+                policy=policy,
+                sig_by_date=sig_by_date,
+                weights_by_book=weights_by_book,
+                etf_idx=etf_idx,
+                fin_tel_idx=fin_tel_idx,
+            )
+            if flipped:
+                n_flip += 1
+                etf_turnover += dw
+                if dw > 1e-6:
+                    n_etf_move += 1
+            port_r = float(np.dot(w, r))
+            nav.append(nav[-1] * (1.0 + port_r))
+            w = w * (1.0 + r)
+            s = float(w.sum())
+            w = w / s if s > 1e-12 else w
+        else:
+            # EOD / effective T+1: earn on old mix, recon after close.
+            port_r = float(np.dot(w, r))
+            nav.append(nav[-1] * (1.0 + port_r))
+            w = w * (1.0 + r)
+            s = float(w.sum())
+            w = w / s if s > 1e-12 else w
+            w, flipped, dw = _maybe_flip_recon(
+                d=d,
+                w=w,
+                policy=policy,
+                sig_by_date=sig_by_date,
+                weights_by_book=weights_by_book,
+                etf_idx=etf_idx,
+                fin_tel_idx=fin_tel_idx,
+            )
+            if flipped:
+                n_flip += 1
+                etf_turnover += dw
+                if dw > 1e-6:
+                    n_etf_move += 1
 
     out = pd.DataFrame({"date": dates.to_numpy(), "nav": np.asarray(nav, dtype=float)})
     meta = {
         "policy": policy,
+        "fill_timing": timing,
         "n_days": int(len(out)),
         "n_flips_applied": int(n_flip),
         "n_flips_etf_weight_moved": int(n_etf_move),
@@ -256,13 +314,16 @@ def simulate_full_daily(
     weights_by_book: dict[str, pd.DataFrame],
     px: pd.DataFrame,
     signal: pd.DataFrame,
+    *,
+    fill_timing: str = "t0",
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
     """Every day Soft-core weights = active Path3 book (context upper bound)."""
+    timing = str(fill_timing or "t0").lower()
     sig = signal.copy()
     sig["date"] = pd.to_datetime(sig["date"]).dt.normalize()
     dates = sig["date"]
-    for w in weights_by_book.values():
-        dates = dates[dates.isin(w.index)]
+    for wdf in weights_by_book.values():
+        dates = dates[dates.isin(wdf.index)]
     dates = dates[dates.isin(px.index)].reset_index(drop=True)
     rets = px.pct_change().reindex(dates).fillna(0.0)
     sig_i = sig.set_index("date")
@@ -283,13 +344,64 @@ def simulate_full_daily(
             w = w_new
             continue
         r = rets.loc[d, SOFT_CORE].to_numpy(dtype=float)
-        # use prior day weights for return, then snap to today's book weights
-        port_r = float(np.dot(w, r))
-        nav.append(nav[-1] * (1.0 + port_r))
-        w = w_new
+        if timing == "t0":
+            w = w_new
+            port_r = float(np.dot(w, r))
+            nav.append(nav[-1] * (1.0 + port_r))
+            w = w * (1.0 + r)
+            s = float(w.sum())
+            w = w / s if s > 1e-12 else w
+        else:
+            port_r = float(np.dot(w, r))
+            nav.append(nav[-1] * (1.0 + port_r))
+            w = w_new
     out = pd.DataFrame({"date": dates.to_numpy(), "nav": np.asarray(nav, dtype=float)})
-    return out, {"policy": "FULL_DAILY", "n_days": int(len(out))}
+    return out, {"policy": "FULL_DAILY", "fill_timing": timing, "n_days": int(len(out))}
 
+
+def yearly_compare(nav_keep: pd.DataFrame, nav_chal: pd.DataFrame) -> list[dict[str, Any]]:
+    """Calendar-year total return / MDD for KEEP vs chal."""
+
+    def _yr(nav: pd.DataFrame) -> dict[int, dict[str, float]]:
+        x = nav.copy()
+        x["date"] = pd.to_datetime(x["date"])
+        x["year"] = x["date"].dt.year
+        out: dict[int, dict[str, float]] = {}
+        for y, g in x.groupby("year"):
+            g = g.reset_index(drop=True)
+            if len(g) < 2:
+                continue
+            n0 = float(g["nav"].iloc[0])
+            bn = g["nav"].astype(float) / n0
+            out[int(y)] = {
+                "n_days": float(len(g)),
+                "ret": float(bn.iloc[-1] - 1.0),
+                "mdd": float((bn / bn.cummax() - 1.0).min()),
+            }
+        return out
+
+    a, b = _yr(nav_keep), _yr(nav_chal)
+    years = sorted(set(a) | set(b))
+    rows = []
+    for y in years:
+        ka, kb = a.get(y), b.get(y)
+        if not ka or not kb:
+            continue
+        rows.append(
+            {
+                "year": y,
+                "n_days": int(ka["n_days"]),
+                "ret_keep_pct": round(ka["ret"] * 100, 4),
+                "mdd_keep_pct": round(ka["mdd"] * 100, 4),
+                "ret_chal_pct": round(kb["ret"] * 100, 4),
+                "mdd_chal_pct": round(kb["mdd"] * 100, 4),
+                "ret_lift_pp": round((kb["ret"] - ka["ret"]) * 100, 4),
+                "mdd_improve_pp": round((kb["mdd"] - ka["mdd"]) * 100, 4),
+                "ret_win": bool(kb["ret"] > ka["ret"]),
+                "mdd_win": bool(kb["mdd"] > ka["mdd"]),
+            }
+        )
+    return rows
 
 def _delta_windows(base_w: dict, chal_w: dict) -> dict[str, Any]:
     keys = ("full", "heldout_2019_plus", "sealed_2023_plus")
@@ -347,17 +459,47 @@ def main() -> int:
     weights = {BOOK_COMP: w_comp, BOOK_SAT: w_sat}
     sig = load_or_build_signal()
 
+    FILL_TIMING = "t0"  # live Path3 same-bar; set eod_t1 for prior EOD probe
+
     nav_keep, meta_keep = simulate_soft_core_nav(
-        weights_by_book=weights, px=px, signal=sig, policy="KEEP"
+        weights_by_book=weights,
+        px=px,
+        signal=sig,
+        policy="KEEP",
+        fill_timing=FILL_TIMING,
     )
     nav_ratio, meta_ratio = simulate_soft_core_nav(
-        weights_by_book=weights, px=px, signal=sig, policy="LEDGER_SOFT_RATIO"
+        weights_by_book=weights,
+        px=px,
+        signal=sig,
+        policy="LEDGER_SOFT_RATIO",
+        fill_timing=FILL_TIMING,
     )
-    nav_full, meta_full = simulate_full_daily(weights, px, sig)
+    nav_full, meta_full = simulate_full_daily(
+        weights, px, sig, fill_timing=FILL_TIMING
+    )
+
+    # Side probe: prior EOD/T+1 timing for sensitivity
+    nav_keep_eod, meta_keep_eod = simulate_soft_core_nav(
+        weights_by_book=weights,
+        px=px,
+        signal=sig,
+        policy="KEEP",
+        fill_timing="eod_t1",
+    )
+    nav_ratio_eod, meta_ratio_eod = simulate_soft_core_nav(
+        weights_by_book=weights,
+        px=px,
+        signal=sig,
+        policy="LEDGER_SOFT_RATIO",
+        fill_timing="eod_t1",
+    )
 
     nav_keep.to_csv(OUT / "nav_KEEP_0050.csv", index=False)
     nav_ratio.to_csv(OUT / "nav_LEDGER_SOFT_RATIO.csv", index=False)
     nav_full.to_csv(OUT / "nav_FULL_DAILY.csv", index=False)
+    nav_keep_eod.to_csv(OUT / "nav_KEEP_0050_eod_t1.csv", index=False)
+    nav_ratio_eod.to_csv(OUT / "nav_LEDGER_SOFT_RATIO_eod_t1.csv", index=False)
 
     win_keep = _pack(nav_keep)
     win_ratio = _pack(nav_ratio)
@@ -366,6 +508,15 @@ def main() -> int:
     tip = _tip(nav_keep, nav_ratio)
     delta_full_ctx = _delta_windows(win_keep, win_full)
     verdict = _verdict(delta, tip)
+
+    win_keep_eod = _pack(nav_keep_eod)
+    win_ratio_eod = _pack(nav_ratio_eod)
+    delta_eod = _delta_windows(win_keep_eod, win_ratio_eod)
+    tip_eod = _tip(nav_keep_eod, nav_ratio_eod)
+    yearly = yearly_compare(nav_keep, nav_ratio)
+    yearly_df = pd.DataFrame(yearly)
+    yearly_df.to_csv(OUT / "yearly_KEEP_vs_RATIO_t0.csv", index=False)
+    yearly_df.to_csv(OUT / "yearly_KEEP_vs_RATIO.csv", index=False)  # primary alias (t0)
 
     # Context vs published Path3 blend / CTRL if available
     context = {}
@@ -378,13 +529,28 @@ def main() -> int:
             "note": "CTRL/P3_T0_STATE are full-book NAVs (incl DEF/overlays); Soft-core dual is carve-only",
         }
 
+    ret_wl = (
+        int(sum(1 for r in yearly if r["ret_win"])),
+        int(sum(1 for r in yearly if not r["ret_win"])),
+    )
+    mdd_wl = (
+        int(sum(1 for r in yearly if r["mdd_win"])),
+        int(sum(1 for r in yearly if not r["mdd_win"])),
+    )
+
     screen = {
         "generated_at_utc": generated,
         "register": REGISTER,
         "parent": "0kae",
         "verdict": verdict,
+        "fill_timing_primary": FILL_TIMING,
         "method": {
             "universe": SOFT_CORE,
+            "fill_timing": FILL_TIMING,
+            "fill_timing_note": (
+                "t0: flip recon before same-day return (live T0_CARVE same-bar/MOC); "
+                "eod_t1 sensitivity retained in delta_eod_t1_ratio_minus_keep"
+            ),
             "between_flips": "hold Soft-core weights",
             "KEEP": "flip: FIN∪TEL → dest Soft-core mix; sticky 0050 weight",
             "LEDGER_SOFT_RATIO": "flip: full Soft-core → dest book",
@@ -393,12 +559,19 @@ def main() -> int:
         "meta_keep": meta_keep,
         "meta_ratio": meta_ratio,
         "meta_full_daily": meta_full,
+        "meta_keep_eod_t1": meta_keep_eod,
+        "meta_ratio_eod_t1": meta_ratio_eod,
         "windows_keep": win_keep,
         "windows_ratio": win_ratio,
         "windows_full_daily": win_full,
         "delta_ratio_minus_keep": delta,
         "delta_full_minus_keep": delta_full_ctx,
         "tip_ratio_minus_keep": tip,
+        "delta_eod_t1_ratio_minus_keep": delta_eod,
+        "tip_eod_t1_ratio_minus_keep": tip_eod,
+        "yearly_ratio_minus_keep": yearly,
+        "yearly_ret_wl": {"w": ret_wl[0], "l": ret_wl[1]},
+        "yearly_mdd_improve_wl": {"w": mdd_wl[0], "l": mdd_wl[1]},
         "gates": {
             "sealed_mdd_floor_pp": SEALED_MDD_FLOOR_PP,
             "tip_y_floor_pp": TIP_Y_FLOOR_PP,
@@ -426,9 +599,12 @@ def main() -> int:
             "",
             "- Soft-core = FIN∪TEL∪0050 from COMP/SAT daily share ledgers × close",
             "- Path3 flips from `p3_t0_state` signal",
+            "- **Fill timing `t0` (primary):** flip recon **before** same-day return "
+            "(aligns live `T0_CARVE_FIN_SAT_SWITCH` same-bar / MOC)",
+            "- Sensitivity: also report `eod_t1` (earn old mix, then EOD recon)",
             "- Between flips: **hold** Soft-core weights (carve-only paper)",
             "- Arms: `KEEP` vs `LEDGER_SOFT_RATIO` (+ `FULL_DAILY` context)",
-            "- Metrics: WINDOWS_STANDARD + tip YTD/1y · lift = chal − KEEP",
+            "- Metrics: WINDOWS_STANDARD + tip YTD/1y + yearly W–L · lift = chal − KEEP",
             "",
             "## Gates",
             "",
@@ -451,6 +627,7 @@ def main() -> int:
                 "id": CHARTER_ID,
                 "register": REGISTER,
                 "parent": "0kae",
+                "fill_timing_primary": "t0",
                 "base": "KEEP",
                 "chal": "LEDGER_SOFT_RATIO",
                 "soft_keep": True,
@@ -474,12 +651,12 @@ def main() -> int:
         [
             f"# {SCREEN_ID}",
             "",
-            f"Date: {generated[:10]} · Verdict: **`{verdict}`**",
+            f"Date: {generated[:10]} · Verdict: **`{verdict}`** · fill=**`{FILL_TIMING}`**",
             f"Register: **{REGISTER}** · parent 0kae · end=`{meta_keep['end']}` · "
             f"flips KEEP/RATIO={meta_keep['n_flips_applied']}/{meta_ratio['n_flips_applied']} · "
             f"etf_moves RATIO={meta_ratio['n_flips_etf_weight_moved']}",
             "",
-            "## Improvement: `LEDGER_SOFT_RATIO` − `KEEP` (pp)",
+            "## Improvement (T+0): `LEDGER_SOFT_RATIO` − `KEEP` (pp)",
             "",
             "| Window | CAGR lift pp | MDD improve pp | KEEP → RATIO CAGR |",
             "|---|---:|---:|---|",
@@ -487,26 +664,46 @@ def main() -> int:
             _row("heldout_2019_plus", delta["heldout_2019_plus"]),
             _row("sealed_2023_plus", delta["sealed_2023_plus"]),
             "",
-            "## Tip",
+            "## Tip (T+0)",
             "",
             f"- YTD CAGR lift pp: **{(tip.get('ytd') or {}).get('cagr_lift_pp')}** · "
             f"MDD improve pp: {(tip.get('ytd') or {}).get('mdd_improve_pp')}",
             f"- Trailing 1y CAGR lift pp: **{(tip.get('trailing_1y') or {}).get('cagr_lift_pp')}** · "
             f"MDD improve pp: {(tip.get('trailing_1y') or {}).get('mdd_improve_pp')}",
             "",
+            "## Sensitivity EOD/T+1 (prior timing)",
+            "",
+            f"- full CAGR lift pp: {(delta_eod.get('full') or {}).get('cagr_lift_pp')} · "
+            f"held: {(delta_eod.get('heldout_2019_plus') or {}).get('cagr_lift_pp')} · "
+            f"sealed MDD improve: {(delta_eod.get('sealed_2023_plus') or {}).get('mdd_improve_pp')}",
+            f"- tipY / tip1y: {(tip_eod.get('ytd') or {}).get('cagr_lift_pp')} / "
+            f"{(tip_eod.get('trailing_1y') or {}).get('cagr_lift_pp')}",
+            "",
+            "## Yearly (T+0) ret W–L / MDD improve W–L",
+            "",
+            f"- Ret **{ret_wl[0]}–{ret_wl[1]}** · MDD improve **{mdd_wl[0]}–{mdd_wl[1]}**",
+            "",
+            "| Year | KEEP ret% | RATIO ret% | Ret lift pp | MDD improve pp |",
+            "|---:|---:|---:|---:|---:|",
+            *[
+                f"| {r['year']} | {r['ret_keep_pct']:.2f} | {r['ret_chal_pct']:.2f} | "
+                f"{r['ret_lift_pp']:+.2f} | {r['mdd_improve_pp']:+.2f} |"
+                for r in yearly
+            ],
+            "",
             "## ETF turnover on flips",
             "",
             f"- KEEP sum |Δw_0050|: {meta_keep['sum_abs_etf_weight_delta_on_flips']}",
             f"- RATIO sum |Δw_0050|: {meta_ratio['sum_abs_etf_weight_delta_on_flips']}",
             "",
-            "## Context FULL_DAILY − KEEP",
+            "## Context FULL_DAILY − KEEP (T+0)",
             "",
             _row("full", delta_full_ctx["full"]),
             _row("held", delta_full_ctx["heldout_2019_plus"]),
             "",
             f"Repro: `PYTHONPATH=scripts python3 scripts/fin_sat_path3_etf_recon_nav_dual_stageb.py`",
             "",
-            f"Label: `{SCREEN_ID}_{generated[:10]}__{verdict}`",
+            f"Label: `{SCREEN_ID}_{generated[:10]}__{verdict}__T0`",
             "",
         ]
     )
@@ -527,14 +724,18 @@ def main() -> int:
     next_steps.append("0kac PAPER_WITHIN_HIT remains primary Path3 roadmap")
 
     decision = {
-        "label": f"{DECISION_ID}_{generated[:10]}__{verdict}__NO_LIVE",
+        "label": f"{DECISION_ID}_{generated[:10]}__{verdict}__T0__NO_LIVE",
         "verdict": verdict,
         "register": REGISTER,
         "parent": "0kae",
+        "fill_timing_primary": FILL_TIMING,
         "base": "KEEP",
         "chal": "LEDGER_SOFT_RATIO",
         "delta_ratio_minus_keep": delta,
         "tip_ratio_minus_keep": tip,
+        "delta_eod_t1_ratio_minus_keep": delta_eod,
+        "tip_eod_t1_ratio_minus_keep": tip_eod,
+        "yearly_ret_wl": {"w": ret_wl[0], "l": ret_wl[1]},
         "meta_ratio": meta_ratio,
         "soft_keep": True,
         "broker": False,
@@ -546,10 +747,10 @@ def main() -> int:
         [
             f"# {DECISION_ID}",
             "",
-            f"Date: {generated[:10]} · Verdict: **`{verdict}`**",
+            f"Date: {generated[:10]} · Verdict: **`{verdict}`** · fill=**`{FILL_TIMING}`**",
             f"Register: **{REGISTER}** · Parent: **0kae**",
             "",
-            "## Improvement (`LEDGER_SOFT_RATIO` − `KEEP`)",
+            "## Improvement T+0 (`LEDGER_SOFT_RATIO` − `KEEP`)",
             "",
             f"- full CAGR lift: **{delta['full']['cagr_lift_pp']}** pp · "
             f"MDD improve: {delta['full']['mdd_improve_pp']} pp",
@@ -559,10 +760,18 @@ def main() -> int:
             f"MDD improve: {delta['sealed_2023_plus']['mdd_improve_pp']} pp",
             f"- tip YTD CAGR lift: **{(tip.get('ytd') or {}).get('cagr_lift_pp')}** pp",
             f"- tip 1y CAGR lift: **{(tip.get('trailing_1y') or {}).get('cagr_lift_pp')}** pp",
+            f"- yearly ret W–L: **{ret_wl[0]}–{ret_wl[1]}**",
+            "",
+            "## Sensitivity EOD/T+1",
+            "",
+            f"- full / held CAGR lift: {(delta_eod.get('full') or {}).get('cagr_lift_pp')} / "
+            f"{(delta_eod.get('heldout_2019_plus') or {}).get('cagr_lift_pp')} pp",
+            f"- tip YTD / 1y: {(tip_eod.get('ytd') or {}).get('cagr_lift_pp')} / "
+            f"{(tip_eod.get('trailing_1y') or {}).get('cagr_lift_pp')} pp",
             "",
             "## Disposition",
             "",
-            "- Paper Soft-core carve-only dual (not full Soft Exact T+1 path).",
+            "- Paper Soft-core carve-only dual under **T+0** fill (flip recon before same-day return).",
             "- Live Path3 remains `keep_0050=True` unless human ACCEPT after stronger pack.",
             "",
             "## Next",
@@ -583,11 +792,16 @@ def main() -> int:
         json.dumps(
             {
                 "verdict": verdict,
+                "fill_timing": FILL_TIMING,
                 "full_cagr_lift_pp": delta["full"]["cagr_lift_pp"],
                 "held_cagr_lift_pp": delta["heldout_2019_plus"]["cagr_lift_pp"],
                 "sealed_mdd_improve_pp": delta["sealed_2023_plus"]["mdd_improve_pp"],
                 "tip_ytd_cagr_lift_pp": (tip.get("ytd") or {}).get("cagr_lift_pp"),
                 "tip_1y_cagr_lift_pp": (tip.get("trailing_1y") or {}).get("cagr_lift_pp"),
+                "yearly_ret_wl": f"{ret_wl[0]}-{ret_wl[1]}",
+                "eod_t1_held_cagr_lift_pp": (delta_eod.get("heldout_2019_plus") or {}).get(
+                    "cagr_lift_pp"
+                ),
             },
             indent=2,
         )

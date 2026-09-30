@@ -1,11 +1,48 @@
 {
-  "label": "FIN_SAT_PATH3_ETF_RECON_NAV_DUAL_STAGEB_DECISION_PACK_2026-09-30__ETF_NAV_DUAL_HIT__NO_LIVE",
+  "label": "FIN_SAT_PATH3_ETF_RECON_NAV_DUAL_STAGEB_DECISION_PACK_2026-09-30__ETF_NAV_DUAL_HIT__T0__NO_LIVE",
   "verdict": "ETF_NAV_DUAL_HIT",
   "register": "0kag",
   "parent": "0kae",
+  "fill_timing_primary": "t0",
   "base": "KEEP",
   "chal": "LEDGER_SOFT_RATIO",
   "delta_ratio_minus_keep": {
+    "full": {
+      "cagr_lift_pp": 0.9479,
+      "mdd_improve_pp": 0.3091,
+      "base_cagr": 0.074972,
+      "chal_cagr": 0.084451,
+      "base_mdd": -0.242673,
+      "chal_mdd": -0.239582
+    },
+    "heldout_2019_plus": {
+      "cagr_lift_pp": 1.6839,
+      "mdd_improve_pp": 0.3091,
+      "base_cagr": 0.099363,
+      "chal_cagr": 0.116202,
+      "base_mdd": -0.242673,
+      "chal_mdd": -0.239582
+    },
+    "sealed_2023_plus": {
+      "cagr_lift_pp": 2.7306,
+      "mdd_improve_pp": 7.1272,
+      "base_cagr": 0.114482,
+      "chal_cagr": 0.141788,
+      "base_mdd": -0.205106,
+      "chal_mdd": -0.133834
+    }
+  },
+  "tip_ratio_minus_keep": {
+    "ytd": {
+      "cagr_lift_pp": 3.7838,
+      "mdd_improve_pp": 0.0912
+    },
+    "trailing_1y": {
+      "cagr_lift_pp": 1.4372,
+      "mdd_improve_pp": 0.0912
+    }
+  },
+  "delta_eod_t1_ratio_minus_keep": {
     "full": {
       "cagr_lift_pp": 0.8217,
       "mdd_improve_pp": 0.4934,
@@ -31,7 +68,7 @@
       "chal_mdd": -0.13537
     }
   },
-  "tip_ratio_minus_keep": {
+  "tip_eod_t1_ratio_minus_keep": {
     "ytd": {
       "cagr_lift_pp": 1.882,
       "mdd_improve_pp": -0.3684
@@ -41,12 +78,17 @@
       "mdd_improve_pp": -0.3684
     }
   },
+  "yearly_ret_wl": {
+    "w": 7,
+    "l": 8
+  },
   "meta_ratio": {
     "policy": "LEDGER_SOFT_RATIO",
+    "fill_timing": "t0",
     "n_days": 3364,
     "n_flips_applied": 199,
     "n_flips_etf_weight_moved": 199,
-    "sum_abs_etf_weight_delta_on_flips": 2.679016,
+    "sum_abs_etf_weight_delta_on_flips": 2.704911,
     "start": "2012-12-05",
     "end": "2026-09-24"
   },

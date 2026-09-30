@@ -2,6 +2,7 @@
   "id": "FIN_SAT_PATH3_ETF_RECON_NAV_DUAL_STAGEB_CHARTER",
   "register": "0kag",
   "parent": "0kae",
+  "fill_timing_primary": "t0",
   "base": "KEEP",
   "chal": "LEDGER_SOFT_RATIO",
   "soft_keep": true,
