@@ -1,0 +1,5 @@
+arm,book,gate,pct_p4_on,verdict_vs_live,verdict_vs_near,held_vs_live,full_vs_live,sealed_vs_live,tipY_vs_live,held_vs_near,sealed_vs_near,tipY_vs_near,held_pos_vs_near,oracle
+P4_C001_NEAR&SAT,C001,NEAR&SAT,24.66,HIT,SOFT,1.4746,0.3017,-0.0523,6.0402,0.0273,-0.0089,0.3612,True,False
+P4_C001_SAT_LEAD,C001,SAT_LEAD,34.88,HIT,SOFT,1.4727,0.3008,-0.0602,5.948,0.0254,-0.0168,0.2691,True,False
+P4_C0005_NEAR&SAT,C0005,NEAR&SAT,24.66,HIT,NO_EDGE,1.4658,0.2443,-0.055,6.2573,0.0185,-0.0116,0.5784,True,False
+P4_C00025_DEFEND,C00025,DEFEND,21.57,HIT,NO_EDGE,1.4558,0.2868,-0.0434,5.5945,0.0085,0.0,-0.0844,True,False
