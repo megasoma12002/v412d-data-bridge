@@ -1,0 +1,9 @@
+{
+  "id": "FIN_SAT_PATH3_ETF_RECON_HARDEN_STAGEA_CHARTER",
+  "register": "0kah",
+  "parent": "0kag",
+  "fill_timing": "t0",
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true
+}
