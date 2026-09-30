@@ -2,6 +2,7 @@
 
 日期：2026-09-30  
 狀態：**OPEN — 等人裁** · Soft clips+0050 Exact T+1 **KEEP** · broker **false** · live flag 仍 **OFF**
+狀態：**SUPERSEDED by EXECUTED ACCEPT** · 見 `LIVE_PATH3_STRATEGY_CUTOVER_BALLOT_EXECUTED_ACCEPT.zh-TW.md` · Soft clips+0050 Exact T+1 **KEEP** · broker **false** · live flag 仍 **OFF**
 
 詳見英文 SSOT：`PATH3_STRATEGY_CUTOVER_ACCEPT_BALLOT_OPEN.md`  
 前置處置：`PATH3_STRATEGY_CUTOVER_PREACCEPT_DISPOSITION.md`  
