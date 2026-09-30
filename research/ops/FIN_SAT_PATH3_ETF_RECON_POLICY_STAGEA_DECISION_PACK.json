@@ -1,0 +1,40 @@
+{
+  "label": "FIN_SAT_PATH3_ETF_RECON_POLICY_STAGEA_DECISION_PACK_2026-09-30__ETF_POLICY_LEDGER_RATIO_HIT__NO_LIVE",
+  "verdict": "ETF_POLICY_LEDGER_RATIO_HIT",
+  "register": "0kae",
+  "parent": "0kad",
+  "champion_policy": "LEDGER_SOFT_RATIO",
+  "schedule_status": "RULED_OUT_IDENTICAL_COMP_SAT",
+  "policy_summary": {
+    "KEEP": {
+      "n_flips": 199,
+      "n_traded_0050": 0,
+      "pct_flips_trade_0050": 0.0,
+      "median_abs_delta_when_traded": 0.0,
+      "max_abs_delta": 0.0
+    },
+    "SCHEDULE_W": {
+      "n_flips": 199,
+      "n_traded_0050": 199,
+      "pct_flips_trade_0050": 1.0,
+      "median_abs_delta_when_traded": 218000.0,
+      "max_abs_delta": 347000.0
+    },
+    "LEDGER_SOFT_RATIO": {
+      "n_flips": 199,
+      "n_traded_0050": 199,
+      "pct_flips_trade_0050": 1.0,
+      "median_abs_delta_when_traded": 165000.0,
+      "max_abs_delta": 940000.0
+    }
+  },
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true,
+  "live_wire": false,
+  "next": [
+    "Stage B paper dual NAV: Path3 flip+FIN\u222aTEL ledger KEEP-0050 vs +LEDGER_SOFT_RATIO (tipY/held/sealed + 0050 turnover) \u2014 Soft KEEP / no live",
+    "Do not live-wire ETF policy until paper dual HIT",
+    "0kac PAPER_WITHIN_HIT remains primary roadmap"
+  ]
+}

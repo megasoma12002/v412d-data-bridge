@@ -1,0 +1,237 @@
+{
+  "generated_at_utc": "2026-09-30T03:46:45Z",
+  "register": "0kai",
+  "parent": "0kah",
+  "verdict": "ETF_YEARMIT_HIT",
+  "fill_timing": "t0",
+  "champion_arm": "ADD_FULL_CUT_D05",
+  "loser_years": [
+    2016,
+    2020,
+    2023,
+    2024
+  ],
+  "method": {
+    "note": "Asymmetric/larger deadband on flip \u0394w_0050 to shrink 2016/2020/2023/2024 drag without look-ahead year labels",
+    "arms": [
+      "KEEP",
+      "RATIO",
+      "DEAD_05",
+      "DEAD_07",
+      "DEAD_08",
+      "ADD_FULL_CUT_D05",
+      "ADD_FULL_CUT_D07",
+      "CUT_FULL_ADD_D05",
+      "CLIP_08"
+    ]
+  },
+  "arms_vs_keep": [
+    {
+      "arm": "RATIO",
+      "kind": "ratio",
+      "param": null,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.9479,
+      "held_cagr_lift_pp": 1.6839,
+      "sealed_mdd_improve_pp": 7.1272,
+      "tip_ytd_cagr_lift_pp": 3.7838,
+      "tip_1y_cagr_lift_pp": 1.4372,
+      "yearly_ret_wl": "7-8",
+      "loser_years_ret_lift_sum_pp": -7.6229,
+      "y2024_ret_lift_pp": -4.9148,
+      "y2025_ret_lift_pp": 10.9872,
+      "etf_turnover": 2.704911,
+      "n_etf_moves": 199
+    },
+    {
+      "arm": "DEAD_05",
+      "kind": "dead",
+      "param": 0.05,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.9748,
+      "held_cagr_lift_pp": 1.6638,
+      "sealed_mdd_improve_pp": 6.8958,
+      "tip_ytd_cagr_lift_pp": 3.938,
+      "tip_1y_cagr_lift_pp": 1.5369,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -7.1645,
+      "y2024_ret_lift_pp": -5.0968,
+      "y2025_ret_lift_pp": 10.9733,
+      "etf_turnover": 1.752793,
+      "n_etf_moves": 21
+    },
+    {
+      "arm": "DEAD_07",
+      "kind": "dead",
+      "param": 0.07,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.7811,
+      "held_cagr_lift_pp": 1.2767,
+      "sealed_mdd_improve_pp": 6.0277,
+      "tip_ytd_cagr_lift_pp": 2.96,
+      "tip_1y_cagr_lift_pp": 1.3031,
+      "yearly_ret_wl": "8-7",
+      "loser_years_ret_lift_sum_pp": -5.5967,
+      "y2024_ret_lift_pp": -3.6513,
+      "y2025_ret_lift_pp": 7.1241,
+      "etf_turnover": 0.812627,
+      "n_etf_moves": 6
+    },
+    {
+      "arm": "DEAD_08",
+      "kind": "dead",
+      "param": 0.08,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.8182,
+      "held_cagr_lift_pp": 1.3453,
+      "sealed_mdd_improve_pp": 6.3679,
+      "tip_ytd_cagr_lift_pp": 2.96,
+      "tip_1y_cagr_lift_pp": 1.2645,
+      "yearly_ret_wl": "8-7",
+      "loser_years_ret_lift_sum_pp": -5.8222,
+      "y2024_ret_lift_pp": -3.8543,
+      "y2025_ret_lift_pp": 7.5345,
+      "etf_turnover": 0.821156,
+      "n_etf_moves": 6
+    },
+    {
+      "arm": "ADD_FULL_CUT_D05",
+      "kind": "add_full_cut_dead",
+      "param": 0.05,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 1.0304,
+      "held_cagr_lift_pp": 1.7891,
+      "sealed_mdd_improve_pp": 7.1135,
+      "tip_ytd_cagr_lift_pp": 3.671,
+      "tip_1y_cagr_lift_pp": 1.3642,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -5.7897,
+      "y2024_ret_lift_pp": -3.9902,
+      "y2025_ret_lift_pp": 10.9702,
+      "etf_turnover": 1.929305,
+      "n_etf_moves": 47
+    },
+    {
+      "arm": "ADD_FULL_CUT_D07",
+      "kind": "add_full_cut_dead",
+      "param": 0.07,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.7315,
+      "held_cagr_lift_pp": 1.2816,
+      "sealed_mdd_improve_pp": 6.0003,
+      "tip_ytd_cagr_lift_pp": 2.96,
+      "tip_1y_cagr_lift_pp": 1.2969,
+      "yearly_ret_wl": "9-6",
+      "loser_years_ret_lift_sum_pp": -5.7426,
+      "y2024_ret_lift_pp": -3.9902,
+      "y2025_ret_lift_pp": 7.1896,
+      "etf_turnover": 1.445476,
+      "n_etf_moves": 38
+    },
+    {
+      "arm": "CUT_FULL_ADD_D05",
+      "kind": "cut_full_add_dead",
+      "param": 0.05,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.7529,
+      "held_cagr_lift_pp": 1.3821,
+      "sealed_mdd_improve_pp": 6.9068,
+      "tip_ytd_cagr_lift_pp": 3.938,
+      "tip_1y_cagr_lift_pp": 1.5369,
+      "yearly_ret_wl": "6-9",
+      "loser_years_ret_lift_sum_pp": -9.1572,
+      "y2024_ret_lift_pp": -5.362,
+      "y2025_ret_lift_pp": 10.994,
+      "etf_turnover": 2.0389,
+      "n_etf_moves": 57
+    },
+    {
+      "arm": "CLIP_08",
+      "kind": "clip",
+      "param": 0.08,
+      "verdict_vs_keep": "HIT",
+      "full_cagr_lift_pp": 0.8308,
+      "held_cagr_lift_pp": 1.4787,
+      "sealed_mdd_improve_pp": 7.1111,
+      "tip_ytd_cagr_lift_pp": 0.9513,
+      "tip_1y_cagr_lift_pp": -0.471,
+      "yearly_ret_wl": "7-8",
+      "loser_years_ret_lift_sum_pp": -7.6474,
+      "y2024_ret_lift_pp": -4.9393,
+      "y2025_ret_lift_pp": 10.9872,
+      "etf_turnover": 2.324237,
+      "n_etf_moves": 199
+    }
+  ],
+  "champion": {
+    "arm": "ADD_FULL_CUT_D05",
+    "verdict_vs_keep": "HIT",
+    "loser_years_ret_lift_sum_pp": -5.7897,
+    "delta": {
+      "full": {
+        "cagr_lift_pp": 1.0304,
+        "mdd_improve_pp": 0.1429,
+        "base_cagr": 0.074972,
+        "chal_cagr": 0.085276,
+        "base_mdd": -0.242673,
+        "chal_mdd": -0.241244
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 1.7891,
+        "mdd_improve_pp": 0.1429,
+        "base_cagr": 0.099363,
+        "chal_cagr": 0.117254,
+        "base_mdd": -0.242673,
+        "chal_mdd": -0.241244
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 3.0435,
+        "mdd_improve_pp": 7.1135,
+        "base_cagr": 0.114482,
+        "chal_cagr": 0.144917,
+        "base_mdd": -0.205106,
+        "chal_mdd": -0.133971
+      }
+    },
+    "tip": {
+      "ytd": {
+        "cagr_lift_pp": 3.671,
+        "mdd_improve_pp": 0.1734
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": 1.3642,
+        "mdd_improve_pp": 0.1734
+      }
+    },
+    "yearly_ret_wl": {
+      "w": 9,
+      "l": 6
+    },
+    "beats_parent_losers": true,
+    "beats_parent_held_within_5bp": true,
+    "meta": {
+      "kind": "add_full_cut_dead",
+      "param": 0.05,
+      "fill_timing": "t0",
+      "n_days": 3364,
+      "n_flips_applied": 199,
+      "n_flips_etf_moved": 47,
+      "sum_abs_etf_weight_delta_on_flips": 1.929305,
+      "start": "2012-12-05",
+      "end": "2026-09-24"
+    }
+  },
+  "parent_dead_05": {
+    "held_cagr_lift_pp": 1.6638,
+    "loser_years_ret_lift_sum_pp": -7.1645,
+    "y2024_ret_lift_pp": -5.0968,
+    "yearly_ret_wl": {
+      "w": 9,
+      "l": 6
+    }
+  },
+  "gates": {
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0
+  }
+}

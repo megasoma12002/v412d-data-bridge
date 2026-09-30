@@ -1,0 +1,18 @@
+{
+  "id": "FIN_SAT_PATH3_ETF_SAT_SCOPE_STAGEA_CHARTER",
+  "register": "0kad",
+  "status": "STAGE_A",
+  "codes": [
+    "0050",
+    "00631L"
+  ],
+  "parents": [
+    "0kab",
+    "0kaa",
+    "0kac"
+  ],
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true,
+  "label": "FIN_SAT_PATH3_ETF_SAT_SCOPE_STAGEA_CHARTER_2026-09-30__0050_00631L__NO_LIVE"
+}

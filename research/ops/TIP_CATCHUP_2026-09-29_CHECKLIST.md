@@ -1,9 +1,10 @@
 # Tip catch-up checklist — next session **2026-09-29**
 
-Status: **PENDING** — Soft-Frozen KEEP · no weekend invent · no history rewrite  
+Status: **DONE** (2026-09-29) — Soft-Frozen KEEP · no weekend invent · no history rewrite  
 Why not Monday 9/28: TWSE **CLOSED_HOLIDAY**（孔子誕辰／教師節）· 9/25 中秋 · 9/26–27 週末  
-Tip frozen at: **`2026-09-24`** until first green open session after holidays  
-Goal: forward tip → stamp live cutovers that landed while board was closed
+Tip frozen at: **`2026-09-24`** until first green open session after holidays → live + Path3 paper cascade now **`2026-09-29`**  
+Goal: forward tip → stamp live cutovers that landed while board was closed  
+Evidence: `TIP_CATCHUP_2026-09-29.md`
 
 Companion: `TIP_CATCHUP_MONDAY_CHECKLIST.md` (Phase 2 books catch-up pattern) · calendar `data/calendars/twse_sessions_2026.csv`
 
@@ -65,4 +66,4 @@ Do **not** invent a tip day for 9/25–28. Session gate must `session_skip`.
 
 Write `research/ops/TIP_CATCHUP_2026-09-29.md` with run id + assert output (ops owner).
 
-Label: `TIP_CATCHUP_2026-09-29_CHECKLIST__PENDING_NEXT_SESSION`
+Label: `TIP_CATCHUP_2026-09-29_CHECKLIST__DONE`
