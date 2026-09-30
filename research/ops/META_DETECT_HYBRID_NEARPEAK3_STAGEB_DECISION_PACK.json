@@ -1,0 +1,75 @@
+{
+  "label": "META_DETECT_HYBRID_NEARPEAK3_STAGEB_DECISION_PACK_2026-09-30__HYBRID_NEARPEAK3_MDD_BLOCK__NO_LIVE",
+  "verdict": "HYBRID_NEARPEAK3_MDD_BLOCK",
+  "register": "0kav",
+  "parents": [
+    "0kau",
+    "0kas",
+    "0kat"
+  ],
+  "mech": "META_DETECT_HYBRID_NEARPEAK3",
+  "runner_id": "TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE",
+  "target": {
+    "arm": "HYBRID_P3_NEARPEAK3",
+    "verdict_vs_live": "MDD_BLOCK",
+    "held_cagr_lift_pp": -2.2498,
+    "full_cagr_lift_pp": -2.6409,
+    "sealed_mdd_improve_pp": -3.0616,
+    "tip_ytd_cagr_lift_pp": -5.7831,
+    "tip_1y_cagr_lift_pp": -6.175,
+    "meta": {
+      "runner_id": "TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE",
+      "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+      "shell_fill_timing": "exact_t1",
+      "carve_fill_timing": "t0",
+      "pct_gate_on": 50.86,
+      "n_days": 3364,
+      "mean_gated_premium": -6.1e-05,
+      "sum_gated_premium": -0.205126,
+      "mean_ungated_premium": -2e-06,
+      "start": "2012-12-05",
+      "end": "2026-09-24",
+      "kind": "tip_soft_hybrid_gated",
+      "gate": "NEARPEAK3",
+      "path3": true,
+      "path4": false,
+      "note": "0kau champion: |trail|\u2265\u03b8 AND Soft within 3% of 63d peak \u00b7 softcore=P3_WITHIN",
+      "proxy_x": 0.08,
+      "p3_theta": 0.005
+    }
+  },
+  "champion_hybrid": {
+    "arm": "HYBRID_P3P4_PROXY05",
+    "verdict_vs_live": "MDD_BLOCK",
+    "held_cagr_lift_pp": -0.8622,
+    "sealed_mdd_improve_pp": -2.4569,
+    "tip_ytd_cagr_lift_pp": 1.7579
+  },
+  "ungated_ref": {
+    "arm": "HYBRID_P3_UNGATED",
+    "verdict_vs_live": "MDD_BLOCK",
+    "held_cagr_lift_pp": -3.7406,
+    "sealed_mdd_improve_pp": -11.4448,
+    "tip_ytd_cagr_lift_pp": -5.6871
+  },
+  "tipsoft_dual_track": {
+    "arm": "TIPSOFT_P3_THETA_NEARPEAK3",
+    "verdict_vs_live": "HIT",
+    "held_cagr_lift_pp": 1.4473,
+    "sealed_mdd_improve_pp": -0.0434,
+    "tip_ytd_cagr_lift_pp": 5.6789
+  },
+  "sealed_delta_vs_ungated_pp": 8.3832,
+  "optimize_live": [
+    "Stage B target `HYBRID_P3_NEARPEAK3` \u2192 MDD_BLOCK held -2.2498 tipY -5.7831 sealedMDD -3.0616",
+    "Ungated hybrid ref `HYBRID_P3_UNGATED` \u2192 MDD_BLOCK sealedMDD -11.4448 \u00b7 sealed \u0394 vs ungated = 8.3832 pp",
+    "Dual-track tip Soft `TIPSOFT_P3_THETA_NEARPEAK3` \u2192 HIT held 1.4473 sealedMDD -0.0434",
+    "Best hybrid overall `HYBRID_P3P4_PROXY05` \u2192 MDD_BLOCK",
+    "Promote only if hybrid NEARPEAK3 clears tip Soft gates; Soft-core HIT alone insufficient",
+    "Soft KEEP \u00b7 Path4 OFF \u00b7 broker false \u00b7 no live wire this pack"
+  ],
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false,
+  "wire": false
+}

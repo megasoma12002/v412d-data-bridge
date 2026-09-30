@@ -1,0 +1,11 @@
+arm,gate,path4,pct_gate_on,mean_gated_premium,sum_gated_premium,note
+HYBRID_P3_UNGATED,UNGATED,False,100.0,-2e-06,-0.006666,0kas-style always-on T+0 carve premium · softcore=P3_WITHIN
+HYBRID_P3P4_UNGATED,UNGATED,True,100.0,-2e-06,-0.006666,0kas-style always-on T+0 carve premium · softcore=P3_P4_CASH_00025
+HYBRID_P3_NEARPEAK3,NEARPEAK3,False,50.86,-6.1e-05,-0.205126,0kau champion: |trail|≥θ AND Soft within 3% of 63d peak · softcore=P3_WITHIN
+HYBRID_P3P4_NEARPEAK3,NEARPEAK3,True,50.86,-5.8e-05,-0.194108,0kau champion: |trail|≥θ AND Soft within 3% of 63d peak · softcore=P3_P4_CASH_00025
+HYBRID_P3_PROXY05,PROXY05,False,26.25,-5.3e-05,-0.177615,0kau HIT: |trail|≥θ AND proxy_mdd63 > −5% · softcore=P3_WITHIN
+HYBRID_P3P4_PROXY05,PROXY05,True,26.25,-4.9e-05,-0.165504,0kau HIT: |trail|≥θ AND proxy_mdd63 > −5% · softcore=P3_P4_CASH_00025
+HYBRID_P3_PEAK3_RISKON,PEAK3_RISKON,False,41.8,-7.1e-05,-0.239781,0kau HIT: |trail|≥θ AND near-peak3 AND risk-on · softcore=P3_WITHIN
+HYBRID_P3P4_PEAK3_RISKON,PEAK3_RISKON,True,41.8,-6.7e-05,-0.225566,0kau HIT: |trail|≥θ AND near-peak3 AND risk-on · softcore=P3_P4_CASH_00025
+HYBRID_P3_NEARPEAK5,NEARPEAK5,False,62.04,-3.4e-05,-0.115265,looser near-peak5 contrast · softcore=P3_WITHIN
+HYBRID_P3P4_NEARPEAK5,NEARPEAK5,True,62.04,-2.6e-05,-0.086932,looser near-peak5 contrast · softcore=P3_P4_CASH_00025

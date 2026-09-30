@@ -1,0 +1,14 @@
+{
+  "id": "META_DETECT_HYBRID_NEARPEAK3_STAGEB_CHARTER",
+  "register": "0kav",
+  "parents": [
+    "0kau",
+    "0kas",
+    "0kat"
+  ],
+  "mech": "META_DETECT_HYBRID_NEARPEAK3",
+  "runner_id": "TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE",
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false
+}
