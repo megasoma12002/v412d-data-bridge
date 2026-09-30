@@ -1,0 +1,56 @@
+{
+  "label": "TIPSOFT_NEARPEAK3_PATH4_STACK_STAGEA_DECISION_PACK_2026-09-30__PATH4_STACK_HIT__NO_LIVE",
+  "verdict": "PATH4_STACK_HIT",
+  "register": "0kax",
+  "parents": [
+    "0kaw",
+    "0kau",
+    "0kap"
+  ],
+  "mech": "TIPSOFT_NEARPEAK3_PATH4_STACK",
+  "champion": {
+    "arm": "P3NEAR_P4_DEFEND",
+    "verdict_vs_live": "HIT",
+    "held_cagr_lift_pp": 1.4558,
+    "full_cagr_lift_pp": 0.2868,
+    "sealed_mdd_improve_pp": -0.0434,
+    "tip_ytd_cagr_lift_pp": 5.5945,
+    "tip_1y_cagr_lift_pp": 4.1843,
+    "vs_nearpeak3": {
+      "held_cagr_lift_pp": 0.0085,
+      "sealed_mdd_improve_pp": 0.0,
+      "tip_ytd_cagr_lift_pp": -0.0844,
+      "verdict_vs_nearpeak3": "NO_EDGE"
+    },
+    "meta": {
+      "note": "P3 NEARPEAK3 + Path4 only while COOL defending",
+      "pct_p3_on": 50.83,
+      "pct_p4_on": 21.57,
+      "p3_theta": 0.005,
+      "proxy_x": 0.08,
+      "path4_book": "LIVE_P3_P4_CASH_00025",
+      "clock": "exact_t1",
+      "hybrid_t0_carve": false
+    }
+  },
+  "ref_nearpeak3": {
+    "arm": "REF_P3_THETA_NEARPEAK3",
+    "verdict_vs_live": "HIT",
+    "held_cagr_lift_pp": 1.4473,
+    "sealed_mdd_improve_pp": -0.0434,
+    "tip_ytd_cagr_lift_pp": 5.6789
+  },
+  "optimize_live": [
+    "Stack Path4 only as Exact T+1 incremental on tip Soft shell; hybrid T+0 carve FORBIDDEN",
+    "Path4 champion `P3NEAR_P4_DEFEND` \u2192 HIT held 1.4558 tipY 5.5945 sealedMDD -0.0434",
+    "vs NEARPEAK3-only: held 0.0085 tipY -0.0844 sealed 0.0 \u2192 NO_EDGE",
+    "0kaw ref `REF_P3_THETA_NEARPEAK3` \u2192 HIT",
+    "Path4 live flag stays OFF; Soft KEEP; broker false; no wire this pack",
+    "Next: Path4 clears live gates under NEARPEAK3 but vs NEARPEAK3-only is NO_EDGE \u2014 keep Path4 OFF on 0kaw observe unless a +held Path4 gate appears"
+  ],
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false,
+  "hybrid_t0_carve": false,
+  "wire": false
+}
