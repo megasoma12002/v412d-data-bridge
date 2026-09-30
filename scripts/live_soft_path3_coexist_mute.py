@@ -2,10 +2,11 @@
 """Soft↔Path3 flip-day coexistence mute (0kaa).
 
 Mechanism: ``SOFT_PATH3_FLIP_MUTE``
-Default policy: ``MUTE_SOFT_FIN_TEL`` — on Path3 flip + non-empty deltas,
-drop Soft Exact T+1 orders for FIN∪TEL; keep Soft 0050 / satellites / Path3.
+Default policy: ``MUTE_SOFT_FIN_TEL`` — on Path3 flip day (emit ON),
+drop Soft Exact T+1 orders for FIN∪TEL even if Path3 deltas are empty
+(fail-closed coexistence); keep Soft 0050 / satellites / Path3.
 
-Flag default OFF until Stage A HIT + human ACCEPT.
+Live flag ``LIVE.live_soft_path3_coexist_mute=True`` after ACCEPT 0kaa (2026-09-29).
 """
 from __future__ import annotations
 
@@ -47,15 +48,20 @@ def should_mute(
     n_path3_delta_names: int = 0,
     policy: str = DEFAULT_POLICY,
 ) -> bool:
-    """Return True when Soft sleeve rows should be filtered before Path3 append."""
+    """Return True when Soft sleeve rows should be filtered before Path3 append.
+
+    ``MUTE_SOFT_FIN_TEL`` / ``MUTE_SOFT_ON_FLIP_META`` / ``MUTE_SOFT_ALL_SLEEVES``:
+    mute on flip when emit is ON (even if Path3 plan is empty — coexistence
+    fail-closed). ``MUTE_OVERLAP_CODES`` still requires non-empty delta codes.
+    """
     if not mute_enabled or not emit_enabled:
         return False
     if not flip:
         return False
     p = str(policy or DEFAULT_POLICY)
-    if p == POLICY_MUTE_SOFT_ON_FLIP_META:
-        return True
-    return int(n_path3_delta_names) > 0
+    if p == POLICY_MUTE_OVERLAP_CODES:
+        return int(n_path3_delta_names) > 0
+    return True
 
 
 def filter_soft_orders(

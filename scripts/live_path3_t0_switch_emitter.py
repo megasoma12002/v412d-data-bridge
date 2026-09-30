@@ -144,7 +144,13 @@ def load_or_build_signal(*, prefer_observe_csv: bool = True) -> pd.DataFrame:
 
 
 def switch_meta_for_asof(asof: pd.Timestamp | str, signal: pd.DataFrame | None = None) -> dict[str, Any]:
-    """Path3 switch meta on ``asof`` (flip / book / SAT_LEAD)."""
+    """Path3 switch meta on ``asof`` (flip / book / SAT_LEAD).
+
+    Uses the latest signal row with ``date <= asof`` for book / SAT_LEAD state.
+    ``flip`` is True only when that row's date **equals** ``asof`` — otherwise a
+    tip that ends on a flip day would sticky-retrigger emit/mute on every later
+    session (landmine).
+    """
     asof = pd.Timestamp(asof).normalize()
     sig = load_or_build_signal() if signal is None else signal
     sub = sig[pd.to_datetime(sig["date"]) <= asof]
@@ -158,12 +164,16 @@ def switch_meta_for_asof(asof: pd.Timestamp | str, signal: pd.DataFrame | None =
             "mechanism": MECHANISM,
         }
     row = sub.iloc[-1]
-    flip = bool(row.get("flip", False))
+    row_date = pd.Timestamp(row["date"]).normalize()
+    exact = bool(row_date == asof)
+    flip = bool(row.get("flip", False)) and exact
     sat_lead = bool(row.get("sat_lead", False))
     return {
         "asof": asof.date().isoformat(),
         "ok": True,
         "flip": flip,
+        "signal_date": row_date.date().isoformat(),
+        "signal_exact": exact,
         "sat_lead": sat_lead,
         "w_sat": float(row.get("w_sat", 0.0) or 0.0),
         "book": str(row.get("book") or (BOOK_SAT if sat_lead else BOOK_COMP)),

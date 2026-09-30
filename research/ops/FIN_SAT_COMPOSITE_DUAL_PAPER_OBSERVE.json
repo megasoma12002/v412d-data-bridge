@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-28T09:58:59Z",
+  "generated_at_utc": "2026-09-29T17:35:39Z",
   "schema_version": "fin_sat_composite_dual_paper_observe_v1",
   "label": "FIN_SAT_COMPOSITE_DUAL_PAPER_OBSERVE_OPERATING",
   "status": "OPERATING_OBSERVE",
@@ -20,9 +20,9 @@
   "stage_a_verdict": "COMPOSITE_HIT",
   "base_windows": {
     "full": {
-      "cagr": 0.127381,
+      "cagr": 0.125909,
       "max_drawdown": -0.144234,
-      "n_days": 3365
+      "n_days": 3366
     },
     "oof_2011_2018": {
       "cagr": 0.087124,
@@ -35,21 +35,21 @@
       "n_days": 977
     },
     "sealed_2023_plus": {
-      "cagr": 0.195101,
+      "cagr": 0.189154,
       "max_drawdown": -0.062022,
-      "n_days": 893
+      "n_days": 894
     },
     "heldout_2019_plus": {
-      "cagr": 0.163054,
+      "cagr": 0.160304,
       "max_drawdown": -0.144234,
-      "n_days": 1870
+      "n_days": 1871
     }
   },
   "chal_windows": {
     "full": {
-      "cagr": 0.127406,
+      "cagr": 0.126129,
       "max_drawdown": -0.150775,
-      "n_days": 3365
+      "n_days": 3366
     },
     "oof_2011_2018": {
       "cagr": 0.080975,
@@ -62,34 +62,34 @@
       "n_days": 977
     },
     "sealed_2023_plus": {
-      "cagr": 0.213256,
+      "cagr": 0.207989,
       "max_drawdown": -0.065582,
-      "n_days": 893
+      "n_days": 894
     },
     "heldout_2019_plus": {
-      "cagr": 0.168469,
+      "cagr": 0.166068,
       "max_drawdown": -0.145322,
-      "n_days": 1870
+      "n_days": 1871
     }
   },
   "heldout_delta": {
-    "cagr_lift_pp": 0.5415,
+    "cagr_lift_pp": 0.5764,
     "mdd_improve_pp": -0.1088
   },
   "tip": {
     "ytd": {
       "mdd_improve_pp": 0.9278,
-      "cagr_lift_pp": -13.3591,
+      "cagr_lift_pp": -12.4812,
       "gate": "PASS"
     },
     "trailing_1y": {
       "mdd_improve_pp": 0.9278,
-      "cagr_lift_pp": -9.0207,
+      "cagr_lift_pp": -8.9343,
       "gate": "PASS"
     }
   },
   "n_fills_base": 5388,
-  "n_fills_chal": 6541,
+  "n_fills_chal": 6546,
   "non_actions": [
     "Soft-Frozen KEEP — no Class D from observe",
     "SELL_a75 KEEP · live CONF α=0.10 KEEP",

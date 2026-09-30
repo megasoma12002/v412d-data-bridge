@@ -1,0 +1,163 @@
+{
+  "generated_at_utc": "2026-09-30T00:21:20Z",
+  "register": "0kad",
+  "engine_id": "P3_COMP_SAT_DAILY_POS_LEDGER_A",
+  "state_asof": "2026-09-29",
+  "ledger_panel_end": "2026-09-24",
+  "n_flip_days": 199,
+  "divergence": {
+    "0050": {
+      "code": "0050",
+      "ok": true,
+      "n_days": 3364,
+      "n_nonzero_share_delta": 3341,
+      "pct_days_differ": 0.993163,
+      "max_abs_share_delta": 3422000.0,
+      "median_abs_share_delta_when_diff": 29000.0,
+      "tip_date": "2026-09-24",
+      "tip_comp_shares": 2058000.0,
+      "tip_sat_shares": 1928000.0,
+      "tip_delta_shares": 130000.0,
+      "flip": {
+        "n_flips": 199,
+        "n_nonzero": 199,
+        "pct_nonzero": 1.0,
+        "max_abs": 2041000.0,
+        "median_abs_when_nz": 21000.0
+      }
+    },
+    "00631L": {
+      "code": "00631L",
+      "ok": true,
+      "n_days": 3364,
+      "n_nonzero_share_delta": 1003,
+      "pct_days_differ": 0.298157,
+      "max_abs_share_delta": 7430000.0,
+      "median_abs_share_delta_when_diff": 14000.0,
+      "tip_date": "2026-09-24",
+      "tip_comp_shares": 1000.0,
+      "tip_sat_shares": 1000.0,
+      "tip_delta_shares": 0.0,
+      "flip": {
+        "n_flips": 199,
+        "n_nonzero": 75,
+        "pct_nonzero": 0.376884,
+        "max_abs": 7430000.0,
+        "median_abs_when_nz": 58000.0
+      }
+    },
+    "2880": {
+      "code": "2880",
+      "ok": true,
+      "n_days": 3364,
+      "n_nonzero_share_delta": 3364,
+      "pct_days_differ": 1.0,
+      "max_abs_share_delta": 31692857.0,
+      "median_abs_share_delta_when_diff": 5183850.0,
+      "tip_date": "2026-09-24",
+      "tip_comp_shares": 2603181.0,
+      "tip_sat_shares": 5006142.0,
+      "tip_delta_shares": -2402961.0,
+      "flip": {
+        "n_flips": 199,
+        "n_nonzero": 199,
+        "pct_nonzero": 1.0,
+        "max_abs": 31569824.0,
+        "median_abs_when_nz": 5285850.0
+      }
+    },
+    "2412": {
+      "code": "2412",
+      "ok": true,
+      "n_days": 3364,
+      "n_nonzero_share_delta": 3354,
+      "pct_days_differ": 0.997027,
+      "max_abs_share_delta": 1301000.0,
+      "median_abs_share_delta_when_diff": 230000.0,
+      "tip_date": "2026-09-24",
+      "tip_comp_shares": 556000.0,
+      "tip_sat_shares": 817000.0,
+      "tip_delta_shares": -261000.0,
+      "flip": {
+        "n_flips": 199,
+        "n_nonzero": 199,
+        "pct_nonzero": 1.0,
+        "max_abs": 1106000.0,
+        "median_abs_when_nz": 184000.0
+      }
+    }
+  },
+  "keep_0050_probes": [
+    {
+      "asof": "2026-06-12",
+      "dest_book": "SAT_A20_RELAX",
+      "keep_0050_true": {
+        "reason": "ledger_scaled_recon",
+        "n_delta_names": 7,
+        "has_0050": false,
+        "delta_0050": null
+      },
+      "keep_0050_false": {
+        "reason": "ledger_scaled_recon",
+        "n_delta_names": 7,
+        "has_0050": false,
+        "delta_0050": null
+      },
+      "extra_or_changed_vs_keep": {},
+      "label": "COMP\u2192SAT"
+    },
+    {
+      "asof": "2026-05-20",
+      "dest_book": "COMP_H150_x_A20",
+      "keep_0050_true": {
+        "reason": "ledger_scaled_recon",
+        "n_delta_names": 7,
+        "has_0050": false,
+        "delta_0050": null
+      },
+      "keep_0050_false": {
+        "reason": "ledger_scaled_recon",
+        "n_delta_names": 7,
+        "has_0050": false,
+        "delta_0050": null
+      },
+      "extra_or_changed_vs_keep": {},
+      "label": "SAT\u2192COMP"
+    }
+  ],
+  "satellite_note": {
+    "code": "00631L",
+    "in_ledger_codes": true,
+    "in_path3_recon_today": false,
+    "owner_today": "COOL / Soft satellite overlay (not Path3 sleeve recon)",
+    "path3_apply_requires": [
+      "re-home COOL exposure owner away from Soft Exact T+1 satellite fills",
+      "define COMP vs SAT satellite policy (often near-identical at tip)",
+      "separate ballot from FIN\u222aTEL Path3 carve"
+    ]
+  },
+  "live_pos_codes": [
+    "0050",
+    "00631L",
+    "2412",
+    "2880",
+    "2881",
+    "2882",
+    "2884",
+    "2885",
+    "2886",
+    "2890",
+    "2891",
+    "2892",
+    "3045",
+    "4904",
+    "5880"
+  ],
+  "binding_parents": {
+    "0kab_keep_0050": true,
+    "0kaa_mute_keeps_0050_and_satellite": true,
+    "0kac_default_scope_0050_keep": true,
+    "0kac_satellite_overlays_keep": true
+  },
+  "verdict": "ETF_DIVERGES__SATELLITE_OVERLAY_BLOCK"
+}
