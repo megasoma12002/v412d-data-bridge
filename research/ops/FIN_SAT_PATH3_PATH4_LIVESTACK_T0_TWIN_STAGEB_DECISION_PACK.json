@@ -1,0 +1,25 @@
+{
+  "label": "FIN_SAT_PATH3_PATH4_LIVESTACK_T0_TWIN_STAGEB_DECISION_PACK_2026-09-30__LIVESTACK_T0_MDD_BLOCK__NO_LIVE",
+  "verdict": "LIVESTACK_T0_MDD_BLOCK",
+  "register": "0kaq",
+  "parents": [
+    "0kap",
+    "0kao"
+  ],
+  "mech": "PATH3_PATH4_LIVESTACK_T0_TWIN",
+  "champion_arm": "T0COOL_P3_P4_CASH_00025",
+  "held_cagr_lift_pp": 0.9913,
+  "tip_ytd_cagr_lift_pp": -1.6733,
+  "sealed_mdd_improve_pp": -3.1588,
+  "optimize_live": [
+    "Yes \u2014 live promote must score P3/P4 on Exact T+0; Exact T+1 twin alone (0kap) insufficient",
+    "T+0\u00d7COOL vs live Exact T+1 still MDD_BLOCK (best T0COOL_P3_P4_CASH_00025 held+0.99 sealedMDD\u22123.16 tipY\u22121.67)",
+    "Soft-core T+0 Path3-only worse vs live \u2014 Soft-core HIT \u2260 beat live Soft+FUSE+COOL",
+    "Path4 under T+0\u00d7COOL held\u2191 vs P3-only but MDD/TIP blocked \u2192 Path4 live OFF",
+    "Keep live Soft+COOL+FUSE until T+0 tip Soft hybrid clears sealed MDD or ACCEPTABLE disposition",
+    "Soft KEEP \u00b7 broker false \u00b7 Path4 live OFF \u00b7 no wire"
+  ],
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false
+}

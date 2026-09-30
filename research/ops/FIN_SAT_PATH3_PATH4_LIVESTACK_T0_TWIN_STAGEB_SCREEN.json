@@ -1,0 +1,230 @@
+{
+  "generated_at_utc": "2026-09-30T09:51:02Z",
+  "register": "0kaq",
+  "parents": [
+    "0kap",
+    "0kao"
+  ],
+  "mech": "PATH3_PATH4_LIVESTACK_T0_TWIN",
+  "verdict": "LIVESTACK_T0_MDD_BLOCK",
+  "base": "BASE_LIVE_FUSE_COOL",
+  "champion_arm": "T0COOL_P3_P4_CASH_00025",
+  "note": "Soft-core T+0 NAVs from 0kao; COOL scale frozen from 0kap BASE_LIVE_FUSE_COOL offense. Scores vs Exact T+1 live base.",
+  "arms_vs_live": [
+    {
+      "arm": "T0_REF_P3_WITHIN",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -2.7988,
+      "held_cagr_lift_pp": -2.5148,
+      "sealed_mdd_improve_pp": -7.028,
+      "tip_ytd_cagr_lift_pp": 1.923,
+      "tip_1y_cagr_lift_pp": -0.2688,
+      "yearly_ret_wl": "5-10",
+      "meta_kind": "softcore_t0_raw",
+      "meta_fill_timing": "t0",
+      "meta_softcore_arm": "REF_P3_WITHIN",
+      "meta_path3": true,
+      "meta_path4": false,
+      "meta_cool_overlay": false
+    },
+    {
+      "arm": "T0COOL_REF_P3_WITHIN",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -1.957,
+      "held_cagr_lift_pp": -1.7637,
+      "sealed_mdd_improve_pp": -7.1212,
+      "tip_ytd_cagr_lift_pp": -1.3987,
+      "tip_1y_cagr_lift_pp": -2.0253,
+      "yearly_ret_wl": "4-11",
+      "meta_kind": "softcore_t0_x_cool",
+      "meta_fill_timing": "t0",
+      "meta_softcore_arm": "REF_P3_WITHIN",
+      "meta_path3": true,
+      "meta_path4": false,
+      "meta_cool_overlay": true,
+      "meta_mean_cool": 0.9199,
+      "meta_pct_cool_lt1": 0.1602
+    },
+    {
+      "arm": "T0_P3_P4_CASH_00025",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -0.7709,
+      "held_cagr_lift_pp": 0.4714,
+      "sealed_mdd_improve_pp": -5.6671,
+      "tip_ytd_cagr_lift_pp": 1.6422,
+      "tip_1y_cagr_lift_pp": -0.4557,
+      "yearly_ret_wl": "7-8",
+      "meta_kind": "softcore_t0_raw",
+      "meta_fill_timing": "t0",
+      "meta_softcore_arm": "P3_P4_CASH_00025",
+      "meta_path3": true,
+      "meta_path4": true,
+      "meta_cool_overlay": false
+    },
+    {
+      "arm": "T0COOL_P3_P4_CASH_00025",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -0.2057,
+      "held_cagr_lift_pp": 0.9913,
+      "sealed_mdd_improve_pp": -3.1588,
+      "tip_ytd_cagr_lift_pp": -1.6733,
+      "tip_1y_cagr_lift_pp": -2.2097,
+      "yearly_ret_wl": "7-8",
+      "meta_kind": "softcore_t0_x_cool",
+      "meta_fill_timing": "t0",
+      "meta_softcore_arm": "P3_P4_CASH_00025",
+      "meta_path3": true,
+      "meta_path4": true,
+      "meta_cool_overlay": true,
+      "meta_mean_cool": 0.9199,
+      "meta_pct_cool_lt1": 0.1602
+    },
+    {
+      "arm": "T0_P3_P4_CASH_0005",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -0.922,
+      "held_cagr_lift_pp": 0.2552,
+      "sealed_mdd_improve_pp": -5.2622,
+      "tip_ytd_cagr_lift_pp": 1.923,
+      "tip_1y_cagr_lift_pp": -0.2688,
+      "yearly_ret_wl": "6-9",
+      "meta_kind": "softcore_t0_raw",
+      "meta_fill_timing": "t0",
+      "meta_softcore_arm": "P3_P4_CASH_0005",
+      "meta_path3": true,
+      "meta_path4": true,
+      "meta_cool_overlay": false
+    },
+    {
+      "arm": "T0COOL_P3_P4_CASH_0005",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -0.2899,
+      "held_cagr_lift_pp": 0.9233,
+      "sealed_mdd_improve_pp": -3.1588,
+      "tip_ytd_cagr_lift_pp": -1.3987,
+      "tip_1y_cagr_lift_pp": -2.0253,
+      "yearly_ret_wl": "7-8",
+      "meta_kind": "softcore_t0_x_cool",
+      "meta_fill_timing": "t0",
+      "meta_softcore_arm": "P3_P4_CASH_0005",
+      "meta_path3": true,
+      "meta_path4": true,
+      "meta_cool_overlay": true,
+      "meta_mean_cool": 0.9199,
+      "meta_pct_cool_lt1": 0.1602
+    },
+    {
+      "arm": "T0_P3_P4_CASH_001",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -1.3406,
+      "held_cagr_lift_pp": 0.053,
+      "sealed_mdd_improve_pp": -6.4203,
+      "tip_ytd_cagr_lift_pp": 1.923,
+      "tip_1y_cagr_lift_pp": -0.2688,
+      "yearly_ret_wl": "6-9",
+      "meta_kind": "softcore_t0_raw",
+      "meta_fill_timing": "t0",
+      "meta_softcore_arm": "P3_P4_CASH_001",
+      "meta_path3": true,
+      "meta_path4": true,
+      "meta_cool_overlay": false
+    },
+    {
+      "arm": "T0COOL_P3_P4_CASH_001",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": -0.6307,
+      "held_cagr_lift_pp": 0.6478,
+      "sealed_mdd_improve_pp": -3.939,
+      "tip_ytd_cagr_lift_pp": -1.3987,
+      "tip_1y_cagr_lift_pp": -2.0253,
+      "yearly_ret_wl": "5-10",
+      "meta_kind": "softcore_t0_x_cool",
+      "meta_fill_timing": "t0",
+      "meta_softcore_arm": "P3_P4_CASH_001",
+      "meta_path3": true,
+      "meta_path4": true,
+      "meta_cool_overlay": true,
+      "meta_mean_cool": 0.9199,
+      "meta_pct_cool_lt1": 0.1602
+    },
+    {
+      "arm": "T1_LIVE_P3_WITHIN",
+      "verdict_vs_live": "MDD_BLOCK",
+      "full_cagr_lift_pp": 0.3296,
+      "held_cagr_lift_pp": 0.8475,
+      "sealed_mdd_improve_pp": -0.5026,
+      "tip_ytd_cagr_lift_pp": 2.8524,
+      "tip_1y_cagr_lift_pp": 2.0757,
+      "yearly_ret_wl": "10-5",
+      "meta_kind": "live_exact_t1_p3_ref",
+      "meta_fill_timing": "exact_t1",
+      "meta_path3": true,
+      "meta_path4": false,
+      "meta_cool_overlay": true,
+      "meta_note": "0kap tip Soft twin reference"
+    }
+  ],
+  "champion": {
+    "arm": "T0COOL_P3_P4_CASH_00025",
+    "verdict_vs_live": "MDD_BLOCK",
+    "delta": {
+      "full": {
+        "cagr_lift_pp": -0.2057,
+        "mdd_improve_pp": 0.7578,
+        "base_cagr": 0.123001,
+        "chal_cagr": 0.120944,
+        "base_mdd": -0.141077,
+        "chal_mdd": -0.133499
+      },
+      "heldout_2019_plus": {
+        "cagr_lift_pp": 0.9913,
+        "mdd_improve_pp": 1.7232,
+        "base_cagr": 0.15492,
+        "chal_cagr": 0.164833,
+        "base_mdd": -0.141077,
+        "chal_mdd": -0.123845
+      },
+      "sealed_2023_plus": {
+        "cagr_lift_pp": 2.3764,
+        "mdd_improve_pp": -3.1588,
+        "base_cagr": 0.182881,
+        "chal_cagr": 0.206645,
+        "base_mdd": -0.062412,
+        "chal_mdd": -0.094
+      }
+    },
+    "tip": {
+      "ytd": {
+        "cagr_lift_pp": -1.6733,
+        "mdd_improve_pp": -0.0343
+      },
+      "trailing_1y": {
+        "cagr_lift_pp": -2.2097,
+        "mdd_improve_pp": -0.0343
+      }
+    },
+    "meta": {
+      "kind": "softcore_t0_x_cool",
+      "fill_timing": "t0",
+      "softcore_arm": "P3_P4_CASH_00025",
+      "path3": true,
+      "path4": true,
+      "cool_overlay": true,
+      "mean_cool": 0.9199,
+      "pct_cool_lt1": 0.1602
+    }
+  },
+  "optimize_live": [
+    "Yes \u2014 live promote must score P3/P4 on Exact T+0; Exact T+1 twin alone (0kap) insufficient",
+    "T+0\u00d7COOL vs live Exact T+1 still MDD_BLOCK (best T0COOL_P3_P4_CASH_00025 held+0.99 sealedMDD\u22123.16 tipY\u22121.67)",
+    "Soft-core T+0 Path3-only worse vs live \u2014 Soft-core HIT \u2260 beat live Soft+FUSE+COOL",
+    "Path4 under T+0\u00d7COOL held\u2191 vs P3-only but MDD/TIP blocked \u2192 Path4 live OFF",
+    "Keep live Soft+COOL+FUSE until T+0 tip Soft hybrid clears sealed MDD or ACCEPTABLE disposition",
+    "Soft KEEP \u00b7 broker false \u00b7 Path4 live OFF \u00b7 no wire"
+  ],
+  "gates": {
+    "held_cagr_floor_pp": 0.1,
+    "sealed_mdd_floor_pp": -0.25,
+    "tip_y_floor_pp": -1.0
+  }
+}
