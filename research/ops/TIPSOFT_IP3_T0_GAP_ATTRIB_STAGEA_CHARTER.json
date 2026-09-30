@@ -1,0 +1,13 @@
+{
+  "id": "TIPSOFT_IP3_T0_GAP_ATTRIB_STAGEA_CHARTER",
+  "register": "0kb5",
+  "parents": [
+    "0kb2",
+    "0kar",
+    "0kav",
+    "0kaq"
+  ],
+  "mech": "TIPSOFT_IP3_T0_GAP_ATTRIB",
+  "date": "2026-09-30",
+  "question": "Is live\u2194tipSoft research gap caused by T+0?"
+}

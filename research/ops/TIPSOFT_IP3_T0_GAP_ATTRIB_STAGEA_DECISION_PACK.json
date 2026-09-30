@@ -1,0 +1,19 @@
+{
+  "id": "TIPSOFT_IP3_T0_GAP_ATTRIB_STAGEA_DECISION_PACK",
+  "register": "0kb5",
+  "parents": [
+    "0kb2",
+    "0kar",
+    "0kav",
+    "0kaq"
+  ],
+  "verdict": "T0_NOT_DRIVER",
+  "answer": "T+0 is not the driver of live lagging tip Soft research",
+  "override_held_vs_L3_pp": 1.6136,
+  "softcore_t0_held_vs_L3_pp": -2.5148,
+  "hybrid_held_vs_L3_pp": -2.2498,
+  "override_vs_L4_held_pp": 0.7661,
+  "soft_keep": true,
+  "path4_live": false,
+  "label": "TIPSOFT_IP3_T0_GAP_ATTRIB_STAGEA_DECISION_PACK_2026-09-30__T0_NOT_DRIVER__NO_LIVE"
+}

@@ -1,0 +1,7 @@
+arm,clock,role,held_cagr_lift_vs_L3_pp,held_mdd_improve_vs_L3_pp,sealed_cagr_lift_vs_L3_pp,sealed_mdd_improve_vs_L3_pp,full_cagr_lift_vs_L3_pp,tipY_vs_L3_pp,tip1y_vs_L3_pp,ahead_of_live,t0_involved
+L3_LIVE_FUSE_COOL,exact_t1,live_soft_fuse_cool_base,-0.0,0.0,-0.0,0.0,-0.0,-0.0,-0.0,False,False
+L4_LIVE_P3_WITHIN,exact_t1,tipsoft_p3_within_on_L3,0.8475,-0.3234,1.7529,-0.5026,0.3296,2.8524,2.0757,True,False
+P3_THETA_NEARPEAK3,exact_t1,0kaw_observe,1.4473,-0.0429,3.1657,-0.0434,0.2907,5.6789,4.2409,True,False
+OVERRIDE_LIVE_W42_M05_K3,exact_t1,0kb2_observe_open,1.6136,-0.0429,3.4211,-0.0523,0.7381,6.0402,4.4964,True,False
+R0_T0_P3_WITHIN,exact_t0,softcore_path3_t0_carve,-2.5148,-8.6355,-1.2223,-7.028,-2.7988,1.923,-0.2688,False,True
+HYBRID_P3_NEARPEAK3,hybrid_t1_overlay_t0_carve,0kav_hybrid_mdblock,-2.2498,-0.0781,-3.937,-3.0616,-2.6409,-5.7831,-6.175,False,True
