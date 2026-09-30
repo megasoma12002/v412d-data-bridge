@@ -1,0 +1,25 @@
+{
+  "label": "FIN_SAT_PATH3_PATH4_LIVESTACK_TWIN_STAGEB_DECISION_PACK_2026-09-30__LIVESTACK_TWIN_MDD_BLOCK__NO_LIVE",
+  "verdict": "LIVESTACK_TWIN_MDD_BLOCK",
+  "register": "0kap",
+  "parents": [
+    "0kao",
+    "0kac",
+    "0kak"
+  ],
+  "mech": "PATH3_PATH4_LIVESTACK_TWIN",
+  "champion_arm": "LIVE_P3_WITHIN",
+  "held_cagr_lift_pp": 0.8475,
+  "tip_ytd_cagr_lift_pp": 2.8524,
+  "sealed_mdd_improve_pp": -0.5026,
+  "optimize_live": [
+    "Keep live Soft + COOL_c8 + FUSE SELL_a75 as the base \u2014 tip Soft twin does not clear a free P3/P4 upgrade",
+    "Path3 WITHIN: tip/held good (held +0.85 tipY +2.85) but sealed MDD \u22120.50 \u2192 MDD_BLOCK; need sealed-MDD disposition or MDD-harden before ACCEPT",
+    "Path4 Soft-0050 CASH_ETF under live stack: all \u03b8 MDD_BLOCK and held\u2264P3-only \u2014 Path4 live OFF; Soft sticky 0050 KEEP",
+    "P4-only NO_EDGE (held \u22120.39) \u2014 do not ship Path4",
+    "Soft KEEP \u00b7 broker false \u00b7 Path4 live flag OFF \u00b7 no wire this pack"
+  ],
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false
+}

@@ -1,0 +1,6 @@
+arm,verdict_vs_live,full_cagr_lift_pp,held_cagr_lift_pp,sealed_mdd_improve_pp,tip_ytd_cagr_lift_pp,tip_1y_cagr_lift_pp,yearly_ret_wl,meta_n_fills,meta_exact_t1_ok,meta_financial_alloc,meta_telecom_alloc,meta_kind,meta_path3,meta_path4,meta_theta,meta_n_off_days,meta_pct_off,meta_off_book
+LIVE_P3_WITHIN,MDD_BLOCK,0.3296,0.8475,-0.5026,2.8524,2.0757,10-5,4876,True,FIN_RS_SOFT_TILT,TEL_RS_SOFT_TILT,live_p3_within,True,False,,,,
+LIVE_P3_P4_CASH_00025,MDD_BLOCK,0.0401,0.4137,-0.53,2.6826,2.025,9-6,5369,True,FIN_RS_SOFT_TILT,TEL_RS_SOFT_TILT,live_p3_p4_cash_etf,True,True,0.0025,691.0,0.191,CASH_ETF
+LIVE_P3_P4_CASH_0005,MDD_BLOCK,-0.0385,0.3216,-0.5231,3.1852,2.2802,7-8,5183,True,FIN_RS_SOFT_TILT,TEL_RS_SOFT_TILT,live_p3_p4_cash_etf,True,True,0.005,382.0,0.1056,CASH_ETF
+LIVE_P3_P4_CASH_001,MDD_BLOCK,0.1384,0.5078,-0.5192,3.1308,2.1696,9-6,4890,True,FIN_RS_SOFT_TILT,TEL_RS_SOFT_TILT,live_p3_p4_cash_etf,True,True,0.01,133.0,0.0368,CASH_ETF
+LIVE_P4_ONLY_001,NO_EDGE,-0.2182,-0.3898,-0.0914,0.003,-0.1522,5-10,4780,True,FIN_PRE_EXDIV_KD,TEL_EQUAL,live_p4_only,False,True,0.01,133.0,0.0368,CASH_ETF
