@@ -1,0 +1,30 @@
+# TIPSOFT_P3_NEARPEAK3_MONTH_END_MONITOR month-end monitor (asof 2026-09-29)
+
+Status: `OPERATING_OBSERVE` · paper only · base `BASE_LIVE_FUSE_COOL` vs `P3_THETA_NEARPEAK3`
+
+| Window | MDD dpp | Giveback pp | Score | Rel NAV |
+|---|---:|---:|---:|---:|
+| mtd | -0.03891919978825653 | -12.953810791203058 | -6.515824595389786 | 1.0046 |
+| ytd | -0.2663386074670204 | -5.678934016371162 | -3.1058056156526015 | 1.0266 |
+| trailing_1y | -0.2663386074669982 | -4.240930033729917 | -2.386803624331957 | 1.0296 |
+| heldout_2019_plus | -0.0429674784027112 | -1.4473507610182956 | -0.766642858911859 | 1.0968 |
+| sealed_2023_plus | -0.043363581644439986 | -3.1656932159970452 | -1.6262101896429626 | 1.0981 |
+| full | -0.0429674784027112 | -0.290703940430892 | -0.1883194486181572 | 1.0351 |
+
+## Alerts
+
+- ALERT: P3_THETA_NEARPEAK3 ytd MDD worse than BASE_LIVE_FUSE_COOL
+- ALERT: P3_THETA_NEARPEAK3 trailing_1y MDD worse than BASE_LIVE_FUSE_COOL
+- ALERT: P3_THETA_NEARPEAK3 heldout_2019_plus MDD worse than BASE_LIVE_FUSE_COOL
+- ALERT: P3_THETA_NEARPEAK3 sealed_2023_plus MDD worse than BASE_LIVE_FUSE_COOL
+
+## Non-actions
+
+- paper observe only
+- no Soft-Frozen clip flip
+- no Path4 live
+- hybrid Soft-core T+0 carve FORBIDDEN
+- Exact T+1 NEARPEAK3 posture · cutover BLOCKED
+
+- Soft KEEP · Path4 OFF · hybrid T+0 carve FORBIDDEN · cutover BLOCKED
+

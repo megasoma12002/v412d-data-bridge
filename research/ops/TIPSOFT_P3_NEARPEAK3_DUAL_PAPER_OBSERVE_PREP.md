@@ -1,7 +1,8 @@
 # TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_PREP
 
 Date: 2026-09-30
-Status: **PREP — not OPERATING** (awaits human OPEN on draft ballot)
+Status note: **SUPERSEDED 2026-09-30** by `TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPERATING.md`
+Status (historical): **PREP — not OPERATING** (awaits human OPEN on draft ballot)
 
 | Book | ID | Role |
 |---|---|---|

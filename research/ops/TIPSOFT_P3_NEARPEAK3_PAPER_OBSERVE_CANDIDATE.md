@@ -1,6 +1,6 @@
 # TIPSOFT_P3_NEARPEAK3_PAPER_OBSERVE_CANDIDATE
 
-Date: 2026-09-30 · Status: **`PAPER_OBSERVE_CANDIDATE_DRAFT`**
+Date: 2026-09-30 · Status: **`OBSERVE_OPEN_OPERATING`** (human OPEN 2026-09-30)
 Register: **0kaw** · Parents: 0kav, 0kau, 0kat
 Policy: **`P3_THETA_NEARPEAK3`** · clock **Exact T+1** · hybrid T+0 carve **FORBIDDEN**
 

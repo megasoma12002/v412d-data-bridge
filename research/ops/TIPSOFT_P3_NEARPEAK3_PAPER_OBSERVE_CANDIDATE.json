@@ -7,7 +7,7 @@
     "0kat"
   ],
   "generated_at_utc": "2026-09-30T10:37:53Z",
-  "status": "PAPER_OBSERVE_CANDIDATE_DRAFT",
+  "status": "OBSERVE_OPEN_OPERATING",
   "policy_id": "P3_THETA_NEARPEAK3",
   "clock": "exact_t1",
   "fill_timing": "exact_t1",
@@ -46,5 +46,7 @@
   },
   "nav_challenger": "repro/tipsoft-p3-nearpeak3-paper-observe/outputs/nav_P3_THETA_NEARPEAK3.csv",
   "nav_base": "repro/tipsoft-p3-nearpeak3-paper-observe/outputs/nav_BASE_LIVE_FUSE_COOL.csv",
-  "label": "TIPSOFT_P3_NEARPEAK3_PAPER_OBSERVE_CANDIDATE_2026-09-30__TIPSOFT_EXACT_T1__NO_HYBRID_T0"
+  "label": "TIPSOFT_P3_NEARPEAK3_PAPER_OBSERVE_CANDIDATE_2026-09-30__TIPSOFT_EXACT_T1__NO_HYBRID_T0",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_THETA_NEARPEAK3 (tip Soft Exact T+1 \u00b7 meta-detect Path3 near-peak3 \u00b7 NOT hybrid T+0 carve)",
+  "opened_at_utc": "2026-09-30T10:43:26Z"
 }

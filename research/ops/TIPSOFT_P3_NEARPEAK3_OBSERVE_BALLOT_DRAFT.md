@@ -1,7 +1,8 @@
 # TIPSOFT_P3_NEARPEAK3_OBSERVE_BALLOT_DRAFT
 
 Date: 2026-09-30
-Status: **DRAFT — awaiting human OPEN** · Soft KEEP · Path4 OFF · hybrid T+0 carve **FORBIDDEN** · live wire **false** · cutover **BLOCKED**
+Status note: **SUPERSEDED 2026-09-30** by `TIPSOFT_P3_NEARPEAK3_OBSERVE_BALLOT_EXECUTED_OPEN.md`
+Status (historical): **DRAFT — awaiting human OPEN** · Soft KEEP · Path4 OFF · hybrid T+0 carve **FORBIDDEN** · live wire **false** · cutover **BLOCKED**
 
 ## Proposed human line
 
