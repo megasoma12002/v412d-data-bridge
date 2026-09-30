@@ -11,9 +11,9 @@ SPEC = DualPaperMonitorSpec(
     chal_id="P3_THETA_NEARPEAK3",
     default_out=ROOT / "repro/tipsoft-p3-nearpeak3-paper-observe/month_end",
     base_nav=ROOT
-    / "repro/tipsoft-p3-nearpeak3-paper-observe/outputs/base_live_fuse_cool_daily_nav.csv",
+    / "repro/tipsoft-p3-nearpeak3-paper-observe/outputs/nav_BASE_LIVE_FUSE_COOL.csv",
     chal_nav=ROOT
-    / "repro/tipsoft-p3-nearpeak3-paper-observe/outputs/p3_theta_nearpeak3_daily_nav.csv",
+    / "repro/tipsoft-p3-nearpeak3-paper-observe/outputs/nav_P3_THETA_NEARPEAK3.csv",
     compare_nav=ROOT
     / "repro/tipsoft-p3-nearpeak3-paper-observe/outputs/dual_paper_nav_compare.csv",
     ledger_hint="scripts/tipsoft_p3_nearpeak3_dual_paper_ledgers.py",
