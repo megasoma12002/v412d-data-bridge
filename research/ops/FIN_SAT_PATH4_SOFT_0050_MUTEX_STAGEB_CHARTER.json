@@ -1,0 +1,9 @@
+{
+  "id": "FIN_SAT_PATH4_SOFT_0050_MUTEX_STAGEB_CHARTER",
+  "register": "0kal",
+  "parent": "0kak",
+  "mech": "PATH4_SOFT_0050_MUTEX",
+  "soft_keep": true,
+  "broker": false,
+  "cutover_blocked": true
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Guards for Path3 T0 switch order emitter PREP (flag OFF)."""
+"""Guards for Path3 T0 switch order emitter (0ka7 emit flag ON)."""
 from __future__ import annotations
 
 import tempfile
@@ -160,6 +160,50 @@ class Path3EmitterSignal(unittest.TestCase):
         self.assertGreaterEqual(len(ledger), 0)
         meta = switch_meta_for_asof(dates[-1], signal=sig)
         self.assertTrue(meta["ok"])
+
+
+class Path3SwitchMetaExactFlip(unittest.TestCase):
+    def _tip_on_flip(self) -> pd.DataFrame:
+        return pd.DataFrame(
+            {
+                "date": pd.to_datetime(["2026-06-11", "2026-06-12"]),
+                "trail_rel_63": [-0.02, -0.02],
+                "sat_lead": [False, True],
+                "w_sat": [0.0, 1.0],
+                "flip": [False, True],
+                "book": [BOOK_COMP, BOOK_SAT],
+                "book_prev": [BOOK_COMP, BOOK_COMP],
+            }
+        )
+
+    def test_flip_only_on_exact_signal_date(self) -> None:
+        sig = self._tip_on_flip()
+        on_flip = switch_meta_for_asof("2026-06-12", signal=sig)
+        self.assertTrue(on_flip["ok"])
+        self.assertTrue(on_flip["flip"])
+        self.assertTrue(on_flip["signal_exact"])
+        self.assertEqual(on_flip["signal_date"], "2026-06-12")
+        self.assertEqual(on_flip["book"], BOOK_SAT)
+
+    def test_post_tip_does_not_sticky_flip(self) -> None:
+        """Tip ending on a flip must not re-fire flip on later asofs."""
+        sig = self._tip_on_flip()
+        later = switch_meta_for_asof("2026-06-13", signal=sig)
+        self.assertTrue(later["ok"])
+        self.assertFalse(later["flip"])
+        self.assertFalse(later["signal_exact"])
+        self.assertEqual(later["signal_date"], "2026-06-12")
+        # book state may still follow nearest prior
+        self.assertEqual(later["book"], BOOK_SAT)
+        rows, meta = maybe_emit_switch_orders(
+            asof="2026-06-13",
+            prices={"2880": 40.0},
+            delta_shares={"2880": -1000.0},
+            authorized=True,
+            signal=sig,
+        )
+        self.assertEqual(rows, [])
+        self.assertEqual(meta["reason"], "no_flip")
 
 
 if __name__ == "__main__":
