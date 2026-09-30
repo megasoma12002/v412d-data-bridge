@@ -28,6 +28,9 @@ from live_config import (
     LIVE_TEL_T3_BALLOT,
     LIVE_TEL_T3_COOL_INV_VOL20,
     LIVE_TEL_WITHIN_SLEEVE,
+    LIVE_TIPSOFT_LIVE_OVERRIDE,
+    LIVE_TIPSOFT_LIVE_OVERRIDE_BALLOT,
+    LIVE_TIPSOFT_LIVE_OVERRIDE_POLICY,
     TIP_BOOKS_ALIGN_BALLOT,
 )
 
@@ -99,4 +102,26 @@ def build_cutover_stamps() -> dict[str, Any]:
             if LIVE_CONF_RET3_631L
             else None
         ),
+        "tipsoft_live_override_live": bool(LIVE_TIPSOFT_LIVE_OVERRIDE),
+        "tipsoft_live_override_policy": (
+            LIVE_TIPSOFT_LIVE_OVERRIDE_POLICY if LIVE_TIPSOFT_LIVE_OVERRIDE else None
+        ),
+        "tipsoft_live_override_ballot": (
+            LIVE_TIPSOFT_LIVE_OVERRIDE_BALLOT if LIVE_TIPSOFT_LIVE_OVERRIDE else None
+        ),
+        "tipsoft_live_override_cutover": (
+            "ACCEPT_2026-09-30_TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3"
+            if LIVE_TIPSOFT_LIVE_OVERRIDE
+            else None
+        ),
+        "tipsoft_live_override_rollback": (
+            "Set LIVE.live_tipsoft_live_override=False "
+            "(live_config.live_tipsoft_live_override); tip Soft Exact T+1 "
+            "LIVE_OVERRIDE gate stamps off; Path3 WITHIN / Soft FIN/TEL unchanged"
+            if LIVE_TIPSOFT_LIVE_OVERRIDE
+            else None
+        ),
+        "tipsoft_live_override_path3_within_keep": True,
+        "tipsoft_live_override_soft_fin_tel_stay_off": True,
+        "tipsoft_live_override_path4_live": False,
     }

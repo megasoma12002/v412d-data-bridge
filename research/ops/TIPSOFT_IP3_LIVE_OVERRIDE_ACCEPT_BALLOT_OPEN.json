@@ -1,17 +1,8 @@
 {
   "id": "TIPSOFT_IP3_LIVE_OVERRIDE_ACCEPT_BALLOT_OPEN",
-  "status": "OPEN_AWAITING_ACCEPT",
+  "status": "SUPERSEDED",
   "date": "2026-09-30",
   "register": "0kb2",
-  "parents": ["0kb2", "0kb5", "0kac"],
-  "live_flag": false,
-  "broker": false,
-  "path4_live": false,
-  "path3_within_sleeve_keep": true,
-  "clock": "exact_t1",
-  "policy_id": "TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3",
-  "accept_line": "ACCEPT live wire: TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3\n(Exact T+1 · 0kb1 MUTE_S3_SAT + force LIVE when lag42 live leads champ by >0.5% for 3d ·\n Path3 WITHIN_SLEEVE KEEP · Soft FIN/TEL stay OFF · Soft clips+0050 KEEP ·\n T0_CARVE_FIN_SAT_SWITCH KEEP · Path4 OFF · broker false · dual-paper observe KEEP)",
-  "defer_line": "DEFER live wire: TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3",
-  "reject_line": "REJECT live wire: TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3",
-  "label": "TIPSOFT_IP3_LIVE_OVERRIDE_ACCEPT_BALLOT_OPEN_2026-09-30__AWAITING_ACCEPT__NO_LIVE_WIRE"
+  "superseded_by": "TIPSOFT_IP3_LIVE_OVERRIDE_BALLOT_EXECUTED_ACCEPT",
+  "label": "TIPSOFT_IP3_LIVE_OVERRIDE_ACCEPT_BALLOT_OPEN_2026-09-30__SUPERSEDED_BY_EXECUTED_ACCEPT"
 }
