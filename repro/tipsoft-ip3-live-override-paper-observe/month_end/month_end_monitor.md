@@ -1,0 +1,31 @@
+# TIPSOFT_IP3_LIVE_OVERRIDE_MONTH_END_MONITOR month-end monitor (asof 2026-09-29)
+
+Status: `OPERATING_OBSERVE` · paper only · base `BASE_LIVE_FUSE_COOL` vs `OVERRIDE_LIVE_W42_M05_K3`
+
+| Window | MDD dpp | Giveback pp | Score | Rel NAV |
+|---|---:|---:|---:|---:|
+| mtd | -0.040039820957815664 | -13.72805142577791 | -6.9040655338467705 | 1.0048 |
+| ytd | -0.2751973441734501 | -6.040158160101772 | -3.295276424224336 | 1.0283 |
+| trailing_1y | -0.2751973441734723 | -4.496360308262348 | -2.5233774983046464 | 1.0314 |
+| heldout_2019_plus | -0.0429674784027223 | -1.613660491449287 | -0.8497977241273658 | 1.1085 |
+| sealed_2023_plus | -0.05222231835088076 | -3.4210879823866946 | -1.762766309544228 | 1.1063 |
+| full | -0.0429674784027112 | -0.7380220384903824 | -0.4119784976479024 | 1.0914 |
+
+## Alerts
+
+- ALERT: OVERRIDE_LIVE_W42_M05_K3 ytd MDD worse than BASE_LIVE_FUSE_COOL
+- ALERT: OVERRIDE_LIVE_W42_M05_K3 trailing_1y MDD worse than BASE_LIVE_FUSE_COOL
+- ALERT: OVERRIDE_LIVE_W42_M05_K3 heldout_2019_plus MDD worse than BASE_LIVE_FUSE_COOL
+- ALERT: OVERRIDE_LIVE_W42_M05_K3 sealed_2023_plus MDD worse than BASE_LIVE_FUSE_COOL
+
+## Non-actions
+
+- paper observe only
+- no Soft-Frozen clip flip
+- no Path4 live
+- hybrid Soft-core T+0 carve FORBIDDEN
+- year-cut FORBIDDEN
+- Exact T+1 LIVE_OVERRIDE posture · cutover BLOCKED
+
+- Soft KEEP · Path4 OFF · hybrid T+0 carve FORBIDDEN · cutover BLOCKED
+

@@ -1,0 +1,125 @@
+{
+  "generated_at_utc": "2026-09-30T15:31:39.897057+00:00",
+  "asof": "2026-09-29",
+  "label": "TIPSOFT_IP3_LIVE_OVERRIDE_MONTH_END_MONITOR",
+  "status": "OPERATING_OBSERVE",
+  "base_id": "BASE_LIVE_FUSE_COOL",
+  "challenger_id": "OVERRIDE_LIVE_W42_M05_K3",
+  "locked_id": "OVERRIDE_LIVE_W42_M05_K3",
+  "nav_source": "daily_nav",
+  "live_wire": false,
+  "soft_frozen_clips_unchanged": true,
+  "soft_frozen_unchanged": true,
+  "cutover_authorized": false,
+  "alerts": [
+    "ALERT: OVERRIDE_LIVE_W42_M05_K3 ytd MDD worse than BASE_LIVE_FUSE_COOL",
+    "ALERT: OVERRIDE_LIVE_W42_M05_K3 trailing_1y MDD worse than BASE_LIVE_FUSE_COOL",
+    "ALERT: OVERRIDE_LIVE_W42_M05_K3 heldout_2019_plus MDD worse than BASE_LIVE_FUSE_COOL",
+    "ALERT: OVERRIDE_LIVE_W42_M05_K3 sealed_2023_plus MDD worse than BASE_LIVE_FUSE_COOL"
+  ],
+  "windows": [
+    {
+      "window": "mtd",
+      "start": "2026-09-01",
+      "end": "2026-09-29",
+      "n_days": 19,
+      "base_cagr": 0.9677865658611711,
+      "base_mdd": -0.04111977236105535,
+      "chal_cagr": 1.1050670801189502,
+      "chal_mdd": -0.04152017057063351,
+      "mdd_improve_pp": -0.040039820957815664,
+      "cagr_giveback_pp": -13.72805142577791,
+      "rel_nav_end": 1.0048286199091605,
+      "score": -6.9040655338467705
+    },
+    {
+      "window": "ytd",
+      "start": "2026-01-01",
+      "end": "2026-09-29",
+      "n_days": 177,
+      "base_cagr": 0.4804276323601251,
+      "base_mdd": -0.06018259551728966,
+      "chal_cagr": 0.5408292139611428,
+      "chal_mdd": -0.06293456895902416,
+      "mdd_improve_pp": -0.2751973441734501,
+      "cagr_giveback_pp": -6.040158160101772,
+      "rel_nav_end": 1.028323019468304,
+      "score": -3.295276424224336
+    },
+    {
+      "window": "trailing_1y",
+      "start": "2025-09-29",
+      "end": "2026-09-29",
+      "n_days": 240,
+      "base_cagr": 0.3577369180490779,
+      "base_mdd": -0.06018259551728966,
+      "chal_cagr": 0.4027005211317014,
+      "chal_mdd": -0.06293456895902438,
+      "mdd_improve_pp": -0.2751973441734723,
+      "cagr_giveback_pp": -4.496360308262348,
+      "rel_nav_end": 1.0313816623313936,
+      "score": -2.5233774983046464
+    },
+    {
+      "window": "heldout_2019_plus",
+      "start": "2019-01-01",
+      "end": "2026-09-29",
+      "n_days": 1871,
+      "base_cagr": 0.15491977330251072,
+      "base_mdd": -0.14107650967243468,
+      "chal_cagr": 0.1710563782170036,
+      "chal_mdd": -0.1415061844564619,
+      "mdd_improve_pp": -0.0429674784027223,
+      "cagr_giveback_pp": -1.613660491449287,
+      "rel_nav_end": 1.108451380994095,
+      "score": -0.8497977241273658
+    },
+    {
+      "window": "sealed_2023_plus",
+      "start": "2023-01-01",
+      "end": "2026-09-29",
+      "n_days": 894,
+      "base_cagr": 0.1828812122856518,
+      "base_mdd": -0.062412345775515465,
+      "chal_cagr": 0.21709209210951874,
+      "chal_mdd": -0.06293456895902427,
+      "mdd_improve_pp": -0.05222231835088076,
+      "cagr_giveback_pp": -3.4210879823866946,
+      "rel_nav_end": 1.1063144146385184,
+      "score": -1.762766309544228
+    },
+    {
+      "window": "full",
+      "start": "2012-12-04",
+      "end": "2026-09-29",
+      "n_days": 3366,
+      "base_cagr": 0.12300134454859513,
+      "base_mdd": -0.14107650967243468,
+      "chal_cagr": 0.13038156493349895,
+      "chal_mdd": -0.1415061844564618,
+      "mdd_improve_pp": -0.0429674784027112,
+      "cagr_giveback_pp": -0.7380220384903824,
+      "rel_nav_end": 1.0914076058382598,
+      "score": -0.4119784976479024
+    }
+  ],
+  "gates": {
+    "trail_alert_pp": 3.0,
+    "trail_pause_pp": 5.0,
+    "design_giveback_pp": {
+      "heldout_2019_plus": 1.0,
+      "sealed_2023_plus": 5.0
+    },
+    "structural_buffer_pp": 2.0,
+    "alert_policy": "default"
+  },
+  "non_actions": [
+    "paper observe only",
+    "no Soft-Frozen clip flip",
+    "no Path4 live",
+    "hybrid Soft-core T+0 carve FORBIDDEN",
+    "year-cut FORBIDDEN",
+    "Exact T+1 LIVE_OVERRIDE posture \u00b7 cutover BLOCKED"
+  ],
+  "cutover_blocked": true
+}

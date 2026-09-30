@@ -1,5 +1,14 @@
-# Pointer — ballot draft SSOT
+# TIPSOFT_IP3_LIVE_STACK_RACE_OBSERVE_BALLOT_DRAFT
 
-Canonical copy: `research/ops/TIPSOFT_IP3_LIVE_STACK_RACE_OBSERVE_BALLOT_DRAFT.md`
+Date: 2026-09-30
+Status: **SUPERSEDED** by `TIPSOFT_IP3_LIVE_OVERRIDE_OBSERVE_BALLOT_EXECUTED_OPEN.md`
 
-Do not dual-write the full artifact into `repro/*/reports/` (see `research/ops/REPRO_DEDUPE_HYGIENE.md`).
+## Human OPEN (executed)
+
+```
+OPEN paper observe: TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3 (tip Soft Exact T+1 · 0kb1 MUTE_S3_SAT base · force LIVE when lag42 live leads champ by >0.5% for 3d · NOT hybrid T+0)
+```
+
+See: `TIPSOFT_IP3_LIVE_OVERRIDE_OBSERVE_BALLOT_EXECUTED_OPEN.md` · dual-paper OPERATING.
+
+Label: `TIPSOFT_IP3_LIVE_STACK_RACE_OBSERVE_BALLOT_DRAFT_2026-09-30__SUPERSEDED_BY_EXECUTED_OPEN`
