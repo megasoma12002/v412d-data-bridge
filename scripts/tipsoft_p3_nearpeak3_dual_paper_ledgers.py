@@ -1,0 +1,176 @@
+#!/usr/bin/env python3
+"""TIPSOFT_P3_THETA_NEARPEAK3 dual-paper ledgers — OPERATING OBSERVE (paper only).
+
+BASE_LIVE_FUSE_COOL ∥ P3_THETA_NEARPEAK3 under tip Soft Exact T+1.
+Soft KEEP · Path4 OFF · hybrid T+0 carve FORBIDDEN · no live wire · cutover BLOCKED.
+"""
+from __future__ import annotations
+
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+
+import pandas as pd
+
+from e45_paper_harness import WINDOWS_STANDARD, window_stats
+from fin_sell_quality_helpers import cagr_lift_pp
+from ops_repro_ssot import write_ops_and_repro_pointer, write_repro_pointer
+from research_metric_helpers import mdd_delta_pp
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "repro/tipsoft-p3-nearpeak3-paper-observe"
+OPS = ROOT / "research/ops"
+REP = OUT / "reports"
+
+BASE_ID = "BASE_LIVE_FUSE_COOL"
+CHAL_ID = "P3_THETA_NEARPEAK3"
+HUMAN_OPEN = (
+    "OPEN paper observe: TIPSOFT_P3_THETA_NEARPEAK3 "
+    "(tip Soft Exact T+1 · meta-detect Path3 near-peak3 · NOT hybrid T+0 carve)"
+)
+STATUS = "OPERATING_OBSERVE"
+OPERATING_ID = "TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPERATING"
+
+
+def _utc() -> str:
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def pack_windows(nav: pd.DataFrame) -> dict:
+    out = {}
+    for k, (a, b) in WINDOWS_STANDARD.items():
+        st = window_stats(nav, a, b)
+        out[k] = {
+            "cagr": None if st.get("cagr") is None else round(float(st["cagr"]), 6),
+            "max_drawdown": None
+            if st.get("max_drawdown") is None
+            else round(float(st["max_drawdown"]), 6),
+            "n_days": int(st.get("n_days") or 0),
+        }
+    return out
+
+
+def tip_windows(base_nav: pd.DataFrame, chal_nav: pd.DataFrame) -> dict:
+    asof = pd.Timestamp(pd.to_datetime(base_nav["date"]).max())
+    b_dates = pd.to_datetime(base_nav["date"])
+    c_dates = pd.to_datetime(chal_nav["date"])
+    out = {}
+    for wname, start in (
+        ("ytd", pd.Timestamp(asof.year, 1, 1)),
+        ("trailing_1y", asof - pd.Timedelta(days=365)),
+    ):
+        b = base_nav[(b_dates >= start) & (b_dates <= asof)].reset_index(drop=True)
+        c = chal_nav[(c_dates >= start) & (c_dates <= asof)].reset_index(drop=True)
+        if len(b) < 20 or len(c) < 20:
+            out[wname] = {"mdd_improve_pp": None, "cagr_lift_pp": None, "gate": "INSUFFICIENT"}
+            continue
+        bn = b["nav"].astype(float) / float(b["nav"].iloc[0])
+        cn = c["nav"].astype(float) / float(c["nav"].iloc[0])
+        b_mdd = float((bn / bn.cummax() - 1.0).min())
+        c_mdd = float((cn / cn.cummax() - 1.0).min())
+        years = (len(b) - 1) / 252.0
+        bc = float(bn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
+        cc = float(cn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
+        out[wname] = {
+            "mdd_improve_pp": round(float(mdd_delta_pp(b_mdd, c_mdd)), 4),
+            "cagr_lift_pp": None
+            if cagr_lift_pp(bc, cc) is None
+            else round(float(cagr_lift_pp(bc, cc)), 4),
+            "gate": "PASS",
+        }
+    return out
+
+
+def main() -> int:
+    for d in (OUT / "outputs", OUT / "reports", OPS):
+        d.mkdir(parents=True, exist_ok=True)
+
+    base = pd.read_csv(OUT / "outputs/nav_BASE_LIVE_FUSE_COOL.csv", parse_dates=["date"])
+    chal = pd.read_csv(OUT / "outputs/nav_P3_THETA_NEARPEAK3.csv", parse_dates=["date"])
+    base = base[["date", "nav"]].assign(nav=lambda x: x["nav"].astype(float))
+    chal = chal[["date", "nav"]].assign(nav=lambda x: x["nav"].astype(float))
+    base.to_csv(OUT / "outputs/base_live_fuse_cool_daily_nav.csv", index=False)
+    chal.to_csv(OUT / "outputs/p3_theta_nearpeak3_daily_nav.csv", index=False)
+    cmp = base.merge(chal, on="date", suffixes=("_base", "_chal"))
+    cmp.to_csv(OUT / "outputs/dual_paper_nav_compare.csv", index=False)
+
+    bw, cw = pack_windows(base), pack_windows(chal)
+    tip = tip_windows(base, chal)
+    b_h, c_h = bw["heldout_2019_plus"], cw["heldout_2019_plus"]
+    held = {
+        "cagr_lift_pp": round(float(cagr_lift_pp(b_h["cagr"], c_h["cagr"])), 4),
+        "mdd_improve_pp": round(
+            float(mdd_delta_pp(b_h["max_drawdown"], c_h["max_drawdown"])), 4
+        ),
+    }
+
+    payload = {
+        "generated_at_utc": _utc(),
+        "label": OPERATING_ID,
+        "status": STATUS,
+        "human_open": HUMAN_OPEN,
+        "live_wire": False,
+        "cutover_authorized": False,
+        "soft_frozen_keep": True,
+        "path4_live": False,
+        "hybrid_t0_carve": False,
+        "base_id": BASE_ID,
+        "challenger_id": CHAL_ID,
+        "base_windows": bw,
+        "chal_windows": cw,
+        "heldout_delta": held,
+        "tip": tip,
+        "non_actions": [
+            "Soft-Frozen KEEP",
+            "Path4 live OFF",
+            "hybrid Soft-core T+0 carve FORBIDDEN",
+            "Cutover BLOCKED until dedicated ACCEPT",
+        ],
+    }
+    (OUT / "outputs/dual_paper_operating.json").write_text(
+        json.dumps(payload, indent=2) + "\n", encoding="utf-8"
+    )
+    (OPS / f"{OPERATING_ID}.json").write_text(
+        json.dumps(payload, indent=2) + "\n", encoding="utf-8"
+    )
+    write_repro_pointer(
+        OPS / f"{OPERATING_ID}.json",
+        REP / f"{OPERATING_ID}.json",
+        kind="dual-paper operating",
+    )
+
+    md = "\n".join(
+        [
+            "# TIPSOFT_P3_NEARPEAK3 dual-paper observe — OPERATING",
+            "",
+            f"- human_open: `{HUMAN_OPEN}`",
+            "- status: **OPERATING_OBSERVE** · live_wire: false · cutover: **BLOCKED** · "
+            "Soft KEEP · Path4 OFF · hybrid T+0 carve FORBIDDEN",
+            f"- books: `{BASE_ID}` ∥ `{CHAL_ID}` (Exact T+1)",
+            f"- held-out: CAGR↑ {held['cagr_lift_pp']} pp · MDD↑ {held['mdd_improve_pp']} pp",
+            f"- tip ytd CAGR↑ {(tip.get('ytd') or {}).get('cagr_lift_pp')} · "
+            f"tip 1y CAGR↑ {(tip.get('trailing_1y') or {}).get('cagr_lift_pp')}",
+            "",
+            "## Non-actions",
+            "",
+            "- Soft-Frozen KEEP",
+            "- Path4 live OFF",
+            "- hybrid Soft-core T+0 carve FORBIDDEN",
+            "- Cutover BLOCKED until dedicated ACCEPT",
+            "",
+            "Repro: `repro/tipsoft-p3-nearpeak3-paper-observe/`",
+            "",
+        ]
+    )
+    write_ops_and_repro_pointer(
+        OPS / f"{OPERATING_ID}.md",
+        REP / f"{OPERATING_ID}.md",
+        md,
+        kind="dual-paper operating",
+    )
+    print(json.dumps({"status": STATUS, "heldout_delta": held, "tip": tip}, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
