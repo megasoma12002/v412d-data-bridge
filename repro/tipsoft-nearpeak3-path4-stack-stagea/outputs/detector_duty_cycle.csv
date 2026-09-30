@@ -1,0 +1,14 @@
+arm,pct_p3_on,pct_p4_on,note
+REF_P3_THETA_NEARPEAK3,50.83,0.0,0kaw observe challenger: P3 NEARPEAK3 only (no Path4) (frozen SSOT used)
+REF_ALWAYS_P3,100.0,0.0,Always-on tip Soft Path3 (0kap contrast)
+REF_ALWAYS_P3P4,100.0,100.0,Always-on tip Soft P3+P4 CASH_00025 (0kap MDD_BLOCK ref)
+P3NEAR_P4_ALWAYS,50.83,100.0,P3 NEARPEAK3 + Path4 always-on incremental
+P3NEAR_P4_SAME,50.83,50.83,P3 NEARPEAK3 + Path4 only when same NEARPEAK3 gate
+P3NEAR_P4_PEAK3,50.83,70.92,P3 NEARPEAK3 + Path4 whenever Soft near-peak3 (θ not required)
+P3NEAR_P4_PEAK5,50.83,86.57,P3 NEARPEAK3 + Path4 on Soft near-peak5
+P3NEAR_P4_RISKON,50.83,78.43,P3 NEARPEAK3 + Path4 only risk-on
+P3NEAR_P4_DEFEND,50.83,21.57,P3 NEARPEAK3 + Path4 only while COOL defending
+P3NEAR_P4_PROXY05,50.83,40.88,P3 NEARPEAK3 + Path4 when Soft proxy_mdd63 > −5%
+P3NEAR_P4_NOTBLEED,50.83,21.66,P3 NEARPEAK3 + Path4 same gate AND lagged 5d prem_p4 ≥ 0
+P3NEAR_P4_HARD,50.83,18.57,P3 NEARPEAK3 + Path4 ∩ risk-on ∩ not-bleed
+P4_ONLY_NEARPEAK3,0.0,50.83,Path4-only incremental vs L3 on NEARPEAK3 days (no Path3) — diagnostic

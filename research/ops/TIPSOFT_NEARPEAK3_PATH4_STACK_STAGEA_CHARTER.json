@@ -1,0 +1,14 @@
+{
+  "id": "TIPSOFT_NEARPEAK3_PATH4_STACK_STAGEA_CHARTER",
+  "register": "0kax",
+  "parents": [
+    "0kaw",
+    "0kau",
+    "0kap"
+  ],
+  "mech": "TIPSOFT_NEARPEAK3_PATH4_STACK",
+  "clock": "exact_t1",
+  "hybrid_t0_carve": false,
+  "soft_keep": true,
+  "path4_live": false
+}
