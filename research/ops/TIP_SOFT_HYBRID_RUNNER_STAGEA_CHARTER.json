@@ -1,0 +1,13 @@
+{
+  "id": "TIP_SOFT_HYBRID_RUNNER_STAGEA_CHARTER",
+  "register": "0kas",
+  "parents": [
+    "0kar",
+    "0kap",
+    "0kao"
+  ],
+  "runner_id": "TIP_SOFT_HYBRID_T1_OVERLAY_T0_CARVE",
+  "soft_keep": true,
+  "broker": false,
+  "path4_live": false
+}
