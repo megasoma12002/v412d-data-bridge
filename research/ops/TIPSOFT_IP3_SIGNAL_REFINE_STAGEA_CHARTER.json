@@ -1,0 +1,17 @@
+{
+  "id": "TIPSOFT_IP3_SIGNAL_REFINE_STAGEA_CHARTER",
+  "register": "0kaz",
+  "parents": [
+    "0kay",
+    "0kaw",
+    "0kau"
+  ],
+  "mech": "TIPSOFT_IP3_SIGNAL_REFINE",
+  "date": "2026-09-30",
+  "forbidden": [
+    "year_cut",
+    "lookahead_promote",
+    "hybrid_t0",
+    "path4_live"
+  ]
+}
