@@ -16,7 +16,6 @@ Exact T+1 · Soft KEEP · Path4 live OFF · hybrid T+0 FORBIDDEN · no year-cut.
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -24,10 +23,17 @@ import numpy as np
 import pandas as pd
 
 from cool_c8_proxy_observe_helpers import build_cool_c8_exposure
-from e45_paper_harness import WINDOWS_STANDARD, window_stats
 from fin_sell_quality_helpers import cagr_lift_pp
 from ops_repro_ssot import write_ops_and_repro_pointer, write_repro_pointer
-from research_metric_helpers import mdd_delta_pp
+from stagea_screen_helpers import (
+    utc_now_z as _utc,
+    load_nav_csv as _load_nav,
+    returns_from_nav as _returns,
+    nav_from_returns as _nav_from_returns,
+    pack_nav_windows as _pack,
+    tip_lift as _tip,
+    window_delta as _delta,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 REPRO = ROOT / "repro" / "tipsoft-ip3-live-stack-race-stagea"
@@ -66,98 +72,10 @@ HELD_EPS_VS_CHAMP = -0.05
 YEAR_REGRET_IMPROVE_FLOOR = 0.05
 YEAR_WINS_IMPROVE_FLOOR = 1
 
-
-def _utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
-def _load_nav(path: Path) -> pd.DataFrame:
-    df = pd.read_csv(path, parse_dates=["date"])
-    return (
-        df[["date", "nav"]]
-        .assign(
-            date=lambda x: pd.to_datetime(x["date"]).dt.normalize(),
-            nav=lambda x: x["nav"].astype(float),
-        )
-        .sort_values("date")
-        .reset_index(drop=True)
-    )
-
-
-def _returns(nav: pd.DataFrame) -> pd.Series:
-    s = nav.set_index("date")["nav"].astype(float).sort_index()
-    return s.pct_change().fillna(0.0)
-
-
-def _nav_from_returns(r: pd.Series, nav0: float) -> pd.DataFrame:
-    nav = (1.0 + r.fillna(0.0)).cumprod() * float(nav0)
-    return pd.DataFrame({"date": nav.index, "nav": nav.to_numpy()}).reset_index(drop=True)
-
-
 def _dd_from_peak(nav: pd.DataFrame, win: int = 63) -> pd.Series:
     s = nav.set_index("date")["nav"].astype(float).sort_index()
     peak = s.rolling(win, min_periods=5).max()
     return (s / peak - 1.0).fillna(0.0)
-
-
-def _pack(nav: pd.DataFrame) -> dict[str, Any]:
-    out: dict[str, Any] = {}
-    for k, (a, b) in WINDOWS_STANDARD.items():
-        st = window_stats(nav, a, b)
-        out[k] = {
-            "cagr": None if st.get("cagr") is None else round(float(st["cagr"]), 6),
-            "max_drawdown": None
-            if st.get("max_drawdown") is None
-            else round(float(st["max_drawdown"]), 6),
-            "n_days": int(st.get("n_days") or 0),
-        }
-    return out
-
-
-def _tip(base_nav: pd.DataFrame, chal_nav: pd.DataFrame) -> dict[str, Any]:
-    asof = pd.Timestamp(pd.to_datetime(base_nav["date"]).max())
-    b_dates = pd.to_datetime(base_nav["date"])
-    c_dates = pd.to_datetime(chal_nav["date"])
-    out: dict[str, Any] = {}
-    for wname, start in (
-        ("ytd", pd.Timestamp(asof.year, 1, 1)),
-        ("trailing_1y", asof - pd.Timedelta(days=365)),
-    ):
-        b = base_nav[(b_dates >= start) & (b_dates <= asof)].reset_index(drop=True)
-        c = chal_nav[(c_dates >= start) & (c_dates <= asof)].reset_index(drop=True)
-        if len(b) < 20 or len(c) < 20:
-            out[wname] = {"cagr_lift_pp": None, "mdd_improve_pp": None}
-            continue
-        bn = b["nav"].astype(float) / float(b["nav"].iloc[0])
-        cn = c["nav"].astype(float) / float(c["nav"].iloc[0])
-        b_mdd = float((bn / bn.cummax() - 1.0).min())
-        c_mdd = float((cn / cn.cummax() - 1.0).min())
-        years = (len(b) - 1) / 252.0
-        bc = float(bn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        cc = float(cn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        out[wname] = {
-            "cagr_lift_pp": None
-            if cagr_lift_pp(bc, cc) is None
-            else round(float(cagr_lift_pp(bc, cc)), 4),
-            "mdd_improve_pp": round(float(mdd_delta_pp(b_mdd, c_mdd)), 4),
-        }
-    return out
-
-
-def _delta(base_w: dict, chal_w: dict) -> dict[str, Any]:
-    out = {}
-    for k in ("full", "heldout_2019_plus", "sealed_2023_plus"):
-        b, c = base_w.get(k) or {}, chal_w.get(k) or {}
-        out[k] = {
-            "cagr_lift_pp": None
-            if cagr_lift_pp(b.get("cagr"), c.get("cagr")) is None
-            else round(float(cagr_lift_pp(b.get("cagr"), c.get("cagr"))), 4),
-            "mdd_improve_pp": None
-            if b.get("max_drawdown") is None or c.get("max_drawdown") is None
-            else round(float(mdd_delta_pp(b["max_drawdown"], c["max_drawdown"])), 4),
-        }
-    return out
-
 
 def _arm_verdict_vs_live(delta: dict[str, Any], tip: dict[str, Any]) -> str:
     held = delta["heldout_2019_plus"]
@@ -181,7 +99,6 @@ def _arm_verdict_vs_live(delta: dict[str, Any], tip: dict[str, Any]) -> str:
         return "TIP_BLOCK"
     return "NO_EDGE"
 
-
 def _year_rets(r: pd.Series) -> pd.Series:
     df = r.copy().to_frame("r")
     df["year"] = df.index.year
@@ -191,7 +108,6 @@ def _year_rets(r: pd.Series) -> pd.Series:
             continue
         out[int(y)] = float((1.0 + g["r"]).prod() - 1.0) * 100.0
     return pd.Series(out, dtype=float)
-
 
 def _year_oracle_table(
     policy_r: pd.Series, live_r: pd.Series, near_r: pd.Series, p34_r: pd.Series
@@ -245,10 +161,8 @@ def _year_oracle_table(
         "years": rows,
     }
 
-
 def _trail_sum(x: pd.Series, w: int) -> pd.Series:
     return x.shift(1).rolling(int(w), min_periods=max(3, int(w) // 3)).sum()
-
 
 def _three_state_mute_sat(
     nearpeak3: pd.Series,
@@ -281,7 +195,6 @@ def _three_state_mute_sat(
     idx = nearpeak3.index
     return pd.Series(i3, index=idx), pd.Series(i4, index=idx)
 
-
 def _race_pick(trails: list[pd.Series], sticky: int = 0) -> np.ndarray:
     """Daily argmax of trails (already lag-1). Optional sticky min-stay on choice."""
     mat = np.column_stack([t.fillna(-1e9).to_numpy(dtype=float) for t in trails])
@@ -301,7 +214,6 @@ def _race_pick(trails: list[pd.Series], sticky: int = 0) -> np.ndarray:
             out[i] = raw[i]
             age = 1
     return out
-
 
 def main() -> int:
     for d in (OUT, REP, OPS):
@@ -858,7 +770,6 @@ def main() -> int:
         )
     )
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())

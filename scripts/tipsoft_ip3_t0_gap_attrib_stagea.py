@@ -20,16 +20,19 @@ Soft KEEP · Path4 live OFF · no year-cut · no live wire.
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 
-from e45_paper_harness import WINDOWS_STANDARD, window_stats
 from fin_sell_quality_helpers import cagr_lift_pp
 from ops_repro_ssot import write_ops_and_repro_pointer, write_repro_pointer
-from research_metric_helpers import mdd_delta_pp
+from stagea_screen_helpers import (
+    utc_now_z as _utc,
+    pack_nav_windows as _pack,
+    tip_lift as _tip,
+    window_delta as _delta,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 REPRO = ROOT / "repro" / "tipsoft-ip3-t0-gap-attrib-stagea"
@@ -48,11 +51,6 @@ REGISTER = "0kb5"
 PARENTS = ("0kb2", "0kar", "0kav", "0kaq")
 MECH = "TIPSOFT_IP3_T0_GAP_ATTRIB"
 
-
-def _utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
 def _load(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path, parse_dates=["date"])
     return (
@@ -64,66 +62,6 @@ def _load(path: Path) -> pd.DataFrame:
         .sort_values("date")
         .reset_index(drop=True)
     )
-
-
-def _pack(nav: pd.DataFrame) -> dict[str, Any]:
-    out: dict[str, Any] = {}
-    for k, (a, b) in WINDOWS_STANDARD.items():
-        st = window_stats(nav, a, b)
-        out[k] = {
-            "cagr": None if st.get("cagr") is None else round(float(st["cagr"]), 6),
-            "max_drawdown": None
-            if st.get("max_drawdown") is None
-            else round(float(st["max_drawdown"]), 6),
-            "n_days": int(st.get("n_days") or 0),
-        }
-    return out
-
-
-def _tip(base: pd.DataFrame, chal: pd.DataFrame) -> dict[str, Any]:
-    asof = pd.Timestamp(pd.to_datetime(base["date"]).max())
-    b_dates = pd.to_datetime(base["date"])
-    c_dates = pd.to_datetime(chal["date"])
-    out: dict[str, Any] = {}
-    for wname, start in (
-        ("ytd", pd.Timestamp(asof.year, 1, 1)),
-        ("trailing_1y", asof - pd.Timedelta(days=365)),
-    ):
-        b = base[(b_dates >= start) & (b_dates <= asof)].reset_index(drop=True)
-        c = chal[(c_dates >= start) & (c_dates <= asof)].reset_index(drop=True)
-        if len(b) < 20 or len(c) < 20:
-            out[wname] = {"cagr_lift_pp": None, "mdd_improve_pp": None}
-            continue
-        bn = b["nav"].astype(float) / float(b["nav"].iloc[0])
-        cn = c["nav"].astype(float) / float(c["nav"].iloc[0])
-        b_mdd = float((bn / bn.cummax() - 1.0).min())
-        c_mdd = float((cn / cn.cummax() - 1.0).min())
-        years = (len(b) - 1) / 252.0
-        bc = float(bn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        cc = float(cn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        out[wname] = {
-            "cagr_lift_pp": None
-            if cagr_lift_pp(bc, cc) is None
-            else round(float(cagr_lift_pp(bc, cc)), 4),
-            "mdd_improve_pp": round(float(mdd_delta_pp(b_mdd, c_mdd)), 4),
-        }
-    return out
-
-
-def _delta(base_w: dict, chal_w: dict) -> dict[str, Any]:
-    out = {}
-    for k in ("full", "heldout_2019_plus", "sealed_2023_plus"):
-        b, c = base_w.get(k) or {}, chal_w.get(k) or {}
-        out[k] = {
-            "cagr_lift_pp": None
-            if cagr_lift_pp(b.get("cagr"), c.get("cagr")) is None
-            else round(float(cagr_lift_pp(b.get("cagr"), c.get("cagr"))), 4),
-            "mdd_improve_pp": None
-            if b.get("max_drawdown") is None or c.get("max_drawdown") is None
-            else round(float(mdd_delta_pp(b["max_drawdown"], c["max_drawdown"])), 4),
-        }
-    return out
-
 
 def _row(
     name: str,
@@ -154,7 +92,6 @@ def _row(
         ),
         "t0_involved": clock in ("exact_t0", "hybrid_t1_overlay_t0_carve"),
     }
-
 
 def main() -> int:
     for d in (OUT, REP, OPS):
@@ -472,7 +409,6 @@ def main() -> int:
         )
     )
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())
