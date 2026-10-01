@@ -1,0 +1,16 @@
+{
+  "id": "TIPSOFT_IP3_MUTE_TRAIL42_KEEPBOTH_STAGEA_CHARTER",
+  "register": "0kbc",
+  "parents": [
+    "0kbb",
+    "0kba",
+    "0kb9",
+    "0kac"
+  ],
+  "question": "keep-both MUTE\u00d7CASH and TRAIL42\u00d7CASH advantages",
+  "targets": {
+    "trail_tipY_near_pp": 8.0,
+    "mute_sealed_mdd_near_pp": -0.05,
+    "sealed_mdd_floor_pp": -0.25
+  }
+}
