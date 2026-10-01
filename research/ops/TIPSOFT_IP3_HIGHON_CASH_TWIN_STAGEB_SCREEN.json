@@ -1,0 +1,130 @@
+{
+  "id": "TIPSOFT_IP3_HIGHON_CASH_TWIN_STAGEB_SCREEN",
+  "register": "0kba",
+  "parents": [
+    "0kb9",
+    "0kb8",
+    "0kb7",
+    "0kac"
+  ],
+  "generated_at_utc": "2026-10-01T11:55:30Z",
+  "mech": "TIPSOFT_IP3_HIGHON_CASH_TWIN",
+  "verdict": "TWIN_HIT",
+  "base": "L4_LIVE_P3_WITHIN",
+  "stitch": "tip_r = L4_r + (softcore_fill_r - softcore_ALWAYS_WITHIN_r)",
+  "floors": {
+    "held_edge_pp": 0.05,
+    "sealed_mdd_pp": -0.25,
+    "tipY_pp": -1.0
+  },
+  "champion": {
+    "arm": "TWIN_ON_UNLESS_MUTE_CASH",
+    "role": "tip Soft Exact T+1 twin \u00b7 Soft-core ON_UNLESS_MUTE\u00d7FT\u2192CASH delta on L4",
+    "clock": "tipsoft_exact_t1_twin",
+    "held_cagr_lift_vs_L4_pp": 0.8735,
+    "held_mdd_improve_vs_L4_pp": 0.0654,
+    "sealed_cagr_lift_vs_L4_pp": 0.5078,
+    "sealed_mdd_improve_vs_L4_pp": 0.0173,
+    "full_cagr_lift_vs_L4_pp": -0.2404,
+    "tipY_vs_L4_pp": 2.4396,
+    "tip1y_vs_L4_pp": 1.5106,
+    "gate": "ON_UNLESS_MUTE",
+    "softcore_parent": "nav_B_ON_UNLESS_MUTE__FT_TO_CASH.csv",
+    "verdict": "TWIN_HIT"
+  },
+  "arms": [
+    {
+      "arm": "REF_L4",
+      "role": "live tip twin / always Path3 WITHIN",
+      "clock": "tipsoft_exact_t1",
+      "held_cagr_lift_vs_L4_pp": -0.0,
+      "held_mdd_improve_vs_L4_pp": 0.0,
+      "sealed_cagr_lift_vs_L4_pp": -0.0,
+      "sealed_mdd_improve_vs_L4_pp": 0.0,
+      "full_cagr_lift_vs_L4_pp": -0.0,
+      "tipY_vs_L4_pp": -0.0,
+      "tip1y_vs_L4_pp": -0.0
+    },
+    {
+      "arm": "REF_SOFT_REFILL_MUTE",
+      "role": "tip Soft Soft-refill ceiling (WITHIN-loosen)",
+      "clock": "tipsoft_exact_t1",
+      "held_cagr_lift_vs_L4_pp": 0.6702,
+      "held_mdd_improve_vs_L4_pp": 0.2805,
+      "sealed_cagr_lift_vs_L4_pp": 1.4666,
+      "sealed_mdd_improve_vs_L4_pp": 0.4503,
+      "full_cagr_lift_vs_L4_pp": 0.1248,
+      "tipY_vs_L4_pp": 3.1878,
+      "tip1y_vs_L4_pp": 2.4206
+    },
+    {
+      "arm": "TWIN_TRAIL42_CASH",
+      "role": "tip Soft Exact T+1 twin \u00b7 Soft-core TRAIL42_GE_m001\u00d7FT\u2192CASH delta on L4",
+      "clock": "tipsoft_exact_t1_twin",
+      "held_cagr_lift_vs_L4_pp": 1.4549,
+      "held_mdd_improve_vs_L4_pp": 0.026,
+      "sealed_cagr_lift_vs_L4_pp": 2.0026,
+      "sealed_mdd_improve_vs_L4_pp": -0.3632,
+      "full_cagr_lift_vs_L4_pp": 0.0973,
+      "tipY_vs_L4_pp": 11.3364,
+      "tip1y_vs_L4_pp": 10.4582,
+      "gate": "TRAIL42_GE_m001",
+      "softcore_parent": "nav_B_TRAIL42_GE_m001__FT_TO_CASH.csv",
+      "verdict": "TWIN_MDD_BLOCK"
+    },
+    {
+      "arm": "DIAG_SC_TWIN_TRAIL42_CASH",
+      "role": "raw Soft-core TRAIL42_GE_m001\u00d7CASH vs L4 (wrong clock)",
+      "clock": "softcore_t0_diag",
+      "held_cagr_lift_vs_L4_pp": -2.3901,
+      "held_mdd_improve_vs_L4_pp": -8.2885,
+      "sealed_cagr_lift_vs_L4_pp": -2.0227,
+      "sealed_mdd_improve_vs_L4_pp": -6.5331,
+      "full_cagr_lift_vs_L4_pp": -3.2515,
+      "tipY_vs_L4_pp": 3.6742,
+      "tip1y_vs_L4_pp": 3.4926,
+      "verdict": "TWIN_MDD_BLOCK"
+    },
+    {
+      "arm": "TWIN_ON_UNLESS_MUTE_CASH",
+      "role": "tip Soft Exact T+1 twin \u00b7 Soft-core ON_UNLESS_MUTE\u00d7FT\u2192CASH delta on L4",
+      "clock": "tipsoft_exact_t1_twin",
+      "held_cagr_lift_vs_L4_pp": 0.8735,
+      "held_mdd_improve_vs_L4_pp": 0.0654,
+      "sealed_cagr_lift_vs_L4_pp": 0.5078,
+      "sealed_mdd_improve_vs_L4_pp": 0.0173,
+      "full_cagr_lift_vs_L4_pp": -0.2404,
+      "tipY_vs_L4_pp": 2.4396,
+      "tip1y_vs_L4_pp": 1.5106,
+      "gate": "ON_UNLESS_MUTE",
+      "softcore_parent": "nav_B_ON_UNLESS_MUTE__FT_TO_CASH.csv",
+      "verdict": "TWIN_HIT"
+    },
+    {
+      "arm": "DIAG_SC_TWIN_ON_UNLESS_MUTE_CASH",
+      "role": "raw Soft-core ON_UNLESS_MUTE\u00d7CASH vs L4 (wrong clock)",
+      "clock": "softcore_t0_diag",
+      "held_cagr_lift_vs_L4_pp": -2.948,
+      "held_mdd_improve_vs_L4_pp": -8.2526,
+      "sealed_cagr_lift_vs_L4_pp": -3.4583,
+      "sealed_mdd_improve_vs_L4_pp": -6.0182,
+      "full_cagr_lift_vs_L4_pp": -3.5763,
+      "tipY_vs_L4_pp": -4.8961,
+      "tip1y_vs_L4_pp": -5.1152,
+      "verdict": "TWIN_MDD_BLOCK"
+    }
+  ],
+  "n_twin_hit": 1,
+  "optimize_live": [
+    "Question: does tip Soft Exact T+1 twin of Soft-core high-ON\u00d7CASH clear vs L4?",
+    "Verdict `TWIN_HIT`: champion **`TWIN_ON_UNLESS_MUTE_CASH`** held **0.8735** tipY **2.4396** sealedMDD **0.0173**",
+    "Soft-refill ceiling (Track A) held **0.6702** tipY **3.1878** \u2014 still needs WITHIN-loosen ACCEPT",
+    "Disposition: DRAFT dual-paper observe / ACCEPT \u2212P3T0 apply ballot (cash fill \u00b7 Soft FIN/TEL stay OFF)",
+    "Soft KEEP \u00b7 Path4 OFF \u00b7 broker false \u00b7 Soft FIN/TEL stay OFF \u00b7 no live wire"
+  ],
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "live_wire": false,
+  "label": "TIPSOFT_IP3_HIGHON_CASH_TWIN_STAGEB_SCREEN_2026-10-01__TWIN_HIT"
+}

@@ -1,0 +1,70 @@
+{
+  "id": "TIPSOFT_IP3_MUTE_TRAIL42_KEEPBOTH_STAGEA_DECISION_PACK",
+  "register": "0kbc",
+  "parents": [
+    "0kbb",
+    "0kba",
+    "0kb9",
+    "0kac"
+  ],
+  "verdict": "KEEPBOTH_PARTIAL",
+  "champion": {
+    "arm": "BLEND_TRAIL_a50",
+    "role": "return-blend tip Soft twins \u00b7 \u03b1_TRAIL=0.5",
+    "clock": "tipsoft_return_blend",
+    "live_eligible": true,
+    "held_cagr_lift_vs_L4_pp": 1.1745,
+    "held_mdd_improve_vs_L4_pp": 0.0457,
+    "sealed_cagr_lift_vs_L4_pp": 1.2704,
+    "sealed_mdd_improve_vs_L4_pp": -0.1719,
+    "full_cagr_lift_vs_L4_pp": -0.0649,
+    "tipY_vs_L4_pp": 6.8797,
+    "tip1y_vs_L4_pp": 5.9554,
+    "alpha_trail": 0.5,
+    "verdict": "PARTIAL_MIX"
+  },
+  "census": {
+    "mute_on_pct": 94.385,
+    "trail42_on_pct": 94.7415,
+    "both_on_pct": 92.8402,
+    "mute_only_n": 52,
+    "mute_only_pct": 1.5449,
+    "tr42_only_n": 64,
+    "tr42_only_pct": 1.9014,
+    "both_off_pct": 3.7136,
+    "note": "MUTE sealed edge concentrated on mute_only (stay Path3 ON); TRAIL tipY largely path-dependent on both_on after prior OFF episodes + tipY2026"
+  },
+  "attribution_tip_excess": {
+    "both_on": {
+      "n": 3119,
+      "mute_excess_sum": -0.0092,
+      "trail_excess_sum": 0.063,
+      "trail_minus_mute": 0.0722
+    },
+    "mute_only": {
+      "n": 52,
+      "mute_excess_sum": 0.0113,
+      "trail_excess_sum": -0.003,
+      "trail_minus_mute": -0.0142
+    },
+    "tr42_only": {
+      "n": 64,
+      "mute_excess_sum": 0.0183,
+      "trail_excess_sum": 0.0008,
+      "trail_minus_mute": -0.0175
+    },
+    "both_off": {
+      "n": 125,
+      "mute_excess_sum": -0.0682,
+      "trail_excess_sum": -0.0676,
+      "trail_minus_mute": 0.0007
+    }
+  },
+  "n_keepboth_hit": 0,
+  "generated_at_utc": "2026-10-01T12:13:04Z",
+  "label": "TIPSOFT_IP3_MUTE_TRAIL42_KEEPBOTH_STAGEA_DECISION_PACK_2026-10-01__KEEPBOTH_PARTIAL__NO_LIVE",
+  "soft_fin_tel": "OFF",
+  "path4_live": false,
+  "broker": false,
+  "live_wire": false
+}

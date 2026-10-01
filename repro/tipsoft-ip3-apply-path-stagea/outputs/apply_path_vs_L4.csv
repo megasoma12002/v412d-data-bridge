@@ -1,0 +1,10 @@
+arm,role,ownership,soft_fin_tel_required,feasible_under_path3_within_keep,held_cagr_lift_vs_L4_pp,held_mdd_improve_vs_L4_pp,sealed_cagr_lift_vs_L4_pp,sealed_mdd_improve_vs_L4_pp,full_cagr_lift_vs_L4_pp,tipY_vs_L4_pp,tip1y_vs_L4_pp
+KEEP_STAMPS_L4,live tip twin / stamps-only baseline,path3_within_fin_tel,False,True,-0.0,0.0,-0.0,0.0,-0.0,0.0,0.0
+ATTR_CHAMP_MUTE_S3_SAT,attribution: MUTE_S3_SAT champ alone vs L4 (non-override stack),soft_shell_plus_gated_path3,True,False,0.6702,0.2805,1.4666,0.4503,0.1248,3.1878,2.4206
+ATTR_LIVE_SHELL,attribution: Soft live shell alone vs L4,soft_shell,True,False,-0.8475,0.3234,-1.7529,0.5026,-0.3296,-2.8524,-2.0757
+PAPER_OVERRIDE_W42_M05_K3,research return blend ceiling (Soft shell ↔ MUTE_S3_SAT),soft_shell_or_stack,True,False,0.7661,0.2805,1.6682,0.4503,0.4085,3.1878,2.4206
+APPLY_P3MUTE_OV,mute Path3 premium on override_on → Soft shell returns,path3_mute_needs_soft_or_fill,True,False,0.1212,0.0,0.4379,0.0,0.3297,0.0,0.0
+APPLY_P3ALPHA_A025,soft-α Path3 tilt on override_on (α→Soft; Path3 owns FIN/TEL),path3_within_fin_tel,False,True,0.0912,0.0,0.3288,0.0,0.2479,-0.0,0.0
+APPLY_P3ALPHA_A05,soft-α Path3 tilt on override_on (α→Soft; Path3 owns FIN/TEL),path3_within_fin_tel,False,True,0.061,0.0,0.2195,0.0,0.1657,0.0,0.0
+APPLY_P3ALPHA_A075,soft-α Path3 tilt on override_on (α→Soft; Path3 owns FIN/TEL),path3_within_fin_tel,False,True,0.0306,0.0,0.1099,0.0,0.0831,-0.0,0.0
+PAPER_OVERRIDE_SEALED,sealed observe NAV (SSOT tip numbers),soft_shell_or_stack,True,False,0.7661,0.2805,1.6682,0.4503,0.4085,3.1878,2.4206

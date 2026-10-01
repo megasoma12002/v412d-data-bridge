@@ -1,0 +1,7 @@
+arm,role,clock,held_cagr_lift_vs_L4_pp,held_mdd_improve_vs_L4_pp,sealed_cagr_lift_vs_L4_pp,sealed_mdd_improve_vs_L4_pp,full_cagr_lift_vs_L4_pp,tipY_vs_L4_pp,tip1y_vs_L4_pp,gate,softcore_parent,verdict
+REF_L4,live tip twin / always Path3 WITHIN,tipsoft_exact_t1,-0.0,0.0,-0.0,0.0,-0.0,-0.0,-0.0,,,
+REF_SOFT_REFILL_MUTE,tip Soft Soft-refill ceiling (WITHIN-loosen),tipsoft_exact_t1,0.6702,0.2805,1.4666,0.4503,0.1248,3.1878,2.4206,,,
+TWIN_TRAIL42_CASH,tip Soft Exact T+1 twin · Soft-core TRAIL42_GE_m001×FT→CASH delta on L4,tipsoft_exact_t1_twin,1.4549,0.026,2.0026,-0.3632,0.0973,11.3364,10.4582,TRAIL42_GE_m001,nav_B_TRAIL42_GE_m001__FT_TO_CASH.csv,TWIN_MDD_BLOCK
+DIAG_SC_TWIN_TRAIL42_CASH,raw Soft-core TRAIL42_GE_m001×CASH vs L4 (wrong clock),softcore_t0_diag,-2.3901,-8.2885,-2.0227,-6.5331,-3.2515,3.6742,3.4926,,,TWIN_MDD_BLOCK
+TWIN_ON_UNLESS_MUTE_CASH,tip Soft Exact T+1 twin · Soft-core ON_UNLESS_MUTE×FT→CASH delta on L4,tipsoft_exact_t1_twin,0.8735,0.0654,0.5078,0.0173,-0.2404,2.4396,1.5106,ON_UNLESS_MUTE,nav_B_ON_UNLESS_MUTE__FT_TO_CASH.csv,TWIN_HIT
+DIAG_SC_TWIN_ON_UNLESS_MUTE_CASH,raw Soft-core ON_UNLESS_MUTE×CASH vs L4 (wrong clock),softcore_t0_diag,-2.948,-8.2526,-3.4583,-6.0182,-3.5763,-4.8961,-5.1152,,,TWIN_MDD_BLOCK

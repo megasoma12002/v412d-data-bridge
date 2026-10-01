@@ -1,0 +1,16 @@
+{
+  "id": "TIPSOFT_IP3_HIGHON_CASH_OBSERVE_BALLOT_DRAFT",
+  "register": "0kba",
+  "status": "DRAFT_AWAITING_OPEN",
+  "policy_id": "TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH",
+  "open_line": "OPEN paper observe: TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH\n(tip Soft Exact T+1 · Path3 ON unless lag63 prem_p3<-0.01 ∧ sat_lead ·\n Path3 OFF → FIN∪TEL→cash · Soft FIN/TEL stay OFF · NOT Soft-refill · NOT hybrid T+0)",
+  "champion_arm": "TWIN_ON_UNLESS_MUTE_CASH",
+  "held_vs_L4_pp": 0.8735,
+  "tipY_vs_L4_pp": 2.4396,
+  "sealed_mdd_vs_L4_pp": 0.0173,
+  "soft_fin_tel": "OFF",
+  "path4_live": false,
+  "broker": false,
+  "live_wire": false,
+  "label": "TIPSOFT_IP3_HIGHON_CASH_OBSERVE_BALLOT_DRAFT_2026-10-01__AWAITING_OPEN__NO_LIVE"
+}

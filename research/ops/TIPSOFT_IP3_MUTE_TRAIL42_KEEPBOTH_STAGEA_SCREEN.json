@@ -1,0 +1,353 @@
+{
+  "generated_at_utc": "2026-10-01T12:13:04Z",
+  "register": "0kbc",
+  "mech": "TIPSOFT_IP3_MUTE_TRAIL42_KEEPBOTH",
+  "census": {
+    "mute_on_pct": 94.385,
+    "trail42_on_pct": 94.7415,
+    "both_on_pct": 92.8402,
+    "mute_only_n": 52,
+    "mute_only_pct": 1.5449,
+    "tr42_only_n": 64,
+    "tr42_only_pct": 1.9014,
+    "both_off_pct": 3.7136,
+    "note": "MUTE sealed edge concentrated on mute_only (stay Path3 ON); TRAIL tipY largely path-dependent on both_on after prior OFF episodes + tipY2026"
+  },
+  "attribution_tip_excess": {
+    "both_on": {
+      "n": 3119,
+      "mute_excess_sum": -0.0092,
+      "trail_excess_sum": 0.063,
+      "trail_minus_mute": 0.0722
+    },
+    "mute_only": {
+      "n": 52,
+      "mute_excess_sum": 0.0113,
+      "trail_excess_sum": -0.003,
+      "trail_minus_mute": -0.0142
+    },
+    "tr42_only": {
+      "n": 64,
+      "mute_excess_sum": 0.0183,
+      "trail_excess_sum": 0.0008,
+      "trail_minus_mute": -0.0175
+    },
+    "both_off": {
+      "n": 125,
+      "mute_excess_sum": -0.0682,
+      "trail_excess_sum": -0.0676,
+      "trail_minus_mute": 0.0007
+    }
+  },
+  "keepboth_targets": {
+    "trail_tipY_near_pp": 8.0,
+    "mute_sealed_mdd_near_pp": -0.05,
+    "sealed_mdd_floor_pp": -0.25
+  },
+  "n_arms": 16,
+  "n_keepboth_hit": 0,
+  "n_partial_trail": 5,
+  "n_partial_mute": 7,
+  "n_diag_ceiling": 1,
+  "champion": {
+    "arm": "BLEND_TRAIL_a50",
+    "role": "return-blend tip Soft twins \u00b7 \u03b1_TRAIL=0.5",
+    "clock": "tipsoft_return_blend",
+    "live_eligible": true,
+    "held_cagr_lift_vs_L4_pp": 1.1745,
+    "held_mdd_improve_vs_L4_pp": 0.0457,
+    "sealed_cagr_lift_vs_L4_pp": 1.2704,
+    "sealed_mdd_improve_vs_L4_pp": -0.1719,
+    "full_cagr_lift_vs_L4_pp": -0.0649,
+    "tipY_vs_L4_pp": 6.8797,
+    "tip1y_vs_L4_pp": 5.9554,
+    "alpha_trail": 0.5,
+    "verdict": "PARTIAL_MIX"
+  },
+  "verdict": "KEEPBOTH_PARTIAL",
+  "rows": [
+    {
+      "arm": "REF_TWIN_MUTE_CASH",
+      "role": "parent observe 0kba ON_UNLESS_MUTE\u00d7CASH twin",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 0.8735,
+      "held_mdd_improve_vs_L4_pp": 0.0654,
+      "sealed_cagr_lift_vs_L4_pp": 0.5078,
+      "sealed_mdd_improve_vs_L4_pp": 0.0173,
+      "full_cagr_lift_vs_L4_pp": -0.2404,
+      "tipY_vs_L4_pp": 2.4396,
+      "tip1y_vs_L4_pp": 1.5106,
+      "verdict": "PARTIAL_MUTE_MDD",
+      "pct_on_gate": 94.385
+    },
+    {
+      "arm": "REF_TWIN_TRAIL42_CASH",
+      "role": "parent observe 0kbb TRAIL42\u00d7CASH twin",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 1.4549,
+      "held_mdd_improve_vs_L4_pp": 0.026,
+      "sealed_cagr_lift_vs_L4_pp": 2.0026,
+      "sealed_mdd_improve_vs_L4_pp": -0.3632,
+      "full_cagr_lift_vs_L4_pp": 0.0973,
+      "tipY_vs_L4_pp": 11.3364,
+      "tip1y_vs_L4_pp": 10.4582,
+      "verdict": "PARTIAL_TRAIL_TIPY",
+      "pct_on_gate": 94.7415
+    },
+    {
+      "arm": "TWIN_REF_MUTE__FT_CASH",
+      "role": "tip Soft twin \u00b7 hybrid gate REF_MUTE \u00d7 FT\u2192CASH",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 0.8735,
+      "held_mdd_improve_vs_L4_pp": 0.0654,
+      "sealed_cagr_lift_vs_L4_pp": 0.5078,
+      "sealed_mdd_improve_vs_L4_pp": 0.0173,
+      "full_cagr_lift_vs_L4_pp": -0.2404,
+      "tipY_vs_L4_pp": 2.4396,
+      "tip1y_vs_L4_pp": 1.5106,
+      "gate": "REF_MUTE",
+      "pct_on_gate": 94.385,
+      "softcore_meta": {
+        "fill": "FT_TO_CASH",
+        "n_days": 3360
+      },
+      "verdict": "PARTIAL_MUTE_MDD"
+    },
+    {
+      "arm": "TWIN_REF_TRAIL42__FT_CASH",
+      "role": "tip Soft twin \u00b7 hybrid gate REF_TRAIL42 \u00d7 FT\u2192CASH",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 1.4549,
+      "held_mdd_improve_vs_L4_pp": 0.026,
+      "sealed_cagr_lift_vs_L4_pp": 2.0026,
+      "sealed_mdd_improve_vs_L4_pp": -0.3632,
+      "full_cagr_lift_vs_L4_pp": 0.0973,
+      "tipY_vs_L4_pp": 11.3364,
+      "tip1y_vs_L4_pp": 10.4582,
+      "gate": "REF_TRAIL42",
+      "pct_on_gate": 94.7415,
+      "softcore_meta": {
+        "fill": "FT_TO_CASH",
+        "n_days": 3360
+      },
+      "verdict": "PARTIAL_TRAIL_TIPY"
+    },
+    {
+      "arm": "TWIN_OR_MUTE_TRAIL42__FT_CASH",
+      "role": "tip Soft twin \u00b7 hybrid gate OR_MUTE_TRAIL42 \u00d7 FT\u2192CASH",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 0.9811,
+      "held_mdd_improve_vs_L4_pp": 0.0371,
+      "sealed_cagr_lift_vs_L4_pp": 0.7765,
+      "sealed_mdd_improve_vs_L4_pp": 0.0239,
+      "full_cagr_lift_vs_L4_pp": -0.3765,
+      "tipY_vs_L4_pp": 2.2896,
+      "tip1y_vs_L4_pp": 1.3617,
+      "gate": "OR_MUTE_TRAIL42",
+      "pct_on_gate": 96.2864,
+      "softcore_meta": {
+        "fill": "FT_TO_CASH",
+        "n_days": 3360
+      },
+      "verdict": "PARTIAL_MUTE_MDD"
+    },
+    {
+      "arm": "TWIN_AND_MUTE_TRAIL42__FT_CASH",
+      "role": "tip Soft twin \u00b7 hybrid gate AND_MUTE_TRAIL42 \u00d7 FT\u2192CASH",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 1.3878,
+      "held_mdd_improve_vs_L4_pp": 0.0545,
+      "sealed_cagr_lift_vs_L4_pp": 1.8206,
+      "sealed_mdd_improve_vs_L4_pp": -0.3817,
+      "full_cagr_lift_vs_L4_pp": 0.2555,
+      "tipY_vs_L4_pp": 11.784,
+      "tip1y_vs_L4_pp": 10.9143,
+      "gate": "AND_MUTE_TRAIL42",
+      "pct_on_gate": 92.8402,
+      "softcore_meta": {
+        "fill": "FT_TO_CASH",
+        "n_days": 3360
+      },
+      "verdict": "PARTIAL_TRAIL_TIPY"
+    },
+    {
+      "arm": "TWIN_TRAIL42_PLUS_MUTE_ONLY_ON__FT_CASH",
+      "role": "tip Soft twin \u00b7 hybrid gate TRAIL42_PLUS_MUTE_ONLY_ON \u00d7 FT\u2192CASH",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 0.9811,
+      "held_mdd_improve_vs_L4_pp": 0.0371,
+      "sealed_cagr_lift_vs_L4_pp": 0.7765,
+      "sealed_mdd_improve_vs_L4_pp": 0.0239,
+      "full_cagr_lift_vs_L4_pp": -0.3765,
+      "tipY_vs_L4_pp": 2.2896,
+      "tip1y_vs_L4_pp": 1.3617,
+      "gate": "TRAIL42_PLUS_MUTE_ONLY_ON",
+      "pct_on_gate": 96.2864,
+      "softcore_meta": {
+        "fill": "FT_TO_CASH",
+        "n_days": 3360
+      },
+      "verdict": "PARTIAL_MUTE_MDD"
+    },
+    {
+      "arm": "TWIN_MUTE_PLUS_TRAIL_ONLY_ON__FT_CASH",
+      "role": "tip Soft twin \u00b7 hybrid gate MUTE_PLUS_TRAIL_ONLY_ON \u00d7 FT\u2192CASH",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 0.9811,
+      "held_mdd_improve_vs_L4_pp": 0.0371,
+      "sealed_cagr_lift_vs_L4_pp": 0.7765,
+      "sealed_mdd_improve_vs_L4_pp": 0.0239,
+      "full_cagr_lift_vs_L4_pp": -0.3765,
+      "tipY_vs_L4_pp": 2.2896,
+      "tip1y_vs_L4_pp": 1.3617,
+      "gate": "MUTE_PLUS_TRAIL_ONLY_ON",
+      "pct_on_gate": 96.2864,
+      "softcore_meta": {
+        "fill": "FT_TO_CASH",
+        "n_days": 3360
+      },
+      "verdict": "PARTIAL_MUTE_MDD"
+    },
+    {
+      "arm": "TWIN_TRAIL42_OFF_IF_SAT__FT_CASH",
+      "role": "tip Soft twin \u00b7 hybrid gate TRAIL42_OFF_IF_SAT \u00d7 FT\u2192CASH",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 0.844,
+      "held_mdd_improve_vs_L4_pp": 0.0471,
+      "sealed_cagr_lift_vs_L4_pp": 0.6801,
+      "sealed_mdd_improve_vs_L4_pp": 0.0212,
+      "full_cagr_lift_vs_L4_pp": -0.351,
+      "tipY_vs_L4_pp": 2.3518,
+      "tip1y_vs_L4_pp": 1.4234,
+      "gate": "TRAIL42_OFF_IF_SAT",
+      "pct_on_gate": 95.9002,
+      "softcore_meta": {
+        "fill": "FT_TO_CASH",
+        "n_days": 3360
+      },
+      "verdict": "PARTIAL_MUTE_MDD"
+    },
+    {
+      "arm": "TWIN_OFF_IF_TRAIL42_SAT_OR_MUTE__FT_CASH",
+      "role": "tip Soft twin \u00b7 hybrid gate OFF_IF_TRAIL42_SAT_OR_MUTE \u00d7 FT\u2192CASH",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 0.7362,
+      "held_mdd_improve_vs_L4_pp": 0.0752,
+      "sealed_cagr_lift_vs_L4_pp": 0.4112,
+      "sealed_mdd_improve_vs_L4_pp": 0.0145,
+      "full_cagr_lift_vs_L4_pp": -0.2146,
+      "tipY_vs_L4_pp": 2.5041,
+      "tip1y_vs_L4_pp": 1.5747,
+      "gate": "OFF_IF_TRAIL42_SAT_OR_MUTE",
+      "pct_on_gate": 93.9988,
+      "softcore_meta": {
+        "fill": "FT_TO_CASH",
+        "n_days": 3360
+      },
+      "verdict": "PARTIAL_MUTE_MDD"
+    },
+    {
+      "arm": "TWIN_TRAIL42_HYST_OFF_R3__FT_CASH",
+      "role": "tip Soft twin \u00b7 hybrid gate TRAIL42_HYST_OFF_R3 \u00d7 FT\u2192CASH",
+      "clock": "tipsoft_exact_t1_twin",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 0.2954,
+      "held_mdd_improve_vs_L4_pp": 0.0909,
+      "sealed_cagr_lift_vs_L4_pp": 0.1329,
+      "sealed_mdd_improve_vs_L4_pp": -0.3361,
+      "full_cagr_lift_vs_L4_pp": -0.0718,
+      "tipY_vs_L4_pp": 10.6852,
+      "tip1y_vs_L4_pp": 9.7955,
+      "gate": "TRAIL42_HYST_OFF_R3",
+      "pct_on_gate": 88.5027,
+      "softcore_meta": {
+        "fill": "FT_TO_CASH",
+        "n_days": 3360
+      },
+      "verdict": "PARTIAL_TRAIL_TIPY"
+    },
+    {
+      "arm": "BLEND_TRAIL_a25",
+      "role": "return-blend tip Soft twins \u00b7 \u03b1_TRAIL=0.25",
+      "clock": "tipsoft_return_blend",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 1.0266,
+      "held_mdd_improve_vs_L4_pp": 0.0555,
+      "sealed_cagr_lift_vs_L4_pp": 0.8929,
+      "sealed_mdd_improve_vs_L4_pp": -0.0771,
+      "full_cagr_lift_vs_L4_pp": -0.1509,
+      "tipY_vs_L4_pp": 4.6572,
+      "tip1y_vs_L4_pp": 3.7255,
+      "alpha_trail": 0.25,
+      "verdict": "PARTIAL_MIX"
+    },
+    {
+      "arm": "BLEND_TRAIL_a50",
+      "role": "return-blend tip Soft twins \u00b7 \u03b1_TRAIL=0.5",
+      "clock": "tipsoft_return_blend",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 1.1745,
+      "held_mdd_improve_vs_L4_pp": 0.0457,
+      "sealed_cagr_lift_vs_L4_pp": 1.2704,
+      "sealed_mdd_improve_vs_L4_pp": -0.1719,
+      "full_cagr_lift_vs_L4_pp": -0.0649,
+      "tipY_vs_L4_pp": 6.8797,
+      "tip1y_vs_L4_pp": 5.9554,
+      "alpha_trail": 0.5,
+      "verdict": "PARTIAL_MIX"
+    },
+    {
+      "arm": "BLEND_TRAIL_a75",
+      "role": "return-blend tip Soft twins \u00b7 \u03b1_TRAIL=0.75",
+      "clock": "tipsoft_return_blend",
+      "live_eligible": true,
+      "held_cagr_lift_vs_L4_pp": 1.3173,
+      "held_mdd_improve_vs_L4_pp": 0.0358,
+      "sealed_cagr_lift_vs_L4_pp": 1.6403,
+      "sealed_mdd_improve_vs_L4_pp": -0.2673,
+      "full_cagr_lift_vs_L4_pp": 0.0179,
+      "tipY_vs_L4_pp": 9.1064,
+      "tip1y_vs_L4_pp": 8.1997,
+      "alpha_trail": 0.75,
+      "verdict": "PARTIAL_TRAIL_TIPY"
+    },
+    {
+      "arm": "DIAG_ORACLE_DAYMAX",
+      "role": "LOOKAHEAD ceiling: daily max(MUTE,TRAIL) tip Soft returns",
+      "clock": "diag_lookahead",
+      "live_eligible": false,
+      "held_cagr_lift_vs_L4_pp": 9.4495,
+      "held_mdd_improve_vs_L4_pp": 0.0949,
+      "sealed_cagr_lift_vs_L4_pp": 16.0134,
+      "sealed_mdd_improve_vs_L4_pp": 1.1946,
+      "full_cagr_lift_vs_L4_pp": 5.0566,
+      "tipY_vs_L4_pp": 65.3631,
+      "tip1y_vs_L4_pp": 52.9251,
+      "verdict": "DIAG_KEEPBOTH_CEILING"
+    },
+    {
+      "arm": "DIAG_SEALED_MUTE_ELSE_TRAIL",
+      "role": "LOOKAHEAD: MUTE twin in sealed 2023+ else TRAIL twin",
+      "clock": "diag_lookahead",
+      "live_eligible": false,
+      "held_cagr_lift_vs_L4_pp": 0.7679,
+      "held_mdd_improve_vs_L4_pp": 0.026,
+      "sealed_cagr_lift_vs_L4_pp": 0.5078,
+      "sealed_mdd_improve_vs_L4_pp": 0.0173,
+      "full_cagr_lift_vs_L4_pp": -0.2682,
+      "tipY_vs_L4_pp": 2.4396,
+      "tip1y_vs_L4_pp": 1.5106,
+      "verdict": "DIAG_ONLY"
+    }
+  ]
+}

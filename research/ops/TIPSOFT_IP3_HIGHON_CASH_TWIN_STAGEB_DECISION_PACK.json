@@ -1,0 +1,36 @@
+{
+  "id": "TIPSOFT_IP3_HIGHON_CASH_TWIN_STAGEB_DECISION_PACK",
+  "register": "0kba",
+  "parents": [
+    "0kb9",
+    "0kb8",
+    "0kb7",
+    "0kac"
+  ],
+  "verdict": "TWIN_HIT",
+  "champion": {
+    "arm": "TWIN_ON_UNLESS_MUTE_CASH",
+    "role": "tip Soft Exact T+1 twin \u00b7 Soft-core ON_UNLESS_MUTE\u00d7FT\u2192CASH delta on L4",
+    "clock": "tipsoft_exact_t1_twin",
+    "held_cagr_lift_vs_L4_pp": 0.8735,
+    "held_mdd_improve_vs_L4_pp": 0.0654,
+    "sealed_cagr_lift_vs_L4_pp": 0.5078,
+    "sealed_mdd_improve_vs_L4_pp": 0.0173,
+    "full_cagr_lift_vs_L4_pp": -0.2404,
+    "tipY_vs_L4_pp": 2.4396,
+    "tip1y_vs_L4_pp": 1.5106,
+    "gate": "ON_UNLESS_MUTE",
+    "softcore_parent": "nav_B_ON_UNLESS_MUTE__FT_TO_CASH.csv",
+    "verdict": "TWIN_HIT"
+  },
+  "generated_at_utc": "2026-10-01T11:55:30Z",
+  "optimize_live": [
+    "Question: does tip Soft Exact T+1 twin of Soft-core high-ON\u00d7CASH clear vs L4?",
+    "Verdict `TWIN_HIT`: champion **`TWIN_ON_UNLESS_MUTE_CASH`** held **0.8735** tipY **2.4396** sealedMDD **0.0173**",
+    "Soft-refill ceiling (Track A) held **0.6702** tipY **3.1878** \u2014 still needs WITHIN-loosen ACCEPT",
+    "Disposition: DRAFT dual-paper observe / ACCEPT \u2212P3T0 apply ballot (cash fill \u00b7 Soft FIN/TEL stay OFF)",
+    "Soft KEEP \u00b7 Path4 OFF \u00b7 broker false \u00b7 Soft FIN/TEL stay OFF \u00b7 no live wire"
+  ],
+  "live_wire": false,
+  "label": "TIPSOFT_IP3_HIGHON_CASH_TWIN_STAGEB_DECISION_PACK_2026-10-01__TWIN_HIT__NO_LIVE"
+}
