@@ -1,0 +1,22 @@
+{
+  "id": "TIPSOFT_IP3_TRAIL42_CASH_OBSERVE_BALLOT_EXECUTED_OPEN",
+  "register": "0kbb",
+  "status": "EXECUTED_OPEN",
+  "human_mdd": "Trail42 cash\u7684mdd\u53ef\u63a5\u53d7",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_TRAIL42_FT_CASH\n(tip Soft Exact T+1 \u00b7 Path3 ON when trail42d prem_p3\u2265\u22120.01 \u00b7\n Path3 OFF \u2192 FIN\u222aTEL\u2192cash \u00b7 Soft FIN/TEL stay OFF \u00b7 sealed MDD \u22120.36 ACCEPTABLE \u00b7\n NOT Soft-refill \u00b7 NOT hybrid T+0)",
+  "disposition": "TIPSOFT_IP3_TRAIL42_CASH_SEALED_MDD_DISPOSITION",
+  "policy_id": "TIPSOFT_P3_TRAIL42_FT_CASH",
+  "operating": "TIPSOFT_IP3_TRAIL42_CASH_DUAL_PAPER_OBSERVE_OPERATING",
+  "live_wire": false,
+  "cutover_authorized": false,
+  "apply_authorized": false,
+  "soft_fin_tel": "OFF",
+  "path4_live": false,
+  "broker": false,
+  "held_vs_L4_pp": 1.4549,
+  "tipY_vs_L4_pp": 11.3364,
+  "sealed_mdd_vs_L4_pp": -0.3632,
+  "sealed_mdd_disposition": "ACCEPTABLE",
+  "generated_at_utc": "2026-10-01T12:05:00Z",
+  "label": "TIPSOFT_IP3_TRAIL42_CASH_OBSERVE_BALLOT_EXECUTED_OPEN_2026-10-01__OPEN__NO_LIVE"
+}

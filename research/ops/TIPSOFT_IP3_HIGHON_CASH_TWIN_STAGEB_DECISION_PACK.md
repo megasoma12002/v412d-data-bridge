@@ -8,7 +8,7 @@ Register: **0kba** · Parents: 0kb9, 0kb8, 0kb7, 0kac
 **Tip Soft Exact T+1 twin clears — champion `TWIN_ON_UNLESS_MUTE_CASH`.**
 
 - Champion vs L4: held **0.8735** tipY **2.4396** sealedMDD **0.0173**
-- Sensitivity `TWIN_TRAIL42_CASH`: held **+1.45** tipY **+11.34** sealedMDD **−0.36** → **MDD_BLOCK** (not observe champ)
+- Sensitivity `TWIN_TRAIL42_CASH`: held **+1.45** tipY **+11.34** sealedMDD **−0.36** → was **MDD_BLOCK**; human **ACCEPTABLE** 2026-10-01 → observe OPEN `TIPSOFT_P3_TRAIL42_FT_CASH` (0kbb) · see `TIPSOFT_IP3_TRAIL42_CASH_SEALED_MDD_DISPOSITION.md`
 - Soft-refill ceiling tipY **3.1878** (WITHIN-loosen only)
 
 ## Disposition
