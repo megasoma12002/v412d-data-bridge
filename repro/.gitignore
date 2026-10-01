@@ -4,12 +4,19 @@ e50a3r1-audit-20260903/inputs/
 e50a3r1-audit-20260903/ci_reference/
 
 # Paper research scratch — do not commit bulky sim dumps
+# (also nested outputs/<sub>/… — Batch D)
 **/outputs/*_fills.csv
 **/outputs/*fills*.csv
+**/outputs/**/*_fills.csv
+**/outputs/**/*fills*.csv
 **/outputs/*_daily_nav.csv
 **/outputs/*daily_nav*.csv
+**/outputs/**/*_daily_nav.csv
+**/outputs/**/*daily_nav*.csv
 **/outputs/*fill_extreme_detail.*
+**/outputs/**/*fill_extreme_detail.*
 **/outputs/*fuse_cool_nav.csv
+**/outputs/**/*fuse_cool_nav.csv
 
 # Reports must not mirror bulky outputs (SSOT = outputs/; see REPRO_DEDUPE_HYGIENE.md)
 **/reports/nav_*.csv

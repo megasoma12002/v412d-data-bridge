@@ -88,4 +88,4 @@ On `CTRL_BASE` (= Soft + Sleeve + **SELL_a75** + FUSE + COOL), does a finite **t
 PYTHONPATH=scripts python3 scripts/fin_sell_new_mech_stagea.py
 ```
 
-Artifacts: `research/ops/FIN_SELL_NEW_MECH_STAGEA_*` · `repro/fin-sell-new-mech-stagea/`
+Artifacts: `research/ops/FIN_SELL_NEW_MECH_STAGEA_*` · `archive/repro/fin-sell-new-mech-stagea/`

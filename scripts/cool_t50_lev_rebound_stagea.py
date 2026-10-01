@@ -18,7 +18,7 @@ import cool_t50_inv_satellite_stagea as sat
 from live_config import LIVE_FUSE_SOFT_SELL_BOOST
 
 ROOT = Path(__file__).resolve().parents[1]
-REPRO = ROOT / "repro" / "cool-t50-lev-rebound-stagea"
+REPRO = ROOT / "archive" / "repro" / "cool-t50-lev-rebound-stagea"
 OUT = REPRO / "outputs"
 REP = REPRO / "reports"
 OPS = ROOT / "research" / "ops"

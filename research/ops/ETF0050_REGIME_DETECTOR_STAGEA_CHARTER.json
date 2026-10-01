@@ -25,7 +25,7 @@
   "charter": "research/ops/ETF0050_REGIME_DETECTOR_STAGEA_CHARTER.md",
   "charter_zh_tw": "research/ops/ETF0050_REGIME_DETECTOR_STAGEA_CHARTER.zh-TW.md",
   "script": "scripts/etf0050_regime_detector_stagea.py",
-  "repro": "repro/etf0050-regime-detector-stagea/",
+  "repro": "archive/repro/etf0050-regime-detector-stagea/",
   "register": "1f",
   "gates": {
     "held_cagr_pp": 0.15,

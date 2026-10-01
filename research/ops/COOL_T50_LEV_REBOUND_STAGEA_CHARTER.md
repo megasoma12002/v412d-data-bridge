@@ -106,7 +106,7 @@ Even HIT → **paper observe only**; live `00631L` membership = Class D ACCEPT.
 PYTHONPATH=scripts python3 scripts/cool_t50_lev_rebound_stagea.py
 ```
 
-Artifacts: `research/ops/COOL_T50_LEV_REBOUND_*` · `repro/cool-t50-lev-rebound-stagea/` · price `data/def_proxies/00631L_ohlcv.csv`
+Artifacts: `research/ops/COOL_T50_LEV_REBOUND_*` · `archive/repro/cool-t50-lev-rebound-stagea/` · price `data/def_proxies/00631L_ohlcv.csv`
 
 ## Label
 

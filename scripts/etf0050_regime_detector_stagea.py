@@ -28,7 +28,7 @@ from tw_share_lots import BOARD_LOT
 from within_sleeve_alloc import FIN_PRE_EXDIV_KD, TEL_EQUAL
 
 ROOT = Path(__file__).resolve().parents[1]
-REPRO = ROOT / "repro" / "etf0050-regime-detector-stagea"
+REPRO = ROOT / "archive" / "repro" / "etf0050-regime-detector-stagea"
 OUT = REPRO / "outputs"
 REP = REPRO / "reports"
 OPS = ROOT / "research" / "ops"

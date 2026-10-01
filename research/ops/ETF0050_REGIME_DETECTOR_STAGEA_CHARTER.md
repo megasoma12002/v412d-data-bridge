@@ -77,4 +77,4 @@ Even HIT → paper observe ballot only.
 PYTHONPATH=scripts python3 scripts/etf0050_regime_detector_stagea.py
 ```
 
-Artifacts: `research/ops/ETF0050_REGIME_DETECTOR_STAGEA_*` · `repro/etf0050-regime-detector-stagea/`
+Artifacts: `research/ops/ETF0050_REGIME_DETECTOR_STAGEA_*` · `archive/repro/etf0050-regime-detector-stagea/`
