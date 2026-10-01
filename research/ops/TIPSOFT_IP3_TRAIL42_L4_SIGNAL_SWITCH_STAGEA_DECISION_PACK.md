@@ -24,9 +24,10 @@ Same family: `MOM_EXCESS_W21/W63_GT0` also HIT on held/tipY but sealed MDD stays
 ## Disposition
 
 - Dual-book signal switch is the keep-both path (paper L4∥TRAIL streams required)
-- Optional next: DRAFT observe `SW_TRAIL_WHEN_TR_DD_GTE_L4` (or MOM21) vs L4
+- **DRAFT dual-paper observe** filed: `TIPSOFT_IP3_TRAIL42_L4_SWITCH_OBSERVE_BALLOT_DRAFT.md` · policy `TIPSOFT_P3_TRAIL42_L4_DD_SWITCH`
+- Awaiting human OPEN · tip apply still **BLOCKED**
 - Pure Path3 gate switch alone does **not** recover L4 MDD
-- 0kbb TRAIL42 observe KEEP · Soft FIN/TEL OFF · Path4 OFF · no live wire this pack
+- 0kba/0kbb observes KEEP · Soft FIN/TEL OFF · Path4 OFF · no live wire
 
 ## Next (optimize list)
 
