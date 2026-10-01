@@ -12,6 +12,7 @@ from e16_soft_frozen_base import SOFT_FROZEN_CLIP_FLIP_STAMP
 from live_config import (
     E45_STITCH_ROLLBACK,
     KD_OPT,
+    LIVE,
     LIVE_COOL_EXPOSURE,
     LIVE_COOL_ID,
     LIVE_CONF_RET3_631L,
@@ -25,6 +26,7 @@ from live_config import (
     LIVE_FUSE_ADDITIVE,
     LIVE_FUSE_SOFT_SELL_BALLOT,
     LIVE_FUSE_SOFT_SELL_BOOST,
+    LIVE_PATH3_STRATEGY_CUTOVER,
     LIVE_TEL_T3_BALLOT,
     LIVE_TEL_T3_COOL_INV_VOL20,
     LIVE_TEL_WITHIN_SLEEVE,
@@ -103,6 +105,9 @@ def build_cutover_stamps() -> dict[str, Any]:
             else None
         ),
         "tipsoft_live_override_live": bool(LIVE_TIPSOFT_LIVE_OVERRIDE),
+        "tipsoft_live_override_wire_mode": (
+            "gate_stamps_telemetry" if LIVE_TIPSOFT_LIVE_OVERRIDE else None
+        ),
         "tipsoft_live_override_policy": (
             LIVE_TIPSOFT_LIVE_OVERRIDE_POLICY if LIVE_TIPSOFT_LIVE_OVERRIDE else None
         ),
@@ -121,7 +126,10 @@ def build_cutover_stamps() -> dict[str, Any]:
             if LIVE_TIPSOFT_LIVE_OVERRIDE
             else None
         ),
-        "tipsoft_live_override_path3_within_keep": True,
-        "tipsoft_live_override_soft_fin_tel_stay_off": True,
-        "tipsoft_live_override_path4_live": False,
+        # LIVE-derived coexistence (not hardcoded wishful stamps).
+        "tipsoft_live_override_path3_within_keep": bool(LIVE_PATH3_STRATEGY_CUTOVER),
+        "tipsoft_live_override_soft_fin_tel_stay_off": bool(LIVE_PATH3_STRATEGY_CUTOVER),
+        "tipsoft_live_override_path4_live": bool(getattr(LIVE, "live_path4", False)),
+        "tipsoft_live_override_broker": bool(LIVE.broker_live_write_accepted),
+        "tipsoft_override_return_blend_applied": False,
     }

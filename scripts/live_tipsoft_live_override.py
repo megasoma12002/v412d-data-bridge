@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""tip Soft Exact T+1 LIVE_OVERRIDE — live wire (0kb2 ACCEPT).
+"""tip Soft Exact T+1 LIVE_OVERRIDE — live gate stamps / telemetry (0kb2 ACCEPT).
 
-Policy: default tip Soft stack = 0kb1 MUTE_S3_SAT 3-state; force LIVE Soft+FUSE+COOL
-Exact T+1 shell when lag-1 42d cumret(live−champ) > 0.005 for K=3 consecutive days.
+Wire mode: **gate_stamps_telemetry** (PROJECT_CODE_REVIEW_2026-10-01).
+
+Computes the causal LIVE_OVERRIDE gate (lag-1 42d cumret(live−champ) > 0.005
+for K=3 days) and stamps it on the live session. It does **not** apply the
+research return blend ``r = where(conf, live_r, champ_r)`` to ``order_rows``.
 
 Coexistence (ACCEPT explicit):
 - Path3 WITHIN_SLEEVE KEEP · Soft FIN/TEL Exact T+1 stay OFF
@@ -10,20 +13,20 @@ Coexistence (ACCEPT explicit):
 - T0_CARVE_FIN_SAT_SWITCH KEEP · Path4 OFF · broker false
 - Dual-paper observe KEEP
 
-This module is live SSOT for the tip Soft Exact T+1 override gate + session stamps.
-It does **not** re-enable Soft FIN/TEL or undo Path3 WITHIN.
+Stage A arm alias: ``OVERRIDE_LIVE_W42_M0005_K3`` (margin 0.005) ≡ policy ``…_M05_K3``.
 """
 from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
 
-import numpy as np
 import pandas as pd
 
 MECHANISM_ID = "TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3"
 POLICY_ID = "TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3"
+STAGE_A_ARM_ID = "OVERRIDE_LIVE_W42_M0005_K3"  # str(0.005) → M0005
 CLOCK = "exact_t1"
+WIRE_MODE = "gate_stamps_telemetry"
 WINDOW = 42
 MARGIN = 0.005
 CONFIRM_K = 3
@@ -46,6 +49,10 @@ DEFAULT_POLICY_NAV = (
 DEFAULT_CHAMP_NAV = (
     ROOT / "repro/tipsoft-ip3-live-stack-race-stagea/outputs/nav_REF_MUTE_S3_SAT_W63.csv"
 )
+STAGE_A_POLICY_NAV = (
+    ROOT
+    / "repro/tipsoft-ip3-live-stack-race-stagea/outputs/nav_OVERRIDE_LIVE_W42_M0005_K3.csv"
+)
 
 
 def is_on() -> bool:
@@ -53,12 +60,31 @@ def is_on() -> bool:
         from live_config import LIVE
 
         return bool(getattr(LIVE, "live_tipsoft_live_override", False))
-    except Exception:
+    except ImportError:
         return False
 
 
+def _live_safety_stamps() -> dict[str, Any]:
+    """Assert coexistence from LIVE SSOT (not hardcoded wishful stamps)."""
+    try:
+        from live_config import LIVE
+
+        path3_on = bool(getattr(LIVE, "live_path3_strategy_cutover", False))
+        broker = bool(getattr(LIVE, "broker_live_write_accepted", False))
+        path4 = bool(getattr(LIVE, "live_path4", False))  # absent → False
+    except ImportError:
+        path3_on, broker, path4 = False, False, False
+    return {
+        "path3_within_sleeve_keep": path3_on,
+        "soft_fin_tel_stay_off": path3_on,  # WITHIN cutover suppresses Soft FIN/TEL
+        "path4_live": path4,
+        "broker": broker,
+    }
+
+
 def _trail_sum(x: pd.Series, w: int) -> pd.Series:
-    return x.shift(1).rolling(int(w), min_periods=max(2, int(w) // 3)).sum()
+    # Match Stage A research helper: min_periods = max(3, w // 3)
+    return x.shift(1).rolling(int(w), min_periods=max(3, int(w) // 3)).sum()
 
 
 def override_mask(
@@ -101,23 +127,36 @@ def compute_gate_state(
     live_nav_path: Path = DEFAULT_LIVE_NAV,
     champ_nav_path: Path = DEFAULT_CHAMP_NAV,
     policy_nav_path: Path = DEFAULT_POLICY_NAV,
+    market_tip: str | pd.Timestamp | None = None,
 ) -> dict[str, Any]:
-    """Compute tip Soft LIVE_OVERRIDE gate for ``asof`` (default = latest NAV date)."""
+    """Compute tip Soft LIVE_OVERRIDE gate for ``asof``.
+
+    Fail-loud when NAV panel tip is behind ``market_tip`` / requested asof
+    (``reason=nav_stale`` · ``override_on=None``).
+    """
+    safety = _live_safety_stamps()
     out: dict[str, Any] = {
         "mechanism_id": MECHANISM_ID,
         "policy_id": POLICY_ID,
+        "stage_a_arm_id": STAGE_A_ARM_ID,
         "clock": CLOCK,
+        "wire_mode": WIRE_MODE,
         "window": WINDOW,
         "margin": MARGIN,
         "confirm_k": CONFIRM_K,
         "enabled": is_on(),
-        "path3_within_sleeve_keep": True,
-        "soft_fin_tel_stay_off": True,
-        "path4_live": False,
-        "broker": False,
+        "return_blend_applied": False,
+        **safety,
     }
     if not live_nav_path.is_file() or not champ_nav_path.is_file():
-        out.update({"ok": False, "reason": "missing_nav", "override_on": None})
+        out.update(
+            {
+                "ok": False,
+                "stale": None,
+                "reason": "missing_nav",
+                "override_on": None,
+            }
+        )
         return out
 
     live_nav = _load_nav(live_nav_path)
@@ -128,31 +167,59 @@ def compute_gate_state(
         how="any"
     )
     if panel.empty:
-        out.update({"ok": False, "reason": "empty_panel", "override_on": None})
+        out.update(
+            {
+                "ok": False,
+                "stale": None,
+                "reason": "empty_panel",
+                "override_on": None,
+            }
+        )
+        return out
+
+    panel_tip = pd.Timestamp(panel.index.max()).normalize()
+    req = None if asof is None else pd.Timestamp(asof).normalize()
+    mtip = None if market_tip is None else pd.Timestamp(market_tip).normalize()
+    # Stale if caller tip (market or asof) is strictly after panel tip.
+    compare_tip = mtip if mtip is not None else req
+    if compare_tip is not None and compare_tip > panel_tip:
+        out.update(
+            {
+                "ok": False,
+                "stale": True,
+                "reason": "nav_stale",
+                "asof": str(compare_tip.date()),
+                "panel_tip": str(panel_tip.date()),
+                "override_on": None,
+                "force_live_shell_diag": None,
+                "stack_mute_s3_sat_diag": None,
+            }
+        )
         return out
 
     mask = override_mask(panel["live"], panel["champ"])
-    if asof is None:
-        ts = panel.index.max()
+    if req is None:
+        ts = panel_tip
     else:
-        ts = pd.Timestamp(asof).normalize()
-        if ts not in mask.index:
-            # nearest prior session
-            prior = mask.index[mask.index <= ts]
+        if req not in mask.index:
+            prior = mask.index[mask.index <= req]
             if len(prior) == 0:
                 out.update(
                     {
                         "ok": False,
+                        "stale": False,
                         "reason": "asof_before_panel",
-                        "asof": str(ts.date()),
+                        "asof": str(req.date()),
+                        "panel_tip": str(panel_tip.date()),
                         "override_on": None,
                     }
                 )
                 return out
             ts = prior.max()
+        else:
+            ts = req
 
     override_on = bool(mask.loc[ts])
-    # policy NAV diagnostic: days where policy == live (force LIVE active)
     policy_eq_live = None
     if policy_nav_path.is_file():
         pol_r = _returns(_load_nav(policy_nav_path)).reindex(panel.index).fillna(0.0)
@@ -164,10 +231,14 @@ def compute_gate_state(
     out.update(
         {
             "ok": True,
+            "stale": False,
+            "reason": "ok",
             "asof": str(pd.Timestamp(ts).date()),
+            "panel_tip": str(panel_tip.date()),
             "override_on": override_on,
-            "force_live_shell": override_on,
-            "stack_mute_s3_sat_active": (not override_on),
+            # Diagnostic only — Soft FIN/TEL stay OFF under Path3 WITHIN.
+            "force_live_shell_diag": override_on,
+            "stack_mute_s3_sat_diag": (not override_on),
             "policy_nav_equals_live_diag": policy_eq_live,
             "pct_override_hist": round(float(mask.mean()) * 100.0, 4),
         }
@@ -175,25 +246,45 @@ def compute_gate_state(
     return out
 
 
-def session_meta(asof: str | pd.Timestamp | None = None) -> dict[str, Any]:
-    """Pipeline / tip-meta stamp block."""
-    gate = compute_gate_state(asof)
+def session_meta(
+    asof: str | pd.Timestamp | None = None,
+    *,
+    market_tip: str | pd.Timestamp | None = None,
+) -> dict[str, Any]:
+    """Pipeline / tip-meta stamp block — flat columns for signals.csv."""
+    on = is_on()
+    gate = compute_gate_state(asof, market_tip=market_tip if market_tip is not None else asof)
+    safety = _live_safety_stamps()
     return {
-        "tipsoft_live_override_live": bool(is_on()),
-        "tipsoft_live_override_policy": POLICY_ID if is_on() else None,
-        "tipsoft_live_override_ballot": ACCEPT_BALLOT if is_on() else None,
+        "tipsoft_live_override_live": bool(on),
+        "tipsoft_live_override_wire_mode": WIRE_MODE if on else None,
+        "tipsoft_live_override_policy": POLICY_ID if on else None,
+        "tipsoft_live_override_stage_a_arm": STAGE_A_ARM_ID if on else None,
+        "tipsoft_live_override_ballot": ACCEPT_BALLOT if on else None,
         "tipsoft_live_override_cutover": (
-            "ACCEPT_2026-09-30_TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3" if is_on() else None
+            "ACCEPT_2026-09-30_TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3" if on else None
         ),
         "tipsoft_live_override_rollback": (
             "Set LIVE.live_tipsoft_live_override=False "
             "(live_config.live_tipsoft_live_override); tip Soft Exact T+1 "
             "LIVE_OVERRIDE gate stamps off; Path3 WITHIN / Soft FIN/TEL unchanged"
-            if is_on()
+            if on
             else None
         ),
-        "tipsoft_live_override_gate": gate if is_on() else {"enabled": False},
-        "tipsoft_live_override_path3_within_keep": True,
-        "tipsoft_live_override_soft_fin_tel_stay_off": True,
-        "tipsoft_live_override_path4_live": False,
+        # Flattened gate (M1) — no nested dict in signals.csv
+        "tipsoft_override_on": gate.get("override_on") if on else None,
+        "tipsoft_override_asof": gate.get("asof") if on else None,
+        "tipsoft_override_ok": gate.get("ok") if on else None,
+        "tipsoft_override_stale": gate.get("stale") if on else None,
+        "tipsoft_override_reason": gate.get("reason") if on else None,
+        "tipsoft_override_panel_tip": gate.get("panel_tip") if on else None,
+        "tipsoft_override_return_blend_applied": False,
+        "tipsoft_live_override_path3_within_keep": bool(
+            safety["path3_within_sleeve_keep"]
+        ),
+        "tipsoft_live_override_soft_fin_tel_stay_off": bool(
+            safety["soft_fin_tel_stay_off"]
+        ),
+        "tipsoft_live_override_path4_live": bool(safety["path4_live"]),
+        "tipsoft_live_override_broker": bool(safety["broker"]),
     }

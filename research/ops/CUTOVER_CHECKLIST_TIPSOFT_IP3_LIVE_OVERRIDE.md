@@ -1,7 +1,7 @@
 # CUTOVER_CHECKLIST_TIPSOFT_IP3_LIVE_OVERRIDE
 
 Date: 2026-09-30
-Status: **EXECUTED ACCEPT / LIVE WIRED** · broker **false**
+Status: **EXECUTED ACCEPT / LIVE WIRED (gate stamps / telemetry)** · broker **false** · not return-blend
 
 ## Checklist
 
