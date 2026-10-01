@@ -8,13 +8,21 @@ Soft-Frozen clips KEEP · COMPOSITE+SAT_RELAX observes KEEP · cutover BLOCKED �
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from stagea_screen_helpers import (
+    utc_now_z as _utc,
+    load_nav_csv as _load,
+    pack_nav_windows as pack_windows,
+    tip_lift,
+)
 
-from e45_paper_harness import WINDOWS_STANDARD, window_stats
+def tip_windows(base_nav, chal_nav):
+    """Dual-paper tip pack (cagr_lift_pp + gate)."""
+    return tip_lift(base_nav, chal_nav, include_gate=True)
+
 from fin_sat_path3_t0_observe_helpers import (
     BASE_ID,
     CARVE_OUT_ID,
@@ -37,64 +45,8 @@ LIVE_NAV = ROOT / "repro/fin-sat-composite-dual-paper-observe/outputs/ctrl_live_
 COMP_NAV = ROOT / "repro/fin-sat-composite-dual-paper-observe/outputs/comp_h150_x_a20_daily_nav.csv"
 SAT_NAV = ROOT / "repro/sat-a20-relax-dual-paper-observe/outputs/sat_a20_relax_daily_nav.csv"
 
-
-def _utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
-def _load(path: Path) -> pd.DataFrame:
-    df = pd.read_csv(path)
-    df["date"] = pd.to_datetime(df["date"])
-    return df.sort_values("date").reset_index(drop=True)[["date", "nav"]].assign(
-        nav=lambda x: x["nav"].astype(float)
-    )
-
-
-def pack_windows(nav: pd.DataFrame) -> dict:
-    out = {}
-    for k, (a, b) in WINDOWS_STANDARD.items():
-        st = window_stats(nav, a, b)
-        out[k] = {
-            "cagr": None if st.get("cagr") is None else round(float(st["cagr"]), 6),
-            "max_drawdown": None
-            if st.get("max_drawdown") is None
-            else round(float(st["max_drawdown"]), 6),
-            "n_days": int(st.get("n_days") or 0),
-        }
-    return out
-
-
-def tip_windows(base_nav: pd.DataFrame, chal_nav: pd.DataFrame) -> dict:
-    asof = pd.Timestamp(pd.to_datetime(base_nav["date"]).max())
-    b_dates = pd.to_datetime(base_nav["date"])
-    c_dates = pd.to_datetime(chal_nav["date"])
-    out = {}
-    for wname, start in (
-        ("ytd", pd.Timestamp(asof.year, 1, 1)),
-        ("trailing_1y", asof - pd.Timedelta(days=365)),
-    ):
-        b = base_nav[(b_dates >= start) & (b_dates <= asof)].reset_index(drop=True)
-        c = chal_nav[(c_dates >= start) & (c_dates <= asof)].reset_index(drop=True)
-        if len(b) < 20 or len(c) < 20:
-            out[wname] = {"mdd_improve_pp": None, "cagr_lift_pp": None}
-            continue
-        bn = b["nav"].astype(float) / float(b["nav"].iloc[0])
-        cn = c["nav"].astype(float) / float(c["nav"].iloc[0])
-        b_mdd = float((bn / bn.cummax() - 1.0).min())
-        c_mdd = float((cn / cn.cummax() - 1.0).min())
-        years = (len(b) - 1) / 252.0
-        bc = float(bn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        cc = float(cn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        out[wname] = {
-            "mdd_improve_pp": round(float(mdd_delta_pp(b_mdd, c_mdd)), 4),
-            "cagr_lift_pp": None if cagr_lift_pp(bc, cc) is None else round(float(cagr_lift_pp(bc, cc)), 4),
-        }
-    return out
-
-
 def _trail(r: pd.Series, n: int) -> pd.Series:
     return (1.0 + r).rolling(n, min_periods=n).apply(lambda x: float(np.prod(x) - 1.0), raw=True)
-
 
 def build_p3_nav(comp: pd.DataFrame, sat: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     m = (
@@ -121,7 +73,6 @@ def build_p3_nav(comp: pd.DataFrame, sat: pd.DataFrame) -> tuple[pd.DataFrame, p
         }
     )
     return chal, sig
-
 
 def main() -> int:
     out = OUT / "outputs"
@@ -258,7 +209,6 @@ def main() -> int:
 
     print(json.dumps({"status": STATUS, "held": payload["heldout_delta"], "tip": tip}, ensure_ascii=False))
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())

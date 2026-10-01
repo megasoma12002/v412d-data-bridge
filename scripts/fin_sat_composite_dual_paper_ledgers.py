@@ -11,6 +11,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
+from stagea_screen_helpers import (
+    utc_now_z as _utc,
+    pack_nav_windows as pack_windows,
+    tip_lift,
+)
+
+def tip_windows(base_nav, chal_nav):
+    """Dual-paper tip pack (cagr_lift_pp + gate)."""
+    return tip_lift(base_nav, chal_nav, include_gate=True)
 
 import cool_t50_inv_satellite_stagea as sat
 import cool_t50_lev_short_assist_stagea as short
@@ -19,7 +28,6 @@ import e16_soft_frozen_base as soft
 import e22_dividend_accounting as e22div
 import e45_defend_handoff_stagea_screen as stagea
 from cool_c8_proxy_observe_helpers import build_cool_c8_exposure
-from e45_paper_harness import WINDOWS_STANDARD, window_stats
 from e50_early_stack_combined_nav import FIN, e16_features, simulate_core
 from fin_buy_quality_helpers import (
     and_buy_ok,
@@ -70,69 +78,17 @@ OPS = ROOT / "research/ops"
 E22_VERSION = e22div.DEFAULT_BOOKS_VERSION
 SELL_AMP = float(LIVE_FUSE_SOFT_SELL_BOOST)
 
-
-def _utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
-def pack_windows(nav: pd.DataFrame) -> dict:
-    out = {}
-    for k, (a, b) in WINDOWS_STANDARD.items():
-        st = window_stats(nav, a, b)
-        out[k] = {
-            "cagr": None if st.get("cagr") is None else round(float(st["cagr"]), 6),
-            "max_drawdown": None
-            if st.get("max_drawdown") is None
-            else round(float(st["max_drawdown"]), 6),
-            "n_days": int(st.get("n_days") or 0),
-        }
-    return out
-
-
-def tip_windows(base_nav: pd.DataFrame, chal_nav: pd.DataFrame) -> dict:
-    asof = pd.Timestamp(pd.to_datetime(base_nav["date"]).max())
-    b_dates = pd.to_datetime(base_nav["date"])
-    c_dates = pd.to_datetime(chal_nav["date"])
-    out = {}
-    for wname, start in (
-        ("ytd", pd.Timestamp(asof.year, 1, 1)),
-        ("trailing_1y", asof - pd.Timedelta(days=365)),
-    ):
-        b = base_nav[(b_dates >= start) & (b_dates <= asof)].reset_index(drop=True)
-        c = chal_nav[(c_dates >= start) & (c_dates <= asof)].reset_index(drop=True)
-        if len(b) < 20 or len(c) < 20:
-            out[wname] = {"mdd_improve_pp": None, "cagr_lift_pp": None, "gate": "INSUFFICIENT"}
-            continue
-        bn = b["nav"].astype(float) / float(b["nav"].iloc[0])
-        cn = c["nav"].astype(float) / float(c["nav"].iloc[0])
-        b_mdd = float((bn / bn.cummax() - 1.0).min())
-        c_mdd = float((cn / cn.cummax() - 1.0).min())
-        years = (len(b) - 1) / 252.0
-        bc = float(bn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        cc = float(cn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        lift = cagr_lift_pp(bc, cc)
-        out[wname] = {
-            "mdd_improve_pp": round(float(mdd_delta_pp(b_mdd, c_mdd)), 4),
-            "cagr_lift_pp": None if lift is None else round(float(lift), 4),
-            "gate": "PASS",
-        }
-    return out
-
-
 def _buy_scores(kd, lows) -> pd.DataFrame:
     out = soft_boost_scores(kd, lows[BUY_LOW_ID], 1.0)
     return soft_boost_scores(out, lows["K9_LT30"], 1.0)
 
-
 def _sell_base(highs) -> pd.DataFrame:
     return soft_sell_panel(highs[SELL_HIGH_ID], boost=SELL_AMP)
-
 
 def _sleeve_score(market, sleeve, alpha: float) -> pd.DataFrame:
     _p, _s, _t, _r, base_score = soft.build_soft_frozen_targets(market)
     tilt = sleeve_signal_panel(sleeve, "rsi_lt30", 14)
     return base_score + float(alpha) * tilt
-
 
 def _target_live(score, regime):
     return clip.build_targets_with_clips(
@@ -146,13 +102,11 @@ def _target_live(score, regime):
         etf_hi=float(soft.SOFT_FROZEN_ETF_HI),
     )
 
-
 def _cool_from_offense(market, offense_nav: pd.DataFrame) -> pd.Series:
     nav_s = stagea._nav_series(offense_nav)
     feat = stagea._risk_features(market, nav_s)
     dates = pd.DatetimeIndex(nav_s.index)
     return build_cool_c8_exposure(dates, feat["proxy_mdd63"])
-
 
 def _sim(market, target, regime, dividends, *, scores, buy_ok, sell, schedule, sell_ok=None):
     kw = {
@@ -175,7 +129,6 @@ def _sim(market, target, regime, dividends, *, scores, buy_ok, sell, schedule, s
     if not bool(meta.get("exact_t1_ok")):
         raise RuntimeError("exact_t1_ok failed")
     return nav, fills, meta
-
 
 def main() -> int:
     for d in (OUT / "outputs", OUT / "reports", OPS):
@@ -367,7 +320,6 @@ def main() -> int:
     (out_dir / "dual_paper_summary.json").write_text(text, encoding="utf-8")
     print(json.dumps({"status": STATUS, "cagr_lift_pp": lift, "mdd_pp": held_mdd}, ensure_ascii=False))
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())

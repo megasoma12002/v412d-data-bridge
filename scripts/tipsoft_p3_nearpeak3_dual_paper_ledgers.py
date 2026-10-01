@@ -7,12 +7,19 @@ Soft KEEP · Path4 OFF · hybrid T+0 carve FORBIDDEN · no live wire · cutover 
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
+from stagea_screen_helpers import (
+    utc_now_z as _utc,
+    pack_nav_windows as pack_windows,
+    tip_lift,
+)
 
-from e45_paper_harness import WINDOWS_STANDARD, window_stats
+def tip_windows(base_nav, chal_nav):
+    """Dual-paper tip pack (cagr_lift_pp + gate)."""
+    return tip_lift(base_nav, chal_nav, include_gate=True)
+
 from fin_sell_quality_helpers import cagr_lift_pp
 from ops_repro_ssot import write_ops_and_repro_pointer, write_repro_pointer
 from research_metric_helpers import mdd_delta_pp
@@ -30,56 +37,6 @@ HUMAN_OPEN = (
 )
 STATUS = "OPERATING_OBSERVE"
 OPERATING_ID = "TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPERATING"
-
-
-def _utc() -> str:
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-
-
-def pack_windows(nav: pd.DataFrame) -> dict:
-    out = {}
-    for k, (a, b) in WINDOWS_STANDARD.items():
-        st = window_stats(nav, a, b)
-        out[k] = {
-            "cagr": None if st.get("cagr") is None else round(float(st["cagr"]), 6),
-            "max_drawdown": None
-            if st.get("max_drawdown") is None
-            else round(float(st["max_drawdown"]), 6),
-            "n_days": int(st.get("n_days") or 0),
-        }
-    return out
-
-
-def tip_windows(base_nav: pd.DataFrame, chal_nav: pd.DataFrame) -> dict:
-    asof = pd.Timestamp(pd.to_datetime(base_nav["date"]).max())
-    b_dates = pd.to_datetime(base_nav["date"])
-    c_dates = pd.to_datetime(chal_nav["date"])
-    out = {}
-    for wname, start in (
-        ("ytd", pd.Timestamp(asof.year, 1, 1)),
-        ("trailing_1y", asof - pd.Timedelta(days=365)),
-    ):
-        b = base_nav[(b_dates >= start) & (b_dates <= asof)].reset_index(drop=True)
-        c = chal_nav[(c_dates >= start) & (c_dates <= asof)].reset_index(drop=True)
-        if len(b) < 20 or len(c) < 20:
-            out[wname] = {"mdd_improve_pp": None, "cagr_lift_pp": None, "gate": "INSUFFICIENT"}
-            continue
-        bn = b["nav"].astype(float) / float(b["nav"].iloc[0])
-        cn = c["nav"].astype(float) / float(c["nav"].iloc[0])
-        b_mdd = float((bn / bn.cummax() - 1.0).min())
-        c_mdd = float((cn / cn.cummax() - 1.0).min())
-        years = (len(b) - 1) / 252.0
-        bc = float(bn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        cc = float(cn.iloc[-1]) ** (1 / years) - 1 if years > 0 else None
-        out[wname] = {
-            "mdd_improve_pp": round(float(mdd_delta_pp(b_mdd, c_mdd)), 4),
-            "cagr_lift_pp": None
-            if cagr_lift_pp(bc, cc) is None
-            else round(float(cagr_lift_pp(bc, cc)), 4),
-            "gate": "PASS",
-        }
-    return out
-
 
 def main() -> int:
     for d in (OUT / "outputs", OUT / "reports", OPS):
@@ -170,7 +127,6 @@ def main() -> int:
     )
     print(json.dumps({"status": STATUS, "heldout_delta": held, "tip": tip}, indent=2))
     return 0
-
 
 if __name__ == "__main__":
     raise SystemExit(main())
