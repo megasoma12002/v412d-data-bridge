@@ -1,7 +1,7 @@
 {
   "id": "TIPSOFT_IP3_TRAIL42_L4_SWITCH_PAPER_OBSERVE_CANDIDATE",
   "register": "0kbd",
-  "status": "PAPER_OBSERVE_CANDIDATE_DRAFT",
+  "status": "OBSERVE_OPEN_OPERATING",
   "policy_id": "TIPSOFT_P3_TRAIL42_L4_DD_SWITCH",
   "base_id": "L4_LIVE_P3_WITHIN",
   "challenger_id": "TRAIL42_L4_DD_SWITCH",
@@ -98,6 +98,7 @@
     "Live tip apply / cutover without OPEN\u2192OPERATING\u2192ACCEPT",
     "Stamps-only LIVE_OVERRIDE substitute (different layer)"
   ],
-  "generated_at_utc": "2026-10-01T14:51:22Z",
-  "label": "TIPSOFT_IP3_TRAIL42_L4_SWITCH_PAPER_OBSERVE_CANDIDATE_2026-10-01__DRAFT__NO_LIVE"
+  "generated_at_utc": "2026-10-01T15:28:38Z",
+  "label": "TIPSOFT_IP3_TRAIL42_L4_SWITCH_PAPER_OBSERVE_CANDIDATE_2026-10-01__DRAFT__NO_LIVE",
+  "open_executed": "TIPSOFT_IP3_TRAIL42_L4_SWITCH_OBSERVE_BALLOT_EXECUTED_OPEN"
 }

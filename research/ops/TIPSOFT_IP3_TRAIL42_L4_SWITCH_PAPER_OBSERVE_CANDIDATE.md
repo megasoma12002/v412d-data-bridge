@@ -1,6 +1,6 @@
 # TIPSOFT_IP3_TRAIL42_L4_SWITCH_PAPER_OBSERVE_CANDIDATE
 
-Date: 2026-10-01 · Status: **DRAFT candidate** · awaiting human OPEN
+Date: 2026-10-01 · Status: **`OBSERVE_OPEN_OPERATING`** (human OPEN 2026-10-01)
 Register: **0kbd** · Parent Stage A **`SIGNAL_SWITCH_HIT`**
 
 - Books: `L4_LIVE_P3_WITHIN` ∥ `TRAIL42_L4_DD_SWITCH`
