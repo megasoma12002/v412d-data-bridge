@@ -74,4 +74,4 @@ Even HIT / MDD_SOFT → **ballot only**; no live wire from Stage B.
 PYTHONPATH=scripts python3 scripts/fin_sell_quality_stageb.py
 ```
 
-Artifacts: `research/ops/FIN_SELL_QUALITY_STAGEB_*` · `repro/fin-sell-quality-stageb/`
+Artifacts: `research/ops/FIN_SELL_QUALITY_STAGEB_*` · `archive/repro/fin-sell-quality-stageb/`

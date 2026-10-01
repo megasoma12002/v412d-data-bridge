@@ -54,7 +54,7 @@ from within_sleeve_alloc import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-REPRO = ROOT / "repro" / "fin-sell-quality-stagea"
+REPRO = ROOT / "archive" / "repro" / "fin-sell-quality-stagea"
 OUT = REPRO / "outputs"
 REP = REPRO / "reports"
 OPS = ROOT / "research" / "ops"

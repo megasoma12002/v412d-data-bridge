@@ -16,12 +16,21 @@ at the old path. Do **not** delete irreplaceable manifests/reports.
 - `dh-observe-combo-nav-trial`
 - `fincap50-dual-paper` · `l4-dd-path-dual-paper` · `e50a-dual-track`
 - `kelly-exposure-stagea` · `live-leverage-combo-trial`
+- tip Soft / LIVE_OVERRIDE / live-stack race observes (`tipsoft-ip3-*`)
+- operating dual-paper observes still on month-end (`cool-c8-proxy-dual-paper-observe`, COMPOSITE / Path3, …)
+
+## Batch D ARCHIVE moves (2026-10-01)
+
+- `cool-t50-lev-rebound-stagea` · `fin-sell-new-mech-stagea`
+- `etf0050-regime-detector-stagea` · `fin-sell-quality-stagea` · `fin-sell-quality-stageb`
+- `tel-both-quality-stagea`
 
 ## Bulky dumps
 
-`repro/.gitignore` ignores bulky `*fills*` / `*daily_nav*` CSVs under `outputs/`.
-Root `.gitignore` mirrors the same for `archive/repro/**/outputs/`.
-Batch C removed force-tracked ARCHIVE densify dumps from the git index; regenerate
+`repro/.gitignore` ignores bulky `*fills*` / `*daily_nav*` CSVs under `outputs/`
+(including nested `outputs/<sub>/`). Root `.gitignore` mirrors for `archive/repro/**/outputs/`.
+Batch C + Batch D removed ignore-shaped force-tracked dumps from the git index; regenerate
 from paired research notes + scripts when needed.
 
-Hygiene note: `research/ops/REPO_HYGIENE_REPRO_BATCH_C_2026-09-13.md`.
+Hygiene: `research/ops/REPO_HYGIENE_REPRO_BATCH_C_2026-09-13.md` ·
+`research/ops/REPO_HYGIENE_REPRO_BATCH_D_2026-10-01.md`.

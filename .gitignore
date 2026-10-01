@@ -28,11 +28,15 @@ prod_readonly*.py
 YuantaSparkAPI*/
 **/YuantaSparkAPI*/
 
-# ARCHIVE repro bulky dumps (same policy as repro/.gitignore)
+# ARCHIVE repro bulky dumps (same policy as repro/.gitignore; nested outputs Batch D)
 archive/repro/**/outputs/*fills*.csv
+archive/repro/**/outputs/**/*fills*.csv
 archive/repro/**/outputs/*daily_nav*.csv
+archive/repro/**/outputs/**/*daily_nav*.csv
 archive/repro/**/outputs/*_fills.csv
 archive/repro/**/outputs/*_daily_nav.csv
+archive/repro/**/outputs/*fill_extreme_detail.*
+archive/repro/**/outputs/**/*fill_extreme_detail.*
 archive/repro/**/reports/nav_*.csv
 archive/repro/**/reports/*exposure*.csv
 archive/repro/**/reports/*fills*.csv

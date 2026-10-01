@@ -1,0 +1,19 @@
+{
+  "id": "REPO_HYGIENE_REPRO_BATCH_D_2026-10-01",
+  "date": "2026-10-01",
+  "phase_a_uncache_files": 54,
+  "phase_a_mb_approx": 30.0,
+  "phase_b_archive_trees": [
+    "cool-t50-lev-rebound-stagea",
+    "fin-sell-new-mech-stagea",
+    "etf0050-regime-detector-stagea",
+    "fin-sell-quality-stagea",
+    "fin-sell-quality-stageb",
+    "tel-both-quality-stagea"
+  ],
+  "phase_b_mb_approx": 77.0,
+  "history_rewrite": false,
+  "soft_frozen_untouched": true,
+  "tipsoft_untouched": true,
+  "label": "REPO_HYGIENE_REPRO_BATCH_D_2026-10-01__UNTRACK_IGNORE_SHAPED__ARCHIVE_CLOSED_STAGEA"
+}

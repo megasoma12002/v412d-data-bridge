@@ -91,4 +91,4 @@ On `BASE_LIVE_FUSE_COOL` (= Soft + Sleeve + **SELL_a75** + FUSE + COOL), does a 
 PYTHONPATH=scripts python3 scripts/fin_sell_quality_stagea.py
 ```
 
-Artifacts: `research/ops/FIN_SELL_QUALITY_STAGEA_*` · `repro/fin-sell-quality-stagea/`
+Artifacts: `research/ops/FIN_SELL_QUALITY_STAGEA_*` · `archive/repro/fin-sell-quality-stagea/`
