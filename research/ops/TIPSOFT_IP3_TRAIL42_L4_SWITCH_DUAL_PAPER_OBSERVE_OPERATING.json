@@ -1,0 +1,115 @@
+{
+  "generated_at_utc": "2026-10-01T15:28:38Z",
+  "label": "TIPSOFT_IP3_TRAIL42_L4_SWITCH_DUAL_PAPER_OBSERVE_OPERATING",
+  "status": "OPERATING_OBSERVE",
+  "register": "0kbd",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_TRAIL42_L4_DD_SWITCH\n(tip Soft Exact T+1 dual-book \u00b7 daily TRAIL42 twin if TRAIL DD\u2265L4 DD else L4 \u00b7\n Soft FIN/TEL stay OFF \u00b7 NOT year-switch \u00b7 NOT Path3-gate-only \u00b7 NOT tip apply)",
+  "live_wire": true,
+  "cutover_authorized": false,
+  "apply_authorized": true,
+  "tip_apply_ballot": "TIPSOFT_IP3_TRAIL42_L4_SWITCH_BALLOT_EXECUTED_ACCEPT",
+  "wire_mode": "path3_gate_ft_cash_apply",
+  "soft_frozen_keep": true,
+  "soft_fin_tel": "OFF",
+  "path4_live": false,
+  "broker": false,
+  "base_id": "L4_LIVE_P3_WITHIN",
+  "challenger_id": "TRAIL42_L4_DD_SWITCH",
+  "policy_id": "TIPSOFT_P3_TRAIL42_L4_DD_SWITCH",
+  "signal": "TRAIL_WHEN_TR_DD_GTE_L4",
+  "gate": "daily TRAIL42 tip Soft twin if TRAIL_DD >= L4_DD else L4 (dual-book)",
+  "pct_days_trail": 57.2917,
+  "base_windows": {
+    "full": {
+      "cagr": 0.126297,
+      "max_drawdown": -0.144311,
+      "n_days": 3366
+    },
+    "oof_2011_2018": {
+      "cagr": 0.08475,
+      "max_drawdown": -0.112117,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.130053,
+      "max_drawdown": -0.144311,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.20041,
+      "max_drawdown": -0.067438,
+      "n_days": 894
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.163395,
+      "max_drawdown": -0.144311,
+      "n_days": 1871
+    }
+  },
+  "chal_windows": {
+    "full": {
+      "cagr": 0.147186,
+      "max_drawdown": -0.144051,
+      "n_days": 3360
+    },
+    "oof_2011_2018": {
+      "cagr": 0.089223,
+      "max_drawdown": -0.112117,
+      "n_days": 1494
+    },
+    "validation_2019_2022": {
+      "cagr": 0.14103,
+      "max_drawdown": -0.144051,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.264913,
+      "max_drawdown": -0.062746,
+      "n_days": 889
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.19867,
+      "max_drawdown": -0.144051,
+      "n_days": 1866
+    }
+  },
+  "heldout_delta": {
+    "cagr_lift_pp": 3.5275,
+    "mdd_improve_pp": 0.026
+  },
+  "sealed_delta": {
+    "cagr_lift_pp": 6.4503,
+    "mdd_improve_pp": 0.4692
+  },
+  "tip": {
+    "ytd": {
+      "cagr_lift_pp": 27.5471,
+      "mdd_improve_pp": 0.4692,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "cagr_lift_pp": 23.4036,
+      "mdd_improve_pp": 0.4692,
+      "gate": "PASS"
+    }
+  },
+  "non_actions": [
+    "Soft-Frozen KEEP",
+    "Soft FIN/TEL Exact T+1 stay OFF",
+    "Path4 live OFF",
+    "Calendar-year switch / year-oracle FORBIDDEN",
+    "Path3-gate-only switch (without dual-book relative signal) FORBIDDEN",
+    "hybrid Soft-core T+0 carve FORBIDDEN",
+    "Research return-blend on tip order_rows FORBIDDEN",
+    "Live tip apply / cutover BLOCKED until dedicated ACCEPT",
+    "Sibling 0kba MUTE\u00d7CASH observe KEEP OPERATING",
+    "Sibling 0kbb TRAIL42\u00d7CASH observe KEEP OPERATING",
+    "broker false"
+  ],
+  "parents": [
+    "0kbd",
+    "0kbb",
+    "0kba",
+    "0kac"
+  ]
+}
