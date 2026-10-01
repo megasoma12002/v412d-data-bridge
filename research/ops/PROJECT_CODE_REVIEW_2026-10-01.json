@@ -1,0 +1,17 @@
+{
+  "id": "PROJECT_CODE_REVIEW_2026-10-01",
+  "date": "2026-10-01",
+  "scope": "tipsoft_live_override_wire_after_404",
+  "merge_commit": "50560a24dee3e62d8904a295455b19b87af3a2cf",
+  "pr": 404,
+  "verdict": "STAMPS_ONLY_LIVE_WIRE_SAFE_BUT_OVERSTATED",
+  "broker_false": true,
+  "path3_within_keep": true,
+  "path4_live": false,
+  "findings": {
+    "H": ["H1_stamps_not_return_blend", "H2_frozen_nav_gate", "H3_force_live_shell_wording"],
+    "M": ["M1_nested_gate_signal", "M2_observe_ssot_drift", "M3_M05_naming", "M4_literal_safety_stamps", "M5_dup_ballot_fields", "M6_is_on_bare_except"],
+    "L": ["L1_thin_tests", "L2_unused_numpy", "L3_min_periods_drift"]
+  },
+  "label": "PROJECT_CODEREVIEW_2026-10-01__TIPSOFT_OVERRIDE_STAMPS_ONLY__OPS_DRIFT"
+}
