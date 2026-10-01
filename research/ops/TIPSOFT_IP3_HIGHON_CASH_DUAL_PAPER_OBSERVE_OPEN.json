@@ -1,0 +1,34 @@
+{
+  "id": "TIPSOFT_IP3_HIGHON_CASH_DUAL_PAPER_OBSERVE_OPEN",
+  "register": "0kba",
+  "status": "OBSERVE_OPEN",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH\n(tip Soft Exact T+1 \u00b7 Path3 ON unless lag63 prem_p3<-0.01 \u2227 sat_lead \u00b7\n Path3 OFF \u2192 FIN\u222aTEL\u2192cash \u00b7 Soft FIN/TEL stay OFF \u00b7 NOT Soft-refill \u00b7 NOT hybrid T+0)",
+  "policy_id": "TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH",
+  "base_id": "L4_LIVE_P3_WITHIN",
+  "challenger_id": "ON_UNLESS_MUTE_FT_CASH",
+  "heldout_delta": {
+    "cagr_lift_pp": 0.8735,
+    "mdd_improve_pp": 0.0654
+  },
+  "sealed_delta": {
+    "cagr_lift_pp": 0.5078,
+    "mdd_improve_pp": 0.0173
+  },
+  "tip": {
+    "ytd": {
+      "cagr_lift_pp": 2.4396,
+      "mdd_improve_pp": 0.0173,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "cagr_lift_pp": 1.5106,
+      "mdd_improve_pp": 0.0173,
+      "gate": "PASS"
+    }
+  },
+  "live_wire": false,
+  "cutover_authorized": false,
+  "apply_authorized": false,
+  "generated_at_utc": "2026-10-01T12:00:01Z",
+  "label": "TIPSOFT_IP3_HIGHON_CASH_DUAL_PAPER_OBSERVE_OPEN_2026-10-01__OBSERVE_OPEN__NO_LIVE"
+}

@@ -1,7 +1,7 @@
 # TIPSOFT_IP3_HIGHON_CASH_OBSERVE_BALLOT_DRAFT
 
 Date: 2026-10-01  
-Status: **DRAFT — awaiting human OPEN** · Soft KEEP · Soft FIN/TEL Exact T+1 stay **OFF** · Path4 live **OFF** · hybrid T+0 carve **FORBIDDEN** · cutover / apply **BLOCKED** until OPEN→OPERATING→ACCEPT
+Status: **SUPERSEDED by `TIPSOFT_IP3_HIGHON_CASH_OBSERVE_BALLOT_EXECUTED_OPEN`** (OPEN EXECUTED 2026-10-01) · Soft KEEP · Soft FIN/TEL Exact T+1 stay **OFF** · Path4 live **OFF** · hybrid T+0 carve **FORBIDDEN** · cutover / apply **BLOCKED** until OPEN→OPERATING→ACCEPT
 
 ## Proposed human line
 
