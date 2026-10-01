@@ -1,0 +1,14 @@
+arm,role,clock,feasible_under_soft_fin_tel_off,soft_fin_tel_required,held_cagr_lift_pp,held_mdd_improve_pp,sealed_cagr_lift_pp,sealed_mdd_improve_pp,tipY_pp,tip1y_pp
+TIP_L4_ALWAYS_WITHIN,live tip twin / stamps baseline,tipsoft_exact_t1,True,False,-0.0,0.0,-0.0,0.0,-0.0,-0.0
+TIP_CEIL_SOFT_REFILL_MUTE,MUTE_S3_SAT Soft refill on Path3 OFF (FORBIDDEN ceiling),tipsoft_exact_t1,False,True,0.6702,0.2805,1.4666,0.4503,3.1878,2.4206
+TIP_CEIL_OVERRIDE,paper OVERRIDE blend ceiling,tipsoft_exact_t1,False,True,0.7661,0.2805,1.6682,0.4503,3.1878,2.4206
+SC_MUTE_ALWAYS_WITHIN,[MUTE] status-quo Soft-core daily Path3 (WITHIN),softcore_t0,True,False,-0.0,0.0,-0.0,0.0,-0.0,-0.0
+SC_MUTE_FREEZE,[MUTE] Path3 OFF → freeze last FIN∪TEL weights,softcore_t0,True,False,-4.8107,-0.0031,-7.5265,-8.9413,-6.7744,-2.2031
+SC_MUTE_FT_TO_0050,[MUTE] Path3 OFF → park FIN∪TEL mass into 0050,softcore_t0,True,False,-7.0884,-54.4388,-16.4472,-63.9128,63.4817,68.5896
+SC_MUTE_FT_TO_CASH,[MUTE] Path3 OFF → park FIN∪TEL into cash (0 earn),softcore_t0,True,False,-10.7035,12.1281,-14.6224,2.6541,-36.5872,-26.2303
+SC_MUTE_SOFT_REFILL_DIAG,[MUTE] Path3 OFF → equal Soft-core FT + sticky 0050 (diag ≠ Exact T+1 KD),softcore_t0,False,True,-5.4606,2.2228,-6.8181,-5.7713,-8.7749,-4.654
+SC_NEAR_ALWAYS_WITHIN,[NEAR] status-quo Soft-core daily Path3 (WITHIN),softcore_t0,True,False,-0.0,0.0,-0.0,0.0,-0.0,-0.0
+SC_NEAR_FREEZE,[NEAR] Path3 OFF → freeze last FIN∪TEL weights,softcore_t0,True,False,-4.8536,-0.1528,-7.5315,-8.9911,-6.7512,-2.1814
+SC_NEAR_FT_TO_0050,[NEAR] Path3 OFF → park FIN∪TEL mass into 0050,softcore_t0,True,False,-7.0884,-54.4388,-16.4472,-63.9128,63.4817,68.5896
+SC_NEAR_FT_TO_CASH,[NEAR] Path3 OFF → park FIN∪TEL into cash (0 earn),softcore_t0,True,False,-10.8708,11.931,-14.5742,2.457,-36.3653,-26.0219
+SC_NEAR_SOFT_REFILL_DIAG,[NEAR] Path3 OFF → equal Soft-core FT + sticky 0050 (diag ≠ Exact T+1 KD),softcore_t0,False,True,-5.4837,2.2209,-6.821,-5.7952,-8.7627,-4.6426
