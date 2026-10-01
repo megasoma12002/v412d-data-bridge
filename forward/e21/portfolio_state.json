@@ -1,5 +1,5 @@
 {
-  "cash": 21314018.83044248,
+  "cash": 18280512.69837398,
   "positions": {
     "2880": 2455000.0,
     "2886": 2065000.0,
@@ -14,12 +14,12 @@
     "2412": 84000.0,
     "3045": 97000.0,
     "4904": 221000.0,
-    "0050": 408000.0,
+    "0050": 435000.0,
     "00631L": 0.0
   },
   "e22_receivables": {},
-  "last_date": "2026-09-30",
-  "last_nav": 538703968.8304424,
+  "last_date": "2026-10-01",
+  "last_nav": 538702112.698374,
   "e22_books_version": "E22_v3_recv_pay_effdelay",
   "e22_applied_keys": [],
   "e22_manifest": {
@@ -74,5 +74,16 @@
   "conf_ret3_631l_live": true,
   "conf_ret3_ballot": "ACCEPT Live cutover: CONF_RET3_A10_H5 (00631L short-assist under COOL)",
   "conf_ret3_cutover": "ACCEPT_2026-09-26_CONF_RET3_A10_H5_00631L",
-  "conf_ret3_rollback": "Set LIVE_CONF_RET3_631L=False (live_config.live_conf_ret3_631l); next tip day force-flats 00631L when off_weight=0"
+  "conf_ret3_rollback": "Set LIVE_CONF_RET3_631L=False (live_config.live_conf_ret3_631l); next tip day force-flats 00631L when off_weight=0",
+  "tipsoft_live_override_live": true,
+  "tipsoft_live_override_wire_mode": "gate_stamps_telemetry",
+  "tipsoft_live_override_policy": "TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3",
+  "tipsoft_live_override_ballot": "ACCEPT live wire: TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3\n(Exact T+1 · 0kb1 MUTE_S3_SAT + force LIVE when lag42 live leads champ by >0.5% for 3d ·\n Path3 WITHIN_SLEEVE KEEP · Soft FIN/TEL stay OFF · Soft clips+0050 KEEP ·\n T0_CARVE_FIN_SAT_SWITCH KEEP · Path4 OFF · broker false · dual-paper observe KEEP)",
+  "tipsoft_live_override_cutover": "ACCEPT_2026-09-30_TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3",
+  "tipsoft_live_override_rollback": "Set LIVE.live_tipsoft_live_override=False (live_config.live_tipsoft_live_override); tip Soft Exact T+1 LIVE_OVERRIDE gate stamps off; Path3 WITHIN / Soft FIN/TEL unchanged",
+  "tipsoft_live_override_path3_within_keep": true,
+  "tipsoft_live_override_soft_fin_tel_stay_off": true,
+  "tipsoft_live_override_path4_live": false,
+  "tipsoft_live_override_broker": false,
+  "tipsoft_override_return_blend_applied": false
 }

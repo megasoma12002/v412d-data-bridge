@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-30T15:06:03.843819+00:00",
+  "generated_at_utc": "2026-10-01T15:36:50.856568+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -82,7 +82,7 @@
       "severity": "INFO",
       "source": "fin_priv_v7_f05",
       "code": "FINPRIV_PX_FRESH",
-      "message": "Class D priv panel fresh vs tip asof 2026-09-30 (lag\u22645d)"
+      "message": "Class D priv panel fresh vs tip asof 2026-10-01 (lag\u22645d)"
     },
     {
       "severity": "INFO",

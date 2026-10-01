@@ -1,6 +1,6 @@
 # Ops Alerts
 
-Generated: `2026-09-30T15:06:03.843819+00:00`
+Generated: `2026-10-01T15:36:50.856568+00:00`
 Overall: **HIGH**
 Soft-Frozen **[0.60, 0.80] unchanged**. No auto cutover.
 
@@ -21,7 +21,7 @@ Soft-Frozen **[0.60, 0.80] unchanged**. No auto cutover.
 | HIGH | `fin_buy_quality_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: C_OR_K9_AND_BELOW_MA60 ytd giveback > 5 pp |
 | HIGH | `fin_buy_quality_month_end` | `PAUSE_REVIEW` | PAUSE_REVIEW: C_OR_K9_AND_BELOW_MA60 trailing_1y giveback > 5 pp |
 | INFO | `live_qc` | `QC_PASS` | live QC PASS; Exact T+1 ok |
-| INFO | `fin_priv_v7_f05` | `FINPRIV_PX_FRESH` | Class D priv panel fresh vs tip asof 2026-09-30 (lag≤5d) |
+| INFO | `fin_priv_v7_f05` | `FINPRIV_PX_FRESH` | Class D priv panel fresh vs tip asof 2026-10-01 (lag≤5d) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 sealed MDD worse than BASE (paper) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 ytd CAGR giveback > 3.0 pp (paper ops) |
 | INFO | `l4_month_end` | `MONITOR_ALERT` | ALERT: L4_DD_PATH_08_50 trailing_1y CAGR giveback > 3.0 pp (paper ops) |
