@@ -1,0 +1,70 @@
+{
+  "id": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "date": "2026-10-01",
+  "generated_at_utc": "2026-10-01T16:23:13Z",
+  "status": "EXECUTED",
+  "human_tipsoft": "CLOSE paper observe: TIPSOFT_P3_THETA_NEARPEAK3 + TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH + TIPSOFT_P3_TRAIL42_FT_CASH\n(superseded by TIPSOFT_P3_TRAIL42_L4_DD_SWITCH tip apply LIVE \u00b7 Soft FIN/TEL stay OFF \u00b7 Path3 WITHIN KEEP)",
+  "human_path3": "CLOSE paper observe: COMP_H150_x_A20 + SAT_A20_RELAX + P3_T0_STATE\n(Path3 WITHIN + T0 carve + ledger already LIVE \u00b7 Soft KEEP \u00b7 DD_SWITCH tip apply KEEP)",
+  "close_tipsoft": [
+    {
+      "reg": "0kaw",
+      "policy": "TIPSOFT_P3_THETA_NEARPEAK3",
+      "why": "superseded by DD_SWITCH tip apply LIVE (via OVERRIDE\u2192MUTE/TRAIL chain)",
+      "operating": "TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPERATING",
+      "ballot_open": "TIPSOFT_P3_NEARPEAK3_OBSERVE_BALLOT_EXECUTED_OPEN",
+      "cutover": "CUTOVER_CHECKLIST_TIPSOFT_P3_NEARPEAK3"
+    },
+    {
+      "reg": "0kba",
+      "policy": "TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH",
+      "why": "superseded by DD_SWITCH tip apply LIVE (KEEPBOTH already NO)",
+      "operating": "TIPSOFT_IP3_HIGHON_CASH_DUAL_PAPER_OBSERVE_OPERATING",
+      "ballot_open": "TIPSOFT_IP3_HIGHON_CASH_OBSERVE_BALLOT_EXECUTED_OPEN",
+      "cutover": "CUTOVER_CHECKLIST_TIPSOFT_IP3_HIGHON_CASH"
+    },
+    {
+      "reg": "0kbb",
+      "policy": "TIPSOFT_P3_TRAIL42_FT_CASH",
+      "why": "twin leg absorbed into DD_SWITCH tip apply LIVE",
+      "operating": "TIPSOFT_IP3_TRAIL42_CASH_DUAL_PAPER_OBSERVE_OPERATING",
+      "ballot_open": "TIPSOFT_IP3_TRAIL42_CASH_OBSERVE_BALLOT_EXECUTED_OPEN",
+      "cutover": "CUTOVER_CHECKLIST_TIPSOFT_IP3_TRAIL42_CASH"
+    }
+  ],
+  "close_path3": [
+    {
+      "reg": "0k9b",
+      "policy": "COMP_H150_x_A20",
+      "why": "Path3 WITHIN + ledger already LIVE (paper COMPOSITE shadow)",
+      "operating": "FIN_SAT_COMPOSITE_DUAL_PAPER_OBSERVE_OPERATING",
+      "ballot_open": "FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN",
+      "cutover": null
+    },
+    {
+      "reg": "0k9d",
+      "policy": "SAT_A20_RELAX",
+      "why": "Path3 WITHIN + ledger already LIVE (paper SAT shadow)",
+      "operating": "SAT_A20_RELAX_DUAL_PAPER_OBSERVE_OPERATING",
+      "ballot_open": "SAT_A20_RELAX_OBSERVE_BALLOT_EXECUTED_OPEN",
+      "cutover": null
+    },
+    {
+      "reg": "0k9r",
+      "policy": "P3_T0_STATE",
+      "why": "T0 carve + Path3 cutover already LIVE (paper observe shadow)",
+      "operating": "FIN_SAT_PATH3_T0_DUAL_PAPER_OBSERVE_OPERATING",
+      "ballot_open": "FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_EXECUTED_OPEN",
+      "cutover": null
+    }
+  ],
+  "keep_live": [
+    "PATH3_WITHIN_SLEEVE",
+    "T0_CARVE_FIN_SAT_SWITCH",
+    "P3_COMP_SAT_DAILY_POS_LEDGER_A",
+    "TIPSOFT_P3_TRAIL42_L4_DD_SWITCH"
+  ],
+  "keep_observe": [
+    "TIPSOFT_P3_TRAIL42_L4_DD_SWITCH"
+  ],
+  "label": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01__TIPSOFT_OLDSTACK__PATH3_SHADOW"
+}

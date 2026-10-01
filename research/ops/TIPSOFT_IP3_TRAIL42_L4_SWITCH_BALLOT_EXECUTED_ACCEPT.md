@@ -27,7 +27,7 @@ ACCEPT tip apply: TIPSOFT_P3_TRAIL42_L4_DD_SWITCH
 | T+0 carve `T0_CARVE_FIN_SAT_SWITCH` | ON | **KEEP** |
 | Path4 live | OFF | **OFF** |
 | Broker | false | **false** |
-| Dual-paper observe 0kbd / 0kba / 0kbb | OPERATING | **KEEP OPERATING** |
+| Dual-paper observe 0kbd | OPERATING | **KEEP** · 0kba/0kbb **CLOSED** 2026-10-01 |
 | LIVE_OVERRIDE stamps (0kb2) | ON | **KEEP** (stamps/telemetry; not superseded) |
 
 ## Wire
@@ -52,7 +52,7 @@ ACCEPT tip apply: TIPSOFT_P3_TRAIL42_L4_DD_SWITCH
 - Calendar-year switch / year-oracle FORBIDDEN
 - Research return-blend on tip Soft shell FORBIDDEN (wire is Path3 gate + FT→CASH)
 - LIVE_OVERRIDE stamps KEEP (separate mechanism)
-- Sibling 0kba / 0kbb observes KEEP OPERATING
+- Sibling 0kba / 0kbb observes **CLOSED** 2026-10-01 (`OBSERVE_CLOSE_SUPERSEDED_2026-10-01`)
 - Broker false
 
 Label: `TIPSOFT_IP3_TRAIL42_L4_SWITCH_BALLOT_EXECUTED_ACCEPT_2026-10-01__ACCEPT__TIP_APPLY__NO_BROKER`

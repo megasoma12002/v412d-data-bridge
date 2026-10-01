@@ -1,7 +1,7 @@
 {
   "generated_at_utc": "2026-10-01T12:00:01Z",
   "label": "TIPSOFT_IP3_HIGHON_CASH_DUAL_PAPER_OBSERVE_OPERATING",
-  "status": "OPERATING_OBSERVE",
+  "status": "OBSERVE_CLOSED",
   "register": "0kba",
   "human_open": "OPEN paper observe: TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH\n(tip Soft Exact T+1 \u00b7 Path3 ON unless lag63 prem_p3<-0.01 \u2227 sat_lead \u00b7\n Path3 OFF \u2192 FIN\u222aTEL\u2192cash \u00b7 Soft FIN/TEL stay OFF \u00b7 NOT Soft-refill \u00b7 NOT hybrid T+0)",
   "live_wire": false,
@@ -106,5 +106,11 @@
     "0kb9",
     "0kb8",
     "0kac"
-  ]
+  ],
+  "closed_at": "2026-10-01",
+  "close_batch": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "close_why": "superseded by DD_SWITCH tip apply LIVE (KEEPBOTH already NO)",
+  "month_end_queue": "SKIP",
+  "alert_scan": "SKIP",
+  "reopen": "new human OPEN ballot required"
 }

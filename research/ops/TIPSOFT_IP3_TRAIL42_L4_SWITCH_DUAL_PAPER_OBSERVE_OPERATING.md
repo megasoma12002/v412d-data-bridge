@@ -18,8 +18,7 @@
 - hybrid Soft-core T+0 carve FORBIDDEN
 - Research return-blend on tip order_rows FORBIDDEN
 - Tip apply **LIVE WIRED** via `TIPSOFT_IP3_TRAIL42_L4_SWITCH_BALLOT_EXECUTED_ACCEPT` · broker false
-- Sibling 0kba MUTE×CASH observe KEEP OPERATING
-- Sibling 0kbb TRAIL42×CASH observe KEEP OPERATING
+- Sibling 0kba / 0kbb observes **CLOSED** 2026-10-01 (`OBSERVE_CLOSE_SUPERSEDED_2026-10-01`)
 - broker false
 
 Repro: `repro/tipsoft-ip3-trail42-l4-switch-paper-observe/`

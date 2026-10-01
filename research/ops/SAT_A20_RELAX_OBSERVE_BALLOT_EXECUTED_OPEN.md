@@ -1,5 +1,7 @@
 # SAT_A20_RELAX — Ballot EXECUTED (OPEN observe)
 
+> **SUPERSEDED / OBSERVE CLOSED (2026-10-01)** — `SAT_A20_RELAX` · Path3 WITHIN + ledger already LIVE (paper SAT shadow) · `OBSERVE_CLOSE_SUPERSEDED_2026-10-01.md`
+
 Date: 2026-09-28  
 Status: **EXECUTED** · Soft-Frozen **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE observe **KEEP** · live wire **false**  
 Human (exact):

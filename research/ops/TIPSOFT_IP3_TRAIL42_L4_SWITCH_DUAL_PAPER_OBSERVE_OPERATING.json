@@ -102,8 +102,7 @@
     "hybrid Soft-core T+0 carve FORBIDDEN",
     "Research return-blend on tip order_rows FORBIDDEN",
     "Live tip apply / cutover BLOCKED until dedicated ACCEPT",
-    "Sibling 0kba MUTE\u00d7CASH observe KEEP OPERATING",
-    "Sibling 0kbb TRAIL42\u00d7CASH observe KEEP OPERATING",
+    "Sibling 0kba / 0kbb observes CLOSED 2026-10-01 (OBSERVE_CLOSE_SUPERSEDED_2026-10-01)",
     "broker false"
   ],
   "parents": [

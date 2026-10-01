@@ -1,7 +1,9 @@
 # TIPSOFT_IP3_HIGHON_CASH_OBSERVE_BALLOT_EXECUTED_OPEN
 
+> **SUPERSEDED / OBSERVE CLOSED (2026-10-01)** — `TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH` · superseded by DD_SWITCH tip apply LIVE (KEEPBOTH already NO) · `OBSERVE_CLOSE_SUPERSEDED_2026-10-01.md`
+
 Date: 2026-10-01
-Status: **EXECUTED OPEN / OPERATING OBSERVE** · Soft KEEP · Soft FIN/TEL stay **OFF** · Path4 OFF · broker false · apply/cutover **BLOCKED**
+Status: **OBSERVE CLOSED** · Soft KEEP · Soft FIN/TEL stay **OFF** · Path4 OFF · broker false · apply/cutover **BLOCKED**
 
 Register: **0kba** · Parent Stage B `TWIN_HIT` · supersedes `TIPSOFT_IP3_HIGHON_CASH_OBSERVE_BALLOT_DRAFT`
 

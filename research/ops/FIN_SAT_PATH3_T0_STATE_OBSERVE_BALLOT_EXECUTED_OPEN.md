@@ -1,5 +1,7 @@
 # FIN×SAT Path3 P3_T0_STATE — Ballot EXECUTED (OPEN observe)
 
+> **SUPERSEDED / OBSERVE CLOSED (2026-10-01)** — `P3_T0_STATE` · T0 carve + Path3 cutover already LIVE (paper observe shadow) · `OBSERVE_CLOSE_SUPERSEDED_2026-10-01.md`
+
 Date: 2026-09-28  
 Status: **EXECUTED** · Soft-Frozen clips **KEEP** · live CONF α=0.10 **KEEP** · COMPOSITE+SAT_RELAX observes **KEEP** · live wire **false**  
 Human (exact combined line B):
