@@ -1,0 +1,113 @@
+{
+  "id": "TIPSOFT_IP3_PERFECT_LADDER_STAGEA_SCREEN",
+  "register": "0kb8",
+  "parents": [
+    "0kb7",
+    "0kb6",
+    "0kb2",
+    "0kac"
+  ],
+  "generated_at_utc": "2026-10-01T11:45:11Z",
+  "mech": "TIPSOFT_IP3_PERFECT_LADDER",
+  "verdict": "LADDER_STEP1_KEEP__STEP2_BLOCKED",
+  "current_step": 1,
+  "steps": [
+    {
+      "step": 1,
+      "id": "KEEP_STATUS_QUO",
+      "title": "KEEP \u73b0\u72b6\uff08\u5b89\u5168\u9ed8\u8ba4\uff09",
+      "status": "CURRENT",
+      "live": {
+        "path3_within": true,
+        "soft_fin_tel": "OFF",
+        "tipsoft_override_wire": "gate_stamps_telemetry",
+        "path4": false,
+        "broker": false
+      },
+      "evidence": {
+        "paper_OVERRIDE_vs_L3_held_pp": 1.6136,
+        "paper_OVERRIDE_vs_L3_tipY_pp": 6.0402,
+        "tip_gap_vs_L4_held_pp": 0.7661,
+        "tip_gap_vs_L4_tipY_pp": 3.1878,
+        "note": "Live tip \u2248 L4 always-WITHIN; paper OVERRIDE edge remains observe-only"
+      },
+      "go": true,
+      "blocker": null
+    },
+    {
+      "step": 2,
+      "id": "P3_INTERMITTENT_PLUS_FILL",
+      "title": "Path3 \u95f4\u6b47\u95e8\u63a7 + fill\uff08\u51bb\u7ed3 / 0050 / \u73b0\u91d1\uff09",
+      "status": "BLOCKED",
+      "target": "tipY \u2192 MUTE_S3_SAT / OVERRIDE champ \u00b7 MDD not worse than L4 floors",
+      "evidence": {
+        "parents": [
+          "0kb6 APPLY_TIPY_OWNERSHIP_BLOCK",
+          "0kb7 FILL_LOCK_BLOCK"
+        ],
+        "soft_refill_ceiling_tipY_pp": 3.1878,
+        "soft_refill_feasible": false,
+        "path3_on_pct_mute": 9.8336,
+        "path3_on_pct_near": 9.8633,
+        "softcore_FREEZE_held_pp": -4.8107,
+        "softcore_FT0050_held_pp": -7.0884,
+        "softcore_FTCASH_held_pp": -10.7035,
+        "n_softcore_clears": 0
+      },
+      "go": false,
+      "blocker": "Only Soft FIN/TEL refill recovers tipY; freeze/0050/cash lose held under ~90% Path3-OFF. Soft refill FORBIDDEN under WITHIN KEEP.",
+      "reopen_if": [
+        "Human ACCEPT Soft FIN/TEL Exact T+1 carve on Path3 OFF days (undo WITHIN intent)",
+        "OR new high-ON% Path3 gate + Soft-core fill clears held/tipY/MDD floors (new Stage A)"
+      ]
+    },
+    {
+      "step": 3,
+      "id": "OBSERVE_THEN_ACCEPT_APPLY",
+      "title": "\u8fc7\u95e8 \u2192 dual-paper observe \u2192 ACCEPT apply\uff08\u2212P3T0 emit\uff09",
+      "status": "GATED",
+      "depends_on": [
+        2
+      ],
+      "actuator": "Mute/scale Path3 -P3T0 emit by tipsoft_override_on / MUTE_S3_SAT \u2014 not return-blend",
+      "go": false,
+      "blocker": "Step 2 fill lock not cleared \u2014 no observe/ACCEPT apply ballot",
+      "non_actions": [
+        "No research return-blend on tip order_rows",
+        "No broker enable from this ladder"
+      ]
+    },
+    {
+      "step": 4,
+      "id": "SOFT_REOPEN_PATH4_BROKER",
+      "title": "Soft FIN/TEL \u91cd\u5f00 / Path4 / broker",
+      "status": "DEFAULT_NO",
+      "go": false,
+      "blocker": "Default do not \u2014 separate explicit ACCEPT only; not part of tip Soft apply ladder",
+      "default": {
+        "soft_fin_tel_reopen": false,
+        "path4_live": false,
+        "broker_live_write": false
+      }
+    }
+  ],
+  "priors": {
+    "0kb6": "APPLY_TIPY_OWNERSHIP_BLOCK",
+    "0kb7": "FILL_LOCK_BLOCK",
+    "0kb2_observe": "OPERATING_OBSERVE"
+  },
+  "optimize_live": [
+    "Question: research the suggested perfection ladder (steps 1\u20134)",
+    "Verdict `LADDER_STEP1_KEEP__STEP2_BLOCKED`: current live = **step 1 KEEP** \u00b7 tip gap vs L4 held **+0.7661** tipY **+3.1878**",
+    "Step 2 BLOCKED (0kb7): Soft-refill tipY **+3.1878** FORBIDDEN \u00b7 MUTE Path3-ON **9.8336%** \u00b7 FREEZE held **-4.8107** / 0050 **-7.0884** / CASH **-10.7035**",
+    "Step 3 GATED: no dual-paper observe / ACCEPT \u2212P3T0 apply until step 2 clears",
+    "Step 4 DEFAULT_NO: Soft FIN/TEL reopen \u00b7 Path4 \u00b7 broker stay off unless separate ACCEPT",
+    "Disposition: stop perfection chase at step 1; reopen only via step-2 unlock conditions",
+    "Soft KEEP \u00b7 Path4 OFF \u00b7 broker false \u00b7 stamps KEEP \u00b7 no live wire this pack"
+  ],
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "live_wire": false,
+  "label": "TIPSOFT_IP3_PERFECT_LADDER_STAGEA_SCREEN_2026-10-01__LADDER_STEP1_KEEP__STEP2_BLOCKED"
+}
