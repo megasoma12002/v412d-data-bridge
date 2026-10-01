@@ -1,7 +1,7 @@
 # TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH dual-paper observe — OPERATING
 
 - human_open: `OPEN paper observe: TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH / (tip Soft Exact T+1 · Path3 ON unless lag63 prem_p3<-0.01 ∧ sat_lead · /  Path3 OFF → FIN∪TEL→cash · Soft FIN/TEL stay OFF · NOT Soft-refill · NOT hybrid T+0)`
-- status: **OPERATING_OBSERVE** · live_wire: false · apply/cutover: **BLOCKED** · Soft KEEP · Soft FIN/TEL OFF · Path4 OFF · hybrid T+0 carve FORBIDDEN
+- status: **OBSERVE_CLOSED** · live_wire: false · apply/cutover: **BLOCKED** · Soft KEEP · Soft FIN/TEL OFF · Path4 OFF · hybrid T+0 carve FORBIDDEN
 - books: `L4_LIVE_P3_WITHIN` ∥ `ON_UNLESS_MUTE_FT_CASH` (Exact T+1 tip Soft twin)
 - gate: Path3 ON unless lag63 prem_p3<-0.01 ∧ sat_lead · OFF→FIN∪TEL→cash
 - held-out: CAGR↑ 0.8735 pp · MDD↑ 0.0654 pp
@@ -20,3 +20,12 @@
 - broker false
 
 Repro: `repro/tipsoft-ip3-highon-cash-paper-observe/`
+
+## CLOSED (2026-10-01)
+
+- Policy `TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH` removed from month-end / alert queue
+- Why: superseded by DD_SWITCH tip apply LIVE (KEEPBOTH already NO)
+- Batch: `OBSERVE_CLOSE_SUPERSEDED_2026-10-01`
+- Evidence/scripts **KEEP** · reopen needs new human OPEN ballot
+- Live Path3 WITHIN / T0 carve / ledger / DD_SWITCH tip apply **KEEP**
+

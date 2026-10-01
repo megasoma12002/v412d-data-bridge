@@ -1,5 +1,7 @@
 # TIPSOFT_P3_NEARPEAK3 — Ballot EXECUTED (OPEN observe)
 
+> **SUPERSEDED / OBSERVE CLOSED (2026-10-01)** — `TIPSOFT_P3_THETA_NEARPEAK3` · superseded by DD_SWITCH tip apply LIVE (via OVERRIDE→MUTE/TRAIL chain) · `OBSERVE_CLOSE_SUPERSEDED_2026-10-01.md`
+
 Date: 2026-09-30
 Status: **EXECUTED** · Soft KEEP · Path4 OFF · hybrid T+0 carve **FORBIDDEN** · live wire **false** · cutover **BLOCKED**
 Human (exact):

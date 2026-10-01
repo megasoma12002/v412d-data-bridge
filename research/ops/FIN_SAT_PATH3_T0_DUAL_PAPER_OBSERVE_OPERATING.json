@@ -1,8 +1,8 @@
 {
   "label": "FIN_SAT_PATH3_T0_DUAL_PAPER_OBSERVE_20260929T173607Z",
   "generated_at_utc": "2026-09-29T17:36:07Z",
-  "status": "OPERATING_OBSERVE",
-  "human_accept": "ACCEPT T+0 carve-out + OPEN paper observe: P3_T0_STATE (FIN×SAT Path3 · T0_CARVE_FIN_SAT_SWITCH)",
+  "status": "OBSERVE_CLOSED",
+  "human_accept": "ACCEPT T+0 carve-out + OPEN paper observe: P3_T0_STATE (FIN\u00d7SAT Path3 \u00b7 T0_CARVE_FIN_SAT_SWITCH)",
   "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
   "exact_t0_carve_out": true,
   "exact_t_plus_1_global_keep": true,
@@ -16,7 +16,7 @@
   "stage_a_verdict": "T0_ONLY_EDGE",
   "theta": 0.005,
   "theta_prior": 0.01,
-  "human_retune_theta": "ACCEPT Path3 observe retune: SAT_LEAD θ=0.005 (P3_T0_STATE · T0_CARVE_FIN_SAT_SWITCH · parents 0ka3–0ka6)",
+  "human_retune_theta": "ACCEPT Path3 observe retune: SAT_LEAD \u03b8=0.005 (P3_T0_STATE \u00b7 T0_CARVE_FIN_SAT_SWITCH \u00b7 parents 0ka3\u20130ka6)",
   "live_t0_fill": true,
   "live_t0_emit": true,
   "pct_days_sat": 34.91,
@@ -94,5 +94,11 @@
     "COMP_H150_x_A20_OBSERVE",
     "SAT_A20_RELAX_OBSERVE"
   ],
-  "register": "0ka7"
+  "register": "0ka7",
+  "closed_at": "2026-10-01",
+  "close_batch": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "close_why": "T0 carve + Path3 cutover already LIVE (paper observe shadow)",
+  "month_end_queue": "SKIP",
+  "alert_scan": "SKIP",
+  "reopen": "new human OPEN ballot required"
 }

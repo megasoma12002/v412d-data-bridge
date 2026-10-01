@@ -1,6 +1,6 @@
 # CUTOVER_CHECKLIST_TIPSOFT_IP3_TRAIL42_CASH
 
-Date: 2026-10-01 · Status: **BLOCKED** (observe OPEN only · sealed MDD ACCEPTABLE ≠ cutover)
+Date: 2026-10-01 · Status: **OBSERVE CLOSED** (2026-10-01) · paper queue off · `TIPSOFT_P3_TRAIL42_FT_CASH` (observe OPEN only · sealed MDD ACCEPTABLE ≠ cutover)
 
 - [x] Stage B tip Soft twin `TWIN_TRAIL42_CASH` (was MDD_BLOCK)
 - [x] Human sealed MDD **ACCEPTABLE**

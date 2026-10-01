@@ -1,7 +1,7 @@
 {
   "generated_at_utc": "2026-10-01T12:05:00Z",
   "label": "TIPSOFT_IP3_TRAIL42_CASH_DUAL_PAPER_OBSERVE_OPERATING",
-  "status": "OPERATING_OBSERVE",
+  "status": "OBSERVE_CLOSED",
   "register": "0kbb",
   "human_mdd": "Trail42 cash\u7684mdd\u53ef\u63a5\u53d7",
   "human_open": "OPEN paper observe: TIPSOFT_P3_TRAIL42_FT_CASH\n(tip Soft Exact T+1 \u00b7 Path3 ON when trail42d prem_p3\u2265\u22120.01 \u00b7\n Path3 OFF \u2192 FIN\u222aTEL\u2192cash \u00b7 Soft FIN/TEL stay OFF \u00b7 sealed MDD \u22120.36 ACCEPTABLE \u00b7\n NOT Soft-refill \u00b7 NOT hybrid T+0)",
@@ -114,5 +114,11 @@
     "0kb9",
     "0kac"
   ],
-  "disposition": "TIPSOFT_IP3_TRAIL42_CASH_SEALED_MDD_DISPOSITION"
+  "disposition": "TIPSOFT_IP3_TRAIL42_CASH_SEALED_MDD_DISPOSITION",
+  "closed_at": "2026-10-01",
+  "close_batch": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "close_why": "twin leg absorbed into DD_SWITCH tip apply LIVE",
+  "month_end_queue": "SKIP",
+  "alert_scan": "SKIP",
+  "reopen": "new human OPEN ballot required"
 }

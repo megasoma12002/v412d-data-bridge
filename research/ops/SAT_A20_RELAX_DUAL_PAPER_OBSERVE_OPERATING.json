@@ -2,8 +2,8 @@
   "generated_at_utc": "2026-09-29T17:36:00Z",
   "schema_version": "sat_a20_relax_dual_paper_observe_v1",
   "label": "SAT_A20_RELAX_DUAL_PAPER_OBSERVE_OPERATING",
-  "status": "OPERATING_OBSERVE",
-  "human_open": "OPEN paper observe: SAT_A20_RELAX (Stage A SAT_RELAX_HIT · tip-first densify)",
+  "status": "OBSERVE_CLOSED",
+  "human_open": "OPEN paper observe: SAT_A20_RELAX (Stage A SAT_RELAX_HIT \u00b7 tip-first densify)",
   "live_wire": false,
   "cutover_authorized": false,
   "soft_frozen_keep": true,
@@ -91,7 +91,13 @@
   "non_actions": [
     "Soft-Frozen KEEP",
     "COMPOSITE COMP_H150_x_A20 observe KEEP (parallel tip-first track)",
-    "Do not flip live CONF α to 0.20 from observe",
+    "Do not flip live CONF \u03b1 to 0.20 from observe",
     "Cutover BLOCKED until dedicated ACCEPT"
-  ]
+  ],
+  "closed_at": "2026-10-01",
+  "close_batch": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "close_why": "Path3 WITHIN + ledger already LIVE (paper SAT shadow)",
+  "month_end_queue": "SKIP",
+  "alert_scan": "SKIP",
+  "reopen": "new human OPEN ballot required"
 }

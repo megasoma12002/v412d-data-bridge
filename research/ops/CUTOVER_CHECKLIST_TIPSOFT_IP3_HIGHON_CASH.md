@@ -1,6 +1,6 @@
 # CUTOVER_CHECKLIST_TIPSOFT_IP3_HIGHON_CASH
 
-Date: 2026-10-01 · Status: **BLOCKED** (observe OPEN only)
+Date: 2026-10-01 · Status: **OBSERVE CLOSED** (2026-10-01) · paper queue off · `TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH` (observe OPEN only)
 
 - [x] Stage B tip Soft twin `TWIN_HIT`
 - [x] Human OPEN paper observe EXECUTED

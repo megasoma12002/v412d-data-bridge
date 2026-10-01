@@ -2,7 +2,7 @@
 
 - human_accept: `ACCEPT T+0 carve-out + OPEN paper observe: P3_T0_STATE (FIN×SAT Path3 · T0_CARVE_FIN_SAT_SWITCH)`
 - human_retune: `ACCEPT Path3 observe retune: SAT_LEAD θ=0.005 (P3_T0_STATE · T0_CARVE_FIN_SAT_SWITCH · parents 0ka3–0ka6)` · θ **0.005** (prior 0.01)
-- status: **OPERATING_OBSERVE** · live T+0 fill/emit **ON** · broker write **false** · cutover: **BLOCKED** · Soft-Frozen clips KEEP
+- status: **OBSERVE_CLOSED** · live T+0 fill/emit **ON** · broker write **false** · cutover: **BLOCKED** · Soft-Frozen clips KEEP
 - carve-out: **`T0_CARVE_FIN_SAT_SWITCH`** (Exact T+0 for COMP↔SAT switch only) · global Exact T+1 KEEP elsewhere
 - books: `CTRL_LIVE_A10` ∥ `P3_T0_STATE` (same-day SAT_LEAD→SAT else COMP · θ=0.005)
 - Stage A parent: `T0_ONLY_EDGE` · COMPOSITE+SAT_RELAX observes **KEEP**
@@ -20,3 +20,12 @@
 Repro: `repro/fin-sat-path3-t0-dual-paper-observe/`
 
 Label: `FIN_SAT_PATH3_T0_DUAL_PAPER_OBSERVE_OPERATING_2026-09-28__OPEN__NO_LIVE`
+
+## CLOSED (2026-10-01)
+
+- Policy `P3_T0_STATE` removed from month-end / alert queue
+- Why: T0 carve + Path3 cutover already LIVE (paper observe shadow)
+- Batch: `OBSERVE_CLOSE_SUPERSEDED_2026-10-01`
+- Evidence/scripts **KEEP** · reopen needs new human OPEN ballot
+- Live Path3 WITHIN / T0 carve / ledger / DD_SWITCH tip apply **KEEP**
+
