@@ -1,0 +1,92 @@
+{
+  "id": "TIPSOFT_IP3_ASYMM_GATE_STAGEA_DECISION_PACK",
+  "register": "0kb0",
+  "parents": [
+    "0kaz",
+    "0kay",
+    "0kaw",
+    "0kau"
+  ],
+  "verdict": "IP3_ASYMM_YEAR_SOFT",
+  "champion": {
+    "arm": "ASYMM_NEAR__X_R5NEG__MS8_CD3__P4_SAT",
+    "gate": "ASYMM_NEAR__X_R5NEG__MS8_CD3",
+    "family": "ASYMM",
+    "i_p4": "P4_SAT",
+    "mean_alpha": 0.5466,
+    "pct_p3_on": 54.66,
+    "pct_p4_on": 21.09,
+    "mean_i4": 0.2109,
+    "verdict_vs_live": "HIT",
+    "held_vs_live": 1.3714,
+    "full_vs_live": 0.7295,
+    "sealed_vs_live": -0.0523,
+    "tipY_vs_live": 6.9625,
+    "held_vs_near": -0.0759,
+    "sealed_vs_near": -0.0089,
+    "tipY_vs_near": 1.2836,
+    "year_gap_to_oracle_pp": 0.3995,
+    "year_gap_improve_vs_near_pp": 0.3512,
+    "year_mean_policy": 11.8808,
+    "held_pos_vs_near": false,
+    "year_gap_close": true,
+    "oracle": false,
+    "is_ref": false
+  },
+  "n_held_pos_vs_near": 0,
+  "n_year_gap_close": 30,
+  "family_summary": [
+    {
+      "family": "ASYMM",
+      "n": 228,
+      "n_held_pos": 0,
+      "n_gap_close": 18,
+      "max_held_vs_near": -0.024,
+      "max_gap_improve": 0.5089
+    },
+    {
+      "family": "ASYMM_MUTEX",
+      "n": 126,
+      "n_held_pos": 0,
+      "n_gap_close": 10,
+      "max_held_vs_near": -0.4397,
+      "max_gap_improve": 0.2468
+    },
+    {
+      "family": "HYST",
+      "n": 24,
+      "n_held_pos": 0,
+      "n_gap_close": 2,
+      "max_held_vs_near": -0.3347,
+      "max_gap_improve": 0.0588
+    },
+    {
+      "family": "MUTEX",
+      "n": 12,
+      "n_held_pos": 0,
+      "n_gap_close": 0,
+      "max_held_vs_near": -0.2714,
+      "max_gap_improve": -0.0937
+    },
+    {
+      "family": "SOFT",
+      "n": 24,
+      "n_held_pos": 0,
+      "n_gap_close": 0,
+      "max_held_vs_near": -0.0875,
+      "max_gap_improve": -0.0024
+    },
+    {
+      "family": "SOFT_ASYMM",
+      "n": 42,
+      "n_held_pos": 0,
+      "n_gap_close": 0,
+      "max_held_vs_near": -0.9028,
+      "max_gap_improve": -0.157
+    }
+  ],
+  "soft_keep": true,
+  "path4_live": false,
+  "hybrid_t0_carve": false,
+  "label": "TIPSOFT_IP3_ASYMM_GATE_STAGEA_DECISION_PACK_2026-09-30__IP3_ASYMM_YEAR_SOFT__NO_LIVE"
+}

@@ -1,0 +1,23 @@
+{
+  "id": "TIPSOFT_IP3_TRAIL_PREM_MUTE_OBSERVE_BALLOT_DRAFT",
+  "status": "DRAFT",
+  "date": "2026-09-30",
+  "register": "0kb1",
+  "parents": ["0kb1", "0kb0", "0kaw"],
+  "policy_id": "TIPSOFT_P3_TRAIL_MUTE_W63_SAT",
+  "arm_id": "MUTE_P3_W63_Tm001__S3_MUTESAT",
+  "clock": "exact_t1",
+  "gate": "3-state NEARPEAK3; mute when lag63 prem_p3 < -0.01 AND sat_lead",
+  "hybrid_t0_carve": false,
+  "live_wire": false,
+  "cutover_blocked": true,
+  "soft_keep": true,
+  "path4_live": false,
+  "held_vs_nearpeak3_pp": 0.0704,
+  "year_regret_improve_vs_near_pp": 0.1355,
+  "year_wins": 6,
+  "sealed_vs_live_pp": -0.0523,
+  "tipY_vs_live_pp": 6.0402,
+  "open_line": "OPEN paper observe: TIPSOFT_P3_TRAIL_MUTE_W63_SAT (tip Soft Exact T+1 · NEARPEAK3 3-state · mute when lag63 prem_p3<-0.01 ∧ sat_lead · NOT hybrid T+0)",
+  "label": "TIPSOFT_IP3_TRAIL_PREM_MUTE_OBSERVE_BALLOT_DRAFT_2026-09-30__AWAITING_OPEN__NO_LIVE"
+}

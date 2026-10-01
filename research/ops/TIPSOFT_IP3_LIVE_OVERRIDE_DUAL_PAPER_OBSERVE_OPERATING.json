@@ -1,0 +1,97 @@
+{
+  "generated_at_utc": "2026-09-30T15:31:39Z",
+  "label": "TIPSOFT_IP3_LIVE_OVERRIDE_DUAL_PAPER_OBSERVE_OPERATING",
+  "status": "OPERATING_OBSERVE",
+  "register": "0kb2",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3 (tip Soft Exact T+1 \u00b7 0kb1 MUTE_S3_SAT base \u00b7 force LIVE when lag42 live leads champ by >0.5% for 3d \u00b7 NOT hybrid T+0)",
+  "live_wire": false,
+  "cutover_authorized": false,
+  "soft_frozen_keep": true,
+  "path4_live": false,
+  "hybrid_t0_carve": false,
+  "base_id": "BASE_LIVE_FUSE_COOL",
+  "challenger_id": "OVERRIDE_LIVE_W42_M05_K3",
+  "policy_id": "TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3",
+  "gate": "0kb1 MUTE_S3_SAT; force LIVE when lag42 (live-champ) cumret > 0.005 for 3 consecutive days",
+  "base_windows": {
+    "full": {
+      "cagr": 0.123001,
+      "max_drawdown": -0.141077,
+      "n_days": 3366
+    },
+    "oof_2011_2018": {
+      "cagr": 0.087117,
+      "max_drawdown": -0.129741,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.130248,
+      "max_drawdown": -0.141077,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.182881,
+      "max_drawdown": -0.062412,
+      "n_days": 894
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.15492,
+      "max_drawdown": -0.141077,
+      "n_days": 1871
+    }
+  },
+  "chal_windows": {
+    "full": {
+      "cagr": 0.130382,
+      "max_drawdown": -0.141506,
+      "n_days": 3366
+    },
+    "oof_2011_2018": {
+      "cagr": 0.084279,
+      "max_drawdown": -0.129987,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.129997,
+      "max_drawdown": -0.141506,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.217092,
+      "max_drawdown": -0.062935,
+      "n_days": 894
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.171056,
+      "max_drawdown": -0.141506,
+      "n_days": 1871
+    }
+  },
+  "heldout_delta": {
+    "cagr_lift_pp": 1.6136,
+    "mdd_improve_pp": -0.0429
+  },
+  "sealed_delta": {
+    "cagr_lift_pp": 3.4211,
+    "mdd_improve_pp": -0.0523
+  },
+  "tip": {
+    "ytd": {
+      "mdd_improve_pp": -0.2752,
+      "cagr_lift_pp": 6.0402,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "mdd_improve_pp": -0.2752,
+      "cagr_lift_pp": 4.4964,
+      "gate": "PASS"
+    }
+  },
+  "non_actions": [
+    "Soft-Frozen KEEP",
+    "Path4 live OFF",
+    "hybrid Soft-core T+0 carve FORBIDDEN",
+    "year-cut / lookahead promote FORBIDDEN",
+    "Cutover BLOCKED until dedicated ACCEPT"
+  ]
+}

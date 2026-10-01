@@ -1,0 +1,22 @@
+{
+  "id": "TIPSOFT_IP3_LIVE_OVERRIDE_BALLOT_EXECUTED_ACCEPT",
+  "status": "EXECUTED_ACCEPT_LIVE_WIRED",
+  "date": "2026-09-30",
+  "generated_at_utc": "2026-09-30T19:25:00Z",
+  "register": "0kb2",
+  "parents": ["0kb2", "0kb5", "0kac"],
+  "human_accept": "ACCEPT live wire: TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3\n(Exact T+1 · 0kb1 MUTE_S3_SAT + force LIVE when lag42 live leads champ by >0.5% for 3d ·\n Path3 WITHIN_SLEEVE KEEP · Soft FIN/TEL stay OFF · Soft clips+0050 KEEP ·\n T0_CARVE_FIN_SAT_SWITCH KEEP · Path4 OFF · broker false · dual-paper observe KEEP)",
+  "policy_id": "TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3",
+  "clock": "exact_t1",
+  "live_tipsoft_live_override": true,
+  "path3_within_sleeve_keep": true,
+  "soft_fin_tel_stay_off": true,
+  "path4_live": false,
+  "broker": false,
+  "dual_paper_observe_keep": true,
+  "open_superseded": "TIPSOFT_IP3_LIVE_OVERRIDE_ACCEPT_BALLOT_OPEN",
+  "held_vs_live_pp": 1.6136,
+  "tipY_vs_live_pp": 6.0402,
+  "sealed_mdd_vs_live_pp": -0.0523,
+  "label": "TIPSOFT_IP3_LIVE_OVERRIDE_BALLOT_EXECUTED_ACCEPT_2026-09-30__ACCEPT__LIVE_WIRE__NO_BROKER"
+}

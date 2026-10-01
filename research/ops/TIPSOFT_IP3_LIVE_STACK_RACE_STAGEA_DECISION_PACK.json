@@ -1,0 +1,40 @@
+{
+  "id": "TIPSOFT_IP3_LIVE_STACK_RACE_STAGEA_DECISION_PACK",
+  "register": "0kb2",
+  "parents": [
+    "0kb1",
+    "0kb0",
+    "0kaw"
+  ],
+  "verdict": "IP3_LIVE_STACK_RACE_HIT",
+  "champion": {
+    "arm": "OVERRIDE_LIVE_W42_M0005_K3",
+    "family": "OVERRIDE_CONF",
+    "verdict_vs_live": "HIT",
+    "held_vs_live": 1.6136,
+    "held_vs_champ": 0.0959,
+    "held_vs_near": 0.1663,
+    "full_vs_live": 0.7381,
+    "sealed_vs_live": -0.0523,
+    "tipY_vs_live": 6.0402,
+    "year_gap_to_oracle_pp": 0.382,
+    "year_regret_improve_vs_champ_pp": 0.2332,
+    "year_wins": 7,
+    "year_wins_vs_champ": 1,
+    "year_wins_vs_live": -1,
+    "n_beats_live": 8,
+    "n_beats_live_vs_champ": 1,
+    "mean_delta_vs_live_pp": 0.7248,
+    "held_pos_vs_champ": true,
+    "dual_obj_clear": true,
+    "strong_clear": true,
+    "oracle": false,
+    "is_ref": false
+  },
+  "n_strong_clear": 13,
+  "n_held_pos_vs_champ": 16,
+  "n_dual_obj_clear": 18,
+  "soft_keep": true,
+  "path4_live": false,
+  "label": "TIPSOFT_IP3_LIVE_STACK_RACE_STAGEA_DECISION_PACK_2026-09-30__IP3_LIVE_STACK_RACE_HIT__NO_LIVE"
+}

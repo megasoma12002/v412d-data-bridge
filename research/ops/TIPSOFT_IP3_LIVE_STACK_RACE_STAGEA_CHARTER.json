@@ -1,0 +1,17 @@
+{
+  "id": "TIPSOFT_IP3_LIVE_STACK_RACE_STAGEA_CHARTER",
+  "register": "0kb2",
+  "parents": [
+    "0kb1",
+    "0kb0",
+    "0kaw"
+  ],
+  "mech": "TIPSOFT_IP3_LIVE_STACK_RACE",
+  "date": "2026-09-30",
+  "forbidden": [
+    "year_cut",
+    "lookahead_promote",
+    "hybrid_t0",
+    "path4_live"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "TIPSOFT_IP3_Y2020_DEFEND_STAGEA_CHARTER",
+  "register": "0kb4",
+  "parents": [
+    "0kb3",
+    "0kb2",
+    "0kb1"
+  ],
+  "mech": "TIPSOFT_IP3_Y2020_DEFEND",
+  "date": "2026-09-30",
+  "target_year": 2020,
+  "forbidden": [
+    "year_cut",
+    "short_sat_regrid",
+    "hybrid_t0",
+    "path4_live",
+    "lookahead_promote"
+  ]
+}

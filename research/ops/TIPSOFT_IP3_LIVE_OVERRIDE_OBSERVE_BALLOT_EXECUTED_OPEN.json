@@ -1,0 +1,45 @@
+{
+  "id": "TIPSOFT_IP3_LIVE_OVERRIDE_OBSERVE_BALLOT_EXECUTED_OPEN",
+  "status": "EXECUTED_OPEN",
+  "date": "2026-09-30",
+  "generated_at_utc": "2026-09-30T15:30:00Z",
+  "register": "0kb2",
+  "parents": ["0kb1", "0kaw"],
+  "human_open": "OPEN paper observe: TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3 (tip Soft Exact T+1 · 0kb1 MUTE_S3_SAT base · force LIVE when lag42 live leads champ by >0.5% for 3d · NOT hybrid T+0)",
+  "policy_id": "TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3",
+  "arm_id": "OVERRIDE_LIVE_W42_M0005_K3",
+  "challenger_id": "OVERRIDE_LIVE_W42_M05_K3",
+  "clock": "exact_t1",
+  "gate": "0kb1 MUTE_S3_SAT; force LIVE when lag42 (live-champ) cumret > 0.005 for 3 consecutive days",
+  "hybrid_t0_carve": false,
+  "live_wire": false,
+  "cutover_blocked": true,
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "draft_superseded": "TIPSOFT_IP3_LIVE_STACK_RACE_OBSERVE_BALLOT_DRAFT",
+  "heldout_delta": {
+    "cagr_lift_pp": 1.6136,
+    "mdd_improve_pp": -0.0429
+  },
+  "sealed_delta": {
+    "cagr_lift_pp": 3.4211,
+    "mdd_improve_pp": -0.0523
+  },
+  "held_vs_0kb1_pp": 0.0959,
+  "n_beats_live": 8,
+  "year_regret_improve_vs_0kb1_pp": 0.2332,
+  "tip": {
+    "ytd": {
+      "cagr_lift_pp": 6.0402,
+      "mdd_improve_pp": -0.2752,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "cagr_lift_pp": 4.4964,
+      "mdd_improve_pp": -0.2752,
+      "gate": "PASS"
+    }
+  },
+  "label": "TIPSOFT_IP3_LIVE_OVERRIDE_OBSERVE_BALLOT_EXECUTED_OPEN_2026-09-30__OPEN__NO_LIVE"
+}

@@ -1,0 +1,27 @@
+{
+  "target_year": 2020,
+  "parent_y2020_delta_vs_live_pp": -0.6384,
+  "drag_2020": {
+    "n_days": 28,
+    "pct_defend": 67.86,
+    "pct_off3": 0.0,
+    "pct_off5": 0.0,
+    "pct_proxy08": 96.43,
+    "pct_fuse_pos5": 32.14,
+    "pct_sat": 28.57,
+    "mean_dd63": -0.0117,
+    "sum_delta_pp": -1.8962
+  },
+  "help_2020": {
+    "n_days": 24,
+    "pct_defend": 70.83,
+    "pct_off3": 0.0,
+    "pct_off5": 0.0,
+    "pct_proxy08": 95.83,
+    "pct_fuse_pos5": 29.17,
+    "pct_sat": 20.83,
+    "mean_dd63": -0.0135,
+    "sum_delta_pp": 1.2578
+  },
+  "note": "2020 drag: defend/off-peak/proxy heavy, sat low \u2014 knife uses those only (no SHORT_SAT)."
+}

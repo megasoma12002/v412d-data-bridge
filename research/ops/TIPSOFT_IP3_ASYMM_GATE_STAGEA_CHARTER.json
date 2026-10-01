@@ -1,0 +1,27 @@
+{
+  "id": "TIPSOFT_IP3_ASYMM_GATE_STAGEA_CHARTER",
+  "register": "0kb0",
+  "parents": [
+    "0kaz",
+    "0kay",
+    "0kaw",
+    "0kau"
+  ],
+  "mech": "TIPSOFT_IP3_ASYMM_GATE",
+  "date": "2026-09-30",
+  "families": [
+    "ASYMM",
+    "HYST",
+    "SOFT",
+    "MUTEX",
+    "SOFT_ASYMM",
+    "ASYMM_MUTEX"
+  ],
+  "forbidden": [
+    "year_cut",
+    "lookahead_promote",
+    "hybrid_t0",
+    "path4_live",
+    "repeat_0kaz_and_confirm"
+  ]
+}

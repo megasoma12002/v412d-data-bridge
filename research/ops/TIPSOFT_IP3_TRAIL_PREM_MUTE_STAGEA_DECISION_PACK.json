@@ -1,0 +1,96 @@
+{
+  "id": "TIPSOFT_IP3_TRAIL_PREM_MUTE_STAGEA_DECISION_PACK",
+  "register": "0kb1",
+  "parents": [
+    "0kb0",
+    "0kaz",
+    "0kay",
+    "0kaw"
+  ],
+  "verdict": "IP3_TRAIL_MUTE_HIT",
+  "champion": {
+    "arm": "MUTE_P3_W63_Tm001__S3_MUTESAT",
+    "family": "MUTE_S3_SAT",
+    "pct_p3_on": 47.36,
+    "pct_p4_on": 21.18,
+    "verdict_vs_live": "HIT",
+    "held_vs_live": 1.5177,
+    "full_vs_live": 0.4544,
+    "sealed_vs_live": -0.0523,
+    "tipY_vs_live": 6.0402,
+    "held_vs_near": 0.0704,
+    "year_gap_to_oracle_pp": 0.6152,
+    "year_regret_improve_vs_near_pp": 0.1355,
+    "year_wins": 6,
+    "year_wins_vs_near": 0,
+    "year_mean_policy": 11.6651,
+    "held_pos_vs_near": true,
+    "year_obj_clear": true,
+    "year_soft_clear": false,
+    "strong_clear": true,
+    "oracle": false,
+    "is_ref": false
+  },
+  "n_strong_clear": 9,
+  "n_held_pos_vs_near": 11,
+  "n_year_obj_clear": 14,
+  "n_year_soft_clear": 21,
+  "census_summary": {
+    "live_win_years": [
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2019,
+      2020,
+      2025
+    ],
+    "p3_win_years": [
+      2017,
+      2018,
+      2022,
+      2023,
+      2024
+    ],
+    "p34_win_years": [
+      2021,
+      2026
+    ],
+    "n_drag_episodes_live_win_years": 258,
+    "feat_drag_in_live_win_years": {
+      "n_days": 440,
+      "pct_sat_lead": 59.32,
+      "pct_risk_on": 85.91,
+      "mean_dd63": -0.0095,
+      "mean_trail_abs": 0.0165,
+      "mean_prem_p3": -10.4016,
+      "sum_prem_p3_pp": -45.7671
+    },
+    "feat_help_in_p3_win_years": {
+      "n_days": 349,
+      "pct_sat_lead": 28.65,
+      "pct_risk_on": 77.08,
+      "mean_dd63": -0.0097,
+      "mean_trail_abs": 0.0161,
+      "mean_prem_p3": 10.805,
+      "sum_prem_p3_pp": 37.7095
+    },
+    "near_year_oracle": {
+      "mean_policy": 11.5296,
+      "mean_oracle": 12.2803,
+      "gap_to_oracle_pp": 0.7507,
+      "year_wins": 6,
+      "n_years": 15,
+      "best_counts": {
+        "live": 8,
+        "P3": 5,
+        "P3+P4": 2
+      }
+    }
+  },
+  "soft_keep": true,
+  "path4_live": false,
+  "hybrid_t0_carve": false,
+  "label": "TIPSOFT_IP3_TRAIL_PREM_MUTE_STAGEA_DECISION_PACK_2026-09-30__IP3_TRAIL_MUTE_HIT__NO_LIVE`"
+}

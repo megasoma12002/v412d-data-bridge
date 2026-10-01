@@ -52,6 +52,9 @@ from live_config import (
     LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT,
     LIVE_TEL_T3_BALLOT,
     LIVE_TEL_T3_COOL_INV_VOL20,
+    LIVE_TIPSOFT_LIVE_OVERRIDE,
+    LIVE_TIPSOFT_LIVE_OVERRIDE_BALLOT,
+    LIVE_TIPSOFT_LIVE_OVERRIDE_POLICY,
     TIP_BOOKS_ALIGN_BALLOT,
 )
 from live_day_commit import (
@@ -395,6 +398,12 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         path3_emit_meta["path3_strategy_cutover"] = cutover_within
     else:
         path3_emit_meta["reason"] = "emit_flag_off"
+    # tip Soft Exact T+1 LIVE_OVERRIDE gate stamps (0kb2 ACCEPT) — Path3 WITHIN KEEP.
+    tipsoft_override_meta: dict = {"tipsoft_live_override_live": False}
+    if LIVE_TIPSOFT_LIVE_OVERRIDE:
+        import live_tipsoft_live_override as tipsoft_ov
+
+        tipsoft_override_meta = tipsoft_ov.session_meta(latest)
     stamp = utc_now_iso()
     fin_alloc_signal = LIVE_FIN_WITHIN_SLEEVE
     if LIVE_FIN_PRIV_V7_F05 and fin_priv_meta.get("gate_on"):
@@ -493,6 +502,13 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         else None,
         "path3_strategy_cutover_applied": bool(path3_cutover_meta.get("applied")),
         "path3_strategy_cutover_n_muted": int(path3_cutover_meta.get("n_muted") or 0),
+        **tipsoft_override_meta,
+        "tipsoft_live_override_policy_id": LIVE_TIPSOFT_LIVE_OVERRIDE_POLICY
+        if LIVE_TIPSOFT_LIVE_OVERRIDE
+        else None,
+        "tipsoft_live_override_ballot_text": LIVE_TIPSOFT_LIVE_OVERRIDE_BALLOT
+        if LIVE_TIPSOFT_LIVE_OVERRIDE
+        else None,
         "tel_t3_cool_inv_vol20_live": bool(LIVE_TEL_T3_COOL_INV_VOL20),
         "tel_t3_ballot": LIVE_TEL_T3_BALLOT if LIVE_TEL_T3_COOL_INV_VOL20 else None,
         "telecom_alloc": tel_meta.get("telecom_alloc")

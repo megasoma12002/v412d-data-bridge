@@ -1,0 +1,127 @@
+{
+  "id": "TIPSOFT_IP3_T0_GAP_ATTRIB_STAGEA_SCREEN",
+  "register": "0kb5",
+  "parents": [
+    "0kb2",
+    "0kar",
+    "0kav",
+    "0kaq"
+  ],
+  "generated_at_utc": "2026-09-30T15:59:17Z",
+  "mech": "TIPSOFT_IP3_T0_GAP_ATTRIB",
+  "verdict": "T0_NOT_DRIVER",
+  "live_base": "L3_LIVE_FUSE_COOL",
+  "live_flags": {
+    "live_path3_strategy_cutover": true,
+    "live_path3_strategy_cutover_scope": "WITHIN_SLEEVE_PATH3",
+    "live_t0_carve_fin_sat_switch_fill_emit": true,
+    "note": "Live has narrow Path3 T+0 carve ON, but tip Soft research books (NEARPEAK3 / LIVE_OVERRIDE) are Exact T+1 twins vs L3; gap vs L3 is stack alpha on same clock."
+  },
+  "arms": [
+    {
+      "arm": "L3_LIVE_FUSE_COOL",
+      "clock": "exact_t1",
+      "role": "live_soft_fuse_cool_base",
+      "held_cagr_lift_vs_L3_pp": -0.0,
+      "held_mdd_improve_vs_L3_pp": 0.0,
+      "sealed_cagr_lift_vs_L3_pp": -0.0,
+      "sealed_mdd_improve_vs_L3_pp": 0.0,
+      "full_cagr_lift_vs_L3_pp": -0.0,
+      "tipY_vs_L3_pp": -0.0,
+      "tip1y_vs_L3_pp": -0.0,
+      "ahead_of_live": false,
+      "t0_involved": false
+    },
+    {
+      "arm": "L4_LIVE_P3_WITHIN",
+      "clock": "exact_t1",
+      "role": "tipsoft_p3_within_on_L3",
+      "held_cagr_lift_vs_L3_pp": 0.8475,
+      "held_mdd_improve_vs_L3_pp": -0.3234,
+      "sealed_cagr_lift_vs_L3_pp": 1.7529,
+      "sealed_mdd_improve_vs_L3_pp": -0.5026,
+      "full_cagr_lift_vs_L3_pp": 0.3296,
+      "tipY_vs_L3_pp": 2.8524,
+      "tip1y_vs_L3_pp": 2.0757,
+      "ahead_of_live": true,
+      "t0_involved": false
+    },
+    {
+      "arm": "P3_THETA_NEARPEAK3",
+      "clock": "exact_t1",
+      "role": "0kaw_observe",
+      "held_cagr_lift_vs_L3_pp": 1.4473,
+      "held_mdd_improve_vs_L3_pp": -0.0429,
+      "sealed_cagr_lift_vs_L3_pp": 3.1657,
+      "sealed_mdd_improve_vs_L3_pp": -0.0434,
+      "full_cagr_lift_vs_L3_pp": 0.2907,
+      "tipY_vs_L3_pp": 5.6789,
+      "tip1y_vs_L3_pp": 4.2409,
+      "ahead_of_live": true,
+      "t0_involved": false
+    },
+    {
+      "arm": "OVERRIDE_LIVE_W42_M05_K3",
+      "clock": "exact_t1",
+      "role": "0kb2_observe_open",
+      "held_cagr_lift_vs_L3_pp": 1.6136,
+      "held_mdd_improve_vs_L3_pp": -0.0429,
+      "sealed_cagr_lift_vs_L3_pp": 3.4211,
+      "sealed_mdd_improve_vs_L3_pp": -0.0523,
+      "full_cagr_lift_vs_L3_pp": 0.7381,
+      "tipY_vs_L3_pp": 6.0402,
+      "tip1y_vs_L3_pp": 4.4964,
+      "ahead_of_live": true,
+      "t0_involved": false
+    },
+    {
+      "arm": "R0_T0_P3_WITHIN",
+      "clock": "exact_t0",
+      "role": "softcore_path3_t0_carve",
+      "held_cagr_lift_vs_L3_pp": -2.5148,
+      "held_mdd_improve_vs_L3_pp": -8.6355,
+      "sealed_cagr_lift_vs_L3_pp": -1.2223,
+      "sealed_mdd_improve_vs_L3_pp": -7.028,
+      "full_cagr_lift_vs_L3_pp": -2.7988,
+      "tipY_vs_L3_pp": 1.923,
+      "tip1y_vs_L3_pp": -0.2688,
+      "ahead_of_live": false,
+      "t0_involved": true
+    },
+    {
+      "arm": "HYBRID_P3_NEARPEAK3",
+      "clock": "hybrid_t1_overlay_t0_carve",
+      "role": "0kav_hybrid_mdblock",
+      "held_cagr_lift_vs_L3_pp": -2.2498,
+      "held_mdd_improve_vs_L3_pp": -0.0781,
+      "sealed_cagr_lift_vs_L3_pp": -3.937,
+      "sealed_mdd_improve_vs_L3_pp": -3.0616,
+      "full_cagr_lift_vs_L3_pp": -2.6409,
+      "tipY_vs_L3_pp": -5.7831,
+      "tip1y_vs_L3_pp": -6.175,
+      "ahead_of_live": false,
+      "t0_involved": true
+    }
+  ],
+  "same_clock_override_vs_L4": {
+    "held_cagr_lift_pp": 0.7661,
+    "sealed_mdd_improve_pp": 0.4503,
+    "tipY_pp": 3.1878,
+    "tip1y_pp": 2.4206
+  },
+  "n_research_t1_ahead_of_live": 2,
+  "n_t0_ahead_of_live": 0,
+  "optimize_live": [
+    "Question: does T+0 cause live to lag tip Soft research?",
+    "Verdict `T0_NOT_DRIVER`: tip Soft Exact T+1 OVERRIDE held vs L3 **+1.6136** tipY **+6.0402** (same clock as live Soft+FUSE+COOL)",
+    "Soft-core Exact T+0 R0 held vs L3 **-2.5148** tipY **1.923** \u2014 T+0 Soft-core is **behind** live, cannot explain live lagging research",
+    "Hybrid T+1 overlay + T+0 carve NEARPEAK3 held **-2.2498** tipY **-5.7831** \u2014 MDD/TIP block (0kav); T+0 hybrid worsens tip",
+    "Same-clock stack residual OVERRIDE vs L4_P3_WITHIN held **0.7661** tipY **3.1878** \u2014 mute+override alpha, not clock",
+    "L4 tipSoft P3 alone vs L3 held **+0.8475** \u2014 part of live Path3 cutover story; still below OVERRIDE",
+    "Disposition: do **not** chase live\u2194research tip Soft gap via more T+0; gap close = ACCEPT wire 0kb2 Exact T+1 LIVE_OVERRIDE (cutover separate)",
+    "Soft KEEP \u00b7 Path4 OFF \u00b7 broker false \u00b7 no live wire this pack"
+  ],
+  "soft_keep": true,
+  "path4_live": false,
+  "label": "TIPSOFT_IP3_T0_GAP_ATTRIB_STAGEA_SCREEN_2026-09-30__T0_NOT_DRIVER"
+}

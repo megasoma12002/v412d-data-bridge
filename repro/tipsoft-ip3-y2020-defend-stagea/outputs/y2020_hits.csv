@@ -1,0 +1,2 @@
+arm,family,verdict_vs_live,held_vs_live,held_vs_parent,sealed_vs_live,tipY_vs_live,year_gap_to_oracle_pp,year_regret_improve_vs_parent_pp,year_wins,n_beats_live,n_beats_live_vs_parent,y2020_delta_vs_live_pp,y2020_improve_vs_parent_pp,y2020_beats_live,y2020_flip,held_pos_vs_parent,y2020_obj_clear,strong_clear,oracle,is_ref
+HARD_OFF3_and_STACK_ST5,HARD,HIT,1.6265,0.0129,-0.0523,6.4219,0.353,0.029,6,8,0,-0.6707,0.0,False,False,True,False,False,False,False

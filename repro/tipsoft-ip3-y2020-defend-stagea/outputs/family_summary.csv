@@ -1,0 +1,4 @@
+family,n,n_strong,n_held,n_y20,n_flip,max_held_vs_parent,max_y20_imp,max_beats
+HARD,84,0,1,0,2,0.0129,0.8725,9
+HARD_CONF,9,0,0,0,0,-0.3835,0.6178,8
+SOFT,54,0,0,0,1,-0.0,0.8725,9

@@ -161,6 +161,18 @@ class LiveConfig:
         " T0_CARVE_FIN_SAT_SWITCH KEEP · broker false · overlays KEEP)"
     )
 
+    # tip Soft Exact T+1 LIVE_OVERRIDE — human ACCEPT 2026-09-30 (0kb2).
+    # MUTE_S3_SAT base · force LIVE when lag42 live leads champ by >0.5% for 3d.
+    # Path3 WITHIN_SLEEVE KEEP · Soft FIN/TEL stay OFF · Path4 OFF · broker false.
+    live_tipsoft_live_override: bool = True
+    live_tipsoft_live_override_policy: str = "TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3"
+    live_tipsoft_live_override_ballot: str = (
+        "ACCEPT live wire: TIPSOFT_P3_LIVE_OVERRIDE_W42_M05_K3\n"
+        "(Exact T+1 · 0kb1 MUTE_S3_SAT + force LIVE when lag42 live leads champ by >0.5% for 3d ·\n"
+        " Path3 WITHIN_SLEEVE KEEP · Soft FIN/TEL stay OFF · Soft clips+0050 KEEP ·\n"
+        " T0_CARVE_FIN_SAT_SWITCH KEEP · Path4 OFF · broker false · dual-paper observe KEEP)"
+    )
+
 
 # Module-level singleton used by the live pipeline (edit + ACCEPT PR to cut over).
 LIVE = LiveConfig()
@@ -194,6 +206,9 @@ LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT = LIVE.live_soft_path3_coexist_mute_ballot
 LIVE_PATH3_STRATEGY_CUTOVER = LIVE.live_path3_strategy_cutover
 LIVE_PATH3_STRATEGY_CUTOVER_SCOPE = LIVE.live_path3_strategy_cutover_scope
 LIVE_PATH3_STRATEGY_CUTOVER_BALLOT = LIVE.live_path3_strategy_cutover_ballot
+LIVE_TIPSOFT_LIVE_OVERRIDE = LIVE.live_tipsoft_live_override
+LIVE_TIPSOFT_LIVE_OVERRIDE_POLICY = LIVE.live_tipsoft_live_override_policy
+LIVE_TIPSOFT_LIVE_OVERRIDE_BALLOT = LIVE.live_tipsoft_live_override_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital
