@@ -539,14 +539,14 @@ def main() -> int:
         f"TRAIL42≥−0.01 × FT→CASH · sealed MDD **ACCEPTABLE** (−0.36) · Soft FIN/TEL stay OFF · "
         f"apply/cutover **BLOCKED** · `{BALLOT_EXEC_ID}.md` |"
     )
-    if POLICY_ID not in ot:
+    ot = ops.read_text(encoding="utf-8")
+    if f"`{POLICY_ID}` |" not in ot:
         anchor = (
             "| tip Soft Exact T+1 `TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH` | **OBSERVE OPEN** (2026-10-01) | "
             "Path3 ON unless lag63 prem_p3<-0.01 ∧ sat_lead · OFF→FIN∪TEL→cash · Soft FIN/TEL stay OFF · "
             "Exact T+1 tip Soft twin · apply/cutover **BLOCKED** · "
             "`TIPSOFT_IP3_HIGHON_CASH_OBSERVE_BALLOT_EXECUTED_OPEN.md` |"
         )
-        ot = ops.read_text(encoding="utf-8")
         if anchor in ot:
             ops.write_text(ot.replace(anchor, anchor + "\n" + table_row), encoding="utf-8")
 
