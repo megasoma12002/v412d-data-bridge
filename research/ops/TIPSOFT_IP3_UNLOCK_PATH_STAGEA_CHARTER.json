@@ -1,0 +1,12 @@
+{
+  "id": "TIPSOFT_IP3_UNLOCK_PATH_STAGEA_CHARTER",
+  "register": "0kb9",
+  "parents": [
+    "0kb8",
+    "0kb7",
+    "0kb6",
+    "0kac"
+  ],
+  "question": "Soft refill vs high-ON fill unlock",
+  "label": "TIPSOFT_IP3_UNLOCK_PATH_STAGEA_CHARTER_2026-10-01"
+}

@@ -1,0 +1,674 @@
+{
+  "id": "TIPSOFT_IP3_UNLOCK_PATH_STAGEA_SCREEN",
+  "register": "0kb9",
+  "parents": [
+    "0kb8",
+    "0kb7",
+    "0kb6",
+    "0kac"
+  ],
+  "generated_at_utc": "2026-10-01T11:49:39Z",
+  "mech": "TIPSOFT_IP3_UNLOCK_PATH",
+  "verdict": "UNLOCK_HIGHON_FILL_HIT",
+  "track_a_soft_refill": {
+    "mute_vs_L4": {
+      "held_pp": 0.6702,
+      "tipY_pp": 3.1878,
+      "sealed_mdd_pp": 0.4503
+    },
+    "override_vs_L4": {
+      "held_pp": 0.7661,
+      "tipY_pp": 3.1878,
+      "sealed_mdd_pp": 0.4503
+    },
+    "requires": "ACCEPT loosen WITHIN / Soft FIN/TEL Exact T+1 carve",
+    "ballot_cost": "Undo or carve 0kac WITHIN Soft FIN/TEL OFF daily"
+  },
+  "track_b_highon_fill": {
+    "gates": {
+      "ON_UNLESS_MUTE": {
+        "pct_on": 94.385,
+        "n": 3366
+      },
+      "TRAIL63_GE_m001": {
+        "pct_on": 93.4046,
+        "n": 3366
+      },
+      "TRAIL63_GE_0": {
+        "pct_on": 55.8229,
+        "n": 3366
+      },
+      "TRAIL42_GE_m001": {
+        "pct_on": 94.7415,
+        "n": 3366
+      },
+      "TRAIL21_GE_m001": {
+        "pct_on": 97.5639,
+        "n": 3366
+      }
+    },
+    "all_gates": {
+      "MUTE_S3_SAT": {
+        "pct_on": 9.8336,
+        "n": 3366
+      },
+      "NEARPEAK3": {
+        "pct_on": 9.8633,
+        "n": 3366
+      },
+      "ON_UNLESS_MUTE": {
+        "pct_on": 94.385,
+        "n": 3366
+      },
+      "TRAIL63_GE_m001": {
+        "pct_on": 93.4046,
+        "n": 3366
+      },
+      "TRAIL63_GE_0": {
+        "pct_on": 55.8229,
+        "n": 3366
+      },
+      "TRAIL42_GE_m001": {
+        "pct_on": 94.7415,
+        "n": 3366
+      },
+      "TRAIL21_GE_m001": {
+        "pct_on": 97.5639,
+        "n": 3366
+      },
+      "ALWAYS": {
+        "pct_on": 100.0,
+        "n": 3366
+      }
+    },
+    "n_arms": 15,
+    "n_clears": 2,
+    "best": {
+      "arm": "B_TRAIL42_GE_m001__FT_TO_CASH",
+      "role": "high-ON TRAIL42_GE_m001 \u00d7 FT_TO_CASH",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": 1.2006,
+      "held_mdd_improve_pp": 0.0236,
+      "sealed_cagr_lift_pp": 1.4304,
+      "sealed_mdd_improve_pp": -0.0077,
+      "tipY_pp": 8.533,
+      "tip1y_pp": 8.4655,
+      "meta": {
+        "fill": "FT_TO_CASH",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3182,
+        "n_off_days": 177,
+        "n_fill_actions": 177,
+        "pct_off": 5.2694,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL42_GE_m001",
+        "pct_on_gate": 94.7415
+      }
+    },
+    "floors": {
+      "held_edge_pp": 0.05,
+      "sealed_mdd_pp": -0.25,
+      "tipY_pp": -1.0,
+      "on_pct_band": [
+        50.0,
+        98.0
+      ]
+    }
+  },
+  "arms": [
+    {
+      "arm": "A_SOFT_REFILL_MUTE",
+      "role": "Soft FIN/TEL refill = MUTE_S3_SAT vs L4 (loosen WITHIN)",
+      "clock": "tipsoft_exact_t1",
+      "feasible_under_soft_fin_tel_off": false,
+      "soft_fin_tel_required": true,
+      "held_cagr_lift_pp": 0.6702,
+      "held_mdd_improve_pp": 0.2805,
+      "sealed_cagr_lift_pp": 1.4666,
+      "sealed_mdd_improve_pp": 0.4503,
+      "tipY_pp": 3.1878,
+      "tip1y_pp": 2.4206,
+      "meta": {}
+    },
+    {
+      "arm": "A_SOFT_REFILL_OVERRIDE",
+      "role": "Soft refill + LIVE_OVERRIDE blend vs L4",
+      "clock": "tipsoft_exact_t1",
+      "feasible_under_soft_fin_tel_off": false,
+      "soft_fin_tel_required": true,
+      "held_cagr_lift_pp": 0.7661,
+      "held_mdd_improve_pp": 0.2805,
+      "sealed_cagr_lift_pp": 1.6682,
+      "sealed_mdd_improve_pp": 0.4503,
+      "tipY_pp": 3.1878,
+      "tip1y_pp": 2.4206,
+      "meta": {}
+    },
+    {
+      "arm": "A_COST_ALWAYS_SOFT_L3",
+      "role": "diagnostic: always Soft shell (no Path3) vs L4",
+      "clock": "tipsoft_exact_t1",
+      "feasible_under_soft_fin_tel_off": false,
+      "soft_fin_tel_required": true,
+      "held_cagr_lift_pp": -0.8475,
+      "held_mdd_improve_pp": 0.3234,
+      "sealed_cagr_lift_pp": -1.7529,
+      "sealed_mdd_improve_pp": 0.5026,
+      "tipY_pp": -2.8524,
+      "tip1y_pp": -2.0757,
+      "meta": {}
+    },
+    {
+      "arm": "B_ALWAYS_WITHIN",
+      "role": "Soft-core daily Path3 baseline",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -0.0,
+      "held_mdd_improve_pp": 0.0,
+      "sealed_cagr_lift_pp": -0.0,
+      "sealed_mdd_improve_pp": 0.0,
+      "tipY_pp": -0.0,
+      "tip1y_pp": -0.0,
+      "meta": {
+        "fill": "ALWAYS_WITHIN",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3359,
+        "n_off_days": 0,
+        "n_fill_actions": 0,
+        "pct_off": 0.0,
+        "start": "2012-12-05",
+        "end": "2026-09-29"
+      }
+    },
+    {
+      "arm": "B_ON_UNLESS_MUTE__FREEZE",
+      "role": "high-ON ON_UNLESS_MUTE \u00d7 FREEZE",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -0.2099,
+      "held_mdd_improve_pp": -0.0162,
+      "sealed_cagr_lift_pp": -0.0625,
+      "sealed_mdd_improve_pp": -0.323,
+      "tipY_pp": 0.1196,
+      "tip1y_pp": 0.1172,
+      "meta": {
+        "fill": "FREEZE",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3170,
+        "n_off_days": 189,
+        "n_fill_actions": 0,
+        "pct_off": 5.6267,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "ON_UNLESS_MUTE",
+        "pct_on_gate": 94.385
+      }
+    },
+    {
+      "arm": "B_ON_UNLESS_MUTE__FT_TO_0050",
+      "role": "high-ON ON_UNLESS_MUTE \u00d7 FT_TO_0050",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -7.0884,
+      "held_mdd_improve_pp": -54.4388,
+      "sealed_cagr_lift_pp": -16.4472,
+      "sealed_mdd_improve_pp": -63.9128,
+      "tipY_pp": 63.4817,
+      "tip1y_pp": 68.5896,
+      "meta": {
+        "fill": "FT_TO_0050",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3170,
+        "n_off_days": 189,
+        "n_fill_actions": 189,
+        "pct_off": 5.6267,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "ON_UNLESS_MUTE",
+        "pct_on_gate": 94.385
+      }
+    },
+    {
+      "arm": "B_ON_UNLESS_MUTE__FT_TO_CASH",
+      "role": "high-ON ON_UNLESS_MUTE \u00d7 FT_TO_CASH",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": 0.6427,
+      "held_mdd_improve_pp": 0.0595,
+      "sealed_cagr_lift_pp": -0.0052,
+      "sealed_mdd_improve_pp": 0.5072,
+      "tipY_pp": -0.3935,
+      "tip1y_pp": -0.3855,
+      "meta": {
+        "fill": "FT_TO_CASH",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3170,
+        "n_off_days": 189,
+        "n_fill_actions": 189,
+        "pct_off": 5.6267,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "ON_UNLESS_MUTE",
+        "pct_on_gate": 94.385
+      }
+    },
+    {
+      "arm": "B_TRAIL63_GE_m001__FREEZE",
+      "role": "high-ON TRAIL63_GE_m001 \u00d7 FREEZE",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -0.2797,
+      "held_mdd_improve_pp": -0.0196,
+      "sealed_cagr_lift_pp": -0.12,
+      "sealed_mdd_improve_pp": -0.3576,
+      "tipY_pp": 0.0646,
+      "tip1y_pp": 0.0867,
+      "meta": {
+        "fill": "FREEZE",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3137,
+        "n_off_days": 222,
+        "n_fill_actions": 0,
+        "pct_off": 6.6091,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL63_GE_m001",
+        "pct_on_gate": 93.4046
+      }
+    },
+    {
+      "arm": "B_TRAIL63_GE_m001__FT_TO_0050",
+      "role": "high-ON TRAIL63_GE_m001 \u00d7 FT_TO_0050",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -7.0884,
+      "held_mdd_improve_pp": -54.4388,
+      "sealed_cagr_lift_pp": -16.4472,
+      "sealed_mdd_improve_pp": -63.9128,
+      "tipY_pp": 63.4817,
+      "tip1y_pp": 68.5896,
+      "meta": {
+        "fill": "FT_TO_0050",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3137,
+        "n_off_days": 222,
+        "n_fill_actions": 222,
+        "pct_off": 6.6091,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL63_GE_m001",
+        "pct_on_gate": 93.4046
+      }
+    },
+    {
+      "arm": "B_TRAIL63_GE_m001__FT_TO_CASH",
+      "role": "high-ON TRAIL63_GE_m001 \u00d7 FT_TO_CASH",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": 0.2425,
+      "held_mdd_improve_pp": 0.0671,
+      "sealed_cagr_lift_pp": -0.9727,
+      "sealed_mdd_improve_pp": 0.5019,
+      "tipY_pp": -4.9382,
+      "tip1y_pp": -3.4488,
+      "meta": {
+        "fill": "FT_TO_CASH",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3137,
+        "n_off_days": 222,
+        "n_fill_actions": 222,
+        "pct_off": 6.6091,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL63_GE_m001",
+        "pct_on_gate": 93.4046
+      }
+    },
+    {
+      "arm": "B_TRAIL63_GE_0__FREEZE",
+      "role": "high-ON TRAIL63_GE_0 \u00d7 FREEZE",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -2.1823,
+      "held_mdd_improve_pp": -1.0908,
+      "sealed_cagr_lift_pp": -1.3817,
+      "sealed_mdd_improve_pp": -3.6091,
+      "tipY_pp": 3.0299,
+      "tip1y_pp": 1.9132,
+      "meta": {
+        "fill": "FREEZE",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 1872,
+        "n_off_days": 1487,
+        "n_fill_actions": 0,
+        "pct_off": 44.2691,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL63_GE_0",
+        "pct_on_gate": 55.8229
+      }
+    },
+    {
+      "arm": "B_TRAIL63_GE_0__FT_TO_0050",
+      "role": "high-ON TRAIL63_GE_0 \u00d7 FT_TO_0050",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -7.0884,
+      "held_mdd_improve_pp": -54.4388,
+      "sealed_cagr_lift_pp": -16.4472,
+      "sealed_mdd_improve_pp": -63.9128,
+      "tipY_pp": 63.4817,
+      "tip1y_pp": 68.5896,
+      "meta": {
+        "fill": "FT_TO_0050",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 1872,
+        "n_off_days": 1487,
+        "n_fill_actions": 1487,
+        "pct_off": 44.2691,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL63_GE_0",
+        "pct_on_gate": 55.8229
+      }
+    },
+    {
+      "arm": "B_TRAIL63_GE_0__FT_TO_CASH",
+      "role": "high-ON TRAIL63_GE_0 \u00d7 FT_TO_CASH",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -4.8249,
+      "held_mdd_improve_pp": 9.1146,
+      "sealed_cagr_lift_pp": -6.8939,
+      "sealed_mdd_improve_pp": -0.3594,
+      "tipY_pp": -5.762,
+      "tip1y_pp": -2.5649,
+      "meta": {
+        "fill": "FT_TO_CASH",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 1872,
+        "n_off_days": 1487,
+        "n_fill_actions": 1487,
+        "pct_off": 44.2691,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL63_GE_0",
+        "pct_on_gate": 55.8229
+      }
+    },
+    {
+      "arm": "B_TRAIL42_GE_m001__FREEZE",
+      "role": "high-ON TRAIL42_GE_m001 \u00d7 FREEZE",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -0.2066,
+      "held_mdd_improve_pp": -0.0212,
+      "sealed_cagr_lift_pp": -0.3527,
+      "sealed_mdd_improve_pp": -0.2147,
+      "tipY_pp": 0.1366,
+      "tip1y_pp": 0.1339,
+      "meta": {
+        "fill": "FREEZE",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3182,
+        "n_off_days": 177,
+        "n_fill_actions": 0,
+        "pct_off": 5.2694,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL42_GE_m001",
+        "pct_on_gate": 94.7415
+      }
+    },
+    {
+      "arm": "B_TRAIL42_GE_m001__FT_TO_0050",
+      "role": "high-ON TRAIL42_GE_m001 \u00d7 FT_TO_0050",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -7.0884,
+      "held_mdd_improve_pp": -54.4388,
+      "sealed_cagr_lift_pp": -16.4472,
+      "sealed_mdd_improve_pp": -63.9128,
+      "tipY_pp": 63.4817,
+      "tip1y_pp": 68.5896,
+      "meta": {
+        "fill": "FT_TO_0050",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3182,
+        "n_off_days": 177,
+        "n_fill_actions": 177,
+        "pct_off": 5.2694,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL42_GE_m001",
+        "pct_on_gate": 94.7415
+      }
+    },
+    {
+      "arm": "B_TRAIL42_GE_m001__FT_TO_CASH",
+      "role": "high-ON TRAIL42_GE_m001 \u00d7 FT_TO_CASH",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": 1.2006,
+      "held_mdd_improve_pp": 0.0236,
+      "sealed_cagr_lift_pp": 1.4304,
+      "sealed_mdd_improve_pp": -0.0077,
+      "tipY_pp": 8.533,
+      "tip1y_pp": 8.4655,
+      "meta": {
+        "fill": "FT_TO_CASH",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3182,
+        "n_off_days": 177,
+        "n_fill_actions": 177,
+        "pct_off": 5.2694,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL42_GE_m001",
+        "pct_on_gate": 94.7415
+      }
+    },
+    {
+      "arm": "B_TRAIL21_GE_m001__FREEZE",
+      "role": "high-ON TRAIL21_GE_m001 \u00d7 FREEZE",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -0.4266,
+      "held_mdd_improve_pp": -0.0306,
+      "sealed_cagr_lift_pp": -0.5652,
+      "sealed_mdd_improve_pp": -0.4044,
+      "tipY_pp": -2.3555,
+      "tip1y_pp": -1.5029,
+      "meta": {
+        "fill": "FREEZE",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3277,
+        "n_off_days": 82,
+        "n_fill_actions": 0,
+        "pct_off": 2.4412,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL21_GE_m001",
+        "pct_on_gate": 97.5639
+      }
+    },
+    {
+      "arm": "B_TRAIL21_GE_m001__FT_TO_0050",
+      "role": "high-ON TRAIL21_GE_m001 \u00d7 FT_TO_0050",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -7.0884,
+      "held_mdd_improve_pp": -54.4388,
+      "sealed_cagr_lift_pp": -16.4472,
+      "sealed_mdd_improve_pp": -63.9128,
+      "tipY_pp": 63.4817,
+      "tip1y_pp": 68.5896,
+      "meta": {
+        "fill": "FT_TO_0050",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3277,
+        "n_off_days": 82,
+        "n_fill_actions": 82,
+        "pct_off": 2.4412,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL21_GE_m001",
+        "pct_on_gate": 97.5639
+      }
+    },
+    {
+      "arm": "B_TRAIL21_GE_m001__FT_TO_CASH",
+      "role": "high-ON TRAIL21_GE_m001 \u00d7 FT_TO_CASH",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": 1.4968,
+      "held_mdd_improve_pp": 0.0039,
+      "sealed_cagr_lift_pp": 1.1043,
+      "sealed_mdd_improve_pp": -2.5068,
+      "tipY_pp": 12.1819,
+      "tip1y_pp": 11.4314,
+      "meta": {
+        "fill": "FT_TO_CASH",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 3277,
+        "n_off_days": 82,
+        "n_fill_actions": 82,
+        "pct_off": 2.4412,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "TRAIL21_GE_m001",
+        "pct_on_gate": 97.5639
+      }
+    },
+    {
+      "arm": "B_MUTE_S3_SAT__FREEZE",
+      "role": "control low-ON MUTE \u00d7 FREEZE",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -4.8107,
+      "held_mdd_improve_pp": -0.0031,
+      "sealed_cagr_lift_pp": -7.5265,
+      "sealed_mdd_improve_pp": -8.9413,
+      "tipY_pp": -6.7744,
+      "tip1y_pp": -2.2031,
+      "meta": {
+        "fill": "FREEZE",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 331,
+        "n_off_days": 3028,
+        "n_fill_actions": 0,
+        "pct_off": 90.1459,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "MUTE_S3_SAT",
+        "pct_on_gate": 9.8336,
+        "control": true
+      }
+    },
+    {
+      "arm": "B_MUTE_S3_SAT__FT_TO_0050",
+      "role": "control low-ON MUTE \u00d7 FT_TO_0050",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -7.0884,
+      "held_mdd_improve_pp": -54.4388,
+      "sealed_cagr_lift_pp": -16.4472,
+      "sealed_mdd_improve_pp": -63.9128,
+      "tipY_pp": 63.4817,
+      "tip1y_pp": 68.5896,
+      "meta": {
+        "fill": "FT_TO_0050",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 331,
+        "n_off_days": 3028,
+        "n_fill_actions": 3028,
+        "pct_off": 90.1459,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "MUTE_S3_SAT",
+        "pct_on_gate": 9.8336,
+        "control": true
+      }
+    },
+    {
+      "arm": "B_MUTE_S3_SAT__FT_TO_CASH",
+      "role": "control low-ON MUTE \u00d7 FT_TO_CASH",
+      "clock": "softcore_t0",
+      "feasible_under_soft_fin_tel_off": true,
+      "soft_fin_tel_required": false,
+      "held_cagr_lift_pp": -10.7035,
+      "held_mdd_improve_pp": 12.1281,
+      "sealed_cagr_lift_pp": -14.6224,
+      "sealed_mdd_improve_pp": 2.6541,
+      "tipY_pp": -36.5872,
+      "tip1y_pp": -26.2303,
+      "meta": {
+        "fill": "FT_TO_CASH",
+        "clock": "softcore_t0",
+        "n_days": 3360,
+        "n_recon_days": 331,
+        "n_off_days": 3028,
+        "n_fill_actions": 3028,
+        "pct_off": 90.1459,
+        "start": "2012-12-05",
+        "end": "2026-09-29",
+        "gate": "MUTE_S3_SAT",
+        "pct_on_gate": 9.8336,
+        "control": true
+      }
+    }
+  ],
+  "optimize_live": [
+    "Question: Soft FIN/TEL refill (loosen WITHIN) vs high-ON% gate + new fill?",
+    "Verdict `UNLOCK_HIGHON_FILL_HIT`: Soft-refill MUTE tipY **+3.1878** held **+0.6702** \u00b7 OVERRIDE tipY **+3.1878** (requires Soft FIN/TEL Exact T+1 carve / WITHIN loosen ACCEPT)",
+    "High-ON gate catalog: ON_UNLESS_MUTE=94.385%, TRAIL21_GE_m001=97.5639%, TRAIL42_GE_m001=94.7415%, TRAIL63_GE_0=55.8229%, TRAIL63_GE_m001=93.4046%",
+    "Track B Soft-core clears (held>+0.05 \u00b7 sealedMDD\u2265\u22120.25 \u00b7 tipY\u2265\u22121): **B_TRAIL42_GE_m001__FT_TO_CASH** held **1.2006** tipY **8.533** sealedMDD **-0.0077**",
+    "Disposition: promote high-ON fill champion \u2192 tip Soft twin Stage B / observe draft",
+    "Soft KEEP \u00b7 Path4 OFF \u00b7 broker false \u00b7 no live wire this pack"
+  ],
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "live_wire": false,
+  "label": "TIPSOFT_IP3_UNLOCK_PATH_STAGEA_SCREEN_2026-10-01__UNLOCK_HIGHON_FILL_HIT"
+}
