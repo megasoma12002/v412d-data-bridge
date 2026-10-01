@@ -14,6 +14,7 @@
 - Path4 live OFF
 - hybrid Soft-core T+0 carve FORBIDDEN
 - year-cut / lookahead promote FORBIDDEN
-- Cutover BLOCKED until dedicated ACCEPT
+- Return-blend apply on tip `order_rows` FORBIDDEN without dedicated ACCEPT
+- Observe dual-paper KEEP (cutover already EXECUTED ACCEPT for stamps/telemetry only)
 
 Repro: `repro/tipsoft-ip3-live-override-paper-observe/`

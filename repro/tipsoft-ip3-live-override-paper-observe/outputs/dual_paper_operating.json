@@ -92,8 +92,10 @@
     "Path4 live OFF",
     "hybrid Soft-core T+0 carve FORBIDDEN",
     "year-cut / lookahead promote FORBIDDEN",
-    "Cutover BLOCKED until dedicated ACCEPT"
+    "Return-blend apply on tip order_rows FORBIDDEN without dedicated ACCEPT",
+    "Observe dual-paper KEEP (cutover EXECUTED ACCEPT for stamps/telemetry only)"
   ],
   "live_wire_mode": "gate_stamps_telemetry",
-  "cutover_note": "EXECUTED ACCEPT \u00b7 stamps/telemetry only \u00b7 not return-blend apply"
+  "cutover_note": "EXECUTED ACCEPT 2026-09-30 · stamps/telemetry only · not return-blend apply · Path3 WITHIN KEEP",
+  "note_code_review": "PROJECT_CODE_REVIEW_2026-10-01 FIXED H1–H3/M1–M6/L1–L3"
 }

@@ -5,102 +5,89 @@ Soft-Frozen FIN **[0.60, 0.80]** KEEP · Exact T+1 KEEP elsewhere · Path3 WITHI
 
 Priors: `PROJECT_CODE_REVIEW_2026-09-29.md` · ballot `TIPSOFT_IP3_LIVE_OVERRIDE_BALLOT_EXECUTED_ACCEPT.md`
 
-Label: `PROJECT_CODEREVIEW_2026-10-01__TIPSOFT_OVERRIDE_STAMPS_ONLY__OPS_DRIFT`
+Label: `PROJECT_CODEREVIEW_2026-10-01__TIPSOFT_OVERRIDE_STAMPS_FIXED__GATE_STALE_FAILLOUD`
 
 ---
 
-## Verdict
+## Verdict (post-fix)
 
 | Area | Grade | Notes |
 |---|---|---|
 | Broker live-write fail-closed | **HEALTHY** | `broker_live_write_accepted=False` · tipsoft does not touch broker path |
 | Soft-Frozen / Exact T+1 | **HEALTHY** | No same-bar fill change from tipsoft wire |
 | Path3 WITHIN Soft FIN/TEL OFF | **HEALTHY** | Cutover KEEP · tipsoft does not re-enable Soft FIN/TEL |
-| tip Soft LIVE_OVERRIDE flag | **LIVE WIRED (stamps)** | Gate + session stamps ON · **no order-row blend** |
-| Research OVERRIDE return blend on tip | **NOT REALIZED** | Paper held +1.61 / tipY +6.04 still paper-only |
-| Gate input freshness | **STALE RISK** | Frozen Stage A NAV CSVs tip **2026-09-29** |
-| Dual-paper observe SSOT vs ACCEPT | **DRIFT** | Operating docs still `live_wire: false` / cutover BLOCKED |
-| tipsoft unit tests | **THIN** | 5 tests · no pipeline order-invariant / K-edge / Stage A parity |
+| tip Soft LIVE_OVERRIDE flag | **LIVE WIRED (gate stamps / telemetry)** | `wire_mode=gate_stamps_telemetry` · **no order-row blend** |
+| Research OVERRIDE return blend on tip | **NOT REALIZED (explicit)** | `return_blend_applied=False` stamped · paper edge paper-only |
+| Gate input freshness | **FAIL-LOUD when stale** | `market_tip` > panel tip → `reason=nav_stale` · `override_on=None` |
+| Dual-paper observe SSOT vs ACCEPT | **ALIGNED** | Operating: live flag ON · stamps mode · cutover EXECUTED ACCEPT |
+| tipsoft unit tests | **EXPANDED** | K-edge · lag-1 · stale/missing NAV · M05≡M0005 · mute KEEP · e21 invariant |
 
-**Overall:** Broker / Path3 WITHIN / Exact T+1 remain safe — this wire is observational. Main risk is **governance false confidence**: “LIVE WIRED” language overstates mechanism vs research `OVERRIDE_LIVE_W42` return blend. Tip PnL will **not** automatically track dual-paper OVERRIDE NAV until an order-level (or sleeve) apply path exists under Soft FIN/TEL OFF constraints.
+**Overall:** Broker / Path3 WITHIN / Exact T+1 remain safe. Wire is **observational gate stamps / telemetry**. Tip PnL still will **not** track dual-paper OVERRIDE NAV until a separate ACCEPT designs an apply path under Soft FIN/TEL OFF + Path3 WITHIN KEEP.
 
 ---
 
-## Runtime: what #404 actually does
+## Runtime: what the wire does (after fix)
 
 1. `LIVE.live_tipsoft_live_override=True` (SSOT flag + ballot text).
-2. `live_tipsoft_live_override.session_meta(asof)` computes causal lag42/M0.5%/K3 gate from **frozen research NAV CSVs**.
-3. `e21_forward_pipeline` spreads meta into **signals** after order construction — **does not mutate `order_rows`**.
-4. `live_tip_meta.build_cutover_stamps` adds flag/ballot/rollback (no live gate nested dict).
+2. `live_tipsoft_live_override.session_meta(asof, market_tip=…)` computes causal lag42/M0.5%/K3 gate; fail-loud on stale NAV panel.
+3. `e21_forward_pipeline` spreads **flattened** meta into **signals** after order construction — **does not mutate `order_rows`**.
+4. `live_tip_meta.build_cutover_stamps` stamps `wire_mode` + LIVE-derived coexistence (broker / Path3 / Path4).
 
 Path3 WITHIN still suppresses Soft FIN∪TEL daily; Soft 0050 / clips / T0 carve / Path3 ledger unchanged.
 
 ---
 
-## Findings
+## Findings disposition
 
-### H1 — “LIVE WIRED” ≠ research OVERRIDE return blend on live orders
+### H1 — “LIVE WIRED” ≠ research OVERRIDE return blend — **FIXED this pass**
 
-- **Where:** `scripts/e21_forward_pipeline.py` (~401–406, ~505) · `scripts/live_tipsoft_live_override.py`
-- **Issue:** Research Stage A sets `r = where(conf, live_r, champ_r)`. Live wire never switches sleeves, mutes Path3, or blends books when `override_on`.
-- **Effect:** Ops/register imply paper edge (held +1.61 / tipY +6.04) is live; tip will not track `nav_OVERRIDE_LIVE_W42_M05_K3.csv`.
-- **Action:** Either (a) rename ops language to **gate stamps / telemetry LIVE WIRED**, or (b) design apply path under Soft FIN/TEL OFF + Path3 WITHIN KEEP (separate ACCEPT).
+- Ops / module / stamps now say **gate stamps / telemetry**; `wire_mode=gate_stamps_telemetry`; `return_blend_applied=False`.
+- Apply-path (research `r=where(conf,…)`) remains out of scope — separate ACCEPT.
 
-### H2 — Gate inputs frozen at Stage A NAV tip 2026-09-29
+### H2 — Gate inputs frozen at Stage A NAV tip — **FIXED this pass** (fail-loud)
 
-- **Where:** `live_tipsoft_live_override.py` `DEFAULT_*_NAV` → `repro/tipsoft-ip3-*/outputs/nav_*.csv`
-- **Issue:** After market tip advances, `asof` falls back to nearest prior panel date → gate freezes on last research bar. No refresh hook / alert.
-- **Evidence:** `compute_gate_state()` → `asof=2026-09-29`, `override_on=False`, hist ~7.28%.
-- **Action:** Plumb live tip Soft NAV rebuild (or dual-paper ledger refresh) into gate; fail-loud when `asof` < market tip.
+- `compute_gate_state(..., market_tip=)` → `ok=False` · `reason=nav_stale` · `override_on=None` when tip ahead of panel.
+- e21 passes `market_tip=latest`. Full live NAV rebuild still deferred (no silent nearest-prior freeze).
 
-### H3 — “force LIVE Soft+FUSE+COOL shell” wording vs Soft FIN/TEL stay OFF
+### H3 — “force LIVE Soft+FUSE+COOL shell” wording — **FIXED this pass**
 
-- **Where:** module docstring · `force_live_shell` stamp
-- **Issue:** Describes a shell switch that cannot exist under Path3 WITHIN ACCEPT (Soft FIN/TEL OFF explicit).
-- **Action:** Rename stamp to `force_live_shell_diag` / clarify Soft residual-only; ballot non-action already honest — stamps should match.
+- Stamp renamed `force_live_shell_diag`; docstring clarifies Soft FIN/TEL stay OFF under Path3 WITHIN.
 
-### M1 — Nested gate dict in `signals.csv`
+### M1 — Nested gate dict in `signals.csv` — **FIXED this pass**
 
-- **Where:** `session_meta` → `tipsoft_live_override_gate` dict spread into signal
-- **Issue:** pandas may stringify nested dict; `override_on` not a first-class column. `portfolio_state` stamps omit gate.
-- **Action:** Flatten `tipsoft_override_on` / `tipsoft_override_asof` top-level; JSON-serialize nested if kept.
+- Flattened: `tipsoft_override_on` / `_asof` / `_ok` / `_stale` / `_reason` / `_panel_tip`.
 
-### M2 — Dual-paper observe SSOT still says wire false / cutover BLOCKED
+### M2 — Dual-paper observe SSOT drift — **FIXED this pass**
 
-- **Where:** `TIPSOFT_IP3_LIVE_OVERRIDE_DUAL_PAPER_OBSERVE_OPERATING.md/.json` (+ repro copies)
-- **Issue:** Post-ACCEPT docs claim `live_wire: false` · cutover BLOCKED — same landmine class as 2026-09-29 PREP drift.
-- **Action:** Stamp OPERATING as observe KEEP + live flag ON (stamps); cutover EXECUTED ACCEPT.
+- OPERATING: live flag ON · stamps mode · cutover EXECUTED ACCEPT (observe KEEP).
 
-### M3 — `M05` vs Stage A `M0005` naming
+### M3 — `M05` vs Stage A `M0005` naming — **FIXED this pass**
 
-- **Where:** policy id `…_M05_K3` vs arm `OVERRIDE_LIVE_W42_M0005_K3`
-- **Risk:** `M05` readable as margin 0.05; files match today but no test locks identity.
-- **Action:** Alias test: observe NAV ≡ Stage A arm NAV; document margin=0.005.
+- `STAGE_A_ARM_ID=OVERRIDE_LIVE_W42_M0005_K3`; alias test locks observe NAV ≡ Stage A arm NAV.
 
-### M4 — Safety stamps are literals, not live assertions
+### M4 — Safety stamps literals — **FIXED this pass**
 
-- **Where:** hardcoded `path4_live=False`, `broker=False`, `soft_fin_tel_stay_off=True`
-- **Issue:** Do not read `LIVE.broker_live_write_accepted` / Path3 cutover state.
-- **Action:** Optional assert-or-stamp from LIVE; true safety remains in broker/Path3 modules (OK).
+- Derived from `LIVE` (Path3 cutover / broker / Path4 absence).
 
-### M5 — Duplicate ballot fields on signal
+### M5 — Duplicate ballot fields on signal — **FIXED this pass**
 
-- **Where:** `tipsoft_live_override_ballot` vs `tipsoft_live_override_ballot_text` / policy_id
-- **Action:** Single SSOT field from `live_config`.
+- Dropped `tipsoft_live_override_ballot_text` / `policy_id`; SSOT via `session_meta` + `live_config`.
 
-### M6 — `is_on()` broad `except Exception: return False`
+### M6 — `is_on()` broad except — **FIXED this pass**
 
-- **Where:** `live_tipsoft_live_override.py`
-- **Risk:** Import/config errors look like “override off”.
-- **Action:** Narrow to `ImportError` / log.
+- `ImportError` only.
 
-### L1 — Unit tests thin
+### L1 — Unit tests thin — **FIXED this pass**
 
-- Missing: order_rows invariant with flag ON; Soft FIN/TEL still muted when `override_on=True`; K-edge / lag-1 causal; Stage A mask parity; missing/stale NAV; broker stays false.
+- Expanded: K-edge · lag-1 causal · stale/missing · M05 alias · Soft mute KEEP · e21 order invariant · broker false.
 
-### L2 — Unused `numpy` import in `live_tipsoft_live_override.py`
+### L2 — Unused `numpy` — **FIXED this pass**
 
-### L3 — `_trail_sum` min_periods live `max(2,w//3)` vs research `max(3,w//3)` (w=42 → both 14 today)
+- Removed.
+
+### L3 — `_trail_sum` min_periods drift — **FIXED this pass**
+
+- Live matches research: `max(3, w // 3)`.
 
 ---
 
@@ -108,32 +95,30 @@ Path3 WITHIN still suppresses Soft FIN∪TEL daily; Soft 0050 / clips / T0 carve
 
 | Constraint | Status |
 |---|---|
-| Broker false | **OK** — tipsoft does not open broker |
-| Path3 WITHIN KEEP | **OK** — Soft FIN/TEL still suppressed |
+| Broker false | **OK** |
+| Path3 WITHIN KEEP | **OK** |
 | Soft FIN/TEL stay OFF | **OK** (by Path3, not tipsoft) |
-| Path4 OFF | **OK** (absence + stamp) |
-| Exact T+1 | **OK** — no fill-clock change |
-| Dual-paper observe KEEP | **Partial** — ledgers remain; operating SSOT drifted |
+| Path4 OFF | **OK** |
+| Exact T+1 | **OK** |
+| Dual-paper observe KEEP | **OK** |
+| No return-blend on tip orders | **OK** (stamped) |
 
 ---
 
-## Recommended next (priority)
+## Remaining (not this pass)
 
-1. **Clarify SSOT language** — stamps/telemetry LIVE WIRED vs return-blend LIVE WIRED (H1/H3/M2).
-2. **Fresh gate inputs** — rebuild tip Soft live/champ NAV to market tip or fail-loud (H2).
-3. **Flatten signal columns** — `tipsoft_override_on` first-class (M1).
-4. **Pipeline invariant test** — flag ON ⇒ order_rows unchanged + Soft FIN/TEL still muted (L1).
-5. Only if human wants paper edge on tip: separate ACCEPT for apply-path design under Path3 WITHIN KEEP.
+1. Rebuild tip Soft live/champ NAV to market tip (H2 root) — fail-loud is in; refresh pipeline separate.
+2. Separate ACCEPT if human wants paper OVERRIDE edge on tip orders under Path3 WITHIN KEEP.
 
 ---
 
 ## Evidence index
 
 - Merge: PR #404 · `50560a24`
+- Fix branch: `cursor/tipsoft-override-wire-fix-b78a`
 - Module: `scripts/live_tipsoft_live_override.py`
 - Pipeline: `scripts/e21_forward_pipeline.py`
 - Ballot: `TIPSOFT_IP3_LIVE_OVERRIDE_BALLOT_EXECUTED_ACCEPT.md`
 - Prior: `PROJECT_CODE_REVIEW_2026-09-29.md`
-- Gate probe (this review): asof 2026-09-29 · override_on False · hist 7.28%
 
-Label: `PROJECT_CODEREVIEW_2026-10-01__TIPSOFT_OVERRIDE_STAMPS_ONLY__OPS_DRIFT`
+Label: `PROJECT_CODEREVIEW_2026-10-01__TIPSOFT_OVERRIDE_STAMPS_FIXED__GATE_STALE_FAILLOUD`
