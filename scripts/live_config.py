@@ -173,6 +173,18 @@ class LiveConfig:
         " T0_CARVE_FIN_SAT_SWITCH KEEP · Path4 OFF · broker false · dual-paper observe KEEP)"
     )
 
+    # tip Soft Exact T+1 TRAIL42⇄L4 DD_SWITCH tip apply — human ACCEPT 2026-10-01 (0kbd).
+    # Dual-book: TRAIL42 twin if TRAIL DD≥L4 DD else L4 · TRAIL days: TRAIL42 gate +
+    # Path3 OFF → FIN∪TEL→cash (−P3T0) · L4 days: Path3 WITHIN KEEP.
+    # Soft FIN/TEL stay OFF · Path4 OFF · broker false · NOT stamps-only · NOT year-switch.
+    live_tipsoft_dd_switch: bool = True
+    live_tipsoft_dd_switch_policy: str = "TIPSOFT_P3_TRAIL42_L4_DD_SWITCH"
+    live_tipsoft_dd_switch_ballot: str = (
+        "ACCEPT tip apply: TIPSOFT_P3_TRAIL42_L4_DD_SWITCH\n"
+        "(tip Soft Exact T+1 · dual-book DD switch · Soft FIN/TEL stay OFF ·\n"
+        " Path3 WITHIN KEEP · Path4 OFF · broker false · NOT year-switch · NOT stamps-only)"
+    )
+
 
 # Module-level singleton used by the live pipeline (edit + ACCEPT PR to cut over).
 LIVE = LiveConfig()
@@ -209,6 +221,9 @@ LIVE_PATH3_STRATEGY_CUTOVER_BALLOT = LIVE.live_path3_strategy_cutover_ballot
 LIVE_TIPSOFT_LIVE_OVERRIDE = LIVE.live_tipsoft_live_override
 LIVE_TIPSOFT_LIVE_OVERRIDE_POLICY = LIVE.live_tipsoft_live_override_policy
 LIVE_TIPSOFT_LIVE_OVERRIDE_BALLOT = LIVE.live_tipsoft_live_override_ballot
+LIVE_TIPSOFT_DD_SWITCH = LIVE.live_tipsoft_dd_switch
+LIVE_TIPSOFT_DD_SWITCH_POLICY = LIVE.live_tipsoft_dd_switch_policy
+LIVE_TIPSOFT_DD_SWITCH_BALLOT = LIVE.live_tipsoft_dd_switch_ballot
 E22_BOOKS_VERSION = LIVE.e22_books_version
 DIV_PATH = LIVE.dividends_path
 CAPITAL = LIVE.capital

@@ -30,6 +30,9 @@ from live_config import (
     LIVE_TEL_T3_BALLOT,
     LIVE_TEL_T3_COOL_INV_VOL20,
     LIVE_TEL_WITHIN_SLEEVE,
+    LIVE_TIPSOFT_DD_SWITCH,
+    LIVE_TIPSOFT_DD_SWITCH_BALLOT,
+    LIVE_TIPSOFT_DD_SWITCH_POLICY,
     LIVE_TIPSOFT_LIVE_OVERRIDE,
     LIVE_TIPSOFT_LIVE_OVERRIDE_BALLOT,
     LIVE_TIPSOFT_LIVE_OVERRIDE_POLICY,
@@ -132,4 +135,31 @@ def build_cutover_stamps() -> dict[str, Any]:
         "tipsoft_live_override_path4_live": bool(getattr(LIVE, "live_path4", False)),
         "tipsoft_live_override_broker": bool(LIVE.broker_live_write_accepted),
         "tipsoft_override_return_blend_applied": False,
+        "tipsoft_dd_switch_live": bool(LIVE_TIPSOFT_DD_SWITCH),
+        "tipsoft_dd_switch_wire_mode": (
+            "path3_gate_ft_cash_apply" if LIVE_TIPSOFT_DD_SWITCH else None
+        ),
+        "tipsoft_dd_switch_policy": (
+            LIVE_TIPSOFT_DD_SWITCH_POLICY if LIVE_TIPSOFT_DD_SWITCH else None
+        ),
+        "tipsoft_dd_switch_ballot": (
+            LIVE_TIPSOFT_DD_SWITCH_BALLOT if LIVE_TIPSOFT_DD_SWITCH else None
+        ),
+        "tipsoft_dd_switch_cutover": (
+            "ACCEPT_2026-10-01_TIPSOFT_P3_TRAIL42_L4_DD_SWITCH"
+            if LIVE_TIPSOFT_DD_SWITCH
+            else None
+        ),
+        "tipsoft_dd_switch_rollback": (
+            "Set LIVE.live_tipsoft_dd_switch=False "
+            "(live_config.live_tipsoft_dd_switch); tip Soft Exact T+1 "
+            "DD_SWITCH Path3 gate apply off; Path3 WITHIN / Soft FIN/TEL unchanged"
+            if LIVE_TIPSOFT_DD_SWITCH
+            else None
+        ),
+        "tipsoft_dd_switch_path3_within_keep": bool(LIVE_PATH3_STRATEGY_CUTOVER),
+        "tipsoft_dd_switch_soft_fin_tel_stay_off": bool(LIVE_PATH3_STRATEGY_CUTOVER),
+        "tipsoft_dd_switch_path4_live": bool(getattr(LIVE, "live_path4", False)),
+        "tipsoft_dd_switch_broker": bool(LIVE.broker_live_write_accepted),
+        "tipsoft_dd_return_blend_applied": False,
     }

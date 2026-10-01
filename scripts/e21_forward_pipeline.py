@@ -52,6 +52,7 @@ from live_config import (
     LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT,
     LIVE_TEL_T3_BALLOT,
     LIVE_TEL_T3_COOL_INV_VOL20,
+    LIVE_TIPSOFT_DD_SWITCH,
     LIVE_TIPSOFT_LIVE_OVERRIDE,
     TIP_BOOKS_ALIGN_BALLOT,
 )
@@ -363,6 +364,20 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
             pos=pos,
             prices=prices,
         )
+        # tip Soft Exact T+1 DD_SWITCH tip apply (0kbd ACCEPT) — may flatten
+        # FIN∪TEL→cash on TRAIL-selected Path3 OFF days (−P3T0). Not stamps-only.
+        tipsoft_dd_apply_meta: dict = {"tipsoft_dd_switch_live": False}
+        if LIVE_TIPSOFT_DD_SWITCH:
+            import live_tipsoft_dd_switch as tipsoft_dd
+
+            path3_deltas, tipsoft_dd_apply_meta = tipsoft_dd.apply_to_path3_deltas(
+                path3_deltas,
+                pos,
+                latest,
+                market_tip=latest,
+            )
+            path3_weight_meta = dict(path3_weight_meta)
+            path3_weight_meta["tipsoft_dd_switch"] = tipsoft_dd_apply_meta
         flip = bool((path3_weight_meta.get("switch") or {}).get("flip"))
         if cutover_within:
             soft_path3_mute_meta = {
@@ -394,6 +409,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         path3_emit_meta["enabled"] = True
         path3_emit_meta["weight_engine"] = path3_weight_meta
         path3_emit_meta["path3_strategy_cutover"] = cutover_within
+        path3_emit_meta["tipsoft_dd_switch"] = tipsoft_dd_apply_meta
     else:
         path3_emit_meta["reason"] = "emit_flag_off"
     # tip Soft Exact T+1 LIVE_OVERRIDE gate stamps / telemetry (0kb2 ACCEPT).
@@ -403,6 +419,12 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         import live_tipsoft_live_override as tipsoft_ov
 
         tipsoft_override_meta = tipsoft_ov.session_meta(latest, market_tip=latest)
+    # tip Soft Exact T+1 DD_SWITCH session stamps (0kbd ACCEPT tip apply).
+    tipsoft_dd_meta: dict = {"tipsoft_dd_switch_live": False}
+    if LIVE_TIPSOFT_DD_SWITCH:
+        import live_tipsoft_dd_switch as tipsoft_dd
+
+        tipsoft_dd_meta = tipsoft_dd.session_meta(latest, market_tip=latest)
     stamp = utc_now_iso()
     fin_alloc_signal = LIVE_FIN_WITHIN_SLEEVE
     if LIVE_FIN_PRIV_V7_F05 and fin_priv_meta.get("gate_on"):
@@ -502,6 +524,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "path3_strategy_cutover_applied": bool(path3_cutover_meta.get("applied")),
         "path3_strategy_cutover_n_muted": int(path3_cutover_meta.get("n_muted") or 0),
         **tipsoft_override_meta,
+        **tipsoft_dd_meta,
         "tel_t3_cool_inv_vol20_live": bool(LIVE_TEL_T3_COOL_INV_VOL20),
         "tel_t3_ballot": LIVE_TEL_T3_BALLOT if LIVE_TEL_T3_COOL_INV_VOL20 else None,
         "telecom_alloc": tel_meta.get("telecom_alloc")
