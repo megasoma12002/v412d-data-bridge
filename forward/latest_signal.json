@@ -1,9 +1,9 @@
 {
   "version": "V4.12-F",
-  "run_utc": "2026-10-01T15:35:29.231220+00:00",
-  "signal_date": "2026-10-01",
+  "run_utc": "2026-10-02T14:52:50.948088+00:00",
+  "signal_date": "2026-10-02",
   "execution": "next TWSE session open",
-  "data_latest_date": "2026-10-01",
+  "data_latest_date": "2026-10-02",
   "D": {
     "current_weights": {
       "2801": 0.12074468,

@@ -1,5 +1,5 @@
 {
-  "cash": 18280512.69837398,
+  "cash": 17828500.858400483,
   "positions": {
     "2880": 2455000.0,
     "2886": 2065000.0,
@@ -14,12 +14,12 @@
     "2412": 84000.0,
     "3045": 97000.0,
     "4904": 221000.0,
-    "0050": 435000.0,
+    "0050": 439000.0,
     "00631L": 0.0
   },
   "e22_receivables": {},
-  "last_date": "2026-10-01",
-  "last_nav": 538702112.698374,
+  "last_date": "2026-10-02",
+  "last_nav": 538082500.8584005,
   "e22_books_version": "E22_v3_recv_pay_effdelay",
   "e22_applied_keys": [],
   "e22_manifest": {
@@ -85,5 +85,16 @@
   "tipsoft_live_override_soft_fin_tel_stay_off": true,
   "tipsoft_live_override_path4_live": false,
   "tipsoft_live_override_broker": false,
-  "tipsoft_override_return_blend_applied": false
+  "tipsoft_override_return_blend_applied": false,
+  "tipsoft_dd_switch_live": true,
+  "tipsoft_dd_switch_wire_mode": "path3_gate_ft_cash_apply",
+  "tipsoft_dd_switch_policy": "TIPSOFT_P3_TRAIL42_L4_DD_SWITCH",
+  "tipsoft_dd_switch_ballot": "ACCEPT tip apply: TIPSOFT_P3_TRAIL42_L4_DD_SWITCH\n(tip Soft Exact T+1 · dual-book DD switch · Soft FIN/TEL stay OFF ·\n Path3 WITHIN KEEP · Path4 OFF · broker false · NOT year-switch · NOT stamps-only)",
+  "tipsoft_dd_switch_cutover": "ACCEPT_2026-10-01_TIPSOFT_P3_TRAIL42_L4_DD_SWITCH",
+  "tipsoft_dd_switch_rollback": "Set LIVE.live_tipsoft_dd_switch=False (live_config.live_tipsoft_dd_switch); tip Soft Exact T+1 DD_SWITCH Path3 gate apply off; Path3 WITHIN / Soft FIN/TEL unchanged",
+  "tipsoft_dd_switch_path3_within_keep": true,
+  "tipsoft_dd_switch_soft_fin_tel_stay_off": true,
+  "tipsoft_dd_switch_path4_live": false,
+  "tipsoft_dd_switch_broker": false,
+  "tipsoft_dd_return_blend_applied": false
 }

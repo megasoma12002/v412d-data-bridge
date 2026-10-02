@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-01T15:36:50.925914+00:00",
+  "generated_at_utc": "2026-10-02T14:54:15.476363+00:00",
   "label": "POST_FORWARD_E22_VERIFY",
   "phase": "0_1",
   "live_wire": false,
@@ -14,8 +14,8 @@
     "r4_assert": {
       "csv_exists": true,
       "json_exists": true,
-      "csv_bytes": 11205,
-      "json_bytes": 34293,
+      "csv_bytes": 11318,
+      "json_bytes": 34633,
       "ok": true,
       "label": "liquidity_view_not_nav"
     },
@@ -41,17 +41,17 @@
       "rc": 0,
       "overall": "HIGH",
       "n_critical": 0,
-      "n_high": 10,
-      "n_info": 37
+      "n_high": 8,
+      "n_info": 27
     },
     "cashflow_three_views": {
       "ok": true,
       "tip_lag": false,
       "r4_identity_ok": true,
       "n_warnings": 0,
-      "view_a_cash": 18280512.69837398,
-      "view_b_settled": 50415.51358573139,
-      "view_c_cash_plus_recv": 18280512.69837398
+      "view_a_cash": 17828500.858400483,
+      "view_b_settled": 21314018.830442484,
+      "view_c_cash_plus_recv": 17828500.858400483
     }
   },
   "cashflow_three_views": {
@@ -59,7 +59,7 @@
       "A_paper_exact_t1": {
         "label_zh": "\u7d19\u4e0a Exact T+1 \u73fe\u91d1\uff08\u6210\u4ea4\u65e5\u5165\u5e33\uff09",
         "label_en": "Exact T+1 paper cash (fill day)",
-        "cash": 18280512.69837398,
+        "cash": 17828500.858400483,
         "source": "forward/e21/portfolio_state.json \u2192 cash",
         "use": "NAV cash leg; NOT spendable custody cash while trades unsettled",
         "not": "do not treat as broker settled balance"
@@ -67,14 +67,14 @@
       "B_r4_settled_liquidity": {
         "label_zh": "R4 T+2 \u5df2\u4ea4\u5272\u6d41\u52d5\u6027\u4f30\u8a08",
         "label_en": "R4 settled_cash_estimate (T+2 liquidity)",
-        "settled_cash_estimate": 50415.51358573139,
-        "unsettled_net": 18230097.18478825,
-        "paper_cash": 18280512.69837398,
-        "settling_today_net": 0.0,
+        "settled_cash_estimate": 21314018.830442484,
+        "unsettled_net": -3485517.9720420004,
+        "paper_cash": 17828500.858400483,
+        "settling_today_net": 21263603.31685675,
         "identity_ok": true,
         "identity_delta": 0.0,
         "present": true,
-        "asof": "2026-10-01",
+        "asof": "2026-10-02",
         "source": "forward/e21/settlement_cash_estimate.json \u2192 summary",
         "use": "spendable / custody liquidity estimate",
         "not": "NOT Soft-Frozen NAV; never merge into portfolio_state.cash"
@@ -85,10 +85,10 @@
         "e22_books_version": "E22_v3_recv_pay_effdelay",
         "stage_e_default": "E22_v3_recv_pay_effdelay",
         "tip_lag": false,
-        "cash": 18280512.69837398,
+        "cash": 17828500.858400483,
         "e22_receivables_total": 0.0,
         "e22_receivables_n": 0,
-        "cash_plus_receivable": 18280512.69837398,
+        "cash_plus_receivable": 17828500.858400483,
         "source": "portfolio_state cash + e22_receivables",
         "use": "dividend timing fidelity for NAV wealth (cash+recv+equity)",
         "not": "personal income tax haircut (ballot A KEEP TAX0 \u2014 outside daily books)"
@@ -97,7 +97,7 @@
     "cross_checks": {
       "paper_cash_minus_r4_paper_cash": 0.0,
       "r4_identity_ok": true,
-      "r4_asof": "2026-10-01",
+      "r4_asof": "2026-10-02",
       "r4_asof_matches_last_date": true,
       "r4_asof_mismatch": false,
       "tip_lag": false,
