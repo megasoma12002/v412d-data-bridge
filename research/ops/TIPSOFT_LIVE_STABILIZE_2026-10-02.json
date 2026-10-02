@@ -1,0 +1,45 @@
+{
+  "generated_at_utc": "2026-10-02T15:16:13Z",
+  "label": "TIPSOFT_LIVE_STABILIZE_2026-10-02__EXECUTED__LIVE_STACK_FREEZE",
+  "status": "EXECUTED_STABILIZE",
+  "register": "0kbe",
+  "human": "\u8acb\u7a69\u5b9a\n(LIVE tip Soft stack KEEP \u00b7 DD_SWITCH tip apply KEEP \u00b7 Path3 WITHIN KEEP \u00b7\n Soft FIN/TEL stay OFF \u00b7 Path4 OFF \u00b7 broker false \u00b7 no new tip Soft mech \u00b7 soak)",
+  "live_keep": {
+    "soft_frozen_clips_0050": true,
+    "cool_fuse_sell_a75_conf_tel": true,
+    "path3_within_sleeve": true,
+    "t0_carve_fill_emit": true,
+    "path3_ledger": true,
+    "dd_switch_tip_apply": true,
+    "dd_switch_policy": "TIPSOFT_P3_TRAIL42_L4_DD_SWITCH",
+    "live_override_stamps": true,
+    "soft_fin_tel_exact_t1": "OFF",
+    "path4_live": false,
+    "broker": false
+  },
+  "ops_wiring": {
+    "month_end_monitor": "scripts/tipsoft_ip3_trail42_l4_switch_month_end_monitor.py",
+    "dual_paper_ledgers": "scripts/tipsoft_ip3_trail42_l4_switch_dual_paper_ledgers.py",
+    "pack": "scripts/ops_month_end_paper_pack.py",
+    "alert_scan": "scripts/ops_alert_scan.py"
+  },
+  "freeze_rules": [
+    "No new tip Soft Exact T+1 mechanism Stage A / observe / tip apply until soak",
+    "No year-switch / year-oracle arms",
+    "No Soft FIN/TEL Exact T+1 refill",
+    "No Path4 live",
+    "No broker live write",
+    "DD_SWITCH dual-paper observe KEEP as live twin monitor",
+    "LIVE_OVERRIDE remains stamps/telemetry only"
+  ],
+  "reopen_if": [
+    "DD_SWITCH month-end PAUSE_REVIEW / tip giveback breach after soak window",
+    "Human ACCEPT for Soft FIN/TEL carve or Path4 / broker (separate ballots)",
+    "New Stage A clears held/tipY/MDD floors without Soft-refill"
+  ],
+  "parents": [
+    "0kbd",
+    "0kac",
+    "0kb2"
+  ]
+}
