@@ -110,6 +110,11 @@ STEPS_MONITOR = [
         ["python3", "scripts/fincap50_sealed_cagr_charter_screen.py"],
     ),
     ("ops_alert_scan", ["python3", "scripts/ops_alert_scan.py", "--report-only"]),  # swapped in main if fail-on-critical
+    # DD_SWITCH soak gate (0kbf) — refresh status after monitors; does not flip live
+    (
+        "tipsoft_dd_switch_soak_gate",
+        ["python3", "scripts/tipsoft_dd_switch_soak_gate.py"],
+    ),
 ]
 
 STEPS_REFRESH = [

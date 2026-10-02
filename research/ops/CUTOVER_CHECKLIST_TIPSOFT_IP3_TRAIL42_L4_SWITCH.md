@@ -11,6 +11,7 @@ Date: 2026-10-01 · Status: **LIVE WIRED (tip apply)** · broker false
 
 Soft FIN/TEL stay OFF · Path4 OFF · broker false · year-switch FORBIDDEN
 
-Stabilize: `TIPSOFT_LIVE_STABILIZE_2026-10-02` · live stack FREEZE pending soak
+Stabilize: `TIPSOFT_LIVE_STABILIZE_2026-10-02` · live stack FREEZE pending soak  
+Soak gate: `TIPSOFT_DD_SWITCH_SOAK_GATE` (0kbf) · Soft FIN/TEL / Path4 / broker CLOSED until **SOAK_PASS**
 
 Label: `CUTOVER_CHECKLIST_TIPSOFT_IP3_TRAIL42_L4_SWITCH_2026-10-01__LIVE_WIRED_TIP_APPLY`
