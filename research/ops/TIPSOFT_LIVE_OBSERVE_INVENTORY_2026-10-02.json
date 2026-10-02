@@ -1,7 +1,7 @@
 {
   "id": "TIPSOFT_LIVE_OBSERVE_INVENTORY_2026-10-02",
   "date": "2026-10-02",
-  "generated_at_utc": "2026-10-02T17:35:00Z",
+  "generated_at_utc": "2026-10-02T17:45:00Z",
   "status": "INVENTORY",
   "label": "TIPSOFT_LIVE_OBSERVE_INVENTORY_2026-10-02__SOAK_OPEN__DD_SWITCH_LIVE",
   "live": {
@@ -55,17 +55,20 @@
     ]
   },
   "engineering": {
-    "pr_408_modularize": "MERGEABLE_CI_GREEN",
+    "pr_408_modularize": "MERGED",
+    "pr_408_merge_commit": "d51a4ab328e8ce09e091eb3132edbdb5fd90baa1",
+    "pr_408_merged_at": "2026-10-02T17:35:49Z",
     "yearmix_wip": "NOT_OPEN_SOAK_FREEZE"
   },
   "parents": [
     "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
     "0kbd",
     "0kbe",
-    "0kbf"
+    "0kbf",
+    "408"
   ],
   "non_actions": [
-    "Does not merge #408",
+    "Does not rebase #408 (already on main)",
     "Does not reopen CLOSED observes",
     "Does not flip Soft-Frozen / broker / Path4",
     "Does not rewrite forward/e21 history"

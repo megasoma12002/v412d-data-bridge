@@ -57,16 +57,16 @@ Cadence: daily tip → dual-paper ledgers → month-end monitor → `tipsoft_dd_
 2. Optional broker EXECUTE (PREP already filed)  
 3. Optional 2020 MDD research only if held+ ∧ y2020 improve (else KEEP residual)
 
-## Engineering open
+## Engineering
 
 | Item | State |
 |---|---|
-| PR #408 modularize Stage A / dual-paper DRY / e21 overlays | MERGEABLE · CI green · DD_SWITCH tip apply in overlays |
+| PR #408 modularize Stage A / dual-paper DRY / e21 overlays | **MERGED** · `d51a4ab3` · tip apply `apply_to_path3_deltas` on main |
 | Yearmix / year-oracle Stage A WIP | **NOT OPEN** (soak freeze) · leave untracked |
 
 ## Explicit non-actions
 
-- Does not merge #408 (needs human)  
+- Does not rebase #408 (already on main; rebase would conflict)  
 - Does not reopen CLOSED observes  
 - Does not flip Soft-Frozen / broker / Path4  
 - Does not rewrite forward/e21 history  
