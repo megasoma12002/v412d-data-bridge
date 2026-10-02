@@ -1,7 +1,7 @@
 # tip Soft Exact T+1 NEARPEAK3 Dual-Paper Observe — OPEN
 
 Date: 2026-09-30
-Status: **OPEN → OPERATING**
+Status: **SUPERSEDED_CLOSED** · see OBSERVE_CLOSE_SUPERSEDED_2026-10-01
 Human: `OPEN paper observe: TIPSOFT_P3_THETA_NEARPEAK3 (tip Soft Exact T+1 · meta-detect Path3 near-peak3 · NOT hybrid T+0 carve)`
 
 | Book | ID | Role |

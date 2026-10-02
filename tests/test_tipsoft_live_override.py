@@ -198,16 +198,22 @@ class SoftFinTelStayOffWithOverride(unittest.TestCase):
 
 class E21OrderRowsInvariant(unittest.TestCase):
     def test_pipeline_spreads_meta_after_orders_no_blend(self) -> None:
-        """H1/L1: e21 stamps tipsoft meta; does not blend order_rows."""
-        e21 = Path(__file__).resolve().parents[1] / "scripts" / "e21_forward_pipeline.py"
-        src = e21.read_text(encoding="utf-8")
-        self.assertIn("session_meta(latest, market_tip=latest)", src)
-        self.assertIn("**tipsoft_override_meta", src)
-        self.assertNotIn("tipsoft_live_override_ballot_text", src)
-        self.assertNotIn("tipsoft_live_override_policy_id", src)
-        # No return-blend apply helper referenced in pipeline.
-        self.assertNotIn("where(conf", src)
-        self.assertNotIn("return_blend", src.lower().replace("tipsoft_override_return_blend_applied", ""))
+        """H1/L1: e21 stamps tipsoft meta via overlays; does not blend order_rows."""
+        root = Path(__file__).resolve().parents[1] / "scripts"
+        e21 = (root / "e21_forward_pipeline.py").read_text(encoding="utf-8")
+        overlays = (root / "live_day_overlays.py").read_text(encoding="utf-8")
+        self.assertIn("apply_path3_tipsoft_overlays", e21)
+        self.assertIn("overlay_signal_fields", e21)
+        self.assertIn("session_meta(asof, market_tip=asof)", overlays)
+        self.assertNotIn("tipsoft_live_override_ballot_text", e21)
+        self.assertNotIn("tipsoft_live_override_policy_id", e21)
+        # No return-blend apply helper referenced in pipeline / overlays.
+        for src in (e21, overlays):
+            self.assertNotIn("where(conf", src)
+            self.assertNotIn(
+                "return_blend",
+                src.lower().replace("tipsoft_override_return_blend_applied", ""),
+            )
 
 
 if __name__ == "__main__":

@@ -40,20 +40,8 @@ from live_config import (
     LIVE_FIN_PRIV_V7_F05,
     LIVE_FIN_WITHIN_SLEEVE,
     LIVE_FUSE_ADDITIVE,
-    LIVE_PATH3_WEIGHT_ENGINE_BALLOT,
-    LIVE_PATH3_WEIGHT_ENGINE_MODE,
-    LIVE_PATH3_STRATEGY_CUTOVER,
-    LIVE_PATH3_STRATEGY_CUTOVER_BALLOT,
-    LIVE_PATH3_STRATEGY_CUTOVER_SCOPE,
-    LIVE_SOFT_PATH3_COEXIST_MUTE,
-    LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT,
-    LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,
-    LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT,
-    LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT,
     LIVE_TEL_T3_BALLOT,
     LIVE_TEL_T3_COOL_INV_VOL20,
-    LIVE_TIPSOFT_DD_SWITCH,
-    LIVE_TIPSOFT_LIVE_OVERRIDE,
     TIP_BOOKS_ALIGN_BALLOT,
 )
 from live_day_commit import (
@@ -77,6 +65,7 @@ from live_session_io import (
     resolve_fill_port_name,
     resolve_repo_path,
 )
+from live_day_overlays import apply_path3_tipsoft_overlays, overlay_signal_fields
 from live_strategy_targets import features, resolve_session_targets
 
 CAPITAL = float(LIVE.capital)
@@ -325,106 +314,11 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         )
         order_rows.extend(off_orders)
         conf_ret3_order_meta["enabled"] = True
-    # Path3 strategy cutover WITHIN_SLEEVE: Soft FIN/TEL Exact T+1 OFF daily (0kac).
-    import live_path3_strategy_cutover as p3_cut
-
-    path3_cutover_meta: dict = {
-        "enabled": bool(LIVE_PATH3_STRATEGY_CUTOVER),
-        "scope": LIVE_PATH3_STRATEGY_CUTOVER_SCOPE,
-        "applied": False,
-        "n_muted": 0,
-    }
-    cutover_within = bool(p3_cut.is_within_sleeve_cutover())
-    if cutover_within:
-        order_rows, path3_cutover_meta = p3_cut.suppress_soft_fin_tel(order_rows)
-        path3_cutover_meta["ballot"] = LIVE_PATH3_STRATEGY_CUTOVER_BALLOT
-    # Path3 T0 carve switch emitter — weight engine mode from LIVE (0kab ledger).
-    # Soft↔Path3 coexistence mute (0kaa): filter Soft FIN/TEL before Path3 append.
-    # Under WITHIN cutover, mute is superseded (Soft FIN/TEL already suppressed).
-    path3_emit_meta: dict = {"enabled": bool(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT)}
-    path3_weight_meta: dict = {
-        "engine_id": None,
-        "reason": "emit_flag_off",
-        "weight_engine_mode": LIVE_PATH3_WEIGHT_ENGINE_MODE,
-    }
-    soft_path3_mute_meta: dict = {
-        "enabled": bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
-        "policy": LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,
-        "applied": False,
-        "n_muted": 0,
-        "superseded_by_cutover": cutover_within,
-    }
-    if LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT:
-        import live_path3_t0_switch_emitter as path3_em
-        import live_path3_t0_weight_engine as path3_we
-        import live_soft_path3_coexist_mute as soft_p3_mute
-
-        path3_deltas, path3_weight_meta = path3_we.plan_or_none_for_pipeline(
-            asof=latest,
-            pos=pos,
-            prices=prices,
-        )
-        # tip Soft Exact T+1 DD_SWITCH tip apply (0kbd ACCEPT) — may flatten
-        # FIN∪TEL→cash on TRAIL-selected Path3 OFF days (−P3T0). Not stamps-only.
-        tipsoft_dd_apply_meta: dict = {"tipsoft_dd_switch_live": False}
-        if LIVE_TIPSOFT_DD_SWITCH:
-            import live_tipsoft_dd_switch as tipsoft_dd
-
-            path3_deltas, tipsoft_dd_apply_meta = tipsoft_dd.apply_to_path3_deltas(
-                path3_deltas,
-                pos,
-                latest,
-                market_tip=latest,
-            )
-            path3_weight_meta = dict(path3_weight_meta)
-            path3_weight_meta["tipsoft_dd_switch"] = tipsoft_dd_apply_meta
-        flip = bool((path3_weight_meta.get("switch") or {}).get("flip"))
-        if cutover_within:
-            soft_path3_mute_meta = {
-                "enabled": bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
-                "policy": LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,
-                "applied": False,
-                "n_muted": 0,
-                "superseded_by_cutover": True,
-                "ballot": LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT,
-            }
-        else:
-            order_rows, soft_path3_mute_meta = soft_p3_mute.apply_coexist_mute(
-                order_rows,
-                mute_enabled=bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
-                emit_enabled=True,
-                flip=flip,
-                path3_delta_shares=path3_deltas,
-                policy=str(LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY),
-            )
-            soft_path3_mute_meta["ballot"] = LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT
-            soft_path3_mute_meta["superseded_by_cutover"] = False
-        path3_orders, path3_emit_meta = path3_em.maybe_emit_switch_orders(
-            asof=latest,
-            prices=prices,
-            delta_shares=path3_deltas,
-            authorized=True,
-        )
-        order_rows.extend(path3_orders)
-        path3_emit_meta["enabled"] = True
-        path3_emit_meta["weight_engine"] = path3_weight_meta
-        path3_emit_meta["path3_strategy_cutover"] = cutover_within
-        path3_emit_meta["tipsoft_dd_switch"] = tipsoft_dd_apply_meta
-    else:
-        path3_emit_meta["reason"] = "emit_flag_off"
-    # tip Soft Exact T+1 LIVE_OVERRIDE gate stamps / telemetry (0kb2 ACCEPT).
-    # Does not mutate order_rows — Path3 WITHIN KEEP · Soft FIN/TEL stay OFF.
-    tipsoft_override_meta: dict = {"tipsoft_live_override_live": False}
-    if LIVE_TIPSOFT_LIVE_OVERRIDE:
-        import live_tipsoft_live_override as tipsoft_ov
-
-        tipsoft_override_meta = tipsoft_ov.session_meta(latest, market_tip=latest)
-    # tip Soft Exact T+1 DD_SWITCH session stamps (0kbd ACCEPT tip apply).
-    tipsoft_dd_meta: dict = {"tipsoft_dd_switch_live": False}
-    if LIVE_TIPSOFT_DD_SWITCH:
-        import live_tipsoft_dd_switch as tipsoft_dd
-
-        tipsoft_dd_meta = tipsoft_dd.session_meta(latest, market_tip=latest)
+    # Path3 WITHIN + T0 emit/mute + tipsoft DD_SWITCH tip apply + OVERRIDE stamps.
+    overlays = apply_path3_tipsoft_overlays(
+        order_rows, asof=latest, pos=pos, prices=prices
+    )
+    order_rows = overlays.order_rows
     stamp = utc_now_iso()
     fin_alloc_signal = LIVE_FIN_WITHIN_SLEEVE
     if LIVE_FIN_PRIV_V7_F05 and fin_priv_meta.get("gate_on"):
@@ -495,36 +389,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         "conf_ret3_n_orders": int(conf_ret3_order_meta.get("n_orders") or 0)
         if LIVE_CONF_RET3_631L
         else None,
-        "path3_t0_emit_live": bool(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT),
-        "path3_t0_emit_ballot": LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT
-        if LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT
-        else None,
-        "path3_t0_emit_reason": path3_emit_meta.get("reason"),
-        "path3_t0_n_orders": int(path3_emit_meta.get("n_orders") or 0),
-        "path3_t0_weight_engine_mode": LIVE_PATH3_WEIGHT_ENGINE_MODE,
-        "path3_t0_weight_engine_ballot": LIVE_PATH3_WEIGHT_ENGINE_BALLOT,
-        "path3_t0_weight_engine_id": path3_weight_meta.get("engine_id"),
-        "path3_t0_weight_reason": path3_weight_meta.get("reason"),
-        "path3_t0_weight_n_delta_names": path3_weight_meta.get("n_delta_names"),
-        "soft_path3_coexist_mute_live": bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
-        "soft_path3_coexist_mute_ballot": LIVE_SOFT_PATH3_COEXIST_MUTE_BALLOT
-        if LIVE_SOFT_PATH3_COEXIST_MUTE
-        else None,
-        "soft_path3_coexist_mute_policy": soft_path3_mute_meta.get("policy"),
-        "soft_path3_coexist_mute_applied": bool(soft_path3_mute_meta.get("applied")),
-        "soft_path3_coexist_mute_n_muted": int(soft_path3_mute_meta.get("n_muted") or 0),
-        "soft_path3_coexist_mute_superseded_by_cutover": bool(
-            soft_path3_mute_meta.get("superseded_by_cutover")
-        ),
-        "path3_strategy_cutover_live": bool(LIVE_PATH3_STRATEGY_CUTOVER),
-        "path3_strategy_cutover_scope": LIVE_PATH3_STRATEGY_CUTOVER_SCOPE,
-        "path3_strategy_cutover_ballot": LIVE_PATH3_STRATEGY_CUTOVER_BALLOT
-        if LIVE_PATH3_STRATEGY_CUTOVER
-        else None,
-        "path3_strategy_cutover_applied": bool(path3_cutover_meta.get("applied")),
-        "path3_strategy_cutover_n_muted": int(path3_cutover_meta.get("n_muted") or 0),
-        **tipsoft_override_meta,
-        **tipsoft_dd_meta,
+        **overlay_signal_fields(overlays),
         "tel_t3_cool_inv_vol20_live": bool(LIVE_TEL_T3_COOL_INV_VOL20),
         "tel_t3_ballot": LIVE_TEL_T3_BALLOT if LIVE_TEL_T3_COOL_INV_VOL20 else None,
         "telecom_alloc": tel_meta.get("telecom_alloc")

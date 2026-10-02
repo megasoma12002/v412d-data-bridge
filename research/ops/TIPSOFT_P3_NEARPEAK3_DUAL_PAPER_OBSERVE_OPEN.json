@@ -1,11 +1,13 @@
 {
   "id": "TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPEN",
-  "status": "OPEN_OPERATING",
+  "status": "SUPERSEDED_CLOSED",
   "date": "2026-09-30",
-  "human_open": "OPEN paper observe: TIPSOFT_P3_THETA_NEARPEAK3 (tip Soft Exact T+1 \u00b7 meta-detect Path3 near-peak3 \u00b7 NOT hybrid T+0 carve)",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_THETA_NEARPEAK3 (tip Soft Exact T+1 · meta-detect Path3 near-peak3 · NOT hybrid T+0 carve)",
   "live_wire": false,
   "cutover_authorized": false,
   "base_id": "BASE_LIVE_FUSE_COOL",
   "challenger_id": "P3_THETA_NEARPEAK3",
-  "label": "TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPEN_2026-09-30__OPERATING__NO_LIVE_WIRE"
+  "label": "TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPEN_2026-09-30__OPERATING__NO_LIVE_WIRE",
+  "closed_by": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "status_note": "Historical OPEN artifact; canonical CLOSED via OBSERVE_CLOSE_SUPERSEDED_2026-10-01. Prior status was OPEN_OPERATING."
 }
