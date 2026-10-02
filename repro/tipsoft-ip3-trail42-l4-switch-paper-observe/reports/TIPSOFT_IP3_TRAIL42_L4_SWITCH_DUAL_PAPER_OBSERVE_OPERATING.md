@@ -1,4 +1,4 @@
-# Pointer — dual-paper operating SSOT
+# Pointer — decision pack SSOT
 
 Canonical copy: `research/ops/TIPSOFT_IP3_TRAIL42_L4_SWITCH_DUAL_PAPER_OBSERVE_OPERATING.md`
 

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-10-02T14:54:15.405479+00:00",
+  "generated_at_utc": "2026-10-02T15:16:13.655204+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -10,7 +10,7 @@
   "overall": "HIGH",
   "n_critical": 0,
   "n_high": 8,
-  "n_info": 27,
+  "n_info": 28,
   "alerts": [
     {
       "severity": "HIGH",
@@ -135,6 +135,12 @@
     {
       "severity": "INFO",
       "source": "cool_631l_short_assist_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "tipsoft_ip3_trail42_l4_switch_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },

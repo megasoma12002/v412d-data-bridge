@@ -70,6 +70,11 @@ STEPS_MONITOR = [
         "cool_631l_short_assist_month_end",
         ["python3", "scripts/cool_631l_short_assist_month_end_monitor.py"],
     ),
+    # tip Soft LIVE DD_SWITCH twin observe KEEP (stabilize 0kbe · tip apply LIVE)
+    (
+        "tipsoft_ip3_trail42_l4_switch_month_end",
+        ["python3", "scripts/tipsoft_ip3_trail42_l4_switch_month_end_monitor.py"],
+    ),
     # OBSERVE_UP 2026-09-28 parents CLOSED 2026-09-28 (superseded by COMPOSITE)
     # (
     #     "fin_both_quality_month_end",
@@ -139,6 +144,11 @@ STEPS_REFRESH = [
     (
         "cool_631l_short_assist_dual_paper_ledgers",
         ["python3", "scripts/cool_631l_short_assist_dual_paper_ledgers.py"],
+    ),
+    # tip Soft LIVE DD_SWITCH twin observe KEEP (stabilize 0kbe)
+    (
+        "tipsoft_ip3_trail42_l4_switch_dual_paper_ledgers",
+        ["python3", "scripts/tipsoft_ip3_trail42_l4_switch_dual_paper_ledgers.py"],
     ),
     # OBSERVE_UP 2026-09-28 parents CLOSED 2026-09-28 (superseded by COMPOSITE)
     # (

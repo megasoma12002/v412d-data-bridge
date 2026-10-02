@@ -1,5 +1,7 @@
 # Research Portfolio — KEEP / ARCHIVE (LOCKED)
 
+**Live STABILIZE 2026-10-02:** tip Soft LIVE stack FREEZE · DD_SWITCH tip apply KEEP · month-end monitor WIRED · `TIPSOFT_LIVE_STABILIZE_2026-10-02.md`
+
 Date: 2026-09-13 (batch seal) · prior lock 2026-09-09  
 Status: **LOCKED** · human ballot **`請封存`** (2026-09-13)  
 Authority: `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · Kelly `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` · E45_BLEND025 `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md` · register `HUMAN_DECISION_REGISTER.md`  
