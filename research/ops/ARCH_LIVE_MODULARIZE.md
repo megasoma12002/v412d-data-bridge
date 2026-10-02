@@ -18,7 +18,7 @@ PR scope: extract seams for Docker / future broker adapter — **no strategy cut
 | `scripts/live_day_commit.py` | Deferred fills/divs + atomic `portfolio_state` + optional Excel audit |
 | `scripts/live_ledger.py` | Immutable CSV append (`append_immutable_many`) + holdings + commission helpers |
 | `scripts/live_tip_meta.py` | Shared cutover stamps for tip state / audits |
-| `scripts/live_day_overlays.py` | Path3 WITHIN / T0 emit+mute / tipsoft gate-stamps orchestration |
+| `scripts/live_day_overlays.py` | Path3 WITHIN / T0 emit+mute / **DD_SWITCH tip apply** / OVERRIDE+DD session stamps |
 | `scripts/sleeve_gap_trade.py` | Shared sleeve-gap trade sizing (live ↔ `simulate_core`; ≠ `REBALANCE_L1_MIN`) |
 | `scripts/stagea_screen_helpers.py` | Stage A pack/tip/UTC/nav DRY helpers (`tip_lift` vs `tip_hygiene`) |
 | `scripts/e21_forward_pipeline.py` | CLI + day orchestration only (thin) |
@@ -41,9 +41,11 @@ e21_forward_pipeline.main
   ├─ live_execution           → live_fill_core | live_fill_broker
   ├─ live_e22_day             (dividends / receivables)
   ├─ live_rebalance_orders    (orders.csv rows)
-  ├─ live_day_overlays        (Path3 WITHIN / T0 emit+mute / tipsoft stamps)
+  ├─ live_day_overlays        (Path3 WITHIN / T0 / DD_SWITCH tip apply / stamps)
   └─ live_day_commit          (fills + state + audit Excel)
 ```
+
+`live_day_overlays` order: WITHIN cutover → T0 weight plan → **`apply_to_path3_deltas`** (FIN∪TEL→cash on TRAIL OFF days) → emit → OVERRIDE stamps → DD session stamps. Soft-Frozen KEEP.
 
 Stable call sites keep `from live_execution import …`. Soft-Frozen KEEP.
 

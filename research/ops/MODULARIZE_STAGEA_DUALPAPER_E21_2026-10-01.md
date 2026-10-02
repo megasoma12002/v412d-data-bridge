@@ -18,9 +18,10 @@ Status: **ENGINEERING** · Soft-Frozen **KEEP** · Exact T+1 **KEEP** · Path3 W
 - **Deferred:** full `DualPaperLedgerSpec` rewrite of COMPOSITE / SAT_A20 / Path3 T0 OPERATING sims — specialty multi-pass cool+schedule; migrate only with dedicated ACCEPT + golden NAV compare.
 
 ### 3. e21 overlay orchestration extract
-- New `scripts/live_day_overlays.py`: Path3 WITHIN → mute → T0 emit → tipsoft `session_meta` (behavior-preserving).
-- `e21_forward_pipeline` calls `apply_path3_tipsoft_overlays` + `overlay_signal_fields`.
-- Guards: `tests/test_live_day_overlays.py` + updated tipsoft wire test.
+- New `scripts/live_day_overlays.py`: Path3 WITHIN → mute → T0 plan → **DD_SWITCH tip apply** → emit → OVERRIDE/DD `session_meta`.
+- `e21_forward_pipeline` stays thin: `apply_path3_tipsoft_overlays` + `overlay_signal_fields`.
+- Merge resolve vs main: tip apply lives in overlays (not stamps-only e21).
+- Guards: `tests/test_live_day_overlays.py` (incl. apply-before-emit) + tipsoft wire tests.
 
 ## Explicitly not done
 - Split `simulate_core` / `within_sleeve_alloc` (P1 — only if needed later)

@@ -51,6 +51,54 @@ class LiveDayOverlaysGuards(unittest.TestCase):
         self.assertEqual({r["code"] for r in kept}, {"0050"})
         self.assertTrue(meta.get("applied") or meta.get("should_mute"))
 
+    def test_dd_switch_tip_apply_runs_before_emit(self) -> None:
+        """Conflict resolve: overlays must call apply_to_path3_deltas (not stamps-only)."""
+        asof = pd.Timestamp("2026-09-29")
+        deltas = {"2880": -1000.0, "0050": 500.0}
+        apply_meta = {
+            "tipsoft_dd_switch_live": True,
+            "tipsoft_dd_switch_wire_mode": "path3_gate_ft_cash_apply",
+            "applied": True,
+        }
+        with (
+            mock.patch(
+                "live_day_overlays.LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT", True
+            ),
+            mock.patch("live_day_overlays.LIVE_TIPSOFT_DD_SWITCH", True),
+            mock.patch(
+                "live_path3_t0_weight_engine.plan_or_none_for_pipeline",
+                return_value=(deltas, {"engine_id": "test", "switch": {"flip": False}}),
+            ),
+            mock.patch(
+                "live_tipsoft_dd_switch.apply_to_path3_deltas",
+                return_value=(deltas, apply_meta),
+            ) as apply_mock,
+            mock.patch(
+                "live_path3_t0_switch_emitter.maybe_emit_switch_orders",
+                return_value=([], {"n_orders": 0, "reason": "test"}),
+            ) as emit_mock,
+            mock.patch(
+                "live_tipsoft_dd_switch.session_meta",
+                return_value={"tipsoft_dd_switch_live": True},
+            ),
+            mock.patch(
+                "live_tipsoft_live_override.session_meta",
+                return_value={"tipsoft_live_override_live": True},
+            ),
+        ):
+            ov = apply_path3_tipsoft_overlays(
+                [],
+                asof=asof,
+                pos={"2880": 1000.0, "0050": 1000.0},
+                prices={"2880": 20.0, "0050": 100.0},
+            )
+        apply_mock.assert_called_once()
+        emit_mock.assert_called_once()
+        self.assertEqual(
+            ov.path3_emit_meta.get("tipsoft_dd_switch"), apply_meta
+        )
+        self.assertTrue(ov.tipsoft_dd_meta.get("tipsoft_dd_switch_live"))
+
 
 if __name__ == "__main__":
     unittest.main()
