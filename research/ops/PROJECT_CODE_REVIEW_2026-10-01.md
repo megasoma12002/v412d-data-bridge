@@ -108,7 +108,7 @@ Path3 WITHIN still suppresses Soft FIN∪TEL daily; Soft 0050 / clips / T0 carve
 ## Remaining (not this pass)
 
 1. Rebuild tip Soft live/champ NAV to market tip (H2 root) — fail-loud is in; refresh pipeline separate.
-2. Separate ACCEPT if human wants paper OVERRIDE edge on tip orders under Path3 WITHIN KEEP.
+2. Apply path under Path3 WITHIN KEEP — Stage A **`APPLY_TIPY_OWNERSHIP_BLOCK`** (0kb6): tipY gap ≈ MUTE_S3_SAT vs always-WITHIN; force-LIVE/soft-α tipY≈0; **KEEP stamps**; no apply wire without new ACCEPT · `TIPSOFT_IP3_APPLY_PATH_STAGEA_DECISION_PACK.md`.
 
 ---
 

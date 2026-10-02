@@ -29,9 +29,11 @@ class LiveDayOverlaysGuards(unittest.TestCase):
         # Soft FIN/TEL suppressed under WITHIN; 0050 Soft may remain depending on cutover.
         self.assertTrue(ov.path3_cutover_meta.get("applied") or ov.path3_cutover_meta.get("enabled"))
         self.assertIn("tipsoft_live_override_live", ov.tipsoft_override_meta)
+        self.assertIn("tipsoft_dd_switch_live", ov.tipsoft_dd_meta)
         fields = overlay_signal_fields(ov)
         self.assertIn("path3_strategy_cutover_live", fields)
         self.assertIn("tipsoft_live_override_wire_mode", fields)
+        self.assertIn("tipsoft_dd_switch_live", fields)
         self.assertEqual(fields.get("tipsoft_override_return_blend_applied"), False)
 
     def test_mute_helper_still_keeps_0050(self) -> None:

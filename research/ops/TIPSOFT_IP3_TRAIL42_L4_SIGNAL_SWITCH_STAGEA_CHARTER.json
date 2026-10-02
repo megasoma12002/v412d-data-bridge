@@ -1,0 +1,11 @@
+{
+  "id": "TIPSOFT_IP3_TRAIL42_L4_SIGNAL_SWITCH_STAGEA_CHARTER",
+  "register": "0kbd",
+  "parents": [
+    "0kbb",
+    "0kba",
+    "0kbc",
+    "0kac"
+  ],
+  "question": "signal switch TRAIL42 twin vs L4 (not year switch)"
+}

@@ -1,6 +1,6 @@
 {
   "id": "TIPSOFT_P3_NEARPEAK3_OBSERVE_BALLOT_EXECUTED_OPEN",
-  "status": "EXECUTED_OPEN",
+  "status": "OBSERVE_CLOSED",
   "date": "2026-09-30",
   "generated_at_utc": "2026-09-30T10:43:26Z",
   "register": "0kaw",
@@ -34,5 +34,8 @@
       "gate": "PASS"
     }
   },
-  "label": "TIPSOFT_P3_NEARPEAK3_OBSERVE_BALLOT_EXECUTED_OPEN_2026-09-30__OPEN__NO_LIVE"
+  "label": "TIPSOFT_P3_NEARPEAK3_OBSERVE_BALLOT_EXECUTED_OPEN_2026-09-30__OPEN__NO_LIVE",
+  "closed_at": "2026-10-01",
+  "close_batch": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "close_why": "superseded by DD_SWITCH tip apply LIVE (via OVERRIDE\u2192MUTE/TRAIL chain)"
 }

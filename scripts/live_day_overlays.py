@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""Live day overlay orchestration — Path3 WITHIN / T0 emit / tipsoft stamps.
+"""Live day overlay orchestration — Path3 WITHIN / T0 emit / tipsoft.
 
-Extracted from ``e21_forward_pipeline`` so the CLI stays thin. Behavior-preserving:
-does **not** change Soft clips, Exact T+1 fills, broker, or tipsoft return-blend.
+Extracted from ``e21_forward_pipeline`` so the CLI stays thin. Behavior-preserving
+for Soft clips, Exact T+1 fills, broker, Path4 OFF.
 
 Order of application (KEEP):
 1. Path3 strategy cutover WITHIN → suppress Soft FIN/TEL
 2. Soft↔Path3 coexist mute (superseded when WITHIN ON)
-3. Path3 T0 carve switch emit (weight engine)
+3. Path3 T0 weight plan → **DD_SWITCH tip apply** (may flatten FIN∪TEL→cash) → emit
 4. tip Soft LIVE_OVERRIDE gate stamps / telemetry (no ``order_rows`` mutation)
+5. tip Soft DD_SWITCH session stamps
 """
 from __future__ import annotations
 
@@ -28,6 +29,7 @@ from live_config import (
     LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,
     LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT,
     LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT_BALLOT,
+    LIVE_TIPSOFT_DD_SWITCH,
     LIVE_TIPSOFT_LIVE_OVERRIDE,
 )
 
@@ -40,6 +42,7 @@ class DayOverlayResult:
     path3_weight_meta: dict[str, Any]
     soft_path3_mute_meta: dict[str, Any]
     tipsoft_override_meta: dict[str, Any]
+    tipsoft_dd_meta: dict[str, Any]
 
 
 def apply_path3_tipsoft_overlays(
@@ -78,6 +81,7 @@ def apply_path3_tipsoft_overlays(
         "n_muted": 0,
         "superseded_by_cutover": cutover_within,
     }
+    tipsoft_dd_apply_meta: dict[str, Any] = {"tipsoft_dd_switch_live": False}
 
     if LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT:
         import live_path3_t0_switch_emitter as path3_em
@@ -89,6 +93,19 @@ def apply_path3_tipsoft_overlays(
             pos=pos,
             prices=prices,
         )
+        # tip Soft Exact T+1 DD_SWITCH tip apply (0kbd ACCEPT) — may flatten
+        # FIN∪TEL→cash on TRAIL-selected Path3 OFF days (−P3T0). Not stamps-only.
+        if LIVE_TIPSOFT_DD_SWITCH:
+            import live_tipsoft_dd_switch as tipsoft_dd
+
+            path3_deltas, tipsoft_dd_apply_meta = tipsoft_dd.apply_to_path3_deltas(
+                path3_deltas,
+                pos,
+                asof,
+                market_tip=asof,
+            )
+            path3_weight_meta = dict(path3_weight_meta)
+            path3_weight_meta["tipsoft_dd_switch"] = tipsoft_dd_apply_meta
         flip = bool((path3_weight_meta.get("switch") or {}).get("flip"))
         if cutover_within:
             soft_path3_mute_meta = {
@@ -120,6 +137,7 @@ def apply_path3_tipsoft_overlays(
         path3_emit_meta["enabled"] = True
         path3_emit_meta["weight_engine"] = path3_weight_meta
         path3_emit_meta["path3_strategy_cutover"] = cutover_within
+        path3_emit_meta["tipsoft_dd_switch"] = tipsoft_dd_apply_meta
     else:
         path3_emit_meta["reason"] = "emit_flag_off"
 
@@ -130,6 +148,13 @@ def apply_path3_tipsoft_overlays(
 
         tipsoft_override_meta = tipsoft_ov.session_meta(asof, market_tip=asof)
 
+    # tip Soft Exact T+1 DD_SWITCH session stamps (0kbd ACCEPT tip apply).
+    tipsoft_dd_meta: dict[str, Any] = {"tipsoft_dd_switch_live": False}
+    if LIVE_TIPSOFT_DD_SWITCH:
+        import live_tipsoft_dd_switch as tipsoft_dd
+
+        tipsoft_dd_meta = tipsoft_dd.session_meta(asof, market_tip=asof)
+
     return DayOverlayResult(
         order_rows=order_rows,
         path3_cutover_meta=path3_cutover_meta,
@@ -137,6 +162,7 @@ def apply_path3_tipsoft_overlays(
         path3_weight_meta=path3_weight_meta,
         soft_path3_mute_meta=soft_path3_mute_meta,
         tipsoft_override_meta=tipsoft_override_meta,
+        tipsoft_dd_meta=tipsoft_dd_meta,
     )
 
 
@@ -176,4 +202,5 @@ def overlay_signal_fields(ov: DayOverlayResult) -> dict[str, Any]:
         "path3_strategy_cutover_applied": bool(path3_cutover_meta.get("applied")),
         "path3_strategy_cutover_n_muted": int(path3_cutover_meta.get("n_muted") or 0),
         **ov.tipsoft_override_meta,
+        **ov.tipsoft_dd_meta,
     }

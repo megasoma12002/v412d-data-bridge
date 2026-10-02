@@ -70,6 +70,11 @@ STEPS_MONITOR = [
         "cool_631l_short_assist_month_end",
         ["python3", "scripts/cool_631l_short_assist_month_end_monitor.py"],
     ),
+    # tip Soft LIVE DD_SWITCH twin observe KEEP (stabilize 0kbe · tip apply LIVE)
+    (
+        "tipsoft_ip3_trail42_l4_switch_month_end",
+        ["python3", "scripts/tipsoft_ip3_trail42_l4_switch_month_end_monitor.py"],
+    ),
     # OBSERVE_UP 2026-09-28 parents CLOSED 2026-09-28 (superseded by COMPOSITE)
     # (
     #     "fin_both_quality_month_end",
@@ -79,18 +84,19 @@ STEPS_MONITOR = [
     #     "sat_a20_h5_month_end",
     #     ["python3", "scripts/sat_a20_h5_month_end_monitor.py"],
     # ),
-    (
-        "fin_sat_composite_month_end",
-        ["python3", "scripts/fin_sat_composite_month_end_monitor.py"],
-    ),
-    (
-        "sat_a20_relax_month_end",
-        ["python3", "scripts/sat_a20_relax_month_end_monitor.py"],
-    ),
-    (
-        "fin_sat_path3_t0_month_end",
-        ["python3", "scripts/fin_sat_path3_t0_month_end_monitor.py"],
-    ),
+    # OBSERVE_CLOSE_SUPERSEDED_2026-10-01 — COMPOSITE/SAT_RELAX/P3_T0 paper shadows CLOSED
+    # (
+    #     "fin_sat_composite_month_end",
+    #     ["python3", "scripts/fin_sat_composite_month_end_monitor.py"],
+    # ),
+    # (
+    #     "sat_a20_relax_month_end",
+    #     ["python3", "scripts/sat_a20_relax_month_end_monitor.py"],
+    # ),
+    # (
+    #     "fin_sat_path3_t0_month_end",
+    #     ["python3", "scripts/fin_sat_path3_t0_month_end_monitor.py"],
+    # ),
     # ("soft_sleeve_observe_overlap", ["python3", "scripts/e16_soft_sleeve_observe_overlap.py"]),
     ("track_a_s9a1", ["python3", "scripts/e50a_dual_track_s9a1_monitor.py"]),
     ("live_paper_recon", ["python3", "scripts/e21_live_vs_paper_recon.py"]),
@@ -104,6 +110,11 @@ STEPS_MONITOR = [
         ["python3", "scripts/fincap50_sealed_cagr_charter_screen.py"],
     ),
     ("ops_alert_scan", ["python3", "scripts/ops_alert_scan.py", "--report-only"]),  # swapped in main if fail-on-critical
+    # DD_SWITCH soak gate (0kbf) — refresh status after monitors; does not flip live
+    (
+        "tipsoft_dd_switch_soak_gate",
+        ["python3", "scripts/tipsoft_dd_switch_soak_gate.py"],
+    ),
 ]
 
 STEPS_REFRESH = [
@@ -139,6 +150,11 @@ STEPS_REFRESH = [
         "cool_631l_short_assist_dual_paper_ledgers",
         ["python3", "scripts/cool_631l_short_assist_dual_paper_ledgers.py"],
     ),
+    # tip Soft LIVE DD_SWITCH twin observe KEEP (stabilize 0kbe)
+    (
+        "tipsoft_ip3_trail42_l4_switch_dual_paper_ledgers",
+        ["python3", "scripts/tipsoft_ip3_trail42_l4_switch_dual_paper_ledgers.py"],
+    ),
     # OBSERVE_UP 2026-09-28 parents CLOSED 2026-09-28 (superseded by COMPOSITE)
     # (
     #     "fin_both_quality_dual_paper_ledgers",
@@ -148,14 +164,15 @@ STEPS_REFRESH = [
     #     "sat_a20_h5_dual_paper_ledgers",
     #     ["python3", "scripts/sat_a20_h5_dual_paper_ledgers.py"],
     # ),
-    (
-        "fin_sat_composite_dual_paper_ledgers",
-        ["python3", "scripts/fin_sat_composite_dual_paper_ledgers.py"],
-    ),
-    (
-        "sat_a20_relax_dual_paper_ledgers",
-        ["python3", "scripts/sat_a20_relax_dual_paper_ledgers.py"],
-    ),
+    # OBSERVE_CLOSE_SUPERSEDED_2026-10-01 — COMPOSITE/SAT_RELAX paper shadows CLOSED
+    # (
+    #     "fin_sat_composite_dual_paper_ledgers",
+    #     ["python3", "scripts/fin_sat_composite_dual_paper_ledgers.py"],
+    # ),
+    # (
+    #     "sat_a20_relax_dual_paper_ledgers",
+    #     ["python3", "scripts/sat_a20_relax_dual_paper_ledgers.py"],
+    # ),
 ]
 
 

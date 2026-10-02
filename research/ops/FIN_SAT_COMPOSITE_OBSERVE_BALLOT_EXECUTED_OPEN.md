@@ -1,5 +1,7 @@
 # FIN×SAT COMPOSITE — Ballot EXECUTED (OPEN observe)
 
+> **SUPERSEDED / OBSERVE CLOSED (2026-10-01)** — `COMP_H150_x_A20` · Path3 WITHIN + ledger already LIVE (paper COMPOSITE shadow) · `OBSERVE_CLOSE_SUPERSEDED_2026-10-01.md`
+
 Date: 2026-09-28  
 Status: **EXECUTED** · Soft-Frozen **KEEP** · SELL_a75 **KEEP** · live CONF α=0.10 **KEEP** · live wire **false**  
 Human (normalized from `請進行下一步` after Stage A `COMPOSITE_HIT`):

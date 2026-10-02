@@ -2,8 +2,8 @@
   "generated_at_utc": "2026-09-29T17:35:39Z",
   "schema_version": "fin_sat_composite_dual_paper_observe_v1",
   "label": "FIN_SAT_COMPOSITE_DUAL_PAPER_OBSERVE_OPERATING",
-  "status": "OPERATING_OBSERVE",
-  "human_open": "OPEN paper observe: FIN×SAT COMPOSITE COMP_H150_x_A20 (Stage A COMPOSITE_HIT)",
+  "status": "OBSERVE_CLOSED",
+  "human_open": "OPEN paper observe: FIN\u00d7SAT COMPOSITE COMP_H150_x_A20 (Stage A COMPOSITE_HIT)",
   "live_wire": false,
   "cutover_authorized": false,
   "soft_frozen_keep": true,
@@ -91,9 +91,15 @@
   "n_fills_base": 5388,
   "n_fills_chal": 6546,
   "non_actions": [
-    "Soft-Frozen KEEP — no Class D from observe",
-    "SELL_a75 KEEP · live CONF α=0.10 KEEP",
-    "Do not Gate-H Soft×Sleeve fuse",
+    "Soft-Frozen KEEP \u2014 no Class D from observe",
+    "SELL_a75 KEEP \u00b7 live CONF \u03b1=0.10 KEEP",
+    "Do not Gate-H Soft\u00d7Sleeve fuse",
     "Cutover BLOCKED until dedicated ACCEPT"
-  ]
+  ],
+  "closed_at": "2026-10-01",
+  "close_batch": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "close_why": "Path3 WITHIN + ledger already LIVE (paper COMPOSITE shadow)",
+  "month_end_queue": "SKIP",
+  "alert_scan": "SKIP",
+  "reopen": "new human OPEN ballot required"
 }

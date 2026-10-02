@@ -1,0 +1,82 @@
+{
+  "generated_at_utc": "2026-10-02T15:42:17Z",
+  "label": "TIPSOFT_DD_SWITCH_SOAK_GATE_2026-10-02__SOAK_OPEN",
+  "register": "0kbf",
+  "status": "SOAK_OPEN",
+  "human_order": [
+    "1 Merge stabilize (0kbe) \u2014 DONE on main",
+    "2 Soak daily tip + DD_SWITCH month-end",
+    "3 Soft FIN/TEL \u00b7 Path4 \u00b7 broker CLOSED until SOAK_PASS",
+    "4 Separate ballots only after SOAK_PASS"
+  ],
+  "accept_day": "2026-10-01",
+  "live_tip": "2026-10-02",
+  "calendar_days_since_accept": 1,
+  "nav_tip_days_since_accept": 2,
+  "nav_tip_dates_since_accept": [
+    "2026-10-01",
+    "2026-10-02"
+  ],
+  "floors": {
+    "min_tip_days_since_accept": 20,
+    "min_cal_days_since_accept": 28,
+    "min_live_paper_overlap": 60,
+    "require_no_dd_switch_pause": true
+  },
+  "live_locks": {
+    "live_tipsoft_dd_switch": true,
+    "live_path3_strategy_cutover": true,
+    "live_tipsoft_live_override": true,
+    "broker_live_write_accepted": false,
+    "fill_port": "paper",
+    "path4_live": false
+  },
+  "monitor": {
+    "asof": "2026-09-29",
+    "alerts": [],
+    "pause_lines": [],
+    "ops_high_alerts": [],
+    "cutover_blocked": true
+  },
+  "recon_overlap_n": 18,
+  "qc_status": "PASS",
+  "checks": {
+    "stabilize_ballot_present": true,
+    "dd_switch_live": true,
+    "path3_within_live": true,
+    "soft_fin_tel_stay_off": true,
+    "path4_live_off": true,
+    "broker_false": true,
+    "fill_port_paper": true,
+    "qc_pass": true,
+    "tip_days_since_accept_ge": false,
+    "cal_days_since_accept_ge": false,
+    "live_paper_overlap_ge": false,
+    "dd_switch_monitor_no_pause": true,
+    "dd_switch_monitor_present": true
+  },
+  "freeze_until_soak_pass": [
+    "No Soft FIN/TEL Exact T+1 refill ACCEPT",
+    "No Path4 live",
+    "No broker EXECUTE / live-write",
+    "No new tip Soft mechanism Stage A / tip apply",
+    "No year-switch / year-oracle"
+  ],
+  "after_soak_pass_ballots": [
+    "Optional: Soft FIN/TEL Exact T+1 carve on Path3 OFF days (separate ACCEPT)",
+    "Optional: broker EXECUTE (separate ACCEPT; PREP already filed)",
+    "Optional: 2020 MDD research only if held+ \u2227 y2020 improve (else KEEP residual)"
+  ],
+  "parents": [
+    "0kbe",
+    "0kbd",
+    "0kac"
+  ],
+  "non_actions": [
+    "Does not flip Soft-Frozen",
+    "Does not enable broker",
+    "Does not reopen Soft FIN/TEL",
+    "Does not promote Path4",
+    "Does not rewrite forward/e21 history"
+  ]
+}

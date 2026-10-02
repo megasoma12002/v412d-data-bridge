@@ -314,7 +314,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         )
         order_rows.extend(off_orders)
         conf_ret3_order_meta["enabled"] = True
-    # Path3 WITHIN + T0 emit/mute + tipsoft gate stamps (orchestration module).
+    # Path3 WITHIN + T0 emit/mute + tipsoft DD_SWITCH tip apply + OVERRIDE stamps.
     overlays = apply_path3_tipsoft_overlays(
         order_rows, asof=latest, pos=pos, prices=prices
     )

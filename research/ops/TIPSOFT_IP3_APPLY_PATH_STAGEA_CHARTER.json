@@ -1,0 +1,20 @@
+{
+  "id": "TIPSOFT_IP3_APPLY_PATH_STAGEA_CHARTER",
+  "register": "0kb6",
+  "parents": [
+    "0kb2",
+    "0kb5",
+    "0kac"
+  ],
+  "question": "apply path under Path3 WITHIN + Soft FIN/TEL OFF",
+  "forbidden": [
+    "soft_fin_tel_reenable",
+    "path3_within_undo",
+    "path4_live",
+    "year_cut",
+    "hybrid_t0",
+    "broker",
+    "live_apply_without_accept"
+  ],
+  "label": "TIPSOFT_IP3_APPLY_PATH_STAGEA_CHARTER_2026-10-01"
+}

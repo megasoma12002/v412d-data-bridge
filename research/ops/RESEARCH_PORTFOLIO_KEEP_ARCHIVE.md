@@ -1,5 +1,7 @@
 # Research Portfolio — KEEP / ARCHIVE (LOCKED)
 
+**Live STABILIZE 2026-10-02:** tip Soft LIVE stack FREEZE · DD_SWITCH tip apply KEEP · month-end monitor WIRED · `TIPSOFT_LIVE_STABILIZE_2026-10-02.md`
+
 Date: 2026-09-13 (batch seal) · prior lock 2026-09-09  
 Status: **LOCKED** · human ballot **`請封存`** (2026-09-13)  
 Authority: `RESEARCH_ARCHIVE_BATCH_2026-09-13.md` · Kelly `RESEARCH_ARCHIVE_BATCH_KELLY_2026-09-13.md` · E45_BLEND025 `RESEARCH_ARCHIVE_BATCH_E45_BLEND025_2026-09-13.md` · register `HUMAN_DECISION_REGISTER.md`  
@@ -71,3 +73,6 @@ Human: `請把可上 與可下進行上下` · `OBSERVE_UP_DOWN_BATCH_2026-09-28
 **Path3 T+0 carve observe OPEN 2026-09-28:** `T0_CARVE_FIN_SAT_SWITCH` · `P3_T0_STATE` · parents COMPOSITE+SAT_RELAX KEEP · `FIN_SAT_T0_CARVEOUT_POLICY_BALLOT_EXECUTED_ACCEPT.md` · `FIN_SAT_PATH3_T0_STATE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
 **ARCHIVE paper observe queue:** Soft-assist · Sleeve · FUSE_ADDITIVE · priv native · FIN within-sleeve · FINCAP BLEND_025 · FIN_CAP_50 · E45 dual/sleeve-local/BLEND005 · DH_dd06 paper · FIN buy-quality A/B/C · FIN both-quality · SAT_A20_H5  
 **Live KEEP:** Soft-Frozen · FUSE · SELL_a75 · COOL_c8 · CONF_RET3_A10_H5 · Class D V7 F05 · TEL T3 · β clip
+
+**Observe CLOSE superseded 2026-10-01:** tip Soft NEARPEAK3+MUTE×CASH+TRAIL42×CASH + Path3 COMPOSITE/SAT_RELAX/P3_T0 paper shadows **CLOSED** · DD_SWITCH tip apply KEEP · Path3 WITHIN/T0/ledger KEEP · `OBSERVE_CLOSE_SUPERSEDED_2026-10-01.md`
+

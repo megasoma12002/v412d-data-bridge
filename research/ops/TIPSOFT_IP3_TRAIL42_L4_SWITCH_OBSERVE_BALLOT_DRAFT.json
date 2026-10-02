@@ -1,0 +1,27 @@
+{
+  "id": "TIPSOFT_IP3_TRAIL42_L4_SWITCH_OBSERVE_BALLOT_DRAFT",
+  "register": "0kbd",
+  "status": "DRAFT_AWAITING_OPEN",
+  "policy_id": "TIPSOFT_P3_TRAIL42_L4_DD_SWITCH",
+  "open_line": "OPEN paper observe: TIPSOFT_P3_TRAIL42_L4_DD_SWITCH\n(tip Soft Exact T+1 dual-book \u00b7 daily TRAIL42 twin if TRAIL DD\u2265L4 DD else L4 \u00b7\n Soft FIN/TEL stay OFF \u00b7 NOT year-switch \u00b7 NOT Path3-gate-only \u00b7 NOT tip apply)",
+  "base_id": "L4_LIVE_P3_WITHIN",
+  "challenger_id": "TRAIL42_L4_DD_SWITCH",
+  "signal": "TRAIL_WHEN_TR_DD_GTE_L4",
+  "held_vs_L4_pp": 3.5275,
+  "tipY_vs_L4_pp": 27.5471,
+  "sealed_mdd_vs_L4_pp": 0.4692,
+  "soft_fin_tel": "OFF",
+  "path4_live": false,
+  "broker": false,
+  "live_wire": false,
+  "apply_authorized": false,
+  "cutover_authorized": false,
+  "parents": [
+    "0kbd",
+    "0kbb",
+    "0kba",
+    "0kac"
+  ],
+  "generated_at_utc": "2026-10-01T14:51:22Z",
+  "label": "TIPSOFT_IP3_TRAIL42_L4_SWITCH_OBSERVE_BALLOT_DRAFT_2026-10-01__AWAITING_OPEN__NO_LIVE"
+}

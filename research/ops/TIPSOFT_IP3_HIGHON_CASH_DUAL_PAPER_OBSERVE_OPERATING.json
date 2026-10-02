@@ -1,0 +1,116 @@
+{
+  "generated_at_utc": "2026-10-01T12:00:01Z",
+  "label": "TIPSOFT_IP3_HIGHON_CASH_DUAL_PAPER_OBSERVE_OPERATING",
+  "status": "OBSERVE_CLOSED",
+  "register": "0kba",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH\n(tip Soft Exact T+1 \u00b7 Path3 ON unless lag63 prem_p3<-0.01 \u2227 sat_lead \u00b7\n Path3 OFF \u2192 FIN\u222aTEL\u2192cash \u00b7 Soft FIN/TEL stay OFF \u00b7 NOT Soft-refill \u00b7 NOT hybrid T+0)",
+  "live_wire": false,
+  "cutover_authorized": false,
+  "apply_authorized": false,
+  "soft_frozen_keep": true,
+  "soft_fin_tel": "OFF",
+  "path4_live": false,
+  "hybrid_t0_carve": false,
+  "broker": false,
+  "base_id": "L4_LIVE_P3_WITHIN",
+  "challenger_id": "ON_UNLESS_MUTE_FT_CASH",
+  "policy_id": "TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH",
+  "gate": "Path3 ON unless lag63 prem_p3 < -0.01 AND sat_lead; OFF \u2192 FIN\u222aTEL\u2192cash; Soft FIN/TEL stay OFF; tip Soft Exact T+1 twin stitch",
+  "stitch": "tip_r = L4_r + (SC_ON_UNLESS_MUTE_CASH_r - SC_ALWAYS_WITHIN_r)",
+  "base_windows": {
+    "full": {
+      "cagr": 0.126297,
+      "max_drawdown": -0.144311,
+      "n_days": 3366
+    },
+    "oof_2011_2018": {
+      "cagr": 0.08475,
+      "max_drawdown": -0.112117,
+      "n_days": 1495
+    },
+    "validation_2019_2022": {
+      "cagr": 0.130053,
+      "max_drawdown": -0.144311,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.20041,
+      "max_drawdown": -0.067438,
+      "n_days": 894
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.163395,
+      "max_drawdown": -0.144311,
+      "n_days": 1871
+    }
+  },
+  "chal_windows": {
+    "full": {
+      "cagr": 0.123893,
+      "max_drawdown": -0.143657,
+      "n_days": 3360
+    },
+    "oof_2011_2018": {
+      "cagr": 0.069596,
+      "max_drawdown": -0.119823,
+      "n_days": 1494
+    },
+    "validation_2019_2022": {
+      "cagr": 0.142127,
+      "max_drawdown": -0.143657,
+      "n_days": 977
+    },
+    "sealed_2023_plus": {
+      "cagr": 0.205488,
+      "max_drawdown": -0.067265,
+      "n_days": 889
+    },
+    "heldout_2019_plus": {
+      "cagr": 0.17213,
+      "max_drawdown": -0.143657,
+      "n_days": 1866
+    }
+  },
+  "heldout_delta": {
+    "cagr_lift_pp": 0.8735,
+    "mdd_improve_pp": 0.0654
+  },
+  "sealed_delta": {
+    "cagr_lift_pp": 0.5078,
+    "mdd_improve_pp": 0.0173
+  },
+  "tip": {
+    "ytd": {
+      "cagr_lift_pp": 2.4396,
+      "mdd_improve_pp": 0.0173,
+      "gate": "PASS"
+    },
+    "trailing_1y": {
+      "cagr_lift_pp": 1.5106,
+      "mdd_improve_pp": 0.0173,
+      "gate": "PASS"
+    }
+  },
+  "non_actions": [
+    "Soft-Frozen KEEP",
+    "Soft FIN/TEL Exact T+1 stay OFF (Path3 WITHIN intent KEEP)",
+    "Path4 live OFF",
+    "hybrid Soft-core T+0 carve FORBIDDEN",
+    "year-cut / lookahead promote FORBIDDEN",
+    "Return-blend apply on tip order_rows FORBIDDEN",
+    "Live \u2212P3T0 apply / cutover BLOCKED until dedicated ACCEPT",
+    "broker false"
+  ],
+  "parents": [
+    "0kba",
+    "0kb9",
+    "0kb8",
+    "0kac"
+  ],
+  "closed_at": "2026-10-01",
+  "close_batch": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "close_why": "superseded by DD_SWITCH tip apply LIVE (KEEPBOTH already NO)",
+  "month_end_queue": "SKIP",
+  "alert_scan": "SKIP",
+  "reopen": "new human OPEN ballot required"
+}

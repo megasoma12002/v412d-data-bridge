@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-30T15:06:03.843819+00:00",
+  "generated_at_utc": "2026-10-02T15:16:13.655204+00:00",
   "label": "OPS_ALERT_SCAN",
   "live_wire": false,
   "soft_frozen_unchanged": true,
@@ -9,8 +9,8 @@
   ],
   "overall": "HIGH",
   "n_critical": 0,
-  "n_high": 10,
-  "n_info": 37,
+  "n_high": 8,
+  "n_info": 28,
   "alerts": [
     {
       "severity": "HIGH",
@@ -23,18 +23,6 @@
       "source": "l4_month_end",
       "code": "PAUSE_REVIEW",
       "message": "PAUSE_REVIEW: trailing_1y giveback > 5 pp \u2014 extend observation; does not revoke PASS_HELDOUT_L4"
-    },
-    {
-      "severity": "HIGH",
-      "source": "fin_sat_composite_month_end",
-      "code": "PAUSE_REVIEW",
-      "message": "PAUSE_REVIEW: COMP_H150_x_A20 ytd giveback > 5 pp"
-    },
-    {
-      "severity": "HIGH",
-      "source": "fin_sat_composite_month_end",
-      "code": "PAUSE_REVIEW",
-      "message": "PAUSE_REVIEW: COMP_H150_x_A20 trailing_1y giveback > 5 pp"
     },
     {
       "severity": "HIGH",
@@ -82,7 +70,7 @@
       "severity": "INFO",
       "source": "fin_priv_v7_f05",
       "code": "FINPRIV_PX_FRESH",
-      "message": "Class D priv panel fresh vs tip asof 2026-09-30 (lag\u22645d)"
+      "message": "Class D priv panel fresh vs tip asof 2026-10-02 (lag\u22645d)"
     },
     {
       "severity": "INFO",
@@ -105,66 +93,6 @@
     {
       "severity": "INFO",
       "source": "l4_month_end",
-      "code": "CUTOVER_BLOCKED_FLAG",
-      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
-    },
-    {
-      "severity": "INFO",
-      "source": "fin_sat_composite_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: COMP_H150_x_A20 ytd CAGR giveback > 3.0 pp"
-    },
-    {
-      "severity": "INFO",
-      "source": "fin_sat_composite_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: COMP_H150_x_A20 trailing_1y CAGR giveback > 3.0 pp"
-    },
-    {
-      "severity": "INFO",
-      "source": "fin_sat_composite_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: COMP_H150_x_A20 heldout_2019_plus MDD worse than CTRL_LIVE_A10"
-    },
-    {
-      "severity": "INFO",
-      "source": "fin_sat_composite_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: COMP_H150_x_A20 sealed_2023_plus MDD worse than CTRL_LIVE_A10"
-    },
-    {
-      "severity": "INFO",
-      "source": "fin_sat_composite_month_end",
-      "code": "CUTOVER_BLOCKED_FLAG",
-      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
-    },
-    {
-      "severity": "INFO",
-      "source": "sat_a20_relax_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: SAT_A20_RELAX heldout_2019_plus MDD worse than CTRL_LIVE_A10"
-    },
-    {
-      "severity": "INFO",
-      "source": "sat_a20_relax_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: SAT_A20_RELAX sealed_2023_plus MDD worse than CTRL_LIVE_A10"
-    },
-    {
-      "severity": "INFO",
-      "source": "sat_a20_relax_month_end",
-      "code": "CUTOVER_BLOCKED_FLAG",
-      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
-    },
-    {
-      "severity": "INFO",
-      "source": "fin_sat_path3_t0_month_end",
-      "code": "MONITOR_ALERT",
-      "message": "ALERT: P3_T0_STATE sealed_2023_plus MDD worse than CTRL_LIVE_A10"
-    },
-    {
-      "severity": "INFO",
-      "source": "fin_sat_path3_t0_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },
@@ -207,6 +135,12 @@
     {
       "severity": "INFO",
       "source": "cool_631l_short_assist_month_end",
+      "code": "CUTOVER_BLOCKED_FLAG",
+      "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
+    },
+    {
+      "severity": "INFO",
+      "source": "tipsoft_ip3_trail42_l4_switch_month_end",
       "code": "CUTOVER_BLOCKED_FLAG",
       "message": "cutover_blocked=true (expected while Soft-Frozen KEEP)"
     },
@@ -274,7 +208,7 @@
       "severity": "INFO",
       "source": "r4_settlement_estimate",
       "code": "R4_ESTIMATE_PRESENT",
-      "message": "R4 settlement_cash_estimate present \u2014 settled_cash_estimate=50415.51358573139 is liquidity view NOT portfolio NAV / Soft-Frozen cash"
+      "message": "R4 settlement_cash_estimate present \u2014 settled_cash_estimate=21314018.830442484 is liquidity view NOT portfolio NAV / Soft-Frozen cash"
     },
     {
       "severity": "INFO",

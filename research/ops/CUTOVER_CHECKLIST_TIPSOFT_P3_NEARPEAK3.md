@@ -1,7 +1,7 @@
 # CUTOVER_CHECKLIST_TIPSOFT_P3_NEARPEAK3
 
 Date: 2026-09-30
-Status: **BLOCKED** (observe OPEN does not authorize cutover)
+Status: **OBSERVE CLOSED** (2026-10-01) · paper queue off · `TIPSOFT_P3_THETA_NEARPEAK3` (observe OPEN does not authorize cutover)
 
 ## Why blocked
 

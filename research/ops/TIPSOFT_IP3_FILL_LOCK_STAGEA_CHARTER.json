@@ -1,0 +1,12 @@
+{
+  "id": "TIPSOFT_IP3_FILL_LOCK_STAGEA_CHARTER",
+  "register": "0kb7",
+  "parents": [
+    "0kb6",
+    "0kb2",
+    "0kb1",
+    "0kac"
+  ],
+  "question": "Path3 OFF-day FIN\u222aTEL fill lock before ACCEPT",
+  "label": "TIPSOFT_IP3_FILL_LOCK_STAGEA_CHARTER_2026-10-01"
+}

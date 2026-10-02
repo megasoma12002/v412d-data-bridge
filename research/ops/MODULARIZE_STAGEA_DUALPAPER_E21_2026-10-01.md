@@ -1,6 +1,6 @@
 # Modularize pass — Stage A harness + dual-paper helpers + e21 overlays (2026-10-01)
 
-Status: **ENGINEERING** · Soft-Frozen **KEEP** · Exact T+1 **KEEP** · Path3 WITHIN **KEEP** · tipsoft stamps-only **KEEP** · broker **false** · Path4 **OFF**
+Status: **ENGINEERING** · Soft-Frozen **KEEP** · Exact T+1 **KEEP** · Path3 WITHIN **KEEP** · tipsoft DD_SWITCH tip apply + OVERRIDE stamps in `live_day_overlays` · broker **false** · Path4 **OFF**
 
 ## Done (safe)
 

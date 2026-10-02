@@ -1,0 +1,17 @@
+{
+  "id": "TIPSOFT_IP3_TRAIL42_CASH_SEALED_MDD_DISPOSITION",
+  "register": "0kbb",
+  "status": "HUMAN_DISPOSITION_ACCEPTABLE",
+  "human": "Trail42 cash\u7684mdd\u53ef\u63a5\u53d7",
+  "policy_id": "TIPSOFT_P3_TRAIL42_FT_CASH",
+  "parent_stageb": "0kba",
+  "prior_verdict": "TWIN_MDD_BLOCK",
+  "sealed_mdd_improve_pp": -0.3632,
+  "held_mdd_improve_pp": 0.026,
+  "rationale": "Absolute sealed |MDD| \u2248 6.7\u20137.1% \u226a held \u2248 14.4%; sealed tax \u22120.36pp ACCEPTABLE for paper observe continuation",
+  "live_wire": false,
+  "cutover_authorized": false,
+  "apply_authorized": false,
+  "generated_at_utc": "2026-10-01T12:05:00Z",
+  "label": "TIPSOFT_IP3_TRAIL42_CASH_SEALED_MDD_DISPOSITION_2026-10-01__ACCEPTABLE__NO_LIVE"
+}
