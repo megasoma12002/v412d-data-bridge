@@ -1,8 +1,8 @@
 {
   "id": "TIPSOFT_IP3_HIGHON_CASH_DUAL_PAPER_OBSERVE_OPEN",
   "register": "0kba",
-  "status": "OBSERVE_OPEN",
-  "human_open": "OPEN paper observe: TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH\n(tip Soft Exact T+1 \u00b7 Path3 ON unless lag63 prem_p3<-0.01 \u2227 sat_lead \u00b7\n Path3 OFF \u2192 FIN\u222aTEL\u2192cash \u00b7 Soft FIN/TEL stay OFF \u00b7 NOT Soft-refill \u00b7 NOT hybrid T+0)",
+  "status": "SUPERSEDED_CLOSED",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH\n(tip Soft Exact T+1 · Path3 ON unless lag63 prem_p3<-0.01 ∧ sat_lead ·\n Path3 OFF → FIN∪TEL→cash · Soft FIN/TEL stay OFF · NOT Soft-refill · NOT hybrid T+0)",
   "policy_id": "TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH",
   "base_id": "L4_LIVE_P3_WITHIN",
   "challenger_id": "ON_UNLESS_MUTE_FT_CASH",
@@ -30,5 +30,7 @@
   "cutover_authorized": false,
   "apply_authorized": false,
   "generated_at_utc": "2026-10-01T12:00:01Z",
-  "label": "TIPSOFT_IP3_HIGHON_CASH_DUAL_PAPER_OBSERVE_OPEN_2026-10-01__OBSERVE_OPEN__NO_LIVE"
+  "label": "TIPSOFT_IP3_HIGHON_CASH_DUAL_PAPER_OBSERVE_OPEN_2026-10-01__OBSERVE_OPEN__NO_LIVE",
+  "closed_by": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "status_note": "Historical OPEN artifact; canonical CLOSED via OBSERVE_CLOSE_SUPERSEDED_2026-10-01. Prior status was OBSERVE_OPEN."
 }

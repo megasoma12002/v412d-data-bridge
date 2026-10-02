@@ -1,6 +1,6 @@
 # TIPSOFT_IP3_TRAIL42_CASH_DUAL_PAPER_OBSERVE_OPEN
 
-Date: 2026-10-01 · Status: **OBSERVE OPEN / OPERATING**
+Date: 2026-10-01 · Status: **SUPERSEDED_CLOSED** · see OBSERVE_CLOSE_SUPERSEDED_2026-10-01
 Register: **0kbb**
 
 ## Human (exact)
@@ -17,6 +17,6 @@ OPEN paper observe: TIPSOFT_P3_TRAIL42_FT_CASH
 - Books: `L4_LIVE_P3_WITHIN` ∥ `TRAIL42_FT_CASH`
 - held **+1.4549** · tipY **+11.3364** · sealed MDD **-0.3632 ACCEPTABLE**
 - Soft FIN/TEL stay OFF · Path4 OFF · broker false · apply **BLOCKED**
-- Sibling 0kba `ON_UNLESS_MUTE_FT_CASH` observe **KEEP OPERATING**
+- Sibling 0kba `ON_UNLESS_MUTE_FT_CASH` observe **SUPERSEDED_CLOSED** (same CLOSE ballot)
 
 Label: `TIPSOFT_IP3_TRAIL42_CASH_DUAL_PAPER_OBSERVE_OPEN_2026-10-01__OBSERVE_OPEN__NO_LIVE`

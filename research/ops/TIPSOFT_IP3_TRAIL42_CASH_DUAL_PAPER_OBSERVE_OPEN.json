@@ -1,9 +1,9 @@
 {
   "id": "TIPSOFT_IP3_TRAIL42_CASH_DUAL_PAPER_OBSERVE_OPEN",
   "register": "0kbb",
-  "status": "OBSERVE_OPEN",
-  "human_mdd": "Trail42 cash\u7684mdd\u53ef\u63a5\u53d7",
-  "human_open": "OPEN paper observe: TIPSOFT_P3_TRAIL42_FT_CASH\n(tip Soft Exact T+1 \u00b7 Path3 ON when trail42d prem_p3\u2265\u22120.01 \u00b7\n Path3 OFF \u2192 FIN\u222aTEL\u2192cash \u00b7 Soft FIN/TEL stay OFF \u00b7 sealed MDD \u22120.36 ACCEPTABLE \u00b7\n NOT Soft-refill \u00b7 NOT hybrid T+0)",
+  "status": "SUPERSEDED_CLOSED",
+  "human_mdd": "Trail42 cash的mdd可接受",
+  "human_open": "OPEN paper observe: TIPSOFT_P3_TRAIL42_FT_CASH\n(tip Soft Exact T+1 · Path3 ON when trail42d prem_p3≥−0.01 ·\n Path3 OFF → FIN∪TEL→cash · Soft FIN/TEL stay OFF · sealed MDD −0.36 ACCEPTABLE ·\n NOT Soft-refill · NOT hybrid T+0)",
   "policy_id": "TIPSOFT_P3_TRAIL42_FT_CASH",
   "base_id": "L4_LIVE_P3_WITHIN",
   "challenger_id": "TRAIL42_FT_CASH",
@@ -36,5 +36,7 @@
   "cutover_authorized": false,
   "apply_authorized": false,
   "generated_at_utc": "2026-10-01T12:05:00Z",
-  "label": "TIPSOFT_IP3_TRAIL42_CASH_DUAL_PAPER_OBSERVE_OPEN_2026-10-01__OBSERVE_OPEN__NO_LIVE"
+  "label": "TIPSOFT_IP3_TRAIL42_CASH_DUAL_PAPER_OBSERVE_OPEN_2026-10-01__OBSERVE_OPEN__NO_LIVE",
+  "closed_by": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+  "status_note": "Historical OPEN artifact; canonical CLOSED via OBSERVE_CLOSE_SUPERSEDED_2026-10-01. Prior status was OBSERVE_OPEN."
 }

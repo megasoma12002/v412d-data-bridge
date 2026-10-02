@@ -1,0 +1,73 @@
+{
+  "id": "TIPSOFT_LIVE_OBSERVE_INVENTORY_2026-10-02",
+  "date": "2026-10-02",
+  "generated_at_utc": "2026-10-02T17:35:00Z",
+  "status": "INVENTORY",
+  "label": "TIPSOFT_LIVE_OBSERVE_INVENTORY_2026-10-02__SOAK_OPEN__DD_SWITCH_LIVE",
+  "live": {
+    "soft_frozen_shell": "KEEP",
+    "soft_fin_tel_exact_t1": false,
+    "path3_within": true,
+    "path3_t0_carve_emit_ledger": true,
+    "tipsoft_live_override": "stamps_only",
+    "tipsoft_dd_switch": "tip_apply_live",
+    "tipsoft_dd_switch_wire_mode": "path3_gate_ft_cash_apply",
+    "path4_live": false,
+    "broker_live_write": false,
+    "orchestration": "live_day_overlays"
+  },
+  "observe_keep": [
+    {
+      "policy": "TIPSOFT_P3_TRAIL42_L4_DD_SWITCH",
+      "role": "dual_paper_twin_of_live_tip_apply"
+    },
+    {
+      "policy": "TIPSOFT_LIVE_OVERRIDE",
+      "role": "stamps_gate_telemetry_twin"
+    }
+  ],
+  "observe_closed_superseded": [
+    {"reg": "0kaw", "policy": "TIPSOFT_P3_THETA_NEARPEAK3"},
+    {"reg": "0kba", "policy": "TIPSOFT_P3_ON_UNLESS_MUTE_FT_CASH"},
+    {"reg": "0kbb", "policy": "TIPSOFT_P3_TRAIL42_FT_CASH"},
+    {"reg": "0k9b", "policy": "COMP_H150_x_A20"},
+    {"reg": "0k9d", "policy": "SAT_A20_RELAX"},
+    {"reg": "0k9r", "policy": "P3_T0_STATE"}
+  ],
+  "soak": {
+    "status": "SOAK_OPEN",
+    "register": "0kbf",
+    "accept_day": "2026-10-01",
+    "nav_tip_days_since_accept": 2,
+    "calendar_days_since_accept": 1,
+    "recon_overlap_n": 18,
+    "floors": {
+      "min_tip_days_since_accept": 20,
+      "min_cal_days_since_accept": 28,
+      "min_live_paper_overlap": 60
+    },
+    "freeze_until_soak_pass": [
+      "No Soft FIN/TEL Exact T+1 refill ACCEPT",
+      "No Path4 live",
+      "No broker EXECUTE / live-write",
+      "No new tip Soft mechanism Stage A / tip apply",
+      "No year-switch / year-oracle"
+    ]
+  },
+  "engineering": {
+    "pr_408_modularize": "MERGEABLE_CI_GREEN",
+    "yearmix_wip": "NOT_OPEN_SOAK_FREEZE"
+  },
+  "parents": [
+    "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
+    "0kbd",
+    "0kbe",
+    "0kbf"
+  ],
+  "non_actions": [
+    "Does not merge #408",
+    "Does not reopen CLOSED observes",
+    "Does not flip Soft-Frozen / broker / Path4",
+    "Does not rewrite forward/e21 history"
+  ]
+}
