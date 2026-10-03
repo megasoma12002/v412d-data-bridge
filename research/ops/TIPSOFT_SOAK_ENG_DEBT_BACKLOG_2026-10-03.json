@@ -1,0 +1,82 @@
+{
+  "id": "TIPSOFT_SOAK_ENG_DEBT_BACKLOG_2026-10-03",
+  "date": "2026-10-03",
+  "generated_at_utc": "2026-10-03T13:25:00Z",
+  "status": "SOAK_OPEN",
+  "register": "0kbf",
+  "label": "TIPSOFT_SOAK_ENG_DEBT_BACKLOG_2026-10-03__SOAK_OPEN__CADENCE_OK",
+  "cadence_succeeded": true,
+  "cadence": {
+    "dual_paper_ledgers": {"ok": true, "n_compare": 3360},
+    "month_end_monitor": {
+      "ok": true,
+      "asof": "2026-09-29",
+      "alerts": [],
+      "n_windows": 6
+    },
+    "ops_alert_scan": {
+      "ok": true,
+      "overall": "HIGH",
+      "tipsoft_dd_switch_high": false,
+      "note": "HIGH alerts are legacy l4_month_end / fin_buy_quality PAUSE_REVIEW only"
+    },
+    "soak_gate": {"ok": true, "status": "SOAK_OPEN"},
+    "e21_live_vs_paper_recon": {"ok": true, "overlap_n": 18}
+  },
+  "soak_numbers": {
+    "live_tip": "2026-10-02",
+    "qc_status": "PASS",
+    "accept_day": "2026-10-01",
+    "nav_tip_days_since_accept": 2,
+    "calendar_days_since_accept": 1,
+    "recon_overlap_n": 18,
+    "floors": {
+      "min_tip_days_since_accept": 20,
+      "min_cal_days_since_accept": 28,
+      "min_live_paper_overlap": 60
+    },
+    "dd_switch_monitor_pause": false
+  },
+  "frozen_until_soak_pass": [
+    "Soft FIN/TEL Exact T+1 refill ACCEPT / reopen",
+    "Path4 live",
+    "Broker EXECUTE / live-write",
+    "Yearmix / year-oracle / year-switch commit",
+    "New tip Soft mechanism Stage A / tip apply",
+    "DualPaperLedgerSpec full OPERATING rewrite (needs golden NAV)"
+  ],
+  "eng_debt_queue": {
+    "P0_cadence": [
+      "Run soak cadence scripts; refresh TIPSOFT_DD_SWITCH_SOAK_GATE",
+      "Refresh ops alert scan + live↔paper recon overlap_n",
+      "Keep freeze stamps honest in register / OPS_STATUS"
+    ],
+    "P1_docker_uat_prep": [
+      "Docker ops QC smoke docs / CI polish only — no live wire",
+      "Yuanta SPARK UAT howto remains PREP — no API_WIRED flip",
+      "TWSE session calendar charter before broker submit (soak-blocked)"
+    ],
+    "P2_dual_paper_ledger_spec_defer": [
+      "Full OPERATING rewrite deferred until golden NAV + SOAK_PASS",
+      "Safe under soak: charter/doc pointers only",
+      "Do not change Soft clips / Path3 semantics / tip apply / broker"
+    ]
+  },
+  "hygiene_landed": [
+    "Stale SUPERSEDED observe OPEN labels (0kaw/0kba/0kbb + Path3 shadows)",
+    "Hygiene unittest for closed-by SUPERSEDED OPEN stamps"
+  ],
+  "parents": [
+    "0kbf",
+    "TIPSOFT_DD_SWITCH_SOAK_GATE",
+    "TIPSOFT_LIVE_OBSERVE_INVENTORY_2026-10-02",
+    "408"
+  ],
+  "non_actions": [
+    "Does not flip Soft-Frozen / broker / Path4",
+    "Does not reopen Soft FIN/TEL or CLOSED observes",
+    "Does not promote Path4 or year-oracle",
+    "Does not rewrite forward/e21 history",
+    "Does not force-push / amend"
+  ]
+}

@@ -139,9 +139,13 @@ Tip-day: FUSE offense NAV session cache (COOL+CONF share `simulate_core`); divid
 
 ## Next (optional)
 
-1. Cloud long-run deploy of the Docker ops image (GCP asia-east1 candidate; pick single writer for `forward/e21`)
-2. Wire pythonnet client behind `confirm_and_reserve_broker_submit` (UAT first) — see `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md`
-3. TWSE session calendar (holidays / typhoon) — `TWSE_SESSION_CALENDAR_CHARTER.md`; **required before broker live submit**
-4. T+2 settlement cash **estimate** (observe-only) — `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md`
+**Soak gate 0kbf is SOAK_OPEN** — Soft FIN/TEL · Path4 · broker · yearmix · new tip Soft Stage A stay **FROZEN** until SOAK_PASS. See `TIPSOFT_SOAK_ENG_DEBT_BACKLOG_2026-10-03.md`.
+
+1. **P0 cadence:** daily tip → DD_SWITCH dual-paper → month-end monitor → soak gate (refresh artifacts)
+2. Cloud long-run deploy of the Docker ops image (GCP asia-east1 candidate; pick single writer for `forward/e21`) — **P1 docs/smoke only** until SOAK_PASS
+3. Wire pythonnet client behind `confirm_and_reserve_broker_submit` (UAT first) — see `YUANTA_SPARK_UAT_GCP_STATIC_IP_HOWTO.md` — **blocked by soak + separate ACCEPT**
+4. TWSE session calendar (holidays / typhoon) — `TWSE_SESSION_CALENDAR_CHARTER.md`; **required before broker live submit**
+5. T+2 settlement cash **estimate** (observe-only) — `TWSE_T2_SETTLEMENT_ESTIMATE_CHARTER.md`
+6. **P2 defer:** DualPaperLedgerSpec full OPERATING rewrite of remaining wrappers — needs golden NAV; charter/doc only under soak
 
 Label: `ARCH_LIVE_MODULARIZE__FILL_CORE__DAY_COMMIT`
