@@ -1,13 +1,13 @@
 # Live vs Paper Soft-Frozen Recon
 
-Generated: `2026-09-19T05:47:29.614749+00:00`
-Status: **RESEARCH / OPS** — Soft-Frozen clip **[0.60, 0.90] unchanged**.
+Generated: `2026-10-03T13:20:57.357171+00:00`
+Status: **RESEARCH / OPS** — Soft-Frozen clip **[0.60, 0.80] unchanged**.
 
 ## Coverage
 
 | Book | Start | End | N | Last NAV |
 |---|---|---|---:|---:|
-| Live `forward/e21` | 2026-08-24 | 2026-09-16 | 18 | 556847465.5135857 |
+| Live `forward/e21` | 2026-08-24 | 2026-10-02 | 26 | 538082500.8584005 |
 | Paper BASE | 2012-12-04 | 2026-09-16 | 3359 | 2619084324.9136333 |
 | Overlap | | | **18** | |
 
