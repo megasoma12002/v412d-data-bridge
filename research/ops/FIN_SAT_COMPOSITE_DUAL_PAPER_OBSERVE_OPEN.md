@@ -1,7 +1,11 @@
 # FIN×SAT COMPOSITE dual-paper observe — OPEN
 
-Status: **OPERATING** (ballot EXECUTED 2026-09-28)  
+Status: **SUPERSEDED_CLOSED** · see OBSERVE_CLOSE_SUPERSEDED_2026-10-01  
 Books: `CTRL_LIVE_A10` (α=0.10) ∥ `COMP_H150_x_A20` (OR_K9×HARD150 · α=0.20)  
 Ballot: `FIN_SAT_COMPOSITE_OBSERVE_BALLOT_EXECUTED_OPEN.md`  
-Operating report: `FIN_SAT_COMPOSITE_DUAL_PAPER_OBSERVE_OPERATING.md`  
+Operating report: `FIN_SAT_COMPOSITE_DUAL_PAPER_OBSERVE_OPERATING.md` (canonical **OBSERVE_CLOSED**)  
 Cutover: **BLOCKED** · Soft-Frozen KEEP · SELL_a75 KEEP · live CONF α=0.10 KEEP · live wire **false**
+
+Historical OPEN pointer only. Path3 WITHIN + ledger already LIVE; paper COMPOSITE shadow closed 2026-10-01.
+
+Label: `FIN_SAT_COMPOSITE_DUAL_PAPER_OBSERVE_OPEN_2026-10-01__SUPERSEDED_CLOSED`

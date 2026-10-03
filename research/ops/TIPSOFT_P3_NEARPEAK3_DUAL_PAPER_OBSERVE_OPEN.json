@@ -7,7 +7,7 @@
   "cutover_authorized": false,
   "base_id": "BASE_LIVE_FUSE_COOL",
   "challenger_id": "P3_THETA_NEARPEAK3",
-  "label": "TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPEN_2026-09-30__OPERATING__NO_LIVE_WIRE",
+  "label": "TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPEN_2026-09-30__SUPERSEDED_CLOSED",
   "closed_by": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
   "status_note": "Historical OPEN artifact; canonical CLOSED via OBSERVE_CLOSE_SUPERSEDED_2026-10-01. Prior status was OPEN_OPERATING."
 }

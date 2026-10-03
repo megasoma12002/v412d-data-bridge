@@ -36,7 +36,7 @@
   "cutover_authorized": false,
   "apply_authorized": false,
   "generated_at_utc": "2026-10-01T12:05:00Z",
-  "label": "TIPSOFT_IP3_TRAIL42_CASH_DUAL_PAPER_OBSERVE_OPEN_2026-10-01__OBSERVE_OPEN__NO_LIVE",
+  "label": "TIPSOFT_IP3_TRAIL42_CASH_DUAL_PAPER_OBSERVE_OPEN_2026-10-01__SUPERSEDED_CLOSED",
   "closed_by": "OBSERVE_CLOSE_SUPERSEDED_2026-10-01",
   "status_note": "Historical OPEN artifact; canonical CLOSED via OBSERVE_CLOSE_SUPERSEDED_2026-10-01. Prior status was OBSERVE_OPEN."
 }
