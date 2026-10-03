@@ -1,6 +1,6 @@
 # TIPSOFT_DD_SWITCH_SOAK_GATE
 
-Date: 2026-10-02 · Status: **SOAK_OPEN** · register **0kbf**
+Date: 2026-10-03 · Status: **SOAK_OPEN** · register **0kbf**
 Parents: stabilize `TIPSOFT_LIVE_STABILIZE_2026-10-02` · DD_SWITCH tip apply 0kbd
 
 ## Human order
@@ -67,5 +67,5 @@ PYTHONPATH=scripts python3 scripts/tipsoft_dd_switch_soak_gate.py
 
 Formal month-end: `python3 scripts/ops_month_end_paper_pack.py --refresh-ledgers --fail-on-stale`
 
-Label: `TIPSOFT_DD_SWITCH_SOAK_GATE_2026-10-02__SOAK_OPEN`
+Label: `TIPSOFT_DD_SWITCH_SOAK_GATE_2026-10-03__SOAK_OPEN`
 

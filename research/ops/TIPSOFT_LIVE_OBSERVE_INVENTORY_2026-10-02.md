@@ -49,7 +49,8 @@ Historical `*_DUAL_PAPER_OBSERVE_OPEN` JSON may still say OPEN; **canonical** st
 | DD_SWITCH monitor pause | none (PASS) |
 | Soft FIN/TEL · Path4 · broker · year-switch · new tip Soft Stage A | **CLOSED** until SOAK_PASS |
 
-Cadence: daily tip → dual-paper ledgers → month-end monitor → `tipsoft_dd_switch_soak_gate.py`.
+Cadence: daily tip → dual-paper ledgers → month-end monitor → `tipsoft_dd_switch_soak_gate.py`.  
+Cadence refresh **2026-10-03**: still tip days **2** / cal **1** / overlap_n **18** · see `TIPSOFT_SOAK_ENG_DEBT_BACKLOG_2026-10-03.md`.
 
 ## After SOAK_PASS (separate ballots only)
 

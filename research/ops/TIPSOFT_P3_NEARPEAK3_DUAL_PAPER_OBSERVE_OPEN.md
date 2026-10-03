@@ -27,4 +27,4 @@ Human: `OPEN paper observe: TIPSOFT_P3_THETA_NEARPEAK3 (tip Soft Exact T+1 · me
 - Do not live-wire Path3 near-peak gate from this ballot
 - Cutover BLOCKED until dedicated ACCEPT
 
-Label: `TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPEN_2026-09-30__OPERATING__NO_LIVE_WIRE`
+Label: `TIPSOFT_P3_NEARPEAK3_DUAL_PAPER_OBSERVE_OPEN_2026-09-30__SUPERSEDED_CLOSED`
