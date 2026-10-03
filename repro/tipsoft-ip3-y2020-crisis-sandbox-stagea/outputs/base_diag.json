@@ -1,0 +1,14 @@
+{
+  "base_id": "L4_LIVE_P3_WITHIN",
+  "base_path": "repro/research-live-align-gap-stagea/outputs/nav_L4_LIVE_P3_WITHIN.csv",
+  "base_y2020_mdd": -0.14431069977736088,
+  "base_mar2020_mdd": -0.1300110855317218,
+  "mar2020_window": [
+    "2020-02-20",
+    "2020-03-23"
+  ],
+  "held_floor_pp": 0.1,
+  "y2020_mdd_improve_floor_pp": 0.5,
+  "mar2020_mdd_improve_floor_pp": 1.0,
+  "sealed_mdd_floor_pp": -0.25
+}

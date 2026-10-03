@@ -26,6 +26,7 @@ Repro: ``PYTHONPATH=scripts python3 scripts/tipsoft_ip3_y2020_crisis_sandbox_sta
 from __future__ import annotations
 
 import json
+import re
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -194,13 +195,6 @@ def _arm_verdict(
 def _patch_register(verdict: str, champ: dict[str, Any] | None, day: str) -> None:
     reg = OPS / "HUMAN_DECISION_REGISTER.md"
     rt = reg.read_text(encoding="utf-8")
-    if "| 0kbg |" in rt:
-        return
-    row_0kbf = None
-    for line in rt.splitlines():
-        if line.startswith("| 0kbf |"):
-            row_0kbf = line
-            break
     c = champ or {}
     new_row = (
         f"| 0kbg | 2020 crisis overlay SANDBOX (vol/MA200/MDD) | "
@@ -213,15 +207,29 @@ def _patch_register(verdict: str, champ: dict[str, Any] | None, day: str) -> Non
         f"**does not unlock soak** · Soft KEEP · Path4 OFF · no live · "
         f"`{DECISION_ID}.md` |"
     )
-    if row_0kbf:
-        reg.write_text(rt.replace(row_0kbf, row_0kbf + "\n" + new_row), encoding="utf-8")
+    lines = rt.splitlines()
+    out: list[str] = []
+    replaced = False
+    for line in lines:
+        if line.startswith("| 0kbg |"):
+            out.append(new_row)
+            replaced = True
+        else:
+            out.append(line)
+    if not replaced:
+        row_0kbf = None
+        for i, line in enumerate(out):
+            if line.startswith("| 0kbf |"):
+                row_0kbf = i
+                break
+        if row_0kbf is not None:
+            out.insert(row_0kbf + 1, new_row)
+    reg.write_text("\n".join(out) + "\n", encoding="utf-8")
 
 
 def _patch_ops_status(verdict: str, champ: dict[str, Any] | None, day: str) -> None:
     ops = OPS / "OPS_STATUS.md"
     ot = ops.read_text(encoding="utf-8")
-    if "Y2020 crisis sandbox" in ot or "Y2020_CRISIS_SANDBOX" in ot:
-        return
     c = champ or {}
     line = (
         f"**Y2020 crisis sandbox (SANDBOX/PARALLEL {day}):** Stage A **`{verdict}`** · "
@@ -230,17 +238,25 @@ def _patch_ops_status(verdict: str, champ: dict[str, Any] | None, day: str) -> N
         f"Mar2020 MDD↑ **{c.get('mar2020_mdd_improve_pp')}** · "
         f"vs 0kb4 `IP3_Y2020_DEFEND_NO_EDGE` (different family) · "
         f"**does not unlock soak freeze** · Soft KEEP · Path4 OFF · no live · "
-        f"`{DECISION_ID}.md`  \n"
+        f"`{DECISION_ID}.md`  "
     )
+    ot2, n = re.subn(
+        r"\*\*Y2020 crisis sandbox \(SANDBOX/PARALLEL [^)]+\):\*\*.*",
+        line,
+        ot,
+        count=1,
+    )
+    if n:
+        ops.write_text(ot2, encoding="utf-8")
+        return
     needle = "DD_SWITCH soak gate (2026-10-03 cadence):"
     idx = ot.find(needle)
     if idx < 0:
         needle = "2020 defend/off-peak knife"
         idx = ot.find(needle)
     if idx >= 0:
-        # insert after the soak-gate line block (end of that line)
         end = ot.find("\n", idx) + 1
-        ops.write_text(ot[:end] + line + ot[end:], encoding="utf-8")
+        ops.write_text(ot[:end] + line + "\n" + ot[end:], encoding="utf-8")
 
 
 def main() -> int:
@@ -437,8 +453,9 @@ def main() -> int:
         ).iloc[0]
         verdict = "IP3_Y2020_CRISIS_SANDBOX_SOFT"
     elif mdd_only_n > 0:
+        # Prefer least held damage among arms that clear MDD floors (still not HIT).
         crow = mdd_only.sort_values(
-            by=["mar2020_mdd_improve_pp", "y2020_mdd_improve_pp", "held_vs_base"],
+            by=["held_vs_base", "mar2020_mdd_improve_pp", "y2020_mdd_improve_pp"],
             ascending=[False, False, False],
         ).iloc[0]
         verdict = "IP3_Y2020_CRISIS_SANDBOX_MDD_ONLY"

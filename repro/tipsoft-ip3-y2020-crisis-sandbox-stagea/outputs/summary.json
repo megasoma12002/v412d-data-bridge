@@ -1,0 +1,20 @@
+{
+  "verdict": "IP3_Y2020_CRISIS_SANDBOX_MDD_ONLY",
+  "champion": "MDD_D012_H018_S05",
+  "family": "MDD",
+  "held_vs_base": -0.2637,
+  "y2020_mdd_improve_pp": 1.0665,
+  "mar2020_mdd_improve_pp": 1.0843,
+  "sealed_vs_base": 0.0,
+  "tipY_vs_base": 0.0,
+  "n_hit": 0,
+  "n_soft": 0,
+  "n_mdd_only": 6,
+  "n_mech": 28,
+  "base_y2020_mdd": -0.14431069977736088,
+  "base_mar2020_mdd": -0.1300110855317218,
+  "soak_unlock": false,
+  "live_wire_recommend": false,
+  "label_tag": "SANDBOX_PARALLEL",
+  "register": "0kbg"
+}
