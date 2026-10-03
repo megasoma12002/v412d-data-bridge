@@ -1,0 +1,22 @@
+{
+  "id": "TIPSOFT_IP3_Y2020_CRISIS_SANDBOX_STAGEA_CHARTER",
+  "register": "0kbg",
+  "parents": [
+    "0kbf",
+    "0kb4",
+    "0kb2"
+  ],
+  "mech": "TIPSOFT_IP3_Y2020_CRISIS_SANDBOX",
+  "label_tag": "SANDBOX_PARALLEL",
+  "date": "2026-10-03",
+  "forbidden": [
+    "live_wire",
+    "tip_apply",
+    "soft_fin_tel_accept",
+    "path4_live",
+    "broker",
+    "yearmix_commit",
+    "reopen_0kb2_observe_mainline",
+    "soak_unlock"
+  ]
+}
