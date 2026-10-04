@@ -1,6 +1,6 @@
 {
   "verdict": "MAJOR_DD_ATLAS_PARTIAL",
-  "tip_sha": "a5a9e6667bacff07fa98b9ce7fbab0897fc3b006",
+  "tip_sha": "c56778cf785a764f3077f0eb154dc80855caef8e",
   "regime_counts_major": {
     "CLIFF": 12,
     "GRIND": 4,

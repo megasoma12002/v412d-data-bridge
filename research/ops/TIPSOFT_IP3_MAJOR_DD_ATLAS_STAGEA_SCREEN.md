@@ -1,7 +1,7 @@
 # TIPSOFT_IP3_MAJOR_DD_ATLAS_STAGEA_SCREEN
 
 Date: 2026-10-04 · Register **0kbl** · Verdict **`MAJOR_DD_ATLAS_PARTIAL`**
-Tip SHA: `a5a9e6667bacff07fa98b9ce7fbab0897fc3b006`
+Tip SHA: `c56778cf785a764f3077f0eb154dc80855caef8e`
 
 ## Coverage
 
