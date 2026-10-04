@@ -28,7 +28,9 @@ class CrisisSignalHelpers(unittest.TestCase):
         r2 = r.copy()
         r2.iloc[40] = -0.50
         vol2 = _ann_vol(r2, 20)
-        self.assertNotAlmostEqual(float(vol.iloc[40]), float(vol2.iloc[40]), places=6)
+        # Lag-1: same-day spike appears in vol on the *next* bar
+        self.assertAlmostEqual(float(vol.iloc[40]), float(vol2.iloc[40]), places=6)
+        self.assertNotAlmostEqual(float(vol.iloc[41]), float(vol2.iloc[41]), places=6)
 
     def test_fwd_mdd_positive_stress(self) -> None:
         idx = pd.date_range("2020-01-01", periods=40, freq="B")
@@ -45,10 +47,12 @@ class CrisisSignalHelpers(unittest.TestCase):
         self.assertEqual(float(c.iloc[3]), 3.0)  # three downs ending yesterday
 
     def test_alert_and_lead(self) -> None:
-        idx = pd.date_range("2020-02-01", periods=40, freq="B")
-        feat = pd.Series(np.linspace(0, 1, len(idx)), index=idx)
+        idx = pd.date_range("2020-01-02", periods=80, freq="B")
+        feat = pd.Series(0.0, index=idx)
+        # Spike into Mar window so top-quantile alerts lead the trough
+        feat.loc["2020-03-02":"2020-03-20"] = 1.0
         alert = _alert_mask(feat, stress_high=True, q=0.80)
-        self.assertTrue(bool(alert.iloc[-1]))
+        self.assertTrue(bool(alert.loc["2020-03-10"]))
         lead = _median_lead_days(
             alert,
             window_start=__import__("datetime").date(2020, 2, 20),
