@@ -488,6 +488,10 @@ def _disposition(verdict: str, n_hit: int) -> list[str]:
             "Refine cleared SIGNAL_HIT floors — still **no LIVE apply**; next would be "
             "observe-only ballot if human wants (SOAK freeze unchanged)"
         )
+        lines.append(
+            "Caution: multi-arm screen (~200) — HIT is floor-clear detection, not LIVE prove; "
+            "prefer interpretable arms (k-confirm / simple AND) before any observe draft"
+        )
     return lines
 
 
