@@ -857,14 +857,11 @@ def main() -> int:
 
     # Major set for detector scoring: ≥10% deduped + named major refs
     major_eps = _dedupe_major_episodes(all_eps)
-    # Also include ≥10% refs even if depth slightly under after window force
+    present_eras = {m.era for m in major_eps}
     for e in all_eps:
-        if e.eid.startswith("ref_") and e.depth >= 0.08:
-            if e.era not in {m.era for m in major_eps} or e.is_major:
-                if not any(m.eid == e.eid for m in major_eps):
-                    # only add if era missing representative
-                    if e.is_major and e.era not in {m.era for m in major_eps}:
-                        major_eps.append(e)
+        if e.eid.startswith("ref_") and e.is_major and e.era not in present_eras:
+            major_eps.append(e)
+            present_eras.add(e.era)
     major_eps = sorted(major_eps, key=lambda e: e.peak_date)
     pd.DataFrame([_episode_to_row(e) for e in major_eps]).to_csv(
         OUT / "major_episodes_deduped.csv", index=False
@@ -1011,8 +1008,6 @@ def main() -> int:
     verdict, detail = global_verdict(
         cross_incl, cross_excl, regime_counts=regime_counts
     )
-    # Clean detail of accidental locals
-    detail.pop("_partial", None)
 
     compare = {
         "0kbk": {
