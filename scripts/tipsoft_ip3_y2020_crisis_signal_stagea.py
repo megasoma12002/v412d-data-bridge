@@ -180,10 +180,13 @@ def _pearson(x: pd.Series, y: pd.Series) -> float | None:
 
 
 def _spearman(x: pd.Series, y: pd.Series) -> float | None:
+    """Spearman via average ranks + Pearson (no scipy dependency)."""
     m = pd.DataFrame({"x": x, "y": y}).dropna()
     if len(m) < 80:
         return None
-    v = float(m["x"].corr(m["y"], method="spearman"))
+    rx = m["x"].rank(method="average")
+    ry = m["y"].rank(method="average")
+    v = float(rx.corr(ry, method="pearson"))
     return None if v != v else v
 
 
@@ -226,9 +229,13 @@ def _median_lead_days(
     trough: pd.Timestamp,
 ) -> float | None:
     """Median calendar lead of first alert in [window_start, trough] before trough."""
-    idx = alert.index
+    a = alert.copy()
+    if not isinstance(a.index, pd.DatetimeIndex):
+        # Allow callers to pass a date-aligned series; otherwise refuse.
+        return None
+    idx = pd.DatetimeIndex(pd.to_datetime(a.index))
     w0 = pd.Timestamp(window_start)
-    mask = (idx >= w0) & (idx <= trough) & alert.fillna(False)
+    mask = (idx >= w0) & (idx <= trough) & a.fillna(False).to_numpy()
     hits = idx[mask]
     if len(hits) == 0:
         return None
@@ -271,24 +278,32 @@ def _detector_verdict(row: dict[str, Any]) -> str:
     return "SIGNAL_NO_EDGE"
 
 
+def _champ_key(r: dict[str, Any]) -> tuple:
+    """Rank detectors for Mar-cliff detection: IC × local hit/recall × lead."""
+    ic = abs(float(r.get("ic_spearman_primary") or 0))
+    hit = float(r.get("hit_rate_mar") or 0)
+    rec = float(r.get("recall_mar") or 0)
+    f1 = float(r.get("f1_mar") or 0)
+    lead = r.get("median_lead_days")
+    lead_v = 0.0 if lead is None or (isinstance(lead, float) and lead != lead) else float(lead)
+    fa = float(r.get("fa_rate_outside_2020") or 1.0)
+    # Prefer detectors that both correlate with fwd stress AND fire into Mar window
+    composite = ic * (0.35 + hit) * (0.35 + rec + f1) * (0.5 + min(lead_v, 21.0) / 21.0)
+    return (composite, ic, hit, rec, lead_v, -fa)
+
+
 def _global_verdict(rows: list[dict[str, Any]]) -> tuple[str, dict[str, Any] | None]:
     if not rows:
         return "IP3_Y2020_CRISIS_SIGNAL_NO_EDGE", None
     hits = [r for r in rows if r.get("verdict") == "SIGNAL_HIT"]
     weaks = [r for r in rows if r.get("verdict") == "SIGNAL_WEAK"]
-    key = lambda r: (
-        abs(float(r.get("ic_spearman_primary") or 0)),
-        float(r.get("hit_rate_mar") or 0),
-        float(r.get("median_lead_days") or 0),
-        -float(r.get("fa_rate_outside_2020") or 1),
-    )
     if hits:
-        champ = sorted(hits, key=key, reverse=True)[0]
+        champ = sorted(hits, key=_champ_key, reverse=True)[0]
         return "IP3_Y2020_CRISIS_SIGNAL_HIT", champ
     if weaks:
-        champ = sorted(weaks, key=key, reverse=True)[0]
+        champ = sorted(weaks, key=_champ_key, reverse=True)[0]
         return "IP3_Y2020_CRISIS_SIGNAL_WEAK", champ
-    champ = sorted(rows, key=key, reverse=True)[0]
+    champ = sorted(rows, key=_champ_key, reverse=True)[0]
     return "IP3_Y2020_CRISIS_SIGNAL_NO_EDGE", champ
 
 
@@ -489,19 +504,21 @@ def score_detectors(panel: pd.DataFrame) -> list[dict[str, Any]]:
     primary_label = "fwd_mdd_10"
     mar_label = "in_mar2020"
     stress_bin = "l4_dd_cross_8"
-    dates = pd.to_datetime(panel["date"])
+    p = panel.copy()
+    p["date"] = pd.to_datetime(p["date"])
+    p = p.set_index("date").sort_index()
     trough = pd.Timestamp(MAR2020_END)
-    local = (dates.dt.date >= MAR_EVAL_START) & (dates.dt.date <= MAR_EVAL_END)
+    local = (p.index.date >= MAR_EVAL_START) & (p.index.date <= MAR_EVAL_END)
 
     rows: list[dict[str, Any]] = []
-    y_primary = panel[primary_label]
-    y_mar = panel[mar_label]
-    y_stress = panel[stress_bin]
-    y_year = panel["year2020_dummy"]
+    y_primary = p[primary_label]
+    y_mar = p[mar_label]
+    y_stress = p[stress_bin]
+    y_year = p["year2020_dummy"]
     ex2020 = y_year < 0.5
 
     for col in feat_cols:
-        x = panel[col]
+        x = p[col]
         sp = _spearman(x, y_primary)
         # Orient: stress-high means positive association with fwd MDD
         stress_high = True if sp is None else (float(sp) >= 0)
@@ -527,12 +544,10 @@ def score_detectors(panel: pd.DataFrame) -> list[dict[str, Any]]:
         out_prf = _binary_prf(y_stress[ex2020].astype(bool), alert[ex2020])
 
         lead = _median_lead_days(alert, window_start=MAR2020_START, trough=trough)
-        cross_days = panel.loc[
-            (y_year > 0.5) & (panel["l4_dd_cross_8"] > 0.5), "date"
-        ]
+        cross_idx = p.index[(y_year > 0.5) & (p["l4_dd_cross_8"] > 0.5)]
         lead_cross = None
-        if len(cross_days):
-            first_cross = pd.Timestamp(pd.to_datetime(cross_days.iloc[0]))
+        if len(cross_idx):
+            first_cross = pd.Timestamp(cross_idx[0])
             lead_cross = _median_lead_days(
                 alert, window_start=date(2020, 2, 1), trough=first_cross
             )
@@ -567,9 +582,7 @@ def score_detectors(panel: pd.DataFrame) -> list[dict[str, Any]]:
         key=lambda r: (
             r["verdict"] == "SIGNAL_HIT",
             r["verdict"] == "SIGNAL_WEAK",
-            abs(float(r.get("ic_spearman_primary") or 0)),
-            float(r.get("hit_rate_mar") or 0),
-            float(r.get("median_lead_days") or 0),
+            *_champ_key(r),
         ),
         reverse=True,
     )
@@ -584,7 +597,9 @@ def _counterfactual_cash_gate(
     base_nav: pd.DataFrame,
 ) -> dict[str, Any]:
     """Illustrative only: lag-1 alert → cash on L4 returns; report held/Mar MDD."""
-    x = panel.set_index(pd.to_datetime(panel["date"]))[detector]
+    p = panel.copy()
+    p["date"] = pd.to_datetime(p["date"])
+    x = p.set_index("date")[detector]
     x_stress = x if stress_high else -x
     alert = _alert_mask(x_stress, stress_high=True)
     # Exact T+1: alert already uses lag-1 features; cash on alert day
