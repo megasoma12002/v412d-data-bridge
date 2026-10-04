@@ -1,0 +1,74 @@
+{
+  "id": "TIPSOFT_IP3_Y2020_CRISIS_SIGNAL_STAGEA_DECISION_PACK",
+  "register": "0kbh",
+  "parents": [
+    "0kbg",
+    "0kbf",
+    "0kb4"
+  ],
+  "label_tag": "SIGNAL_PARALLEL",
+  "verdict": "IP3_Y2020_CRISIS_SIGNAL_WEAK",
+  "champion": {
+    "detector": "rvol20_l4",
+    "stress_high_orientation": true,
+    "ic_spearman_primary": 0.1249,
+    "ic_pearson_primary": 0.0504,
+    "ic_spearman_mar": 0.0544,
+    "ic_spearman_ddcross8": 0.0524,
+    "ic_spearman_oos_ex2020": 0.1193,
+    "year2020_dummy_abs_ic": 0.1554,
+    "hit_rate_mar": 0.5172,
+    "precision_mar": 0.1458,
+    "recall_mar": 0.3182,
+    "f1_mar": 0.2,
+    "hit_rate_ddcross8": 0.8809,
+    "f1_ddcross8": 0.0565,
+    "fa_rate_outside_2020": 0.0865,
+    "precision_stress_ex2020": 0.0,
+    "median_lead_days": 32.0,
+    "lead_to_first_dd8": 39.0,
+    "primary_label": "fwd_mdd_10",
+    "alert_q": 0.9,
+    "n_alert": 336,
+    "verdict": "SIGNAL_WEAK"
+  },
+  "n_signal_hit": 0,
+  "n_signal_weak": 18,
+  "n_signal_no_edge": 2,
+  "signal_not_apply": true,
+  "soak_unlock": false,
+  "live_wire_recommend": false,
+  "size_overlay_promote": false,
+  "counterfactual_illustrative": {
+    "note": "ILLUSTRATIVE ONLY \u2014 not HIT path; signal\u2260apply; no size-overlay promote",
+    "detector": "rvol20_l4",
+    "held_cagr_lift_pp": -4.9135,
+    "sealed_mdd_improve_pp": -1.664,
+    "tipY_cagr_lift_pp": -23.0611,
+    "mar2020_mdd_improve_pp": 2.3262,
+    "base_mar2020_mdd": -0.130011,
+    "chal_mar2020_mdd": -0.106749,
+    "pct_cash_days": 9.98
+  },
+  "compare_parents": {
+    "0kbg": {
+      "register": "0kbg",
+      "verdict": "IP3_Y2020_CRISIS_SANDBOX_MDD_ONLY",
+      "note": "0kbg size overlays cut Mar MDD but held\u226a0. This pack measures the same crisis family as **signals** (IC/hit/lead) without exposure apply."
+    },
+    "0kb4": {
+      "register": "0kb4",
+      "verdict": "IP3_Y2020_DEFEND_NO_EDGE",
+      "note": "Defend/FUSE knives on 0kb2 \u2014 different family from crisis signal detect."
+    },
+    "0kbf": {
+      "register": "0kbf",
+      "verdict": "SOAK_OPEN",
+      "note": "Soak freeze unchanged \u2014 signal Stage A does not unlock SOAK_PASS."
+    }
+  },
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "label": "TIPSOFT_IP3_Y2020_CRISIS_SIGNAL_STAGEA_DECISION_PACK_2026-10-04__IP3_Y2020_CRISIS_SIGNAL_WEAK__SIGNAL_PARALLEL__NO_LIVE"
+}
