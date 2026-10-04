@@ -81,7 +81,7 @@
     "split_hit_delta": 0.1,
     "alert_q": 0.9
   },
-  "tip_sha": "263fb5cfadbb4f05ff05d7de43ee830ee2e3b462",
+  "tip_sha": "28efb54200aab10dafbd88343f987b17ba3226af",
   "n_cliff_bars": 21,
   "n_grind_bars": 60
 }

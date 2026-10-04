@@ -1,7 +1,7 @@
 # TIPSOFT_IP3_CRISIS_CLIFF_VS_GRIND_STAGEA_SCREEN
 
 Date: 2026-10-04 · Register **0kbk** · Verdict **`CLIFF_GRIND_SPLIT_HIT`**
-Tip SHA: `263fb5cfadbb4f05ff05d7de43ee830ee2e3b462`
+Tip SHA: `28efb54200aab10dafbd88343f987b17ba3226af`
 
 ## Shape (primary L4)
 
