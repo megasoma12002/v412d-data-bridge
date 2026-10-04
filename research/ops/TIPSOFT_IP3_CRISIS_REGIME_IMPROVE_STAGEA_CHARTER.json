@@ -10,7 +10,7 @@
   "mech": "TIPSOFT_IP3_CRISIS_REGIME_IMPROVE",
   "label_tag": "CRISIS_REGIME_IMPROVE_PARALLEL",
   "date": "2026-10-04",
-  "tip_sha": "cfb39a157339a66945313fe2630cb3cd02150944",
+  "tip_sha": "8a29d7d674831f5fe733dd7bccfdd3ef781de41a",
   "n_arms": 36,
   "forbidden": [
     "live_wire",

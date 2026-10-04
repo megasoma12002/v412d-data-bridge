@@ -9,7 +9,7 @@
   ],
   "label_tag": "CRISIS_REGIME_IMPROVE_PARALLEL",
   "verdict": "CRISIS_REGIME_IMPROVE_OVERFIT",
-  "tip_sha": "cfb39a157339a66945313fe2630cb3cd02150944",
+  "tip_sha": "8a29d7d674831f5fe733dd7bccfdd3ef781de41a",
   "champion": {
     "arm": "R_RC_C00_G05",
     "family": "ROUTER",

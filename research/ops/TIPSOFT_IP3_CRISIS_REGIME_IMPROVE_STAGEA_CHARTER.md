@@ -3,7 +3,7 @@
 Date: 2026-10-04
 Register: **0kbm** · Parents: 0kbl, 0kbk, 0kbj, 0kbf
 Label: **CRISIS_REGIME_IMPROVE_PARALLEL** · SOAK-SAFE parallel · **signal ≠ apply**
-Tip SHA: `cfb39a157339a66945313fe2630cb3cd02150944`
+Tip SHA: `8a29d7d674831f5fe733dd7bccfdd3ef781de41a`
 
 ## Question
 
