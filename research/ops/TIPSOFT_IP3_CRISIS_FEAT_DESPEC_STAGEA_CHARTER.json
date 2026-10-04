@@ -1,0 +1,63 @@
+{
+  "id": "TIPSOFT_IP3_CRISIS_FEAT_DESPEC_STAGEA_CHARTER",
+  "register": "0kbn",
+  "parents": [
+    "0kbm",
+    "0kbl",
+    "0kbk",
+    "0kbj",
+    "0kbf"
+  ],
+  "mech": "TIPSOFT_IP3_CRISIS_FEAT_DESPEC",
+  "label": "CRISIS_FEAT_DESPEC_PARALLEL",
+  "day": "2026-10-04",
+  "base_features": [
+    "rvol20_l4",
+    "rvol63_l4",
+    "rvol20_mkt",
+    "rvol63_mkt",
+    "atr_like_20",
+    "neg_gap_ma60",
+    "neg_gap_ma120",
+    "neg_gap_ma200",
+    "dd63_l4",
+    "dd63_mkt",
+    "dd63_soft",
+    "fuse_prem_neg5",
+    "fuse_neg_flag",
+    "cool_defend_l1",
+    "consec_down_mkt",
+    "consec_down_l4"
+  ],
+  "eras": [
+    "2015",
+    "2018",
+    "2022",
+    "2020"
+  ],
+  "floors": {
+    "global_ic": 0.08,
+    "oos_ic_ex2020": 0.05,
+    "year_dummy_ceil": 0.55,
+    "ep_ic": 0.08,
+    "ep_hit": 0.55,
+    "ep_recall": 0.3,
+    "hit_non2020_min": 2,
+    "fa_outside_2020_ceil": 0.12
+  },
+  "forbidden": {
+    "year_dummy_inputs": false,
+    "calendar_month_features": false,
+    "episode_label_inputs": false,
+    "mar2020_primary_rank": false
+  },
+  "constraints": {
+    "soft_keep": true,
+    "path4_off": true,
+    "broker_false": true,
+    "soak_freeze_unchanged": true,
+    "signal_ne_apply": true,
+    "no_tip_soft_live": true,
+    "no_soft_fin_tel_accept": true
+  }
+}
