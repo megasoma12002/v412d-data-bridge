@@ -264,6 +264,18 @@ def detect_drawdown_episodes(
         for rw in REF_WINDOWS:
             if p0 <= rw["end"] and t0 >= rw["start"]:
                 tags.append(rw["tag"])
+        # Named Mar2020 cliff: force CLIFF when depth clear (ttm may slightly
+        # exceed cliff_n under zigzag peaks).
+        if "MAR2020_CLIFF" in tags and depth >= 0.08:
+            auto = "CLIFF"
+        # Reject clear price-adjustment artifacts (e.g. unadjusted 0050 split
+        # jump ~2025-06: 188→47). Keep milder cliffs.
+        seg_rets = pd.Series(vals[a + 1 : trough_i + 1]) / pd.Series(
+            vals[a:trough_i]
+        ) - 1.0
+        min_1d = float(seg_rets.min()) if len(seg_rets) else 0.0
+        if min_1d <= -0.35 or (depth >= 0.45 and ttm <= 8):
+            continue
         era = _era_for_dates(p0, t0, tags)
         eid_i += 1
         episodes.append(
@@ -530,15 +542,24 @@ def score_detector_on_episode(
 
 
 def _dedupe_major_episodes(eps: list[DdEpisode]) -> list[DdEpisode]:
-    """Prefer one representative per (era, regime) preferring mkt_0050 then l4."""
-    series_rank = {"mkt_0050": 0, "l4_nav": 1, "soft_nav": 2, "taiex": 3}
-    majors = [e for e in eps if e.is_major and not e.eid.startswith("ref_")]
-    # Keep refs that are major even if auto missed
-    ref_majors = [e for e in eps if e.eid.startswith("ref_") and e.is_major]
+    """Prefer primary series (0050/L4/Soft); TAIEX is corroboration-only."""
+    series_rank = {"mkt_0050": 0, "l4_nav": 1, "soft_nav": 2}
+    majors = [
+        e
+        for e in eps
+        if e.is_major
+        and not e.eid.startswith("ref_")
+        and e.series in series_rank
+    ]
+    ref_majors = [
+        e
+        for e in eps
+        if e.eid.startswith("ref_")
+        and e.is_major
+        and e.series in series_rank
+    ]
     by_key: dict[tuple[str, str], DdEpisode] = {}
     for e in sorted(majors, key=lambda x: (series_rank.get(x.series, 9), -x.depth)):
-        key = (e.era, e.auto_label if e.auto_label != "OTHER" else e.series)
-        # Also key by overlapping calendar to collapse same episode across series
         cal_key = (e.era, e.peak_date[:7])  # year-month of peak
         if cal_key not in by_key:
             by_key[cal_key] = e
@@ -548,11 +569,13 @@ def _dedupe_major_episodes(eps: list[DdEpisode]) -> list[DdEpisode]:
                 by_key[cal_key] = e
             elif e.depth > cur.depth and e.series == cur.series:
                 by_key[cal_key] = e
-    # Ensure named major refs present if not overlapped
     out = list(by_key.values())
     for r in ref_majors:
         if not any(
-            abs((date.fromisoformat(e.peak_date) - date.fromisoformat(r.peak_date)).days) < 40
+            abs(
+                (date.fromisoformat(e.peak_date) - date.fromisoformat(r.peak_date)).days
+            )
+            < 40
             and e.era == r.era
             for e in out
         ):
@@ -819,7 +842,14 @@ def main() -> int:
         "soft_l4_start": "2012-12-04",
         "taiex_optional": str(TAIEX.relative_to(ROOT)) if TAIEX.exists() else None,
         "no_pre_2010_gfc": True,
-        "note": "No pre-2010 / GFC OHLCV or Soft/L4 NAV available in-repo.",
+        "note": (
+            "No pre-2010 / GFC OHLCV or Soft/L4 NAV available in-repo. "
+            "0050 has an unadjusted split-like jump ~2025-06-10 (188→47) — "
+            "artifact episodes with 1d drop ≤ -35% are excluded from the atlas."
+        ),
+        "artifact_filter": "skip episodes with min 1d return ≤ -35% or depth≥45% in ≤8 bars",
+        "primary_series_for_major": ["mkt_0050", "l4_nav", "soft_nav"],
+        "taiex_role": "corroboration_only",
     }
 
     series_map = _load_series_bundle()
