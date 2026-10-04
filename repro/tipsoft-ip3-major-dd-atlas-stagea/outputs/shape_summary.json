@@ -1,0 +1,212 @@
+{
+  "major_deduped": {
+    "CLIFF": {
+      "n": 12,
+      "median_depth": 0.1146,
+      "median_ttm_days": 14.0,
+      "median_velocity_pp_day": 0.8388,
+      "median_recovery_days": 20.0,
+      "eras": [
+        "2010",
+        "2011",
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025"
+      ]
+    },
+    "GRIND": {
+      "n": 4,
+      "median_depth": 0.1902,
+      "median_ttm_days": 53.5,
+      "median_velocity_pp_day": 0.3096,
+      "median_recovery_days": null,
+      "eras": [
+        "2011",
+        "2015",
+        "2018",
+        "2022"
+      ]
+    },
+    "OTHER": {
+      "n": 6,
+      "median_depth": 0.1117,
+      "median_ttm_days": 24.5,
+      "median_velocity_pp_day": 0.4775,
+      "median_recovery_days": 22.0,
+      "eras": [
+        "2010",
+        "2011",
+        "2012",
+        "2026"
+      ]
+    },
+    "n_total": 22
+  },
+  "by_series_depth10": {
+    "mkt_0050": {
+      "CLIFF": {
+        "n": 11,
+        "median_depth": 0.1235,
+        "median_ttm_days": 15.0,
+        "median_velocity_pp_day": 0.8719,
+        "median_recovery_days": 20.0,
+        "eras": [
+          "2010",
+          "2011",
+          "2018",
+          "2020_mar",
+          "2021",
+          "2022",
+          "2024",
+          "2025"
+        ]
+      },
+      "GRIND": {
+        "n": 0
+      },
+      "OTHER": {
+        "n": 11,
+        "median_depth": 0.1372,
+        "median_ttm_days": 26.0,
+        "median_velocity_pp_day": 0.4929,
+        "median_recovery_days": 22.0,
+        "eras": [
+          "2010",
+          "2011",
+          "2012",
+          "2015",
+          "2022",
+          "2026"
+        ]
+      },
+      "n_total": 22
+    },
+    "l4_nav": {
+      "CLIFF": {
+        "n": 1,
+        "median_depth": 0.1339,
+        "median_ttm_days": 20.0,
+        "median_velocity_pp_day": 0.6693,
+        "median_recovery_days": 17.0,
+        "eras": [
+          "2020_mar"
+        ]
+      },
+      "GRIND": {
+        "n": 1,
+        "median_depth": 0.1088,
+        "median_ttm_days": 57.0,
+        "median_velocity_pp_day": 0.1909,
+        "median_recovery_days": null,
+        "eras": [
+          "2022"
+        ]
+      },
+      "OTHER": {
+        "n": 0
+      },
+      "n_total": 2
+    },
+    "soft_nav": {
+      "CLIFF": {
+        "n": 2,
+        "median_depth": 0.1575,
+        "median_ttm_days": 16.5,
+        "median_velocity_pp_day": 0.9242,
+        "median_recovery_days": 18.0,
+        "eras": [
+          "2015",
+          "2020_mar"
+        ]
+      },
+      "GRIND": {
+        "n": 1,
+        "median_depth": 0.153,
+        "median_ttm_days": 46.0,
+        "median_velocity_pp_day": 0.3327,
+        "median_recovery_days": 30.0,
+        "eras": [
+          "2022"
+        ]
+      },
+      "OTHER": {
+        "n": 1,
+        "median_depth": 0.1239,
+        "median_ttm_days": 23.0,
+        "median_velocity_pp_day": 0.5387,
+        "median_recovery_days": null,
+        "eras": [
+          "2022"
+        ]
+      },
+      "n_total": 4
+    },
+    "taiex": {
+      "CLIFF": {
+        "n": 8,
+        "median_depth": 0.1391,
+        "median_ttm_days": 17.0,
+        "median_velocity_pp_day": 0.9019,
+        "median_recovery_days": 34.0,
+        "eras": [
+          "2010",
+          "2011",
+          "2018",
+          "2020_mar",
+          "2021",
+          "2024"
+        ]
+      },
+      "GRIND": {
+        "n": 1,
+        "median_depth": 0.218,
+        "median_ttm_days": 41.0,
+        "median_velocity_pp_day": 0.5317,
+        "median_recovery_days": 19.0,
+        "eras": [
+          "2015"
+        ]
+      },
+      "OTHER": {
+        "n": 7,
+        "median_depth": 0.14,
+        "median_ttm_days": 29.0,
+        "median_velocity_pp_day": 0.4986,
+        "median_recovery_days": 17.5,
+        "eras": [
+          "2010",
+          "2012",
+          "2022",
+          "2025",
+          "2026"
+        ]
+      },
+      "n_total": 16
+    }
+  },
+  "regime_counts_major": {
+    "CLIFF": 12,
+    "GRIND": 4,
+    "OTHER": 6,
+    "n_major": 22
+  },
+  "coverage": {
+    "primary_market": "data/telecom_0050_complete/0050_2010_latest_ohlcv.csv",
+    "market_start": "2010-01-04",
+    "soft_l4_start": "2012-12-04",
+    "taiex_optional": "forward/e10s2/e10s2_taiex.csv",
+    "no_pre_2010_gfc": true,
+    "note": "No pre-2010 / GFC OHLCV or Soft/L4 NAV available in-repo. 0050 has an unadjusted split-like jump ~2025-06-10 (188\u219247) \u2014 artifact episodes with 1d drop \u2264 -35% are excluded from the atlas.",
+    "artifact_filter": "skip episodes with min 1d return \u2264 -35% or depth\u226545% in \u22648 bars",
+    "primary_series_for_major": [
+      "mkt_0050",
+      "l4_nav",
+      "soft_nav"
+    ],
+    "taiex_role": "corroboration_only"
+  }
+}

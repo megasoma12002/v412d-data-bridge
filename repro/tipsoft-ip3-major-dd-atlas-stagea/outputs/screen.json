@@ -1,0 +1,1361 @@
+{
+  "id": "TIPSOFT_IP3_MAJOR_DD_ATLAS_STAGEA_SCREEN",
+  "register": "0kbl",
+  "parents": [
+    "0kbk",
+    "0kbj",
+    "0kbi",
+    "0kbf"
+  ],
+  "generated_at_utc": "2026-10-04T03:02:33Z",
+  "tip_sha": "a5a9e6667bacff07fa98b9ce7fbab0897fc3b006",
+  "mech": "TIPSOFT_IP3_MAJOR_DD_ATLAS",
+  "label_tag": "MAJOR_DD_ATLAS_PARALLEL",
+  "verdict": "MAJOR_DD_ATLAS_PARTIAL",
+  "verdict_detail": {
+    "best_arm_excl_mar2020": "base::fuse_prem_neg5",
+    "best_excl": {
+      "arm": "base::fuse_prem_neg5",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 2,
+      "n_weak": 3,
+      "n_miss": 2,
+      "eras_oos_hit": [
+        "2015",
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 2,
+      "non2020_eras_oos_hit": [
+        "2015",
+        "2024"
+      ]
+    },
+    "best_arm_incl_mar2020": "base::fuse_prem_neg5",
+    "best_incl": {
+      "arm": "base::fuse_prem_neg5",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 2,
+      "n_weak": 3,
+      "n_miss": 3,
+      "eras_oos_hit": [
+        "2015",
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 2,
+      "non2020_eras_oos_hit": [
+        "2015",
+        "2024"
+      ]
+    },
+    "verdict_excl_mar2020": "MAJOR_DD_ATLAS_PARTIAL",
+    "verdict_incl_mar2020": "MAJOR_DD_ATLAS_PARTIAL",
+    "champion": {
+      "arm": "base::fuse_prem_neg5",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 2,
+      "n_weak": 3,
+      "n_miss": 2,
+      "eras_oos_hit": [
+        "2015",
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 2,
+      "non2020_eras_oos_hit": [
+        "2015",
+        "2024"
+      ]
+    },
+    "regime_counts_major": {
+      "CLIFF": 12,
+      "GRIND": 4,
+      "OTHER": 6,
+      "n_major": 22
+    },
+    "implication": "Some cross-era lift exists but floors are uneven \u2014 consistent with 0kbk SPLIT_HIT (regime tools differ) and 0kbj OVERFIT_2020 (Mar window strongest).",
+    "robust_min_eras": 3,
+    "floors": {
+      "ep_ic": 0.08,
+      "ep_hit": 0.55,
+      "ep_recall": 0.3,
+      "taxonomy": {
+        "cliff_n": 20,
+        "grind_min": 40,
+        "vel_floor": 0.004,
+        "depth_major": 0.1,
+        "depth_minor": 0.08
+      }
+    }
+  },
+  "signal_not_apply": true,
+  "soak_unlock": false,
+  "live_wire_recommend": false,
+  "size_overlay_promote": false,
+  "year_oracle": false,
+  "coverage": {
+    "primary_market": "data/telecom_0050_complete/0050_2010_latest_ohlcv.csv",
+    "market_start": "2010-01-04",
+    "soft_l4_start": "2012-12-04",
+    "taiex_optional": "forward/e10s2/e10s2_taiex.csv",
+    "no_pre_2010_gfc": true,
+    "note": "No pre-2010 / GFC OHLCV or Soft/L4 NAV available in-repo. 0050 has an unadjusted split-like jump ~2025-06-10 (188\u219247) \u2014 artifact episodes with 1d drop \u2264 -35% are excluded from the atlas.",
+    "artifact_filter": "skip episodes with min 1d return \u2264 -35% or depth\u226545% in \u22648 bars",
+    "primary_series_for_major": [
+      "mkt_0050",
+      "l4_nav",
+      "soft_nav"
+    ],
+    "taiex_role": "corroboration_only"
+  },
+  "meta": {
+    "base_id": "L4_LIVE_P3_WITHIN",
+    "soft_id": "L1_SOFT_T1",
+    "base_path": "repro/research-live-align-gap-stagea/outputs/nav_L4_LIVE_P3_WITHIN.csv",
+    "soft_path": "repro/research-live-align-gap-stagea/outputs/nav_L1_SOFT_T1.csv",
+    "n_days": 3366,
+    "mar2020_window": [
+      "2020-02-20",
+      "2020-03-23"
+    ],
+    "skipped_detectors": [
+      "VIX proxy (no data file)",
+      "breadth (no series available)"
+    ],
+    "feature_cols": [
+      "atr_like_20",
+      "below_ma120",
+      "below_ma200",
+      "below_ma60",
+      "consec_down_l4",
+      "consec_down_mkt",
+      "cool_defend_l1",
+      "dd63_l4",
+      "dd63_mkt",
+      "dd63_soft",
+      "fuse_neg_flag",
+      "fuse_prem_neg5",
+      "neg_gap_ma120",
+      "neg_gap_ma200",
+      "neg_gap_ma60",
+      "proxy_mdd63_soft",
+      "rvol20_l4",
+      "rvol20_mkt",
+      "rvol63_l4",
+      "rvol63_mkt"
+    ],
+    "label_cols": [
+      "fwd_mdd_10",
+      "fwd_mdd_20",
+      "fwd_mdd_5",
+      "fwd_mkt_mdd_10",
+      "fwd_mkt_mdd_20",
+      "fwd_mkt_mdd_5",
+      "fwd_ret_crash_10",
+      "fwd_ret_crash_20",
+      "fwd_ret_crash_5",
+      "in_mar2020",
+      "in_y2020",
+      "l4_dd_cross_10",
+      "l4_dd_cross_5",
+      "l4_dd_cross_8",
+      "soft_dd_cross_10",
+      "soft_dd_cross_5",
+      "soft_dd_cross_8"
+    ],
+    "vix_available": false
+  },
+  "regime_counts_major": {
+    "CLIFF": 12,
+    "GRIND": 4,
+    "OTHER": 6,
+    "n_major": 22
+  },
+  "shape_summary": {
+    "CLIFF": {
+      "n": 12,
+      "median_depth": 0.1146,
+      "median_ttm_days": 14.0,
+      "median_velocity_pp_day": 0.8388,
+      "median_recovery_days": 20.0,
+      "eras": [
+        "2010",
+        "2011",
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025"
+      ]
+    },
+    "GRIND": {
+      "n": 4,
+      "median_depth": 0.1902,
+      "median_ttm_days": 53.5,
+      "median_velocity_pp_day": 0.3096,
+      "median_recovery_days": null,
+      "eras": [
+        "2011",
+        "2015",
+        "2018",
+        "2022"
+      ]
+    },
+    "OTHER": {
+      "n": 6,
+      "median_depth": 0.1117,
+      "median_ttm_days": 24.5,
+      "median_velocity_pp_day": 0.4775,
+      "median_recovery_days": 22.0,
+      "eras": [
+        "2010",
+        "2011",
+        "2012",
+        "2026"
+      ]
+    },
+    "n_total": 22
+  },
+  "regime_compare": {
+    "cliff_vs_grind_shape": {
+      "CLIFF": {
+        "n": 12,
+        "median_depth": 0.1146,
+        "median_ttm_days": 14.0,
+        "median_velocity_pp_day": 0.8388,
+        "median_recovery_days": 20.0,
+        "eras": [
+          "2010",
+          "2011",
+          "2015",
+          "2018",
+          "2020_mar",
+          "2021",
+          "2022",
+          "2024",
+          "2025"
+        ]
+      },
+      "GRIND": {
+        "n": 4,
+        "median_depth": 0.1902,
+        "median_ttm_days": 53.5,
+        "median_velocity_pp_day": 0.3096,
+        "median_recovery_days": null,
+        "eras": [
+          "2011",
+          "2015",
+          "2018",
+          "2022"
+        ]
+      },
+      "OTHER": {
+        "n": 6,
+        "median_depth": 0.1117,
+        "median_ttm_days": 24.5,
+        "median_velocity_pp_day": 0.4775,
+        "median_recovery_days": 22.0,
+        "eras": [
+          "2010",
+          "2011",
+          "2012",
+          "2026"
+        ]
+      }
+    },
+    "n_major_cliff": 12,
+    "n_major_grind": 4,
+    "note": "0kbk rules: CLIFF if ttm\u226420 & vel\u22650.004/day; GRIND if ttm\u226540; depth gates 8%/10%."
+  },
+  "ref_window_coverage": [
+    {
+      "tag": "EU_US_2011",
+      "label": "2011 EU/US debt stress",
+      "era": "2011",
+      "n_overlap_episodes": 9,
+      "auto_labels": [
+        "CLIFF",
+        "GRIND"
+      ],
+      "series": [
+        "mkt_0050",
+        "taiex"
+      ],
+      "max_depth": 0.1961
+    },
+    {
+      "tag": "TW_CN_2015",
+      "label": "2015 TW/China",
+      "era": "2015",
+      "n_overlap_episodes": 9,
+      "auto_labels": [
+        "CLIFF",
+        "GRIND",
+        "OTHER"
+      ],
+      "series": [
+        "l4_nav",
+        "mkt_0050",
+        "soft_nav",
+        "taiex"
+      ],
+      "max_depth": 0.218
+    },
+    {
+      "tag": "Q4_2018",
+      "label": "2018 Q4",
+      "era": "2018",
+      "n_overlap_episodes": 8,
+      "auto_labels": [
+        "CLIFF",
+        "GRIND",
+        "OTHER"
+      ],
+      "series": [
+        "l4_nav",
+        "mkt_0050",
+        "soft_nav",
+        "taiex"
+      ],
+      "max_depth": 0.1477
+    },
+    {
+      "tag": "MAR2020_CLIFF",
+      "label": "Mar2020 cliff",
+      "era": "2020_mar",
+      "n_overlap_episodes": 11,
+      "auto_labels": [
+        "CLIFF"
+      ],
+      "series": [
+        "l4_nav",
+        "mkt_0050",
+        "soft_nav",
+        "taiex"
+      ],
+      "max_depth": 0.2653
+    },
+    {
+      "tag": "MID2020_RESIDUAL",
+      "label": "mid-2020 residual",
+      "era": "2020_mid",
+      "n_overlap_episodes": 3,
+      "auto_labels": [
+        "OTHER"
+      ],
+      "series": [
+        "l4_nav",
+        "mkt_0050",
+        "soft_nav"
+      ],
+      "max_depth": 0.0033
+    },
+    {
+      "tag": "BEAR_2022",
+      "label": "2022 bear",
+      "era": "2022",
+      "n_overlap_episodes": 27,
+      "auto_labels": [
+        "CLIFF",
+        "GRIND",
+        "OTHER"
+      ],
+      "series": [
+        "l4_nav",
+        "mkt_0050",
+        "soft_nav",
+        "taiex"
+      ],
+      "max_depth": 0.3638
+    }
+  ],
+  "taiex_corroboration": {
+    "available": true,
+    "n_taiex_ge08": 23,
+    "major_overlaps": [
+      {
+        "major_eid": "mkt_0050_d8_01",
+        "era": "2010",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.136895
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_02",
+        "era": "2010",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.13464
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_03",
+        "era": "2011",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.170672
+        ]
+      },
+      {
+        "major_eid": "ref_mkt_0050_EU_US_2011",
+        "era": "2011",
+        "n_taiex_overlap": 2,
+        "taiex_depths": [
+          0.170672,
+          0.113517
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_04",
+        "era": "2011",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.113517
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_05",
+        "era": "2011",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.109878
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_06",
+        "era": "2012",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.1047
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_07",
+        "era": "2012",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.088698
+        ]
+      },
+      {
+        "major_eid": "ref_mkt_0050_TW_CN_2015",
+        "era": "2015",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.218017
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_12",
+        "era": "2018",
+        "n_taiex_overlap": 0,
+        "taiex_depths": []
+      },
+      {
+        "major_eid": "mkt_0050_d8_13",
+        "era": "2018",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.141391
+        ]
+      },
+      {
+        "major_eid": "ref_mkt_0050_Q4_2018",
+        "era": "2018",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.141391
+        ]
+      },
+      {
+        "major_eid": "ref_mkt_0050_MAR2020_CLIFF",
+        "era": "2020_mar",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.265271
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_18",
+        "era": "2021",
+        "n_taiex_overlap": 0,
+        "taiex_depths": []
+      },
+      {
+        "major_eid": "mkt_0050_d8_19",
+        "era": "2021",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.127417
+        ]
+      },
+      {
+        "major_eid": "ref_mkt_0050_BEAR_2022",
+        "era": "2022",
+        "n_taiex_overlap": 5,
+        "taiex_depths": [
+          0.082495,
+          0.119719,
+          0.16999,
+          0.139988,
+          0.088247
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_24",
+        "era": "2022",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.088247
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_25",
+        "era": "2024",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.186927
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_27",
+        "era": "2025",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.267106
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_29",
+        "era": "2026",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.093297
+        ]
+      },
+      {
+        "major_eid": "mkt_0050_d8_30",
+        "era": "2026",
+        "n_taiex_overlap": 1,
+        "taiex_depths": [
+          0.163552
+        ]
+      }
+    ]
+  },
+  "n_atlas_ge08": 61,
+  "n_atlas_ge10": 44,
+  "n_major_deduped": 22,
+  "n_arms": 15,
+  "cross_era_excl_mar2020": [
+    {
+      "arm": "base::fuse_prem_neg5",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 2,
+      "n_weak": 3,
+      "n_miss": 2,
+      "eras_oos_hit": [
+        "2015",
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 2,
+      "non2020_eras_oos_hit": [
+        "2015",
+        "2024"
+      ]
+    },
+    {
+      "arm": "base::fuse_neg_flag",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 2,
+      "n_weak": 2,
+      "n_miss": 3,
+      "eras_oos_hit": [
+        "2015",
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 2,
+      "non2020_eras_oos_hit": [
+        "2015",
+        "2024"
+      ]
+    },
+    {
+      "arm": "base::atr_like_20",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 1,
+      "n_weak": 3,
+      "n_miss": 3,
+      "eras_oos_hit": [
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2024"
+      ]
+    },
+    {
+      "arm": "base::neg_gap_ma200",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 1,
+      "n_weak": 3,
+      "n_miss": 3,
+      "eras_oos_hit": [
+        "2021"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2021"
+      ]
+    },
+    {
+      "arm": "or::rvol20_l4|atr_like_20",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 1,
+      "n_weak": 3,
+      "n_miss": 3,
+      "eras_oos_hit": [
+        "2026"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2026"
+      ]
+    },
+    {
+      "arm": "and::rvol63_l4&fuse_prem_neg5",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 5,
+      "eras_oos_hit": [
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2024"
+      ]
+    },
+    {
+      "arm": "base::consec_down_mkt",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 5,
+      "eras_oos_hit": [
+        "2022"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2022"
+      ]
+    },
+    {
+      "arm": "base::cool_defend_l1",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 5,
+      "eras_oos_hit": [
+        "2021"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2021"
+      ]
+    },
+    {
+      "arm": "base::rvol20_mkt",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 5,
+      "eras_oos_hit": [
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2024"
+      ]
+    },
+    {
+      "arm": "or::rvol20_l4|fuse_prem_neg5",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 5,
+      "eras_oos_hit": [
+        "2015"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2015"
+      ]
+    },
+    {
+      "arm": "or::neg_gap_ma200|dd63_l4",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 1,
+      "n_weak": 0,
+      "n_miss": 6,
+      "eras_oos_hit": [
+        "2021"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2021"
+      ]
+    },
+    {
+      "arm": "base::proxy_mdd63_soft",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 0,
+      "n_weak": 3,
+      "n_miss": 4,
+      "eras_oos_hit": [],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 0,
+      "non2020_eras_oos_hit": []
+    },
+    {
+      "arm": "base::rvol20_l4",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 0,
+      "n_weak": 2,
+      "n_miss": 5,
+      "eras_oos_hit": [],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 0,
+      "non2020_eras_oos_hit": []
+    },
+    {
+      "arm": "base::dd63_l4",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 0,
+      "n_weak": 1,
+      "n_miss": 6,
+      "eras_oos_hit": [],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 0,
+      "non2020_eras_oos_hit": []
+    },
+    {
+      "arm": "base::rvol63_l4",
+      "exclude_mar2020": true,
+      "n_eras_scored": 7,
+      "n_oos_hit": 0,
+      "n_weak": 1,
+      "n_miss": 6,
+      "eras_oos_hit": [],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 0,
+      "non2020_eras_oos_hit": []
+    }
+  ],
+  "cross_era_incl_mar2020": [
+    {
+      "arm": "base::fuse_prem_neg5",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 2,
+      "n_weak": 3,
+      "n_miss": 3,
+      "eras_oos_hit": [
+        "2015",
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 2,
+      "non2020_eras_oos_hit": [
+        "2015",
+        "2024"
+      ]
+    },
+    {
+      "arm": "base::fuse_neg_flag",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 2,
+      "n_weak": 2,
+      "n_miss": 4,
+      "eras_oos_hit": [
+        "2015",
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 2,
+      "non2020_eras_oos_hit": [
+        "2015",
+        "2024"
+      ]
+    },
+    {
+      "arm": "base::atr_like_20",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 1,
+      "n_weak": 3,
+      "n_miss": 4,
+      "eras_oos_hit": [
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2024"
+      ]
+    },
+    {
+      "arm": "base::neg_gap_ma200",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 1,
+      "n_weak": 3,
+      "n_miss": 4,
+      "eras_oos_hit": [
+        "2021"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2021"
+      ]
+    },
+    {
+      "arm": "or::rvol20_l4|atr_like_20",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 1,
+      "n_weak": 3,
+      "n_miss": 4,
+      "eras_oos_hit": [
+        "2026"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2026"
+      ]
+    },
+    {
+      "arm": "and::rvol63_l4&fuse_prem_neg5",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 6,
+      "eras_oos_hit": [
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2024"
+      ]
+    },
+    {
+      "arm": "base::consec_down_mkt",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 6,
+      "eras_oos_hit": [
+        "2022"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2022"
+      ]
+    },
+    {
+      "arm": "base::cool_defend_l1",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 6,
+      "eras_oos_hit": [
+        "2021"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2021"
+      ]
+    },
+    {
+      "arm": "base::rvol20_mkt",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 6,
+      "eras_oos_hit": [
+        "2024"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2024"
+      ]
+    },
+    {
+      "arm": "or::neg_gap_ma200|dd63_l4",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 6,
+      "eras_oos_hit": [
+        "2021"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2021"
+      ]
+    },
+    {
+      "arm": "or::rvol20_l4|fuse_prem_neg5",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 1,
+      "n_weak": 1,
+      "n_miss": 6,
+      "eras_oos_hit": [
+        "2015"
+      ],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 1,
+      "non2020_eras_oos_hit": [
+        "2015"
+      ]
+    },
+    {
+      "arm": "base::proxy_mdd63_soft",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 0,
+      "n_weak": 3,
+      "n_miss": 5,
+      "eras_oos_hit": [],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 0,
+      "non2020_eras_oos_hit": []
+    },
+    {
+      "arm": "base::dd63_l4",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 0,
+      "n_weak": 2,
+      "n_miss": 6,
+      "eras_oos_hit": [],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 0,
+      "non2020_eras_oos_hit": []
+    },
+    {
+      "arm": "base::rvol20_l4",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 0,
+      "n_weak": 2,
+      "n_miss": 6,
+      "eras_oos_hit": [],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 0,
+      "non2020_eras_oos_hit": []
+    },
+    {
+      "arm": "base::rvol63_l4",
+      "exclude_mar2020": false,
+      "n_eras_scored": 8,
+      "n_oos_hit": 0,
+      "n_weak": 1,
+      "n_miss": 7,
+      "eras_oos_hit": [],
+      "eras_scored": [
+        "2015",
+        "2018",
+        "2020_mar",
+        "2021",
+        "2022",
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "n_non2020_oos_hit": 0,
+      "non2020_eras_oos_hit": []
+    }
+  ],
+  "champion": {
+    "arm": "base::fuse_prem_neg5",
+    "exclude_mar2020": true,
+    "n_eras_scored": 7,
+    "n_oos_hit": 2,
+    "n_weak": 3,
+    "n_miss": 2,
+    "eras_oos_hit": [
+      "2015",
+      "2024"
+    ],
+    "eras_scored": [
+      "2015",
+      "2018",
+      "2021",
+      "2022",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "n_non2020_oos_hit": 2,
+    "non2020_eras_oos_hit": [
+      "2015",
+      "2024"
+    ]
+  },
+  "compare_parents": {
+    "0kbk": {
+      "register": "0kbk",
+      "verdict": "CLIFF_GRIND_SPLIT_HIT",
+      "note": "Cliff/grind taxonomy + GRIND_SPECIALIST champ \u2014 atlas extends to all eras."
+    },
+    "0kbj": {
+      "register": "0kbj",
+      "verdict": "IP3_CRISIS_SIGNAL_HIST_OOS_OVERFIT_2020",
+      "note": "Hist OOS overfit 2020 \u2014 atlas tests generalization excl/incl Mar2020."
+    },
+    "0kbi": {
+      "register": "0kbi",
+      "verdict": "IP3_Y2020_CRISIS_SIGNAL_REFINE_HIT",
+      "note": "AND champ `and::rvol63_l4&fuse_prem_neg5` reused when Soft features exist."
+    },
+    "0kbf": {
+      "register": "0kbf",
+      "verdict": "SOAK_OPEN",
+      "note": "Soak freeze unchanged \u2014 atlas Stage A does not unlock SOAK_PASS."
+    }
+  },
+  "optimize_live": [
+    "Objective: major historical DD atlas \u2014 cliff vs grind across eras + detector generalization",
+    "Coverage: 0050 from 2010-01-04 \u00b7 Soft/L4 from 2012-12-04 \u00b7 **no pre-2010/GFC in-repo**",
+    "Taxonomy (0kbk): depth\u22658%/10% \u00b7 CLIFF ttm\u226420 vel\u22650.004 \u00b7 GRIND ttm\u226540",
+    "Major (\u226510%) regime counts: CLIFF=12 \u00b7 GRIND=4 \u00b7 OTHER=6 \u00b7 n=22",
+    "Best excl-Mar2020: `base::fuse_prem_neg5` OOS_HIT=2 non2020=2",
+    "Best incl-Mar2020: `base::fuse_prem_neg5` OOS_HIT=2",
+    "Implication: Some cross-era lift exists but floors are uneven \u2014 consistent with 0kbk SPLIT_HIT (regime tools differ) and 0kbj OVERFIT_2020 (Mar window strongest).",
+    "Disposition: signal\u2260apply \u00b7 soak freeze unchanged \u00b7 no LIVE \u00b7 no tip Soft \u00b7 no year-oracle",
+    "Soft KEEP \u00b7 Path4 OFF \u00b7 broker false \u00b7 Exact T+1"
+  ],
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "exact_t1": true,
+  "label": "TIPSOFT_IP3_MAJOR_DD_ATLAS_STAGEA_SCREEN_2026-10-04__MAJOR_DD_ATLAS_PARTIAL__MAJOR_DD_ATLAS_PARALLEL"
+}
