@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "base_id": "L4_LIVE_P3_WITHIN",
+    "soft_id": "L1_SOFT_T1",
+    "base_path": "repro/research-live-align-gap-stagea/outputs/nav_L4_LIVE_P3_WITHIN.csv",
+    "soft_path": "repro/research-live-align-gap-stagea/outputs/nav_L1_SOFT_T1.csv",
+    "n_days": 3366,
+    "mar2020_window": [
+      "2020-02-20",
+      "2020-03-23"
+    ],
+    "skipped_detectors": [
+      "VIX proxy (no data file)",
+      "breadth (no series available)"
+    ],
+    "feature_cols": [
+      "atr_like_20",
+      "below_ma120",
+      "below_ma200",
+      "below_ma60",
+      "consec_down_l4",
+      "consec_down_mkt",
+      "cool_defend_l1",
+      "dd63_l4",
+      "dd63_mkt",
+      "dd63_soft",
+      "fuse_neg_flag",
+      "fuse_prem_neg5",
+      "neg_gap_ma120",
+      "neg_gap_ma200",
+      "neg_gap_ma60",
+      "proxy_mdd63_soft",
+      "rvol20_l4",
+      "rvol20_mkt",
+      "rvol63_l4",
+      "rvol63_mkt"
+    ],
+    "label_cols": [
+      "fwd_mdd_10",
+      "fwd_mdd_20",
+      "fwd_mdd_5",
+      "fwd_mkt_mdd_10",
+      "fwd_mkt_mdd_20",
+      "fwd_mkt_mdd_5",
+      "fwd_ret_crash_10",
+      "fwd_ret_crash_20",
+      "fwd_ret_crash_5",
+      "in_mar2020",
+      "in_y2020",
+      "l4_dd_cross_10",
+      "l4_dd_cross_5",
+      "l4_dd_cross_8",
+      "soft_dd_cross_10",
+      "soft_dd_cross_5",
+      "soft_dd_cross_8"
+    ],
+    "vix_available": false
+  },
+  "floors": {
+    "primary_depth": 0.08,
+    "primary_cliff_n": 20,
+    "primary_grind_min": 40,
+    "cliff_vel_floor": 0.004,
+    "depth_thrs": [
+      0.08,
+      0.1
+    ],
+    "cliff_n_grid": [
+      10,
+      15,
+      20
+    ],
+    "grind_min_grid": [
+      40,
+      60
+    ],
+    "regime_ic_floor": 0.08,
+    "regime_hit_floor": 0.55,
+    "regime_recall_floor": 0.3,
+    "split_ic_delta": 0.05,
+    "split_hit_delta": 0.1,
+    "alert_q": 0.9
+  },
+  "tip_sha": "28efb54200aab10dafbd88343f987b17ba3226af",
+  "n_cliff_bars": 21,
+  "n_grind_bars": 60
+}
