@@ -1,0 +1,22 @@
+{
+  "verdict": "IP3_Y2020_CRISIS_SIGNAL_WEAK",
+  "champion": "rvol20_l4",
+  "ic_spearman_primary": 0.1249,
+  "hit_rate_mar": 0.5172,
+  "median_lead_days": 32.0,
+  "fa_rate_outside_2020": 0.0865,
+  "ic_spearman_oos_ex2020": 0.1193,
+  "n_signal_hit": 0,
+  "n_signal_weak": 18,
+  "n_signal_no_edge": 2,
+  "n_detectors": 20,
+  "signal_not_apply": true,
+  "soak_unlock": false,
+  "live_wire_recommend": false,
+  "label_tag": "SIGNAL_PARALLEL",
+  "register": "0kbh",
+  "counterfactual_illustrative": {
+    "held_cagr_lift_pp": -4.9135,
+    "mar2020_mdd_improve_pp": 2.3262
+  }
+}
