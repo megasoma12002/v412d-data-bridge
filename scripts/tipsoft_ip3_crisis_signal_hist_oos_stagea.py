@@ -328,6 +328,11 @@ def _decade_noncrisis_mask(
 
 
 def _oos_verdict(row: dict[str, Any]) -> str:
+    """Episode verdict for stress-high oriented arms.
+
+    IC must be **positive** (aligned with fwd stress). Negative IC means the
+    full-sample orientation anti-predicts in this episode → not WEAK credit.
+    """
     if row.get("coverage_available") is False:
         return "NO_DATA"
     ic = row.get("ic_spearman_fwd_mdd_10")
@@ -344,16 +349,19 @@ def _oos_verdict(row: dict[str, Any]) -> str:
     f1_ok = f1 is not None and float(f1) >= OOS_F1_FLOOR
     lead_ok = lead is not None and float(lead) >= OOS_LEAD_DAYS_FLOOR
     fa_ok = fa is None or float(fa) <= OOS_FA_CEIL
-    ic_ok = abs(float(ic)) >= OOS_IC_ABS_FLOOR
-    if ic_ok and hit_ok and (f1_ok or lead_ok) and fa_ok and lead_ok:
+    # Stress-high: require positive IC (not abs) for HIT
+    ic_ok = float(ic) >= OOS_IC_ABS_FLOOR
+    if ic_ok and hit_ok and f1_ok and fa_ok and lead_ok:
         return "OOS_HIT"
-    weak = abs(float(ic)) >= WEAK_IC_ABS or (
+    # WEAK: partial positive detection — not anti-IC with zero recall
+    weak_ic = float(ic) >= WEAK_IC_ABS
+    weak_hit = (
         hit is not None
         and float(hit) >= WEAK_HIT
         and recall is not None
         and float(recall) >= WEAK_RECALL
     )
-    if weak:
+    if weak_ic or weak_hit:
         return "OOS_WEAK"
     return "OOS_MISS"
 
@@ -819,8 +827,9 @@ def main() -> int:
         disp.append("Champ clears only one of {2008,2015} — treat as partial hist evidence")
     elif "OVERFIT" in verdict:
         disp.append(
-            "Champ strong on Mar2020 ref but weak/miss on available hist cores — "
-            "overfit-2020 risk elevated; do not promote signal→apply"
+            "Champ selected on Mar2020 (0kbi) fails OOS floors on available hist cores "
+            "(2015 miss / 2008 no-data) — overfit-2020 risk elevated; do not promote "
+            "signal→apply"
         )
     else:
         disp.append("Insufficient hist coverage / no OOS clear — no promote")
@@ -1045,8 +1054,9 @@ def main() -> int:
         "",
         "## Floors (hist OOS)",
         "",
-        f"- |IC|≥{OOS_IC_ABS_FLOOR} · hit≥{OOS_HIT_FLOOR} · recall≥{OOS_RECALL_FLOOR} · "
-        f"F1≥{OOS_F1_FLOOR} · lead≥{OOS_LEAD_DAYS_FLOOR}d · FA≤{OOS_FA_CEIL}",
+        f"- IC≥{OOS_IC_ABS_FLOOR} (positive / stress-high) · hit≥{OOS_HIT_FLOOR} · "
+        f"recall≥{OOS_RECALL_FLOOR} · F1≥{OOS_F1_FLOOR} · lead≥{OOS_LEAD_DAYS_FLOOR}d · "
+        f"FA≤{OOS_FA_CEIL}",
         "",
         "## Champ by episode",
         "",

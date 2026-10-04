@@ -118,6 +118,17 @@ class CrisisSignalHistOosHelpers(unittest.TestCase):
             "fa_rate_decade_noncrisis": 0.20,
         }
         self.assertEqual(_oos_verdict(miss), "OOS_MISS")
+        # Negative IC = anti-predictive in episode — not WEAK credit
+        anti = {
+            "coverage_available": True,
+            "ic_spearman_fwd_mdd_10": -0.29,
+            "hit_rate_episode": 0.42,
+            "recall_episode": 0.0,
+            "f1_episode": 0.0,
+            "median_lead_days": None,
+            "fa_rate_decade_noncrisis": 0.02,
+        }
+        self.assertEqual(_oos_verdict(anti), "OOS_MISS")
         self.assertEqual(_oos_verdict({"coverage_available": False}), "NO_DATA")
 
     def test_global_verdict_partial_and_overfit(self) -> None:
