@@ -91,7 +91,8 @@ Y2020_MDD_IMPROVE_FLOOR_PP = 0.50
 MAR2020_MDD_IMPROVE_FLOOR_PP = 0.50
 SEALED_MDD_FLOOR_PP = -0.25
 TIP_Y_FLOOR_PP = -1.0
-CROSS_ERA_MDD_FLOOR_PP = 0.0  # "not worse" = MDD improve ≥ 0 on a window
+CROSS_ERA_NOT_WORSE_PP = 0.0  # "not worse" = MDD improve ≥ 0 on a window
+CROSS_ERA_IMPROVE_PP = 1e-6  # strict positive improve for HIT generalization
 CROSS_ERA_DESTROY_PP = -1.0  # held-destroy-like threshold on window MDD worsen
 
 # Major DD windows (from 0kbl atlas refs)
@@ -325,7 +326,8 @@ def _arm_verdict(
     mar_mdd_imp: float | None,
     cross_era_ok: bool,
     cross_era_any_improve: bool,
-    cross_era_all_worse: bool,
+    cross_era_any_not_worse: bool,
+    cross_era_all_worse_or_flat: bool,
 ) -> str:
     if held is None or sealed is None:
         return "INCOMPLETE"
@@ -339,11 +341,19 @@ def _arm_verdict(
         return "MDD_BLOCK"
     if tip_y is not None and float(tip_y) < TIP_Y_FLOOR_PP:
         return "TIP_BLOCK"
-    # OVERFIT: 2020 MDD help but all scored non-2020 major DDs worse
-    if mdd_ok and cross_era_all_worse:
-        return "OVERFIT"
-    if held_ok and mdd_ok and sealed_ok and tip_ok and cross_era_any_improve and cross_era_ok:
+    if (
+        held_ok
+        and mdd_ok
+        and sealed_ok
+        and tip_ok
+        and cross_era_any_improve
+        and cross_era_any_not_worse
+        and cross_era_ok
+    ):
         return "HIT"
+    # OVERFIT (anti-0kbj): held+ & 2020 MDD help but no strict non-2020 major-DD improve
+    if held_ok and mdd_ok and sealed_ok and tip_ok and cross_era_all_worse_or_flat:
+        return "OVERFIT"
     if mdd_ok and not held_ok:
         return "MDD_ONLY"
     if held_ok and not mdd_ok:
@@ -377,18 +387,24 @@ def global_verdict_from_counts(
     return "CRISIS_REGIME_IMPROVE_NO_EDGE"
 
 
-def _cross_era_flags(imps: dict[str, float | None]) -> tuple[bool, bool, bool, int, int]:
-    """Return (any_improve, all_worse, ok_not_destroy, n_improve, n_worse)."""
+def _cross_era_flags(imps: dict[str, float | None]) -> tuple[bool, bool, bool, bool, int, int]:
+    """Return (any_strict_improve, any_not_worse, all_worse_or_flat, ok_not_destroy, n_improve, n_worse).
+
+    Strict improve (>0) is required for HIT generalization (anti-0kbj OVERFIT).
+    Flat-zero on all scored non-2020 windows with 2020 MDD help → OVERFIT.
+    """
     vals = [v for v in imps.values() if v is not None]
     if not vals:
-        return False, False, True, 0, 0
-    n_imp = sum(1 for v in vals if float(v) >= CROSS_ERA_MDD_FLOOR_PP)
-    n_worse = sum(1 for v in vals if float(v) < CROSS_ERA_MDD_FLOOR_PP)
-    any_improve = n_imp >= 1
-    all_worse = n_worse == len(vals) and len(vals) > 0
-    # ok if not catastrophically worse on every window
+        return False, False, False, True, 0, 0
+    n_imp = sum(1 for v in vals if float(v) > CROSS_ERA_IMPROVE_PP)
+    n_not_worse = sum(1 for v in vals if float(v) >= CROSS_ERA_NOT_WORSE_PP)
+    n_worse = sum(1 for v in vals if float(v) < CROSS_ERA_NOT_WORSE_PP)
+    any_strict = n_imp >= 1
+    any_not_worse = n_not_worse >= 1
+    # all worse OR all flat (no strict improve) — flat-only is 2020-era specialization risk
+    all_worse_or_flat = (n_imp == 0) and len(vals) > 0
     ok = not all(float(v) < CROSS_ERA_DESTROY_PP for v in vals)
-    return any_improve, all_worse, ok, n_imp, n_worse
+    return any_strict, any_not_worse, all_worse_or_flat, ok, n_imp, n_worse
 
 
 def build_arm_grid(
@@ -666,7 +682,7 @@ def main() -> int:
                 if bm is None or cm is None
                 else round(float(mdd_delta_pp(bm, cm)), 4)
             )
-        any_imp, all_worse, era_ok, n_imp, n_worse = _cross_era_flags(era_imps)
+        any_imp, any_nw, all_flat, era_ok, n_imp, n_worse = _cross_era_flags(era_imps)
         held = d_base["heldout_2019_plus"]["cagr_lift_pp"]
         sealed = d_base["sealed_2023_plus"]["mdd_improve_pp"]
         tip_y = (tip.get("ytd") or {}).get("cagr_lift_pp")
@@ -679,7 +695,8 @@ def main() -> int:
             mar_mdd_imp=mar_imp,
             cross_era_ok=era_ok,
             cross_era_any_improve=any_imp,
-            cross_era_all_worse=all_worse,
+            cross_era_any_not_worse=any_nw,
+            cross_era_all_worse_or_flat=all_flat,
         )
         nz = base_r.abs() > 1e-12
         mean_exp = (
@@ -704,7 +721,8 @@ def main() -> int:
                 "cross_era_n_improve": n_imp,
                 "cross_era_n_worse": n_worse,
                 "cross_era_any_improve": any_imp,
-                "cross_era_all_worse": all_worse,
+                "cross_era_any_not_worse": any_nw,
+                "cross_era_all_worse_or_flat": all_flat,
                 "mean_exposure": round(mean_exp, 4),
                 "router": meta.get("router"),
                 "cliff_scale": meta.get("cliff_scale"),
@@ -948,7 +966,8 @@ def main() -> int:
             f"- Mar2020 or y2020 MDD improve ≥ **{MAR2020_MDD_IMPROVE_FLOOR_PP}** / "
             f"**{Y2020_MDD_IMPROVE_FLOOR_PP}** pp",
             f"- sealed MDD floor ≥ **{SEALED_MDD_FLOOR_PP}** pp · tipY ≥ **{TIP_Y_FLOOR_PP}** pp",
-            "- Cross-era: ≥1 of 2015/2018/2022 MDD improve (≥0) for HIT; all-worse → OVERFIT",
+            "- Cross-era: ≥1 of 2015/2018/2022 MDD **strict improve (>0)** for HIT; "
+            "flat/all-worse with 2020 MDD help → OVERFIT (anti-0kbj)",
             "",
             "## Hard constraints",
             "",
@@ -1103,7 +1122,8 @@ def main() -> int:
             "## Disposition",
             "",
             "- **CRISIS_REGIME_IMPROVE / PARALLEL** — research path only; **signal ≠ apply**",
-            "- HIT only if held+ (≥+0.10pp) AND (Mar or y2020 MDD↑) AND sealed OK AND ≥1 non-2020 major DD not-worse",
+            "- HIT only if held+ (≥+0.10pp) AND (Mar or y2020 MDD↑) AND sealed OK AND ≥1 non-2020 major DD strict MDD↑",
+            "- OVERFIT if 2020 MDD help but non-2020 major DD windows are flat or all-worse",
             "- Does **not** unlock soak freeze · does **not** recommend LIVE wire",
             "- Soft KEEP · Path4 OFF · broker false · no tip Soft promote · no year-oracle",
             "",

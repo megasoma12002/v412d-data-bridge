@@ -1,0 +1,24 @@
+{
+  "id": "TIPSOFT_IP3_CRISIS_REGIME_IMPROVE_STAGEA_CHARTER",
+  "register": "0kbm",
+  "parents": [
+    "0kbl",
+    "0kbk",
+    "0kbj",
+    "0kbf"
+  ],
+  "mech": "TIPSOFT_IP3_CRISIS_REGIME_IMPROVE",
+  "label_tag": "CRISIS_REGIME_IMPROVE_PARALLEL",
+  "date": "2026-10-04",
+  "tip_sha": "cfb39a157339a66945313fe2630cb3cd02150944",
+  "n_arms": 36,
+  "forbidden": [
+    "live_wire",
+    "tip_soft_promote",
+    "soft_fin_tel_accept",
+    "path4_live",
+    "broker",
+    "year_oracle",
+    "soak_unlock"
+  ]
+}

@@ -1,0 +1,6 @@
+family,n,n_hit,n_mdd_help,n_held_ok,max_held,max_y20_mdd_imp,max_mar_mdd_imp,max_sealed,max_cross_era_n
+BASE_AND,2,0,2,0,-1.1071,7.1276,9.8236,0.1286,1
+BASE_CLIFF,2,0,2,0,-0.5076,6.8462,6.9606,-2.423,0
+BASE_GRIND,2,0,0,0,-0.0923,0.0,0.0,0.0,0
+BASE_VOL,2,0,1,0,-0.8474,0.0391,0.6131,0.9443,1
+ROUTER,27,0,27,9,0.5277,6.8462,6.9606,0.0,0

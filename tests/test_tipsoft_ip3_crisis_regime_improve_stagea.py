@@ -62,10 +62,10 @@ class CrisisRegimeImproveHelpers(unittest.TestCase):
             rvol_spike_mult=1.25,
         )
         self.assertIn("CLIFF_RISK", set(reg.unique()) | {"NORMAL"})
-        # Long slow grind
-        idx2 = pd.date_range("2018-09-01", periods=80, freq="B")
+        # Long slow grind — stay below enter early, then ≥40 bars in DD
+        idx2 = pd.date_range("2018-09-01", periods=100, freq="B")
         dd2 = pd.Series(0.0, index=idx2)
-        dd2.iloc[5:65] = np.linspace(0.01, 0.10, 60)
+        dd2.iloc[5:] = 0.06  # already in DD; duration accumulates
         feats2 = pd.DataFrame(index=idx2)
         feats2["dd_mag"] = dd2
         feats2["dd_vel"] = 0.001  # below cliff vel
@@ -125,7 +125,8 @@ class CrisisRegimeImproveHelpers(unittest.TestCase):
                 mar_mdd_imp=0.0,
                 cross_era_ok=True,
                 cross_era_any_improve=True,
-                cross_era_all_worse=False,
+                cross_era_any_not_worse=True,
+                cross_era_all_worse_or_flat=False,
             ),
             "HIT",
         )
@@ -138,7 +139,8 @@ class CrisisRegimeImproveHelpers(unittest.TestCase):
                 mar_mdd_imp=1.0,
                 cross_era_ok=True,
                 cross_era_any_improve=True,
-                cross_era_all_worse=False,
+                cross_era_any_not_worse=True,
+                cross_era_all_worse_or_flat=False,
             ),
             "MDD_ONLY",
         )
@@ -151,7 +153,8 @@ class CrisisRegimeImproveHelpers(unittest.TestCase):
                 mar_mdd_imp=1.0,
                 cross_era_ok=True,
                 cross_era_any_improve=False,
-                cross_era_all_worse=True,
+                cross_era_any_not_worse=True,
+                cross_era_all_worse_or_flat=True,
             ),
             "OVERFIT",
         )
@@ -164,7 +167,8 @@ class CrisisRegimeImproveHelpers(unittest.TestCase):
                 mar_mdd_imp=0.0,
                 cross_era_ok=True,
                 cross_era_any_improve=False,
-                cross_era_all_worse=False,
+                cross_era_any_not_worse=False,
+                cross_era_all_worse_or_flat=False,
             ),
             "HELD_BLOCK",
         )
@@ -180,13 +184,20 @@ class CrisisRegimeImproveHelpers(unittest.TestCase):
             ),
             "CRISIS_REGIME_IMPROVE_MDD_ONLY",
         )
-        any_imp, all_worse, ok, n_imp, n_worse = _cross_era_flags(
+        any_imp, any_nw, all_flat, ok, n_imp, n_worse = _cross_era_flags(
             {"2015": 0.1, "2018": -0.2, "2022": None}
         )
         self.assertTrue(any_imp)
-        self.assertFalse(all_worse)
+        self.assertTrue(any_nw)
+        self.assertFalse(all_flat)
         self.assertEqual(n_imp, 1)
         self.assertEqual(n_worse, 1)
+        # flat-zero → OVERFIT risk flag
+        _, _, flat2, _, n_imp2, _ = _cross_era_flags(
+            {"2015": 0.0, "2018": -0.0, "2022": 0.0}
+        )
+        self.assertTrue(flat2)
+        self.assertEqual(n_imp2, 0)
 
     def test_build_router_features_columns(self) -> None:
         idx = pd.date_range("2019-01-01", periods=120, freq="B")

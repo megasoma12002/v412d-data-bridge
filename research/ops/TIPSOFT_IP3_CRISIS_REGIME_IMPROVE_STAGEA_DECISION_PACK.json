@@ -1,0 +1,86 @@
+{
+  "id": "TIPSOFT_IP3_CRISIS_REGIME_IMPROVE_STAGEA_DECISION_PACK",
+  "register": "0kbm",
+  "parents": [
+    "0kbl",
+    "0kbk",
+    "0kbj",
+    "0kbf"
+  ],
+  "label_tag": "CRISIS_REGIME_IMPROVE_PARALLEL",
+  "verdict": "CRISIS_REGIME_IMPROVE_OVERFIT",
+  "tip_sha": "cfb39a157339a66945313fe2630cb3cd02150944",
+  "champion": {
+    "arm": "R_RC_C00_G05",
+    "family": "ROUTER",
+    "verdict": "OVERFIT",
+    "held_vs_base": 0.5277,
+    "full_cagr_vs_base": 0.2835,
+    "sealed_vs_base": 0.0,
+    "tipY_vs_base": 0.0,
+    "y2020_mdd": -0.089458,
+    "y2020_mdd_improve_pp": 5.4852,
+    "mar2020_mdd": -0.074242,
+    "mar2020_mdd_improve_pp": 5.5769,
+    "mdd_2015_improve_pp": 0.0,
+    "mdd_2018_improve_pp": -0.0,
+    "mdd_2022_improve_pp": 0.0,
+    "cross_era_n_improve": 0,
+    "cross_era_n_worse": 0,
+    "cross_era_any_improve": false,
+    "cross_era_any_not_worse": true,
+    "cross_era_all_worse_or_flat": true,
+    "mean_exposure": 0.9979,
+    "router": "RC",
+    "cliff_scale": 0.0,
+    "grind_scale": 0.5,
+    "is_ref": false,
+    "hit_clear": false,
+    "mdd_help": true,
+    "held_ok": true,
+    "sealed_ok": true
+  },
+  "n_hit": 0,
+  "n_mdd_only": 0,
+  "n_overfit": 9,
+  "n_held_block": 0,
+  "prior_chain": {
+    "0kbl": {
+      "register": "0kbl",
+      "verdict": "MAJOR_DD_ATLAS_PARTIAL",
+      "note": "fuse_prem only partial cross-era; signal\u2260apply"
+    },
+    "0kbk": {
+      "register": "0kbk",
+      "verdict": "CLIFF_GRIND_SPLIT_HIT",
+      "note": "champ GRIND specialist; no cliff specialist \u2014 motivates regime sleeves"
+    },
+    "0kbj": {
+      "register": "0kbj",
+      "verdict": "IP3_CRISIS_SIGNAL_HIST_OOS_OVERFIT_2020",
+      "note": "0kbi AND gate hist OOS overfit 2020 \u2014 motivates cross-era floors"
+    },
+    "0kbi": {
+      "register": "0kbi",
+      "verdict": "IP3_Y2020_CRISIS_SIGNAL_REFINE_HIT",
+      "note": "AND champ `and::rvol63_l4&fuse_prem_neg5` reused as full-sample baseline"
+    },
+    "0kbf": {
+      "register": "0kbf",
+      "verdict": "SOAK_OPEN",
+      "note": "soak freeze unchanged \u2014 this pack does not unlock SOAK_PASS"
+    },
+    "0kbg": {
+      "register": "0kbg",
+      "verdict": "IP3_Y2020_CRISIS_SANDBOX_MDD_ONLY",
+      "note": "uniform overlays hurt held \u2014 regime-conditional is the design bet"
+    }
+  },
+  "soak_unlock": false,
+  "live_wire_recommend": false,
+  "signal_not_apply": true,
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "label": "TIPSOFT_IP3_CRISIS_REGIME_IMPROVE_STAGEA_DECISION_PACK_2026-10-04__CRISIS_REGIME_IMPROVE_OVERFIT__CRISIS_REGIME_IMPROVE_PARALLEL__NO_LIVE"
+}
