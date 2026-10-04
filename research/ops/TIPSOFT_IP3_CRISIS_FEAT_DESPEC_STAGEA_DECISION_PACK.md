@@ -2,7 +2,7 @@
 
 Date: 2026-10-04 · Verdict: **`CRISIS_FEAT_DESPEC_PARTIAL`** · champion=**`k2::pct252::cool_defend_l1`**
 Register: **0kbn** · Parents: 0kbm, 0kbl, 0kbk, 0kbj, 0kbf · **CRISIS_FEAT_DESPEC_PARALLEL**
-Tip SHA: `452b877ce3a4607dd8124d26e6248838f8c1c145`
+Tip SHA: `a5d1a92939a0aa2ea3921096a61c11d4445b9548`
 
 ## Result
 

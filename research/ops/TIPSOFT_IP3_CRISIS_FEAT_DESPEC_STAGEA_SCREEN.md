@@ -3,7 +3,7 @@
 Date: 2026-10-04
 Register: **0kbn** · **CRISIS_FEAT_DESPEC_PARALLEL** · arms=229 · HIT=0 · PARTIAL=6 · STILL_SPEC=108 · NO_EDGE=115
 Verdict: **`CRISIS_FEAT_DESPEC_PARTIAL`**
-Tip SHA: `452b877ce3a4607dd8124d26e6248838f8c1c145`
+Tip SHA: `a5d1a92939a0aa2ea3921096a61c11d4445b9548`
 
 ## Champion (cross-era rank)
 
