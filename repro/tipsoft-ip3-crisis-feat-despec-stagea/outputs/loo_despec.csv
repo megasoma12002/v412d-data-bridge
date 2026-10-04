@@ -1,0 +1,5 @@
+held_out_era,train_eras,selected_arm,train_score,held_verdict,held_ic,held_hit,held_recall
+2015,"['2018', '2022', '2020']",and::vsmed252::neg_gap_ma60&vsmed252::neg_gap_ma200,0.4273,MISS,-0.0719,0.331,0.0119
+2018,"['2015', '2022', '2020']",k2::pct252::cool_defend_l1,0.4229,MISS,,0.4326,1.0
+2022,"['2015', '2018', '2020']",and::k3::pct252::cool_defend_l1&vsmed252::neg_gap_ma60,0.3411,MISS,0.067,0.2414,0.0297
+2020,"['2015', '2018', '2022']",k2::pct252::cool_defend_l1,0.4229,MISS,,0.3621,1.0

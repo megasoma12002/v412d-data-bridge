@@ -233,20 +233,26 @@ def _rolling_z(x: pd.Series, win: int) -> pd.Series:
 
 
 def _rolling_pct(x: pd.Series, win: int) -> pd.Series:
-    """Causal percentile rank of x[t] in trailing window x[t-win:t-1]."""
+    """Causal percentile rank of x[t] in trailing window x[t-win:t-1].
 
-    def _pct(arr: np.ndarray) -> float:
-        if len(arr) < 2 or np.isnan(arr[-1]):
-            return np.nan
-        hist = arr[:-1]
+    Uses a compact numpy loop (faster than rolling.apply for long panels).
+    """
+    vals = x.to_numpy(dtype=float)
+    n = len(vals)
+    out = np.full(n, np.nan)
+    w = int(win)
+    min_hist = max(20, w // 10)
+    for i in range(n):
+        v = vals[i]
+        if v != v:  # NaN
+            continue
+        lo = max(0, i - w)
+        hist = vals[lo:i]  # excludes today → causal vs trailing
         hist = hist[~np.isnan(hist)]
-        if len(hist) < max(20, int(win) // 10):
-            return np.nan
-        return float((hist <= arr[-1]).mean())
-
-    return x.rolling(int(win) + 1, min_periods=max(40, int(win) // 5)).apply(
-        _pct, raw=True
-    )
+        if len(hist) < min_hist:
+            continue
+        out[i] = float((hist <= v).mean())
+    return pd.Series(out, index=x.index)
 
 
 def _vs_long_median(x: pd.Series, win: int) -> pd.Series:
@@ -680,18 +686,28 @@ def _arm_despec_verdict(
     ):
         return "HIT"
 
+    mean_ic = cross.get("mean_ic")
+    mean_ok = mean_ic is not None and float(mean_ic) >= EP_WEAK_IC
     multi = (n_hit + n_weak) >= 2 and (
         n_non >= 1
         or any(e in NON2020_ERAS for e in (cross.get("eras_weak") or []))
     )
-    if multi and (ic_ok or (oos is not None and abs(float(oos)) >= EP_WEAK_IC)):
+    # PARTIAL: multi-era non-2020 lift with either global/OOS IC or solid mean era IC
+    if multi and n_non >= 1 and (
+        ic_ok
+        or (oos is not None and abs(float(oos)) >= EP_WEAK_IC)
+        or mean_ok
+    ):
         return "PARTIAL"
 
     if n_hit + n_weak == 0:
         return "NO_EDGE"
     if n_non == 0:
         return "STILL_SPEC"
-    return "PARTIAL"
+    # Single non-2020 era with positive mean IC → weak PARTIAL; else no edge
+    if n_non >= 1 and mean_ok and n_hit >= 1:
+        return "PARTIAL"
+    return "NO_EDGE"
 
 
 def global_verdict(
@@ -1263,9 +1279,7 @@ def run() -> dict[str, Any]:
             "",
             "## Family summary",
             "",
-            family_summary.to_markdown(index=False)
-            if hasattr(family_summary, "to_markdown")
-            else family_summary.to_string(index=False),
+            family_summary.to_string(index=False),
             "",
             "## Constraints kept",
             "",
