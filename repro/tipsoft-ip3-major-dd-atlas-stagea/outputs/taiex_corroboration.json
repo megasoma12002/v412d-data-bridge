@@ -1,0 +1,175 @@
+{
+  "available": true,
+  "n_taiex_ge08": 23,
+  "major_overlaps": [
+    {
+      "major_eid": "mkt_0050_d8_01",
+      "era": "2010",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.136895
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_02",
+      "era": "2010",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.13464
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_03",
+      "era": "2011",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.170672
+      ]
+    },
+    {
+      "major_eid": "ref_mkt_0050_EU_US_2011",
+      "era": "2011",
+      "n_taiex_overlap": 2,
+      "taiex_depths": [
+        0.170672,
+        0.113517
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_04",
+      "era": "2011",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.113517
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_05",
+      "era": "2011",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.109878
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_06",
+      "era": "2012",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.1047
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_07",
+      "era": "2012",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.088698
+      ]
+    },
+    {
+      "major_eid": "ref_mkt_0050_TW_CN_2015",
+      "era": "2015",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.218017
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_12",
+      "era": "2018",
+      "n_taiex_overlap": 0,
+      "taiex_depths": []
+    },
+    {
+      "major_eid": "mkt_0050_d8_13",
+      "era": "2018",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.141391
+      ]
+    },
+    {
+      "major_eid": "ref_mkt_0050_Q4_2018",
+      "era": "2018",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.141391
+      ]
+    },
+    {
+      "major_eid": "ref_mkt_0050_MAR2020_CLIFF",
+      "era": "2020_mar",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.265271
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_18",
+      "era": "2021",
+      "n_taiex_overlap": 0,
+      "taiex_depths": []
+    },
+    {
+      "major_eid": "mkt_0050_d8_19",
+      "era": "2021",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.127417
+      ]
+    },
+    {
+      "major_eid": "ref_mkt_0050_BEAR_2022",
+      "era": "2022",
+      "n_taiex_overlap": 5,
+      "taiex_depths": [
+        0.082495,
+        0.119719,
+        0.16999,
+        0.139988,
+        0.088247
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_24",
+      "era": "2022",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.088247
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_25",
+      "era": "2024",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.186927
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_27",
+      "era": "2025",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.267106
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_29",
+      "era": "2026",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.093297
+      ]
+    },
+    {
+      "major_eid": "mkt_0050_d8_30",
+      "era": "2026",
+      "n_taiex_overlap": 1,
+      "taiex_depths": [
+        0.163552
+      ]
+    }
+  ]
+}

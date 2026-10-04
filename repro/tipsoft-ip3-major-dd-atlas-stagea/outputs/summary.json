@@ -1,0 +1,80 @@
+{
+  "verdict": "MAJOR_DD_ATLAS_PARTIAL",
+  "tip_sha": "c56778cf785a764f3077f0eb154dc80855caef8e",
+  "regime_counts_major": {
+    "CLIFF": 12,
+    "GRIND": 4,
+    "OTHER": 6,
+    "n_major": 22
+  },
+  "best_cross_era_detector": "base::fuse_prem_neg5",
+  "best_excl_mar2020": {
+    "arm": "base::fuse_prem_neg5",
+    "exclude_mar2020": true,
+    "n_eras_scored": 7,
+    "n_oos_hit": 2,
+    "n_weak": 3,
+    "n_miss": 2,
+    "eras_oos_hit": [
+      "2015",
+      "2024"
+    ],
+    "eras_scored": [
+      "2015",
+      "2018",
+      "2021",
+      "2022",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "n_non2020_oos_hit": 2,
+    "non2020_eras_oos_hit": [
+      "2015",
+      "2024"
+    ]
+  },
+  "best_incl_mar2020": {
+    "arm": "base::fuse_prem_neg5",
+    "exclude_mar2020": false,
+    "n_eras_scored": 8,
+    "n_oos_hit": 2,
+    "n_weak": 3,
+    "n_miss": 3,
+    "eras_oos_hit": [
+      "2015",
+      "2024"
+    ],
+    "eras_scored": [
+      "2015",
+      "2018",
+      "2020_mar",
+      "2021",
+      "2022",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "n_non2020_oos_hit": 2,
+    "non2020_eras_oos_hit": [
+      "2015",
+      "2024"
+    ]
+  },
+  "implication": "Some cross-era lift exists but floors are uneven \u2014 consistent with 0kbk SPLIT_HIT (regime tools differ) and 0kbj OVERFIT_2020 (Mar window strongest).",
+  "coverage": {
+    "primary_market": "data/telecom_0050_complete/0050_2010_latest_ohlcv.csv",
+    "market_start": "2010-01-04",
+    "soft_l4_start": "2012-12-04",
+    "taiex_optional": "forward/e10s2/e10s2_taiex.csv",
+    "no_pre_2010_gfc": true,
+    "note": "No pre-2010 / GFC OHLCV or Soft/L4 NAV available in-repo. 0050 has an unadjusted split-like jump ~2025-06-10 (188\u219247) \u2014 artifact episodes with 1d drop \u2264 -35% are excluded from the atlas.",
+    "artifact_filter": "skip episodes with min 1d return \u2264 -35% or depth\u226545% in \u22648 bars",
+    "primary_series_for_major": [
+      "mkt_0050",
+      "l4_nav",
+      "soft_nav"
+    ],
+    "taiex_role": "corroboration_only"
+  }
+}
