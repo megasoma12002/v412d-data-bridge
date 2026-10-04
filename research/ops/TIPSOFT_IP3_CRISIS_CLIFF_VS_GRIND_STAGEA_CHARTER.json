@@ -1,0 +1,46 @@
+{
+  "id": "TIPSOFT_IP3_CRISIS_CLIFF_VS_GRIND_STAGEA_CHARTER",
+  "register": "0kbk",
+  "parents": [
+    "0kbj",
+    "0kbi",
+    "0kbh",
+    "0kbf"
+  ],
+  "generated_at_utc": "2026-10-04T02:54:13Z",
+  "tip_sha": "263fb5cfadbb4f05ff05d7de43ee830ee2e3b462",
+  "label_tag": "CLIFF_GRIND_PARALLEL",
+  "question": "cliff(\u6025\u6bba) vs grind(\u9577\u671f\u8dcc) \u2014 shape, detector lift, illustrative cash-gate CF",
+  "floors": {
+    "primary_depth": 0.08,
+    "primary_cliff_n": 20,
+    "primary_grind_min": 40,
+    "cliff_vel_floor": 0.004,
+    "depth_thrs": [
+      0.08,
+      0.1
+    ],
+    "cliff_n_grid": [
+      10,
+      15,
+      20
+    ],
+    "grind_min_grid": [
+      40,
+      60
+    ],
+    "regime_ic_floor": 0.08,
+    "regime_hit_floor": 0.55,
+    "regime_recall_floor": 0.3,
+    "split_ic_delta": 0.05,
+    "split_hit_delta": 0.1,
+    "alert_q": 0.9
+  },
+  "signal_not_apply": true,
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "exact_t1": true,
+  "year_oracle": false,
+  "soak_unlock": false
+}

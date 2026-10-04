@@ -1,0 +1,79 @@
+[
+  {
+    "tag": "MAR2020_CLIFF",
+    "label": "Mar2020 cliff",
+    "expect": "CLIFF",
+    "n_overlap_episodes": 2,
+    "auto_labels": [
+      "CLIFF"
+    ],
+    "depths": [
+      0.133861,
+      0.130011
+    ],
+    "ttm_days": [
+      20,
+      19
+    ]
+  },
+  {
+    "tag": "TW_CN_2015",
+    "label": "2015 TW/China",
+    "expect": "CLIFF_OR_GRIND",
+    "n_overlap_episodes": 1,
+    "auto_labels": [
+      "OTHER"
+    ],
+    "depths": [
+      0.069776
+    ],
+    "ttm_days": [
+      57
+    ]
+  },
+  {
+    "tag": "Q4_2018",
+    "label": "2018 Q4",
+    "expect": "GRIND_OR_CLIFF",
+    "n_overlap_episodes": 1,
+    "auto_labels": [
+      "OTHER"
+    ],
+    "depths": [
+      0.069523
+    ],
+    "ttm_days": [
+      17
+    ]
+  },
+  {
+    "tag": "MID2020_RESIDUAL",
+    "label": "mid-2020 residual (0kb4 census drag)",
+    "expect": "GRIND",
+    "n_overlap_episodes": 1,
+    "auto_labels": [
+      "GRIND"
+    ],
+    "depths": [
+      0.003315
+    ],
+    "ttm_days": [
+      1
+    ]
+  },
+  {
+    "tag": "LATE2020_RESIDUAL",
+    "label": "late-2020 residual window",
+    "expect": "GRIND_OR_OTHER",
+    "n_overlap_episodes": 1,
+    "auto_labels": [
+      "OTHER"
+    ],
+    "depths": [
+      0.05383
+    ],
+    "ttm_days": [
+      6
+    ]
+  }
+]

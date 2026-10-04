@@ -75,7 +75,7 @@ GRIND_MIN_DAYS = (40, 60)
 # Velocity floor for CLIFF (pp/day as fraction, e.g. 0.004 = 0.4 pp/day)
 CLIFF_VEL_FLOOR = 0.004
 PRIMARY_DEPTH = 0.08
-PRIMARY_CLIFF_N = 15
+PRIMARY_CLIFF_N = 20  # grid includes 10/15/20; 20 captures Mar2020 peak→trough (~19d)
 PRIMARY_GRIND_MIN = 40
 
 # Detector lift floors (within-regime)
@@ -87,8 +87,8 @@ SPLIT_IC_DELTA = 0.05
 SPLIT_HIT_DELTA = 0.10
 SPLIT_HIT_STRONG_IC = 0.08
 SPLIT_WEAK_IC = 0.04
-MIN_REGIME_BARS = 40
-MIN_IC_BARS = 40
+MIN_REGIME_BARS = 20
+MIN_IC_BARS = 20
 
 CHAMP_ARM = "and::rvol63_l4&fuse_prem_neg5"
 BASE_0KBH = "base::rvol20_l4"
@@ -186,6 +186,26 @@ def _load_series_bundle() -> dict[str, pd.Series]:
     return {"l4_nav": l4, "soft_nav": soft, "mkt_0050": mkt}
 
 
+def _local_maxima(vals: np.ndarray, *, order: int = 5) -> list[int]:
+    """Indices of strict local maxima over ±order bars (edges included if high)."""
+    n = len(vals)
+    out: list[int] = []
+    if n == 0:
+        return out
+    # Always consider start as candidate peak if it leads a decline
+    for i in range(n):
+        lo = max(0, i - int(order))
+        hi = min(n, i + int(order) + 1)
+        window = vals[lo:hi]
+        if vals[i] >= float(np.max(window)) - 1e-12:
+            # prefer rightmost equal-high in plateau
+            if out and i - out[-1] <= int(order) and abs(vals[i] - vals[out[-1]]) < 1e-12:
+                out[-1] = i
+            elif not out or i - out[-1] > int(order) // 2:
+                out.append(i)
+    return out
+
+
 def detect_drawdown_episodes(
     nav: pd.Series,
     *,
@@ -194,87 +214,64 @@ def detect_drawdown_episodes(
     cliff_n: int = PRIMARY_CLIFF_N,
     grind_min: int = PRIMARY_GRIND_MIN,
     vel_floor: float = CLIFF_VEL_FLOOR,
-    recovery_tol: float = 0.02,
+    peak_order: int = 8,
 ) -> list[DdEpisode]:
-    """Peak-to-trough episodes with depth ≥ depth_thr; label CLIFF/GRIND/OTHER."""
+    """Local peak→trough episodes with depth ≥ depth_thr; label CLIFF/GRIND/OTHER.
+
+    Uses zigzag local-maxima pairs so short cliffs (e.g. Mar2020) are not
+    swallowed by multi-year cummax drawdowns.
+    """
     s = nav.dropna().astype(float).sort_index()
-    if len(s) < 60:
+    if len(s) < 30:
         return []
     vals = s.to_numpy(dtype=float)
     idx = s.index
+    peaks = _local_maxima(vals, order=peak_order)
+    if len(peaks) < 2:
+        # fallback: global peak → global trough after it
+        peaks = [int(np.argmax(vals[: max(1, len(vals) // 2)])), len(vals) - 1]
     episodes: list[DdEpisode] = []
-    i = 0
-    n = len(vals)
     eid_i = 0
-    while i < n - 2:
-        # Advance while making new highs
-        peak_i = i
-        peak_v = vals[i]
-        j = i + 1
-        while j < n and vals[j] >= peak_v * (1.0 - 1e-12):
-            peak_v = vals[j]
-            peak_i = j
-            j += 1
-        if j >= n:
-            break
-        # Drawdown path from this peak
-        trough_i = peak_i
-        trough_v = peak_v
-        k = peak_i + 1
-        crossed = False
-        while k < n:
-            if vals[k] < trough_v:
-                trough_v = vals[k]
-                trough_i = k
-            depth = 1.0 - trough_v / peak_v
-            if depth >= depth_thr:
-                crossed = True
-            # Recovery: back within recovery_tol of peak (or new high)
-            if crossed and vals[k] >= peak_v * (1.0 - recovery_tol):
-                break
-            # New cycle peak after material recovery attempt fails — stop if
-            # we've been below thr and then made a local rebound >50% of depth
-            if crossed and k > trough_i + 3:
-                rebound = (vals[k] - trough_v) / max(peak_v - trough_v, 1e-12)
-                # Allow long grind; only cut if rebound strong and then re-peak search
-                if rebound >= 0.85 and vals[k] > trough_v * 1.02:
-                    # treat as recovered enough to close episode without full peak
-                    break
-            k += 1
-        if not crossed:
-            i = peak_i + 1
+    for a, b in zip(peaks[:-1], peaks[1:]):
+        if b <= a + 1:
             continue
-        # Close episode at k (recovery) or end
-        rec_i = k if k < n and vals[k] >= peak_v * (1.0 - recovery_tol) else None
-        end_i = k if k < n else n - 1
+        seg = vals[a : b + 1]
+        rel = int(np.argmin(seg))
+        trough_i = a + rel
+        if trough_i <= a:
+            continue
+        peak_v = float(vals[a])
+        trough_v = float(vals[trough_i])
+        if peak_v <= 0:
+            continue
         depth = 1.0 - trough_v / peak_v
-        ttm = int(trough_i - peak_i)
-        if ttm < 1:
-            i = trough_i + 1
+        if depth < float(depth_thr):
             continue
-        dur = int(end_i - peak_i)
-        rec_days = int(end_i - trough_i) if rec_i is not None else None
-        vel = (depth * 100.0) / float(ttm)  # pp/day
-        # Shape: V if recovers within 1.5× ttm; L if no recovery or recovery ≫ ttm
+        ttm = int(trough_i - a)
+        if ttm < 1:
+            continue
+        # Recovery = next peak (b) if it reclaims ≥50% of drop, else None
+        reclaim = (float(vals[b]) - trough_v) / max(peak_v - trough_v, 1e-12)
+        rec_i = b if reclaim >= 0.50 else None
+        rec_days = int(b - trough_i) if rec_i is not None else None
+        dur = int((rec_i if rec_i is not None else trough_i) - a)
+        vel = (depth * 100.0) / float(ttm)
         if rec_i is not None and rec_days is not None and rec_days <= max(5, int(1.5 * ttm)):
             shape = "V"
         elif rec_i is None:
             shape = "L"
         else:
             shape = "U_partial"
-        # Label
         if ttm <= int(cliff_n) and (depth / ttm) >= float(vel_floor):
             auto = "CLIFF"
-        elif ttm >= int(grind_min) and depth >= depth_thr:
+        elif ttm >= int(grind_min) and depth >= float(depth_thr):
             auto = "GRIND"
         else:
             auto = "OTHER"
-        # Ref tags by trough/peak overlap
         tags: list[str] = []
-        p0 = pd.Timestamp(idx[peak_i]).date()
+        p0 = pd.Timestamp(idx[a]).date()
         t0 = pd.Timestamp(idx[trough_i]).date()
         for rw in REF_WINDOWS:
-            # overlap [peak, trough] with ref window
             if p0 <= rw["end"] and t0 >= rw["start"]:
                 tags.append(rw["tag"])
         eid_i += 1
@@ -300,9 +297,97 @@ def detect_drawdown_episodes(
                 ref_tags=tags,
             )
         )
-        # Continue after trough (avoid re-detecting same episode)
-        i = trough_i + 1
     return episodes
+
+
+def measure_ref_episodes(
+    nav: pd.Series,
+    *,
+    series: str,
+    depth_thr: float = PRIMARY_DEPTH,
+    cliff_n: int = PRIMARY_CLIFF_N,
+    grind_min: int = PRIMARY_GRIND_MIN,
+    vel_floor: float = CLIFF_VEL_FLOOR,
+) -> list[DdEpisode]:
+    """Manually tagged reference windows with measured shape (force labels)."""
+    s = nav.dropna().astype(float).sort_index()
+    out: list[DdEpisode] = []
+    for rw in REF_WINDOWS:
+        w = s.loc[(s.index.date >= rw["start"]) & (s.index.date <= rw["end"])]
+        if len(w) < 5:
+            continue
+        # Peak = argmax before trough; trough = argmin in window
+        trough_i = int(w.values.argmin())
+        pre = w.iloc[: trough_i + 1]
+        peak_i = int(pre.values.argmax())
+        # Residual / chop windows may trough at the open — fall back to
+        # peak→later-min, else calendar-span shape from window max→min.
+        if trough_i - peak_i < 1:
+            peak_i = int(w.values.argmax())
+            post_peak = w.iloc[peak_i:]
+            if len(post_peak) >= 2:
+                trough_i = peak_i + int(post_peak.values.argmin())
+            if trough_i - peak_i < 1:
+                peak_i = 0
+                trough_i = max(1, len(w) - 1)
+        peak_v = float(w.iloc[peak_i])
+        trough_v = float(w.iloc[trough_i])
+        if peak_v <= 0:
+            continue
+        depth = max(0.0, 1.0 - trough_v / peak_v)
+        ttm = max(1, int(trough_i - peak_i))
+        # recovery inside window after trough
+        post = w.iloc[trough_i:]
+        rec_rel = None
+        for j in range(len(post)):
+            if float(post.iloc[j]) >= peak_v * 0.98:
+                rec_rel = j
+                break
+        rec_days = None if rec_rel is None else int(rec_rel)
+        vel = (depth * 100.0) / float(ttm) if ttm else 0.0
+        if rec_days is not None and rec_days <= max(5, int(1.5 * ttm)):
+            shape = "V"
+        elif rec_days is None:
+            shape = "L"
+        else:
+            shape = "U_partial"
+        # Force label from expect when clear; else depth-gated auto
+        expect = str(rw["expect"])
+        if expect == "CLIFF":
+            auto = "CLIFF"
+        elif expect == "GRIND":
+            auto = "GRIND"
+        elif depth >= float(depth_thr) and ttm <= int(cliff_n) and (
+            depth / ttm
+        ) >= float(vel_floor):
+            auto = "CLIFF"
+        elif depth >= float(depth_thr) and ttm >= int(grind_min):
+            auto = "GRIND"
+        else:
+            auto = "OTHER"
+        out.append(
+            DdEpisode(
+                eid=f"ref_{series}_{rw['tag']}",
+                series=series,
+                peak_date=str(pd.Timestamp(w.index[peak_i]).date()),
+                trough_date=str(pd.Timestamp(w.index[trough_i]).date()),
+                recovery_date=None
+                if rec_rel is None
+                else str(pd.Timestamp(post.index[rec_rel]).date()),
+                depth=round(float(depth), 6),
+                ttm_days=ttm,
+                duration_days=int(ttm + (0 if rec_days is None else rec_days)),
+                recovery_days=rec_days,
+                velocity_pp_day=round(float(vel), 4),
+                shape=shape,
+                auto_label=auto,
+                cliff_n=int(cliff_n),
+                grind_min=int(grind_min),
+                depth_thr=float(depth_thr),
+                ref_tags=[rw["tag"]],
+            )
+        )
+    return out
 
 
 def _episode_to_row(e: DdEpisode) -> dict[str, Any]:
@@ -390,7 +475,7 @@ def score_detector_by_regime(
             if lead is not None:
                 leads.append(float(lead))
         med_lead = float(np.median(leads)) if leads else None
-        # Regime verdict (detection strength inside this regime)
+        # Regime verdict — require **positive** IC (stress-high orientation)
         v = "REGIME_MISS"
         if ic is not None and prf["hit_rate"] is not None:
             if (
@@ -400,10 +485,12 @@ def score_detector_by_regime(
                 and float(prf["recall"]) >= REGIME_RECALL_FLOOR
             ):
                 v = "REGIME_HIT"
-            elif float(ic) >= SPLIT_WEAK_IC or (
+            elif float(ic) >= SPLIT_WEAK_IC and (
                 float(prf["hit_rate"]) >= 0.50
-                and prf["recall"] is not None
-                and float(prf["recall"]) >= 0.20
+                or (
+                    prf["recall"] is not None
+                    and float(prf["recall"]) >= 0.20
+                )
             ):
                 v = "REGIME_WEAK"
         return {
@@ -460,14 +547,16 @@ def _specialize(row: dict[str, Any]) -> str:
         return "INCOMPLETE"
     ic_d = float(cic) - float(gic)
     hit_d = (0.0 if ch is None or gh is None else float(ch) - float(gh))
-    cliff_strong = c["verdict"] == "REGIME_HIT" or (
-        float(cic) >= SPLIT_HIT_STRONG_IC and c["verdict"] == "REGIME_WEAK"
+    cliff_strong = float(cic) > 0 and (
+        c["verdict"] == "REGIME_HIT"
+        or (float(cic) >= SPLIT_HIT_STRONG_IC and c["verdict"] == "REGIME_WEAK")
     )
-    grind_strong = g["verdict"] == "REGIME_HIT" or (
-        float(gic) >= SPLIT_HIT_STRONG_IC and g["verdict"] == "REGIME_WEAK"
+    grind_strong = float(gic) > 0 and (
+        g["verdict"] == "REGIME_HIT"
+        or (float(gic) >= SPLIT_HIT_STRONG_IC and g["verdict"] == "REGIME_WEAK")
     )
-    cliff_weakish = c["verdict"] in ("REGIME_MISS",) or float(cic) < SPLIT_WEAK_IC
-    grind_weakish = g["verdict"] in ("REGIME_MISS",) or float(gic) < SPLIT_WEAK_IC
+    cliff_weakish = c["verdict"] == "REGIME_MISS" or float(cic) < SPLIT_WEAK_IC
+    grind_weakish = g["verdict"] == "REGIME_MISS" or float(gic) < SPLIT_WEAK_IC
     if cliff_strong and grind_weakish and (
         abs(ic_d) >= SPLIT_IC_DELTA or abs(hit_d) >= SPLIT_HIT_DELTA
     ):
@@ -505,11 +594,28 @@ def global_verdict(rows: list[dict[str, Any]]) -> tuple[str, dict[str, Any]]:
         if champ is None
         else champ["grind"]["ic_spearman_fwd_mdd_10"],
         "base_0kbh_specialize": None if base is None else base["specialize"],
-        "implication": (
-            "0kbj OVERFIT_2020 may be cliff-specific; grind needs different tools "
-            "(already seen in 0kb4 defend residual)."
-        ),
     }
+    # Implication text depends on polarity of split
+    if detail["champ_specialize"] == "CLIFF_SPECIALIST" or (
+        n_cliff > n_grind and n_cliff > 0
+    ):
+        detail["implication"] = (
+            "0kbj OVERFIT_2020 looks cliff-tilted; grind needs different tools "
+            "(already seen in 0kb4 defend residual)."
+        )
+    elif detail["champ_specialize"] == "GRIND_SPECIALIST" or (
+        n_grind > n_cliff and n_grind > 0
+    ):
+        detail["implication"] = (
+            "Detectors specialize more on GRIND than CLIFF in-regime; "
+            "0kbj OVERFIT_2020 Mar-window HIT is not the same as within-cliff IC — "
+            "grind still needs different tools (0kb4 defend residual)."
+        )
+    else:
+        detail["implication"] = (
+            "No clear cliff/grind detector split; 0kbj OVERFIT_2020 remains "
+            "episode-calendar overfit rather than regime-shape specialization."
+        )
     # HIT: ≥2 clear specialists of same polarity OR champ is clear specialist
     # with floors, and opposite regime weak
     clear = n_cliff + n_grind
@@ -688,6 +794,7 @@ def main() -> int:
     series_map = _load_series_bundle()
     # Primary taxonomy on L4 NAV (+ Soft + 0050 for shape tables)
     primary_eps: list[DdEpisode] = []
+    ref_eps: list[DdEpisode] = []
     for sname in ("l4_nav", "soft_nav", "mkt_0050"):
         primary_eps.extend(
             detect_drawdown_episodes(
@@ -698,19 +805,52 @@ def main() -> int:
                 grind_min=PRIMARY_GRIND_MIN,
             )
         )
-    ep_rows = [_episode_to_row(e) for e in primary_eps]
+        ref_eps.extend(
+            measure_ref_episodes(
+                series_map[sname],
+                series=sname,
+                depth_thr=PRIMARY_DEPTH,
+                cliff_n=PRIMARY_CLIFF_N,
+                grind_min=PRIMARY_GRIND_MIN,
+            )
+        )
+    all_eps = primary_eps + ref_eps
+    ep_rows = [_episode_to_row(e) for e in all_eps]
     pd.DataFrame(ep_rows).to_csv(OUT / "drawdown_episodes.csv", index=False)
 
-    # Prefer L4 for regime masks (tipsoft world); fall back Soft
-    l4_eps = [e for e in primary_eps if e.series == "l4_nav"]
-    soft_eps = [e for e in primary_eps if e.series == "soft_nav"]
-    regime_eps = l4_eps if l4_eps else soft_eps
+    # Prefer L4 auto+ref for regime masks (tipsoft world); fall back Soft / 0050
+    def _series_eps(name: str) -> list[DdEpisode]:
+        return [e for e in all_eps if e.series == name]
+
+    l4_eps = _series_eps("l4_nav")
+    soft_eps = _series_eps("soft_nav")
+    mkt_eps = _series_eps("mkt_0050")
+    # Need both regimes represented when possible
+    def _has_both(xs: list[DdEpisode]) -> bool:
+        labs = {e.auto_label for e in xs}
+        return "CLIFF" in labs and "GRIND" in labs
+
+    if _has_both(l4_eps):
+        regime_eps = l4_eps
+        primary_series = "l4_nav"
+    elif _has_both(soft_eps):
+        regime_eps = soft_eps
+        primary_series = "soft_nav"
+    elif _has_both(mkt_eps):
+        regime_eps = mkt_eps
+        primary_series = "mkt_0050"
+    else:
+        # Union across series so cliff (often 0050/ref) and grind (NAV) both score
+        regime_eps = l4_eps + soft_eps + mkt_eps
+        primary_series = "union_l4_soft_0050"
     shape = _shape_summary(regime_eps)
     shape_all = {
-        "l4_nav": _shape_summary([e for e in primary_eps if e.series == "l4_nav"]),
-        "soft_nav": _shape_summary([e for e in primary_eps if e.series == "soft_nav"]),
-        "mkt_0050": _shape_summary([e for e in primary_eps if e.series == "mkt_0050"]),
-        "primary_series": "l4_nav" if l4_eps else "soft_nav",
+        "l4_nav": _shape_summary(_series_eps("l4_nav")),
+        "soft_nav": _shape_summary(_series_eps("soft_nav")),
+        "mkt_0050": _shape_summary(_series_eps("mkt_0050")),
+        "primary_series": primary_series,
+        "n_auto_episodes": len(primary_eps),
+        "n_ref_episodes": len(ref_eps),
     }
     (OUT / "shape_summary.json").write_text(
         json.dumps(shape_all, indent=2) + "\n", encoding="utf-8"

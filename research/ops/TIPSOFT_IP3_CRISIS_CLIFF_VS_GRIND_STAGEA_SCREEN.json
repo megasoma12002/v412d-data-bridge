@@ -1,0 +1,939 @@
+{
+  "id": "TIPSOFT_IP3_CRISIS_CLIFF_VS_GRIND_STAGEA_SCREEN",
+  "register": "0kbk",
+  "parents": [
+    "0kbj",
+    "0kbi",
+    "0kbh",
+    "0kbf"
+  ],
+  "generated_at_utc": "2026-10-04T02:54:13Z",
+  "tip_sha": "263fb5cfadbb4f05ff05d7de43ee830ee2e3b462",
+  "mech": "TIPSOFT_IP3_CRISIS_CLIFF_VS_GRIND",
+  "label_tag": "CLIFF_GRIND_PARALLEL",
+  "verdict": "CLIFF_GRIND_SPLIT_HIT",
+  "verdict_detail": {
+    "n_cliff_specialist": 0,
+    "n_grind_specialist": 4,
+    "n_mild_split": 10,
+    "n_no_split": 1,
+    "champ_arm": "and::rvol63_l4&fuse_prem_neg5",
+    "champ_specialize": "GRIND_SPECIALIST",
+    "champ_cliff_ic": -0.2842,
+    "champ_grind_ic": 0.4586,
+    "base_0kbh_specialize": "MILD_SPLIT",
+    "implication": "Detectors specialize more on GRIND than CLIFF in-regime; 0kbj OVERFIT_2020 Mar-window HIT is not the same as within-cliff IC \u2014 grind still needs different tools (0kb4 defend residual)."
+  },
+  "signal_not_apply": true,
+  "soak_unlock": false,
+  "live_wire_recommend": false,
+  "size_overlay_promote": false,
+  "year_oracle": false,
+  "floors": {
+    "primary_depth": 0.08,
+    "primary_cliff_n": 20,
+    "primary_grind_min": 40,
+    "cliff_vel_floor": 0.004,
+    "depth_thrs": [
+      0.08,
+      0.1
+    ],
+    "cliff_n_grid": [
+      10,
+      15,
+      20
+    ],
+    "grind_min_grid": [
+      40,
+      60
+    ],
+    "regime_ic_floor": 0.08,
+    "regime_hit_floor": 0.55,
+    "regime_recall_floor": 0.3,
+    "split_ic_delta": 0.05,
+    "split_hit_delta": 0.1,
+    "alert_q": 0.9
+  },
+  "meta": {
+    "base_id": "L4_LIVE_P3_WITHIN",
+    "soft_id": "L1_SOFT_T1",
+    "base_path": "repro/research-live-align-gap-stagea/outputs/nav_L4_LIVE_P3_WITHIN.csv",
+    "soft_path": "repro/research-live-align-gap-stagea/outputs/nav_L1_SOFT_T1.csv",
+    "n_days": 3366,
+    "mar2020_window": [
+      "2020-02-20",
+      "2020-03-23"
+    ],
+    "skipped_detectors": [
+      "VIX proxy (no data file)",
+      "breadth (no series available)"
+    ],
+    "feature_cols": [
+      "atr_like_20",
+      "below_ma120",
+      "below_ma200",
+      "below_ma60",
+      "consec_down_l4",
+      "consec_down_mkt",
+      "cool_defend_l1",
+      "dd63_l4",
+      "dd63_mkt",
+      "dd63_soft",
+      "fuse_neg_flag",
+      "fuse_prem_neg5",
+      "neg_gap_ma120",
+      "neg_gap_ma200",
+      "neg_gap_ma60",
+      "proxy_mdd63_soft",
+      "rvol20_l4",
+      "rvol20_mkt",
+      "rvol63_l4",
+      "rvol63_mkt"
+    ],
+    "label_cols": [
+      "fwd_mdd_10",
+      "fwd_mdd_20",
+      "fwd_mdd_5",
+      "fwd_mkt_mdd_10",
+      "fwd_mkt_mdd_20",
+      "fwd_mkt_mdd_5",
+      "fwd_ret_crash_10",
+      "fwd_ret_crash_20",
+      "fwd_ret_crash_5",
+      "in_mar2020",
+      "in_y2020",
+      "l4_dd_cross_10",
+      "l4_dd_cross_5",
+      "l4_dd_cross_8",
+      "soft_dd_cross_10",
+      "soft_dd_cross_5",
+      "soft_dd_cross_8"
+    ],
+    "vix_available": false
+  },
+  "shape_summary": {
+    "l4_nav": {
+      "CLIFF": {
+        "n": 2,
+        "median_depth": 0.1319,
+        "mean_depth": 0.1319,
+        "median_ttm_days": 19.5,
+        "mean_ttm_days": 19.5,
+        "median_velocity_pp_day": 0.6768,
+        "median_recovery_days": 17.0,
+        "shape_counts": {
+          "V": 1,
+          "L": 1,
+          "U_partial": 0
+        }
+      },
+      "GRIND": {
+        "n": 2,
+        "median_depth": 0.0561,
+        "mean_depth": 0.0561,
+        "median_ttm_days": 29.0,
+        "mean_ttm_days": 29.0,
+        "median_velocity_pp_day": 0.2612,
+        "median_recovery_days": 0.0,
+        "shape_counts": {
+          "V": 1,
+          "L": 1,
+          "U_partial": 0
+        }
+      },
+      "OTHER": {
+        "n": 3,
+        "median_depth": 0.0695,
+        "mean_depth": 0.0644,
+        "median_ttm_days": 17.0,
+        "mean_ttm_days": 26.67,
+        "median_velocity_pp_day": 0.409,
+        "median_recovery_days": 6.0,
+        "shape_counts": {
+          "V": 1,
+          "L": 2,
+          "U_partial": 0
+        }
+      },
+      "n_total": 7
+    },
+    "soft_nav": {
+      "CLIFF": {
+        "n": 4,
+        "median_depth": 0.1571,
+        "mean_depth": 0.1556,
+        "median_ttm_days": 16.0,
+        "mean_ttm_days": 14.25,
+        "median_velocity_pp_day": 1.0926,
+        "median_recovery_days": 24.5,
+        "shape_counts": {
+          "V": 1,
+          "L": 2,
+          "U_partial": 1
+        }
+      },
+      "GRIND": {
+        "n": 3,
+        "median_depth": 0.1023,
+        "mean_depth": 0.0855,
+        "median_ttm_days": 41.0,
+        "mean_ttm_days": 29.33,
+        "median_velocity_pp_day": 0.2495,
+        "median_recovery_days": 15.0,
+        "shape_counts": {
+          "V": 2,
+          "L": 1,
+          "U_partial": 0
+        }
+      },
+      "OTHER": {
+        "n": 4,
+        "median_depth": 0.0748,
+        "mean_depth": 0.081,
+        "median_ttm_days": 20.5,
+        "mean_ttm_days": 17.5,
+        "median_velocity_pp_day": 0.453,
+        "median_recovery_days": 16.0,
+        "shape_counts": {
+          "V": 2,
+          "L": 2,
+          "U_partial": 0
+        }
+      },
+      "n_total": 11
+    },
+    "mkt_0050": {
+      "CLIFF": {
+        "n": 14,
+        "median_depth": 0.1045,
+        "mean_depth": 0.1734,
+        "median_ttm_days": 13.5,
+        "mean_ttm_days": 13.0,
+        "median_velocity_pp_day": 0.8388,
+        "median_recovery_days": 20.0,
+        "shape_counts": {
+          "V": 4,
+          "L": 5,
+          "U_partial": 5
+        }
+      },
+      "GRIND": {
+        "n": 3,
+        "median_depth": 0.1477,
+        "mean_depth": 0.1115,
+        "median_ttm_days": 49.0,
+        "mean_ttm_days": 36.0,
+        "median_velocity_pp_day": 0.3014,
+        "median_recovery_days": 0.0,
+        "shape_counts": {
+          "V": 1,
+          "L": 2,
+          "U_partial": 0
+        }
+      },
+      "OTHER": {
+        "n": 12,
+        "median_depth": 0.131,
+        "mean_depth": 0.1345,
+        "median_ttm_days": 26.0,
+        "mean_ttm_days": 25.17,
+        "median_velocity_pp_day": 0.5016,
+        "median_recovery_days": 18.0,
+        "shape_counts": {
+          "V": 9,
+          "L": 3,
+          "U_partial": 0
+        }
+      },
+      "n_total": 29
+    },
+    "primary_series": "l4_nav",
+    "n_auto_episodes": 32,
+    "n_ref_episodes": 15
+  },
+  "ref_window_coverage": [
+    {
+      "tag": "MAR2020_CLIFF",
+      "label": "Mar2020 cliff",
+      "expect": "CLIFF",
+      "n_overlap_episodes": 2,
+      "auto_labels": [
+        "CLIFF"
+      ],
+      "depths": [
+        0.133861,
+        0.130011
+      ],
+      "ttm_days": [
+        20,
+        19
+      ]
+    },
+    {
+      "tag": "TW_CN_2015",
+      "label": "2015 TW/China",
+      "expect": "CLIFF_OR_GRIND",
+      "n_overlap_episodes": 1,
+      "auto_labels": [
+        "OTHER"
+      ],
+      "depths": [
+        0.069776
+      ],
+      "ttm_days": [
+        57
+      ]
+    },
+    {
+      "tag": "Q4_2018",
+      "label": "2018 Q4",
+      "expect": "GRIND_OR_CLIFF",
+      "n_overlap_episodes": 1,
+      "auto_labels": [
+        "OTHER"
+      ],
+      "depths": [
+        0.069523
+      ],
+      "ttm_days": [
+        17
+      ]
+    },
+    {
+      "tag": "MID2020_RESIDUAL",
+      "label": "mid-2020 residual (0kb4 census drag)",
+      "expect": "GRIND",
+      "n_overlap_episodes": 1,
+      "auto_labels": [
+        "GRIND"
+      ],
+      "depths": [
+        0.003315
+      ],
+      "ttm_days": [
+        1
+      ]
+    },
+    {
+      "tag": "LATE2020_RESIDUAL",
+      "label": "late-2020 residual window",
+      "expect": "GRIND_OR_OTHER",
+      "n_overlap_episodes": 1,
+      "auto_labels": [
+        "OTHER"
+      ],
+      "depths": [
+        0.05383
+      ],
+      "ttm_days": [
+        6
+      ]
+    }
+  ],
+  "n_episodes_primary": 7,
+  "n_cliff_bars": 21,
+  "n_grind_bars": 60,
+  "n_arms": 15,
+  "detector_lift": [
+    {
+      "arm": "and::rvol63_l4&fuse_prem_neg5",
+      "family": "and_combo",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.2842,
+        "ic_spearman_fwd_ret_crash_10": -0.599,
+        "hit_rate": 0.7714,
+        "precision": 0.1698,
+        "recall": 0.4286,
+        "f1": 0.2432,
+        "median_lead_days": 17.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": 0.4586,
+        "ic_spearman_fwd_ret_crash_10": 0.4182,
+        "hit_rate": 0.6619,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "median_lead_days": null,
+        "verdict": "REGIME_WEAK"
+      },
+      "ic_delta_cliff_minus_grind": -0.7428,
+      "hit_delta_cliff_minus_grind": 0.1095,
+      "recall_delta_cliff_minus_grind": 0.4286,
+      "specialize": "GRIND_SPECIALIST"
+    },
+    {
+      "arm": "base::consec_down_mkt",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.6061,
+        "ic_spearman_fwd_ret_crash_10": -0.6664,
+        "hit_rate": 0.8082,
+        "precision": 0.2292,
+        "recall": 0.5238,
+        "f1": 0.3188,
+        "median_lead_days": 29.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": 0.1362,
+        "ic_spearman_fwd_ret_crash_10": 0.0935,
+        "hit_rate": 0.7291,
+        "precision": 0.1712,
+        "recall": 0.3167,
+        "f1": 0.2222,
+        "median_lead_days": 71.0,
+        "verdict": "REGIME_HIT"
+      },
+      "ic_delta_cliff_minus_grind": -0.7423,
+      "hit_delta_cliff_minus_grind": 0.0791,
+      "recall_delta_cliff_minus_grind": 0.2071,
+      "specialize": "GRIND_SPECIALIST"
+    },
+    {
+      "arm": "base::cool_defend_l1",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.5172,
+        "ic_spearman_fwd_ret_crash_10": -0.7385,
+        "hit_rate": 0.4041,
+        "precision": 0.037,
+        "recall": 0.2381,
+        "f1": 0.0641,
+        "median_lead_days": 6.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": 0.1324,
+        "ic_spearman_fwd_ret_crash_10": 0.2016,
+        "hit_rate": 0.5255,
+        "precision": 0.1634,
+        "recall": 0.7,
+        "f1": 0.265,
+        "median_lead_days": 42.0,
+        "verdict": "REGIME_WEAK"
+      },
+      "ic_delta_cliff_minus_grind": -0.6496,
+      "hit_delta_cliff_minus_grind": -0.1214,
+      "recall_delta_cliff_minus_grind": -0.4619,
+      "specialize": "GRIND_SPECIALIST"
+    },
+    {
+      "arm": "base::rvol63_l4",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.0357,
+        "ic_spearman_fwd_ret_crash_10": -0.3558,
+        "hit_rate": 0.6531,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "median_lead_days": null,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": 0.5607,
+        "ic_spearman_fwd_ret_crash_10": 0.7358,
+        "hit_rate": 0.6497,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "median_lead_days": null,
+        "verdict": "REGIME_WEAK"
+      },
+      "ic_delta_cliff_minus_grind": -0.5964,
+      "hit_delta_cliff_minus_grind": 0.0034,
+      "recall_delta_cliff_minus_grind": 0.0,
+      "specialize": "GRIND_SPECIALIST"
+    },
+    {
+      "arm": "base::rvol20_mkt",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.8516,
+        "ic_spearman_fwd_ret_crash_10": -0.7247,
+        "hit_rate": 0.8163,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "median_lead_days": null,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": -0.1033,
+        "ic_spearman_fwd_ret_crash_10": -0.4736,
+        "hit_rate": 0.8024,
+        "precision": 0.2154,
+        "recall": 0.2333,
+        "f1": 0.224,
+        "median_lead_days": 17.0,
+        "verdict": "REGIME_MISS"
+      },
+      "ic_delta_cliff_minus_grind": -0.7483,
+      "hit_delta_cliff_minus_grind": 0.0139,
+      "recall_delta_cliff_minus_grind": -0.2333,
+      "specialize": "MILD_SPLIT"
+    },
+    {
+      "arm": "or::rvol20_l4|fuse_prem_neg5",
+      "family": "or_combo",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.7632,
+        "ic_spearman_fwd_ret_crash_10": -0.9416,
+        "hit_rate": 0.8,
+        "precision": 0.25,
+        "recall": 0.6667,
+        "f1": 0.3636,
+        "median_lead_days": 29.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": -0.0943,
+        "ic_spearman_fwd_ret_crash_10": -0.0187,
+        "hit_rate": 0.6945,
+        "precision": 0.1053,
+        "recall": 0.2,
+        "f1": 0.1379,
+        "median_lead_days": 31.0,
+        "verdict": "REGIME_MISS"
+      },
+      "ic_delta_cliff_minus_grind": -0.6689,
+      "hit_delta_cliff_minus_grind": 0.1055,
+      "recall_delta_cliff_minus_grind": 0.4667,
+      "specialize": "MILD_SPLIT"
+    },
+    {
+      "arm": "base::atr_like_20",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.8074,
+        "ic_spearman_fwd_ret_crash_10": -0.8156,
+        "hit_rate": 0.7918,
+        "precision": 0.1053,
+        "recall": 0.1905,
+        "f1": 0.1356,
+        "median_lead_days": 3.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": -0.3037,
+        "ic_spearman_fwd_ret_crash_10": -0.6286,
+        "hit_rate": 0.7617,
+        "precision": 0.0169,
+        "recall": 0.0167,
+        "f1": 0.0168,
+        "median_lead_days": 7.0,
+        "verdict": "REGIME_MISS"
+      },
+      "ic_delta_cliff_minus_grind": -0.5037,
+      "hit_delta_cliff_minus_grind": 0.0301,
+      "recall_delta_cliff_minus_grind": 0.1738,
+      "specialize": "MILD_SPLIT"
+    },
+    {
+      "arm": "base::rvol20_l4",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.7639,
+        "ic_spearman_fwd_ret_crash_10": -0.5753,
+        "hit_rate": 0.702,
+        "precision": 0.1061,
+        "recall": 0.3333,
+        "f1": 0.1609,
+        "median_lead_days": 29.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": -0.2753,
+        "ic_spearman_fwd_ret_crash_10": -0.0579,
+        "hit_rate": 0.6456,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "median_lead_days": null,
+        "verdict": "REGIME_MISS"
+      },
+      "ic_delta_cliff_minus_grind": -0.4886,
+      "hit_delta_cliff_minus_grind": 0.0564,
+      "recall_delta_cliff_minus_grind": 0.3333,
+      "specialize": "MILD_SPLIT"
+    },
+    {
+      "arm": "base::fuse_prem_neg5",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.2954,
+        "ic_spearman_fwd_ret_crash_10": -0.6256,
+        "hit_rate": 0.8163,
+        "precision": 0.1842,
+        "recall": 0.3333,
+        "f1": 0.2373,
+        "median_lead_days": 8.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": 0.0444,
+        "ic_spearman_fwd_ret_crash_10": 0.0108,
+        "hit_rate": 0.7515,
+        "precision": 0.1771,
+        "recall": 0.2833,
+        "f1": 0.2179,
+        "median_lead_days": 29.5,
+        "verdict": "REGIME_WEAK"
+      },
+      "ic_delta_cliff_minus_grind": -0.3398,
+      "hit_delta_cliff_minus_grind": 0.0648,
+      "recall_delta_cliff_minus_grind": 0.05,
+      "specialize": "MILD_SPLIT"
+    },
+    {
+      "arm": "base::fuse_neg_flag",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.3671,
+        "ic_spearman_fwd_ret_crash_10": -0.7006,
+        "hit_rate": 0.7837,
+        "precision": 0.1522,
+        "recall": 0.3333,
+        "f1": 0.209,
+        "median_lead_days": 8.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": -0.0435,
+        "ic_spearman_fwd_ret_crash_10": -0.0279,
+        "hit_rate": 0.7332,
+        "precision": 0.1743,
+        "recall": 0.3167,
+        "f1": 0.2249,
+        "median_lead_days": 29.5,
+        "verdict": "REGIME_MISS"
+      },
+      "ic_delta_cliff_minus_grind": -0.3236,
+      "hit_delta_cliff_minus_grind": 0.0505,
+      "recall_delta_cliff_minus_grind": 0.0166,
+      "specialize": "MILD_SPLIT"
+    },
+    {
+      "arm": "or::rvol20_l4|atr_like_20",
+      "family": "or_combo",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.8951,
+        "ic_spearman_fwd_ret_crash_10": -0.7247,
+        "hit_rate": 0.7551,
+        "precision": 0.1695,
+        "recall": 0.4762,
+        "f1": 0.25,
+        "median_lead_days": 29.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": -0.666,
+        "ic_spearman_fwd_ret_crash_10": -0.8944,
+        "hit_rate": 0.666,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "median_lead_days": null,
+        "verdict": "REGIME_MISS"
+      },
+      "ic_delta_cliff_minus_grind": -0.2291,
+      "hit_delta_cliff_minus_grind": 0.0891,
+      "recall_delta_cliff_minus_grind": 0.4762,
+      "specialize": "MILD_SPLIT"
+    },
+    {
+      "arm": "base::proxy_mdd63_soft",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.0619,
+        "ic_spearman_fwd_ret_crash_10": -0.4122,
+        "hit_rate": 0.5673,
+        "precision": 0.0225,
+        "recall": 0.0952,
+        "f1": 0.0364,
+        "median_lead_days": 1.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": -0.2377,
+        "ic_spearman_fwd_ret_crash_10": -0.5876,
+        "hit_rate": 0.6864,
+        "precision": 0.2762,
+        "recall": 0.9667,
+        "f1": 0.4296,
+        "median_lead_days": 83.0,
+        "verdict": "REGIME_MISS"
+      },
+      "ic_delta_cliff_minus_grind": 0.1758,
+      "hit_delta_cliff_minus_grind": -0.1191,
+      "recall_delta_cliff_minus_grind": -0.8715,
+      "specialize": "MILD_SPLIT"
+    },
+    {
+      "arm": "base::neg_gap_ma200",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": 0.0578,
+        "ic_spearman_fwd_ret_crash_10": 0.3883,
+        "hit_rate": 0.7796,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "median_lead_days": null,
+        "verdict": "REGIME_WEAK"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": -0.0321,
+        "ic_spearman_fwd_ret_crash_10": 0.3158,
+        "hit_rate": 0.8106,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "median_lead_days": null,
+        "verdict": "REGIME_MISS"
+      },
+      "ic_delta_cliff_minus_grind": 0.0899,
+      "hit_delta_cliff_minus_grind": -0.031,
+      "recall_delta_cliff_minus_grind": 0.0,
+      "specialize": "MILD_SPLIT"
+    },
+    {
+      "arm": "or::neg_gap_ma200|dd63_l4",
+      "family": "or_combo",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.0344,
+        "ic_spearman_fwd_ret_crash_10": -0.3597,
+        "hit_rate": 0.8408,
+        "precision": 0.2353,
+        "recall": 0.381,
+        "f1": 0.2909,
+        "median_lead_days": 9.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": -0.121,
+        "ic_spearman_fwd_ret_crash_10": -0.4705,
+        "hit_rate": 0.8208,
+        "precision": 0.3293,
+        "recall": 0.45,
+        "f1": 0.3803,
+        "median_lead_days": 37.0,
+        "verdict": "REGIME_MISS"
+      },
+      "ic_delta_cliff_minus_grind": 0.0866,
+      "hit_delta_cliff_minus_grind": 0.02,
+      "recall_delta_cliff_minus_grind": -0.069,
+      "specialize": "MILD_SPLIT"
+    },
+    {
+      "arm": "base::dd63_l4",
+      "family": "baseline",
+      "cliff": {
+        "regime": "CLIFF",
+        "n_bars": 21,
+        "ic_spearman_fwd_mdd_10": -0.0292,
+        "ic_spearman_fwd_ret_crash_10": -0.3623,
+        "hit_rate": 0.7959,
+        "precision": 0.2157,
+        "recall": 0.5238,
+        "f1": 0.3056,
+        "median_lead_days": 16.0,
+        "verdict": "REGIME_MISS"
+      },
+      "grind": {
+        "regime": "GRIND",
+        "n_bars": 60,
+        "ic_spearman_fwd_mdd_10": -0.0351,
+        "ic_spearman_fwd_ret_crash_10": -0.3737,
+        "hit_rate": 0.7495,
+        "precision": 0.2397,
+        "recall": 0.4833,
+        "f1": 0.3204,
+        "median_lead_days": 41.0,
+        "verdict": "REGIME_MISS"
+      },
+      "ic_delta_cliff_minus_grind": 0.0059,
+      "hit_delta_cliff_minus_grind": 0.0464,
+      "recall_delta_cliff_minus_grind": 0.0405,
+      "specialize": "NO_SPLIT"
+    }
+  ],
+  "champion": {
+    "arm": "and::rvol63_l4&fuse_prem_neg5",
+    "family": "and_combo",
+    "cliff": {
+      "regime": "CLIFF",
+      "n_bars": 21,
+      "ic_spearman_fwd_mdd_10": -0.2842,
+      "ic_spearman_fwd_ret_crash_10": -0.599,
+      "hit_rate": 0.7714,
+      "precision": 0.1698,
+      "recall": 0.4286,
+      "f1": 0.2432,
+      "median_lead_days": 17.0,
+      "verdict": "REGIME_MISS"
+    },
+    "grind": {
+      "regime": "GRIND",
+      "n_bars": 60,
+      "ic_spearman_fwd_mdd_10": 0.4586,
+      "ic_spearman_fwd_ret_crash_10": 0.4182,
+      "hit_rate": 0.6619,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "median_lead_days": null,
+      "verdict": "REGIME_WEAK"
+    },
+    "ic_delta_cliff_minus_grind": -0.7428,
+    "hit_delta_cliff_minus_grind": 0.1095,
+    "recall_delta_cliff_minus_grind": 0.4286,
+    "specialize": "GRIND_SPECIALIST"
+  },
+  "counterfactual_illustrative": {
+    "champ_arm": "and::rvol63_l4&fuse_prem_neg5",
+    "full": {
+      "note": "ILLUSTRATIVE ONLY \u2014 signal\u2260apply; no size-overlay / tip Soft promote",
+      "label": "full_champ_alert",
+      "held_cagr_lift_pp": -2.3008,
+      "sealed_mdd_improve_pp": -1.4756,
+      "tipY_cagr_lift_pp": -13.5755,
+      "pct_cash_days": 10.01
+    },
+    "cliff_only": {
+      "note": "ILLUSTRATIVE ONLY \u2014 signal\u2260apply; no size-overlay / tip Soft promote",
+      "label": "cliff_only_alert",
+      "held_cagr_lift_pp": 1.6895,
+      "sealed_mdd_improve_pp": 0.0,
+      "tipY_cagr_lift_pp": 0.0,
+      "pct_cash_days": 0.27,
+      "window": [
+        "2020-02-20",
+        "2020-03-23"
+      ],
+      "window_mdd_improve_pp": 9.8236,
+      "base_window_mdd": -0.130011,
+      "chal_window_mdd": -0.031775
+    },
+    "grind_only": {
+      "note": "ILLUSTRATIVE ONLY \u2014 signal\u2260apply; no size-overlay / tip Soft promote",
+      "label": "grind_only_alert",
+      "held_cagr_lift_pp": -0.0,
+      "sealed_mdd_improve_pp": 0.0,
+      "tipY_cagr_lift_pp": 0.0,
+      "pct_cash_days": 0.0,
+      "window": [
+        "2020-07-30",
+        "2022-11-03"
+      ],
+      "window_mdd_improve_pp": 0.0,
+      "base_window_mdd": -0.108837,
+      "chal_window_mdd": -0.108837
+    },
+    "differential": {
+      "held_cliff_minus_grind_pp": 1.6895,
+      "note": "Illustrative only \u2014 cash-gate on regime-restricted champ alerts; not promote / not DD_SWITCH tip Soft."
+    }
+  },
+  "compare_parents": {
+    "0kbj": {
+      "register": "0kbj",
+      "verdict": "IP3_CRISIS_SIGNAL_HIST_OOS_OVERFIT_2020",
+      "note": "Hist OOS overfit 2020 \u2014 this pack tests if that is cliff-specific."
+    },
+    "0kbi": {
+      "register": "0kbi",
+      "verdict": "IP3_Y2020_CRISIS_SIGNAL_REFINE_HIT",
+      "note": "AND champ `and::rvol63_l4&fuse_prem_neg5` reused for regime lift."
+    },
+    "0kbh": {
+      "register": "0kbh",
+      "verdict": "IP3_Y2020_CRISIS_SIGNAL_WEAK",
+      "note": "Singles (rvol/atr/dd/fuse) reused as baseline arms."
+    },
+    "0kbf": {
+      "register": "0kbf",
+      "verdict": "SOAK_OPEN",
+      "note": "Soak freeze unchanged \u2014 cliff/grind Stage A does not unlock SOAK_PASS."
+    },
+    "0kb4": {
+      "register": "0kb4",
+      "verdict": "IP3_Y2020_DEFEND_NO_EDGE",
+      "note": "Defend residual mid/late 2020 tagged as grind-like reference windows."
+    }
+  },
+  "optimize_live": [
+    "Objective: cliff(\u6025\u6bba) vs grind(\u9577\u671f\u8dcc) regime taxonomy + detector lift + illustrative CF",
+    "Primary taxonomy depth\u22650.08 cliff_n\u226420 grind_min\u226540 on l4_nav",
+    "Shape: cliff n=2 med_depth=0.1319 med_ttm=19.5 \u00b7 grind n=2 med_depth=0.0561 med_ttm=29.0",
+    "Champ `and::rvol63_l4&fuse_prem_neg5` specialize=GRIND_SPECIALIST cliffIC=-0.2842 grindIC=0.4586",
+    "Specialists: cliff=0 \u00b7 grind=4 \u00b7 mild=10 \u00b7 none=1",
+    "Illustrative CF held cliff=1.6895 grind=-0.0 \u0394=1.6895 (NOT promote)",
+    "Implication: Detectors specialize more on GRIND than CLIFF in-regime; 0kbj OVERFIT_2020 Mar-window HIT is not the same as within-cliff IC \u2014 grind still needs different tools (0kb4 defend residual).",
+    "Disposition: signal\u2260apply \u00b7 soak freeze unchanged \u00b7 no LIVE \u00b7 no tip Soft \u00b7 no year-oracle",
+    "Soft KEEP \u00b7 Path4 OFF \u00b7 broker false \u00b7 Exact T+1"
+  ],
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "exact_t1": true,
+  "label": "TIPSOFT_IP3_CRISIS_CLIFF_VS_GRIND_STAGEA_SCREEN_2026-10-04__CLIFF_GRIND_SPLIT_HIT__CLIFF_GRIND_PARALLEL"
+}
