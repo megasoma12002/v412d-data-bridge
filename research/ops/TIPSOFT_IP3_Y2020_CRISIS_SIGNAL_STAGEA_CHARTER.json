@@ -1,0 +1,38 @@
+{
+  "id": "TIPSOFT_IP3_Y2020_CRISIS_SIGNAL_STAGEA_CHARTER",
+  "register": "0kbh",
+  "parents": [
+    "0kbg",
+    "0kbf",
+    "0kb4"
+  ],
+  "mech": "TIPSOFT_IP3_Y2020_CRISIS_SIGNAL",
+  "label_tag": "SIGNAL_PARALLEL",
+  "date": "2026-10-04",
+  "signal_not_apply": true,
+  "floors": {
+    "ic_abs_floor": 0.08,
+    "hit_floor": 0.58,
+    "recall_mar_floor": 0.35,
+    "lead_days_floor": 3.0,
+    "fa_outside_2020_ceil": 0.12,
+    "year_dummy_ic_abs_ceil": 0.55,
+    "oos_ic_abs_floor": 0.05,
+    "alert_q": 0.9,
+    "primary_label": "fwd_mdd_10",
+    "mar_eval_window": [
+      "2020-01-02",
+      "2020-06-30"
+    ]
+  },
+  "forbidden": [
+    "live_wire",
+    "tip_apply",
+    "soft_fin_tel_accept",
+    "path4_live",
+    "broker",
+    "year_oracle",
+    "size_overlay_promote",
+    "soak_unlock"
+  ]
+}
