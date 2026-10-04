@@ -56,6 +56,15 @@ class MajorDdAtlasHelpers(unittest.TestCase):
         eps2 = detect_drawdown_episodes(nav2, series="synth", depth_thr=0.08)
         self.assertTrue(any(e.auto_label == "GRIND" for e in eps2))
 
+    def test_artifact_split_excluded(self) -> None:
+        # Unadjusted split-like jump should not become a major cliff
+        idx = pd.date_range("2025-06-01", periods=20, freq="B")
+        vals = np.full(len(idx), 180.0)
+        vals[8:] = 47.0
+        nav = pd.Series(vals, index=idx)
+        eps = detect_drawdown_episodes(nav, series="synth", depth_thr=0.08)
+        self.assertEqual(len(eps), 0)
+
     def test_local_maxima_and_ref(self) -> None:
         vals = np.array([1.0, 2.0, 1.5, 3.0, 1.0, 2.5], dtype=float)
         peaks = _local_maxima(vals, order=1)

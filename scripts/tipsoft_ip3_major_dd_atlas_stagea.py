@@ -355,11 +355,19 @@ def measure_ref_episodes(
             auto = "GRIND"
         else:
             auto = "OTHER"
-        # Named Mar2020 / mid2020 keep forced labels when depth clear
+        # Named Mar2020 / mid2020 / 2022 bear keep forced labels when depth clear
         if rw["tag"] == "MAR2020_CLIFF" and depth >= 0.05:
             auto = "CLIFF"
         if rw["tag"] == "MID2020_RESIDUAL" and depth >= 0.03:
             auto = "GRIND" if auto == "OTHER" else auto
+        if rw["tag"] == "BEAR_2022" and depth >= PRIMARY_DEPTH_MAJOR and ttm >= GRIND_MIN:
+            auto = "GRIND"
+        # Skip split artifacts in ref windows too
+        seg_rets = w.iloc[peak_i + 1 : trough_i + 1].to_numpy() / w.iloc[
+            peak_i:trough_i
+        ].to_numpy() - 1.0
+        if len(seg_rets) and float(np.min(seg_rets)) <= -0.35:
+            continue
         out.append(
             DdEpisode(
                 eid=f"ref_{series}_{rw['tag']}",
@@ -541,8 +549,19 @@ def score_detector_on_episode(
     }
 
 
+def _overlaps(a: DdEpisode, b: DdEpisode) -> bool:
+    a0, a1 = date.fromisoformat(a.peak_date), date.fromisoformat(a.trough_date)
+    b0, b1 = date.fromisoformat(b.peak_date), date.fromisoformat(b.trough_date)
+    return a0 <= b1 and b0 <= a1
+
+
 def _dedupe_major_episodes(eps: list[DdEpisode]) -> list[DdEpisode]:
-    """Prefer primary series (0050/L4/Soft); TAIEX is corroboration-only."""
+    """Prefer primary series (0050/L4/Soft); TAIEX is corroboration-only.
+
+    Named major CLIFF/GRIND refs (Mar2020, 2015, 2022 bear, …) are kept as
+    era anchors; overlapping auto OTHER fragments are dropped so regime counts
+    reflect 0kbk labels rather than zigzag shards.
+    """
     series_rank = {"mkt_0050": 0, "l4_nav": 1, "soft_nav": 2}
     majors = [
         e
@@ -557,10 +576,28 @@ def _dedupe_major_episodes(eps: list[DdEpisode]) -> list[DdEpisode]:
         if e.eid.startswith("ref_")
         and e.is_major
         and e.series in series_rank
+        and e.auto_label in ("CLIFF", "GRIND")
     ]
+    # One named ref per (tag, prefer mkt_0050)
+    refs_by_tag: dict[str, DdEpisode] = {}
+    for r in sorted(ref_majors, key=lambda x: series_rank.get(x.series, 9)):
+        tag = r.ref_tags[0] if r.ref_tags else r.eid
+        if tag not in refs_by_tag:
+            refs_by_tag[tag] = r
+    anchors = list(refs_by_tag.values())
+
     by_key: dict[tuple[str, str], DdEpisode] = {}
     for e in sorted(majors, key=lambda x: (series_rank.get(x.series, 9), -x.depth)):
-        cal_key = (e.era, e.peak_date[:7])  # year-month of peak
+        # Drop auto OTHER that sits inside a named CLIFF/GRIND anchor
+        if e.auto_label == "OTHER" and any(_overlaps(e, a) for a in anchors):
+            continue
+        # Drop auto that duplicates an anchor of same regime/era
+        if any(
+            _overlaps(e, a) and e.auto_label == a.auto_label and e.era == a.era
+            for a in anchors
+        ):
+            continue
+        cal_key = (e.era, e.peak_date[:7])
         if cal_key not in by_key:
             by_key[cal_key] = e
         else:
@@ -569,19 +606,16 @@ def _dedupe_major_episodes(eps: list[DdEpisode]) -> list[DdEpisode]:
                 by_key[cal_key] = e
             elif e.depth > cur.depth and e.series == cur.series:
                 by_key[cal_key] = e
-    out = list(by_key.values())
-    for r in ref_majors:
-        if not any(
-            abs(
-                (date.fromisoformat(e.peak_date) - date.fromisoformat(r.peak_date)).days
-            )
-            < 40
-            and e.era == r.era
-            for e in out
-        ):
-            out.append(r)
-    out.sort(key=lambda e: e.peak_date)
-    return out
+    out = list(by_key.values()) + anchors
+    # Unique by eid
+    seen: set[str] = set()
+    uniq: list[DdEpisode] = []
+    for e in sorted(out, key=lambda x: x.peak_date):
+        if e.eid in seen:
+            continue
+        seen.add(e.eid)
+        uniq.append(e)
+    return uniq
 
 
 def cross_era_score(
