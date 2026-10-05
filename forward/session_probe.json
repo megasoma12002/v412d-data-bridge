@@ -1,17 +1,19 @@
 {
-  "asof": "2026-10-02",
-  "status": "OPEN",
-  "is_session": true,
-  "broker_submit_allowed": true,
-  "skipped": false,
-  "reason": "session open or confirmed",
+  "asof": "2026-10-06",
+  "status": "UNKNOWN",
+  "is_session": false,
+  "broker_submit_allowed": false,
+  "skipped": true,
+  "reason": "no trading session (UNKNOWN)",
   "notes": [
     "annual planned SESSION",
-    "MIS delayed quote d==asof + open price"
+    "MIS before 09:05 — open may still be forming",
+    "MI_INDEX empty before close heuristic → not conclusive",
+    "fail-closed for broker until OPEN confirmed"
   ],
   "sources": {
     "annual_calendar": {
-      "date": "2026-10-02",
+      "date": "2026-10-06",
       "is_session": "1",
       "is_settlement": "1",
       "kind": "SESSION",
@@ -25,53 +27,58 @@
       "n_hits": 0
     },
     "mis_quote": {
-      "open": true,
-      "n_hits": 3,
+      "open": false,
+      "n_hits": 0,
       "rows": [
         {
           "ex_ch": "tse_t00.tw",
-          "open_signal": true,
+          "open_signal": false,
           "c": "t00",
-          "d": "20261002",
-          "o": "48390.65",
+          "d": "20261005",
+          "o": "48574.95",
           "t": "13:33:00",
           "v": null,
           "rtcode": "0000"
         },
         {
           "ex_ch": "tse_0050.tw",
-          "open_signal": true,
+          "open_signal": false,
           "c": "0050",
-          "d": "20261002",
-          "o": "112.8500",
+          "d": "20261005",
+          "o": "115.7500",
           "t": "13:30:00",
-          "v": "64776",
+          "v": "97314",
           "rtcode": "0000"
         },
         {
           "ex_ch": "tse_2330.tw",
-          "open_signal": true,
+          "open_signal": false,
           "c": "2330",
-          "d": "20261002",
-          "o": "2505.0000",
+          "d": "20261005",
+          "o": "2550.0000",
           "t": "13:30:00",
-          "v": "13869",
+          "v": "23926",
           "rtcode": "0000"
         }
       ]
+    },
+    "mi_index": {
+      "stat": "很抱歉，沒有符合條件的資料!",
+      "has_session": false,
+      "after_close_heuristic": false
     }
   },
-  "generated_at": "2026-10-02T22:50:27.238227+08:00",
+  "generated_at": "2026-10-06T01:16:01.740003+08:00",
   "soft_frozen_untouched": true,
   "probe": {
-    "asof": "2026-10-02",
-    "weekday": 4,
-    "status": "OPEN",
-    "broker_submit_allowed": true,
-    "is_session": true,
+    "asof": "2026-10-06",
+    "weekday": 1,
+    "status": "UNKNOWN",
+    "broker_submit_allowed": false,
+    "is_session": false,
     "sources": {
       "annual_calendar": {
-        "date": "2026-10-02",
+        "date": "2026-10-06",
         "is_session": "1",
         "is_settlement": "1",
         "kind": "SESSION",
@@ -85,45 +92,52 @@
         "n_hits": 0
       },
       "mis_quote": {
-        "open": true,
-        "n_hits": 3,
+        "open": false,
+        "n_hits": 0,
         "rows": [
           {
             "ex_ch": "tse_t00.tw",
-            "open_signal": true,
+            "open_signal": false,
             "c": "t00",
-            "d": "20261002",
-            "o": "48390.65",
+            "d": "20261005",
+            "o": "48574.95",
             "t": "13:33:00",
             "v": null,
             "rtcode": "0000"
           },
           {
             "ex_ch": "tse_0050.tw",
-            "open_signal": true,
+            "open_signal": false,
             "c": "0050",
-            "d": "20261002",
-            "o": "112.8500",
+            "d": "20261005",
+            "o": "115.7500",
             "t": "13:30:00",
-            "v": "64776",
+            "v": "97314",
             "rtcode": "0000"
           },
           {
             "ex_ch": "tse_2330.tw",
-            "open_signal": true,
+            "open_signal": false,
             "c": "2330",
-            "d": "20261002",
-            "o": "2505.0000",
+            "d": "20261005",
+            "o": "2550.0000",
             "t": "13:30:00",
-            "v": "13869",
+            "v": "23926",
             "rtcode": "0000"
           }
         ]
+      },
+      "mi_index": {
+        "stat": "很抱歉，沒有符合條件的資料!",
+        "has_session": false,
+        "after_close_heuristic": false
       }
     },
     "notes": [
       "annual planned SESSION",
-      "MIS delayed quote d==asof + open price"
+      "MIS before 09:05 — open may still be forming",
+      "MI_INDEX empty before close heuristic → not conclusive",
+      "fail-closed for broker until OPEN confirmed"
     ]
   }
 }
