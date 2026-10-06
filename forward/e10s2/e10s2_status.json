@@ -11,9 +11,9 @@
   "independent_events": 25,
   "0050_qc": {
     "status": "PASS",
-    "rows": 4100,
+    "rows": 4102,
     "first_date": "2010-01-04",
-    "latest_date": "2026-10-02",
+    "latest_date": "2026-10-06",
     "duplicates": 0,
     "nulls": 0
   },

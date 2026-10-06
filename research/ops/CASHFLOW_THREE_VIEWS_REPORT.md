@@ -1,19 +1,19 @@
 # Cashflow three-views report
 
-Generated: `2026-10-02T14:54:15.475770+00:00`
-Tip `last_date`: `2026-10-02` · Soft-Frozen **KEEP**
+Generated: `2026-10-06T15:23:20.516647+00:00`
+Tip `last_date`: `2026-10-06` · Soft-Frozen **KEEP**
 Human priority: **計算好現金流的數字** (TAX0; tax outside daily NAV)
 
 ## Views
 
 | View | Meaning | Number |
 |---|---|---|
-| **A** | Exact T+1 paper cash | `17828500.858400483` |
-| **B** | R4 settled_cash_estimate | `21314018.830442484` |
-| **B′** | R4 unsettled_net | `-3485517.9720420004` |
-| **C** | Stage-E cash | `17828500.858400483` |
+| **A** | Exact T+1 paper cash | `17712043.222182233` |
+| **B** | R4 settled_cash_estimate | `17828500.858400483` |
+| **B′** | R4 unsettled_net | `-116457.63621824999` |
+| **C** | Stage-E cash | `17712043.222182233` |
 | **C′** | e22_receivables total | `0.0` |
-| **C″** | cash + receivable | `17828500.858400483` |
+| **C″** | cash + receivable | `17712043.222182233` |
 
 - tip books: `E22_v3_recv_pay_effdelay` · tip_lag: **False**
 - R4 identity_ok: `True` · present: `True`
