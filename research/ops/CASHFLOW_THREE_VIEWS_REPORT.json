@@ -1,15 +1,15 @@
 {
-  "generated_at_utc": "2026-10-06T15:23:20.516647+00:00",
+  "generated_at_utc": "2026-10-07T15:43:44.646897+00:00",
   "label": "CASHFLOW_THREE_VIEWS_REPORT",
   "soft_frozen_keep": true,
   "human_priority": "cashflow_numbers_under_tax0",
   "state_dir": "/home/runner/work/v412d-data-bridge/v412d-data-bridge/forward/e21",
-  "last_date": "2026-10-06",
+  "last_date": "2026-10-07",
   "views": {
     "A_paper_exact_t1": {
       "label_zh": "紙上 Exact T+1 現金（成交日入帳）",
       "label_en": "Exact T+1 paper cash (fill day)",
-      "cash": 17712043.222182233,
+      "cash": 18639055.818015233,
       "source": "forward/e21/portfolio_state.json → cash",
       "use": "NAV cash leg; NOT spendable custody cash while trades unsettled",
       "not": "do not treat as broker settled balance"
@@ -18,13 +18,13 @@
       "label_zh": "R4 T+2 已交割流動性估計",
       "label_en": "R4 settled_cash_estimate (T+2 liquidity)",
       "settled_cash_estimate": 17828500.858400483,
-      "unsettled_net": -116457.63621824999,
-      "paper_cash": 17712043.222182233,
-      "settling_today_net": -452011.8399735,
+      "unsettled_net": 810554.9596147501,
+      "paper_cash": 18639055.818015233,
+      "settling_today_net": 0.0,
       "identity_ok": true,
       "identity_delta": 0.0,
       "present": true,
-      "asof": "2026-10-06",
+      "asof": "2026-10-07",
       "source": "forward/e21/settlement_cash_estimate.json → summary",
       "use": "spendable / custody liquidity estimate",
       "not": "NOT Soft-Frozen NAV; never merge into portfolio_state.cash"
@@ -35,10 +35,10 @@
       "e22_books_version": "E22_v3_recv_pay_effdelay",
       "stage_e_default": "E22_v3_recv_pay_effdelay",
       "tip_lag": false,
-      "cash": 17712043.222182233,
+      "cash": 18639055.818015233,
       "e22_receivables_total": 0.0,
       "e22_receivables_n": 0,
-      "cash_plus_receivable": 17712043.222182233,
+      "cash_plus_receivable": 18639055.818015233,
       "source": "portfolio_state cash + e22_receivables",
       "use": "dividend timing fidelity for NAV wealth (cash+recv+equity)",
       "not": "personal income tax haircut (ballot A KEEP TAX0 — outside daily books)"
@@ -47,7 +47,7 @@
   "cross_checks": {
     "paper_cash_minus_r4_paper_cash": 0.0,
     "r4_identity_ok": true,
-    "r4_asof": "2026-10-06",
+    "r4_asof": "2026-10-07",
     "r4_asof_matches_last_date": true,
     "r4_asof_mismatch": false,
     "tip_lag": false,

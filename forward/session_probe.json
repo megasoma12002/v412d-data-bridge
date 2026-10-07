@@ -1,5 +1,5 @@
 {
-  "asof": "2026-10-06",
+  "asof": "2026-10-07",
   "status": "OPEN",
   "is_session": true,
   "broker_submit_allowed": true,
@@ -11,7 +11,7 @@
   ],
   "sources": {
     "annual_calendar": {
-      "date": "2026-10-06",
+      "date": "2026-10-07",
       "is_session": "1",
       "is_settlement": "1",
       "kind": "SESSION",
@@ -32,8 +32,8 @@
           "ex_ch": "tse_t00.tw",
           "open_signal": true,
           "c": "t00",
-          "d": "20261006",
-          "o": "49736.37",
+          "d": "20261007",
+          "o": "49857.32",
           "t": "13:33:00",
           "v": null,
           "rtcode": "0000"
@@ -42,36 +42,36 @@
           "ex_ch": "tse_0050.tw",
           "open_signal": true,
           "c": "0050",
-          "d": "20261006",
-          "o": "116.3000",
+          "d": "20261007",
+          "o": "116.1500",
           "t": "13:30:00",
-          "v": "65962",
+          "v": "55804",
           "rtcode": "0000"
         },
         {
           "ex_ch": "tse_2330.tw",
           "open_signal": true,
           "c": "2330",
-          "d": "20261006",
-          "o": "2575.0000",
+          "d": "20261007",
+          "o": "2565.0000",
           "t": "13:30:00",
-          "v": "18343",
+          "v": "14381",
           "rtcode": "0000"
         }
       ]
     }
   },
-  "generated_at": "2026-10-06T23:20:28.986511+08:00",
+  "generated_at": "2026-10-07T23:39:45.985493+08:00",
   "soft_frozen_untouched": true,
   "probe": {
-    "asof": "2026-10-06",
-    "weekday": 1,
+    "asof": "2026-10-07",
+    "weekday": 2,
     "status": "OPEN",
     "broker_submit_allowed": true,
     "is_session": true,
     "sources": {
       "annual_calendar": {
-        "date": "2026-10-06",
+        "date": "2026-10-07",
         "is_session": "1",
         "is_settlement": "1",
         "kind": "SESSION",
@@ -92,8 +92,8 @@
             "ex_ch": "tse_t00.tw",
             "open_signal": true,
             "c": "t00",
-            "d": "20261006",
-            "o": "49736.37",
+            "d": "20261007",
+            "o": "49857.32",
             "t": "13:33:00",
             "v": null,
             "rtcode": "0000"
@@ -102,20 +102,20 @@
             "ex_ch": "tse_0050.tw",
             "open_signal": true,
             "c": "0050",
-            "d": "20261006",
-            "o": "116.3000",
+            "d": "20261007",
+            "o": "116.1500",
             "t": "13:30:00",
-            "v": "65962",
+            "v": "55804",
             "rtcode": "0000"
           },
           {
             "ex_ch": "tse_2330.tw",
             "open_signal": true,
             "c": "2330",
-            "d": "20261006",
-            "o": "2575.0000",
+            "d": "20261007",
+            "o": "2565.0000",
             "t": "13:30:00",
-            "v": "18343",
+            "v": "14381",
             "rtcode": "0000"
           }
         ]
