@@ -1,6 +1,6 @@
 # Post-forward E22 verify (Phase 0–1)
 
-Generated: `2026-10-07T15:43:44.647518+00:00`
+Generated: `2026-10-08T15:48:13.667644+00:00`
 Status: **PASS** · Soft-Frozen KEEP · observe/evidence only
 
 - tip_lag: **False** (observed `E22_v3_recv_pay_effdelay` vs default `E22_v3_recv_pay_effdelay`)
@@ -8,18 +8,18 @@ Status: **PASS** · Soft-Frozen KEEP · observe/evidence only
 
 ## Steps
 
-- R4 assert: `{"csv_exists": true, "json_exists": true, "csv_bytes": 11518, "json_bytes": 35271, "ok": true, "label": "liquidity_view_not_nav"}`
+- R4 assert: `{"csv_exists": true, "json_exists": true, "csv_bytes": 11624, "json_bytes": 35611, "ok": true, "label": "liquidity_view_not_nav"}`
 - e21_qc: `{"skipped": true}`
 - Gap6: code_ok=True rc=0 tip_lag=False
 - DQ KPI: kpi_ok=True (report-only)
 - Alerts: overall=HIGH crit=0 high=8
-- Cashflow 3-views: `{"ok": true, "tip_lag": false, "r4_identity_ok": true, "n_warnings": 0, "view_a_cash": 18639055.818015233, "view_b_settled": 17828500.858400483, "view_c_cash_plus_recv": 18639055.818015233}`
+- Cashflow 3-views: `{"ok": true, "tip_lag": false, "r4_identity_ok": true, "n_warnings": 0, "view_a_cash": 18292536.772328857, "view_b_settled": 17712043.222182233, "view_c_cash_plus_recv": 18292536.772328857}`
 
 ## Cashflow (A / B / C″)
 
-- A paper cash: `18639055.818015233`
-- B settled: `17828500.858400483`
-- C″ cash+recv: `18639055.818015233`
+- A paper cash: `18292536.772328857`
+- B settled: `17712043.222182233`
+- C″ cash+recv: `18292536.772328857`
 
 ## Notes
 

@@ -1,15 +1,15 @@
 {
   "summary": {
-    "asof": "2026-10-07",
-    "n_fills": 106,
-    "settling_today_net": 0,
-    "n_settling_today": 0,
-    "unsettled_payables": -116457.63621824999,
-    "unsettled_receivables": 927012.5958330001,
-    "unsettled_net": 810554.9596147501,
+    "asof": "2026-10-08",
+    "n_fills": 107,
+    "settling_today_net": -116457.63621824999,
+    "n_settling_today": 1,
+    "unsettled_payables": -346519.04568637494,
+    "unsettled_receivables": 927012.595833,
+    "unsettled_net": 580493.5501466251,
     "n_unsettled": 2,
-    "paper_cash": 18639055.818015233,
-    "settled_cash_estimate": 17828500.858400483,
+    "paper_cash": 18292536.772328857,
+    "settled_cash_estimate": 17712043.222182233,
     "note": "settled_cash_estimate ≈ paper_cash - unsettled_net; liquidity view only — not NAV. Typhoon/holiday skipped via session calendar."
   },
   "fills": [
@@ -1271,7 +1271,7 @@
       "fees_tax": 99.48621825,
       "settlement_cash": -116457.63621824999,
       "settle_date": "2026-10-08",
-      "sessions_to_settle": 1
+      "sessions_to_settle": 0
     },
     {
       "fill_id": "2026-10-06-0050-SELL",
@@ -1279,10 +1279,22 @@
       "code": "0050",
       "side": "SELL",
       "quantity": 8000.0,
-      "gross": 928735.4000000001,
+      "gross": 928735.4,
       "fees_tax": 1722.8041670000002,
-      "settlement_cash": 927012.5958330001,
+      "settlement_cash": 927012.595833,
       "settle_date": "2026-10-12",
+      "sessions_to_settle": 1
+    },
+    {
+      "fill_id": "2026-10-07-0050-BUY",
+      "fill_date": "2026-10-08",
+      "code": "0050",
+      "side": "BUY",
+      "quantity": 3000.0,
+      "gross": 346223.02499999997,
+      "fees_tax": 296.02068637499997,
+      "settlement_cash": -346519.04568637494,
+      "settle_date": "2026-10-13",
       "sessions_to_settle": 2
     }
   ]
