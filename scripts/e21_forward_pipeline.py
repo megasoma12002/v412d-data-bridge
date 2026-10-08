@@ -137,6 +137,11 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
     import pandas as pd
 
     m, latest, day = load_market_session(market_path, asof=a.asof)
+    if LIVE.live_tipsoft_dd_switch:
+        from dd_switch_runtime import preflight
+
+        # Validate before any fill, ledger write, or FIN/TEL suppression.
+        preflight(latest)
     # Soft features always run for signal diag; FUSE discards Soft target for trading.
     px, sleeve, target, e20, diag = features(m)
     div_df = (

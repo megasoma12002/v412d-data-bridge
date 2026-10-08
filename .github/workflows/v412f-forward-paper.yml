@@ -103,6 +103,10 @@ jobs:
             --taiex forward/e10s2/e10s2_taiex.csv \
             --out forward/e21/live_market.csv \
             --allow-live-market-overwrite
+      - name: Refresh and validate DD_SWITCH dependencies (T+1 reconstruction)
+        if: steps.session_gate.outputs.skip != 'true'
+        run: |
+          python scripts/dd_switch_rebuild.py --asof "${{ steps.session_gate.outputs.asof }}" --refresh-prices --publish --out "$RUNNER_TEMP/dd-switch-rebuild"
       - name: Run frozen E16 plus E18 real-open forward ledger
         if: steps.session_gate.outputs.skip != 'true'
         # Capital: omit --capital so scripts/portfolio_capital.DEFAULT_CAPITAL (500M) applies.
@@ -172,6 +176,9 @@ jobs:
           git config user.name "v412f-forward-bot"
           git config user.email "actions@users.noreply.github.com"
           git add forward/
+          if [ "${{ steps.session_gate.outputs.skip }}" != "true" ]; then
+            git add data/dd_switch_runtime/
+          fi
           if [ "${{ steps.session_gate.outputs.skip }}" != "true" ]; then
             # Explicit post-forward verify pack + cashflow report (written by
             # post_forward_e22_verify → cashflow_three_views_report).

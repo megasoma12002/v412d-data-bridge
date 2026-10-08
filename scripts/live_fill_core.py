@@ -84,7 +84,7 @@ def _exact_t1_stats(
         sig_n = sig.normalize()
         fill_n = fill_dt.normalize()
         if fill_n <= sig_n:
-            if authorize_same_bar_fill(f, authorized=auth):
+            if fill_n == sig_n and authorize_same_bar_fill(f, authorized=auth):
                 continue
             same_bar_fills += 1
     return same_bar_fills, same_bar_fills == 0
@@ -144,6 +144,8 @@ def _iter_pending(
     auth = is_live_fill_authorized() if carve_authorized is None else bool(carve_authorized)
     if auth and ORDER_TAG_COL in orders.columns:
         tagged = orders[ORDER_TAG_COL].astype(str).str.strip() == CARVE_OUT_ID
+        if "execution_clock" in orders:
+            tagged &= orders.execution_clock != "NEXT_SESSION_OPEN"
         same_day = unfilled & tagged & (sig.dt.normalize() == latest_n)
         pending = orders[prior | same_day].copy()
     else:
@@ -175,6 +177,8 @@ def _paper_fill_rows(
         sig = pd.to_datetime(o.signal_date, errors="coerce")
         same_bar = bool(pd.notna(sig) and sig.normalize() == latest_n)
         use_moc = same_bar and authorize_same_bar_fill(o, authorized=auth)
+        if pd.isna(sig) or sig.normalize() > latest_n or (same_bar and not use_moc):
+            continue
         if use_moc and "reference_close" in pending.columns and pd.notna(
             getattr(o, "reference_close", None)
         ):
@@ -218,6 +222,8 @@ def _paper_fill_rows(
             tag = getattr(o, ORDER_TAG_COL, None)
             if tag is not None and str(tag).strip():
                 row[ORDER_TAG_COL] = str(tag).strip()
+        if "execution_clock" in pending.columns:
+            row["execution_clock"] = getattr(o, "execution_clock", None)
         if use_moc:
             row["fill_policy"] = "T0_CARVE_MOC_REF_CLOSE"
         fills.append(row)

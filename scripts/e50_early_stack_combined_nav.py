@@ -102,6 +102,8 @@ def simulate_core(
     e45_legacy_crisis_scale: float | None = None,
     e45_sleeve_names: tuple[str, ...] | None = None,
     sleeve_weight_schedule: pd.DataFrame | None = None,
+    share_events: dict | None = None,
+    closed_sessions: dict | None = None,
     def_code: str | None = None,
     off_code: str | None = None,
     cost_multiple: float = 1.0,
@@ -273,6 +275,12 @@ def simulate_core(
     for i, dt in enumerate(dates):
         if dt < trade_start:
             continue
+        # Opt-in real-account reconstruction; frozen callers remain unchanged.
+        for code, factor in (share_events or {}).get(dt.strftime("%F"), {}).items():
+            pos[code] = pos.get(code, 0) * factor
+            for order in pending:
+                if order["code"] == code:
+                    order["quantity"] *= factor
         op = opens.loc[dt]
         cl = closes.loc[dt]
 
@@ -287,6 +295,9 @@ def simulate_core(
         for o in due:
             side = o["side"]
             code = o["code"]
+            if code in (closed_sessions or {}).get(dt.strftime("%F"), set()):
+                still.append(o)
+                continue
             q = int(o["quantity"])
             if lot_size > 1:
                 q = (q // lot_size) * lot_size
