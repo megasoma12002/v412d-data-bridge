@@ -1,0 +1,20 @@
+{
+  "pr": 433,
+  "head": "94de1e9c",
+  "cutoff": "2018-12-31",
+  "panel_start": "2012-12-04",
+  "panel_end": "2026-09-29",
+  "modes": {
+    "PR433_original": {
+      "arms": 201,
+      "changed_arms": 86,
+      "changed_values": 38765
+    },
+    "train_sign_past_distribution_demo": {
+      "arms": 201,
+      "changed_arms": 0,
+      "changed_values": 0
+    }
+  },
+  "limitation": "Structural causality probe, not fresh OOS performance or complete repair; original NAVs and full-sample candidate selection remain unaudited for live promotion"
+}
