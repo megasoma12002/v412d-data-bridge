@@ -12,6 +12,7 @@ import math
 from pathlib import Path
 import pandas as pd
 from live_ledger import SLIP, fees_tax_for
+from dd_switch_capital_policy import POLICIES, CapitalController
 
 ROOT = Path(__file__).resolve().parents[1]
 TZ = 'Asia/Taipei'
@@ -110,7 +111,7 @@ def decisions(frames, clock, parent='DD_SWITCH', next_session=False):
                          trail_dd=tr_dd, weights={c:float(w) for c,w in zip(alloc.code,alloc.weight) if w>0}))
     return rows
 
-def replay(frames, plans, initial_cash, latency_ms=1000, participation=0.1):
+def replay(frames, plans, initial_cash, latency_ms=1000, participation=0.1, capital_policy=None):
     """One cash/share account; sells first, lot rounding, shared live costs.
 
     A displayed-depth participation limit is a configurable model assumption.
@@ -122,6 +123,7 @@ def replay(frames, plans, initial_cash, latency_ms=1000, participation=0.1):
     cash = float(initial_cash)
     pos, marks, fills, nav, events_log = {}, {}, [], [], []
     mark_times = {}
+    controller = CapitalController(capital_policy) if capital_policy else None
     pending = None
     lag = pd.Timedelta(milliseconds=latency_ms)
     events = []
@@ -162,7 +164,17 @@ def replay(frames, plans, initial_cash, latency_ms=1000, participation=0.1):
             events_log.append(dict(at=str(at), kind='split', code=code, factor=factor))
         elif kind == 'decision':
             pending = dict(obj)
-            events_log.append(dict(at=str(at), kind='replace_target', snapshot_id=obj['snapshot_id']))
+            risk = {}
+            if controller:
+                # Only completed prior-session account marks enter this layer.
+                # A same-session signal never uses today's eventual closing NAV.
+                history = [initial_cash]+[r['nav'] for r in nav]
+                observed_nav = history[-1]
+                momentum = observed_nav/history[max(0,len(history)-21)]-1
+                pending['weights'],risk = controller.allocate(obj['weights'],observed_nav,momentum)
+                pending['_cash_floor_ratio'] = risk['reserve_floor']
+            events_log.append(dict(at=str(at), kind='replace_target', snapshot_id=obj['snapshot_id'],
+                                   targets=json.dumps(pending['weights']),**risk))
         else:
             valid = obj[(obj.timestamp <= at) & ((at-obj.timestamp).dt.total_seconds() <= 60)]
             valid = valid.sort_values('timestamp').drop_duplicates('code',keep='last')
@@ -181,6 +193,7 @@ def replay(frames, plans, initial_cash, latency_ms=1000, participation=0.1):
             account_nav = cash+sum(pos.get(c,0)*p for c,p in marks.items())
             if '_desired' not in pending:
                 pending['_desired'] = {c:int(account_nav*w/marks[c]//1000)*1000 for c,w in weights.items()}
+                pending['_cash_floor'] = account_nav*pending.get('_cash_floor_ratio',0)
             desired = pending['_desired']
             # Freeze this decision's share target until a new signal replaces it.
             candidates = []
@@ -197,7 +210,7 @@ def replay(frames, plans, initial_cash, latency_ms=1000, participation=0.1):
                 price = float(r.ask if buy else r.bid)*(1+SLIP if buy else 1-SLIP)
                 if not buy:
                     qty = min(qty, int(pos.get(code,0)//1000)*1000)
-                while qty and buy and qty*price+fees_tax_for(side=side,code=code,gross=qty*price)>cash:
+                while qty and buy and qty*price+fees_tax_for(side=side,code=code,gross=qty*price)>cash-pending.get('_cash_floor',0):
                     qty -= 1000
                 if not qty:
                     continue
@@ -220,6 +233,7 @@ def main():
     p.add_argument('--initial-cash',type=float,required=True)
     p.add_argument('--latency-ms',type=int,default=1000)
     p.add_argument('--participation',type=float,default=0.1)
+    p.add_argument('--capital-policy',choices=[p.name for p in POLICIES],default='BASELINE')
     a=p.parse_args()
     frames=read_bundle(a.bundle)
     summary=[]
@@ -230,7 +244,8 @@ def main():
         plans=decisions(frames,clock,parent,t1)
         if not plans:
             raise ValueError('No contemporaneous decisions for arm '+parent+' '+clock)
-        result=replay(frames,plans,a.initial_cash,a.latency_ms,a.participation)
+        policy=next(p for p in POLICIES if p.name==a.capital_policy)
+        result=replay(frames,plans,a.initial_cash,a.latency_ms,a.participation,policy)
         name=parent+'_'+('T1' if t1 else clock.replace(':',''))
         completed.append((name,plans,result))
         series=pd.Series([a.initial_cash]+[r['nav'] for r in result['nav']])
@@ -244,6 +259,7 @@ def main():
         pd.DataFrame([{**r,'weights':json.dumps(r['weights'])} for r in plans]).to_csv(a.out/(name+'_decisions.csv'),index=False)
     (a.out/'summary.json').write_text(json.dumps(dict(status='QUOTE_FILL_MODEL_ONLY',arms=summary,
         input_manifest=frames['metadata'],
+        capital_policy=a.capital_policy,
         initial_cash=a.initial_cash,latency_ms=a.latency_ms,participation=a.participation,
         limitations=['No broker fills; depth/slippage/latency are model assumptions',
                      'MDD uses available quote marks, not full market path',

@@ -1,0 +1,185 @@
+{
+  "status": "RESEARCH_PROXY_NO_LIVE_PROMOTION",
+  "source": "repro/dd-switch-clock-attribution/interval_DD_lag1_proxy.csv",
+  "source_sha256": "38eeffceb0d3e3774d2034653d94e8e0b572d5a9a9de6f8b55c6f4863a99cd7a",
+  "fixed_policies": [
+    {
+      "name": "BASELINE",
+      "reserve": 0.0,
+      "trigger": 1.0,
+      "floor": 1.0,
+      "deep_trigger": 1.0,
+      "deep_floor": 1.0,
+      "recovery": 0.03,
+      "step": 0.05
+    },
+    {
+      "name": "RESERVE_05",
+      "reserve": 0.05,
+      "trigger": 1.0,
+      "floor": 0.95,
+      "deep_trigger": 1.0,
+      "deep_floor": 0.95,
+      "recovery": 0.03,
+      "step": 0.05
+    },
+    {
+      "name": "RESERVE_10",
+      "reserve": 0.1,
+      "trigger": 1.0,
+      "floor": 0.9,
+      "deep_trigger": 1.0,
+      "deep_floor": 0.9,
+      "recovery": 0.03,
+      "step": 0.05
+    },
+    {
+      "name": "DD08_F60",
+      "reserve": 0.05,
+      "trigger": 0.08,
+      "floor": 0.6,
+      "deep_trigger": 0.12,
+      "deep_floor": 0.4,
+      "recovery": 0.03,
+      "step": 0.05
+    },
+    {
+      "name": "DD08_F40",
+      "reserve": 0.1,
+      "trigger": 0.08,
+      "floor": 0.4,
+      "deep_trigger": 0.12,
+      "deep_floor": 0.25,
+      "recovery": 0.03,
+      "step": 0.05
+    }
+  ],
+  "ranking": "Meet observed MDD <=15%, then highest CAGR; otherwise smallest MDD",
+  "pre2019_selected": "BASELINE",
+  "annual_selection_10bp": [
+    {
+      "year": 2019,
+      "train_start": "2014-01-02",
+      "train_end": "2018-12-28",
+      "policy": "BASELINE",
+      "train_metrics": {
+        "return_pct": 49.727194772808446,
+        "cagr_pct": 8.432935971080058,
+        "mdd_pct": -11.211747769160862,
+        "n": 1229,
+        "scale_mean": 1.0,
+        "extra_drag_sum_pct": 0.0
+      }
+    },
+    {
+      "year": 2020,
+      "train_start": "2015-01-05",
+      "train_end": "2019-12-31",
+      "policy": "BASELINE",
+      "train_metrics": {
+        "return_pct": 62.10210596469048,
+        "cagr_pct": 10.173893341224716,
+        "mdd_pct": -11.211747769160807,
+        "n": 1223,
+        "scale_mean": 1.0,
+        "extra_drag_sum_pct": 0.0
+      }
+    },
+    {
+      "year": 2021,
+      "train_start": "2016-01-04",
+      "train_end": "2020-12-31",
+      "policy": "BASELINE",
+      "train_metrics": {
+        "return_pct": 80.04875202974485,
+        "cagr_pct": 12.504290136510555,
+        "mdd_pct": -14.405097456228077,
+        "n": 1224,
+        "scale_mean": 1.0,
+        "extra_drag_sum_pct": 0.0
+      }
+    },
+    {
+      "year": 2022,
+      "train_start": "2017-01-03",
+      "train_end": "2021-12-30",
+      "policy": "BASELINE",
+      "train_metrics": {
+        "return_pct": 97.56959901096971,
+        "cagr_pct": 14.625695320651143,
+        "mdd_pct": -14.405097456228045,
+        "n": 1224,
+        "scale_mean": 1.0,
+        "extra_drag_sum_pct": 0.0
+      }
+    },
+    {
+      "year": 2023,
+      "train_start": "2018-01-02",
+      "train_end": "2022-12-30",
+      "policy": "BASELINE",
+      "train_metrics": {
+        "return_pct": 77.92303120034221,
+        "cagr_pct": 12.236898043045908,
+        "mdd_pct": -14.405097456228045,
+        "n": 1224,
+        "scale_mean": 1.0,
+        "extra_drag_sum_pct": 0.0
+      }
+    },
+    {
+      "year": 2024,
+      "train_start": "2019-01-02",
+      "train_end": "2023-12-29",
+      "policy": "BASELINE",
+      "train_metrics": {
+        "return_pct": 89.3870670853012,
+        "cagr_pct": 13.657854386224223,
+        "mdd_pct": -14.4050974562281,
+        "n": 1215,
+        "scale_mean": 1.0,
+        "extra_drag_sum_pct": 0.0
+      }
+    },
+    {
+      "year": 2025,
+      "train_start": "2020-01-02",
+      "train_end": "2024-12-31",
+      "policy": "BASELINE",
+      "train_metrics": {
+        "return_pct": 79.73854531308365,
+        "cagr_pct": 12.450949505741505,
+        "mdd_pct": -14.405097456228056,
+        "n": 1215,
+        "scale_mean": 1.0,
+        "extra_drag_sum_pct": 0.0
+      }
+    },
+    {
+      "year": 2026,
+      "train_start": "2021-01-04",
+      "train_end": "2025-12-31",
+      "policy": "BASELINE",
+      "train_metrics": {
+        "return_pct": 84.34678006771767,
+        "cagr_pct": 13.044916043698617,
+        "mdd_pct": -7.022165527046253,
+        "n": 1207,
+        "scale_mean": 1.0,
+        "extra_drag_sum_pct": 0.0
+      }
+    }
+  ],
+  "constraints": {
+    "target_cagr_pct": 20,
+    "max_observed_mdd_pct": 15
+  },
+  "limitations": [
+    "Input is fixed-parent DD one-common-observation-lag interval return proxy, not complete live portfolio",
+    "Missing mother dates are aggregated; no daily decisions/fills inside gaps",
+    "Cash return assumed zero; extra drag bps per allocation change is assumed, not measured share turnover",
+    "Annual selection retrospective and causal, not a new blind out-of-sample experiment",
+    "CAGR calendar-based, MDD observed intervals only; no brokerage or corporate-action replay",
+    "Whole-account historical live replay and genuine intraday evidence remain prerequisites"
+  ]
+}

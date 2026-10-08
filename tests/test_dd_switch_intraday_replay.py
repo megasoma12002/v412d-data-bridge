@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 import pandas as pd
 from dd_switch_intraday_replay import timestamp as ts, decisions, replay, read_bundle
+from dd_switch_capital_policy import POLICIES
 
 def quote(at,code='0050',price=100,size=100000):
     return dict(timestamp=ts(at),available_at=ts(at),code=code,bid=price,ask=price,
@@ -29,6 +30,12 @@ class ReplayTest(unittest.TestCase):
     def test_depth_and_lots(self):
         r=replay(frames([quote('2026-10-01T10:00:02+08:00',size=15000)]),[plan()],1_000_000)
         self.assertEqual(r['fills'][0]['quantity'],1000)
+
+    def test_optional_capital_reserve_has_one_cash_account(self):
+        r=replay(frames([quote('2026-10-01T10:00:02+08:00')]),[plan()],1_000_000,
+                 capital_policy=POLICIES[2])
+        self.assertGreaterEqual(r['final_cash'],100000)
+        self.assertEqual(r['events'][0]['scale'],.9)
 
     def test_reentry_uses_account_cash(self):
         q=[quote('2026-10-01T10:00:02+08:00'),quote('2026-10-01T11:00:02+08:00'),quote('2026-10-01T12:00:02+08:00')]
