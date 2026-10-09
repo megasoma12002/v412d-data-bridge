@@ -1,5 +1,5 @@
 import unittest
-from dd_switch_revision_audit import numbered_fields, declared_amounts, revision_snapshot, subscription_identity, statutory_subscription_identity, dates
+from dd_switch_revision_audit import numbered_fields, declared_amounts, revision_snapshot, subscription_identity, statutory_subscription_identity, statutory_dividend_identity, cash_schedule_dates, explicit_date_after, dates
 
 
 class RevisionAuditTests(unittest.TestCase):
@@ -46,6 +46,20 @@ class RevisionAuditTests(unittest.TestCase):
         self.assertFalse(statutory_subscription_identity(action,filing))
         filing['compact_text']='發行甲種特別股800000000股'
         self.assertTrue(statutory_subscription_identity(action,filing))
+
+    def test_transfer_date_is_not_cash_payment_date(self):
+        text='111/09/16為現金股利發放日茲因最後過戶日111年8月14日適逢星期例假日'
+        self.assertEqual(cash_schedule_dates(text),['2022-09-16'])
+        self.assertEqual(explicit_date_after('99年8月6日為現金股利發放日。二、自99年7月19日停止過戶',['現金股利發放日']),[])
+
+    def test_notice_title_does_not_supply_shareholder_meeting_date(self):
+        text='主旨公告盈餘轉增資新股發放日期公告內容本公司於102年6月21日股東會通過。二、增資股發放日期：102年9月13日'
+        self.assertEqual(explicit_date_after(text,['新股發放日期','增資股發放日期']),['2013-09-13'])
+
+    def test_preferred_dividend_is_not_ordinary_dividend(self):
+        event=dict(code='2881',cash_ex_date='2019-07-04',record_date='2019-07-12',fiscal_year='107年')
+        filing=dict(code='2881',title='分派107年度乙種特別股股息',ex_dates=[],record_dates=[],announcement_date='2019-08-06',fiscal_years=['107'],compact_text='分派107年度乙種特別股股息')
+        self.assertFalse(statutory_dividend_identity(event,'cash',filing))
 
 
 if __name__=='__main__':unittest.main()

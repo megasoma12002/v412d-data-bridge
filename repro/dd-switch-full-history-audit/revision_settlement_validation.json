@@ -1,0 +1,40 @@
+{
+  "asof": "2026-10-08",
+  "captured_candidate_filings": 1109,
+  "captured_statutory_filings": 454,
+  "positive_dividend_legs": 416,
+  "dividend_legs_with_linked_schedule_chain": 351,
+  "dividend_legs_with_earlier_schedule": 245,
+  "primary_payment_schedule_matches": 288,
+  "payment_schedule_conflicts": 2,
+  "contradictory_primary_payment_dates": 0,
+  "subscription_events": 24,
+  "subscription_windows_supported": 24,
+  "subscription_future_not_due": 1,
+  "subscription_delivery_dates_supported": 3,
+  "subscription_voucher_dates_supported": 3,
+  "subscription_listing_dates_supported": 3,
+  "revision_inventory_complete": false,
+  "publication_vintage_certified_legs": 0,
+  "backtest_ready": false,
+  "backtest_executed": false,
+  "canonical_modified": false,
+  "limits": [
+    "Full annual indexes are current responses; keyword triage is not proof of complete revision history",
+    "Public scheduled payment dates do not prove a particular holder was credited",
+    "Subscription requires an explicit paid election; no automatic ordinary shares",
+    "Future scheduled settlement is not a missing past payment"
+  ],
+  "payment_schedule_missing": 126,
+  "payment_schedule_missing_by_leg": {
+    "stock": 96,
+    "cash": 30
+  },
+  "announcement_chain_missing": 65,
+  "source_hash_pairs_verified": 3272,
+  "tests_passed": 29,
+  "canonical_input_hashes_verified": 6,
+  "capture_run_id": 37943909654,
+  "capture_artifact_sha256": "9c8c69ceb07383f810653e12c7f4441f14618d7bf15788b482f76870a14ef490",
+  "capture_job_success_is_not_evidence_pass": true
+}
