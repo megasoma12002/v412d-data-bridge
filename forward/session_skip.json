@@ -1,66 +1,24 @@
 {
-  "asof": "2026-10-08",
-  "status": "OPEN",
-  "is_session": true,
-  "broker_submit_allowed": true,
-  "skipped": false,
-  "reason": "session open or confirmed",
+  "asof": "2026-10-09",
+  "status": "CLOSED_HOLIDAY",
+  "is_session": false,
+  "broker_submit_allowed": false,
+  "skipped": true,
+  "reason": "no trading session (CLOSED_HOLIDAY)",
   "notes": [
-    "annual planned SESSION",
-    "MIS delayed quote d==asof + open price"
+    "annual:holidaySchedule"
   ],
   "sources": {
     "annual_calendar": {
-      "date": "2026-10-08",
-      "is_session": "1",
-      "is_settlement": "1",
-      "kind": "SESSION",
-      "name": "",
-      "source": "weekday_default",
-      "notes": ""
-    },
-    "dgpa_cap": {
-      "closes_twse": false,
-      "afternoon_only": false,
-      "n_hits": 0
-    },
-    "mis_quote": {
-      "open": true,
-      "n_hits": 3,
-      "rows": [
-        {
-          "ex_ch": "tse_t00.tw",
-          "open_signal": true,
-          "c": "t00",
-          "d": "20261008",
-          "o": "49783.06",
-          "t": "13:31:00",
-          "v": null,
-          "rtcode": "0000"
-        },
-        {
-          "ex_ch": "tse_0050.tw",
-          "open_signal": true,
-          "c": "0050",
-          "d": "20261008",
-          "o": "115.3500",
-          "t": "13:30:00",
-          "v": "86429",
-          "rtcode": "0000"
-        },
-        {
-          "ex_ch": "tse_2330.tw",
-          "open_signal": true,
-          "c": "2330",
-          "d": "20261008",
-          "o": "2550.0000",
-          "t": "13:30:00",
-          "v": "20154",
-          "rtcode": "0000"
-        }
-      ]
+      "date": "2026-10-09",
+      "is_session": "0",
+      "is_settlement": "0",
+      "kind": "CLOSED_HOLIDAY",
+      "name": "國慶日",
+      "source": "holidaySchedule",
+      "notes": "國慶日為10月10日適逢星期六，於10月9日（星期五）補假。"
     }
   },
-  "generated_at": "2026-10-08T23:45:18.788971+08:00",
+  "generated_at": "2026-10-09T23:23:58.021749+08:00",
   "soft_frozen_untouched": true
 }
