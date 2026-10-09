@@ -33,7 +33,10 @@ def main():
     p.add_argument('--inputs-dir',type=Path,default=ROOT/'data/dd_switch_runtime',help='Versioned research runtime to day-cut')
     p.add_argument('--end',help='Last replay signal date; defaults to input generation asof')
     p.add_argument('--force-active-for-gap-study',action='store_true',help='Hypothetical exit ablation only; not original strategy')
+    p.add_argument('--recon-research-policy',choices=['audit','epsilon','one_lot','sleeve_5bp','sleeve_20bp'],help='Isolated Path3 reconciliation sensitivity; never a live setting')
     a = p.parse_args()
+    if a.force_active_for_gap_study and a.recon_research_policy:
+        p.error('Reconciliation study must preserve the real DD gate')
     out = a.out.resolve()
     source = ROOT/'forward/e21'
     if out == source or source in out.parents:
@@ -76,6 +79,9 @@ def main():
         (dest/'current.json').write_text(json.dumps(current))
         env={**os.environ,'E21_DD_INPUTS_DIR':str(dest)}
         entry='dd_switch_gap_pipeline.py' if a.force_active_for_gap_study else 'e21_forward_pipeline.py'
+        if a.recon_research_policy:
+            env['DD_RECON_RESEARCH_POLICY']=a.recon_research_policy
+            entry='dd_switch_recon_pipeline.py'
         result=subprocess.run([sys.executable,str(ROOT/'scripts'/entry),'--market',str(source/'live_market.csv'),'--state-dir',str(out),'--asof',day.strftime('%F'),'--allow-noncanonical-paths','--skip-excel-dashboard'],env=env,text=True,capture_output=True)
         (out/(day.strftime('%F')+'.log')).write_text(result.stdout+result.stderr)
         if result.returncode:
@@ -89,6 +95,7 @@ def main():
     result=dict(seed=a.seed,end=str(rebuilt.date.iloc[-1]),initial=initial,final=latest,profit=latest-initial,return_pct=(latest/initial-1)*100,recorded_dates_mdd_pct=float((vals/vals.cummax()-1).min()*100),original_tip=float(nav.nav_e16_e18.iloc[-1]),tip_difference=latest-float(nav.nav_e16_e18.iloc[-1]),scope='production pipeline counterfactual after seed; earlier live records preserved')
     result['gate_mode']='FORCED_ACTIVE_EXIT_ABLATION' if a.force_active_for_gap_study else meta['version']
     result['runtime_source']=str(runtime)
+    result['recon_research_policy']=a.recon_research_policy
     result['runtime_manifest_sha256']=hashlib.sha256((runtime/'current.json').read_bytes()).hexdigest()
     (out/'summary.json').write_text(json.dumps(result,indent=2))
     print(json.dumps(result,indent=2))
