@@ -1,0 +1,52 @@
+{
+  "ARCHIVED_FALLBACK": {
+    "delta": null,
+    "reason": "ledger_stale",
+    "ledger_asof": "2026-09-29",
+    "ledger_lag_calendar_days": 1,
+    "switch": {
+      "asof": "2026-09-30",
+      "ok": true,
+      "flip": false,
+      "signal_date": "2026-09-29",
+      "signal_exact": false,
+      "sat_lead": true,
+      "w_sat": 1.0,
+      "book": "SAT_A20_RELAX",
+      "book_prev": "SAT_A20_RELAX",
+      "trail_rel_63": -0.0312232649056225,
+      "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+      "mechanism": "P3_T0_STATE",
+      "theta": 0.005
+    }
+  },
+  "VERIFIED_RUNTIME": {
+    "delta": {
+      "2412": 12000.0,
+      "2880": -1324000.0,
+      "2886": -998000.0,
+      "2892": 3006000.0,
+      "3045": 7000.0,
+      "4904": -26000.0,
+      "5880": -274000.0
+    },
+    "reason": "ledger_scaled_recon",
+    "ledger_asof": "2026-09-30",
+    "ledger_lag_calendar_days": 0,
+    "switch": {
+      "asof": "2026-09-30",
+      "ok": true,
+      "flip": false,
+      "signal_date": "2026-09-30",
+      "signal_exact": true,
+      "sat_lead": true,
+      "w_sat": 1.0,
+      "book": "SAT_A20_RELAX",
+      "book_prev": "SAT_A20_RELAX",
+      "trail_rel_63": -0.0310278597268245,
+      "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+      "mechanism": "P3_T0_STATE",
+      "theta": 0.005
+    }
+  }
+}
