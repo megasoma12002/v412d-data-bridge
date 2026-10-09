@@ -94,15 +94,23 @@ def simulate(policy,days,panel,mfeatures,dd,signals,ledgers,events,out,epoch,off
     return report,nav,decisions
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--allow-observation-gaps',action='store_true',help='Explicit diagnostic only; cannot certify exact T+1');p.add_argument('--epoch',choices=['all','complete_window_2026_0529_0731'],default='all');a=p.parse_args();a.out=a.out.resolve()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--out',type=Path,required=True);p.add_argument('--allow-observation-gaps',action='store_true',help='Explicit diagnostic only; cannot certify exact T+1');p.add_argument('--runtime',type=Path,default=ROOT/'repro/dd-switch-live-repair-runtime-certified');p.add_argument('--core-prices',type=Path,help='Verified recovered raw core rows only; no forward-filled prices');p.add_argument('--epoch',choices=['all','complete_window_2026_0529_0731'],default='all');a=p.parse_args();a.out=a.out.resolve()
     if (ROOT/'repro').resolve() not in a.out.parents:raise SystemExit('Isolated research output only')
     a.out.mkdir(parents=True,exist_ok=False)
     spec=ROOT/'repro/dd-switch-crisis-profit-prespecified/policies.json';spec_hash=hashlib.sha256(spec.read_bytes()).hexdigest()
-    runtime=ROOT/'repro/dd-switch-live-repair-runtime-certified';meta=json.loads((runtime/'current.json').read_text());g=verify_runtime_generation(runtime,meta)
+    runtime=a.runtime.resolve();meta=json.loads((runtime/'current.json').read_text());g=verify_runtime_generation(runtime,meta)
     frames={key:pd.read_csv(g/meta['files'][key],parse_dates=['date']) for key in ['base','l4','trail']};dd=features(frames)
     signals=pd.read_csv(g/meta['files']['signal']).set_index('date')
     ledgers={name:pd.read_csv(g/meta['files']['shares_'+name],dtype={'code':str}).pivot(index='date',columns='code',values='shares').fillna(0.) for name in ['COMP_H150_x_A20','SAT_A20_RELAX']}
-    panel,_=load_prices();index=panel.xs('TAIEX',level='code').close.sort_index();mfeatures=market_features(index)
+    panel,_=load_prices()
+    if a.core_prices:
+        extra=pd.read_csv(a.core_prices,dtype={'code':str})
+        if extra.duplicated(['date','code']).any() or set(extra.code)-set(FIN+TEL+['TAIEX']):raise ValueError('Invalid recovered core quotes')
+        if extra[['open','close']].isna().any().any() or (extra[['open','close']]<=0).any().any():raise ValueError('Invalid recovered raw prices')
+        extra=extra.set_index(['date','code'])[['open','close']]
+        if len(extra.index.intersection(panel.index)):raise ValueError('Recovered quotes must not overwrite existing prices')
+        panel=pd.concat([panel,extra]).sort_index()
+    index=panel.xs('TAIEX',level='code').close.sort_index();mfeatures=market_features(index)
     events=load_dividend_events(ROOT/'data/dividend_events/e22_dividend_events.csv',require_exists=True,fail_closed_amounts=True)
     epochs={'development_2025':('2025-01-01','2025-12-31'),'validation_2026':('2026-01-01',meta['asof']),'continuous_2025_2026':('2025-01-01',meta['asof'])}
     if a.epoch!='all':epochs={'complete_window_2026_0529_0731':('2026-05-29','2026-07-31')}
@@ -147,7 +155,8 @@ def main():
     books=json.loads((ROOT/'repro/dd-switch-live-repair-books/summary.json').read_text());assert all(hashlib.sha256((ROOT/n).read_bytes()).hexdigest()==v for n,v in books['source_sha256'].items() if n.startswith('forward/e21/'))
     result=dict(status='DATA_GAPPED_NEXT_OBSERVATION_DIAGNOSTIC_NOT_EXACT_T1_CERTIFIED' if any(c['missing_market_sessions'] or c['missing_control_sessions'] for c in coverage) else 'FUNDED_CORE_ONLY_PRESPECIFIED_PROTECTION_UPSIDE_EXPERIMENT_NO_PROMOTION',reports=reports,labels=label_reports,coverage=coverage,
         specification_sha256=spec_hash,calendar_hashes=calendar_hashes,runtime_manifest_sha256=hashlib.sha256((runtime/'current.json').read_bytes()).hexdigest(),
-        canonical_history_unchanged=True,production_funding_not_modified=True,
+        canonical_history_unchanged=True,experiment_modifies_production_state=False,
+        recovered_core_prices_sha256=hashlib.sha256(a.core_prices.read_bytes()).hexdigest() if a.core_prices else None,
         source_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [g/meta['files']['signal'],g/meta['files']['base'],g/meta['files']['l4'],g/meta['files']['trail'],g/meta['files']['shares_COMP_H150_x_A20'],g/meta['files']['shares_SAT_A20_RELAX'],ROOT/'forward/e21/live_market.csv',ROOT/'data/dividend_events/e22_dividend_events.csv']},
         program_sha256={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in [Path(__file__).resolve(),ROOT/'scripts/dd_switch_crisis_policies.py',ROOT/'scripts/dd_switch_funded_sleeve.py']},
         limits=['Core-only FIN/TEL matched experiment; 0050/private overlays excluded; not current full live DD_SWITCH performance',

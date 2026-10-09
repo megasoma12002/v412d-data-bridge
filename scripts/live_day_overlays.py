@@ -51,6 +51,7 @@ def apply_path3_tipsoft_overlays(
     asof: pd.Timestamp,
     pos: dict[str, float],
     prices: dict[str, float],
+    funding=None,
 ) -> DayOverlayResult:
     """Apply Path3 + tipsoft overlay steps; return rows + stamp metas."""
     import live_path3_strategy_cutover as p3_cut
@@ -109,6 +110,9 @@ def apply_path3_tipsoft_overlays(
             path3_weight_meta["tipsoft_dd_switch"] = tipsoft_dd_apply_meta
             if cutover_within and not (tipsoft_dd_apply_meta.get('gate') or {}).get('ok'):
                 raise RuntimeError('DD gate invalid before Path3 cutover: '+str(tipsoft_dd_apply_meta.get('reason')))
+        gate = tipsoft_dd_apply_meta.get('gate') or {}
+        if funding is not None and funding.state['owned'] and gate.get('ok') and gate.get('path3_active'):
+            path3_deltas, path3_weight_meta = funding.funded_plan(path3_deltas, path3_weight_meta, pos, prices)
         flip = bool((path3_weight_meta.get("switch") or {}).get("flip"))
         if cutover_within:
             order_rows, path3_cutover_meta = p3_cut.suppress_soft_fin_tel(order_rows)

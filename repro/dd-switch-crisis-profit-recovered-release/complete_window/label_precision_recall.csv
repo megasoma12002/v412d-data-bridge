@@ -1,0 +1,13 @@
+epoch,policy,label,tp,fp,fn,tn,precision,recall,valid_days,positive_days,definition
+complete_window_2026_0529_0731,CORE_ON,market,0,0,4,20,,0.0,24,4,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,CORE_ON,core_on,0,0,0,24,,,24,0,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,DD_FIXED_FUNDED,market,0,0,4,20,,0.0,24,4,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,DD_FIXED_FUNDED,core_on,0,0,0,24,,,24,0,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,MARKET_HALF_FAST,market,0,0,4,20,,0.0,24,4,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,MARKET_HALF_FAST,core_on,0,0,0,24,,,24,0,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,MARKET_HALF_CONFIRM,market,0,0,4,20,,0.0,24,4,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,MARKET_HALF_CONFIRM,core_on,0,0,0,24,,,24,0,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,MARKET_FULL_CONFIRM,market,0,0,4,20,,0.0,24,4,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,MARKET_FULL_CONFIRM,core_on,0,0,0,24,,,24,0,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,DD_PLUS_HALF,market,0,0,4,20,,0.0,24,4,Future 20 complete sessions min close / current close <= -10%; ex-post only
+complete_window_2026_0529_0731,DD_PLUS_HALF,core_on,0,0,0,24,,,24,0,Future 20 complete sessions min close / current close <= -10%; ex-post only

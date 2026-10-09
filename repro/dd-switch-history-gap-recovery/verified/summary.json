@@ -1,0 +1,57 @@
+{
+  "status": "RAW_CORE_RECOVERED_AND_FIVE_TRAIL_SESSIONS_RECONSTRUCTED_NOT_COMPLETE",
+  "recovered_raw_rows": 56,
+  "recovered_price_sessions": [
+    "2025-02-06",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2026-05-28"
+  ],
+  "restored_trail_sessions": [
+    "2026-08-03",
+    "2026-08-04",
+    "2026-08-05",
+    "2026-08-06",
+    "2026-08-07"
+  ],
+  "pre_gap_trail_max_relative_error": 1.3322676295501878e-15,
+  "active_gate_changes_on_shared_dates": 0,
+  "unresolved_parent_and_base_sessions": [
+    "2025-02-06",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2026-05-28"
+  ],
+  "source_sha256": {
+    "repro/dd-switch-history-gap-recovery/sources/2880.json": "a93b2c274185d71dbadc5ff14296c4b97839548caf9f826bef98f34216187e2b",
+    "repro/dd-switch-history-gap-recovery/sources/2886.json": "5a335dc473f9c3da222bd40615d120a4fe495fe3a51332ee03e45ccf26980609",
+    "repro/dd-switch-history-gap-recovery/sources/2892.json": "26e197d8ec9e9e600074eb7113a0c94b01f644121d50fc9823e35ffe0749e4c1",
+    "repro/dd-switch-history-gap-recovery/sources/5880.json": "fefe5f232f23476940c29548c5828c3ff3d002c55042c71c21954b980a6fc0f1",
+    "repro/dd-switch-history-gap-recovery/sources/TAIEX.json": "ee083dd59ec42eb921e88e1cc65e10c8671dde61ce397e1ed4521296558942b1",
+    "data/telecom_0050_complete/2412_2010_latest_ohlcv.csv": "eb1f8e2481f63839248cc754a5e04059780037655c8c7df9206fbbb65226221c",
+    "data/telecom_0050_complete/3045_2010_latest_ohlcv.csv": "ba8762c73afbd5afbc9deea41f54d889e163fb19a83c482585fed9cc4358fc12",
+    "data/telecom_0050_complete/4904_2010_latest_ohlcv.csv": "1f9e561f775d3306b3aff210cab76c41bfce3437e55e072714246db30e877750",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/base.csv": "a478b18bd850d09041cb630dd6266cb8a8fc70fda2fd2a379514793c0d1c68ec",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/l4.csv": "288d7d79c41f6e4f8ab95c9fc19556dac2a4f25194d326a1d723c8c86452ac92",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/trail.csv": "f8d822f076e46001f53746af4ed974167755e6497b68149bc4274706964914ab",
+    "repro/dd-switch-live-repair-refresh-final/lineage/source_snapshot/97933be85192e8d0ef89695be0c292342bba694d/forward/e21/live_market.csv": "ccd950b032b63664cd73b89aeae506c18880f18d3ec7cdcd311ae520b9ee007a",
+    "forward/e21/live_market.csv": "bee3599a6df6c94ca8e616e7dd4a87df92e0bbe64f249e3bb91bf3e9de9357ee",
+    "repro/dd-switch-live-repair-refresh-final/lineage/source_snapshot/97933be85192e8d0ef89695be0c292342bba694d/repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_COMP_H150_x_A20.csv": "b47dce8e7dfd522d4e8dc5626a56c618900fc650666a88e7f8877bd7095e614f",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/shares_COMP_H150_x_A20.csv": "9ed36d7e2670dfc8c8c09fe9ec363ac37e3db71eb0fcf824e4a53cbcc05eb1a8",
+    "repro/dd-switch-live-repair-refresh-final/lineage/source_snapshot/97933be85192e8d0ef89695be0c292342bba694d/repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_SAT_A20_RELAX.csv": "153b960683048180c1e450682032993332379dc0df6cb4d8bc8ecfd3f6f0b252",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/shares_SAT_A20_RELAX.csv": "8fd7dcf79544108d486372a6035799b94813245d70f704d33032f9bcb35ace88",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/signal.csv": "d873aa23907c3b26f3896d2bb3aba3235d84e375edc796d19a2078af0bdabbb8"
+  },
+  "canonical_history_unchanged": true,
+  "limits": [
+    "0050 halt dates have no tradable quote: no invented ETF fills",
+    "Seven sessions still lack original BASE/L4 and parent shares/signals: strict complete-session DD replay remains blocked",
+    "Corrected historical runtime is research only; original prefix certification is intentionally removed"
+  ]
+}

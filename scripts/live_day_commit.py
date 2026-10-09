@@ -31,6 +31,7 @@ def commit_day_books(
     asof_iso: str,
     write_excel_dashboard: bool = True,
     order_events: list[dict[str, Any]] | None = None,
+    funding_events: list[dict[str, Any]] | None = None,
 ) -> None:
     """Persist day ledgers then atomic portfolio_state (ACCEPT day-commit atomicity).
 
@@ -50,6 +51,7 @@ def commit_day_books(
     if fill_port_name == "paper":
         append_immutable_many(sdir / "fills.csv", list(fills), "fill_id")
     append_immutable_many(div_path, list(pending_div_rows), "key")
+    append_immutable_many(sdir / 'dd_funding_events.csv',list(funding_events or []),'event_id')
     # State last — assert_no_uncommitted_ledger detects orphans if we die above.
     atomic_write_json(state_path, state_payload)
     from live_order_lifecycle import write_order_lifecycle
@@ -71,6 +73,7 @@ def commit_day_books(
                 "orders": order_rows,
                 "fills": fills,
                 'order_events':order_events or [],
+                'dd_funding_events':funding_events or [],
                 "dividends": applied_details,
                 "previous_hash": prev,
             },

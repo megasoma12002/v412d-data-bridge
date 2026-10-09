@@ -1,0 +1,57 @@
+date,code,open,close,source
+2025-02-06,2412,126.0,126.0,data/telecom_0050_complete/2412_2010_latest_ohlcv.csv
+2025-02-06,2880,27.85,27.95,FinMind TaiwanStockPrice archived JSON
+2025-02-06,2886,38.8,39.0,FinMind TaiwanStockPrice archived JSON
+2025-02-06,2892,27.8,28.0,FinMind TaiwanStockPrice archived JSON
+2025-02-06,3045,112.0,112.5,data/telecom_0050_complete/3045_2010_latest_ohlcv.csv
+2025-02-06,4904,90.4,90.2,data/telecom_0050_complete/4904_2010_latest_ohlcv.csv
+2025-02-06,5880,24.45,24.65,FinMind TaiwanStockPrice archived JSON
+2025-02-06,TAIEX,23226.5,23316.6,FinMind TaiwanStockPrice archived JSON
+2025-06-11,2412,132.5,133.0,data/telecom_0050_complete/2412_2010_latest_ohlcv.csv
+2025-06-11,2880,26.65,26.5,FinMind TaiwanStockPrice archived JSON
+2025-06-11,2886,39.85,40.15,FinMind TaiwanStockPrice archived JSON
+2025-06-11,2892,27.8,27.95,FinMind TaiwanStockPrice archived JSON
+2025-06-11,3045,115.0,116.0,data/telecom_0050_complete/3045_2010_latest_ohlcv.csv
+2025-06-11,4904,88.0,87.8,data/telecom_0050_complete/4904_2010_latest_ohlcv.csv
+2025-06-11,5880,24.35,24.45,FinMind TaiwanStockPrice archived JSON
+2025-06-11,TAIEX,22376.37,22470.1,FinMind TaiwanStockPrice archived JSON
+2025-06-12,2412,133.0,134.0,data/telecom_0050_complete/2412_2010_latest_ohlcv.csv
+2025-06-12,2880,26.75,26.55,FinMind TaiwanStockPrice archived JSON
+2025-06-12,2886,40.15,40.4,FinMind TaiwanStockPrice archived JSON
+2025-06-12,2892,27.8,28.0,FinMind TaiwanStockPrice archived JSON
+2025-06-12,3045,116.0,115.5,data/telecom_0050_complete/3045_2010_latest_ohlcv.csv
+2025-06-12,4904,87.8,88.1,data/telecom_0050_complete/4904_2010_latest_ohlcv.csv
+2025-06-12,5880,24.35,24.45,FinMind TaiwanStockPrice archived JSON
+2025-06-12,TAIEX,22362.67,22287.82,FinMind TaiwanStockPrice archived JSON
+2025-06-13,2412,133.0,135.0,data/telecom_0050_complete/2412_2010_latest_ohlcv.csv
+2025-06-13,2880,26.4,26.75,FinMind TaiwanStockPrice archived JSON
+2025-06-13,2886,39.9,40.85,FinMind TaiwanStockPrice archived JSON
+2025-06-13,2892,27.75,27.95,FinMind TaiwanStockPrice archived JSON
+2025-06-13,3045,115.5,116.0,data/telecom_0050_complete/3045_2010_latest_ohlcv.csv
+2025-06-13,4904,87.8,88.5,data/telecom_0050_complete/4904_2010_latest_ohlcv.csv
+2025-06-13,5880,24.3,24.6,FinMind TaiwanStockPrice archived JSON
+2025-06-13,TAIEX,22215.5,22072.95,FinMind TaiwanStockPrice archived JSON
+2025-06-16,2412,135.0,136.0,data/telecom_0050_complete/2412_2010_latest_ohlcv.csv
+2025-06-16,2880,26.7,26.55,FinMind TaiwanStockPrice archived JSON
+2025-06-16,2886,40.8,40.75,FinMind TaiwanStockPrice archived JSON
+2025-06-16,2892,27.7,28.0,FinMind TaiwanStockPrice archived JSON
+2025-06-16,3045,116.5,117.0,data/telecom_0050_complete/3045_2010_latest_ohlcv.csv
+2025-06-16,4904,88.4,90.0,data/telecom_0050_complete/4904_2010_latest_ohlcv.csv
+2025-06-16,5880,24.7,24.65,FinMind TaiwanStockPrice archived JSON
+2025-06-16,TAIEX,22058.57,22049.9,FinMind TaiwanStockPrice archived JSON
+2025-06-17,2412,136.0,136.5,data/telecom_0050_complete/2412_2010_latest_ohlcv.csv
+2025-06-17,2880,26.7,26.55,FinMind TaiwanStockPrice archived JSON
+2025-06-17,2886,40.8,40.6,FinMind TaiwanStockPrice archived JSON
+2025-06-17,2892,28.0,28.35,FinMind TaiwanStockPrice archived JSON
+2025-06-17,3045,117.5,116.5,data/telecom_0050_complete/3045_2010_latest_ohlcv.csv
+2025-06-17,4904,90.0,90.5,data/telecom_0050_complete/4904_2010_latest_ohlcv.csv
+2025-06-17,5880,24.8,24.85,FinMind TaiwanStockPrice archived JSON
+2025-06-17,TAIEX,22172.59,22211.59,FinMind TaiwanStockPrice archived JSON
+2026-05-28,2412,137.0,136.5,data/telecom_0050_complete/2412_2010_latest_ohlcv.csv
+2026-05-28,2880,30.1,29.6,FinMind TaiwanStockPrice archived JSON
+2026-05-28,2886,39.8,39.8,FinMind TaiwanStockPrice archived JSON
+2026-05-28,2892,27.6,27.25,FinMind TaiwanStockPrice archived JSON
+2026-05-28,3045,110.0,111.0,data/telecom_0050_complete/3045_2010_latest_ohlcv.csv
+2026-05-28,4904,93.4,93.6,data/telecom_0050_complete/4904_2010_latest_ohlcv.csv
+2026-05-28,5880,22.75,22.7,FinMind TaiwanStockPrice archived JSON
+2026-05-28,TAIEX,44240.8,43636.44,FinMind TaiwanStockPrice archived JSON

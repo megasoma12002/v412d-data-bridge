@@ -185,7 +185,17 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         return
 
     pos, cash, vals, nav = holdings(state, prices, capital=a.capital)
+    from live_dd_funding import DDFunding, FundingPaperPort, reject_unfunded_legacy_exit
+    if LIVE.live_tipsoft_dd_switch:
+        reject_unfunded_legacy_exit(sdir,state.get('dd_switch_funding'))
+    funding=DDFunding(state.get('dd_switch_funding'))
+    if funding.state['owned'] and not LIVE.live_tipsoft_dd_switch:
+        raise RuntimeError('DD funding ownership requires DD gate; explicit migration needed')
     fill_port = resolve_fill_port(fill_port_name)
+    if LIVE.live_tipsoft_dd_switch:
+        if fill_port_name != 'paper':
+            raise RuntimeError('DD funding requires audited paper port')
+        fill_port=FundingPaperPort(funding)
     # Entitlement = cum-date / pre-open books; open fills must not inflate div credits.
     pos_cum = {k: float(v) for k, v in pos.items()}
     pos, cash, fills, same_bar_fills, exact_t1_ok = fill_pending_at_open(
@@ -279,6 +289,8 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         entitlement_positions=pos_cum,
     )
 
+    funding.dividends(pending_div_rows)
+    funding.check(cash)
     pos, cash, vals, nav = holdings(
         {"positions": pos, "cash": cash, "e22_receivables": receivables},
         prices,
@@ -327,9 +339,11 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         conf_ret3_order_meta["enabled"] = True
     # Path3 WITHIN + T0 emit/mute + tipsoft DD_SWITCH tip apply + OVERRIDE stamps.
     overlays = apply_path3_tipsoft_overlays(
-        order_rows, asof=latest, pos=pos, prices=prices
+        order_rows, asof=latest, pos=pos, prices=prices, funding=funding if LIVE.live_tipsoft_dd_switch else None
     )
     order_rows = overlays.order_rows
+    if LIVE.live_tipsoft_dd_switch:
+        funding.register(order_rows,(overlays.path3_weight_meta.get('tipsoft_dd_switch') or {}).get('gate') or {})
     from live_dd_handoff import prepare_handoff
     from live_order_lifecycle import prepare_order_events
     from dd_switch_runtime import runtime_dir
@@ -452,6 +466,10 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         e22_version=a.e22_version,
         skip=skip,
     )
+    state_payload['dd_switch_funding']=funding.state
+    signal['dd_reserved_cash']=funding.total
+    navrow['dd_reserved_cash']=funding.total
+    audit['dd_switch_funding']=funding.state
     if handoff:state_payload['dd_switch_handoff']=handoff
     signal['dd_switch_initial_handoff']=bool(handoff and handoff.get('signal_date')==latest.date().isoformat())
     audit['dd_switch_handoff']=handoff
@@ -472,6 +490,7 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         asof_iso=latest.date().isoformat(),
         write_excel_dashboard=not bool(a.skip_excel_dashboard),
         order_events=order_events,
+        funding_events=funding.events,
     )
     (sdir/'pipeline_t1_audit.json').write_text(json.dumps(audit,indent=2)+'\n')
     print(
