@@ -8,6 +8,26 @@
     {
       "id": "yuanta_0050_notice_legacy_probe_201607_previous_estimate",
       "reason": "FAILED"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_sep_104_estimate",
+      "reason": "FAILED"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_sep_104_final",
+      "reason": "FAILED"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_sep_103_estimate",
+      "reason": "FAILED"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_2015_final",
+      "reason": "Not PDF bytes"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_2015_estimate",
+      "reason": "Not PDF bytes"
     }
   ],
   "paired_estimate_final_events": 20,

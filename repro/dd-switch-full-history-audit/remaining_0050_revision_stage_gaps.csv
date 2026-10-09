@@ -1,0 +1,8 @@
+event_id,ex_date,estimate_versions,final_versions,missing_stages,ambiguous_stages,publication_vintage_certified,revision_inventory_complete
+0050:cash:2010-10-25,2010-10-25,0,0,"ESTIMATE,FINAL",,False,False
+0050:cash:2011-10-26,2011-10-26,0,0,"ESTIMATE,FINAL",,False,False
+0050:cash:2012-10-24,2012-10-24,0,0,"ESTIMATE,FINAL",,False,False
+0050:cash:2013-10-24,2013-10-24,0,0,"ESTIMATE,FINAL",,False,False
+0050:cash:2014-10-24,2014-10-24,0,0,"ESTIMATE,FINAL",,False,False
+0050:cash:2015-10-26,2015-10-26,0,0,"ESTIMATE,FINAL",,False,False
+0050:cash:2016-07-28,2016-07-28,0,1,ESTIMATE,,False,False

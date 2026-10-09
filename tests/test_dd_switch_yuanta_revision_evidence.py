@@ -1,5 +1,5 @@
 import unittest
-from dd_switch_yuanta_revision_evidence import parse_notice
+from dd_switch_yuanta_revision_evidence import parse_notice, stage_gaps
 from dd_switch_revision_audit import revision_snapshot
 
 
@@ -52,6 +52,25 @@ class YuantaRevisionTests(unittest.TestCase):
     def test_ambiguous_payment_dates_are_rejected(self):
         with self.assertRaises(ValueError):
             parse_notice(self.body() + '收益分配發放日：110年08月25日。', self.meta())
+
+    def test_discovery_estimate_cannot_hide_explicit_final_body(self):
+        with self.assertRaises(ValueError):
+            parse_notice(self.body(True), self.meta())
+
+    def test_final_only_closes_chain_but_keeps_estimate_stage_gap(self):
+        final = parse_notice(self.body(True), self.meta(True))
+        event = dict(code='0050', cash_dividend='0.35', cash_ex_date='2021-07-21')
+        gaps = stage_gaps([final], [event])
+        self.assertEqual(gaps[0]['missing_stages'], 'ESTIMATE')
+        self.assertEqual(gaps[0]['final_versions'], 1)
+        self.assertFalse(gaps[0]['revision_inventory_complete'])
+
+    def test_duplicate_stage_is_ambiguous_not_complete(self):
+        estimate = parse_notice(self.body(), self.meta())
+        final = parse_notice(self.body(True), self.meta(True))
+        event = dict(code='0050', cash_dividend='0.35', cash_ex_date='2021-07-21')
+        self.assertEqual(stage_gaps([estimate, final], [event]), [])
+        self.assertEqual(stage_gaps([estimate, final, final], [event])[0]['ambiguous_stages'], 'FINAL')
 
     def test_legacy_signature_and_pdf_date_without_index_clock(self):
         meta = self.meta(True); meta.update(archive_source='SITCA_ISSUER_DISCLOSURE_PDF', announcement_date='')

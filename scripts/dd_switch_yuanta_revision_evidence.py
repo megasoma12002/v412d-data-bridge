@@ -34,6 +34,8 @@ def parse_notice(text,meta):
     if not header:raise ValueError('Missing PDF issue date')
     stage='FINAL' if '實際配發金額' in re.sub(r'\s+','',meta['title']) else 'ESTIMATE'
     label='實際配發金額' if stage=='FINAL' else '預估配發金額'
+    if stage == 'ESTIMATE' and re.search(r'每受益權單位實際配發金額(?:為)?新[臺台]幣[\d.]+元', compact) and not re.search(r'每受益權單位預估配發金額(?:為)?新[臺台]幣[\d.]+元', compact):
+        raise ValueError('Discovery stage conflicts with explicit final PDF amount')
     amounts=set(re.findall(r'每受益權單位'+label+r'(?:為)?新[臺台]幣([\d.]+)元',compact))
     if len(amounts)>1 or (stage=='FINAL' and len(amounts)!=1):raise ValueError('Missing or ambiguous '+label)
     pdf_date=iso(header[1]);index_date=meta.get('announcement_date','').replace('/','-')[:10]
@@ -48,6 +50,23 @@ def parse_notice(text,meta):
                 ex_dates=[ex],cash_payment_dates=[payment],stage=stage,
                 declared_cash_amount=amounts.pop() if amounts else '',amount_stage='CONDITIONAL_DECLARATION' if stage=='ESTIMATE' else 'FINAL_ISSUER_DECLARATION',
                 identity_match='ISSUER_PDF_EX_DATE',evidence_class='ORIGINAL_ISSUER_PDF')
+
+def stage_gaps(versions, events):
+    result = []
+    for event in events:
+        if event['code'] != '0050' or float(event['cash_dividend']) <= 0:
+            continue
+        ex = event['cash_ex_date']
+        linked = [r for r in versions if ex in r['ex_dates']]
+        estimates = [r for r in linked if r['stage'] == 'ESTIMATE']
+        finals = [r for r in linked if r['stage'] == 'FINAL']
+        if len(estimates) != 1 or len(finals) != 1:
+            result.append(dict(event_id='0050:cash:' + ex, ex_date=ex,
+                               estimate_versions=len(estimates), final_versions=len(finals),
+                               missing_stages=','.join(s for s, rows in [('ESTIMATE', estimates), ('FINAL', finals)] if not rows),
+                               ambiguous_stages=','.join(s for s, rows in [('ESTIMATE', estimates), ('FINAL', finals)] if len(rows) > 1),
+                               publication_vintage_certified=False, revision_inventory_complete=False))
+    return result
 
 def load_notices():
     manifest=OUT/'sources/targeted_issuers/manifest.json'
@@ -92,6 +111,11 @@ def load_notices():
             versions.append(row)
         except (ValueError,subprocess.CalledProcessError) as error:rejected.append(dict(id=meta['id'],reason=str(error)))
     versions.sort(key=lambda r:(r['announcement_date'],r['id']))
+    with (ROOT/'data/dividend_events/e22_dividend_events.csv').open() as handle:
+        gaps = stage_gaps(versions, list(csv.DictReader(handle)))
+    with (OUT/'remaining_0050_revision_stage_gaps.csv').open('w', newline='') as handle:
+        writer = csv.DictWriter(handle, fieldnames=['event_id','ex_date','estimate_versions','final_versions','missing_stages','ambiguous_stages','publication_vintage_certified','revision_inventory_complete'], lineterminator='\n')
+        writer.writeheader();writer.writerows(gaps)
     pairs = defaultdict(list)
     for row in versions:
         pairs[row['ex_dates'][0]].append(row)

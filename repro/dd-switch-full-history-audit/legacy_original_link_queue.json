@@ -1,0 +1,15 @@
+[
+  {
+    "id": "legacy_0050_2011_original_link",
+    "url": "http://www.p-shares.com/exg%5Cupp%5CUploadFile/2011-10/20111024101620_.pdf",
+    "discovery_url": "https://odie34.blogspot.com/2011/10/99-500050.html",
+    "evidence_status": "DISCOVERY_ONLY_UNVERIFIED_CURRENT_HOST"
+  },
+  {
+    "id": "yuanta_0050_2011_migrated_pdf_probe",
+    "url": "https://www.yuantaetfs.com/UploadFile/2011-10/20111024101620_.pdf",
+    "discovery_url": "https://odie34.blogspot.com/2011/10/99-500050.html",
+    "discovery_method": "OBSERVED_LEGACY_BASENAME_CURRENT_ISSUER_DIRECTORY",
+    "evidence_status": "UNVERIFIED_UNTIL_BODY_INSPECTION"
+  }
+]
