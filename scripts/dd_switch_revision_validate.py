@@ -27,6 +27,12 @@ def main():
         assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==sha,name
         verified+=1
     missing=list(csv.DictReader((OUT/'remaining_dividend_payment_gaps.csv').open()))
+    versions=json.loads((OUT/'mops_linked_revision_versions.json').read_text())
+    stage_rows=[]
+    for gap in missing:
+        linked=[r for r in versions if r.get('event_id')==gap['event_id'] and r.get('new_share_listing_dates')]
+        stage_rows.append(dict(event_id=gap['event_id'],ledger_payment_date=gap['ledger_payment_date'],explicit_listing_evidence=[{k:r[k] for k in ('id','url','response_sha256','new_share_listing_dates')} for r in linked],delivery_certified=False))
+    (OUT/'remaining_dividend_share_stage_evidence.json').write_text(json.dumps(stage_rows,ensure_ascii=False,indent=2)+'\n')
     chains=list(csv.DictReader((OUT/'remaining_announcement_chain_gaps.csv').open()))
     actions=list(csv.DictReader((OUT/'subscription_settlement_check.csv').open()))
     past=[r for r in actions if not r['new_share_delivery_date'] and r['not_yet_due_asof']=='False']

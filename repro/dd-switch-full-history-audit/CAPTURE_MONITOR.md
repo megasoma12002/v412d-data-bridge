@@ -1,3 +1,9 @@
+## 最新續核抓取
+
+issuer_capture_progress.json：COMPLETE，5/5處理，3快取、2新回應保存、0失敗，2026-10-10 01:44:32台灣時間完成。新回應為富邦股東會檔案頁與華南2013公告轉載，僅作線索，沒有升格為原始MOPS版本認證。0050 STOPPED_SOURCE_BLOCK快照保留；無背景工作正在執行。
+
+---
+
 ## 最新缺口探測
 
 0050原文探測：STOPPED_SOURCE_BLOCK，1/1已處理，HTTP307安全阻擋，見targeted_capture_progress.json。已停止该来源。

@@ -1,27 +1,24 @@
 {
   "status": "COMPLETE",
-  "total": 3,
-  "processed": 3,
-  "success": 3,
+  "total": 5,
+  "processed": 5,
+  "success": 2,
   "failed": 0,
-  "started_at": "2026-10-09T17:32:58.731867+00:00",
+  "cached": 3,
+  "started_at": "2026-10-09T17:44:13.769871+00:00",
   "blocked_hosts": [],
   "recent_results": [
     {
-      "id": "yuanta_0050_basic",
+      "id": "fubon_shareholders_archive",
       "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
     },
     {
-      "id": "fubon_dividend",
-      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
-    },
-    {
-      "id": "sinopac_dividend",
+      "id": "hn_2013_syndicated_notice",
       "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
     }
   ],
+  "updated_at": "2026-10-09T17:44:32.892139+00:00",
   "current_id": "",
-  "current_started_at": "2026-10-09T17:33:25.781368+00:00",
-  "updated_at": "2026-10-09T17:33:37.062030+00:00",
-  "last_completed_at": "2026-10-09T17:33:37.059552+00:00"
+  "current_started_at": "2026-10-09T17:44:23.576901+00:00",
+  "last_completed_at": "2026-10-09T17:44:32.891493+00:00"
 }

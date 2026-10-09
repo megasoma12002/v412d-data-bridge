@@ -24,6 +24,7 @@ jobs:
           unzip -o repro/dd-switch-full-history-audit/completed_capture_delta.zip
           unzip -o repro/dd-switch-full-history-audit/continued_capture_delta.zip
           unzip -o repro/dd-switch-full-history-audit/targeted_gap_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/cash_and_preferred_capture_delta.zip
       - name: Probe five missing responses before batch capture
         env:
           MOPS_REQUEST_INTERVAL_SECONDS: '2'

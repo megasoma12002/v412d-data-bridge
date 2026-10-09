@@ -86,6 +86,8 @@ def cash_schedule_dates(other):
         values.extend(dates(match[1]))
     for match in re.finditer('(' + DATE + r')(?:為|係|是)?現金股利(?:發放日|支付日)', other):
         values.extend(dates(match[1]))
+    for match in re.finditer(r'(?:預訂|預計|訂|將)?(?:於)?(' + DATE + r')發放現金股利', other):
+        values.extend(dates(match[1]))
     return sorted(set(values))
 
 
@@ -221,6 +223,7 @@ def delivery_clauses(text):
         r'(?:本次增資股票|前項增資新股)[^。]{0,90}?(?:訂於|同意於|預計於)(?:民國)?('+DATE+r')([^。]{0,60})',
         r'本次現金增資發行新股訂於('+DATE+r')([^。]{0,90})',
         r'本公司訂於('+DATE+r')([^。]{0,90})',
+        r'本次增資之記名式[甲乙丙丁戊]種特別股[，,]訂於('+DATE+r')([^。]{0,90})',
     ]:
         for m in re.finditer(pattern,text):
             tail=m[m.lastindex]
@@ -229,6 +232,8 @@ def delivery_clauses(text):
     for m in re.finditer(r'自動於('+DATE+r')(?:\([^)]*\)|（[^）]*）)?(?:換發為普通股|將股款繳納憑證轉換為普通股)',text):
         delivery.extend(dates(m[1]))
     # A listing date alone is not proof of the delivery date.
+    for m in re.finditer(r'本次增資之普通股股票訂於(?:民國)?('+DATE+r')(?:\([^)]*\)|（[^）]*）)?正式上市買賣',text):
+        listing.extend(dates(m[1]))
     for m in re.finditer(r'(?:訂於|訂定)('+DATE+r')(?:\([^)]*\)|（[^）]*）)?(?:為)?普通股上市',text):
         listing.extend(dates(m[1]))
     if '股款繳納憑證換發普通股股票' in text:
@@ -251,7 +256,8 @@ def load_statutory():
         if '公告' not in text or meta['code'] not in text:raise ValueError('Statutory issuer identity mismatch')
         def after(labels):
             return explicit_date_after(text,labels)
-        record=after(['普通股現金股利分派基準日','現金股利分派基準日','除息及除權基準日','除息與除權基準日','權利分派基準日','除權息基準日','除息基準日','認股基準日'])
+        record=after(['分派現金股利基準日','普通股現金股利分派基準日','現金股利分派基準日','除息及除權基準日','除息與除權基準日','權利分派基準日','除權息基準日','除息基準日','認股基準日'])
+        for m in re.finditer('(' + DATE + r')為分派現金股利基準日',text):record.extend(dates(m[1]))
         ex=after(['除權/除息交易日','除權息交易日','除權交易日','除息交易日'])
         cash=after(['現金股利發放日期','現金股利發放日','現金股利預訂於','現金股利預計於','現金股利訂於'])
         cash.extend(cash_schedule_dates(text))

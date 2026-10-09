@@ -5,15 +5,15 @@
   "positive_dividend_legs": 416,
   "dividend_legs_with_linked_schedule_chain": 389,
   "dividend_legs_with_earlier_schedule": 304,
-  "primary_payment_schedule_matches": 396,
+  "primary_payment_schedule_matches": 403,
   "payment_schedule_conflicts": 2,
   "contradictory_primary_payment_dates": 2,
   "subscription_events": 24,
   "subscription_windows_supported": 24,
   "subscription_future_not_due": 1,
-  "subscription_delivery_dates_supported": 13,
+  "subscription_delivery_dates_supported": 14,
   "subscription_voucher_dates_supported": 16,
-  "subscription_listing_dates_supported": 19,
+  "subscription_listing_dates_supported": 20,
   "revision_inventory_complete": false,
   "publication_vintage_certified_legs": 0,
   "backtest_ready": false,
@@ -25,16 +25,15 @@
     "Subscription requires an explicit paid election; no automatic ordinary shares",
     "Future scheduled settlement is not a missing past payment"
   ],
-  "payment_schedule_missing": 18,
+  "payment_schedule_missing": 11,
   "payment_schedule_missing_by_leg": {
-    "stock": 11,
-    "cash": 7
+    "stock": 11
   },
   "announcement_chain_missing": 27,
   "announcement_chain_missing_by_code": {
     "0050": 27
   },
-  "past_subscription_delivery_missing": 10,
+  "past_subscription_delivery_missing": 9,
   "uncaptured_responses": {
     "mops_actions": 0,
     "mops_revisions": 0,
@@ -63,10 +62,10 @@
       "STOPPED_SOURCE_BLOCK": 1
     },
     "targeted_issuers": {
-      "RESPONSE_SAVED_NEEDS_VALIDATION": 3
+      "RESPONSE_SAVED_NEEDS_VALIDATION": 5
     }
   },
-  "source_hash_pairs_verified": 3351,
+  "source_hash_pairs_verified": 3353,
   "canonical_input_hashes_verified": 6,
   "canonical_inputs_absent": [
     "repro/dd-switch-seven-session-rebuild/inputs/parents_with_off.csv",
@@ -120,30 +119,27 @@
     },
     "issuer_capture_progress.json": {
       "status": "COMPLETE",
-      "total": 3,
-      "processed": 3,
-      "success": 3,
+      "total": 5,
+      "processed": 5,
+      "success": 2,
       "failed": 0,
-      "started_at": "2026-10-09T17:32:58.731867+00:00",
+      "cached": 3,
+      "started_at": "2026-10-09T17:44:13.769871+00:00",
       "blocked_hosts": [],
       "recent_results": [
         {
-          "id": "yuanta_0050_basic",
+          "id": "fubon_shareholders_archive",
           "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
         },
         {
-          "id": "fubon_dividend",
-          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
-        },
-        {
-          "id": "sinopac_dividend",
+          "id": "hn_2013_syndicated_notice",
           "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
         }
       ],
+      "updated_at": "2026-10-09T17:44:32.892139+00:00",
       "current_id": "",
-      "current_started_at": "2026-10-09T17:33:25.781368+00:00",
-      "updated_at": "2026-10-09T17:33:37.062030+00:00",
-      "last_completed_at": "2026-10-09T17:33:37.059552+00:00"
+      "current_started_at": "2026-10-09T17:44:23.576901+00:00",
+      "last_completed_at": "2026-10-09T17:44:32.891493+00:00"
     }
   },
   "validation_scope": "Saved public response integrity and current matching; historical revision completeness remains uncertified"

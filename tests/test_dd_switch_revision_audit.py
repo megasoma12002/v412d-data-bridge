@@ -116,8 +116,24 @@ class RevisionAuditTests(unittest.TestCase):
     def test_corrected_conversion_keeps_each_notice_date(self):
         original='集保自動於101年2月8日將股款繳納憑證轉換為普通股股票。'
         revised='集保自動於101年2月10日將股款繳納憑證轉換為普通股股票。'
+        self.assertEqual(delivery_clauses('本次增資之普通股股票訂於民國100年9月21日(星期三)正式上市買賣，原100年9月16日發行之新股權利證書終止上市。'),([],['2011-09-21']))
         self.assertEqual(delivery_clauses(original),(['2012-02-08'],[]))
         self.assertEqual(delivery_clauses(revised),(['2012-02-10'],[]))
+
+    def test_date_before_cash_distribution_is_scoped_to_distribution(self):
+        text='本公司預訂103年7月30日發放現金股利。最後過戶日103年6月24日。'
+        self.assertEqual(cash_schedule_dates(text),['2014-07-30'])
+        self.assertEqual(cash_schedule_dates('訂於103年6月24日辦理股票過戶，現金股利另行通知。'),[])
+
+    def test_sinopac_cash_record_date_and_preferred_rate_are_separate(self):
+        event=dict(code='2890',cash_ex_date='2012-07-10',record_date='2012-07-16',fiscal_year='100年',cash_dividend='0.13547466')
+        filing=dict(code='2890',title='發放一○一年現金股利',ex_dates=[],record_dates=['2012-07-16'],announcement_date='2012-07-23',fiscal_years=[],compact_text='普通股每股分派新台幣0.13547466元；甲種特別股每股約0.10850792元')
+        self.assertTrue(statutory_dividend_identity(event,'cash',filing))
+        self.assertEqual(ordinary_cash_amounts(filing['compact_text']),['0.13547466'])
+
+    def test_named_preferred_share_direct_credit_is_delivery(self):
+        text='本次增資之記名式甲種特別股，訂於105年05月31日(星期二)直接劃撥至股東之證券存摺帳戶，並於同日上市買賣。'
+        self.assertEqual(delivery_clauses(text),(['2016-05-31'],['2016-05-31']))
 
 
 if __name__=='__main__':unittest.main()
