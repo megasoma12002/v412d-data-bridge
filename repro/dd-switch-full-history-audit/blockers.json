@@ -5,7 +5,7 @@
   },
   {
     "id": "FULL_RAW_PRICE_EXTERNAL_CONFIRMATION",
-    "reason": "Provider quota reached; per-stock full-history re-download incomplete"
+    "reason": "All requested annual snapshots obtained and compared; FinMind shares original ancestry, so independent historical primary proof remains incomplete"
   },
   {
     "id": "DIVIDEND_VINTAGE",

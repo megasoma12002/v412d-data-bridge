@@ -6,13 +6,13 @@
 
 ## 最新核對批次（2026/10/09）
 
-- 2010–2026年302個標的年度項目：270項取得，4項額度錯誤、28項因額度停止未請求。尚未完成全部外部重抓。
+- 2010–2026年302個標的年度項目全部取得，32項重試成功，0項未完成；302份來源SHA256逐檔驗證通過。完整來源均為FinMind現行重抓，並非歷史公告當時版本或獨立一手雙重認證。
 - 日期衝突20項已有處理依據：17項保留原交易日，2項颱風休市不補假報價，1項2023/05/25確認為原DD面板漏列。完整官方歷史日曆尚未認證。
 - 原始FinMind行情及鄰日單位／調整係數核對後，獨立研究副本補34筆：核心10筆、民營金融24筆。原有核心列維持不變；核心36330列、金融32871列，無重複或未解缺列，金融另有1日合法停牌。
 - 已取得的個股原價與重建原價一致。TAIEX舊面板是收盤代理，OHLC與volume不能支持盤中成交聲明。Yahoo的63223個欄位差異是來源／單位假設差異，不代表本地錯價。
 - 中華電2010/01/21–02/07的13個缺價交易日，找到公司减資停牌公告的轉載依據；歸類合法停牌，不填假價。來源強度見historical_halt_additional_evidence.json。
 - 公司與股務代理現行頁面69筆股利比較，金額全部精確相符；有提供支付日期者亦一致。公告版本、當時可得時間仍未認證。
-- 尚須完成剩餘外部來源、歷史公司行動、股利公告時點及修訂證據。backtest_ready=False，未重跑策略、未更新canonical／runtime。
+- 年度行情下載已全部完成；尚須核對歷史公司行動、股利公告時點及修訂證據。backtest_ready=False，未重跑策略、未更新canonical／runtime。
 
 本次完整來源與生成報告分別保存在sources_evidence.zip與audit_outputs.zip。解壓到本目錄後，可離線重現已取得來源的核對：
 
@@ -22,6 +22,7 @@ python -m zipfile -e repro/dd-switch-full-history-audit/audit_outputs.zip repro/
 PYTHONPATH=scripts python scripts/dd_switch_full_history_audit.py
 PYTHONPATH=scripts python scripts/dd_switch_history_reconciliation.py
 PYTHONPATH=scripts python scripts/dd_switch_history_gap_verify.py
+PYTHONPATH=scripts python scripts/dd_switch_history_candidate_integrity.py
 PYTHONPATH=scripts python scripts/dd_switch_dividend_primary_check.py
 ```
 

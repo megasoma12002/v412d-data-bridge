@@ -28,9 +28,7 @@
     2026
   ],
   "external_source_counts": {
-    "FETCHED": 270,
-    "NOT_REQUESTED_QUOTA_STOP": 28,
-    "UNAVAILABLE": 4
+    "FETCHED": 302
   },
   "primary_access": [
     {
@@ -433,7 +431,7 @@
         "MISSING_BENCHMARK_DATE": 24,
         "EXPECTED_KNOWN_HALT_NO_QUOTE": 1
       },
-      "redownload_compared_rows": 25133,
+      "redownload_compared_rows": 32847,
       "redownload_difference_fields": 0,
       "redownload_difference_by_field": {},
       "large_raw_moves": 0,
@@ -907,7 +905,7 @@
     },
     {
       "id": "FULL_RAW_PRICE_EXTERNAL_CONFIRMATION",
-      "reason": "Provider quota reached; per-stock full-history re-download incomplete"
+      "reason": "All requested annual snapshots obtained and compared; FinMind shares original ancestry, so independent historical primary proof remains incomplete"
     },
     {
       "id": "DIVIDEND_VINTAGE",
