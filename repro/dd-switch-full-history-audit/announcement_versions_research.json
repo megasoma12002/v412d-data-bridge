@@ -1,0 +1,2428 @@
+[
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101013&fund=0050&seq=32&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101013&fund=0050&seq=32&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101013&fund=0050&seq=32&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101013&fund=0050&seq=32&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101013&fund=0050&seq=32&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2010-10-13T09:18:30+08:00",
+    "ex_date": "2010-10-25",
+    "payment_date": "2010-11-26",
+    "estimated_amount": 2.2,
+    "event_id": "0050:cash:2010-10-25"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101021&fund=0050&seq=33&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101021&fund=0050&seq=33&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101021&fund=0050&seq=33&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101021&fund=0050&seq=33&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101021&fund=0050&seq=33&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2010-10-21T14:04:10+08:00",
+    "ex_date": "2010-10-25",
+    "payment_date": "2010-11-26",
+    "amount": 2.2,
+    "event_id": "0050:cash:2010-10-25"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20111013&fund=0050&seq=37&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20111013&fund=0050&seq=37&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20111013&fund=0050&seq=37&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20111013&fund=0050&seq=37&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20111013&fund=0050&seq=37&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2011-10-13T10:28:57+08:00",
+    "ex_date": "2011-10-26",
+    "payment_date": "2011-11-29",
+    "estimated_amount": 1.95,
+    "event_id": "0050:cash:2011-10-26"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20111024&fund=0050&seq=38&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20111024&fund=0050&seq=38&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20111024&fund=0050&seq=38&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20111024&fund=0050&seq=38&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20111024&fund=0050&seq=38&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2011-10-24T10:00:38+08:00",
+    "ex_date": "2011-10-26",
+    "payment_date": "2011-11-29",
+    "amount": 1.95,
+    "event_id": "0050:cash:2011-10-26"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121012&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121012&fund=0050&seq=1&type=distribution"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121012&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121012&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121012&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121012&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2012-10-12T11:15:08+08:00",
+    "ex_date": "2012-10-24",
+    "payment_date": "2012-11-27",
+    "estimated_amount": 1.85,
+    "event_id": "0050:cash:2012-10-24"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121022&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121022&fund=0050&seq=1&type=other"
+    ],
+    "field_provenance": {
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121022&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121022&fund=0050&seq=1&type=other",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121022&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121022&fund=0050&seq=1&type=other",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121022&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121022&fund=0050&seq=1&type=other",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20121022&fund=0050&seq=1&type=other",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "ex_date": "2012-10-24",
+    "payment_date": "2012-11-27",
+    "amount": 1.85,
+    "reported_at": "2012-10-22T17:44:09+08:00",
+    "event_id": "0050:cash:2012-10-24"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20131014&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20131014&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20131014&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20131014&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+          "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2013-10-14T14:35:36+08:00",
+    "ex_date": "2013-10-24",
+    "payment_date": "2013-11-27",
+    "event_id": "0050:cash:2013-10-24"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20131022&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20131022&fund=0050&seq=1&type=other"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20131022&fund=0050&seq=1&type=other",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20131022&fund=0050&seq=1&type=other",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20131022&fund=0050&seq=1&type=other",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20131022&fund=0050&seq=1&type=other",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2013-10-22T14:55:49+08:00",
+    "ex_date": "2013-10-24",
+    "payment_date": "2013-11-27",
+    "amount": 1.35,
+    "event_id": "0050:cash:2013-10-24"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141014&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141014&fund=0050&seq=1&type=distribution"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141014&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141014&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_final.json",
+          "normalized_facts_sha256": "4676077dd867e18cb698b7a0262955931a0f5bb20dc32fe97e9520651abbc5e9"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141014&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_final.json",
+          "normalized_facts_sha256": "4676077dd867e18cb698b7a0262955931a0f5bb20dc32fe97e9520651abbc5e9"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141014&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_final.json",
+          "normalized_facts_sha256": "4676077dd867e18cb698b7a0262955931a0f5bb20dc32fe97e9520651abbc5e9"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141014&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_final.json",
+          "normalized_facts_sha256": "4676077dd867e18cb698b7a0262955931a0f5bb20dc32fe97e9520651abbc5e9"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2014-10-14T08:48:38+08:00",
+    "ex_date": "2014-10-24",
+    "payment_date": "2014-11-27",
+    "estimated_amount": 1.55,
+    "event_id": "0050:cash:2014-10-24"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141022&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141022&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141022&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141022&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20141022&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2014-10-22T17:07:08+08:00",
+    "ex_date": "2014-10-24",
+    "payment_date": "2014-11-27",
+    "amount": 1.55,
+    "event_id": "0050:cash:2014-10-24"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151013&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151013&fund=0050&seq=1&type=distribution"
+    ],
+    "field_provenance": {
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151013&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151013&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151013&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151013&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151013&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151013&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "ex_date": "2015-10-26",
+    "payment_date": "2015-11-26",
+    "estimated_amount": 2,
+    "reported_at": "2015-10-13T12:06:03+08:00",
+    "event_id": "0050:cash:2015-10-26"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151022&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151022&fund=0050&seq=1&type=distribution"
+    ],
+    "field_provenance": {
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151022&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151022&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151022&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151022&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151022&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151022&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20151022&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "ex_date": "2015-10-26",
+    "payment_date": "2015-11-26",
+    "amount": 2,
+    "reported_at": "2015-10-22T17:35:28+08:00",
+    "event_id": "0050:cash:2015-10-26"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20160712&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20160712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20160712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20160712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2016-07-12T14:31:41+08:00",
+    "ex_date": "2016-07-28",
+    "payment_date": "2016-08-30",
+    "event_id": "0050:cash:2016-07-28"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20160726&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20160726&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20160726&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20160726&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20160726&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2016-07-26T16:59:15+08:00",
+    "ex_date": "2016-07-28",
+    "payment_date": "2016-08-30",
+    "amount": 0.85,
+    "event_id": "0050:cash:2016-07-28"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170112&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170112&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170112&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170112&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2017-01-12T13:57:58+08:00",
+    "ex_date": "2017-02-08",
+    "payment_date": "2017-03-14",
+    "event_id": "0050:cash:2017-02-08"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170206&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170206&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170206&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170206&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170206&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+          "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2017-02-06T15:25:50+08:00",
+    "ex_date": "2017-02-08",
+    "payment_date": "2017-03-14",
+    "amount": 1.7,
+    "event_id": "0050:cash:2017-02-08"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170712&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2017-07-12T14:01:22+08:00",
+    "ex_date": "2017-07-31",
+    "payment_date": "2017-08-31",
+    "estimated_amount": 0.7,
+    "event_id": "0050:cash:2017-07-31"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170727&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170727&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170727&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170727&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170727&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2017-07-27T14:31:43+08:00",
+    "ex_date": "2017-07-31",
+    "payment_date": "2017-08-31",
+    "amount": 0.7,
+    "event_id": "0050:cash:2017-07-31"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180110&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180110&fund=0050&seq=1&type=distribution"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180110&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180110&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180110&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2018-01-10T14:22:16+08:00",
+    "ex_date": "2018-01-29",
+    "payment_date": "2018-03-13",
+    "event_id": "0050:cash:2018-01-29"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180125&fund=0050&seq=1&type=all",
+      "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180125&fund=0050&seq=1&type=distribution"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180125&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180125&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180125&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180125&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2018-01-25T14:19:04+08:00",
+    "ex_date": "2018-01-29",
+    "payment_date": "2018-03-13",
+    "amount": 2.2,
+    "event_id": "0050:cash:2018-01-29"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180706&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180706&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180706&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180706&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180706&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2018-07-06T15:44:58+08:00",
+    "ex_date": "2018-07-23",
+    "payment_date": "2018-08-27",
+    "estimated_amount": 0.7,
+    "event_id": "0050:cash:2018-07-23"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180719&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180719&fund=0050&seq=1&type=distribution"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180719&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180719&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180719&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180719&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2018-07-19T17:36:10+08:00",
+    "ex_date": "2018-07-23",
+    "payment_date": "2018-08-27",
+    "amount": 0.7,
+    "event_id": "0050:cash:2018-07-23"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190104&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190104&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190104&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190104&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190104&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2019-01-04T17:16:09+08:00",
+    "ex_date": "2019-01-22",
+    "payment_date": "2019-03-08",
+    "estimated_amount": 2.3,
+    "event_id": "0050:cash:2019-01-22"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190117&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190117&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190117&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190117&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190117&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+          "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2019-01-17T17:57:49+08:00",
+    "ex_date": "2019-01-22",
+    "payment_date": "2019-03-08",
+    "amount": 2.3,
+    "event_id": "0050:cash:2019-01-22"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190704&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190704&fund=0050&seq=1&type=value"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190704&fund=0050&seq=1&type=value",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190704&fund=0050&seq=1&type=value",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190704&fund=0050&seq=1&type=value",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2019-07-04T17:14:15+08:00",
+    "ex_date": "2019-07-19",
+    "payment_date": "2019-08-22",
+    "event_id": "0050:cash:2019-07-19"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190716&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190716&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190716&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190716&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190716&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2019-07-16T17:06:59+08:00",
+    "ex_date": "2019-07-19",
+    "payment_date": "2019-08-22",
+    "amount": 0.7,
+    "event_id": "0050:cash:2019-07-19"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200107&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200107&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200107&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200107&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200107&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2020-01-07T16:16:50+08:00",
+    "ex_date": "2020-01-31",
+    "payment_date": "2020-03-06",
+    "estimated_amount": 2.9,
+    "event_id": "0050:cash:2020-01-31"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200120&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200120&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200120&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200120&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200120&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2020-01-20T16:21:58+08:00",
+    "ex_date": "2020-01-31",
+    "payment_date": "2020-03-06",
+    "amount": 2.9,
+    "event_id": "0050:cash:2020-01-31"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200706&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200706&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200706&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200706&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2020-07-06T17:30:44+08:00",
+    "ex_date": "2020-07-21",
+    "payment_date": "2020-08-24",
+    "event_id": "0050:cash:2020-07-21"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200717&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2020-07-17T16:10:10+08:00",
+    "ex_date": "2020-07-21",
+    "payment_date": "2020-08-24",
+    "amount": 0.7,
+    "event_id": "0050:cash:2020-07-21"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=distribution",
+      "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=distribution"
+    ],
+    "field_provenance": {
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        },
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_20210107.json",
+          "normalized_facts_sha256": "7abe5d6777f0aaedb0a24c377d07e56ae6f042b5ff90ae793be4386f12bbaa5d"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+          "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d"
+        },
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_20210107.json",
+          "normalized_facts_sha256": "7abe5d6777f0aaedb0a24c377d07e56ae6f042b5ff90ae793be4386f12bbaa5d"
+        }
+      ],
+      "reported_at": [
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_20210107.json",
+          "normalized_facts_sha256": "7abe5d6777f0aaedb0a24c377d07e56ae6f042b5ff90ae793be4386f12bbaa5d"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_20210107.json",
+          "normalized_facts_sha256": "7abe5d6777f0aaedb0a24c377d07e56ae6f042b5ff90ae793be4386f12bbaa5d"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "ex_date": "2021-01-22",
+    "payment_date": "2021-03-09",
+    "reported_at": "2021-01-07T16:28:19+08:00",
+    "estimated_amount": 3.05,
+    "event_id": "0050:cash:2021-01-22"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210120&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210120&fund=0050&seq=1&type=value"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210120&fund=0050&seq=1&type=value",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210120&fund=0050&seq=1&type=value",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210120&fund=0050&seq=1&type=value",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210120&fund=0050&seq=1&type=value",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+          "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2021-01-20T14:31:39+08:00",
+    "ex_date": "2021-01-22",
+    "payment_date": "2021-03-09",
+    "amount": 3.05,
+    "event_id": "0050:cash:2021-01-22"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210706&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210706&fund=0050&seq=1&type=distribution"
+    ],
+    "field_provenance": {
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210706&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210706&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210706&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210706&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ],
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210706&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210706&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "ex_date": "2021-07-21",
+    "payment_date": "2021-08-24",
+    "reported_at": "2021-07-06T16:08:24+08:00",
+    "estimated_amount": 0.3,
+    "event_id": "0050:cash:2021-07-21"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210719&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210719&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210719&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210719&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210719&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2021-07-19T14:25:46+08:00",
+    "ex_date": "2021-07-21",
+    "payment_date": "2021-08-24",
+    "amount": 0.35,
+    "event_id": "0050:cash:2021-07-21"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220106&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220106&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220106&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220106&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2022-01-06T16:08:25+08:00",
+    "ex_date": "2022-01-21",
+    "payment_date": "2022-03-04",
+    "event_id": "0050:cash:2022-01-21"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220119&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220119&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220119&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220119&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220119&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2022-01-19T14:10:13+08:00",
+    "ex_date": "2022-01-21",
+    "payment_date": "2022-03-04",
+    "amount": 3.2,
+    "event_id": "0050:cash:2022-01-21"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220701&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2022-07-01T15:12:39+08:00",
+    "ex_date": "2022-07-18",
+    "payment_date": "2022-08-19",
+    "event_id": "0050:cash:2022-07-18"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220714&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220714&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220714&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220714&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20220714&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2022-07-14T14:50:38+08:00",
+    "ex_date": "2022-07-18",
+    "payment_date": "2022-08-19",
+    "amount": 1.8,
+    "event_id": "0050:cash:2022-07-18"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230103&fund=0050&seq=1&type=all",
+      "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230103&fund=0050&seq=1&type=prospectus"
+    ],
+    "field_provenance": {
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230103&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        },
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230103&fund=0050&seq=1&type=prospectus",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230103&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        },
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230103&fund=0050&seq=1&type=prospectus",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230103&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+          "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af"
+        },
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230103&fund=0050&seq=1&type=prospectus",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ],
+      "reported_at": [
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230103&fund=0050&seq=1&type=prospectus",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "ex_date": "2023-01-30",
+    "payment_date": "2023-03-07",
+    "estimated_amount": 2.5,
+    "reported_at": "2023-01-03T15:37:09+08:00",
+    "event_id": "0050:cash:2023-01-30"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230116&fund=0050&seq=1&type=all",
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230116&fund=0050&seq=1&type=distribution"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230116&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230116&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230116&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230116&fund=0050&seq=1&type=distribution",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+          "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2023-01-16T15:41:02+08:00",
+    "ex_date": "2023-01-30",
+    "payment_date": "2023-03-07",
+    "amount": 2.6,
+    "event_id": "0050:cash:2023-01-30"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230703&fund=0050&seq=1&type=all",
+      "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230703&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230703&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230703&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230703&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230703&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230703&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "reported_at": [
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230703&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "ex_date": "2023-07-18",
+    "payment_date": "2023-08-11",
+    "estimated_amount": 1.8,
+    "reported_at": "2023-07-03T15:42:29+08:00",
+    "event_id": "0050:cash:2023-07-18"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230714&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230714&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230714&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230714&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20230714&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2023-07-14T14:46:56+08:00",
+    "ex_date": "2023-07-18",
+    "payment_date": "2023-08-11",
+    "amount": 1.9,
+    "event_id": "0050:cash:2023-07-18"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240102&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2024-01-02T14:49:40+08:00",
+    "ex_date": "2024-01-17",
+    "payment_date": "2024-02-21",
+    "estimated_amount": 3,
+    "event_id": "0050:cash:2024-01-17"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240115&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2024-01-15T15:06:31+08:00",
+    "ex_date": "2024-01-17",
+    "amount": 3,
+    "payment_date": "2024-02-21",
+    "event_id": "0050:cash:2024-01-17"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240701&fund=0050&seq=1&type=all",
+      "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240701&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ],
+      "reported_at": [
+        {
+          "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "ex_date": "2024-07-16",
+    "payment_date": "2024-08-09",
+    "estimated_amount": 1,
+    "reported_at": "2024-07-01T15:24:55+08:00",
+    "event_id": "0050:cash:2024-07-16"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_final.json",
+          "normalized_facts_sha256": "4676077dd867e18cb698b7a0262955931a0f5bb20dc32fe97e9520651abbc5e9"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_final.json",
+          "normalized_facts_sha256": "4676077dd867e18cb698b7a0262955931a0f5bb20dc32fe97e9520651abbc5e9"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+          "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31"
+        },
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_final.json",
+          "normalized_facts_sha256": "4676077dd867e18cb698b7a0262955931a0f5bb20dc32fe97e9520651abbc5e9"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20240712&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_final.json",
+          "normalized_facts_sha256": "4676077dd867e18cb698b7a0262955931a0f5bb20dc32fe97e9520651abbc5e9"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2024-07-12T14:58:40+08:00",
+    "ex_date": "2024-07-16",
+    "amount": 1,
+    "payment_date": "2024-08-09",
+    "event_id": "0050:cash:2024-07-16"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250102&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2025-01-02T17:50:52+08:00",
+    "ex_date": "2025-01-17",
+    "payment_date": "2025-02-20",
+    "estimated_amount": 2.7,
+    "event_id": "0050:cash:2025-01-17"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250115&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250115&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+          "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2025-01-15T14:43:24+08:00",
+    "ex_date": "2025-01-17",
+    "payment_date": "2025-02-20",
+    "amount": 2.7,
+    "event_id": "0050:cash:2025-01-17"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250701&fund=0050&seq=2&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250701&fund=0050&seq=2&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250701&fund=0050&seq=2&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250701&fund=0050&seq=2&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250701&fund=0050&seq=2&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2025-07-01T17:08:41+08:00",
+    "ex_date": "2025-07-21",
+    "payment_date": "2025-08-08",
+    "estimated_amount": 0.36,
+    "event_id": "0050:cash:2025-07-21"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250717&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2025-07-17T16:48:30+08:00",
+    "ex_date": "2025-07-21",
+    "payment_date": "2025-08-08",
+    "amount": 0.36,
+    "event_id": "0050:cash:2025-07-21"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260102&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260102&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2026-01-02T14:31:20+08:00",
+    "ex_date": "2026-01-22",
+    "payment_date": "2026-02-11",
+    "estimated_amount": 1,
+    "event_id": "0050:cash:2026-01-22"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260120&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260120&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260120&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260120&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260120&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2026-01-20T16:17:01+08:00",
+    "ex_date": "2026-01-22",
+    "payment_date": "2026-02-11",
+    "amount": 1,
+    "event_id": "0050:cash:2026-01-22"
+  },
+  {
+    "code": "0050",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260701&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "estimated_amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260701&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2026-07-01T15:26:29+08:00",
+    "ex_date": "2026-07-21",
+    "payment_date": "2026-08-10",
+    "estimated_amount": 0.6,
+    "event_id": "0050:cash:2026-07-21"
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL",
+    "source_urls": [
+      "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260717&fund=0050&seq=1&type=all"
+    ],
+    "field_provenance": {
+      "reported_at": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "ex_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "payment_date": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ],
+      "amount": [
+        {
+          "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260717&fund=0050&seq=1&type=all",
+          "fact_file": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+          "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb"
+        }
+      ]
+    },
+    "revision_inventory_complete": false,
+    "reported_at": "2026-07-17T14:22:29+08:00",
+    "ex_date": "2026-07-21",
+    "payment_date": "2026-08-10",
+    "amount": 0.6,
+    "event_id": "0050:cash:2026-07-21"
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "code": "0050",
+    "source_url": "https://wwwc.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=distribution",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2021-01-07T16:28:19+08:00",
+    "ex_date": "2021-01-22",
+    "payment_date": "2021-03-09",
+    "estimated_amount": 3.05,
+    "retrieval_status": "FACTS_PARTIAL"
+  }
+]

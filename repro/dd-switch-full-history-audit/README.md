@@ -6,6 +6,27 @@
 
 ## 最新核對批次（2026/10/09）
 
+### 接續 b6271f5：公告欄位與公司行動證據
+
+- 0050 的27次配息已取得54份官方申報公告的欄位證據：時程／預估公告與最終金額公告各27份，發言時間精確到秒；除息日、支付日及最終金額與凍結股利表完全一致。這解除「27次ETF公告完全未取得」的子缺口，但不是全歷史vintage認證。
+- 每個欄位各自標示reported_at；预估金額不當作最終金額，下午公告不回填到當日13:30。新增隔離research_snapshot，僅展示當時已申報欄位；沒有接入production特徵或重跑策略。
+- 0050的2025/05/09申請公告及2025/06/17最終公告、00631L的2026/02/10申請公告及2026/03/30最終公告，與現有停牌、復牌、4倍／22倍股數契約一致。最終參考價與最後成交價除以倍數之差在0.005元內。
+- 全表416個正股利腿中，27腿具有上述一手時點核對，389腿仍缺逐腿官方時點證據；全部修訂全集與首次發布完整性仍未認證。發言時間的現行官方重現頁，不等於原始HTTP歷史快照。
+- 另列24筆「股票股利0但有除權日」候選，不推定其皆為現增或無公司行動；認股比率、繳款、權利與股數／資金處理待逐筆證明。
+- sources/announcement_facts_*.json只保存抽取後事實。manifest明列normalized_facts_sha256，original_response_sha256為null，不能把抽取檔hash當作原始網頁hash。失败／局部取回與後續補查均保留。
+- 最新逐腿缺口清單與結論：announcement_evidence_remaining.csv、announcement_evidence_summary.json；股利表hash不變。backtest_ready=False，沒有新的DD_SWITCH績效。
+- 本批14項相關測試通過，302份年度來源SHA256重新逐檔通過，6份canonical市場／股利輸入hash不變。summary.json只補公告證據結論與兩項blocker理由，保留此前行情／NAV／成交統計；沒有宣稱本批重跑整段稽核。乾淨checkout未保存大型parents_with_off.csv／mothers_with_off.csv，中途整段稽核入口因缺該生成輸入停止，未啟動策略重建。既有輸出已恢復；可由七日重建腳本生成所需輸入後再重跑，公告核對不依賴該步。
+- 本批公告證據另存announcement_evidence_bundle.zip，內含逐欄事實、欄位核對與缺口表。原sources_evidence.zip／audit_outputs.zip仍是b6271f5批次，不含本次追加內容；解壓原報告後，須再解壓此bundle並執行公告核對。
+
+重現本批：
+
+```bash
+PYTHONPATH=scripts python scripts/dd_switch_announcement_evidence.py
+PYTHONPATH=scripts python -m unittest discover -s tests -p test_dd_switch_announcement_evidence.py -v
+```
+
+下一批優先核對FIN/TEL的原始除權息申報／修訂與上述非股利事件，再完成官方日曆、因果特徵接線與共同資金T+1重建。
+
 - 2010–2026年302個標的年度項目全部取得，32項重試成功，0項未完成；302份來源SHA256逐檔驗證通過。完整來源均為FinMind現行重抓，並非歷史公告當時版本或獨立一手雙重認證。
 - 日期衝突20項已有處理依據：17項保留原交易日，2項颱風休市不補假報價，1項2023/05/25確認為原DD面板漏列。完整官方歷史日曆尚未認證。
 - 原始FinMind行情及鄰日單位／調整係數核對後，獨立研究副本補34筆：核心10筆、民營金融24筆。原有核心列維持不變；核心36330列、金融32871列，無重複或未解缺列，金融另有1日合法停牌。

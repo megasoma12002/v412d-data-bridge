@@ -1,0 +1,62 @@
+[
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch0.json",
+    "normalized_facts_sha256": "b88b7768f1991318b0afa8dd6e9f844ce5fc76034a3daef361a7100e2a98c766",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch16.json",
+    "normalized_facts_sha256": "2350724fb019b5598778d52b12e7e96b2704b89507dafb437ed271fc73686f93",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch24.json",
+    "normalized_facts_sha256": "2c5e6317849490f12d625bdc655ab359380b84d1696f5d59752e19b346696d7d",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch32.json",
+    "normalized_facts_sha256": "a671ca443f3528777c1cb04f891395623f8f56a499b6e8fc7c80bf62ba1e83af",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch40.json",
+    "normalized_facts_sha256": "5f3290f70b5a1e9c177b4fc9aea3f71d47b0fcb41c207fe8dc17fdff14505126",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch48.json",
+    "normalized_facts_sha256": "5dfe106dc115ad23ec75f96edc09595de604cab0266f74036e86465fea014bfb",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_batch8.json",
+    "normalized_facts_sha256": "faf99c21b835323e7b19f7055ff0ec8317931354817fd80786f9598b7fbac122",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry0.json",
+    "normalized_facts_sha256": "fff5011c5ea635bd2311ea8a5f5502a4a16f2a6febfeb0531779e4741b244d31",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry16.json",
+    "normalized_facts_sha256": "30c2dff964c127dd72129a6b5cb2bf94c36eb5bf9b3597268ae432dce87cc1ee",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry8.json",
+    "normalized_facts_sha256": "f30607766b6040068e5ca2dd66cd3dd42ef4f7763887ed3704f3b586cf387e0b",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_20210107.json",
+    "normalized_facts_sha256": "7abe5d6777f0aaedb0a24c377d07e56ae6f042b5ff90ae793be4386f12bbaa5d",
+    "original_response_sha256": null
+  },
+  {
+    "path": "repro/dd-switch-full-history-audit/sources/announcement_facts_retry_final.json",
+    "normalized_facts_sha256": "4676077dd867e18cb698b7a0262955931a0f5bb20dc32fe97e9520651abbc5e9",
+    "original_response_sha256": null
+  }
+]

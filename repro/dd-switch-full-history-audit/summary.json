@@ -909,7 +909,7 @@
     },
     {
       "id": "DIVIDEND_VINTAGE",
-      "reason": "27 ETF announcements absent and no historical revision/publication archive for all legs"
+      "reason": "0050 has 27 primary reported schedule/final timestamp matches; 389 positive legs still lack primary timestamp proof and all revision inventories remain uncertified"
     },
     {
       "id": "FEATURE_FUTURE_EVENT_DEPENDENCY",
@@ -921,7 +921,7 @@
     },
     {
       "id": "HISTORICAL_CORPORATE_ACTION_COMPLETENESS",
-      "reason": "Two explicit ETF splits and known halts verified; all other historical action completeness needs primary event inventory"
+      "reason": "2 ETF split/halt/unit contracts have primary reported time proof; 24 zero-dividend ex-right rows need action classification, subscription/unit evidence and complete historical primary inventory"
     },
     {
       "id": "RESEARCH_GAP_CANDIDATES_NOT_PROMOTED",
@@ -944,5 +944,27 @@
     "Price integrity and ledger arithmetic do not prove point-in-time availability or execution depth",
     "Next-session qualification is not a guarantee of next-session fill: later paper fills need funding/order lifecycle attribution",
     "Nothing writes canonical data, runtime or broker state"
-  ]
+  ],
+  "announcement_evidence": {
+    "status": "PRIMARY_TIMESTAMP_ENRICHMENT_COMPLETE_CERTIFICATION_BLOCKED",
+    "normalized_primary_announcements": 54,
+    "positive_dividend_legs": 416,
+    "primary_reported_time_supported_legs": 27,
+    "remaining_primary_time_legs": 389,
+    "mismatched_legs": 0,
+    "zero_dividend_ex_right_candidates": 24,
+    "split_contracts_primary_matched": 2,
+    "publication_vintage_certified_legs": 0,
+    "backtest_ready": false,
+    "backtest_executed": false,
+    "canonical_modified": false,
+    "ledger_sha256": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
+    "limits": [
+      "Normalized fact hashes do not authenticate original HTTP bodies",
+      "Reported timestamps do not certify first publication or a complete revision inventory",
+      "Research snapshot is not integrated into production feature/entitlement code",
+      "Zero-dividend ex-right candidates must not be treated as free stock dividends"
+    ]
+  },
+  "announcement_evidence_update_scope": "Supplemental evidence reconciliation only; prior price/NAV/fill audit statistics retained. Full-history audit not rerun: generated parents_with_off.csv and mothers_with_off.csv absent in clean checkout."
 }

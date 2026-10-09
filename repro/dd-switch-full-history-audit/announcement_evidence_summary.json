@@ -1,0 +1,21 @@
+{
+  "status": "PRIMARY_TIMESTAMP_ENRICHMENT_COMPLETE_CERTIFICATION_BLOCKED",
+  "normalized_primary_announcements": 54,
+  "positive_dividend_legs": 416,
+  "primary_reported_time_supported_legs": 27,
+  "remaining_primary_time_legs": 389,
+  "mismatched_legs": 0,
+  "zero_dividend_ex_right_candidates": 24,
+  "split_contracts_primary_matched": 2,
+  "publication_vintage_certified_legs": 0,
+  "backtest_ready": false,
+  "backtest_executed": false,
+  "canonical_modified": false,
+  "ledger_sha256": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
+  "limits": [
+    "Normalized fact hashes do not authenticate original HTTP bodies",
+    "Reported timestamps do not certify first publication or a complete revision inventory",
+    "Research snapshot is not integrated into production feature/entitlement code",
+    "Zero-dividend ex-right candidates must not be treated as free stock dividends"
+  ]
+}

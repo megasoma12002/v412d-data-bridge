@@ -9,7 +9,7 @@
   },
   {
     "id": "DIVIDEND_VINTAGE",
-    "reason": "27 ETF announcements absent and no historical revision/publication archive for all legs"
+    "reason": "0050 has 27 primary reported schedule/final timestamp matches; 389 positive legs still lack primary timestamp proof and all revision inventories remain uncertified"
   },
   {
     "id": "FEATURE_FUTURE_EVENT_DEPENDENCY",
@@ -21,7 +21,7 @@
   },
   {
     "id": "HISTORICAL_CORPORATE_ACTION_COMPLETENESS",
-    "reason": "Two explicit ETF splits and known halts verified; all other historical action completeness needs primary event inventory"
+    "reason": "2 ETF split/halt/unit contracts have primary reported time proof; 24 zero-dividend ex-right rows need action classification, subscription/unit evidence and complete historical primary inventory"
   },
   {
     "id": "RESEARCH_GAP_CANDIDATES_NOT_PROMOTED",

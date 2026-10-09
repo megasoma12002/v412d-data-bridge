@@ -1,0 +1,62 @@
+[
+  {
+    "code": "0050",
+    "stage": "APPLICATION_SCHEDULE",
+    "reported_at": "2025-05-09T15:14:16+08:00",
+    "ratio": 4,
+    "halt_start": "2025-06-11",
+    "halt_end": "2025-06-17",
+    "effective": "2025-06-18",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250509&fund=0050&seq=1&type=other",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false
+  },
+  {
+    "code": "0050",
+    "stage": "FINAL_UNITS_REFERENCE_PRICE",
+    "reported_at": "2025-06-17T11:35:21+08:00",
+    "ratio": 4,
+    "halt_start": "2025-06-11",
+    "halt_end": "2025-06-17",
+    "effective": "2025-06-18",
+    "last_exchange_close": 188.65,
+    "reference_price": 47.16,
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250617&fund=0050&seq=1&type=all",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false
+  },
+  {
+    "code": "00631L",
+    "stage": "APPLICATION_SCHEDULE",
+    "reported_at": "2026-02-10T16:16:41+08:00",
+    "ratio": 22,
+    "halt_start": "2026-03-25",
+    "halt_end": "2026-03-30",
+    "effective": "2026-03-31",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260210&fund=00631L&seq=1&type=all",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false
+  },
+  {
+    "code": "00631L",
+    "stage": "FINAL_UNITS_REFERENCE_PRICE",
+    "reported_at": "2026-03-30T16:32:35+08:00",
+    "ratio": 22,
+    "halt_start": "2026-03-25",
+    "halt_end": "2026-03-30",
+    "effective": "2026-03-31",
+    "last_exchange_close": 443.15,
+    "reference_price": 20.14,
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260330&fund=00631L&seq=1&type=all",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false
+  }
+]
