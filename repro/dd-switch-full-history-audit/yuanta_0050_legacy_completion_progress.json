@@ -1,0 +1,38 @@
+{
+  "status": "STOPPED_FAILURE_LIMIT",
+  "total": 6,
+  "processed": 5,
+  "success": 2,
+  "failed": 3,
+  "cached": 0,
+  "started_at": "2026-10-09T18:35:52.246613+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201807_estimate",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201901_estimate",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201607_current_estimate",
+      "status": "FAILED"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201607_current_final",
+      "status": "FAILED"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201607_previous_estimate",
+      "status": "FAILED"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T18:36:45.847061+00:00",
+  "updated_at": "2026-10-09T18:36:53.263648+00:00",
+  "last_completed_at": "2026-10-09T18:36:53.262820+00:00",
+  "skipped": 1,
+  "stop_reason": "Three consecutive failures"
+}

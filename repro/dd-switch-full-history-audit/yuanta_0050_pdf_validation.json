@@ -1,7 +1,16 @@
 {
-  "valid": 28,
-  "rejected": [],
-  "paired_estimate_final_events": 14,
+  "valid": 41,
+  "rejected": [
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201607_current_estimate",
+      "reason": "FAILED"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201607_previous_estimate",
+      "reason": "FAILED"
+    }
+  ],
+  "paired_estimate_final_events": 20,
   "estimated_amount_revised_events": 3,
   "current_index_records": 2094,
   "current_index_start": "2019/10/30",

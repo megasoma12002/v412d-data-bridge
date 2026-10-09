@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE",
+  "total": 1,
+  "processed": 1,
+  "success": 1,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-09T18:29:17.331242+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "moe_2013_financial_credit_evidence",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T18:29:17.331284+00:00",
+  "updated_at": "2026-10-09T18:29:26.219032+00:00",
+  "last_completed_at": "2026-10-09T18:29:26.218071+00:00",
+  "skipped": 0
+}

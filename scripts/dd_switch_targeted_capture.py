@@ -7,10 +7,12 @@ from urllib.parse import urlsplit
 from dd_switch_monitored_capture import blocked
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'repro/dd-switch-full-history-audit';DEST=OUT/'sources/targeted_issuers'
 def now():return datetime.now(timezone.utc).isoformat()
-def source_blocked(raw, url):
+def source_blocked(raw, url, http_status=None):
     # Bundled JavaScript contains library error strings (e.g. DecoderBuffer overrun).
     # Only recognize a bundle by its observed webpack wrapper; HTML/plain blocks still stop.
     head=raw.lstrip()[:400]
+    if http_status == b'403' and head.startswith(b'<') and b'403 forbidden' in head.lower():
+        return True
     if urlsplit(url).path.endswith('.js') and b'webpackJsonp' in head and not head.startswith(b'<'):
         return False
     return blocked(raw)
@@ -32,7 +34,7 @@ def main():
         state.update(current_id=item['id'],current_started_at=now());save();time.sleep(2)
         r=subprocess.run(['curl','-L','--compressed','--max-time','15','-sS','-w','\n%{http_code}',item['url']],capture_output=True)
         raw,_,status=r.stdout.rpartition(b'\n');f=DEST/(item['id']+'.html.gz');f.write_bytes(gzip.compress(raw,mtime=0))
-        block=source_blocked(raw,item['url']);good=r.returncode==0 and status==b'200' and not block
+        block=source_blocked(raw,item['url'],status);good=r.returncode==0 and status==b'200' and not block
         meta=dict(item,status='SOURCE_BLOCKED' if block else 'RESPONSE_SAVED_NEEDS_VALIDATION' if good else 'FAILED',path=str(f.relative_to(ROOT)),retrieved_at=now(),http_status=status.decode(),error=r.stderr.decode(errors='replace'),response_sha256=hashlib.sha256(raw).hexdigest(),compressed_sha256=hashlib.sha256(f.read_bytes()).hexdigest())
         rows=[v for v in rows if v['id']!=item['id']]+[meta];state['processed']+=1;state['success']+=int(good);state['failed']+=int(not good);state['last_completed_at']=now();state['recent_results']=(state['recent_results']+[dict(id=meta['id'],status=meta['status'])])[-10:]
         if block:state['blocked_hosts'].append(host)

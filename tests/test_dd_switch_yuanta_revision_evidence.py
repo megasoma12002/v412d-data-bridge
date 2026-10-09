@@ -53,6 +53,20 @@ class YuantaRevisionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             parse_notice(self.body() + '收益分配發放日：110年08月25日。', self.meta())
 
+    def test_legacy_signature_and_pdf_date_without_index_clock(self):
+        meta = self.meta(True); meta.update(archive_source='SITCA_ISSUER_DISCLOSURE_PDF', announcement_date='')
+        text = '元大證券投資信託股份有限公司元投信字第20170950號' + self.body(True, header='')
+        row = parse_notice(text, meta)
+        self.assertEqual(row['announcement_date'], '2021-07-19')
+        self.assertEqual(row['issuer_index_date'], '')
+        self.assertEqual(row['availability_precision'], 'DATE_ONLY')
+        self.assertEqual(row['document_number'], '20170950')
+
+    def test_legacy_without_issuer_signature_is_rejected(self):
+        meta = self.meta(True); meta['archive_source'] = 'SITCA_ISSUER_DISCLOSURE_PDF'
+        with self.assertRaises(ValueError):
+            parse_notice(self.body(True, header=''), meta)
+
     def test_later_final_does_not_backfill_date_only_prefix(self):
         estimated = dict(parse_notice(self.body(), self.meta()), event_id='0050:cash:2021-07-21')
         final = dict(parse_notice(self.body(True), self.meta(True)), event_id=estimated['event_id'])

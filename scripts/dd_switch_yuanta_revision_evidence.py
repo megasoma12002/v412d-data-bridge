@@ -4,7 +4,7 @@ import csv, gzip, hashlib, json, re, subprocess
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
-from urllib.parse import unquote
+from urllib.parse import unquote, urlsplit
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'repro/dd-switch-full-history-audit'
 DATE=r'\d{2,4}年\d{1,2}月\d{1,2}日'
@@ -19,6 +19,7 @@ def one_date(text,label):
 
 def parse_notice(text,meta):
     compact=re.sub(r'\s+','',text)
+    compact=compact.replace('50證券投資信託50證券投資信託', '50證券投資信託')
     title = re.sub(r'\s+', '', meta['title'])
     code_heading = compact.split('中華民國', 1)[0]
     code_matches = bool(re.search(r'交易證券代號[交易證券代號名稱:：]{0,40}0050(?!\d)', code_heading))
@@ -35,10 +36,14 @@ def parse_notice(text,meta):
     label='實際配發金額' if stage=='FINAL' else '預估配發金額'
     amounts=set(re.findall(r'每受益權單位'+label+r'(?:為)?新[臺台]幣([\d.]+)元',compact))
     if len(amounts)>1 or (stage=='FINAL' and len(amounts)!=1):raise ValueError('Missing or ambiguous '+label)
-    pdf_date=iso(header[1]);index_date=meta['announcement_date'].replace('/','-')[:10]
+    pdf_date=iso(header[1]);index_date=meta.get('announcement_date','').replace('/','-')[:10]
+    document = re.search(r'元投信字第([\d-]+)號',compact)
+    if meta.get('archive_source') and (not document or '元大證券投資信託股份有限公司' not in compact):
+        raise ValueError('Legacy PDF lacks issuer signature or document number')
     return dict(id=meta['id'],code='0050',title=meta['title'],url=meta['url'],path=meta['path'],
                 response_sha256=meta['response_sha256'],retrieved_at=meta['retrieved_at'],
                 announcement_date=max(pdf_date,index_date),issuer_index_date=index_date,pdf_issue_date=pdf_date,
+                document_number=document[1] if document else '',archive_source=meta.get('archive_source','ISSUER_API_PDF'),
                 availability_precision='DATE_ONLY',publication_vintage_certified=False,revision_inventory_complete=False,
                 ex_dates=[ex],cash_payment_dates=[payment],stage=stage,
                 declared_cash_amount=amounts.pop() if amounts else '',amount_stage='CONDITIONAL_DECLARATION' if stage=='ESTIMATE' else 'FINAL_ISSUER_DECLARATION',
@@ -67,13 +72,23 @@ def load_notices():
         packed=(ROOT/meta['path']).read_bytes();raw=gzip.decompress(packed)
         if hashlib.sha256(packed).hexdigest()!=meta['compressed_sha256'] or hashlib.sha256(raw).hexdigest()!=meta['response_sha256']:raise ValueError('Issuer PDF hash mismatch')
         try:
-            entry = index.get(meta['announcement_id'])
-            if not entry or entry['ContentsType'] != 'PDF' or entry['Title'] != meta['title'] or entry['OnTime'] != meta['announcement_date'] or unquote(entry['Contents']) != unquote(meta['url']):
-                raise ValueError('PDF does not match captured issuer index')
+            if meta.get('archive_source'):
+                host=urlsplit(meta['url']).netloc
+                path=unquote(urlsplit(meta['url']).path)
+                allowed=(meta['archive_source']=='ISSUER_LEGACY_PDF' and host=='www.yuantafunds.com' and path.startswith('/download/PDF/announces/基金配息公告/')) or (meta['archive_source']=='SITCA_ISSUER_DISCLOSURE_PDF' and host=='www.sitca.org.tw' and path.startswith('/FundNote/A/A0005/02/'))
+                if not allowed or unquote(meta.get('discovery_url','')) != unquote(meta['url']):
+                    raise ValueError('Unverified legacy issuer archive origin')
+            else:
+                entry = index.get(meta['announcement_id'])
+                if not entry or entry['ContentsType'] != 'PDF' or entry['Title'] != meta['title'] or entry['OnTime'] != meta['announcement_date'] or unquote(entry['Contents']) != unquote(meta['url']):
+                    raise ValueError('PDF does not match captured issuer index')
             if not raw.startswith(b'%PDF-'):raise ValueError('Not PDF bytes')
             extracted=subprocess.run(['pdftotext','-layout','-','-'],input=raw,capture_output=True,check=True).stdout.decode('utf8')
             row = parse_notice(extracted,meta)
-            row.update(issuer_index_source_id=index_meta['id'], issuer_index_response_sha256=index_meta['response_sha256'])
+            if meta.get('archive_source'):
+                row.update(discovery_url=meta['discovery_url'],issuer_index_source_id='',issuer_index_response_sha256='',archive_listing_vintage_certified=False)
+            else:
+                row.update(issuer_index_source_id=index_meta['id'], issuer_index_response_sha256=index_meta['response_sha256'])
             versions.append(row)
         except (ValueError,subprocess.CalledProcessError) as error:rejected.append(dict(id=meta['id'],reason=str(error)))
     versions.sort(key=lambda r:(r['announcement_date'],r['id']))

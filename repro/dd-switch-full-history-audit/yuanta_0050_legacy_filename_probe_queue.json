@@ -1,0 +1,62 @@
+[
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201907_final",
+    "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5108.06.30%29.pdf",
+    "title": "公告元大台灣卓越50基金實際配發金額",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A0005/02/卓越50-收益分配第二階段公告(評價日108.06.30).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association PDF filename pattern; existence and body require validation"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201801_estimate",
+    "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5106.12.31%29.pdf",
+    "title": "公告元大台灣卓越50基金收益分配評價結果",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A0005/02/卓越50-收益分配第一階段公告(評價日106.12.31).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association PDF filename pattern; existence and body require validation"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201801_final",
+    "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5106.12.31%29.pdf",
+    "title": "公告元大台灣卓越50基金實際配發金額",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A0005/02/卓越50-收益分配第二階段公告(評價日106.12.31).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association PDF filename pattern; existence and body require validation"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201707_final",
+    "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5106.06.30%29.pdf",
+    "title": "公告元大台灣卓越50基金實際配發金額",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A0005/02/卓越50-收益分配第二階段公告(評價日106.06.30).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association PDF filename pattern; existence and body require validation"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201702_estimate",
+    "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5105.12.31%29.pdf",
+    "title": "公告元大台灣卓越50基金收益分配評價結果",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A0005/02/卓越50-收益分配第一階段公告(評價日105.12.31).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association PDF filename pattern; existence and body require validation"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201702_final",
+    "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5105.12.31%29.pdf",
+    "title": "公告元大台灣卓越50基金實際配發金額",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A0005/02/卓越50-收益分配第二階段公告(評價日105.12.31).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association PDF filename pattern; existence and body require validation"
+  }
+]

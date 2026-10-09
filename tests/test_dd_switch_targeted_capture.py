@@ -17,6 +17,15 @@ class TargetedGuardTests(unittest.TestCase):
     def test_announcement_overrun_still_blocks(self):
         self.assertTrue(source_blocked(b'Overrun - Too many query requests','https://example.org/announcement'))
 
+    def test_forbidden_response_is_a_source_block(self):
+        self.assertTrue(source_blocked(b'<html><title>403 Forbidden</title></html>', 'https://example.org/archive', b'403'))
+        self.assertFalse(source_blocked(b'<html><title>404 Not Found</title></html>', 'https://example.org/archive', b'404'))
+
+    def test_forbidden_response_stops_same_host(self):
+        result, calls = self.run_capture(SimpleNamespace(returncode=0, stdout=b'<html><title>403 Forbidden</title></html>\n403', stderr=b''), 2)
+        self.assertEqual(result['status'], 'STOPPED_SOURCE_BLOCK')
+        self.assertEqual((result['processed'], result['skipped'], calls), (1, 1, 1))
+
     def run_capture(self, response, count):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

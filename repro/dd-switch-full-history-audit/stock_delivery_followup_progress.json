@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE",
+  "total": 4,
+  "processed": 4,
+  "success": 2,
+  "failed": 2,
+  "cached": 0,
+  "started_at": "2026-10-09T18:25:30.463752+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "hnfhc_home_archive",
+      "status": "FAILED"
+    },
+    {
+      "id": "ctbc_issued_shares_archive",
+      "status": "FAILED"
+    },
+    {
+      "id": "esun_shareholder_archive",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_download_archive",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T18:26:03.063049+00:00",
+  "updated_at": "2026-10-09T18:26:11.506889+00:00",
+  "last_completed_at": "2026-10-09T18:26:11.505992+00:00",
+  "skipped": 0
+}
