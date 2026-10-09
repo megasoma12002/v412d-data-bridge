@@ -1,0 +1,148 @@
+{
+  "status": "EXACT_ACCOUNTING_BRIDGE_NOT_ORIGINAL_MODEL_REPRODUCTION",
+  "sources": {
+    "ORIGINAL": {
+      "final_nav": 543972686.7723289,
+      "profit": 43972686.77232885,
+      "return_pct": 8.794537354465781,
+      "observed_mdd_pct": -5.091369396458722,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18",
+        "2026-10-05"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 1.4901161193847656e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 953578.57767125,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0
+    },
+    "R1": {
+      "final_nav": 534722253.07076305,
+      "profit": 34722253.07076305,
+      "return_pct": 6.944450614152609,
+      "observed_mdd_pct": -5.393415150177927,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 5.960464477539063e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 3322089.679237,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0
+    },
+    "FORCED_ACTIVE": {
+      "final_nav": 542947596.4213672,
+      "profit": 42947596.42136717,
+      "return_pct": 8.589519284273429,
+      "observed_mdd_pct": -5.156288496075279,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 2.9802322387695312e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1508267.353632875,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0
+    }
+  },
+  "gap_R1_minus_original": -9250433.701565802,
+  "accounting_components": {
+    "holding_pnl": -5099400.000000006,
+    "open_to_close_trade_pnl": -1423849.9999999814,
+    "execution_price_pnl": -358672.59999998356,
+    "fee_pnl": -2368511.1015657503
+  },
+  "bridge_residual": 8.195638656616211e-08,
+  "mother_common_observations": 3340,
+  "mother_disagreement": {
+    "want_trail": 1619,
+    "trail_on": 1097,
+    "active": 1050
+  },
+  "mother_normalized_nav_parity": {
+    "L4": {
+      "common_dates": 3345,
+      "reference_start": "2012-12-04",
+      "candidate_start": "2013-01-03",
+      "max_normalized_relative_error": 0.4091680666762648
+    },
+    "TRAIL": {
+      "common_dates": 3340,
+      "reference_start": "2012-12-05",
+      "candidate_start": "2013-01-03",
+      "max_normalized_relative_error": 0.7413442647419703
+    },
+    "BASE": {
+      "common_dates": 3345,
+      "reference_start": "2012-12-04",
+      "candidate_start": "2013-01-03",
+      "max_normalized_relative_error": 0.0651308324223423
+    },
+    "P3": {
+      "common_dates": 3345,
+      "reference_start": "2012-12-04",
+      "candidate_start": "2013-01-03",
+      "max_normalized_relative_error": 0.4091680666762648
+    }
+  },
+  "original_refresh_parity_status": "BLOCK_R1_AS_DROP_IN_ORIGINAL_REFRESH",
+  "original_mother_end": "2026-09-29",
+  "limits": [
+    "Accounting decomposition is exact but not independent causal attribution of source changes",
+    "Force-active arm is hypothetical exit ablation with same rebuilt parents and DD T+1 clock, not original strategy",
+    "Original research mothers end 9/29; do not forward-fill their NAV or pretend to know later gates",
+    "Mother parity replicates production inner-join semantics; calendar defects remain separate issues",
+    "Original research return stitches, full holdings feedback and T0 execution still require faithful reconstruction"
+  ],
+  "source_sha256": {
+    "forward/e21/fills.csv": "48e7caaafdd0db39e0be727ec56cf847be067f9f285e00850940bb533a39f9f4",
+    "forward/e21/orders.csv": "841468034f25ada855744e3ff8dfb72492c6a3457dcbbde687e0711e0fb032a1",
+    "forward/e21/signals.csv": "ff8eeb3187eb35068398f51c6b3c978015c08cc94dfb5cecaf51b0fbc70462c0",
+    "repro/dd-switch-live-t1-r1/fills.csv": "00fe4ab6f61c91a1d5a51993bc6c63b65b343e5712576cc5fa73fbaafaea747e",
+    "repro/dd-switch-live-t1-r1/orders.csv": "6addbe91132d79288e0daba4fd72ec21b89ae8ab81191dbc023f0e1e624920cc",
+    "repro/dd-switch-live-t1-r1/signals.csv": "c52451c3ebcee7142a67bfb2c7fedccfc349abbd93effacd3eb0b067a5bc08f6",
+    "repro/dd-switch-gap-forced-active/fills.csv": "a77940c9641a7cac2ca1c9e654441a56911c20108c306771e48a4ef1aae36f73",
+    "repro/dd-switch-gap-forced-active/orders.csv": "690244ec5a630c3c35fa864a6d534d69f863279b8a3ad214a983770ea1dd8960",
+    "repro/dd-switch-gap-forced-active/signals.csv": "a4bae6555b1ecc6f74e42c3a9fa65d67c40a8e4971bfd5cb060acacc0ab184cc",
+    "repro/tipsoft-ip3-trail42-l4-switch-paper-observe/outputs/nav_L4_LIVE_P3_WITHIN.csv": "849b837fab4b461c3fcf1dd4cb6b5b3071a3fa670785aeb755ad5caa093daa0f",
+    "repro/tipsoft-ip3-trail42-cash-paper-observe/outputs/nav_TRAIL42_FT_CASH.csv": "d525a2da1003fcb9f077ef99b0795c15ab4789048cb59e793749bf6554262ee6",
+    "repro/fin-sat-path3-path4-livestack-twin-stageb/outputs/nav_BASE_LIVE_FUSE_COOL.csv": "204472d4b035cd975610f7d11ba5077497d9b393abf494cf8217a92c3ca75f9e",
+    "repro/fin-sat-path3-path4-livestack-twin-stageb/outputs/nav_LIVE_P3_WITHIN.csv": "807e49dcc19057a0465a15622c4ca7599cdde99f04af6b8f4db2104846306401",
+    "repro/dd-switch-t1-r1/nav_L4.csv": "ee94bb055934eaf7cb3fafb7a690b9558ca986b9a432da89fe6cd104a91ef56a",
+    "repro/dd-switch-t1-r1/nav_TRAIL.csv": "bb4233df65b36c1eeaa12211e509f82ad1b10fff2b4d287f80e28a4f4fcd6aa6",
+    "repro/dd-switch-t1-r1/controller_base.csv": "17ce1f1cadfdf848c69af3c5f9722fbcf01ade975dd333b3311373245a4653ff"
+  },
+  "forced_active_minus_R1": 8225343.350604117,
+  "forced_active_minus_original": -1025090.3509616852,
+  "forced_active_remaining_gap_components": {
+    "holding_pnl": -1429600.0000000047,
+    "open_to_close_trade_pnl": 1076500.0000000014,
+    "execution_price_pnl": -117301.57499998975,
+    "fee_pnl": -554688.7759616252
+  },
+  "exit_ablation_gap_components": {
+    "holding_pnl": 3669800.000000002,
+    "open_to_close_trade_pnl": 2500349.999999983,
+    "execution_price_pnl": 241371.0249999938,
+    "fee_pnl": 1813822.3256041252
+  },
+  "gap_closed_by_exit_ablation_pct": 88.91846172803584
+}

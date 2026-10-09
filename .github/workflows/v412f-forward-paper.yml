@@ -103,10 +103,12 @@ jobs:
             --taiex forward/e10s2/e10s2_taiex.csv \
             --out forward/e21/live_market.csv \
             --allow-live-market-overwrite
-      - name: Refresh and validate DD_SWITCH dependencies (T+1 reconstruction)
+      - name: Research-only R1 dependencies (original mother parity unresolved)
         if: steps.session_gate.outputs.skip != 'true'
         run: |
-          python scripts/dd_switch_rebuild.py --asof "${{ steps.session_gate.outputs.asof }}" --refresh-prices --publish --out "$RUNNER_TEMP/dd-switch-rebuild"
+          # R1 differs from original controller mothers. Do not publish it to
+          # data/dd_switch_runtime or feed it into the canonical forward books.
+          python scripts/dd_switch_rebuild.py --asof "${{ steps.session_gate.outputs.asof }}" --refresh-prices --publish --runtime-dir "$RUNNER_TEMP/dd-switch-research-runtime" --out "$RUNNER_TEMP/dd-switch-rebuild"
       - name: Run frozen E16 plus E18 real-open forward ledger
         if: steps.session_gate.outputs.skip != 'true'
         # Capital: omit --capital so scripts/portfolio_capital.DEFAULT_CAPITAL (500M) applies.

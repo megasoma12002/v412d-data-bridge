@@ -22,7 +22,7 @@ import pandas as pd
 import fin_sat_path3_daily_share_ssot_stagea as parent
 import cool_t50_lev_short_assist_stagea as short
 import e22_dividend_accounting as e22
-from dd_switch_runtime import DEFAULT_DIR
+from dd_switch_runtime import DEFAULT_DIR, r1_research_destination
 from e22_books_apply import apply_books_for_date
 from e45_paper_harness import load_market, load_dividends
 from e50_early_stack_combined_nav import FIN, TEL, e16_features, simulate_core
@@ -295,6 +295,7 @@ def replay(market, books, signal, div, out, initial=None, start=None):
 
 
 def publish(out, asof, destination):
+    destination=r1_research_destination(destination)
     # Controller return windows must share the replay bootstrap date.
     base = pd.read_csv(out / "parent_nav_BASE.csv")
     first = pd.read_csv(out / "nav_L4.csv").date.min()
@@ -316,7 +317,7 @@ def publish(out, asof, destination):
     generation.mkdir(parents=True, exist_ok=True)
     for name in files.values():
         shutil.copyfile(out / name, generation / name)
-    meta = dict(version="DD_SWITCH_T1_R1", asof=asof.strftime("%F"), generation=relative, files=files, hashes=hashes, clock="CLOSE_T_TO_NEXT_SESSION_OPEN", original_research_preserved=True)
+    meta = dict(version="DD_SWITCH_T1_R1", asof=asof.strftime("%F"), generation=relative, files=files, hashes=hashes, clock="CLOSE_T_TO_NEXT_SESSION_OPEN", original_research_preserved=True,controller_model_scope="R1_RESEARCH_NON_EQUIVALENT_TO_ORIGINAL")
     destination.mkdir(parents=True, exist_ok=True)
     tmp = destination / "current.json.tmp"
     tmp.write_text(json.dumps(meta, indent=2) + "\n")
@@ -332,6 +333,8 @@ def main():
     ap.add_argument("--publish", action="store_true")
     ap.add_argument("--runtime-dir", type=Path, default=DEFAULT_DIR)
     args = ap.parse_args()
+    if args.publish:
+        r1_research_destination(args.runtime_dir)
     out = args.out.resolve()
     if out == ROOT / "forward/e21" or (ROOT / "forward/e21") in out.parents:
         raise SystemExit("Never reconstruct into immutable live history")

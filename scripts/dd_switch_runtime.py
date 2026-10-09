@@ -15,12 +15,20 @@ DEFAULT_DIR = ROOT / "data/dd_switch_runtime"
 def runtime_dir() -> Path:
     return Path(os.environ.get("E21_DD_INPUTS_DIR", str(DEFAULT_DIR))).resolve()
 
+def r1_research_destination(destination: Path) -> Path:
+    """R1 failed original-mother parity; never publish it as canonical refresh."""
+    target=Path(destination).resolve()
+    canonical=DEFAULT_DIR.resolve()
+    if target==canonical or canonical in target.parents:
+        raise RuntimeError('R1 mother parity failed: publish only to isolated research runtime; original-lineage refresh required')
+    return target
+
 
 def inputs(required: bool = False) -> dict[str, Path]:
     pointer = runtime_dir() / "current.json"
     if not pointer.exists():
         if required:
-            raise RuntimeError("DD_SWITCH runtime missing; run dd_switch_rebuild.py --publish")
+            raise RuntimeError("DD_SWITCH runtime missing; original-lineage refresh required (R1 is isolated research only)")
         return {}
     meta = json.loads(pointer.read_text())
     generation = (runtime_dir() / meta["generation"]).resolve()

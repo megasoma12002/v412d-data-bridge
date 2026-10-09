@@ -19,6 +19,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--seed', default='2026-09-29')
     p.add_argument('--out', type=Path, default=ROOT/'repro/dd-switch-live-t1-r1')
+    p.add_argument('--force-active-for-gap-study',action='store_true',help='Hypothetical exit ablation only; not original strategy')
     a = p.parse_args()
     out = a.out.resolve()
     source = ROOT/'forward/e21'
@@ -57,7 +58,8 @@ def main():
             current['hashes'][key]=hashlib.sha256(target.read_bytes()).hexdigest()
         (dest/'current.json').write_text(json.dumps(current))
         env={**os.environ,'E21_DD_INPUTS_DIR':str(dest)}
-        result=subprocess.run([sys.executable,str(ROOT/'scripts/e21_forward_pipeline.py'),'--market',str(source/'live_market.csv'),'--state-dir',str(out),'--asof',day.strftime('%F'),'--allow-noncanonical-paths','--skip-excel-dashboard'],env=env,text=True,capture_output=True)
+        entry='dd_switch_gap_pipeline.py' if a.force_active_for_gap_study else 'e21_forward_pipeline.py'
+        result=subprocess.run([sys.executable,str(ROOT/'scripts'/entry),'--market',str(source/'live_market.csv'),'--state-dir',str(out),'--asof',day.strftime('%F'),'--allow-noncanonical-paths','--skip-excel-dashboard'],env=env,text=True,capture_output=True)
         (out/(day.strftime('%F')+'.log')).write_text(result.stdout+result.stderr)
         if result.returncode:
             print(result.stdout+result.stderr)
@@ -68,6 +70,7 @@ def main():
     vals=rebuilt.nav_e16_e18
     latest=float(vals.iloc[-1]); initial=float(vals.iloc[0])
     result=dict(seed=a.seed,end=str(rebuilt.date.iloc[-1]),initial=initial,final=latest,profit=latest-initial,return_pct=(latest/initial-1)*100,mdd_pct=float((vals/vals.cummax()-1).min()*100),original_tip=float(nav.nav_e16_e18.iloc[-1]),tip_difference=latest-float(nav.nav_e16_e18.iloc[-1]),scope='production pipeline counterfactual after seed; earlier live records preserved')
+    result['gate_mode']='FORCED_ACTIVE_EXIT_ABLATION' if a.force_active_for_gap_study else 'NATURAL_R1'
     (out/'summary.json').write_text(json.dumps(result,indent=2))
     print(json.dumps(result,indent=2))
 
