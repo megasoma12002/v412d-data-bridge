@@ -35,11 +35,14 @@ def main():
     p.add_argument('--force-active-for-gap-study',action='store_true',help='Hypothetical exit ablation only; not original strategy')
     p.add_argument('--recon-research-policy',choices=['audit','epsilon','one_lot','sleeve_5bp','sleeve_20bp'],help='Isolated Path3 reconciliation sensitivity; never a live setting')
     p.add_argument('--exposure-research-policy',choices=['immediate','two_day','three_day'],help='Isolated initial handoff staging; no live promotion')
+    p.add_argument('--crisis-lifecycle-probe',action='store_true',help='Synthetic OFF/ON control probe, not strategy performance')
     a = p.parse_args()
     if a.force_active_for_gap_study and a.recon_research_policy:
         p.error('Reconciliation study must preserve the real DD gate')
     if a.exposure_research_policy and (a.force_active_for_gap_study or a.recon_research_policy):
         p.error('Exposure study cannot combine other policy overrides')
+    if a.crisis_lifecycle_probe and (a.exposure_research_policy or a.force_active_for_gap_study or a.recon_research_policy):
+        p.error('Synthetic crisis probe must be isolated from other policies')
     out = a.out.resolve()
     source = ROOT/'forward/e21'
     if out == source or source in out.parents:
@@ -88,6 +91,9 @@ def main():
         if a.exposure_research_policy:
             env['DD_EXPOSURE_RESEARCH_POLICY']=a.exposure_research_policy
             entry='dd_switch_exposure_pipeline.py'
+        if a.crisis_lifecycle_probe:
+            env['DD_CRISIS_LIFECYCLE_PROBE']='OFF_0930_1001_ON_FROM_1002'
+            entry='dd_switch_crisis_pipeline_probe.py'
         result=subprocess.run([sys.executable,str(ROOT/'scripts'/entry),'--market',str(source/'live_market.csv'),'--state-dir',str(out),'--asof',day.strftime('%F'),'--allow-noncanonical-paths','--skip-excel-dashboard'],env=env,text=True,capture_output=True)
         (out/(day.strftime('%F')+'.log')).write_text(result.stdout+result.stderr)
         if result.returncode:
@@ -103,6 +109,7 @@ def main():
     result['runtime_source']=str(runtime)
     result['recon_research_policy']=a.recon_research_policy
     result['exposure_research_policy']=a.exposure_research_policy
+    result['synthetic_crisis_lifecycle_probe']=a.crisis_lifecycle_probe
     result['runtime_manifest_sha256']=hashlib.sha256((runtime/'current.json').read_bytes()).hexdigest()
     (out/'summary.json').write_text(json.dumps(result,indent=2))
     print(json.dumps(result,indent=2))

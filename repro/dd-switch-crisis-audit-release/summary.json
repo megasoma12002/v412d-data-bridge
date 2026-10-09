@@ -1,0 +1,403 @@
+{
+  "status": "FROZEN_CRISIS_GATE_AUDIT_REENTRY_FUNDING_GAP_CONFIRMED",
+  "start": "2012-12-05",
+  "end": "2026-10-08",
+  "gate_sessions": 3367,
+  "off_sessions": 58,
+  "exit_events": 10,
+  "reentry_events": 10,
+  "completed_probes": 10,
+  "parent_positive_but_zero_reentry": 10,
+  "prefix_checks": [
+    {
+      "date": "2013-08-06",
+      "passed": true
+    },
+    {
+      "date": "2013-08-08",
+      "passed": true
+    },
+    {
+      "date": "2013-11-01",
+      "passed": true
+    },
+    {
+      "date": "2013-11-04",
+      "passed": true
+    },
+    {
+      "date": "2015-02-26",
+      "passed": true
+    },
+    {
+      "date": "2015-03-03",
+      "passed": true
+    },
+    {
+      "date": "2022-09-28",
+      "passed": true
+    },
+    {
+      "date": "2022-11-23",
+      "passed": true
+    },
+    {
+      "date": "2022-12-20",
+      "passed": true
+    },
+    {
+      "date": "2022-12-22",
+      "passed": true
+    },
+    {
+      "date": "2022-12-26",
+      "passed": true
+    },
+    {
+      "date": "2023-01-04",
+      "passed": true
+    },
+    {
+      "date": "2023-08-31",
+      "passed": true
+    },
+    {
+      "date": "2023-09-05",
+      "passed": true
+    },
+    {
+      "date": "2024-05-24",
+      "passed": true
+    },
+    {
+      "date": "2024-05-27",
+      "passed": true
+    },
+    {
+      "date": "2025-01-13",
+      "passed": true
+    },
+    {
+      "date": "2025-01-14",
+      "passed": true
+    },
+    {
+      "date": "2025-06-23",
+      "passed": true
+    },
+    {
+      "date": "2025-06-24",
+      "passed": true
+    }
+  ],
+  "official_next_sessions": [
+    {
+      "signal": "2013-08-06",
+      "next_session": "2013-08-07",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2013-08-08",
+      "next_session": "2013-08-09",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2013-11-01",
+      "next_session": "2013-11-04",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2013-11-04",
+      "next_session": "2013-11-05",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2015-02-26",
+      "next_session": "2015-03-02",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2015-03-03",
+      "next_session": "2015-03-04",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2022-09-28",
+      "next_session": "2022-09-29",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2022-11-23",
+      "next_session": "2022-11-24",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2022-12-20",
+      "next_session": "2022-12-21",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2022-12-22",
+      "next_session": "2022-12-23",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2022-12-26",
+      "next_session": "2022-12-27",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2023-01-04",
+      "next_session": "2023-01-05",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2023-08-31",
+      "next_session": "2023-09-01",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2023-09-05",
+      "next_session": "2023-09-06",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2024-05-24",
+      "next_session": "2024-05-27",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2024-05-27",
+      "next_session": "2024-05-28",
+      "official": false,
+      "reason": "Historical official calendar unavailable; next observed market date only"
+    },
+    {
+      "signal": "2025-01-13",
+      "next_session": "2025-01-14",
+      "official": true
+    },
+    {
+      "signal": "2025-01-14",
+      "next_session": "2025-01-15",
+      "official": true
+    },
+    {
+      "signal": "2025-06-23",
+      "next_session": "2025-06-24",
+      "official": true
+    },
+    {
+      "signal": "2025-06-24",
+      "next_session": "2025-06-25",
+      "official": true
+    }
+  ],
+  "stale_pending_probe": {
+    "cancelled": true,
+    "status": "CANCELLED_REPLACED_BY_CURRENT_TARGET",
+    "following_session_pending": 0
+  },
+  "market_episodes": [
+    {
+      "peak_date": "2014-07-15",
+      "trough_date": "2014-10-17",
+      "recovery_date": "2015-02-24",
+      "market_drawdown_pct": -11.038470421154612,
+      "falling_sessions": 66,
+      "off_sessions_before_trough": 0,
+      "off_fraction_before_trough": 0.0,
+      "exit_signals_before_trough": 0,
+      "first_exit": null,
+      "market_loss_at_first_exit_pct": null
+    },
+    {
+      "peak_date": "2015-04-27",
+      "trough_date": "2015-08-24",
+      "recovery_date": "2017-05-11",
+      "market_drawdown_pct": -25.696873195148562,
+      "falling_sessions": 83,
+      "off_sessions_before_trough": 0,
+      "off_fraction_before_trough": 0.0,
+      "exit_signals_before_trough": 0,
+      "first_exit": null,
+      "market_loss_at_first_exit_pct": null
+    },
+    {
+      "peak_date": "2018-01-23",
+      "trough_date": "2019-01-04",
+      "recovery_date": "2019-10-22",
+      "market_drawdown_pct": -16.622960230549598,
+      "falling_sessions": 235,
+      "off_sessions_before_trough": 0,
+      "off_fraction_before_trough": 0.0,
+      "exit_signals_before_trough": 0,
+      "first_exit": null,
+      "market_loss_at_first_exit_pct": null
+    },
+    {
+      "peak_date": "2020-01-14",
+      "trough_date": "2020-03-19",
+      "recovery_date": "2020-07-09",
+      "market_drawdown_pct": -28.723518675578674,
+      "falling_sessions": 40,
+      "off_sessions_before_trough": 0,
+      "off_fraction_before_trough": 0.0,
+      "exit_signals_before_trough": 0,
+      "first_exit": null,
+      "market_loss_at_first_exit_pct": null
+    },
+    {
+      "peak_date": "2021-04-27",
+      "trough_date": "2021-05-17",
+      "recovery_date": "2021-06-29",
+      "market_drawdown_pct": -12.74166140976024,
+      "falling_sessions": 14,
+      "off_sessions_before_trough": 0,
+      "off_fraction_before_trough": 0.0,
+      "exit_signals_before_trough": 0,
+      "first_exit": null,
+      "market_loss_at_first_exit_pct": null
+    },
+    {
+      "peak_date": "2022-01-04",
+      "trough_date": "2022-10-25",
+      "recovery_date": "2024-02-15",
+      "market_drawdown_pct": -31.6318648843404,
+      "falling_sessions": 197,
+      "off_sessions_before_trough": 19,
+      "off_fraction_before_trough": 0.09644670050761421,
+      "exit_signals_before_trough": 1,
+      "first_exit": "2022-09-28",
+      "market_loss_at_first_exit_pct": -27.31396092592442
+    },
+    {
+      "peak_date": "2024-07-11",
+      "trough_date": "2025-04-09",
+      "recovery_date": "2025-08-18",
+      "market_drawdown_pct": -28.693158639001272,
+      "falling_sessions": 176,
+      "off_sessions_before_trough": 1,
+      "off_fraction_before_trough": 0.005681818181818182,
+      "exit_signals_before_trough": 1,
+      "first_exit": "2025-01-13",
+      "market_loss_at_first_exit_pct": -7.797038380026578
+    },
+    {
+      "peak_date": "2026-02-26",
+      "trough_date": "2026-03-31",
+      "recovery_date": "2026-04-10",
+      "market_drawdown_pct": -10.423699451834533,
+      "falling_sessions": 23,
+      "off_sessions_before_trough": 0,
+      "off_fraction_before_trough": 0.0,
+      "exit_signals_before_trough": 0,
+      "first_exit": null,
+      "market_loss_at_first_exit_pct": null
+    },
+    {
+      "peak_date": "2026-06-22",
+      "trough_date": "2026-07-30",
+      "recovery_date": "2026-09-22",
+      "market_drawdown_pct": -16.35518021947776,
+      "falling_sessions": 28,
+      "off_sessions_before_trough": 0,
+      "off_fraction_before_trough": 0.0,
+      "exit_signals_before_trough": 0,
+      "first_exit": null,
+      "market_loss_at_first_exit_pct": null
+    }
+  ],
+  "full_pipeline_probe": {
+    "kind": "SYNTHETIC_OFF_ON_FAULT_INJECTION_NOT_STRATEGY_PERFORMANCE",
+    "off_dates": [
+      "2026-09-30",
+      "2026-10-01"
+    ],
+    "on_dates": [
+      "2026-10-02",
+      "2026-10-05",
+      "2026-10-06",
+      "2026-10-07",
+      "2026-10-08"
+    ],
+    "core_exit_fills": 7,
+    "on_core_buy_orders": 0,
+    "outside_core_buy_intents_while_off": 7,
+    "outside_core_codes": [
+      "0050",
+      "2881",
+      "2882",
+      "2884",
+      "2885",
+      "2890",
+      "2891"
+    ],
+    "qc": "PASS",
+    "max_nav_residual": 2.384185791015625e-07,
+    "final_position_residual": 0.0
+  },
+  "source_sha256": {
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/off.csv": "5d2953dceb716f2f92235c00001974318f203b2a16364e5c78ad7012fc296a43",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/base.csv": "a478b18bd850d09041cb630dd6266cb8a8fc70fda2fd2a379514793c0d1c68ec",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/l4.csv": "288d7d79c41f6e4f8ab95c9fc19556dac2a4f25194d326a1d723c8c86452ac92",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/trail.csv": "f8d822f076e46001f53746af4ed974167755e6497b68149bc4274706964914ab",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/dd.csv": "1b892099331bf793a3ad0754b6385dddd626c4f44e42ab6a643752bb17b9df56",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/shares_COMP_H150_x_A20.csv": "9ed36d7e2670dfc8c8c09fe9ec363ac37e3db71eb0fcf824e4a53cbcc05eb1a8",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/shares_SAT_A20_RELAX.csv": "8fd7dcf79544108d486372a6035799b94813245d70f704d33032f9bcb35ace88",
+    "repro/dd-switch-live-repair-runtime-certified/generations/original-2026-10-08-b71cde9d9f88aff85a19/signal.csv": "d873aa23907c3b26f3896d2bb3aba3235d84e375edc796d19a2078af0bdabbb8"
+  },
+  "canonical_history_unchanged": true,
+  "pipeline_probe_sha256": {
+    "repro/dd-switch-crisis-pipeline-probe/summary.json": "00c9b7797860539c0afb4ee971923c38119f9764c8b116c932835cf650285ff9",
+    "repro/dd-switch-crisis-pipeline-probe/pipeline_t1_audit.json": "0028874f71e2e4325f1d41021fab67397d6aa312332d5e06db19b659f6b9f05e",
+    "repro/dd-switch-crisis-pipeline-probe/signals.csv": "eee84660aed92c1139c6bd908d4bd17e27adf015298d3a882413c1b62e179324",
+    "repro/dd-switch-crisis-pipeline-probe/portfolio_state.json": "ec7f7e27167bbea5fd992ae07636553a7f568344a1ee695ff748a3999b2ce84c",
+    "repro/dd-switch-crisis-pipeline-probe/order_lifecycle.csv": "0f50c19a829ad4c53388bc935db9e21acbf45e228c02005cdcec1db18fc42242",
+    "repro/dd-switch-crisis-pipeline-probe/qc_status.json": "28f8f9637cc37cac8446f5dd3f0dd0b3f729ab0463c302e75aaf3f6d7d16c245",
+    "repro/dd-switch-crisis-pipeline-probe/fills.csv": "cfeedf72005e528ae12c3e3c18f281496b356949180ea3b9a90886c63dc68e67",
+    "repro/dd-switch-crisis-pipeline-probe/nav.csv": "6744b8287e1eac6db63b1ddcc3cf53b74913b3857b7ebf52d465ffad86335f00",
+    "repro/dd-switch-crisis-pipeline-probe/orders.csv": "b9b78251b9da71641cf3b408efd8cc00a5b484aaa31f74071a64a95b21af7a2f",
+    "repro/dd-switch-crisis-pipeline-probe/order_events.csv": "e11085a13590f0f2be74c468bb521b9443a25af69ad02a479ca82804549b7e4b"
+  },
+  "program_sha256": {
+    "scripts/dd_switch_crisis_audit.py": "d0e1bf76526fcbc7117f99ebe2112806264ae9d8a95f86c554e5289bd50f3140",
+    "scripts/dd_switch_crisis_pipeline_probe.py": "b3f71e05f8d972b0a79cb644c3883d72fedb92fdf4c6746fffc6563a69d77efb",
+    "scripts/dd_switch_live_replay.py": "837b0416ba180d8ad3b50fab41997b626eb08e6329e233437461fd209fbe2c2c",
+    "scripts/live_tipsoft_dd_switch.py": "571f3239b74c94ea1af4ac779dfc764a9fb928711959faa27f17e5cc0d4b3cc2",
+    "scripts/path3_comp_sat_daily_share_ssot.py": "93467d035f97069ab9fe40540fb05d2a720257dfe10eaabd30c8469b5d54e1d7",
+    "scripts/live_fill_core.py": "163e1f7362c1f56615fda2de4acebc0022befb31576f446f662379b10799ddee",
+    "scripts/live_order_lifecycle.py": "e1813686ff6215465c0e955d89aa8b23bcf944f96d05498a8412bd0e1b4ac2b7"
+  },
+  "limits": [
+    "Frozen original research shadows retain historical stitches and corporate-action assumptions; not new full-history exact live backtest",
+    "TAIEX drawdown is a market comparator, not DD portfolio loss; 10% threshold used only to identify all episodes",
+    "Lifecycle probes use synthetic 500m lot-sized parent-shaped FIN/TEL holdings; not archived broker positions",
+    "Only next-open exit execution and reentry demand are probed; no long holding PnL, dividend or reentry performance claim",
+    "Missing historical official calendars are flagged; historical next-open clocks are next observed market session, not formally certified",
+    "No refilling cash without an approved funding contract; no production logic or risk thresholds changed",
+    "5bp paper slippage and fees; no real auction capacity proof; no merge or deployment"
+  ],
+  "tests": {
+    "dd_switch": 73,
+    "tipsoft_dd_switch": 13,
+    "total": 86,
+    "failures": 0,
+    "errors": 0
+  }
+}
