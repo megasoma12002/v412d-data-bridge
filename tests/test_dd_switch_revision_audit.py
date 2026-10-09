@@ -68,5 +68,10 @@ class RevisionAuditTests(unittest.TestCase):
         filing['stock_amount_candidates']=['0.7']
         self.assertFalse(statutory_dividend_identity(event,'stock',filing))
 
+    def test_subscription_conversion_is_not_same_fiscal_year_stock_dividend(self):
+        event=dict(code='5880',stock_ex_date='2015-08-13',record_date='2015-08-21',stock_dividend='0.6',fiscal_year='103年')
+        filing=dict(code='5880',title='103年度現金增資普通股股票上市',ex_dates=[],record_dates=[],announcement_date='2015-04-10',fiscal_years=['103'],compact_text='現金增資，股利權義相同')
+        self.assertFalse(statutory_dividend_identity(event,'stock',filing))
+
 
 if __name__=='__main__':unittest.main()

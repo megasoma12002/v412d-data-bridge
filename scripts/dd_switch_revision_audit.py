@@ -272,6 +272,7 @@ def load_statutory():
 
 def statutory_dividend_identity(event, leg, filing):
     if filing['code']!=event['code']:return False
+    if re.search(r'現金增資|現增',filing['title']):return False
     # Ledger securities are ordinary shares; do not attach preferred-share dividends.
     if re.search(r'[甲乙丙丁戊]種特別股|特別股股息',filing['title']):return False
     if event[leg+'_ex_date'] in filing['ex_dates'] or event['record_date'] in filing['record_dates']:return True
