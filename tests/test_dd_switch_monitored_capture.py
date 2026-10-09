@@ -15,5 +15,8 @@ class MonitoredCaptureTests(unittest.TestCase):
         self.assertEqual(s['consecutive_failures'],0);self.assertEqual(s['success'],1);self.assertTrue(s['last_completed_at'])
     def test_normal_primary_body_is_not_blocked(self):
         self.assertFalse(blocked('公開資訊觀測站正常公告'.encode()))
+    def test_success_does_not_report_stale_error_from_previous_attempt(self):
+        s=advance(self.state(),dict(id='x',status='CAPTURED',error='Unrelated/security response'),b'valid')
+        self.assertEqual(s['recent_results'][0]['error'],'')
 
 if __name__=='__main__':unittest.main()

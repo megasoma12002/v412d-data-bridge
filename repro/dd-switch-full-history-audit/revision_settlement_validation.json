@@ -1,11 +1,11 @@
 {
   "asof": "2026-10-08",
-  "captured_candidate_filings": 1416,
-  "captured_statutory_filings": 957,
+  "captured_candidate_filings": 1417,
+  "captured_statutory_filings": 1055,
   "positive_dividend_legs": 416,
   "dividend_legs_with_linked_schedule_chain": 389,
   "dividend_legs_with_earlier_schedule": 304,
-  "primary_payment_schedule_matches": 320,
+  "primary_payment_schedule_matches": 326,
   "payment_schedule_conflicts": 2,
   "contradictory_primary_payment_dates": 2,
   "subscription_events": 24,
@@ -25,10 +25,10 @@
     "Subscription requires an explicit paid election; no automatic ordinary shares",
     "Future scheduled settlement is not a missing past payment"
   ],
-  "payment_schedule_missing": 94,
+  "payment_schedule_missing": 88,
   "payment_schedule_missing_by_leg": {
-    "cash": 23,
-    "stock": 71
+    "stock": 71,
+    "cash": 17
   },
   "announcement_chain_missing": 27,
   "announcement_chain_missing_by_code": {
@@ -36,16 +36,19 @@
   },
   "past_subscription_delivery_missing": 17,
   "uncaptured_detail_responses": {
-    "major": 1,
-    "statutory": 99
+    "major": 0,
+    "statutory": 1
   },
-  "new_valid_responses_since_previous": 810,
-  "source_hash_pairs_verified": 3272,
-  "tests_passed": 31,
+  "new_valid_responses_since_previous": 99,
+  "source_hash_pairs_verified": 3364,
+  "tests_passed": 36,
   "canonical_input_hashes_verified": 6,
-  "capture_run_id": 37948252421,
-  "capture_run_conclusion": "cancelled",
-  "capture_artifact_sha256": "faf4f4241692a77effc23be8d09ce5fac22ee11976abea2f26f570786fdc7b66",
-  "downloads_restarted": false,
-  "artifact_embedded_summary_stale": true
+  "capture_run_id": 37962101976,
+  "capture_run_conclusion": "success",
+  "capture_artifact_sha256": "2f04cb2c69f3df0ef88a0edeb0486f8bbdd1da235453bea63b45836c07721745",
+  "capture_processed": 100,
+  "capture_success": 99,
+  "capture_failed": 1,
+  "artifact_embedded_validation_stale": true,
+  "progress_stale_error_note": "CAPTURED responses retained old error text; validated by status/body/hash. Fixed for subsequent captures."
 }

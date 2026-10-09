@@ -1,3 +1,22 @@
+## 最新完成批次：2026-10-10 00:57（台灣時間）
+
+Run [37962101976](https://github.com/megasoma12002/v412d-data-bridge/actions/runs/37962101976) 已成功結束。監控 COMPLETE：100/100 已處理，99 成功、1 失敗；5 筆探測先通過，後續每批 10 筆保存進度，未觸發來源阻擋或連續失敗門檻。最後抓取完成 00:57:28，工作流程結束 00:57:42。
+
+|核對項目|最新結果|
+|---|---|
+|股利付款日期符合原帳|326 / 416（前批 320）|
+|股利付款日期缺件|88（現金 17、股票 71；前批 94）|
+|原始公告鏈缺件|27，全部 0050；既有 ETF 公告事實仍保留|
+|股份階段差異|2：2880、5880 的權利證書與普通股轉換日期|
+|24 筆現增認購期間|24 已支持；過往新股交付缺 17、未到期 1|
+|未取得的抓取回應|1：t108sb19_2891_20260625_20260622_1，curl/HTTP error|
+
+各列有重疊，不能相加為缺口事件總數。公告鏈完整性與當時可見版本尚未認證，公開預定交付日也不證明個別持有人實際入帳。backtest_ready=false，尚未重跑 T+1。
+
+最終 artifact SHA256：`2f04cb2c69f3df0ef88a0edeb0486f8bbdd1da235453bea63b45836c07721745`。3364 組原始／壓縮回應雜湊核對通過、6 份原帳輸入未改、36 項測試通過。原 artifact 內的 validation 是舊版，應以本次重算的 revision_settlement_validation.json 為準。進度檔的 CAPTURED 曾沿用前次失敗 error 文案；本次以狀態、原文與雜湊核實，監控程式已修正成功時清除舊 error。
+
+重現時依序解壓 mops_evidence_sources.zip、reviewed_revision_settlement_evidence.zip、cancelled_capture_delta.zip、completed_capture_delta.zip，再執行 `python scripts/dd_switch_revision_audit.py`。最後一包保存本輪差異回應與 manifest；不必重抓已成功資料。沒有啟動下一轮抓取。
+
 # 取消後離線整核：最新缺口（2026-10-09 23:24 後）
 
 工作37948252421已取消，未重新啟動下載。取消時 always 上傳的 artifact 已驗證SHA256 `faf4f4241692a77effc23be8d09ce5fac22ee11976abea2f26f570786fdc7b66`。包內摘要仍為工作開始前數字，因取消時核對步驟未執行；本節由保存的完整原始回應離線重跑，取代其摘要。日誌顯示至23:24:14仍有CAPTURED輸出，並非整段20分鐘完全無進度。

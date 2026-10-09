@@ -35,7 +35,7 @@ def advance(state,meta,raw):
     state['success']+=int(good);state['failed']+=int(not good)
     state['consecutive_failures']=0 if good else state['consecutive_failures']+1
     state['last_completed_at']=now();state['last_result']=meta['status']
-    state['recent_results']=(state.get('recent_results',[])+[dict(id=meta['id'],status=meta['status'],at=state['last_completed_at'],error=meta.get('error',''))])[-10:]
+    state['recent_results']=(state.get('recent_results',[])+[dict(id=meta['id'],status=meta['status'],at=state['last_completed_at'],error='' if good else meta.get('error',''))])[-10:]
     if blocked(raw):state.update(status='STOPPED_SOURCE_BLOCK',stop_reason='Official source returned Overrun/security response')
     elif state['consecutive_failures']>=3:state.update(status='STOPPED_FAILURE_LIMIT',stop_reason='Three consecutive unsuccessful requests')
     return state
@@ -56,6 +56,7 @@ def main():
         name=item['source'];old=caches[name][item['id']]
         state.update(status='PROBE' if args.probe else 'FETCHING',current_id=old['id'],current_started_at=now());save(state)
         meta,raw=modules[name].fetch(old,caches[name],15)
+        if meta['status'] in ('CAPTURED','VALID_EMPTY'):meta.pop('error',None)
         caches[name][meta['id']]=meta
         path=OUT/'sources'/name/'manifest.json';path.write_text(json.dumps(sorted(caches[name].values(),key=lambda r:r['id']),indent=2)+'\n')
         advance(state,meta,raw);save(state)
