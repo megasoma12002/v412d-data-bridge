@@ -1,0 +1,195 @@
+{
+  "status": "FIXED_CLOCK_ATTRIBUTION_AND_INITIAL_HANDOFF_SENSITIVITY_ONLY",
+  "seed": "2026-09-29",
+  "end": "2026-10-08",
+  "clock_reports": {
+    "next_open": {
+      "final_nav": 542920983.1534936,
+      "profit": 42920983.15349364,
+      "return_pct": 8.584196630698738,
+      "observed_mdd_pct": -5.155630733853345,
+      "sessions": 32,
+      "fees_tax": 1517877.1965065,
+      "minimum_cash_after_trade": 1022.1721829709131,
+      "net_gain_vs_next_open": 0.0,
+      "fee_difference_vs_next_open": 0.0
+    },
+    "signal_close": {
+      "final_nav": 542441279.9640543,
+      "profit": 42441279.964054346,
+      "return_pct": 8.488255992810867,
+      "observed_mdd_pct": -5.240517855930471,
+      "sessions": 32,
+      "fees_tax": 1520230.23594575,
+      "minimum_cash_after_trade": 1022.1721829709131,
+      "net_gain_vs_next_open": -479703.1894392967,
+      "fee_difference_vs_next_open": 2353.0394392500166
+    },
+    "next_close": {
+      "final_nav": 541816953.3711535,
+      "profit": 41816953.371153474,
+      "return_pct": 8.363390674230686,
+      "observed_mdd_pct": -5.35234441732274,
+      "sessions": 32,
+      "fees_tax": 1518807.603846625,
+      "minimum_cash_after_trade": 1022.1721829709131,
+      "net_gain_vs_next_open": -1104029.782340169,
+      "fee_difference_vs_next_open": 930.407340124948
+    }
+  },
+  "feedback_reports": {
+    "immediate": {
+      "final_nav": 542920983.1534936,
+      "profit": 42920983.15349364,
+      "return_pct": 8.584196630698738,
+      "observed_mdd_pct": -5.155630733853355,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 3.725290298461914e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1517877.1965065,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "policy": "immediate",
+      "nav_gain_vs_immediate": 0.0,
+      "fee_saving_vs_immediate": 0.0,
+      "controls_equal": true,
+      "new_fills": 39,
+      "first_signal_unissued_notional": 0.0,
+      "max_close_target_delta_notional": 237677900.0
+    },
+    "two_day": {
+      "final_nav": 542596047.6689229,
+      "profit": 42596047.6689229,
+      "return_pct": 8.519209533784577,
+      "observed_mdd_pct": -5.212235084061945,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 2.2351741790771484e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1516711.18107725,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "policy": "two_day",
+      "nav_gain_vs_immediate": -324935.48457074165,
+      "fee_saving_vs_immediate": 1166.0154292499647,
+      "controls_equal": true,
+      "new_fills": 43,
+      "first_signal_unissued_notional": 118898700.0,
+      "max_close_target_delta_notional": 237677900.0
+    },
+    "three_day": {
+      "final_nav": 542661724.1194524,
+      "profit": 42661724.11945236,
+      "return_pct": 8.532344823890469,
+      "observed_mdd_pct": -5.200795045215623,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 1.4901161193847656e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1518826.78054775,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "policy": "three_day",
+      "nav_gain_vs_immediate": -259259.03404128551,
+      "fee_saving_vs_immediate": -949.5840412499383,
+      "controls_equal": true,
+      "new_fills": 46,
+      "first_signal_unissued_notional": 158617350.0,
+      "max_close_target_delta_notional": 237677900.0
+    }
+  },
+  "clock_audits": {
+    "immediate": {
+      "post_seed_fills": 39,
+      "same_day_fills": 0,
+      "next_session_fills": 39,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 31,
+      "all_path3_orders_next_session_open": true
+    },
+    "two_day": {
+      "post_seed_fills": 43,
+      "same_day_fills": 0,
+      "next_session_fills": 43,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 34,
+      "all_path3_orders_next_session_open": true
+    },
+    "three_day": {
+      "post_seed_fills": 46,
+      "same_day_fills": 0,
+      "next_session_fills": 46,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 37,
+      "all_path3_orders_next_session_open": true
+    }
+  },
+  "original_bridge": {
+    "total": -1051703.6188352108,
+    "components": {
+      "holding_pnl": -1452250.0000000047,
+      "open_to_close_trade_pnl": 1084050.0000000012,
+      "execution_price_pnl": -119204.99999998938,
+      "fee_pnl": -564298.61883525
+    },
+    "residual": -3.213062882423401e-08
+  },
+  "source_sha256": {
+    "repro/dd-switch-exposure-immediate/fills.csv": "b7ce46bb1bca3216381e800051507a7af56f09db87f87c94e966b9db023b32c6",
+    "repro/dd-switch-exposure-immediate/orders.csv": "034979859d9b02c118cc0af3e1c5eeb1e07409c7b5f280d7547abc61a22402c6",
+    "repro/dd-switch-exposure-immediate/signals.csv": "639cc69d73e57109da6f3ffe261806e248c31a5fca0eb2b1f70e31903519a3a0",
+    "repro/dd-switch-exposure-immediate/portfolio_state.json": "394e5156fd66ee579e7a142d1c65f7e43a90a4f3eb18cb80b85a49075401c1c9",
+    "repro/dd-switch-exposure-immediate/exposure_audit.jsonl": "94c5bc884de510ad259e0f4ba83beddb799f229e91c92c0403ed68cbfa232e43",
+    "repro/dd-switch-exposure-two_day/fills.csv": "c5f9421be1405d25223cdc3effa3651c41b20b49a5c929e5d877340293a5dfd0",
+    "repro/dd-switch-exposure-two_day/orders.csv": "94291989e1a37392fc4fa9cd27e6f560613909dedabdc75aa447c22bf3be5560",
+    "repro/dd-switch-exposure-two_day/signals.csv": "011102b5ec4846b77fb120bc9426f64eebfae62c44a8e4774463f263dca5cab0",
+    "repro/dd-switch-exposure-two_day/portfolio_state.json": "4e92cc0d9d746383107c26a7ddddf9e15f96d01b65f0976ff9655c8fa44bfff4",
+    "repro/dd-switch-exposure-two_day/exposure_audit.jsonl": "bc7a81839f906e3af9a5d355252d90e5d12aa548729d99b3b87a9a464f2dd473",
+    "repro/dd-switch-exposure-three_day/fills.csv": "7460d437120d831393f7881fe5d2dd078c58ef3f002b123a62fb701d2e168b21",
+    "repro/dd-switch-exposure-three_day/orders.csv": "043d573a050b72f0ff0e68727294e5da7ae022889c3cc61c03be12f22ff83077",
+    "repro/dd-switch-exposure-three_day/signals.csv": "0912637fe7a6bee279542704144f3cbfdff4eb828669355efecd32b0aa3619fe",
+    "repro/dd-switch-exposure-three_day/portfolio_state.json": "02f4a64e635daa58005f7accca1f60566886e27ad9b88ed82e883a17ca6be79d",
+    "repro/dd-switch-exposure-three_day/exposure_audit.jsonl": "e219ae27ae61995bb27c45914343bcfec7111755f4886dd3b9b815e78ec640e2"
+  },
+  "changed_clock_fills": 33,
+  "same_final_shares_all_clock_modes": true,
+  "canonical_history_hashes_unchanged": true,
+  "runtime_manifest_sha256": "96a6888f3ba5aaa3a513d13b96edfba8164f110ae841eb002dbe00d38c974804",
+  "program_sha256": {
+    "scripts/dd_switch_exposure_research.py": "a98f8e2229901affb5f1666c21eb4975e86b0a9483c1cd14f273e64de8ebe911",
+    "scripts/dd_switch_exposure_pipeline.py": "ff560c890b3e05ee063f7c55038b2f776d747104c10bd9cea0164e5e3763ad71",
+    "scripts/dd_switch_live_replay.py": "32ce6124204b08ac806d290caa33f8f7302b0757e3f5713c692191a1a9c29a81"
+  },
+  "limits": [
+    "32-session book, only seven regenerated dates and one initial handoff; no statistical best-policy claim",
+    "Signal-close uses a final-close-derived signal and is unavailable executable T0; attribution upper/reference only",
+    "Clock comparison changes exactly 33 fills with signal_date after seed; six 9/29 pending intents stay unchanged; no order regeneration, final pending orders excluded equally",
+    "Negative cash or shares rejected; no dividends in observed window; fees recalculated at each price",
+    "Feedback staging recalculates target against actual holdings every day; no stale remainder queue",
+    "Book flips bypass staging; DD gate downstream overrides staged plans with full exits",
+    "Fixed 5bp paper slippage; no opening-auction liquidity or broker capacity evidence",
+    "Canonical live history and strategy rules not modified; no deployment"
+  ]
+}
