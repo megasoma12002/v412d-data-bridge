@@ -1,5 +1,5 @@
 import unittest
-from dd_switch_revision_audit import numbered_fields, declared_amounts, revision_snapshot, subscription_identity, statutory_subscription_identity, statutory_dividend_identity, cash_schedule_dates, explicit_date_after, dates, delivery_clauses
+from dd_switch_revision_audit import numbered_fields, declared_amounts, revision_snapshot, subscription_identity, statutory_subscription_identity, statutory_dividend_identity, cash_schedule_dates, explicit_date_after, dates, delivery_clauses, stock_issue_bridge, ordinary_cash_amounts, stock_issue_units
 
 
 class RevisionAuditTests(unittest.TestCase):
@@ -93,6 +93,31 @@ class RevisionAuditTests(unittest.TestCase):
         self.assertTrue(statutory_dividend_identity(event,'stock',filing))
         filing['stock_amount_candidates']=['0.5']
         self.assertFalse(statutory_dividend_identity(event,'stock',filing))
+
+    def test_issue_count_bridge_uses_latest_declaration_and_security_scope(self):
+        event=dict(code='2886',stock_ex_date='2012-08-08')
+        filing=dict(code='2886',title='盈餘轉增資新股發放',announcement_date='2012-09-01',compact_text='公告內容每股面額10元，發行新股100股')
+        old=dict(id='original',reported_at='2012-06-01',fields={'發放股利種類及金額':'股票股利新台幣900元'})
+        revised=dict(id='revised',reported_at='2012-06-02',fields={'發放股利種類及金額':'股票股利新台幣1000元'})
+        self.assertEqual(stock_issue_bridge(event,filing,[old,revised]),['revised'])
+        self.assertEqual(stock_issue_bridge(event,filing,[old]),[])
+        self.assertEqual(stock_issue_bridge(event,dict(filing,title='現金增資新股發放'),[revised]),[])
+        self.assertEqual(stock_issue_bridge(event,dict(filing,title='合併換股'),[revised]),[])
+        self.assertEqual(stock_issue_bridge(event,dict(filing,announcement_date='2013-09-01'),[revised]),[])
+        self.assertEqual(stock_issue_units('增資後資本額1000元，發行股份總數100股'),set())
+
+    def test_mixed_preferred_notice_requires_ordinary_rate(self):
+        event=dict(code='2881',cash_ex_date='2016-07-01',record_date='2016-07-09',fiscal_year='104年',cash_dividend='2')
+        filing=dict(code='2881',title='普通股及甲種特別股股息',ex_dates=['2016-07-01'],record_dates=[],announcement_date='2016-06-10',fiscal_years=[],compact_text='普通股現金股利每股配發2元，甲種特別股每股配發6元')
+        self.assertEqual(ordinary_cash_amounts(filing['compact_text']),['2'])
+        self.assertTrue(statutory_dividend_identity(event,'cash',filing))
+        self.assertFalse(statutory_dividend_identity(dict(event,cash_dividend='6'),'cash',filing))
+
+    def test_corrected_conversion_keeps_each_notice_date(self):
+        original='集保自動於101年2月8日將股款繳納憑證轉換為普通股股票。'
+        revised='集保自動於101年2月10日將股款繳納憑證轉換為普通股股票。'
+        self.assertEqual(delivery_clauses(original),(['2012-02-08'],[]))
+        self.assertEqual(delivery_clauses(revised),(['2012-02-10'],[]))
 
 
 if __name__=='__main__':unittest.main()

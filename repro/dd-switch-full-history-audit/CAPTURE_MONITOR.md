@@ -1,3 +1,13 @@
+## 最新缺口探測
+
+0050原文探測：STOPPED_SOURCE_BLOCK，1/1已處理，HTTP307安全阻擋，見targeted_capture_progress.json。已停止该来源。
+
+發行人頁面：COMPLETE，3/3保存、0失敗，見issuer_capture_progress.json。RESPONSE_SAVED_NEEDS_VALIDATION僅表示回應保存，不代表歷史日期已補件；本批人工核對沒有解除剩餘缺口。
+
+scripts/dd_switch_targeted_capture.py保留串行、2秒間隔、15秒逾時、阻擋來源停止、連續3失敗停止及逐筆進度。沒有背景抓取正在執行。
+
+---
+
 ## 最新續抓結果
 
 本輪僅剩1份候選法定公告，已於2026-10-10 01:15:28台灣時間取得有效全文；COMPLETE 1/1成功，0失敗。前輪100筆監控另存 prior_capture_progress_37962101976.json。候選公告內文沒有剩餘下載，下一批必須先新增具體來源候選；沒有正在背景執行的抓取。證據完整性仍未通過，見最新REVISION_SETTLEMENT_REVIEW.md。

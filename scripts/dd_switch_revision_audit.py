@@ -218,18 +218,18 @@ def delivery_clauses(text):
     """Separate explicit delivery/conversion dates from listing-only and voucher dates."""
     delivery, listing = [], []
     for pattern in [
-        r'(?:本次增資股票|前項增資新股)[^。]{0,90}?(?:訂於|同意於)('+DATE+r')([^。]{0,60})',
+        r'(?:本次增資股票|前項增資新股)[^。]{0,90}?(?:訂於|同意於|預計於)(?:民國)?('+DATE+r')([^。]{0,60})',
         r'本次現金增資發行新股訂於('+DATE+r')([^。]{0,90})',
         r'本公司訂於('+DATE+r')([^。]{0,90})',
     ]:
         for m in re.finditer(pattern,text):
             tail=m[m.lastindex]
-            if re.search(r'發放|直接劃撥',tail): delivery.extend(dates(m[1]))
+            if re.search(r'發放|直接劃撥',tail) or ('增資新股劃撥及上市' in text and '以無實體方式發行' in tail): delivery.extend(dates(m[1]))
             if '上市' in tail: listing.extend(dates(m[1]))
-    for m in re.finditer(r'自動於('+DATE+r')(?:\([^)]*\)|（[^）]*）)?換發為普通股',text):
+    for m in re.finditer(r'自動於('+DATE+r')(?:\([^)]*\)|（[^）]*）)?(?:換發為普通股|將股款繳納憑證轉換為普通股)',text):
         delivery.extend(dates(m[1]))
     # A listing date alone is not proof of the delivery date.
-    for m in re.finditer(r'訂於('+DATE+r')(?:\([^)]*\)|（[^）]*）)?(?:為)?普通股上市',text):
+    for m in re.finditer(r'(?:訂於|訂定)('+DATE+r')(?:\([^)]*\)|（[^）]*）)?(?:為)?普通股上市',text):
         listing.extend(dates(m[1]))
     if '股款繳納憑證換發普通股股票' in text:
         for m in re.finditer(r'於('+DATE+r')(?:\([^)]*\)|（[^）]*）)?(?:起)?(?:正式)?上市買賣',text):
@@ -251,12 +251,13 @@ def load_statutory():
         if '公告' not in text or meta['code'] not in text:raise ValueError('Statutory issuer identity mismatch')
         def after(labels):
             return explicit_date_after(text,labels)
-        record=after(['現金股利分派基準日','除息及除權基準日','除息與除權基準日','權利分派基準日','除權息基準日','除息基準日','認股基準日'])
+        record=after(['普通股現金股利分派基準日','現金股利分派基準日','除息及除權基準日','除息與除權基準日','權利分派基準日','除權息基準日','除息基準日','認股基準日'])
         ex=after(['除權/除息交易日','除權息交易日','除權交易日','除息交易日'])
         cash=after(['現金股利發放日期','現金股利發放日','現金股利預訂於','現金股利預計於','現金股利訂於'])
         cash.extend(cash_schedule_dates(text))
+        cash.extend(after(['普通股現金股利及私募乙種特別股股息發放日期','普通股現金股利及私募乙種特別股股息發放日期為']))
         if '現金股利' in meta['title'] and not re.search(r'股票|增資|新股',meta['title']):
-            for m in re.finditer(r'訂於('+DATE+r')以(?:匯款|掛號|郵寄)[^。]{0,30}發放',text):cash.extend(dates(m[1]))
+            for m in re.finditer(r'(?:訂於|訂定)('+DATE+r')以(?:匯款|掛號|郵寄)[^。]{0,30}發放',text):cash.extend(dates(m[1]))
         for m in re.finditer(r'現金股利發放日與發放方式[:：](?:（一）|1[.．])?發放日[:：](?:預訂於|預計於)?(' + DATE + r')',text):cash.extend(dates(m[1]))
         stock=after(['新股發放日期','新股發放日','增資新股發放上市日期','股票股利發放日','新股交付日期','增資股發放日期','增資新股股票發放及上市日期','增資新股股票發放暨上市日期'])
         listing=after(['新股上市日期','新股上市日','新股上市交易日','增資發行新股上市日期','增資新股股票發放及上市日期','增資新股股票發放暨上市日期'])
@@ -301,11 +302,68 @@ def load_statutory():
     return sorted(rows,key=lambda r:(r['announcement_date'],r['id']))
 
 
+def ordinary_cash_amounts(text):
+    values=[]
+    for pattern in [
+        r'普通股現金股利(?:計[\d,]+元[，,])?每股(?:配發|分派)(?:新台幣|新臺幣)?([\d.]+)元',
+        r'普通股每股分派(?:新台幣|新臺幣)?([\d.]+)元',
+        r'除息--普通股[:：]每壹股配發(?:現金|股票)\(股利\)([\d.]+)元',
+    ]:values.extend(re.findall(pattern,text))
+    return values
+
+
+def cash_identity_amount(event, filing):
+    amounts=ordinary_cash_amounts(filing['compact_text'])
+    return any(abs(number(a)-number(event['cash_dividend']))<=Decimal('0.00000001') for a in amounts)
+
+
+def cash_schedule_bridge(event, filing):
+    if filing['code']!=event['code'] or re.search('現金增資|現增',filing['title']):return False
+    if not filing['cash_payment_dates']:return False
+    elapsed=(datetime.fromisoformat(event['cash_ex_date'])-datetime.fromisoformat(filing['announcement_date'])).days
+    if not 0<=elapsed<=60:return False
+    if re.search(r'[甲乙丙丁戊]種特別股|特別股股息',filing['title']):return False
+    text=filing['compact_text'].split('公告內容',1)[-1]
+    rates=re.findall(r'現金股利[，,]每股(?:分派|配發)(?:新台幣|新臺幣)?([\d.]+)元',text)
+    return any(abs(number(a)-number(event['cash_dividend']))<=Decimal('0.00000001') for a in rates)
+
+
+def stock_issue_units(text):
+    """Extract explicitly newly issued units; exclude existing/cumulative capital."""
+    values=set()
+    n=r'(\d[\d,]*(?:\.\d+)?)'
+    for m in re.finditer(r'(?:發行新股(?:普通股(?:股票)?)?|(?:增資|新股)發行普通股(?:股票)?|轉增資發行普通股股票|計(?:發行新股)?|本次增資上市(?:普通股)?股票[:：]普通股)' + n + r'股',text):
+        v=number(m[1]);
+        if v>=1 and v==int(v):values.add(v)
+    # These labels explicitly give the stock-dividend/new-issue capital, not cash dividends.
+    for m in re.finditer(r'(?:股票股利(?:新台幣|新臺幣)|增資發行新股|盈餘轉增資)(?:新台幣|新臺幣)?' + n + r'元',text):
+        v=number(m[1])/10
+        if v>=1 and v==int(v):values.add(v)
+    return values
+
+
+def stock_issue_bridge(event, filing, major_matches):
+    if filing['code']!=event['code'] or re.search(r'現金增資|現增|特別股|股份轉換|合併',filing['title']):return []
+    elapsed=(datetime.fromisoformat(filing['announcement_date'])-datetime.fromisoformat(event['stock_ex_date'])).days
+    if not 0<=elapsed<=120:return []
+    body=filing['compact_text'].split('公告內容',1)[-1]
+    if not re.search(r'每股面額(?:新台幣|新臺幣)?(?:壹拾|10)元',body):return []
+    units=stock_issue_units(body)
+    if not units:return []
+    # The latest matching declaration carries any corrected issue count.
+    declarations=[r for r in major_matches if r.get('fields',{}).get('發放股利種類及金額')]
+    if not declarations:return []
+    latest=max(declarations,key=lambda r:r['reported_at'])
+    if units & stock_issue_units(latest['fields']['發放股利種類及金額']):return [latest['id']]
+    return []
+
+
 def statutory_dividend_identity(event, leg, filing):
     if filing['code']!=event['code']:return False
     if re.search(r'現金增資|現增',filing['title']):return False
     # Ledger securities are ordinary shares; do not attach preferred-share dividends.
-    if re.search(r'[甲乙丙丁戊]種特別股|特別股股息',filing['title']):return False
+    if re.search(r'[甲乙丙丁戊]種特別股|特別股股息',filing['title']):
+        if leg!='cash' or not cash_identity_amount(event,filing):return False
     if event[leg+'_ex_date'] in filing['ex_dates'] or event['record_date'] in filing['record_dates']:return True
     if leg=='stock' and (filing.get('ordinary_conversion_dates') or filing.get('stock_payment_dates')):
         elapsed=(datetime.fromisoformat(filing['announcement_date'])-datetime.fromisoformat(event[leg+'_ex_date'])).days
@@ -370,12 +428,16 @@ def main():
             identity = f"{event['code']}:{leg}:{event[leg + '_ex_date']}"
             matches = [r for r in filings if dividend_identity(event, leg, r)]
             before_ex = [r for r in matches if r['reported_at'][:10] <= event[leg + '_ex_date']]
-            stat_matches=[r for r in statutory if statutory_dividend_identity(event,leg,r)]
+            stat_matches=[]
+            for r in statutory:
+                bridge=stock_issue_bridge(event,r,matches) if leg=='stock' else []
+                if statutory_dividend_identity(event,leg,r) or bridge or (leg=='cash' and cash_schedule_bridge(event,r)):
+                    stat_matches.append(dict(r,identity_bridge_major_ids=bridge,identity_bridge_cash_schedule=leg=='cash' and cash_schedule_bridge(event,r)))
             payments = [(r, d) for r in matches for d in r[leg + '_payment_dates']]
             for r in stat_matches:
                 for d in r[leg+'_payment_dates']:
                     payment_facts[(event['code'],leg,event[leg+'_ex_date'])].append(dict(date=d,id=r['id'],url=r['url'],sha=r['response_sha256'],amount_matches=True,source_date=r['announcement_date'],explicit_amendment=bool(r.get('amended_cash_payment_dates')) if leg=='cash' else False))
-                versions.append(dict(event_id=identity,identity_match='STATUTORY_EX_RECORD_OR_FISCAL_YEAR',**r))
+                versions.append(dict(event_id=identity,identity_match='EXACT_NEW_ISSUE_COUNT_BRIDGE' if r.get('identity_bridge_major_ids') else ('EXACT_CASH_RATE_SCHEDULE_BRIDGE' if r.get('identity_bridge_cash_schedule') else 'STATUTORY_EX_RECORD_OR_FISCAL_YEAR'),**r))
             latest = payments[-1] if payments else None
             known = list(payment_facts[(event['code'],leg,event[leg+'_ex_date'])])
             if latest:

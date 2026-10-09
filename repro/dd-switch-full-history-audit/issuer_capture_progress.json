@@ -1,0 +1,27 @@
+{
+  "status": "COMPLETE",
+  "total": 3,
+  "processed": 3,
+  "success": 3,
+  "failed": 0,
+  "started_at": "2026-10-09T17:32:58.731867+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_0050_basic",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "fubon_dividend",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "sinopac_dividend",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T17:33:25.781368+00:00",
+  "updated_at": "2026-10-09T17:33:37.062030+00:00",
+  "last_completed_at": "2026-10-09T17:33:37.059552+00:00"
+}
