@@ -909,7 +909,7 @@
     },
     {
       "id": "DIVIDEND_VINTAGE",
-      "reason": "0050 has 27 primary reported schedule/final timestamp matches; 389 positive legs still lack primary timestamp proof and all revision inventories remain uncertified"
+      "reason": "Positive dividend ledger has 415 primary reported field matches; 1 reported-clock discrepancy remains and all first-publication/revision inventories remain uncertified"
     },
     {
       "id": "FEATURE_FUTURE_EVENT_DEPENDENCY",
@@ -921,7 +921,7 @@
     },
     {
       "id": "HISTORICAL_CORPORATE_ACTION_COMPLETENESS",
-      "reason": "2 ETF split/halt/unit contracts have primary reported time proof; 24 zero-dividend ex-right rows need action classification, subscription/unit evidence and complete historical primary inventory"
+      "reason": "2 ETF split/halt/unit contracts have primary reported evidence; all 24 zero-dividend ex-right rows have primary subscription terms and issued class (18 ordinary, 6 preferred); settlement and complete historical inventory remain unproved"
     },
     {
       "id": "RESEARCH_GAP_CANDIDATES_NOT_PROMOTED",
@@ -949,22 +949,46 @@
     "status": "PRIMARY_TIMESTAMP_ENRICHMENT_COMPLETE_CERTIFICATION_BLOCKED",
     "normalized_primary_announcements": 54,
     "positive_dividend_legs": 416,
-    "primary_reported_time_supported_legs": 27,
-    "remaining_primary_time_legs": 389,
-    "mismatched_legs": 0,
+    "primary_reported_time_supported_legs": 415,
+    "remaining_primary_time_legs": 1,
+    "mismatched_legs": 1,
     "zero_dividend_ex_right_candidates": 24,
     "split_contracts_primary_matched": 2,
+    "mops_positive_legs_retrieved": 389,
+    "primary_classified_actions": 24,
+    "mops_payment_date_primary_supported_legs": 186,
     "publication_vintage_certified_legs": 0,
     "backtest_ready": false,
     "backtest_executed": false,
     "canonical_modified": false,
     "ledger_sha256": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
     "limits": [
-      "Normalized fact hashes do not authenticate original HTTP bodies",
+      "ETF normalized fact hashes do not authenticate original HTTP bodies; MOPS retrieved response hashes authenticate current retrieval only",
       "Reported timestamps do not certify first publication or a complete revision inventory",
       "Research snapshot is not integrated into production feature/entitlement code",
       "Zero-dividend ex-right candidates must not be treated as free stock dividends"
     ]
   },
-  "announcement_evidence_update_scope": "Supplemental evidence reconciliation only; prior price/NAV/fill audit statistics retained. Full-history audit not rerun: generated parents_with_off.csv and mothers_with_off.csv absent in clean checkout."
+  "announcement_evidence_update_scope": "Supplementary announcement/corporate-action reconciliation only; full historical audit and strategy not rerun",
+  "mops_evidence": {
+    "positive_dividend_legs": 389,
+    "primary_reported_time_supported_legs": 388,
+    "remaining_legs": 1,
+    "payment_date_primary_supported_legs": 186,
+    "action_candidates": 24,
+    "primary_subscription_terms_supported": 24,
+    "issued_security_class_pending": 0,
+    "primary_classified_actions": 24,
+    "ledger_sha256": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
+    "canonical_modified": false,
+    "backtest_ready": false,
+    "backtest_executed": false,
+    "publication_vintage_certified_legs": 0,
+    "limits": [
+      "Current primary historical table is not an original historical HTTP capture",
+      "Reported timestamps do not certify first publication or complete amendment history",
+      "Stock payment dates are not present in this aggregate table",
+      "Subscription right does not create free ordinary shares or automatic cash payment"
+    ]
+  }
 }

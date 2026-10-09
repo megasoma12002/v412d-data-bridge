@@ -67,13 +67,13 @@ def research_snapshot(versions, cutoff):
         if timestamp(row['reported_at']) > cutoff:
             continue
         key = row['event_id']
-        event = result.setdefault(key, dict(event_id=key, code=row['code'], leg='cash',
+        event = result.setdefault(key, dict(event_id=key, code=row['code'], leg=row.get('leg', 'cash'),
                                            publication_vintage_certified=False))
         for field in ('ex_date', 'payment_date', 'estimated_amount'):
             if field in row:
                 event[field] = row[field]
                 event[field + '_reported_at'] = row['reported_at']
-        if row['stage'] == 'FINAL' and 'amount' in row:
+        if row['stage'] in ('FINAL', 'ISSUER_DECLARATION') and 'amount' in row:
             event['amount'] = row['amount']
             event['amount_reported_at'] = row['reported_at']
     return list(result.values())
@@ -165,6 +165,37 @@ def main():
     ledger_path = ROOT / 'data/dividend_events/e22_dividend_events.csv'
     ledger = list(csv.DictReader(ledger_path.open()))
     rows, versions = reconcile(ledger, facts)
+    # A statutory issuer filing can declare schedule and amount together.
+    # Do not require ETF estimate/final stages for ordinary issuer dividends.
+    mops_summary = {}
+    mops_path = OUT / 'mops_dividend_field_check.csv'
+    if mops_path.exists():
+        mops_summary = json.loads((OUT / 'mops_evidence_summary.json').read_text())
+        if mops_summary['ledger_sha256'] != hashlib.sha256(ledger_path.read_bytes()).hexdigest():
+            raise ValueError('Stale MOPS evidence for a different dividend ledger')
+        supplementary = {(r['code'], r['leg'], r['ex_date']): r
+                         for r in csv.DictReader(mops_path.open())}
+        for row in rows:
+            key = row['code'], row['leg'], row['ex_date']
+            source = supplementary.get(key)
+            if not source:
+                continue
+            row.update(schedule_reported_at=source['primary_reported_at'],
+                       final_amount_reported_at=source['primary_reported_at'],
+                       final_matches=int(bool(source['primary_reported_at'])), schedule_matches=0,
+                       primary_reported_time_supported=source['primary_reported_time_supported'] == 'True',
+                       mismatch_fields=source['mismatch_fields'], status=source['status'])
+            if source['primary_reported_at']:
+                version = dict(code=row['code'], leg=row['leg'], stage='ISSUER_DECLARATION',
+                               event_id=':'.join(key), reported_at=source['primary_reported_at'],
+                               ex_date=row['ex_date'], amount=float(source['primary_amount']),
+                               source_urls=[source['source_url']],
+                               retrieved_response_sha256=source['response_sha256'],
+                               source_path=source['source_path'], revision_inventory_complete=False,
+                               ledger_mismatch_fields=source['mismatch_fields'])
+                if source['primary_payment_date']:
+                    version['payment_date'] = source['primary_payment_date']
+                versions.append(version)
     write_csv(OUT / 'announcement_field_check.csv', rows)
     missing = [r for r in rows if not r['primary_reported_time_supported']]
     write_csv(OUT / 'announcement_evidence_remaining.csv', missing)
@@ -177,6 +208,9 @@ def main():
                         classification='ZERO_DIVIDEND_EX_RIGHT_REQUIRES_ACTION_PROOF',
                         share_ratio=None, subscription_price=None, primary_verified=False)
                    for r in ledger if r['stock_ex_date'] and float(r['stock_dividend'] or 0) == 0]
+    actions_path = OUT / 'mops_action_field_check.csv'
+    if actions_path.exists():
+        exceptional = list(csv.DictReader(actions_path.open()))
     write_csv(OUT / 'nondividend_action_candidates.csv', exceptional)
     splits = audit_splits()
     (OUT / 'split_announcement_check.json').write_text(json.dumps(splits, indent=2) + '\n')
@@ -187,10 +221,13 @@ def main():
                    mismatched_legs=sum(bool(r['mismatch_fields']) for r in rows),
                    zero_dividend_ex_right_candidates=len(exceptional),
                    split_contracts_primary_matched=len(splits),
+                   mops_positive_legs_retrieved=mops_summary.get('positive_dividend_legs', 0),
+                   primary_classified_actions=mops_summary.get('primary_classified_actions', 0),
+                   mops_payment_date_primary_supported_legs=mops_summary.get('payment_date_primary_supported_legs', 0),
                    publication_vintage_certified_legs=0, backtest_ready=False,
                    backtest_executed=False, canonical_modified=False,
                    ledger_sha256=hashlib.sha256(ledger_path.read_bytes()).hexdigest(),
-                   limits=['Normalized fact hashes do not authenticate original HTTP bodies',
+                   limits=['ETF normalized fact hashes do not authenticate original HTTP bodies; MOPS retrieved response hashes authenticate current retrieval only',
                            'Reported timestamps do not certify first publication or a complete revision inventory',
                            'Research snapshot is not integrated into production feature/entitlement code',
                            'Zero-dividend ex-right candidates must not be treated as free stock dividends'])

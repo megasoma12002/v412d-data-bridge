@@ -6,6 +6,29 @@
 
 ## 最新核對批次（2026/10/09）
 
+### 補齊 389 + 24：官方 MOPS 證據（2026/10/09）
+
+- 從官方 MOPS 歷史站取得2010–2026共17年度股利彙總，另存27個月索引與48份重大訊息全文。92份HTTP回應均保存實際取得的原始body（gzip封裝）、取得時間、URL、原始及壓縮SHA256。這是今日取回的歷史申報內容，並非公告當年的HTTP封存。
+- 389個非ETF正股利腿全部找到唯一公司／除權息／基準日對應，金額一致；388腿與表內申報時點一致。合併此前27個0050腿，全表416腿中415腿的主要申報欄位相符。
+- **3045台灣大2025/07/09現金腿仍保留時間差異**：表內2025/06/24 14:41:56，官方彙總16:39:46。另取得6/2 15:30:43正式重大訊息，已公布7/9除息、7/15基準、7/31支付及附條件4.5元（包含資本公積現金返還）；最終金額依可領取股數決定。這證明時程較早已申報，不能證明6/24為何有兩個時間，也不能把附條件金額冒充當時已確定值。詳見mops_clock_discrepancy.json。
+- 24筆股票股利為0但有除權日的事件全部取得認購比例、總股數、價格與同事件正式公告。**18筆普通股現增認購、6筆特別股認購**；特別股為2881甲／乙、2891乙／丙、2882甲／乙。2882的2019/10/14案為普通股，不因同公司先前發行特別股而誤分類。比例依百分比換算每股／每千股，均需繳款，不產生免費普通股。
+- 186個現金腿的支付日期取得官方彙總支持；股票配發日、缺漏現金支付日期、認股權實際行使／繳款／入帳、完整初次公告與修訂全集仍未認證。事件分類完成不等於權利與交割帳完成。
+- mops_dividend_field_check.csv保存389腿逐欄核對；mops_action_field_check.csv保存24筆條件、股份種類、證據身份及來源hash。canonical股利SHA256仍為bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724。
+- 本批只重跑公告／公司行動補充核對與相關測試；summary.json既有行情／NAV／成交統計未重新生成。`backtest_ready=false`、`backtest_executed=false`。官方歷史日曆、公告版本、因果特徵接線與交割證據等blockers保留，未重跑DD_SWITCH。
+
+乾淨checkout重現（由repo根目錄）：
+
+```bash
+unzip -o repro/dd-switch-full-history-audit/mops_evidence_sources.zip -d .
+PYTHONPATH=scripts python scripts/dd_switch_mops_evidence.py
+PYTHONPATH=scripts python scripts/dd_switch_announcement_evidence.py
+PYTHONPATH=scripts python -m unittest tests/test_dd_switch_mops_evidence.py tests/test_dd_switch_announcement_evidence.py
+```
+
+新來源下載入口：`python scripts/dd_switch_mops_evidence.py --fetch`。公司行動入口`python scripts/dd_switch_mops_action_capture.py`會驗證並重用已保存回應，包含兩個玉山案公告較彙總早一個月的查詢。下載與證據核對均不執行策略。
+
+mops_evidence_sources.zip保存本批92份原始回應與兩份manifest；announcement_evidence_bundle.zip更新為合併核對結果。原sources_evidence.zip／audit_outputs.zip仍為b6271f5行情批次；若解壓舊報告，須再解壓新版公告bundle並重跑以上補充入口。以下公告進度為前一批紀錄，389與24待補描述已由本批取代。
+
 ### 接續 b6271f5：公告欄位與公司行動證據
 
 - 0050 的27次配息已取得54份官方申報公告的欄位證據：時程／預估公告與最終金額公告各27份，發言時間精確到秒；除息日、支付日及最終金額與凍結股利表完全一致。這解除「27次ETF公告完全未取得」的子缺口，但不是全歷史vintage認證。
