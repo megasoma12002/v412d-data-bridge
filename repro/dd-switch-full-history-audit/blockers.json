@@ -1,0 +1,39 @@
+[
+  {
+    "id": "OFFICIAL_PRE2025_CALENDAR",
+    "reason": "TWSE historical API access denied; provider dates are secondary and 2023/2024 have no re-download evidence"
+  },
+  {
+    "id": "FULL_RAW_PRICE_EXTERNAL_CONFIRMATION",
+    "reason": "Provider quota reached; per-stock full-history re-download incomplete"
+  },
+  {
+    "id": "DIVIDEND_VINTAGE",
+    "reason": "27 ETF announcements absent and no historical revision/publication archive for all legs"
+  },
+  {
+    "id": "FEATURE_FUTURE_EVENT_DEPENDENCY",
+    "reason": "Feature functions use full ex-date ledger without announcement availability gate; see actual prefix experiment"
+  },
+  {
+    "id": "FULL_LIVE_FUNDED_HISTORY",
+    "reason": "Mother DD/TRAIL retain shadow and return stitching; full live historical joint capital execution not certified"
+  },
+  {
+    "id": "HISTORICAL_CORPORATE_ACTION_COMPLETENESS",
+    "reason": "Two explicit ETF splits and known halts verified; all other historical action completeness needs primary event inventory"
+  },
+  {
+    "id": "PRIVATE_FIN_SIXTEEN_QUOTES",
+    "reason": "Eight private-financial input codes lack 2025-02-06 and 2026-05-28 raw quotes; canonical inputs intentionally not silently filled"
+  },
+  {
+    "id": "HISTORICAL_LATER_ORDER_FILLS",
+    "count": 5564,
+    "reason": "Evidenced fills occur after first qualified session; funding/residual/stale-order lifecycle attribution pending, not automatically invalid T+1 qualification"
+  },
+  {
+    "id": "SCHEDULED_EX_DATE_ON_CLOSED_SESSION",
+    "reason": "2891 cash scheduled ex 2026-07-10 falls outside official sessions; effective-date router convention exists but primary schedule/amendment proof still required"
+  }
+]

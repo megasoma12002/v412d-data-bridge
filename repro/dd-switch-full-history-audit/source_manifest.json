@@ -1,0 +1,1835 @@
+[
+  {
+    "code": "0050",
+    "year": 2011,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2011-01-01&end_date=2011-12-31",
+    "fetched_at": "2026-10-09T07:42:49.584965+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2011.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2012,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2012-01-01&end_date=2012-12-31",
+    "fetched_at": "2026-10-09T07:42:49.660778+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2012.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2013,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2013-01-01&end_date=2013-12-31",
+    "fetched_at": "2026-10-09T07:43:04.132809+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2013.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2014,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2014-01-01&end_date=2014-12-31",
+    "fetched_at": "2026-10-09T07:43:04.297177+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2014.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2015,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2015-01-01&end_date=2015-12-31",
+    "fetched_at": "2026-10-09T07:43:04.298869+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2015.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2016,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2016-01-01&end_date=2016-12-31",
+    "fetched_at": "2026-10-09T07:43:04.317979+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2016.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2017,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2017-01-01&end_date=2017-12-31",
+    "fetched_at": "2026-10-09T07:43:04.469530+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2017.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2018,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2018-01-01&end_date=2018-12-31",
+    "fetched_at": "2026-10-09T07:43:04.542102+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2018.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2019,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2019-01-01&end_date=2019-12-31",
+    "fetched_at": "2026-10-09T07:43:14.160341+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2019.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2020,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2020-01-01&end_date=2020-12-31",
+    "fetched_at": "2026-10-09T07:43:14.168338+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2020.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2021,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2021-01-01&end_date=2021-12-31",
+    "fetched_at": "2026-10-09T07:43:14.203657+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2021.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2022,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2022-01-01&end_date=2022-12-31",
+    "fetched_at": "2026-10-09T07:43:14.327779+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2022.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2023,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2023-01-01&end_date=2023-12-31",
+    "fetched_at": "2026-10-09T07:43:14.365284+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2023.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2024,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2024-01-01&end_date=2024-12-31",
+    "fetched_at": "2026-10-09T07:43:14.537093+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2024.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2025,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2025-01-01&end_date=2025-12-31",
+    "fetched_at": "2026-10-09T07:43:22.006219+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2025.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "0050",
+    "year": 2026,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=0050&start_date=2026-01-01&end_date=2026-10-08",
+    "fetched_at": "2026-10-09T07:43:22.008119+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/0050_2026.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "00631L",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "00631L",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2412",
+    "year": 2011,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2011-01-01&end_date=2011-12-31",
+    "fetched_at": "2026-10-09T07:43:22.187230+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2011.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2012,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2012-01-01&end_date=2012-12-31",
+    "fetched_at": "2026-10-09T07:43:22.201428+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2012.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2013,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2013-01-01&end_date=2013-12-31",
+    "fetched_at": "2026-10-09T07:43:22.220446+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2013.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2014,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2014-01-01&end_date=2014-12-31",
+    "fetched_at": "2026-10-09T07:43:22.342634+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2014.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2015,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2015-01-01&end_date=2015-12-31",
+    "fetched_at": "2026-10-09T07:43:31.910288+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2015.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2016,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2016-01-01&end_date=2016-12-31",
+    "fetched_at": "2026-10-09T07:43:32.116036+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2016.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2017,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2017-01-01&end_date=2017-12-31",
+    "fetched_at": "2026-10-09T07:43:32.235110+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2017.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2018,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2018-01-01&end_date=2018-12-31",
+    "fetched_at": "2026-10-09T07:43:32.236206+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2018.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2019,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2019-01-01&end_date=2019-12-31",
+    "fetched_at": "2026-10-09T07:43:32.239918+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2019.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2020,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2020-01-01&end_date=2020-12-31",
+    "fetched_at": "2026-10-09T07:43:32.253320+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2020.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2021,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2021-01-01&end_date=2021-12-31",
+    "fetched_at": "2026-10-09T07:43:43.182971+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2021.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2022,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2022-01-01&end_date=2022-12-31",
+    "fetched_at": "2026-10-09T07:43:43.329145+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2022.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2023,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2023-01-01&end_date=2023-12-31",
+    "fetched_at": "2026-10-09T07:43:43.341678+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2023.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2024,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2024-01-01&end_date=2024-12-31",
+    "fetched_at": "2026-10-09T07:43:43.387431+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2024.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2025,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2025-01-01&end_date=2025-12-31",
+    "fetched_at": "2026-10-09T07:43:43.446480+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2025.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2412",
+    "year": 2026,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2412&start_date=2026-01-01&end_date=2026-10-08",
+    "fetched_at": "2026-10-09T07:43:43.505116+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2412_2026.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2801",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2801",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2834",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2880",
+    "year": 2011,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2011-01-01&end_date=2011-12-31",
+    "fetched_at": "2026-10-09T07:43:53.469318+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2011.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2012,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2012-01-01&end_date=2012-12-31",
+    "fetched_at": "2026-10-09T07:43:53.643901+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2012.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2013,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2013-01-01&end_date=2013-12-31",
+    "fetched_at": "2026-10-09T07:43:53.652694+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2013.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2014,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2014-01-01&end_date=2014-12-31",
+    "fetched_at": "2026-10-09T07:43:53.656397+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2014.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2015,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2015-01-01&end_date=2015-12-31",
+    "fetched_at": "2026-10-09T07:43:53.814334+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2015.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2016,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2016-01-01&end_date=2016-12-31",
+    "fetched_at": "2026-10-09T07:43:53.848955+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2016.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2017,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2017-01-01&end_date=2017-12-31",
+    "fetched_at": "2026-10-09T07:44:04.148145+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2017.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2018,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2018-01-01&end_date=2018-12-31",
+    "fetched_at": "2026-10-09T07:44:04.317847+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2018.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2019,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2019-01-01&end_date=2019-12-31",
+    "fetched_at": "2026-10-09T07:44:04.402126+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2019.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2020,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2020-01-01&end_date=2020-12-31",
+    "fetched_at": "2026-10-09T07:44:04.471171+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2020.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2021,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2021-01-01&end_date=2021-12-31",
+    "fetched_at": "2026-10-09T07:44:04.499016+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2021.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2022,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2022-01-01&end_date=2022-12-31",
+    "fetched_at": "2026-10-09T07:44:04.520199+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2022.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2023,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2023-01-01&end_date=2023-12-31",
+    "fetched_at": "2026-10-09T07:44:13.766138+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2023.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2024,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2024-01-01&end_date=2024-12-31",
+    "fetched_at": "2026-10-09T07:44:13.767857+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2024.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2025,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2025-01-01&end_date=2025-12-31",
+    "fetched_at": "2026-10-09T07:44:13.783842+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2025.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2880",
+    "year": 2026,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2880&start_date=2026-01-01&end_date=2026-10-08",
+    "fetched_at": "2026-10-09T07:44:13.820263+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2880_2026.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2881",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2881",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2882",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2884",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2885",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2011,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2886&start_date=2011-01-01&end_date=2011-12-31",
+    "fetched_at": "2026-10-09T07:44:13.937914+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2886_2011.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2886",
+    "year": 2012,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=2886&start_date=2012-01-01&end_date=2012-12-31",
+    "fetched_at": "2026-10-09T07:44:13.990539+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/2886_2012.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "2886",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2886",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2890",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2891",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "2892",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "3045",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "4904",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2011,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2012,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2013,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2014,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2015,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2016,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2017,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2018,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2019,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2020,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2021,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2022,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2023,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2024,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2025,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "5880",
+    "year": 2026,
+    "status": "NOT_REQUESTED_QUOTA_STOP"
+  },
+  {
+    "code": "TAIEX",
+    "year": 2011,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2011-01-01&end_date=2011-12-31",
+    "fetched_at": "2026-10-09T07:45:31.995229+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2011.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "95eff322156d3fd74ed444ac869f7ffc173fcddeab85798c85cfd7bdffc49220",
+    "rows": 247
+  },
+  {
+    "code": "TAIEX",
+    "year": 2012,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2012-01-01&end_date=2012-12-31",
+    "fetched_at": "2026-10-09T07:45:31.995979+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2012.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "21558abb0bfbe2a7ca92b1bffbd0fd8a1dad6cf659a6b870785b5e78d99b02cd",
+    "rows": 250
+  },
+  {
+    "code": "TAIEX",
+    "year": 2013,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2013-01-01&end_date=2013-12-31",
+    "fetched_at": "2026-10-09T07:45:31.996811+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2013.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "1f7f06ae5021c2d7d40302926cfefd242369756d1159a7d45ead18476e7179aa",
+    "rows": 246
+  },
+  {
+    "code": "TAIEX",
+    "year": 2014,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2014-01-01&end_date=2014-12-31",
+    "fetched_at": "2026-10-09T07:45:31.997340+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2014.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "8dfe1c2582b750e79222d7065b11fb6db5e1b21f91d02626e66b9feec2b484b9",
+    "rows": 248
+  },
+  {
+    "code": "TAIEX",
+    "year": 2015,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2015-01-01&end_date=2015-12-31",
+    "fetched_at": "2026-10-09T07:45:31.997752+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2015.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "f62ea35f63aadd1bff8295d11cf47e0aefffdabc0841574051a2948fe4b0b702",
+    "rows": 244
+  },
+  {
+    "code": "TAIEX",
+    "year": 2016,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2016-01-01&end_date=2016-12-31",
+    "fetched_at": "2026-10-09T07:45:31.998193+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2016.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "cd5737e23bcca4ff7ad925b43abeb88c05bf7568bb0a4a041b25d3ca0e336ad8",
+    "rows": 244
+  },
+  {
+    "code": "TAIEX",
+    "year": 2017,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2017-01-01&end_date=2017-12-31",
+    "fetched_at": "2026-10-09T07:45:31.998848+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2017.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "97e1739a141aa829f4de35cf5d3468d8c7d083357696188182c8a99f9e8ee19b",
+    "rows": 246
+  },
+  {
+    "code": "TAIEX",
+    "year": 2018,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2018-01-01&end_date=2018-12-31",
+    "fetched_at": "2026-10-09T07:45:31.999744+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2018.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "804c5fd0fa5935139a7d9986e4212fbdc2eaa4f7606160f4cd4229037ef466a8",
+    "rows": 247
+  },
+  {
+    "code": "TAIEX",
+    "year": 2019,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2019-01-01&end_date=2019-12-31",
+    "fetched_at": "2026-10-09T07:45:32.001005+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2019.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "aee3c5f8f36cf3e4d939419654aa6d82596b27a598e2d349dd6e727fa916b1a1",
+    "rows": 242
+  },
+  {
+    "code": "TAIEX",
+    "year": 2020,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2020-01-01&end_date=2020-12-31",
+    "fetched_at": "2026-10-09T07:45:32.001574+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2020.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "d7852832d74318d66d2f4d6006da9cee209d788c1025afbf90a09f3b8b9c573f",
+    "rows": 245
+  },
+  {
+    "code": "TAIEX",
+    "year": 2021,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2021-01-01&end_date=2021-12-31",
+    "fetched_at": "2026-10-09T07:45:32.001988+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2021.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "2a7a70a1e0024a0b5eee6ca6b4890d0af701789e69820d2d08bc21981be21612",
+    "rows": 244
+  },
+  {
+    "code": "TAIEX",
+    "year": 2022,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2022-01-01&end_date=2022-12-31",
+    "fetched_at": "2026-10-09T07:45:32.002522+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2022.json",
+    "cached": true,
+    "status": "FETCHED",
+    "sha256": "306d570cd0848106c7adcf97aa4e0c2e2f840a464d69380fd011b623fb041b34",
+    "rows": 246
+  },
+  {
+    "code": "TAIEX",
+    "year": 2023,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2023-01-01&end_date=2023-12-31",
+    "fetched_at": "2026-10-09T07:42:49.246299+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2023.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "TAIEX",
+    "year": 2024,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2024-01-01&end_date=2024-12-31",
+    "fetched_at": "2026-10-09T07:42:49.259606+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2024.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "TAIEX",
+    "year": 2025,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2025-01-01&end_date=2025-12-31",
+    "fetched_at": "2026-10-09T07:42:49.409053+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2025.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  },
+  {
+    "code": "TAIEX",
+    "year": 2026,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2026-01-01&end_date=2026-10-08",
+    "fetched_at": "2026-10-09T07:42:49.480604+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2026.json",
+    "status": "UNAVAILABLE",
+    "http_status": 402,
+    "error": "{\"msg\":\"Requests reach the upper limit. https://finmindtrade.com/\",\"status\":402,\"token_tail\":\"\"}"
+  }
+]

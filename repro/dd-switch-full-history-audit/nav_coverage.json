@@ -1,0 +1,101 @@
+[
+  {
+    "book": "nav_COMP_H150_x_A20",
+    "path": "repro/dd-switch-seven-session-rebuild/parents/nav_COMP_H150_x_A20.csv",
+    "sha256": "8e793c6e5d5bc7bcde438939661d5567a408b715ddf756511f9907873089a12e",
+    "rows": 3380,
+    "start": "2012-12-04",
+    "end": "2026-10-08",
+    "missing_benchmark_dates": [],
+    "duplicate_dates": 0,
+    "invalid_nav": 0
+  },
+  {
+    "book": "nav_OFFENSE",
+    "path": "repro/dd-switch-seven-session-rebuild/parents/nav_OFFENSE.csv",
+    "sha256": "d6eaa0ffb893bdf4e53add683fac9f9775d9789fb3b7674c135ee0e8b65dcd26",
+    "rows": 3380,
+    "start": "2012-12-04",
+    "end": "2026-10-08",
+    "missing_benchmark_dates": [],
+    "duplicate_dates": 0,
+    "invalid_nav": 0
+  },
+  {
+    "book": "nav_SAT_A20_RELAX",
+    "path": "repro/dd-switch-seven-session-rebuild/parents/nav_SAT_A20_RELAX.csv",
+    "sha256": "b09e1c71c24fb885120575d4718ba9b32432f8c0e5e9d70ba4e4f7d9f3dfc2ae",
+    "rows": 3380,
+    "start": "2012-12-04",
+    "end": "2026-10-08",
+    "missing_benchmark_dates": [],
+    "duplicate_dates": 0,
+    "invalid_nav": 0
+  },
+  {
+    "book": "nav_BASE",
+    "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_BASE.csv",
+    "sha256": "61588329293cb18081c9b00d1d1c543cb80f7483ef59445d84f07b912fca57f6",
+    "rows": 3380,
+    "start": "2012-12-04",
+    "end": "2026-10-08",
+    "missing_benchmark_dates": [],
+    "duplicate_dates": 0,
+    "invalid_nav": 0
+  },
+  {
+    "book": "nav_DD_SWITCH",
+    "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_DD_SWITCH.csv",
+    "sha256": "934d2d55ab83945bb87c0eca40fb6080651488220dee2273c272809beff42676",
+    "rows": 3379,
+    "start": "2012-12-05",
+    "end": "2026-10-08",
+    "missing_benchmark_dates": [],
+    "duplicate_dates": 0,
+    "invalid_nav": 0
+  },
+  {
+    "book": "nav_L4",
+    "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_L4.csv",
+    "sha256": "3e43d820ff6c01bda9eefd8ea8d2391fb0c6d25e0fe6026768ec961a40af31ed",
+    "rows": 3380,
+    "start": "2012-12-04",
+    "end": "2026-10-08",
+    "missing_benchmark_dates": [],
+    "duplicate_dates": 0,
+    "invalid_nav": 0
+  },
+  {
+    "book": "nav_SC_CASH",
+    "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_SC_CASH.csv",
+    "sha256": "bfe7f7540372c24b933d1807b3811d46c98b0ac1bb7a76482fc9c3d0ce318e47",
+    "rows": 3379,
+    "start": "2012-12-05",
+    "end": "2026-10-08",
+    "missing_benchmark_dates": [],
+    "duplicate_dates": 0,
+    "invalid_nav": 0
+  },
+  {
+    "book": "nav_SC_WITHIN",
+    "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_SC_WITHIN.csv",
+    "sha256": "2711d5b8b0d5e9de3ca12565d17703c074b7a07bd0adc3edb7f28636ff56c753",
+    "rows": 3379,
+    "start": "2012-12-05",
+    "end": "2026-10-08",
+    "missing_benchmark_dates": [],
+    "duplicate_dates": 0,
+    "invalid_nav": 0
+  },
+  {
+    "book": "nav_TRAIL",
+    "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_TRAIL.csv",
+    "sha256": "d4d761618d83669a6b1500a572a7c024c9382c940be5881ff263aa8542bdc408",
+    "rows": 3379,
+    "start": "2012-12-05",
+    "end": "2026-10-08",
+    "missing_benchmark_dates": [],
+    "duplicate_dates": 0,
+    "invalid_nav": 0
+  }
+]

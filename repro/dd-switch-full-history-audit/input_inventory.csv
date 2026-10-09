@@ -1,0 +1,9 @@
+dataset,path,sha256,rows,start,end,available_at_present,publication_vintage_present
+canonical_market,forward/e21/live_market.csv,bee3599a6df6c94ca8e616e7dd4a87df92e0bbe64f249e3bb91bf3e9de9357ee,32625,2011-12-01,2026-10-08,False,False
+corrected_parents,repro/dd-switch-seven-session-rebuild/inputs/parents_with_off.csv,114d3da98688e637d3306357202ec889fc115597474c2455ac3b5c839ae77183,35599,2011-12-01,2026-10-08,False,False
+corrected_mothers,repro/dd-switch-seven-session-rebuild/inputs/mothers_with_off.csv,114d3da98688e637d3306357202ec889fc115597474c2455ac3b5c839ae77183,35599,2011-12-01,2026-10-08,False,False
+private_fin,data/market/private_fin_adjusted.csv,b9793b23e3c6b60c5f908023519edf0857c5a752be85b27d7c8a81f8721fb62f,32847,2010-01-04,2026-10-08,False,False
+telecom_etf_raw,data/telecom_0050_complete/telecom_0050_2010_latest_ohlcv.csv,1e02b0c183387402947a7979ec4a0efbdcf8a8141d2a2f21b23f634b4b804ee5,16295,2010-01-04,2026-09-01,False,False
+telecom_adjusted,forward/e9/e9_telecom_adjusted.csv,e629c5c5ec332fce4ba8d4025b21ee7782953c37c32ad681f8ad7e3220a2800d,12291,2010-01-04,2026-10-08,False,False
+etf_adjusted,forward/e10s2/e10s2_0050_adjusted.csv,1362aa773619588c8b3aab3e6b3b31e1ee42b346fbaf812b56a0221d32041493,4104,2010-01-04,2026-10-08,False,False
+off_actual,repro/dd-switch-seven-session-rebuild/inputs/00631L_actual.csv,c5b94e33a0710e35fca225e21811109ac89af9056911c0895ccc64542262d6e2,2908,2014-10-31,2026-10-08,False,False

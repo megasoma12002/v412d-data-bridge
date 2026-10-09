@@ -1,0 +1,31 @@
+[
+  {
+    "code": "2412",
+    "halt_start": "2011-01-07",
+    "halt_end": "2011-01-24",
+    "resume": "2011-01-25",
+    "source_class": "PRIMARY_ISSUER_ANNUAL_REPORT",
+    "url": "https://www.cht.com.tw/home/cht/-/media/web/pdf/investors/annual-report/2010/annual_report_2010_english.pdf?sc_lang=zh-tw",
+    "page": 110,
+    "event": "Cash capital reduction, share conversion 0.8; predates DD market starting 2011-12-01"
+  },
+  {
+    "code": "3045",
+    "halt_start": "2011-09-27",
+    "halt_end": "2011-10-12",
+    "resume": "2011-10-13",
+    "source_class": "PRIMARY_ISSUER_PRESENTATION",
+    "url": "https://corp.taiwanmobile.com/files/investor-relations/2Q11webcast_c.pdf",
+    "page": 13,
+    "event": "Cash capital reduction; predates DD market starting 2011-12-01"
+  },
+  {
+    "code": "2884",
+    "halt_start": "2025-11-05",
+    "halt_end": "2025-11-05",
+    "source_class": "PRIMARY_TWSE_NOTICE",
+    "url": "https://investoredu.twse.com.tw/Mobile_pages/..%2FFileSystem%2FFileUpload%2Fdae59521-69e0-4856-90fc-d349fb6013eb.pdf",
+    "page": 0,
+    "event": "Announcement pending halt; audit classifies only the observed missing 11/05 quote. Resume date not inferred from this notice"
+  }
+]
