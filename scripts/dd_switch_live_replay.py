@@ -15,10 +15,23 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 
+def verify_runtime_generation(runtime,meta):
+    runtime=Path(runtime).resolve()
+    generation=(runtime/meta['generation']).resolve()
+    if runtime not in generation.parents:raise RuntimeError('Runtime generation outside source directory')
+    for key,name in meta['files'].items():
+        source=(generation/name).resolve()
+        if generation not in source.parents:raise RuntimeError('Runtime file outside generation')
+        if hashlib.sha256(source.read_bytes()).hexdigest()!=meta['hashes'][key]:
+            raise RuntimeError('Source runtime checksum mismatch: '+key)
+    return generation
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--seed', default='2026-09-29')
     p.add_argument('--out', type=Path, default=ROOT/'repro/dd-switch-live-t1-r1')
+    p.add_argument('--inputs-dir',type=Path,default=ROOT/'data/dd_switch_runtime',help='Versioned research runtime to day-cut')
+    p.add_argument('--end',help='Last replay signal date; defaults to input generation asof')
     p.add_argument('--force-active-for-gap-study',action='store_true',help='Hypothetical exit ablation only; not original strategy')
     a = p.parse_args()
     out = a.out.resolve()
@@ -41,10 +54,14 @@ def main():
     for name,datecol in [('fills','fill_date'),('orders','signal_date'),('signals','date'),('nav','date')]:
         df=pd.read_csv(source/(name+'.csv'),dtype={'code':str})
         df[pd.to_datetime(df[datecol])<=seed].to_csv(out/(name+'.csv'),index=False)
-    runtime=ROOT/'data/dd_switch_runtime'
+    runtime=a.inputs_dir.resolve()
     meta=json.loads((runtime/'current.json').read_text())
+    verify_runtime_generation(runtime,meta)
     market=pd.read_csv(source/'live_market.csv',parse_dates=['date'],dtype={'code':str})
-    dates=sorted(market.loc[market.date>seed,'date'].unique())
+    end=pd.Timestamp(a.end or meta['asof'])
+    if end>pd.Timestamp(meta['asof']):raise RuntimeError('Replay end exceeds controller input tip')
+    dates=sorted(market.loc[(market.date>seed)&(market.date<=end),'date'].unique())
+    if not dates:raise RuntimeError('No sessions after replay seed')
     for day in dates:
         day=pd.Timestamp(day)
         dest=out/'runtime'
@@ -69,8 +86,10 @@ def main():
     rebuilt=pd.read_csv(out/'nav.csv')
     vals=rebuilt.nav_e16_e18
     latest=float(vals.iloc[-1]); initial=float(vals.iloc[0])
-    result=dict(seed=a.seed,end=str(rebuilt.date.iloc[-1]),initial=initial,final=latest,profit=latest-initial,return_pct=(latest/initial-1)*100,mdd_pct=float((vals/vals.cummax()-1).min()*100),original_tip=float(nav.nav_e16_e18.iloc[-1]),tip_difference=latest-float(nav.nav_e16_e18.iloc[-1]),scope='production pipeline counterfactual after seed; earlier live records preserved')
-    result['gate_mode']='FORCED_ACTIVE_EXIT_ABLATION' if a.force_active_for_gap_study else 'NATURAL_R1'
+    result=dict(seed=a.seed,end=str(rebuilt.date.iloc[-1]),initial=initial,final=latest,profit=latest-initial,return_pct=(latest/initial-1)*100,recorded_dates_mdd_pct=float((vals/vals.cummax()-1).min()*100),original_tip=float(nav.nav_e16_e18.iloc[-1]),tip_difference=latest-float(nav.nav_e16_e18.iloc[-1]),scope='production pipeline counterfactual after seed; earlier live records preserved')
+    result['gate_mode']='FORCED_ACTIVE_EXIT_ABLATION' if a.force_active_for_gap_study else meta['version']
+    result['runtime_source']=str(runtime)
+    result['runtime_manifest_sha256']=hashlib.sha256((runtime/'current.json').read_bytes()).hexdigest()
     (out/'summary.json').write_text(json.dumps(result,indent=2))
     print(json.dumps(result,indent=2))
 

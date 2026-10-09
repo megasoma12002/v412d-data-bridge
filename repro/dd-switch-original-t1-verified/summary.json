@@ -1,0 +1,197 @@
+{
+  "status": "RECONCILED_PRODUCTION_T1_ORIGINAL_LINEAGE_AFTER_SEED",
+  "seed": "2026-09-29",
+  "sources": {
+    "ORIGINAL": {
+      "final_nav": 543972686.7723289,
+      "profit": 43972686.77232885,
+      "return_pct": 8.794537354465781,
+      "observed_mdd_pct": -5.091369396458722,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18",
+        "2026-10-05"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 1.4901161193847656e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 953578.57767125,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "post_seed_fee_tax": 200528.21625687505
+    },
+    "R1": {
+      "final_nav": 534722253.07076305,
+      "profit": 34722253.07076305,
+      "return_pct": 6.944450614152609,
+      "observed_mdd_pct": -5.393415150177927,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 5.960464477539063e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 3322089.679237,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "post_seed_fee_tax": 2569039.317822625
+    },
+    "FORCED_ACTIVE": {
+      "final_nav": 542947596.4213672,
+      "profit": 42947596.42136717,
+      "return_pct": 8.589519284273429,
+      "observed_mdd_pct": -5.156288496075279,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 2.9802322387695312e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1508267.353632875,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "post_seed_fee_tax": 755216.9922185001
+    },
+    "LINEAGE_T1": {
+      "final_nav": 542920983.1534936,
+      "profit": 42920983.15349364,
+      "return_pct": 8.584196630698738,
+      "observed_mdd_pct": -5.155630733853355,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 3.725290298461914e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1517877.1965065,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "post_seed_fee_tax": 764826.8350921252
+    }
+  },
+  "clock_audits": {
+    "ORIGINAL": {
+      "post_seed_fills": 11,
+      "same_day_fills": 0,
+      "next_session_fills": 10,
+      "delayed_fills": 1,
+      "path3_post_seed_orders": 0,
+      "all_path3_orders_next_session_open": true
+    },
+    "R1": {
+      "post_seed_fills": 48,
+      "same_day_fills": 0,
+      "next_session_fills": 48,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 14,
+      "all_path3_orders_next_session_open": true
+    },
+    "FORCED_ACTIVE": {
+      "post_seed_fills": 35,
+      "same_day_fills": 0,
+      "next_session_fills": 35,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 28,
+      "all_path3_orders_next_session_open": true
+    },
+    "LINEAGE_T1": {
+      "post_seed_fills": 39,
+      "same_day_fills": 0,
+      "next_session_fills": 39,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 31,
+      "all_path3_orders_next_session_open": true
+    }
+  },
+  "bridges": {
+    "ORIGINAL": {
+      "total": -1051703.6188352108,
+      "components": {
+        "holding_pnl": -1452250.0000000047,
+        "open_to_close_trade_pnl": 1084050.0000000012,
+        "execution_price_pnl": -119204.99999998938,
+        "fee_pnl": -564298.61883525
+      },
+      "residual": -3.213062882423401e-08
+    },
+    "R1": {
+      "total": 8198730.082730591,
+      "components": {
+        "holding_pnl": 3647150.0000000023,
+        "open_to_close_trade_pnl": 2507899.9999999823,
+        "execution_price_pnl": 239467.59999999416,
+        "fee_pnl": 1804212.4827305
+      },
+      "residual": -1.126900315284729e-07
+    },
+    "FORCED_ACTIVE": {
+      "total": -26613.26787352562,
+      "components": {
+        "holding_pnl": -22650.00000000032,
+        "open_to_close_trade_pnl": 7549.999999999867,
+        "execution_price_pnl": -1903.4249999996164,
+        "fee_pnl": -9609.842873624979
+      },
+      "residual": -9.942959877662361e-08
+    }
+  },
+  "original_minus_R1": 9250433.701565802,
+  "recovered_vs_R1": 8198730.082730591,
+  "recovered_gap_pct": 88.63076421317207,
+  "remaining_original_minus_lineage": 1051703.6188352108,
+  "source_sha256": {
+    "forward/e21/fills.csv": "48e7caaafdd0db39e0be727ec56cf847be067f9f285e00850940bb533a39f9f4",
+    "forward/e21/orders.csv": "841468034f25ada855744e3ff8dfb72492c6a3457dcbbde687e0711e0fb032a1",
+    "forward/e21/signals.csv": "ff8eeb3187eb35068398f51c6b3c978015c08cc94dfb5cecaf51b0fbc70462c0",
+    "forward/e21/portfolio_state.json": "dc0f2f3b7adee383882714c85ff263b736c10b4dc4f4d2e4de18defe613b8aab",
+    "forward/e21/nav.csv": "79254318c675a123c1e2ecb68aa01b1387e5136ae891b7bf024adfac64e4aeea",
+    "repro/dd-switch-live-t1-r1/fills.csv": "00fe4ab6f61c91a1d5a51993bc6c63b65b343e5712576cc5fa73fbaafaea747e",
+    "repro/dd-switch-live-t1-r1/orders.csv": "6addbe91132d79288e0daba4fd72ec21b89ae8ab81191dbc023f0e1e624920cc",
+    "repro/dd-switch-live-t1-r1/signals.csv": "c52451c3ebcee7142a67bfb2c7fedccfc349abbd93effacd3eb0b067a5bc08f6",
+    "repro/dd-switch-live-t1-r1/portfolio_state.json": "c9b5ec414315016ff8d25a24dc5ee4e581e30eac6a2015c1a1593a884b944097",
+    "repro/dd-switch-live-t1-r1/nav.csv": "d1f91855938385363de9eb3abcca331f268f1477332f58abc388e43e48813fbc",
+    "repro/dd-switch-gap-forced-active/fills.csv": "a77940c9641a7cac2ca1c9e654441a56911c20108c306771e48a4ef1aae36f73",
+    "repro/dd-switch-gap-forced-active/orders.csv": "690244ec5a630c3c35fa864a6d534d69f863279b8a3ad214a983770ea1dd8960",
+    "repro/dd-switch-gap-forced-active/signals.csv": "a4bae6555b1ecc6f74e42c3a9fa65d67c40a8e4971bfd5cb060acacc0ab184cc",
+    "repro/dd-switch-gap-forced-active/portfolio_state.json": "0e6a14e54d4fd6c74964796ae3886920a0e2ffff5e584cb127a314941f77c4aa",
+    "repro/dd-switch-gap-forced-active/nav.csv": "0cc4d63a4caff89d5e9bdd85763c2bfac7eba4d6a2c6b2296eeafb602750c0c3",
+    "repro/dd-switch-original-live-t1/fills.csv": "b7ce46bb1bca3216381e800051507a7af56f09db87f87c94e966b9db023b32c6",
+    "repro/dd-switch-original-live-t1/orders.csv": "034979859d9b02c118cc0af3e1c5eeb1e07409c7b5f280d7547abc61a22402c6",
+    "repro/dd-switch-original-live-t1/signals.csv": "e88343d203d77fa684342e4d078c9633cab75be925ff3941fe642684aecd8666",
+    "repro/dd-switch-original-live-t1/portfolio_state.json": "71553e0dec43d0a206ba05a0ad935a840fc8f37fe24a7b01e2e4b724662499ce",
+    "repro/dd-switch-original-live-t1/nav.csv": "da31bcb9a7926d7441f0ee3cb9f47542273dadedd4750cdc3cda3c1ae8b4c0db"
+  },
+  "runtime_manifest_sha256": "0891683b26c53c8e9d987507974c444833f9a102232c21742112294556327f93",
+  "replay_gate_matches_packaged_lineage": true,
+  "program_sha256": {
+    "scripts/dd_switch_original_live_audit.py": "209ffabc8311c7c01de3ef15c4fd0a64f927634bef94de056dee53acca9d32bb",
+    "scripts/dd_switch_original_runtime.py": "b24e254a2747296ac6021d076cbe43f73bd951522ebc2aa3d4baf6e02862277d",
+    "scripts/dd_switch_live_replay.py": "4cee540d234bcb0eb3d20c09ed9059345db3b3638b263bbb4844c24c93f04b92"
+  },
+  "limits": [
+    "Only observed 2026-08-24..10-08 window; production regenerated after 9/29, prior actual records retained",
+    "Current production configuration is held fixed after seed; not a full-history replay of historical configuration changes",
+    "Controller shadows retain original research stitch and calendar/corporate-action assumptions",
+    "Paper fixed-open slippage and fees, no depth/participation/auction-liquidity proof",
+    "No T0 execution validation or broker fills; no automatic model promotion"
+  ]
+}
