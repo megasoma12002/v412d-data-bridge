@@ -2,8 +2,9 @@
   "asof": "2026-10-08",
   "captured_candidate_filings": 1417,
   "captured_statutory_filings": 1056,
+  "captured_issuer_original_pdf_versions": 28,
   "positive_dividend_legs": 416,
-  "dividend_legs_with_linked_schedule_chain": 389,
+  "dividend_legs_with_linked_schedule_chain": 403,
   "dividend_legs_with_earlier_schedule": 304,
   "primary_payment_schedule_matches": 403,
   "payment_schedule_conflicts": 2,
@@ -29,9 +30,9 @@
   "payment_schedule_missing_by_leg": {
     "stock": 11
   },
-  "announcement_chain_missing": 27,
+  "announcement_chain_missing": 13,
   "announcement_chain_missing_by_code": {
-    "0050": 27
+    "0050": 13
   },
   "past_subscription_delivery_missing": 9,
   "uncaptured_responses": {
@@ -62,10 +63,11 @@
       "STOPPED_SOURCE_BLOCK": 1
     },
     "targeted_issuers": {
-      "RESPONSE_SAVED_NEEDS_VALIDATION": 5
+      "RESPONSE_SAVED_NEEDS_VALIDATION": 47,
+      "FAILED": 2
     }
   },
-  "source_hash_pairs_verified": 3353,
+  "source_hash_pairs_verified": 3397,
   "canonical_input_hashes_verified": 6,
   "canonical_inputs_absent": [
     "repro/dd-switch-seven-session-rebuild/inputs/parents_with_off.csv",
@@ -140,7 +142,228 @@
       "current_id": "",
       "current_started_at": "2026-10-09T17:44:23.576901+00:00",
       "last_completed_at": "2026-10-09T17:44:32.891493+00:00"
+    },
+    "etf_asset_capture_reviewed_progress.json": {
+      "status": "STOPPED_PARTIAL_FAILURE",
+      "total": 7,
+      "processed": 3,
+      "success": 2,
+      "failed": 1,
+      "cached": 0,
+      "started_at": "2026-10-09T17:52:37.948726+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "yuanta_etf_asset_0",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_etf_asset_1",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_etf_asset_2",
+          "status": "SOURCE_BLOCKED"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-09T17:52:57.874972+00:00",
+      "updated_at": "2026-10-09T17:53:15.020717+00:00",
+      "last_completed_at": "2026-10-09T17:53:15.020235+00:00",
+      "skipped": 4,
+      "stop_reason": "Captured vendor bundle timed out; DecoderBuffer overrun is library text, not an observed source block. Original monitor snapshot retained."
+    },
+    "etf_app_capture_progress.json": {
+      "status": "COMPLETE",
+      "total": 4,
+      "processed": 4,
+      "success": 4,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-09T17:54:31.875078+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "yuanta_etf_asset_3",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_etf_asset_4",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_etf_asset_5",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_etf_asset_6",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-09T17:55:04.597003+00:00",
+      "updated_at": "2026-10-09T17:55:13.978442+00:00",
+      "last_completed_at": "2026-10-09T17:55:13.978052+00:00",
+      "skipped": 0
+    },
+    "etf_announcement_api_valid_progress.json": {
+      "status": "COMPLETE",
+      "total": 2,
+      "processed": 2,
+      "success": 2,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-09T17:57:06.232629+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "yuanta_etf_announcement_api_valid_device",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_fund_announcement_api_valid_device",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-09T17:57:21.112559+00:00",
+      "updated_at": "2026-10-09T17:57:34.416421+00:00",
+      "last_completed_at": "2026-10-09T17:57:34.415927+00:00",
+      "skipped": 0
+    },
+    "historical_original_probe_progress.json": {
+      "status": "COMPLETE",
+      "total": 3,
+      "processed": 3,
+      "success": 3,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-09T17:55:27.544877+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "historical_probe_2880_20130906",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "historical_probe_2880_20120202",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "historical_probe_2834_20101006",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-09T17:55:47.842451+00:00",
+      "updated_at": "2026-10-09T17:55:57.495464+00:00",
+      "last_completed_at": "2026-10-09T17:55:57.492943+00:00",
+      "skipped": 0
+    },
+    "yuanta_0050_pdf_probe_progress.json": {
+      "status": "COMPLETE",
+      "total": 5,
+      "processed": 5,
+      "success": 5,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-09T17:58:18.129650+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "yuanta_0050_notice_a63e892e-6f98-4c01-bbd6-4d35e9545bfb",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_0630cc98-410a-4d61-87e9-39c6447e490b",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_709e62b5-fe81-43f8-ac12-339cae2477d1",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_75f6ab01-71ad-4f34-9ae6-fb909e868310",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_89841e7a-60a1-4bd3-9a76-8f77a577818f",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-09T17:59:07.902606+00:00",
+      "updated_at": "2026-10-09T17:59:18.466539+00:00",
+      "last_completed_at": "2026-10-09T17:59:18.466057+00:00",
+      "skipped": 0
+    },
+    "yuanta_0050_pdf_capture_progress.json": {
+      "status": "COMPLETE",
+      "total": 28,
+      "processed": 28,
+      "success": 23,
+      "failed": 0,
+      "cached": 5,
+      "started_at": "2026-10-09T17:59:45.826297+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "yuanta_0050_notice_7be74238-13b4-4517-a0e5-6b46e271a12e",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_77bc11b1-6c4f-4d9e-99d1-12027f37fd74",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_c53e3a36-1805-4ca3-8248-62178f592c79",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_04829d2d-1779-4d35-a089-2ce2bbe7abc3",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_b07f0bd0-8e27-4ec7-89bc-fc1a16f16e41",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_0a3ddb3b-1f7a-493c-8f94-64f0711dcaff",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_7e9927d8-a512-4746-888d-03c24a92420a",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_12f0f614-e809-4d7a-bc72-bd98776d8d33",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_5c6db048-4449-42e0-9d56-f57e22344129",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_5f2cdbfa-c04b-4cde-8a05-e3df5cd2fcdb",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "updated_at": "2026-10-09T18:03:38.379773+00:00",
+      "current_id": "",
+      "current_started_at": "2026-10-09T18:03:30.160241+00:00",
+      "last_completed_at": "2026-10-09T18:03:38.379099+00:00",
+      "skipped": 0
     }
+  },
+  "issuer_pdf_validation": {
+    "valid": 28,
+    "rejected": [],
+    "paired_estimate_final_events": 14,
+    "estimated_amount_revised_events": 3,
+    "current_index_records": 2094,
+    "current_index_start": "2019/10/30",
+    "current_index_end": "2026/10/08",
+    "revision_inventory_complete": false
   },
   "validation_scope": "Saved public response integrity and current matching; historical revision completeness remains uncertified"
 }

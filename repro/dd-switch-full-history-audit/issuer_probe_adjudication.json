@@ -1,0 +1,53 @@
+[
+  {
+    "id": "yuanta_etf_announcements",
+    "evidence_status": "PARTIAL_CAPTURE_REJECTED",
+    "error": "curl: (28) Operation timed out after 15000 milliseconds with 1802240 out of 2258162 bytes received\n",
+    "response_sha256": "abfd2efd5d11e72b1adbe51157d518c34f27ea4d74e6fab687f6ff9925a45406",
+    "guard_review": null
+  },
+  {
+    "id": "yuanta_etf_asset_2",
+    "evidence_status": "PARTIAL_CAPTURE_REJECTED",
+    "error": "curl: (28) Operation timed out after 15001 milliseconds with 2654208 out of 3087195 bytes received\n",
+    "response_sha256": "3abb6469d2b4c76022541ab6ba7f73a04f59673b95c46320721e107724e1ac67",
+    "guard_review": "webpack vendor bundle contains DecoderBuffer overrun; response is truncated by transport timeout, not a source security block"
+  },
+  {
+    "id": "historical_probe_2880_20130906",
+    "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+    "evidence_status": "NO_VALID_ISSUER_BODY",
+    "reason": "HTTP 200 shell lacks issuer announcement body; not a certified empty result",
+    "response_sha256": "b57dbf7aae0d00f54397e0e383cac2cd6a3dd4792ea8d8a80f34b8b6a0a13dff"
+  },
+  {
+    "id": "historical_probe_2880_20120202",
+    "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+    "evidence_status": "NO_VALID_ISSUER_BODY",
+    "reason": "HTTP 200 shell lacks issuer announcement body; not a certified empty result",
+    "response_sha256": "b57dbf7aae0d00f54397e0e383cac2cd6a3dd4792ea8d8a80f34b8b6a0a13dff"
+  },
+  {
+    "id": "historical_probe_2834_20101006",
+    "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+    "evidence_status": "NO_VALID_ISSUER_BODY",
+    "reason": "HTTP 200 shell lacks issuer announcement body; not a certified empty result",
+    "response_sha256": "b57dbf7aae0d00f54397e0e383cac2cd6a3dd4792ea8d8a80f34b8b6a0a13dff"
+  },
+  {
+    "id": "yuanta_etf_announcement_api",
+    "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+    "evidence_status": "API_RESULT_ERROR",
+    "result_code": 1,
+    "message": "ERR: 必要參數格式不正確。",
+    "response_sha256": "313d3d3efced546f566ab7e351fcc82867a086566fe238f0127c9e9f8ee03f7a"
+  },
+  {
+    "id": "yuanta_fund_announcement_api",
+    "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+    "evidence_status": "API_RESULT_ERROR",
+    "result_code": 1,
+    "message": "ERR: 必要參數格式不正確。",
+    "response_sha256": "6c6fef0cfa5dcd695a28788a0ab12c071fd883d9d346646ecd6dcff011461c76"
+  }
+]

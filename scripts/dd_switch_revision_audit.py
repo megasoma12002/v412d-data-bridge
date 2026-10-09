@@ -407,6 +407,8 @@ def main():
         actions = list(csv.DictReader(f))
     filings = load_filings()
     statutory = load_statutory()
+    from dd_switch_yuanta_revision_evidence import load_notices
+    issuer_etf = load_notices()
     payment_facts = defaultdict(list)
     with (OUT / 'mops_dividend_field_check.csv').open() as handle:
         for row in csv.DictReader(handle):
@@ -433,6 +435,12 @@ def main():
                 continue
             identity = f"{event['code']}:{leg}:{event[leg + '_ex_date']}"
             matches = [r for r in filings if dividend_identity(event, leg, r)]
+            issuer_matches = [r for r in issuer_etf if leg == 'cash' and r['code'] == event['code'] and event['cash_ex_date'] in r['ex_dates']]
+            for r in issuer_matches:
+                versions.append(dict(event_id=identity, **r))
+                if r['stage'] == 'FINAL':
+                    for d in r['cash_payment_dates']:
+                        payment_facts[(event['code'], leg, event['cash_ex_date'])].append(dict(date=d, id=r['id'], url=r['url'], sha=r['response_sha256'], source_date=r['announcement_date'], amount_matches=abs(number(r['declared_cash_amount'])-number(event['cash_dividend'])) <= Decimal('0.00000001')))
             before_ex = [r for r in matches if r['reported_at'][:10] <= event[leg + '_ex_date']]
             stat_matches=[]
             for r in statutory:
@@ -453,12 +461,12 @@ def main():
             primary=max(dated,key=lambda r:(r['source_date'],r['id'])) if dated else known[-1] if known else None
             supported = bool(primary and primary['date'] == event[leg + '_payment_date'] and primary['amount_matches'])
             checks.append(dict(event_id=identity, code=event['code'], leg=leg, ex_date=event[leg + '_ex_date'],
-                               linked_filings=len(matches), statutory_linked_filings=len(stat_matches), first_linked_schedule_reported_at=before_ex[0]['reported_at'] if before_ex else '',
+                               linked_filings=len(matches), statutory_linked_filings=len(stat_matches), issuer_original_linked_filings=len(issuer_matches), first_linked_schedule_date_only=min((r['announcement_date'] for r in issuer_matches), default=''), first_linked_schedule_reported_at=before_ex[0]['reported_at'] if before_ex else '',
                                ledger_reported_at=event['announcement_date'] + 'T' + event['announcement_time'] + '+08:00',
                                earlier_schedule_found=bool(before_ex and before_ex[0]['reported_at'][:10] < event['announcement_date']),
                                explicit_amendment_filings=sum(bool(re.search(r'更正|補充|調整|變更|修正', r['title'])) for r in matches),
                                revision_inventory_complete=False, publication_vintage_certified=False,
-                               status='LINKED_CURRENT_PRIMARY_FILINGS' if matches or stat_matches else 'SCHEDULE_CHAIN_PROOF_MISSING'))
+                               status='LINKED_CURRENT_PRIMARY_FILINGS' if matches or stat_matches or issuer_matches else 'SCHEDULE_CHAIN_PROOF_MISSING'))
             settlements.append(dict(event_id=identity, code=event['code'], leg=leg, ex_date=event[leg + '_ex_date'],
                                     ledger_payment_date=event[leg + '_payment_date'],
                                     latest_primary_payment_date=primary['date'] if primary else '',
@@ -518,8 +526,8 @@ def main():
     (OUT / 'mops_linked_revision_versions.json').write_text(json.dumps(versions, indent=2) + '\n')
     (OUT / 'statutory_normalized_filings.json').write_text(json.dumps(statutory,indent=2)+'\n')
     (OUT / 'mops_revision_normalized_filings.json').write_text(json.dumps(filings, indent=2) + '\n')
-    summary = dict(asof=ASOF, captured_candidate_filings=len(filings), captured_statutory_filings=len(statutory), positive_dividend_legs=len(checks),
-                   dividend_legs_with_linked_schedule_chain=sum(r['linked_filings'] > 0 or r['statutory_linked_filings'] > 0 for r in checks),
+    summary = dict(asof=ASOF, captured_candidate_filings=len(filings), captured_statutory_filings=len(statutory), captured_issuer_original_pdf_versions=len(issuer_etf), positive_dividend_legs=len(checks),
+                   dividend_legs_with_linked_schedule_chain=sum(r['linked_filings'] > 0 or r['statutory_linked_filings'] > 0 or r['issuer_original_linked_filings'] > 0 for r in checks),
                    dividend_legs_with_earlier_schedule=sum(r['earlier_schedule_found'] for r in checks),
                    primary_payment_schedule_matches=sum(r['primary_payment_schedule_match'] for r in settlements),
                    payment_schedule_conflicts=sum(r['payment_date_conflict'] for r in settlements),

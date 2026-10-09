@@ -1,0 +1,10 @@
+{
+  "valid": 28,
+  "rejected": [],
+  "paired_estimate_final_events": 14,
+  "estimated_amount_revised_events": 3,
+  "current_index_records": 2094,
+  "current_index_start": "2019/10/30",
+  "current_index_end": "2026/10/08",
+  "revision_inventory_complete": false
+}
