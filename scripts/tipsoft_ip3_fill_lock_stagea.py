@@ -193,6 +193,7 @@ def simulate_fill(
     px: pd.DataFrame,
     signal: pd.DataFrame,
     i3_on: pd.Series,
+    share_events: dict | None = None,
 ) -> tuple[pd.DataFrame, dict[str, Any]]:
     """Soft-core T+0: Path3 ON→WITHIN recon; OFF→fill policy."""
     sig = signal.copy()
@@ -206,6 +207,12 @@ def simulate_fill(
         raise RuntimeError("insufficient overlap")
 
     rets = px.pct_change().reindex(dates).fillna(0.0)
+    for date, events in (share_events or {}).items():
+        day = pd.Timestamp(date)
+        if day in rets.index:
+            for code, factor in events.items():
+                if code in rets:
+                    rets.loc[day, code] = (1.0 + rets.loc[day, code]) * float(factor) - 1.0
     etf_idx = SOFT_CORE.index(ETF)
     fin_tel_idx = [SOFT_CORE.index(c) for c in list(FIN) + list(TEL)]
     sig_i = sig.set_index("date")

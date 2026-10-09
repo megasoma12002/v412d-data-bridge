@@ -42,7 +42,10 @@ def _0050_rets(market0: pd.DataFrame, idx: pd.DatetimeIndex) -> tuple[pd.Series,
     m = market0.copy()
     m["date"] = pd.to_datetime(m["date"])
     sub = m[m["code"].astype(str) == "0050"].sort_values("date")
-    px = sub.set_index("date")["close"].astype(float).reindex(idx).ffill()
+    raw = sub.set_index("date")
+    px = raw["close"].astype(float)
+    if "unit_multiplier" in raw: px = px * raw.unit_multiplier.astype(float)
+    px = px.reindex(idx).ffill()
     ret1 = px.pct_change(1)
     ret3 = px.pct_change(3)
     return ret1, ret3
@@ -51,7 +54,10 @@ def _0050_rets(market0: pd.DataFrame, idx: pd.DatetimeIndex) -> tuple[pd.Series,
 def _off_close(off_bars: pd.DataFrame, idx: pd.DatetimeIndex) -> pd.Series:
     o = off_bars.copy()
     o["date"] = pd.to_datetime(o["date"])
-    return o.set_index("date")["close"].astype(float).reindex(idx).ffill()
+    raw = o.set_index("date")
+    px = raw["close"].astype(float)
+    if "unit_multiplier" in raw: px = px * raw.unit_multiplier.astype(float)
+    return px.reindex(idx).ffill()
 
 
 def build_schedule(

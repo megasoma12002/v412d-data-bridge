@@ -1,0 +1,37 @@
+{
+  "final_nav": 683848903.9246604,
+  "profit": 183848903.92466044,
+  "return_pct": 36.769780784932095,
+  "observed_mdd_pct": -9.547229757118547,
+  "sessions": 428,
+  "policy": "DD_FIXED_FUNDED",
+  "epoch": "continuous_2025_2026",
+  "start": "2025-01-02",
+  "end": "2026-10-08",
+  "fills": 917,
+  "fees_tax": 22315140.68126,
+  "slippage": 4895241.3,
+  "cash_dividend": 42299027.10592,
+  "dividend_records": 26,
+  "funding_max_residual": 5.257315933704376e-06,
+  "min_cash": 25067931.861772418,
+  "risk_reduced_days": 5,
+  "stock_dividend_odd_lots_remaining": {
+    "2880": 498.0,
+    "5880": 552.0
+  },
+  "t1_all_fills": true,
+  "recovery_transitions": 3,
+  "delayed_due_to_missing_market_sessions": 0,
+  "unfilled_buy_attempts": 111,
+  "initial_sleeve_capital": {
+    "FIN": 406881488.1359685,
+    "TEL": 68118511.86403151
+  },
+  "funding": {
+    "net_sales": 4630104598.441076,
+    "buy_spend": 5147101780.422339,
+    "cash_dividend": 42299027.10592,
+    "final_cash": 301845.1246604817
+  }
+}

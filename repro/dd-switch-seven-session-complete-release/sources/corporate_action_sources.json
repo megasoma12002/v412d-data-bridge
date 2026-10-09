@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "code": "0050",
+      "ratio": 4,
+      "effective": "2025-06-18",
+      "halt_start": "2025-06-11",
+      "halt_end": "2025-06-17",
+      "last_exchange_close": 188.65,
+      "announcement": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20250617&fund=0050&seq=1&type=other"
+    },
+    {
+      "code": "00631L",
+      "ratio": 22,
+      "effective": "2026-03-31",
+      "halt_start": "2026-03-25",
+      "halt_end": "2026-03-30",
+      "last_exchange_close": 443.15,
+      "announcement": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20260330&fund=00631L&seq=1&type=all"
+    }
+  ],
+  "valuation": "Last exchange close in old units until conversion; no same-day fund NAV claim",
+  "execution": "Actual open only; no forward/back-filled execution quotes; split holdings and suspended share quantities before resume fills"
+}
