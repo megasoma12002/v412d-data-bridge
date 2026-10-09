@@ -1,7 +1,7 @@
 {
-  "generated_at_utc": "2026-10-08T14:27:13.683964+00:00",
+  "generated_at_utc": "2026-10-09T14:14:02.552402+00:00",
   "label": "PRIVATE_FIN_ADJ_TIP_REFRESH_FINMIND",
-  "new_rows": 8,
+  "new_rows": 0,
   "codes": [
     "2884",
     "2885",
@@ -14,7 +14,7 @@
   ],
   "dry_run": false,
   "adj_path": "data/market/private_fin_adjusted.csv",
-  "written": true,
+  "written": false,
   "max_date_by_code": {
     "2801": "2026-10-08",
     "2834": "2026-10-08",
