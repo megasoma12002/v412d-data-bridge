@@ -1,0 +1,47 @@
+name: DD SWITCH public evidence capture
+on:
+  push:
+    branches: [fix/dd-switch-refresh-t1-rebuild]
+    paths: [repro/dd-switch-full-history-audit/revision_capture_request.json]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas==2.2.3 lxml==5.3.2
+      - name: Restore hashed public response cache
+        run: |
+          unzip -o repro/dd-switch-full-history-audit/mops_evidence_sources.zip
+          unzip -o repro/dd-switch-full-history-audit/revision_capture_seed.zip
+      - name: Capture annual announcement and statutory indexes and details
+        run: |
+          python scripts/dd_switch_revision_sources.py --workers 4 --timeout 35
+          python scripts/dd_switch_statutory_sources.py --workers 4 --timeout 35
+          python scripts/dd_switch_settlement_pages.py
+      - name: Reconcile public evidence without changing canonical data
+        run: |
+          python scripts/dd_switch_revision_audit.py
+          PYTHONPATH=scripts python -m unittest tests/test_dd_switch_revision_audit.py tests/test_dd_switch_mops_evidence.py tests/test_dd_switch_announcement_evidence.py tests/test_dd_switch_session_market.py
+          git diff --exit-code -- data repro/dd-switch-full-history-audit/announcement_validation.json repro/dd-switch-full-history-audit/mops_validation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dd-switch-revision-settlement-evidence
+          retention-days: 30
+          path: |
+            repro/dd-switch-full-history-audit/sources/mops_revisions/
+            repro/dd-switch-full-history-audit/sources/mops_statutory/
+            repro/dd-switch-full-history-audit/sources/settlement_pages/
+            repro/dd-switch-full-history-audit/*revision*.json
+            repro/dd-switch-full-history-audit/*settlement*.csv
+            repro/dd-switch-full-history-audit/*settlement*.json
+            repro/dd-switch-full-history-audit/revision_chain_check.csv
+            repro/dd-switch-full-history-audit/statutory_normalized_filings.json
+            repro/dd-switch-full-history-audit/issuer_payment_schedule_facts.json
