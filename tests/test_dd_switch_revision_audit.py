@@ -1,5 +1,5 @@
 import unittest
-from dd_switch_revision_audit import numbered_fields, declared_amounts, revision_snapshot, subscription_identity, statutory_subscription_identity, statutory_dividend_identity, cash_schedule_dates, explicit_date_after, dates
+from dd_switch_revision_audit import numbered_fields, declared_amounts, revision_snapshot, subscription_identity, statutory_subscription_identity, statutory_dividend_identity, cash_schedule_dates, explicit_date_after, dates, delivery_clauses
 
 
 class RevisionAuditTests(unittest.TestCase):
@@ -71,6 +71,27 @@ class RevisionAuditTests(unittest.TestCase):
     def test_subscription_conversion_is_not_same_fiscal_year_stock_dividend(self):
         event=dict(code='5880',stock_ex_date='2015-08-13',record_date='2015-08-21',stock_dividend='0.6',fiscal_year='103年')
         filing=dict(code='5880',title='103年度現金增資普通股股票上市',ex_dates=[],record_dates=[],announcement_date='2015-04-10',fiscal_years=['103'],compact_text='現金增資，股利權義相同')
+        self.assertFalse(statutory_dividend_identity(event,'stock',filing))
+
+    def test_joint_delivery_listing_label(self):
+        text='４、增資新股股票發放及上市日期：113年9月13日。５、股票簽證機構'
+        self.assertEqual(explicit_date_after(text,['增資新股股票發放及上市日期']),['2024-09-13'])
+
+    def test_voucher_does_not_supply_ordinary_delivery(self):
+        text='本次現金增資股款繳納憑證訂於112年5月3日劃撥至認股繳款人指定之帳戶，並於同日上市買賣。'
+        self.assertEqual(delivery_clauses(text),([],[]))
+
+    def test_explicit_conversion_and_listing_remain_separate(self):
+        text='並訂於103年1月7日(星期二)普通股上市暨股款繳納憑證終止上市。集保公司自動於103年1月7日(星期二)換發為普通股股票。'
+        self.assertEqual(delivery_clauses(text),(['2014-01-07'],['2014-01-07']))
+        text='並訂於103年1月7日(星期二)普通股上市暨股款繳納憑證終止上市。'
+        self.assertEqual(delivery_clauses(text),([],['2014-01-07']))
+
+    def test_issue_amount_matches_without_fiscal_year_label(self):
+        event=dict(code='2892',stock_ex_date='2012-08-10',record_date='2012-08-18',stock_dividend='0.6',fiscal_year='101年')
+        filing=dict(code='2892',title='盈餘及資本公積轉增資股發放',ex_dates=[],record_dates=[],announcement_date='2012-08-28',stock_payment_dates=['2012-09-21'],stock_amount_candidates=['0.6'],fiscal_years=[],compact_text='每仟股配發60股普通股')
+        self.assertTrue(statutory_dividend_identity(event,'stock',filing))
+        filing['stock_amount_candidates']=['0.5']
         self.assertFalse(statutory_dividend_identity(event,'stock',filing))
 
 

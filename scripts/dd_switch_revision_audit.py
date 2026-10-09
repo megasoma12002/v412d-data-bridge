@@ -214,6 +214,29 @@ def explicit_date_after(text, labels):
     return sorted(set(values))
 
 
+def delivery_clauses(text):
+    """Separate explicit delivery/conversion dates from listing-only and voucher dates."""
+    delivery, listing = [], []
+    for pattern in [
+        r'(?:本次增資股票|前項增資新股)[^。]{0,90}?(?:訂於|同意於)('+DATE+r')([^。]{0,60})',
+        r'本次現金增資發行新股訂於('+DATE+r')([^。]{0,90})',
+        r'本公司訂於('+DATE+r')([^。]{0,90})',
+    ]:
+        for m in re.finditer(pattern,text):
+            tail=m[m.lastindex]
+            if re.search(r'發放|直接劃撥',tail): delivery.extend(dates(m[1]))
+            if '上市' in tail: listing.extend(dates(m[1]))
+    for m in re.finditer(r'自動於('+DATE+r')(?:\([^)]*\)|（[^）]*）)?換發為普通股',text):
+        delivery.extend(dates(m[1]))
+    # A listing date alone is not proof of the delivery date.
+    for m in re.finditer(r'訂於('+DATE+r')(?:\([^)]*\)|（[^）]*）)?(?:為)?普通股上市',text):
+        listing.extend(dates(m[1]))
+    if '股款繳納憑證換發普通股股票' in text:
+        for m in re.finditer(r'於('+DATE+r')(?:\([^)]*\)|（[^）]*）)?(?:起)?(?:正式)?上市買賣',text):
+            listing.extend(dates(m[1]))
+    return sorted(set(delivery)), sorted(set(listing))
+
+
 def load_statutory():
     path=OUT/'sources/mops_statutory/manifest.json'
     if not path.exists():return []
@@ -228,16 +251,22 @@ def load_statutory():
         if '公告' not in text or meta['code'] not in text:raise ValueError('Statutory issuer identity mismatch')
         def after(labels):
             return explicit_date_after(text,labels)
-        record=after(['權利分派基準日','除權息基準日','除息基準日','認股基準日'])
+        record=after(['現金股利分派基準日','除息及除權基準日','除息與除權基準日','權利分派基準日','除權息基準日','除息基準日','認股基準日'])
         ex=after(['除權/除息交易日','除權息交易日','除權交易日','除息交易日'])
-        cash=after(['現金股利發放日','現金股利預訂於','現金股利預計於','現金股利訂於'])
-        stock=after(['新股發放日期','新股發放日','增資新股發放上市日期','股票股利發放日','新股交付日期','增資股發放日期'])
-        listing=after(['新股上市日期','新股上市日','新股上市交易日'])
+        cash=after(['現金股利發放日期','現金股利發放日','現金股利預訂於','現金股利預計於','現金股利訂於'])
+        cash.extend(cash_schedule_dates(text))
+        if '現金股利' in meta['title'] and not re.search(r'股票|增資|新股',meta['title']):
+            for m in re.finditer(r'訂於('+DATE+r')以(?:匯款|掛號|郵寄)[^。]{0,30}發放',text):cash.extend(dates(m[1]))
+        for m in re.finditer(r'現金股利發放日與發放方式[:：](?:（一）|1[.．])?發放日[:：](?:預訂於|預計於)?(' + DATE + r')',text):cash.extend(dates(m[1]))
+        stock=after(['新股發放日期','新股發放日','增資新股發放上市日期','股票股利發放日','新股交付日期','增資股發放日期','增資新股股票發放及上市日期','增資新股股票發放暨上市日期'])
+        listing=after(['新股上市日期','新股上市日','新股上市交易日','增資發行新股上市日期','增資新股股票發放及上市日期','增資新股股票發放暨上市日期'])
         # Delivery notices often put the date before the delivery/listing verb.
         for m in re.finditer(r'(?:增資新股|本次新股|本次增資股票|增資股票)(?:權利證書)?(?:預訂|訂|將)?於(' + DATE + r'.{0,40})',text):
             ds=dates(m[1])
             if ds and re.search('交付|發放|撥入|劃撥',m[1]):stock.append(ds[0])
             if ds and re.search('上市',m[1]):listing.append(ds[0])
+        extra_delivery,extra_listing=delivery_clauses(text)
+        stock.extend(extra_delivery);listing.extend(extra_listing)
         voucher_delivery=[];voucher_listing=[]
         for m in re.finditer(r'本次現金增資股款繳納憑證[，,]?訂於(' + DATE + r'.{0,90})',text):
             ds=dates(m[1])
@@ -252,6 +281,8 @@ def load_statutory():
         if ordinary_conversion:stock=ordinary_conversion
         listing.extend(after(['增資新股上市暨新股權利證書終止上市日期']))
         stock_amounts=re.findall(r'盈餘轉增資股[，,]每股配發([\d.]+)元',text)
+        if re.search(r'盈餘.{0,8}轉增資|資本公積轉增資|無償配發',text):
+            stock_amounts.extend(str(number(v)/100) for v in re.findall(r'每(?:仟|千)股(?:無償)?配發([\d.]+)股',text))
         amendments=meta.get('amended_cash_payment_date','')
         original_cash=sorted(set(cash))
         amended_cash=dates(amendments) if amendments else []
@@ -276,7 +307,7 @@ def statutory_dividend_identity(event, leg, filing):
     # Ledger securities are ordinary shares; do not attach preferred-share dividends.
     if re.search(r'[甲乙丙丁戊]種特別股|特別股股息',filing['title']):return False
     if event[leg+'_ex_date'] in filing['ex_dates'] or event['record_date'] in filing['record_dates']:return True
-    if leg=='stock' and filing.get('ordinary_conversion_dates'):
+    if leg=='stock' and (filing.get('ordinary_conversion_dates') or filing.get('stock_payment_dates')):
         elapsed=(datetime.fromisoformat(filing['announcement_date'])-datetime.fromisoformat(event[leg+'_ex_date'])).days
         if 0<=elapsed<=120 and any(abs(number(a)-number(event['stock_dividend']))<=Decimal('0.00000001') for a in filing.get('stock_amount_candidates',[])):return True
     fiscal=re.match(r'^(\d{2,3})年$',event['fiscal_year'])
@@ -299,9 +330,9 @@ def statutory_subscription_identity(action, filing):
     return number(action['subscription_shares']) in [number(v) for v in filing['issued_share_count_candidates']]
 
 
-def write_csv(path, rows):
+def write_csv(path, rows, fieldnames=None):
     with path.open('w', newline='') as handle:
-        w = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator='\n')
+        w = csv.DictWriter(handle, fieldnames=fieldnames or list(rows[0]), lineterminator='\n')
         w.writeheader(); w.writerows(rows)
 
 
@@ -343,13 +374,14 @@ def main():
             payments = [(r, d) for r in matches for d in r[leg + '_payment_dates']]
             for r in stat_matches:
                 for d in r[leg+'_payment_dates']:
-                    payment_facts[(event['code'],leg,event[leg+'_ex_date'])].append(dict(date=d,id=r['id'],url=r['url'],sha=r['response_sha256'],amount_matches=True,source_date=r['announcement_date']))
+                    payment_facts[(event['code'],leg,event[leg+'_ex_date'])].append(dict(date=d,id=r['id'],url=r['url'],sha=r['response_sha256'],amount_matches=True,source_date=r['announcement_date'],explicit_amendment=bool(r.get('amended_cash_payment_dates')) if leg=='cash' else False))
                 versions.append(dict(event_id=identity,identity_match='STATUTORY_EX_RECORD_OR_FISCAL_YEAR',**r))
             latest = payments[-1] if payments else None
             known = list(payment_facts[(event['code'],leg,event[leg+'_ex_date'])])
             if latest:
                 known.append(dict(date=latest[1],id=latest[0]['id'],url=latest[0]['url'],sha=latest[0]['response_sha256'],amount_matches=True,source_date=latest[0]['reported_at'][:10]))
-            dated=[r for r in known if r.get('source_date')]
+            amended=[r for r in known if r.get('explicit_amendment')]
+            dated=amended or [r for r in known if r.get('source_date')]
             primary=max(dated,key=lambda r:(r['source_date'],r['id'])) if dated else known[-1] if known else None
             supported = bool(primary and primary['date'] == event[leg + '_payment_date'] and primary['amount_matches'])
             checks.append(dict(event_id=identity, code=event['code'], leg=leg, ex_date=event[leg + '_ex_date'],
@@ -413,6 +445,8 @@ def main():
     write_csv(OUT / 'revision_chain_check.csv', checks)
     write_csv(OUT / 'dividend_settlement_check.csv', settlements)
     write_csv(OUT / 'subscription_settlement_check.csv', action_checks)
+    write_csv(OUT / 'remaining_dividend_payment_gaps.csv', [r for r in settlements if r['status']=='PRIMARY_PAYMENT_SCHEDULE_MISSING'], list(settlements[0]))
+    write_csv(OUT / 'remaining_announcement_chain_gaps.csv', [r for r in checks if r['status']=='SCHEDULE_CHAIN_PROOF_MISSING'], list(checks[0]))
     (OUT / 'mops_linked_revision_versions.json').write_text(json.dumps(versions, indent=2) + '\n')
     (OUT / 'statutory_normalized_filings.json').write_text(json.dumps(statutory,indent=2)+'\n')
     (OUT / 'mops_revision_normalized_filings.json').write_text(json.dumps(filings, indent=2) + '\n')

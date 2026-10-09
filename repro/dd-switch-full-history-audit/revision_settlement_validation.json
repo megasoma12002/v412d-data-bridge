@@ -1,19 +1,19 @@
 {
   "asof": "2026-10-08",
   "captured_candidate_filings": 1417,
-  "captured_statutory_filings": 1055,
+  "captured_statutory_filings": 1056,
   "positive_dividend_legs": 416,
   "dividend_legs_with_linked_schedule_chain": 389,
   "dividend_legs_with_earlier_schedule": 304,
-  "primary_payment_schedule_matches": 326,
+  "primary_payment_schedule_matches": 379,
   "payment_schedule_conflicts": 2,
   "contradictory_primary_payment_dates": 2,
   "subscription_events": 24,
   "subscription_windows_supported": 24,
   "subscription_future_not_due": 1,
-  "subscription_delivery_dates_supported": 6,
+  "subscription_delivery_dates_supported": 11,
   "subscription_voucher_dates_supported": 16,
-  "subscription_listing_dates_supported": 6,
+  "subscription_listing_dates_supported": 18,
   "revision_inventory_complete": false,
   "publication_vintage_certified_legs": 0,
   "backtest_ready": false,
@@ -25,30 +25,59 @@
     "Subscription requires an explicit paid election; no automatic ordinary shares",
     "Future scheduled settlement is not a missing past payment"
   ],
-  "payment_schedule_missing": 88,
+  "payment_schedule_missing": 35,
   "payment_schedule_missing_by_leg": {
-    "stock": 71,
-    "cash": 17
+    "stock": 23,
+    "cash": 12
   },
   "announcement_chain_missing": 27,
   "announcement_chain_missing_by_code": {
     "0050": 27
   },
-  "past_subscription_delivery_missing": 17,
-  "uncaptured_detail_responses": {
-    "major": 0,
-    "statutory": 1
+  "past_subscription_delivery_missing": 12,
+  "uncaptured_responses": {
+    "mops_actions": 0,
+    "mops_revisions": 0,
+    "mops_statutory": 0,
+    "settlement_pages": 1
   },
-  "new_valid_responses_since_previous": 99,
-  "source_hash_pairs_verified": 3364,
-  "tests_passed": 36,
+  "source_hash_pairs_verified": 3347,
   "canonical_input_hashes_verified": 6,
-  "capture_run_id": 37962101976,
-  "capture_run_conclusion": "success",
-  "capture_artifact_sha256": "2f04cb2c69f3df0ef88a0edeb0486f8bbdd1da235453bea63b45836c07721745",
-  "capture_processed": 100,
-  "capture_success": 99,
-  "capture_failed": 1,
-  "artifact_embedded_validation_stale": true,
-  "progress_stale_error_note": "CAPTURED responses retained old error text; validated by status/body/hash. Fixed for subsequent captures."
+  "canonical_inputs_absent": [
+    "repro/dd-switch-seven-session-rebuild/inputs/parents_with_off.csv",
+    "repro/dd-switch-seven-session-rebuild/inputs/mothers_with_off.csv",
+    "repro/dd-switch-seven-session-rebuild/inputs/00631L_actual.csv"
+  ],
+  "capture_progress": {
+    "started_at": "2026-10-09T17:15:20.219997+00:00",
+    "status": "COMPLETE",
+    "total": 1,
+    "processed": 1,
+    "success": 1,
+    "failed": 0,
+    "consecutive_failures": 0,
+    "attempted_ids": [
+      "t108sb19_2891_20260625_20260622_1"
+    ],
+    "probe_passed": true,
+    "queue": [
+      {
+        "source": "mops_statutory",
+        "id": "t108sb19_2891_20260625_20260622_1"
+      }
+    ],
+    "current_id": "",
+    "current_started_at": "2026-10-09T17:15:20.220026+00:00",
+    "last_completed_at": "2026-10-09T17:15:28.519971+00:00",
+    "last_result": "CAPTURED",
+    "recent_results": [
+      {
+        "id": "t108sb19_2891_20260625_20260622_1",
+        "status": "CAPTURED",
+        "at": "2026-10-09T17:15:28.519971+00:00",
+        "error": ""
+      }
+    ]
+  },
+  "validation_scope": "Saved public response integrity and current matching; historical revision completeness remains uncertified"
 }

@@ -22,6 +22,7 @@ jobs:
           unzip -o repro/dd-switch-full-history-audit/reviewed_revision_settlement_evidence.zip
           unzip -o repro/dd-switch-full-history-audit/cancelled_capture_delta.zip
           unzip -o repro/dd-switch-full-history-audit/completed_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/continued_capture_delta.zip
       - name: Probe five missing responses before batch capture
         env:
           MOPS_REQUEST_INTERVAL_SECONDS: '2'
@@ -137,6 +138,7 @@ jobs:
         run: |
           python scripts/dd_switch_revision_audit.py
           PYTHONPATH=scripts python -m unittest tests/test_dd_switch_monitored_capture.py tests/test_dd_switch_revision_audit.py tests/test_dd_switch_mops_evidence.py tests/test_dd_switch_announcement_evidence.py tests/test_dd_switch_session_market.py
+          python scripts/dd_switch_revision_validate.py
           git diff --exit-code -- data repro/dd-switch-full-history-audit/announcement_validation.json repro/dd-switch-full-history-audit/mops_validation.json
       - uses: actions/upload-artifact@v4
         if: always()
