@@ -1,0 +1,139 @@
+{
+  "2014-07-23": {
+    "status": "ALTERNATE_NONTRADING_ROW_REPORTED_TWSE_CLOSURE",
+    "source_class": "CONTEMPORANEOUS_DIRECT_NEWS_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://m.cnyes.com/news/id/1255061",
+    "action": "DO_NOT_ADD_AS_TRADING_SESSION"
+  },
+  "2016-07-08": {
+    "status": "ALTERNATE_NONTRADING_ROW_REPORTED_TWSE_CLOSURE",
+    "source_class": "CNA_CONTEMPORANEOUS_REPORT_YAHOO_HOST_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://tw.stock.yahoo.com/news/颱風尼伯特來襲-股匯期8日休市-120746889.html",
+    "action": "DO_NOT_ADD_AS_TRADING_SESSION"
+  },
+  "2023-05-25": {
+    "status": "LOCAL_MISSING_SESSION_NEWS_AND_ALTERNATE_INDEX_AGREE",
+    "source_class": "CONTEMPORANEOUS_DIRECT_MARKET_NEWS_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://anuenews.cnyes.com/news/id/5191203",
+    "action": "OBTAIN_RAW_QUOTES_AND_UNIT_CONTRACT_BEFORE_REBUILD"
+  },
+  "2012-01-02": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://m.cnyes.com/news/id/2221714",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 6952.21
+  },
+  "2012-02-04": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://n.yam.com/Article/20120204206811",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 7741.24
+  },
+  "2012-03-03": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://news.cnyes.com/news/id/2296495",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": null
+  },
+  "2012-12-22": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://news.cnyes.com/news/id/2974311",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 7540.14
+  },
+  "2013-02-23": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://www.ntdtv.com/gb/2013/02/23/a851983.html",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 7986.89
+  },
+  "2013-09-14": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://m.cnyes.com/news/id/1811514",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 8142.48
+  },
+  "2014-12-27": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://www.cna.com.tw/news/afe/201412270135.aspx",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 9218.5
+  },
+  "2016-01-30": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://n.yam.com/Article/20160130535452",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 8145.21
+  },
+  "2016-06-04": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://news.cnyes.com/news/id/2017937",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 8591.57
+  },
+  "2016-09-10": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://m.cnyes.com/news/id/3201097",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 9053.69
+  },
+  "2017-02-18": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://anuenews.cnyes.com/news/id/3721765",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 9779.92
+  },
+  "2017-06-03": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "PRIMARY_TWSE_PUBLISHED_DATE_EVIDENCE",
+    "url": "https://www.twse.com.tw/en/indicesReport/HC100?date=20170601&response=html",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": null
+  },
+  "2017-09-30": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://tw.news.yahoo.com/台股開高走高-漲54點-054837427.html",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 10383.94
+  },
+  "2018-03-31": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://m.cnyes.com/news/id/4084002",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 10919.49
+  },
+  "2018-12-22": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://www.cna.com.tw/news/afe/201812220117.aspx",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 9646.16
+  },
+  "2019-09-09": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "CONTEMPORANEOUS_MARKET_REPORT_NOT_EXCHANGE_ARCHIVE",
+    "url": "https://anuenews.cnyes.com/news/id/4379238",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 10801.14
+  },
+  "2021-04-06": {
+    "status": "LOCAL_SESSION_SUPPORTED_ALTERNATE_INDEX_OMISSION",
+    "source_class": "PRIMARY_TWSE_PUBLISHED_DATE_EVIDENCE",
+    "url": "https://www.twse.com.tw/rwd/staticFiles/product/publication/0002000204.pdf",
+    "action": "RETAIN_LOCAL_TRADING_SESSION",
+    "reported_index_close": 16739.87
+  }
+}

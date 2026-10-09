@@ -6,7 +6,9 @@
     "rows": 3380,
     "start": "2012-12-04",
     "end": "2026-10-08",
-    "missing_benchmark_dates": [],
+    "missing_benchmark_dates": [
+      "2023-05-25"
+    ],
     "duplicate_dates": 0,
     "invalid_nav": 0
   },
@@ -17,7 +19,9 @@
     "rows": 3380,
     "start": "2012-12-04",
     "end": "2026-10-08",
-    "missing_benchmark_dates": [],
+    "missing_benchmark_dates": [
+      "2023-05-25"
+    ],
     "duplicate_dates": 0,
     "invalid_nav": 0
   },
@@ -28,7 +32,9 @@
     "rows": 3380,
     "start": "2012-12-04",
     "end": "2026-10-08",
-    "missing_benchmark_dates": [],
+    "missing_benchmark_dates": [
+      "2023-05-25"
+    ],
     "duplicate_dates": 0,
     "invalid_nav": 0
   },
@@ -39,7 +45,9 @@
     "rows": 3380,
     "start": "2012-12-04",
     "end": "2026-10-08",
-    "missing_benchmark_dates": [],
+    "missing_benchmark_dates": [
+      "2023-05-25"
+    ],
     "duplicate_dates": 0,
     "invalid_nav": 0
   },
@@ -50,7 +58,9 @@
     "rows": 3379,
     "start": "2012-12-05",
     "end": "2026-10-08",
-    "missing_benchmark_dates": [],
+    "missing_benchmark_dates": [
+      "2023-05-25"
+    ],
     "duplicate_dates": 0,
     "invalid_nav": 0
   },
@@ -61,7 +71,9 @@
     "rows": 3380,
     "start": "2012-12-04",
     "end": "2026-10-08",
-    "missing_benchmark_dates": [],
+    "missing_benchmark_dates": [
+      "2023-05-25"
+    ],
     "duplicate_dates": 0,
     "invalid_nav": 0
   },
@@ -72,7 +84,9 @@
     "rows": 3379,
     "start": "2012-12-05",
     "end": "2026-10-08",
-    "missing_benchmark_dates": [],
+    "missing_benchmark_dates": [
+      "2023-05-25"
+    ],
     "duplicate_dates": 0,
     "invalid_nav": 0
   },
@@ -83,7 +97,9 @@
     "rows": 3379,
     "start": "2012-12-05",
     "end": "2026-10-08",
-    "missing_benchmark_dates": [],
+    "missing_benchmark_dates": [
+      "2023-05-25"
+    ],
     "duplicate_dates": 0,
     "invalid_nav": 0
   },
@@ -94,7 +110,9 @@
     "rows": 3379,
     "start": "2012-12-05",
     "end": "2026-10-08",
-    "missing_benchmark_dates": [],
+    "missing_benchmark_dates": [
+      "2023-05-25"
+    ],
     "duplicate_dates": 0,
     "invalid_nav": 0
   }

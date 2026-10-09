@@ -57,6 +57,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, default=ROOT/'repro/dd-switch-full-history-audit')
     parser.add_argument('--codes', nargs='+', default=CODES)
+    parser.add_argument('--years', type=int, nargs='+', default=list(range(2011,2027)), help='Explicit historical years; default preserves the original audit range')
     parser.add_argument('--workers', type=int, default=6)
     parser.add_argument('--offline', action='store_true', help='Only archive existing responses and retain access failures')
     args = parser.parse_args()
@@ -64,7 +65,7 @@ def main():
     if (ROOT/'repro').resolve() not in out.parents:
         raise ValueError('Research output only')
     (out/'sources').mkdir(parents=True, exist_ok=True)
-    jobs = [(code,year) for code in args.codes for year in range(2011,2027)
+    jobs = [(code,year) for code in args.codes for year in args.years
             if not (code=='00631L' and year<2014)]
     records = []
     previous = {}

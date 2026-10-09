@@ -1,0 +1,24 @@
+[
+  {
+    "code": "TAIEX",
+    "year": 2023,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2023-01-01&end_date=2023-12-31",
+    "fetched_at": "2026-10-09T08:43:09.000109+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2023.json",
+    "status": "FETCHED",
+    "sha256": "17409967463d65cdb9ab163662423ef2b2e15cc6f8c5b57552adb3f0529e28b0",
+    "rows": 239
+  },
+  {
+    "code": "TAIEX",
+    "year": 2024,
+    "url": "https://api.finmindtrade.com/api/v4/data?dataset=TaiwanStockPrice&data_id=TAIEX&start_date=2024-01-01&end_date=2024-12-31",
+    "fetched_at": "2026-10-09T08:43:20.245618+00:00",
+    "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+    "path": "repro/dd-switch-full-history-audit/sources/TAIEX_2024.json",
+    "status": "FETCHED",
+    "sha256": "03bc7bfcf530b2d746da8752cc87263ccb75f64be139a7b26a0840d2916cf3d7",
+    "rows": 242
+  }
+]

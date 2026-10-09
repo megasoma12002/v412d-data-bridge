@@ -9,8 +9,6 @@
   "repro/dd-switch-seven-session-rebuild/inputs/00631L_actual.csv": "c5b94e33a0710e35fca225e21811109ac89af9056911c0895ccc64542262d6e2",
   "data/dividend_events/e22_dividend_events.csv": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
   "scripts/within_sleeve_alloc.py": "e29c7466793edf91d16fb15f63dfd68264ddc5582c876f746b3c810857e1bcc0",
-  "scripts/dd_switch_full_history_audit.py": "1d236ac6f35a9ea6c5b1f26a186c729813302d6b725dcb76f9f4da0853247190",
-  "scripts/dd_switch_full_history_sources.py": "0092109f4b83a7f8d1b9a0f0766cd58fb06106c1711fe8aaaa1427dfcc52abee",
-  "repro/dd-switch-full-history-audit/README.md": "58164332a118c2fc9597beebe77c192ad1f9f14e8a4a3e9d02d544450050f2f6",
-  "repro/dd-switch-full-history-audit/known_halt_primary_sources.json": "c7a19c803e6ae115f8ef88e4a98fdbc67714115f196e740c5ea0da8fc04bc088"
+  "scripts/dd_switch_full_history_audit.py": "2d0b7c01c56efb66430e6fcf30f9f8bb173f6e568ebe7e84c594b0176c76c31e",
+  "scripts/dd_switch_full_history_sources.py": "8707cbae21bf41c54c76fe9324a61bd7fc877e51ec26611633ed87b8b579ed79"
 }

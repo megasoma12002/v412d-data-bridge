@@ -1,0 +1,22 @@
+[
+  {
+    "source": "mega_dividend",
+    "url": "https://www.megaholdings.com.tw/tc/stock.aspx",
+    "status": "FETCHED",
+    "sha256": "a916050e006b3c5403065137924bb175407e4b9e704b7f430cd707d897154021",
+    "bytes": 36912,
+    "source_class": "PRIMARY_ISSUER_CURRENT_PAGE_NOT_VINTAGE"
+  },
+  {
+    "source": "tcfhc_dividend",
+    "url": "https://www.tcfhc.com.tw/investors-relations/shareholder-service/dividend",
+    "status": "UNAVAILABLE",
+    "error": "The read operation timed out"
+  },
+  {
+    "source": "tcfhc_calendar",
+    "url": "https://www.tcfhc.com.tw/investors-relations/shareholder-service/calendar",
+    "status": "UNAVAILABLE",
+    "error": "The read operation timed out"
+  }
+]

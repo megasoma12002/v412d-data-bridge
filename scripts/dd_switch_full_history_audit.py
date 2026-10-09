@@ -14,7 +14,7 @@ from soft_assist_helpers import LIVE_KD
 ROOT=Path(__file__).resolve().parents[1]
 CORE=['2880','2886','2892','5880']
 END='2026-10-08'
-AUDIT_HALTS={**HALTS,'2412':pd.date_range('2011-01-07','2011-01-24'),
+AUDIT_HALTS={**HALTS,'2412':pd.date_range('2010-01-21','2010-02-07').union(pd.date_range('2011-01-07','2011-01-24')),
              '3045':pd.date_range('2011-09-27','2011-10-12'),
              '2884':pd.to_datetime(['2025-11-05'])}
 
@@ -28,12 +28,18 @@ def frame(path):
 def archive_prices(out):
     rows=[]
     for path in sorted((out/'sources').glob('*_20*.json')):
-        if path.name.startswith('twse_'): continue
+        # Exact annual price snapshots only. Gap/adjacent responses overlap
+        # them and must not multiply joined quote counts.
+        suffix=path.stem.rsplit('_',1)
+        if len(suffix)!=2 or len(suffix[1])!=4 or not suffix[1].isdigit():continue
         payload=json.loads(path.read_text())
         if payload.get('status')!=200: continue
         for r in payload.get('data',[]):
             rows.append(dict(date=r['date'],code=str(r['stock_id']),open=r['open'],high=r['max'],low=r['min'],close=r['close'],volume=r['Trading_Volume']))
-    return pd.DataFrame(rows)
+    result=pd.DataFrame(rows)
+    if len(result) and result.duplicated(['date','code']).any():
+        raise ValueError('Duplicate archived annual price evidence')
+    return result
 
 def audit_quotes(name, data, benchmark, fresh, out):
     start,end=data.date.min(),min(data.date.max(),END)
@@ -54,6 +60,9 @@ def audit_quotes(name, data, benchmark, fresh, out):
     else:eligible=pd.Series(True,index=data.index)
     # Reconstruct raw private OHLC from the explicitly stored adjustment factor.
     check=data.copy()
+    if 'adjusted_close' in check and 'close' not in check:
+        factor='backward_adjustment_factor' if 'backward_adjustment_factor' in check else ('factor' if 'factor' in check else None)
+        if factor:check['close']=check.adjusted_close/check[factor]
     if 'adjusted_open' in check and 'backward_adjustment_factor' in check:
         for col in ['open','high','low','close']:
             check[col]=check['adjusted_'+col]/check.backward_adjustment_factor
@@ -72,7 +81,7 @@ def audit_quotes(name, data, benchmark, fresh, out):
             for i in changes[changes.abs()>.35].index:
                 jumps.append(dict(dataset=name,code=code,date=check.loc[i,'date'],raw_return=float(changes.loc[i]),issue='REVIEW_CORPORATE_ACTION_OR_BAD_QUOTE'))
     comparisons=[]
-    if len(fresh) and all(c in check for c in ['open','high','low','close']):
+    if len(fresh) and 'close' in check:
         paired=check.merge(fresh,on=['date','code'],suffixes=('_artifact','_redownload'))
         for col in ['open','high','low','close','volume']:
             if col+'_artifact' not in paired:continue
@@ -215,9 +224,9 @@ def main():
     (out/'nav_coverage.json').write_text(json.dumps(navs,indent=2));pd.DataFrame(fills).to_csv(out/'fill_date_audit.csv',index=False)
     pd.DataFrame(clock_rows).to_csv(out/'later_fills_to_attribute.csv',index=False)
     manifest=json.loads((out/'source_manifest.json').read_text());access=json.loads((out/'primary_access.json').read_text()) if (out/'primary_access.json').exists() else []
-    blockers=[dict(id='OFFICIAL_PRE2025_CALENDAR',reason='TWSE historical API access denied; provider dates are secondary and 2023/2024 have no re-download evidence'),dict(id='FULL_RAW_PRICE_EXTERNAL_CONFIRMATION',reason='Provider quota reached; per-stock full-history re-download incomplete'),dict(id='DIVIDEND_VINTAGE',reason='27 ETF announcements absent and no historical revision/publication archive for all legs'),dict(id='FEATURE_FUTURE_EVENT_DEPENDENCY',reason='Feature functions use full ex-date ledger without announcement availability gate; see actual prefix experiment'),dict(id='FULL_LIVE_FUNDED_HISTORY',reason='Mother DD/TRAIL retain shadow and return stitching; full live historical joint capital execution not certified'),dict(id='HISTORICAL_CORPORATE_ACTION_COMPLETENESS',reason='Two explicit ETF splits and known halts verified; all other historical action completeness needs primary event inventory')]
-    blockers.extend([dict(id='PRIVATE_FIN_SIXTEEN_QUOTES',reason='Eight private-financial input codes lack 2025-02-06 and 2026-05-28 raw quotes; canonical inputs intentionally not silently filled'),dict(id='HISTORICAL_LATER_ORDER_FILLS',count=len(clock_rows),reason='Evidenced fills occur after first qualified session; funding/residual/stale-order lifecycle attribution pending, not automatically invalid T+1 qualification'),dict(id='SCHEDULED_EX_DATE_ON_CLOSED_SESSION',reason='2891 cash scheduled ex 2026-07-10 falls outside official sessions; effective-date router convention exists but primary schedule/amendment proof still required')])
-    summary=dict(status='AUDIT_COMPLETE_FULL_HISTORY_CERTIFICATION_BLOCKED',publication_allowed=False,asof=END,scope='DD_SWITCH parent/mother lineage plus eight private-financial raw-adjusted inputs; not every obsolete research file',benchmark_sessions=len(benchmark),benchmark_years=sorted({d[:4] for d in benchmark}),official_calendar_years=[2025,2026],external_source_counts=pd.Series([r['status'] for r in manifest]).value_counts().to_dict(),primary_access=access,quotes=reports,dividends=dividends,feature_availability=features,navs=navs,fills=fills,blockers=blockers,limits=['A FinMind re-download shares ancestry with original FinMind prices: consistency evidence, not independent cross-provider proof','TAIEX archived panel is CLOSE_ONLY_PROXY: historical open/high/low equal close and volume=0; close matches all 2724 re-downloaded rows but proxy OHLC/volume must not support intraday claims','Dates before each artifact start and after cutoff are excluded; prelisting synthetic marks never counted as tradable quotes','Price integrity and ledger arithmetic do not prove point-in-time availability or execution depth','Next-session qualification is not a guarantee of next-session fill: later paper fills need funding/order lifecycle attribution','Nothing writes canonical data, runtime or broker state'])
+    blockers=[dict(id='OFFICIAL_PRE2025_CALENDAR',reason='TWSE historical API access denied; provider dates are secondary; complete pre-2025 official calendar still unproved'),dict(id='FULL_RAW_PRICE_EXTERNAL_CONFIRMATION',reason='Provider quota reached; per-stock full-history re-download incomplete'),dict(id='DIVIDEND_VINTAGE',reason='27 ETF announcements absent and no historical revision/publication archive for all legs'),dict(id='FEATURE_FUTURE_EVENT_DEPENDENCY',reason='Feature functions use full ex-date ledger without announcement availability gate; see actual prefix experiment'),dict(id='FULL_LIVE_FUNDED_HISTORY',reason='Mother DD/TRAIL retain shadow and return stitching; full live historical joint capital execution not certified'),dict(id='HISTORICAL_CORPORATE_ACTION_COMPLETENESS',reason='Two explicit ETF splits and known halts verified; all other historical action completeness needs primary event inventory')]
+    blockers.extend([dict(id='RESEARCH_GAP_CANDIDATES_NOT_PROMOTED',reason='34 missing quotes recovered in independent research candidates (10 core, 24 private); original canonical inputs intentionally unchanged'),dict(id='HISTORICAL_LATER_ORDER_FILLS',count=len(clock_rows),reason='Evidenced fills occur after first qualified session; funding/residual/stale-order lifecycle attribution pending, not automatically invalid T+1 qualification'),dict(id='SCHEDULED_EX_DATE_ON_CLOSED_SESSION',reason='2891 cash scheduled ex 2026-07-10 falls outside official sessions; effective-date router convention exists but primary schedule/amendment proof still required')])
+    summary=dict(status='AUDIT_COMPLETE_FULL_HISTORY_CERTIFICATION_BLOCKED',publication_allowed=False,asof=END,scope='DD_SWITCH parent/mother lineage plus eight private-financial raw-adjusted inputs; not every obsolete research file',benchmark_sessions=len(benchmark),benchmark_years=sorted({d[:4] for d in benchmark}),official_calendar_years=[2025,2026],external_source_counts=pd.Series([r['status'] for r in manifest]).value_counts().to_dict(),primary_access=access,quotes=reports,dividends=dividends,feature_availability=features,navs=navs,fills=fills,blockers=blockers,limits=['A FinMind re-download shares ancestry with original FinMind prices: consistency evidence, not independent cross-provider proof','TAIEX archived panel is CLOSE_ONLY_PROXY: historical open/high/low equal close and volume=0; close consistency is reported separately; proxy OHLC/volume must not support intraday claims','Dates before each artifact start and after cutoff are excluded; prelisting synthetic marks never counted as tradable quotes','Price integrity and ledger arithmetic do not prove point-in-time availability or execution depth','Next-session qualification is not a guarantee of next-session fill: later paper fills need funding/order lifecycle attribution','Nothing writes canonical data, runtime or broker state'])
     (out/'summary.json').write_text(json.dumps(summary,indent=2));(out/'blockers.json').write_text(json.dumps(blockers,indent=2))
     hashes={str(p.relative_to(ROOT)):sha(p) for p in [ROOT/v for v in paths.values()]+[ROOT/'data/dividend_events/e22_dividend_events.csv',ROOT/'scripts/within_sleeve_alloc.py',Path(__file__),ROOT/'scripts/dd_switch_full_history_sources.py']}
     (out/'audited_input_sha256.json').write_text(json.dumps(hashes,indent=2));print('FULL_HISTORY_AUDIT_COMPLETE',json.dumps(dict(benchmark_sessions=len(benchmark),dividends=dividends,features=features)),flush=True)

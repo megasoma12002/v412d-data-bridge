@@ -3,8 +3,9 @@
   "publication_allowed": false,
   "asof": "2026-10-08",
   "scope": "DD_SWITCH parent/mother lineage plus eight private-financial raw-adjusted inputs; not every obsolete research file",
-  "benchmark_sessions": 3377,
+  "benchmark_sessions": 4109,
   "benchmark_years": [
+    "2010",
     "2011",
     "2012",
     "2013",
@@ -17,6 +18,8 @@
     "2020",
     "2021",
     "2022",
+    "2023",
+    "2024",
     "2025",
     "2026"
   ],
@@ -25,9 +28,9 @@
     2026
   ],
   "external_source_counts": {
-    "NOT_REQUESTED_QUOTA_STOP": 219,
-    "UNAVAILABLE": 54,
-    "FETCHED": 12
+    "FETCHED": 270,
+    "NOT_REQUESTED_QUOTA_STOP": 28,
+    "UNAVAILABLE": 4
   },
   "primary_access": [
     {
@@ -68,18 +71,18 @@
       "start": "2011-12-01",
       "end": "2026-10-08",
       "duplicates": 0,
-      "issues": 63,
+      "issues": 72,
       "issue_counts": {
-        "MISSING_BENCHMARK_DATE": 58,
+        "MISSING_BENCHMARK_DATE": 67,
         "EXPECTED_KNOWN_HALT_NO_QUOTE": 5
       },
-      "redownload_compared_rows": 2724,
-      "redownload_difference_fields": 10376,
+      "redownload_compared_rows": 32625,
+      "redownload_difference_fields": 13821,
       "redownload_difference_by_field": {
-        "open": 2724,
-        "volume": 2684,
-        "low": 2551,
-        "high": 2417
+        "open": 3625,
+        "volume": 3573,
+        "low": 3377,
+        "high": 3246
       },
       "large_raw_moves": 1,
       "coverage": [
@@ -89,8 +92,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3625,
-          "benchmark_expected": 3152,
-          "missing": 7,
+          "benchmark_expected": 3633,
+          "missing": 8,
           "last_date_before_panel_end": false
         },
         {
@@ -99,8 +102,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3625,
-          "benchmark_expected": 3152,
-          "missing": 7,
+          "benchmark_expected": 3633,
+          "missing": 8,
           "last_date_before_panel_end": false
         },
         {
@@ -109,8 +112,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3625,
-          "benchmark_expected": 3152,
-          "missing": 7,
+          "benchmark_expected": 3633,
+          "missing": 8,
           "last_date_before_panel_end": false
         },
         {
@@ -119,8 +122,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3625,
-          "benchmark_expected": 3152,
-          "missing": 7,
+          "benchmark_expected": 3633,
+          "missing": 8,
           "last_date_before_panel_end": false
         },
         {
@@ -129,8 +132,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3625,
-          "benchmark_expected": 3152,
-          "missing": 7,
+          "benchmark_expected": 3633,
+          "missing": 8,
           "last_date_before_panel_end": false
         },
         {
@@ -139,8 +142,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3625,
-          "benchmark_expected": 3152,
-          "missing": 7,
+          "benchmark_expected": 3633,
+          "missing": 8,
           "last_date_before_panel_end": false
         },
         {
@@ -149,8 +152,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3625,
-          "benchmark_expected": 3152,
-          "missing": 7,
+          "benchmark_expected": 3633,
+          "missing": 8,
           "last_date_before_panel_end": false
         },
         {
@@ -159,8 +162,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3625,
-          "benchmark_expected": 3152,
-          "missing": 7,
+          "benchmark_expected": 3633,
+          "missing": 8,
           "last_date_before_panel_end": false
         },
         {
@@ -169,8 +172,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3625,
-          "benchmark_expected": 3152,
-          "missing": 7,
+          "benchmark_expected": 3633,
+          "missing": 8,
           "last_date_before_panel_end": false
         }
       ]
@@ -181,15 +184,17 @@
       "start": "2011-12-01",
       "end": "2026-10-08",
       "duplicates": 0,
-      "issues": 0,
-      "issue_counts": {},
-      "redownload_compared_rows": 2724,
-      "redownload_difference_fields": 10376,
+      "issues": 10,
+      "issue_counts": {
+        "MISSING_BENCHMARK_DATE": 10
+      },
+      "redownload_compared_rows": 35590,
+      "redownload_difference_fields": 13821,
       "redownload_difference_by_field": {
-        "open": 2724,
-        "volume": 2684,
-        "low": 2551,
-        "high": 2417
+        "open": 3625,
+        "volume": 3573,
+        "low": 3377,
+        "high": 3246
       },
       "large_raw_moves": 2,
       "coverage": [
@@ -199,8 +204,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -209,8 +214,8 @@
           "start": "2014-10-31",
           "end": "2026-10-08",
           "rows": 2911,
-          "benchmark_expected": 2431,
-          "missing": 0,
+          "benchmark_expected": 2912,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -219,8 +224,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -229,8 +234,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -239,8 +244,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -249,8 +254,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -259,8 +264,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -269,8 +274,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -279,8 +284,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -289,8 +294,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         }
       ]
@@ -301,15 +306,17 @@
       "start": "2011-12-01",
       "end": "2026-10-08",
       "duplicates": 0,
-      "issues": 0,
-      "issue_counts": {},
-      "redownload_compared_rows": 2724,
-      "redownload_difference_fields": 10376,
+      "issues": 10,
+      "issue_counts": {
+        "MISSING_BENCHMARK_DATE": 10
+      },
+      "redownload_compared_rows": 35590,
+      "redownload_difference_fields": 13821,
       "redownload_difference_by_field": {
-        "open": 2724,
-        "volume": 2684,
-        "low": 2551,
-        "high": 2417
+        "open": 3625,
+        "volume": 3573,
+        "low": 3377,
+        "high": 3246
       },
       "large_raw_moves": 2,
       "coverage": [
@@ -319,8 +326,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -329,8 +336,8 @@
           "start": "2014-10-31",
           "end": "2026-10-08",
           "rows": 2911,
-          "benchmark_expected": 2431,
-          "missing": 0,
+          "benchmark_expected": 2912,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -339,8 +346,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -349,8 +356,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -359,8 +366,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -369,8 +376,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -379,8 +386,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -389,8 +396,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -399,8 +406,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         },
         {
@@ -409,8 +416,8 @@
           "start": "2011-12-01",
           "end": "2026-10-08",
           "rows": 3632,
-          "benchmark_expected": 3152,
-          "missing": 0,
+          "benchmark_expected": 3633,
+          "missing": 1,
           "last_date_before_panel_end": false
         }
       ]
@@ -421,12 +428,12 @@
       "start": "2010-01-04",
       "end": "2026-10-08",
       "duplicates": 0,
-      "issues": 17,
+      "issues": 25,
       "issue_counts": {
-        "MISSING_BENCHMARK_DATE": 16,
+        "MISSING_BENCHMARK_DATE": 24,
         "EXPECTED_KNOWN_HALT_NO_QUOTE": 1
       },
-      "redownload_compared_rows": 0,
+      "redownload_compared_rows": 25133,
       "redownload_difference_fields": 0,
       "redownload_difference_by_field": {},
       "large_raw_moves": 0,
@@ -437,8 +444,8 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4106,
-          "benchmark_expected": 3377,
-          "missing": 2,
+          "benchmark_expected": 4109,
+          "missing": 3,
           "last_date_before_panel_end": false
         },
         {
@@ -447,8 +454,8 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4106,
-          "benchmark_expected": 3377,
-          "missing": 2,
+          "benchmark_expected": 4109,
+          "missing": 3,
           "last_date_before_panel_end": false
         },
         {
@@ -457,8 +464,8 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4106,
-          "benchmark_expected": 3377,
-          "missing": 2,
+          "benchmark_expected": 4109,
+          "missing": 3,
           "last_date_before_panel_end": false
         },
         {
@@ -467,8 +474,8 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4106,
-          "benchmark_expected": 3377,
-          "missing": 2,
+          "benchmark_expected": 4109,
+          "missing": 3,
           "last_date_before_panel_end": false
         },
         {
@@ -477,8 +484,8 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4105,
-          "benchmark_expected": 3377,
-          "missing": 3,
+          "benchmark_expected": 4109,
+          "missing": 4,
           "last_date_before_panel_end": false
         },
         {
@@ -487,8 +494,8 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4106,
-          "benchmark_expected": 3377,
-          "missing": 2,
+          "benchmark_expected": 4109,
+          "missing": 3,
           "last_date_before_panel_end": false
         },
         {
@@ -497,8 +504,8 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4106,
-          "benchmark_expected": 3377,
-          "missing": 2,
+          "benchmark_expected": 4109,
+          "missing": 3,
           "last_date_before_panel_end": false
         },
         {
@@ -507,8 +514,8 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4106,
-          "benchmark_expected": 3377,
-          "missing": 2,
+          "benchmark_expected": 4109,
+          "missing": 3,
           "last_date_before_panel_end": false
         }
       ]
@@ -519,11 +526,11 @@
       "start": "2010-01-04",
       "end": "2026-09-01",
       "duplicates": 0,
-      "issues": 28,
+      "issues": 41,
       "issue_counts": {
-        "EXPECTED_KNOWN_HALT_NO_QUOTE": 28
+        "EXPECTED_KNOWN_HALT_NO_QUOTE": 41
       },
-      "redownload_compared_rows": 0,
+      "redownload_compared_rows": 16295,
       "redownload_difference_fields": 0,
       "redownload_difference_by_field": {},
       "large_raw_moves": 1,
@@ -534,7 +541,7 @@
           "start": "2010-01-04",
           "end": "2026-09-01",
           "rows": 4079,
-          "benchmark_expected": 3352,
+          "benchmark_expected": 4084,
           "missing": 5,
           "last_date_before_panel_end": false
         },
@@ -544,8 +551,8 @@
           "start": "2010-01-04",
           "end": "2026-09-01",
           "rows": 4059,
-          "benchmark_expected": 3352,
-          "missing": 12,
+          "benchmark_expected": 4084,
+          "missing": 25,
           "last_date_before_panel_end": false
         },
         {
@@ -554,7 +561,7 @@
           "start": "2010-01-04",
           "end": "2026-09-01",
           "rows": 4073,
-          "benchmark_expected": 3352,
+          "benchmark_expected": 4084,
           "missing": 11,
           "last_date_before_panel_end": false
         },
@@ -564,7 +571,7 @@
           "start": "2010-01-04",
           "end": "2026-09-01",
           "rows": 4084,
-          "benchmark_expected": 3352,
+          "benchmark_expected": 4084,
           "missing": 0,
           "last_date_before_panel_end": false
         }
@@ -576,11 +583,11 @@
       "start": "2010-01-04",
       "end": "2026-10-08",
       "duplicates": 0,
-      "issues": 23,
+      "issues": 36,
       "issue_counts": {
-        "EXPECTED_KNOWN_HALT_NO_QUOTE": 23
+        "EXPECTED_KNOWN_HALT_NO_QUOTE": 36
       },
-      "redownload_compared_rows": 0,
+      "redownload_compared_rows": 12291,
       "redownload_difference_fields": 0,
       "redownload_difference_by_field": {},
       "large_raw_moves": 0,
@@ -591,8 +598,8 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4084,
-          "benchmark_expected": 3377,
-          "missing": 12,
+          "benchmark_expected": 4109,
+          "missing": 25,
           "last_date_before_panel_end": false
         },
         {
@@ -601,7 +608,7 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4098,
-          "benchmark_expected": 3377,
+          "benchmark_expected": 4109,
           "missing": 11,
           "last_date_before_panel_end": false
         },
@@ -611,7 +618,7 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4109,
-          "benchmark_expected": 3377,
+          "benchmark_expected": 4109,
           "missing": 0,
           "last_date_before_panel_end": false
         }
@@ -627,10 +634,10 @@
       "issue_counts": {
         "EXPECTED_KNOWN_HALT_NO_QUOTE": 5
       },
-      "redownload_compared_rows": 0,
+      "redownload_compared_rows": 4104,
       "redownload_difference_fields": 0,
       "redownload_difference_by_field": {},
-      "large_raw_moves": 0,
+      "large_raw_moves": 1,
       "coverage": [
         {
           "dataset": "etf_adjusted",
@@ -638,7 +645,7 @@
           "start": "2010-01-04",
           "end": "2026-10-08",
           "rows": 4104,
-          "benchmark_expected": 3377,
+          "benchmark_expected": 4109,
           "missing": 5,
           "last_date_before_panel_end": false
         }
@@ -654,7 +661,7 @@
       "issue_counts": {
         "EXPECTED_KNOWN_HALT_NO_QUOTE": 4
       },
-      "redownload_compared_rows": 0,
+      "redownload_compared_rows": 2908,
       "redownload_difference_fields": 0,
       "redownload_difference_by_field": {},
       "large_raw_moves": 1,
@@ -665,7 +672,7 @@
           "start": "2014-10-31",
           "end": "2026-10-08",
           "rows": 2908,
-          "benchmark_expected": 2431,
+          "benchmark_expected": 2912,
           "missing": 4,
           "last_date_before_panel_end": false
         }
@@ -725,7 +732,9 @@
       "rows": 3380,
       "start": "2012-12-04",
       "end": "2026-10-08",
-      "missing_benchmark_dates": [],
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
       "duplicate_dates": 0,
       "invalid_nav": 0
     },
@@ -736,7 +745,9 @@
       "rows": 3380,
       "start": "2012-12-04",
       "end": "2026-10-08",
-      "missing_benchmark_dates": [],
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
       "duplicate_dates": 0,
       "invalid_nav": 0
     },
@@ -747,7 +758,9 @@
       "rows": 3380,
       "start": "2012-12-04",
       "end": "2026-10-08",
-      "missing_benchmark_dates": [],
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
       "duplicate_dates": 0,
       "invalid_nav": 0
     },
@@ -758,7 +771,9 @@
       "rows": 3380,
       "start": "2012-12-04",
       "end": "2026-10-08",
-      "missing_benchmark_dates": [],
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
       "duplicate_dates": 0,
       "invalid_nav": 0
     },
@@ -769,7 +784,9 @@
       "rows": 3379,
       "start": "2012-12-05",
       "end": "2026-10-08",
-      "missing_benchmark_dates": [],
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
       "duplicate_dates": 0,
       "invalid_nav": 0
     },
@@ -780,7 +797,9 @@
       "rows": 3380,
       "start": "2012-12-04",
       "end": "2026-10-08",
-      "missing_benchmark_dates": [],
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
       "duplicate_dates": 0,
       "invalid_nav": 0
     },
@@ -791,7 +810,9 @@
       "rows": 3379,
       "start": "2012-12-05",
       "end": "2026-10-08",
-      "missing_benchmark_dates": [],
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
       "duplicate_dates": 0,
       "invalid_nav": 0
     },
@@ -802,7 +823,9 @@
       "rows": 3379,
       "start": "2012-12-05",
       "end": "2026-10-08",
-      "missing_benchmark_dates": [],
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
       "duplicate_dates": 0,
       "invalid_nav": 0
     },
@@ -813,7 +836,9 @@
       "rows": 3379,
       "start": "2012-12-05",
       "end": "2026-10-08",
-      "missing_benchmark_dates": [],
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
       "duplicate_dates": 0,
       "invalid_nav": 0
     }
@@ -826,9 +851,9 @@
       "prelisting_fills": 0,
       "halt_fills": 0,
       "fill_outside_market_panel": 0,
-      "next_benchmark_date": 4308,
-      "later_than_next_benchmark_date": 1647,
-      "unevidenced_clock_rows": 686
+      "next_benchmark_date": 4771,
+      "later_than_next_benchmark_date": 1870,
+      "unevidenced_clock_rows": 0
     },
     {
       "book": "fills_OFFENSE",
@@ -837,9 +862,9 @@
       "prelisting_fills": 0,
       "halt_fills": 0,
       "fill_outside_market_panel": 0,
-      "next_benchmark_date": 3405,
-      "later_than_next_benchmark_date": 1560,
-      "unevidenced_clock_rows": 1554
+      "next_benchmark_date": 3934,
+      "later_than_next_benchmark_date": 2585,
+      "unevidenced_clock_rows": 0
     },
     {
       "book": "fills_SAT_A20_RELAX",
@@ -848,9 +873,9 @@
       "prelisting_fills": 0,
       "halt_fills": 0,
       "fill_outside_market_panel": 0,
-      "next_benchmark_date": 4226,
-      "later_than_next_benchmark_date": 759,
-      "unevidenced_clock_rows": 546
+      "next_benchmark_date": 4663,
+      "later_than_next_benchmark_date": 868,
+      "unevidenced_clock_rows": 0
     },
     {
       "book": "fills_BASE",
@@ -859,9 +884,9 @@
       "prelisting_fills": 0,
       "halt_fills": 0,
       "fill_outside_market_panel": 0,
-      "next_benchmark_date": 3541,
-      "later_than_next_benchmark_date": 755,
-      "unevidenced_clock_rows": 534
+      "next_benchmark_date": 3940,
+      "later_than_next_benchmark_date": 890,
+      "unevidenced_clock_rows": 0
     },
     {
       "book": "fills_L4",
@@ -870,15 +895,15 @@
       "prelisting_fills": 0,
       "halt_fills": 0,
       "fill_outside_market_panel": 0,
-      "next_benchmark_date": 3489,
-      "later_than_next_benchmark_date": 843,
-      "unevidenced_clock_rows": 612
+      "next_benchmark_date": 3896,
+      "later_than_next_benchmark_date": 1048,
+      "unevidenced_clock_rows": 0
     }
   ],
   "blockers": [
     {
       "id": "OFFICIAL_PRE2025_CALENDAR",
-      "reason": "TWSE historical API access denied; provider dates are secondary and 2023/2024 have no re-download evidence"
+      "reason": "TWSE historical API access denied; provider dates are secondary; complete pre-2025 official calendar still unproved"
     },
     {
       "id": "FULL_RAW_PRICE_EXTERNAL_CONFIRMATION",
@@ -901,12 +926,12 @@
       "reason": "Two explicit ETF splits and known halts verified; all other historical action completeness needs primary event inventory"
     },
     {
-      "id": "PRIVATE_FIN_SIXTEEN_QUOTES",
-      "reason": "Eight private-financial input codes lack 2025-02-06 and 2026-05-28 raw quotes; canonical inputs intentionally not silently filled"
+      "id": "RESEARCH_GAP_CANDIDATES_NOT_PROMOTED",
+      "reason": "34 missing quotes recovered in independent research candidates (10 core, 24 private); original canonical inputs intentionally unchanged"
     },
     {
       "id": "HISTORICAL_LATER_ORDER_FILLS",
-      "count": 5564,
+      "count": 7261,
       "reason": "Evidenced fills occur after first qualified session; funding/residual/stale-order lifecycle attribution pending, not automatically invalid T+1 qualification"
     },
     {
@@ -916,7 +941,7 @@
   ],
   "limits": [
     "A FinMind re-download shares ancestry with original FinMind prices: consistency evidence, not independent cross-provider proof",
-    "TAIEX archived panel is CLOSE_ONLY_PROXY: historical open/high/low equal close and volume=0; close matches all 2724 re-downloaded rows but proxy OHLC/volume must not support intraday claims",
+    "TAIEX archived panel is CLOSE_ONLY_PROXY: historical open/high/low equal close and volume=0; close consistency is reported separately; proxy OHLC/volume must not support intraday claims",
     "Dates before each artifact start and after cutoff are excluded; prelisting synthetic marks never counted as tradable quotes",
     "Price integrity and ledger arithmetic do not prove point-in-time availability or execution depth",
     "Next-session qualification is not a guarantee of next-session fill: later paper fills need funding/order lifecycle attribution",
