@@ -130,7 +130,8 @@ class DayCommitPaperOnly(unittest.TestCase):
                 state_payload={"cash": 1.0, "positions": {}, "last_date": "2026-07-13"},
                 signal={"date": "2026-07-13"},
                 navrow={"date": "2026-07-13", "nav_e16_e18": 1.0},
-                order_rows=[{"order_id": "2026-07-13-0050-BUY", "date": "2026-07-13"}],
+                order_rows=[{"order_id": "2026-07-13-0050-BUY", "date": "2026-07-13",
+                    'signal_date':'2026-07-13','code':'0050','side':'BUY','quantity':1000}],
                 applied_details=[],
                 asof_iso="2026-07-13",
             )

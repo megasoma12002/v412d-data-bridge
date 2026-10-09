@@ -1,0 +1,10 @@
+{
+  "status": "VERIFIED_ORIGINAL_SAME_DAY_READY",
+  "asof": "2026-10-08",
+  "staged_runtime": "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-refresh-release-v2/runtime",
+  "published": true,
+  "source_market_sha256": "bee3599a6df6c94ca8e616e7dd4a87df92e0bbe64f249e3bb91bf3e9de9357ee",
+  "audit_sha256": "238f3424d5033013b88ea16b186722bf23314b81b7d4e9b32e3c609ada32f7e0",
+  "runtime": "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-runtime-certified",
+  "generation": "generations/original-2026-10-08-b71cde9d9f88aff85a19"
+}

@@ -47,14 +47,16 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def refresh_off(asof, out):
+def refresh_off(asof, out, *, base_path=None, calendar_path=None, append_after=None):
     """Append official raw TWSE bars; never fill missing post-list opens."""
-    path = ROOT / "data/def_proxies/00631L_ohlcv.csv"
+    path = Path(base_path) if base_path else ROOT / "data/def_proxies/00631L_ohlcv.csv"
     raw = pd.read_csv(path, dtype={"code": str}, parse_dates=["date"])
     last = raw.date.max()
-    calendar = pd.read_csv(ROOT / "forward/e21/live_market.csv", usecols=["date"], parse_dates=["date"]).date.drop_duplicates()
+    calendar = pd.read_csv(calendar_path or ROOT / "forward/e21/live_market.csv", usecols=["date"], parse_dates=["date"]).date.drop_duplicates()
     missing = calendar[(calendar >= raw.date.min()) & (calendar <= asof) & ~calendar.isin(raw.date)]
     missing = missing[~missing.dt.strftime("%F").isin(CLOSED)]
+    if append_after is not None:
+        missing = missing[missing > pd.Timestamp(append_after)]
     months = sorted(set(missing.dt.to_period("M")))
     rows = []
     for period in months:

@@ -1,0 +1,88 @@
+{
+  "status": "PREFIX_PARITY",
+  "cutoff": "2026-10-08",
+  "extended_parents": "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-refresh-release-v2/parents",
+  "input_ref": "5449f76b3a3feba434f40e0c5e10483e32c00b44",
+  "upper_input_ref": "97933be85192e8d0ef89695be0c292342bba694d",
+  "e22_version": "E22_v3_recv_pay_effdelay",
+  "parity": {
+    "nav_BASE": {
+      "rows": 3366,
+      "missing_reference_dates": 0,
+      "extra_dates": 0,
+      "max_relative_error": 2.220446049250313e-16,
+      "first_mismatch": null,
+      "pass_parity": true
+    },
+    "nav_P3": {
+      "rows": 3366,
+      "missing_reference_dates": 0,
+      "extra_dates": 0,
+      "max_relative_error": 2.220446049250313e-16,
+      "first_mismatch": null,
+      "pass_parity": true
+    },
+    "nav_SC_WITHIN": {
+      "rows": 3360,
+      "missing_reference_dates": 0,
+      "extra_dates": 0,
+      "max_relative_error": 2.220446049250313e-16,
+      "first_mismatch": null,
+      "pass_parity": true
+    },
+    "nav_SC_TRAIL42_CASH": {
+      "rows": 3360,
+      "missing_reference_dates": 0,
+      "extra_dates": 0,
+      "max_relative_error": 2.220446049250313e-16,
+      "first_mismatch": null,
+      "pass_parity": true
+    },
+    "nav_TRAIL": {
+      "rows": 3360,
+      "missing_reference_dates": 0,
+      "extra_dates": 0,
+      "max_relative_error": 4.884981308350689e-15,
+      "first_mismatch": null,
+      "pass_parity": true
+    },
+    "nav_DD_SWITCH": {
+      "rows": 3360,
+      "missing_reference_dates": 0,
+      "extra_dates": 0,
+      "max_relative_error": 6.661338147750939e-15,
+      "first_mismatch": null,
+      "pass_parity": true
+    }
+  },
+  "program_sha256": "6767f565f3eacb88655b5c4d39986878ddeec727fecd0f62455dcfafc3b3eeba",
+  "source_sha256": {
+    "data/dividend_events/e22_dividend_events.csv": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
+    "forward/e21/live_market.csv": "bee3599a6df6c94ca8e616e7dd4a87df92e0bbe64f249e3bb91bf3e9de9357ee",
+    "repro/dd-switch-live-repair-refresh-release-v2/lineage/source_snapshot/5449f76b3a3feba434f40e0c5e10483e32c00b44/data/dividend_events/e22_dividend_events.csv": "99fda1b5bbf0c0d49927a90e38f39e08db767260b0bedb0ef29424adf4dfed98",
+    "repro/dd-switch-live-repair-refresh-release-v2/lineage/source_snapshot/5449f76b3a3feba434f40e0c5e10483e32c00b44/forward/e21/live_market.csv": "bd2a9ccc53e76a968530bd4c4f485f23412deca182f38d66e0f74874cb470cb9",
+    "repro/dd-switch-live-repair-refresh-release-v2/lineage/source_snapshot/5449f76b3a3feba434f40e0c5e10483e32c00b44/repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_COMP_H150_x_A20.csv": "14fc60b53f5b9e02160e106bc8731a91b373f3031cd2e85722ced69546d48616",
+    "repro/dd-switch-live-repair-refresh-release-v2/lineage/source_snapshot/5449f76b3a3feba434f40e0c5e10483e32c00b44/repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_SAT_A20_RELAX.csv": "e4b2312f7d4be4785710b1c01dc7aa313fd70e2cffe30f07a9d686baf234cd82",
+    "repro/dd-switch-live-repair-refresh-release-v2/lineage/source_snapshot/5449f76b3a3feba434f40e0c5e10483e32c00b44/repro/fin-sat-path3-t0-dual-paper-observe/outputs/p3_t0_state_signal.csv": "eecbe9e7ff3caa155002a7c4d9076c0b0cc5710c7d0ecc6bae46ef03ae67cb07",
+    "repro/dd-switch-live-repair-refresh-release-v2/lineage/source_snapshot/97933be85192e8d0ef89695be0c292342bba694d/forward/e21/live_market.csv": "ccd950b032b63664cd73b89aeae506c18880f18d3ec7cdcd311ae520b9ee007a",
+    "repro/dd-switch-live-repair-refresh-release-v2/lineage/source_snapshot/97933be85192e8d0ef89695be0c292342bba694d/repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_COMP_H150_x_A20.csv": "b47dce8e7dfd522d4e8dc5626a56c618900fc650666a88e7f8877bd7095e614f",
+    "repro/dd-switch-live-repair-refresh-release-v2/lineage/source_snapshot/97933be85192e8d0ef89695be0c292342bba694d/repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_SAT_A20_RELAX.csv": "153b960683048180c1e450682032993332379dc0df6cb4d8bc8ecfd3f6f0b252",
+    "repro/dd-switch-live-repair-refresh-release-v2/lineage/source_snapshot/97933be85192e8d0ef89695be0c292342bba694d/repro/fin-sat-path3-t0-dual-paper-observe/outputs/p3_t0_state_signal.csv": "cef1e0ce9fa0d70b9679a2fab104332c4a3cca4396d6f1ebb5e52b5811e00360",
+    "repro/dd-switch-live-repair-refresh-release-v2/parents/nav_COMP_H150_x_A20.csv": "b3b0e538c74b8dabd7f3ca907e4df6025f2be9c8344c420ccc52065b9da3b681",
+    "repro/dd-switch-live-repair-refresh-release-v2/parents/nav_SAT_A20_RELAX.csv": "f60fa5065242966f7bb3913b3531e7aff56584884d410716bab84f49673c0363",
+    "repro/dd-switch-live-repair-refresh-release-v2/parents/outputs/daily_shares_COMP_H150_x_A20.csv": "9ed36d7e2670dfc8c8c09fe9ec363ac37e3db71eb0fcf824e4a53cbcc05eb1a8",
+    "repro/dd-switch-live-repair-refresh-release-v2/parents/outputs/daily_shares_SAT_A20_RELAX.csv": "8fd7dcf79544108d486372a6035799b94813245d70f704d33032f9bcb35ace88",
+    "repro/fin-sat-path3-path4-livestack-twin-stageb/outputs/nav_BASE_LIVE_FUSE_COOL.csv": "204472d4b035cd975610f7d11ba5077497d9b393abf494cf8217a92c3ca75f9e",
+    "repro/fin-sat-path3-path4-livestack-twin-stageb/outputs/nav_LIVE_P3_WITHIN.csv": "807e49dcc19057a0465a15622c4ca7599cdde99f04af6b8f4db2104846306401",
+    "repro/research-live-align-gap-stagea/outputs/nav_L4_LIVE_P3_WITHIN.csv": "1b594821c5d72c6db530abea8693c109f60602063ce33164304865a8e7ba8ede",
+    "repro/tipsoft-ip3-trail42-cash-paper-observe/outputs/nav_TRAIL42_FT_CASH.csv": "d525a2da1003fcb9f077ef99b0795c15ab4789048cb59e793749bf6554262ee6",
+    "repro/tipsoft-ip3-trail42-l4-switch-paper-observe/outputs/nav_TRAIL42_L4_DD_SWITCH.csv": "df1cd14a2144a322dccf3d69dcc855bb5bc4a9c8815a2356d11d05c55913c96a",
+    "repro/tipsoft-ip3-unlock-path-stagea/outputs/nav_B_ALWAYS_WITHIN.csv": "953d57c8e9609b367d57c34b62543e12af086775bbea21c4b66b97cda19f2e05",
+    "repro/tipsoft-ip3-unlock-path-stagea/outputs/nav_B_TRAIL42_GE_m001__FT_TO_CASH.csv": "13d34e1483f7e2d6e17ad9e65238cee8b929c6c3384d2989af2a9bd7c72157ae"
+  },
+  "limits": [
+    "BASE/P3 fully rerun, share parents and signal are archived inputs, not regenerated",
+    "Upper layers replay archived BASE/P3 to isolate original stitch parity",
+    "No T0 validation or shared-capital proof for return stitching; append-only legacy diagnostic is not production-ready"
+  ]
+}

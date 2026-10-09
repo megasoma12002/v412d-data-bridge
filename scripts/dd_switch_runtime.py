@@ -44,6 +44,11 @@ def preflight(asof: str | pd.Timestamp) -> dict:
     paths = inputs(required=True)
     meta = json.loads((runtime_dir() / "current.json").read_text())
     wanted = pd.Timestamp(asof).date().isoformat()
+    if runtime_dir()==DEFAULT_DIR.resolve():
+        if meta.get('version')!='DD_SWITCH_ORIGINAL_LINEAGE_DAILY_V1' or not meta.get('prefix_certified'):
+            raise RuntimeError('Canonical DD runtime requires certified original daily generation; R1/research cannot be promoted')
+        required={'off','base','l4','trail','dd','signal','shares_COMP_H150_x_A20','shares_SAT_A20_RELAX'}
+        if set(paths)!=required:raise RuntimeError('Canonical DD runtime missing complete original inputs')
     if meta["asof"] != wanted:
         raise RuntimeError(f"DD_SWITCH inputs stale: {meta['asof']} != {wanted}")
     for key, path in paths.items():
@@ -53,4 +58,5 @@ def preflight(asof: str | pd.Timestamp) -> dict:
         frame = pd.read_csv(path, usecols=["date"])
         if frame.empty or str(frame.date.max())[:10] != wanted:
             raise RuntimeError(f"DD_SWITCH input tip mismatch: {key}")
-    return {"ok": True, "asof": wanted, "generation": meta["generation"]}
+    return {"ok": True, "asof": wanted, "generation": meta["generation"],
+        'version':meta.get('version'),'prefix_certified':meta.get('prefix_certified',False),'files':sorted(paths)}

@@ -141,7 +141,11 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         from dd_switch_runtime import preflight
 
         # Validate before any fill, ledger write, or FIN/TEL suppression.
-        preflight(latest)
+        runtime_check=preflight(latest)
+        if sdir.resolve()==CANON_STATE and (runtime_check.get('version')!='DD_SWITCH_ORIGINAL_LINEAGE_DAILY_V1'
+                                          or not runtime_check.get('prefix_certified')
+                                          or set(runtime_check.get('files',[]))!={'off','base','l4','trail','dd','signal','shares_COMP_H150_x_A20','shares_SAT_A20_RELAX'}):
+            raise RuntimeError('Canonical forward requires certified original daily source, including overrides')
     # Soft features always run for signal diag; FUSE discards Soft target for trading.
     px, sleeve, target, e20, diag = features(m)
     div_df = (
@@ -176,6 +180,9 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
     state_path = sdir / "portfolio_state.json"
     state = load_portfolio_state(sdir, capital=a.capital)
     assert_session_preflight(sdir, state, latest)
+    if state.get('last_date')==latest.date().isoformat():
+        print(json.dumps(dict(status='ALREADY_COMMITTED',date=state['last_date'])))
+        return
 
     pos, cash, vals, nav = holdings(state, prices, capital=a.capital)
     fill_port = resolve_fill_port(fill_port_name)
@@ -241,7 +248,6 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
             "this file is pipeline_t1_audit.json."
         ),
     }
-    (sdir / "pipeline_t1_audit.json").write_text(json.dumps(audit, indent=2) + "\n")
     if not exact_t1_ok:
         raise SystemExit(
             f"Exact T+1 violation: {same_bar_fills} same-bar fill(s) on {latest.date()}"
@@ -324,6 +330,13 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         order_rows, asof=latest, pos=pos, prices=prices
     )
     order_rows = overlays.order_rows
+    from live_dd_handoff import prepare_handoff
+    from live_order_lifecycle import prepare_order_events
+    from dd_switch_runtime import runtime_dir
+    handoff=(prepare_handoff(state,latest.date().isoformat(),pos,cash,overlays,order_rows,runtime_dir(),sdir,fills)
+             if LIVE.live_tipsoft_dd_switch else state.get('dd_switch_handoff'))
+    order_events=prepare_order_events(sdir,latest.date().isoformat(),order_rows,fills,
+        bool(overlays.path3_cutover_meta.get('applied')))
     stamp = utc_now_iso()
     fin_alloc_signal = LIVE_FIN_WITHIN_SLEEVE
     if LIVE_FIN_PRIV_V7_F05 and fin_priv_meta.get("gate_on"):
@@ -439,6 +452,9 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         e22_version=a.e22_version,
         skip=skip,
     )
+    if handoff:state_payload['dd_switch_handoff']=handoff
+    signal['dd_switch_initial_handoff']=bool(handoff and handoff.get('signal_date')==latest.date().isoformat())
+    audit['dd_switch_handoff']=handoff
     # ACCEPT_2026-09-25 day-commit atomicity: orders/signals/nav deferred into
     # commit_day_books (portfolio_state written last). Do not append earlier.
     commit_day_books(
@@ -455,7 +471,9 @@ def _run_locked_session(a, sdir, market_path, fill_port_name) -> None:
         applied_details=applied.details,
         asof_iso=latest.date().isoformat(),
         write_excel_dashboard=not bool(a.skip_excel_dashboard),
+        order_events=order_events,
     )
+    (sdir/'pipeline_t1_audit.json').write_text(json.dumps(audit,indent=2)+'\n')
     print(
         json.dumps(
             {

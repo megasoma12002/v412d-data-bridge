@@ -138,6 +138,8 @@ def _iter_pending(
     if (sdir / "fills.csv").exists():
         filled = set(pd.read_csv(sdir / "fills.csv", dtype={"code": str}).fill_id.astype(str))
     unfilled = ~orders.order_id.astype(str).isin(filled)
+    from live_order_lifecycle import cancelled_ids
+    unfilled &= ~orders.order_id.astype(str).isin(cancelled_ids(sdir))
     sig = pd.to_datetime(orders["signal_date"], errors="coerce")
     latest_n = pd.Timestamp(latest).normalize()
     prior = unfilled & (sig < latest_n)

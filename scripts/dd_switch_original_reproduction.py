@@ -17,6 +17,7 @@ import live_tipsoft_dd_switch as live_gate
 from path3_comp_sat_daily_share_ssot import shares_panel_from_long
 from live_path3_t0_switch_emitter import build_sat_lead_signal
 from e45_paper_harness import load_market, load_dividends
+from dd_switch_original_inputs import append_market,append_dividends
 
 ROOT=Path(__file__).resolve().parents[1]
 CUTOFF=pd.Timestamp('2026-09-29')
@@ -47,6 +48,8 @@ def main():
     p.add_argument('--out',type=Path,required=True)
     p.add_argument('--asof',default='2026-09-29')
     p.add_argument('--extended-parents',type=Path)
+    p.add_argument('--market-tip',type=Path,default=ROOT/'forward/e21/live_market.csv')
+    p.add_argument('--dividend-tip',type=Path,default=ROOT/'data/dividend_events/e22_dividend_events.csv')
     p.add_argument('--e22-version',default=ls.E22_VERSION)
     p.add_argument('--upper-input-ref',default='97933be85192e8d0ef89695be0c292342bba694d')
     p.add_argument('--input-ref',help='Git commit that generated archived mothers; freeze its input files')
@@ -83,8 +86,8 @@ def main():
                 tip=build_sat_lead_signal(comp=comp,sat=sat)
                 d=pd.concat([normalize_signal(d[d.date<='2026-09-29']),tip[tip.date>'2026-09-29']],ignore_index=True)
             elif path.name=='live_market.csv':
-                tip=pd.read_csv(ROOT/'forward/e21/live_market.csv',dtype={'code':str},parse_dates=['date'])
-                inputs.add(ROOT/'forward/e21/live_market.csv')
+                tip=pd.read_csv(a.market_tip,dtype={'code':str},parse_dates=['date'])
+                inputs.add(a.market_tip.resolve())
                 d=pd.concat([d[d.date<='2026-09-29'],tip[(tip.date>'2026-09-29')&(tip.date<=CUTOFF)]],ignore_index=True)
         return d
     def nav(path):
@@ -101,11 +104,14 @@ def main():
     market=load_market(market_file)
     if a.extended_parents:
         market=market[market.date<='2026-09-29']
-        tip=load_market();tip=tip[(tip.date>'2026-09-29')&(tip.date<=CUTOFF)]
-        market=pd.concat([market,tip],ignore_index=True).sort_values(['date','code'])
-        inputs.add(ROOT/'forward/e21/live_market.csv')
+        market=append_market(market,load_market(a.market_tip),CUTOFF)
+        inputs.add(a.market_tip.resolve())
     market=market[market.date<=CUTOFF].copy()
-    dividends=load_dividends(materialize(ROOT/'data/dividend_events/e22_dividend_events.csv'))
+    dividend_path=materialize(ROOT/'data/dividend_events/e22_dividend_events.csv')
+    if a.extended_parents:
+        dividend_path=append_dividends(dividend_path,a.dividend_tip,a.out/'dividends_append_only.csv',CUTOFF)
+        inputs.add(a.dividend_tip.resolve())
+    dividends=load_dividends(dividend_path)
     _,sleeve,_,regime=ls.e16_features(market)
     cal=pd.DatetimeIndex(sorted(market.date.unique()))
     lows,highs=ls.build_low_high_catalog(market,cal,list(ls.FIN))

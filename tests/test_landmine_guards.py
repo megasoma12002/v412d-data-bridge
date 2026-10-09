@@ -88,7 +88,9 @@ class PipelineQcOwnership(unittest.TestCase):
 class LiveCapitalWorkflowGuard(unittest.TestCase):
     def test_forward_workflow_does_not_hardcode_obsolete_3m(self):
         yml = (ROOT / ".github/workflows/v412f-forward-paper.yml").read_text(encoding="utf-8")
-        self.assertIn("e21_forward_pipeline.py", yml)
+        self.assertIn("e21_forward_range.py", yml)
+        runner=(ROOT/'scripts/e21_forward_range.py').read_text(encoding='utf-8')
+        self.assertIn('e21_forward_pipeline.py',runner)
         self.assertNotRegex(yml, r"e21_forward_pipeline\.py[^\n]*--capital\s+3000000")
         self.assertNotRegex(yml, r"--capital\s+3_?000_?000")
 

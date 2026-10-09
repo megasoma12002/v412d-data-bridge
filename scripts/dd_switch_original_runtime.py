@@ -48,6 +48,8 @@ def main():
           'asof':asof,'generation':'generations/original-lineage','files':files,'hashes':hashes,
           'clock':'CLOSE_T_TO_NEXT_SESSION_OPEN','original_research_preserved':True,
           'source_hashes':source_hashes,'audit_sha256':hashlib.sha256((a.audit/'summary.json').read_bytes()).hexdigest()}
+    meta['certification']={key:audit[key] for key in ['status','prefix_gate_disagreement',
+        'parent_max_share_difference','mother_max_relative_error','construction_refs']}
     (out/'current.json').write_text(json.dumps(meta,indent=2))
     print(json.dumps({'runtime':str(out),'asof':asof,'files':len(files)},indent=2))
 if __name__=='__main__':main()

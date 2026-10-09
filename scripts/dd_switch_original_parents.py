@@ -9,6 +9,7 @@ import pandas as pd
 import fin_sat_path3_daily_share_ssot_stagea as parent
 from e45_paper_harness import load_market,load_dividends
 from path3_comp_sat_daily_share_ssot import shares_panel_from_long
+from dd_switch_original_inputs import append_market,append_dividends
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
@@ -16,6 +17,9 @@ def main():
     p.add_argument('--out',type=Path,required=True)
     p.add_argument('--asof',default='2026-09-29')
     p.add_argument('--append-tip',action='store_true')
+    p.add_argument('--market-tip',type=Path,default=ROOT/'forward/e21/live_market.csv')
+    p.add_argument('--off-tip',type=Path,default=ROOT/'repro/dd-switch-t1-r1/00631L_ohlcv.csv')
+    p.add_argument('--dividend-tip',type=Path,default=ROOT/'data/dividend_events/e22_dividend_events.csv')
     p.add_argument('--input-ref',default='f73c1ba1f48d77b4728ce510da97ae8a0885038e')
     a=p.parse_args();a.out=a.out.resolve()
     if (ROOT/'repro').resolve() not in a.out.parents:raise ValueError('isolated repro output required')
@@ -27,14 +31,17 @@ def main():
     market=load_market(snapshot('forward/e21/live_market.csv'))
     market=market[market.date<='2026-09-29']
     if a.append_tip:
-        tip=load_market();tip=tip[(tip.date>'2026-09-29')&(tip.date<=a.asof)]
-        market=pd.concat([market,tip],ignore_index=True).sort_values(['date','code'])
-        sources['tip:forward/e21/live_market.csv']=hashlib.sha256((ROOT/'forward/e21/live_market.csv').read_bytes()).hexdigest()
-    dividends=load_dividends(snapshot('data/dividend_events/e22_dividend_events.csv'))
+        market=append_market(market,load_market(a.market_tip),a.asof)
+        sources['tip:market']=hashlib.sha256(a.market_tip.read_bytes()).hexdigest()
+    dividend_path=snapshot('data/dividend_events/e22_dividend_events.csv')
+    if a.append_tip:
+        dividend_path=append_dividends(dividend_path,a.dividend_tip,a.out/'dividends_append_only.csv',a.asof)
+        sources['tip:dividends']=hashlib.sha256(a.dividend_tip.read_bytes()).hexdigest()
+    dividends=load_dividends(dividend_path)
     off_path=snapshot('data/def_proxies/00631L_ohlcv.csv')
     if a.append_tip:
         original=pd.read_csv(off_path,parse_dates=['date'])
-        tip_path=ROOT/'repro/dd-switch-t1-r1/00631L_ohlcv.csv'
+        tip_path=a.off_tip
         tip=pd.read_csv(tip_path,parse_dates=['date'])
         tip=tip[(tip.date>'2026-09-29')&(tip.date<=a.asof)]
         off_path=a.out/'off_append_only.csv'

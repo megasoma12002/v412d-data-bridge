@@ -103,17 +103,29 @@ jobs:
             --taiex forward/e10s2/e10s2_taiex.csv \
             --out forward/e21/live_market.csv \
             --allow-live-market-overwrite
-      - name: Research-only R1 dependencies (original mother parity unresolved)
+      - name: Refresh certified original DD_SWITCH sources on the same session
         if: steps.session_gate.outputs.skip != 'true'
         run: |
-          # R1 differs from original controller mothers. Do not publish it to
-          # data/dd_switch_runtime or feed it into the canonical forward books.
-          python scripts/dd_switch_rebuild.py --asof "${{ steps.session_gate.outputs.asof }}" --refresh-prices --publish --runtime-dir "$RUNNER_TEMP/dd-switch-research-runtime" --out "$RUNNER_TEMP/dd-switch-rebuild"
-      - name: Run frozen E16 plus E18 real-open forward ledger
+          set -euo pipefail
+          python scripts/dd_switch_daily_refresh.py \
+            --asof "${{ steps.session_gate.outputs.asof }}" --refresh-prices \
+            --out "repro/dd-switch-daily-${{ github.run_id }}-${{ github.run_attempt }}" \
+            --publish --runtime-dir data/dd_switch_runtime
+      - name: Run all unprocessed paper sessions with initial Path3 handoff
         if: steps.session_gate.outputs.skip != 'true'
         # Capital: omit --capital so scripts/portfolio_capital.DEFAULT_CAPITAL (500M) applies.
         # Hardcoding 3M here is a wipe/recovery landmine after ACCEPT live capital 500M.
-        run: python scripts/e21_forward_pipeline.py --market forward/e21/live_market.csv --state-dir forward/e21
+        run: |
+          set -euo pipefail
+          python scripts/e21_forward_range.py \
+            --asof "${{ steps.session_gate.outputs.asof }}" \
+            --market forward/e21/live_market.csv --state-dir forward/e21 \
+            --inputs-dir data/dd_switch_runtime \
+            --work-dir "repro/dd-switch-range-${{ github.run_id }}-${{ github.run_attempt }}"
+          # Build workspaces are moved out of the checkout so large temporary
+          # snapshots cannot enter the forward bot's untracked-file stash.
+          mv "repro/dd-switch-daily-${{ github.run_id }}-${{ github.run_attempt }}" "$RUNNER_TEMP/dd-switch-original-refresh"
+          mv "repro/dd-switch-range-${{ github.run_id }}-${{ github.run_attempt }}" "$RUNNER_TEMP/dd-switch-original-range"
       - name: T+2 settlement cash estimate (R4 observe)
         if: steps.session_gate.outputs.skip != 'true'
         run: |
@@ -231,5 +243,10 @@ jobs:
             research/ops/OPS_ALERTS.json
             research/ops/CASHFLOW_THREE_VIEWS_REPORT.md
             research/ops/CASHFLOW_THREE_VIEWS_REPORT.json
+            ${{ runner.temp }}/dd-switch-original-refresh/refresh_summary.json
+            ${{ runner.temp }}/dd-switch-original-refresh/audit/summary.json
+            ${{ runner.temp }}/dd-switch-original-refresh/*.log
+            ${{ runner.temp }}/dd-switch-original-range/*.log
+            ${{ runner.temp }}/dd-switch-original-range/summary.json
           retention-days: 90
           if-no-files-found: ignore

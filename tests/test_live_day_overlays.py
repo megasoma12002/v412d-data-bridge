@@ -19,12 +19,14 @@ class LiveDayOverlaysGuards(unittest.TestCase):
             {"order_id": "2026-06-12-0050-BUY", "code": "0050", "side": "BUY", "qty": 2000},
         ]
         # Real WITHIN cutover is ON in LIVE — Soft FIN/TEL muted; tipsoft stamps present.
-        ov = apply_path3_tipsoft_overlays(
-            list(soft_rows),
-            asof=pd.Timestamp("2026-09-29"),
-            pos={"0050": 1000.0, "2880": 1000.0},
-            prices={"0050": 100.0, "2880": 20.0, "2412": 100.0},
-        )
+        with mock.patch('live_path3_t0_weight_engine.plan_or_none_for_pipeline',return_value=({}, {'reason':'ledger_scaled_empty','switch':{'flip':False}})), \
+             mock.patch('live_tipsoft_dd_switch.apply_to_path3_deltas',return_value=({}, {'gate':{'ok':True}})):
+            ov = apply_path3_tipsoft_overlays(
+                list(soft_rows),
+                asof=pd.Timestamp("2026-09-29"),
+                pos={"0050": 1000.0, "2880": 1000.0},
+                prices={"0050": 100.0, "2880": 20.0, "2412": 100.0},
+            )
         codes = {r["code"] for r in ov.order_rows if not str(r.get("order_id", "")).endswith("-P3T0")}
         # Soft FIN/TEL suppressed under WITHIN; 0050 Soft may remain depending on cutover.
         self.assertTrue(ov.path3_cutover_meta.get("applied") or ov.path3_cutover_meta.get("enabled"))
@@ -59,6 +61,7 @@ class LiveDayOverlaysGuards(unittest.TestCase):
             "tipsoft_dd_switch_live": True,
             "tipsoft_dd_switch_wire_mode": "path3_gate_ft_cash_apply",
             "applied": True,
+            'gate':{'ok':True},
         }
         with (
             mock.patch(

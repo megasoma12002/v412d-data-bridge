@@ -1,0 +1,199 @@
+{
+  "status": "LIVE_REPAIR_IMPLEMENTED_AND_PAPER_VERIFIED_NOT_DEPLOYED",
+  "asof": "2026-10-08",
+  "fills_equal_verified_baseline": true,
+  "single_day_and_range_retry_immutable": true,
+  "canonical_history_unchanged": true,
+  "metrics": {
+    "final_nav": 542920983.1534936,
+    "profit": 42920983.15349364,
+    "return_pct": 8.584196630698738,
+    "observed_mdd_pct": -5.155630733853355,
+    "sessions": 32,
+    "initial": 500000000.0,
+    "start": "2026-08-24",
+    "end": "2026-10-08",
+    "missing_nav_completed": [
+      "2026-09-17",
+      "2026-09-18"
+    ],
+    "max_nav_residual": 1.1920928955078125e-07,
+    "max_cash_residual": 3.725290298461914e-08,
+    "final_position_residual": 0.0,
+    "fees_tax": 1517877.1965065,
+    "dividend_records": 0,
+    "cash_dividend_credit": 0,
+    "post_seed_fee_tax": 764826.8350921252
+  },
+  "clock": {
+    "post_seed_fills": 39,
+    "same_day_fills": 0,
+    "next_session_fills": 39,
+    "delayed_fills": 0,
+    "path3_post_seed_orders": 31,
+    "all_path3_orders_next_session_open": true
+  },
+  "handoff": {
+    "version": "ORIGINAL_LINEAGE_T1_HANDOFF_V1",
+    "signal_date": "2026-09-30",
+    "ledger_asof": "2026-09-30",
+    "gate_asof": "2026-09-30",
+    "active": true,
+    "book": "SAT_A20_RELAX",
+    "status": "INITIAL_ORDERS_FILLED",
+    "positions_after_prior_open_fills": {
+      "2880": 2455000.0,
+      "2886": 2065000.0,
+      "2892": 2893000.0,
+      "5880": 3851000.0,
+      "2884": 0.0,
+      "2885": 0.0,
+      "2890": 0.0,
+      "2891": 0.0,
+      "2881": 0.0,
+      "2882": 0.0,
+      "2412": 84000.0,
+      "3045": 97000.0,
+      "4904": 221000.0,
+      "0050": 408000.0,
+      "00631L": 0.0
+    },
+    "cash_after_prior_open_fills": 21314018.83044248,
+    "planned_delta": {
+      "2880": -1324000,
+      "2886": -998000,
+      "4904": -26000,
+      "5880": -274000,
+      "2412": 12000,
+      "2892": 3006000,
+      "3045": 7000
+    },
+    "order_ids": [
+      "2026-09-30-2880-SELL-P3T0",
+      "2026-09-30-2886-SELL-P3T0",
+      "2026-09-30-4904-SELL-P3T0",
+      "2026-09-30-5880-SELL-P3T0",
+      "2026-09-30-2412-BUY-P3T0",
+      "2026-09-30-2892-BUY-P3T0",
+      "2026-09-30-3045-BUY-P3T0"
+    ],
+    "runtime_manifest_sha256": "98915535ac2370b94dbd38ecbd3436e75e2919508ddd8f5a66466b0975e98d00",
+    "execution_clock": "NEXT_SESSION_OPEN",
+    "last_checked": "2026-10-08",
+    "unfilled_initial_order_ids": []
+  },
+  "legacy_partial_cancelled_quantity": 23000,
+  "catchup": {
+    "status": "ALL_NEW_SESSIONS_PROCESSED",
+    "previous_last_date": "2026-09-29",
+    "asof": "2026-10-08",
+    "mode": "PAPER_HISTORICAL_CATCHUP",
+    "days": [
+      "2026-09-30",
+      "2026-10-01",
+      "2026-10-02",
+      "2026-10-05",
+      "2026-10-06",
+      "2026-10-07",
+      "2026-10-08"
+    ],
+    "existing_committed_history_unchanged": true
+  },
+  "runtime_certification": {
+    "status": "ORIGINAL_RESEARCH_PREFIX_REPRODUCED_AND_APPEND_ONLY_EXTENDED",
+    "prefix_gate_disagreement": {
+      "want_trail": 0,
+      "trail_on": 0,
+      "active": 0
+    },
+    "parent_max_share_difference": 0.0,
+    "mother_max_relative_error": 6.661338147750939e-15,
+    "construction_refs": {
+      "live_stack": "5449f76b3a3feba434f40e0c5e10483e32c00b44",
+      "upper_layers": "97933be85192e8d0ef89695be0c292342bba694d",
+      "parent_ledgers": "f73c1ba1f48d77b4728ce510da97ae8a0885038e"
+    }
+  },
+  "tests": {
+    "test_dd_switch_*.py": {
+      "tests": 62,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pass_all": true
+    },
+    "test_live_day_overlays.py": {
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pass_all": true
+    },
+    "test_review_harden.py": {
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pass_all": true
+    },
+    "test_landmine_guards.py": {
+      "tests": 21,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pass_all": true
+    },
+    "test_live_hygiene_p0_p1.py": {
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pass_all": true
+    },
+    "test_live_modularize.py": {
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pass_all": true
+    },
+    "test_fill_ports.py": {
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pass_all": true
+    },
+    "test_eng_p0_p2_opt.py": {
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pass_all": true
+    },
+    "test_t0_carve_fin_sat_switch.py": {
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "pass_all": true
+    }
+  },
+  "total_tests": 135,
+  "retry_hashes": {
+    "fills.csv": "b7ce46bb1bca3216381e800051507a7af56f09db87f87c94e966b9db023b32c6",
+    "orders.csv": "034979859d9b02c118cc0af3e1c5eeb1e07409c7b5f280d7547abc61a22402c6",
+    "signals.csv": "9c864a071890399f28007ed98c05011de27461915f5d54951a01ff256415830a",
+    "nav.csv": "da31bcb9a7926d7441f0ee3cb9f47542273dadedd4750cdc3cda3c1ae8b4c0db",
+    "portfolio_state.json": "0f3ed22aae36b31fbb100d837c389854fb914ebccebdf757accbb9a986660feb",
+    "order_events.csv": "e11085a13590f0f2be74c468bb521b9443a25af69ad02a479ca82804549b7e4b",
+    "session_catchup_audit.json": "2ad5d518dbf4216da9f35bcf3039f2e12acfa53329128b5a1207f678c14b52ff"
+  },
+  "program_sha256": {
+    "scripts/dd_switch_daily_refresh.py": "376ed600e35a35c3ce5ece4e1903c3f2eaeb1d697241be35f33f142e8f7098ce",
+    "scripts/e21_forward_range.py": "6d389b25d4eaffc787e98eaf67fef3377391f7082e9f8e0063724f3fc5419517",
+    "scripts/e21_forward_pipeline.py": "6f6f62f1f30611808ef0c18224c4c9869c0f51b5c92e0109fa641f55668297af",
+    "scripts/live_dd_handoff.py": "9c0edfdc8fe995ffe676d4cc15e85c6a496d11573ce57e3b6f8b3e029777a2cc",
+    "scripts/live_order_lifecycle.py": "e1813686ff6215465c0e955d89aa8b23bcf944f96d05498a8412bd0e1b4ac2b7"
+  }
+}
