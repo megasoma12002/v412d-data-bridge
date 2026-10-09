@@ -1,6 +1,1 @@
-{
-  "request": "PR434-public-revision-settlement-reconciliation",
-  "asof": "2026-10-08",
-  "canonical_writes": false,
-  "backtest": false
-}
+{"request":"PR434-serial-overrun-retry-2","asof":"2026-10-08","canonical_writes":false,"backtest":false}

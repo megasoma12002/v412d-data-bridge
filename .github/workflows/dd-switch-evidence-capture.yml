@@ -19,11 +19,13 @@ jobs:
       - name: Restore hashed public response cache
         run: |
           unzip -o repro/dd-switch-full-history-audit/mops_evidence_sources.zip
-          unzip -o repro/dd-switch-full-history-audit/revision_capture_seed.zip
+          unzip -o repro/dd-switch-full-history-audit/reviewed_revision_settlement_evidence.zip
       - name: Capture annual announcement and statutory indexes and details
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '1'
         run: |
-          python scripts/dd_switch_revision_sources.py --workers 4 --timeout 35
-          python scripts/dd_switch_statutory_sources.py --workers 4 --timeout 35
+          python scripts/dd_switch_revision_sources.py --workers 1 --timeout 35
+          python scripts/dd_switch_statutory_sources.py --workers 1 --timeout 35
           python scripts/dd_switch_settlement_pages.py
       - name: Reconcile public evidence without changing canonical data
         run: |

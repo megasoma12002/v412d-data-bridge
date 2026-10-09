@@ -61,5 +61,12 @@ class RevisionAuditTests(unittest.TestCase):
         filing=dict(code='2881',title='分派107年度乙種特別股股息',ex_dates=[],record_dates=[],announcement_date='2019-08-06',fiscal_years=['107'],compact_text='分派107年度乙種特別股股息')
         self.assertFalse(statutory_dividend_identity(event,'cash',filing))
 
+    def test_ordinary_conversion_notice_requires_matching_ratio_and_close_date(self):
+        event=dict(code='2801',stock_ex_date='2026-08-05',record_date='2026-08-11',stock_dividend='0.25',fiscal_year='114年')
+        filing=dict(code='2801',title='增資新股上市暨新股權利證書終止上市',ex_dates=[],record_dates=[],announcement_date='2026-08-27',ordinary_conversion_dates=['2026-09-08'],stock_amount_candidates=['0.25'],fiscal_years=[],compact_text='換發普通股')
+        self.assertTrue(statutory_dividend_identity(event,'stock',filing))
+        filing['stock_amount_candidates']=['0.7']
+        self.assertFalse(statutory_dividend_identity(event,'stock',filing))
+
 
 if __name__=='__main__':unittest.main()

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Capture the public statutory dividend and securities-delivery announcement registers."""
 import argparse
+import os
+import time
 import csv
 import gzip
 import hashlib
@@ -33,6 +35,7 @@ def fetch(item,cache,timeout):
         packed=(ROOT/old['path']).read_bytes();raw=gzip.decompress(packed)
         if hashlib.sha256(raw).hexdigest()!=old['response_sha256'] or hashlib.sha256(packed).hexdigest()!=old['compressed_sha256']:raise ValueError('Statutory cache hash mismatch')
         return old,raw
+    time.sleep(float(os.environ.get('MOPS_REQUEST_INTERVAL_SECONDS','0')))
     r=subprocess.run(['curl','-L','--max-time',str(timeout),'-sS','-w','\n%{http_code}',item['url']],capture_output=True)
     raw,_,status=r.stdout.rpartition(b'\n');f=DEST/(item['id']+'.html.gz');f.write_bytes(gzip.compress(raw,mtime=0))
     meta=dict(item,path=str(f.relative_to(ROOT)),response_sha256=hashlib.sha256(raw).hexdigest(),compressed_sha256=hashlib.sha256(f.read_bytes()).hexdigest(),http_status=status.decode(),retrieved_at=datetime.now(timezone.utc).isoformat(),status='UNAVAILABLE')

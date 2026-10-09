@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Capture complete returned annual indexes and candidate event filings, without certifying historical HTTP vintage."""
 import argparse
+import os
+import time
 import csv
 import gzip
 import hashlib
@@ -38,6 +40,7 @@ def fetch(item, cache, timeout):
     old = cache.get(item['id'])
     if old and old['status'] in ('CAPTURED', 'VALID_EMPTY'):
         return old, load_raw(old)
+    time.sleep(float(os.environ.get('MOPS_REQUEST_INTERVAL_SECONDS','0')))
     response = subprocess.run(['curl', '-L', '--max-time', str(timeout), '-sS', '-w', '\n%{http_code}', item['url']], capture_output=True)
     raw, _, status = response.stdout.rpartition(b'\n')
     path = DEST / (item['id'] + '.html.gz')

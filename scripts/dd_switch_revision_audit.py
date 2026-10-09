@@ -243,6 +243,15 @@ def load_statutory():
             ds=dates(m[1])
             if ds and '劃撥至' in m[1]:voucher_delivery.append(ds[0])
             if ds and '上市買賣' in m[1]:voucher_listing.append(ds[-1] if len(ds)>1 else ds[0])
+        ordinary_conversion=[];right_certificate=[]
+        for m in re.finditer(r'普通股股票採.{0,25}訂於(' + DATE + r'[^。]{0,90})',text):
+            if '發放新股' in m[1]:ordinary_conversion.extend(dates(m[1])[:1])
+        for m in re.finditer(r'本次增資新股訂於(' + DATE + r')以新股權利證書上市',text):right_certificate.extend(dates(m[1]))
+        for m in re.finditer(r'增資新股權利證書(?:預訂|訂)?於(' + DATE + r')發放',text):right_certificate.extend(dates(m[1]))
+        stock=[d for d in stock if d not in right_certificate]
+        if ordinary_conversion:stock=ordinary_conversion
+        listing.extend(after(['增資新股上市暨新股權利證書終止上市日期']))
+        stock_amounts=re.findall(r'盈餘轉增資股[，,]每股配發([\d.]+)元',text)
         amendments=meta.get('amended_cash_payment_date','')
         original_cash=sorted(set(cash))
         amended_cash=dates(amendments) if amendments else []
@@ -252,7 +261,7 @@ def load_statutory():
         issued_shares=[str(number(v)*dict(仟=1000,千=1000,萬=10000,億=100000000).get(unit,1)) for v,unit in units]
         rows.append(dict(id=meta['id'],code=meta['code'],title=meta['title'],url=meta['url'],path=meta['path'],response_sha256=meta['response_sha256'],retrieved_at=meta['retrieved_at'],
                          announcement_date=meta['announcement_date'], availability_precision='DATE_ONLY', original_cash_payment_dates=original_cash, amended_cash_payment_dates=amended_cash,
-                         request_record_date=meta['request_record_date'],record_dates=record,ex_dates=ex,cash_payment_dates=sorted(set(cash)),
+                         request_record_date=meta['request_record_date'],ordinary_conversion_dates=sorted(set(ordinary_conversion)),right_certificate_listing_dates=sorted(set(right_certificate)), stock_amount_candidates=stock_amounts,record_dates=record,ex_dates=ex,cash_payment_dates=sorted(set(cash)),
                          stock_payment_dates=sorted(set(stock)),new_share_listing_dates=sorted(set(listing)), voucher_delivery_dates=sorted(set(voucher_delivery)), voucher_listing_dates=sorted(set(voucher_listing)),issued_share_count_candidates=issued_shares,
                          registration_completed=bool(re.search('核准變更登記|完成資本額變更登記',text)),
                          completion_statement=bool(re.search('已收足股款|業已收足股款|募集完成',text)),
@@ -266,6 +275,9 @@ def statutory_dividend_identity(event, leg, filing):
     # Ledger securities are ordinary shares; do not attach preferred-share dividends.
     if re.search(r'[甲乙丙丁戊]種特別股|特別股股息',filing['title']):return False
     if event[leg+'_ex_date'] in filing['ex_dates'] or event['record_date'] in filing['record_dates']:return True
+    if leg=='stock' and filing.get('ordinary_conversion_dates'):
+        elapsed=(datetime.fromisoformat(filing['announcement_date'])-datetime.fromisoformat(event[leg+'_ex_date'])).days
+        if 0<=elapsed<=120 and any(abs(number(a)-number(event['stock_dividend']))<=Decimal('0.00000001') for a in filing.get('stock_amount_candidates',[])):return True
     fiscal=re.match(r'^(\d{2,3})年$',event['fiscal_year'])
     return bool(fiscal and fiscal[1] in filing['fiscal_years'] and
                 abs((datetime.fromisoformat(filing['announcement_date'])-datetime.fromisoformat(event[leg+'_ex_date'])).days)<=180 and
