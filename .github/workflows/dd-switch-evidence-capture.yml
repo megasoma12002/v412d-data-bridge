@@ -9,7 +9,7 @@ permissions:
 jobs:
   evidence:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -20,17 +20,122 @@ jobs:
         run: |
           unzip -o repro/dd-switch-full-history-audit/mops_evidence_sources.zip
           unzip -o repro/dd-switch-full-history-audit/reviewed_revision_settlement_evidence.zip
-      - name: Capture annual announcement and statutory indexes and details
+          unzip -o repro/dd-switch-full-history-audit/cancelled_capture_delta.zip
+      - name: Probe five missing responses before batch capture
         env:
-          MOPS_REQUEST_INTERVAL_SECONDS: '1'
-        run: |
-          python scripts/dd_switch_revision_sources.py --workers 1 --timeout 35
-          python scripts/dd_switch_statutory_sources.py --workers 1 --timeout 35
-          python scripts/dd_switch_settlement_pages.py
-      - name: Reconcile public evidence without changing canonical data
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --probe
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-probe
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 01 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-01
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 02 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-02
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 03 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-03
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 04 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-04
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 05 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-05
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 06 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-06
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 07 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-07
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 08 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-08
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 09 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-09
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 10 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-10
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Reconcile saved evidence even if source blocks
+        if: always()
         run: |
           python scripts/dd_switch_revision_audit.py
-          PYTHONPATH=scripts python -m unittest tests/test_dd_switch_revision_audit.py tests/test_dd_switch_mops_evidence.py tests/test_dd_switch_announcement_evidence.py tests/test_dd_switch_session_market.py
+          PYTHONPATH=scripts python -m unittest tests/test_dd_switch_monitored_capture.py tests/test_dd_switch_revision_audit.py tests/test_dd_switch_mops_evidence.py tests/test_dd_switch_announcement_evidence.py tests/test_dd_switch_session_market.py
           git diff --exit-code -- data repro/dd-switch-full-history-audit/announcement_validation.json repro/dd-switch-full-history-audit/mops_validation.json
       - uses: actions/upload-artifact@v4
         if: always()
@@ -38,6 +143,7 @@ jobs:
           name: dd-switch-revision-settlement-evidence
           retention-days: 30
           path: |
+            repro/dd-switch-full-history-audit/monitored_capture_progress.json
             repro/dd-switch-full-history-audit/sources/mops_revisions/
             repro/dd-switch-full-history-audit/sources/mops_statutory/
             repro/dd-switch-full-history-audit/sources/settlement_pages/
