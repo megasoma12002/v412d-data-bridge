@@ -29,6 +29,7 @@ jobs:
           unzip -o repro/dd-switch-full-history-audit/yuanta_original_pdf_capture_delta.zip
           unzip -o repro/dd-switch-full-history-audit/legacy_and_scoped_delivery_capture_delta.zip
           unzip -o repro/dd-switch-full-history-audit/annual_legacy_probe_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/baolai_and_final_conversion_capture_delta.zip
       - name: Probe five missing responses before batch capture
         env:
           MOPS_REQUEST_INTERVAL_SECONDS: '2'

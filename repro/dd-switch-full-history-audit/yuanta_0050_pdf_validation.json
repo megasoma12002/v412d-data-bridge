@@ -1,5 +1,5 @@
 {
-  "valid": 41,
+  "valid": 42,
   "rejected": [
     {
       "id": "yuanta_0050_notice_legacy_probe_201607_current_estimate",
@@ -28,6 +28,14 @@
     {
       "id": "yuanta_0050_notice_legacy_2015_estimate",
       "reason": "Not PDF bytes"
+    },
+    {
+      "id": "yuanta_0050_notice_baolai_estimate_probe_0",
+      "reason": "FAILED"
+    },
+    {
+      "id": "yuanta_0050_notice_baolai_estimate_probe_1",
+      "reason": "FAILED"
     }
   ],
   "paired_estimate_final_events": 20,

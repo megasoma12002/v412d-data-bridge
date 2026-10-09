@@ -1,5 +1,37 @@
 [
   {
+    "id": "yuanta_0050_notice_sitca_baolai_original_final",
+    "code": "0050",
+    "title": "公告寶來台灣卓越50基金實際配發金額",
+    "url": "https://www.sitca.org.tw/OPF/A0000/files/FundNote/A/A0013/02/0050-%E5%AF%A6%E9%9A%9B%E9%85%8D%E7%99%BC%E9%87%91%E9%A1%8D%E5%85%AC%E5%91%8A-%E5%85%AC%E6%9C%83%E5%8F%8A%E5%85%AC%E5%8F%B8%E7%B6%B2%E7%AB%99.pdf",
+    "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/yuanta_0050_notice_sitca_baolai_original_final.html.gz",
+    "response_sha256": "6760ef33f1127b2f91c30d631e7714a32280478227c1dfc214864710153e6a13",
+    "retrieved_at": "2026-10-09T23:44:28.254081+00:00",
+    "announcement_date": "2011-10-24",
+    "issuer_index_date": "",
+    "pdf_issue_date": "2011-10-24",
+    "document_number": "",
+    "archive_source": "SITCA_LEGACY_BAOLAI_DISCLOSURE_PDF",
+    "availability_precision": "DATE_ONLY",
+    "publication_vintage_certified": false,
+    "revision_inventory_complete": false,
+    "ex_dates": [
+      "2011-10-26"
+    ],
+    "cash_payment_dates": [
+      "2011-11-29"
+    ],
+    "stage": "FINAL",
+    "declared_cash_amount": "1.95",
+    "amount_stage": "FINAL_ISSUER_DECLARATION",
+    "identity_match": "ISSUER_PDF_EX_DATE",
+    "evidence_class": "ORIGINAL_ISSUER_PDF",
+    "discovery_url": "https://www.sitca.org.tw/OPF/A0000/files/FundNote/A/A0013/02/0050-%E5%AF%A6%E9%9A%9B%E9%85%8D%E7%99%BC%E9%87%91%E9%A1%8D%E5%85%AC%E5%91%8A-%E5%85%AC%E6%9C%83%E5%8F%8A%E5%85%AC%E5%8F%B8%E7%B6%B2%E7%AB%99.pdf",
+    "issuer_index_source_id": "",
+    "issuer_index_response_sha256": "",
+    "archive_listing_vintage_certified": false
+  },
+  {
     "id": "yuanta_0050_notice_legacy_probe_201607_current_final",
     "code": "0050",
     "title": "公告元大台灣卓越50基金實際配發金額",

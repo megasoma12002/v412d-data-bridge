@@ -86,6 +86,22 @@ class YuantaRevisionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             parse_notice(self.body(True, header=''), meta)
 
+    def test_baolai_original_header_without_document_number(self):
+        meta = self.meta(True)
+        meta.update(title='公告寶來台灣卓越50基金實際配發金額', announcement_date='', archive_source='SITCA_LEGACY_BAOLAI_DISCLOSURE_PDF')
+        text = ('寶來證券投資信託股份有限公司' + self.body(True, header='')).replace('元大台灣卓越50', '寶來台灣卓越50').replace('110年', '100年')
+        row = parse_notice(text, meta)
+        self.assertEqual(row['pdf_issue_date'], '2011-07-19')
+        self.assertEqual(row['document_number'], '')
+        self.assertFalse(row['publication_vintage_certified'])
+        with self.assertRaises(ValueError):
+            parse_notice(text.replace('100年', '110年'), meta)
+
+    def test_baolai_cannot_accept_modern_or_other_fund_identity(self):
+        meta = self.meta(True); meta.update(title='公告寶來台灣卓越50基金實際配發金額', archive_source='SITCA_LEGACY_BAOLAI_DISCLOSURE_PDF')
+        with self.assertRaises(ValueError):
+            parse_notice(self.body(True), meta)
+
     def test_later_final_does_not_backfill_date_only_prefix(self):
         estimated = dict(parse_notice(self.body(), self.meta()), event_id='0050:cash:2021-07-21')
         final = dict(parse_notice(self.body(True), self.meta(True)), event_id=estimated['event_id'])

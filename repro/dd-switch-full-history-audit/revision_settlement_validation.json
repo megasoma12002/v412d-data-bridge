@@ -2,9 +2,9 @@
   "asof": "2026-10-08",
   "captured_candidate_filings": 1417,
   "captured_statutory_filings": 1056,
-  "captured_issuer_original_pdf_versions": 41,
+  "captured_issuer_original_pdf_versions": 42,
   "positive_dividend_legs": 416,
-  "dividend_legs_with_linked_schedule_chain": 410,
+  "dividend_legs_with_linked_schedule_chain": 411,
   "dividend_legs_with_earlier_schedule": 304,
   "primary_payment_schedule_matches": 403,
   "payment_schedule_conflicts": 2,
@@ -42,8 +42,8 @@
       "event_id": "0050:cash:2011-10-26",
       "ex_date": "2011-10-26",
       "estimate_versions": "0",
-      "final_versions": "0",
-      "missing_stages": "ESTIMATE,FINAL",
+      "final_versions": "1",
+      "missing_stages": "ESTIMATE",
       "ambiguous_stages": "",
       "publication_vintage_certified": "False",
       "revision_inventory_complete": "False"
@@ -103,9 +103,9 @@
   "payment_schedule_missing_by_leg": {
     "stock": 11
   },
-  "announcement_chain_missing": 6,
+  "announcement_chain_missing": 5,
   "announcement_chain_missing_by_code": {
-    "0050": 6
+    "0050": 5
   },
   "past_subscription_delivery_missing": 9,
   "uncaptured_responses": {
@@ -136,11 +136,11 @@
       "STOPPED_SOURCE_BLOCK": 1
     },
     "targeted_issuers": {
-      "RESPONSE_SAVED_NEEDS_VALIDATION": 68,
-      "FAILED": 12
+      "RESPONSE_SAVED_NEEDS_VALIDATION": 75,
+      "FAILED": 14
     }
   },
-  "source_hash_pairs_verified": 3428,
+  "source_hash_pairs_verified": 3437,
   "canonical_input_hashes_verified": 6,
   "canonical_inputs_absent": [
     "repro/dd-switch-seven-session-rebuild/inputs/parents_with_off.csv",
@@ -739,6 +739,127 @@
       "updated_at": "2026-10-09T23:39:58.867802+00:00",
       "last_completed_at": "2026-10-09T23:39:58.866957+00:00",
       "skipped": 0
+    },
+    "baolai_original_archive_progress.json": {
+      "status": "COMPLETE",
+      "total": 1,
+      "processed": 1,
+      "success": 1,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-09T23:44:19.499584+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "yuanta_0050_notice_sitca_baolai_original_final",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-09T23:44:19.499621+00:00",
+      "updated_at": "2026-10-09T23:44:28.255367+00:00",
+      "last_completed_at": "2026-10-09T23:44:28.254393+00:00",
+      "skipped": 0
+    },
+    "baolai_estimate_archive_progress.json": {
+      "status": "COMPLETE",
+      "total": 2,
+      "processed": 2,
+      "success": 0,
+      "failed": 2,
+      "cached": 0,
+      "started_at": "2026-10-09T23:46:38.300427+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "yuanta_0050_notice_baolai_estimate_probe_0",
+          "status": "FAILED"
+        },
+        {
+          "id": "yuanta_0050_notice_baolai_estimate_probe_1",
+          "status": "FAILED"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-09T23:46:46.747240+00:00",
+      "updated_at": "2026-10-09T23:46:55.185842+00:00",
+      "last_completed_at": "2026-10-09T23:46:55.184773+00:00",
+      "skipped": 0
+    },
+    "final_conversion_native_progress.json": {
+      "status": "COMPLETE",
+      "total": 2,
+      "processed": 2,
+      "success": 2,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-09T23:45:01.368212+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "final_conversion_native_2891_20120424",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "final_conversion_native_2880_20120201",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-09T23:45:09.165726+00:00",
+      "updated_at": "2026-10-09T23:45:18.719627+00:00",
+      "last_completed_at": "2026-10-09T23:45:18.718817+00:00",
+      "skipped": 0
+    },
+    "final_conversion_2013_progress.json": {
+      "status": "COMPLETE",
+      "total": 1,
+      "processed": 1,
+      "success": 1,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-09T23:45:35.663821+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "final_conversion_native_2891_20130502",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-09T23:45:35.663861+00:00",
+      "updated_at": "2026-10-09T23:45:44.064678+00:00",
+      "last_completed_at": "2026-10-09T23:45:44.063742+00:00",
+      "skipped": 0
+    },
+    "final_conversion_discovery_progress.json": {
+      "status": "COMPLETE",
+      "total": 3,
+      "processed": 3,
+      "success": 3,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-09T23:46:55.793318+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "syndicated_final_conversion_2891_20120424",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "syndicated_final_conversion_2891_20130502",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "syndicated_final_conversion_2880_20120202",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-09T23:47:12.476967+00:00",
+      "updated_at": "2026-10-09T23:47:19.729777+00:00",
+      "last_completed_at": "2026-10-09T23:47:19.728740+00:00",
+      "skipped": 0
     }
   },
   "scoped_delivery_evidence": {
@@ -816,7 +937,7 @@
     ]
   },
   "issuer_pdf_validation": {
-    "valid": 41,
+    "valid": 42,
     "rejected": [
       {
         "id": "yuanta_0050_notice_legacy_probe_201607_current_estimate",
@@ -845,6 +966,14 @@
       {
         "id": "yuanta_0050_notice_legacy_2015_estimate",
         "reason": "Not PDF bytes"
+      },
+      {
+        "id": "yuanta_0050_notice_baolai_estimate_probe_0",
+        "reason": "FAILED"
+      },
+      {
+        "id": "yuanta_0050_notice_baolai_estimate_probe_1",
+        "reason": "FAILED"
       }
     ],
     "paired_estimate_final_events": 20,

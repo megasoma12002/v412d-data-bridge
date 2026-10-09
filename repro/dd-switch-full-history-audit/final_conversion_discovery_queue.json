@@ -1,0 +1,20 @@
+[
+  {
+    "id": "syndicated_final_conversion_2891_20120424",
+    "url": "https://n.yam.com/Article/20120424408004",
+    "code": "2891",
+    "evidence_class": "SYNDICATED_ISSUER_TEXT_DISCOVERY_ONLY"
+  },
+  {
+    "id": "syndicated_final_conversion_2891_20130502",
+    "url": "https://news.cnyes.com/news/id/1523130",
+    "code": "2891",
+    "evidence_class": "SYNDICATED_ISSUER_TEXT_DISCOVERY_ONLY"
+  },
+  {
+    "id": "syndicated_final_conversion_2880_20120202",
+    "url": "https://news.cnyes.com/news/id/2263066",
+    "code": "2880",
+    "evidence_class": "SYNDICATED_ISSUER_TEXT_DISCOVERY_ONLY"
+  }
+]

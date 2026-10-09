@@ -21,13 +21,15 @@ def parse_notice(text,meta):
     compact=re.sub(r'\s+','',text)
     compact=compact.replace('50證券投資信託50證券投資信託', '50證券投資信託')
     title = re.sub(r'\s+', '', meta['title'])
+    baolai = meta.get('archive_source') == 'SITCA_LEGACY_BAOLAI_DISCLOSURE_PDF'
+    fund_name = '寶來台灣卓越50' if baolai else '元大台灣卓越50'
     code_heading = compact.split('中華民國', 1)[0]
     code_matches = bool(re.search(r'交易證券代號[交易證券代號名稱:：]{0,40}0050(?!\d)', code_heading))
     # Older issuer PDFs omit the trading code: require the unique legal fund
     # name in the body AND the matching fund name in the captured issuer API index.
     if '交易證券代號' not in code_heading:
-        code_matches = bool(re.search(r'元大台灣卓越50(?:證券投資信託)?基金', title))
-    if not code_matches or not re.search(r'元大台灣卓越50證券投資信託基金',compact):
+        code_matches = bool(re.search(re.escape(fund_name)+r'(?:證券投資信託)?基金', title))
+    if not code_matches or fund_name + '證券投資信託基金' not in compact:
         raise ValueError('Not an ordinary 0050 notice')
     ex=one_date(compact,'除息交易日');payment=one_date(compact,'收益分配發放日')
     header=re.search(r'中華民國('+DATE+r')',compact.split('主旨',1)[0])
@@ -40,7 +42,9 @@ def parse_notice(text,meta):
     if len(amounts)>1 or (stage=='FINAL' and len(amounts)!=1):raise ValueError('Missing or ambiguous '+label)
     pdf_date=iso(header[1]);index_date=meta.get('announcement_date','').replace('/','-')[:10]
     document = re.search(r'元投信字第([\d-]+)號',compact)
-    if meta.get('archive_source') and (not document or '元大證券投資信託股份有限公司' not in compact):
+    if baolai and ('寶來證券投資信託股份有限公司' not in compact or not '2010-01-01' <= pdf_date <= '2011-12-31'):
+        raise ValueError('Legacy Baolai issuer or historical period mismatch')
+    if meta.get('archive_source') and not baolai and (not document or '元大證券投資信託股份有限公司' not in compact):
         raise ValueError('Legacy PDF lacks issuer signature or document number')
     return dict(id=meta['id'],code='0050',title=meta['title'],url=meta['url'],path=meta['path'],
                 response_sha256=meta['response_sha256'],retrieved_at=meta['retrieved_at'],
@@ -95,6 +99,7 @@ def load_notices():
                 host=urlsplit(meta['url']).netloc
                 path=unquote(urlsplit(meta['url']).path)
                 allowed=(meta['archive_source']=='ISSUER_LEGACY_PDF' and host=='www.yuantafunds.com' and path.startswith('/download/PDF/announces/基金配息公告/')) or (meta['archive_source']=='SITCA_ISSUER_DISCLOSURE_PDF' and host=='www.sitca.org.tw' and path.startswith('/FundNote/A/A0005/02/'))
+                allowed = allowed or (meta['archive_source']=='SITCA_LEGACY_BAOLAI_DISCLOSURE_PDF' and host=='www.sitca.org.tw' and path.startswith('/OPF/A0000/files/FundNote/A/A0013/02/'))
                 if not allowed or unquote(meta.get('discovery_url','')) != unquote(meta['url']):
                     raise ValueError('Unverified legacy issuer archive origin')
             else:
