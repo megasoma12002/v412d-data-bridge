@@ -1,0 +1,82 @@
+{
+  "archive_name": "issuer_annual_delivery_capture_delta.zip",
+  "archive_bytes": 42333038,
+  "archive_sha256": "ce73c269992fa822ec54f1cb483e53bd49fae88fffb72cf3ea2d431c2d1e89d1",
+  "parts": [
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part001",
+      "size": 3000000,
+      "sha256": "9ac9183b65f4b6cf25336dabbb42ba69a9ef08a0ab9d9553b670ebc5e497e4c5"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part002",
+      "size": 3000000,
+      "sha256": "a761291a5c92d948b1ef4deed191a43baf042f1dd764510f76a9e2ef60eddf98"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part003",
+      "size": 3000000,
+      "sha256": "234c1d896147583586e1a952247114fa2f0436f4d099aa9eee23da690793af3d"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part004",
+      "size": 3000000,
+      "sha256": "d497350d282eeceaf4d869a1ea469e7fd808a23abb7ae10a541a15cc924342f9"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part005",
+      "size": 3000000,
+      "sha256": "20577a5df51dabc2a0ea20024f85abc3584939deb786b257437494d369770183"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part006",
+      "size": 3000000,
+      "sha256": "d5e6cf90ded832dc077d83c0893f676edab111b096f94660f50eeb764a413e5b"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part007",
+      "size": 3000000,
+      "sha256": "65b7f95d8c480eba02d848b6e3bbb6e499c5ce45f4b6fdac5a5ffa023b1080cb"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part008",
+      "size": 3000000,
+      "sha256": "bdaf7f703ccff9be5b0ec1ec52fbaa6ab852bfa1c1e1e35e651173229e0d1eb1"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part009",
+      "size": 3000000,
+      "sha256": "fb32f7e8cddd140b2a6ff5e818c64dce1114470efafca727f3aaf596746ff0d2"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part010",
+      "size": 3000000,
+      "sha256": "ed3e51ff82d3b70b066917628cc59b411e63d961a633ffd03f2c384be8f44d43"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part011",
+      "size": 3000000,
+      "sha256": "0f0cd008ed0753dd24bbc6603f911f5767539b664195b2f3a97a220efc2994b6"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part012",
+      "size": 3000000,
+      "sha256": "2d3bca80c99aeda3c4c9600e455c0337182925c971c446a99c488b594621e572"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part013",
+      "size": 3000000,
+      "sha256": "7aa3741f6758f642d79e916979a42369057abd8b840ed668bf65fa69e97c83ac"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part014",
+      "size": 3000000,
+      "sha256": "753595f5d5dedf52dd49ddd7c36009a325f25f328045af24a5c58b39e02cf268"
+    },
+    {
+      "name": "issuer_annual_delivery_capture_delta.zip.part015",
+      "size": 333038,
+      "sha256": "7c10ae1d61f252a353a3b040d35299e4f5226989748b257d24ed48559458b578"
+    }
+  ]
+}

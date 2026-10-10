@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install pandas==2.2.3 lxml==5.3.2
+      - run: pip install pandas==2.2.3 lxml==5.3.2 PyMuPDF==1.26.6
       - run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - name: Restore hashed public response cache
         run: |
@@ -34,6 +34,8 @@ jobs:
           unzip -o repro/dd-switch-full-history-audit/baolai_and_final_conversion_capture_delta.zip
           unzip -o repro/dd-switch-full-history-audit/full_gap_completion_capture_delta.zip
           unzip -o repro/dd-switch-full-history-audit/sitca_observed_archive_capture_delta.zip
+          python scripts/dd_switch_restore_annual_delivery_archive.py
+          unzip -o repro/dd-switch-full-history-audit/issuer_annual_delivery_capture_delta.zip
       - name: Restore exact audited research inputs without strategy execution
         run: python scripts/dd_switch_restore_audited_inputs.py
       - name: Audit complete saved lineage without strategy execution
@@ -153,7 +155,7 @@ jobs:
         run: |
           python scripts/dd_switch_revision_audit.py
           python scripts/dd_switch_scoped_delivery_evidence.py
-          PYTHONPATH=scripts python -m unittest tests/test_dd_switch_monitored_capture.py tests/test_dd_switch_revision_audit.py tests/test_dd_switch_mops_evidence.py tests/test_dd_switch_announcement_evidence.py tests/test_dd_switch_session_market.py tests/test_dd_switch_targeted_capture.py tests/test_dd_switch_yuanta_revision_evidence.py tests/test_dd_switch_scoped_delivery_evidence.py tests/test_dd_switch_annual_cache_integrity.py
+          PYTHONPATH=scripts python -m unittest tests/test_dd_switch_monitored_capture.py tests/test_dd_switch_revision_audit.py tests/test_dd_switch_mops_evidence.py tests/test_dd_switch_announcement_evidence.py tests/test_dd_switch_session_market.py tests/test_dd_switch_targeted_capture.py tests/test_dd_switch_yuanta_revision_evidence.py tests/test_dd_switch_scoped_delivery_evidence.py tests/test_dd_switch_annual_cache_integrity.py tests/test_dd_switch_issuer_annual_delivery_evidence.py
           python scripts/dd_switch_revision_validate.py
           python scripts/dd_switch_remaining_gap_inventory.py
           git diff --exit-code -- data repro/dd-switch-full-history-audit/announcement_validation.json repro/dd-switch-full-history-audit/mops_validation.json

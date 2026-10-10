@@ -422,6 +422,11 @@ def main():
             payment_facts[(row['code'],row['leg'],row['ex_date'])].append(dict(
                 date=row['payment_date'], id=row['source_id'], url=row['url'], sha=row['response_sha256'],
                 amount_matches=row['amount_matches']))
+    from dd_switch_issuer_annual_delivery_evidence import load_annual_delivery_facts
+    for row in load_annual_delivery_facts():
+        payment_facts[(row['code'],row['leg'],row['ex_date'])].append(dict(
+            date=row['payment_date'], id=row['source_id'], url=row['url'], sha=row['response_sha256'],
+            amount_matches=row['amount_matches']))
     # ETF fact evidence remains normalized-only and distinct from raw-body captures.
     for fact_path in sorted((OUT/'sources').glob('announcement_facts_*.json')):
         for row in json.loads(fact_path.read_text()):

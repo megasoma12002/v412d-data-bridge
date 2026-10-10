@@ -1,0 +1,17 @@
+[
+  {
+    "id": "settlement_tbb_official_annual_report_index",
+    "url": "https://ir.tbb.com.tw/financial/annual-reports",
+    "kind": "OBSERVED_OFFICIAL_ISSUER_ANNUAL_INDEX"
+  },
+  {
+    "id": "settlement_hnfhc_ir_cloud_annual_index",
+    "url": "https://www.ir-cloud.com/canreport/header.php?id=8&page=&regionid=1&ticker=2880",
+    "kind": "IR_VENDOR_ARCHIVE_LOCATOR_NOT_YET_PRIMARY_VERIFIED"
+  },
+  {
+    "id": "settlement_tdcc_certificate_book_entry_rule",
+    "url": "https://twse-regulation.twse.com.tw/TW/law/DAT0201.aspx?FLCODE=FL007671",
+    "kind": "OFFICIAL_DEPOSITORY_CONVERSION_RULE_REFERENCE"
+  }
+]

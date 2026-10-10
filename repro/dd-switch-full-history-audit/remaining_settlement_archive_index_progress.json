@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "total": 3,
+  "processed": 3,
+  "success": 3,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T01:31:13.792788+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "settlement_tbb_official_annual_report_index",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "settlement_hnfhc_ir_cloud_annual_index",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "settlement_tdcc_certificate_book_entry_rule",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T01:31:42.091120+00:00",
+  "updated_at": "2026-10-10T01:31:50.733995+00:00",
+  "last_completed_at": "2026-10-10T01:31:50.732895+00:00",
+  "skipped": 0
+}

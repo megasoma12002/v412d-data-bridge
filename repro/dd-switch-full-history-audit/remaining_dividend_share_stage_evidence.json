@@ -52,53 +52,5 @@
       }
     ],
     "delivery_certified": false
-  },
-  {
-    "event_id": "2834:stock:2010-09-08",
-    "ledger_payment_date": "2010-10-25",
-    "explicit_listing_evidence": [],
-    "delivery_certified": false
-  },
-  {
-    "event_id": "2834:stock:2011-09-08",
-    "ledger_payment_date": "2011-10-14",
-    "explicit_listing_evidence": [],
-    "delivery_certified": false
-  },
-  {
-    "event_id": "2834:stock:2012-07-10",
-    "ledger_payment_date": "2012-08-27",
-    "explicit_listing_evidence": [],
-    "delivery_certified": false
-  },
-  {
-    "event_id": "2834:stock:2016-09-02",
-    "ledger_payment_date": "2016-10-05",
-    "explicit_listing_evidence": [
-      {
-        "id": "t59sb09_2834_20160930_20160930_1",
-        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2834&colorchg=&TYPEK=sii&YEAR=105&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20160930&SKEY=1&step=2&firstin=1",
-        "response_sha256": "5220766f4bb01bcd04ae1026b27fee02d4349104204899f9aed14a51d94e60cd",
-        "new_share_listing_dates": [
-          "2016-10-05"
-        ]
-      }
-    ],
-    "delivery_certified": false
-  },
-  {
-    "event_id": "2834:stock:2017-08-01",
-    "ledger_payment_date": "2017-09-05",
-    "explicit_listing_evidence": [
-      {
-        "id": "t59sb09_2834_20170825_20170825_1",
-        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2834&colorchg=&TYPEK=sii&YEAR=106&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20170825&SKEY=1&step=2&firstin=1",
-        "response_sha256": "4cfce432462a1d298abdce43b45787c32ee09b5ea50ba5d787c8e072ddb3433a",
-        "new_share_listing_dates": [
-          "2017-09-05"
-        ]
-      }
-    ],
-    "delivery_certified": false
   }
 ]

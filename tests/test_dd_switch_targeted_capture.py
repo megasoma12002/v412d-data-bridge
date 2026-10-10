@@ -47,4 +47,16 @@ class TargetedGuardTests(unittest.TestCase):
         self.assertEqual((result['processed'], result['skipped'], calls), (3, 1, 3))
         self.assertEqual(result['current_id'], '')
 
+
+class CaptureWriterLockTests(unittest.TestCase):
+    def test_overlapping_writer_rejected(self):
+        import tempfile
+        from pathlib import Path
+        from dd_switch_targeted_capture import exclusive_capture_lock
+        with tempfile.TemporaryDirectory() as name:
+            with exclusive_capture_lock(Path(name)):
+                with self.assertRaises(BlockingIOError):
+                    with exclusive_capture_lock(Path(name)): pass
+            with exclusive_capture_lock(Path(name)): pass
+
 if __name__=='__main__':unittest.main()

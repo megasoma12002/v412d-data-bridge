@@ -1,0 +1,47 @@
+{
+  "reports": [
+    {
+      "source_id": "settlement_tbb_2012_annual_report_single_retry",
+      "status": "RETROSPECTIVE_GENERAL_DELIVERY_SUPPORTED",
+      "matched_ex_dates": [
+        "2012-07-10"
+      ],
+      "pages": 195
+    },
+    {
+      "source_id": "settlement_tbb_2010_observed_annual",
+      "status": "RETROSPECTIVE_GENERAL_DELIVERY_SUPPORTED",
+      "matched_ex_dates": [
+        "2010-09-08"
+      ],
+      "pages": 168
+    },
+    {
+      "source_id": "settlement_tbb_2011_observed_annual",
+      "status": "RETROSPECTIVE_GENERAL_DELIVERY_SUPPORTED",
+      "matched_ex_dates": [
+        "2011-09-08"
+      ],
+      "pages": 172
+    },
+    {
+      "source_id": "settlement_tbb_2016_observed_annual",
+      "status": "RETROSPECTIVE_GENERAL_DELIVERY_SUPPORTED",
+      "matched_ex_dates": [
+        "2016-09-02"
+      ],
+      "pages": 232
+    },
+    {
+      "source_id": "settlement_tbb_2017_observed_annual",
+      "status": "RETROSPECTIVE_GENERAL_DELIVERY_SUPPORTED",
+      "matched_ex_dates": [
+        "2017-08-01"
+      ],
+      "pages": 235
+    }
+  ],
+  "facts": 5,
+  "publication_vintage_certified": false,
+  "backtest_permission": false
+}

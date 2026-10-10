@@ -6,7 +6,7 @@
   "positive_dividend_legs": 416,
   "dividend_legs_with_linked_schedule_chain": 416,
   "dividend_legs_with_earlier_schedule": 304,
-  "primary_payment_schedule_matches": 403,
+  "primary_payment_schedule_matches": 408,
   "payment_schedule_conflicts": 2,
   "contradictory_primary_payment_dates": 2,
   "subscription_events": 24,

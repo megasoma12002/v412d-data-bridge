@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Persist bounded serial issuer-page probes; never equate transport success to evidence."""
-import argparse,gzip,hashlib,json,subprocess,time
+import argparse,gzip,hashlib,json,subprocess,time,fcntl
+from contextlib import contextmanager
 from datetime import datetime,timezone
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -17,8 +18,16 @@ def source_blocked(raw, url, http_status=None):
         return False
     return blocked(raw)
 
+@contextmanager
+def exclusive_capture_lock(directory=DEST):
+    directory.mkdir(parents=True,exist_ok=True)
+    with (directory/'capture.lock').open('a') as handle:
+        fcntl.flock(handle,fcntl.LOCK_EX|fcntl.LOCK_NB)
+        try:yield
+        finally:fcntl.flock(handle,fcntl.LOCK_UN)
+
 def main():
-    p=argparse.ArgumentParser();p.add_argument('queue',type=Path);p.add_argument('--progress',default='issuer_capture_progress.json');args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('queue',type=Path);p.add_argument('--progress',default='issuer_capture_progress.json');p.add_argument('--timeout-seconds',type=int,choices=[15,30],default=15);args=p.parse_args()
     items=json.loads(args.queue.read_text());DEST.mkdir(parents=True,exist_ok=True)
     mp=DEST/'manifest.json';rows=json.loads(mp.read_text()) if mp.exists() else []
     state=dict(status='RUNNING',total=len(items),processed=0,success=0,failed=0,cached=0,started_at=now(),blocked_hosts=[],recent_results=[])
@@ -32,13 +41,14 @@ def main():
         if old and old['status']=='RESPONSE_SAVED_NEEDS_VALIDATION':
             state['processed']+=1;state['cached']+=1;save();continue
         state.update(current_id=item['id'],current_started_at=now());save();time.sleep(2)
-        r=subprocess.run(['curl','-L','--compressed','--max-time','15','-sS','-w','\n%{http_code}',item['url']],capture_output=True)
+        r=subprocess.run(['curl','-L','--compressed','--max-time',str(args.timeout_seconds),'-sS','-w','\n%{http_code}',item['url']],capture_output=True)
         raw,_,status=r.stdout.rpartition(b'\n');f=DEST/(item['id']+'.html.gz');f.write_bytes(gzip.compress(raw,mtime=0))
         block=source_blocked(raw,item['url'],status);good=r.returncode==0 and status==b'200' and not block
-        meta=dict(item,status='SOURCE_BLOCKED' if block else 'RESPONSE_SAVED_NEEDS_VALIDATION' if good else 'FAILED',path=str(f.relative_to(ROOT)),retrieved_at=now(),http_status=status.decode(),error=r.stderr.decode(errors='replace'),response_sha256=hashlib.sha256(raw).hexdigest(),compressed_sha256=hashlib.sha256(f.read_bytes()).hexdigest())
+        meta=dict(item,timeout_seconds=args.timeout_seconds,status='SOURCE_BLOCKED' if block else 'RESPONSE_SAVED_NEEDS_VALIDATION' if good else 'FAILED',path=str(f.relative_to(ROOT)),retrieved_at=now(),http_status=status.decode(),error=r.stderr.decode(errors='replace'),response_sha256=hashlib.sha256(raw).hexdigest(),compressed_sha256=hashlib.sha256(f.read_bytes()).hexdigest())
         rows=[v for v in rows if v['id']!=item['id']]+[meta];state['processed']+=1;state['success']+=int(good);state['failed']+=int(not good);state['last_completed_at']=now();state['recent_results']=(state['recent_results']+[dict(id=meta['id'],status=meta['status'])])[-10:]
         if block:state['blocked_hosts'].append(host)
         failures=0 if good else failures+1;save()
         if failures>=3:state.update(status='STOPPED_FAILURE_LIMIT',current_id='',skipped=len(items)-state['processed'],stop_reason='Three consecutive failures');save();return
     state.update(status='STOPPED_SOURCE_BLOCK' if state['blocked_hosts'] else 'COMPLETE',current_id='',skipped=len(items)-state['processed']);save()
-if __name__=='__main__':main()
+if __name__=='__main__':
+    with exclusive_capture_lock():main()

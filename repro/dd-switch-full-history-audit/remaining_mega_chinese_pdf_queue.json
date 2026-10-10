@@ -1,0 +1,20 @@
+[
+  {
+    "id": "settlement_mega_2012_chinese_observed_annual",
+    "url": "https://www.megaholdings.com.tw/upload/45/2017120516234997951.pdf",
+    "kind": "PRIMARY_ISSUER_ANNUAL_REPORT",
+    "index_id": "settlement_mega_observed_chinese_annual_index_page2",
+    "index_sha256": "ba94087ccc3766b6cec0a02e683ab0fc02f7ec9e6f48fae6ea782df44fc05b2f",
+    "report_year": 2012,
+    "code": "2886"
+  },
+  {
+    "id": "settlement_mega_2011_chinese_observed_annual",
+    "url": "https://www.megaholdings.com.tw/upload/45/2017120516242915062.pdf",
+    "kind": "PRIMARY_ISSUER_ANNUAL_REPORT",
+    "index_id": "settlement_mega_observed_chinese_annual_index_page2",
+    "index_sha256": "ba94087ccc3766b6cec0a02e683ab0fc02f7ec9e6f48fae6ea782df44fc05b2f",
+    "report_year": 2011,
+    "code": "2886"
+  }
+]

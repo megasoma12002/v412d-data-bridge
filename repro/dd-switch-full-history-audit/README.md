@@ -1,8 +1,10 @@
 最新全面核對見 [REVISION_SETTLEMENT_REVIEW.md](REVISION_SETTLEMENT_REVIEW.md)。3 份缺失研究輸入已按原 SHA256 恢復，302 份年度行情快照與封存 NAV／成交檔已核驗；完整離線資料稽核重跑，仍未認證歷史資料或執行策略。剩餘逐筆要求見 comprehensive_remaining_gap_inventory.csv，各類重疊不可相加。
 
-0050 的 27 次配息已補齊預估／最終兩階段，原文鏈支持 416/416；11 筆股票交付、9 筆過往現增交付、2 筆股份階段及全歷史認證仍未結清。
+0050 的 27 次配息已補齊預估／最終兩階段，原文鏈支持 416/416；6 筆股票交付、9 筆過往現增交付、2 筆股份階段及全歷史認證仍未結清。
 
-公告證據依現有工作流程順序解壓至第十三包 sitca_observed_archive_capture_delta.zip 後：
+臺企銀5筆一般股票交付已由發行人年報原頁與股利年度／金額核對；發放日期相符408/416。年報為事後證據，歷史可得時點仍未認證。抓取監控及失敗快照保留，全部批次已完成。
+
+公告證據依現有工作流程順序解壓至第十四包 issuer_annual_delivery_capture_delta.zip 後：
 
 ```bash
 python scripts/dd_switch_restore_audited_inputs.py
