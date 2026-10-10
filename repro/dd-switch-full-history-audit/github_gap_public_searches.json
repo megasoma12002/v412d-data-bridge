@@ -1,0 +1,102 @@
+[
+  {
+    "repository": "aRthur08701244/Intern-in-CTBC",
+    "query": "\"中信金\" \"增資股票\"",
+    "returned_files": [
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20162_14.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20162_14.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201512_19.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201512_19.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201512_14.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201512_14.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201510_14.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201510_14.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20161_1.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20161_1.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20159_43.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20159_43.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201510_15.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201510_15.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201511_4.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201511_4.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20163_2.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20163_2.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20161_28.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20161_28.csv"
+      }
+    ],
+    "qualification": "Whole-file keyword matches can belong to different issuers; not verified event evidence."
+  },
+  {
+    "repository": "aRthur08701244/Intern-in-CTBC",
+    "query": "\"華南金\" \"102年增資\"",
+    "returned_files": [],
+    "qualification": "Whole-file keyword matches can belong to different issuers; not verified event evidence."
+  },
+  {
+    "repository": "aRthur08701244/Intern-in-CTBC",
+    "query": "\"兆豐金\" \"增資新股上市\"",
+    "returned_files": [
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201312_14.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201312_14.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20139_23.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20139_23.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201510_14.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201510_14.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201610_7.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201610_7.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201510_4.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201510_4.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20179_7.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20179_7.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201811_16.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201811_16.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20159_11.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/20159_11.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201510_19.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201510_19.csv"
+      },
+      {
+        "path": "AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201811_14.csv",
+        "url": "https://github.com/aRthur08701244/Intern-in-CTBC/blob/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/OpenIEStanza_EventEmbedding/input/EB_EventExtraction2/201811_14.csv"
+      }
+    ],
+    "qualification": "Whole-file keyword matches can belong to different issuers; not verified event evidence."
+  }
+]

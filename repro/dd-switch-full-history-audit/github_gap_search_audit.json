@@ -1,0 +1,1419 @@
+{
+  "captured_at": "2026-10-10T05:59:28.326993+00:00",
+  "repository": "megasoma12002/v412d-data-bridge",
+  "closed_gaps": 0,
+  "counts_unchanged": {
+    "stock_delivery": 6,
+    "subscription_delivery": 9,
+    "rights_ordinary_phase": 4,
+    "full_history_blockers": 9
+  },
+  "limitations": [
+    "Bounded branch and public repository search; empty results do not establish absence.",
+    "Git commit dates do not certify original publication availability.",
+    "Public mirrors require primary-source validation before promotion."
+  ],
+  "branches": [
+    {
+      "branch": "main",
+      "commit": "a75e170f366b68282f6c61d930de1f6c0e05d3e7",
+      "relevant_paths": [
+        ".github/workflows/v412e22-dividend-events.yml",
+        "data/calendars/closed_weekdays_2025-09-16_to_2026-09-16.csv",
+        "data/calendars/closed_weekdays_trailing_1y_labeled.csv",
+        "data/calendars/twse_sessions_2025.csv",
+        "data/calendars/twse_sessions_2026.csv",
+        "data/dividend_events/e22_div_payment_backfill_status.json",
+        "data/dividend_events/e22_dividend_events.csv",
+        "data/dividend_events/e22_dividend_fetch_status.json",
+        "data/dividend_events/e22_dividend_ledger_complete.json",
+        "data/dividend_events/e22_dividend_raw.json",
+        "data/dividend_events/e22_dividend_raw_private.json",
+        "data/dividend_events/e22_payment_date_gap_report.json",
+        "data/dividend_events/e22_payment_date_research_proxy.README.txt",
+        "data/dividend_events/e22_payment_date_research_proxy.csv",
+        "data/dividend_events/e22_payment_date_yahoo_backfill.json",
+        "data/dividend_events/e22_private_fin_fill_status.json",
+        "data/dividend_events/e22_private_fin_tip_refresh_status.json",
+        "data/dividend_events/e22_v2s_formal_status.json",
+        "data/dividend_events/ex_date_amendments.csv",
+        "data/dividend_events/mops_payment_amendments.csv",
+        "data/dividend_events/web_scrape_payment_dates.csv",
+        "data/dividend_events/web_scrape_payment_dates_status.json",
+        "data/dividend_events/yahoo_tw_dividend_history.csv",
+        "forward/e6/e6_dividend_events.csv",
+        "repro/data-source-shadow/dividend_amount_live_vs_yahoo.csv",
+        "repro/etf-ex-calendar/reports/ETF_EX_CALENDAR_SCREEN.md",
+        "repro/etf-ex-calendar/reports/etf_ex_calendar_screen.json",
+        "repro/etf-ex-calendar/reports/scoreboard.csv",
+        "repro/fin-objective-regularity-20260909/outputs/calendar_halfmonth.csv",
+        "research/e22/DIVIDEND_LEDGER_COMPLETE.md",
+        "research/e22/STOCK_DIVIDEND_LEDGER.md",
+        "research/e22/STOCK_DIVIDEND_RESEARCH.md",
+        "research/e22/STOCK_DIVIDEND_RESEARCH_DECISION.json",
+        "research/e22/STOCK_DIVIDEND_RESEARCH_SUMMARY.json",
+        "research/ops/E22_2891_CASH_PAYMENT_FILL_2010-08-23.md",
+        "research/ops/E22_DIVIDEND_AMOUNT_REPAIR.json",
+        "research/ops/E22_DIVIDEND_AMOUNT_REPAIR.md",
+        "research/ops/E22_DIVIDEND_AMOUNT_REPAIR_OPERATING.md",
+        "research/ops/E22_PAYMENT_DATE_REBACKFILL_2026-09-21.md",
+        "research/ops/E22_PAYMENT_DATE_RESTORE_2026-09-10.md",
+        "research/ops/E22_YUANTA_ETF_DIVIDEND_FETCH_2026-09-10.md",
+        "research/ops/ETF_EX_CALENDAR_SCREEN.json",
+        "research/ops/ETF_EX_CALENDAR_SCREEN.md",
+        "research/ops/ETF_EX_CALENDAR_SCREEN.zh-TW.md",
+        "research/ops/ETF_EX_CALENDAR_STAGE_A_CHARTER.json",
+        "research/ops/ETF_EX_CALENDAR_STAGE_A_CHARTER.md",
+        "research/ops/ETF_EX_CALENDAR_STAGE_A_CHARTER.zh-TW.md",
+        "research/ops/NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.json",
+        "research/ops/NHI_DIVIDEND_SUPPLEMENTAL_PREMIUM_NOTE.md",
+        "research/ops/TWSE_DIVIDEND_CREDIT_DELAY_CHARTER.md",
+        "research/ops/TWSE_SESSION_CALENDAR_CHARTER.md",
+        "research/v412e6/V412E6_DIVIDEND_LIFECYCLE_REPORT.md",
+        "scripts/e16_etf_ex_calendar_screen.py",
+        "scripts/e22_backfill_div_payment_dates_yahoo.py",
+        "scripts/e22_backfill_payment_dates_yahoo.py",
+        "scripts/e22_dividend_accounting.py",
+        "scripts/e22_dividend_amount_repair.py",
+        "scripts/e22_fetch_yuanta_etf_dividend.py",
+        "scripts/e22_mops_payment_amendments.py",
+        "scripts/e22_reconcile_payment_dates_mops.py",
+        "scripts/nhi_dividend_supplemental_premium.py",
+        "scripts/twse_dividend_delay_estimate.py",
+        "scripts/twse_dividend_delay_sim.py",
+        "scripts/v412e22_fetch_dividend_events.py",
+        "scripts/v412e6_dividend_lifecycle.py",
+        "tests/test_e22_dividend_amount_repair.py",
+        "tests/test_e22_dividend_fetch_preserve.py",
+        "tests/test_e22_mops_payment_amendments.py",
+        "tests/test_nhi_dividend_supplemental_premium.py",
+        "tests/test_twse_dividend_delay_estimate.py"
+      ],
+      "inventoried_blobs": [
+        {
+          "path": "data/dividend_events/e22_dividend_events.csv",
+          "git_blob_sha": "eb61bd386129e763f3b73ee0ff20ad5effa54759"
+        },
+        {
+          "path": "data/dividend_events/e22_dividend_raw.json",
+          "git_blob_sha": "5bb164142a31ca474ed74350ee46c46cf6862fb1"
+        },
+        {
+          "path": "data/dividend_events/e22_payment_date_research_proxy.README.txt",
+          "git_blob_sha": "c4c4091fbf793c420106dfb27ccbe7fd7822ac1a"
+        },
+        {
+          "path": "research/e22/STOCK_DIVIDEND_RESEARCH.md",
+          "git_blob_sha": "9555d943a99ecfac669fc0726e94309d63f7b61d"
+        },
+        {
+          "path": "research/ops/E22_2891_CASH_PAYMENT_FILL_2010-08-23.md",
+          "git_blob_sha": "38533f9f83ad11bea90cecd80d6a1276890b603f"
+        }
+      ]
+    },
+    {
+      "branch": "e50a0-point-in-time",
+      "commit": "0f3a746c100b6e5951f9b96a038409df40042291",
+      "relevant_paths": [
+        ".github/workflows/v412e22-dividend-events.yml",
+        "data/dividend_events/e22_dividend_events.csv",
+        "data/dividend_events/e22_dividend_fetch_status.json",
+        "data/dividend_events/e22_dividend_raw.json",
+        "forward/e6/e6_dividend_events.csv",
+        "research/v412e6/V412E6_DIVIDEND_LIFECYCLE_REPORT.md",
+        "scripts/v412e22_fetch_dividend_events.py",
+        "scripts/v412e6_dividend_lifecycle.py"
+      ],
+      "inventoried_blobs": [
+        {
+          "path": "data/dividend_events/e22_dividend_events.csv",
+          "git_blob_sha": "7b9f60eaa5ca1213fdece3ce7eff969bbfcf3298"
+        },
+        {
+          "path": "data/dividend_events/e22_dividend_raw.json",
+          "git_blob_sha": "230c65dd7af5d6149ea7c852a604eee944739cfe"
+        }
+      ]
+    },
+    {
+      "branch": "e50a1-full-backfill",
+      "commit": "659ea34132f63cf487bf543772e05c0247d8588f",
+      "relevant_paths": [
+        ".github/workflows/v412e22-dividend-events.yml",
+        "data/dividend_events/e22_dividend_events.csv",
+        "data/dividend_events/e22_dividend_fetch_status.json",
+        "data/dividend_events/e22_dividend_raw.json",
+        "forward/e6/e6_dividend_events.csv",
+        "research/v412e6/V412E6_DIVIDEND_LIFECYCLE_REPORT.md",
+        "scripts/v412e22_fetch_dividend_events.py",
+        "scripts/v412e6_dividend_lifecycle.py"
+      ],
+      "inventoried_blobs": [
+        {
+          "path": "data/dividend_events/e22_dividend_events.csv",
+          "git_blob_sha": "7b9f60eaa5ca1213fdece3ce7eff969bbfcf3298"
+        },
+        {
+          "path": "data/dividend_events/e22_dividend_raw.json",
+          "git_blob_sha": "230c65dd7af5d6149ea7c852a604eee944739cfe"
+        }
+      ]
+    },
+    {
+      "branch": "e50a1-causal-layer",
+      "commit": "2487f391f833bbe00fb0056c179a4632b7f3edef",
+      "relevant_paths": [
+        ".github/workflows/v412e22-dividend-events.yml",
+        "data/dividend_events/e22_dividend_events.csv",
+        "data/dividend_events/e22_dividend_fetch_status.json",
+        "data/dividend_events/e22_dividend_raw.json",
+        "forward/e6/e6_dividend_events.csv",
+        "research/v412e6/V412E6_DIVIDEND_LIFECYCLE_REPORT.md",
+        "scripts/v412e22_fetch_dividend_events.py",
+        "scripts/v412e6_dividend_lifecycle.py"
+      ],
+      "inventoried_blobs": [
+        {
+          "path": "data/dividend_events/e22_dividend_events.csv",
+          "git_blob_sha": "7b9f60eaa5ca1213fdece3ce7eff969bbfcf3298"
+        },
+        {
+          "path": "data/dividend_events/e22_dividend_raw.json",
+          "git_blob_sha": "230c65dd7af5d6149ea7c852a604eee944739cfe"
+        }
+      ]
+    },
+    {
+      "branch": "cursor/e22-stock-div-research-d049",
+      "commit": "fdfffb67b42677f477bc60dbaef5576dcc51d9e2",
+      "relevant_paths": [
+        ".github/workflows/v412e22-dividend-events.yml",
+        "data/dividend_events/e22_div_payment_backfill_status.json",
+        "data/dividend_events/e22_dividend_events.csv",
+        "data/dividend_events/e22_dividend_fetch_status.json",
+        "data/dividend_events/e22_dividend_ledger_complete.json",
+        "data/dividend_events/e22_dividend_raw.json",
+        "data/dividend_events/e22_payment_date_gap_report.json",
+        "data/dividend_events/e22_payment_date_research_proxy.README.txt",
+        "data/dividend_events/e22_payment_date_research_proxy.csv",
+        "data/dividend_events/e22_payment_date_yahoo_backfill.json",
+        "data/dividend_events/web_scrape_payment_dates.csv",
+        "data/dividend_events/web_scrape_payment_dates_status.json",
+        "data/dividend_events/yahoo_tw_dividend_history.csv",
+        "forward/e6/e6_dividend_events.csv",
+        "research/e22/DIVIDEND_LEDGER_COMPLETE.md",
+        "research/e22/STOCK_DIVIDEND_LEDGER.md",
+        "research/e22/STOCK_DIVIDEND_RESEARCH.md",
+        "research/e22/STOCK_DIVIDEND_RESEARCH_DECISION.json",
+        "research/e22/STOCK_DIVIDEND_RESEARCH_SUMMARY.json",
+        "research/v412e6/V412E6_DIVIDEND_LIFECYCLE_REPORT.md",
+        "scripts/e22_backfill_div_payment_dates_yahoo.py",
+        "scripts/e22_backfill_payment_dates_yahoo.py",
+        "scripts/e22_reconcile_payment_dates_mops.py",
+        "scripts/v412e22_fetch_dividend_events.py",
+        "scripts/v412e6_dividend_lifecycle.py"
+      ],
+      "inventoried_blobs": [
+        {
+          "path": "data/dividend_events/e22_dividend_events.csv",
+          "git_blob_sha": "3fbe80d1e7b3e54b1878b42b7b2d728350dcec02"
+        },
+        {
+          "path": "data/dividend_events/e22_dividend_raw.json",
+          "git_blob_sha": "230c65dd7af5d6149ea7c852a604eee944739cfe"
+        },
+        {
+          "path": "data/dividend_events/e22_payment_date_research_proxy.README.txt",
+          "git_blob_sha": "c4c4091fbf793c420106dfb27ccbe7fd7822ac1a"
+        },
+        {
+          "path": "research/e22/STOCK_DIVIDEND_RESEARCH.md",
+          "git_blob_sha": "9555d943a99ecfac669fc0726e94309d63f7b61d"
+        }
+      ]
+    },
+    {
+      "branch": "cursor/e22-v3-h1-payment-d049",
+      "commit": "bbbd273768f838075a14ac38fab2ae8ff08884a8",
+      "relevant_paths": [
+        ".github/workflows/v412e22-dividend-events.yml",
+        "data/dividend_events/e22_dividend_events.csv",
+        "data/dividend_events/e22_dividend_fetch_status.json",
+        "data/dividend_events/e22_dividend_raw.json",
+        "data/dividend_events/e22_payment_date_gap_report.json",
+        "data/dividend_events/e22_payment_date_research_proxy.README.txt",
+        "data/dividend_events/e22_payment_date_research_proxy.csv",
+        "data/dividend_events/e22_payment_date_yahoo_backfill.json",
+        "data/dividend_events/web_scrape_payment_dates.csv",
+        "data/dividend_events/web_scrape_payment_dates_status.json",
+        "data/dividend_events/yahoo_tw_dividend_history.csv",
+        "forward/e6/e6_dividend_events.csv",
+        "research/v412e6/V412E6_DIVIDEND_LIFECYCLE_REPORT.md",
+        "scripts/e22_backfill_payment_dates_yahoo.py",
+        "scripts/e22_reconcile_payment_dates_mops.py",
+        "scripts/v412e22_fetch_dividend_events.py",
+        "scripts/v412e6_dividend_lifecycle.py"
+      ],
+      "inventoried_blobs": [
+        {
+          "path": "data/dividend_events/e22_dividend_events.csv",
+          "git_blob_sha": "c356cbb6a690f47255c37a528b0cf602ec543a6a"
+        },
+        {
+          "path": "data/dividend_events/e22_dividend_raw.json",
+          "git_blob_sha": "230c65dd7af5d6149ea7c852a604eee944739cfe"
+        },
+        {
+          "path": "data/dividend_events/e22_payment_date_research_proxy.README.txt",
+          "git_blob_sha": "c4c4091fbf793c420106dfb27ccbe7fd7822ac1a"
+        }
+      ]
+    },
+    {
+      "branch": "cursor/data-gap-fill-sources-d049",
+      "commit": "8c7ae13d729f32331f707bb3a282c93611a4842d",
+      "relevant_paths": [
+        ".github/workflows/v412e22-dividend-events.yml",
+        "data/dividend_events/e22_dividend_events.csv",
+        "data/dividend_events/e22_dividend_fetch_status.json",
+        "data/dividend_events/e22_dividend_raw.json",
+        "data/dividend_events/e22_payment_date_gap_report.json",
+        "data/dividend_events/e22_payment_date_research_proxy.README.txt",
+        "data/dividend_events/e22_payment_date_research_proxy.csv",
+        "data/dividend_events/e22_payment_date_yahoo_backfill.json",
+        "data/dividend_events/web_scrape_payment_dates.csv",
+        "data/dividend_events/web_scrape_payment_dates_status.json",
+        "data/dividend_events/yahoo_tw_dividend_history.csv",
+        "forward/e6/e6_dividend_events.csv",
+        "research/v412e6/V412E6_DIVIDEND_LIFECYCLE_REPORT.md",
+        "scripts/e22_backfill_payment_dates_yahoo.py",
+        "scripts/e22_reconcile_payment_dates_mops.py",
+        "scripts/v412e22_fetch_dividend_events.py",
+        "scripts/v412e6_dividend_lifecycle.py"
+      ],
+      "inventoried_blobs": [
+        {
+          "path": "data/dividend_events/e22_dividend_events.csv",
+          "git_blob_sha": "c356cbb6a690f47255c37a528b0cf602ec543a6a"
+        },
+        {
+          "path": "data/dividend_events/e22_dividend_raw.json",
+          "git_blob_sha": "230c65dd7af5d6149ea7c852a604eee944739cfe"
+        },
+        {
+          "path": "data/dividend_events/e22_payment_date_research_proxy.README.txt",
+          "git_blob_sha": "c4c4091fbf793c420106dfb27ccbe7fd7822ac1a"
+        }
+      ]
+    },
+    {
+      "branch": "cursor/twse-session-calendar-charter-da22",
+      "commit": "cbc9620e6912179e44a56e5024ce0428c867382f",
+      "relevant_paths": [
+        ".github/workflows/v412e22-dividend-events.yml",
+        "data/calendars/closed_weekdays_2025-09-16_to_2026-09-16.csv",
+        "data/calendars/closed_weekdays_trailing_1y_labeled.csv",
+        "data/calendars/twse_sessions_2026.csv",
+        "data/dividend_events/e22_div_payment_backfill_status.json",
+        "data/dividend_events/e22_dividend_events.csv",
+        "data/dividend_events/e22_dividend_fetch_status.json",
+        "data/dividend_events/e22_dividend_ledger_complete.json",
+        "data/dividend_events/e22_dividend_raw.json",
+        "data/dividend_events/e22_dividend_raw_private.json",
+        "data/dividend_events/e22_payment_date_gap_report.json",
+        "data/dividend_events/e22_payment_date_research_proxy.README.txt",
+        "data/dividend_events/e22_payment_date_research_proxy.csv",
+        "data/dividend_events/e22_payment_date_yahoo_backfill.json",
+        "data/dividend_events/e22_private_fin_fill_status.json",
+        "data/dividend_events/e22_v2s_formal_status.json",
+        "data/dividend_events/web_scrape_payment_dates.csv",
+        "data/dividend_events/web_scrape_payment_dates_status.json",
+        "data/dividend_events/yahoo_tw_dividend_history.csv",
+        "forward/e6/e6_dividend_events.csv",
+        "repro/data-source-shadow/dividend_amount_live_vs_yahoo.csv",
+        "repro/etf-ex-calendar/reports/ETF_EX_CALENDAR_SCREEN.md",
+        "repro/etf-ex-calendar/reports/etf_ex_calendar_screen.json",
+        "repro/etf-ex-calendar/reports/scoreboard.csv",
+        "repro/fin-objective-regularity-20260909/outputs/calendar_halfmonth.csv",
+        "research/e22/DIVIDEND_LEDGER_COMPLETE.md",
+        "research/e22/STOCK_DIVIDEND_LEDGER.md",
+        "research/e22/STOCK_DIVIDEND_RESEARCH.md",
+        "research/e22/STOCK_DIVIDEND_RESEARCH_DECISION.json",
+        "research/e22/STOCK_DIVIDEND_RESEARCH_SUMMARY.json",
+        "research/ops/E22_2891_CASH_PAYMENT_FILL_2010-08-23.md",
+        "research/ops/E22_DIVIDEND_AMOUNT_REPAIR.json",
+        "research/ops/E22_DIVIDEND_AMOUNT_REPAIR.md",
+        "research/ops/E22_DIVIDEND_AMOUNT_REPAIR_OPERATING.md",
+        "research/ops/E22_PAYMENT_DATE_RESTORE_2026-09-10.md",
+        "research/ops/E22_YUANTA_ETF_DIVIDEND_FETCH_2026-09-10.md",
+        "research/ops/ETF_EX_CALENDAR_SCREEN.json",
+        "research/ops/ETF_EX_CALENDAR_SCREEN.md",
+        "research/ops/ETF_EX_CALENDAR_SCREEN.zh-TW.md",
+        "research/ops/ETF_EX_CALENDAR_STAGE_A_CHARTER.json",
+        "research/ops/ETF_EX_CALENDAR_STAGE_A_CHARTER.md",
+        "research/ops/ETF_EX_CALENDAR_STAGE_A_CHARTER.zh-TW.md",
+        "research/ops/TWSE_SESSION_CALENDAR_CHARTER.md",
+        "research/v412e6/V412E6_DIVIDEND_LIFECYCLE_REPORT.md",
+        "scripts/e16_etf_ex_calendar_screen.py",
+        "scripts/e22_backfill_div_payment_dates_yahoo.py",
+        "scripts/e22_backfill_payment_dates_yahoo.py",
+        "scripts/e22_dividend_accounting.py",
+        "scripts/e22_dividend_amount_repair.py",
+        "scripts/e22_fetch_yuanta_etf_dividend.py",
+        "scripts/e22_reconcile_payment_dates_mops.py",
+        "scripts/v412e22_fetch_dividend_events.py",
+        "scripts/v412e6_dividend_lifecycle.py",
+        "tests/test_e22_dividend_amount_repair.py"
+      ],
+      "inventoried_blobs": [
+        {
+          "path": "data/dividend_events/e22_dividend_events.csv",
+          "git_blob_sha": "b9ab2a9dafedb78e880625fdfe170a0c15ebc0e4"
+        },
+        {
+          "path": "data/dividend_events/e22_dividend_raw.json",
+          "git_blob_sha": "c33b56b05eef7e7d1cd2aafc3310e916c1d3143d"
+        },
+        {
+          "path": "data/dividend_events/e22_payment_date_research_proxy.README.txt",
+          "git_blob_sha": "c4c4091fbf793c420106dfb27ccbe7fd7822ac1a"
+        },
+        {
+          "path": "research/e22/STOCK_DIVIDEND_RESEARCH.md",
+          "git_blob_sha": "9555d943a99ecfac669fc0726e94309d63f7b61d"
+        },
+        {
+          "path": "research/ops/E22_2891_CASH_PAYMENT_FILL_2010-08-23.md",
+          "git_blob_sha": "38533f9f83ad11bea90cecd80d6a1276890b603f"
+        }
+      ]
+    }
+  ],
+  "public_files": [
+    {
+      "path": "databases/basic_info/2880_華南金_100_133.csv",
+      "url": "https://github.com/shinbutou/nccu_bigdata/blob/4c3a9cceee4709886a963cf0ae372d2506e29170/databases/basic_info/2880_%E8%8F%AF%E5%8D%97%E9%87%91_100_133.csv",
+      "git_blob_sha": "f386ff525506096f137150fd90eb0d87e0e21035",
+      "sha256": "56011c222dc0070678a004f250db09245f5dfc5bcb044d6aa555f1e584f7b4f7",
+      "rows": 133,
+      "columns": [
+        "",
+        "公司代號",
+        "公司名稱",
+        "發言日期",
+        "發言時間",
+        "主旨"
+      ],
+      "candidate_index_rows": [
+        {
+          "": "22",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/03/22",
+          "發言時間": "18:13:56",
+          "主旨": "代子公司華南永昌證券投資信託股份有限公司公告董事會 決議不發放股利。"
+        },
+        {
+          "": "23",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/03/22",
+          "發言時間": "18:17:20",
+          "主旨": "代子公司華南永昌證券投資信託股份有限公司公告董事會 決議增資發行新股"
+        },
+        {
+          "": "38",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/04/25",
+          "發言時間": "18:37:04",
+          "主旨": "公告本公司董事會通過盈餘轉增資發行新股"
+        },
+        {
+          "": "55",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/05/30",
+          "發言時間": "18:34:42",
+          "主旨": "代子公司華南銀行公告董事會決議通過盈餘轉增資發行新股案"
+        },
+        {
+          "": "77",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/07/25",
+          "發言時間": "15:39:53",
+          "主旨": "代子公司華南銀行公告臨時董事會決議99年增資發行新股 基準日"
+        },
+        {
+          "": "79",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/07/25",
+          "發言時間": "18:21:38",
+          "主旨": "公告本公司董事會決議分派99年度現金股利暨增資發行新股 基準日"
+        },
+        {
+          "": "91",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/08/29",
+          "發言時間": "14:39:43",
+          "主旨": "本公司董事會決議辦理國內現金增資發行普通股"
+        },
+        {
+          "": "97",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/09/09",
+          "發言時間": "17:38:10",
+          "主旨": "代子公司華南商業銀行公告取得第一金融控股股份有限公司 100年現金增資發行新股之相關資料"
+        },
+        {
+          "": "106",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/10/21",
+          "發言時間": "16:40:41",
+          "主旨": "公告本公司100年現金增資發行新股之發行條件及認股基準日"
+        },
+        {
+          "": "109",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/10/31",
+          "發言時間": "16:27:08",
+          "主旨": "補充公告本公司100年現金增資發行新股之發行價格"
+        },
+        {
+          "": "116",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/11/09",
+          "發言時間": "18:02:05",
+          "主旨": "公告本公司100年度現金增資委託代收價款及專戶存儲價款 銀行合約簽定事宜"
+        },
+        {
+          "": "126",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/12/16",
+          "發言時間": "18:37:21",
+          "主旨": "公告本公司現金增資全體董監事放棄認購股數達得認購股數 二分之一以上，並洽特定人認購事宜"
+        },
+        {
+          "": "127",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/12/23",
+          "發言時間": "17:55:06",
+          "主旨": "補充公告本公司現金增資全體董監事放棄認購股數達得認購 股數二分之一以上，並洽特定人認購事宜"
+        },
+        {
+          "": "130",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "100/12/26",
+          "發言時間": "17:47:20",
+          "主旨": "公告本公司100年度現金增資收足股款暨增資基準日"
+        }
+      ],
+      "classification": "TITLE_TIME_ONLY_NOT_DELIVERY_EVIDENCE"
+    },
+    {
+      "path": "databases/basic_info/2880_華南金_101_128.csv",
+      "url": "https://github.com/shinbutou/nccu_bigdata/blob/4c3a9cceee4709886a963cf0ae372d2506e29170/databases/basic_info/2880_%E8%8F%AF%E5%8D%97%E9%87%91_101_128.csv",
+      "git_blob_sha": "81d8ff42c7d590cf6e73e0388731f0d5a26c5ecd",
+      "sha256": "311ce3d1d6a2274a01136d7e9ea0fc10026ef5656dff566bbe448266e205a461",
+      "rows": 128,
+      "columns": [
+        "",
+        "公司代號",
+        "公司名稱",
+        "發言日期",
+        "發言時間",
+        "主旨"
+      ],
+      "candidate_index_rows": [
+        {
+          "": "19",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/02/29",
+          "發言時間": "19:27:02",
+          "主旨": "代子公司華南銀行公告董事會決議以私募方式辦理現金增資 發行新股新臺幣200億元"
+        },
+        {
+          "": "22",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/02/29",
+          "發言時間": "19:30:08",
+          "主旨": "公告華南金融控股股份有限公司擬現金增資子公司華南商業銀行 股份有限公司200億元"
+        },
+        {
+          "": "23",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/02/29",
+          "發言時間": "19:30:25",
+          "主旨": "公告華南金融控股股份有限公司擬現金增資子公司華南商業銀行 股份有限公司200億元"
+        },
+        {
+          "": "33",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/03/26",
+          "發言時間": "17:34:51",
+          "主旨": "代子公司華南銀行公告發行私募普通股之現金增資認股 基準日"
+        },
+        {
+          "": "38",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/04/23",
+          "發言時間": "17:26:41",
+          "主旨": "代子公司華南永昌證券投資信託股份有限公司公告董事會 決議發放股利"
+        },
+        {
+          "": "45",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/04/30",
+          "發言時間": "17:44:48",
+          "主旨": "公告本公司董事會通過盈餘轉增資發行新股"
+        },
+        {
+          "": "54",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/05/28",
+          "發言時間": "17:52:47",
+          "主旨": "代子公司華南銀行公告董事會決議通過 盈餘轉增資發行新股案"
+        },
+        {
+          "": "63",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/06/21",
+          "發言時間": "15:55:32",
+          "主旨": "代子公司華南永昌綜合證券股份有限公司公告 現金股利配發基準日事宜"
+        },
+        {
+          "": "78",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/07/05",
+          "發言時間": "16:52:24",
+          "主旨": "代孫公司華銀保代公告現金股利配發基準日事宜"
+        },
+        {
+          "": "84",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/07/30",
+          "發言時間": "17:55:15",
+          "主旨": "代子公司華南銀行公告臨時董事會決議100年增資發行新股 基準日"
+        },
+        {
+          "": "87",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "101/07/30",
+          "發言時間": "17:56:59",
+          "主旨": "公告本公司董事會決議分派100年度現金股利暨增資發行新股 基準日"
+        }
+      ],
+      "classification": "TITLE_TIME_ONLY_NOT_DELIVERY_EVIDENCE"
+    },
+    {
+      "path": "databases/basic_info/2880_華南金_102_122.csv",
+      "url": "https://github.com/shinbutou/nccu_bigdata/blob/4c3a9cceee4709886a963cf0ae372d2506e29170/databases/basic_info/2880_%E8%8F%AF%E5%8D%97%E9%87%91_102_122.csv",
+      "git_blob_sha": "defcfc77907f7dbdc357e178d48622ea7907f378",
+      "sha256": "43808341c89c3bbbfec59cf53083e4618efc4b1914efdab4ac392ad6abd0ae45",
+      "rows": 122,
+      "columns": [
+        "",
+        "公司代號",
+        "公司名稱",
+        "發言日期",
+        "發言時間",
+        "主旨"
+      ],
+      "candidate_index_rows": [
+        {
+          "": "25",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "102/04/23",
+          "發言時間": "18:08:38",
+          "主旨": "代子公司華南永昌投信公告董事會決議不發放股利"
+        },
+        {
+          "": "32",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "102/04/29",
+          "發言時間": "17:51:55",
+          "主旨": "公告本公司董事會通過盈餘轉增資發行新股"
+        },
+        {
+          "": "42",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "102/05/27",
+          "發言時間": "17:54:42",
+          "主旨": "代子公司華南銀行公告臨時董事會決議通過 盈餘轉增資發行新股案"
+        },
+        {
+          "": "44",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "102/06/06",
+          "發言時間": "16:58:50",
+          "主旨": "代子公司華南產物保險股份有限公司公告101年度盈餘分配 除息基準日"
+        },
+        {
+          "": "46",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "102/06/07",
+          "發言時間": "16:51:38",
+          "主旨": "代子公司華南永昌綜合證券股份有限公司公告現金股利 配發基準日事宜"
+        },
+        {
+          "": "51",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "102/06/11",
+          "發言時間": "14:13:09",
+          "主旨": "代孫公司華銀保代公告現金股利配發基準日事宜"
+        },
+        {
+          "": "55",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "102/06/17",
+          "發言時間": "17:11:21",
+          "主旨": "代孫公司華南投顧公告董事會決議101年度除息基準日"
+        },
+        {
+          "": "80",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "102/07/29",
+          "發言時間": "15:56:51",
+          "主旨": "代子公司華南銀行公告臨時董事會決議增資發行新股基準日"
+        },
+        {
+          "": "81",
+          "公司代號": "2880",
+          "公司名稱": "華南金",
+          "發言日期": "102/07/29",
+          "發言時間": "15:57:59",
+          "主旨": "公告本公司董事會決議分派101年度現金股利暨增資發行新股 基準日"
+        }
+      ],
+      "classification": "TITLE_TIME_ONLY_NOT_DELIVERY_EVIDENCE"
+    },
+    {
+      "path": "databases/basic_info/2886_兆豐金_100_162.csv",
+      "url": "https://github.com/shinbutou/nccu_bigdata/blob/4c3a9cceee4709886a963cf0ae372d2506e29170/databases/basic_info/2886_%E5%85%86%E8%B1%90%E9%87%91_100_162.csv",
+      "git_blob_sha": "56113f2670917919e917af27b5a16d6397cc198a",
+      "sha256": "427039a63185ead8c1ba5003f7e73faa2bae19835112cec4b6f0158dd6f520e2",
+      "rows": 162,
+      "columns": [
+        "",
+        "公司代號",
+        "公司名稱",
+        "發言日期",
+        "發言時間",
+        "主旨"
+      ],
+      "candidate_index_rows": [
+        {
+          "": "33",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/03/22",
+          "發言時間": "19:18:22",
+          "主旨": "代本公司之子公司兆豐票券公告董事會決議發放股利事宜。"
+        },
+        {
+          "": "46",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/03/24",
+          "發言時間": "18:36:21",
+          "主旨": "代本公司之子公司兆豐國際證券投資顧問股份有限公司 公告董事會決議九十九年度股利發放相關事項。"
+        },
+        {
+          "": "49",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/03/24",
+          "發言時間": "18:42:36",
+          "主旨": "代本公司之子公司兆豐國際商業銀行股份有限公司 公告董事會決議發放股東股利。"
+        },
+        {
+          "": "50",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/03/24",
+          "發言時間": "19:26:43",
+          "主旨": "代本公司之子公司兆豐產物保險股份有限公司公告董事會 決議發放股利相關事宜。"
+        },
+        {
+          "": "57",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/04/22",
+          "發言時間": "18:53:13",
+          "主旨": "代本公司之子公司兆豐國際商業銀行 大眾(股)公司公告不發放股利案"
+        },
+        {
+          "": "59",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/04/26",
+          "發言時間": "19:56:06",
+          "主旨": "公告本公司董事會通過擬議盈餘轉增資發行新股案"
+        },
+        {
+          "": "65",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/04/26",
+          "發言時間": "19:57:18",
+          "主旨": "代本公司之子公司兆豐票券公告股利配發之除息基準日"
+        },
+        {
+          "": "73",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/04/29",
+          "發言時間": "18:05:22",
+          "主旨": "代本公司之子公司兆豐國際證券投資信託公司公告 99年度現金股利配發基準日"
+        },
+        {
+          "": "84",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/05/11",
+          "發言時間": "18:57:40",
+          "主旨": "代本公司之子公司兆豐國際商業銀行股份 有限公司公告董事會決議增資發行新股"
+        },
+        {
+          "": "88",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/05/12",
+          "發言時間": "18:30:19",
+          "主旨": "代本公司之子公司兆豐期貨公告股利配發之除息基準日"
+        },
+        {
+          "": "124",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/07/26",
+          "發言時間": "17:11:05",
+          "主旨": "公告本公司股利配發之除權息基準日"
+        },
+        {
+          "": "131",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "100/08/15",
+          "發言時間": "18:18:00",
+          "主旨": "代本公司之子公司兆豐國際商業銀行公告 增資基準日。"
+        }
+      ],
+      "classification": "TITLE_TIME_ONLY_NOT_DELIVERY_EVIDENCE"
+    },
+    {
+      "path": "databases/basic_info/2886_兆豐金_101_222.csv",
+      "url": "https://github.com/shinbutou/nccu_bigdata/blob/4c3a9cceee4709886a963cf0ae372d2506e29170/databases/basic_info/2886_%E5%85%86%E8%B1%90%E9%87%91_101_222.csv",
+      "git_blob_sha": "9637c3e901ad6c6e6a9ebbf73656658606fc38ad",
+      "sha256": "1ca141192c4d8f45e94390aa3727660a8119dd2fd0cd628e4530f138496b85f2",
+      "rows": 222,
+      "columns": [
+        "",
+        "公司代號",
+        "公司名稱",
+        "發言日期",
+        "發言時間",
+        "主旨"
+      ],
+      "candidate_index_rows": [
+        {
+          "": "3",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/01/17",
+          "發言時間": "16:41:22",
+          "主旨": "代本公司之子公司兆豐證券(股)公司公告其董事會通過 子公司兆豐證券控股有限公司增資兆豐證券香港有限公司港幣 貳仟肆佰萬元"
+        },
+        {
+          "": "4",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/01/17",
+          "發言時間": "16:41:51",
+          "主旨": "代本公司之子公司兆豐證券公告董事會通過 其子公司兆豐證券控股增資兆豐證券(香港) 港幣貳仟肆佰萬元"
+        },
+        {
+          "": "9",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/02/03",
+          "發言時間": "14:27:03",
+          "主旨": "澄清經濟日報有關本公司配發股息之報導"
+        },
+        {
+          "": "25",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/02/29",
+          "發言時間": "16:28:24",
+          "主旨": "代本公司之子公司兆豐證券(香港)有限公司公告其董事會通 過增資基準日"
+        },
+        {
+          "": "31",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/03/16",
+          "發言時間": "15:14:10",
+          "主旨": "代本公司之子公司兆豐產物保險股份有限公司公告董事會 決議發放股利相關事宜。"
+        },
+        {
+          "": "36",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/03/20",
+          "發言時間": "17:45:03",
+          "主旨": "代本公司之子公司兆豐票券公告董事會決議發放股利事宜。"
+        },
+        {
+          "": "50",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/03/29",
+          "發言時間": "16:58:23",
+          "主旨": "代本公司之子公司兆豐期貨公告股利配發之除息基準日"
+        },
+        {
+          "": "58",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/04/23",
+          "發言時間": "17:02:22",
+          "主旨": "代本公司之子公司兆豐國際商業銀行 大眾(股)公司公告發放股利案"
+        },
+        {
+          "": "61",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/04/24",
+          "發言時間": "18:26:14",
+          "主旨": "公告本公司董事會通過擬議盈餘轉增資發行新股案"
+        },
+        {
+          "": "64",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/04/24",
+          "發言時間": "19:28:01",
+          "主旨": "代本公司之子公司兆豐票券公告股利配發之除息基準日"
+        },
+        {
+          "": "75",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/04/27",
+          "發言時間": "18:47:58",
+          "主旨": "代本公司之子公司兆豐國際證券投資信託公司公告 100年度現金股利配發基準日"
+        },
+        {
+          "": "84",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/05/11",
+          "發言時間": "14:19:32",
+          "主旨": "代子公司兆豐國際商銀公告辦理私募現金增資普通股"
+        },
+        {
+          "": "94",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/05/17",
+          "發言時間": "18:22:22",
+          "主旨": "代本公司之子公司兆豐證券(香港)有限公司公告其董事會通 過增資基準日"
+        },
+        {
+          "": "103",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/05/30",
+          "發言時間": "14:16:46",
+          "主旨": "代本公司之子公司兆豐國際證券投資顧問(股)公司 公告股利配發之除息基準日"
+        },
+        {
+          "": "129",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/07/20",
+          "發言時間": "16:43:23",
+          "主旨": "代本公司之子公司兆豐國際商業銀行公告 100年度盈餘分配除息基準日。"
+        },
+        {
+          "": "131",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/07/24",
+          "發言時間": "18:28:54",
+          "主旨": "公告兆豐金控擬現金增資子公司兆豐國際商銀新台幣71.91億元"
+        },
+        {
+          "": "132",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/07/24",
+          "發言時間": "18:30:53",
+          "主旨": "公告兆豐金控擬現金增資子公司兆豐國際商銀新台幣71.91億元"
+        },
+        {
+          "": "134",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/07/24",
+          "發言時間": "18:36:26",
+          "主旨": "公告本公司股利配發之除權息基準日"
+        },
+        {
+          "": "135",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/07/25",
+          "發言時間": "12:21:51",
+          "主旨": "更正本公司101/07/24公告有關股利配發之金額"
+        },
+        {
+          "": "153",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/08/31",
+          "發言時間": "17:07:24",
+          "主旨": "代子公司兆豐國際商銀公告辦理私募現金增資 普通股訂價及增資基準日"
+        },
+        {
+          "": "154",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/08/31",
+          "發言時間": "17:07:58",
+          "主旨": "代子公司兆豐國際商銀公告辦理私募現金增資增資基準日"
+        },
+        {
+          "": "160",
+          "公司代號": "2886",
+          "公司名稱": "兆豐金",
+          "發言日期": "101/09/05",
+          "發言時間": "15:06:30",
+          "主旨": "代子公司兆豐商銀公告收足私募現金增資股款"
+        }
+      ],
+      "classification": "TITLE_TIME_ONLY_NOT_DELIVERY_EVIDENCE"
+    },
+    {
+      "path": "databases/basic_info/2891_中信金_101_299.csv",
+      "url": "https://github.com/shinbutou/nccu_bigdata/blob/4c3a9cceee4709886a963cf0ae372d2506e29170/databases/basic_info/2891_%E4%B8%AD%E4%BF%A1%E9%87%91_101_299.csv",
+      "git_blob_sha": "f64c29100fb4d131ecdf72f319d786a2966d5a1a",
+      "sha256": "a260ca462ce67d7f978e45ccbdcd84b6cceba18c8faff6ad4c9c0da78e4076d3",
+      "rows": 299,
+      "columns": [
+        "",
+        "公司代號",
+        "公司名稱",
+        "發言日期",
+        "發言時間",
+        "主旨"
+      ],
+      "candidate_index_rows": [
+        {
+          "": "1",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/01/04",
+          "發言時間": "20:12:08",
+          "主旨": "補充公告-中信金代子公司中國信託人壽股份有限公司補充 公告辦理現金增資後續事宜。"
+        },
+        {
+          "": "16",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/01/19",
+          "發言時間": "19:20:38",
+          "主旨": "公告本公司現金增資發行新股715,000仟股之發行條件及 認股基準日等相關事宜"
+        },
+        {
+          "": "22",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/02/04",
+          "發言時間": "15:27:30",
+          "主旨": "公告本公司簽定現金增資委託代收價款及專戶存儲價款銀行 合約事宜"
+        },
+        {
+          "": "23",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/02/04",
+          "發言時間": "15:29:23",
+          "主旨": "(補充)公告本公司現金增資發行新股715,000仟股之發行條 件及認股基準日等相關事宜"
+        },
+        {
+          "": "39",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/03/20",
+          "發言時間": "18:22:44",
+          "主旨": "本公司代加拿大子行公告其辦理私募現金增資加幣 10,000,000元乙案，董事會決議通過更新每股認購條件"
+        },
+        {
+          "": "43",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/03/23",
+          "發言時間": "19:06:59",
+          "主旨": "中信金代子公司中國信託保險經紀人 股份有限公司公告辦理增資後續事宜。"
+        },
+        {
+          "": "54",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/03/29",
+          "發言時間": "18:07:07",
+          "主旨": "中國信託金融控股股份有限公司子公司-台灣彩券股份有限 公司董事會決議發放股利。"
+        },
+        {
+          "": "69",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/04/09",
+          "發言時間": "14:38:26",
+          "主旨": "公告本公司100年度現金增資收足股款暨增資基準日"
+        },
+        {
+          "": "84",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/04/26",
+          "發言時間": "21:20:32",
+          "主旨": "中國信託金融控股股份有限公司代子公司-中國信託保險經紀 人股份有限公司公告董事會決議擬辦理盈餘轉增資511,940元"
+        },
+        {
+          "": "85",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/04/26",
+          "發言時間": "21:21:25",
+          "主旨": "更新101/3/23中信金代子公司中國信託保險經紀人 股份有限公司公告辦理增資後續事宜乙案"
+        },
+        {
+          "": "86",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/04/26",
+          "發言時間": "21:22:13",
+          "主旨": "更正100/11/25中信金代子公司中國信託保險經紀人股份有限公 司公告辦理增資乙案"
+        },
+        {
+          "": "89",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/04/27",
+          "發言時間": "19:43:08",
+          "主旨": "中信金控代子公司中國信託人壽公告為強化財務結構擬 辦理盈餘轉增資計新台幣903,600,860元"
+        },
+        {
+          "": "99",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/05/02",
+          "發言時間": "15:49:18",
+          "主旨": "本公司代加拿大子行公告其辦理私募現金增資加幣 10,000,000元乙案，董事會決議通過更新募集股數"
+        },
+        {
+          "": "104",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/05/04",
+          "發言時間": "10:27:35",
+          "主旨": "公告本公司為充實營運資金，擬辦理盈餘轉增資 10,043,182,930元"
+        },
+        {
+          "": "110",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/05/08",
+          "發言時間": "16:23:14",
+          "主旨": "中國信託金融控股股份有限公司子公司-中國信託資產管理 股份有限公司董事會決議發放股利及股利配發基準日。"
+        },
+        {
+          "": "121",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/05/23",
+          "發言時間": "18:11:43",
+          "主旨": "代子公司中國信託綜合證券股份有限公司公告除息基準日"
+        },
+        {
+          "": "128",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/05/28",
+          "發言時間": "18:20:21",
+          "主旨": "公告子公司中國信託商業銀行訂定除息基準日"
+        },
+        {
+          "": "137",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/06/13",
+          "發言時間": "18:15:47",
+          "主旨": "代子公司中國信託人壽保險股份有限公司公告101年增資 發行新股基準日"
+        },
+        {
+          "": "146",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/06/21",
+          "發言時間": "19:48:20",
+          "主旨": "中信金代子公司中國信託保險經紀人股份有限公 司公告辦理增資"
+        },
+        {
+          "": "203",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/08/30",
+          "發言時間": "19:05:35",
+          "主旨": "公告本公司101年度增資發行新股基準日。"
+        },
+        {
+          "": "221",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/09/28",
+          "發言時間": "18:58:33",
+          "主旨": "中信金代子公司中國信託保險經紀人 股份有限公司公告訂定增資基準日。"
+        },
+        {
+          "": "296",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "101/12/26",
+          "發言時間": "20:38:32",
+          "主旨": "公告本公司董事會決議辦理現金增資發行普通股"
+        }
+      ],
+      "classification": "TITLE_TIME_ONLY_NOT_DELIVERY_EVIDENCE"
+    },
+    {
+      "path": "databases/basic_info/2891_中信金_102_281.csv",
+      "url": "https://github.com/shinbutou/nccu_bigdata/blob/4c3a9cceee4709886a963cf0ae372d2506e29170/databases/basic_info/2891_%E4%B8%AD%E4%BF%A1%E9%87%91_102_281.csv",
+      "git_blob_sha": "ea62480507693440d8fc70b8348a200531391502",
+      "sha256": "4c7b89cb4fd551dff05b24c36a8691b39ef8c5e03d90f27440b4209f8b6d56ec",
+      "rows": 281,
+      "columns": [
+        "",
+        "公司代號",
+        "公司名稱",
+        "發言日期",
+        "發言時間",
+        "主旨"
+      ],
+      "candidate_index_rows": [
+        {
+          "": "10",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/01/23",
+          "發言時間": "18:53:59",
+          "主旨": "公告本公司現金增資發行新股1,333,400仟股之發行條件 及認股基準日等相關事宜"
+        },
+        {
+          "": "28",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/02/01",
+          "發言時間": "16:06:56",
+          "主旨": "(補充)公告本公司現金增資發行新股1,333,400仟股之 發行條件及認股基準日等相關事宜"
+        },
+        {
+          "": "29",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/02/01",
+          "發言時間": "16:08:07",
+          "主旨": "公告本公司簽訂現金增資委託代收價款及專戶存儲價款 銀行合約事宜"
+        },
+        {
+          "": "53",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/03/22",
+          "發言時間": "18:35:06",
+          "主旨": "中國信託金融控股股份有限公司子公司-中國信託資產管理 股份有限公司為充實營運資金，擬辦理盈餘轉增資計 新台幣358,820,000元。"
+        },
+        {
+          "": "60",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/03/25",
+          "發言時間": "16:55:08",
+          "主旨": "中國信託金融控股股份有限公司子公司-台灣彩券股份有限公 司董事會決議發放股利。"
+        },
+        {
+          "": "72",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/04/12",
+          "發言時間": "17:57:08",
+          "主旨": "公告本公司101年度現金增資收足股款暨增資基準日"
+        },
+        {
+          "": "73",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/04/17",
+          "發言時間": "19:00:44",
+          "主旨": "中國信託金融控股股份有限公司代子公司-中國信託保險 經紀人股份有限公司公告董事會決議101年度股利分派及 法定盈餘公積發放現金。"
+        },
+        {
+          "": "84",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/04/26",
+          "發言時間": "19:18:18",
+          "主旨": "公告本公司為充實營運資金，擬辦理盈餘轉增資 9,625,298,320元"
+        },
+        {
+          "": "86",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/04/26",
+          "發言時間": "19:24:22",
+          "主旨": "中信金控代子公司中信銀公告擬辦理盈餘轉增資計新台幣 3,251,521,160元。"
+        },
+        {
+          "": "172",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/07/31",
+          "發言時間": "18:36:50",
+          "主旨": "代子公司中國信託商業銀行公告102年度增資發行 新股基準日。"
+        },
+        {
+          "": "176",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/07/31",
+          "發言時間": "18:41:55",
+          "主旨": "公告本公司102年增資發行新股基準日。"
+        },
+        {
+          "": "221",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/10/07",
+          "發言時間": "18:34:17",
+          "主旨": "中信金代子公司中國信託證券投資信託(股)公司 公告辦理現金增資"
+        },
+        {
+          "": "232",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/10/25",
+          "發言時間": "18:52:15",
+          "主旨": "公告董事會決議通過增資子公司中國信託證券投資信託 (股)公司不超過新臺幣2億元"
+        },
+        {
+          "": "249",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/11/11",
+          "發言時間": "18:08:53",
+          "主旨": "(補充)本公司代子公司中國信託人壽保險（股）公司公告 董事會決議私募普通股現金增資之每股發行價格"
+        },
+        {
+          "": "252",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/11/13",
+          "發言時間": "18:16:13",
+          "主旨": "(補充)本公司代子公司中國信託人壽保險(股)公司補充 公告辦理現金增資後續事宜。"
+        },
+        {
+          "": "260",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/11/27",
+          "發言時間": "19:32:50",
+          "主旨": "代子公司中信銀行公告兆豐金控現金增資認股案"
+        },
+        {
+          "": "270",
+          "公司代號": "2891",
+          "公司名稱": "中信金",
+          "發言日期": "102/12/13",
+          "發言時間": "16:30:13",
+          "主旨": "中信金代子公司中國信託證券投資信託(股)公司公告辦理 現金增資後續事宜"
+        }
+      ],
+      "classification": "TITLE_TIME_ONLY_NOT_DELIVERY_EVIDENCE"
+    }
+  ],
+  "public_tree": {
+    "repository": "shinbutou/nccu_bigdata",
+    "commit": "4c3a9cceee4709886a963cf0ae372d2506e29170",
+    "truncated": false,
+    "detailed_paths_for_target_codes": [
+      "databases/detailed_info/2880_106.csv",
+      "databases/detailed_info/2880_107.csv",
+      "databases/detailed_info/2880_108.csv",
+      "databases/detailed_info/2880_109.csv",
+      "databases/detailed_info/2886_106.csv",
+      "databases/detailed_info/2886_107.csv",
+      "databases/detailed_info/2886_108.csv",
+      "databases/detailed_info/2886_109.csv",
+      "databases/detailed_info/2891_106.csv",
+      "databases/detailed_info/2891_107.csv",
+      "databases/detailed_info/2891_108.csv",
+      "databases/detailed_info/2891_109.csv"
+    ]
+  },
+  "archive_sha256": "02bc26943eef4a86a6d274f5f31b998e42495b0130c03d9dabd24c86a2cb471c",
+  "reviewed_branch_documents": [
+    {
+      "ref": "origin/main",
+      "path": "research/ops/E22_2891_CASH_PAYMENT_FILL_2010-08-23.md"
+    },
+    {
+      "ref": "origin/main",
+      "path": "research/e22/STOCK_DIVIDEND_RESEARCH.md"
+    },
+    {
+      "ref": "origin/main",
+      "path": "data/dividend_events/e22_payment_date_research_proxy.README.txt"
+    },
+    {
+      "ref": "origin/main",
+      "path": "research/ops/TWSE_SESSION_CALENDAR_CHARTER.md"
+    },
+    {
+      "ref": "origin/main",
+      "path": "scripts/e22_backfill_payment_dates_yahoo.py"
+    }
+  ]
+}
