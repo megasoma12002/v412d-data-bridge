@@ -1,0 +1,123 @@
+{
+  "coverage": {
+    "panel_start": "2012-12-04",
+    "panel_end": "2026-09-29",
+    "nav_start": "2012-12-04",
+    "nav_end": "2026-09-29",
+    "mkt_0050_start": "2010-01-04",
+    "mkt_0050_end": "2026-09-01",
+    "base_id": "L4_LIVE_P3_WITHIN",
+    "soft_id": "L1_SOFT_T1",
+    "gfc_2008_available": false,
+    "note": "L4/Soft NAV panel starts ~2012-12; 0050 OHLCV starts 2010-01. GFC ~2008 and 2011 NAV-twin episodes are NO_DATA (fail loud). Longest available twin world used for 2015 / 2018 / 2020.",
+    "base_note": "L4_LIVE_P3_WITHIN",
+    "nav_path": "repro/research-live-align-gap-stagea/outputs/nav_L4_LIVE_P3_WITHIN.csv"
+  },
+  "episode_coverage": {
+    "GFC_2008": {
+      "available": false,
+      "n_bars_episode": 0,
+      "n_bars_eval": 0,
+      "reason": "episode 2008-09-01\u21922009-03-31 precedes panel_start=2012-12-04 (nav_start=2012-12-04, mkt_0050_start=2010-01-04)",
+      "fail_loud": true,
+      "panel_start": "2012-12-04",
+      "panel_end": "2026-09-29",
+      "label": "GFC / \u91d1\u878d\u6d77\u562f",
+      "window": [
+        "2008-09-01",
+        "2009-03-31"
+      ]
+    },
+    "TW_CN_2015": {
+      "available": true,
+      "n_bars_episode": 84,
+      "n_bars_eval": 145,
+      "reason": null,
+      "fail_loud": false,
+      "panel_start": "2012-12-04",
+      "panel_end": "2026-09-29",
+      "label": "2015 TW/China crash",
+      "window": [
+        "2015-06-01",
+        "2015-09-30"
+      ]
+    },
+    "EU_US_2011": {
+      "available": false,
+      "n_bars_episode": 0,
+      "n_bars_eval": 0,
+      "reason": "episode 2011-07-01\u21922011-10-31 precedes panel_start=2012-12-04 (nav_start=2012-12-04, mkt_0050_start=2010-01-04)",
+      "fail_loud": false,
+      "panel_start": "2012-12-04",
+      "panel_end": "2026-09-29",
+      "label": "2011 EU/US stress",
+      "window": [
+        "2011-07-01",
+        "2011-10-31"
+      ]
+    },
+    "Q4_2018": {
+      "available": true,
+      "n_bars_episode": 61,
+      "n_bars_eval": 141,
+      "reason": null,
+      "fail_loud": false,
+      "panel_start": "2012-12-04",
+      "panel_end": "2026-09-29",
+      "label": "2018 Q4 stress",
+      "window": [
+        "2018-10-01",
+        "2018-12-24"
+      ]
+    },
+    "MAR2020": {
+      "available": true,
+      "n_bars_episode": 22,
+      "n_bars_eval": 116,
+      "reason": null,
+      "fail_loud": false,
+      "panel_start": "2012-12-04",
+      "panel_end": "2026-09-29",
+      "label": "Mar2020 cliff (in-sample ref)",
+      "window": [
+        "2020-02-20",
+        "2020-03-23"
+      ]
+    }
+  },
+  "floors": {
+    "oos_ic_abs_floor": 0.05,
+    "oos_hit_floor": 0.55,
+    "oos_recall_floor": 0.3,
+    "oos_f1_floor": 0.2,
+    "oos_lead_days_floor": 3.0,
+    "oos_fa_ceil": 0.15,
+    "weak_ic_abs": 0.03,
+    "weak_hit": 0.5,
+    "weak_recall": 0.2,
+    "min_episode_bars": 20,
+    "min_ic_bars": 40,
+    "alert_q": 0.9,
+    "primary_label": "fwd_mdd_10",
+    "crash_label": "fwd_ret_crash_10",
+    "global_rule": "champ OOS_HIT on \u22652 of {GFC_2008, TW_CN_2015} \u2192 ROBUST"
+  },
+  "target_arms": [
+    "and::rvol63_l4&fuse_prem_neg5",
+    "or::rvol20_l4|atr_like_20",
+    "or::rvol20_l4|dd63_l4",
+    "or::rvol20_l4|fuse_prem_neg5",
+    "or::neg_gap_ma200|fuse_prem_neg5",
+    "or::atr_like_20|dd63_l4",
+    "or::neg_gap_ma200|dd63_l4",
+    "or::cool_defend_l1|fuse_prem_neg5",
+    "andflag::fuse_neg_flag&fuse_prem_neg5",
+    "or::atr_like_20|fuse_prem_neg5",
+    "kconfirm2::fuse_prem_neg5",
+    "kconfirm2::fuse_neg_flag",
+    "base::rvol20_l4"
+  ],
+  "fail_loud_notes": [
+    "FAIL_LOUD GFC_2008: episode 2008-09-01\u21922009-03-31 precedes panel_start=2012-12-04 (nav_start=2012-12-04, mkt_0050_start=2010-01-04) (required hist episode; marking NO_DATA)"
+  ]
+}

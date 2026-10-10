@@ -1,0 +1,92 @@
+{
+  "id": "TIPSOFT_IP3_CRISIS_SIGNAL_HIST_OOS_STAGEA_CHARTER",
+  "register": "0kbj",
+  "parents": [
+    "0kbi",
+    "0kbh",
+    "0kbf"
+  ],
+  "mech": "TIPSOFT_IP3_CRISIS_SIGNAL_HIST_OOS",
+  "label_tag": "SIGNAL_HIST_OOS_PARALLEL",
+  "signal_not_apply": true,
+  "episodes": [
+    {
+      "id": "GFC_2008",
+      "label": "GFC / \u91d1\u878d\u6d77\u562f",
+      "start": "2008-09-01",
+      "end": "2009-03-31",
+      "required_for_global": true,
+      "in_sample_ref": false,
+      "optional": false
+    },
+    {
+      "id": "TW_CN_2015",
+      "label": "2015 TW/China crash",
+      "start": "2015-06-01",
+      "end": "2015-09-30",
+      "required_for_global": true,
+      "in_sample_ref": false,
+      "optional": false
+    },
+    {
+      "id": "EU_US_2011",
+      "label": "2011 EU/US stress",
+      "start": "2011-07-01",
+      "end": "2011-10-31",
+      "required_for_global": false,
+      "in_sample_ref": false,
+      "optional": true
+    },
+    {
+      "id": "Q4_2018",
+      "label": "2018 Q4 stress",
+      "start": "2018-10-01",
+      "end": "2018-12-24",
+      "required_for_global": false,
+      "in_sample_ref": false,
+      "optional": true
+    },
+    {
+      "id": "MAR2020",
+      "label": "Mar2020 cliff (in-sample ref)",
+      "start": "2020-02-20",
+      "end": "2020-03-23",
+      "required_for_global": false,
+      "in_sample_ref": true,
+      "optional": false
+    }
+  ],
+  "target_arms": [
+    "and::rvol63_l4&fuse_prem_neg5",
+    "or::rvol20_l4|atr_like_20",
+    "or::rvol20_l4|dd63_l4",
+    "or::rvol20_l4|fuse_prem_neg5",
+    "or::neg_gap_ma200|fuse_prem_neg5",
+    "or::atr_like_20|dd63_l4",
+    "or::neg_gap_ma200|dd63_l4",
+    "or::cool_defend_l1|fuse_prem_neg5",
+    "andflag::fuse_neg_flag&fuse_prem_neg5",
+    "or::atr_like_20|fuse_prem_neg5",
+    "kconfirm2::fuse_prem_neg5",
+    "kconfirm2::fuse_neg_flag",
+    "base::rvol20_l4"
+  ],
+  "floors": {
+    "oos_ic_abs_floor": 0.05,
+    "oos_hit_floor": 0.55,
+    "oos_recall_floor": 0.3,
+    "oos_f1_floor": 0.2,
+    "oos_lead_days_floor": 3.0,
+    "oos_fa_ceil": 0.15,
+    "weak_ic_abs": 0.03,
+    "weak_hit": 0.5,
+    "weak_recall": 0.2,
+    "min_episode_bars": 20,
+    "min_ic_bars": 40,
+    "alert_q": 0.9,
+    "primary_label": "fwd_mdd_10",
+    "crash_label": "fwd_ret_crash_10",
+    "global_rule": "champ OOS_HIT on \u22652 of {GFC_2008, TW_CN_2015} \u2192 ROBUST"
+  },
+  "label": "TIPSOFT_IP3_CRISIS_SIGNAL_HIST_OOS_STAGEA_CHARTER_2026-10-04__SIGNAL_HIST_OOS_PARALLEL"
+}
