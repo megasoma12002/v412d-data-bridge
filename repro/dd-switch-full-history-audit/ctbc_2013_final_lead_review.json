@@ -1,0 +1,44 @@
+{
+  "event": "2891 subscription ex 2013-02-19",
+  "candidate_ordinary_listing_date": "2013-05-10",
+  "voucher_book_entry_date": "2013-04-17",
+  "shares": 1333400000,
+  "general_ordinary_delivery_date": null,
+  "primary_original_retrieved": false,
+  "primary_probe_result": "HTTP 200 empty shell without announcement body",
+  "source_status": "SECONDARY_ONLY",
+  "source_date_typo": "Reprint says board decision 102-12-26, inconsistent with subsequent January 2013 approval; do not certify decision vintage",
+  "counts_unchanged": {
+    "stock_delivery": 6,
+    "subscription_delivery": 9,
+    "rights_ordinary_phase": 4
+  },
+  "captures": [
+    {
+      "id": "ctbc_2013_final_mobile_reprint",
+      "url": "https://m.cnyes.com/news/id/1523130",
+      "purpose": "Secondary 2013-05-02 final ordinary listing lead; delivery not certified",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/ctbc_2013_final_mobile_reprint.html.gz",
+      "retrieved_at": "2026-10-10T10:12:48.160291+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "7f18f1ba57b3726ecb7560aa1c03832e50e37877ede0f42d6cf2ceac6e03f617",
+      "compressed_sha256": "3266dbdd486be942a85414481d1254110e4636f2b2ec6f33c8eb7e3d8eeaf45a"
+    },
+    {
+      "id": "ctbc_2013_final_primary_probe",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2891&colorchg=&TYPEK=sii&YEAR=102&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20130502&SKEY=1&step=2&firstin=1",
+      "purpose": "Date-led original final notice probe; validate actual body",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/ctbc_2013_final_primary_probe.html.gz",
+      "retrieved_at": "2026-10-10T10:12:56.737553+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "b57dbf7aae0d00f54397e0e383cac2cd6a3dd4792ea8d8a80f34b8b6a0a13dff",
+      "compressed_sha256": "cdaa60c7411e839abd4140fac2e571a115a8474a0cc9700889095ba2638d3f2a"
+    }
+  ]
+}

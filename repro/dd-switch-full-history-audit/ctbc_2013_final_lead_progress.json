@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE",
+  "total": 2,
+  "processed": 2,
+  "success": 2,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T10:12:36.726962+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "ctbc_2013_final_mobile_reprint",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "ctbc_2013_final_primary_probe",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T10:12:48.162107+00:00",
+  "updated_at": "2026-10-10T10:12:56.754944+00:00",
+  "last_completed_at": "2026-10-10T10:12:56.737651+00:00",
+  "skipped": 0
+}
