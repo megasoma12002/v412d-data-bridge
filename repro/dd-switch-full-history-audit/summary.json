@@ -909,7 +909,7 @@
     },
     {
       "id": "DIVIDEND_VINTAGE",
-      "reason": "Positive dividend ledger has 415 primary reported field matches; 1 reported-clock discrepancy remains and all first-publication/revision inventories remain uncertified"
+      "reason": "Positive dividend ledger has 415 primary reported schedule/final timestamp matches; 1 positive legs still have missing or conflicting primary timestamp proof and all revision inventories remain uncertified"
     },
     {
       "id": "FEATURE_FUTURE_EVENT_DEPENDENCY",
@@ -921,7 +921,7 @@
     },
     {
       "id": "HISTORICAL_CORPORATE_ACTION_COMPLETENESS",
-      "reason": "2 ETF split/halt/unit contracts have primary reported evidence; all 24 zero-dividend ex-right rows have primary subscription terms and issued class (18 ordinary, 6 preferred); settlement and complete historical inventory remain unproved"
+      "reason": "2 ETF split/halt/unit contracts have primary reported time proof; 24 of 24 zero-dividend ex-right rows have primary subscription/class evidence; settlement and complete historical primary inventory remain unproved"
     },
     {
       "id": "RESEARCH_GAP_CANDIDATES_NOT_PROMOTED",
@@ -969,7 +969,6 @@
       "Zero-dividend ex-right candidates must not be treated as free stock dividends"
     ]
   },
-  "announcement_evidence_update_scope": "Supplementary announcement/corporate-action reconciliation only; full historical audit and strategy not rerun",
   "mops_evidence": {
     "positive_dividend_legs": 389,
     "primary_reported_time_supported_legs": 388,
@@ -990,5 +989,35 @@
       "Stock payment dates are not present in this aggregate table",
       "Subscription right does not create free ordinary shares or automatic cash payment"
     ]
-  }
+  },
+  "revision_settlement_evidence": {
+    "asof": "2026-10-08",
+    "captured_candidate_filings": 1417,
+    "captured_statutory_filings": 1056,
+    "captured_issuer_original_pdf_versions": 42,
+    "positive_dividend_legs": 416,
+    "dividend_legs_with_linked_schedule_chain": 411,
+    "dividend_legs_with_earlier_schedule": 304,
+    "primary_payment_schedule_matches": 403,
+    "payment_schedule_conflicts": 2,
+    "contradictory_primary_payment_dates": 2,
+    "subscription_events": 24,
+    "subscription_windows_supported": 24,
+    "subscription_future_not_due": 1,
+    "subscription_delivery_dates_supported": 14,
+    "subscription_voucher_dates_supported": 16,
+    "subscription_listing_dates_supported": 20,
+    "revision_inventory_complete": false,
+    "publication_vintage_certified_legs": 0,
+    "backtest_ready": false,
+    "backtest_executed": false,
+    "canonical_modified": false,
+    "limits": [
+      "Full annual indexes are current responses; keyword triage is not proof of complete revision history",
+      "Public scheduled payment dates do not prove a particular holder was credited",
+      "Subscription requires an explicit paid election; no automatic ordinary shares",
+      "Future scheduled settlement is not a missing past payment"
+    ]
+  },
+  "announcement_evidence_update_scope": "Whole-lineage data audit rerun from hash-verified saved inputs and annual snapshots; strategy not rerun"
 }

@@ -26,6 +26,14 @@ def frame(path):
     return data
 
 def archive_prices(out):
+    # A declared FETCHED snapshot must exist and retain its saved hash. Otherwise
+    # an incompletely restored checkout silently shrinks the date benchmark and
+    # makes genuine quote/NAV gaps disappear from the report.
+    for item in json.loads((out/'source_manifest.json').read_text()):
+        if item['status'] == 'FETCHED':
+            path=ROOT/item['path']
+            if not path.exists():raise FileNotFoundError('Restore fetched annual snapshot: '+str(path))
+            if sha(path)!=item['sha256']:raise ValueError('Annual snapshot hash mismatch: '+str(path))
     rows=[]
     for path in sorted((out/'sources').glob('*_20*.json')):
         # Exact annual price snapshots only. Gap/adjacent responses overlap
@@ -237,7 +245,15 @@ def main():
                 blocker['reason']=f"{enrichment['split_contracts_primary_matched']} ETF split/halt/unit contracts have primary reported time proof; {enrichment.get('primary_classified_actions', 0)} of {enrichment['zero_dividend_ex_right_candidates']} zero-dividend ex-right rows have primary subscription/class evidence; settlement and complete historical primary inventory remain unproved"
     blockers.extend([dict(id='RESEARCH_GAP_CANDIDATES_NOT_PROMOTED',reason='34 missing quotes recovered in independent research candidates (10 core, 24 private); original canonical inputs intentionally unchanged'),dict(id='HISTORICAL_LATER_ORDER_FILLS',count=len(clock_rows),reason='Evidenced fills occur after first qualified session; funding/residual/stale-order lifecycle attribution pending, not automatically invalid T+1 qualification'),dict(id='SCHEDULED_EX_DATE_ON_CLOSED_SESSION',reason='2891 cash scheduled ex 2026-07-10 falls outside official sessions; effective-date router convention exists but primary schedule/amendment proof still required')])
     summary=dict(status='AUDIT_COMPLETE_FULL_HISTORY_CERTIFICATION_BLOCKED',publication_allowed=False,asof=END,scope='DD_SWITCH parent/mother lineage plus eight private-financial raw-adjusted inputs; not every obsolete research file',benchmark_sessions=len(benchmark),benchmark_years=sorted({d[:4] for d in benchmark}),official_calendar_years=[2025,2026],external_source_counts=pd.Series([r['status'] for r in manifest]).value_counts().to_dict(),primary_access=access,quotes=reports,dividends=dividends,feature_availability=features,navs=navs,fills=fills,blockers=blockers,limits=['A FinMind re-download shares ancestry with original FinMind prices: consistency evidence, not independent cross-provider proof','TAIEX archived panel is CLOSE_ONLY_PROXY: historical open/high/low equal close and volume=0; close consistency is reported separately; proxy OHLC/volume must not support intraday claims','Dates before each artifact start and after cutoff are excluded; prelisting synthetic marks never counted as tradable quotes','Price integrity and ledger arithmetic do not prove point-in-time availability or execution depth','Next-session qualification is not a guarantee of next-session fill: later paper fills need funding/order lifecycle attribution','Nothing writes canonical data, runtime or broker state'])
-    (out/'summary.json').write_text(json.dumps(summary,indent=2));(out/'blockers.json').write_text(json.dumps(blockers,indent=2))
+    for key,name in [('announcement_evidence','announcement_evidence_summary.json'),('mops_evidence','mops_evidence_summary.json'),('revision_settlement_evidence','revision_settlement_summary.json')]:
+        evidence_path=out/name
+        if evidence_path.exists():
+            evidence=json.loads(evidence_path.read_text())
+            if evidence.get('ledger_sha256') and evidence['ledger_sha256']!=sha(ROOT/'data/dividend_events/e22_dividend_events.csv'):
+                raise ValueError('Supplementary evidence report is stale: '+name)
+            summary[key]=evidence
+    summary['announcement_evidence_update_scope']='Whole-lineage data audit rerun from hash-verified saved inputs and annual snapshots; strategy not rerun'
+    (out/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');(out/'blockers.json').write_text(json.dumps(blockers,indent=2)+'\n')
     hashes={str(p.relative_to(ROOT)):sha(p) for p in [ROOT/v for v in paths.values()]+[ROOT/'data/dividend_events/e22_dividend_events.csv',ROOT/'scripts/within_sleeve_alloc.py',Path(__file__),ROOT/'scripts/dd_switch_full_history_sources.py']}
     (out/'audited_input_sha256.json').write_text(json.dumps(hashes,indent=2));print('FULL_HISTORY_AUDIT_COMPLETE',json.dumps(dict(benchmark_sessions=len(benchmark),dividends=dividends,features=features)),flush=True)
 

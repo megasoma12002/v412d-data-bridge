@@ -9,7 +9,7 @@
   },
   {
     "id": "DIVIDEND_VINTAGE",
-    "reason": "Positive dividend ledger has 415 primary reported field matches; 1 reported-clock discrepancy remains and all first-publication/revision inventories remain uncertified"
+    "reason": "Positive dividend ledger has 415 primary reported schedule/final timestamp matches; 1 positive legs still have missing or conflicting primary timestamp proof and all revision inventories remain uncertified"
   },
   {
     "id": "FEATURE_FUTURE_EVENT_DEPENDENCY",
@@ -21,7 +21,7 @@
   },
   {
     "id": "HISTORICAL_CORPORATE_ACTION_COMPLETENESS",
-    "reason": "2 ETF split/halt/unit contracts have primary reported evidence; all 24 zero-dividend ex-right rows have primary subscription terms and issued class (18 ordinary, 6 preferred); settlement and complete historical inventory remain unproved"
+    "reason": "2 ETF split/halt/unit contracts have primary reported time proof; 24 of 24 zero-dividend ex-right rows have primary subscription/class evidence; settlement and complete historical primary inventory remain unproved"
   },
   {
     "id": "RESEARCH_GAP_CANDIDATES_NOT_PROMOTED",

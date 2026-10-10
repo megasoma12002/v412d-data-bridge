@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "0050_REVISION_STAGE": 7,
+    "STOCK_DELIVERY": 11,
+    "SUBSCRIPTION_DELIVERY": 9,
+    "RIGHTS_ORDINARY_PHASE": 2,
+    "FUTURE_SUBSCRIPTION": 1,
+    "RESEARCH_INPUT": 3,
+    "HISTORICAL_REVISION_INVENTORY": 1,
+    "PUBLICATION_VINTAGE": 1,
+    "FULL_HISTORY_CERTIFICATION": 9
+  },
+  "counts_are_not_additive": true,
+  "backtest_ready": false,
+  "backtest_executed": false,
+  "canonical_modified": false,
+  "input_gap_count": 0,
+  "note": "Categories overlap; no primary date or announcement gaps closed by current probes"
+}

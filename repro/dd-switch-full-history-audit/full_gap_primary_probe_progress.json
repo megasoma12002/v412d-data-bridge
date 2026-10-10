@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "total": 3,
+  "processed": 3,
+  "success": 3,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-09T23:54:38.033375+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "full_gap_tbb_20101006_native",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "full_gap_yuanta_name_change",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "full_gap_ctbc_transfer_agent_cash_index",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T23:54:58.897247+00:00",
+  "updated_at": "2026-10-09T23:55:09.297990+00:00",
+  "last_completed_at": "2026-10-09T23:55:09.297064+00:00",
+  "skipped": 0
+}

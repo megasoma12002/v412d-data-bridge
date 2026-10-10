@@ -9,6 +9,6 @@
   "repro/dd-switch-seven-session-rebuild/inputs/00631L_actual.csv": "c5b94e33a0710e35fca225e21811109ac89af9056911c0895ccc64542262d6e2",
   "data/dividend_events/e22_dividend_events.csv": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
   "scripts/within_sleeve_alloc.py": "e29c7466793edf91d16fb15f63dfd68264ddc5582c876f746b3c810857e1bcc0",
-  "scripts/dd_switch_full_history_audit.py": "55dba3544a7837b9e72ebd4f8b5514e91306a99a74a71842e491a0362ce8856f",
+  "scripts/dd_switch_full_history_audit.py": "469f768c0fe6768a9b702258e581f8af1d6853d7b81d55c08f512289abd9c7f3",
   "scripts/dd_switch_full_history_sources.py": "8707cbae21bf41c54c76fe9324a61bd7fc877e51ec26611633ed87b8b579ed79"
 }

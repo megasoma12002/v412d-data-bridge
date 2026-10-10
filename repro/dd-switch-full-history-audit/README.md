@@ -1,3 +1,20 @@
+最新全面核對見 [REVISION_SETTLEMENT_REVIEW.md](REVISION_SETTLEMENT_REVIEW.md)。3 份缺失研究輸入已按原 SHA256 恢復，302 份年度行情快照與封存 NAV／成交檔已核驗；完整離線資料稽核重跑，仍未認證歷史資料或執行策略。剩餘逐筆要求見 comprehensive_remaining_gap_inventory.csv，各類重疊不可相加。
+
+公告證據依現有工作流程順序解壓至第十二包 full_gap_completion_capture_delta.zip 後：
+
+```bash
+python scripts/dd_switch_restore_audited_inputs.py
+PYTHONPATH=scripts python scripts/dd_switch_full_history_audit.py
+python scripts/dd_switch_revision_audit.py
+python scripts/dd_switch_scoped_delivery_evidence.py
+python scripts/dd_switch_revision_validate.py
+python scripts/dd_switch_remaining_gap_inventory.py
+```
+
+恢復器只接受與原清單／來源清單精確相同的雜湊；不執行策略。舊診斷與限制保留於下文，最新數字以核對報告及重算清單為準。
+
+---
+
 ## 取消後離線整核已完成
 
 最新：監控批次100/100完成（99成功、1失敗）；股利日期缺件88筆（現金17／股票71）、0050公告鏈27筆、過往現增交付17筆、股份階段差異2筆。[詳情與重現](REVISION_SETTLEMENT_REVIEW.md)。尚未重跑策略。下方保留前批數字。

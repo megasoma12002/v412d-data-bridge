@@ -1,0 +1,67 @@
+{
+  "probes": [
+    {
+      "source_id": "full_gap_tbb_20101006_native",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2834&colorchg=&TYPEK=sii&YEAR=99&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20101006&SKEY=1&step=2&firstin=1",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/full_gap_tbb_20101006_native.html.gz",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "response_sha256": "b57dbf7aae0d00f54397e0e383cac2cd6a3dd4792ea8d8a80f34b8b6a0a13dff",
+      "compressed_sha256": "cdaa60c7411e839abd4140fac2e571a115a8474a0cc9700889095ba2638d3f2a",
+      "response_bytes": 2458,
+      "adjudication": "NO_VALID_ISSUER_BODY",
+      "note": "HTTP 200 empty script shell; no issuer or announcement body. Not VALID_EMPTY.",
+      "gap_closed": false
+    },
+    {
+      "source_id": "full_gap_yuanta_name_change",
+      "url": "https://www.yuantafunds.com/download/基金名稱-變更對照表.pdf",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/full_gap_yuanta_name_change.html.gz",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "response_sha256": "3037036256b5f4922ee10a3fb14a5fd3e6811992805df2e2fb5c1e5e7b8e28e5",
+      "compressed_sha256": "d459304bb86dfeffeed489c2bc40babb85efd5c6a4c6a094a8776b7deb18c86d",
+      "response_bytes": 258304,
+      "adjudication": "VALID_SHORT_NAME_HISTORY_ONLY",
+      "note": "Original PDF is 105.06.28 listed ETF short-name table. 0050 台灣50 → 元大台灣50; no distribution amounts/dates or legal fund-name evidence.",
+      "gap_closed": false
+    },
+    {
+      "source_id": "full_gap_ctbc_transfer_agent_cash_index",
+      "url": "https://ecorp.ctbcbank.com/cts/static/ag_stockdiv_cash.jsp",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/full_gap_ctbc_transfer_agent_cash_index.html.gz",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "response_sha256": "7be212500a81719579af416c76022dc077f53802982a95c25b0fee2692377f16",
+      "compressed_sha256": "16515a52e645380935ad32c596da02ec369705746dcc02ab4714533d3b5f64b6",
+      "response_bytes": 181107,
+      "adjudication": "VALID_CURRENT_INDEX_OUTSIDE_TARGET",
+      "note": "Current transfer-agent rights index has no historical 2012/2013 CTBC issuer allocation. Payinfo popup values are supplied by URL; not independent evidence.",
+      "gap_closed": false
+    },
+    {
+      "source_id": "full_gap_mega_dividend_archive",
+      "url": "https://www.megaholdings.com.tw/tc/stock.aspx",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/full_gap_mega_dividend_archive.html.gz",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "response_sha256": "a9691253f7d45c29fd24fabfbe65fa6bd09561159e4c14b3241eb3131a057265",
+      "compressed_sha256": "03d04867d103409cbb5b548fb4e28daca2098de45dfe22a9b9ffd9790278cdb0",
+      "response_bytes": 36912,
+      "adjudication": "VALID_ARCHIVE_OUTSIDE_TARGET",
+      "note": "Issuer dividend table covers profit years 103–114 only, excluding target 100/101 distributions.",
+      "gap_closed": false
+    },
+    {
+      "source_id": "full_gap_tbb_2012_annual_report",
+      "url": "https://ir.tbb.com.tw/pdf/financial/annual-reports/2012公司年報.pdf",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/full_gap_tbb_2012_annual_report.html.gz",
+      "transport_status": "FAILED",
+      "response_sha256": "4fc5929fe6f4113b26e7cac69a52c71bbc5ba5746d8dd403a61f5bbb193abc4a",
+      "compressed_sha256": "89253d6bfe4beba37af01738cd0ece54c4ffbab35af9ff8746834dfb980841df",
+      "response_bytes": 3948544,
+      "adjudication": "PARTIAL_RESPONSE_EXCLUDED",
+      "note": "curl timed out at 15 seconds; incomplete PDF cannot establish dates or absence.",
+      "gap_closed": false
+    }
+  ],
+  "primary_gaps_closed": 0,
+  "source_blocks_retried": false,
+  "background_capture_running": false
+}
