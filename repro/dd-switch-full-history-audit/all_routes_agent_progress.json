@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "total": 3,
+  "processed": 3,
+  "success": 1,
+  "failed": 2,
+  "cached": 0,
+  "started_at": "2026-10-10T12:25:00.967540+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "remaining_hn_agent_legacy_dividend",
+      "status": "FAILED"
+    },
+    {
+      "id": "remaining_mega_agent_exright_form",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "remaining_hn_broker_calendar",
+      "status": "FAILED"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T12:25:18.081241+00:00",
+  "updated_at": "2026-10-10T12:25:26.273895+00:00",
+  "last_completed_at": "2026-10-10T12:25:26.272358+00:00",
+  "skipped": 0
+}

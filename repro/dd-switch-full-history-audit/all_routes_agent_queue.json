@@ -1,0 +1,17 @@
+[
+  {
+    "id": "remaining_hn_agent_legacy_dividend",
+    "url": "https://agency.entrust.com.tw/comList/in.do?id=1A&type=2",
+    "purpose": "Separate official transfer-agent legacy dividend directory"
+  },
+  {
+    "id": "remaining_mega_agent_exright_form",
+    "url": "https://www.emega.com.tw/emegaRegistrar/exRight.do",
+    "purpose": "Discover official transfer-agent dividend archive controls"
+  },
+  {
+    "id": "remaining_hn_broker_calendar",
+    "url": "https://just2.entrust.com.tw/z/zc/zci/zci_2880.djhtm",
+    "purpose": "Official broker-hosted vendor calendar lead; mixed voucher/ordinary listing dates, not issuer delivery proof"
+  }
+]

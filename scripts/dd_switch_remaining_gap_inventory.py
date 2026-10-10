@@ -52,11 +52,20 @@ def main():
         secondary_listing['2891:subscription:2013-02-19'] = dict(
             candidate_ordinary_listing_date=ctbc_lead['candidate_ordinary_listing_date'],
             source_id='ctbc_2013_final_mobile_reprint')
+    alternate_path = OUT / 'alternate_route_review.json'
+    alternate = json.loads(alternate_path.read_text()) if alternate_path.exists() else {}
+    issuer_funding = {r['event_id']: r for r in alternate.get('source_reviews', [])
+                     if r['outcome'] == 'PRIMARY_ISSUER_FUNDING_TOTAL'}
     for r in read('remaining_subscription_delivery_gaps.csv'):
         available = 'Subscription window ' + r['subscription_start'] + '..' + r['subscription_end']
         available += '; voucher=' + (r['subscription_voucher_delivery_date'] or 'unavailable')
         available += '; primary ordinary listing=' + (r['new_share_listing_date'] or 'unavailable')
         event_id = r['code'] + ':subscription:' + r['ex_date']
+        if event_id in issuer_funding:
+            funding = issuer_funding[event_id]
+            available += '; primary issuer-wide collected total TWD=' + str(funding['issuer_collected_total_twd'])
+            available += '; capital base date=' + funding['capital_base_date']
+            available += '; holder payment/final delivery unproven; source=' + funding['source_id']
         if event_id in secondary_listing:
             lead = secondary_listing[event_id]
             available += '; secondary candidate ordinary listing=' + lead['candidate_ordinary_listing_date']

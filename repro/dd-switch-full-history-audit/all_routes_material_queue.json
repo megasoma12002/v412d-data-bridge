@@ -1,0 +1,37 @@
+[
+  {
+    "id": "remaining_material_2880_201009_index",
+    "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=99&month=09&step=1&isnew=false",
+    "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index"
+  },
+  {
+    "id": "remaining_material_2880_201109_index",
+    "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=100&month=09&step=1&isnew=false",
+    "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index"
+  },
+  {
+    "id": "remaining_material_2880_201209_index",
+    "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=101&month=09&step=1&isnew=false",
+    "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index"
+  },
+  {
+    "id": "remaining_material_2880_201309_index",
+    "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=102&month=09&step=1&isnew=false",
+    "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index"
+  },
+  {
+    "id": "remaining_material_2880_201201_index",
+    "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=101&month=01&step=1&isnew=false",
+    "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index"
+  },
+  {
+    "id": "remaining_material_2891_201204_index",
+    "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2891&year=101&month=04&step=1&isnew=false",
+    "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index"
+  },
+  {
+    "id": "remaining_material_2891_201305_index",
+    "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2891&year=102&month=05&step=1&isnew=false",
+    "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index"
+  }
+]

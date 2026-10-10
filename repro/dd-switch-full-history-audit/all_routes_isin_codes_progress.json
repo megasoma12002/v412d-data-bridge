@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "total": 3,
+  "processed": 3,
+  "success": 3,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T12:22:51.121131+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "remaining_isin_all_2886",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "remaining_isin_all_2880",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "remaining_isin_all_5880",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T12:23:08.460936+00:00",
+  "updated_at": "2026-10-10T12:23:17.201188+00:00",
+  "last_completed_at": "2026-10-10T12:23:17.199574+00:00",
+  "skipped": 0
+}
