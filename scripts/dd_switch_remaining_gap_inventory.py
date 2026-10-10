@@ -54,6 +54,12 @@ def main():
             add('RIGHTS_ORDINARY_PHASE', r['event_id'], 'OPEN_MODEL_AND_QUOTES',
                 'Ledger early stage=' + r['ledger_payment_date'] + '; primary ordinary=' + r['latest_primary_payment_date'] + '; source=' + r['source_id'],
                 'Separate entitlement, rights instrument and ordinary conversion; verify prices, units and trade eligibility in intervening period before changing ledger')
+    legacy_phase = OUT / 'legacy_rights_phase_review.json'
+    if legacy_phase.exists():
+        for r in json.loads(legacy_phase.read_text())['rows']:
+            add('RIGHTS_ORDINARY_PHASE', r['event_id'], 'OPEN_MODEL_AND_QUOTES',
+                'Primary rights issuance=' + r['rights_issue_date'] + '; primary ordinary listing=' +
+                r['ordinary_listing_date'] + '; source=' + r['source_id'], r['required_to_close'])
     for r in read('subscription_settlement_check.csv'):
         if r['not_yet_due_asof'] == 'True' and not r['new_share_delivery_date']:
             add('FUTURE_SUBSCRIPTION', r['code'] + ':subscription:' + r['ex_date'], 'NOT_DUE_ASOF_2026_10_08',
@@ -70,8 +76,11 @@ def main():
     # Carry every broader certification blocker as well. These are existing audit
     # findings, not a claim that the strategy or whole-lineage audit ran again.
     for blocker in json.loads((OUT / 'blockers.json').read_text()):
+        progress = ''
+        if blocker['id'] == 'FEATURE_FUTURE_EVENT_DEPENDENCY' and (OUT / 'pit_feature_snapshot_summary.json').exists():
+            progress = '; Research announcement gate tested on 24 name-cutoffs; future-input invariance passed; production integration and historical vintage/calendar certification remain open'
         add('FULL_HISTORY_CERTIFICATION', blocker['id'], 'OPEN_PRIOR_AUDIT_FINDING',
-            'Existing blockers.json; ' + blocker['reason'],
+            'Existing blockers.json; ' + blocker['reason'] + progress,
             'Resolve the stated source/model/lifecycle requirement, then rerun the relevant audit; input recovery alone is insufficient')
     with (OUT / 'comprehensive_remaining_gap_inventory.csv').open('w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator='\n')

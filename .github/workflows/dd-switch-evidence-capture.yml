@@ -160,6 +160,9 @@ jobs:
           python scripts/dd_switch_revision_audit.py
           python scripts/dd_switch_scoped_delivery_evidence.py
           python scripts/dd_switch_resumed_delivery_review.py
+          PYTHONPATH=scripts python scripts/dd_switch_legacy_rights_phase.py
+          PYTHONPATH=scripts python scripts/dd_switch_pit_feature_review.py
+          PYTHONPATH=scripts python -m unittest tests/test_dd_switch_pit_features.py tests/test_dd_switch_legacy_rights_phase.py
           PYTHONPATH=scripts python -m unittest tests/test_dd_switch_monitored_capture.py tests/test_dd_switch_revision_audit.py tests/test_dd_switch_mops_evidence.py tests/test_dd_switch_announcement_evidence.py tests/test_dd_switch_session_market.py tests/test_dd_switch_targeted_capture.py tests/test_dd_switch_yuanta_revision_evidence.py tests/test_dd_switch_scoped_delivery_evidence.py tests/test_dd_switch_annual_cache_integrity.py tests/test_dd_switch_issuer_annual_delivery_evidence.py
           python scripts/dd_switch_revision_validate.py
           PYTHONPATH=scripts python -m unittest tests/test_dd_switch_resumed_delivery_review.py

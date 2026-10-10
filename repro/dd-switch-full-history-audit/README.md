@@ -1,3 +1,9 @@
+## 最新：公告閘門與兆豐金舊權利證書（2026-10-10）
+
+研究公告閘門14項測試通過，6截止日／24標的截點未來輸入不影響此前特徵；未接入正式模型、認證仍阻塞。另補連兆豐金2011/2012權利證書一手階段證據，股份階段核對2→4，與股票交付缺口重疊。現存股票交付6、現增9、股份階段4、全歷史阻塞9；未執行T+1。详见 [PIT_FEATURE_AND_LEGACY_PHASE_REVIEW.md](PIT_FEATURE_AND_LEGACY_PHASE_REVIEW.md)。
+
+---
+
 ## GitHub 傳輸與重現
 
 GitHub連接器登入有效；本地HTTPS git缺憑證，改由連接器上傳Git物件。23.6MB resumed證據ZIP依原始bytes拆成3段，先執行 `python scripts/dd_switch_restore_resumed_delivery_archive.py` 再解壓；每段及完整ZIP SHA256均核對，原ZIP雜湊534ac270024c5e2662dbcf568bd394b08a3de6985d9284dacf44bca9afeab71f不變。此前「未上傳」記錄是當時狀態，最終同步狀態以PR最新說明為準。
