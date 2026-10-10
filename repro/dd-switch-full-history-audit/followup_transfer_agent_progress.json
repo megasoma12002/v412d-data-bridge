@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "total": 3,
+  "processed": 3,
+  "success": 3,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T04:47:11.251054+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "followup_hn_transfer_agent_news",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "followup_hn_transfer_agent_weekly",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "followup_hn_transfer_agent_companies",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T04:47:29.680525+00:00",
+  "updated_at": "2026-10-10T04:47:38.395035+00:00",
+  "last_completed_at": "2026-10-10T04:47:38.392988+00:00",
+  "skipped": 0
+}

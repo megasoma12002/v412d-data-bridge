@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "total": 3,
+  "processed": 3,
+  "success": 2,
+  "failed": 1,
+  "cached": 0,
+  "started_at": "2026-10-10T04:33:32.964087+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "resume_hn_2011_official_prospectus",
+      "status": "FAILED"
+    },
+    {
+      "id": "resume_esun_official_shareholder_information",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "resume_mega_2013_official_annual",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T04:34:17.215722+00:00",
+  "updated_at": "2026-10-10T04:34:26.087867+00:00",
+  "last_completed_at": "2026-10-10T04:34:26.084935+00:00",
+  "skipped": 0
+}

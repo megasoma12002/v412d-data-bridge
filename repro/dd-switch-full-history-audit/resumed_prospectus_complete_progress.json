@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE",
+  "total": 1,
+  "processed": 1,
+  "success": 1,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T04:38:31.323584+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "resume_hn_2011_official_prospectus_complete_60s",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T04:38:31.323629+00:00",
+  "updated_at": "2026-10-10T04:39:11.922403+00:00",
+  "last_completed_at": "2026-10-10T04:39:11.920516+00:00",
+  "skipped": 0
+}

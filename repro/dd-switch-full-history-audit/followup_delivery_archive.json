@@ -1,0 +1,8 @@
+{
+  "archive_path": "repro/dd-switch-full-history-audit/followup_delivery_capture_delta.zip",
+  "sha256": "216bece8b782387897217ffbc1fb9217bb7cbbe50a98d2d4eb47f321dc5114bd",
+  "bytes": 6379910,
+  "files": 13,
+  "restore_after": "resumed_delivery_capture_delta.zip",
+  "new_primary_delivery_facts": 0
+}

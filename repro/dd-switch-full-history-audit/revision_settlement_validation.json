@@ -63,11 +63,11 @@
       "STOPPED_SOURCE_BLOCK": 1
     },
     "targeted_issuers": {
-      "RESPONSE_SAVED_NEEDS_VALIDATION": 115,
-      "FAILED": 22
+      "RESPONSE_SAVED_NEEDS_VALIDATION": 124,
+      "FAILED": 25
     }
   },
-  "source_hash_pairs_verified": 3485,
+  "source_hash_pairs_verified": 3497,
   "source_request_hash_pairs_verified": 6,
   "canonical_input_hashes_verified": 9,
   "canonical_inputs_absent": [],
@@ -1293,6 +1293,119 @@
       "updated_at": "2026-10-10T01:40:59.199783+00:00",
       "last_completed_at": "2026-10-10T01:40:59.198458+00:00",
       "skipped": 0
+    },
+    "resumed_primary_delivery_progress.json": {
+      "status": "COMPLETE",
+      "total": 3,
+      "processed": 3,
+      "success": 2,
+      "failed": 1,
+      "cached": 0,
+      "started_at": "2026-10-10T04:33:32.964087+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "resume_hn_2011_official_prospectus",
+          "status": "FAILED"
+        },
+        {
+          "id": "resume_esun_official_shareholder_information",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "resume_mega_2013_official_annual",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-10T04:34:17.215722+00:00",
+      "updated_at": "2026-10-10T04:34:26.087867+00:00",
+      "last_completed_at": "2026-10-10T04:34:26.084935+00:00",
+      "skipped": 0
+    },
+    "resumed_prospectus_retry_progress.json": {
+      "status": "COMPLETE",
+      "total": 1,
+      "processed": 1,
+      "success": 0,
+      "failed": 1,
+      "cached": 0,
+      "started_at": "2026-10-10T04:34:53.438462+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "resume_hn_2011_official_prospectus_complete_retry",
+          "status": "FAILED"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-10T04:34:53.438564+00:00",
+      "updated_at": "2026-10-10T04:35:28.966083+00:00",
+      "last_completed_at": "2026-10-10T04:35:28.963863+00:00",
+      "skipped": 0
+    },
+    "resumed_notice_lead_progress.json": {
+      "status": "COMPLETE",
+      "total": 1,
+      "processed": 1,
+      "success": 1,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-10T04:36:50.832234+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "resume_hn_2013_original_notice_reprint",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-10T04:36:50.832289+00:00",
+      "updated_at": "2026-10-10T04:36:59.284150+00:00",
+      "last_completed_at": "2026-10-10T04:36:59.282250+00:00",
+      "skipped": 0
+    },
+    "resumed_issuer_index_progress.json": {
+      "status": "COMPLETE",
+      "total": 1,
+      "processed": 1,
+      "success": 0,
+      "failed": 1,
+      "cached": 0,
+      "started_at": "2026-10-10T04:37:31.600096+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "resume_hn_official_annual_apex_index",
+          "status": "FAILED"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-10T04:37:31.600173+00:00",
+      "updated_at": "2026-10-10T04:37:40.590479+00:00",
+      "last_completed_at": "2026-10-10T04:37:40.587972+00:00",
+      "skipped": 0
+    },
+    "resumed_prospectus_complete_progress.json": {
+      "status": "COMPLETE",
+      "total": 1,
+      "processed": 1,
+      "success": 1,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-10T04:38:31.323584+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "resume_hn_2011_official_prospectus_complete_60s",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-10T04:38:31.323629+00:00",
+      "updated_at": "2026-10-10T04:39:11.922403+00:00",
+      "last_completed_at": "2026-10-10T04:39:11.920516+00:00",
+      "skipped": 0
     }
   },
   "scoped_delivery_evidence": {
@@ -1470,6 +1583,163 @@
     "facts": 5,
     "publication_vintage_certified": false,
     "backtest_permission": false
+  },
+  "resumed_delivery_review": {
+    "captures": [
+      {
+        "source_id": "resume_hn_2011_official_prospectus",
+        "url": "https://www.cathaysec.com.tw/download/%E8%8F%AF%E5%8D%97%E9%87%91%E5%85%AC%E9%96%8B%E8%AA%AA%E6%98%8E%E6%9B%B8.pdf",
+        "status": "FAILED",
+        "response_bytes": 15990272,
+        "response_sha256": "2946a4661ea9b6e22ad0a24674950f510154a0bd9fbfcf7cac054beb54331c4b",
+        "compressed_sha256": "542346db6e334496858751620c01d94e7ebb9382623b505901a30091cc452ed7",
+        "http_status": "200",
+        "error": "curl: (28) Operation timed out after 30000 milliseconds with 15990272 out of 17987489 bytes received\n",
+        "timeout_seconds": 30,
+        "transport_complete": false,
+        "assessment": "Incomplete or failed transfer excluded from delivery evidence",
+        "gap_closed": false
+      },
+      {
+        "source_id": "resume_esun_official_shareholder_information",
+        "url": "https://www.esunfhc.com/zh-tw/investor-relations/shareholders/shareholder-Information",
+        "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+        "response_bytes": 116795,
+        "response_sha256": "bdc292ede4832ac770c6942f8db9b453279b7ee5d7c136a236aa81eab95f6b00",
+        "compressed_sha256": "c4c7615f48a0c6ebc35612d91b484d04079376a921bd7ef39cb274dc0767b3c3",
+        "http_status": "200",
+        "error": "",
+        "timeout_seconds": 30,
+        "transport_complete": true,
+        "assessment": "Official page supports 2023 subscription terms and payment window; no final ordinary conversion delivery notice. 2014/2017 delivery gaps remain.",
+        "gap_closed": false
+      },
+      {
+        "source_id": "resume_mega_2013_official_annual",
+        "url": "https://www.megaholdings.com.tw/upload/45/2017120516230926555.pdf",
+        "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+        "response_bytes": 3941146,
+        "response_sha256": "18f14acf64558c344878ea141643d6537b189ea140b1e8c548013abda0a12da7",
+        "compressed_sha256": "2373c3bd01245b492529542fd0f0607c58cb7bcd378189b912508fb92866762b",
+        "http_status": "200",
+        "error": "",
+        "timeout_seconds": 30,
+        "transport_complete": true,
+        "assessment": "2013 report execution table concerns 2013 cash dividend; it cannot prove target 2011/2012 ordinary stock delivery.",
+        "gap_closed": false
+      },
+      {
+        "source_id": "resume_hn_2011_official_prospectus_complete_retry",
+        "url": "https://www.cathaysec.com.tw/download/%E8%8F%AF%E5%8D%97%E9%87%91%E5%85%AC%E9%96%8B%E8%AA%AA%E6%98%8E%E6%9B%B8.pdf",
+        "status": "FAILED",
+        "response_bytes": 17219072,
+        "response_sha256": "b28791fddac2361719ecf8e058e3f26c0695c8e3a0be085881597fec7f755623",
+        "compressed_sha256": "874d6e3986e0657496c104e4ed4a8ca08139c572521619d1707975a9284bcd10",
+        "http_status": "200",
+        "error": "curl: (28) Operation timed out after 30000 milliseconds with 17219072 out of 17987489 bytes received\n",
+        "timeout_seconds": 30,
+        "transport_complete": false,
+        "assessment": "Incomplete or failed transfer excluded from delivery evidence",
+        "gap_closed": false
+      },
+      {
+        "source_id": "resume_hn_2013_original_notice_reprint",
+        "url": "https://n.yam.com/Article/20130906734847",
+        "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+        "response_bytes": 32710,
+        "response_sha256": "59384a2d2ac1c24e66d0325ba6028b09fc8289029f81624ada7ed9176fa6f23c",
+        "compressed_sha256": "b79edb8290ae37b06b775d95344ed94fa99df5996e90c6b9b771fa274b302333",
+        "http_status": "200",
+        "error": "",
+        "timeout_seconds": 15,
+        "transport_complete": true,
+        "assessment": "Allocation-specific general book-entry delivery lead supported by reprint; primary original and historical version provenance still required.",
+        "gap_closed": false
+      },
+      {
+        "source_id": "resume_hn_official_annual_apex_index",
+        "url": "https://hnfhc.com.tw/HNFHC/ir/e.do",
+        "status": "FAILED",
+        "response_bytes": 150,
+        "response_sha256": "81074a9c8dfb24290e8fc4af14d20f67f5304618d27ac713628b1126e41dbd8e",
+        "compressed_sha256": "6d8986cca26cd09c920725ee1c8b15731b479a2873336f4e03b6b658badca51b",
+        "http_status": "502",
+        "error": "",
+        "timeout_seconds": 15,
+        "transport_complete": false,
+        "assessment": "Incomplete or failed transfer excluded from delivery evidence",
+        "gap_closed": false
+      },
+      {
+        "source_id": "resume_hn_2011_official_prospectus_complete_60s",
+        "url": "https://www.cathaysec.com.tw/download/%E8%8F%AF%E5%8D%97%E9%87%91%E5%85%AC%E9%96%8B%E8%AA%AA%E6%98%8E%E6%9B%B8.pdf",
+        "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+        "response_bytes": 17987489,
+        "response_sha256": "1efdfc938f6d1c9d1ce9a6d2db0440e71f441704cf9d8019b151170464fc1bb6",
+        "compressed_sha256": "632283af1284ab4dc851519b37da3732dc5aff5dfbd8a51443ac953aca73ac2b",
+        "http_status": "200",
+        "error": "",
+        "timeout_seconds": 60,
+        "transport_complete": true,
+        "assessment": "Complete prospectus received. Reviewed issuer capital/dividend sections: no target dated general stock delivery. Prospective 2011 subscription terms do not prove final delivery.",
+        "gap_closed": false
+      }
+    ],
+    "secondary_delivery_leads": [
+      {
+        "event_id": "2880:stock:2013-08-15",
+        "candidate_general_delivery_date": "2013-09-16",
+        "ledger_payment_date": "2013-09-16",
+        "ledger_date_matches": true,
+        "original_shares": 8625030143,
+        "issued_shares": 431251507,
+        "allocation_amount_matches": true,
+        "delivery_date_clause": "\u9810\u5b9a\u589e\u8cc7\u65b0\u80a1\u80a1\u7968\u767c\u653e\u53ca\u4e0a\u5e02\u65e5\u671f:102\u5e749\u670816\u65e5",
+        "delivery_method_clause": "\u672c\u6b21\u589e\u8cc7\u80a1\u7968\u63a1\u7121\u5be6\u9ad4\u767c\u884c\u65bc\u80a1\u7968\u767c\u653e\u7576\u65e5\u76f4\u63a5\u64a5\u5165\u8cb4\u80a1\u6771\u4e4b\u96c6\u4fdd\u5e33\u6236",
+        "source_scope": "SECONDARY_ISSUER_NOTICE_REPRINT",
+        "primary_delivery_certified": false,
+        "gap_closed": false,
+        "publication_vintage_certified": false,
+        "source_id": "resume_hn_2013_original_notice_reprint",
+        "source_url": "https://n.yam.com/Article/20130906734847",
+        "response_sha256": "59384a2d2ac1c24e66d0325ba6028b09fc8289029f81624ada7ed9176fa6f23c"
+      }
+    ],
+    "primary_index_comparison": [
+      {
+        "index_id": "2880_2013_annual",
+        "status": "CAPTURED",
+        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=102&month=&step=1&isnew=false",
+        "response_sha256": "78c330e41fb7c144c26ae67f9459a51e9431e304996fd593444553b0da8f4732",
+        "candidate_title_present": false,
+        "conclusion": "Candidate title absent from this saved index",
+        "historical_inventory_certified": false
+      },
+      {
+        "index_id": "t59sb09_2880_2013_index",
+        "status": "CAPTURED",
+        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?firstin=true&TYPEK=sii&co_id=2880&year=102&step=1",
+        "response_sha256": "54be009a94e38334810f37d328a423f924f2f5eab5dc905b532a8f7ad8d486e8",
+        "candidate_title_present": false,
+        "conclusion": "Candidate title absent from this saved index",
+        "historical_inventory_certified": false
+      }
+    ],
+    "ledger_sha256": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
+    "capture_count": 7,
+    "completed_transfers": 4,
+    "new_primary_delivery_facts": 0,
+    "gaps_closed": 0,
+    "backtest_ready": false,
+    "backtest_executed": false,
+    "canonical_modified": false,
+    "limits": [
+      "Transport success is not evidence validation",
+      "Partial PDFs remain excluded even if text is recoverable",
+      "Secondary reprints cannot close primary-source requirements",
+      "Absence from a current index does not prove the notice never existed",
+      "No rights/ordinary quote or holder subscription evidence was fabricated"
+    ]
   },
   "audited_input_restoration": {
     "status": "RESTORED_EXACT_AUDITED_HASHES",

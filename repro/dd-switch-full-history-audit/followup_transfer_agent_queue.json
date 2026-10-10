@@ -1,0 +1,17 @@
+[
+  {
+    "id": "followup_hn_transfer_agent_news",
+    "url": "https://www.entrust.com.tw/entrust/agent/news.do",
+    "purpose": "Locate primary historical HN delivery notices from transfer agent."
+  },
+  {
+    "id": "followup_hn_transfer_agent_weekly",
+    "url": "https://www.entrust.com.tw/entrust/agent/weeklyNews.do",
+    "purpose": "Inspect current weekly archive interface; do not infer historical dates."
+  },
+  {
+    "id": "followup_hn_transfer_agent_companies",
+    "url": "https://www.entrust.com.tw/entrust/agent/comList.do",
+    "purpose": "Verify HN transfer-agent issuer archive link."
+  }
+]

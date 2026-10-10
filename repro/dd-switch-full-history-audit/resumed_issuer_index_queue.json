@@ -1,0 +1,13 @@
+[
+  {
+    "id": "resume_hn_official_annual_apex_index",
+    "url": "https://hnfhc.com.tw/HNFHC/ir/e.do",
+    "source_role": "issuer_observed_index_host_variant",
+    "target_events": [
+      "2880:stock:2010-08-12",
+      "2880:stock:2011-08-11",
+      "2880:stock:2012-08-15",
+      "2880:stock:2013-08-15"
+    ]
+  }
+]

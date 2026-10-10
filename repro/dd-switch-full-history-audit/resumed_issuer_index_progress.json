@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE",
+  "total": 1,
+  "processed": 1,
+  "success": 0,
+  "failed": 1,
+  "cached": 0,
+  "started_at": "2026-10-10T04:37:31.600096+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "resume_hn_official_annual_apex_index",
+      "status": "FAILED"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T04:37:31.600173+00:00",
+  "updated_at": "2026-10-10T04:37:40.590479+00:00",
+  "last_completed_at": "2026-10-10T04:37:40.587972+00:00",
+  "skipped": 0
+}

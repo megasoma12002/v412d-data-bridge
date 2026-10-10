@@ -26,13 +26,18 @@ class TargetedGuardTests(unittest.TestCase):
         self.assertEqual(result['status'], 'STOPPED_SOURCE_BLOCK')
         self.assertEqual((result['processed'], result['skipped'], calls), (1, 1, 1))
 
-    def run_capture(self, response, count):
+    def run_capture(self, response, count, timeout=None):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
             queue = root / 'queue.json'
             queue.write_text(json.dumps([dict(id='notice_' + str(i), url='https://example.org/notice/' + str(i)) for i in range(count)]))
-            with patch.object(capture, 'ROOT', root), patch.object(capture, 'OUT', root), patch.object(capture, 'DEST', root / 'sources'), patch('sys.argv', ['capture', str(queue)]), patch.object(capture.time, 'sleep'), patch.object(capture.subprocess, 'run', return_value=response) as request, patch('builtins.print'):
+            argv = ['capture', str(queue)] + ([] if timeout is None else ['--timeout-seconds', str(timeout)])
+            with patch.object(capture, 'ROOT', root), patch.object(capture, 'OUT', root), patch.object(capture, 'DEST', root / 'sources'), patch('sys.argv', argv), patch.object(capture.time, 'sleep'), patch.object(capture.subprocess, 'run', return_value=response) as request, patch('builtins.print'):
                 capture.main()
+                timeout_arg = request.call_args.args[0][request.call_args.args[0].index('--max-time') + 1]
+                expected_timeout = 15 if timeout is None else timeout
+                self.assertEqual(timeout_arg, str(expected_timeout))
+                self.assertEqual(json.loads((root / 'sources/manifest.json').read_text())[-1]['timeout_seconds'], expected_timeout)
             return json.loads((root / 'issuer_capture_progress.json').read_text()), request.call_count
 
     def test_source_block_stops_same_host_and_records_skipped_work(self):
@@ -46,6 +51,11 @@ class TargetedGuardTests(unittest.TestCase):
         self.assertEqual(result['status'], 'STOPPED_FAILURE_LIMIT')
         self.assertEqual((result['processed'], result['skipped'], calls), (3, 1, 3))
         self.assertEqual(result['current_id'], '')
+
+    def test_explicit_large_pdf_timeout_keeps_partial_http_200_failed(self):
+        result, calls = self.run_capture(SimpleNamespace(returncode=28, stdout=b'%PDF-partial\n200', stderr=b'timed out'), 1, timeout=60)
+        self.assertEqual((result['success'], result['failed'], calls), (0, 1, 1))
+        self.assertEqual(result['recent_results'][0]['status'], 'FAILED')
 
 
 class CaptureWriterLockTests(unittest.TestCase):

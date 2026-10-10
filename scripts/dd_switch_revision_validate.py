@@ -49,6 +49,14 @@ def main():
     annual = OUT / 'issuer_annual_delivery_validation.json'
     if annual.exists():
         result['issuer_annual_delivery_evidence'] = json.loads(annual.read_text())
+    resumed = OUT / 'resumed_delivery_review.json'
+    if resumed.exists():
+        result['resumed_delivery_review'] = json.loads(resumed.read_text())
+        for name in ('resumed_primary_delivery_progress.json', 'resumed_prospectus_retry_progress.json',
+                     'resumed_notice_lead_progress.json', 'resumed_issuer_index_progress.json',
+                     'resumed_prospectus_complete_progress.json'):
+            if (OUT / name).exists():
+                result['additional_capture_progress'][name] = json.loads((OUT / name).read_text())
     restoration = OUT / 'audited_input_restoration.json'
     if restoration.exists():
         result['audited_input_restoration'] = json.loads(restoration.read_text())

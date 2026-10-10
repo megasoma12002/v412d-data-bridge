@@ -23,6 +23,9 @@ def main():
     scoped = json.loads((OUT / 'scoped_delivery_evidence.json').read_text())
     holder = {r['event_id']: r for r in scoped['public_holder_distribution_rows']}
     stage = {r['event_id']: r for r in json.loads((OUT / 'remaining_dividend_share_stage_evidence.json').read_text())}
+    resumed_path = OUT / 'resumed_delivery_review.json'
+    resumed = json.loads(resumed_path.read_text()) if resumed_path.exists() else {}
+    leads = {r['event_id']: r for r in resumed.get('secondary_delivery_leads', [])}
     for r in read('remaining_0050_revision_stage_gaps.csv'):
         add('0050_REVISION_STAGE', r['event_id'], 'OPEN',
             f"ESTIMATE={r['estimate_versions']}; FINAL={r['final_versions']}",
@@ -34,6 +37,10 @@ def main():
             evidence.append('MOE holder-only credit ' + h['reported_distribution_date'])
         if stage.get(r['event_id'], {}).get('explicit_listing_evidence'):
             evidence.append('Primary listing notice; separate delivery date absent')
+        if r['event_id'] in leads:
+            lead = leads[r['event_id']]
+            evidence.append('Secondary general book-entry schedule ' + lead['candidate_general_delivery_date'] +
+                            '; primary original still required; source=' + lead['source_id'])
         add('STOCK_DELIVERY', r['event_id'], 'OPEN', '; '.join(evidence) or 'Declaration/capital registration; no dated general delivery',
             'Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient')
     for r in read('remaining_subscription_delivery_gaps.csv'):

@@ -27,7 +27,7 @@ def exclusive_capture_lock(directory=DEST):
         finally:fcntl.flock(handle,fcntl.LOCK_UN)
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('queue',type=Path);p.add_argument('--progress',default='issuer_capture_progress.json');p.add_argument('--timeout-seconds',type=int,choices=[15,30],default=15);args=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('queue',type=Path);p.add_argument('--progress',default='issuer_capture_progress.json');p.add_argument('--timeout-seconds',type=int,choices=[15,30,60],default=15);args=p.parse_args()
     items=json.loads(args.queue.read_text());DEST.mkdir(parents=True,exist_ok=True)
     mp=DEST/'manifest.json';rows=json.loads(mp.read_text()) if mp.exists() else []
     state=dict(status='RUNNING',total=len(items),processed=0,success=0,failed=0,cached=0,started_at=now(),blocked_hosts=[],recent_results=[])
