@@ -1,0 +1,99 @@
+{
+  "captures": [
+    {
+      "repository": "aRthur08701244/Intern-in-CTBC",
+      "commit": "258f42aa4502b458b11fcb96f875cdd80266df3f",
+      "path": "AI_Investment/factor_investment/202202_Intern/RawData/201351_cnyesnews.csv",
+      "url": "https://raw.githubusercontent.com/aRthur08701244/Intern-in-CTBC/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/factor_investment/202202_Intern/RawData/201351_cnyesnews.csv",
+      "git_blob_sha": "d52abe8f7507328f51175a0f9f73c254f0dc2f8e",
+      "download_blob_sha": "d52abe8f7507328f51175a0f9f73c254f0dc2f8e",
+      "sha256": "45b1479e34f92764954af85d80c4cedf88de868ead8136f4e7b1d627270b166a",
+      "compressed_sha256": "a16a5656abcbcc5392a8e9182e027bad1998118ec8637f870021ee5e3624d592",
+      "saved_path": "repro/dd-switch-full-history-audit/sources/github_news_followup/201351_cnyesnews.csv.gz",
+      "bytes": 3251093,
+      "status": "VERIFIED_MIRROR",
+      "error": "",
+      "retrieved_at": "2026-10-10T06:11:46.484582+00:00",
+      "header": [
+        "",
+        "Unnamed: 0",
+        "date",
+        "title",
+        "content"
+      ],
+      "rows": 2013,
+      "matched_rows": []
+    },
+    {
+      "repository": "aRthur08701244/Intern-in-CTBC",
+      "commit": "258f42aa4502b458b11fcb96f875cdd80266df3f",
+      "path": "AI_Investment/factor_investment/202202_Intern/RawData/201352_cnyesnews.csv",
+      "url": "https://raw.githubusercontent.com/aRthur08701244/Intern-in-CTBC/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/factor_investment/202202_Intern/RawData/201352_cnyesnews.csv",
+      "git_blob_sha": "fccc5bb92c26a142acdd78f780dfb00e0fadb5d1",
+      "download_blob_sha": "fccc5bb92c26a142acdd78f780dfb00e0fadb5d1",
+      "sha256": "8ed5d0e656f9b050f8133057ac00fb7c231187d5385f7cd0cd1ba3d76dc93633",
+      "compressed_sha256": "c411cb85296991ec158e155fe4b688be0679b0e94d8cc91910b4aea3f3956600",
+      "saved_path": "repro/dd-switch-full-history-audit/sources/github_news_followup/201352_cnyesnews.csv.gz",
+      "bytes": 2664124,
+      "status": "VERIFIED_MIRROR",
+      "error": "",
+      "retrieved_at": "2026-10-10T06:11:46.607787+00:00",
+      "header": [
+        "",
+        "date",
+        "title",
+        "content"
+      ],
+      "rows": 1651,
+      "matched_rows": []
+    },
+    {
+      "repository": "aRthur08701244/Intern-in-CTBC",
+      "commit": "258f42aa4502b458b11fcb96f875cdd80266df3f",
+      "path": "AI_Investment/factor_investment/202202_Intern/RawData/201391_cnyesnews.csv",
+      "url": "https://raw.githubusercontent.com/aRthur08701244/Intern-in-CTBC/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/factor_investment/202202_Intern/RawData/201391_cnyesnews.csv",
+      "git_blob_sha": "0c82000105ed438b046c3cb459509d6714151147",
+      "download_blob_sha": "0c82000105ed438b046c3cb459509d6714151147",
+      "sha256": "bce29624e2c510a9a90b3be54f0de3e32b7fdf98c2c81e410e3d77ed104ffa67",
+      "compressed_sha256": "4da038fe8e79db96b41e2ba1e53e945b66fdd34766f5f50d35bef546aab7e490",
+      "saved_path": "repro/dd-switch-full-history-audit/sources/github_news_followup/201391_cnyesnews.csv.gz",
+      "bytes": 2589645,
+      "status": "VERIFIED_MIRROR",
+      "error": "",
+      "retrieved_at": "2026-10-10T06:11:46.454011+00:00",
+      "header": [
+        "",
+        "date",
+        "title",
+        "content"
+      ],
+      "rows": 1530,
+      "matched_rows": []
+    },
+    {
+      "repository": "aRthur08701244/Intern-in-CTBC",
+      "commit": "258f42aa4502b458b11fcb96f875cdd80266df3f",
+      "path": "AI_Investment/factor_investment/202202_Intern/RawData/201392_cnyesnews.csv",
+      "url": "https://raw.githubusercontent.com/aRthur08701244/Intern-in-CTBC/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/factor_investment/202202_Intern/RawData/201392_cnyesnews.csv",
+      "git_blob_sha": "772e7776c2f547e0185f7e33a7a02837675b644d",
+      "download_blob_sha": "772e7776c2f547e0185f7e33a7a02837675b644d",
+      "sha256": "f74052fc7874b698b056aa456d9e4b9a4c1511c7eb0242a047415283f88be4e9",
+      "compressed_sha256": "4ed5f13dca61f4efd13748450ee0019ab85a8cfdf3c861eb39e5303a9673710d",
+      "saved_path": "repro/dd-switch-full-history-audit/sources/github_news_followup/201392_cnyesnews.csv.gz",
+      "bytes": 2377399,
+      "status": "VERIFIED_MIRROR",
+      "error": "",
+      "retrieved_at": "2026-10-10T06:11:46.420727+00:00",
+      "header": [
+        "",
+        "date",
+        "title",
+        "content"
+      ],
+      "rows": 1444,
+      "matched_rows": []
+    }
+  ],
+  "new_primary_delivery_facts": 0,
+  "backtest_executed": false
+}

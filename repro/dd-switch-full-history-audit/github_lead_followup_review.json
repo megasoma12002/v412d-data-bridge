@@ -1,0 +1,213 @@
+{
+  "captures": [
+    {
+      "id": "github_lead_t59sb09_2880_20130906_1",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2880&colorchg=&TYPEK=sii&YEAR=102&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20130906&SKEY=1&step=2&firstin=1",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/github_lead_t59sb09_2880_20130906_1.html.gz",
+      "retrieved_at": "2026-10-10T06:08:32.122615+00:00",
+      "response_sha256": "b57dbf7aae0d00f54397e0e383cac2cd6a3dd4792ea8d8a80f34b8b6a0a13dff",
+      "compressed_sha256": "cdaa60c7411e839abd4140fac2e571a115a8474a0cc9700889095ba2638d3f2a",
+      "bytes": 2458,
+      "gap_closed": false,
+      "assessment": "HTTP 200 empty MOPS shell; no issuer announcement body. Not proof of absence."
+    },
+    {
+      "id": "github_lead_t59sb09_2891_20120424_1",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2891&colorchg=&TYPEK=sii&YEAR=101&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20120424&SKEY=1&step=2&firstin=1",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/github_lead_t59sb09_2891_20120424_1.html.gz",
+      "retrieved_at": "2026-10-10T06:08:41.382550+00:00",
+      "response_sha256": "b57dbf7aae0d00f54397e0e383cac2cd6a3dd4792ea8d8a80f34b8b6a0a13dff",
+      "compressed_sha256": "cdaa60c7411e839abd4140fac2e571a115a8474a0cc9700889095ba2638d3f2a",
+      "bytes": 2458,
+      "gap_closed": false,
+      "assessment": "HTTP 200 empty MOPS shell; no issuer announcement body. Not proof of absence."
+    },
+    {
+      "id": "github_lead_ctbc_2012_final_reprint",
+      "url": "https://n.yam.com/Article/20120424408004",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/github_lead_ctbc_2012_final_reprint.html.gz",
+      "retrieved_at": "2026-10-10T06:08:49.836416+00:00",
+      "response_sha256": "6b9c6bfd76707f47b5c8c0513315556e06da79e6f3c84626e100144d809ed6cf",
+      "compressed_sha256": "891c7360d7a046fe3af1d62bd1302c0122043eb50326738083dc8aad391565ed",
+      "bytes": 33665,
+      "gap_closed": false,
+      "assessment": "Secondary reprint, not independently certified primary/vintage evidence."
+    },
+    {
+      "id": "github_lead_hn_2011_final_reprint",
+      "url": "https://news.cnyes.com/news/id/2263066",
+      "status": "FAILED",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/github_lead_hn_2011_final_reprint.html.gz",
+      "retrieved_at": "2026-10-10T06:10:51.391889+00:00",
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compressed_sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 0,
+      "gap_closed": false,
+      "assessment": "Failed/incomplete transport; excluded as evidence."
+    },
+    {
+      "id": "github_lead_ctbc_2013_registration_reprint",
+      "url": "https://m.cnyes.com/news/id/1509129",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/github_lead_ctbc_2013_registration_reprint.html.gz",
+      "retrieved_at": "2026-10-10T06:11:01.373449+00:00",
+      "response_sha256": "a9130b9580e42790c54b83e54d712976b42cc509781614107a4634983dec5e9c",
+      "compressed_sha256": "4ca89a84ee01e161ae9a13ca7c017682667f2de197d91332efff0f16993a1264",
+      "bytes": 157836,
+      "gap_closed": false,
+      "assessment": "Secondary reprint, not independently certified primary/vintage evidence."
+    },
+    {
+      "id": "github_lead_hn_2011_final_mobile_reprint",
+      "url": "https://m.cnyes.com/news/id/2263066",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/github_lead_hn_2011_final_mobile_reprint.html.gz",
+      "retrieved_at": "2026-10-10T06:12:36.696364+00:00",
+      "response_sha256": "1981b1d253fc0a3e7b6bc021ddf102e1af85270586858978375e1ef005a77bf9",
+      "compressed_sha256": "3e7236b9f857a0e9186fa057c63130edace9622b11601c05c143d5224ee4c255",
+      "bytes": 156517,
+      "gap_closed": false,
+      "assessment": "Secondary reprint, not independently certified primary/vintage evidence."
+    }
+  ],
+  "github_news_captures": [
+    {
+      "repository": "aRthur08701244/Intern-in-CTBC",
+      "commit": "258f42aa4502b458b11fcb96f875cdd80266df3f",
+      "path": "AI_Investment/factor_investment/202202_Intern/RawData/201351_cnyesnews.csv",
+      "url": "https://raw.githubusercontent.com/aRthur08701244/Intern-in-CTBC/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/factor_investment/202202_Intern/RawData/201351_cnyesnews.csv",
+      "git_blob_sha": "d52abe8f7507328f51175a0f9f73c254f0dc2f8e",
+      "download_blob_sha": "d52abe8f7507328f51175a0f9f73c254f0dc2f8e",
+      "sha256": "45b1479e34f92764954af85d80c4cedf88de868ead8136f4e7b1d627270b166a",
+      "compressed_sha256": "a16a5656abcbcc5392a8e9182e027bad1998118ec8637f870021ee5e3624d592",
+      "saved_path": "repro/dd-switch-full-history-audit/sources/github_news_followup/201351_cnyesnews.csv.gz",
+      "bytes": 3251093,
+      "status": "VERIFIED_MIRROR",
+      "error": "",
+      "retrieved_at": "2026-10-10T06:11:46.484582+00:00",
+      "header": [
+        "",
+        "Unnamed: 0",
+        "date",
+        "title",
+        "content"
+      ],
+      "rows": 2013,
+      "matched_rows": []
+    },
+    {
+      "repository": "aRthur08701244/Intern-in-CTBC",
+      "commit": "258f42aa4502b458b11fcb96f875cdd80266df3f",
+      "path": "AI_Investment/factor_investment/202202_Intern/RawData/201352_cnyesnews.csv",
+      "url": "https://raw.githubusercontent.com/aRthur08701244/Intern-in-CTBC/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/factor_investment/202202_Intern/RawData/201352_cnyesnews.csv",
+      "git_blob_sha": "fccc5bb92c26a142acdd78f780dfb00e0fadb5d1",
+      "download_blob_sha": "fccc5bb92c26a142acdd78f780dfb00e0fadb5d1",
+      "sha256": "8ed5d0e656f9b050f8133057ac00fb7c231187d5385f7cd0cd1ba3d76dc93633",
+      "compressed_sha256": "c411cb85296991ec158e155fe4b688be0679b0e94d8cc91910b4aea3f3956600",
+      "saved_path": "repro/dd-switch-full-history-audit/sources/github_news_followup/201352_cnyesnews.csv.gz",
+      "bytes": 2664124,
+      "status": "VERIFIED_MIRROR",
+      "error": "",
+      "retrieved_at": "2026-10-10T06:11:46.607787+00:00",
+      "header": [
+        "",
+        "date",
+        "title",
+        "content"
+      ],
+      "rows": 1651,
+      "matched_rows": []
+    },
+    {
+      "repository": "aRthur08701244/Intern-in-CTBC",
+      "commit": "258f42aa4502b458b11fcb96f875cdd80266df3f",
+      "path": "AI_Investment/factor_investment/202202_Intern/RawData/201391_cnyesnews.csv",
+      "url": "https://raw.githubusercontent.com/aRthur08701244/Intern-in-CTBC/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/factor_investment/202202_Intern/RawData/201391_cnyesnews.csv",
+      "git_blob_sha": "0c82000105ed438b046c3cb459509d6714151147",
+      "download_blob_sha": "0c82000105ed438b046c3cb459509d6714151147",
+      "sha256": "bce29624e2c510a9a90b3be54f0de3e32b7fdf98c2c81e410e3d77ed104ffa67",
+      "compressed_sha256": "4da038fe8e79db96b41e2ba1e53e945b66fdd34766f5f50d35bef546aab7e490",
+      "saved_path": "repro/dd-switch-full-history-audit/sources/github_news_followup/201391_cnyesnews.csv.gz",
+      "bytes": 2589645,
+      "status": "VERIFIED_MIRROR",
+      "error": "",
+      "retrieved_at": "2026-10-10T06:11:46.454011+00:00",
+      "header": [
+        "",
+        "date",
+        "title",
+        "content"
+      ],
+      "rows": 1530,
+      "matched_rows": []
+    },
+    {
+      "repository": "aRthur08701244/Intern-in-CTBC",
+      "commit": "258f42aa4502b458b11fcb96f875cdd80266df3f",
+      "path": "AI_Investment/factor_investment/202202_Intern/RawData/201392_cnyesnews.csv",
+      "url": "https://raw.githubusercontent.com/aRthur08701244/Intern-in-CTBC/258f42aa4502b458b11fcb96f875cdd80266df3f/AI_Investment/factor_investment/202202_Intern/RawData/201392_cnyesnews.csv",
+      "git_blob_sha": "772e7776c2f547e0185f7e33a7a02837675b644d",
+      "download_blob_sha": "772e7776c2f547e0185f7e33a7a02837675b644d",
+      "sha256": "f74052fc7874b698b056aa456d9e4b9a4c1511c7eb0242a047415283f88be4e9",
+      "compressed_sha256": "4ed5f13dca61f4efd13748450ee0019ab85a8cfdf3c861eb39e5303a9673710d",
+      "saved_path": "repro/dd-switch-full-history-audit/sources/github_news_followup/201392_cnyesnews.csv.gz",
+      "bytes": 2377399,
+      "status": "VERIFIED_MIRROR",
+      "error": "",
+      "retrieved_at": "2026-10-10T06:11:46.420727+00:00",
+      "header": [
+        "",
+        "date",
+        "title",
+        "content"
+      ],
+      "rows": 1444,
+      "matched_rows": []
+    }
+  ],
+  "secondary_listing_leads": [
+    {
+      "event_id": "2891:subscription:2012-02-10",
+      "source_id": "github_lead_ctbc_2012_final_reprint",
+      "source_url": "https://n.yam.com/Article/20120424408004",
+      "response_sha256": "6b9c6bfd76707f47b5c8c0513315556e06da79e6f3c84626e100144d809ed6cf",
+      "candidate_ordinary_listing_date": "2012-04-30",
+      "earlier_book_entry_date": "2012-04-12",
+      "earlier_stage": "SUBSCRIPTION_VOUCHER_PER_PRIOR_PRIMARY_NOTICE",
+      "corroborating_primary_voucher_id": "t59sb09_2891_20120409_20120409_1",
+      "general_ordinary_delivery_date": null,
+      "source_class": "SECONDARY_REPRINT_NOT_PROMOTED",
+      "primary_original_required": true,
+      "gap_closed": false
+    },
+    {
+      "event_id": "2880:subscription:2011-11-07",
+      "source_id": "github_lead_hn_2011_final_mobile_reprint",
+      "source_url": "https://m.cnyes.com/news/id/2263066",
+      "response_sha256": "1981b1d253fc0a3e7b6bc021ddf102e1af85270586858978375e1ef005a77bf9",
+      "candidate_ordinary_listing_date": "2012-02-07",
+      "earlier_book_entry_date": "2011-12-29",
+      "earlier_stage": "SUBSCRIPTION_VOUCHER_PER_PRIOR_PRIMARY_NOTICE",
+      "corroborating_primary_voucher_id": "t59sb09_2880_20111226_20111223_1",
+      "general_ordinary_delivery_date": null,
+      "source_class": "SECONDARY_REPRINT_NOT_PROMOTED",
+      "primary_original_required": true,
+      "gap_closed": false
+    }
+  ],
+  "new_primary_delivery_facts": 0,
+  "verified_source_hash_pairs": 10,
+  "archive_sha256": "6b8d57ea0f3c3cfdeb29fb8df51f51c0e6374b7446e3274bc72330b9bb5864d5",
+  "review_script_sha256": "2c0355510a8d6305a5a0c14253be6ba3451f647c7565443c8df235f955b01fb9",
+  "backtest_ready": false,
+  "backtest_executed": false,
+  "canonical_modified": false,
+  "background_capture_jobs": 0,
+  "limitations": [
+    "Four selected mirror files are not a complete news archive.",
+    "Empty MOPS shells and no matching mirror rows do not prove historical absence."
+  ]
+}

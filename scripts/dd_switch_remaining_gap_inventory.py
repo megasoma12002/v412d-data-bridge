@@ -43,11 +43,19 @@ def main():
                             '; primary original still required; source=' + lead['source_id'])
         add('STOCK_DELIVERY', r['event_id'], 'OPEN', '; '.join(evidence) or 'Declaration/capital registration; no dated general delivery',
             'Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient')
+    github_followup_path = OUT / 'github_lead_followup_review.json'
+    github_followup = json.loads(github_followup_path.read_text()) if github_followup_path.exists() else {}
+    secondary_listing = {r['event_id']: r for r in github_followup.get('secondary_listing_leads', [])}
     for r in read('remaining_subscription_delivery_gaps.csv'):
         available = 'Subscription window ' + r['subscription_start'] + '..' + r['subscription_end']
         available += '; voucher=' + (r['subscription_voucher_delivery_date'] or 'unavailable')
         available += '; primary ordinary listing=' + (r['new_share_listing_date'] or 'unavailable')
-        add('SUBSCRIPTION_DELIVERY', r['code'] + ':subscription:' + r['ex_date'], 'OPEN', available,
+        event_id = r['code'] + ':subscription:' + r['ex_date']
+        if event_id in secondary_listing:
+            lead = secondary_listing[event_id]
+            available += '; secondary candidate ordinary listing=' + lead['candidate_ordinary_listing_date']
+            available += '; not promoted; original/delivery required; source=' + lead['source_id']
+        add('SUBSCRIPTION_DELIVERY', event_id, 'OPEN', available,
             'General final ordinary-share book-entry/conversion delivery notice; preserve voucher stage; paid holder election required before simulated credit')
     for r in read('dividend_settlement_check.csv'):
         if r['payment_date_conflict'] == 'True':

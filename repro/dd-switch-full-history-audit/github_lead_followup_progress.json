@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "total": 3,
+  "processed": 3,
+  "success": 3,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T06:08:23.196370+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "github_lead_t59sb09_2880_20130906_1",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "github_lead_t59sb09_2891_20120424_1",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "github_lead_ctbc_2012_final_reprint",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T06:08:41.387698+00:00",
+  "updated_at": "2026-10-10T06:08:49.840387+00:00",
+  "last_completed_at": "2026-10-10T06:08:49.836592+00:00",
+  "skipped": 0
+}
