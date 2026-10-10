@@ -1,0 +1,45 @@
+{
+  "champ_arm": "and::rvol63_l4&fuse_prem_neg5",
+  "full": {
+    "note": "ILLUSTRATIVE ONLY \u2014 signal\u2260apply; no size-overlay / tip Soft promote",
+    "label": "full_champ_alert",
+    "held_cagr_lift_pp": -2.3008,
+    "sealed_mdd_improve_pp": -1.4756,
+    "tipY_cagr_lift_pp": -13.5755,
+    "pct_cash_days": 10.01
+  },
+  "cliff_only": {
+    "note": "ILLUSTRATIVE ONLY \u2014 signal\u2260apply; no size-overlay / tip Soft promote",
+    "label": "cliff_only_alert",
+    "held_cagr_lift_pp": 1.6895,
+    "sealed_mdd_improve_pp": 0.0,
+    "tipY_cagr_lift_pp": 0.0,
+    "pct_cash_days": 0.27,
+    "window": [
+      "2020-02-20",
+      "2020-03-23"
+    ],
+    "window_mdd_improve_pp": 9.8236,
+    "base_window_mdd": -0.130011,
+    "chal_window_mdd": -0.031775
+  },
+  "grind_only": {
+    "note": "ILLUSTRATIVE ONLY \u2014 signal\u2260apply; no size-overlay / tip Soft promote",
+    "label": "grind_only_alert",
+    "held_cagr_lift_pp": -0.0,
+    "sealed_mdd_improve_pp": 0.0,
+    "tipY_cagr_lift_pp": 0.0,
+    "pct_cash_days": 0.0,
+    "window": [
+      "2020-07-30",
+      "2022-11-03"
+    ],
+    "window_mdd_improve_pp": 0.0,
+    "base_window_mdd": -0.108837,
+    "chal_window_mdd": -0.108837
+  },
+  "differential": {
+    "held_cliff_minus_grind_pp": 1.6895,
+    "note": "Illustrative only \u2014 cash-gate on regime-restricted champ alerts; not promote / not DD_SWITCH tip Soft."
+  }
+}
