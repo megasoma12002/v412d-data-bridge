@@ -1,0 +1,7 @@
+arm,family,verdict,held_vs_base,full_cagr_vs_base,sealed_vs_base,tipY_vs_base,y2020_mdd,y2020_mdd_improve_pp,mar2020_mdd,mar2020_mdd_improve_pp,mean_exposure,is_ref,hit_clear,mdd_help,held_ok,sealed_ok
+MDD_D008_H012_S05,MDD,MDD_ONLY,-1.2455,-0.8454,0.0,-0.0,-0.117182,2.7128,-0.102429,2.7582,0.9698,False,False,True,False,True
+MDD_D008_H012_S04,MDD,MDD_ONLY,-2.5523,-1.8632,0.0,0.0,-0.111685,3.2625,-0.096841,3.3171,0.9513,False,False,True,False,True
+MDD_D01_H015_S05,MDD,MDD_ONLY,-1.3238,-0.8608,0.0,0.0,-0.125539,1.8771,-0.110926,1.9085,0.9813,False,False,True,False,True
+MDD_D01_H015_S04,MDD,MDD_ONLY,-1.6696,-1.5762,0.0,0.0,-0.121757,2.2553,-0.107081,2.293,0.9674,False,False,True,False,True
+MDD_D012_H018_S05,MDD,MDD_ONLY,-0.2637,-0.142,0.0,0.0,-0.133646,1.0665,-0.119168,1.0843,0.9991,False,False,True,False,True
+MDD_D012_H018_S04,MDD,MDD_ONLY,-0.3178,-0.1711,0.0,-0.0,-0.131513,1.2798,-0.117,1.3012,0.9989,False,False,True,False,True

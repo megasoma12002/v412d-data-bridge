@@ -1,0 +1,47 @@
+{
+  "id": "TIPSOFT_IP3_Y2020_CRISIS_SANDBOX_STAGEA_DECISION_PACK",
+  "register": "0kbg",
+  "parents": [
+    "0kbf",
+    "0kb4",
+    "0kb2"
+  ],
+  "label_tag": "SANDBOX_PARALLEL",
+  "verdict": "IP3_Y2020_CRISIS_SANDBOX_MDD_ONLY",
+  "champion": {
+    "arm": "MDD_D012_H018_S05",
+    "family": "MDD",
+    "verdict": "MDD_ONLY",
+    "held_vs_base": -0.2637,
+    "full_cagr_vs_base": -0.142,
+    "sealed_vs_base": 0.0,
+    "tipY_vs_base": 0.0,
+    "y2020_mdd": -0.133646,
+    "y2020_mdd_improve_pp": 1.0665,
+    "mar2020_mdd": -0.119168,
+    "mar2020_mdd_improve_pp": 1.0843,
+    "mean_exposure": 0.9991,
+    "is_ref": false,
+    "hit_clear": false,
+    "mdd_help": true,
+    "held_ok": false,
+    "sealed_ok": true
+  },
+  "n_hit": 0,
+  "n_soft": 0,
+  "n_mdd_only": 6,
+  "soak_unlock": false,
+  "live_wire_recommend": false,
+  "reopen_0kb2_observe": false,
+  "compare_0kb4": {
+    "register": "0kb4",
+    "verdict": "IP3_Y2020_DEFEND_NO_EDGE",
+    "family": "defend/off-peak/FUSE force-LIVE knives on 0kb2",
+    "this_family": "crisis overlays (vol/MA200/account-MDD) on L4 NAV returns",
+    "note": "Different mechanism family \u2014 0kb4 failed held+\u2227y20 on residual stack knives; 0kbg screens synthetic crisis exposure on twin NAV. Neither unlocks soak freeze."
+  },
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "label": "TIPSOFT_IP3_Y2020_CRISIS_SANDBOX_STAGEA_DECISION_PACK_2026-10-03__IP3_Y2020_CRISIS_SANDBOX_MDD_ONLY__SANDBOX_PARALLEL__NO_LIVE"
+}
