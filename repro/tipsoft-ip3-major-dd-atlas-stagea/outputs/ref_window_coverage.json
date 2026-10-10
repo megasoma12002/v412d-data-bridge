@@ -1,0 +1,102 @@
+[
+  {
+    "tag": "EU_US_2011",
+    "label": "2011 EU/US debt stress",
+    "era": "2011",
+    "n_overlap_episodes": 9,
+    "auto_labels": [
+      "CLIFF",
+      "GRIND"
+    ],
+    "series": [
+      "mkt_0050",
+      "taiex"
+    ],
+    "max_depth": 0.1961
+  },
+  {
+    "tag": "TW_CN_2015",
+    "label": "2015 TW/China",
+    "era": "2015",
+    "n_overlap_episodes": 9,
+    "auto_labels": [
+      "CLIFF",
+      "GRIND",
+      "OTHER"
+    ],
+    "series": [
+      "l4_nav",
+      "mkt_0050",
+      "soft_nav",
+      "taiex"
+    ],
+    "max_depth": 0.218
+  },
+  {
+    "tag": "Q4_2018",
+    "label": "2018 Q4",
+    "era": "2018",
+    "n_overlap_episodes": 8,
+    "auto_labels": [
+      "CLIFF",
+      "GRIND",
+      "OTHER"
+    ],
+    "series": [
+      "l4_nav",
+      "mkt_0050",
+      "soft_nav",
+      "taiex"
+    ],
+    "max_depth": 0.1477
+  },
+  {
+    "tag": "MAR2020_CLIFF",
+    "label": "Mar2020 cliff",
+    "era": "2020_mar",
+    "n_overlap_episodes": 11,
+    "auto_labels": [
+      "CLIFF"
+    ],
+    "series": [
+      "l4_nav",
+      "mkt_0050",
+      "soft_nav",
+      "taiex"
+    ],
+    "max_depth": 0.2653
+  },
+  {
+    "tag": "MID2020_RESIDUAL",
+    "label": "mid-2020 residual",
+    "era": "2020_mid",
+    "n_overlap_episodes": 3,
+    "auto_labels": [
+      "OTHER"
+    ],
+    "series": [
+      "l4_nav",
+      "mkt_0050",
+      "soft_nav"
+    ],
+    "max_depth": 0.0033
+  },
+  {
+    "tag": "BEAR_2022",
+    "label": "2022 bear",
+    "era": "2022",
+    "n_overlap_episodes": 27,
+    "auto_labels": [
+      "CLIFF",
+      "GRIND",
+      "OTHER"
+    ],
+    "series": [
+      "l4_nav",
+      "mkt_0050",
+      "soft_nav",
+      "taiex"
+    ],
+    "max_depth": 0.3638
+  }
+]

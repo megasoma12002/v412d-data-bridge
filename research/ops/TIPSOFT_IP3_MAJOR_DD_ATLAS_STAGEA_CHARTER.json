@@ -1,0 +1,48 @@
+{
+  "id": "TIPSOFT_IP3_MAJOR_DD_ATLAS_STAGEA_CHARTER",
+  "register": "0kbl",
+  "parents": [
+    "0kbk",
+    "0kbj",
+    "0kbi",
+    "0kbf"
+  ],
+  "generated_at_utc": "2026-10-04T03:02:49Z",
+  "tip_sha": "c56778cf785a764f3077f0eb154dc80855caef8e",
+  "label_tag": "MAJOR_DD_ATLAS_PARALLEL",
+  "question": "major DD atlas \u2014 cliffs vs grinds across eras; which detectors generalize",
+  "coverage": {
+    "primary_market": "data/telecom_0050_complete/0050_2010_latest_ohlcv.csv",
+    "market_start": "2010-01-04",
+    "soft_l4_start": "2012-12-04",
+    "taiex_optional": "forward/e10s2/e10s2_taiex.csv",
+    "no_pre_2010_gfc": true,
+    "note": "No pre-2010 / GFC OHLCV or Soft/L4 NAV available in-repo. 0050 has an unadjusted split-like jump ~2025-06-10 (188\u219247) \u2014 artifact episodes with 1d drop \u2264 -35% are excluded from the atlas.",
+    "artifact_filter": "skip episodes with min 1d return \u2264 -35% or depth\u226545% in \u22648 bars",
+    "primary_series_for_major": [
+      "mkt_0050",
+      "l4_nav",
+      "soft_nav"
+    ],
+    "taiex_role": "corroboration_only"
+  },
+  "floors": {
+    "ep_ic": 0.08,
+    "ep_hit": 0.55,
+    "ep_recall": 0.3,
+    "taxonomy": {
+      "cliff_n": 20,
+      "grind_min": 40,
+      "vel_floor": 0.004,
+      "depth_major": 0.1,
+      "depth_minor": 0.08
+    }
+  },
+  "signal_not_apply": true,
+  "soft_keep": true,
+  "path4_live": false,
+  "broker": false,
+  "exact_t1": true,
+  "year_oracle": false,
+  "soak_unlock": false
+}
