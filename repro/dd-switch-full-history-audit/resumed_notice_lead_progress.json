@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE",
+  "total": 1,
+  "processed": 1,
+  "success": 1,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T04:36:50.832234+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "resume_hn_2013_original_notice_reprint",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T04:36:50.832289+00:00",
+  "updated_at": "2026-10-10T04:36:59.284150+00:00",
+  "last_completed_at": "2026-10-10T04:36:59.282250+00:00",
+  "skipped": 0
+}

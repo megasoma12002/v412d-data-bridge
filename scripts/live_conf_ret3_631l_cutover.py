@@ -34,9 +34,12 @@ OFF_PRICE = Path(__file__).resolve().parents[1] / "data/def_proxies/00631L_ohlcv
 
 
 def load_off_panel() -> pd.DataFrame:
-    if not OFF_PRICE.exists():
+    from dd_switch_runtime import inputs
+
+    source = inputs().get("off", OFF_PRICE)
+    if not source.exists():
         return pd.DataFrame()
-    raw = pd.read_csv(OFF_PRICE, parse_dates=["date"], dtype={"code": str})
+    raw = pd.read_csv(source, parse_dates=["date"], dtype={"code": str})
     raw["code"] = OFF_CODE
     return raw
 
@@ -47,7 +50,7 @@ def load_off_prices_for_asof(asof: pd.Timestamp) -> dict[str, float]:
     if adj.empty:
         return {}
     asof = pd.Timestamp(asof).normalize()
-    sub = adj[adj["date"] <= asof]
+    sub = adj[adj["date"] == asof]
     if sub.empty:
         return {}
     row = sub.sort_values("date").iloc[-1]
@@ -61,7 +64,7 @@ def load_off_opens_for_asof(asof: pd.Timestamp) -> dict[str, float]:
     if adj.empty:
         return {}
     asof = pd.Timestamp(asof).normalize()
-    sub = adj[adj["date"] <= asof]
+    sub = adj[adj["date"] == asof]
     if sub.empty:
         return {}
     row = sub.sort_values("date").iloc[-1]

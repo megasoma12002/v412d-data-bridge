@@ -185,7 +185,8 @@ class Path3SwitchMetaExactFlip(unittest.TestCase):
         self.assertEqual(on_flip["signal_date"], "2026-06-12")
         self.assertEqual(on_flip["book"], BOOK_SAT)
 
-    def test_post_tip_does_not_sticky_flip(self) -> None:
+    @mock.patch("live_path3_strategy_cutover.daily_path3_recon_enabled", return_value=False)
+    def test_post_tip_does_not_sticky_flip(self, _daily) -> None:
         """Tip ending on a flip must not re-fire flip on later asofs."""
         sig = self._tip_on_flip()
         later = switch_meta_for_asof("2026-06-13", signal=sig)

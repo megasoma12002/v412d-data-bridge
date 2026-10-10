@@ -1,0 +1,57 @@
+{
+  "mode": "AS_IS_RESEARCH_LINEAGE_PARITY_BEFORE_REFRESH",
+  "status": "BLOCK_R1_AS_DROP_IN_ORIGINAL_REFRESH",
+  "reference_cutoff": "2026-09-29",
+  "reference_source_files": [
+    "repro/tipsoft-ip3-trail42-l4-switch-paper-observe/outputs/nav_L4_LIVE_P3_WITHIN.csv",
+    "repro/tipsoft-ip3-trail42-cash-paper-observe/outputs/nav_TRAIL42_FT_CASH.csv",
+    "repro/fin-sat-path3-path4-livestack-twin-stageb/outputs/nav_BASE_LIVE_FUSE_COOL.csv",
+    "repro/fin-sat-path3-path4-livestack-twin-stageb/outputs/nav_LIVE_P3_WITHIN.csv"
+  ],
+  "rules": {
+    "dd_choice": "TRAIL_DD >= L4_DD",
+    "trail_window": 42,
+    "min_observations": 14,
+    "premium_shift": 1,
+    "trail_threshold": -0.01
+  },
+  "required_checks": [
+    "Reproduce original mother NAV/returns and decisions on their historical prefix before adding new dates",
+    "Keep original construction, full-account scope, initial state, corporate actions and capital reentry budgets identifiable",
+    "Date/corporate-action/execution corrections get a separate model version with measured deviations, not silent substitution",
+    "Continue original parents with real updated prices and actual book state; never forward-fill mother NAV",
+    "Prove causal signal availability and jointly funded share/cash trades before promotion"
+  ],
+  "observed_disagreement": {
+    "want_trail": 1619,
+    "trail_on": 1097,
+    "active": 1050
+  },
+  "normalized_nav_parity": {
+    "L4": {
+      "common_dates": 3345,
+      "reference_start": "2012-12-04",
+      "candidate_start": "2013-01-03",
+      "max_normalized_relative_error": 0.4091680666762648
+    },
+    "TRAIL": {
+      "common_dates": 3340,
+      "reference_start": "2012-12-05",
+      "candidate_start": "2013-01-03",
+      "max_normalized_relative_error": 0.7413442647419703
+    },
+    "BASE": {
+      "common_dates": 3345,
+      "reference_start": "2012-12-04",
+      "candidate_start": "2013-01-03",
+      "max_normalized_relative_error": 0.0651308324223423
+    },
+    "P3": {
+      "common_dates": 3345,
+      "reference_start": "2012-12-04",
+      "candidate_start": "2013-01-03",
+      "max_normalized_relative_error": 0.4091680666762648
+    }
+  },
+  "notes": "Diagnostic contract only; no runtime/production approval bypass or automatic model promotion"
+}

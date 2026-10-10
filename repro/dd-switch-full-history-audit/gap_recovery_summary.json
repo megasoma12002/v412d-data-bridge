@@ -1,0 +1,19 @@
+{
+  "status": "RAW_GAP_VERIFICATION_PASS_RESEARCH_ONLY",
+  "quotes": 34,
+  "core_gap_quotes": 10,
+  "private_gap_quotes": 24,
+  "max_adjacent_price_difference": 1.4210854715202004e-14,
+  "private_candidate_rows": 32871,
+  "core_candidate_rows": 36330,
+  "core_adjustment_contract": "unchanged adjacent stored factors; no source price fitted to the book",
+  "existing_core_rows_unchanged": true,
+  "backtest_ready": false,
+  "publication_allowed": false,
+  "canonical_inputs_modified": false,
+  "limits": [
+    "Current-vintage secondary source; not full primary historical certification",
+    "Research input candidates only; parent/mother signals not rebuilt",
+    "Dividend PIT and old historical price discrepancies remain open"
+  ]
+}

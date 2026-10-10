@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE",
+  "total": 2,
+  "processed": 2,
+  "success": 2,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-09T17:57:06.232629+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_etf_announcement_api_valid_device",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_fund_announcement_api_valid_device",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T17:57:21.112559+00:00",
+  "updated_at": "2026-10-09T17:57:34.416421+00:00",
+  "last_completed_at": "2026-10-09T17:57:34.415927+00:00",
+  "skipped": 0
+}

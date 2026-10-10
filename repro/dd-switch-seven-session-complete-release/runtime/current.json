@@ -1,0 +1,31 @@
+{
+  "version": "DD_SWITCH_GAP_COMPLETE_SPLIT_ELIGIBILITY_RESEARCH_V1",
+  "asof": "2026-10-08",
+  "generation": "generations/corrected-complete",
+  "files": {
+    "off": "off.csv",
+    "base": "base.csv",
+    "l4": "l4.csv",
+    "trail": "trail.csv",
+    "dd": "dd.csv",
+    "signal": "signal.csv",
+    "shares_COMP_H150_x_A20": "shares_COMP_H150_x_A20.csv",
+    "shares_SAT_A20_RELAX": "shares_SAT_A20_RELAX.csv"
+  },
+  "hashes": {
+    "off": "c5b94e33a0710e35fca225e21811109ac89af9056911c0895ccc64542262d6e2",
+    "base": "61588329293cb18081c9b00d1d1c543cb80f7483ef59445d84f07b912fca57f6",
+    "l4": "3e43d820ff6c01bda9eefd8ea8d2391fb0c6d25e0fe6026768ec961a40af31ed",
+    "trail": "d4d761618d83669a6b1500a572a7c024c9382c940be5881ff263aa8542bdc408",
+    "dd": "934d2d55ab83945bb87c0eca40fb6080651488220dee2273c272809beff42676",
+    "signal": "086633e62cab76e3ac508d8781dd92dd14c8848549a176277e2380f4db2e311a",
+    "shares_COMP_H150_x_A20": "610ab7fb233a65811691d78efd932b8f864fb262c2a7124eb1c757a369de7795",
+    "shares_SAT_A20_RELAX": "f86e2629a9bc0278e790316d7088e34f0602190157436f8ab2665e3f675d24d3"
+  },
+  "prefix_certified": false,
+  "publication_allowed": false,
+  "construction_refs": {
+    "parents": "f73c1ba1f48d77b4728ce510da97ae8a0885038e",
+    "mothers": "5449f76b3a3feba434f40e0c5e10483e32c00b44"
+  }
+}

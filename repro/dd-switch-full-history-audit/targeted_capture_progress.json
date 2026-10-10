@@ -1,0 +1,13 @@
+{
+  "status": "STOPPED_SOURCE_BLOCK",
+  "total": 1,
+  "processed": 1,
+  "url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00013&date=20101013&fund=0050&seq=32&type=all",
+  "started_at": "2026-10-09T17:30:35.650550+00:00",
+  "http_status": "307",
+  "error": "",
+  "completed_at": "2026-10-09T17:30:43.909347+00:00",
+  "path": "repro/dd-switch-full-history-audit/sources/etf_raw/0050_20101013_32.html.gz",
+  "response_sha256": "40c96b400649dfa16c89d0c7b57c0b50997272af26d7511b96fae13598a3c869",
+  "compressed_sha256": "9d7d76467ac16d4b3cccae9ac14007e18206870472e3bee201f7188dc90d60eb"
+}

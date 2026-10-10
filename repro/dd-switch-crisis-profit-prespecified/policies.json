@@ -1,0 +1,13 @@
+{
+  "status": "PRESPECIFIED_BEFORE_RESULT_RUN_NO_THRESHOLD_SEARCH",
+  "policies": ["CORE_ON", "DD_FIXED_FUNDED", "MARKET_HALF_FAST", "MARKET_HALF_CONFIRM", "MARKET_FULL_CONFIRM", "DD_PLUS_HALF"],
+  "market_trigger": {"drawdown_from_trailing_63_session_peak_lte": -0.08, "20_session_return_lte": -0.03, "consecutive_days": 2},
+  "warning_only": {"63_session_drawdown_lte": -0.05, "5_session_return_lte": -0.03},
+  "recovery": {"close_above_ma20": true, "5_session_return_positive": true, "fast_consecutive_days": 1, "confirm_consecutive_days": 3},
+  "risk_scale": {"half": 0.5, "full_exit": 0.0},
+  "account_scope": "Matched FIN/TEL core sleeve experiment, 95% initial allocation plus 5% segregated idle reserve; not full live DD_SWITCH",
+  "development": "2025",
+  "chronological_validation": "2026-01-01..2026-10-08; previously examined dates, not a genuinely blind holdout",
+  "fees_and_slippage": "Existing production fees and fixed 5bp, all-or-none underfunded BUY, board lots, E22_v3 receivable/payment books",
+  "selection_rule": "No live promotion; compare return, complete MDD, costs, missed-up-day PnL, protected-down-day PnL, and forward loss-label precision/recall"
+}

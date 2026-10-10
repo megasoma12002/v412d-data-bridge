@@ -1,0 +1,24 @@
+{
+  "program_sha256": {
+    "scripts/dd_switch_session_market.py": "481e7ef007e4fa7ac8715447fc943801147608a16b6797100d8c6a9c6001db42",
+    "scripts/dd_switch_seven_session_rebuild.py": "7921cb259afbc9c756520939dafaf019eef9e8cdb2289a778dad970935862bda",
+    "scripts/dd_switch_session_validation.py": "42aac2c7d6345cd030a2c75207c11776042a233fa3f27b3b6fb1513510f10c82",
+    "scripts/e50_early_stack_combined_nav.py": "250d67cc991b1e5d34c48b9f11f29efd620d87ff59f8de0b63baed3dc786eda2",
+    "scripts/cool_t50_lev_short_assist_stagea.py": "e3e981c59ce73984364fb10a9ec5ca96565a9f3ebfb99576325b84f582ed6ae0",
+    "scripts/tipsoft_ip3_fill_lock_stagea.py": "ed1a3e5cbd43da7db4aa6fb2b4fce00bb9911a0a83ae7fec81e7edd1146fbaaa",
+    "tests/test_dd_switch_session_market.py": "84d24ba08478ec2a094d2612a9aaec591026009f925a234e4a21a88515ac8ec3"
+  },
+  "input_sha256": {
+    "repro/dd-switch-seven-session-rebuild/inputs/parents_with_off.csv": "114d3da98688e637d3306357202ec889fc115597474c2455ac3b5c839ae77183",
+    "repro/dd-switch-seven-session-rebuild/inputs/mothers_market.csv": "12995907ab5b82b6014c13bec8cfc47270ea0cd14e18a5ce4dd28022ed126c1a",
+    "repro/dd-switch-seven-session-rebuild/inputs/00631L_actual.csv": "c5b94e33a0710e35fca225e21811109ac89af9056911c0895ccc64542262d6e2",
+    "repro/dd-switch-seven-session-rebuild/inputs/parents_nontradable_marks.csv": "919090a0bbddd65bfb849b0c090040a3be4ec56ed4344948f82ff3f7f3e3021d",
+    "repro/dd-switch-seven-session-rebuild/inputs/mothers_with_off.csv": "114d3da98688e637d3306357202ec889fc115597474c2455ac3b5c839ae77183",
+    "repro/dd-switch-seven-session-rebuild/inputs/mothers_nontradable_marks.csv": "919090a0bbddd65bfb849b0c090040a3be4ec56ed4344948f82ff3f7f3e3021d",
+    "repro/dd-switch-seven-session-rebuild/inputs/mothers_dividends.csv": "1e1efe21dae75ec636e56e39d8e9a10b10f02d57fc2e400fd321bc3e7c4e8552",
+    "repro/dd-switch-seven-session-rebuild/inputs/parents_dividends.csv": "1e1efe21dae75ec636e56e39d8e9a10b10f02d57fc2e400fd321bc3e7c4e8552",
+    "repro/dd-switch-seven-session-rebuild/inputs/parents_market.csv": "12995907ab5b82b6014c13bec8cfc47270ea0cd14e18a5ce4dd28022ed126c1a"
+  },
+  "test_count": 123,
+  "test_status": "PASS"
+}

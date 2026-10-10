@@ -1,0 +1,12 @@
+{
+  "seed": "2026-09-29",
+  "end": "2026-10-08",
+  "initial": 500000000.0,
+  "final": 534722253.0707631,
+  "profit": 34722253.07076311,
+  "return_pct": 6.944450614152631,
+  "mdd_pct": -4.203386732502967,
+  "original_tip": 543972686.7723289,
+  "tip_difference": -9250433.701565742,
+  "scope": "production pipeline counterfactual after seed; earlier live records preserved"
+}

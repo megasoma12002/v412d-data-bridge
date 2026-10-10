@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE",
+  "total": 2,
+  "processed": 2,
+  "success": 1,
+  "failed": 1,
+  "cached": 0,
+  "started_at": "2026-10-09T23:38:55.886652+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "legacy_0050_2011_original_link",
+      "status": "FAILED"
+    },
+    {
+      "id": "yuanta_0050_2011_migrated_pdf_probe",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T23:39:03.318527+00:00",
+  "updated_at": "2026-10-09T23:39:12.585803+00:00",
+  "last_completed_at": "2026-10-09T23:39:12.584965+00:00",
+  "skipped": 0
+}

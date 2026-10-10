@@ -1,0 +1,36 @@
+[
+  {
+    "id": "rights_daily_20110916",
+    "url": "https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20110916&type=ALLBUT0999",
+    "kind": "PRIMARY_TWSE_DAILY_MARKET",
+    "purpose": "Discover actual temporary security codes; ordinary stock quotes cannot stand in for rights quotes"
+  },
+  {
+    "id": "rights_daily_20120906",
+    "url": "https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20120906&type=ALLBUT0999",
+    "kind": "PRIMARY_TWSE_DAILY_MARKET",
+    "purpose": "Discover actual temporary security codes; ordinary stock quotes cannot stand in for rights quotes"
+  },
+  {
+    "id": "rights_daily_20260828",
+    "url": "https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20260828&type=ALLBUT0999",
+    "kind": "PRIMARY_TWSE_DAILY_MARKET",
+    "purpose": "Discover actual temporary security codes; ordinary stock quotes cannot stand in for rights quotes"
+  },
+  {
+    "id": "rights_daily_20260911",
+    "url": "https://www.twse.com.tw/exchangeReport/MI_INDEX?response=json&date=20260911&type=ALLBUT0999",
+    "kind": "PRIMARY_TWSE_DAILY_MARKET",
+    "purpose": "Discover actual temporary security codes; ordinary stock quotes cannot stand in for rights quotes"
+  },
+  {
+    "id": "rights_trading_rule_archive_2011",
+    "url": "https://twse-regulation.twse.com.tw/TW/law/DAT0201.aspx?FLCODE=FL007359",
+    "kind": "PRIMARY_TWSE_RULE_LOCATOR"
+  },
+  {
+    "id": "rights_tdcc_conversion_rule_current",
+    "url": "https://twse-regulation.twse.com.tw/TW/law/DAT0201.aspx?FLCODE=FL007671",
+    "kind": "PRIMARY_TDCC_RULE_LOCATOR"
+  }
+]

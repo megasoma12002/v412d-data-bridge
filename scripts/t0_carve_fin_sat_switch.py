@@ -53,4 +53,5 @@ def tag_order(row: dict[str, Any]) -> dict[str, Any]:
 def authorize_same_bar_fill(row: Mapping[str, Any] | object, *, authorized: bool | None = None) -> bool:
     """Same-bar fill allowed iff live flag on AND row tagged."""
     auth = is_live_fill_authorized() if authorized is None else bool(authorized)
-    return auth and is_carve_tagged(row)
+    clock = row.get("execution_clock") if isinstance(row, Mapping) else getattr(row, "execution_clock", None)
+    return auth and is_carve_tagged(row) and clock != "NEXT_SESSION_OPEN"

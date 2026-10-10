@@ -1,0 +1,30 @@
+[
+  {
+    "source": "hnfhc_dividend",
+    "url": "https://www.hnfhc.com.tw/HNFHC/ir/l.do",
+    "status": "UNAVAILABLE",
+    "error": "The read operation timed out"
+  },
+  {
+    "source": "hnfhc_agent",
+    "url": "https://www.entrust.com.tw/entrust/agent/comIn.do?cpcmpno=1A&type=2",
+    "status": "FETCHED",
+    "sha256": "f1436cbc6ec91cc95178d78ac331fa3d69e98621e64d8ef9143770a63af3bfab",
+    "bytes": 143741,
+    "source_class": "PRIMARY_ISSUER_OR_AGENT_CURRENT_PAGE_NOT_VINTAGE"
+  },
+  {
+    "source": "first_dividend",
+    "url": "https://ir.firstholding.com.tw/c/ir_dividend.php",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "source": "ctbc_agent_dividend",
+    "url": "https://ecorp.ctbcbank.com/cts/static/ag_dividend.jsp",
+    "status": "FETCHED",
+    "sha256": "6f6469b1927527aa3b17e9cc0dfc7e4434321205dbea1a161f2246d6a9984ae6",
+    "bytes": 595377,
+    "source_class": "PRIMARY_ISSUER_OR_AGENT_CURRENT_PAGE_NOT_VINTAGE"
+  }
+]

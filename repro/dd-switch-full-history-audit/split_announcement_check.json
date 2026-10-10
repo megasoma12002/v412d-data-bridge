@@ -1,0 +1,20 @@
+[
+  {
+    "code": "0050",
+    "effective": "2025-06-18",
+    "ratio": 4,
+    "schedule_reported_at": "2025-05-09T15:14:16+08:00",
+    "final_reported_at": "2025-06-17T11:35:21+08:00",
+    "status": "SPLIT_HALT_UNIT_CONTRACT_PRIMARY_MATCH",
+    "publication_vintage_certified": false
+  },
+  {
+    "code": "00631L",
+    "effective": "2026-03-31",
+    "ratio": 22,
+    "schedule_reported_at": "2026-02-10T16:16:41+08:00",
+    "final_reported_at": "2026-03-30T16:32:35+08:00",
+    "status": "SPLIT_HALT_UNIT_CONTRACT_PRIMARY_MATCH",
+    "publication_vintage_certified": false
+  }
+]

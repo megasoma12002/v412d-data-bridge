@@ -1,0 +1,80 @@
+{
+  "captures": [
+    {
+      "id": "followup_hn_transfer_agent_news",
+      "url": "https://www.entrust.com.tw/entrust/agent/news.do",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "retrieved_at": "2026-10-10T04:47:21.208739+00:00",
+      "response_sha256": "bbc68b7522299c7c0706c69ec8629e8c7bc5470b9afec4e49b601c7ef299dd8d",
+      "compressed_sha256": "eba647d40bcb7bce4fb8a2d17f0c3d38d1d7a2d959073d59c55b65fb69e88c64",
+      "response_bytes": 91247,
+      "gap_closed": false,
+      "target_year_tokens_present": [],
+      "assessment": "Current transfer-agent snapshot does not supply the target 2010–2013 general stock or subscription ordinary delivery clause. No historical absence inference."
+    },
+    {
+      "id": "followup_hn_transfer_agent_weekly",
+      "url": "https://www.entrust.com.tw/entrust/agent/weeklyNews.do",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "retrieved_at": "2026-10-10T04:47:29.677420+00:00",
+      "response_sha256": "f708cb41a05596bf1061880068c3363453e2d8c758a0e6375e52f885fe061222",
+      "compressed_sha256": "d6959c52042e4430be9f01ab0d122b54328eb6aae3d7c9eeb3521023d960fc1f",
+      "response_bytes": 90620,
+      "gap_closed": false,
+      "target_year_tokens_present": [],
+      "assessment": "Current transfer-agent snapshot does not supply the target 2010–2013 general stock or subscription ordinary delivery clause. No historical absence inference."
+    },
+    {
+      "id": "followup_hn_transfer_agent_companies",
+      "url": "https://www.entrust.com.tw/entrust/agent/comList.do",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "retrieved_at": "2026-10-10T04:47:38.392457+00:00",
+      "response_sha256": "8fcb7a2dd103a065c368845a7c4b7bebd4d02f996ac8f5ffa8be632e43c687c6",
+      "compressed_sha256": "5cd1607b53f5ef88918c8c4d594fd434a82138688b926f941b3466f89a07ba0f",
+      "response_bytes": 374416,
+      "gap_closed": false,
+      "target_year_tokens_present": [],
+      "assessment": "Current transfer-agent snapshot does not supply the target 2010–2013 general stock or subscription ordinary delivery clause. No historical absence inference."
+    },
+    {
+      "id": "followup_ctbc_2013_official_prospectus",
+      "url": "https://www.cathaysec.com.tw/RiskManage/1020401_%E4%B8%AD%E4%BF%A1%E9%87%91_%E5%85%AC%E9%96%8B%E8%AA%AA%E6%98%8E%E6%9B%B8.pdf",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "retrieved_at": "2026-10-10T04:48:20.896917+00:00",
+      "response_sha256": "61905ffc73a816d93f0ac2ccb00c9dcf1fbbeb4bdf0074f4e0ba83d285469e81",
+      "compressed_sha256": "cf225258973accdad5a4ade664599c2a296e167740825a967f1096a4d4d58ff0",
+      "response_bytes": 9576160,
+      "gap_closed": false,
+      "pdf_pages": 848,
+      "pdf_eof_verified": true,
+      "text_hits": [
+        {
+          "pdf_page": 3,
+          "term": "上市日期",
+          "context": "司地址:台北市松壽路3號17樓電話:(02)2722-2002設立日期:91年5月17日網址:http://www.chinatrustgroup.com.tw上市日期:91年5月17日上櫃日期:不適用公開發行日期:91年5月17日管理股票日期:不適用負責人:董事長顏文隆(註1)總經理吳一揆發言人:總經理吳一揆代理發言人:副總經理高麗雪股票過戶機構:中國信託商業銀行股份有限公司代理部地址:台北市重慶南路一段83號5樓電話:(02)2181-1911網址:http://www.chinatrust.com.tw股票承"
+        }
+      ],
+      "assessment": "2013-02-01 prospectus: capital history records 2012-04 issuance; the listing-date hit concerns the company original listing, not new-share delivery. No target ordinary delivery clause found in extracted text; gap remains open. Text search is not proof of historical notice absence."
+    },
+    {
+      "id": "followup_hn_transfer_agent_company",
+      "url": "https://www.entrust.com.tw/entrust/agent/comIn.do?cpcmpno=1A&type=1",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "retrieved_at": "2026-10-10T04:48:39.901579+00:00",
+      "response_sha256": "0f82f97570c3f83cdbb7f8caa8889bb416ef794670466ad1ea1d3ad57cf3485e",
+      "compressed_sha256": "900832e8494b176298e1abf75f15d510d735adb957298ee27b79fbeb3f9b2727",
+      "response_bytes": 143741,
+      "gap_closed": false,
+      "target_year_tokens_present": [],
+      "assessment": "Current transfer-agent snapshot does not supply the target 2010–2013 general stock or subscription ordinary delivery clause. No historical absence inference. Visible history is 114/115; cash payment 115/8/28 is not stock delivery proof.",
+      "issuer_identity_verified": true
+    }
+  ],
+  "verified_source_hash_pairs": 5,
+  "completed_transports": 5,
+  "new_primary_delivery_facts": 0,
+  "backtest_ready": false,
+  "backtest_executed": false,
+  "background_capture_jobs": 0,
+  "review_script_sha256": "962978ece897b2c6b1493620bdeb63d4dfe181940a85ce13b866fc17acaa60ef"
+}

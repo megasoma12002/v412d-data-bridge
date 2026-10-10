@@ -1,0 +1,14 @@
+{
+  "primary_comparisons": 69,
+  "matched_current_primary_rows": 69,
+  "amount_review_rows": 0,
+  "payment_review_rows": 0,
+  "available_at_certified_rows": 0,
+  "canonical_ledger_modified": false,
+  "limits": [
+    "Current issuer pages are not archived first-publication evidence",
+    "Source rounding is distinguished from exact cash entitlements",
+    "CTBC last-transfer date is NOT an amended ex-date",
+    "FET historical table has no cash-payment date"
+  ]
+}

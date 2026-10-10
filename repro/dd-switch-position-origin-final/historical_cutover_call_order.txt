@@ -1,0 +1,2 @@
+337:         order_rows, path3_cutover_meta = p3_cut.suppress_soft_fin_tel(order_rows)
+360:         path3_deltas, path3_weight_meta = path3_we.plan_or_none_for_pipeline(

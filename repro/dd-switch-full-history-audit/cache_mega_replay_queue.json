@@ -1,0 +1,22 @@
+[
+  {
+    "id": "cache_mega_replay_info04",
+    "url": "https://web.archive.org/web/20120731073557id_/http://www.megaholdings.com.tw:80/contents/info04.htm",
+    "purpose": "Replay observed historical issuer capture; inspect body before treating as evidence"
+  },
+  {
+    "id": "cache_mega_history_info04",
+    "url": "https://web.archive.org/cdx/search/cdx?url=http%3A%2F%2Fwww.megaholdings.com.tw%3A80%2Fcontents%2Finfo04.htm&output=json&filter=statuscode%3A200&collapse=digest&from=2011&to=2014&limit=20",
+    "purpose": "Historical versions of observed shareholder/disclosure path"
+  },
+  {
+    "id": "cache_mega_replay_stockholder",
+    "url": "https://web.archive.org/web/20101026233442id_/http://www.megaholdings.com.tw:80/contents/co_govern/stockholder.asp",
+    "purpose": "Replay observed historical issuer capture; inspect body before treating as evidence"
+  },
+  {
+    "id": "cache_mega_history_stockholder",
+    "url": "https://web.archive.org/cdx/search/cdx?url=http%3A%2F%2Fwww.megaholdings.com.tw%3A80%2Fcontents%2Fco_govern%2Fstockholder.asp&output=json&filter=statuscode%3A200&collapse=digest&from=2011&to=2014&limit=20",
+    "purpose": "Historical versions of observed shareholder/disclosure path"
+  }
+]

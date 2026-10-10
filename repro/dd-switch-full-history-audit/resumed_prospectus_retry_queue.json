@@ -1,0 +1,11 @@
+[
+  {
+    "id": "resume_hn_2011_official_prospectus_complete_retry",
+    "url": "https://www.cathaysec.com.tw/download/%E8%8F%AF%E5%8D%97%E9%87%91%E5%85%AC%E9%96%8B%E8%AA%AA%E6%98%8E%E6%9B%B8.pdf",
+    "target_events": [
+      "2880:stock:2010-08-12",
+      "2880:stock:2011-08-11"
+    ],
+    "source_role": "official_underwriter_prospectus"
+  }
+]

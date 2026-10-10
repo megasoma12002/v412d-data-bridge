@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE",
+  "total": 1,
+  "processed": 1,
+  "success": 1,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-09T23:45:35.663821+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "final_conversion_native_2891_20130502",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T23:45:35.663861+00:00",
+  "updated_at": "2026-10-09T23:45:44.064678+00:00",
+  "last_completed_at": "2026-10-09T23:45:44.063742+00:00",
+  "skipped": 0
+}

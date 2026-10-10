@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE",
+  "total": 1,
+  "processed": 1,
+  "success": 1,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T12:22:23.196756+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "remaining_isin_class_form",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T12:22:23.196798+00:00",
+  "updated_at": "2026-10-10T12:22:35.886303+00:00",
+  "last_completed_at": "2026-10-10T12:22:35.884915+00:00",
+  "skipped": 0
+}

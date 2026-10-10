@@ -1,0 +1,40 @@
+{
+  "status": "ORIGINAL_RESEARCH_PREFIX_REPRODUCED_AND_APPEND_ONLY_EXTENDED",
+  "cutoff": "2026-09-29",
+  "extended_through": "2026-10-08",
+  "production_gate_formula_match": true,
+  "prefix_gate_disagreement": {
+    "want_trail": 0,
+    "trail_on": 0,
+    "active": 0
+  },
+  "parent_max_share_difference": 0.0,
+  "mother_max_relative_error": 6.661338147750939e-15,
+  "sessions_after_cutoff": 7,
+  "path3_off_sessions_after_cutoff": 0,
+  "last_decision": {
+    "want_trail": true,
+    "l4_dd": -0.0327305909391231,
+    "trail_dd": -0.017244463703784,
+    "premium42": 0.0015984436338176,
+    "trail_on": true,
+    "active": true
+  },
+  "construction_refs": {
+    "live_stack": "5449f76b3a3feba434f40e0c5e10483e32c00b44",
+    "upper_layers": "97933be85192e8d0ef89695be0c292342bba694d",
+    "parent_ledgers": "f73c1ba1f48d77b4728ce510da97ae8a0885038e"
+  },
+  "program_sha256": {
+    "scripts/dd_switch_original_reproduction.py": "6767f565f3eacb88655b5c4d39986878ddeec727fecd0f62455dcfafc3b3eeba",
+    "scripts/dd_switch_original_parents.py": "da12dab4ce6d19a58756df1a45647effd8d74362669f68671c7f8553f34a883a",
+    "scripts/dd_switch_original_audit.py": "e7850688f4b7fc0ede93f715f3d1dd2122fccf84d1eea4c2b77eb8cf2402a7b1"
+  },
+  "limits": [
+    "Legacy same-day DD selector and return stitching retained; not causal live alpha validation",
+    "Historical date gaps and corporate actions preserved for parity; corrections require separate version",
+    "BASE/P3 and COMP/SAT are share/cash books; TRAIL/DD are stitched return series, not jointly funded books",
+    "Path3 active means no DD gate-triggered FIN/TEL flatten; within-sleeve rebalancing still applies",
+    "No runtime publication, deployment, broker action or original forward rewrite"
+  ]
+}

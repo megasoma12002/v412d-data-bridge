@@ -1,0 +1,37 @@
+{
+  "status": "COMPLETE",
+  "total": 5,
+  "processed": 5,
+  "success": 4,
+  "failed": 1,
+  "cached": 0,
+  "started_at": "2026-10-10T01:34:37.483531+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "settlement_tbb_2010_observed_annual",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "settlement_tbb_2011_observed_annual",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "settlement_tbb_2016_observed_annual",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "settlement_tbb_2017_observed_annual",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "settlement_hnfhc_2011_observed_annual",
+      "status": "FAILED"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T01:35:56.409024+00:00",
+  "updated_at": "2026-10-10T01:36:05.510254+00:00",
+  "last_completed_at": "2026-10-10T01:36:05.508730+00:00",
+  "skipped": 0
+}

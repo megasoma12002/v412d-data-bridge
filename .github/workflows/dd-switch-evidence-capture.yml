@@ -1,0 +1,186 @@
+name: DD SWITCH public evidence capture
+on:
+  push:
+    branches: [fix/dd-switch-refresh-t1-rebuild]
+    paths: [repro/dd-switch-full-history-audit/revision_capture_request.json]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pandas==2.2.3 lxml==5.3.2 PyMuPDF==1.26.6
+      - run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - name: Restore hashed public response cache
+        run: |
+          unzip -o repro/dd-switch-full-history-audit/mops_evidence_sources.zip
+          unzip -o repro/dd-switch-full-history-audit/reviewed_revision_settlement_evidence.zip
+          unzip -o repro/dd-switch-full-history-audit/cancelled_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/completed_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/continued_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/targeted_gap_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/cash_and_preferred_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/yuanta_original_pdf_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/legacy_and_scoped_delivery_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/annual_legacy_probe_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/baolai_and_final_conversion_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/full_gap_completion_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/sitca_observed_archive_capture_delta.zip
+          python scripts/dd_switch_restore_annual_delivery_archive.py
+          unzip -o repro/dd-switch-full-history-audit/issuer_annual_delivery_capture_delta.zip
+          python scripts/dd_switch_restore_resumed_delivery_archive.py
+          unzip -o repro/dd-switch-full-history-audit/resumed_delivery_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/followup_delivery_capture_delta.zip
+          PYTHONPATH=scripts python scripts/dd_switch_followup_delivery_review.py
+      - name: Restore exact audited research inputs without strategy execution
+        run: python scripts/dd_switch_restore_audited_inputs.py
+      - name: Audit complete saved lineage without strategy execution
+        run: PYTHONPATH=scripts python scripts/dd_switch_full_history_audit.py
+      - name: Probe five missing responses before batch capture
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --probe
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-probe
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 01 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-01
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 02 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-02
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 03 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-03
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 04 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-04
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 05 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-05
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 06 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-06
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 07 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-07
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 08 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-08
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 09 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-09
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Capture batch 10 of 10 with block and failure guards
+        env:
+          MOPS_REQUEST_INTERVAL_SECONDS: '2'
+        run: python scripts/dd_switch_monitored_capture.py --batch-size 10
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-monitor-batch-10
+          path: repro/dd-switch-full-history-audit/monitored_capture_progress.json
+          retention-days: 30
+      - name: Reconcile saved evidence even if source blocks
+        if: always()
+        run: |
+          python scripts/dd_switch_revision_audit.py
+          python scripts/dd_switch_scoped_delivery_evidence.py
+          python scripts/dd_switch_resumed_delivery_review.py
+          PYTHONPATH=scripts python scripts/dd_switch_legacy_rights_phase.py
+          PYTHONPATH=scripts python scripts/dd_switch_pit_feature_review.py
+          PYTHONPATH=scripts python -m unittest tests/test_dd_switch_pit_features.py tests/test_dd_switch_legacy_rights_phase.py
+          PYTHONPATH=scripts python -m unittest tests/test_dd_switch_monitored_capture.py tests/test_dd_switch_revision_audit.py tests/test_dd_switch_mops_evidence.py tests/test_dd_switch_announcement_evidence.py tests/test_dd_switch_session_market.py tests/test_dd_switch_targeted_capture.py tests/test_dd_switch_yuanta_revision_evidence.py tests/test_dd_switch_scoped_delivery_evidence.py tests/test_dd_switch_annual_cache_integrity.py tests/test_dd_switch_issuer_annual_delivery_evidence.py
+          python scripts/dd_switch_revision_validate.py
+          PYTHONPATH=scripts python -m unittest tests/test_dd_switch_resumed_delivery_review.py
+          python scripts/dd_switch_remaining_gap_inventory.py
+          git diff --exit-code -- data repro/dd-switch-full-history-audit/announcement_validation.json repro/dd-switch-full-history-audit/mops_validation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dd-switch-revision-settlement-evidence
+          retention-days: 30
+          path: |
+            repro/dd-switch-full-history-audit/monitored_capture_progress.json
+            repro/dd-switch-full-history-audit/sources/mops_revisions/
+            repro/dd-switch-full-history-audit/sources/mops_statutory/
+            repro/dd-switch-full-history-audit/sources/settlement_pages/
+            repro/dd-switch-full-history-audit/*revision*.json
+            repro/dd-switch-full-history-audit/*settlement*.csv
+            repro/dd-switch-full-history-audit/*settlement*.json
+            repro/dd-switch-full-history-audit/revision_chain_check.csv
+            repro/dd-switch-full-history-audit/statutory_normalized_filings.json
+            repro/dd-switch-full-history-audit/issuer_payment_schedule_facts.json

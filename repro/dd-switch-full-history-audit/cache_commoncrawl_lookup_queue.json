@@ -1,0 +1,17 @@
+[
+  {
+    "id": "cache_cc201348_hn_ir",
+    "url": "https://index.commoncrawl.org/CC-MAIN-2013-48-index?url=www.hnfhc.com.tw%2FHNFHC%2Fir%2F%2A&output=json&filter=status%3A200&pageSize=1&page=0",
+    "purpose": "Common Crawl observed November 2013 collection, first index page only; retrieve WARC if matching records found"
+  },
+  {
+    "id": "cache_cc201348_mega_stock",
+    "url": "https://index.commoncrawl.org/CC-MAIN-2013-48-index?url=www.megaholdings.com.tw%2Ftc%2Fstock.aspx&output=json&filter=status%3A200&pageSize=1&page=0",
+    "purpose": "Common Crawl observed November 2013 collection, first index page only; retrieve WARC if matching records found"
+  },
+  {
+    "id": "cache_cc201348_hn_annual",
+    "url": "https://index.commoncrawl.org/CC-MAIN-2013-48-index?url=www.ir-cloud.com%2Ftaiwan%2F2880%2Fannual%2F2011%2F%2A&output=json&filter=status%3A200&pageSize=1&page=0",
+    "purpose": "Common Crawl observed November 2013 collection, first index page only; retrieve WARC if matching records found"
+  }
+]

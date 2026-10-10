@@ -33,6 +33,12 @@ SOFT_CODES = list(FIN) + list(TEL) + [ETF_CODE]
 
 def ledger_path(book: str, *, out_dir: Path | str = DEFAULT_LEDGER_DIR) -> Path:
     safe = str(book).replace("/", "_")
+    if Path(out_dir) == DEFAULT_LEDGER_DIR:
+        from dd_switch_runtime import inputs
+
+        runtime = inputs().get("shares_" + safe)
+        if runtime is not None:
+            return runtime
     return Path(out_dir) / f"daily_shares_{safe}.csv"
 
 

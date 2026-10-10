@@ -1,0 +1,57 @@
+{
+  "status": "BLOCKED_INTRADAY_EVIDENCE",
+  "quote_depth_candidates": [],
+  "books": [
+    {
+      "book": "forward/e21",
+      "fills": 107,
+      "date_before_signal": 0,
+      "same_date": 0,
+      "later_date": 107,
+      "invalid_dates": 0,
+      "missing_clock_columns": [
+        "signal_at",
+        "fill_at",
+        "quote_at"
+      ],
+      "fill_clock_verdict": "DATE_ONLY_UNVERIFIED",
+      "missing_nav_sessions": [
+        "2026-09-17",
+        "2026-09-18",
+        "2026-10-05"
+      ],
+      "fee_total": 953578.5776712501
+    },
+    {
+      "book": "repro/dd-switch-live-t1-r1",
+      "fills": 144,
+      "date_before_signal": 0,
+      "same_date": 0,
+      "later_date": 144,
+      "invalid_dates": 0,
+      "missing_clock_columns": [
+        "signal_at",
+        "fill_at",
+        "quote_at"
+      ],
+      "fill_clock_verdict": "DATE_ONLY_UNVERIFIED",
+      "missing_nav_sessions": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "fee_total": 3322089.679237
+    }
+  ],
+  "required_inputs": [
+    "timestamped parent NAV snapshots, full-account contemporaneous target allocations",
+    "timestamped bid/ask depth with availability timestamps and immutable hashes",
+    "complete session/EOD parent NAV history for historical peaks",
+    "explicit corporate action inventory; dividend windows currently unsupported"
+  ],
+  "research_runner": "scripts/dd_switch_intraday_replay.py",
+  "execution_scope": "Paper quote model; no broker acknowledgements or live routing",
+  "source_sha256": {
+    "forward/e21/fills.csv": "48e7caaafdd0db39e0be727ec56cf847be067f9f285e00850940bb533a39f9f4",
+    "repro/dd-switch-live-t1-r1/fills.csv": "00fe4ab6f61c91a1d5a51993bc6c63b65b343e5712576cc5fa73fbaafaea747e"
+  }
+}

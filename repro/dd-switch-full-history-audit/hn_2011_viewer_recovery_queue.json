@@ -1,0 +1,12 @@
+[
+  {
+    "id": "hn_2011_ir_viewer_cover",
+    "url": "https://www.ir-cloud.com/canreport/content.php?ticker=2880&id=8&regionid=1&page=1&imgsize=0",
+    "kind": "PRIMARY_HOSTED_ANNUAL_VIEWER"
+  },
+  {
+    "id": "hn_2011_ir_viewer_contents",
+    "url": "https://www.ir-cloud.com/canreport/content.php?ticker=2880&id=8&regionid=1&page=2&imgsize=0",
+    "kind": "PRIMARY_HOSTED_ANNUAL_VIEWER"
+  }
+]

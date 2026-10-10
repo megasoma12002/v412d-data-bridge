@@ -1,0 +1,291 @@
+{
+  "status": "ALTERNATE_HISTORY_CROSSCHECK_COMPLETE_RESEARCH_ONLY",
+  "publication_allowed": false,
+  "source": "Yahoo current-vintage OHLC under split-only conversion hypothesis; historical units NOT certified",
+  "valid_index_sessions": 4093,
+  "official_calendar_comparison": [
+    {
+      "year": 2025,
+      "missing_in_yahoo": [],
+      "extra_in_yahoo": []
+    },
+    {
+      "year": 2026,
+      "missing_in_yahoo": [],
+      "extra_in_yahoo": []
+    }
+  ],
+  "quotes": [
+    {
+      "dataset": "core",
+      "paired": 31958,
+      "compared_rows": 31815,
+      "differences": {
+        "open": 5357,
+        "high": 5364,
+        "low": 5360,
+        "close": 5449
+      },
+      "max_absolute_difference": {
+        "open": 436.799983215332,
+        "high": 439.3200016784668,
+        "low": 433.8599966430664,
+        "close": 439.1099966430664
+      },
+      "coverage": [
+        {
+          "code": "0050",
+          "rows": 3627,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25",
+            "2025-06-11",
+            "2025-06-12",
+            "2025-06-13",
+            "2025-06-16",
+            "2025-06-17"
+          ],
+          "alternate_missing_quotes": 17
+        },
+        {
+          "code": "00631L",
+          "rows": 2907,
+          "missing_benchmark_dates": [
+            "2016-07-08",
+            "2023-05-25",
+            "2026-03-25",
+            "2026-03-26",
+            "2026-03-27",
+            "2026-03-30"
+          ],
+          "alternate_missing_quotes": 7
+        },
+        {
+          "code": "2412",
+          "rows": 3632,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25"
+          ],
+          "alternate_missing_quotes": 17
+        },
+        {
+          "code": "2880",
+          "rows": 3632,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25"
+          ],
+          "alternate_missing_quotes": 17
+        },
+        {
+          "code": "2886",
+          "rows": 3632,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25"
+          ],
+          "alternate_missing_quotes": 17
+        },
+        {
+          "code": "2892",
+          "rows": 3632,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25"
+          ],
+          "alternate_missing_quotes": 17
+        },
+        {
+          "code": "3045",
+          "rows": 3632,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25"
+          ],
+          "alternate_missing_quotes": 17
+        },
+        {
+          "code": "4904",
+          "rows": 3632,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25"
+          ],
+          "alternate_missing_quotes": 17
+        },
+        {
+          "code": "5880",
+          "rows": 3632,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25"
+          ],
+          "alternate_missing_quotes": 17
+        }
+      ]
+    },
+    {
+      "dataset": "private",
+      "paired": 32847,
+      "compared_rows": 32703,
+      "differences": {
+        "open": 10400,
+        "high": 10403,
+        "low": 10404,
+        "close": 10486
+      },
+      "max_absolute_difference": {
+        "open": 2.9500013680827664,
+        "high": 2.100001368082765,
+        "low": 2.150001298472972,
+        "close": 2.250000977658484
+      },
+      "coverage": [
+        {
+          "code": "2801",
+          "rows": 4106,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25",
+            "2025-02-06",
+            "2026-05-28"
+          ],
+          "alternate_missing_quotes": 18
+        },
+        {
+          "code": "2834",
+          "rows": 4106,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25",
+            "2025-02-06",
+            "2026-05-28"
+          ],
+          "alternate_missing_quotes": 18
+        },
+        {
+          "code": "2881",
+          "rows": 4106,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25",
+            "2025-02-06",
+            "2026-05-28"
+          ],
+          "alternate_missing_quotes": 18
+        },
+        {
+          "code": "2882",
+          "rows": 4106,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25",
+            "2025-02-06",
+            "2026-05-28"
+          ],
+          "alternate_missing_quotes": 18
+        },
+        {
+          "code": "2884",
+          "rows": 4105,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25",
+            "2025-02-06",
+            "2025-11-05",
+            "2026-05-28"
+          ],
+          "alternate_missing_quotes": 18
+        },
+        {
+          "code": "2885",
+          "rows": 4106,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25",
+            "2025-02-06",
+            "2026-05-28"
+          ],
+          "alternate_missing_quotes": 18
+        },
+        {
+          "code": "2890",
+          "rows": 4106,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25",
+            "2025-02-06",
+            "2026-05-28"
+          ],
+          "alternate_missing_quotes": 18
+        },
+        {
+          "code": "2891",
+          "rows": 4106,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25",
+            "2025-02-06",
+            "2026-05-28"
+          ],
+          "alternate_missing_quotes": 18
+        }
+      ]
+    },
+    {
+      "dataset": "index_close",
+      "paired": 3632,
+      "compared_rows": 3615,
+      "differences": {
+        "close": 0
+      },
+      "max_absolute_difference": {
+        "close": 0.0018750000017462298
+      },
+      "coverage": [
+        {
+          "code": "TAIEX",
+          "rows": 3632,
+          "missing_benchmark_dates": [
+            "2014-07-23",
+            "2016-07-08",
+            "2023-05-25"
+          ],
+          "alternate_missing_quotes": 17
+        }
+      ]
+    }
+  ],
+  "price_difference_fields": 63223,
+  "alternate_missing_quote_rows": 304,
+  "recovered_private_quotes": 16,
+  "max_recovery_adjacent_difference": 3.051757815342171e-06,
+  "official_latest_anchor_fields": 68,
+  "official_latest_anchor_max_difference": 0.0,
+  "limits": [
+    "Full official historical calendar/settlement evidence not obtained",
+    "Yahoo index dates need cross-check; neither provider is a publication-vintage archive",
+    "Yahoo volume differs from FinMind; volume-dependent signals need a separate volume contract",
+    "A recovered research quote is not a canonical live input cutover",
+    "PIT feature and historical pending-order findings remain unresolved",
+    "ETF history has mixed split units; financial rights adjustments need separate evidence"
+  ],
+  "price_difference_interpretation": "Unresolved unit/source differences, NOT confirmed local bad-price fields"
+}

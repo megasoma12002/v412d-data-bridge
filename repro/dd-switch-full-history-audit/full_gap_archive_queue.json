@@ -1,0 +1,14 @@
+[
+  {
+    "id": "full_gap_mega_dividend_archive",
+    "url": "https://www.megaholdings.com.tw/tc/stock.aspx",
+    "kind": "ISSUER_DIVIDEND_ARCHIVE",
+    "code": "2886"
+  },
+  {
+    "id": "full_gap_tbb_2012_annual_report",
+    "url": "https://ir.tbb.com.tw/pdf/financial/annual-reports/2012公司年報.pdf",
+    "kind": "ISSUER_ANNUAL_REPORT",
+    "code": "2834"
+  }
+]

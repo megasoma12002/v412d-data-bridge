@@ -1,0 +1,119 @@
+{
+  "probes": [
+    {
+      "source_id": "yuanta_0050_notice_sitca_baolai_original_final",
+      "url": "https://www.sitca.org.tw/OPF/A0000/files/FundNote/A/A0013/02/0050-%E5%AF%A6%E9%9A%9B%E9%85%8D%E7%99%BC%E9%87%91%E9%A1%8D%E5%85%AC%E5%91%8A-%E5%85%AC%E6%9C%83%E5%8F%8A%E5%85%AC%E5%8F%B8%E7%B6%B2%E7%AB%99.pdf",
+      "response_sha256": "6760ef33f1127b2f91c30d631e7714a32280478227c1dfc214864710153e6a13",
+      "compressed_sha256": "2924b221521fb7aa8fa45dc647f6d27d75fd942a172c5bb1660d8a9ff59e92c9",
+      "adjudication": "VALIDATED_ORIGINAL_FINAL_PDF",
+      "evidence_accepted": true,
+      "publication_vintage_certified": false
+    },
+    {
+      "source_id": "final_conversion_native_2891_20120424",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2891&colorchg=&TYPEK=sii&YEAR=101&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20120424&SKEY=1&step=2&firstin=1",
+      "response_sha256": "b57dbf7aae0d00f54397e0e383cac2cd6a3dd4792ea8d8a80f34b8b6a0a13dff",
+      "compressed_sha256": "cdaa60c7411e839abd4140fac2e571a115a8474a0cc9700889095ba2638d3f2a",
+      "adjudication": "NO_VALID_ISSUER_BODY",
+      "evidence_accepted": false,
+      "publication_vintage_certified": false
+    },
+    {
+      "source_id": "final_conversion_native_2880_20120201",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2880&colorchg=&TYPEK=sii&YEAR=101&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20120201&SKEY=1&step=2&firstin=1",
+      "response_sha256": "b57dbf7aae0d00f54397e0e383cac2cd6a3dd4792ea8d8a80f34b8b6a0a13dff",
+      "compressed_sha256": "cdaa60c7411e839abd4140fac2e571a115a8474a0cc9700889095ba2638d3f2a",
+      "adjudication": "NO_VALID_ISSUER_BODY",
+      "evidence_accepted": false,
+      "publication_vintage_certified": false
+    },
+    {
+      "source_id": "final_conversion_native_2891_20130502",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2891&colorchg=&TYPEK=sii&YEAR=102&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20130502&SKEY=1&step=2&firstin=1",
+      "response_sha256": "b57dbf7aae0d00f54397e0e383cac2cd6a3dd4792ea8d8a80f34b8b6a0a13dff",
+      "compressed_sha256": "cdaa60c7411e839abd4140fac2e571a115a8474a0cc9700889095ba2638d3f2a",
+      "adjudication": "NO_VALID_ISSUER_BODY",
+      "evidence_accepted": false,
+      "publication_vintage_certified": false
+    },
+    {
+      "source_id": "yuanta_0050_notice_baolai_estimate_probe_0",
+      "url": "https://www.sitca.org.tw/OPF/A0000/files/FundNote/A/A0013/02/0050-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E8%A9%95%E5%83%B9%E5%85%AC%E5%91%8A-%E5%85%AC%E6%9C%83%E5%8F%8A%E5%85%AC%E5%8F%B8%E7%B6%B2%E7%AB%99.pdf",
+      "response_sha256": "eab09f82e87641fb3e8c72b6c9e061f11684c7d8345925aad1fd7de4c05f87ab",
+      "compressed_sha256": "bf16092fa25f7e5fad2286568a14857b2127c469c581cc85218687056938c476",
+      "adjudication": "HTTP_FAILURE",
+      "evidence_accepted": false,
+      "publication_vintage_certified": false
+    },
+    {
+      "source_id": "yuanta_0050_notice_baolai_estimate_probe_1",
+      "url": "https://www.sitca.org.tw/OPF/A0000/files/FundNote/A/A0013/02/0050-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E5%85%AC%E5%91%8A-%E5%85%AC%E6%9C%83%E5%8F%8A%E5%85%AC%E5%8F%B8%E7%B6%B2%E7%AB%99.pdf",
+      "response_sha256": "eab09f82e87641fb3e8c72b6c9e061f11684c7d8345925aad1fd7de4c05f87ab",
+      "compressed_sha256": "bf16092fa25f7e5fad2286568a14857b2127c469c581cc85218687056938c476",
+      "adjudication": "HTTP_FAILURE",
+      "evidence_accepted": false,
+      "publication_vintage_certified": false
+    },
+    {
+      "source_id": "syndicated_final_conversion_2891_20120424",
+      "url": "https://n.yam.com/Article/20120424408004",
+      "response_sha256": "e1564b7b028ef69d43c17a3c4887933b0aae8f0147029e1d826737686dd333ef",
+      "compressed_sha256": "456cc422fe93cbd30309f394d9a5d48d7578c2bc89027ccda2458742f29092b6",
+      "adjudication": "SYNDICATED_DISCOVERY_NOT_PRIMARY",
+      "evidence_accepted": false,
+      "publication_vintage_certified": false,
+      "candidate_dates": [
+        "101年1月16日",
+        "101年1月19日",
+        "101年4月11日",
+        "101年4月12日",
+        "101年4月23日",
+        "101年4月30日"
+      ],
+      "general_delivery_certified": false,
+      "original_issuer_body_required": true
+    },
+    {
+      "source_id": "syndicated_final_conversion_2891_20130502",
+      "url": "https://news.cnyes.com/news/id/1523130",
+      "response_sha256": "4f58c576d5ef8112e0364a8d662141ae7e219f5fba6be82f8a28d00a23f3d1a3",
+      "compressed_sha256": "96da727265259d52b5ab31fe09e6e04da43d976e731bd82b778a2f376e47e730",
+      "adjudication": "SYNDICATED_DISCOVERY_NOT_PRIMARY",
+      "evidence_accepted": false,
+      "publication_vintage_certified": false,
+      "candidate_dates": [
+        "102年12月26日",
+        "102年1月17日",
+        "102年4月16日",
+        "102年4月17日",
+        "102年4月26日",
+        "102年5月10日"
+      ],
+      "general_delivery_certified": false,
+      "original_issuer_body_required": true,
+      "temporal_inconsistency": "Body board date 102/12/26 is later than the 2013/05/02 notice; original issuer body required"
+    },
+    {
+      "source_id": "syndicated_final_conversion_2880_20120202",
+      "url": "https://news.cnyes.com/news/id/2263066",
+      "response_sha256": "13f346427b24fff643ef65155ca0162b324f4cb67a17f528be8b3bfe1873aa25",
+      "compressed_sha256": "20f62258b82feee44586d97299fab1f8d99433a821434d6a41b9ac328a990059",
+      "adjudication": "SYNDICATED_DISCOVERY_NOT_PRIMARY",
+      "evidence_accepted": false,
+      "publication_vintage_certified": false,
+      "candidate_dates": [
+        "100年10月17日",
+        "100年12月27日",
+        "100年12月29日",
+        "100年8月29日",
+        "101年1月17日",
+        "101年2月7日"
+      ],
+      "general_delivery_certified": false,
+      "original_issuer_body_required": true
+    }
+  ],
+  "primary_original_pdf_added": 1,
+  "general_delivery_gaps_closed": 0,
+  "backtest_ready": false
+}

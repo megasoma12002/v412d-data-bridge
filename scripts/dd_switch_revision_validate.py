@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+"""Verify saved response hashes and persist current evidence gaps without enabling strategy execution."""
+import csv, gzip, hashlib, json
+from collections import Counter
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+OUT=ROOT/'repro/dd-switch-full-history-audit'
+def main():
+    summary=json.loads((OUT/'revision_settlement_summary.json').read_text())
+    pairs=0;request_pairs=0;unavailable={};source_statuses={}
+    for source in ('mops_actions','mops_revisions','mops_statutory','settlement_pages','etf_raw','targeted_issuers'):
+        manifest=OUT/'sources'/source/'manifest.json'
+        if not manifest.exists():continue
+        rows=json.loads(manifest.read_text())
+        unavailable[source]=sum(r['status']=='UNAVAILABLE' for r in rows)
+        source_statuses[source]=dict(Counter(r['status'] for r in rows))
+        for r in rows:
+            packed=(ROOT/r['path']).read_bytes()
+            assert hashlib.sha256(packed).hexdigest()==r['compressed_sha256'],r.get('id',r.get('url'))
+            assert hashlib.sha256(gzip.decompress(packed)).hexdigest()==r['response_sha256'],r.get('id',r.get('url'))
+            pairs+=1
+            if r.get('request_path'):
+                request=(ROOT/r['request_path']).read_bytes()
+                assert hashlib.sha256(request).hexdigest()==r['request_compressed_sha256'],r['id']
+                assert hashlib.sha256(gzip.decompress(request)).hexdigest()==r['request_sha256'],r['id']
+                request_pairs+=1
+    inputs=json.loads((OUT/'audited_input_sha256.json').read_text())
+    verified=0; absent=[]
+    for name,sha in inputs.items():
+        if not name.endswith('.csv'):continue
+        if not (ROOT/name).exists():absent.append(name);continue
+        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==sha,name
+        verified+=1
+    missing=list(csv.DictReader((OUT/'remaining_dividend_payment_gaps.csv').open()))
+    versions=json.loads((OUT/'mops_linked_revision_versions.json').read_text())
+    stage_rows=[]
+    for gap in missing:
+        linked=[r for r in versions if r.get('event_id')==gap['event_id'] and r.get('new_share_listing_dates')]
+        stage_rows.append(dict(event_id=gap['event_id'],ledger_payment_date=gap['ledger_payment_date'],explicit_listing_evidence=[{k:r[k] for k in ('id','url','response_sha256','new_share_listing_dates')} for r in linked],delivery_certified=False))
+    (OUT/'remaining_dividend_share_stage_evidence.json').write_text(json.dumps(stage_rows,ensure_ascii=False,indent=2)+'\n')
+    chains=list(csv.DictReader((OUT/'remaining_announcement_chain_gaps.csv').open()))
+    phase_gaps=list(csv.DictReader((OUT/'remaining_0050_revision_stage_gaps.csv').open()))
+    actions=list(csv.DictReader((OUT/'subscription_settlement_check.csv').open()))
+    past=[r for r in actions if not r['new_share_delivery_date'] and r['not_yet_due_asof']=='False']
+    with (OUT/'remaining_subscription_delivery_gaps.csv').open('w',newline='') as h:
+        writer=csv.DictWriter(h,fieldnames=list(actions[0]),lineterminator='\n');writer.writeheader();writer.writerows(past)
+    progress_names = ('targeted_capture_progress.json','issuer_capture_progress.json','etf_asset_capture_reviewed_progress.json','etf_app_capture_progress.json','etf_announcement_api_valid_progress.json','historical_original_probe_progress.json','yuanta_0050_pdf_probe_progress.json','yuanta_0050_pdf_capture_progress.json','stock_delivery_followup_progress.json','public_holder_followup_progress.json','public_holder_2013_progress.json','yuanta_0050_legacy_pdf_probe_progress.json','sitca_archive_index_progress.json','yuanta_0050_legacy_filename_probe_progress.json','yuanta_0050_legacy_completion_progress.json','yuanta_0050_2016_partial_retry_progress.json','yuanta_0050_annual_legacy_progress.json','legacy_original_link_progress.json','yuanta_0050_2015_issuer_progress.json','baolai_original_archive_progress.json','baolai_estimate_archive_progress.json','final_conversion_native_progress.json','final_conversion_2013_progress.json','final_conversion_discovery_progress.json','full_gap_primary_probe_progress.json','full_gap_archive_progress.json','historical_catalog_retry_progress.json','sitca_observed_archive_query_progress.json','sitca_observed_archive_query_bounded_retry_progress.json','sitca_observed_archive_query_complete_response_30s_progress.json','observed_rule_and_notice_progress.json','sitca_observed_0050_pdf_progress.json','sitca_observed_archive_query_complete_response_30s_A0013_progress.json','sitca_observed_archive_query_complete_response_30s_A0005_progress.json','remaining_settlement_primary_progress.json','remaining_settlement_archive_index_progress.json','remaining_settlement_annual_pdf_progress.json','remaining_hnfhc_new_archive_progress.json','remaining_mega_annual_index_progress.json','remaining_mega_annual_pdf_progress.json','remaining_mega_chinese_home_progress.json','remaining_mega_chinese_index_progress.json','remaining_mega_chinese_index_page2_progress.json','remaining_mega_chinese_pdf_progress.json')
+    result=dict(summary,issuer_revision_stage_gap_events=len(phase_gaps),issuer_revision_stage_gaps=phase_gaps,payment_schedule_missing=len(missing),payment_schedule_missing_by_leg=dict(Counter(r['leg'] for r in missing)),announcement_chain_missing=len(chains),announcement_chain_missing_by_code=dict(Counter(r['code'] for r in chains)),past_subscription_delivery_missing=len(past),uncaptured_responses=unavailable,source_response_statuses=source_statuses,source_hash_pairs_verified=pairs,source_request_hash_pairs_verified=request_pairs,canonical_input_hashes_verified=verified,canonical_inputs_absent=absent,capture_progress=json.loads((OUT/'monitored_capture_progress.json').read_text()),additional_capture_progress={name:json.loads((OUT/name).read_text()) for name in progress_names if (OUT/name).exists()},scoped_delivery_evidence=json.loads((OUT/'scoped_delivery_evidence.json').read_text()) if (OUT/'scoped_delivery_evidence.json').exists() else None,issuer_pdf_validation=json.loads((OUT/'yuanta_0050_pdf_validation.json').read_text()) if (OUT/'yuanta_0050_pdf_validation.json').exists() else None,validation_scope='Saved public response integrity and current matching; historical revision completeness remains uncertified')
+    annual = OUT / 'issuer_annual_delivery_validation.json'
+    if annual.exists():
+        result['issuer_annual_delivery_evidence'] = json.loads(annual.read_text())
+    resumed = OUT / 'resumed_delivery_review.json'
+    if resumed.exists():
+        result['resumed_delivery_review'] = json.loads(resumed.read_text())
+        for name in ('resumed_primary_delivery_progress.json', 'resumed_prospectus_retry_progress.json',
+                     'resumed_notice_lead_progress.json', 'resumed_issuer_index_progress.json',
+                     'resumed_prospectus_complete_progress.json'):
+            if (OUT / name).exists():
+                result['additional_capture_progress'][name] = json.loads((OUT / name).read_text())
+    restoration = OUT / 'audited_input_restoration.json'
+    if restoration.exists():
+        result['audited_input_restoration'] = json.loads(restoration.read_text())
+    (OUT/'revision_settlement_validation.json').write_text(json.dumps(result,indent=2)+'\n')
+    print(json.dumps({k:v for k,v in result.items() if k not in ('limits','capture_progress')}))
+if __name__=='__main__':main()

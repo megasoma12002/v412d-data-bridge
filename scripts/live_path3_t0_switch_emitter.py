@@ -123,8 +123,11 @@ def build_sat_lead_signal(
 
 def load_or_build_signal(*, prefer_observe_csv: bool = True) -> pd.DataFrame:
     """Prefer dual-paper observe signal CSV; else rebuild from COMP/SAT NAV."""
-    if prefer_observe_csv and SIGNAL_CSV.exists():
-        sig = pd.read_csv(SIGNAL_CSV)
+    from dd_switch_runtime import inputs
+
+    signal_csv = inputs().get("signal", SIGNAL_CSV)
+    if prefer_observe_csv and signal_csv.exists():
+        sig = pd.read_csv(signal_csv)
         sig["date"] = pd.to_datetime(sig["date"])
         if "sat_lead" not in sig.columns and "w_sat" in sig.columns:
             sig["sat_lead"] = sig["w_sat"].astype(float) > 0.5
@@ -310,6 +313,12 @@ def maybe_emit_switch_orders(
         delta_shares=delta_shares,
         prices=prices,
     )
+    from live_config import LIVE
+
+    if LIVE.live_tipsoft_dd_switch:
+        for row in rows:
+            row["execution_clock"] = "NEXT_SESSION_OPEN"
+            row["signal_available"] = "AFTER_CLOSE"
     meta.update(build_meta)
     meta["reason"] = "emitted" if rows else "empty_after_lot_filter"
     return rows, meta

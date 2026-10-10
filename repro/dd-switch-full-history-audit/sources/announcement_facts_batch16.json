@@ -1,0 +1,102 @@
+[
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170712&fund=0050&seq=1&type=all",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2017-07-12T14:01:22+08:00",
+    "ex_date": "2017-07-31",
+    "payment_date": "2017-08-31",
+    "estimated_amount": 0.7,
+    "retrieval_status": "FACTS_PARTIAL"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20170727&fund=0050&seq=1&type=all",
+    "stage": "FINAL",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2017-07-27T14:31:43+08:00",
+    "ex_date": "2017-07-31",
+    "payment_date": "2017-08-31",
+    "amount": 0.7,
+    "retrieval_status": "FACTS_PARTIAL"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180110&fund=0050&seq=1&type=all",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "retrieval_status": "UNAVAILABLE"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180125&fund=0050&seq=1&type=all",
+    "stage": "FINAL",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "retrieval_status": "UNAVAILABLE"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180706&fund=0050&seq=1&type=all",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2018-07-06T15:44:58+08:00",
+    "ex_date": "2018-07-23",
+    "payment_date": "2018-08-27",
+    "estimated_amount": 0.7,
+    "retrieval_status": "FACTS_PARTIAL"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20180719&fund=0050&seq=1&type=all",
+    "stage": "FINAL",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "retrieval_status": "UNAVAILABLE"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190104&fund=0050&seq=1&type=all",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2019-01-04T17:16:09+08:00",
+    "ex_date": "2019-01-22",
+    "payment_date": "2019-03-08",
+    "estimated_amount": 2.3,
+    "retrieval_status": "FACTS_PARTIAL"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190117&fund=0050&seq=1&type=all",
+    "stage": "FINAL",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2019-01-17T17:57:49+08:00",
+    "ex_date": "2019-01-22",
+    "payment_date": "2019-03-08",
+    "amount": 2.3,
+    "retrieval_status": "FACTS_PARTIAL"
+  }
+]

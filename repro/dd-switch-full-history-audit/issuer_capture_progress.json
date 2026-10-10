@@ -1,0 +1,24 @@
+{
+  "status": "COMPLETE",
+  "total": 5,
+  "processed": 5,
+  "success": 2,
+  "failed": 0,
+  "cached": 3,
+  "started_at": "2026-10-09T17:44:13.769871+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "fubon_shareholders_archive",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "hn_2013_syndicated_notice",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "updated_at": "2026-10-09T17:44:32.892139+00:00",
+  "current_id": "",
+  "current_started_at": "2026-10-09T17:44:23.576901+00:00",
+  "last_completed_at": "2026-10-09T17:44:32.891493+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "code": "3045",
+  "leg": "cash",
+  "ex_date": "2025-07-09",
+  "record_date": "2025-07-15",
+  "payment_date": "2025-07-31",
+  "ledger_reported_at": "2025-06-24T14:41:56+08:00",
+  "current_aggregate_reported_at": "2025-06-24T16:39:46+08:00",
+  "earlier_schedule_reported_at": "2025-06-02T15:30:43+08:00",
+  "earlier_indicative_cash_amount": "4.5",
+  "amount_is_conditional_on_record_date_eligible_shares": true,
+  "earlier_source": {
+    "code": "3045",
+    "year": 2025,
+    "month": "06",
+    "id": "3045_20250602_153043_1",
+    "kind": "DETAIL",
+    "title": "\u516c\u544a\u672c\u516c\u53f8\u73fe\u91d1\u80a1\u5229\u53ca\u8cc7\u672c\u516c\u7a4d\u73fe\u91d1\u8fd4\u9084\u914d\u767c\u57fa\u6e96\u65e5\u76f8\u95dc\u4e8b\u5b9c",
+    "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&step=2&isnew=false&seq_no=1&spoke_time=153043&spoke_date=20250602&co_id=3045&TYPEK=sii",
+    "path": "repro/dd-switch-full-history-audit/sources/mops_actions/3045_20250602_153043_1.html.gz",
+    "response_sha256": "7e00f9021bc8e2e6836b7c1330b198ec432f26bb607baba01e7ea61f3e298e05",
+    "compressed_sha256": "e21817b76cb212e8822f61161411e3b7b14a448ecb27770be2d86ab9570d25dc",
+    "retrieved_at": "2026-10-09T12:08:58.784392+00:00",
+    "http_status": "200",
+    "status": "CAPTURED"
+  },
+  "clock_discrepancy_resolved": false,
+  "revision_inventory_complete": false,
+  "canonical_modified": false,
+  "interpretation": "Earlier filing proves the schedule was declared before the ledger date; no evidence establishes why the two June 24 clocks differ. Do not backdate a final amount or overwrite the ledger."
+}

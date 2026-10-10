@@ -126,3 +126,11 @@ def assert_session_preflight(
                 f"Refusing session {latest.date()} behind portfolio last_date={prior_last}. "
                 "Replay/rebuild requires an explicit wipe path; --asof cannot silently rewind."
             )
+        from twse_session_sources import cached_load_calendar_window
+        expected=[]
+        for year in range(prior_ts.year,latest.year+1):
+            sessions,_=cached_load_calendar_window(year)
+            expected.extend(str(d) for d in sessions if prior_ts.date()<d<latest.date())
+        if expected:
+            raise SystemExit('Unprocessed official sessions before '+str(latest.date())+': '+','.join(expected)+
+                '; run e21_forward_range.py instead of jumping dates')

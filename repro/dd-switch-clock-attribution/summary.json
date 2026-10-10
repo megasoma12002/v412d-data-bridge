@@ -1,0 +1,95 @@
+{
+  "method": "fixed_parent_same_day_vs_one_observation_lag_return_proxy",
+  "source_files": {
+    "repro/tipsoft-ip3-highon-cash-twin-stageb/outputs/nav_REF_L4.csv": "849b837fab4b461c3fcf1dd4cb6b5b3071a3fa670785aeb755ad5caa093daa0f",
+    "repro/tipsoft-ip3-trail42-cash-paper-observe/outputs/nav_TRAIL42_FT_CASH.csv": "d525a2da1003fcb9f077ef99b0795c15ab4789048cb59e793749bf6554262ee6",
+    "repro/tipsoft-ip3-trail42-l4-signal-switch-stagea/outputs/nav_TRAIL_WHEN_TR_DD_GTE_L4.csv": "dd809a6bbe1abb96ed5d9a49dd38cc7ac3872679ac9b63e3270a899a42304c72"
+  },
+  "source_start": "2012-12-05",
+  "source_end": "2026-09-29",
+  "original_champion_relative_residual": 2.220446049250313e-16,
+  "n_lag1_flips": 343,
+  "missing_TRAIL_dates": [
+    "2012-12-04",
+    "2026-08-03",
+    "2026-08-04",
+    "2026-08-05",
+    "2026-08-06",
+    "2026-08-07"
+  ],
+  "decomposition": [
+    {
+      "window": "full",
+      "raw_L4_cagr_pct": 12.629666469584455,
+      "matched_L4_cagr_pct": 12.74718467517384,
+      "original_claimed_lift_pp": 2.0889095606610564,
+      "benchmark_calendar_component_pp": 0.1175182055893842,
+      "matched_original_lift_pp": 1.9713913550716722,
+      "lag1_remaining_matched_lift_pp": 0.3819779229837348,
+      "timing_sensitive_lift_pp": 1.5894134320879374,
+      "retained_matched_gain_ratio_pct": 19.376057524095593
+    },
+    {
+      "window": "oof_2011_2018",
+      "raw_L4_cagr_pct": 8.475013529394992,
+      "matched_L4_cagr_pct": 8.445814828497177,
+      "original_claimed_lift_pp": 0.44723806574771174,
+      "benchmark_calendar_component_pp": -0.0291987008978154,
+      "matched_original_lift_pp": 0.47643676664552714,
+      "lag1_remaining_matched_lift_pp": -0.09384765967728015,
+      "timing_sensitive_lift_pp": 0.5702844263228073,
+      "retained_matched_gain_ratio_pct": -19.6978206232987
+    },
+    {
+      "window": "validation_2019_2022",
+      "raw_L4_cagr_pct": 13.005255315766728,
+      "matched_L4_cagr_pct": 13.00525531576675,
+      "original_claimed_lift_pp": 1.0977925693241843,
+      "benchmark_calendar_component_pp": 2.1316282072803006e-14,
+      "matched_original_lift_pp": 1.097792569324163,
+      "lag1_remaining_matched_lift_pp": 1.03263886818441,
+      "timing_sensitive_lift_pp": 0.06515370113975294,
+      "retained_matched_gain_ratio_pct": 94.0650262207674
+    },
+    {
+      "window": "sealed_2023_plus",
+      "raw_L4_cagr_pct": 20.04100188888749,
+      "matched_L4_cagr_pct": 20.608200306539693,
+      "original_claimed_lift_pp": 6.450339740235144,
+      "benchmark_calendar_component_pp": 0.5671984176522038,
+      "matched_original_lift_pp": 5.88314132258294,
+      "lag1_remaining_matched_lift_pp": 0.5204032989309049,
+      "timing_sensitive_lift_pp": 5.362738023652035,
+      "retained_matched_gain_ratio_pct": 8.845670542254227
+    },
+    {
+      "window": "heldout_2019_plus",
+      "raw_L4_cagr_pct": 16.339549571662747,
+      "matched_L4_cagr_pct": 16.5911740758669,
+      "original_claimed_lift_pp": 3.5274060845783346,
+      "benchmark_calendar_component_pp": 0.25162450420415183,
+      "matched_original_lift_pp": 3.2757815803741828,
+      "lag1_remaining_matched_lift_pp": 0.7935362539193598,
+      "timing_sensitive_lift_pp": 2.482245326454823,
+      "retained_matched_gain_ratio_pct": 24.2243334742946
+    },
+    {
+      "window": "tip_ytd",
+      "raw_L4_cagr_pct": 50.895125990593,
+      "matched_L4_cagr_pct": 55.672270807101,
+      "original_claimed_lift_pp": 29.373240806795465,
+      "benchmark_calendar_component_pp": 4.777144816507999,
+      "matched_original_lift_pp": 24.596095990287466,
+      "lag1_remaining_matched_lift_pp": 6.154794066320974,
+      "timing_sensitive_lift_pp": 18.441301923966492,
+      "retained_matched_gain_ratio_pct": 25.0234592869998
+    }
+  ],
+  "limitations": [
+    "Lag1 is next common observation, not next-open fills; gaps, overnight/open-close effects unresolved",
+    "Original parent return stitches, reentry, corporate actions and NAV marks not changed or independently validated",
+    "Ratios measure timing sensitivity in CAGR lift, not fractions of realized profit or proof of executable alpha",
+    "Incremental bps per flip are sensitivity assumptions, not measured share turnover costs",
+    "No genuine intraday T0 test; causal intraday execution may retain a different amount"
+  ]
+}

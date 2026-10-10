@@ -1,0 +1,29 @@
+{
+  "asof": "2026-10-08",
+  "captured_candidate_filings": 1417,
+  "captured_statutory_filings": 1056,
+  "captured_issuer_original_pdf_versions": 54,
+  "positive_dividend_legs": 416,
+  "dividend_legs_with_linked_schedule_chain": 416,
+  "dividend_legs_with_earlier_schedule": 304,
+  "primary_payment_schedule_matches": 408,
+  "payment_schedule_conflicts": 2,
+  "contradictory_primary_payment_dates": 2,
+  "subscription_events": 24,
+  "subscription_windows_supported": 24,
+  "subscription_future_not_due": 1,
+  "subscription_delivery_dates_supported": 14,
+  "subscription_voucher_dates_supported": 16,
+  "subscription_listing_dates_supported": 20,
+  "revision_inventory_complete": false,
+  "publication_vintage_certified_legs": 0,
+  "backtest_ready": false,
+  "backtest_executed": false,
+  "canonical_modified": false,
+  "limits": [
+    "Full annual indexes are current responses; keyword triage is not proof of complete revision history",
+    "Public scheduled payment dates do not prove a particular holder was credited",
+    "Subscription requires an explicit paid election; no automatic ordinary shares",
+    "Future scheduled settlement is not a missing past payment"
+  ]
+}

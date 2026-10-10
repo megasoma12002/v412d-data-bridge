@@ -69,7 +69,10 @@ def exact_t1_from_fills(fills: pd.DataFrame, *, fills_required: bool = True) -> 
 
         if is_live_fill_authorized() and ORDER_TAG_COL in fills.columns:
             tagged = fills[ORDER_TAG_COL].astype(str).str.strip() == CARVE_OUT_ID
-            same_mask = same_mask & ~tagged
+            if "execution_clock" in fills:
+                tagged &= fills.execution_clock != "NEXT_SESSION_OPEN"
+            # A named T0 exception can allow equality, never a fill before signal.
+            same_mask = same_mask & ~(tagged & (fill_dt == sig))
     except Exception:
         pass
     same_bar = int(same_mask.sum())

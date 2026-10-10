@@ -1,0 +1,28 @@
+{
+  "status": "RESEARCH_FEATURE_GATE_TESTED_CERTIFICATION_STILL_BLOCKED",
+  "cutoff_days": 6,
+  "name_cutoffs": 24,
+  "kd_changed": 12,
+  "buy_mask_changed": 0,
+  "future_invariance_passed": true,
+  "tests_passed": 10,
+  "historical_revision_inventory_complete": false,
+  "publication_vintage_certified": false,
+  "calendar_vintage_certified": false,
+  "production_integrated": false,
+  "backtest_ready": false,
+  "backtest_executed": false,
+  "canonical_modified": false,
+  "inputs_sha256": {
+    "repro/dd-switch-seven-session-rebuild/inputs/parents_with_off.csv": "114d3da98688e637d3306357202ec889fc115597474c2455ac3b5c839ae77183",
+    "repro/dd-switch-full-history-audit/announcement_versions_research.json": "33c293861ce104d47e3a675cb8aa8f6a374e4a74846657fa789b43e09afe0ffc",
+    "data/dividend_events/e22_dividend_events.csv": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724"
+  },
+  "limitations": [
+    "Reported clocks are not historical publication archive certification",
+    "Calendar labels are observed market sessions, not a certified historical calendar vintage",
+    "Bounded 2025/2026 feature checks do not certify all historical dates",
+    "The legacy comparison changes both event availability and the calendar-prefix issue; no causal NAV attribution",
+    "Stable event identities and complete revisions still require source proof"
+  ]
+}

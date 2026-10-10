@@ -1,0 +1,22 @@
+{
+  "final_nav": 543462667.2283316,
+  "profit": 43462667.228331566,
+  "return_pct": 8.692533445666317,
+  "observed_mdd_pct": -5.139358488593926,
+  "sessions": 32,
+  "initial": 500000000.0,
+  "start": "2026-08-24",
+  "end": "2026-10-08",
+  "missing_nav_completed": [
+    "2026-09-17",
+    "2026-09-18"
+  ],
+  "max_nav_residual": 1.1920928955078125e-07,
+  "max_cash_residual": 1.4901161193847656e-08,
+  "final_position_residual": 0.0,
+  "fees_tax": 1323163.4716685,
+  "dividend_records": 0,
+  "cash_dividend_credit": 0,
+  "nav_gain_vs_prior_verified_t1": 541684.074837923,
+  "gap_to_original_forward": 510019.54399728775
+}

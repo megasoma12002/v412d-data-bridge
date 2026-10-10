@@ -1,0 +1,54 @@
+{
+  "version": "DD_SWITCH_ORIGINAL_LINEAGE_DAILY_V1",
+  "controller_model_scope": "ORIGINAL_LEGACY_CLOSE_FEATURES_FOR_T1_FORWARD",
+  "asof": "2026-10-08",
+  "generation": "generations/original-2026-10-08-b71cde9d9f88aff85a19",
+  "files": {
+    "off": "off.csv",
+    "base": "base.csv",
+    "l4": "l4.csv",
+    "trail": "trail.csv",
+    "dd": "dd.csv",
+    "shares_COMP_H150_x_A20": "shares_COMP_H150_x_A20.csv",
+    "shares_SAT_A20_RELAX": "shares_SAT_A20_RELAX.csv",
+    "signal": "signal.csv"
+  },
+  "hashes": {
+    "off": "5d2953dceb716f2f92235c00001974318f203b2a16364e5c78ad7012fc296a43",
+    "base": "a478b18bd850d09041cb630dd6266cb8a8fc70fda2fd2a379514793c0d1c68ec",
+    "l4": "288d7d79c41f6e4f8ab95c9fc19556dac2a4f25194d326a1d723c8c86452ac92",
+    "trail": "f8d822f076e46001f53746af4ed974167755e6497b68149bc4274706964914ab",
+    "dd": "1b892099331bf793a3ad0754b6385dddd626c4f44e42ab6a643752bb17b9df56",
+    "shares_COMP_H150_x_A20": "9ed36d7e2670dfc8c8c09fe9ec363ac37e3db71eb0fcf824e4a53cbcc05eb1a8",
+    "shares_SAT_A20_RELAX": "8fd7dcf79544108d486372a6035799b94813245d70f704d33032f9bcb35ace88",
+    "signal": "d873aa23907c3b26f3896d2bb3aba3235d84e375edc796d19a2078af0bdabbb8"
+  },
+  "clock": "CLOSE_T_TO_NEXT_SESSION_OPEN",
+  "original_research_preserved": true,
+  "source_hashes": {
+    "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-refresh-release-v2/parents/off_append_only.csv": "5d2953dceb716f2f92235c00001974318f203b2a16364e5c78ad7012fc296a43",
+    "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-refresh-release-v2/lineage/nav_BASE.csv": "a478b18bd850d09041cb630dd6266cb8a8fc70fda2fd2a379514793c0d1c68ec",
+    "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-refresh-release-v2/lineage/nav_L4.csv": "288d7d79c41f6e4f8ab95c9fc19556dac2a4f25194d326a1d723c8c86452ac92",
+    "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-refresh-release-v2/lineage/nav_TRAIL.csv": "f8d822f076e46001f53746af4ed974167755e6497b68149bc4274706964914ab",
+    "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-refresh-release-v2/lineage/nav_DD_SWITCH.csv": "1b892099331bf793a3ad0754b6385dddd626c4f44e42ab6a643752bb17b9df56",
+    "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-refresh-release-v2/parents/outputs/daily_shares_COMP_H150_x_A20.csv": "9ed36d7e2670dfc8c8c09fe9ec363ac37e3db71eb0fcf824e4a53cbcc05eb1a8",
+    "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-refresh-release-v2/parents/outputs/daily_shares_SAT_A20_RELAX.csv": "8fd7dcf79544108d486372a6035799b94813245d70f704d33032f9bcb35ace88"
+  },
+  "audit_sha256": "238f3424d5033013b88ea16b186722bf23314b81b7d4e9b32e3c609ada32f7e0",
+  "certification": {
+    "status": "ORIGINAL_RESEARCH_PREFIX_REPRODUCED_AND_APPEND_ONLY_EXTENDED",
+    "prefix_gate_disagreement": {
+      "want_trail": 0,
+      "trail_on": 0,
+      "active": 0
+    },
+    "parent_max_share_difference": 0.0,
+    "mother_max_relative_error": 6.661338147750939e-15,
+    "construction_refs": {
+      "live_stack": "5449f76b3a3feba434f40e0c5e10483e32c00b44",
+      "upper_layers": "97933be85192e8d0ef89695be0c292342bba694d",
+      "parent_ledgers": "f73c1ba1f48d77b4728ce510da97ae8a0885038e"
+    }
+  },
+  "prefix_certified": true
+}

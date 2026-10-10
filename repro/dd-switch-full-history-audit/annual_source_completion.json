@@ -1,0 +1,9 @@
+{
+  "status": "ALL_302_ANNUAL_SOURCES_FETCHED_AND_HASH_VERIFIED",
+  "annual_items": 302,
+  "failed_items": 0,
+  "newly_fetched_items": 32,
+  "source_rows": 72245,
+  "source_class": "SECONDARY_FINMIND_REDOWNLOAD_NOT_VINTAGE",
+  "backtest_ready": false
+}

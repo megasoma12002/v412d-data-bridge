@@ -1,0 +1,22 @@
+{
+  "archive_name": "resumed_delivery_capture_delta.zip",
+  "archive_bytes": 23610586,
+  "archive_sha256": "534ac270024c5e2662dbcf568bd394b08a3de6985d9284dacf44bca9afeab71f",
+  "parts": [
+    {
+      "name": "resumed_delivery_capture_delta.zip.part001",
+      "size": 8100000,
+      "sha256": "9fea363d3eb1543a6ceab42eb2e972998309920dccf5278fb0411ef731976840"
+    },
+    {
+      "name": "resumed_delivery_capture_delta.zip.part002",
+      "size": 8100000,
+      "sha256": "207ad4a26b9642a3a1a0f2092974eacedd350cab08ec78b894ed98ceb5216e49"
+    },
+    {
+      "name": "resumed_delivery_capture_delta.zip.part003",
+      "size": 7410586,
+      "sha256": "9d5aa2401bc4f6f58eadd00529853bc2db9c8ac7db51c5ee6d9bd0fb05295428"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "status": "DATA_RECONCILIATION_FINISHED_WITH_OPEN_BLOCKERS",
+  "backtest_ready": false,
+  "publication_allowed": false,
+  "audited_canonical_inputs_unchanged": true,
+  "calendar_conflicts": 20,
+  "reported_closed_alternate_dates": 2,
+  "supported_local_sessions": 17,
+  "primary_supported_local_sessions": 2,
+  "full_historical_official_calendar_certified": false,
+  "newly_identified_local_missing_dates": [
+    "2023-05-25"
+  ],
+  "unresolved_calendar_conflicts": 0,
+  "source_candidates_not_promoted": 18,
+  "unresolved_price_fields": 63223,
+  "unresolved_price_fields_are_not_proven_local_errors": true,
+  "private_quotes_recovered_research_only": 24,
+  "core_quotes_recovered_research_only": 10,
+  "required_before_full_backtest": [
+    "Full official historical calendar proof remains distinct from news-supported conflict decisions",
+    "Historical split/rights unit contract and exceptional price discrepancies",
+    "Dividend date availability/revisions and payment evidence"
+  ],
+  "backtest_executed": false
+}

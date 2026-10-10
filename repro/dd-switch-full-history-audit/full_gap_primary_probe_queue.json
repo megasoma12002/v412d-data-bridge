@@ -1,0 +1,20 @@
+[
+  {
+    "id": "full_gap_tbb_20101006_native",
+    "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2834&colorchg=&TYPEK=sii&YEAR=99&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20101006&SKEY=1&step=2&firstin=1",
+    "kind": "PRIMARY_DATE_LOCATOR",
+    "code": "2834",
+    "announcement_date": "2010-10-06",
+    "discovery_url": "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=6c756ead-ce5a-4b5e-9866-60baba2b0afe"
+  },
+  {
+    "id": "full_gap_yuanta_name_change",
+    "url": "https://www.yuantafunds.com/download/基金名稱-變更對照表.pdf",
+    "kind": "ISSUER_NAME_HISTORY_PDF"
+  },
+  {
+    "id": "full_gap_ctbc_transfer_agent_cash_index",
+    "url": "https://ecorp.ctbcbank.com/cts/static/ag_stockdiv_cash.jsp",
+    "kind": "TRANSFER_AGENT_INDEX"
+  }
+]

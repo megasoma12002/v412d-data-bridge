@@ -1,0 +1,41 @@
+{
+  "status": "COMPLETE",
+  "total": 6,
+  "processed": 6,
+  "success": 6,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-09T18:33:06.869064+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201907_final",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201801_estimate",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201801_final",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201707_final",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201702_estimate",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_probe_201702_final",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T18:34:07.927716+00:00",
+  "updated_at": "2026-10-09T18:34:16.716155+00:00",
+  "last_completed_at": "2026-10-09T18:34:16.715364+00:00",
+  "skipped": 0
+}

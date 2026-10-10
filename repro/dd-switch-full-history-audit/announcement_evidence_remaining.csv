@@ -1,0 +1,2 @@
+code,leg,ex_date,schedule_reported_at,final_amount_reported_at,final_matches,schedule_matches,primary_reported_time_supported,mismatch_fields,publication_vintage_certified,status
+3045,cash,2025-07-09,2025-06-24T16:39:46+08:00,2025-06-24T16:39:46+08:00,1,0,False,REPORTED_CLOCK,False,PRIMARY_EVIDENCE_INCOMPLETE_OR_MISMATCH

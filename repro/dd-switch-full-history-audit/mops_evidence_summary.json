@@ -1,0 +1,21 @@
+{
+  "positive_dividend_legs": 389,
+  "primary_reported_time_supported_legs": 388,
+  "remaining_legs": 1,
+  "payment_date_primary_supported_legs": 186,
+  "action_candidates": 24,
+  "primary_subscription_terms_supported": 24,
+  "issued_security_class_pending": 0,
+  "primary_classified_actions": 24,
+  "ledger_sha256": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
+  "canonical_modified": false,
+  "backtest_ready": false,
+  "backtest_executed": false,
+  "publication_vintage_certified_legs": 0,
+  "limits": [
+    "Current primary historical table is not an original historical HTTP capture",
+    "Reported timestamps do not certify first publication or complete amendment history",
+    "Stock payment dates are not present in this aggregate table",
+    "Subscription right does not create free ordinary shares or automatic cash payment"
+  ]
+}

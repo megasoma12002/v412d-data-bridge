@@ -1,0 +1,37 @@
+[
+  {
+    "id": "yuanta_0050_notice_a63e892e-6f98-4c01-bbd6-4d35e9545bfb",
+    "url": "https://api.yuantafunds.com/ECImage/ECBackstage/file/2026-07-17/bd40e9205c344164bb2dd1feb0b33e5c.pdf",
+    "announcement_id": "a63e892e-6f98-4c01-bbd6-4d35e9545bfb",
+    "announcement_date": "2026/07/17",
+    "title": "公告元大台灣卓越50證券投資信託基金115年06月30日收益分配評價日每受益權單位實際配發金額。"
+  },
+  {
+    "id": "yuanta_0050_notice_0630cc98-410a-4d61-87e9-39c6447e490b",
+    "url": "https://api.yuantafunds.com/ECImage/ECBackstage/file/2026-06-30/9b10d47cec004c9b809b80491779b766.pdf",
+    "announcement_id": "0630cc98-410a-4d61-87e9-39c6447e490b",
+    "announcement_date": "2026/07/01",
+    "title": "公告元大台灣卓越50證券投資信託基金115年06月30日收益分配評價結果。"
+  },
+  {
+    "id": "yuanta_0050_notice_709e62b5-fe81-43f8-ac12-339cae2477d1",
+    "url": "https://api.yuantafunds.com/ECImage/ECBackstage/file/2026-01-16/814d28cdb1cd4d0cb79b78402eaf28fe.pdf",
+    "announcement_id": "709e62b5-fe81-43f8-ac12-339cae2477d1",
+    "announcement_date": "2026/01/20",
+    "title": "公告元大台灣卓越50證券投資信託基金114年12月31日收益分配評價日每受益權單位實際配發金額。"
+  },
+  {
+    "id": "yuanta_0050_notice_75f6ab01-71ad-4f34-9ae6-fb909e868310",
+    "url": "https://api.yuantafunds.com/ECImage/ECBackstage/file/2025-12-31/4867d8ed21114a47987fde05f1339060.pdf",
+    "announcement_id": "75f6ab01-71ad-4f34-9ae6-fb909e868310",
+    "announcement_date": "2026/01/02",
+    "title": "公告元大台灣卓越50證券投資信託基金114年12月31日收益分配評價結果。"
+  },
+  {
+    "id": "yuanta_0050_notice_89841e7a-60a1-4bd3-9a76-8f77a577818f",
+    "url": "https://api.yuantafunds.com/ECImage/ECBackstage/file/2025-07-16/bb11e3217dde499a8f3f033058737e84.pdf",
+    "announcement_id": "89841e7a-60a1-4bd3-9a76-8f77a577818f",
+    "announcement_date": "2025/07/17",
+    "title": "公告元大台灣卓越50證券投資信託基金114年6月30日收益分配評價日每受益權單位實際配發金額。"
+  }
+]

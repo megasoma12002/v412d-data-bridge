@@ -1,0 +1,64 @@
+{
+  "status": "CONFIRMED_CLOSE_KNOWN_P3_SIGNAL_NEXT_SESSION_EXECUTION",
+  "checks": [
+    {
+      "cutoff": "2026-09-29",
+      "p3_prefix_equals_truncated": true,
+      "p3_future_perturbation_no_effect": true,
+      "dd_prefix_equals_truncated": true,
+      "dd_future_perturbation_no_effect": true,
+      "premium42_excludes_today_return": true
+    },
+    {
+      "cutoff": "2026-09-30",
+      "p3_prefix_equals_truncated": true,
+      "p3_future_perturbation_no_effect": true,
+      "dd_prefix_equals_truncated": true,
+      "dd_future_perturbation_no_effect": true,
+      "premium42_excludes_today_return": true
+    },
+    {
+      "cutoff": "2026-10-01",
+      "p3_prefix_equals_truncated": true,
+      "p3_future_perturbation_no_effect": true,
+      "dd_prefix_equals_truncated": true,
+      "dd_future_perturbation_no_effect": true,
+      "premium42_excludes_today_return": true
+    },
+    {
+      "cutoff": "2026-10-05",
+      "p3_prefix_equals_truncated": true,
+      "p3_future_perturbation_no_effect": true,
+      "dd_prefix_equals_truncated": true,
+      "dd_future_perturbation_no_effect": true,
+      "premium42_excludes_today_return": true
+    }
+  ],
+  "p3_post_seed_orders": 31,
+  "orders_after_close_next_open": true,
+  "new_fills": 39,
+  "same_day_fills": 0,
+  "virtual_same_day_witness": {
+    "only_signal_changed_on_final_day": true,
+    "earlier_nav_unchanged": true,
+    "final_comp_nav": 1.1,
+    "final_sat_nav": 0.9,
+    "interpretation": "Virtual SC NAV uses day-T choice to score day-T return; observable after close, not proved day-T execution"
+  },
+  "interpretation": [
+    "P3 state(T) uses provided parent NAV through T, available after T close for T+1 orders",
+    "TRAIL42 ON(T) uses lag-one 42-observation premium through T-1; DD choice(T) uses virtual NAV through T",
+    "Legacy virtual SC same-day score and research DD same-day return selection are not executable-return proof",
+    "Close-observable synthetic virtual score is not automatically lookahead when only used for next-session decisions"
+  ],
+  "limits": [
+    "Historical input publication/asof vintage not verified by these prefix tests",
+    "No intraday snapshot, quote depth or actual T0 execution validation",
+    "Current T+1 paper result remains limited to observed window and original synthetic control definition"
+  ],
+  "source_sha256": {
+    "repro/dd-switch-original-live-t1/orders.csv": "034979859d9b02c118cc0af3e1c5eeb1e07409c7b5f280d7547abc61a22402c6",
+    "repro/dd-switch-original-live-t1/fills.csv": "b7ce46bb1bca3216381e800051507a7af56f09db87f87c94e966b9db023b32c6",
+    "repro/dd-switch-original-runtime-t1/current.json": "0891683b26c53c8e9d987507974c444833f9a102232c21742112294556327f93"
+  }
+}

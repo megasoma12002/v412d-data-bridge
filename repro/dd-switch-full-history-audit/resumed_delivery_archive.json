@@ -1,0 +1,10 @@
+{
+  "archive_name": "resumed_delivery_capture_delta.zip",
+  "archive_bytes": 23610586,
+  "archive_sha256": "534ac270024c5e2662dbcf568bd394b08a3de6985d9284dacf44bca9afeab71f",
+  "files": 18,
+  "captured_sources": 7,
+  "completed_transfers": 4,
+  "failed_transfers": 3,
+  "backtest_executed": false
+}

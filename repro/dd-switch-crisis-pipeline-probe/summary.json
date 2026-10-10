@@ -1,0 +1,18 @@
+{
+  "seed": "2026-09-29",
+  "end": "2026-10-08",
+  "initial": 500000000.0,
+  "final": 536132650.46155405,
+  "profit": 36132650.46155405,
+  "return_pct": 7.226530092310801,
+  "recorded_dates_mdd_pct": -3.9502229468940664,
+  "original_tip": 543972686.7723289,
+  "tip_difference": -7840036.310774803,
+  "scope": "production pipeline counterfactual after seed; earlier live records preserved",
+  "gate_mode": "DD_SWITCH_ORIGINAL_LINEAGE_DAILY_V1",
+  "runtime_source": "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-live-repair-runtime-certified",
+  "recon_research_policy": null,
+  "exposure_research_policy": null,
+  "synthetic_crisis_lifecycle_probe": true,
+  "runtime_manifest_sha256": "96a6888f3ba5aaa3a513d13b96edfba8164f110ae841eb002dbe00d38c974804"
+}

@@ -1,0 +1,1023 @@
+{
+  "status": "AUDIT_COMPLETE_FULL_HISTORY_CERTIFICATION_BLOCKED",
+  "publication_allowed": false,
+  "asof": "2026-10-08",
+  "scope": "DD_SWITCH parent/mother lineage plus eight private-financial raw-adjusted inputs; not every obsolete research file",
+  "benchmark_sessions": 4109,
+  "benchmark_years": [
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+  ],
+  "official_calendar_years": [
+    2025,
+    2026
+  ],
+  "external_source_counts": {
+    "FETCHED": 302
+  },
+  "primary_access": [
+    {
+      "url": "https://www.twse.com.tw/rwd/zh/index/MI_5MINS_HIST?date=20111201&response=json",
+      "source_class": "PRIMARY_TWSE",
+      "fetched_at": "2026-10-09T07:43:41.168259+00:00",
+      "status": "UNAVAILABLE",
+      "http_status": 307,
+      "error": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n</head>\n<body> \n\u56e0\u70ba\u5b89\u5168\u6027\u8003\u91cf\uff0c\u60a8\u6240\u57f7\u884c\u7684\u9801\u9762\u7121\u6cd5\u5448\u73fe\u3002<BR>\nFOR SECURITY REASONS, THIS PAGE CAN NOT BE ACCESSED.<BR>\n<BR>\n\u60a8\u53ef\u4ee5<A HREF=\"javascript:history.back()\">\u56de\u4e0a\u4e00\u9801</A>\u7e7c\u7e8c\u5176\u4ed6\u52d5\u4f5c\uff0c\u6216\u64a5\u6253\u4ee5\u4e0b\u96fb\u8a71\u901a\u5831\u554f\u984c\uff1a(02)8101-5840, (02)8101-5834\u3002<BR>\nYOU COULD GO <A HREF=\"javascript:history.back()\">BACK</A> TO PREVIOUS PAGE OR CALL US FOR FURTHER HELP\uff1a(02)8101-584"
+    },
+    {
+      "url": "https://www.twse.com.tw/rwd/zh/index/MI_5MINS_HIST?date=20190101&response=json",
+      "source_class": "PRIMARY_TWSE",
+      "fetched_at": "2026-10-09T07:43:50.785370+00:00",
+      "status": "UNAVAILABLE",
+      "http_status": 307,
+      "error": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n</head>\n<body> \n\u56e0\u70ba\u5b89\u5168\u6027\u8003\u91cf\uff0c\u60a8\u6240\u57f7\u884c\u7684\u9801\u9762\u7121\u6cd5\u5448\u73fe\u3002<BR>\nFOR SECURITY REASONS, THIS PAGE CAN NOT BE ACCESSED.<BR>\n<BR>\n\u60a8\u53ef\u4ee5<A HREF=\"javascript:history.back()\">\u56de\u4e0a\u4e00\u9801</A>\u7e7c\u7e8c\u5176\u4ed6\u52d5\u4f5c\uff0c\u6216\u64a5\u6253\u4ee5\u4e0b\u96fb\u8a71\u901a\u5831\u554f\u984c\uff1a(02)8101-5840, (02)8101-5834\u3002<BR>\nYOU COULD GO <A HREF=\"javascript:history.back()\">BACK</A> TO PREVIOUS PAGE OR CALL US FOR FURTHER HELP\uff1a(02)8101-584"
+    },
+    {
+      "url": "https://www.twse.com.tw/rwd/zh/index/MI_5MINS_HIST?date=20250101&response=json",
+      "source_class": "PRIMARY_TWSE",
+      "fetched_at": "2026-10-09T07:43:59.032665+00:00",
+      "status": "UNAVAILABLE",
+      "http_status": 307,
+      "error": "<html>\n<head>\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n</head>\n<body> \n\u56e0\u70ba\u5b89\u5168\u6027\u8003\u91cf\uff0c\u60a8\u6240\u57f7\u884c\u7684\u9801\u9762\u7121\u6cd5\u5448\u73fe\u3002<BR>\nFOR SECURITY REASONS, THIS PAGE CAN NOT BE ACCESSED.<BR>\n<BR>\n\u60a8\u53ef\u4ee5<A HREF=\"javascript:history.back()\">\u56de\u4e0a\u4e00\u9801</A>\u7e7c\u7e8c\u5176\u4ed6\u52d5\u4f5c\uff0c\u6216\u64a5\u6253\u4ee5\u4e0b\u96fb\u8a71\u901a\u5831\u554f\u984c\uff1a(02)8101-5840, (02)8101-5834\u3002<BR>\nYOU COULD GO <A HREF=\"javascript:history.back()\">BACK</A> TO PREVIOUS PAGE OR CALL US FOR FURTHER HELP\uff1a(02)8101-584"
+    },
+    {
+      "source_class": "PRIMARY_YUANTA_API",
+      "status": "FETCHED",
+      "rows": 32,
+      "path": "repro/dd-switch-full-history-audit/sources/yuanta_0050_dividends.json"
+    }
+  ],
+  "quotes": {
+    "canonical_market": {
+      "rows": 32625,
+      "dates": 3625,
+      "start": "2011-12-01",
+      "end": "2026-10-08",
+      "duplicates": 0,
+      "issues": 72,
+      "issue_counts": {
+        "MISSING_BENCHMARK_DATE": 67,
+        "EXPECTED_KNOWN_HALT_NO_QUOTE": 5
+      },
+      "redownload_compared_rows": 32625,
+      "redownload_difference_fields": 13821,
+      "redownload_difference_by_field": {
+        "open": 3625,
+        "volume": 3573,
+        "low": 3377,
+        "high": 3246
+      },
+      "large_raw_moves": 1,
+      "coverage": [
+        {
+          "dataset": "canonical_market",
+          "code": "0050",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3625,
+          "benchmark_expected": 3633,
+          "missing": 8,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "canonical_market",
+          "code": "2412",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3625,
+          "benchmark_expected": 3633,
+          "missing": 8,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "canonical_market",
+          "code": "2880",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3625,
+          "benchmark_expected": 3633,
+          "missing": 8,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "canonical_market",
+          "code": "2886",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3625,
+          "benchmark_expected": 3633,
+          "missing": 8,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "canonical_market",
+          "code": "2892",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3625,
+          "benchmark_expected": 3633,
+          "missing": 8,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "canonical_market",
+          "code": "3045",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3625,
+          "benchmark_expected": 3633,
+          "missing": 8,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "canonical_market",
+          "code": "4904",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3625,
+          "benchmark_expected": 3633,
+          "missing": 8,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "canonical_market",
+          "code": "5880",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3625,
+          "benchmark_expected": 3633,
+          "missing": 8,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "canonical_market",
+          "code": "TAIEX",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3625,
+          "benchmark_expected": 3633,
+          "missing": 8,
+          "last_date_before_panel_end": false
+        }
+      ]
+    },
+    "corrected_parents": {
+      "rows": 35599,
+      "dates": 3632,
+      "start": "2011-12-01",
+      "end": "2026-10-08",
+      "duplicates": 0,
+      "issues": 10,
+      "issue_counts": {
+        "MISSING_BENCHMARK_DATE": 10
+      },
+      "redownload_compared_rows": 35590,
+      "redownload_difference_fields": 13821,
+      "redownload_difference_by_field": {
+        "open": 3625,
+        "volume": 3573,
+        "low": 3377,
+        "high": 3246
+      },
+      "large_raw_moves": 2,
+      "coverage": [
+        {
+          "dataset": "corrected_parents",
+          "code": "0050",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_parents",
+          "code": "00631L",
+          "start": "2014-10-31",
+          "end": "2026-10-08",
+          "rows": 2911,
+          "benchmark_expected": 2912,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_parents",
+          "code": "2412",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_parents",
+          "code": "2880",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_parents",
+          "code": "2886",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_parents",
+          "code": "2892",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_parents",
+          "code": "3045",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_parents",
+          "code": "4904",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_parents",
+          "code": "5880",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_parents",
+          "code": "TAIEX",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        }
+      ]
+    },
+    "corrected_mothers": {
+      "rows": 35599,
+      "dates": 3632,
+      "start": "2011-12-01",
+      "end": "2026-10-08",
+      "duplicates": 0,
+      "issues": 10,
+      "issue_counts": {
+        "MISSING_BENCHMARK_DATE": 10
+      },
+      "redownload_compared_rows": 35590,
+      "redownload_difference_fields": 13821,
+      "redownload_difference_by_field": {
+        "open": 3625,
+        "volume": 3573,
+        "low": 3377,
+        "high": 3246
+      },
+      "large_raw_moves": 2,
+      "coverage": [
+        {
+          "dataset": "corrected_mothers",
+          "code": "0050",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_mothers",
+          "code": "00631L",
+          "start": "2014-10-31",
+          "end": "2026-10-08",
+          "rows": 2911,
+          "benchmark_expected": 2912,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_mothers",
+          "code": "2412",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_mothers",
+          "code": "2880",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_mothers",
+          "code": "2886",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_mothers",
+          "code": "2892",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_mothers",
+          "code": "3045",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_mothers",
+          "code": "4904",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_mothers",
+          "code": "5880",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "corrected_mothers",
+          "code": "TAIEX",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3632,
+          "benchmark_expected": 3633,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        }
+      ]
+    },
+    "private_fin": {
+      "rows": 32847,
+      "dates": 4106,
+      "start": "2010-01-04",
+      "end": "2026-10-08",
+      "duplicates": 0,
+      "issues": 25,
+      "issue_counts": {
+        "MISSING_BENCHMARK_DATE": 24,
+        "EXPECTED_KNOWN_HALT_NO_QUOTE": 1
+      },
+      "redownload_compared_rows": 32847,
+      "redownload_difference_fields": 0,
+      "redownload_difference_by_field": {},
+      "large_raw_moves": 0,
+      "coverage": [
+        {
+          "dataset": "private_fin",
+          "code": "2801",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4106,
+          "benchmark_expected": 4109,
+          "missing": 3,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "private_fin",
+          "code": "2834",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4106,
+          "benchmark_expected": 4109,
+          "missing": 3,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "private_fin",
+          "code": "2881",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4106,
+          "benchmark_expected": 4109,
+          "missing": 3,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "private_fin",
+          "code": "2882",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4106,
+          "benchmark_expected": 4109,
+          "missing": 3,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "private_fin",
+          "code": "2884",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4105,
+          "benchmark_expected": 4109,
+          "missing": 4,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "private_fin",
+          "code": "2885",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4106,
+          "benchmark_expected": 4109,
+          "missing": 3,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "private_fin",
+          "code": "2890",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4106,
+          "benchmark_expected": 4109,
+          "missing": 3,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "private_fin",
+          "code": "2891",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4106,
+          "benchmark_expected": 4109,
+          "missing": 3,
+          "last_date_before_panel_end": false
+        }
+      ]
+    },
+    "telecom_etf_raw": {
+      "rows": 16295,
+      "dates": 4084,
+      "start": "2010-01-04",
+      "end": "2026-09-01",
+      "duplicates": 0,
+      "issues": 41,
+      "issue_counts": {
+        "EXPECTED_KNOWN_HALT_NO_QUOTE": 41
+      },
+      "redownload_compared_rows": 16295,
+      "redownload_difference_fields": 0,
+      "redownload_difference_by_field": {},
+      "large_raw_moves": 1,
+      "coverage": [
+        {
+          "dataset": "telecom_etf_raw",
+          "code": "0050",
+          "start": "2010-01-04",
+          "end": "2026-09-01",
+          "rows": 4079,
+          "benchmark_expected": 4084,
+          "missing": 5,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "telecom_etf_raw",
+          "code": "2412",
+          "start": "2010-01-04",
+          "end": "2026-09-01",
+          "rows": 4059,
+          "benchmark_expected": 4084,
+          "missing": 25,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "telecom_etf_raw",
+          "code": "3045",
+          "start": "2010-01-04",
+          "end": "2026-09-01",
+          "rows": 4073,
+          "benchmark_expected": 4084,
+          "missing": 11,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "telecom_etf_raw",
+          "code": "4904",
+          "start": "2010-01-04",
+          "end": "2026-09-01",
+          "rows": 4084,
+          "benchmark_expected": 4084,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        }
+      ]
+    },
+    "telecom_adjusted": {
+      "rows": 12291,
+      "dates": 4109,
+      "start": "2010-01-04",
+      "end": "2026-10-08",
+      "duplicates": 0,
+      "issues": 36,
+      "issue_counts": {
+        "EXPECTED_KNOWN_HALT_NO_QUOTE": 36
+      },
+      "redownload_compared_rows": 12291,
+      "redownload_difference_fields": 0,
+      "redownload_difference_by_field": {},
+      "large_raw_moves": 0,
+      "coverage": [
+        {
+          "dataset": "telecom_adjusted",
+          "code": "2412",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4084,
+          "benchmark_expected": 4109,
+          "missing": 25,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "telecom_adjusted",
+          "code": "3045",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4098,
+          "benchmark_expected": 4109,
+          "missing": 11,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "telecom_adjusted",
+          "code": "4904",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4109,
+          "benchmark_expected": 4109,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        }
+      ]
+    },
+    "etf_adjusted": {
+      "rows": 4104,
+      "dates": 4104,
+      "start": "2010-01-04",
+      "end": "2026-10-08",
+      "duplicates": 0,
+      "issues": 5,
+      "issue_counts": {
+        "EXPECTED_KNOWN_HALT_NO_QUOTE": 5
+      },
+      "redownload_compared_rows": 4104,
+      "redownload_difference_fields": 0,
+      "redownload_difference_by_field": {},
+      "large_raw_moves": 1,
+      "coverage": [
+        {
+          "dataset": "etf_adjusted",
+          "code": "0050",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4104,
+          "benchmark_expected": 4109,
+          "missing": 5,
+          "last_date_before_panel_end": false
+        }
+      ]
+    },
+    "off_actual": {
+      "rows": 2908,
+      "dates": 2908,
+      "start": "2014-10-31",
+      "end": "2026-10-08",
+      "duplicates": 0,
+      "issues": 4,
+      "issue_counts": {
+        "EXPECTED_KNOWN_HALT_NO_QUOTE": 4
+      },
+      "redownload_compared_rows": 2908,
+      "redownload_difference_fields": 0,
+      "redownload_difference_by_field": {},
+      "large_raw_moves": 1,
+      "coverage": [
+        {
+          "dataset": "off_actual",
+          "code": "00631L",
+          "start": "2014-10-31",
+          "end": "2026-10-08",
+          "rows": 2908,
+          "benchmark_expected": 2912,
+          "missing": 4,
+          "last_date_before_panel_end": false
+        }
+      ]
+    }
+  },
+  "dividends": {
+    "ledger_rows": 329,
+    "positive_legs": 416,
+    "cash_legs": 273,
+    "stock_legs": 143,
+    "missing_announcement_legs": 27,
+    "missing_ex": 0,
+    "missing_payment": 0,
+    "pay_before_ex": 0,
+    "announcement_after_ex": 0,
+    "duplicate_legs": 0,
+    "scheduled_ex_on_closed_verified_date": 1,
+    "provenance": {
+      "SECONDARY_FINMIND_PAYMENT_PRESENT": 186,
+      "FILLED_LEDGER_NO_ROW_LEVEL_PRIMARY_PAYMENT_PROOF": 174,
+      "SECONDARY_YAHOO_PAYMENT_BACKFILL": 29,
+      "PRIMARY_YUANTA_HISTORY_CURRENT_SNAPSHOT": 27
+    },
+    "amount_source_mismatch": 0,
+    "official_0050_compared": 27,
+    "official_0050_mismatches": 0,
+    "primary_vintage_verified_legs": 0
+  },
+  "feature_availability": {
+    "parameters": {
+      "k_thresh": 30.0,
+      "season_start": [
+        4,
+        15
+      ],
+      "season_end": [
+        5,
+        15
+      ],
+      "pre_days": 15,
+      "active_score": 1.5
+    },
+    "cutoff_dates": 45,
+    "name_cutoffs": 180,
+    "kd_changed": 111,
+    "buy_mask_changed": 0,
+    "pre_ex_unpublished_name_days": 259,
+    "ex_date_announcement_availability_not_separately_proved": true,
+    "method": "Same market prefix; remove event rows whose recorded announcement is later than cutoff. Recorded announcement may itself not prove final ex-date was available."
+  },
+  "navs": [
+    {
+      "book": "nav_COMP_H150_x_A20",
+      "path": "repro/dd-switch-seven-session-rebuild/parents/nav_COMP_H150_x_A20.csv",
+      "sha256": "8e793c6e5d5bc7bcde438939661d5567a408b715ddf756511f9907873089a12e",
+      "rows": 3380,
+      "start": "2012-12-04",
+      "end": "2026-10-08",
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
+      "duplicate_dates": 0,
+      "invalid_nav": 0
+    },
+    {
+      "book": "nav_OFFENSE",
+      "path": "repro/dd-switch-seven-session-rebuild/parents/nav_OFFENSE.csv",
+      "sha256": "d6eaa0ffb893bdf4e53add683fac9f9775d9789fb3b7674c135ee0e8b65dcd26",
+      "rows": 3380,
+      "start": "2012-12-04",
+      "end": "2026-10-08",
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
+      "duplicate_dates": 0,
+      "invalid_nav": 0
+    },
+    {
+      "book": "nav_SAT_A20_RELAX",
+      "path": "repro/dd-switch-seven-session-rebuild/parents/nav_SAT_A20_RELAX.csv",
+      "sha256": "b09e1c71c24fb885120575d4718ba9b32432f8c0e5e9d70ba4e4f7d9f3dfc2ae",
+      "rows": 3380,
+      "start": "2012-12-04",
+      "end": "2026-10-08",
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
+      "duplicate_dates": 0,
+      "invalid_nav": 0
+    },
+    {
+      "book": "nav_BASE",
+      "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_BASE.csv",
+      "sha256": "61588329293cb18081c9b00d1d1c543cb80f7483ef59445d84f07b912fca57f6",
+      "rows": 3380,
+      "start": "2012-12-04",
+      "end": "2026-10-08",
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
+      "duplicate_dates": 0,
+      "invalid_nav": 0
+    },
+    {
+      "book": "nav_DD_SWITCH",
+      "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_DD_SWITCH.csv",
+      "sha256": "934d2d55ab83945bb87c0eca40fb6080651488220dee2273c272809beff42676",
+      "rows": 3379,
+      "start": "2012-12-05",
+      "end": "2026-10-08",
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
+      "duplicate_dates": 0,
+      "invalid_nav": 0
+    },
+    {
+      "book": "nav_L4",
+      "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_L4.csv",
+      "sha256": "3e43d820ff6c01bda9eefd8ea8d2391fb0c6d25e0fe6026768ec961a40af31ed",
+      "rows": 3380,
+      "start": "2012-12-04",
+      "end": "2026-10-08",
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
+      "duplicate_dates": 0,
+      "invalid_nav": 0
+    },
+    {
+      "book": "nav_SC_CASH",
+      "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_SC_CASH.csv",
+      "sha256": "bfe7f7540372c24b933d1807b3811d46c98b0ac1bb7a76482fc9c3d0ce318e47",
+      "rows": 3379,
+      "start": "2012-12-05",
+      "end": "2026-10-08",
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
+      "duplicate_dates": 0,
+      "invalid_nav": 0
+    },
+    {
+      "book": "nav_SC_WITHIN",
+      "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_SC_WITHIN.csv",
+      "sha256": "2711d5b8b0d5e9de3ca12565d17703c074b7a07bd0adc3edb7f28636ff56c753",
+      "rows": 3379,
+      "start": "2012-12-05",
+      "end": "2026-10-08",
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
+      "duplicate_dates": 0,
+      "invalid_nav": 0
+    },
+    {
+      "book": "nav_TRAIL",
+      "path": "repro/dd-switch-seven-session-rebuild/mothers/nav_TRAIL.csv",
+      "sha256": "d4d761618d83669a6b1500a572a7c024c9382c940be5881ff263aa8542bdc408",
+      "rows": 3379,
+      "start": "2012-12-05",
+      "end": "2026-10-08",
+      "missing_benchmark_dates": [
+        "2023-05-25"
+      ],
+      "duplicate_dates": 0,
+      "invalid_nav": 0
+    }
+  ],
+  "fills": [
+    {
+      "book": "fills_COMP_H150_x_A20",
+      "rows": 6641,
+      "same_or_before_signal": 0,
+      "prelisting_fills": 0,
+      "halt_fills": 0,
+      "fill_outside_market_panel": 0,
+      "next_benchmark_date": 4771,
+      "later_than_next_benchmark_date": 1870,
+      "unevidenced_clock_rows": 0
+    },
+    {
+      "book": "fills_OFFENSE",
+      "rows": 6519,
+      "same_or_before_signal": 0,
+      "prelisting_fills": 0,
+      "halt_fills": 0,
+      "fill_outside_market_panel": 0,
+      "next_benchmark_date": 3934,
+      "later_than_next_benchmark_date": 2585,
+      "unevidenced_clock_rows": 0
+    },
+    {
+      "book": "fills_SAT_A20_RELAX",
+      "rows": 5531,
+      "same_or_before_signal": 0,
+      "prelisting_fills": 0,
+      "halt_fills": 0,
+      "fill_outside_market_panel": 0,
+      "next_benchmark_date": 4663,
+      "later_than_next_benchmark_date": 868,
+      "unevidenced_clock_rows": 0
+    },
+    {
+      "book": "fills_BASE",
+      "rows": 4830,
+      "same_or_before_signal": 0,
+      "prelisting_fills": 0,
+      "halt_fills": 0,
+      "fill_outside_market_panel": 0,
+      "next_benchmark_date": 3940,
+      "later_than_next_benchmark_date": 890,
+      "unevidenced_clock_rows": 0
+    },
+    {
+      "book": "fills_L4",
+      "rows": 4944,
+      "same_or_before_signal": 0,
+      "prelisting_fills": 0,
+      "halt_fills": 0,
+      "fill_outside_market_panel": 0,
+      "next_benchmark_date": 3896,
+      "later_than_next_benchmark_date": 1048,
+      "unevidenced_clock_rows": 0
+    }
+  ],
+  "blockers": [
+    {
+      "id": "OFFICIAL_PRE2025_CALENDAR",
+      "reason": "TWSE historical API access denied; provider dates are secondary; complete pre-2025 official calendar still unproved"
+    },
+    {
+      "id": "FULL_RAW_PRICE_EXTERNAL_CONFIRMATION",
+      "reason": "All requested annual snapshots obtained and compared; FinMind shares original ancestry, so independent historical primary proof remains incomplete"
+    },
+    {
+      "id": "DIVIDEND_VINTAGE",
+      "reason": "Positive dividend ledger has 415 primary reported schedule/final timestamp matches; 1 positive legs still have missing or conflicting primary timestamp proof and all revision inventories remain uncertified"
+    },
+    {
+      "id": "FEATURE_FUTURE_EVENT_DEPENDENCY",
+      "reason": "Feature functions use full ex-date ledger without announcement availability gate; see actual prefix experiment"
+    },
+    {
+      "id": "FULL_LIVE_FUNDED_HISTORY",
+      "reason": "Mother DD/TRAIL retain shadow and return stitching; full live historical joint capital execution not certified"
+    },
+    {
+      "id": "HISTORICAL_CORPORATE_ACTION_COMPLETENESS",
+      "reason": "2 ETF split/halt/unit contracts have primary reported time proof; 24 of 24 zero-dividend ex-right rows have primary subscription/class evidence; settlement and complete historical primary inventory remain unproved"
+    },
+    {
+      "id": "RESEARCH_GAP_CANDIDATES_NOT_PROMOTED",
+      "reason": "34 missing quotes recovered in independent research candidates (10 core, 24 private); original canonical inputs intentionally unchanged"
+    },
+    {
+      "id": "HISTORICAL_LATER_ORDER_FILLS",
+      "count": 7261,
+      "reason": "Evidenced fills occur after first qualified session; funding/residual/stale-order lifecycle attribution pending, not automatically invalid T+1 qualification"
+    },
+    {
+      "id": "SCHEDULED_EX_DATE_ON_CLOSED_SESSION",
+      "reason": "2891 cash scheduled ex 2026-07-10 falls outside official sessions; effective-date router convention exists but primary schedule/amendment proof still required"
+    }
+  ],
+  "limits": [
+    "A FinMind re-download shares ancestry with original FinMind prices: consistency evidence, not independent cross-provider proof",
+    "TAIEX archived panel is CLOSE_ONLY_PROXY: historical open/high/low equal close and volume=0; close consistency is reported separately; proxy OHLC/volume must not support intraday claims",
+    "Dates before each artifact start and after cutoff are excluded; prelisting synthetic marks never counted as tradable quotes",
+    "Price integrity and ledger arithmetic do not prove point-in-time availability or execution depth",
+    "Next-session qualification is not a guarantee of next-session fill: later paper fills need funding/order lifecycle attribution",
+    "Nothing writes canonical data, runtime or broker state"
+  ],
+  "announcement_evidence": {
+    "status": "PRIMARY_TIMESTAMP_ENRICHMENT_COMPLETE_CERTIFICATION_BLOCKED",
+    "normalized_primary_announcements": 54,
+    "positive_dividend_legs": 416,
+    "primary_reported_time_supported_legs": 415,
+    "remaining_primary_time_legs": 1,
+    "mismatched_legs": 1,
+    "zero_dividend_ex_right_candidates": 24,
+    "split_contracts_primary_matched": 2,
+    "mops_positive_legs_retrieved": 389,
+    "primary_classified_actions": 24,
+    "mops_payment_date_primary_supported_legs": 186,
+    "publication_vintage_certified_legs": 0,
+    "backtest_ready": false,
+    "backtest_executed": false,
+    "canonical_modified": false,
+    "ledger_sha256": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
+    "limits": [
+      "ETF normalized fact hashes do not authenticate original HTTP bodies; MOPS retrieved response hashes authenticate current retrieval only",
+      "Reported timestamps do not certify first publication or a complete revision inventory",
+      "Research snapshot is not integrated into production feature/entitlement code",
+      "Zero-dividend ex-right candidates must not be treated as free stock dividends"
+    ]
+  },
+  "mops_evidence": {
+    "positive_dividend_legs": 389,
+    "primary_reported_time_supported_legs": 388,
+    "remaining_legs": 1,
+    "payment_date_primary_supported_legs": 186,
+    "action_candidates": 24,
+    "primary_subscription_terms_supported": 24,
+    "issued_security_class_pending": 0,
+    "primary_classified_actions": 24,
+    "ledger_sha256": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
+    "canonical_modified": false,
+    "backtest_ready": false,
+    "backtest_executed": false,
+    "publication_vintage_certified_legs": 0,
+    "limits": [
+      "Current primary historical table is not an original historical HTTP capture",
+      "Reported timestamps do not certify first publication or complete amendment history",
+      "Stock payment dates are not present in this aggregate table",
+      "Subscription right does not create free ordinary shares or automatic cash payment"
+    ]
+  },
+  "revision_settlement_evidence": {
+    "asof": "2026-10-08",
+    "captured_candidate_filings": 1417,
+    "captured_statutory_filings": 1056,
+    "captured_issuer_original_pdf_versions": 54,
+    "positive_dividend_legs": 416,
+    "dividend_legs_with_linked_schedule_chain": 416,
+    "dividend_legs_with_earlier_schedule": 304,
+    "primary_payment_schedule_matches": 408,
+    "payment_schedule_conflicts": 2,
+    "contradictory_primary_payment_dates": 2,
+    "subscription_events": 24,
+    "subscription_windows_supported": 24,
+    "subscription_future_not_due": 1,
+    "subscription_delivery_dates_supported": 14,
+    "subscription_voucher_dates_supported": 16,
+    "subscription_listing_dates_supported": 20,
+    "revision_inventory_complete": false,
+    "publication_vintage_certified_legs": 0,
+    "backtest_ready": false,
+    "backtest_executed": false,
+    "canonical_modified": false,
+    "limits": [
+      "Full annual indexes are current responses; keyword triage is not proof of complete revision history",
+      "Public scheduled payment dates do not prove a particular holder was credited",
+      "Subscription requires an explicit paid election; no automatic ordinary shares",
+      "Future scheduled settlement is not a missing past payment"
+    ]
+  },
+  "announcement_evidence_update_scope": "Whole-lineage data audit rerun from hash-verified saved inputs and annual snapshots; strategy not rerun"
+}

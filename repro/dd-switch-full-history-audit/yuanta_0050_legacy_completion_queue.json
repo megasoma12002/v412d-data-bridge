@@ -1,0 +1,62 @@
+[
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201807_estimate",
+    "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5107.06.30%29.pdf",
+    "title": "公告元大台灣卓越50基金收益分配評價結果",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A0005/02/卓越50-收益分配第一階段公告(評價日107.06.30).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association filename pattern; member and document identity are unverified until PDF inspection"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201901_estimate",
+    "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5107.12.31%29.pdf",
+    "title": "公告元大台灣卓越50基金收益分配評價結果",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A0005/02/卓越50-收益分配第一階段公告(評價日107.12.31).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association filename pattern; member and document identity are unverified until PDF inspection"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201607_current_estimate",
+    "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5105.06.30%29.pdf",
+    "title": "公告元大台灣卓越50基金收益分配評價結果",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A0005/02/卓越50-收益分配第一階段公告(評價日105.06.30).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association filename pattern; member and document identity are unverified until PDF inspection"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201607_current_final",
+    "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5105.06.30%29.pdf",
+    "title": "公告元大台灣卓越50基金實際配發金額",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A0005/02/卓越50-收益分配第二階段公告(評價日105.06.30).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association filename pattern; member and document identity are unverified until PDF inspection"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201607_previous_estimate",
+    "url": "https://www.sitca.org.tw/FundNote/A/A00013/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5105.06.30%29.pdf",
+    "title": "公告元大台灣卓越50基金收益分配評價結果",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A00013/02/卓越50-收益分配第一階段公告(評價日105.06.30).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association filename pattern; member and document identity are unverified until PDF inspection"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_probe_201607_previous_final",
+    "url": "https://www.sitca.org.tw/FundNote/A/A00013/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5105.06.30%29.pdf",
+    "title": "公告元大台灣卓越50基金實際配發金額",
+    "announcement_date": "",
+    "archive_source": "SITCA_ISSUER_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/FundNote/A/A00013/02/卓越50-收益分配第二階段公告(評價日105.06.30).pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed association filename pattern; member and document identity are unverified until PDF inspection"
+  }
+]

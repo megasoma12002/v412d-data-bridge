@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "total": 3,
+  "processed": 3,
+  "success": 1,
+  "failed": 2,
+  "cached": 0,
+  "started_at": "2026-10-10T12:34:03.686935+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "cache_wayback_hn_domain",
+      "status": "FAILED"
+    },
+    {
+      "id": "cache_wayback_mega_domain",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "cache_wayback_hn_2011_report",
+      "status": "FAILED"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T12:34:36.237504+00:00",
+  "updated_at": "2026-10-10T12:34:53.246827+00:00",
+  "last_completed_at": "2026-10-10T12:34:53.245113+00:00",
+  "skipped": 0
+}

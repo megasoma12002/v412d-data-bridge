@@ -1,0 +1,224 @@
+{
+  "status": "RESEARCH_CANDIDATE_QUOTE_CHECK_PASS",
+  "backtest_ready": false,
+  "canonical_modified": false,
+  "results": {
+    "research_core_candidate": {
+      "rows": 36330,
+      "dates": 3633,
+      "start": "2011-12-01",
+      "end": "2026-10-08",
+      "duplicates": 0,
+      "issues": 0,
+      "issue_counts": {},
+      "redownload_compared_rows": 35600,
+      "redownload_difference_fields": 13825,
+      "redownload_difference_by_field": {
+        "open": 3626,
+        "volume": 3574,
+        "low": 3378,
+        "high": 3247
+      },
+      "large_raw_moves": 2,
+      "coverage": [
+        {
+          "dataset": "research_core_candidate",
+          "code": "0050",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3633,
+          "benchmark_expected": 3633,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_core_candidate",
+          "code": "00631L",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3633,
+          "benchmark_expected": 3633,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_core_candidate",
+          "code": "2412",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3633,
+          "benchmark_expected": 3633,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_core_candidate",
+          "code": "2880",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3633,
+          "benchmark_expected": 3633,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_core_candidate",
+          "code": "2886",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3633,
+          "benchmark_expected": 3633,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_core_candidate",
+          "code": "2892",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3633,
+          "benchmark_expected": 3633,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_core_candidate",
+          "code": "3045",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3633,
+          "benchmark_expected": 3633,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_core_candidate",
+          "code": "4904",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3633,
+          "benchmark_expected": 3633,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_core_candidate",
+          "code": "5880",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3633,
+          "benchmark_expected": 3633,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_core_candidate",
+          "code": "TAIEX",
+          "start": "2011-12-01",
+          "end": "2026-10-08",
+          "rows": 3633,
+          "benchmark_expected": 3633,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        }
+      ]
+    },
+    "research_private_candidate": {
+      "rows": 32871,
+      "dates": 4109,
+      "start": "2010-01-04",
+      "end": "2026-10-08",
+      "duplicates": 0,
+      "issues": 1,
+      "issue_counts": {
+        "EXPECTED_KNOWN_HALT_NO_QUOTE": 1
+      },
+      "redownload_compared_rows": 32871,
+      "redownload_difference_fields": 0,
+      "redownload_difference_by_field": {},
+      "large_raw_moves": 0,
+      "coverage": [
+        {
+          "dataset": "research_private_candidate",
+          "code": "2801",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4109,
+          "benchmark_expected": 4109,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_private_candidate",
+          "code": "2834",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4109,
+          "benchmark_expected": 4109,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_private_candidate",
+          "code": "2881",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4109,
+          "benchmark_expected": 4109,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_private_candidate",
+          "code": "2882",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4109,
+          "benchmark_expected": 4109,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_private_candidate",
+          "code": "2884",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4108,
+          "benchmark_expected": 4109,
+          "missing": 1,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_private_candidate",
+          "code": "2885",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4109,
+          "benchmark_expected": 4109,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_private_candidate",
+          "code": "2890",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4109,
+          "benchmark_expected": 4109,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        },
+        {
+          "dataset": "research_private_candidate",
+          "code": "2891",
+          "start": "2010-01-04",
+          "end": "2026-10-08",
+          "rows": 4109,
+          "benchmark_expected": 4109,
+          "missing": 0,
+          "last_date_before_panel_end": false
+        }
+      ]
+    }
+  }
+}

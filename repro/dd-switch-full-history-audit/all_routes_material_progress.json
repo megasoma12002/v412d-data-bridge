@@ -1,0 +1,45 @@
+{
+  "status": "COMPLETE",
+  "total": 7,
+  "processed": 7,
+  "success": 7,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T12:23:48.607336+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "remaining_material_2880_201009_index",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "remaining_material_2880_201109_index",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "remaining_material_2880_201209_index",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "remaining_material_2880_201309_index",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "remaining_material_2880_201201_index",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "remaining_material_2891_201204_index",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "remaining_material_2891_201305_index",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T12:24:42.774625+00:00",
+  "updated_at": "2026-10-10T12:24:52.903681+00:00",
+  "last_completed_at": "2026-10-10T12:24:52.900010+00:00",
+  "skipped": 0
+}

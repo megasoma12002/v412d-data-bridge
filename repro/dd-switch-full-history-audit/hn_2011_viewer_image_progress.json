@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE",
+  "total": 2,
+  "processed": 2,
+  "success": 0,
+  "failed": 2,
+  "cached": 0,
+  "started_at": "2026-10-10T10:30:58.970129+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "hn_2011_ir_viewer_cover_image",
+      "status": "FAILED"
+    },
+    {
+      "id": "hn_2011_ir_viewer_contents_image",
+      "status": "FAILED"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T10:31:08.890087+00:00",
+  "updated_at": "2026-10-10T10:31:19.205523+00:00",
+  "last_completed_at": "2026-10-10T10:31:19.203485+00:00",
+  "skipped": 0
+}

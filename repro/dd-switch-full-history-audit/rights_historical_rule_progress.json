@@ -1,0 +1,37 @@
+{
+  "status": "COMPLETE",
+  "total": 5,
+  "processed": 5,
+  "success": 5,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T10:28:28.083998+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "rights_trading_rule_20110112",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "rights_tdcc_conversion_rule_20060327",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "rights_security_code_rule_20091112",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "hn_transfer_agent_dividend_type2",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "mega_current_issuer_distribution_table",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T10:29:08.031173+00:00",
+  "updated_at": "2026-10-10T10:29:18.208364+00:00",
+  "last_completed_at": "2026-10-10T10:29:18.206824+00:00",
+  "skipped": 0
+}

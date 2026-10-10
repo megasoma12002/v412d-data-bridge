@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE",
+  "total": 2,
+  "processed": 2,
+  "success": 1,
+  "failed": 1,
+  "cached": 0,
+  "started_at": "2026-10-09T18:31:17.011106+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "sitca_domestic_fund_disclosure_index",
+      "status": "FAILED"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_20190117_final",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T18:31:34.037398+00:00",
+  "updated_at": "2026-10-09T18:31:49.271072+00:00",
+  "last_completed_at": "2026-10-09T18:31:49.270164+00:00",
+  "skipped": 0
+}

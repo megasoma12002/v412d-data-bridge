@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE",
+  "total": 3,
+  "processed": 3,
+  "success": 3,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-09T18:30:13.220315+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_0050_notice_legacy_20170712_estimate",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_20180719_final",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_legacy_20190704_estimate",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T18:30:33.844101+00:00",
+  "updated_at": "2026-10-09T18:30:45.814293+00:00",
+  "last_completed_at": "2026-10-09T18:30:45.813277+00:00",
+  "skipped": 0
+}

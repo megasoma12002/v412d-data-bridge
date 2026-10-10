@@ -1,0 +1,332 @@
+{
+  "status": "POSITION_ORIGIN_AND_ORDER_LIFECYCLE_RECONCILED",
+  "reports": {
+    "RECORDED": {
+      "final_nav": 543972686.7723289,
+      "profit": 43972686.77232885,
+      "return_pct": 8.794537354465781,
+      "observed_mdd_pct": -5.091369396458722,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18",
+        "2026-10-05"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 1.4901161193847656e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 953578.57767125,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0
+    },
+    "VERIFIED_T1": {
+      "final_nav": 542920983.1534936,
+      "profit": 42920983.15349364,
+      "return_pct": 8.584196630698738,
+      "observed_mdd_pct": -5.155630733853355,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 3.725290298461914e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1517877.1965065,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0
+    }
+  },
+  "first_nonflat_benchmark_gap": "2026-08-25",
+  "first_recorded_daily_cutover_failure": "2026-09-30",
+  "archived_parent_tip": "2026-09-29",
+  "archived_parent_tip_shares_equal_verified_parent": true,
+  "stale_cutover_recorded_days": [
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-06",
+    "2026-10-07",
+    "2026-10-08"
+  ],
+  "unchanged_FIN_TEL_shares_from_cutover": true,
+  "post_cutover_FIN_TEL_order_count": 0,
+  "post_cutover_path3_order_count": 0,
+  "last_FIN_TEL_fills": [
+    {
+      "signal_date": "2026-09-29",
+      "fill_date": "2026-09-30",
+      "code": "2880",
+      "side": "SELL",
+      "quantity": 249000
+    },
+    {
+      "signal_date": "2026-09-29",
+      "fill_date": "2026-09-30",
+      "code": "2886",
+      "side": "SELL",
+      "quantity": 228000
+    },
+    {
+      "signal_date": "2026-09-29",
+      "fill_date": "2026-09-30",
+      "code": "2892",
+      "side": "SELL",
+      "quantity": 290000
+    },
+    {
+      "signal_date": "2026-09-29",
+      "fill_date": "2026-09-30",
+      "code": "5880",
+      "side": "SELL",
+      "quantity": 430000
+    },
+    {
+      "signal_date": "2026-09-29",
+      "fill_date": "2026-09-30",
+      "code": "4904",
+      "side": "BUY",
+      "quantity": 111000
+    }
+  ],
+  "recorded_order_lifecycle": {
+    "FULL_FILL": 104,
+    "CASH_LIMITED_REMAINDER_NOT_RETRIED_BY_ORDER_ID": 3,
+    "PENDING_AFTER_CUTOFF": 1
+  },
+  "cash_limited_remainders": [
+    {
+      "order_id": "2026-09-03-5880-BUY",
+      "signal_date": "2026-09-03",
+      "fill_date": "2026-09-04",
+      "code": "5880",
+      "side": "BUY",
+      "requested": 101000.0,
+      "filled": 91000.0,
+      "remainder": 10000.0,
+      "cash_before": 2435162.1091659474,
+      "affordable": 91000.0,
+      "next_session": "2026-09-04",
+      "status": "CASH_LIMITED_REMAINDER_NOT_RETRIED_BY_ORDER_ID",
+      "delayed": false
+    },
+    {
+      "order_id": "2026-09-04-5880-BUY",
+      "signal_date": "2026-09-04",
+      "fill_date": "2026-09-07",
+      "code": "5880",
+      "side": "BUY",
+      "requested": 57000.0,
+      "filled": 51000.0,
+      "remainder": 6000.0,
+      "cash_before": 1388470.9230238234,
+      "affordable": 51000.0,
+      "next_session": "2026-09-07",
+      "status": "CASH_LIMITED_REMAINDER_NOT_RETRIED_BY_ORDER_ID",
+      "delayed": false
+    },
+    {
+      "order_id": "2026-09-08-5880-BUY",
+      "signal_date": "2026-09-08",
+      "fill_date": "2026-09-09",
+      "code": "5880",
+      "side": "BUY",
+      "requested": 63000.0,
+      "filled": 56000.0,
+      "remainder": 7000.0,
+      "cash_before": 1498248.8073809484,
+      "affordable": 56000.0,
+      "next_session": "2026-09-09",
+      "status": "CASH_LIMITED_REMAINDER_NOT_RETRIED_BY_ORDER_ID",
+      "delayed": false
+    }
+  ],
+  "delayed_orders": [
+    {
+      "order_id": "2026-10-02-0050-BUY",
+      "signal_date": "2026-10-02",
+      "fill_date": "2026-10-06",
+      "code": "0050",
+      "side": "BUY",
+      "requested": 1000.0,
+      "filled": 1000.0,
+      "remainder": 0.0,
+      "cash_before": 17828500.85840045,
+      "affordable": 153000.0,
+      "next_session": "2026-10-05",
+      "status": "FULL_FILL",
+      "delayed": true
+    }
+  ],
+  "initial_fresh_recon": [
+    {
+      "source": "RECORDED",
+      "date": "2026-09-30",
+      "book": "SAT_A20_RELAX",
+      "code": "2412",
+      "actual_shares": 84000.0,
+      "delta": 12000.0,
+      "target": 96000.0,
+      "reference_close": 143.5,
+      "scope": "HINDSIGHT_CLOSE_T_PLAN_NOT_SAME_DAY_EXECUTION_REQUIREMENT"
+    },
+    {
+      "source": "RECORDED",
+      "date": "2026-09-30",
+      "book": "SAT_A20_RELAX",
+      "code": "2880",
+      "actual_shares": 2455000.0,
+      "delta": -1324000.0,
+      "target": 1131000.0,
+      "reference_close": 45.35,
+      "scope": "HINDSIGHT_CLOSE_T_PLAN_NOT_SAME_DAY_EXECUTION_REQUIREMENT"
+    },
+    {
+      "source": "RECORDED",
+      "date": "2026-09-30",
+      "book": "SAT_A20_RELAX",
+      "code": "2886",
+      "actual_shares": 2065000.0,
+      "delta": -998000.0,
+      "target": 1067000.0,
+      "reference_close": 49.15,
+      "scope": "HINDSIGHT_CLOSE_T_PLAN_NOT_SAME_DAY_EXECUTION_REQUIREMENT"
+    },
+    {
+      "source": "RECORDED",
+      "date": "2026-09-30",
+      "book": "SAT_A20_RELAX",
+      "code": "2892",
+      "actual_shares": 2893000.0,
+      "delta": 3006000.0,
+      "target": 5899000.0,
+      "reference_close": 38.65,
+      "scope": "HINDSIGHT_CLOSE_T_PLAN_NOT_SAME_DAY_EXECUTION_REQUIREMENT"
+    },
+    {
+      "source": "RECORDED",
+      "date": "2026-09-30",
+      "book": "SAT_A20_RELAX",
+      "code": "3045",
+      "actual_shares": 97000.0,
+      "delta": 7000.0,
+      "target": 104000.0,
+      "reference_close": 119.5,
+      "scope": "HINDSIGHT_CLOSE_T_PLAN_NOT_SAME_DAY_EXECUTION_REQUIREMENT"
+    },
+    {
+      "source": "RECORDED",
+      "date": "2026-09-30",
+      "book": "SAT_A20_RELAX",
+      "code": "4904",
+      "actual_shares": 221000.0,
+      "delta": -26000.0,
+      "target": 195000.0,
+      "reference_close": 103.5,
+      "scope": "HINDSIGHT_CLOSE_T_PLAN_NOT_SAME_DAY_EXECUTION_REQUIREMENT"
+    },
+    {
+      "source": "RECORDED",
+      "date": "2026-09-30",
+      "book": "SAT_A20_RELAX",
+      "code": "5880",
+      "actual_shares": 3851000.0,
+      "delta": -274000.0,
+      "target": 3577000.0,
+      "reference_close": 26.1,
+      "scope": "HINDSIGHT_CLOSE_T_PLAN_NOT_SAME_DAY_EXECUTION_REQUIREMENT"
+    }
+  ],
+  "fresh_recon_matches_verified_T1_initial_orders": true,
+  "same_holdings_source_control": {
+    "ARCHIVED_FALLBACK": {
+      "delta": null,
+      "reason": "ledger_stale",
+      "ledger_asof": "2026-09-29",
+      "ledger_lag_calendar_days": 1,
+      "switch": {
+        "asof": "2026-09-30",
+        "ok": true,
+        "flip": false,
+        "signal_date": "2026-09-29",
+        "signal_exact": false,
+        "sat_lead": true,
+        "w_sat": 1.0,
+        "book": "SAT_A20_RELAX",
+        "book_prev": "SAT_A20_RELAX",
+        "trail_rel_63": -0.0312232649056225,
+        "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+        "mechanism": "P3_T0_STATE",
+        "theta": 0.005
+      }
+    },
+    "VERIFIED_RUNTIME": {
+      "delta": {
+        "2412": 12000.0,
+        "2880": -1324000.0,
+        "2886": -998000.0,
+        "2892": 3006000.0,
+        "3045": 7000.0,
+        "4904": -26000.0,
+        "5880": -274000.0
+      },
+      "reason": "ledger_scaled_recon",
+      "ledger_asof": "2026-09-30",
+      "ledger_lag_calendar_days": 0,
+      "switch": {
+        "asof": "2026-09-30",
+        "ok": true,
+        "flip": false,
+        "signal_date": "2026-09-30",
+        "signal_exact": true,
+        "sat_lead": true,
+        "w_sat": 1.0,
+        "book": "SAT_A20_RELAX",
+        "book_prev": "SAT_A20_RELAX",
+        "trail_rel_63": -0.0310278597268245,
+        "carve_out_id": "T0_CARVE_FIN_SAT_SWITCH",
+        "mechanism": "P3_T0_STATE",
+        "theta": 0.005
+      }
+    }
+  },
+  "historical_git_provenance": {
+    "825506af90a85f39919dc390c55dd055bf365ca7:scripts/e21_forward_pipeline.py": {
+      "sha256": "42af7ac85889a0fb9424c80428537998e432a5197c26e15668779b12c8747cb0"
+    },
+    "3a0e3e7d24d122f839cd87dfd61eb27003274aa0:repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_SAT_A20_RELAX.csv": {
+      "sha256": "153b960683048180c1e450682032993332379dc0df6cb4d8bc8ecfd3f6f0b252",
+      "max_date": "2026-09-29"
+    }
+  },
+  "source_sha256": {
+    "forward/e21/fills.csv": "48e7caaafdd0db39e0be727ec56cf847be067f9f285e00850940bb533a39f9f4",
+    "forward/e21/orders.csv": "841468034f25ada855744e3ff8dfb72492c6a3457dcbbde687e0711e0fb032a1",
+    "forward/e21/signals.csv": "ff8eeb3187eb35068398f51c6b3c978015c08cc94dfb5cecaf51b0fbc70462c0",
+    "forward/e21/nav.csv": "79254318c675a123c1e2ecb68aa01b1387e5136ae891b7bf024adfac64e4aeea",
+    "forward/e21/portfolio_state.json": "dc0f2f3b7adee383882714c85ff263b736c10b4dc4f4d2e4de18defe613b8aab",
+    "repro/dd-switch-original-live-t1/fills.csv": "b7ce46bb1bca3216381e800051507a7af56f09db87f87c94e966b9db023b32c6",
+    "repro/dd-switch-original-live-t1/orders.csv": "034979859d9b02c118cc0af3e1c5eeb1e07409c7b5f280d7547abc61a22402c6",
+    "repro/dd-switch-original-live-t1/signals.csv": "e88343d203d77fa684342e4d078c9633cab75be925ff3941fe642684aecd8666",
+    "repro/dd-switch-original-live-t1/nav.csv": "da31bcb9a7926d7441f0ee3cb9f47542273dadedd4750cdc3cda3c1ae8b4c0db",
+    "repro/dd-switch-original-live-t1/portfolio_state.json": "71553e0dec43d0a206ba05a0ad935a840fc8f37fe24a7b01e2e4b724662499ce",
+    "repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_SAT_A20_RELAX.csv": "153b960683048180c1e450682032993332379dc0df6cb4d8bc8ecfd3f6f0b252",
+    "repro/dd-switch-original-runtime-t1/current.json": "0891683b26c53c8e9d987507974c444833f9a102232c21742112294556327f93",
+    "repro/dd-switch-original-runtime-t1/generations/original-lineage/signal.csv": "d873aa23907c3b26f3896d2bb3aba3235d84e375edc796d19a2078af0bdabbb8",
+    "repro/dd-switch-original-runtime-t1/generations/original-lineage/shares_SAT_A20_RELAX.csv": "8fd7dcf79544108d486372a6035799b94813245d70f704d33032f9bcb35ace88"
+  },
+  "program_sha256": "c2f73745e420d341798e1dc85374895274c6093d637b600ea9a3e1d9978fb097",
+  "limits": [
+    "Archived parent history is a hindsight benchmark, not proven publication-vintage data",
+    "Before cutover live used different Soft rules; parent mix difference is not inherently an execution error",
+    "EOD T mother targets are signals for T+1; same-day weight equality is not required",
+    "Only recorded 32-session forward window; missing core signal dates are not synthesized",
+    "No real broker/depth evidence, tuning, deployment or canonical book mutation"
+  ]
+}

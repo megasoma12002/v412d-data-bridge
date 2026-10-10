@@ -1,0 +1,22 @@
+[
+  {
+    "id": "yuanta_0050_notice_legacy_2015_final",
+    "url": "https://www.yuantafunds.com/download/PDF/announces/%E5%9F%BA%E9%87%91%E9%85%8D%E6%81%AF%E5%85%AC%E5%91%8A/2015/201510/20151022%E5%8D%93%E8%B6%8A50.pdf",
+    "title": "公告元大台灣卓越50基金實際配發金額",
+    "announcement_date": "",
+    "archive_source": "ISSUER_LEGACY_PDF",
+    "discovery_url": "https://www.yuantafunds.com/download/PDF/announces/%E5%9F%BA%E9%87%91%E9%85%8D%E6%81%AF%E5%85%AC%E5%91%8A/2015/201510/20151022%E5%8D%93%E8%B6%8A50.pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed 2017 issuer PDF directory and dated 2015 announcement discovery; path existence unverified"
+  },
+  {
+    "id": "yuanta_0050_notice_legacy_2015_estimate",
+    "url": "https://www.yuantafunds.com/download/PDF/announces/%E5%9F%BA%E9%87%91%E9%85%8D%E6%81%AF%E5%85%AC%E5%91%8A/2015/201510/20151013%E5%8D%93%E8%B6%8A50.pdf",
+    "title": "公告元大台灣卓越50基金收益分配評價結果",
+    "announcement_date": "",
+    "archive_source": "ISSUER_LEGACY_PDF",
+    "discovery_url": "https://www.yuantafunds.com/download/PDF/announces/%E5%9F%BA%E9%87%91%E9%85%8D%E6%81%AF%E5%85%AC%E5%91%8A/2015/201510/20151013%E5%8D%93%E8%B6%8A50.pdf",
+    "discovery_method": "BOUNDED_ARCHIVE_FILENAME_PROBE",
+    "probe_basis": "Observed 2017 issuer PDF directory and dated 2015 announcement discovery; path existence unverified"
+  }
+]

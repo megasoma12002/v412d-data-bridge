@@ -1,0 +1,24 @@
+[
+  {
+    "source": "cht_dividend",
+    "url": "https://www.cht.com.tw/zh-tw/home/cht/investors/shareholder-services/return-to-shareholders",
+    "status": "FETCHED",
+    "sha256": "8af6b2f12cbf4ccd65b6a18bbad3728aede54452b732780d04c7102ff79881d4",
+    "bytes": 201524,
+    "source_class": "PRIMARY_ISSUER_CURRENT_PAGE_NOT_VINTAGE"
+  },
+  {
+    "source": "twm_dividend",
+    "url": "https://corp.taiwanmobile.com.tw/investor-relations/shareholder-information-2.html",
+    "status": "UNAVAILABLE",
+    "error": "HTTP Error 502: Bad Gateway"
+  },
+  {
+    "source": "fet_dividend",
+    "url": "https://corporate.fetnet.net/content/corp/tw/InvestorRelations/ShareholderServices/Dividend.html",
+    "status": "FETCHED",
+    "sha256": "aecaa12888d0fb61f471fedf67db3e26fc51c68afea32c9145bc85a6f08e5488",
+    "bytes": 191977,
+    "source_class": "PRIMARY_ISSUER_CURRENT_PAGE_NOT_VINTAGE"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "seed": "2026-09-29",
+  "end": "2026-10-08",
+  "initial": 500000000.0,
+  "final": 543462667.2283316,
+  "profit": 43462667.228331566,
+  "return_pct": 8.692533445666317,
+  "recorded_dates_mdd_pct": -3.946134366862375,
+  "original_tip": 543972686.7723289,
+  "tip_difference": -510019.54399728775,
+  "scope": "production pipeline counterfactual after seed; earlier live records preserved",
+  "gate_mode": "DD_SWITCH_GAP_COMPLETE_SPLIT_ELIGIBILITY_RESEARCH_V1",
+  "runtime_source": "/workspace/scratch/b3ab5945871a/repo/repro/dd-switch-seven-session-rebuild/runtime",
+  "recon_research_policy": null,
+  "exposure_research_policy": null,
+  "synthetic_crisis_lifecycle_probe": false,
+  "runtime_manifest_sha256": "4e959f5d19ec053e850e972147f999769d91a8d694d836727a86a93bf0eb9032"
+}

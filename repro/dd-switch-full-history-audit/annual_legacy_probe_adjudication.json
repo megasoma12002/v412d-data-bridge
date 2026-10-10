@@ -1,0 +1,78 @@
+{
+  "probes": [
+    {
+      "source_id": "yuanta_0050_notice_legacy_sep_104_estimate",
+      "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5104.09.30%29.pdf",
+      "http_status": "404",
+      "capture_status": "FAILED",
+      "adjudication": "HTTP_FAILURE",
+      "response_sha256": "eab09f82e87641fb3e8c72b6c9e061f11684c7d8345925aad1fd7de4c05f87ab",
+      "compressed_sha256": "bf16092fa25f7e5fad2286568a14857b2127c469c581cc85218687056938c476",
+      "evidence_accepted": false
+    },
+    {
+      "source_id": "yuanta_0050_notice_legacy_sep_104_final",
+      "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5104.09.30%29.pdf",
+      "http_status": "404",
+      "capture_status": "FAILED",
+      "adjudication": "HTTP_FAILURE",
+      "response_sha256": "eab09f82e87641fb3e8c72b6c9e061f11684c7d8345925aad1fd7de4c05f87ab",
+      "compressed_sha256": "bf16092fa25f7e5fad2286568a14857b2127c469c581cc85218687056938c476",
+      "evidence_accepted": false
+    },
+    {
+      "source_id": "yuanta_0050_notice_legacy_sep_103_estimate",
+      "url": "https://www.sitca.org.tw/FundNote/A/A0005/02/%E5%8D%93%E8%B6%8A50-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%E5%85%AC%E5%91%8A%28%E8%A9%95%E5%83%B9%E6%97%A5103.09.30%29.pdf",
+      "http_status": "404",
+      "capture_status": "FAILED",
+      "adjudication": "HTTP_FAILURE",
+      "response_sha256": "eab09f82e87641fb3e8c72b6c9e061f11684c7d8345925aad1fd7de4c05f87ab",
+      "compressed_sha256": "bf16092fa25f7e5fad2286568a14857b2127c469c581cc85218687056938c476",
+      "evidence_accepted": false
+    },
+    {
+      "source_id": "legacy_0050_2011_original_link",
+      "url": "http://www.p-shares.com/exg%5Cupp%5CUploadFile/2011-10/20111024101620_.pdf",
+      "http_status": "410",
+      "capture_status": "FAILED",
+      "adjudication": "HTTP_FAILURE",
+      "response_sha256": "ba578e2ce793a2bd412b7a9844fa224a4522d26c81b3be0041613e31f5876266",
+      "compressed_sha256": "a616afabb48014caa32e39c166839ee1003793bdeb00c3ff19577af0aa72c243",
+      "evidence_accepted": false
+    },
+    {
+      "source_id": "yuanta_0050_2011_migrated_pdf_probe",
+      "url": "https://www.yuantaetfs.com/UploadFile/2011-10/20111024101620_.pdf",
+      "http_status": "200",
+      "capture_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "adjudication": "HTML_FALLBACK_NOT_PDF",
+      "response_sha256": "5388319d6981136de0fd4aaff69baee16c4aa7f6c8442b1f4efabc6f3683eace",
+      "compressed_sha256": "c24f3547ab6b70ebfb531d5b97dff776d7b52afc66058ad83641f68bd476c717",
+      "evidence_accepted": false
+    },
+    {
+      "source_id": "yuanta_0050_notice_legacy_2015_final",
+      "url": "https://www.yuantafunds.com/download/PDF/announces/%E5%9F%BA%E9%87%91%E9%85%8D%E6%81%AF%E5%85%AC%E5%91%8A/2015/201510/20151022%E5%8D%93%E8%B6%8A50.pdf",
+      "http_status": "200",
+      "capture_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "adjudication": "HTML_FALLBACK_NOT_PDF",
+      "response_sha256": "e76482a6e5a52c952f8c3003bc470ab61ee4aeecf004281399bb06c5150c6f99",
+      "compressed_sha256": "1f598e09d1e17db5b5fd67d0097e12a6f75b3a9204b01cfbc8877597c87552aa",
+      "evidence_accepted": false
+    },
+    {
+      "source_id": "yuanta_0050_notice_legacy_2015_estimate",
+      "url": "https://www.yuantafunds.com/download/PDF/announces/%E5%9F%BA%E9%87%91%E9%85%8D%E6%81%AF%E5%85%AC%E5%91%8A/2015/201510/20151013%E5%8D%93%E8%B6%8A50.pdf",
+      "http_status": "200",
+      "capture_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "adjudication": "HTML_FALLBACK_NOT_PDF",
+      "response_sha256": "6492d5202815f1498ce9a49e3fd5bdbba93ba78c02df7fad1b9e1a9b63267402",
+      "compressed_sha256": "7ea551ae45d207610fab22c57253b030042f069527a9b6d4d15e21ceedc1e9a2",
+      "evidence_accepted": false
+    }
+  ],
+  "new_original_pdf_versions": 0,
+  "closure_count": 0,
+  "revision_inventory_complete": false,
+  "backtest_ready": false
+}

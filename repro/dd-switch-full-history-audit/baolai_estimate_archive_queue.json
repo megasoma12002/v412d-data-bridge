@@ -1,0 +1,22 @@
+[
+  {
+    "id": "yuanta_0050_notice_baolai_estimate_probe_0",
+    "url": "https://www.sitca.org.tw/OPF/A0000/files/FundNote/A/A0013/02/0050-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E8%A9%95%E5%83%B9%E5%85%AC%E5%91%8A-%E5%85%AC%E6%9C%83%E5%8F%8A%E5%85%AC%E5%8F%B8%E7%B6%B2%E7%AB%99.pdf",
+    "title": "公告寶來台灣卓越50基金收益分配評價結果",
+    "announcement_date": "",
+    "archive_source": "SITCA_LEGACY_BAOLAI_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/OPF/A0000/files/FundNote/A/A0013/02/0050-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E8%A9%95%E5%83%B9%E5%85%AC%E5%91%8A-%E5%85%AC%E6%9C%83%E5%8F%8A%E5%85%AC%E5%8F%B8%E7%B6%B2%E7%AB%99.pdf",
+    "discovery_method": "BOUNDED_ADJACENT_FILENAME_PROBE",
+    "probe_basis": "Observed original final PDF filename and directory; estimate filename and body identity unverified"
+  },
+  {
+    "id": "yuanta_0050_notice_baolai_estimate_probe_1",
+    "url": "https://www.sitca.org.tw/OPF/A0000/files/FundNote/A/A0013/02/0050-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E5%85%AC%E5%91%8A-%E5%85%AC%E6%9C%83%E5%8F%8A%E5%85%AC%E5%8F%B8%E7%B6%B2%E7%AB%99.pdf",
+    "title": "公告寶來台灣卓越50基金收益分配評價結果",
+    "announcement_date": "",
+    "archive_source": "SITCA_LEGACY_BAOLAI_DISCLOSURE_PDF",
+    "discovery_url": "https://www.sitca.org.tw/OPF/A0000/files/FundNote/A/A0013/02/0050-%E6%94%B6%E7%9B%8A%E5%88%86%E9%85%8D%E5%85%AC%E5%91%8A-%E5%85%AC%E6%9C%83%E5%8F%8A%E5%85%AC%E5%8F%B8%E7%B6%B2%E7%AB%99.pdf",
+    "discovery_method": "BOUNDED_ADJACENT_FILENAME_PROBE",
+    "probe_basis": "Observed original final PDF filename and directory; estimate filename and body identity unverified"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "status": "STOPPED_FAILURE_LIMIT",
+  "total": 3,
+  "processed": 3,
+  "success": 0,
+  "failed": 3,
+  "cached": 0,
+  "started_at": "2026-10-10T12:35:21.965898+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "cache_cc201348_hn_ir",
+      "status": "FAILED"
+    },
+    {
+      "id": "cache_cc201348_mega_stock",
+      "status": "FAILED"
+    },
+    {
+      "id": "cache_cc201348_hn_annual",
+      "status": "FAILED"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T12:35:55.995207+00:00",
+  "updated_at": "2026-10-10T12:36:13.006410+00:00",
+  "last_completed_at": "2026-10-10T12:36:13.004496+00:00",
+  "skipped": 0,
+  "stop_reason": "Three consecutive failures"
+}

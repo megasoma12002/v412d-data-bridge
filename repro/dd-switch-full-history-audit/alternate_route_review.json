@@ -1,0 +1,544 @@
+{
+  "captured_sources": [
+    {
+      "id": "remaining_isin_class_form",
+      "url": "https://isin.twse.com.tw/isin/class_i.jsp?kind=1",
+      "purpose": "Discover official published security-code query including terminated securities",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_isin_class_form.html.gz",
+      "retrieved_at": "2026-10-10T12:22:35.884709+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "891c2f7fe8d63fb11cc61591239110965f061409380c88f06b480accca46fc69",
+      "compressed_sha256": "da54296311f766b59afbe804b87b7c790d815874fd9967d03ff68a71ab9b6037"
+    },
+    {
+      "id": "remaining_isin_all_2886",
+      "url": "https://isin.twse.com.tw/isin/class_main.jsp?owncode=2886&stockname=&isincode=&market=&issuetype=&industry_code=&Page=1&chklike=Y",
+      "purpose": "Published partial-code query across all market statuses; discover actual instrument identifiers",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_isin_all_2886.html.gz",
+      "retrieved_at": "2026-10-10T12:22:59.907274+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "0136a657b8d3892d310faa0c5a65013c5ec60adfe23d7d35c19d573f4cbfe1f1",
+      "compressed_sha256": "c6fe2650e1d668fb291e6f5f043350d9030340d72d30204521f25a62bab9606a"
+    },
+    {
+      "id": "remaining_isin_all_2880",
+      "url": "https://isin.twse.com.tw/isin/class_main.jsp?owncode=2880&stockname=&isincode=&market=&issuetype=&industry_code=&Page=1&chklike=Y",
+      "purpose": "Published partial-code query across all market statuses; discover actual instrument identifiers",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_isin_all_2880.html.gz",
+      "retrieved_at": "2026-10-10T12:23:08.458791+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "6b80460b7784b273ab93ae4685f678f32be951b18219488d07bf3e660ac9849b",
+      "compressed_sha256": "b9df77cfffa531129e3f9c3f6fcc603e90b0fdee5daac1b06b3bea6da46bd301"
+    },
+    {
+      "id": "remaining_isin_all_5880",
+      "url": "https://isin.twse.com.tw/isin/class_main.jsp?owncode=5880&stockname=&isincode=&market=&issuetype=&industry_code=&Page=1&chklike=Y",
+      "purpose": "Published partial-code query across all market statuses; discover actual instrument identifiers",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_isin_all_5880.html.gz",
+      "retrieved_at": "2026-10-10T12:23:17.199479+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "2ee2be1517e4c91e891b3e805600717114a9ea73298bbe81c232a007e8a7e7aa",
+      "compressed_sha256": "0520a906237059dc971789b1a3c5df22134d1dce7847b68fb2a53cfad8ae16d5"
+    },
+    {
+      "id": "remaining_material_2880_201009_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=99&month=09&step=1&isnew=false",
+      "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_material_2880_201009_index.html.gz",
+      "retrieved_at": "2026-10-10T12:23:57.893972+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "1d6e44727bf3e4f379ea47bd214ac0a54483762dff6f394a40638723d8fede88",
+      "compressed_sha256": "81c1a54e60af2ac5533106777ea8a22b8c91dd7b8229bd4c4104698730f317a3"
+    },
+    {
+      "id": "remaining_material_2880_201109_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=100&month=09&step=1&isnew=false",
+      "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_material_2880_201109_index.html.gz",
+      "retrieved_at": "2026-10-10T12:24:06.630364+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "8cb9d71a6e623406d435200454aa590b29d3aa383beae5e45b1f2322d2600664",
+      "compressed_sha256": "2ef16cb7306d2c6ae6d582f8e20ed11007009ff40887ead9ef189d54a3ff200e"
+    },
+    {
+      "id": "remaining_material_2880_201209_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=101&month=09&step=1&isnew=false",
+      "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_material_2880_201209_index.html.gz",
+      "retrieved_at": "2026-10-10T12:24:15.420836+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "5ab51bfc7e93f7a1f2488f71f4e9d15efe2912b932c41aa0999dbb49b699c3b9",
+      "compressed_sha256": "4cb36b5b1cb5b454e6bb0aed660e536bdcb0770893417c1045ee6a4b93cd591c"
+    },
+    {
+      "id": "remaining_material_2880_201309_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=102&month=09&step=1&isnew=false",
+      "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_material_2880_201309_index.html.gz",
+      "retrieved_at": "2026-10-10T12:24:23.937090+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "fb35fbdc7574b023d8860190f29da164094820d3fe37e997e1bb3dbc0c8cbf5c",
+      "compressed_sha256": "35b885be231c47425e67eedbbbf8eacde662be88978dc5be89aab4be39c0d23c"
+    },
+    {
+      "id": "remaining_material_2880_201201_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=101&month=01&step=1&isnew=false",
+      "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_material_2880_201201_index.html.gz",
+      "retrieved_at": "2026-10-10T12:24:33.540045+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "1915bdb78b3e5dfa9ed2201dbf9b418be16f52b8c96d17738c385ec4b167f38a",
+      "compressed_sha256": "cde9ec22f9aaf8702a0a1c14f4f5059d6d9533de6eae19e748b0743090152963"
+    },
+    {
+      "id": "remaining_material_2891_201204_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2891&year=101&month=04&step=1&isnew=false",
+      "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_material_2891_201204_index.html.gz",
+      "retrieved_at": "2026-10-10T12:24:42.772501+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "dcf0afb2d56757ca0dfb79c3b06390f2e40f71f483a93c0d736ace9f26672caf",
+      "compressed_sha256": "60886569d82db6a995e4d82dd1ba7b1befa3a04453d05812315db5e48e6f126a"
+    },
+    {
+      "id": "remaining_material_2891_201305_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2891&year=102&month=05&step=1&isnew=false",
+      "purpose": "Alternate primary material-announcement index for final delivery, separate from statutory t59sb09 index",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_material_2891_201305_index.html.gz",
+      "retrieved_at": "2026-10-10T12:24:52.899888+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "2def5cdfcc8ea6a63463f2830cddbddac6c6a56d25322d839de287086ea5e704",
+      "compressed_sha256": "848f7f1334e4ee53dd2a12107b899497cfe83df9f2876aa47a50c7e99a0782f7"
+    },
+    {
+      "id": "remaining_hn_agent_legacy_dividend",
+      "url": "https://agency.entrust.com.tw/comList/in.do?id=1A&type=2",
+      "purpose": "Separate official transfer-agent legacy dividend directory",
+      "timeout_seconds": 15,
+      "status": "FAILED",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_hn_agent_legacy_dividend.html.gz",
+      "retrieved_at": "2026-10-10T12:25:09.351102+00:00",
+      "http_status": "502",
+      "error": "",
+      "response_sha256": "81074a9c8dfb24290e8fc4af14d20f67f5304618d27ac713628b1126e41dbd8e",
+      "compressed_sha256": "6d8986cca26cd09c920725ee1c8b15731b479a2873336f4e03b6b658badca51b"
+    },
+    {
+      "id": "remaining_mega_agent_exright_form",
+      "url": "https://www.emega.com.tw/emegaRegistrar/exRight.do",
+      "purpose": "Discover official transfer-agent dividend archive controls",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_mega_agent_exright_form.html.gz",
+      "retrieved_at": "2026-10-10T12:25:18.079023+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "e81573380aabb1ea37e415a15a45575f65107692e80a5e5a2ce9fd7c5c588078",
+      "compressed_sha256": "e70a90b2efd0a130cf7214d2f08a9d9af5e7f8817bb5cbf8416d1cf046d7547f"
+    },
+    {
+      "id": "remaining_hn_broker_calendar",
+      "url": "https://just2.entrust.com.tw/z/zc/zci/zci_2880.djhtm",
+      "purpose": "Official broker-hosted vendor calendar lead; mixed voucher/ordinary listing dates, not issuer delivery proof",
+      "timeout_seconds": 15,
+      "status": "FAILED",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_hn_broker_calendar.html.gz",
+      "retrieved_at": "2026-10-10T12:25:26.272245+00:00",
+      "http_status": "502",
+      "error": "",
+      "response_sha256": "81074a9c8dfb24290e8fc4af14d20f67f5304618d27ac713628b1126e41dbd8e",
+      "compressed_sha256": "6d8986cca26cd09c920725ee1c8b15731b479a2873336f4e03b6b658badca51b"
+    },
+    {
+      "id": "remaining_mega_agent_vendor_frame",
+      "url": "https://moneydj.emega.com.tw/z/ze/zec/zeb.djhtm",
+      "purpose": "Observed iframe behind official agent market calendar; determine data scope, vendor lineage",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_mega_agent_vendor_frame.html.gz",
+      "retrieved_at": "2026-10-10T12:26:01.445513+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "8659708ad7bdb58d38f795e273316933446cf3f58e21b0157d08003a1e4ddc3c",
+      "compressed_sha256": "78767385be8ef18201c50a59d57d82a5da540b0a2ce140e1b780ce64ad7097a4"
+    },
+    {
+      "id": "remaining_material_2891_20120409_143826_1",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&step=2&isnew=false&seq_no=1&spoke_time=143826&spoke_date=20120409&co_id=2891&TYPEK=sii",
+      "purpose": "Observed April index linked issuer collection-completion detail; issuer-wide funding is distinct from individual election",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/remaining_material_2891_20120409_143826_1.html.gz",
+      "retrieved_at": "2026-10-10T12:27:27.283921+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "4262d7a7cb4ad7b7a06c6b03c7c0b107dc1e366ef7094584f79e3702fdfc90d1",
+      "compressed_sha256": "833d63866d585fe93f8b09b5fad0d08a85462c87994c14806eded841c71a8962"
+    }
+  ],
+  "source_reviews": [
+    {
+      "source_id": "remaining_isin_class_form",
+      "url": "https://isin.twse.com.tw/isin/class_i.jsp?kind=1",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "DISCOVERY_ONLY",
+      "scope": "No certified event delivery or rights quote"
+    },
+    {
+      "source_id": "remaining_isin_all_2886",
+      "url": "https://isin.twse.com.tw/isin/class_main.jsp?owncode=2886&stockname=&isincode=&market=&issuetype=&industry_code=&Page=1&chklike=Y",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "ORDINARY_CODE_ONLY",
+      "returned_codes": [
+        "2886"
+      ],
+      "scope": "Current partial-code query; no historical date selector or historical completeness claim"
+    },
+    {
+      "source_id": "remaining_isin_all_2880",
+      "url": "https://isin.twse.com.tw/isin/class_main.jsp?owncode=2880&stockname=&isincode=&market=&issuetype=&industry_code=&Page=1&chklike=Y",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "ORDINARY_CODE_ONLY",
+      "returned_codes": [
+        "2880"
+      ],
+      "scope": "Current partial-code query; no historical date selector or historical completeness claim"
+    },
+    {
+      "source_id": "remaining_isin_all_5880",
+      "url": "https://isin.twse.com.tw/isin/class_main.jsp?owncode=5880&stockname=&isincode=&market=&issuetype=&industry_code=&Page=1&chklike=Y",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "ORDINARY_CODE_ONLY",
+      "returned_codes": [
+        "5880"
+      ],
+      "scope": "Current partial-code query; no historical date selector or historical completeness claim"
+    },
+    {
+      "source_id": "remaining_material_2880_201009_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=99&month=09&step=1&isnew=false",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "VALID_MONTH_INDEX",
+      "titles_reviewed": 10,
+      "relevant_titles": [],
+      "scope": "Month material-announcement index only; not a complete statutory or issuer archive"
+    },
+    {
+      "source_id": "remaining_material_2880_201109_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=100&month=09&step=1&isnew=false",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "VALID_MONTH_INDEX",
+      "titles_reviewed": 7,
+      "relevant_titles": [],
+      "scope": "Month material-announcement index only; not a complete statutory or issuer archive"
+    },
+    {
+      "source_id": "remaining_material_2880_201209_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=101&month=09&step=1&isnew=false",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "VALID_MONTH_INDEX",
+      "titles_reviewed": 9,
+      "relevant_titles": [],
+      "scope": "Month material-announcement index only; not a complete statutory or issuer archive"
+    },
+    {
+      "source_id": "remaining_material_2880_201309_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=102&month=09&step=1&isnew=false",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "VALID_MONTH_INDEX",
+      "titles_reviewed": 5,
+      "relevant_titles": [],
+      "scope": "Month material-announcement index only; not a complete statutory or issuer archive"
+    },
+    {
+      "source_id": "remaining_material_2880_201201_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2880&year=101&month=01&step=1&isnew=false",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "VALID_MONTH_INDEX",
+      "titles_reviewed": 10,
+      "relevant_titles": [],
+      "scope": "Month material-announcement index only; not a complete statutory or issuer archive"
+    },
+    {
+      "source_id": "remaining_material_2891_201204_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2891&year=101&month=04&step=1&isnew=false",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "VALID_MONTH_INDEX",
+      "titles_reviewed": 42,
+      "relevant_titles": [
+        "公告本公司100年度現金增資收足股款暨增資基準日"
+      ],
+      "scope": "Month material-announcement index only; not a complete statutory or issuer archive"
+    },
+    {
+      "source_id": "remaining_material_2891_201305_index",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&TYPEK=all&co_id=2891&year=102&month=05&step=1&isnew=false",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "VALID_MONTH_INDEX",
+      "titles_reviewed": 27,
+      "relevant_titles": [],
+      "scope": "Month material-announcement index only; not a complete statutory or issuer archive"
+    },
+    {
+      "source_id": "remaining_hn_agent_legacy_dividend",
+      "url": "https://agency.entrust.com.tw/comList/in.do?id=1A&type=2",
+      "transport_status": "FAILED",
+      "outcome": "UNAVAILABLE",
+      "scope": "No usable response; no absence inference"
+    },
+    {
+      "source_id": "remaining_mega_agent_exright_form",
+      "url": "https://www.emega.com.tw/emegaRegistrar/exRight.do",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "VENDOR_IFRAME",
+      "frames": [
+        "https://moneydj.emega.com.tw/z/ze/zec/zeb.djhtm"
+      ],
+      "scope": "Broker-hosted market calendar delegates data to MoneyDJ; not issuer delivery proof"
+    },
+    {
+      "source_id": "remaining_hn_broker_calendar",
+      "url": "https://just2.entrust.com.tw/z/zc/zci/zci_2880.djhtm",
+      "transport_status": "FAILED",
+      "outcome": "UNAVAILABLE",
+      "scope": "No usable response; no absence inference"
+    },
+    {
+      "source_id": "remaining_mega_agent_vendor_frame",
+      "url": "https://moneydj.emega.com.tw/z/ze/zec/zeb.djhtm",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "DISCOVERY_ONLY",
+      "scope": "No certified event delivery or rights quote"
+    },
+    {
+      "source_id": "remaining_material_2891_20120409_143826_1",
+      "url": "https://mopsov.twse.com.tw/mops/web/ajax_t05st01?firstin=true&step=2&isnew=false&seq_no=1&spoke_time=143826&spoke_date=20120409&co_id=2891&TYPEK=sii",
+      "transport_status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "outcome": "PRIMARY_ISSUER_FUNDING_TOTAL",
+      "event_id": "2891:subscription:2012-02-10",
+      "issued_shares": 715000000,
+      "subscription_price_twd": 16.3,
+      "issuer_collected_total_twd": 11654500000,
+      "capital_base_date": "2012-04-09",
+      "scope": "Issuer-wide collection completion; no individual election or final ordinary delivery date"
+    }
+  ],
+  "verified_source_hash_pairs": 16,
+  "event_checklist": [
+    {
+      "category": "STOCK_DELIVERY",
+      "event_id": "2880:stock:2010-08-12",
+      "public_evidence_needed": "Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient",
+      "holder_record_needed": "Account eligibility / actual balance for holder-specific execution",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "STOCK_DELIVERY",
+      "event_id": "2880:stock:2011-08-11",
+      "public_evidence_needed": "Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient",
+      "holder_record_needed": "Account eligibility / actual balance for holder-specific execution",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "STOCK_DELIVERY",
+      "event_id": "2880:stock:2012-08-15",
+      "public_evidence_needed": "Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient",
+      "holder_record_needed": "Account eligibility / actual balance for holder-specific execution",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "STOCK_DELIVERY",
+      "event_id": "2880:stock:2013-08-15",
+      "public_evidence_needed": "Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient",
+      "holder_record_needed": "Account eligibility / actual balance for holder-specific execution",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "STOCK_DELIVERY",
+      "event_id": "2886:stock:2011-08-23",
+      "public_evidence_needed": "Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient",
+      "holder_record_needed": "Account eligibility / actual balance for holder-specific execution",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "STOCK_DELIVERY",
+      "event_id": "2886:stock:2012-08-08",
+      "public_evidence_needed": "Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient",
+      "holder_record_needed": "Account eligibility / actual balance for holder-specific execution",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "SUBSCRIPTION_DELIVERY",
+      "event_id": "2880:subscription:2011-11-07",
+      "public_evidence_needed": "General final ordinary-share book-entry/conversion delivery notice; preserve voucher stage; paid holder election required before simulated credit",
+      "holder_record_needed": "Paid election, quantity, payment date, funding source and account eligibility",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "SUBSCRIPTION_DELIVERY",
+      "event_id": "2884:subscription:2014-04-18",
+      "public_evidence_needed": "General final ordinary-share book-entry/conversion delivery notice; preserve voucher stage; paid holder election required before simulated credit",
+      "holder_record_needed": "Paid election, quantity, payment date, funding source and account eligibility",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "SUBSCRIPTION_DELIVERY",
+      "event_id": "2884:subscription:2017-04-14",
+      "public_evidence_needed": "General final ordinary-share book-entry/conversion delivery notice; preserve voucher stage; paid holder election required before simulated credit",
+      "holder_record_needed": "Paid election, quantity, payment date, funding source and account eligibility",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "SUBSCRIPTION_DELIVERY",
+      "event_id": "2884:subscription:2023-04-07",
+      "public_evidence_needed": "General final ordinary-share book-entry/conversion delivery notice; preserve voucher stage; paid holder election required before simulated credit",
+      "holder_record_needed": "Paid election, quantity, payment date, funding source and account eligibility",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "SUBSCRIPTION_DELIVERY",
+      "event_id": "2890:subscription:2014-10-07",
+      "public_evidence_needed": "General final ordinary-share book-entry/conversion delivery notice; preserve voucher stage; paid holder election required before simulated credit",
+      "holder_record_needed": "Paid election, quantity, payment date, funding source and account eligibility",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "SUBSCRIPTION_DELIVERY",
+      "event_id": "2890:subscription:2023-02-07",
+      "public_evidence_needed": "General final ordinary-share book-entry/conversion delivery notice; preserve voucher stage; paid holder election required before simulated credit",
+      "holder_record_needed": "Paid election, quantity, payment date, funding source and account eligibility",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "SUBSCRIPTION_DELIVERY",
+      "event_id": "2891:subscription:2012-02-10",
+      "public_evidence_needed": "General final ordinary-share book-entry/conversion delivery notice; preserve voucher stage; paid holder election required before simulated credit",
+      "holder_record_needed": "Paid election, quantity, payment date, funding source and account eligibility",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "SUBSCRIPTION_DELIVERY",
+      "event_id": "2891:subscription:2013-02-19",
+      "public_evidence_needed": "General final ordinary-share book-entry/conversion delivery notice; preserve voucher stage; paid holder election required before simulated credit",
+      "holder_record_needed": "Paid election, quantity, payment date, funding source and account eligibility",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "SUBSCRIPTION_DELIVERY",
+      "event_id": "2882:subscription:2013-07-19",
+      "public_evidence_needed": "General final ordinary-share book-entry/conversion delivery notice; preserve voucher stage; paid holder election required before simulated credit",
+      "holder_record_needed": "Paid election, quantity, payment date, funding source and account eligibility",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "RIGHTS_ORDINARY_PHASE",
+      "event_id": "2880:stock:2026-08-13",
+      "public_evidence_needed": "Separate entitlement, rights instrument and ordinary conversion; verify prices, units and trade eligibility in intervening period before changing ledger",
+      "holder_record_needed": "Account eligibility / actual balance for holder-specific execution",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "RIGHTS_ORDINARY_PHASE",
+      "event_id": "5880:stock:2026-08-11",
+      "public_evidence_needed": "Separate entitlement, rights instrument and ordinary conversion; verify prices, units and trade eligibility in intervening period before changing ledger",
+      "holder_record_needed": "Account eligibility / actual balance for holder-specific execution",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "RIGHTS_ORDINARY_PHASE",
+      "event_id": "2886:stock:2011-08-23",
+      "public_evidence_needed": "Rights prices, units and holder trade eligibility; explicit general ordinary delivery/conversion proof",
+      "holder_record_needed": "Account eligibility / actual balance for holder-specific execution",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    },
+    {
+      "category": "RIGHTS_ORDINARY_PHASE",
+      "event_id": "2886:stock:2012-08-08",
+      "public_evidence_needed": "Rights prices, units and holder trade eligibility; explicit general ordinary delivery/conversion proof",
+      "holder_record_needed": "Account eligibility / actual balance for holder-specific execution",
+      "public_search_can_prove_holder_record": false,
+      "status": "OPEN",
+      "backtest_permission": false
+    }
+  ],
+  "category_counts": {
+    "STOCK_DELIVERY": 6,
+    "SUBSCRIPTION_DELIVERY": 9,
+    "RIGHTS_ORDINARY_PHASE": 4
+  },
+  "unique_events": 17,
+  "new_certified_delivery_dates": 0,
+  "rights_quotes_recovered": 0,
+  "gaps_closed": 0,
+  "backtest_executed": false,
+  "canonical_modified": false
+}

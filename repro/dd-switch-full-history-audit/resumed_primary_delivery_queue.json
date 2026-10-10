@@ -1,0 +1,30 @@
+[
+  {
+    "id": "resume_hn_2011_official_prospectus",
+    "url": "https://www.cathaysec.com.tw/download/%E8%8F%AF%E5%8D%97%E9%87%91%E5%85%AC%E9%96%8B%E8%AA%AA%E6%98%8E%E6%9B%B8.pdf",
+    "target_events": [
+      "2880:stock:2010-08-12",
+      "2880:stock:2011-08-11"
+    ],
+    "source_role": "official_underwriter_prospectus"
+  },
+  {
+    "id": "resume_esun_official_shareholder_information",
+    "url": "https://www.esunfhc.com/zh-tw/investor-relations/shareholders/shareholder-Information",
+    "target_events": [
+      "2884:subscription:2014-04-18",
+      "2884:subscription:2017-04-14",
+      "2884:subscription:2023-04-07"
+    ],
+    "source_role": "issuer"
+  },
+  {
+    "id": "resume_mega_2013_official_annual",
+    "url": "https://www.megaholdings.com.tw/upload/45/2017120516230926555.pdf",
+    "target_events": [
+      "2886:stock:2011-08-23",
+      "2886:stock:2012-08-08"
+    ],
+    "source_role": "issuer"
+  }
+]

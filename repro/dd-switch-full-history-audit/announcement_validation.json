@@ -1,0 +1,18 @@
+{
+  "parent_commit": "b6271f55b4a008360a71aa4cd5aa5fa4c62986c8",
+  "annual_hashes_verified": 302,
+  "canonical_inputs_unchanged": {
+    "forward/e21/live_market.csv": "bee3599a6df6c94ca8e616e7dd4a87df92e0bbe64f249e3bb91bf3e9de9357ee",
+    "data/market/private_fin_adjusted.csv": "b9793b23e3c6b60c5f908023519edf0857c5a752be85b27d7c8a81f8721fb62f",
+    "data/telecom_0050_complete/telecom_0050_2010_latest_ohlcv.csv": "1e02b0c183387402947a7979ec4a0efbdcf8a8141d2a2f21b23f634b4b804ee5",
+    "forward/e9/e9_telecom_adjusted.csv": "e629c5c5ec332fce4ba8d4025b21ee7782953c37c32ad681f8ad7e3220a2800d",
+    "forward/e10s2/e10s2_0050_adjusted.csv": "1362aa773619588c8b3aab3e6b3b31e1ee42b346fbaf812b56a0221d32041493",
+    "data/dividend_events/e22_dividend_events.csv": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724"
+  },
+  "tests_passed": 14,
+  "backtest_executed": false,
+  "whole_history_audit_rerun": false,
+  "whole_history_audit_blocker": "Missing generated seven-session rebuild inputs in clean checkout; rebuilding strategy books intentionally deferred until evidence certification",
+  "supplemental_announcement_audit_pass": true,
+  "split_contract_audit_pass": true
+}

@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE",
+  "total": 4,
+  "processed": 4,
+  "success": 4,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-09T17:54:31.875078+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_etf_asset_3",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_etf_asset_4",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_etf_asset_5",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_etf_asset_6",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T17:55:04.597003+00:00",
+  "updated_at": "2026-10-09T17:55:13.978442+00:00",
+  "last_completed_at": "2026-10-09T17:55:13.978052+00:00",
+  "skipped": 0
+}

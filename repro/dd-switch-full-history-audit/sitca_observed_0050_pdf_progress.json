@@ -1,0 +1,57 @@
+{
+  "status": "COMPLETE",
+  "total": 13,
+  "processed": 13,
+  "success": 13,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T00:46:11.332771+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20160726",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20160712",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20151022",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20151013",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20141022",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20141014",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20131022",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20131014",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20121022",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20121012",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T00:48:24.411722+00:00",
+  "updated_at": "2026-10-10T00:48:37.081276+00:00",
+  "last_completed_at": "2026-10-10T00:48:37.079608+00:00",
+  "skipped": 0
+}

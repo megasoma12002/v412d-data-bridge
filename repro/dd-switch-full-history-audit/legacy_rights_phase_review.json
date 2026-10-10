@@ -1,0 +1,42 @@
+{
+  "rows": [
+    {
+      "event_id": "2886:stock:2011-08-23",
+      "rights_issue_date": "2011-09-16",
+      "ordinary_listing_date": "2011-09-21",
+      "rights_termination_date": "2011-09-21",
+      "issued_shares": 221188524,
+      "allocation_amount_matches": true,
+      "ledger_payment_date": "2011-09-21",
+      "primary_explicit_stage_supported": true,
+      "general_ordinary_delivery_certified": false,
+      "gap_closed": false,
+      "publication_vintage_certified": false,
+      "required_to_close": "Rights prices, units and holder trade eligibility; explicit general ordinary delivery/conversion proof",
+      "source_id": "t59sb09_2886_20110913_20110913_1",
+      "source_url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2886&colorchg=&TYPEK=sii&YEAR=100&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20110913&SKEY=1&step=2&firstin=1",
+      "response_sha256": "73f8985340e80a0a79042b1f89bd03886212216fed9674e40266686e69b39860"
+    },
+    {
+      "event_id": "2886:stock:2012-08-08",
+      "rights_issue_date": "2012-09-06",
+      "ordinary_listing_date": "2012-09-13",
+      "rights_termination_date": "2012-09-13",
+      "issued_shares": 169209221,
+      "allocation_amount_matches": true,
+      "ledger_payment_date": "2012-09-13",
+      "primary_explicit_stage_supported": true,
+      "general_ordinary_delivery_certified": false,
+      "gap_closed": false,
+      "publication_vintage_certified": false,
+      "required_to_close": "Rights prices, units and holder trade eligibility; explicit general ordinary delivery/conversion proof",
+      "source_id": "t59sb09_2886_20120831_20120831_1",
+      "source_url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2886&colorchg=&TYPEK=sii&YEAR=101&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20120831&SKEY=1&step=2&firstin=1",
+      "response_sha256": "cf40c35df5e7b6722fcf12a346d03ceb8158923713f11e5213e7564ff5f88fdb"
+    }
+  ],
+  "primary_source_hash_pairs_verified": 2,
+  "new_general_delivery_facts": 0,
+  "backtest_ready": false,
+  "backtest_executed": false
+}

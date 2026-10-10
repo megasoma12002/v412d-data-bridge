@@ -1,0 +1,22 @@
+[
+  {
+    "id": "cache_wayback_hn_legacy",
+    "url": "https://web.archive.org/cdx/search/cdx?url=www.hnfhc.com.tw%2FHNFHC%2Fir%2Fe.do&output=json&filter=statuscode%3A200&collapse=digest&from=2010&to=2015&limit=20",
+    "purpose": "Bounded original issuer archive index 2010\u20132015; entries must be replayed and validated"
+  },
+  {
+    "id": "cache_wayback_mega_stock",
+    "url": "https://web.archive.org/cdx/search/cdx?url=www.megaholdings.com.tw%2Ftc%2Fstock.aspx&output=json&filter=statuscode%3A200&collapse=digest&from=2010&to=2015&limit=20",
+    "purpose": "Bounded original issuer archive index 2010\u20132015; entries must be replayed and validated"
+  },
+  {
+    "id": "cache_commoncrawl_collections",
+    "url": "https://index.commoncrawl.org/collinfo.json",
+    "purpose": "Discover available Common Crawl index collections"
+  },
+  {
+    "id": "cache_arquivo_mega_history",
+    "url": "https://arquivo.pt/textsearch?versionHistory=www.megaholdings.com.tw%2Ftc%2Fstock.aspx&maxItems=10",
+    "purpose": "Independent Portuguese web archive issuer page capture history"
+  }
+]

@@ -1,0 +1,254 @@
+{
+  "status": "COMPLETE_RECORDED_FORWARD_BOOKS_SHORT_WINDOW",
+  "sources": {
+    "AS_RECORDED": {
+      "final_nav": 543972686.7723289,
+      "profit": 43972686.77232885,
+      "return_pct": 8.794537354465781,
+      "observed_mdd_pct": -5.091369396458722,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18",
+        "2026-10-05"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 1.4901161193847656e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 953578.57767125,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0
+    },
+    "R1_REPAIRED": {
+      "final_nav": 534722253.07076305,
+      "profit": 34722253.07076305,
+      "return_pct": 6.944450614152609,
+      "observed_mdd_pct": -5.393415150177927,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 5.960464477539063e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 3322089.679237,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0
+    }
+  },
+  "source_sha256": {
+    "forward/e21/fills.csv": "48e7caaafdd0db39e0be727ec56cf847be067f9f285e00850940bb533a39f9f4",
+    "forward/e21/orders.csv": "841468034f25ada855744e3ff8dfb72492c6a3457dcbbde687e0711e0fb032a1",
+    "forward/e21/nav.csv": "79254318c675a123c1e2ecb68aa01b1387e5136ae891b7bf024adfac64e4aeea",
+    "forward/e21/portfolio_state.json": "dc0f2f3b7adee383882714c85ff263b736c10b4dc4f4d2e4de18defe613b8aab",
+    "repro/dd-switch-live-t1-r1/fills.csv": "00fe4ab6f61c91a1d5a51993bc6c63b65b343e5712576cc5fa73fbaafaea747e",
+    "repro/dd-switch-live-t1-r1/orders.csv": "6addbe91132d79288e0daba4fd72ec21b89ae8ab81191dbc023f0e1e624920cc",
+    "repro/dd-switch-live-t1-r1/nav.csv": "d1f91855938385363de9eb3abcca331f268f1477332f58abc388e43e48813fbc",
+    "repro/dd-switch-live-t1-r1/portfolio_state.json": "c9b5ec414315016ff8d25a24dc5ee4e581e30eac6a2015c1a1593a884b944097",
+    "data/dividend_events/e22_dividend_events.csv": "bb056eaea8fef69ff0a4b180614d620d2af881fa91cd69cffd89314188edd724",
+    "forward/e21/live_market.csv": "bee3599a6df6c94ca8e616e7dd4a87df92e0bbe64f249e3bb91bf3e9de9357ee",
+    "data/market/private_fin_adjusted.csv": "b9793b23e3c6b60c5f908023519edf0857c5a752be85b27d7c8a81f8721fb62f",
+    "data/calendars/twse_sessions_2026.csv": "6ec2b320a473cfc213e5766c94cbb4ba2ffc5d71f58ae1aa77d5b0b00bbcd4bd",
+    "data/dividend_events/mops_payment_amendments.csv": "8ca55e6f4891af8a38e04223064f1fe9447caaaa05d994539371fce9867876f2",
+    "repro/dd-switch-t1-r1/00631L_ohlcv.csv": "43e7f130a5f0ba244ea08e0999836de7dadc01d22976a87c42afb7eb6fdc6ed8"
+  },
+  "code_sha256": {
+    "scripts/dd_switch_full_live_books.py": "230bd9221982c03bc31f1f17267ab55468b5625bd8fb9c06baeb8d74319eb627",
+    "scripts/live_ledger.py": "b8f626f8114194ae63ceffad1a7439e1794565f63532d6fd82facd2835cab161",
+    "scripts/e22_books_apply.py": "94bb92813643bb7ab4cc40911f67e3f8bd52bf4f3f472458758859284bf2de03",
+    "scripts/e22_dividend_accounting.py": "d069b1dda3f614117241120c4fef716d4cfb548096a5338e2af7c0856890627b",
+    "scripts/e22_v3_sandbox_books.py": "d691ac52ecc9090b79ca43dc1c58fa80f77bc48806e830e266116121b57037c4",
+    "scripts/dd_switch_capital_policy.py": "b8f84895c1cd984d11e4a8bcf40640a9ab19563e3cbf691383fccf20f6572329"
+  },
+  "policies": [
+    {
+      "name": "BASELINE",
+      "reserve": 0.0,
+      "trigger": 1.0,
+      "floor": 1.0,
+      "deep_trigger": 1.0,
+      "deep_floor": 1.0,
+      "recovery": 0.03,
+      "step": 0.05
+    },
+    {
+      "name": "RESERVE_05",
+      "reserve": 0.05,
+      "trigger": 1.0,
+      "floor": 0.95,
+      "deep_trigger": 1.0,
+      "deep_floor": 0.95,
+      "recovery": 0.03,
+      "step": 0.05
+    },
+    {
+      "name": "RESERVE_10",
+      "reserve": 0.1,
+      "trigger": 1.0,
+      "floor": 0.9,
+      "deep_trigger": 1.0,
+      "deep_floor": 0.9,
+      "recovery": 0.03,
+      "step": 0.05
+    },
+    {
+      "name": "DD08_F60",
+      "reserve": 0.05,
+      "trigger": 0.08,
+      "floor": 0.6,
+      "deep_trigger": 0.12,
+      "deep_floor": 0.4,
+      "recovery": 0.03,
+      "step": 0.05
+    },
+    {
+      "name": "DD08_F40",
+      "reserve": 0.1,
+      "trigger": 0.08,
+      "floor": 0.4,
+      "deep_trigger": 0.12,
+      "deep_floor": 0.25,
+      "recovery": 0.03,
+      "step": 0.05
+    }
+  ],
+  "counterfactuals": [
+    {
+      "source": "AS_RECORDED",
+      "policy": "BASELINE",
+      "final_nav": 543946941.2926852,
+      "profit": 43946941.29268515,
+      "return_pct": 8.789388258537034,
+      "observed_mdd_pct": -5.090695395532608,
+      "sessions": 32,
+      "fills": 107,
+      "fees_tax": 955021.607315,
+      "cash_dividend_credit": 0
+    },
+    {
+      "source": "AS_RECORDED",
+      "policy": "RESERVE_05",
+      "final_nav": 541687887.3730559,
+      "profit": 41687887.373055935,
+      "return_pct": 8.33757747461119,
+      "observed_mdd_pct": -4.842610568395756,
+      "sessions": 32,
+      "fills": 117,
+      "fees_tax": 903102.126944,
+      "cash_dividend_credit": 0
+    },
+    {
+      "source": "AS_RECORDED",
+      "policy": "RESERVE_10",
+      "final_nav": 539430880.5310003,
+      "profit": 39430880.53100026,
+      "return_pct": 7.88617610620006,
+      "observed_mdd_pct": -4.593005550279572,
+      "sessions": 32,
+      "fills": 120,
+      "fees_tax": 851971.71899975,
+      "cash_dividend_credit": 0
+    },
+    {
+      "source": "AS_RECORDED",
+      "policy": "DD08_F60",
+      "final_nav": 541687887.3730559,
+      "profit": 41687887.373055935,
+      "return_pct": 8.33757747461119,
+      "observed_mdd_pct": -4.842610568395756,
+      "sessions": 32,
+      "fills": 117,
+      "fees_tax": 903102.126944,
+      "cash_dividend_credit": 0
+    },
+    {
+      "source": "AS_RECORDED",
+      "policy": "DD08_F40",
+      "final_nav": 539430880.5310003,
+      "profit": 39430880.53100026,
+      "return_pct": 7.88617610620006,
+      "observed_mdd_pct": -4.593005550279572,
+      "sessions": 32,
+      "fills": 120,
+      "fees_tax": 851971.71899975,
+      "cash_dividend_credit": 0
+    },
+    {
+      "source": "R1_REPAIRED",
+      "policy": "BASELINE",
+      "final_nav": 534711527.236802,
+      "profit": 34711527.23680198,
+      "return_pct": 6.942305447360386,
+      "observed_mdd_pct": -5.391513322046048,
+      "sessions": 32,
+      "fills": 144,
+      "fees_tax": 3321073.5631982503,
+      "cash_dividend_credit": 0
+    },
+    {
+      "source": "R1_REPAIRED",
+      "policy": "RESERVE_05",
+      "final_nav": 532940557.9175211,
+      "profit": 32940557.91752112,
+      "return_pct": 6.58811158350423,
+      "observed_mdd_pct": -5.1295678439079335,
+      "sessions": 32,
+      "fills": 144,
+      "fees_tax": 3141421.682479,
+      "cash_dividend_credit": 0
+    },
+    {
+      "source": "R1_REPAIRED",
+      "policy": "RESERVE_10",
+      "final_nav": 531174350.37118524,
+      "profit": 31174350.371185243,
+      "return_pct": 6.234870074237042,
+      "observed_mdd_pct": -4.865780624439619,
+      "sessions": 32,
+      "fills": 145,
+      "fees_tax": 2962777.27881475,
+      "cash_dividend_credit": 0
+    },
+    {
+      "source": "R1_REPAIRED",
+      "policy": "DD08_F60",
+      "final_nav": 532940557.9175211,
+      "profit": 32940557.91752112,
+      "return_pct": 6.58811158350423,
+      "observed_mdd_pct": -5.1295678439079335,
+      "sessions": 32,
+      "fills": 144,
+      "fees_tax": 3141421.682479,
+      "cash_dividend_credit": 0
+    },
+    {
+      "source": "R1_REPAIRED",
+      "policy": "DD08_F40",
+      "final_nav": 531174350.37118524,
+      "profit": 31174350.371185243,
+      "return_pct": 6.234870074237042,
+      "observed_mdd_pct": -4.865780624439619,
+      "sessions": 32,
+      "fills": 145,
+      "fees_tax": 2962777.27881475,
+      "cash_dividend_credit": 0
+    }
+  ],
+  "limitations": [
+    "Only actual recorded forward window; no invented 2013-2026 full-live history",
+    "Missing NAV dates mark existing holdings; missing strategy signals are not generated",
+    "Counterfactuals share exogenous recorded pending-order intents, not strategy feedback regeneration",
+    "BASELINE counterfactual replans targets and expires orders; compare policies to this arm, not directly to immutable reference",
+    "R1 changes controller inputs after 9/29; cannot treat difference as pure execution timing",
+    "Next-session raw open plus shared slip/cost model; no actual intraday fills or liquidity proof",
+    "Short-window returns not annualized; dividend coverage bounded by repository events",
+    "No policy promotion or live state mutation"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE",
+  "total": 2,
+  "processed": 2,
+  "success": 1,
+  "failed": 1,
+  "cached": 0,
+  "started_at": "2026-10-10T06:10:34.366560+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "github_lead_hn_2011_final_reprint",
+      "status": "FAILED"
+    },
+    {
+      "id": "github_lead_ctbc_2013_registration_reprint",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T06:10:51.394431+00:00",
+  "updated_at": "2026-10-10T06:11:01.376515+00:00",
+  "last_completed_at": "2026-10-10T06:11:01.373847+00:00",
+  "skipped": 0
+}

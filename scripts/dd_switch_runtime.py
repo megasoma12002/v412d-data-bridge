@@ -1,0 +1,62 @@
+"""Versioned DD_SWITCH dependencies; never read a half-published generation."""
+from __future__ import annotations
+
+import hashlib
+import json
+import os
+from pathlib import Path
+
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_DIR = ROOT / "data/dd_switch_runtime"
+
+
+def runtime_dir() -> Path:
+    return Path(os.environ.get("E21_DD_INPUTS_DIR", str(DEFAULT_DIR))).resolve()
+
+def r1_research_destination(destination: Path) -> Path:
+    """R1 failed original-mother parity; never publish it as canonical refresh."""
+    target=Path(destination).resolve()
+    canonical=DEFAULT_DIR.resolve()
+    if target==canonical or canonical in target.parents:
+        raise RuntimeError('R1 mother parity failed: publish only to isolated research runtime; original-lineage refresh required')
+    return target
+
+
+def inputs(required: bool = False) -> dict[str, Path]:
+    pointer = runtime_dir() / "current.json"
+    if not pointer.exists():
+        if required:
+            raise RuntimeError("DD_SWITCH runtime missing; original-lineage refresh required (R1 is isolated research only)")
+        return {}
+    meta = json.loads(pointer.read_text())
+    generation = (runtime_dir() / meta["generation"]).resolve()
+    if runtime_dir() not in generation.parents:
+        raise RuntimeError("DD_SWITCH generation outside runtime directory")
+    result = {key: (generation / name).resolve() for key, name in meta["files"].items()}
+    if any(generation not in path.parents for path in result.values()):
+        raise RuntimeError("DD_SWITCH file outside generation")
+    return result
+
+
+def preflight(asof: str | pd.Timestamp) -> dict:
+    paths = inputs(required=True)
+    meta = json.loads((runtime_dir() / "current.json").read_text())
+    wanted = pd.Timestamp(asof).date().isoformat()
+    if runtime_dir()==DEFAULT_DIR.resolve():
+        if meta.get('version')!='DD_SWITCH_ORIGINAL_LINEAGE_DAILY_V1' or not meta.get('prefix_certified'):
+            raise RuntimeError('Canonical DD runtime requires certified original daily generation; R1/research cannot be promoted')
+        required={'off','base','l4','trail','dd','signal','shares_COMP_H150_x_A20','shares_SAT_A20_RELAX'}
+        if set(paths)!=required:raise RuntimeError('Canonical DD runtime missing complete original inputs')
+    if meta["asof"] != wanted:
+        raise RuntimeError(f"DD_SWITCH inputs stale: {meta['asof']} != {wanted}")
+    for key, path in paths.items():
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        if digest != meta["hashes"][key]:
+            raise RuntimeError(f"DD_SWITCH input checksum mismatch: {key}")
+        frame = pd.read_csv(path, usecols=["date"])
+        if frame.empty or str(frame.date.max())[:10] != wanted:
+            raise RuntimeError(f"DD_SWITCH input tip mismatch: {key}")
+    return {"ok": True, "asof": wanted, "generation": meta["generation"],
+        'version':meta.get('version'),'prefix_certified':meta.get('prefix_certified',False),'files':sorted(paths)}

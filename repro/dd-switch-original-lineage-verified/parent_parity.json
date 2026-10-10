@@ -1,0 +1,83 @@
+{
+  "status": "PARENT_PARITY",
+  "input_ref": "f73c1ba1f48d77b4728ce510da97ae8a0885038e",
+  "asof": "2026-10-08",
+  "append_only": true,
+  "build": {
+    "comp": {
+      "book": "COMP_H150_x_A20",
+      "path": "repro/dd-switch-original-parents-extended/outputs/daily_shares_COMP_H150_x_A20.csv",
+      "n_rows": 27552,
+      "n_days": 3372,
+      "n_nav_days": 3373,
+      "n_fills": 6554,
+      "start": "2012-12-04",
+      "end": "2026-10-08",
+      "exact_t1_ok": true,
+      "codes": [
+        "0050",
+        "00631L",
+        "2412",
+        "2880",
+        "2886",
+        "2892",
+        "3045",
+        "4904",
+        "5880"
+      ]
+    },
+    "sat": {
+      "book": "SAT_A20_RELAX",
+      "path": "repro/dd-switch-original-parents-extended/outputs/daily_shares_SAT_A20_RELAX.csv",
+      "n_rows": 29718,
+      "n_days": 3372,
+      "n_nav_days": 3373,
+      "n_fills": 5436,
+      "start": "2012-12-04",
+      "end": "2026-10-08",
+      "exact_t1_ok": true,
+      "codes": [
+        "0050",
+        "00631L",
+        "2412",
+        "2880",
+        "2886",
+        "2892",
+        "3045",
+        "4904",
+        "5880"
+      ]
+    },
+    "schedule_alpha": 0.2
+  },
+  "parity": {
+    "COMP_H150_x_A20": {
+      "max_share_difference": 0.0,
+      "mismatched_dates": 0,
+      "first_mismatch": null,
+      "pass_parity": true,
+      "reference_days": 3365,
+      "candidate_days": 3372
+    },
+    "SAT_A20_RELAX": {
+      "max_share_difference": 0.0,
+      "mismatched_dates": 0,
+      "first_mismatch": null,
+      "pass_parity": true,
+      "reference_days": 3365,
+      "candidate_days": 3372
+    }
+  },
+  "source_sha256": {
+    "forward/e21/live_market.csv": "bd2a9ccc53e76a968530bd4c4f485f23412deca182f38d66e0f74874cb470cb9",
+    "tip:forward/e21/live_market.csv": "bee3599a6df6c94ca8e616e7dd4a87df92e0bbe64f249e3bb91bf3e9de9357ee",
+    "data/dividend_events/e22_dividend_events.csv": "99fda1b5bbf0c0d49927a90e38f39e08db767260b0bedb0ef29424adf4dfed98",
+    "data/def_proxies/00631L_ohlcv.csv": "ec8e7fdbeb40dd22038518bcb226c00fdddb2984272b0632f3d19066c5986860",
+    "tip:00631L": "43e7f130a5f0ba244ea08e0999836de7dadc01d22976a87c42afb7eb6fdc6ed8",
+    "repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_COMP_H150_x_A20.csv": "b47dce8e7dfd522d4e8dc5626a56c618900fc650666a88e7f8877bd7095e614f",
+    "repro/fin-sat-path3-daily-share-ssot-stagea/outputs/daily_shares_SAT_A20_RELAX.csv": "153b960683048180c1e450682032993332379dc0df6cb4d8bc8ecfd3f6f0b252"
+  },
+  "limits": [
+    "Legacy uncorrected parent simulation retained for reproduction; not real execution validation"
+  ]
+}

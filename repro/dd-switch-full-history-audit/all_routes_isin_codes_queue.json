@@ -1,0 +1,17 @@
+[
+  {
+    "id": "remaining_isin_all_2886",
+    "url": "https://isin.twse.com.tw/isin/class_main.jsp?owncode=2886&stockname=&isincode=&market=&issuetype=&industry_code=&Page=1&chklike=Y",
+    "purpose": "Published partial-code query across all market statuses; discover actual instrument identifiers"
+  },
+  {
+    "id": "remaining_isin_all_2880",
+    "url": "https://isin.twse.com.tw/isin/class_main.jsp?owncode=2880&stockname=&isincode=&market=&issuetype=&industry_code=&Page=1&chklike=Y",
+    "purpose": "Published partial-code query across all market statuses; discover actual instrument identifiers"
+  },
+  {
+    "id": "remaining_isin_all_5880",
+    "url": "https://isin.twse.com.tw/isin/class_main.jsp?owncode=5880&stockname=&isincode=&market=&issuetype=&industry_code=&Page=1&chklike=Y",
+    "purpose": "Published partial-code query across all market statuses; discover actual instrument identifiers"
+  }
+]

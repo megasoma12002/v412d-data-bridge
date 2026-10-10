@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "output": "{\"status\": \"ALREADY_COMMITTED\", \"date\": \"2026-10-08\"}",
+  "immutable_files_unchanged": true,
+  "sha256": {
+    "repro/dd-switch-funded-production-probe-v3/nav.csv": "2a40f107fe68f61fd79cbf9a586a3c0bd77382e28dc74613c384e3096e7e6089",
+    "repro/dd-switch-funded-production-probe-v3/orders.csv": "187a4a92458827791f625ad964ccb72c0e986fb9ccfd1c48da805c0593f8f2d0",
+    "repro/dd-switch-funded-production-probe-v3/fills.csv": "38c326a1f87b103b8c0cc0f4adfa1e1c6c6ac106c9dbad0db933b4e35ef06979",
+    "repro/dd-switch-funded-production-probe-v3/dd_funding_events.csv": "796f63a5a2ed2067dc62552f57c55a6d426357f27b712b084a3acc4a7b4d7d1b",
+    "repro/dd-switch-funded-production-probe-v3/order_events.csv": "571fae3a8ba5047179e46ec2cb36895d18e130e48c9424a4d888c72615cdf7b9",
+    "repro/dd-switch-funded-production-probe-v3/signals.csv": "933cda13c711b6ef9e43c763b701c4c9be1dde835fe3bb7ec0e504b6ea7832b8",
+    "repro/dd-switch-funded-production-probe-v3/order_lifecycle.csv": "3df96d3b8b8c34e3f33ae296fe35eecd59e8dcc079c6b01bfcc55abefae20ed5",
+    "repro/dd-switch-funded-production-probe-v3/portfolio_state.json": "c67d908794536964f981f027669eff1fb97e3b9d4523aeb2f544a602ba8b981d",
+    "repro/dd-switch-funded-production-probe-v3/audit_chain.jsonl": "c25ac3133fec195d85a89747bbdb2100a3e541303f0b42a1de340d46dc09c462"
+  }
+}

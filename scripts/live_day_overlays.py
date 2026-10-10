@@ -51,6 +51,7 @@ def apply_path3_tipsoft_overlays(
     asof: pd.Timestamp,
     pos: dict[str, float],
     prices: dict[str, float],
+    funding=None,
 ) -> DayOverlayResult:
     """Apply Path3 + tipsoft overlay steps; return rows + stamp metas."""
     import live_path3_strategy_cutover as p3_cut
@@ -62,9 +63,8 @@ def apply_path3_tipsoft_overlays(
         "n_muted": 0,
     }
     cutover_within = bool(p3_cut.is_within_sleeve_cutover())
-    if cutover_within:
-        order_rows, path3_cutover_meta = p3_cut.suppress_soft_fin_tel(order_rows)
-        path3_cutover_meta["ballot"] = LIVE_PATH3_STRATEGY_CUTOVER_BALLOT
+    if cutover_within and not LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT:
+        raise RuntimeError('Path3 daily cutover requires an active replacement planner')
 
     path3_emit_meta: dict[str, Any] = {
         "enabled": bool(LIVE_T0_CARVE_FIN_SAT_SWITCH_EMIT)
@@ -93,6 +93,8 @@ def apply_path3_tipsoft_overlays(
             pos=pos,
             prices=prices,
         )
+        if cutover_within and path3_deltas is None:
+            raise RuntimeError('Path3 daily cutover blocked before Soft suppression: '+str(path3_weight_meta.get('reason')))
         # tip Soft Exact T+1 DD_SWITCH tip apply (0kbd ACCEPT) — may flatten
         # FIN∪TEL→cash on TRAIL-selected Path3 OFF days (−P3T0). Not stamps-only.
         if LIVE_TIPSOFT_DD_SWITCH:
@@ -106,8 +108,15 @@ def apply_path3_tipsoft_overlays(
             )
             path3_weight_meta = dict(path3_weight_meta)
             path3_weight_meta["tipsoft_dd_switch"] = tipsoft_dd_apply_meta
+            if cutover_within and not (tipsoft_dd_apply_meta.get('gate') or {}).get('ok'):
+                raise RuntimeError('DD gate invalid before Path3 cutover: '+str(tipsoft_dd_apply_meta.get('reason')))
+        gate = tipsoft_dd_apply_meta.get('gate') or {}
+        if funding is not None and funding.state['owned'] and gate.get('ok') and gate.get('path3_active'):
+            path3_deltas, path3_weight_meta = funding.funded_plan(path3_deltas, path3_weight_meta, pos, prices)
         flip = bool((path3_weight_meta.get("switch") or {}).get("flip"))
         if cutover_within:
+            order_rows, path3_cutover_meta = p3_cut.suppress_soft_fin_tel(order_rows)
+            path3_cutover_meta["ballot"] = LIVE_PATH3_STRATEGY_CUTOVER_BALLOT
             soft_path3_mute_meta = {
                 "enabled": bool(LIVE_SOFT_PATH3_COEXIST_MUTE),
                 "policy": LIVE_SOFT_PATH3_COEXIST_MUTE_POLICY,

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "OFFICIAL_PRE2025_CALENDAR",
+    "reason": "TWSE historical API access denied; provider dates are secondary; complete pre-2025 official calendar still unproved"
+  },
+  {
+    "id": "FULL_RAW_PRICE_EXTERNAL_CONFIRMATION",
+    "reason": "All requested annual snapshots obtained and compared; FinMind shares original ancestry, so independent historical primary proof remains incomplete"
+  },
+  {
+    "id": "DIVIDEND_VINTAGE",
+    "reason": "Positive dividend ledger has 415 primary reported schedule/final timestamp matches; 1 positive legs still have missing or conflicting primary timestamp proof and all revision inventories remain uncertified"
+  },
+  {
+    "id": "FEATURE_FUTURE_EVENT_DEPENDENCY",
+    "reason": "Feature functions use full ex-date ledger without announcement availability gate; see actual prefix experiment"
+  },
+  {
+    "id": "FULL_LIVE_FUNDED_HISTORY",
+    "reason": "Mother DD/TRAIL retain shadow and return stitching; full live historical joint capital execution not certified"
+  },
+  {
+    "id": "HISTORICAL_CORPORATE_ACTION_COMPLETENESS",
+    "reason": "2 ETF split/halt/unit contracts have primary reported time proof; 24 of 24 zero-dividend ex-right rows have primary subscription/class evidence; settlement and complete historical primary inventory remain unproved"
+  },
+  {
+    "id": "RESEARCH_GAP_CANDIDATES_NOT_PROMOTED",
+    "reason": "34 missing quotes recovered in independent research candidates (10 core, 24 private); original canonical inputs intentionally unchanged"
+  },
+  {
+    "id": "HISTORICAL_LATER_ORDER_FILLS",
+    "count": 7261,
+    "reason": "Evidenced fills occur after first qualified session; funding/residual/stale-order lifecycle attribution pending, not automatically invalid T+1 qualification"
+  },
+  {
+    "id": "SCHEDULED_EX_DATE_ON_CLOSED_SESSION",
+    "reason": "2891 cash scheduled ex 2026-07-10 falls outside official sessions; effective-date router convention exists but primary schedule/amendment proof still required"
+  }
+]

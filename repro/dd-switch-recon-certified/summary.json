@@ -1,0 +1,399 @@
+{
+  "status": "RECONCILED_FIXED_POLICY_SENSITIVITY_ONLY",
+  "seed": "2026-09-29",
+  "reports": {
+    "audit": {
+      "final_nav": 542920983.1534936,
+      "profit": 42920983.15349364,
+      "return_pct": 8.584196630698738,
+      "observed_mdd_pct": -5.155630733853355,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 3.725290298461914e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1517877.1965065,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "policy": "audit",
+      "post_seed_fills": 39,
+      "buffered_intents": 0,
+      "numerical_one_lot_sells": 0,
+      "controls_equal": true,
+      "nav_gain": 0.0,
+      "fee_saving": 0.0
+    },
+    "epsilon": {
+      "final_nav": 542920983.1534936,
+      "profit": 42920983.15349364,
+      "return_pct": 8.584196630698738,
+      "observed_mdd_pct": -5.155630733853355,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 3.725290298461914e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1517877.1965065,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "policy": "epsilon",
+      "post_seed_fills": 39,
+      "buffered_intents": 0,
+      "numerical_one_lot_sells": 0,
+      "controls_equal": true,
+      "nav_gain": 0.0,
+      "fee_saving": 0.0
+    },
+    "one_lot": {
+      "final_nav": 542939532.7130723,
+      "profit": 42939532.7130723,
+      "return_pct": 8.587906542614455,
+      "observed_mdd_pct": -5.155587085370216,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 2.9802322387695312e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1511814.38692775,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "policy": "one_lot",
+      "post_seed_fills": 19,
+      "buffered_intents": 24,
+      "numerical_one_lot_sells": 0,
+      "controls_equal": true,
+      "nav_gain": 18549.55957865715,
+      "fee_saving": 6062.80957875005
+    },
+    "sleeve_5bp": {
+      "final_nav": 542924276.3780286,
+      "profit": 42924276.37802863,
+      "return_pct": 8.58485527560573,
+      "observed_mdd_pct": -5.156044683214001,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 3.3527612686157227e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1516466.9719715,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "policy": "sleeve_5bp",
+      "post_seed_fills": 29,
+      "buffered_intents": 12,
+      "numerical_one_lot_sells": 0,
+      "controls_equal": true,
+      "nav_gain": 3293.2245349884033,
+      "fee_saving": 1410.2245350000449
+    },
+    "sleeve_20bp": {
+      "final_nav": 542924276.3780286,
+      "profit": 42924276.37802863,
+      "return_pct": 8.58485527560573,
+      "observed_mdd_pct": -5.156044683214001,
+      "sessions": 32,
+      "initial": 500000000.0,
+      "start": "2026-08-24",
+      "end": "2026-10-08",
+      "missing_nav_completed": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "max_nav_residual": 1.1920928955078125e-07,
+      "max_cash_residual": 3.3527612686157227e-08,
+      "final_position_residual": 0.0,
+      "fees_tax": 1516466.9719715,
+      "dividend_records": 0,
+      "cash_dividend_credit": 0,
+      "policy": "sleeve_20bp",
+      "post_seed_fills": 29,
+      "buffered_intents": 12,
+      "numerical_one_lot_sells": 0,
+      "controls_equal": true,
+      "nav_gain": 3293.2245349884033,
+      "fee_saving": 1410.2245350000449
+    }
+  },
+  "rounding_audit": {
+    "intents": 31,
+    "one_lot_intents": 24,
+    "numerical_one_lot_sells": 0,
+    "economic_sub_lot_sell_intents": 24,
+    "largest_deltas": [
+      {
+        "date": "2026-09-30",
+        "policy": "audit",
+        "code": "2892",
+        "book": "SAT_A20_RELAX",
+        "flip": false,
+        "current": 2893000,
+        "raw_target": 5899656.997163156,
+        "rounded_target": 5899000,
+        "delta": 3006000,
+        "fractional_gap_to_current": 3006656.997163156,
+        "numerical_one_lot_sell": false,
+        "sleeve_notional": 425154550,
+        "trade_notional": 116181900,
+        "buffered": false
+      },
+      {
+        "date": "2026-09-30",
+        "policy": "audit",
+        "code": "2880",
+        "book": "SAT_A20_RELAX",
+        "flip": false,
+        "current": 2455000,
+        "raw_target": 1131057.283594511,
+        "rounded_target": 1131000,
+        "delta": -1324000,
+        "fractional_gap_to_current": -1323942.716405489,
+        "numerical_one_lot_sell": false,
+        "sleeve_notional": 425154550,
+        "trade_notional": 60043400,
+        "buffered": false
+      },
+      {
+        "date": "2026-09-30",
+        "policy": "audit",
+        "code": "2886",
+        "book": "SAT_A20_RELAX",
+        "flip": false,
+        "current": 2065000,
+        "raw_target": 1067319.7433683258,
+        "rounded_target": 1067000,
+        "delta": -998000,
+        "fractional_gap_to_current": -997680.2566316742,
+        "numerical_one_lot_sell": false,
+        "sleeve_notional": 425154550,
+        "trade_notional": 49051700,
+        "buffered": false
+      },
+      {
+        "date": "2026-09-30",
+        "policy": "audit",
+        "code": "5880",
+        "book": "SAT_A20_RELAX",
+        "flip": false,
+        "current": 3851000,
+        "raw_target": 3577800.531114168,
+        "rounded_target": 3577000,
+        "delta": -274000,
+        "fractional_gap_to_current": -273199.468885832,
+        "numerical_one_lot_sell": false,
+        "sleeve_notional": 425154550,
+        "trade_notional": 7151400,
+        "buffered": false
+      },
+      {
+        "date": "2026-09-30",
+        "policy": "audit",
+        "code": "4904",
+        "book": "SAT_A20_RELAX",
+        "flip": false,
+        "current": 221000,
+        "raw_target": 195164.44815566897,
+        "rounded_target": 195000,
+        "delta": -26000,
+        "fractional_gap_to_current": -25835.55184433103,
+        "numerical_one_lot_sell": false,
+        "sleeve_notional": 46519000,
+        "trade_notional": 2691000,
+        "buffered": false
+      },
+      {
+        "date": "2026-09-30",
+        "policy": "audit",
+        "code": "2412",
+        "book": "SAT_A20_RELAX",
+        "flip": false,
+        "current": 84000,
+        "raw_target": 96169.69489938577,
+        "rounded_target": 96000,
+        "delta": 12000,
+        "fractional_gap_to_current": 12169.694899385766,
+        "numerical_one_lot_sell": false,
+        "sleeve_notional": 46519000,
+        "trade_notional": 1722000,
+        "buffered": false
+      },
+      {
+        "date": "2026-09-30",
+        "policy": "audit",
+        "code": "3045",
+        "book": "SAT_A20_RELAX",
+        "flip": false,
+        "current": 97000,
+        "raw_target": 104762.58073494898,
+        "rounded_target": 104000,
+        "delta": 7000,
+        "fractional_gap_to_current": 7762.580734948977,
+        "numerical_one_lot_sell": false,
+        "sleeve_notional": 46519000,
+        "trade_notional": 836500,
+        "buffered": false
+      }
+    ],
+    "SAT_parent_shares_unchanged_0929_through_1008": true
+  },
+  "bridges": {
+    "audit": {
+      "nav_gain": 0.0,
+      "components": {
+        "holding_pnl": 0.0,
+        "open_to_close_trade_pnl": 0.0,
+        "execution_price_pnl": 0.0,
+        "fee_pnl": 0.0
+      },
+      "residual": 0.0
+    },
+    "epsilon": {
+      "nav_gain": 0.0,
+      "components": {
+        "holding_pnl": 0.0,
+        "open_to_close_trade_pnl": 0.0,
+        "execution_price_pnl": 0.0,
+        "fee_pnl": 0.0
+      },
+      "residual": 0.0
+    },
+    "one_lot": {
+      "nav_gain": 18549.55957865715,
+      "components": {
+        "holding_pnl": 9800.0,
+        "open_to_close_trade_pnl": 1899.9999999999843,
+        "execution_price_pnl": 786.7499999999375,
+        "fee_pnl": 6062.809578750001
+      },
+      "residual": 9.277209755964577e-08
+    },
+    "sleeve_5bp": {
+      "nav_gain": 3293.2245349884033,
+      "components": {
+        "holding_pnl": 3300.0,
+        "open_to_close_trade_pnl": -1600.0000000000157,
+        "execution_price_pnl": 182.99999999998917,
+        "fee_pnl": 1410.224535
+      },
+      "residual": 1.1570136848604307e-08
+    },
+    "sleeve_20bp": {
+      "nav_gain": 3293.2245349884033,
+      "components": {
+        "holding_pnl": 3300.0,
+        "open_to_close_trade_pnl": -1600.0000000000157,
+        "execution_price_pnl": 182.99999999998917,
+        "fee_pnl": 1410.224535
+      },
+      "residual": 1.1570136848604307e-08
+    }
+  },
+  "clock_audits": {
+    "audit": {
+      "post_seed_fills": 39,
+      "same_day_fills": 0,
+      "next_session_fills": 39,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 31,
+      "all_path3_orders_next_session_open": true
+    },
+    "epsilon": {
+      "post_seed_fills": 39,
+      "same_day_fills": 0,
+      "next_session_fills": 39,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 31,
+      "all_path3_orders_next_session_open": true
+    },
+    "one_lot": {
+      "post_seed_fills": 19,
+      "same_day_fills": 0,
+      "next_session_fills": 19,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 7,
+      "all_path3_orders_next_session_open": true
+    },
+    "sleeve_5bp": {
+      "post_seed_fills": 29,
+      "same_day_fills": 0,
+      "next_session_fills": 29,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 19,
+      "all_path3_orders_next_session_open": true
+    },
+    "sleeve_20bp": {
+      "post_seed_fills": 29,
+      "same_day_fills": 0,
+      "next_session_fills": 29,
+      "delayed_fills": 0,
+      "path3_post_seed_orders": 19,
+      "all_path3_orders_next_session_open": true
+    }
+  },
+  "baseline_fills_exact": true,
+  "source_sha256": {
+    "repro/dd-switch-recon-audit/fills.csv": "b7ce46bb1bca3216381e800051507a7af56f09db87f87c94e966b9db023b32c6",
+    "repro/dd-switch-recon-audit/orders.csv": "034979859d9b02c118cc0af3e1c5eeb1e07409c7b5f280d7547abc61a22402c6",
+    "repro/dd-switch-recon-audit/signals.csv": "09fe1b9abad00909fffbbdfd2289ce9c4bb87b1c4055e1c864941fa4c77df7ed",
+    "repro/dd-switch-recon-audit/portfolio_state.json": "71553e0dec43d0a206ba05a0ad935a840fc8f37fe24a7b01e2e4b724662499ce",
+    "repro/dd-switch-recon-audit/recon_audit.jsonl": "132260a4f303471d9aa6cb1fcc5b8ddf9ded6f3ff3af783a7183f18e22b8d4d3",
+    "repro/dd-switch-recon-epsilon/fills.csv": "b7ce46bb1bca3216381e800051507a7af56f09db87f87c94e966b9db023b32c6",
+    "repro/dd-switch-recon-epsilon/orders.csv": "034979859d9b02c118cc0af3e1c5eeb1e07409c7b5f280d7547abc61a22402c6",
+    "repro/dd-switch-recon-epsilon/signals.csv": "823b481314ee43b9015b9389af088f3c56cf117a153edba05fe6a0ab9f7a7d29",
+    "repro/dd-switch-recon-epsilon/portfolio_state.json": "71553e0dec43d0a206ba05a0ad935a840fc8f37fe24a7b01e2e4b724662499ce",
+    "repro/dd-switch-recon-epsilon/recon_audit.jsonl": "e5a345be8f7b6842dde610b53d83e91ae96196f791ef84536a82803ce9211274",
+    "repro/dd-switch-recon-one_lot/fills.csv": "7ae70bf65697d523e7eb578f13c0ef8253bc60df8755961eaca23f1423d058fc",
+    "repro/dd-switch-recon-one_lot/orders.csv": "d55b715e4afaf797cc3cf8c5965f4f780d0cf29477684ce2cc597ad921479bfd",
+    "repro/dd-switch-recon-one_lot/signals.csv": "b4a4e658690322e737731521fc19e1ba7fe30adab5930a7ff95a0c662edd71c1",
+    "repro/dd-switch-recon-one_lot/portfolio_state.json": "f0f2860d34f74f245d4d1809f19282cd02bcc1e894679d7aaff21ccafef4022f",
+    "repro/dd-switch-recon-one_lot/recon_audit.jsonl": "f89ed168ef46ee9b85dd532ed852144bb7808701e58f522d896398445f2cbd73",
+    "repro/dd-switch-recon-sleeve_5bp/fills.csv": "2dc02bbe6c8ab6a589a5fc1c5459d3795097662a4bc2beb43cc8d1406d469dc0",
+    "repro/dd-switch-recon-sleeve_5bp/orders.csv": "209e2b7e07841e6764249ee0c6e7a8796ed8e2121e390f41dae6cec080c876c1",
+    "repro/dd-switch-recon-sleeve_5bp/signals.csv": "778d7e17f23ed4dafe75e377c6d140f48f44deb37d8a4dc50384ffed4cc5c938",
+    "repro/dd-switch-recon-sleeve_5bp/portfolio_state.json": "d34cc6a8994b3f9b2bad06adcfebe9061d837592347da889beafde45c08c470f",
+    "repro/dd-switch-recon-sleeve_5bp/recon_audit.jsonl": "45624fdb39040da117505241c15b422888c703dcf3fd3a544ade3fd44f7b24dc",
+    "repro/dd-switch-recon-sleeve_20bp/fills.csv": "2dc02bbe6c8ab6a589a5fc1c5459d3795097662a4bc2beb43cc8d1406d469dc0",
+    "repro/dd-switch-recon-sleeve_20bp/orders.csv": "209e2b7e07841e6764249ee0c6e7a8796ed8e2121e390f41dae6cec080c876c1",
+    "repro/dd-switch-recon-sleeve_20bp/signals.csv": "ac109596ffa756153ab069c322bc750352f1576c272c0fc214e93027bbe16f14",
+    "repro/dd-switch-recon-sleeve_20bp/portfolio_state.json": "d34cc6a8994b3f9b2bad06adcfebe9061d837592347da889beafde45c08c470f",
+    "repro/dd-switch-recon-sleeve_20bp/recon_audit.jsonl": "219c3ab6120b88f9db7423037eeecfb2c9c22612b6142abadddee7fa480b5fe1"
+  },
+  "runtime_manifest_sha256": "0891683b26c53c8e9d987507974c444833f9a102232c21742112294556327f93",
+  "program_sha256": {
+    "scripts/dd_switch_recon_research.py": "ad5893af4ced3384b151e2f3bb194c20d3b1bfb2c8a1faa29c33a3ca3cf965c5",
+    "scripts/dd_switch_recon_pipeline.py": "e170fbba288c94c7c7d86da640eab7bb36407515261aad4a4bcd8215e554ece5",
+    "scripts/dd_switch_live_replay.py": "b8aac582cfdeda6b0c43dd0d8f730130739d3f20c73645d986e4466d83eaf410"
+  },
+  "limits": [
+    "Only seven regenerated sessions after 9/29; 32-session full NAV includes identical earlier records",
+    "All policies prespecified; no best-threshold search or out-of-sample claim",
+    "Full production position/cash feedback; buffers affect only same-book nonzero recon",
+    "Future skipped target differences are recomputed from actual positions, not summed old share deltas",
+    "DD exits run after the buffer and retain priority; no observed exit or book flip in this short window",
+    "Open fixed slippage only; no real depth, participation or broker fill proof",
+    "No production deployment or original virtual-NAV promotion"
+  ]
+}

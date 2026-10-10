@@ -1,0 +1,56 @@
+[
+  {
+    "event_id": "2880:stock:2010-08-12",
+    "ledger_payment_date": "2010-09-15",
+    "explicit_listing_evidence": [],
+    "delivery_certified": false
+  },
+  {
+    "event_id": "2880:stock:2011-08-11",
+    "ledger_payment_date": "2011-09-16",
+    "explicit_listing_evidence": [],
+    "delivery_certified": false
+  },
+  {
+    "event_id": "2880:stock:2012-08-15",
+    "ledger_payment_date": "2012-09-21",
+    "explicit_listing_evidence": [],
+    "delivery_certified": false
+  },
+  {
+    "event_id": "2880:stock:2013-08-15",
+    "ledger_payment_date": "2013-09-16",
+    "explicit_listing_evidence": [],
+    "delivery_certified": false
+  },
+  {
+    "event_id": "2886:stock:2011-08-23",
+    "ledger_payment_date": "2011-09-21",
+    "explicit_listing_evidence": [
+      {
+        "id": "t59sb09_2886_20110913_20110913_1",
+        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2886&colorchg=&TYPEK=sii&YEAR=100&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20110913&SKEY=1&step=2&firstin=1",
+        "response_sha256": "73f8985340e80a0a79042b1f89bd03886212216fed9674e40266686e69b39860",
+        "new_share_listing_dates": [
+          "2011-09-21"
+        ]
+      }
+    ],
+    "delivery_certified": false
+  },
+  {
+    "event_id": "2886:stock:2012-08-08",
+    "ledger_payment_date": "2012-09-13",
+    "explicit_listing_evidence": [
+      {
+        "id": "t59sb09_2886_20120831_20120831_1",
+        "url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2886&colorchg=&TYPEK=sii&YEAR=101&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20120831&SKEY=1&step=2&firstin=1",
+        "response_sha256": "cf40c35df5e7b6722fcf12a346d03ceb8158923713f11e5213e7564ff5f88fdb",
+        "new_share_listing_dates": [
+          "2012-09-13"
+        ]
+      }
+    ],
+    "delivery_certified": false
+  }
+]

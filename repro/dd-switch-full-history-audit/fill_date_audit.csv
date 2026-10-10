@@ -1,0 +1,6 @@
+book,rows,same_or_before_signal,prelisting_fills,halt_fills,fill_outside_market_panel,next_benchmark_date,later_than_next_benchmark_date,unevidenced_clock_rows
+fills_COMP_H150_x_A20,6641,0,0,0,0,4771,1870,0
+fills_OFFENSE,6519,0,0,0,0,3934,2585,0
+fills_SAT_A20_RELAX,5531,0,0,0,0,4663,868,0
+fills_BASE,4830,0,0,0,0,3940,890,0
+fills_L4,4944,0,0,0,0,3896,1048,0

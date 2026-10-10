@@ -1,0 +1,47 @@
+[
+  {
+    "id": "settlement_tbb_2010_observed_annual",
+    "url": "https://ir.tbb.com.tw/getfile?item=14&i=22",
+    "kind": "PRIMARY_ISSUER_ANNUAL_REPORT",
+    "index_id": "settlement_tbb_official_annual_report_index",
+    "index_sha256": "3e0f37df7198c2e6cc887104087d5e483fc0658002ca2a26ea8bfc2ae2c5074d",
+    "report_year": 2010,
+    "code": "2834"
+  },
+  {
+    "id": "settlement_tbb_2011_observed_annual",
+    "url": "https://ir.tbb.com.tw/getfile?item=14&i=23",
+    "kind": "PRIMARY_ISSUER_ANNUAL_REPORT",
+    "index_id": "settlement_tbb_official_annual_report_index",
+    "index_sha256": "3e0f37df7198c2e6cc887104087d5e483fc0658002ca2a26ea8bfc2ae2c5074d",
+    "report_year": 2011,
+    "code": "2834"
+  },
+  {
+    "id": "settlement_tbb_2016_observed_annual",
+    "url": "https://ir.tbb.com.tw/getfile?item=14&i=28",
+    "kind": "PRIMARY_ISSUER_ANNUAL_REPORT",
+    "index_id": "settlement_tbb_official_annual_report_index",
+    "index_sha256": "3e0f37df7198c2e6cc887104087d5e483fc0658002ca2a26ea8bfc2ae2c5074d",
+    "report_year": 2016,
+    "code": "2834"
+  },
+  {
+    "id": "settlement_tbb_2017_observed_annual",
+    "url": "https://ir.tbb.com.tw/getfile?item=14&i=29",
+    "kind": "PRIMARY_ISSUER_ANNUAL_REPORT",
+    "index_id": "settlement_tbb_official_annual_report_index",
+    "index_sha256": "3e0f37df7198c2e6cc887104087d5e483fc0658002ca2a26ea8bfc2ae2c5074d",
+    "report_year": 2017,
+    "code": "2834"
+  },
+  {
+    "id": "settlement_hnfhc_2011_observed_annual",
+    "url": "https://www.ir-cloud.com/taiwan/2880/annual/2011/CH/1011108_anNe6aLH2D72.pdf",
+    "kind": "ISSUER_ANNUAL_REPORT_HOSTED_IR_VENDOR",
+    "index_id": "settlement_hnfhc_ir_cloud_annual_index",
+    "index_sha256": "d7cba0a5c5da0a1f9b25ccc7574a828c804e93c3065907bd6d0df96b742e2c25",
+    "report_year": 2011,
+    "code": "2880"
+  }
+]

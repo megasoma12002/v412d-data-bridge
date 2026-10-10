@@ -321,9 +321,11 @@ def assert_no_uncommitted_ledger(state_dir: Path | str, last_date: str | None) -
                     "Repair state or authorized replay before continuing."
                 )
 
+    _check(sdir / 'dd_funding_events.csv', label='DD funding', id_col='event_id')
     _check(sdir / "orders.csv", label="orders", id_col="order_id")
     _check(sdir / "signals.csv", label="signals", id_col="signal_id")
     _check(sdir / "nav.csv", label="nav")
+    _check(sdir / 'order_events.csv',label='order_events')
 
 
 def holdings(

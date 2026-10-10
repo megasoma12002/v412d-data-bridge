@@ -1,0 +1,74 @@
+{
+  "public_holder_distribution_rows": [
+    {
+      "event_id": "2880:stock:2012-08-15",
+      "code": "2880",
+      "report_year": 2012,
+      "holder_scope": "MOE_SCHOOL_ASSET_FUND",
+      "pdf_page": 25,
+      "original_shares": 3257439,
+      "reported_distribution_shares": 162871,
+      "reported_distribution_date": "2012-09-21",
+      "ledger_payment_date": "2012-09-21",
+      "ledger_date_corroborated": true,
+      "evidence_status": "PUBLIC_HOLDER_REPORTED_DISTRIBUTION",
+      "issuer_general_schedule_certified": false,
+      "model_holder_credit_certified": false,
+      "publication_vintage_certified": false,
+      "source_id": "moe_2012_financial_credit_evidence",
+      "source_url": "https://ws.moe.edu.tw/001/Upload/14/relfile/7196/83430/19f9d82d-7224-4c06-b326-531719af59f0.pdf",
+      "response_sha256": "26e665d39979645828279ef2e785faffc62aa88ee3638ded533dbc4be0c9ce50",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/moe_2012_financial_credit_evidence.html.gz"
+    },
+    {
+      "event_id": "2880:stock:2013-08-15",
+      "code": "2880",
+      "report_year": 2013,
+      "holder_scope": "MOE_SCHOOL_ASSET_FUND",
+      "pdf_page": 25,
+      "original_shares": 3420310,
+      "reported_distribution_shares": 171015,
+      "reported_distribution_date": "2013-09-16",
+      "ledger_payment_date": "2013-09-16",
+      "ledger_date_corroborated": true,
+      "evidence_status": "PUBLIC_HOLDER_REPORTED_DISTRIBUTION",
+      "issuer_general_schedule_certified": false,
+      "model_holder_credit_certified": false,
+      "publication_vintage_certified": false,
+      "source_id": "moe_2013_financial_credit_evidence",
+      "source_url": "https://ws.moe.edu.tw/001/Upload/14/RelFile/7198/21067/%E5%AD%B8%E7%94%A2%E5%9F%BA%E9%87%91102%E5%B9%B4%E5%BA%A6%E5%AF%A9%E5%AE%9A%E7%89%88%E6%B1%BA%E7%AE%97%E6%9B%B8.pdf",
+      "response_sha256": "a8a75ce807ef791a0bb409eeaa08aada5e0a1bd41b7ecf2578083e2fb141ba22",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/moe_2013_financial_credit_evidence.html.gz"
+    }
+  ],
+  "scoped_late_call_delivery_rows": [
+    {
+      "event_id": "2884:subscription:2017-04-14",
+      "recipient_scope": "PAID_DURING_LATE_CALL_WINDOW",
+      "scheduled_credit_date": "2017-06-09",
+      "general_delivery_certified": false,
+      "holder_subscription_assumed": false,
+      "source_id": "t59sb09_2884_20170524_20170524_1",
+      "source_url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2884&colorchg=&TYPEK=sii&YEAR=106&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20170524&SKEY=1&step=2&firstin=1",
+      "response_sha256": "050142649631362dd3fcab3a6b78b4a09d75b862a1882dd6476f53a285cc8da8"
+    },
+    {
+      "event_id": "2884:subscription:2023-04-07",
+      "recipient_scope": "PAID_DURING_LATE_CALL_WINDOW",
+      "scheduled_credit_date": "2023-06-01",
+      "general_delivery_certified": false,
+      "holder_subscription_assumed": false,
+      "source_id": "t59sb09_2884_20230510_20230510_1",
+      "source_url": "https://mopsov.twse.com.tw/mops/web/ajax_t59sb09?co_id=2884&colorchg=&TYPEK=sii&YEAR=112&MONTH=&SDAY=01&EDAY=31&id=&kind=&DATE1=20230510&SKEY=1&step=2&firstin=1",
+      "response_sha256": "90ad526fa802e27633953246ab9ab3de119f7af23383907fc3d1b6ca958bc1af"
+    }
+  ],
+  "rejected": [],
+  "general_gap_closure": false,
+  "backtest_ready": false,
+  "limits": [
+    "Public final accounts describe the named public holder, not every shareholder",
+    "Late-call dates apply only to shareholders who paid during the stated late-call window",
+    "Retrospective reports do not certify the original announcement availability"
+  ]
+}

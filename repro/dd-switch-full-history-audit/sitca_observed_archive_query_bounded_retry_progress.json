@@ -1,0 +1,22 @@
+{
+  "status": "COMPLETE",
+  "total": 2,
+  "processed": 2,
+  "success": 0,
+  "failed": 2,
+  "started_at": "2026-10-10T00:44:32.671635+00:00",
+  "recent_results": [
+    {
+      "id": "sitca_observed_archive_query_bounded_retry_A0005",
+      "status": "FAILED"
+    },
+    {
+      "id": "sitca_observed_archive_query_bounded_retry_A0013",
+      "status": "FAILED"
+    }
+  ],
+  "current_id": "",
+  "updated_at": "2026-10-10T00:45:06.728750+00:00",
+  "last_completed_at": "2026-10-10T00:45:06.727582+00:00",
+  "skipped": 0
+}

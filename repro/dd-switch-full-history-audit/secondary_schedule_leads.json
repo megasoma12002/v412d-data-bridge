@@ -1,0 +1,15 @@
+[
+  {
+    "event_id": "2880:stock:2013-08-15",
+    "source_id": "hn_2013_syndicated_notice",
+    "source_url": "https://n.yam.com/Article/20130906734847",
+    "response_sha256": "60ae11a2bbf6ad51df408640b70598c77ac0f0ac319c3bd29738de4aec345712",
+    "scheduled_delivery_date": "2013-09-16",
+    "new_issue_shares": "431251507",
+    "evidence_class": "SYNDICATED_ISSUER_NOTICE",
+    "primary_source_verified": false,
+    "publication_vintage_certified": false,
+    "included_in_primary_payment_matches": false,
+    "reason": "Replica has explicit delivery and issue count; current saved MOPS annual index omits this notice. Primary original and revision coverage remain open."
+  }
+]

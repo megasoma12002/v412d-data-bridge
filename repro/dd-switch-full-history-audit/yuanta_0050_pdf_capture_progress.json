@@ -1,0 +1,57 @@
+{
+  "status": "COMPLETE",
+  "total": 28,
+  "processed": 28,
+  "success": 23,
+  "failed": 0,
+  "cached": 5,
+  "started_at": "2026-10-09T17:59:45.826297+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_0050_notice_7be74238-13b4-4517-a0e5-6b46e271a12e",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_77bc11b1-6c4f-4d9e-99d1-12027f37fd74",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_c53e3a36-1805-4ca3-8248-62178f592c79",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_04829d2d-1779-4d35-a089-2ce2bbe7abc3",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_b07f0bd0-8e27-4ec7-89bc-fc1a16f16e41",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_0a3ddb3b-1f7a-493c-8f94-64f0711dcaff",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_7e9927d8-a512-4746-888d-03c24a92420a",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_12f0f614-e809-4d7a-bc72-bd98776d8d33",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_5c6db048-4449-42e0-9d56-f57e22344129",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_5f2cdbfa-c04b-4cde-8a05-e3df5cd2fcdb",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "updated_at": "2026-10-09T18:03:38.379773+00:00",
+  "current_id": "",
+  "current_started_at": "2026-10-09T18:03:30.160241+00:00",
+  "last_completed_at": "2026-10-09T18:03:38.379099+00:00",
+  "skipped": 0
+}

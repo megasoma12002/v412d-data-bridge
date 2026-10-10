@@ -1,0 +1,30 @@
+{
+  "base_commit": "5a7fdd259c031aac3e1e6d2423aaba0ee6e27a19",
+  "tests_passed": 101,
+  "source_hash_pairs_verified": 3492,
+  "source_request_hash_pairs_verified": 6,
+  "canonical_input_hashes_verified": 9,
+  "completed_transfer_count": 4,
+  "failed_transfer_count": 3,
+  "new_primary_delivery_facts": 0,
+  "remaining_counts": {
+    "STOCK_DELIVERY": 6,
+    "SUBSCRIPTION_DELIVERY": 9,
+    "RIGHTS_ORDINARY_PHASE": 2,
+    "FUTURE_SUBSCRIPTION": 1,
+    "RESEARCH_INPUT": 3,
+    "HISTORICAL_REVISION_INVENTORY": 1,
+    "PUBLICATION_VINTAGE": 1,
+    "FULL_HISTORY_CERTIFICATION": 9
+  },
+  "backtest_ready": false,
+  "backtest_executed": false,
+  "canonical_modified": false,
+  "background_capture_jobs": 0,
+  "script_sha256": {
+    "scripts/dd_switch_resumed_delivery_review.py": "12433217ad8759a99cdc27d59a34c2b41ef679bbac294db6b581e443978d3741",
+    "scripts/dd_switch_targeted_capture.py": "88a5d1a7d439f8f9bb239b99c34940c0e9022327109e8ad0222b47efbeba27d6",
+    "scripts/dd_switch_remaining_gap_inventory.py": "8d6fe8ee0c68eb1f7b664119cce1ef67e27de6d9c68ca9245f92db5936c2475e",
+    "scripts/dd_switch_revision_validate.py": "1b157965a08422028d049713ac68060dbf5362d3e28c62cf2bb9e403ad68d952"
+  }
+}

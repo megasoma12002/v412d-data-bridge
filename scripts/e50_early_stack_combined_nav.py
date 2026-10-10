@@ -102,6 +102,8 @@ def simulate_core(
     e45_legacy_crisis_scale: float | None = None,
     e45_sleeve_names: tuple[str, ...] | None = None,
     sleeve_weight_schedule: pd.DataFrame | None = None,
+    share_events: dict | None = None,
+    closed_sessions: dict | None = None,
     def_code: str | None = None,
     off_code: str | None = None,
     cost_multiple: float = 1.0,
@@ -213,7 +215,13 @@ def simulate_core(
     m = market.copy()
     m["date"] = pd.to_datetime(m["date"])
     closes = m.pivot(index="date", columns="code", values="close").sort_index().ffill()
-    opens = m.pivot(index="date", columns="code", values="open").sort_index().ffill()
+    opens = m.pivot(index="date", columns="code", values="open").sort_index()
+    eligibility = None
+    if 'tradable' in m:
+        eligibility = m.pivot(index='date', columns='code', values='tradable').sort_index()
+        eligibility = eligibility.fillna(False).astype(bool)
+    else:
+        opens = opens.ffill()  # Frozen callers keep archived semantics.
     dates = [d for d in closes.index if d in target.index]
     if len(dates) < WARMUP_DAYS + 10:
         raise RuntimeError("insufficient history for E16 warmup")
@@ -273,8 +281,21 @@ def simulate_core(
     for i, dt in enumerate(dates):
         if dt < trade_start:
             continue
+        # Opt-in real-account reconstruction; frozen callers remain unchanged.
+        for code, factor in (share_events or {}).get(dt.strftime("%F"), {}).items():
+            pos[code] = pos.get(code, 0) * factor
+            for order in pending:
+                if order["code"] == code:
+                    order["quantity"] *= factor
         op = opens.loc[dt]
         cl = closes.loc[dt]
+
+        def enqueue(order):
+            # During a halt, the newest close intent replaces its suspended
+            # predecessor. It remains an intent until an eligible later open.
+            if eligibility is not None and not eligibility.loc[dt, order['code']]:
+                pending[:] = [o for o in pending if o['code'] != order['code']]
+            pending.append(order)
 
         # 1) Fill pending orders at today's open (E18 Exact T+1).
         # SELL before BUY so cash from sells funds same-bar buys (shared helper).
@@ -287,6 +308,12 @@ def simulate_core(
         for o in due:
             side = o["side"]
             code = o["code"]
+            if (code in (closed_sessions or {}).get(dt.strftime("%F"), set())
+                or (eligibility is not None and not eligibility.loc[dt, code])):
+                still.append(o)
+                continue
+            if not np.isfinite(float(op[code])) or float(op[code]) <= 0:
+                raise ValueError(f'Missing tradable open: {dt} {code}')
             q = int(o["quantity"])
             if lot_size > 1:
                 q = (q // lot_size) * lot_size
@@ -636,7 +663,7 @@ def simulate_core(
                         ):
                             if qty < 1:
                                 continue
-                            pending.append(
+                            enqueue(
                                 {"signal_date": dt, "code": c, "side": side, "quantity": qty}
                             )
                     continue
@@ -655,7 +682,7 @@ def simulate_core(
                         qty = min(qty, held)
                     if qty < 1:
                         continue
-                    pending.append(
+                    enqueue(
                         {"signal_date": dt, "code": c, "side": side, "quantity": qty}
                     )
                 continue
@@ -687,7 +714,7 @@ def simulate_core(
                     ):
                         if qty < 1:
                             continue
-                        pending.append(
+                        enqueue(
                             {"signal_date": dt, "code": c, "side": side, "quantity": qty}
                         )
                 continue
@@ -718,7 +745,7 @@ def simulate_core(
                     ):
                         if qty < 1:
                             continue
-                        pending.append(
+                        enqueue(
                             {"signal_date": dt, "code": c, "side": side, "quantity": qty}
                         )
                 continue
@@ -734,7 +761,7 @@ def simulate_core(
                     qty = min(qty, held)
                 if qty < 1:
                     continue
-                pending.append(
+                enqueue(
                     {
                         "signal_date": dt,
                         "code": c,

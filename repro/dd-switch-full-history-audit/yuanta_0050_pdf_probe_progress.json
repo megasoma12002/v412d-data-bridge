@@ -1,0 +1,37 @@
+{
+  "status": "COMPLETE",
+  "total": 5,
+  "processed": 5,
+  "success": 5,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-09T17:58:18.129650+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_0050_notice_a63e892e-6f98-4c01-bbd6-4d35e9545bfb",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_0630cc98-410a-4d61-87e9-39c6447e490b",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_709e62b5-fe81-43f8-ac12-339cae2477d1",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_75f6ab01-71ad-4f34-9ae6-fb909e868310",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_0050_notice_89841e7a-60a1-4bd3-9a76-8f77a577818f",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T17:59:07.902606+00:00",
+  "updated_at": "2026-10-09T17:59:18.466539+00:00",
+  "last_completed_at": "2026-10-09T17:59:18.466057+00:00",
+  "skipped": 0
+}

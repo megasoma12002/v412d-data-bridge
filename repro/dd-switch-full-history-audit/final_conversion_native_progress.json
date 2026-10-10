@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE",
+  "total": 2,
+  "processed": 2,
+  "success": 2,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-09T23:45:01.368212+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "final_conversion_native_2891_20120424",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "final_conversion_native_2880_20120201",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T23:45:09.165726+00:00",
+  "updated_at": "2026-10-09T23:45:18.719627+00:00",
+  "last_completed_at": "2026-10-09T23:45:18.718817+00:00",
+  "skipped": 0
+}

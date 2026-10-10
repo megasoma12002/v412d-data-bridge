@@ -118,6 +118,13 @@ def trail42_on_series(
     thr: float = TRAIL_THR,
 ) -> pd.Series:
     """Causal TRAIL42_GE_m001: lag-1 rolling sum(prem_p3) ≥ thr."""
+    from dd_switch_runtime import inputs
+
+    runtime = inputs()
+    if l3_nav_path == LIVESTACK_L3:
+        l3_nav_path = runtime.get("base", l3_nav_path)
+    if p3_nav_path == LIVESTACK_P3:
+        p3_nav_path = runtime.get("l4", p3_nav_path)
     if not l3_nav_path.is_file() or not p3_nav_path.is_file():
         return pd.Series(dtype=bool)
     r3 = _returns(_load_nav(l3_nav_path))
@@ -137,6 +144,13 @@ def want_trail_series(
     """Causal dual-book: TRAIL if TRAIL_DD ≥ L4_DD else L4 (want_trail True)."""
     l4_path = l4_nav_path or _resolve_nav(DEFAULT_L4_NAV, FALLBACK_L4_NAV)
     tr_path = trail_nav_path or _resolve_nav(DEFAULT_TRAIL_NAV, FALLBACK_TRAIL_NAV)
+    from dd_switch_runtime import inputs
+
+    runtime = inputs()
+    if l4_nav_path is None:
+        l4_path = runtime.get("l4", l4_path)
+    if trail_nav_path is None:
+        tr_path = runtime.get("trail", tr_path)
     if not l4_path.is_file() or not tr_path.is_file():
         return pd.Series(dtype=bool)
     r_l4 = _returns(_load_nav(l4_path))

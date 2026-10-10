@@ -1,0 +1,103 @@
+[
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190704&fund=0050&seq=1&type=all",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "retrieval_status": "UNAVAILABLE"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20190716&fund=0050&seq=1&type=all",
+    "stage": "FINAL",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2019-07-16T17:06:59+08:00",
+    "ex_date": "2019-07-19",
+    "payment_date": "2019-08-22",
+    "amount": 0.7,
+    "retrieval_status": "FACTS_PARTIAL"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200107&fund=0050&seq=1&type=all",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2020-01-07T16:16:50+08:00",
+    "ex_date": "2020-01-31",
+    "payment_date": "2020-03-06",
+    "estimated_amount": 2.9,
+    "retrieval_status": "FACTS_PARTIAL"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200120&fund=0050&seq=1&type=all",
+    "stage": "FINAL",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2020-01-20T16:21:58+08:00",
+    "ex_date": "2020-01-31",
+    "payment_date": "2020-03-06",
+    "amount": 2.9,
+    "retrieval_status": "FACTS_PARTIAL"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200706&fund=0050&seq=1&type=all",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2020-07-06T17:30:44+08:00",
+    "ex_date": "2020-07-21",
+    "payment_date": "2020-08-24",
+    "retrieval_status": "FACTS_PARTIAL"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20200717&fund=0050&seq=1&type=all",
+    "stage": "FINAL",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "reported_at": "2020-07-17T16:10:10+08:00",
+    "ex_date": "2020-07-21",
+    "payment_date": "2020-08-24",
+    "amount": 0.7,
+    "retrieval_status": "FACTS_PARTIAL"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210107&fund=0050&seq=1&type=all",
+    "stage": "ESTIMATE_SCHEDULE",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "ex_date": "2021-01-22",
+    "payment_date": "2021-03-09",
+    "retrieval_status": "FACTS_PARTIAL"
+  },
+  {
+    "code": "0050",
+    "source_url": "https://www.twse.com.tw/zh/ETFortune/announcement?company=A00005&date=20210120&fund=0050&seq=1&type=all",
+    "stage": "FINAL",
+    "source_class": "PRIMARY_TWSE_REPORTED_ANNOUNCEMENT",
+    "retrieval_method": "SEARCH_SERVICE_OPEN_FACT_EXTRACTION",
+    "original_response_sha256": null,
+    "revision_inventory_complete": false,
+    "retrieval_status": "UNAVAILABLE"
+  }
+]

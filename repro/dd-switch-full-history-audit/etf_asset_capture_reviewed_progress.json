@@ -1,0 +1,30 @@
+{
+  "status": "STOPPED_PARTIAL_FAILURE",
+  "total": 7,
+  "processed": 3,
+  "success": 2,
+  "failed": 1,
+  "cached": 0,
+  "started_at": "2026-10-09T17:52:37.948726+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_etf_asset_0",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_etf_asset_1",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "yuanta_etf_asset_2",
+      "status": "SOURCE_BLOCKED"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T17:52:57.874972+00:00",
+  "updated_at": "2026-10-09T17:53:15.020717+00:00",
+  "last_completed_at": "2026-10-09T17:53:15.020235+00:00",
+  "skipped": 4,
+  "stop_reason": "Captured vendor bundle timed out; DecoderBuffer overrun is library text, not an observed source block. Original monitor snapshot retained."
+}

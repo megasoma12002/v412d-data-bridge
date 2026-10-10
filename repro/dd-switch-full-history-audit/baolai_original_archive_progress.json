@@ -1,0 +1,21 @@
+{
+  "status": "COMPLETE",
+  "total": 1,
+  "processed": 1,
+  "success": 1,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-09T23:44:19.499584+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "yuanta_0050_notice_sitca_baolai_original_final",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T23:44:19.499621+00:00",
+  "updated_at": "2026-10-09T23:44:28.255367+00:00",
+  "last_completed_at": "2026-10-09T23:44:28.254393+00:00",
+  "skipped": 0
+}

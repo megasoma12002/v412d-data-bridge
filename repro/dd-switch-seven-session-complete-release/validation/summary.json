@@ -1,0 +1,307 @@
+{
+  "status": "OFFICIAL_SESSION_AND_INDEPENDENT_BOOK_AUDITS_PASS",
+  "official_sessions_2025_2026": 428,
+  "books": {
+    "OFFENSE": {
+      "max_nav_residual": 2.86102294921875e-06,
+      "max_cash_residual": 2.3096799850463867e-06,
+      "min_cash": 539.6343246847391,
+      "fills": 6519,
+      "same_bar_fills": 0,
+      "ineligible_fills": 0,
+      "official_sessions_2025_2026": 428,
+      "missing_sessions": [],
+      "gap_nav_rows": [
+        {
+          "date": "2025-02-06",
+          "nav": 1624748370.8657064,
+          "cash": 399577.8157065734
+        },
+        {
+          "date": "2025-06-11",
+          "nav": 1611156809.951738,
+          "cash": 1038854.251738038
+        },
+        {
+          "date": "2025-06-12",
+          "nav": 1618051987.0595925,
+          "cash": 61321.00959254522
+        },
+        {
+          "date": "2025-06-13",
+          "nav": 1628778205.5316665,
+          "cash": 113250.43166605195
+        },
+        {
+          "date": "2025-06-16",
+          "nav": 1627353517.763921,
+          "cash": 1211308.7639210522
+        },
+        {
+          "date": "2025-06-17",
+          "nav": 1630064648.1690478,
+          "cash": 194292.46904780343
+        },
+        {
+          "date": "2026-05-28",
+          "nav": 1871203999.085285,
+          "cash": 122037.88528495748
+        }
+      ]
+    },
+    "COMP_H150_x_A20": {
+      "max_nav_residual": 3.337860107421875e-06,
+      "max_cash_residual": 2.555549144744873e-06,
+      "min_cash": 365.28896117035765,
+      "fills": 6641,
+      "same_bar_fills": 0,
+      "ineligible_fills": 0,
+      "official_sessions_2025_2026": 428,
+      "missing_sessions": [],
+      "gap_nav_rows": [
+        {
+          "date": "2025-02-06",
+          "nav": 1719461390.3882265,
+          "cash": 3882851.9982261183
+        },
+        {
+          "date": "2025-06-11",
+          "nav": 1793652524.4214883,
+          "cash": 43712061.68148863
+        },
+        {
+          "date": "2025-06-12",
+          "nav": 1791788065.5064049,
+          "cash": 74173968.91640475
+        },
+        {
+          "date": "2025-06-13",
+          "nav": 1792934858.522194,
+          "cash": 115634002.482194
+        },
+        {
+          "date": "2025-06-16",
+          "nav": 1792644986.133814,
+          "cash": 146158743.39381388
+        },
+        {
+          "date": "2025-06-17",
+          "nav": 1800766717.7225642,
+          "cash": 149984677.98256388
+        },
+        {
+          "date": "2026-05-28",
+          "nav": 2031323243.051211,
+          "cash": 2876226.761211099
+        }
+      ]
+    },
+    "SAT_A20_RELAX": {
+      "max_nav_residual": 2.86102294921875e-06,
+      "max_cash_residual": 2.298504114151001e-06,
+      "min_cash": 1830.1092838335317,
+      "fills": 5531,
+      "same_bar_fills": 0,
+      "ineligible_fills": 0,
+      "official_sessions_2025_2026": 428,
+      "missing_sessions": [],
+      "gap_nav_rows": [
+        {
+          "date": "2025-02-06",
+          "nav": 1714607650.501367,
+          "cash": 5544548.441367448
+        },
+        {
+          "date": "2025-06-11",
+          "nav": 1723934231.1047893,
+          "cash": 39363456.69478937
+        },
+        {
+          "date": "2025-06-12",
+          "nav": 1723444119.3667336,
+          "cash": 70263051.30673362
+        },
+        {
+          "date": "2025-06-13",
+          "nav": 1723872290.8731928,
+          "cash": 110153892.2131929
+        },
+        {
+          "date": "2025-06-16",
+          "nav": 1725538370.454322,
+          "cash": 140005432.14432204
+        },
+        {
+          "date": "2025-06-17",
+          "nav": 1735212338.5675688,
+          "cash": 143934196.95756853
+        },
+        {
+          "date": "2026-05-28",
+          "nav": 1983341573.252318,
+          "cash": 928697.7423182296
+        }
+      ]
+    },
+    "BASE": {
+      "max_nav_residual": 1.9073486328125e-06,
+      "max_cash_residual": 1.4454126358032227e-06,
+      "min_cash": 1830.1092838335317,
+      "fills": 4830,
+      "same_bar_fills": 0,
+      "ineligible_fills": 0,
+      "official_sessions_2025_2026": 428,
+      "missing_sessions": [],
+      "gap_nav_rows": [
+        {
+          "date": "2025-02-06",
+          "nav": 1653570859.8214164,
+          "cash": 2849193.771416353
+        },
+        {
+          "date": "2025-06-11",
+          "nav": 1645350237.7974374,
+          "cash": 46509439.597437456
+        },
+        {
+          "date": "2025-06-12",
+          "nav": 1648031012.13221,
+          "cash": 86553564.28220983
+        },
+        {
+          "date": "2025-06-13",
+          "nav": 1651848152.017468,
+          "cash": 118473765.06746796
+        },
+        {
+          "date": "2025-06-16",
+          "nav": 1653834582.975402,
+          "cash": 130751771.12540196
+        },
+        {
+          "date": "2025-06-17",
+          "nav": 1663869171.4296937,
+          "cash": 130212152.82969324
+        },
+        {
+          "date": "2026-05-28",
+          "nav": 1849076721.8855755,
+          "cash": 1341544.685575176
+        }
+      ]
+    },
+    "L4": {
+      "max_nav_residual": 1.430511474609375e-06,
+      "max_cash_residual": 1.1920928955078125e-06,
+      "min_cash": 277.8668745981413,
+      "fills": 4944,
+      "same_bar_fills": 0,
+      "ineligible_fills": 0,
+      "official_sessions_2025_2026": 428,
+      "missing_sessions": [],
+      "gap_nav_rows": [
+        {
+          "date": "2025-02-06",
+          "nav": 1688859939.9326916,
+          "cash": 13955.892691400832
+        },
+        {
+          "date": "2025-06-11",
+          "nav": 1686046750.1362803,
+          "cash": 47754843.49628009
+        },
+        {
+          "date": "2025-06-12",
+          "nav": 1690616517.2485378,
+          "cash": 83776332.40853758
+        },
+        {
+          "date": "2025-06-13",
+          "nav": 1698958582.593686,
+          "cash": 120927733.70368607
+        },
+        {
+          "date": "2025-06-16",
+          "nav": 1702126178.9557903,
+          "cash": 135326929.3657901
+        },
+        {
+          "date": "2025-06-17",
+          "nav": 1708181155.905727,
+          "cash": 135182214.21572638
+        },
+        {
+          "date": "2026-05-28",
+          "nav": 1918163342.093779,
+          "cash": 449789.4037790559
+        }
+      ]
+    }
+  },
+  "pre_gap_parent_parity": {
+    "COMP_H150_x_A20": {
+      "max_share_difference": 0.0,
+      "pass_parity": true
+    },
+    "SAT_A20_RELAX": {
+      "max_share_difference": 0.0,
+      "pass_parity": true
+    }
+  },
+  "halt_days": {
+    "0050": [
+      "2025-06-11",
+      "2025-06-12",
+      "2025-06-13",
+      "2025-06-16",
+      "2025-06-17"
+    ],
+    "00631L": [
+      "2026-03-25",
+      "2026-03-26",
+      "2026-03-27",
+      "2026-03-30"
+    ]
+  },
+  "split_events": {
+    "2025-06-18": {
+      "0050": 4
+    },
+    "2026-03-31": {
+      "00631L": 22
+    }
+  },
+  "limits": [
+    "Official session validation covers 2025/2026; earlier dividend effective dates retain legacy fallback assumptions",
+    "Halt valuation is last exchange close; economic fund NAV during halt is not claimed",
+    "Mothers DD/TRAIL retain original shadow/return stitching, not a jointly-funded full live account"
+  ],
+  "active_gate_changes_on_shared_dates": 3,
+  "new_control_dates": [
+    "2025-02-06",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2026-05-28",
+    "2026-08-03",
+    "2026-08-04",
+    "2026-08-05",
+    "2026-08-06",
+    "2026-08-07"
+  ],
+  "pre_gap_mother_parity": {
+    "base": 0.0,
+    "l4": 0.0,
+    "trail": 1.5543122344752192e-15
+  },
+  "canonical_history_unchanged": true,
+  "canonical_history_sha256": {
+    "forward/e21/fills.csv": "48e7caaafdd0db39e0be727ec56cf847be067f9f285e00850940bb533a39f9f4",
+    "forward/e21/orders.csv": "841468034f25ada855744e3ff8dfb72492c6a3457dcbbde687e0711e0fb032a1",
+    "forward/e21/signals.csv": "ff8eeb3187eb35068398f51c6b3c978015c08cc94dfb5cecaf51b0fbc70462c0",
+    "forward/e21/portfolio_state.json": "dc0f2f3b7adee383882714c85ff263b736c10b4dc4f4d2e4de18defe613b8aab",
+    "forward/e21/nav.csv": "79254318c675a123c1e2ecb68aa01b1387e5136ae891b7bf024adfac64e4aeea"
+  }
+}

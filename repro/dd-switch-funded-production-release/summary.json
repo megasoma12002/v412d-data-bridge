@@ -1,0 +1,66 @@
+{
+  "baseline": {
+    "final_nav": 542920983.1534936,
+    "profit": 42920983.15349364,
+    "return_pct": 8.584196630698738,
+    "observed_mdd_pct": -5.155630733853355,
+    "sessions": 32,
+    "initial": 500000000.0,
+    "start": "2026-08-24",
+    "end": "2026-10-08",
+    "missing_nav_completed": [
+      "2026-09-17",
+      "2026-09-18"
+    ],
+    "max_nav_residual": 1.1920928955078125e-07,
+    "max_cash_residual": 3.725290298461914e-08,
+    "final_position_residual": 0.0,
+    "fees_tax": 1517877.1965065,
+    "dividend_records": 0,
+    "cash_dividend_credit": 0,
+    "fills_identical_to_previous": true
+  },
+  "synthetic_probe": {
+    "final_nav": 535122093.49158025,
+    "profit": 35122093.49158025,
+    "return_pct": 7.024418698316048,
+    "observed_mdd_pct": -6.490236402057525,
+    "sessions": 32,
+    "initial": 500000000.0,
+    "start": "2026-08-24",
+    "end": "2026-10-08",
+    "missing_nav_completed": [
+      "2026-09-17",
+      "2026-09-18"
+    ],
+    "max_nav_residual": 1.7881393432617188e-07,
+    "max_cash_residual": 1.7881393432617188e-07,
+    "final_position_residual": 0.0,
+    "fees_tax": 3194449.15841975,
+    "dividend_records": 0,
+    "cash_dividend_credit": 0,
+    "first_core_reentry_fill": "2026-10-05",
+    "exit_core_fills": 7,
+    "first_reentry_core_buys": 5,
+    "delayed_core_buys_next_day": 2,
+    "funding_balance_by_sleeve": {
+      "FIN": 67701.7852870673,
+      "TEL": 309510.4265262559
+    },
+    "funding_residual": 5.960464477539063e-08
+  },
+  "limits": [
+    "Synthetic OFF/ON probe verifies lifecycle, not DD strategy performance",
+    "Paper Exact T+1 only; no broker or real liquidity certification",
+    "Ownership follows actual DD exit fills and paid core dividends; residual cash stays reserved",
+    "Legacy exits without funding provenance fail before fills; separate reconstruction required",
+    "No live history rewrite, runtime publication, merge or deployment"
+  ],
+  "program_sha256": {
+    "scripts/live_dd_funding.py": "756961ce70932422dc57521b1f332389fe7c2cb6f8232c17018f6f90c9d038be",
+    "scripts/live_day_overlays.py": "cb20237694e1e143809e355e7ad80d588d64be50ac904354b2c5ede6cfdb2ad7",
+    "scripts/e21_forward_pipeline.py": "b79fc2d47dc44944b9eb931a771df9d637a0096fc0b9c28c2fa4fde05aa104ed",
+    "scripts/live_day_commit.py": "e442a66f7e3b17e7a4f221e5a1da72a019b258b0f976e2b19550565b69819e54",
+    "scripts/live_ledger.py": "cc92da90ae02655d90a43d8b347fe99a4aca8bf5d5e95ef10c30cb670048e0bb"
+  }
+}

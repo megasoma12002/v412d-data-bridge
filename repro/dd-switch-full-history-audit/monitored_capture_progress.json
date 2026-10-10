@@ -1,0 +1,31 @@
+{
+  "started_at": "2026-10-09T17:15:20.219997+00:00",
+  "status": "COMPLETE",
+  "total": 1,
+  "processed": 1,
+  "success": 1,
+  "failed": 0,
+  "consecutive_failures": 0,
+  "attempted_ids": [
+    "t108sb19_2891_20260625_20260622_1"
+  ],
+  "probe_passed": true,
+  "queue": [
+    {
+      "source": "mops_statutory",
+      "id": "t108sb19_2891_20260625_20260622_1"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-09T17:15:20.220026+00:00",
+  "last_completed_at": "2026-10-09T17:15:28.519971+00:00",
+  "last_result": "CAPTURED",
+  "recent_results": [
+    {
+      "id": "t108sb19_2891_20260625_20260622_1",
+      "status": "CAPTURED",
+      "at": "2026-10-09T17:15:28.519971+00:00",
+      "error": ""
+    }
+  ]
+}

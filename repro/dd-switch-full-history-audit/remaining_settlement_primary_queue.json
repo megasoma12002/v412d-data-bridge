@@ -1,0 +1,22 @@
+[
+  {
+    "id": "settlement_cathay_transfer_agent_dividend_table",
+    "url": "https://www.cathaysec.com.tw/cathaysec/Products/StockAgency/DividendRight.aspx",
+    "kind": "PRIMARY_TRANSFER_AGENT_PUBLIC_TABLE"
+  },
+  {
+    "id": "settlement_hnfhc_home_single_retry",
+    "url": "https://www.hnfhc.com.tw/",
+    "kind": "PRIMARY_ISSUER_ARCHIVE_LOCATOR"
+  },
+  {
+    "id": "settlement_esun_2014_final_notice_reprint",
+    "url": "https://news.cnyes.com/news/id/1050246",
+    "kind": "SECONDARY_FINAL_DELIVERY_LOCATOR"
+  },
+  {
+    "id": "settlement_tbb_2012_annual_report_single_retry",
+    "url": "https://ir.tbb.com.tw/pdf/financial/annual-reports/2012%E5%85%AC%E5%8F%B8%E5%B9%B4%E5%A0%B1.pdf",
+    "kind": "PRIMARY_ISSUER_ANNUAL_REPORT"
+  }
+]
