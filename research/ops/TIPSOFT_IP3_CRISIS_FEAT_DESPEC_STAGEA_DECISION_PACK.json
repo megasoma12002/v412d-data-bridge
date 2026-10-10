@@ -1,0 +1,295 @@
+{
+  "id": "TIPSOFT_IP3_CRISIS_FEAT_DESPEC_STAGEA_DECISION_PACK",
+  "register": "0kbn",
+  "parents": [
+    "0kbm",
+    "0kbl",
+    "0kbk",
+    "0kbj",
+    "0kbf"
+  ],
+  "verdict": "CRISIS_FEAT_DESPEC_PARTIAL",
+  "champ": {
+    "arm": "k2::pct252::cool_defend_l1",
+    "family": "k_confirm",
+    "base": "cool_defend_l1",
+    "transform": "k2:pct252",
+    "ic_spearman_primary": 0.0034,
+    "ic_pearson_primary": 0.0154,
+    "ic_spearman_oos_ex2020": 0.0021,
+    "year2020_dummy_abs_ic": 0.0565,
+    "hit_rate_stress": 0.4106,
+    "recall_stress": 0.764,
+    "f1_stress": 0.0642,
+    "fa_rate_outside_2020": 0.5956,
+    "pct_alert": 60.34,
+    "n_eras_scored": 4,
+    "mean_ic": 0.2193,
+    "min_ic": 0.2144,
+    "cross_era_score": 0.4229,
+    "n_era_hit": 1,
+    "n_era_weak": 1,
+    "eras_hit": [
+      "2022"
+    ],
+    "eras_weak": [
+      "2015"
+    ],
+    "n_non2020_hit": 1,
+    "non2020_eras_hit": [
+      "2022"
+    ],
+    "n_non2020_weak": 1,
+    "era_ics": {
+      "2015": 0.2242,
+      "2018": null,
+      "2022": 0.2144,
+      "2020": null
+    },
+    "era_verdicts": {
+      "2015": "ERA_WEAK",
+      "2018": "MISS",
+      "2022": "ERA_HIT",
+      "2020": "MISS"
+    },
+    "despec_verdict": "PARTIAL"
+  },
+  "cross_era_table": {
+    "champ_despec": {
+      "arm": "k2::pct252::cool_defend_l1",
+      "despec_verdict": "PARTIAL",
+      "cross_era_score": 0.4229,
+      "mean_ic": 0.2193,
+      "min_ic": 0.2144,
+      "n_non2020_hit": 1,
+      "eras_hit": [
+        "2022"
+      ],
+      "eras_weak": [
+        "2015"
+      ],
+      "era_ics": {
+        "2015": 0.2242,
+        "2018": null,
+        "2022": 0.2144,
+        "2020": null
+      },
+      "era_verdicts": {
+        "2015": "ERA_WEAK",
+        "2018": "MISS",
+        "2022": "ERA_HIT",
+        "2020": "MISS"
+      },
+      "ic_primary": 0.0034,
+      "ic_oos_ex2020": 0.0021,
+      "year2020_dummy_abs_ic": 0.0565
+    },
+    "prior_0kbi_and": {
+      "arm": "and::rvol63_l4&fuse_prem_neg5",
+      "despec_verdict": "NO_EDGE",
+      "cross_era_score": -0.506,
+      "mean_ic": -0.3638,
+      "min_ic": -0.5688,
+      "n_non2020_hit": 0,
+      "eras_hit": [],
+      "eras_weak": [],
+      "era_ics": {
+        "2015": -0.4618,
+        "2018": -0.5688,
+        "2022": 0.0707,
+        "2020": -0.4954
+      },
+      "era_verdicts": {
+        "2015": "MISS",
+        "2018": "MISS",
+        "2022": "MISS",
+        "2020": "MISS"
+      },
+      "ic_primary": 0.1776,
+      "ic_oos_ex2020": 0.1725,
+      "year2020_dummy_abs_ic": 0.1231
+    },
+    "prior_0kbh_rvol20": {
+      "arm": "raw::rvol20_l4",
+      "despec_verdict": "NO_EDGE",
+      "cross_era_score": -0.6137,
+      "mean_ic": -0.4171,
+      "min_ic": -0.7864,
+      "n_non2020_hit": 0,
+      "eras_hit": [],
+      "eras_weak": [],
+      "era_ics": {
+        "2015": -0.3424,
+        "2018": -0.2281,
+        "2022": -0.3116,
+        "2020": -0.7864
+      },
+      "era_verdicts": {
+        "2015": "MISS",
+        "2018": "MISS",
+        "2022": "MISS",
+        "2020": "MISS"
+      },
+      "ic_primary": 0.1249,
+      "ic_oos_ex2020": 0.1193,
+      "year2020_dummy_abs_ic": 0.1554
+    },
+    "prior_0kbm_router": {
+      "register": "0kbm",
+      "verdict": "CRISIS_REGIME_IMPROVE_OVERFIT",
+      "champ": "R_RC_C00_G05",
+      "held": 0.5277,
+      "y2020_mdd_imp": 5.4852,
+      "mar2020_mdd_imp": 5.5769,
+      "cross_era_improve_n": 0,
+      "note": "regime router OVERFIT \u2014 2020 MDD help, cross-era improve_n=0"
+    }
+  },
+  "specialization_reduced": true,
+  "counts": {
+    "HIT": 0,
+    "PARTIAL": 6,
+    "STILL_SPEC": 108,
+    "NO_EDGE": 115,
+    "n_arms": 229,
+    "n_arms_pre_and": 201
+  },
+  "vs_priors": {
+    "0kbi": {
+      "register": "0kbi",
+      "verdict": "IP3_Y2020_CRISIS_SIGNAL_REFINE_HIT",
+      "champ": "and::rvol63_l4&fuse_prem_neg5",
+      "note": "AND champ Mar2020 HIT; 0kbj hist OOS OVERFIT_2020"
+    },
+    "0kbm": {
+      "register": "0kbm",
+      "verdict": "CRISIS_REGIME_IMPROVE_OVERFIT",
+      "champ": "R_RC_C00_G05",
+      "held": 0.5277,
+      "y2020_mdd_imp": 5.4852,
+      "mar2020_mdd_imp": 5.5769,
+      "cross_era_improve_n": 0,
+      "note": "regime router OVERFIT \u2014 2020 MDD help, cross-era improve_n=0"
+    },
+    "0kbi_row": {
+      "arm": "and::rvol63_l4&fuse_prem_neg5",
+      "despec_verdict": "NO_EDGE",
+      "cross_era_score": -0.506,
+      "mean_ic": -0.3638,
+      "min_ic": -0.5688,
+      "n_non2020_hit": 0,
+      "eras_hit": [],
+      "eras_weak": [],
+      "era_ics": {
+        "2015": -0.4618,
+        "2018": -0.5688,
+        "2022": 0.0707,
+        "2020": -0.4954
+      },
+      "era_verdicts": {
+        "2015": "MISS",
+        "2018": "MISS",
+        "2022": "MISS",
+        "2020": "MISS"
+      },
+      "ic_primary": 0.1776,
+      "ic_oos_ex2020": 0.1725,
+      "year2020_dummy_abs_ic": 0.1231
+    },
+    "champ_vs_0kbi_non2020_delta": 1,
+    "champ_vs_0kbi_cross_era_delta": 0.9289
+  },
+  "cash_gate_cf": {
+    "note": "ILLUSTRATIVE ONLY \u2014 signal\u2260apply; no size-overlay / tip Soft promote",
+    "label": "champ_despec_cf",
+    "held_cagr_lift_pp": -7.4344,
+    "sealed_mdd_improve_pp": -1.4414,
+    "tipY_cagr_lift_pp": -21.8599,
+    "pct_cash_days": 60.34,
+    "window": [
+      "2020-02-20",
+      "2020-03-23"
+    ],
+    "window_mdd_improve_pp": 13.0011,
+    "base_window_mdd": -0.130011,
+    "chal_window_mdd": 0.0,
+    "cross_era_mdd_improve_pp": {
+      "2015": 4.9262,
+      "2018": 6.9523,
+      "2022": 7.0038,
+      "2020": 13.0011
+    },
+    "held_pos": false,
+    "non2020_mdd_improve_n": 3,
+    "primary_hit_path": false
+  },
+  "loo_despec": [
+    {
+      "held_out_era": "2015",
+      "train_eras": [
+        "2018",
+        "2022",
+        "2020"
+      ],
+      "selected_arm": "and::vsmed252::neg_gap_ma60&vsmed252::neg_gap_ma200",
+      "train_score": 0.4273,
+      "held_verdict": "MISS",
+      "held_ic": -0.0719,
+      "held_hit": 0.331,
+      "held_recall": 0.0119
+    },
+    {
+      "held_out_era": "2018",
+      "train_eras": [
+        "2015",
+        "2022",
+        "2020"
+      ],
+      "selected_arm": "k2::pct252::cool_defend_l1",
+      "train_score": 0.4229,
+      "held_verdict": "MISS",
+      "held_ic": null,
+      "held_hit": 0.4326,
+      "held_recall": 1.0
+    },
+    {
+      "held_out_era": "2022",
+      "train_eras": [
+        "2015",
+        "2018",
+        "2020"
+      ],
+      "selected_arm": "and::k3::pct252::cool_defend_l1&vsmed252::neg_gap_ma60",
+      "train_score": 0.3411,
+      "held_verdict": "MISS",
+      "held_ic": 0.067,
+      "held_hit": 0.2414,
+      "held_recall": 0.0297
+    },
+    {
+      "held_out_era": "2020",
+      "train_eras": [
+        "2015",
+        "2018",
+        "2022"
+      ],
+      "selected_arm": "k2::pct252::cool_defend_l1",
+      "train_score": 0.4229,
+      "held_verdict": "MISS",
+      "held_ic": null,
+      "held_hit": 0.3621,
+      "held_recall": 1.0
+    }
+  ],
+  "tip_sha": "a5d1a92939a0aa2ea3921096a61c11d4445b9548",
+  "day": "2026-10-04",
+  "constraints": {
+    "soft_keep": true,
+    "path4_off": true,
+    "broker_false": true,
+    "soak_freeze_unchanged": true,
+    "signal_ne_apply": true,
+    "no_tip_soft_live": true,
+    "no_soft_fin_tel_accept": true
+  }
+}

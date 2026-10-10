@@ -1,0 +1,9 @@
+family,n,n_hit,n_partial,n_still_spec,best_cross,best_non2020
+and_despec,28,0,3,25,0.4207,1
+delta_rvol,8,0,0,4,-0.1503,0
+k_confirm,80,0,2,31,0.4229,1
+pct_rank,32,0,1,15,0.4099,1
+prior_0kbi,1,0,0,0,-0.506,0
+raw,16,0,0,7,0.2415,0
+vs_median,32,0,0,14,0.254,0
+zscore,32,0,0,12,0.2382,0
