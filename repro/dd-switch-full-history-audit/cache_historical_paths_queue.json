@@ -1,0 +1,17 @@
+[
+  {
+    "id": "cache_wayback_hn_domain",
+    "url": "https://web.archive.org/cdx/search/cdx?url=%2A.hnfhc.com.tw%2F%2A&output=json&filter=statuscode%3A200&collapse=urlkey&from=2010&to=2014&limit=100",
+    "purpose": "Bounded historical original-host URL discovery; truncated index not exhaustive"
+  },
+  {
+    "id": "cache_wayback_mega_domain",
+    "url": "https://web.archive.org/cdx/search/cdx?url=%2A.megaholdings.com.tw%2F%2A&output=json&filter=statuscode%3A200&collapse=urlkey&from=2010&to=2014&limit=100",
+    "purpose": "Bounded historical original-host URL discovery; truncated index not exhaustive"
+  },
+  {
+    "id": "cache_wayback_hn_2011_report",
+    "url": "https://web.archive.org/cdx/search/cdx?url=www.ir-cloud.com%2Ftaiwan%2F2880%2Fannual%2F2011%2F%2A&output=json&filter=statuscode%3A200&collapse=urlkey&from=2010&to=2014&limit=100",
+    "purpose": "Bounded historical original-host URL discovery; truncated index not exhaustive"
+  }
+]

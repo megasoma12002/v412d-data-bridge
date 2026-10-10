@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETE",
+  "total": 4,
+  "processed": 4,
+  "success": 3,
+  "failed": 1,
+  "cached": 0,
+  "started_at": "2026-10-10T12:36:24.615242+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "cache_mega_replay_info04",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "cache_mega_history_info04",
+      "status": "FAILED"
+    },
+    {
+      "id": "cache_mega_replay_stockholder",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "cache_mega_history_stockholder",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T12:37:00.631996+00:00",
+  "updated_at": "2026-10-10T12:37:13.769827+00:00",
+  "last_completed_at": "2026-10-10T12:37:13.768260+00:00",
+  "skipped": 0
+}

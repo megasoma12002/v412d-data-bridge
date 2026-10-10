@@ -1,0 +1,12 @@
+[
+  {
+    "id": "cache_mega_dividend_original_history",
+    "url": "https://web.archive.org/cdx/search/cdx?url=http%3A%2F%2Fwww.megaholdings.com.tw%3A80%2Fcontents%2Finfo%2Fdefault.asp%3Fmajcidx%3D2&output=json&filter=statuscode%3A200&collapse=digest&from=2011&to=2014&limit=20",
+    "purpose": "Observed actual dividend/share affairs ASP route; discover target-year snapshots"
+  },
+  {
+    "id": "cache_mega_dividend_original_replay",
+    "url": "https://web.archive.org/web/20100718111200id_/http://www.megaholdings.com.tw:80/contents/info/default.asp?majcidx=2",
+    "purpose": "Read observed 2010 issuer dividend page; distinguish historical content dates from crawl date"
+  }
+]

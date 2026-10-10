@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE",
+  "total": 2,
+  "processed": 2,
+  "success": 2,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T12:37:34.167126+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "cache_mega_dividend_original_history",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "cache_mega_dividend_original_replay",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T12:37:46.603756+00:00",
+  "updated_at": "2026-10-10T12:37:56.304144+00:00",
+  "last_completed_at": "2026-10-10T12:37:56.302217+00:00",
+  "skipped": 0
+}

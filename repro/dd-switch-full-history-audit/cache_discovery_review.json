@@ -1,0 +1,357 @@
+{
+  "source_reviews": [
+    {
+      "source_id": "cache_wayback_hn_legacy",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "http_status": "200",
+      "index_records": 0,
+      "index_limit_reached": false,
+      "kind": "CDX_INDEX_ONLY"
+    },
+    {
+      "source_id": "cache_wayback_mega_stock",
+      "status": "FAILED",
+      "http_status": "000"
+    },
+    {
+      "source_id": "cache_commoncrawl_collections",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "http_status": "200",
+      "collections": 128,
+      "kind": "COLLECTION_CATALOG_ONLY"
+    },
+    {
+      "source_id": "cache_arquivo_mega_history",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "http_status": "200",
+      "index_records": 0,
+      "kind": "ARQUIVO_HISTORY_INDEX"
+    },
+    {
+      "source_id": "cache_wayback_hn_domain",
+      "status": "FAILED",
+      "http_status": "000"
+    },
+    {
+      "source_id": "cache_wayback_mega_domain",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "http_status": "200",
+      "index_records": 100,
+      "index_limit_reached": true,
+      "kind": "CDX_INDEX_ONLY"
+    },
+    {
+      "source_id": "cache_wayback_hn_2011_report",
+      "status": "FAILED",
+      "http_status": "000"
+    },
+    {
+      "source_id": "cache_cc201348_hn_ir",
+      "status": "FAILED",
+      "http_status": "000"
+    },
+    {
+      "source_id": "cache_cc201348_mega_stock",
+      "status": "FAILED",
+      "http_status": "000"
+    },
+    {
+      "source_id": "cache_cc201348_hn_annual",
+      "status": "FAILED",
+      "http_status": "000"
+    },
+    {
+      "source_id": "cache_mega_replay_info04",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "http_status": "200",
+      "kind": "REPLAY_REQUIRES_CONTENT_REVIEW",
+      "raw_bytes": 38427
+    },
+    {
+      "source_id": "cache_mega_history_info04",
+      "status": "FAILED",
+      "http_status": "000"
+    },
+    {
+      "source_id": "cache_mega_replay_stockholder",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "http_status": "200",
+      "kind": "REPLAY_REQUIRES_CONTENT_REVIEW",
+      "raw_bytes": 35262
+    },
+    {
+      "source_id": "cache_mega_history_stockholder",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "http_status": "200",
+      "index_records": 1,
+      "index_limit_reached": false,
+      "kind": "CDX_INDEX_ONLY"
+    },
+    {
+      "source_id": "cache_mega_dividend_original_history",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "http_status": "200",
+      "index_records": 1,
+      "index_limit_reached": false,
+      "kind": "CDX_INDEX_ONLY"
+    },
+    {
+      "source_id": "cache_mega_dividend_original_replay",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "http_status": "200",
+      "kind": "REPLAY_REQUIRES_CONTENT_REVIEW",
+      "raw_bytes": 32650
+    },
+    {
+      "source_id": "cache_mega_dividend_20111106_replay",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "http_status": "200",
+      "kind": "REPLAY_REQUIRES_CONTENT_REVIEW",
+      "raw_bytes": 36882
+    }
+  ],
+  "captured_sources": [
+    {
+      "id": "cache_wayback_hn_legacy",
+      "url": "https://web.archive.org/cdx/search/cdx?url=www.hnfhc.com.tw%2FHNFHC%2Fir%2Fe.do&output=json&filter=statuscode%3A200&collapse=digest&from=2010&to=2015&limit=20",
+      "purpose": "Bounded original issuer archive index 2010–2015; entries must be replayed and validated",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_wayback_hn_legacy.html.gz",
+      "retrieved_at": "2026-10-10T12:33:04.708489+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "compressed_sha256": "2ca4529576310b626c1bd48352d283b521d029d54f195d8416536872d826e4c6"
+    },
+    {
+      "id": "cache_wayback_mega_stock",
+      "url": "https://web.archive.org/cdx/search/cdx?url=www.megaholdings.com.tw%2Ftc%2Fstock.aspx&output=json&filter=statuscode%3A200&collapse=digest&from=2010&to=2015&limit=20",
+      "purpose": "Bounded original issuer archive index 2010–2015; entries must be replayed and validated",
+      "timeout_seconds": 15,
+      "status": "FAILED",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_wayback_mega_stock.html.gz",
+      "retrieved_at": "2026-10-10T12:33:21.723307+00:00",
+      "http_status": "000",
+      "error": "curl: (28) Operation timed out after 15002 milliseconds with 0 bytes received\n",
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compressed_sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "id": "cache_commoncrawl_collections",
+      "url": "https://index.commoncrawl.org/collinfo.json",
+      "purpose": "Discover available Common Crawl index collections",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_commoncrawl_collections.html.gz",
+      "retrieved_at": "2026-10-10T12:33:30.289477+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "fdfe1131836096ec8ff6047997a035acbf464036a2ea09887239c949e0df41f9",
+      "compressed_sha256": "2c1b14d3d2f1c1b009abaf0ddc0338ef9ed5699d67ccd737a2230e3d5114710c"
+    },
+    {
+      "id": "cache_arquivo_mega_history",
+      "url": "https://arquivo.pt/textsearch?versionHistory=www.megaholdings.com.tw%2Ftc%2Fstock.aspx&maxItems=10",
+      "purpose": "Independent Portuguese web archive issuer page capture history",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_arquivo_mega_history.html.gz",
+      "retrieved_at": "2026-10-10T12:33:39.455684+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "16acce5e416f47c24153d052df59d2df7890335ed679bbb7d6ad8b009106716e",
+      "compressed_sha256": "8cb17ffb5bce5368b255002eac72bb31492d484c90cfec3646529ccbd7ac0c00"
+    },
+    {
+      "id": "cache_wayback_hn_domain",
+      "url": "https://web.archive.org/cdx/search/cdx?url=%2A.hnfhc.com.tw%2F%2A&output=json&filter=statuscode%3A200&collapse=urlkey&from=2010&to=2014&limit=100",
+      "purpose": "Bounded historical original-host URL discovery; truncated index not exhaustive",
+      "timeout_seconds": 15,
+      "status": "FAILED",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_wayback_hn_domain.html.gz",
+      "retrieved_at": "2026-10-10T12:34:20.699101+00:00",
+      "http_status": "000",
+      "error": "curl: (28) Operation timed out after 15001 milliseconds with 0 bytes received\n",
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compressed_sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "id": "cache_wayback_mega_domain",
+      "url": "https://web.archive.org/cdx/search/cdx?url=%2A.megaholdings.com.tw%2F%2A&output=json&filter=statuscode%3A200&collapse=urlkey&from=2010&to=2014&limit=100",
+      "purpose": "Bounded historical original-host URL discovery; truncated index not exhaustive",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_wayback_mega_domain.html.gz",
+      "retrieved_at": "2026-10-10T12:34:36.235744+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "c4a9267d0b239723fecc5b57fe242d2810643bdb9afeb261e30b7a5094827640",
+      "compressed_sha256": "c3d9a4fbc53f0d37e9483ce6cb719ccf25e53453e14825e4b9600ee6cac9dde6"
+    },
+    {
+      "id": "cache_wayback_hn_2011_report",
+      "url": "https://web.archive.org/cdx/search/cdx?url=www.ir-cloud.com%2Ftaiwan%2F2880%2Fannual%2F2011%2F%2A&output=json&filter=statuscode%3A200&collapse=urlkey&from=2010&to=2014&limit=100",
+      "purpose": "Bounded historical original-host URL discovery; truncated index not exhaustive",
+      "timeout_seconds": 15,
+      "status": "FAILED",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_wayback_hn_2011_report.html.gz",
+      "retrieved_at": "2026-10-10T12:34:53.244998+00:00",
+      "http_status": "000",
+      "error": "curl: (28) Operation timed out after 15000 milliseconds with 0 bytes received\n",
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compressed_sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "id": "cache_cc201348_hn_ir",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2013-48-index?url=www.hnfhc.com.tw%2FHNFHC%2Fir%2F%2A&output=json&filter=status%3A200&pageSize=1&page=0",
+      "purpose": "Common Crawl observed November 2013 collection, first index page only; retrieve WARC if matching records found",
+      "timeout_seconds": 15,
+      "status": "FAILED",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_cc201348_hn_ir.html.gz",
+      "retrieved_at": "2026-10-10T12:35:38.976741+00:00",
+      "http_status": "000",
+      "error": "curl: (28) Operation timed out after 15000 milliseconds with 0 bytes received\n",
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compressed_sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "id": "cache_cc201348_mega_stock",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2013-48-index?url=www.megaholdings.com.tw%2Ftc%2Fstock.aspx&output=json&filter=status%3A200&pageSize=1&page=0",
+      "purpose": "Common Crawl observed November 2013 collection, first index page only; retrieve WARC if matching records found",
+      "timeout_seconds": 15,
+      "status": "FAILED",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_cc201348_mega_stock.html.gz",
+      "retrieved_at": "2026-10-10T12:35:55.992814+00:00",
+      "http_status": "000",
+      "error": "curl: (28) Operation timed out after 15002 milliseconds with 0 bytes received\n",
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compressed_sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "id": "cache_cc201348_hn_annual",
+      "url": "https://index.commoncrawl.org/CC-MAIN-2013-48-index?url=www.ir-cloud.com%2Ftaiwan%2F2880%2Fannual%2F2011%2F%2A&output=json&filter=status%3A200&pageSize=1&page=0",
+      "purpose": "Common Crawl observed November 2013 collection, first index page only; retrieve WARC if matching records found",
+      "timeout_seconds": 15,
+      "status": "FAILED",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_cc201348_hn_annual.html.gz",
+      "retrieved_at": "2026-10-10T12:36:13.004360+00:00",
+      "http_status": "000",
+      "error": "curl: (28) Operation timed out after 15000 milliseconds with 0 bytes received\n",
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compressed_sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "id": "cache_mega_replay_info04",
+      "url": "https://web.archive.org/web/20120731073557id_/http://www.megaholdings.com.tw:80/contents/info04.htm",
+      "purpose": "Replay observed historical issuer capture; inspect body before treating as evidence",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_mega_replay_info04.html.gz",
+      "retrieved_at": "2026-10-10T12:36:33.703340+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "446de62744eacc83617f855ef3745529ca5bb2e642851ff32e00c3869b130fed",
+      "compressed_sha256": "9f19c40364c4cdf9037121d5c4bbf0fa5fd5a478bee6c63b7e08ccd9cede1f67"
+    },
+    {
+      "id": "cache_mega_history_info04",
+      "url": "https://web.archive.org/cdx/search/cdx?url=http%3A%2F%2Fwww.megaholdings.com.tw%3A80%2Fcontents%2Finfo04.htm&output=json&filter=statuscode%3A200&collapse=digest&from=2011&to=2014&limit=20",
+      "purpose": "Historical versions of observed shareholder/disclosure path",
+      "timeout_seconds": 15,
+      "status": "FAILED",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_mega_history_info04.html.gz",
+      "retrieved_at": "2026-10-10T12:36:50.715792+00:00",
+      "http_status": "000",
+      "error": "curl: (28) Operation timed out after 15001 milliseconds with 0 bytes received\n",
+      "response_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "compressed_sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    {
+      "id": "cache_mega_replay_stockholder",
+      "url": "https://web.archive.org/web/20101026233442id_/http://www.megaholdings.com.tw:80/contents/co_govern/stockholder.asp",
+      "purpose": "Replay observed historical issuer capture; inspect body before treating as evidence",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_mega_replay_stockholder.html.gz",
+      "retrieved_at": "2026-10-10T12:37:00.629946+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "a6b929cae321557592c1f4b3ab75eaf90c00e390a02dbfd640a06a591001480c",
+      "compressed_sha256": "854c29d5089593982dc45dab9178ce44450a5e6f10344757a04aef63d30a29b8"
+    },
+    {
+      "id": "cache_mega_history_stockholder",
+      "url": "https://web.archive.org/cdx/search/cdx?url=http%3A%2F%2Fwww.megaholdings.com.tw%3A80%2Fcontents%2Fco_govern%2Fstockholder.asp&output=json&filter=statuscode%3A200&collapse=digest&from=2011&to=2014&limit=20",
+      "purpose": "Historical versions of observed shareholder/disclosure path",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_mega_history_stockholder.html.gz",
+      "retrieved_at": "2026-10-10T12:37:13.768157+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "59cde2d512ef2eb882d79b3ecec794d10a9f175d72eaed375126fea9af9d1b20",
+      "compressed_sha256": "c9065a19ebc866480d3bc239bc515a07b224fe0a2e987bebaab5eb5cea1e7f8f"
+    },
+    {
+      "id": "cache_mega_dividend_original_history",
+      "url": "https://web.archive.org/cdx/search/cdx?url=http%3A%2F%2Fwww.megaholdings.com.tw%3A80%2Fcontents%2Finfo%2Fdefault.asp%3Fmajcidx%3D2&output=json&filter=statuscode%3A200&collapse=digest&from=2011&to=2014&limit=20",
+      "purpose": "Observed actual dividend/share affairs ASP route; discover target-year snapshots",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_mega_dividend_original_history.html.gz",
+      "retrieved_at": "2026-10-10T12:37:46.601596+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "86138fa6cd70705f10db66136397481cf83e0b1eee6fd8a8267507253784ed0c",
+      "compressed_sha256": "5a26bcfb891f5110f3502f6118c96cca1b175b32a7b4445cd4defa28918808b3"
+    },
+    {
+      "id": "cache_mega_dividend_original_replay",
+      "url": "https://web.archive.org/web/20100718111200id_/http://www.megaholdings.com.tw:80/contents/info/default.asp?majcidx=2",
+      "purpose": "Read observed 2010 issuer dividend page; distinguish historical content dates from crawl date",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_mega_dividend_original_replay.html.gz",
+      "retrieved_at": "2026-10-10T12:37:56.302086+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "2e2319c7d05d165573757aa38183fcf01f8eb356a7bf0f5703fb3ff251398147",
+      "compressed_sha256": "63ba4e18ee698a6649da360465b97b1df5438996eb49a826d92fdc81bd3ad480"
+    },
+    {
+      "id": "cache_mega_dividend_20111106_replay",
+      "url": "https://web.archive.org/web/20111106143126id_/http://www.megaholdings.com.tw:80/contents/info/default.asp?majcidx=2",
+      "purpose": "Observed target-year 2011 post-distribution official dividend page; inspect dates and fields",
+      "timeout_seconds": 15,
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION",
+      "path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/cache_mega_dividend_20111106_replay.html.gz",
+      "retrieved_at": "2026-10-10T12:38:18.529105+00:00",
+      "http_status": "200",
+      "error": "",
+      "response_sha256": "fd8d51a9716c647140a2ac0591794aecf8685e039ad175567c299b1041555c71",
+      "compressed_sha256": "1f76c55905f22a3777db2f63fcbac4004a7cc23c49902684b72c12564a2b87d2"
+    }
+  ],
+  "verified_hash_pairs": 17,
+  "requested": 17,
+  "uncaptured": 0,
+  "new_closed_gaps": 0,
+  "backtest_executed": false,
+  "archived_issuer_facts": [
+    {
+      "event_id": "2886:stock:2011-08-23",
+      "source_id": "cache_mega_dividend_20111106_replay",
+      "original_url": "http://www.megaholdings.com.tw:80/contents/info/default.asp?majcidx=2",
+      "snapshot_timestamp": "20111106143126",
+      "dividend_year_roc": 99,
+      "stock_dividend_per_share_twd": 0.2,
+      "issuer_stock_dividend_distribution_date": "2011-09-16",
+      "known_rights_issue_date": "2011-09-16",
+      "known_ordinary_listing_date": "2011-09-21",
+      "ordinary_delivery_certified": false,
+      "gap_closed": false,
+      "scope": "Issuer stock-dividend distribution table; matches early rights stage, does not independently certify general ordinary conversion"
+    }
+  ]
+}

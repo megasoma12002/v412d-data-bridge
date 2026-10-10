@@ -30,6 +30,9 @@ def main():
         add('0050_REVISION_STAGE', r['event_id'], 'OPEN',
             f"ESTIMATE={r['estimate_versions']}; FINAL={r['final_versions']}",
             'Issuer-original ' + r['missing_stages'] + '; exact fund, ex/payment dates and amount; preserved publication/version provenance')
+    cache_path = OUT / 'cache_discovery_review.json'
+    cache_review = json.loads(cache_path.read_text()) if cache_path.exists() else {}
+    cache_facts = {r['event_id']: r for r in cache_review.get('archived_issuer_facts', [])}
     for r in read('remaining_dividend_payment_gaps.csv'):
         evidence = []
         if r['event_id'] in holder:
@@ -37,6 +40,11 @@ def main():
             evidence.append('MOE holder-only credit ' + h['reported_distribution_date'])
         if stage.get(r['event_id'], {}).get('explicit_listing_evidence'):
             evidence.append('Primary listing notice; separate delivery date absent')
+        if r['event_id'] in cache_facts:
+            fact = cache_facts[r['event_id']]
+            evidence.append('Archived original issuer stock-dividend distribution=' +
+                            fact['issuer_stock_dividend_distribution_date'] +
+                            '; matches rights stage; final ordinary delivery unproven; source=' + fact['source_id'])
         if r['event_id'] in leads:
             lead = leads[r['event_id']]
             evidence.append('Secondary general book-entry schedule ' + lead['candidate_general_delivery_date'] +
