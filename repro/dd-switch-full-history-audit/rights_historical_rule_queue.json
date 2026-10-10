@@ -1,0 +1,27 @@
+[
+  {
+    "id": "rights_trading_rule_20110112",
+    "url": "https://twse-regulation.twse.com.tw/TW/law/DAT06.aspx?FLCODE=FL007359&FLDATE=20110112&LSER=001",
+    "kind": "PRIMARY_HISTORICAL_RULE"
+  },
+  {
+    "id": "rights_tdcc_conversion_rule_20060327",
+    "url": "https://twse-regulation.twse.com.tw/TW/law/DAT06.aspx?FLCODE=FL007671&FLDATE=20060327&LSER=001",
+    "kind": "PRIMARY_HISTORICAL_RULE"
+  },
+  {
+    "id": "rights_security_code_rule_20091112",
+    "url": "https://twse-regulation.twse.com.tw/TW/int/DAT01_print.aspx?FLCODE=FE227272",
+    "kind": "PRIMARY_HISTORICAL_CODE_RULE"
+  },
+  {
+    "id": "hn_transfer_agent_dividend_type2",
+    "url": "https://www.entrust.com.tw/entrust/agent/comIn.do?cpcmpno=1A&type=2",
+    "kind": "PRIMARY_TRANSFER_AGENT_DIVIDEND_TABLE"
+  },
+  {
+    "id": "mega_current_issuer_distribution_table",
+    "url": "https://www.megaholdings.com.tw/tc/stock.aspx",
+    "kind": "PRIMARY_ISSUER_TABLE"
+  }
+]

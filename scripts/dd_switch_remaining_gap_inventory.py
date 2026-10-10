@@ -46,6 +46,12 @@ def main():
     github_followup_path = OUT / 'github_lead_followup_review.json'
     github_followup = json.loads(github_followup_path.read_text()) if github_followup_path.exists() else {}
     secondary_listing = {r['event_id']: r for r in github_followup.get('secondary_listing_leads', [])}
+    ctbc_lead_path = OUT / 'ctbc_2013_final_lead_review.json'
+    if ctbc_lead_path.exists():
+        ctbc_lead = json.loads(ctbc_lead_path.read_text())
+        secondary_listing['2891:subscription:2013-02-19'] = dict(
+            candidate_ordinary_listing_date=ctbc_lead['candidate_ordinary_listing_date'],
+            source_id='ctbc_2013_final_mobile_reprint')
     for r in read('remaining_subscription_delivery_gaps.csv'):
         available = 'Subscription window ' + r['subscription_start'] + '..' + r['subscription_end']
         available += '; voucher=' + (r['subscription_voucher_delivery_date'] or 'unavailable')
@@ -90,6 +96,16 @@ def main():
         add('FULL_HISTORY_CERTIFICATION', blocker['id'], 'OPEN_PRIOR_AUDIT_FINDING',
             'Existing blockers.json; ' + blocker['reason'] + progress,
             'Resolve the stated source/model/lifecycle requirement, then rerun the relevant audit; input recovery alone is insufficient')
+    rule_review_path = OUT / 'rights_rule_followup_review.json'
+    if rule_review_path.exists():
+        schedules = {r['event_id']: r for r in json.loads(rule_review_path.read_text())['rows']}
+        for row in rows:
+            if row['category'] not in ('SUBSCRIPTION_DELIVERY', 'RIGHTS_ORDINARY_PHASE'):
+                continue
+            if row['event_id'] in schedules:
+                schedule = schedules[row['event_id']]
+                row['available_evidence'] += '; conditional TDCC rule conversion schedule=' + schedule['rule_scheduled_conversion_date']
+                row['available_evidence'] += '; actual conversion/holder delivery not certified; rule=' + schedule['rule_source_id']
     with (OUT / 'comprehensive_remaining_gap_inventory.csv').open('w', newline='') as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator='\n')
         w.writeheader(); w.writerows(rows)

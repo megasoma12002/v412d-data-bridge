@@ -1,0 +1,31 @@
+{
+  "status": "STOPPED_SOURCE_BLOCK",
+  "total": 6,
+  "processed": 3,
+  "success": 2,
+  "failed": 1,
+  "cached": 0,
+  "started_at": "2026-10-10T10:27:00.709930+00:00",
+  "blocked_hosts": [
+    "www.twse.com.tw"
+  ],
+  "recent_results": [
+    {
+      "id": "rights_daily_20110916",
+      "status": "SOURCE_BLOCKED"
+    },
+    {
+      "id": "rights_trading_rule_archive_2011",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "rights_tdcc_conversion_rule_current",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T10:27:18.651623+00:00",
+  "updated_at": "2026-10-10T10:27:28.675857+00:00",
+  "last_completed_at": "2026-10-10T10:27:28.674432+00:00",
+  "skipped": 3
+}
