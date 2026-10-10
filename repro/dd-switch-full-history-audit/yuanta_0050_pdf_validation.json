@@ -1,5 +1,5 @@
 {
-  "valid": 42,
+  "valid": 54,
   "rejected": [
     {
       "id": "yuanta_0050_notice_legacy_probe_201607_current_estimate",
@@ -38,8 +38,15 @@
       "reason": "FAILED"
     }
   ],
-  "paired_estimate_final_events": 20,
-  "estimated_amount_revised_events": 3,
+  "duplicate_source_aliases": [
+    {
+      "id": "yuanta_0050_notice_observed_A0005_20160726",
+      "original_id": "yuanta_0050_notice_legacy_probe_201607_current_final",
+      "response_sha256": "cd721191ba8f1e441c23926f7ea1c94bc954a28e1eb3747a634e44a791053afa"
+    }
+  ],
+  "paired_estimate_final_events": 27,
+  "estimated_amount_revised_events": 4,
   "current_index_records": 2094,
   "current_index_start": "2019/10/30",
   "current_index_end": "2026/10/08",

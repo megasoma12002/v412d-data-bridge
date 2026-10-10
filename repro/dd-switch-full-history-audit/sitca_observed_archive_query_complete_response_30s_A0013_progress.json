@@ -1,0 +1,18 @@
+{
+  "status": "COMPLETE",
+  "total": 1,
+  "processed": 1,
+  "success": 1,
+  "failed": 0,
+  "started_at": "2026-10-10T00:45:08.516416+00:00",
+  "recent_results": [
+    {
+      "id": "sitca_observed_archive_query_complete_response_30s_A0013",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "updated_at": "2026-10-10T00:45:27.443129+00:00",
+  "last_completed_at": "2026-10-10T00:45:27.442087+00:00",
+  "skipped": 0
+}

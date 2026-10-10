@@ -102,6 +102,39 @@ class YuantaRevisionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             parse_notice(self.body(True), meta)
 
+    def test_old_yuanta_name_requires_observed_archive_and_historical_date(self):
+        meta = self.meta(True)
+        meta.update(title='公告元大寶來台灣卓越50基金實際配發金額', archive_source='SITCA_ISSUER_DISCLOSURE_PDF', observed_archive_listing_verified=True, announcement_date='2013-07-19')
+        text = ('元大寶來證券投資信託股份有限公司元寶投信字第20130950號' + self.body(True, header='')).replace('元大台灣卓越50', '元大寶來台灣卓越50').replace('110年', '102年')
+        self.assertEqual(parse_notice(text, meta)['pdf_issue_date'], '2013-07-19')
+        with self.assertRaises(ValueError):
+            parse_notice(text, dict(meta, observed_archive_listing_verified=False))
+        with self.assertRaises(ValueError):
+            parse_notice(text.replace('102年', '110年'), meta)
+
+    def test_original_name_parenthesis_does_not_replace_current_issuer_identity(self):
+        meta = self.meta(True)
+        meta.update(title='公告元大台灣卓越50證券投資信託基金收益評價結果-第二階段', archive_source='SITCA_ISSUER_DISCLOSURE_PDF', observed_archive_listing_verified=True)
+        text = '元大證券投資信託股份有限公司元投信字第20210950號' + self.body(True, header='').replace('中華民國', '(原名：元大寶來台灣卓越50證券投資信託基金)中華民國')
+        self.assertEqual(parse_notice(text, meta)['stage'], 'FINAL')
+        with self.assertRaises(ValueError):
+            parse_notice(text.replace('元大證券投資信託股份有限公司', '其他證券投資信託股份有限公司'), meta)
+
+    def test_second_stage_title_still_requires_actual_final_amount(self):
+        meta = self.meta(True)
+        meta.update(title='公告元大台灣卓越50基金評價结果-第二階段', observed_archive_listing_verified=True)
+        with self.assertRaises(ValueError):
+            parse_notice(self.body(), meta)
+
+    def test_2012_compatibility_glyphs_without_document_number_are_bounded(self):
+        meta = self.meta(True)
+        meta.update(title='公告元大寶來台灣卓越50基金實際配發金額', archive_source='SITCA_ISSUER_DISCLOSURE_PDF', observed_archive_listing_verified=True, announcement_date='2012-07-19')
+        text = ('元大寶來證券投資信託股份有限公司' + self.body(True, header='')).replace('元大台灣卓越50', '元大寶來台灣卓越50').replace('110年', '101年')
+        text = text.replace('來', '來').replace('金', '金').replace('年', '年').replace('益', '益').replace('易', '易')
+        self.assertEqual(parse_notice(text, meta)['declared_cash_amount'], '0.35')
+        with self.assertRaises(ValueError):
+            parse_notice(text.replace('101年', '102年'), meta)
+
     def test_later_final_does_not_backfill_date_only_prefix(self):
         estimated = dict(parse_notice(self.body(), self.meta()), event_id='0050:cash:2021-07-21')
         final = dict(parse_notice(self.body(True), self.meta(True)), event_id=estimated['event_id'])

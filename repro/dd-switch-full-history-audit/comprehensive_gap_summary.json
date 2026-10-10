@@ -1,6 +1,5 @@
 {
   "counts": {
-    "0050_REVISION_STAGE": 7,
     "STOCK_DELIVERY": 11,
     "SUBSCRIPTION_DELIVERY": 9,
     "RIGHTS_ORDINARY_PHASE": 2,
@@ -15,5 +14,5 @@
   "backtest_executed": false,
   "canonical_modified": false,
   "input_gap_count": 0,
-  "note": "Categories overlap; no primary date or announcement gaps closed by current probes"
+  "note": "Categories overlap; open evidence gaps are derived from the latest verified audit outputs"
 }

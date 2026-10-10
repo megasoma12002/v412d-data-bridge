@@ -1,11 +1,4 @@
 category,event_id,status,available_evidence,required_to_close,backtest_permission
-0050_REVISION_STAGE,0050:cash:2010-10-25,OPEN,ESTIMATE=0; FINAL=0,"Issuer-original ESTIMATE,FINAL; exact fund, ex/payment dates and amount; preserved publication/version provenance",False
-0050_REVISION_STAGE,0050:cash:2011-10-26,OPEN,ESTIMATE=0; FINAL=1,"Issuer-original ESTIMATE; exact fund, ex/payment dates and amount; preserved publication/version provenance",False
-0050_REVISION_STAGE,0050:cash:2012-10-24,OPEN,ESTIMATE=0; FINAL=0,"Issuer-original ESTIMATE,FINAL; exact fund, ex/payment dates and amount; preserved publication/version provenance",False
-0050_REVISION_STAGE,0050:cash:2013-10-24,OPEN,ESTIMATE=0; FINAL=0,"Issuer-original ESTIMATE,FINAL; exact fund, ex/payment dates and amount; preserved publication/version provenance",False
-0050_REVISION_STAGE,0050:cash:2014-10-24,OPEN,ESTIMATE=0; FINAL=0,"Issuer-original ESTIMATE,FINAL; exact fund, ex/payment dates and amount; preserved publication/version provenance",False
-0050_REVISION_STAGE,0050:cash:2015-10-26,OPEN,ESTIMATE=0; FINAL=0,"Issuer-original ESTIMATE,FINAL; exact fund, ex/payment dates and amount; preserved publication/version provenance",False
-0050_REVISION_STAGE,0050:cash:2016-07-28,OPEN,ESTIMATE=0; FINAL=1,"Issuer-original ESTIMATE; exact fund, ex/payment dates and amount; preserved publication/version provenance",False
 STOCK_DELIVERY,2880:stock:2010-08-12,OPEN,Declaration/capital registration; no dated general delivery,Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient,False
 STOCK_DELIVERY,2880:stock:2011-08-11,OPEN,Declaration/capital registration; no dated general delivery,Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient,False
 STOCK_DELIVERY,2880:stock:2012-08-15,OPEN,MOE holder-only credit 2012-09-21,Original issuer or transfer-agent general stock delivery date for this allocation; listing/record date and holder-only credit insufficient,False

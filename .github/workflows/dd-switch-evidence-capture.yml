@@ -33,6 +33,7 @@ jobs:
           unzip -o repro/dd-switch-full-history-audit/annual_legacy_probe_capture_delta.zip
           unzip -o repro/dd-switch-full-history-audit/baolai_and_final_conversion_capture_delta.zip
           unzip -o repro/dd-switch-full-history-audit/full_gap_completion_capture_delta.zip
+          unzip -o repro/dd-switch-full-history-audit/sitca_observed_archive_capture_delta.zip
       - name: Restore exact audited research inputs without strategy execution
         run: python scripts/dd_switch_restore_audited_inputs.py
       - name: Audit complete saved lineage without strategy execution

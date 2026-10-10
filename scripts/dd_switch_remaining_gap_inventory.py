@@ -72,7 +72,7 @@ def main():
     summary = dict(counts=dict(Counter(r['category'] for r in rows)),
                    counts_are_not_additive=True, backtest_ready=False, backtest_executed=False,
                    canonical_modified=False, input_gap_count=0,
-                   note='Categories overlap; no primary date or announcement gaps closed by current probes')
+                   note='Categories overlap; open evidence gaps are derived from the latest verified audit outputs')
     (OUT / 'comprehensive_gap_summary.json').write_text(json.dumps(summary, indent=2) + '\n')
     print(json.dumps(summary))
 

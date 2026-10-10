@@ -1,0 +1,25 @@
+{
+  "status": "COMPLETE",
+  "total": 2,
+  "processed": 2,
+  "success": 2,
+  "failed": 0,
+  "cached": 0,
+  "started_at": "2026-10-10T00:45:28.825009+00:00",
+  "blocked_hosts": [],
+  "recent_results": [
+    {
+      "id": "observed_0050_2015_distribution_reprint",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    },
+    {
+      "id": "observed_new_share_certificate_trading_rule_article3",
+      "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+    }
+  ],
+  "current_id": "",
+  "current_started_at": "2026-10-10T00:45:39.732975+00:00",
+  "updated_at": "2026-10-10T00:45:50.082805+00:00",
+  "last_completed_at": "2026-10-10T00:45:50.081508+00:00",
+  "skipped": 0
+}

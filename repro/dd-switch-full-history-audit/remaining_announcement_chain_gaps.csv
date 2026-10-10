@@ -1,6 +1,1 @@
 event_id,code,leg,ex_date,linked_filings,statutory_linked_filings,issuer_original_linked_filings,first_linked_schedule_date_only,first_linked_schedule_reported_at,ledger_reported_at,earlier_schedule_found,explicit_amendment_filings,revision_inventory_complete,publication_vintage_certified,status
-0050:cash:2010-10-25,0050,cash,2010-10-25,0,0,0,,,T+08:00,False,0,False,False,SCHEDULE_CHAIN_PROOF_MISSING
-0050:cash:2012-10-24,0050,cash,2012-10-24,0,0,0,,,T+08:00,False,0,False,False,SCHEDULE_CHAIN_PROOF_MISSING
-0050:cash:2013-10-24,0050,cash,2013-10-24,0,0,0,,,T+08:00,False,0,False,False,SCHEDULE_CHAIN_PROOF_MISSING
-0050:cash:2014-10-24,0050,cash,2014-10-24,0,0,0,,,T+08:00,False,0,False,False,SCHEDULE_CHAIN_PROOF_MISSING
-0050:cash:2015-10-26,0050,cash,2015-10-26,0,0,0,,,T+08:00,False,0,False,False,SCHEDULE_CHAIN_PROOF_MISSING

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "sitca_observed_archive_query_complete_response_30s_A0005",
+    "url": "https://www.sitca.org.tw/ROC/MemNews/MN2001N.aspx?PGMID=SD0202",
+    "method": "POST",
+    "kind": "PUBLIC_READ_ONLY_DISCLOSURE_QUERY",
+    "company": "A0005",
+    "period": "All",
+    "keyword": "卓越",
+    "form_category": "02",
+    "timeout_seconds": 30,
+    "request_path": "repro/dd-switch-full-history-audit/sources/targeted_issuers/sitca_observed_archive_query_complete_response_30s_A0005.request.gz",
+    "request_sha256": "909243ba76f37720dd1dc51fab54fcbb6605c9627ec1fc78d0a195e8aa8b73d7",
+    "request_compressed_sha256": "da3f626aefeec4f69d1cdb04504841bdf9028247a6f1acb17d1dece0a53d674f",
+    "observed_form_source_id": "historical_catalog_index_single_retry"
+  }
+]

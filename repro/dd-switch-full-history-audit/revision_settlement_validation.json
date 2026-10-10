@@ -2,9 +2,9 @@
   "asof": "2026-10-08",
   "captured_candidate_filings": 1417,
   "captured_statutory_filings": 1056,
-  "captured_issuer_original_pdf_versions": 42,
+  "captured_issuer_original_pdf_versions": 54,
   "positive_dividend_legs": 416,
-  "dividend_legs_with_linked_schedule_chain": 411,
+  "dividend_legs_with_linked_schedule_chain": 416,
   "dividend_legs_with_earlier_schedule": 304,
   "primary_payment_schedule_matches": 403,
   "payment_schedule_conflicts": 2,
@@ -26,87 +26,14 @@
     "Subscription requires an explicit paid election; no automatic ordinary shares",
     "Future scheduled settlement is not a missing past payment"
   ],
-  "issuer_revision_stage_gap_events": 7,
-  "issuer_revision_stage_gaps": [
-    {
-      "event_id": "0050:cash:2010-10-25",
-      "ex_date": "2010-10-25",
-      "estimate_versions": "0",
-      "final_versions": "0",
-      "missing_stages": "ESTIMATE,FINAL",
-      "ambiguous_stages": "",
-      "publication_vintage_certified": "False",
-      "revision_inventory_complete": "False"
-    },
-    {
-      "event_id": "0050:cash:2011-10-26",
-      "ex_date": "2011-10-26",
-      "estimate_versions": "0",
-      "final_versions": "1",
-      "missing_stages": "ESTIMATE",
-      "ambiguous_stages": "",
-      "publication_vintage_certified": "False",
-      "revision_inventory_complete": "False"
-    },
-    {
-      "event_id": "0050:cash:2012-10-24",
-      "ex_date": "2012-10-24",
-      "estimate_versions": "0",
-      "final_versions": "0",
-      "missing_stages": "ESTIMATE,FINAL",
-      "ambiguous_stages": "",
-      "publication_vintage_certified": "False",
-      "revision_inventory_complete": "False"
-    },
-    {
-      "event_id": "0050:cash:2013-10-24",
-      "ex_date": "2013-10-24",
-      "estimate_versions": "0",
-      "final_versions": "0",
-      "missing_stages": "ESTIMATE,FINAL",
-      "ambiguous_stages": "",
-      "publication_vintage_certified": "False",
-      "revision_inventory_complete": "False"
-    },
-    {
-      "event_id": "0050:cash:2014-10-24",
-      "ex_date": "2014-10-24",
-      "estimate_versions": "0",
-      "final_versions": "0",
-      "missing_stages": "ESTIMATE,FINAL",
-      "ambiguous_stages": "",
-      "publication_vintage_certified": "False",
-      "revision_inventory_complete": "False"
-    },
-    {
-      "event_id": "0050:cash:2015-10-26",
-      "ex_date": "2015-10-26",
-      "estimate_versions": "0",
-      "final_versions": "0",
-      "missing_stages": "ESTIMATE,FINAL",
-      "ambiguous_stages": "",
-      "publication_vintage_certified": "False",
-      "revision_inventory_complete": "False"
-    },
-    {
-      "event_id": "0050:cash:2016-07-28",
-      "ex_date": "2016-07-28",
-      "estimate_versions": "0",
-      "final_versions": "1",
-      "missing_stages": "ESTIMATE",
-      "ambiguous_stages": "",
-      "publication_vintage_certified": "False",
-      "revision_inventory_complete": "False"
-    }
-  ],
+  "issuer_revision_stage_gap_events": 0,
+  "issuer_revision_stage_gaps": [],
   "payment_schedule_missing": 11,
   "payment_schedule_missing_by_leg": {
     "stock": 11
   },
-  "announcement_chain_missing": 5,
-  "announcement_chain_missing_by_code": {
-    "0050": 5
-  },
+  "announcement_chain_missing": 0,
+  "announcement_chain_missing_by_code": {},
   "past_subscription_delivery_missing": 9,
   "uncaptured_responses": {
     "mops_actions": 0,
@@ -136,11 +63,12 @@
       "STOPPED_SOURCE_BLOCK": 1
     },
     "targeted_issuers": {
-      "RESPONSE_SAVED_NEEDS_VALIDATION": 79,
-      "FAILED": 15
+      "RESPONSE_SAVED_NEEDS_VALIDATION": 97,
+      "FAILED": 19
     }
   },
-  "source_hash_pairs_verified": 3442,
+  "source_hash_pairs_verified": 3464,
+  "source_request_hash_pairs_verified": 6,
   "canonical_input_hashes_verified": 9,
   "canonical_inputs_absent": [],
   "capture_progress": {
@@ -910,6 +838,207 @@
       "updated_at": "2026-10-09T23:56:00.608001+00:00",
       "last_completed_at": "2026-10-09T23:56:00.606896+00:00",
       "skipped": 0
+    },
+    "historical_catalog_retry_progress.json": {
+      "status": "COMPLETE",
+      "total": 1,
+      "processed": 1,
+      "success": 1,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-10T00:39:52.690862+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "historical_catalog_index_single_retry",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-10T00:39:52.690906+00:00",
+      "updated_at": "2026-10-10T00:40:06.553084+00:00",
+      "last_completed_at": "2026-10-10T00:40:06.552154+00:00",
+      "skipped": 0
+    },
+    "sitca_observed_archive_query_progress.json": {
+      "status": "COMPLETE",
+      "total": 2,
+      "processed": 2,
+      "success": 0,
+      "failed": 2,
+      "started_at": "2026-10-10T00:41:23.467569+00:00",
+      "recent_results": [
+        {
+          "id": "sitca_observed_archive_query_A0005",
+          "status": "FAILED"
+        },
+        {
+          "id": "sitca_observed_archive_query_A0013",
+          "status": "FAILED"
+        }
+      ],
+      "current_id": "",
+      "updated_at": "2026-10-10T00:41:57.529940+00:00",
+      "last_completed_at": "2026-10-10T00:41:57.528975+00:00",
+      "skipped": 0
+    },
+    "sitca_observed_archive_query_bounded_retry_progress.json": {
+      "status": "COMPLETE",
+      "total": 2,
+      "processed": 2,
+      "success": 0,
+      "failed": 2,
+      "started_at": "2026-10-10T00:44:32.671635+00:00",
+      "recent_results": [
+        {
+          "id": "sitca_observed_archive_query_bounded_retry_A0005",
+          "status": "FAILED"
+        },
+        {
+          "id": "sitca_observed_archive_query_bounded_retry_A0013",
+          "status": "FAILED"
+        }
+      ],
+      "current_id": "",
+      "updated_at": "2026-10-10T00:45:06.728750+00:00",
+      "last_completed_at": "2026-10-10T00:45:06.727582+00:00",
+      "skipped": 0
+    },
+    "sitca_observed_archive_query_complete_response_30s_progress.json": {
+      "status": "COMPLETE",
+      "total": 1,
+      "processed": 1,
+      "success": 1,
+      "failed": 0,
+      "started_at": "2026-10-10T00:45:44.641388+00:00",
+      "recent_results": [
+        {
+          "id": "sitca_observed_archive_query_complete_response_30s_A0005",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "updated_at": "2026-10-10T00:46:02.368659+00:00",
+      "last_completed_at": "2026-10-10T00:46:02.367632+00:00",
+      "skipped": 0
+    },
+    "observed_rule_and_notice_progress.json": {
+      "status": "COMPLETE",
+      "total": 2,
+      "processed": 2,
+      "success": 2,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-10T00:45:28.825009+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "observed_0050_2015_distribution_reprint",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "observed_new_share_certificate_trading_rule_article3",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-10T00:45:39.732975+00:00",
+      "updated_at": "2026-10-10T00:45:50.082805+00:00",
+      "last_completed_at": "2026-10-10T00:45:50.081508+00:00",
+      "skipped": 0
+    },
+    "sitca_observed_0050_pdf_progress.json": {
+      "status": "COMPLETE",
+      "total": 13,
+      "processed": 13,
+      "success": 13,
+      "failed": 0,
+      "cached": 0,
+      "started_at": "2026-10-10T00:46:11.332771+00:00",
+      "blocked_hosts": [],
+      "recent_results": [
+        {
+          "id": "yuanta_0050_notice_observed_A0005_20160726",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_observed_A0005_20160712",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_observed_A0005_20151022",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_observed_A0005_20151013",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_observed_A0005_20141022",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_observed_A0005_20141014",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_observed_A0005_20131022",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_observed_A0005_20131014",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_observed_A0005_20121022",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        },
+        {
+          "id": "yuanta_0050_notice_observed_A0005_20121012",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "current_started_at": "2026-10-10T00:48:24.411722+00:00",
+      "updated_at": "2026-10-10T00:48:37.081276+00:00",
+      "last_completed_at": "2026-10-10T00:48:37.079608+00:00",
+      "skipped": 0
+    },
+    "sitca_observed_archive_query_complete_response_30s_A0013_progress.json": {
+      "status": "COMPLETE",
+      "total": 1,
+      "processed": 1,
+      "success": 1,
+      "failed": 0,
+      "started_at": "2026-10-10T00:45:08.516416+00:00",
+      "recent_results": [
+        {
+          "id": "sitca_observed_archive_query_complete_response_30s_A0013",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "updated_at": "2026-10-10T00:45:27.443129+00:00",
+      "last_completed_at": "2026-10-10T00:45:27.442087+00:00",
+      "skipped": 0
+    },
+    "sitca_observed_archive_query_complete_response_30s_A0005_progress.json": {
+      "status": "COMPLETE",
+      "total": 1,
+      "processed": 1,
+      "success": 1,
+      "failed": 0,
+      "started_at": "2026-10-10T00:45:44.641388+00:00",
+      "recent_results": [
+        {
+          "id": "sitca_observed_archive_query_complete_response_30s_A0005",
+          "status": "RESPONSE_SAVED_NEEDS_VALIDATION"
+        }
+      ],
+      "current_id": "",
+      "updated_at": "2026-10-10T00:46:02.368659+00:00",
+      "last_completed_at": "2026-10-10T00:46:02.367632+00:00",
+      "skipped": 0
     }
   },
   "scoped_delivery_evidence": {
@@ -987,7 +1116,7 @@
     ]
   },
   "issuer_pdf_validation": {
-    "valid": 42,
+    "valid": 54,
     "rejected": [
       {
         "id": "yuanta_0050_notice_legacy_probe_201607_current_estimate",
@@ -1026,8 +1155,15 @@
         "reason": "FAILED"
       }
     ],
-    "paired_estimate_final_events": 20,
-    "estimated_amount_revised_events": 3,
+    "duplicate_source_aliases": [
+      {
+        "id": "yuanta_0050_notice_observed_A0005_20160726",
+        "original_id": "yuanta_0050_notice_legacy_probe_201607_current_final",
+        "response_sha256": "cd721191ba8f1e441c23926f7ea1c94bc954a28e1eb3747a634e44a791053afa"
+      }
+    ],
+    "paired_estimate_final_events": 27,
+    "estimated_amount_revised_events": 4,
     "current_index_records": 2094,
     "current_index_start": "2019/10/30",
     "current_index_end": "2026/10/08",
